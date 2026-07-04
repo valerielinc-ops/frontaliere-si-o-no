@@ -17,7 +17,7 @@
       "title": "Spécialiste hypothèques (tous genres), 80-100 %",
       "titleByLocale": {
         "fr": "Spécialiste hypothèques (tous genres), 80-100 %",
-        "it": "Spécialiste hypothèques (tous genres), 80-100 %",
+        "it": "Specialista in mutui (di tutti i tipi), 80-100%",
         "en": "Spécialiste hypothèques (tous genres), 80-100 %",
         "de": "Spécialiste hypothèques (tous genres), 80-100 %"
       },
@@ -169,7 +169,7 @@
       "titleByLocale": {
         "de": "Berater (w/m/d) Private Banking Oensingen",
         "en": "Berater (w/m/d) Private Banking Oensingen",
-        "it": "Berater (w/m/d) Private Banking Oensingen",
+        "it": "Consulente (f/m/d) Private Banking Oensingen",
         "fr": "Berater (w/m/d) Private Banking Oensingen"
       },
       "description": "Wir sind die Bank von Helvetia - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Gemeinsam neue Massstäbe setzen und die Zukunft gestalten – das bedeutet für uns mehr, als Aufgaben einfach abzuarbeiten. Hier arbeitest du mit Menschen zusammen, die Verantwortung übernehmen, hohe Ansprüche haben und den Mut mitbringen, neue Wege zu gehen. Bei uns findest du ein Umfeld, in dem Vertrauen und Leistung Hand in Hand gehen und deine Ideen, deine Initiative und dein Beitrag zählen. So hast du die Möglichkeit, wirklich etwas zu bewegen für unsere Kundinnen und Kunden, dein Team und deine persönliche Entwicklung.\n\nAufgaben:\n• Du gewinnst aktiv neue Private Banking Kundinnen und Kunden und entwickelst ein bestehendes Kundenportfolio im Anlagebereich kontinuierlich weiter.\n\n• Du betreust und berätst unsere Private Banking Kundinnen und Kunden ganzheitlich und bedürfnisorientiert und positionierst dich als vertrauensvolle Ansprechperson in allen Finanzfragen. Dabei unterstützt du sie bei der Gestaltung ihrer finanziellen Zukunft und empfiehlst passende Anlage- und Vorsorgelösungen.\n\n• Du analysierst die Bedürfnisse deiner Kundinnen und Kunden unter Berücksichtigung ihrer individuellen Wünsche, Ziele und Lebenssituationen. Bei Bedarf arbeitest du eng mit internen Spezialistinnen und Spezialisten zusammen und entwickelst passende Anlagelösungen.\n\n• Gemeinsam mit internen Spezialistinnen und Spezialisten erarbeitest du individuelle Anlage-, Vorsorge-, Finanzierungs- und Nachfolgekonzepte.\n\n• Du erkennst zusätzliche Beratungsmöglichkeiten und nutzt diese gezielt durch aktives Cross-Selling. Dabei berätst du deine Kundinnen und Kunden umfassend zu Bank- und Versicherungsprodukten.\n\n• Du beobachtest die Entwicklungen an den Finanzmärkten und besprichst diese regelmässig mit deinen Kundinnen und Kunden.\n\n• An Kundenanlässen repräsentierst du unser Private Banking nach innen und aussen. Du bist Teil des Private Banking-Teams Olten.\n\nAnforderungen:\n• Du hast mehrjährige Erfahrung in der Betreuung und Beratung von Private Banking Kundinnen und Kunden.\n\n• Du verfügst über eine abgeschlossene Bankausbildung sowie eine Weiterbildung, zum Beispiel Finanzplaner:in mit eidgenössischem Fachausweis oder einen Bachelor in Banking and Finance.\n\n• Du bist eine empathische und authentische Persönlichkeit und verstehst es, unseren Private Banking Kundinnen und Kunden in unterschiedlichen Lebenssituationen ein überzeugendes Kundenerlebnis zu bieten.\n\n• Du bist eine engagierte, unternehmerisch denkende und integre Persönlichkeit mit hohen Qualitätsanspruch und ausgeprägter Kundenorientierung.\n\n• Dein Teamgeist sowie dein sicheres und gewinnendes Auftreten runden dein Profil ab.\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team.",
@@ -242,7 +242,7 @@
       "title": "Teamleiter Unternehmenskunden Bank (m/w/d)",
       "titleByLocale": {
         "de": "Teamleiter Unternehmenskunden Bank (m/w/d)",
-        "it": "Teamleiter Unternehmenskunden Bank (m/w/d)",
+        "it": "Team Leader Corporate Clients Bank (m/f/d)",
         "en": "Teamleiter Unternehmenskunden Bank (m/w/d)",
         "fr": "Teamleiter Unternehmenskunden Bank (m/w/d)"
       },
@@ -303,11 +303,11 @@
     },
     {
       "id": "baloise-7cdadd17bafe",
-      "slug": "legal-counsel-bank-w-m-d-baloise-solothurn",
+      "slug": "banca-di-consulenza-legale-f-m-d-baloise-solothurn",
       "slugByLocale": {
         "de": "legal-counsel-bank-w-m-d-helvetia-solothurn",
         "fr": "conseil-juridique-banque-f-m-d-helvetia-versicherungen-solothurn",
-        "it": "legal-counsel-bank-w-m-d-baloise-solothurn",
+        "it": "banca-di-consulenza-legale-f-m-d-baloise-solothurn",
         "en": "legal-counsel-bank-w-m-d-baloise-solothurn"
       },
       "company": "Baloise",
@@ -316,7 +316,7 @@
       "title": "Legal Counsel Bank (w/m/d)",
       "titleByLocale": {
         "de": "Legal Counsel Bank (w/m/d)",
-        "it": "Legal Counsel Bank (w/m/d)",
+        "it": "Banca di Consulenza Legale (f/m/d)",
         "en": "Legal Counsel Bank (w/m/d)",
         "fr": "Legal Counsel Bank (w/m/d)"
       },
@@ -365,7 +365,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:31:58.423Z"
+      "firstSeenAt": "2026-07-04T10:31:58.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-bank-w-m-d-baloise-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-bank-w-m-d-baloise-solothurn"
+      ]
     },
     {
       "id": "baloise-d2f458ea5312",
@@ -533,7 +541,7 @@
       "title": "Kreditberater Hypotheken (w/m/d), 60-100%, Solothurn",
       "titleByLocale": {
         "de": "Kreditberater Hypotheken (w/m/d), 60-100%, Solothurn",
-        "it": "Kreditberater Hypotheken (w/m/d), 60-100%, Solothurn",
+        "it": "Mutui per consulenti di credito (f/m/d), 60-100%, Solothurn",
         "en": "Kreditberater Hypotheken (w/m/d), 60-100%, Solothurn",
         "fr": "Kreditberater Hypotheken (w/m/d), 60-100%, Solothurn"
       },
@@ -685,7 +693,7 @@
       "titleByLocale": {
         "de": "Fachspezialist E-Banking (m/w/d)",
         "en": "Fachspezialist E-Banking (m/w/d)",
-        "it": "Fachspezialist E-Banking (m/w/d)",
+        "it": "Specialista in E-Banking (m/f/d)",
         "fr": "Fachspezialist E-Banking (m/w/d)"
       },
       "description": "Wir sind die Bank von Helvetia - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Gemeinsam neue Massstäbe setzen und die Zukunft gestalten – das bedeutet für uns mehr, als Aufgaben einfach abzuarbeiten. Hier arbeitest du mit Menschen zusammen, die Verantwortung übernehmen, hohe Ansprüche haben und den Mut mitbringen, neue Wege zu gehen. Bei uns findest du ein Umfeld, in dem Vertrauen und Leistung Hand in Hand gehen und deine Ideen, deine Initiative und dein Beitrag zählen. So hast du die Möglichkeit, wirklich etwas zu bewegen für unsere Kundinnen und Kunden, dein Team und deine persönliche Entwicklung.\n\nAufgaben:\n• Du übernimmst den 2nd-Level-Support im E-Banking für unsere Kundinnen und Kunden sowie unsere Beraterinnen und Berater\n\n• Du arbeitest aktiv im Testing bei Release-Wechseln und bei der Bearbeitung von Kundenmeldungen mit\n\n• Du formulierst neue Anforderungen und koordinierst deren Umsetzung mit unseren externen Partnern\n\n• Du berätst rund um unsere E-Banking-Produkte sowie zu Themen der E-Banking-Sicherheit\n\n• Du erledigst administrative Aufgaben wie die Vertragserfassung und nimmst Anpassungen in den Systemeinstellungen vor\n\nAnforderungen:\nDu hast Freude daran, Kundinnen und Kunden zu beraten und technische Themen verständlich zu machen. Gleichzeitig treibst du Verbesserungen aktiv voran und bringst deine Ideen ins E‑Banking ein. Qualität und Genauigkeit sind dir wichtig – und du arbeitest gerne im Team.\n\n• Erfahrung im Kundensupport (1st Level, idealerweise auch 2nd Level), vorzugsweise im E‑Banking\n\n• Ausgeprägtes technisches Flair und sehr gute Kenntnisse im PC‑, Internet‑ und E‑Banking‑Umfeld\n\n• Sicher im Umgang mit Desktop- und mobilen Geräten\n\n• Freude am Kundenkontakt (telefonisch und schriftlich), geduldig und lösungsorientiert\n\n• Selbstständig, zuverlässig, exakt und gleichzeitig ein Teamplayer\n\n• Deutsch, Französisch und Englisch in Wort und Schrift\n\n• Bankausbildung (KV) oder vergleichbare Qualifikation; Weiterbildungen von Vorteil\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team.",
@@ -745,10 +753,10 @@
     },
     {
       "id": "baloise-5ca3a3e1160d",
-      "slug": "leiter-zahlungsverkehr-m-w-d-baloise-solothurn",
+      "slug": "responsabile-delle-transazioni-di-pagamento-f-m-d-baloise-solothurn",
       "slugByLocale": {
         "de": "leiter-zahlungsverkehr-w-m-d-baloise-solothurn",
-        "it": "leiter-zahlungsverkehr-m-w-d-baloise-solothurn",
+        "it": "responsabile-delle-transazioni-di-pagamento-f-m-d-baloise-solothurn",
         "en": "leiter-zahlungsverkehr-w-m-d-baloise-solothurn",
         "fr": "leiter-zahlungsverkehr-w-m-d-baloise-solothurn"
       },
@@ -758,7 +766,7 @@
       "title": "Leiter Zahlungsverkehr (w/m/d)",
       "titleByLocale": {
         "de": "Leiter Zahlungsverkehr (w/m/d)",
-        "it": "Leiter Zahlungsverkehr (w/m/d)",
+        "it": "Responsabile delle Transazioni di Pagamento (f/m/d)",
         "en": "Leiter Zahlungsverkehr (w/m/d)",
         "fr": "Leiter Zahlungsverkehr (w/m/d)"
       },
@@ -797,11 +805,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiter-zahlungsverkehr-w-m-d-baloise-solothurn"
+          "leiter-zahlungsverkehr-w-m-d-baloise-solothurn",
+          "leiter-zahlungsverkehr-m-w-d-baloise-solothurn"
         ]
       },
       "previousSlugs": [
-        "leiter-zahlungsverkehr-w-m-d-baloise-solothurn"
+        "leiter-zahlungsverkehr-w-m-d-baloise-solothurn",
+        "leiter-zahlungsverkehr-m-w-d-baloise-solothurn"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -819,10 +829,10 @@
     },
     {
       "id": "baloise-bbd002bfba56",
-      "slug": "leiter-kundenzonen-m-w-d-baloise-solothurn",
+      "slug": "capo-delle-zone-clienti-f-m-d-baloise-solothurn",
       "slugByLocale": {
         "de": "leiter-kundenzonen-w-m-d-baloise-solothurn",
-        "it": "leiter-kundenzonen-m-w-d-baloise-solothurn",
+        "it": "capo-delle-zone-clienti-f-m-d-baloise-solothurn",
         "en": "leiter-kundenzonen-w-m-d-baloise-solothurn",
         "fr": "leiter-kundenzonen-w-m-d-baloise-solothurn"
       },
@@ -832,7 +842,7 @@
       "title": "Leiter Kundenzonen (w/m/d)",
       "titleByLocale": {
         "de": "Leiter Kundenzonen (w/m/d)",
-        "it": "Leiter Kundenzonen (w/m/d)",
+        "it": "Capo delle Zone Clienti (f/m/d)",
         "en": "Leiter Kundenzonen (w/m/d)",
         "fr": "Leiter Kundenzonen (w/m/d)"
       },
@@ -871,11 +881,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiter-kundenzonen-w-m-d-baloise-solothurn"
+          "leiter-kundenzonen-w-m-d-baloise-solothurn",
+          "leiter-kundenzonen-m-w-d-baloise-solothurn"
         ]
       },
       "previousSlugs": [
-        "leiter-kundenzonen-w-m-d-baloise-solothurn"
+        "leiter-kundenzonen-w-m-d-baloise-solothurn",
+        "leiter-kundenzonen-m-w-d-baloise-solothurn"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -893,10 +905,10 @@
     },
     {
       "id": "baloise-cf98e175f826",
-      "slug": "leiter-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn",
+      "slug": "capo-assistente-hub-private-banking-f-m-d-baloise-solothurn",
       "slugByLocale": {
         "de": "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn",
-        "it": "leiter-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn",
+        "it": "capo-assistente-hub-private-banking-f-m-d-baloise-solothurn",
         "en": "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn",
         "fr": "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn"
       },
@@ -906,7 +918,7 @@
       "title": "Leiter Assistenz-Hub Privatkunden Bank (w/m/d)",
       "titleByLocale": {
         "de": "Leiter Assistenz-Hub Privatkunden Bank (w/m/d)",
-        "it": "Leiter Assistenz-Hub Privatkunden Bank (w/m/d)",
+        "it": "Capo Assistente Hub Private Banking (f/m/d)",
         "en": "Leiter Assistenz-Hub Privatkunden Bank (w/m/d)",
         "fr": "Leiter Assistenz-Hub Privatkunden Bank (w/m/d)"
       },
@@ -945,11 +957,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn"
+          "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn",
+          "leiter-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn"
         ]
       },
       "previousSlugs": [
-        "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn"
+        "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn",
+        "leiter-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,

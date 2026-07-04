@@ -16,7 +16,7 @@
       "companyDomain": "pradagroup.com",
       "title": "STAGE DESIGN ARCHITECT",
       "titleByLocale": {
-        "en": "STAGE DESIGN ARCHITECT",
+        "en": "INTERNSHIP DESIGN ARCHITECT",
         "fr": "STAGE DESIGN ARCHITECT",
         "it": "STAGE DESIGN Architetto",
         "de": "STAGE DESIGN ARCHITECT"
@@ -128,10 +128,10 @@
     },
     {
       "id": "prada-626076e76901",
-      "slug": "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
+      "slug": "direttore-generale-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
       "slugByLocale": {
         "en": "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
-        "it": "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
+        "it": "direttore-generale-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
         "de": "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
         "fr": "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
       },
@@ -141,7 +141,7 @@
       "title": "General Manager Wynn Las Vegas",
       "titleByLocale": {
         "en": "General Manager Wynn Las Vegas",
-        "it": "General Manager Wynn Las Vegas",
+        "it": "Direttore Generale Wynn Las Vegas",
         "de": "General Manager Wynn Las Vegas",
         "fr": "General Manager Wynn Las Vegas"
       },
@@ -186,7 +186,15 @@
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-07-04T11:35:05.264Z"
+      "firstSeenAt": "2026-07-04T11:35:05.264Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+        ]
+      },
+      "previousSlugs": [
+        "general-manager-wynn-las-vegas-prada-group-nearest-major-market-las-vegas"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",
@@ -232,8 +240,7 @@
       "crawledAt": "2026-07-04T11:35:04.231Z",
       "previousSlugsByLocale": {
         "en": [
-          "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
-          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+          "miu-miu-store-manager-saint-moritz-prada-group-st-moritz"
         ],
         "it": [
           "miu-miu-store-manager-saint-moritz-prada-mendrisio",

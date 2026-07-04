@@ -4749,9 +4749,9 @@ export function updateDocumentLanguage(locale: string): void {
 function getOgLocale(): string {
  const lang = document.documentElement.lang || 'it';
  const localeMap: Record<string, string> = {
- 'it': 'it_IT', 'en': 'en_US', 'de': 'de_CH', 'fr': 'fr_CH',
+ 'it': 'it_CH', 'en': 'en_US', 'de': 'de_CH', 'fr': 'fr_CH',
  };
- return localeMap[lang] || 'it_IT';
+ return localeMap[lang] || 'it_CH';
 }
 
 /**

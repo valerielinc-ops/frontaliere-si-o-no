@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "concordia-317471cffc3d",
-      "slug": "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern",
+      "slug": "specialista-in-recupero-crediti-d-f-80-100-concordia-luzern",
       "slugByLocale": {
         "de": "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern",
-        "it": "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern",
+        "it": "specialista-in-recupero-crediti-d-f-80-100-concordia-luzern",
         "en": "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern",
         "fr": "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern"
       },
@@ -17,7 +17,7 @@
       "title": "Fachspezialist:in Inkasso D/F, 80–100 %",
       "titleByLocale": {
         "de": "Fachspezialist:in Inkasso D/F, 80–100 %",
-        "it": "Fachspezialist:in Inkasso D/F, 80–100 %",
+        "it": "Specialista in Recupero Crediti D/F, 80–100%",
         "en": "Fachspezialist:in Inkasso D/F, 80–100 %",
         "fr": "Fachspezialist:in Inkasso D/F, 80–100 %"
       },
@@ -66,14 +66,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:41.377Z"
+      "firstSeenAt": "2026-07-04T10:29:41.377Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-91a5ee9220b1",
-      "slug": "kundenberater-in-80-100-in-chur-concordia-chur",
+      "slug": "consulente-clienti-80-100-a-coira-concordia-chur",
       "slugByLocale": {
         "de": "kundenberater-in-80-100-in-chur-concordia-chur",
-        "it": "kundenberater-in-80-100-in-chur-concordia-chur",
+        "it": "consulente-clienti-80-100-a-coira-concordia-chur",
         "en": "kundenberater-in-80-100-in-chur-concordia-chur",
         "fr": "kundenberater-in-80-100-in-chur-concordia-chur"
       },
@@ -83,7 +91,7 @@
       "title": "Kundenberater:in, 80–100 % in Chur",
       "titleByLocale": {
         "de": "Kundenberater:in, 80–100 % in Chur",
-        "it": "Kundenberater:in, 80–100 % in Chur",
+        "it": "Consulente clienti, 80–100% a Coira",
         "en": "Kundenberater:in, 80–100 % in Chur",
         "fr": "Kundenberater:in, 80–100 % in Chur"
       },
@@ -132,14 +140,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:40.850Z"
+      "firstSeenAt": "2026-07-04T10:29:40.850Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-80-100-in-chur-concordia-chur"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-80-100-in-chur-concordia-chur"
+      ]
     },
     {
       "id": "concordia-76909c358f65",
-      "slug": "kundenberater-in-100-in-frick-concordia-frick",
+      "slug": "consulente-clienti-100-a-frick-concordia-frick",
       "slugByLocale": {
         "de": "kundenberater-in-100-in-frick-concordia-frick",
-        "it": "kundenberater-in-100-in-frick-concordia-frick",
+        "it": "consulente-clienti-100-a-frick-concordia-frick",
         "en": "kundenberater-in-100-in-frick-concordia-frick",
         "fr": "kundenberater-in-100-in-frick-concordia-frick"
       },
@@ -149,7 +165,7 @@
       "title": "Kundenberater:in, 100 % in Frick",
       "titleByLocale": {
         "de": "Kundenberater:in, 100 % in Frick",
-        "it": "Kundenberater:in, 100 % in Frick",
+        "it": "Consulente clienti, 100% a Frick",
         "en": "Kundenberater:in, 100 % in Frick",
         "fr": "Kundenberater:in, 100 % in Frick"
       },
@@ -198,7 +214,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:40.396Z"
+      "firstSeenAt": "2026-07-04T10:29:40.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-100-in-frick-concordia-frick"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-100-in-frick-concordia-frick"
+      ]
     },
     {
       "id": "concordia-0f9967cadc88",
@@ -276,10 +300,10 @@
     },
     {
       "id": "concordia-c3bf58c47862",
-      "slug": "versicherungsberater-in-100-in-zug-concordia-zug",
+      "slug": "consulente-assicurativo-100-a-zug-concordia-zug",
       "slugByLocale": {
         "de": "versicherungsberater-in-100-in-zug-concordia-zug",
-        "it": "versicherungsberater-in-100-in-zug-concordia-zug",
+        "it": "consulente-assicurativo-100-a-zug-concordia-zug",
         "en": "versicherungsberater-in-100-in-zug-concordia-zug",
         "fr": "versicherungsberater-in-100-in-zug-concordia-zug"
       },
@@ -289,7 +313,7 @@
       "title": "Versicherungsberater:in, 100 % in Zug",
       "titleByLocale": {
         "de": "Versicherungsberater:in, 100 % in Zug",
-        "it": "Versicherungsberater:in, 100 % in Zug",
+        "it": "Consulente assicurativo, 100% a Zug",
         "en": "Versicherungsberater:in, 100 % in Zug",
         "fr": "Versicherungsberater:in, 100 % in Zug"
       },
@@ -338,7 +362,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:39.368Z"
+      "firstSeenAt": "2026-07-04T10:29:39.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-100-in-zug-concordia-zug"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-100-in-zug-concordia-zug"
+      ]
     },
     {
       "id": "concordia-e013f811ae0e",
@@ -408,10 +440,10 @@
     },
     {
       "id": "concordia-78090cf0b7dc",
-      "slug": "kundenberater-in-100-in-zofingen-concordia-zofingen",
+      "slug": "consulente-clienti-al-100-a-zofingen-concordia-zofingen",
       "slugByLocale": {
         "de": "kundenberater-in-100-in-zofingen-concordia-zofingen",
-        "it": "kundenberater-in-100-in-zofingen-concordia-zofingen",
+        "it": "consulente-clienti-al-100-a-zofingen-concordia-zofingen",
         "en": "kundenberater-in-100-in-zofingen-concordia-zofingen",
         "fr": "kundenberater-in-100-in-zofingen-concordia-zofingen"
       },
@@ -421,7 +453,7 @@
       "title": "Kundenberater:in 100% in Zofingen",
       "titleByLocale": {
         "de": "Kundenberater:in 100% in Zofingen",
-        "it": "Kundenberater:in 100% in Zofingen",
+        "it": "Consulente clienti al 100% a Zofingen",
         "en": "Kundenberater:in 100% in Zofingen",
         "fr": "Kundenberater:in 100% in Zofingen"
       },
@@ -470,14 +502,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:38.302Z"
+      "firstSeenAt": "2026-07-04T10:29:38.302Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-100-in-zofingen-concordia-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-100-in-zofingen-concordia-zofingen"
+      ]
     },
     {
       "id": "concordia-28133e909cbd",
-      "slug": "kundenberater-in-100-basel-concordia-basel",
+      "slug": "consulente-clienti-100-basilea-concordia-basel",
       "slugByLocale": {
         "de": "kundenberater-in-100-basel-concordia-basel",
-        "it": "kundenberater-in-100-basel-concordia-basel",
+        "it": "consulente-clienti-100-basilea-concordia-basel",
         "en": "kundenberater-in-100-basel-concordia-basel",
         "fr": "kundenberater-in-100-basel-concordia-basel"
       },
@@ -487,7 +527,7 @@
       "title": "Kundenberater:in, 100 % Basel",
       "titleByLocale": {
         "de": "Kundenberater:in, 100 % Basel",
-        "it": "Kundenberater:in, 100 % Basel",
+        "it": "Consulente clienti, 100% Basilea",
         "en": "Kundenberater:in, 100 % Basel",
         "fr": "Kundenberater:in, 100 % Basel"
       },
@@ -536,14 +576,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:37.762Z"
+      "firstSeenAt": "2026-07-04T10:29:37.762Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-100-basel-concordia-basel"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-100-basel-concordia-basel"
+      ]
     },
     {
       "id": "concordia-edb4603d10e6",
-      "slug": "versicherungsberater-in-100-in-aarau-concordia-aarau",
+      "slug": "consulente-assicurativo-100-ad-aarau-concordia-aarau",
       "slugByLocale": {
         "de": "versicherungsberater-in-100-in-aarau-concordia-aarau",
-        "it": "versicherungsberater-in-100-in-aarau-concordia-aarau",
+        "it": "consulente-assicurativo-100-ad-aarau-concordia-aarau",
         "en": "versicherungsberater-in-100-in-aarau-concordia-aarau",
         "fr": "versicherungsberater-in-100-in-aarau-concordia-aarau"
       },
@@ -553,7 +601,7 @@
       "title": "Versicherungsberater:in, 100 % in Aarau",
       "titleByLocale": {
         "de": "Versicherungsberater:in, 100 % in Aarau",
-        "it": "Versicherungsberater:in, 100 % in Aarau",
+        "it": "Consulente assicurativo, 100% ad Aarau",
         "en": "Versicherungsberater:in, 100 % in Aarau",
         "fr": "Versicherungsberater:in, 100 % in Aarau"
       },
@@ -602,14 +650,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:37.316Z"
+      "firstSeenAt": "2026-07-04T10:29:37.316Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-100-in-aarau-concordia-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-100-in-aarau-concordia-aarau"
+      ]
     },
     {
       "id": "concordia-cda988e7e4ec",
-      "slug": "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
+      "slug": "consulente-assicurativo-100-a-lenzburg-concordia-lenzburg",
       "slugByLocale": {
         "de": "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
-        "it": "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
+        "it": "consulente-assicurativo-100-a-lenzburg-concordia-lenzburg",
         "en": "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
         "fr": "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg"
       },
@@ -619,7 +675,7 @@
       "title": "Versicherungsberater:in, 100 % in Lenzburg",
       "titleByLocale": {
         "de": "Versicherungsberater:in, 100 % in Lenzburg",
-        "it": "Versicherungsberater:in, 100 % in Lenzburg",
+        "it": "Consulente assicurativo, 100% a Lenzburg",
         "en": "Versicherungsberater:in, 100 % in Lenzburg",
         "fr": "Versicherungsberater:in, 100 % in Lenzburg"
       },
@@ -668,14 +724,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:36.827Z"
+      "firstSeenAt": "2026-07-04T10:29:36.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg"
+      ]
     },
     {
       "id": "concordia-18a3e728a30f",
-      "slug": "kundenberater-in-80-in-thun-concordia-thun",
+      "slug": "consulente-clienti-80-a-thun-concordia-thun",
       "slugByLocale": {
         "de": "kundenberater-in-80-in-thun-concordia-thun",
-        "it": "kundenberater-in-80-in-thun-concordia-thun",
+        "it": "consulente-clienti-80-a-thun-concordia-thun",
         "en": "kundenberater-in-80-in-thun-concordia-thun",
         "fr": "kundenberater-in-80-in-thun-concordia-thun"
       },
@@ -685,7 +749,7 @@
       "title": "Kundenberater:in, 80 % in Thun",
       "titleByLocale": {
         "de": "Kundenberater:in, 80 % in Thun",
-        "it": "Kundenberater:in, 80 % in Thun",
+        "it": "Consulente clienti, 80% a Thun",
         "en": "Kundenberater:in, 80 % in Thun",
         "fr": "Kundenberater:in, 80 % in Thun"
       },
@@ -734,14 +798,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:36.334Z"
+      "firstSeenAt": "2026-07-04T10:29:36.334Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-80-in-thun-concordia-thun"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-80-in-thun-concordia-thun"
+      ]
     },
     {
       "id": "concordia-fce7d26efe96",
-      "slug": "versicherungsberater-in-80-100-in-bern-concordia-bern",
+      "slug": "consulente-assicurativo-80-100-a-berna-concordia-bern",
       "slugByLocale": {
         "de": "versicherungsberater-in-80-100-in-bern-concordia-bern",
-        "it": "versicherungsberater-in-80-100-in-bern-concordia-bern",
+        "it": "consulente-assicurativo-80-100-a-berna-concordia-bern",
         "en": "versicherungsberater-in-80-100-in-bern-concordia-bern",
         "fr": "versicherungsberater-in-80-100-in-bern-concordia-bern"
       },
@@ -751,7 +823,7 @@
       "title": "Versicherungsberater:in, 80–100 % in Bern",
       "titleByLocale": {
         "de": "Versicherungsberater:in, 80–100 % in Bern",
-        "it": "Versicherungsberater:in, 80–100 % in Bern",
+        "it": "Consulente assicurativo, 80–100% a Berna",
         "en": "Versicherungsberater:in, 80–100 % in Bern",
         "fr": "Versicherungsberater:in, 80–100 % in Bern"
       },
@@ -800,7 +872,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:35.859Z"
+      "firstSeenAt": "2026-07-04T10:29:35.859Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-80-100-in-bern-concordia-bern"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-80-100-in-bern-concordia-bern"
+      ]
     },
     {
       "id": "concordia-c98f3f7aa16d",
@@ -878,10 +958,10 @@
     },
     {
       "id": "concordia-7aaed9ce9cd7",
-      "slug": "aktuar-in-lebensversicherung-60-100-in-luzern-hybrid-concordia-luzern",
+      "slug": "assicurazione-sulla-vita-per-attuari-60-100-a-lucerne-ibrida-concordia-luzern",
       "slugByLocale": {
         "de": "aktuar-in-lebensversicherung-60-100-in-luzern-hybrid-concordia-luzern",
-        "it": "aktuar-in-lebensversicherung-60-100-in-luzern-hybrid-concordia-luzern",
+        "it": "assicurazione-sulla-vita-per-attuari-60-100-a-lucerne-ibrida-concordia-luzern",
         "en": "aktuar-in-lebensversicherung-60-100-in-luzern-hybrid-concordia-luzern",
         "fr": "aktuar-in-lebensversicherung-60-100-in-luzern-hybrid-concordia-luzern"
       },
@@ -891,7 +971,7 @@
       "title": "Aktuar:in Lebensversicherung, 60–100 % in Luzern / Hybrid",
       "titleByLocale": {
         "de": "Aktuar:in Lebensversicherung, 60–100 % in Luzern / Hybrid",
-        "it": "Aktuar:in Lebensversicherung, 60–100 % in Luzern / Hybrid",
+        "it": "Assicurazione sulla vita per attuari, 60–100% a Lucerne / Ibrida",
         "en": "Aktuar:in Lebensversicherung, 60–100 % in Luzern / Hybrid",
         "fr": "Aktuar:in Lebensversicherung, 60–100 % in Luzern / Hybrid"
       },
@@ -940,14 +1020,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:34.790Z"
+      "firstSeenAt": "2026-07-04T10:29:34.790Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aktuar-in-lebensversicherung-60-100-in-luzern-hybrid-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "aktuar-in-lebensversicherung-60-100-in-luzern-hybrid-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-d4a5da0b82c3",
-      "slug": "agenturleiter-in-100-in-biel-concordia-biel",
+      "slug": "responsabile-agenzia-100-a-biel-concordia-biel",
       "slugByLocale": {
         "de": "agenturleiter-in-100-in-biel-concordia-biel",
-        "it": "agenturleiter-in-100-in-biel-concordia-biel",
+        "it": "responsabile-agenzia-100-a-biel-concordia-biel",
         "en": "agenturleiter-in-100-in-biel-concordia-biel",
         "fr": "agenturleiter-in-100-in-biel-concordia-biel"
       },
@@ -957,7 +1045,7 @@
       "title": "Agenturleiter:in, 100 % in Biel",
       "titleByLocale": {
         "de": "Agenturleiter:in, 100 % in Biel",
-        "it": "Agenturleiter:in, 100 % in Biel",
+        "it": "Responsabile agenzia, 100% a Biel",
         "en": "Agenturleiter:in, 100 % in Biel",
         "fr": "Agenturleiter:in, 100 % in Biel"
       },
@@ -1006,14 +1094,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:34.248Z"
+      "firstSeenAt": "2026-07-04T10:29:34.248Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agenturleiter-in-100-in-biel-concordia-biel"
+        ]
+      },
+      "previousSlugs": [
+        "agenturleiter-in-100-in-biel-concordia-biel"
+      ]
     },
     {
       "id": "concordia-097dcdf7bae8",
-      "slug": "specialiste-en-prestations-f-h-nb-80-100-a-lausanne-concordia-lausanne",
+      "slug": "specialista-in-benefici-f-m-nb-80-100-a-losanna-concordia-lausanne",
       "slugByLocale": {
         "fr": "specialiste-en-prestations-f-h-nb-80-100-a-lausanne-concordia-lausanne",
-        "it": "specialiste-en-prestations-f-h-nb-80-100-a-lausanne-concordia-lausanne",
+        "it": "specialista-in-benefici-f-m-nb-80-100-a-losanna-concordia-lausanne",
         "en": "specialiste-en-prestations-f-h-nb-80-100-a-lausanne-concordia-lausanne",
         "de": "specialiste-en-prestations-f-h-nb-80-100-a-lausanne-concordia-lausanne"
       },
@@ -1023,7 +1119,7 @@
       "title": "Spécialiste en prestations (f/h/nb), 80-100 % à Lausanne",
       "titleByLocale": {
         "fr": "Spécialiste en prestations (f/h/nb), 80-100 % à Lausanne",
-        "it": "Spécialiste en prestations (f/h/nb), 80-100 % à Lausanne",
+        "it": "Specialista in benefici (f/m/nb), 80-100% a Losanna",
         "en": "Spécialiste en prestations (f/h/nb), 80-100 % à Lausanne",
         "de": "Spécialiste en prestations (f/h/nb), 80-100 % à Lausanne"
       },
@@ -1072,7 +1168,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:33.784Z"
+      "firstSeenAt": "2026-07-04T10:29:33.784Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-en-prestations-f-h-nb-80-100-a-lausanne-concordia-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-en-prestations-f-h-nb-80-100-a-lausanne-concordia-lausanne"
+      ]
     },
     {
       "id": "concordia-f5fc481d8b31",
@@ -1090,7 +1194,7 @@
       "titleByLocale": {
         "de": "Value Stream Lead Core (w/m/d), 70–100 %",
         "en": "Value Stream Lead Core (w/m/d), 70–100 %",
-        "it": "Value Stream Lead Core (w/m/d), 70–100 %",
+        "it": "Value Stream Lead Core (f/m/d), 70–100 %",
         "fr": "Value Stream Lead Core (w/m/d), 70–100 %"
       },
       "description": "Als etablierter Schweizer Krankenversicherer versichern wir über 700'000 Menschen. Wir suchen einen Value Stream Lead (Chief Product Owner) des Value Stream \"Core\" für unsere Delivery Organisation, welche nach dem Flight Level Model operiert. Der Value Stream Core besteht aus verschiedenen agilen Teams, welche unsere digitalen Lösungen für unsere Kernprozesse zur Verfügung stellen. Dies umfasst Produkte zur Kranken- und Lebensversicherungen sowie verschiedene wichtige Lösungen für die unterstützenden Funktionen der Firma (Corporate Services). Aufgrund eines internen Wechsels suchen wir eine starke Persönlichkeit für die fachliche und personelle Leitung dieses zentralen Bereichs innerhalb der Informatik. Hast du Lust die Zukunft aktiv mit deinem Team im Sinne deiner Kunden zu gestalten?\n Das erwartet dich\n\n• Du trägst die Produktverantwortung für Core und definierst die Vision, Roadmap und Prioritäten des Value Stream.\n• Du führst und synchronisierst mehrere cross-funktionale agile Teams und stellst die Umsetzung der Wertversprechen sicher.\n• Du arbeitest eng mit internen und externen Fach- und IT-Organisationen zusammen, um Anforderungen zu bündeln und Mehrwert schnell zu liefern.\n• Du repräsentierst den Value Stream gegenüber Stakeholdern und stehst für Roadmap- und Investmententscheidungen ein.\n• Du stellst eine klare Schnittstelle zu Architektur, Security und Datenmanagement sicher und förderst technische Exzellenz.\n• Du förderst eine Kultur von Kundenzentrierung, Zusammenarbeit und evidenzbasierten Entscheidungen.\n• Du hast Lust, in der laufenden Transformation als Teil des IT Management Teams mit anzupacken.\n Das bringst du mit\n\n• Abgeschlossenes Hochschulstudium in Informatik oder Wirtschaftsinformatik.\n• Nachweisbare Erfahrung in der Führung mehrerer agiler Teams und im Umgang mit komplexen Produktlandschaften; Erfahrung in der personellen Führung eines Bereichs oder verschiedener Teams.\n• Starkes Verständnis für Software-Architektur, Integrationen und Datenflüsse im Gesundheitsumfeld; Kenntnisse Syrius als Kernsystem-Lösung von grossem Vorteil.\n• Ausgeprägte Kommunikations- und Moderationsfähigkeiten; du kannst technische und fachliche Stakeholder verbinden.\n• Entscheidungsstärke und Erfahrung in Priorisierung sowie in der Steuerung von Roadmaps und Backlogs.\n Dein nächster Schritt\n Christoph von Moos\nHR-Berater\n Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.",
@@ -1282,10 +1386,10 @@
     },
     {
       "id": "concordia-52783d9ceb47",
-      "slug": "kundenberater-in-60-in-olten-concordia-olten",
+      "slug": "consulente-clienti-60-a-olten-concordia-olten",
       "slugByLocale": {
         "de": "kundenberater-in-60-in-olten-concordia-olten",
-        "it": "kundenberater-in-60-in-olten-concordia-olten",
+        "it": "consulente-clienti-60-a-olten-concordia-olten",
         "en": "kundenberater-in-60-in-olten-concordia-olten",
         "fr": "kundenberater-in-60-in-olten-concordia-olten"
       },
@@ -1295,7 +1399,7 @@
       "title": "Kundenberater:in, 60 % in Olten",
       "titleByLocale": {
         "de": "Kundenberater:in, 60 % in Olten",
-        "it": "Kundenberater:in, 60 % in Olten",
+        "it": "Consulente clienti, 60% a Olten",
         "en": "Kundenberater:in, 60 % in Olten",
         "fr": "Kundenberater:in, 60 % in Olten"
       },
@@ -1344,14 +1448,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:31.537Z"
+      "firstSeenAt": "2026-07-04T10:29:31.537Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-60-in-olten-concordia-olten"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-60-in-olten-concordia-olten"
+      ]
     },
     {
       "id": "concordia-ca6cd1916f9e",
-      "slug": "fachspezialist-in-pflege-80-100-concordia-luzern",
+      "slug": "specialista-in-infermieristica-80-100-concordia-luzern",
       "slugByLocale": {
         "de": "fachspezialist-in-pflege-80-100-concordia-luzern",
-        "it": "fachspezialist-in-pflege-80-100-concordia-luzern",
+        "it": "specialista-in-infermieristica-80-100-concordia-luzern",
         "en": "fachspezialist-in-pflege-80-100-concordia-luzern",
         "fr": "fachspezialist-in-pflege-80-100-concordia-luzern"
       },
@@ -1361,7 +1473,7 @@
       "title": "Fachspezialist:in Pflege, 80–100 %",
       "titleByLocale": {
         "de": "Fachspezialist:in Pflege, 80–100 %",
-        "it": "Fachspezialist:in Pflege, 80–100 %",
+        "it": "Specialista in Infermieristica, 80–100%",
         "en": "Fachspezialist:in Pflege, 80–100 %",
         "fr": "Fachspezialist:in Pflege, 80–100 %"
       },
@@ -1410,14 +1522,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:31.068Z"
+      "firstSeenAt": "2026-07-04T10:29:31.068Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-pflege-80-100-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-pflege-80-100-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-defe27a88acf",
-      "slug": "kundenberater-in-80-100-in-aarau-concordia-aarau",
+      "slug": "consulente-clienti-80-100-ad-aarau-concordia-aarau",
       "slugByLocale": {
         "de": "kundenberater-in-80-100-in-aarau-concordia-aarau",
-        "it": "kundenberater-in-80-100-in-aarau-concordia-aarau",
+        "it": "consulente-clienti-80-100-ad-aarau-concordia-aarau",
         "en": "kundenberater-in-80-100-in-aarau-concordia-aarau",
         "fr": "kundenberater-in-80-100-in-aarau-concordia-aarau"
       },
@@ -1427,7 +1547,7 @@
       "title": "Kundenberater:in 80–100 % in Aarau",
       "titleByLocale": {
         "de": "Kundenberater:in 80–100 % in Aarau",
-        "it": "Kundenberater:in 80–100 % in Aarau",
+        "it": "Consulente clienti 80-100% ad Aarau",
         "en": "Kundenberater:in 80–100 % in Aarau",
         "fr": "Kundenberater:in 80–100 % in Aarau"
       },
@@ -1476,14 +1596,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:30.513Z"
+      "firstSeenAt": "2026-07-04T10:29:30.513Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-80-100-in-aarau-concordia-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-80-100-in-aarau-concordia-aarau"
+      ]
     },
     {
       "id": "concordia-0eea5cd6e8b5",
-      "slug": "versicherungsberater-in-100-in-wohlen-concordia-wohlen",
+      "slug": "consulente-assicurativo-100-a-wohlen-concordia-wohlen",
       "slugByLocale": {
         "de": "versicherungsberater-in-100-in-wohlen-concordia-wohlen",
-        "it": "versicherungsberater-in-100-in-wohlen-concordia-wohlen",
+        "it": "consulente-assicurativo-100-a-wohlen-concordia-wohlen",
         "en": "versicherungsberater-in-100-in-wohlen-concordia-wohlen",
         "fr": "versicherungsberater-in-100-in-wohlen-concordia-wohlen"
       },
@@ -1493,7 +1621,7 @@
       "title": "Versicherungsberater:in, 100 % in Wohlen",
       "titleByLocale": {
         "de": "Versicherungsberater:in, 100 % in Wohlen",
-        "it": "Versicherungsberater:in, 100 % in Wohlen",
+        "it": "Consulente assicurativo, 100% a Wohlen",
         "en": "Versicherungsberater:in, 100 % in Wohlen",
         "fr": "Versicherungsberater:in, 100 % in Wohlen"
       },
@@ -1542,14 +1670,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:29.978Z"
+      "firstSeenAt": "2026-07-04T10:29:29.978Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-100-in-wohlen-concordia-wohlen"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-100-in-wohlen-concordia-wohlen"
+      ]
     },
     {
       "id": "concordia-550c933ab686",
-      "slug": "kundenberater-in-100-in-kussnacht-sz-concordia-kussnacht",
+      "slug": "customer-advisor-100-a-kussnacht-sz-concordia-kussnacht",
       "slugByLocale": {
         "de": "kundenberater-in-100-in-kussnacht-sz-concordia-kussnacht",
-        "it": "kundenberater-in-100-in-kussnacht-sz-concordia-kussnacht",
+        "it": "customer-advisor-100-a-kussnacht-sz-concordia-kussnacht",
         "en": "kundenberater-in-100-in-kussnacht-sz-concordia-kussnacht",
         "fr": "kundenberater-in-100-in-kussnacht-sz-concordia-kussnacht"
       },
@@ -1559,7 +1695,7 @@
       "title": "Kundenberater:in, 100 % in Küssnacht (SZ)",
       "titleByLocale": {
         "de": "Kundenberater:in, 100 % in Küssnacht (SZ)",
-        "it": "Kundenberater:in, 100 % in Küssnacht (SZ)",
+        "it": "Customer advisor, 100% a Küssnacht (SZ)",
         "en": "Kundenberater:in, 100 % in Küssnacht (SZ)",
         "fr": "Kundenberater:in, 100 % in Küssnacht (SZ)"
       },
@@ -1608,14 +1744,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:29.489Z"
+      "firstSeenAt": "2026-07-04T10:29:29.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-100-in-kussnacht-sz-concordia-kussnacht"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-100-in-kussnacht-sz-concordia-kussnacht"
+      ]
     },
     {
       "id": "concordia-1845e2eab3d7",
-      "slug": "kundenberater-in-80-in-kloten-concordia-kloten",
+      "slug": "consulente-clienti-80-a-kloten-concordia-kloten",
       "slugByLocale": {
         "de": "kundenberater-in-80-in-kloten-concordia-kloten",
-        "it": "kundenberater-in-80-in-kloten-concordia-kloten",
+        "it": "consulente-clienti-80-a-kloten-concordia-kloten",
         "en": "kundenberater-in-80-in-kloten-concordia-kloten",
         "fr": "kundenberater-in-80-in-kloten-concordia-kloten"
       },
@@ -1625,7 +1769,7 @@
       "title": "Kundenberater:in, 80 % in Kloten",
       "titleByLocale": {
         "de": "Kundenberater:in, 80 % in Kloten",
-        "it": "Kundenberater:in, 80 % in Kloten",
+        "it": "Consulente clienti, 80% a Kloten",
         "en": "Kundenberater:in, 80 % in Kloten",
         "fr": "Kundenberater:in, 80 % in Kloten"
       },
@@ -1674,14 +1818,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:28.960Z"
+      "firstSeenAt": "2026-07-04T10:29:28.960Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-80-in-kloten-concordia-kloten"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-80-in-kloten-concordia-kloten"
+      ]
     },
     {
       "id": "concordia-0a6cb9c6d9bc",
-      "slug": "versicherungsberater-in-100-in-visp-concordia-visp",
+      "slug": "consulente-assicurativo-100-a-visp-concordia-visp",
       "slugByLocale": {
         "de": "versicherungsberater-in-100-in-visp-concordia-visp",
-        "it": "versicherungsberater-in-100-in-visp-concordia-visp",
+        "it": "consulente-assicurativo-100-a-visp-concordia-visp",
         "en": "versicherungsberater-in-100-in-visp-concordia-visp",
         "fr": "versicherungsberater-in-100-in-visp-concordia-visp"
       },
@@ -1691,7 +1843,7 @@
       "title": "Versicherungsberater:in, 100 % in Visp",
       "titleByLocale": {
         "de": "Versicherungsberater:in, 100 % in Visp",
-        "it": "Versicherungsberater:in, 100 % in Visp",
+        "it": "Consulente assicurativo, 100% a Visp",
         "en": "Versicherungsberater:in, 100 % in Visp",
         "fr": "Versicherungsberater:in, 100 % in Visp"
       },
@@ -1740,14 +1892,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:28.487Z"
+      "firstSeenAt": "2026-07-04T10:29:28.487Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-100-in-visp-concordia-visp"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-100-in-visp-concordia-visp"
+      ]
     },
     {
       "id": "concordia-79f945c8905f",
-      "slug": "kundenberater-in-60-80-in-rapperswil-concordia-rapperswil-jona",
+      "slug": "consulente-clienti-60-80-a-rapperswil-concordia-rapperswil-jona",
       "slugByLocale": {
         "de": "kundenberater-in-60-80-in-rapperswil-concordia-rapperswil-jona",
-        "it": "kundenberater-in-60-80-in-rapperswil-concordia-rapperswil-jona",
+        "it": "consulente-clienti-60-80-a-rapperswil-concordia-rapperswil-jona",
         "en": "kundenberater-in-60-80-in-rapperswil-concordia-rapperswil-jona",
         "fr": "kundenberater-in-60-80-in-rapperswil-concordia-rapperswil-jona"
       },
@@ -1757,7 +1917,7 @@
       "title": "Kundenberater:in, 60-80 % in Rapperswil",
       "titleByLocale": {
         "de": "Kundenberater:in, 60-80 % in Rapperswil",
-        "it": "Kundenberater:in, 60-80 % in Rapperswil",
+        "it": "Consulente clienti, 60-80% a Rapperswil",
         "en": "Kundenberater:in, 60-80 % in Rapperswil",
         "fr": "Kundenberater:in, 60-80 % in Rapperswil"
       },
@@ -1806,14 +1966,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:28.011Z"
+      "firstSeenAt": "2026-07-04T10:29:28.011Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-60-80-in-rapperswil-concordia-rapperswil-jona"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-60-80-in-rapperswil-concordia-rapperswil-jona"
+      ]
     },
     {
       "id": "concordia-6302521b28d6",
-      "slug": "kundenberater-in-60-80-in-uster-concordia-uster",
+      "slug": "consulente-clienti-60-80-in-uster-concordia-uster",
       "slugByLocale": {
         "de": "kundenberater-in-60-80-in-uster-concordia-uster",
-        "it": "kundenberater-in-60-80-in-uster-concordia-uster",
+        "it": "consulente-clienti-60-80-in-uster-concordia-uster",
         "en": "kundenberater-in-60-80-in-uster-concordia-uster",
         "fr": "kundenberater-in-60-80-in-uster-concordia-uster"
       },
@@ -1823,7 +1991,7 @@
       "title": "Kundenberater:in, 60 - 80% in Uster",
       "titleByLocale": {
         "de": "Kundenberater:in, 60 - 80% in Uster",
-        "it": "Kundenberater:in, 60 - 80% in Uster",
+        "it": "Consulente clienti, 60% - 80% in Uster",
         "en": "Kundenberater:in, 60 - 80% in Uster",
         "fr": "Kundenberater:in, 60 - 80% in Uster"
       },
@@ -1872,14 +2040,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:27.498Z"
+      "firstSeenAt": "2026-07-04T10:29:27.498Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-60-80-in-uster-concordia-uster"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-60-80-in-uster-concordia-uster"
+      ]
     },
     {
       "id": "concordia-645e4899469c",
-      "slug": "kundenberater-in-100-in-zurich-concordia-zurich",
+      "slug": "consulente-clienti-100-a-zurigo-concordia-zurich",
       "slugByLocale": {
         "de": "kundenberater-in-100-in-zurich-concordia-zurich",
-        "it": "kundenberater-in-100-in-zurich-concordia-zurich",
+        "it": "consulente-clienti-100-a-zurigo-concordia-zurich",
         "en": "kundenberater-in-100-in-zurich-concordia-zurich",
         "fr": "kundenberater-in-100-in-zurich-concordia-zurich"
       },
@@ -1889,7 +2065,7 @@
       "title": "Kundenberater:in, 100% in Zürich",
       "titleByLocale": {
         "de": "Kundenberater:in, 100% in Zürich",
-        "it": "Kundenberater:in, 100% in Zürich",
+        "it": "Consulente clienti, 100% a Zurigo",
         "en": "Kundenberater:in, 100% in Zürich",
         "fr": "Kundenberater:in, 100% in Zürich"
       },
@@ -1938,14 +2114,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:27.009Z"
+      "firstSeenAt": "2026-07-04T10:29:27.009Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-100-in-zurich-concordia-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-100-in-zurich-concordia-zurich"
+      ]
     },
     {
       "id": "concordia-12665a905fae",
-      "slug": "kundenberater-in-geschaftsstelle-100-in-wauwil-concordia-wauwil",
+      "slug": "ufficio-consulente-clienti-100-a-wauwil-concordia-wauwil",
       "slugByLocale": {
         "de": "kundenberater-in-geschaftsstelle-100-in-wauwil-concordia-wauwil",
-        "it": "kundenberater-in-geschaftsstelle-100-in-wauwil-concordia-wauwil",
+        "it": "ufficio-consulente-clienti-100-a-wauwil-concordia-wauwil",
         "en": "kundenberater-in-geschaftsstelle-100-in-wauwil-concordia-wauwil",
         "fr": "kundenberater-in-geschaftsstelle-100-in-wauwil-concordia-wauwil"
       },
@@ -1955,7 +2139,7 @@
       "title": "Kundenberater:in Geschäftsstelle, 100 % in Wauwil",
       "titleByLocale": {
         "de": "Kundenberater:in Geschäftsstelle, 100 % in Wauwil",
-        "it": "Kundenberater:in Geschäftsstelle, 100 % in Wauwil",
+        "it": "Ufficio consulente clienti, 100% a Wauwil",
         "en": "Kundenberater:in Geschäftsstelle, 100 % in Wauwil",
         "fr": "Kundenberater:in Geschäftsstelle, 100 % in Wauwil"
       },
@@ -2004,14 +2188,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:26.515Z"
+      "firstSeenAt": "2026-07-04T10:29:26.515Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-geschaftsstelle-100-in-wauwil-concordia-wauwil"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-geschaftsstelle-100-in-wauwil-concordia-wauwil"
+      ]
     },
     {
       "id": "concordia-093aaa139591",
-      "slug": "agenturleiter-in-100-in-kloten-concordia-kloten",
+      "slug": "responsabile-agenzia-100-a-kloten-concordia-kloten",
       "slugByLocale": {
         "de": "agenturleiter-in-100-in-kloten-concordia-kloten",
-        "it": "agenturleiter-in-100-in-kloten-concordia-kloten",
+        "it": "responsabile-agenzia-100-a-kloten-concordia-kloten",
         "en": "agenturleiter-in-100-in-kloten-concordia-kloten",
         "fr": "agenturleiter-in-100-in-kloten-concordia-kloten"
       },
@@ -2021,7 +2213,7 @@
       "title": "Agenturleiter:in, 100% in Kloten",
       "titleByLocale": {
         "de": "Agenturleiter:in, 100% in Kloten",
-        "it": "Agenturleiter:in, 100% in Kloten",
+        "it": "Responsabile agenzia, 100% a Kloten",
         "en": "Agenturleiter:in, 100% in Kloten",
         "fr": "Agenturleiter:in, 100% in Kloten"
       },
@@ -2070,7 +2262,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:25.966Z"
+      "firstSeenAt": "2026-07-04T10:29:25.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agenturleiter-in-100-in-kloten-concordia-kloten"
+        ]
+      },
+      "previousSlugs": [
+        "agenturleiter-in-100-in-kloten-concordia-kloten"
+      ]
     },
     {
       "id": "concordia-6638d171427e",
@@ -2140,10 +2340,10 @@
     },
     {
       "id": "concordia-498b2c305d02",
-      "slug": "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss",
+      "slug": "ufficio-consulenza-clienti-60-a-lyss-concordia-lyss",
       "slugByLocale": {
         "de": "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss",
-        "it": "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss",
+        "it": "ufficio-consulenza-clienti-60-a-lyss-concordia-lyss",
         "en": "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss",
         "fr": "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss"
       },
@@ -2153,7 +2353,7 @@
       "title": "Kundenberater:in Geschäftsstelle, 60 % in Lyss",
       "titleByLocale": {
         "de": "Kundenberater:in Geschäftsstelle, 60 % in Lyss",
-        "it": "Kundenberater:in Geschäftsstelle, 60 % in Lyss",
+        "it": "Ufficio consulenza clienti, 60% a Lyss",
         "en": "Kundenberater:in Geschäftsstelle, 60 % in Lyss",
         "fr": "Kundenberater:in Geschäftsstelle, 60 % in Lyss"
       },
@@ -2202,14 +2402,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:24.866Z"
+      "firstSeenAt": "2026-07-04T10:29:24.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss"
+      ]
     },
     {
       "id": "concordia-5ed7a36d3420",
-      "slug": "versicherungsberater-in-100-in-winterthur-concordia-winterthur",
+      "slug": "consulente-assicurativo-100-a-winterthur-concordia-winterthur",
       "slugByLocale": {
         "de": "versicherungsberater-in-100-in-winterthur-concordia-winterthur",
-        "it": "versicherungsberater-in-100-in-winterthur-concordia-winterthur",
+        "it": "consulente-assicurativo-100-a-winterthur-concordia-winterthur",
         "en": "versicherungsberater-in-100-in-winterthur-concordia-winterthur",
         "fr": "versicherungsberater-in-100-in-winterthur-concordia-winterthur"
       },
@@ -2219,7 +2427,7 @@
       "title": "Versicherungsberater:in, 100 % in Winterthur",
       "titleByLocale": {
         "de": "Versicherungsberater:in, 100 % in Winterthur",
-        "it": "Versicherungsberater:in, 100 % in Winterthur",
+        "it": "Consulente assicurativo, 100% a Winterthur",
         "en": "Versicherungsberater:in, 100 % in Winterthur",
         "fr": "Versicherungsberater:in, 100 % in Winterthur"
       },
@@ -2268,14 +2476,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:24.396Z"
+      "firstSeenAt": "2026-07-04T10:29:24.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-100-in-winterthur-concordia-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-100-in-winterthur-concordia-winterthur"
+      ]
     },
     {
       "id": "concordia-a0857213d7be",
-      "slug": "fachspezialist-in-medikamente-spezialfalle-80-100-concordia-luzern",
+      "slug": "casi-speciali-di-farmaci-specialistici-80-100-concordia-luzern",
       "slugByLocale": {
         "de": "fachspezialist-in-medikamente-spezialfalle-80-100-concordia-luzern",
-        "it": "fachspezialist-in-medikamente-spezialfalle-80-100-concordia-luzern",
+        "it": "casi-speciali-di-farmaci-specialistici-80-100-concordia-luzern",
         "en": "fachspezialist-in-medikamente-spezialfalle-80-100-concordia-luzern",
         "fr": "fachspezialist-in-medikamente-spezialfalle-80-100-concordia-luzern"
       },
@@ -2285,7 +2501,7 @@
       "title": "Fachspezialist:in Medikamente Spezialfälle, 80–100 %",
       "titleByLocale": {
         "de": "Fachspezialist:in Medikamente Spezialfälle, 80–100 %",
-        "it": "Fachspezialist:in Medikamente Spezialfälle, 80–100 %",
+        "it": "Casi speciali di farmaci specialistici, 80–100%",
         "en": "Fachspezialist:in Medikamente Spezialfälle, 80–100 %",
         "fr": "Fachspezialist:in Medikamente Spezialfälle, 80–100 %"
       },
@@ -2334,14 +2550,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:23.901Z"
+      "firstSeenAt": "2026-07-04T10:29:23.901Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-medikamente-spezialfalle-80-100-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-medikamente-spezialfalle-80-100-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-7fae8caf8edf",
-      "slug": "fachspezialist-in-underwriting-privatkunden-fr-de-100-concordia-luzern",
+      "slug": "sottoscrizione-specialista-per-clienti-privati-fr-de-100-concordia-luzern",
       "slugByLocale": {
         "de": "fachspezialist-in-underwriting-privatkunden-fr-de-100-concordia-luzern",
-        "it": "fachspezialist-in-underwriting-privatkunden-fr-de-100-concordia-luzern",
+        "it": "sottoscrizione-specialista-per-clienti-privati-fr-de-100-concordia-luzern",
         "en": "fachspezialist-in-underwriting-privatkunden-fr-de-100-concordia-luzern",
         "fr": "fachspezialist-in-underwriting-privatkunden-fr-de-100-concordia-luzern"
       },
@@ -2351,7 +2575,7 @@
       "title": "Fachspezialist:in Underwriting Privatkunden FR/DE, 100 %",
       "titleByLocale": {
         "de": "Fachspezialist:in Underwriting Privatkunden FR/DE, 100 %",
-        "it": "Fachspezialist:in Underwriting Privatkunden FR/DE, 100 %",
+        "it": "Sottoscrizione Specialista per Clienti Privati FR/DE, 100%",
         "en": "Fachspezialist:in Underwriting Privatkunden FR/DE, 100 %",
         "fr": "Fachspezialist:in Underwriting Privatkunden FR/DE, 100 %"
       },
@@ -2400,14 +2624,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:23.371Z"
+      "firstSeenAt": "2026-07-04T10:29:23.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-underwriting-privatkunden-fr-de-100-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-underwriting-privatkunden-fr-de-100-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-9c8a08067ff4",
-      "slug": "specialiste-underwriting-clientele-privee-f-h-nb-avec-bonnes-connaissances-de-la-langue",
+      "slug": "specialista-in-sottoscrizione-clienti-privati-f-m-nb-con-buona-conoscenza-della-lingua-tedesca-al-100-concordia-lausanne",
       "slugByLocale": {
         "fr": "specialiste-underwriting-clientele-privee-f-h-nb-avec-bonnes-connaissances-de-la-langue",
-        "it": "specialiste-underwriting-clientele-privee-f-h-nb-avec-bonnes-connaissances-de-la-langue",
+        "it": "specialista-in-sottoscrizione-clienti-privati-f-m-nb-con-buona-conoscenza-della-lingua-tedesca-al-100-concordia-lausanne",
         "en": "specialiste-underwriting-clientele-privee-f-h-nb-avec-bonnes-connaissances-de-la-langue",
         "de": "specialiste-underwriting-clientele-privee-f-h-nb-avec-bonnes-connaissances-de-la-langue"
       },
@@ -2417,7 +2649,7 @@
       "title": "Spécialiste Underwriting Clientèle privée (f/h/nb) avec bonnes connaissances de la langue allemande, 100 %",
       "titleByLocale": {
         "fr": "Spécialiste Underwriting Clientèle privée (f/h/nb) avec bonnes connaissances de la langue allemande, 100 %",
-        "it": "Spécialiste Underwriting Clientèle privée (f/h/nb) avec bonnes connaissances de la langue allemande, 100 %",
+        "it": "Specialista in sottoscrizione Clienti privati (f/m/nb) con buona conoscenza della lingua tedesca, al 100 %.",
         "en": "Spécialiste Underwriting Clientèle privée (f/h/nb) avec bonnes connaissances de la langue allemande, 100 %",
         "de": "Spécialiste Underwriting Clientèle privée (f/h/nb) avec bonnes connaissances de la langue allemande, 100 %"
       },
@@ -2466,14 +2698,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:22.841Z"
+      "firstSeenAt": "2026-07-04T10:29:22.841Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-underwriting-clientele-privee-f-h-nb-avec-bonnes-connaissances-de-la-langue"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-underwriting-clientele-privee-f-h-nb-avec-bonnes-connaissances-de-la-langue"
+      ]
     },
     {
       "id": "concordia-0e46ea512699",
-      "slug": "leistungsspezialist-in-leistungsprufung-praxisbildner-in-kv-100-concordia-luzern",
+      "slug": "specialista-delle-prestazioni-test-educatore-pratico-kv-100-concordia-luzern",
       "slugByLocale": {
         "de": "leistungsspezialist-in-leistungsprufung-praxisbildner-in-kv-100-concordia-luzern",
-        "it": "leistungsspezialist-in-leistungsprufung-praxisbildner-in-kv-100-concordia-luzern",
+        "it": "specialista-delle-prestazioni-test-educatore-pratico-kv-100-concordia-luzern",
         "en": "leistungsspezialist-in-leistungsprufung-praxisbildner-in-kv-100-concordia-luzern",
         "fr": "leistungsspezialist-in-leistungsprufung-praxisbildner-in-kv-100-concordia-luzern"
       },
@@ -2483,7 +2723,7 @@
       "title": "Leistungsspezialist:in Leistungsprüfung / Praxisbildner:in KV 100 %",
       "titleByLocale": {
         "de": "Leistungsspezialist:in Leistungsprüfung / Praxisbildner:in KV 100 %",
-        "it": "Leistungsspezialist:in Leistungsprüfung / Praxisbildner:in KV 100 %",
+        "it": "Specialista delle Prestazioni Test / Educatore Pratico KV 100%",
         "en": "Leistungsspezialist:in Leistungsprüfung / Praxisbildner:in KV 100 %",
         "fr": "Leistungsspezialist:in Leistungsprüfung / Praxisbildner:in KV 100 %"
       },
@@ -2532,7 +2772,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:22.318Z"
+      "firstSeenAt": "2026-07-04T10:29:22.318Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leistungsspezialist-in-leistungsprufung-praxisbildner-in-kv-100-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "leistungsspezialist-in-leistungsprufung-praxisbildner-in-kv-100-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-042955d49f74",
@@ -2832,10 +3080,10 @@
     },
     {
       "id": "concordia-f2578649b370",
-      "slug": "senior-ai-engineer-architect-m-w-d-80-100-concordia-luzern",
+      "slug": "senior-ai-ingegnere-architetto-m-w-d-80-100-concordia-luzern",
       "slugByLocale": {
         "de": "senior-ai-engineer-architect-m-w-d-80-100-concordia-luzern",
-        "it": "senior-ai-engineer-architect-m-w-d-80-100-concordia-luzern",
+        "it": "senior-ai-ingegnere-architetto-m-w-d-80-100-concordia-luzern",
         "en": "senior-ai-engineer-architect-m-w-d-80-100-concordia-luzern",
         "fr": "senior-ai-engineer-architect-m-w-d-80-100-concordia-luzern"
       },
@@ -2894,7 +3142,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:19.739Z"
+      "firstSeenAt": "2026-07-04T10:29:19.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-ai-engineer-architect-m-w-d-80-100-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-ai-engineer-architect-m-w-d-80-100-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-0563372c1617",
@@ -3194,10 +3450,10 @@
     },
     {
       "id": "concordia-f7853f37fa8c",
-      "slug": "versicherungsberater-in-100-in-zug-concordia-zug-2",
+      "slug": "consulente-assicurativo-100-a-zug-concordia-zug-3ba523",
       "slugByLocale": {
         "de": "versicherungsberater-in-100-in-zug-concordia-zug",
-        "it": "versicherungsberater-in-100-in-zug-concordia-zug-2",
+        "it": "consulente-assicurativo-100-a-zug-concordia-zug-3ba523",
         "en": "versicherungsberater-in-100-in-zug-concordia-zug-2",
         "fr": "versicherungsberater-in-100-in-zug-concordia-zug-2"
       },
@@ -3207,7 +3463,7 @@
       "title": "Versicherungsberater:in, 100 % in Zug",
       "titleByLocale": {
         "de": "Versicherungsberater:in, 100 % in Zug",
-        "it": "Versicherungsberater:in, 100 % in Zug",
+        "it": "Consulente assicurativo, 100% a Zug",
         "en": "Versicherungsberater:in, 100 % in Zug",
         "fr": "Versicherungsberater:in, 100 % in Zug"
       },
@@ -3246,11 +3502,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-in-100-in-zug-concordia-zug"
+          "versicherungsberater-in-100-in-zug-concordia-zug",
+          "versicherungsberater-in-100-in-zug-concordia-zug-2"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-in-100-in-zug-concordia-zug"
+        "versicherungsberater-in-100-in-zug-concordia-zug",
+        "versicherungsberater-in-100-in-zug-concordia-zug-2"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

@@ -4516,7 +4516,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // Set all OG tags so they stay consistent with the job detail page,
  // even if seoService.updateMetaTags runs later with generic fallbacks.
- const ogLocaleMap: Record<string, string> = { it: 'it_IT', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
+ const ogLocaleMap: Record<string, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
  const setOg = (prop: string, val: string) => {
  let el = document.querySelector(`meta[property="${prop}"]`);
  if (!el) { el = document.createElement('meta'); el.setAttribute('property', prop); document.head.appendChild(el); }
@@ -4526,7 +4526,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setOg('og:description', descSnippet);
  setOg('og:url', canonicalHref);
  setOg('og:type', 'article');
- setOg('og:locale', ogLocaleMap[locale] || 'it_IT');
+ setOg('og:locale', ogLocaleMap[locale] || 'it_CH');
  setOg('og:site_name', 'Frontaliere Ticino');
 
  // Ensure the html lang attribute matches the active locale
@@ -6648,7 +6648,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  width={48}
  height={48}
  className="w-12 h-12 rounded-lg object-contain bg-surface-alt flex-shrink-0"
- loading="lazy"
+ decoding="async"
  onError={handleCompanyLogoError}
  />
  )}
@@ -7407,7 +7407,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  className="w-10 h-10 sm:w-14 sm:h-14 object-contain"
  width={56}
  height={56}
- loading="lazy"
+ decoding="async"
  onError={handleCompanyLogoError}
  />
  ) : (

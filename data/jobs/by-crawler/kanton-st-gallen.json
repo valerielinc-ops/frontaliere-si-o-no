@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "kanton-st-gallen-4af0842ce224",
-      "slug": "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
+      "slug": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
         "de": "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-        "it": "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
+        "it": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
         "en": "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
         "fr": "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch"
       },
@@ -17,7 +17,7 @@
       "title": "Forstwart-Vorarbeiter/in (m/w/d)",
       "titleByLocale": {
         "de": "Forstwart-Vorarbeiter/in (m/w/d)",
-        "it": "Forstwart-Vorarbeiter/in (m/w/d)",
+        "it": "Caposquadra Forestale (m/f/d)",
         "en": "Forstwart-Vorarbeiter/in (m/w/d)",
         "fr": "Forstwart-Vorarbeiter/in (m/w/d)"
       },
@@ -66,14 +66,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:21.524Z"
+      "firstSeenAt": "2026-07-04T11:09:21.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-79569a80d151",
-      "slug": "polizistin-polizist-auf-einer-polizeistation-in-der-region-bodensee-rheintal-kanton-st",
+      "slug": "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-del-lago-di-costanza-valle-del-reno-kanton-st-gallen-region",
       "slugByLocale": {
         "de": "polizistin-polizist-auf-einer-polizeistation-in-der-region-bodensee-rheintal-kanton-st",
-        "it": "polizistin-polizist-auf-einer-polizeistation-in-der-region-bodensee-rheintal-kanton-st",
+        "it": "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-del-lago-di-costanza-valle-del-reno-kanton-st-gallen-region",
         "en": "polizistin-polizist-auf-einer-polizeistation-in-der-region-bodensee-rheintal-kanton-st",
         "fr": "polizistin-polizist-auf-einer-polizeistation-in-der-region-bodensee-rheintal-kanton-st"
       },
@@ -83,7 +91,7 @@
       "title": "Polizistin/Polizist auf einer Polizeistation in der Region Bodensee-Rheintal",
       "titleByLocale": {
         "de": "Polizistin/Polizist auf einer Polizeistation in der Region Bodensee-Rheintal",
-        "it": "Polizistin/Polizist auf einer Polizeistation in der Region Bodensee-Rheintal",
+        "it": "Agente di polizia in una stazione di polizia nella regione del Lago di Costanza-Valle del Reno",
         "en": "Polizistin/Polizist auf einer Polizeistation in der Region Bodensee-Rheintal",
         "fr": "Polizistin/Polizist auf einer Polizeistation in der Region Bodensee-Rheintal"
       },
@@ -132,14 +140,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:20.653Z"
+      "firstSeenAt": "2026-07-04T11:09:20.653Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polizistin-polizist-auf-einer-polizeistation-in-der-region-bodensee-rheintal-kanton-st"
+        ]
+      },
+      "previousSlugs": [
+        "polizistin-polizist-auf-einer-polizeistation-in-der-region-bodensee-rheintal-kanton-st"
+      ]
     },
     {
       "id": "kanton-st-gallen-b84bdf008016",
-      "slug": "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch",
+      "slug": "agente-di-polizia-della-regione-di-polizia-mobile-valle-del-lago-di-costanza-reno-kanton-st-gallen-region-bodensee",
       "slugByLocale": {
         "de": "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch",
-        "it": "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch",
+        "it": "agente-di-polizia-della-regione-di-polizia-mobile-valle-del-lago-di-costanza-reno-kanton-st-gallen-region-bodensee",
         "en": "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch",
         "fr": "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch"
       },
@@ -149,7 +165,7 @@
       "title": "Polizistin/Polizist Mobile Polizei Region Bodensee-Rheintal",
       "titleByLocale": {
         "de": "Polizistin/Polizist Mobile Polizei Region Bodensee-Rheintal",
-        "it": "Polizistin/Polizist Mobile Polizei Region Bodensee-Rheintal",
+        "it": "Agente di polizia della Regione di Polizia Mobile Valle del Lago di Costanza-Reno",
         "en": "Polizistin/Polizist Mobile Polizei Region Bodensee-Rheintal",
         "fr": "Polizistin/Polizist Mobile Polizei Region Bodensee-Rheintal"
       },
@@ -198,14 +214,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:19.758Z"
+      "firstSeenAt": "2026-07-04T11:09:19.758Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-6e16634f4749",
-      "slug": "polizistin-polizist-auf-einer-polizeistation-in-der-region-werdenberg-sarganserland-kanton",
+      "slug": "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-di-werdenberg-sarganserland-kanton-st-gallen-region",
       "slugByLocale": {
         "de": "polizistin-polizist-auf-einer-polizeistation-in-der-region-werdenberg-sarganserland-kanton",
-        "it": "polizistin-polizist-auf-einer-polizeistation-in-der-region-werdenberg-sarganserland-kanton",
+        "it": "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-di-werdenberg-sarganserland-kanton-st-gallen-region",
         "en": "polizistin-polizist-auf-einer-polizeistation-in-der-region-werdenberg-sarganserland-kanton",
         "fr": "polizistin-polizist-auf-einer-polizeistation-in-der-region-werdenberg-sarganserland-kanton"
       },
@@ -215,7 +239,7 @@
       "title": "Polizistin/Polizist auf einer Polizeistation in der Region Werdenberg-Sarganserland",
       "titleByLocale": {
         "de": "Polizistin/Polizist auf einer Polizeistation in der Region Werdenberg-Sarganserland",
-        "it": "Polizistin/Polizist auf einer Polizeistation in der Region Werdenberg-Sarganserland",
+        "it": "Agente di polizia in una stazione di polizia nella regione di Werdenberg-Sarganserland",
         "en": "Polizistin/Polizist auf einer Polizeistation in der Region Werdenberg-Sarganserland",
         "fr": "Polizistin/Polizist auf einer Polizeistation in der Region Werdenberg-Sarganserland"
       },
@@ -264,14 +288,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:19.171Z"
+      "firstSeenAt": "2026-07-04T11:09:19.171Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polizistin-polizist-auf-einer-polizeistation-in-der-region-werdenberg-sarganserland-kanton"
+        ]
+      },
+      "previousSlugs": [
+        "polizistin-polizist-auf-einer-polizeistation-in-der-region-werdenberg-sarganserland-kanton"
+      ]
     },
     {
       "id": "kanton-st-gallen-ab2ef452f2db",
-      "slug": "polizistin-polizist-mobile-polizei-region-werdenberg-sarganserland-kanton-st-gallen-ch",
+      "slug": "agente-di-polizia-mobile-della-regione-di-polizia-di-werdenberg-sarganserland-kanton-st-gallen-region-werdenberg",
       "slugByLocale": {
         "de": "polizistin-polizist-mobile-polizei-region-werdenberg-sarganserland-kanton-st-gallen-ch",
-        "it": "polizistin-polizist-mobile-polizei-region-werdenberg-sarganserland-kanton-st-gallen-ch",
+        "it": "agente-di-polizia-mobile-della-regione-di-polizia-di-werdenberg-sarganserland-kanton-st-gallen-region-werdenberg",
         "en": "polizistin-polizist-mobile-polizei-region-werdenberg-sarganserland-kanton-st-gallen-ch",
         "fr": "polizistin-polizist-mobile-polizei-region-werdenberg-sarganserland-kanton-st-gallen-ch"
       },
@@ -281,7 +313,7 @@
       "title": "Polizistin/Polizist Mobile Polizei Region Werdenberg-Sarganserland",
       "titleByLocale": {
         "de": "Polizistin/Polizist Mobile Polizei Region Werdenberg-Sarganserland",
-        "it": "Polizistin/Polizist Mobile Polizei Region Werdenberg-Sarganserland",
+        "it": "Agente di polizia mobile della Regione di Polizia di Werdenberg-Sarganserland",
         "en": "Polizistin/Polizist Mobile Polizei Region Werdenberg-Sarganserland",
         "fr": "Polizistin/Polizist Mobile Polizei Region Werdenberg-Sarganserland"
       },
@@ -330,14 +362,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:18.296Z"
+      "firstSeenAt": "2026-07-04T11:09:18.296Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polizistin-polizist-mobile-polizei-region-werdenberg-sarganserland-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "polizistin-polizist-mobile-polizei-region-werdenberg-sarganserland-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-7bf2515f8877",
-      "slug": "polizistin-polizist-auf-einer-polizeistation-in-der-region-linthgebiet-toggenburg-kanton",
+      "slug": "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-di-linth-regione-di-toggenburg-kanton-st-gallen-region",
       "slugByLocale": {
         "de": "polizistin-polizist-auf-einer-polizeistation-in-der-region-linthgebiet-toggenburg-kanton",
-        "it": "polizistin-polizist-auf-einer-polizeistation-in-der-region-linthgebiet-toggenburg-kanton",
+        "it": "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-di-linth-regione-di-toggenburg-kanton-st-gallen-region",
         "en": "polizistin-polizist-auf-einer-polizeistation-in-der-region-linthgebiet-toggenburg-kanton",
         "fr": "polizistin-polizist-auf-einer-polizeistation-in-der-region-linthgebiet-toggenburg-kanton"
       },
@@ -347,7 +387,7 @@
       "title": "Polizistin/Polizist auf einer Polizeistation in der Region Linthgebiet-Toggenburg",
       "titleByLocale": {
         "de": "Polizistin/Polizist auf einer Polizeistation in der Region Linthgebiet-Toggenburg",
-        "it": "Polizistin/Polizist auf einer Polizeistation in der Region Linthgebiet-Toggenburg",
+        "it": "Agente di polizia in una stazione di polizia nella regione di Linth - regione di Toggenburg",
         "en": "Polizistin/Polizist auf einer Polizeistation in der Region Linthgebiet-Toggenburg",
         "fr": "Polizistin/Polizist auf einer Polizeistation in der Region Linthgebiet-Toggenburg"
       },
@@ -396,14 +436,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:17.363Z"
+      "firstSeenAt": "2026-07-04T11:09:17.363Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polizistin-polizist-auf-einer-polizeistation-in-der-region-linthgebiet-toggenburg-kanton"
+        ]
+      },
+      "previousSlugs": [
+        "polizistin-polizist-auf-einer-polizeistation-in-der-region-linthgebiet-toggenburg-kanton"
+      ]
     },
     {
       "id": "kanton-st-gallen-c2eeb2f3769c",
-      "slug": "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch",
+      "slug": "agente-di-polizia-della-regione-di-polizia-mobile-linthgebiet-toggenburg-kanton-st-gallen-region-linthgebiet-toggenburg",
       "slugByLocale": {
         "de": "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch",
-        "it": "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch",
+        "it": "agente-di-polizia-della-regione-di-polizia-mobile-linthgebiet-toggenburg-kanton-st-gallen-region-linthgebiet-toggenburg",
         "en": "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch",
         "fr": "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch"
       },
@@ -413,7 +461,7 @@
       "title": "Polizistin/Polizist Mobile Polizei Region Linthgebiet-Toggenburg",
       "titleByLocale": {
         "de": "Polizistin/Polizist Mobile Polizei Region Linthgebiet-Toggenburg",
-        "it": "Polizistin/Polizist Mobile Polizei Region Linthgebiet-Toggenburg",
+        "it": "Agente di polizia della Regione di Polizia Mobile Linthgebiet-Toggenburg",
         "en": "Polizistin/Polizist Mobile Polizei Region Linthgebiet-Toggenburg",
         "fr": "Polizistin/Polizist Mobile Polizei Region Linthgebiet-Toggenburg"
       },
@@ -462,14 +510,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:16.490Z"
+      "firstSeenAt": "2026-07-04T11:09:16.490Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-80ebb6e2f1ef",
-      "slug": "polizistin-polizist-auf-einer-polizeistation-in-der-region-furstenland-neckertal-kanton-st",
+      "slug": "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-furstenland-neckertal-kanton-st-gallen-region-furstenland",
       "slugByLocale": {
         "de": "polizistin-polizist-auf-einer-polizeistation-in-der-region-furstenland-neckertal-kanton-st",
-        "it": "polizistin-polizist-auf-einer-polizeistation-in-der-region-furstenland-neckertal-kanton-st",
+        "it": "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-furstenland-neckertal-kanton-st-gallen-region-furstenland",
         "en": "polizistin-polizist-auf-einer-polizeistation-in-der-region-furstenland-neckertal-kanton-st",
         "fr": "polizistin-polizist-auf-einer-polizeistation-in-der-region-furstenland-neckertal-kanton-st"
       },
@@ -479,7 +535,7 @@
       "title": "Polizistin/Polizist auf einer Polizeistation in der Region Fürstenland-Neckertal",
       "titleByLocale": {
         "de": "Polizistin/Polizist auf einer Polizeistation in der Region Fürstenland-Neckertal",
-        "it": "Polizistin/Polizist auf einer Polizeistation in der Region Fürstenland-Neckertal",
+        "it": "Agente di polizia in una stazione di polizia nella regione Fürstenland-Neckertal",
         "en": "Polizistin/Polizist auf einer Polizeistation in der Region Fürstenland-Neckertal",
         "fr": "Polizistin/Polizist auf einer Polizeistation in der Region Fürstenland-Neckertal"
       },
@@ -528,14 +584,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:15.601Z"
+      "firstSeenAt": "2026-07-04T11:09:15.601Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polizistin-polizist-auf-einer-polizeistation-in-der-region-furstenland-neckertal-kanton-st"
+        ]
+      },
+      "previousSlugs": [
+        "polizistin-polizist-auf-einer-polizeistation-in-der-region-furstenland-neckertal-kanton-st"
+      ]
     },
     {
       "id": "kanton-st-gallen-c26b0f453224",
-      "slug": "polizistin-polizist-mobile-polizei-region-furstenland-neckertal-kanton-st-gallen-ch",
+      "slug": "agente-di-polizia-mobile-regione-di-polizia-furstenland-neckertal-kanton-st-gallen-region-furstenland-neckertal",
       "slugByLocale": {
         "de": "polizistin-polizist-mobile-polizei-region-furstenland-neckertal-kanton-st-gallen-ch",
-        "it": "polizistin-polizist-mobile-polizei-region-furstenland-neckertal-kanton-st-gallen-ch",
+        "it": "agente-di-polizia-mobile-regione-di-polizia-furstenland-neckertal-kanton-st-gallen-region-furstenland-neckertal",
         "en": "polizistin-polizist-mobile-polizei-region-furstenland-neckertal-kanton-st-gallen-ch",
         "fr": "polizistin-polizist-mobile-polizei-region-furstenland-neckertal-kanton-st-gallen-ch"
       },
@@ -545,7 +609,7 @@
       "title": "Polizistin/Polizist Mobile Polizei Region Fürstenland-Neckertal",
       "titleByLocale": {
         "de": "Polizistin/Polizist Mobile Polizei Region Fürstenland-Neckertal",
-        "it": "Polizistin/Polizist Mobile Polizei Region Fürstenland-Neckertal",
+        "it": "Agente di Polizia Mobile Regione di Polizia Fürstenland-Neckertal",
         "en": "Polizistin/Polizist Mobile Polizei Region Fürstenland-Neckertal",
         "fr": "Polizistin/Polizist Mobile Polizei Region Fürstenland-Neckertal"
       },
@@ -594,14 +658,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:14.731Z"
+      "firstSeenAt": "2026-07-04T11:09:14.731Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polizistin-polizist-mobile-polizei-region-furstenland-neckertal-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "polizistin-polizist-mobile-polizei-region-furstenland-neckertal-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-55fa5a628ff3",
-      "slug": "forstwart-in-m-w-d-kanton-st-gallen-ch",
+      "slug": "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
         "de": "forstwart-in-m-w-d-kanton-st-gallen-ch",
-        "it": "forstwart-in-m-w-d-kanton-st-gallen-ch",
+        "it": "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
         "en": "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
         "fr": "forstwart-in-m-w-d-kanton-st-gallen-ch"
       },
@@ -612,7 +684,7 @@
       "titleByLocale": {
         "de": "Forstwart/in (m/w/d)",
         "en": "Forstwart/in (m/w/d)",
-        "it": "Forstwart/in (m/w/d)",
+        "it": "Guardiano della foresta (luni/merdì/d)",
         "fr": "Forstwart/in (m/w/d)"
       },
       "description": "Der Forstbetrieb Staatswald ist einer von 300 öffentlichen Waldeigentümern im Kanton St.Gallen und mit neun Forstwarten und fünf Lernenden der grösste forstliche Arbeitgeber und Lehrbetrieb. Verteilt auf die Standorte Goldach und Oberuzwil werden die Waldungen des Kantons St.Gallen bewirtschaftet sowie eine Vielzahl an Arbeiten für Dritte ausgeführt.\n\nWas Sie erwartet:\n\n• Selbstständiges Ausführen sämtlicher Forstarbeiten\n• Bedienen, pflegen und unterhalten der Forstmaschinen (v.a. Rauptrac) und des Betriebsfahrzeuges\n• Ausführen von Arbeiten für Dritte\n• Mitarbeiten bei der Ausbildung der Lernenden\n• Unterstützen des Revierförsters\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Ausbildung als Forstwart/in EFZ oder eine gleichwertige Ausbildung\n• Freude im Umgang mit Lernenden\n• Interesse als ÜK-Instruktor/in oder Prüfungsexperte/-expertin an der Forstwartausbildung mitzuwirken, von Vorteil\n• Führerschein Kat. B / wenn möglich BE\n• Hohe Dienstleistungs- und Kundenorientierung\n• Gutes Planungs- und Organisationsgeschick\n• Flexibel und bereit für Arbeitseinsätze an beiden Standorten\n\nWas wir bieten:\n\n• Interessante, vielseitige und verantwortungsvolle Stelle\n• Zeitgemässe Anstellungsbedingungen\n• Modern eingerichteter Forstbetrieb\n• Möglichkeit für interne und externe Weiterbildungen z.B. als Forstwart-Vorarbeiter\n\nKontakt: Cornelia Lichtensteiger, HR Business Partnerin (Telefon 058 229 48 89) und\n\n• Pensum: 80-100%\n• Standort: Oberuzwil\n• Bewerbung über das offizielle Stellenportal des Kantons St. Gallen (https://www.sg.ch/ueber-den-kanton-st-gallen/arbeitgeber-kanton-stgallen/stellenportal.html)",
@@ -660,7 +732,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:13.851Z"
+      "firstSeenAt": "2026-07-04T11:09:13.851Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "forstwart-in-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "forstwart-in-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-38f0a26cf98c",
@@ -738,10 +818,10 @@
     },
     {
       "id": "kanton-st-gallen-07373521a860",
-      "slug": "regionalforster-in-m-w-d-kanton-st-gallen-sarganserland-aktuell-unterterzen",
+      "slug": "forestale-regionale-m-f-d-kanton-st-gallen-sarganserland-aktuell-unterterzen",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-jugendheim-80-90-kanton-aargau-ch",
-        "it": "regionalforster-in-m-w-d-kanton-st-gallen-sarganserland-aktuell-unterterzen",
+        "it": "forestale-regionale-m-f-d-kanton-st-gallen-sarganserland-aktuell-unterterzen",
         "en": "regionalforster-in-m-w-d-kanton-st-gallen-sarganserland-aktuell-unterterzen",
         "fr": "regionalforster-in-m-w-d-kanton-st-gallen-sarganserland-aktuell-unterterzen"
       },
@@ -751,7 +831,7 @@
       "title": "Regionalförster/in (m/w/d)",
       "titleByLocale": {
         "de": "Regionalförster/in (m/w/d)",
-        "it": "Regionalförster/in (m/w/d)",
+        "it": "Forestale regionale (m/f/d)",
         "en": "Regionalförster/in (m/w/d)",
         "fr": "Regionalförster/in (m/w/d)"
       },
@@ -790,11 +870,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "regionalforster-in-m-w-d-kanton-st-gallen-ch"
+          "regionalforster-in-m-w-d-kanton-st-gallen-ch",
+          "regionalforster-in-m-w-d-kanton-st-gallen-sarganserland-aktuell-unterterzen"
         ]
       },
       "previousSlugs": [
-        "regionalforster-in-m-w-d-kanton-st-gallen-ch"
+        "regionalforster-in-m-w-d-kanton-st-gallen-ch",
+        "regionalforster-in-m-w-d-kanton-st-gallen-sarganserland-aktuell-unterterzen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -886,10 +968,10 @@
     },
     {
       "id": "kanton-st-gallen-ae6ccc5467d5",
-      "slug": "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch",
+      "slug": "infermiere-laureato-in-hf-lundi-fi-d-kanton-st-gallen-oberburen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch",
-        "it": "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch",
+        "it": "infermiere-laureato-in-hf-lundi-fi-d-kanton-st-gallen-oberburen",
         "en": "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch",
         "fr": "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch"
       },
@@ -900,7 +982,7 @@
       "titleByLocale": {
         "de": "Dipl. Pflegefachperson HF (m/w/d)",
         "en": "Dipl. Pflegefachperson HF (m/w/d)",
-        "it": "Dipl. Pflegefachperson HF (m/w/d)",
+        "it": "Infermiere Laureato in HF (lundì/fì/d)",
         "fr": "Dipl. Pflegefachperson HF (m/w/d)"
       },
       "description": "Das Migrationsamt bewegt sich täglich im spannenden politischen Umfeld sämtlicher Migrationsfragen. Wir sind zuständig für die ausländerrechtlichen Bewilligungen, vollziehen das eidgenössische Ausländer- und Asylrecht, stellen die biometrischen Schweizerpässe und Ausländerausweise aus und sorgen in unseren Asylzentren für Betreuung und Integration.\n\nWas dich erwartet:\n\n• Du bist für die medizinische Betreuung unserer Bewohnenden verantwortlich und stehst ihnen bei Gesundheitsfragen beratend zur Seite\n• Du stellst sicher, dass alle Bewohnenden krankenversichert sind und organisierst Termine bei Ärzten, Spezialisten und Behörden\n• Du pflegst den Kontakt zu externen Gesundheitsstellen\n• Du erledigst sämtliche administrativen Aufgaben im medizinischen Bereich, inklusive Bewirtschaftung der medizinischen Dossiers sowie Ablage und Verwaltung von Berichten\n\nWas dich auszeichnet:\n\n• Abgeschlossene Ausbildung als Pflegefachperson HF mit Berufserfahrung\n• Professioneller Umgang mit Menschen in herausfordernden Lebenslagen\n• Klare, respektvolle Kommunikation sowie eine offene Haltung gegenüber Menschen aus unterschiedlichen Kulturen\n• Auch in hektischen Situationen bewahrst du einen kühlen Kopf, setzt Prioritäten und reagierst flexibel auf Veränderungen\n• Sicherer Umgang mit MS Office; Fremdsprachenkenntnisse sind ein Plus\n\nWas wir bieten:\n\n• Geregelte Arbeitszeiten von Montag bis Freitag, 08:00 bis 17:00 Uhr - ideal für deine Work-Life-Balance\n• Eine familiäre Atmosphäre mit gelebter Du-Kultur\n• Ein motiviertes, interdisziplinäres Team\n• Vielfältige Möglichkeiten zur fachlichen und persönlichen Weiterbildung\n• Vergünstigtes Ostwind-Abo für deine Mobilität\n• Parkier- sowie Verpflegungsmöglichkeiten vor Ort vorhanden\n\n• Pensum: 40-50%\n• Standort: Oberbüren\n• Bewerbung über das offizielle Stellenportal des Kantons St. Gallen (https://www.sg.ch/ueber-den-kanton-st-gallen/arbeitgeber-kanton-stgallen/stellenportal.html)",
@@ -948,14 +1030,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:10.364Z"
+      "firstSeenAt": "2026-07-04T11:09:10.364Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-ca80280557fd",
-      "slug": "lernende-n-fachfrau-fachmann-betriebsunterhalt-efz-kanton-st-gallen-ch",
+      "slug": "apprendista-n-fachfrau-fachmann-betriebsunterhalt-cfc-kanton-st-gallen-rorschach",
       "slugByLocale": {
         "de": "lernende-n-fachfrau-fachmann-betriebsunterhalt-efz-kanton-st-gallen-ch",
-        "it": "lernende-n-fachfrau-fachmann-betriebsunterhalt-efz-kanton-st-gallen-ch",
+        "it": "apprendista-n-fachfrau-fachmann-betriebsunterhalt-cfc-kanton-st-gallen-rorschach",
         "en": "lernende-n-fachfrau-fachmann-betriebsunterhalt-efz-kanton-st-gallen-ch",
         "fr": "lernende-n-fachfrau-fachmann-betriebsunterhalt-efz-kanton-st-gallen-ch"
       },
@@ -1014,14 +1104,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:09.484Z"
+      "firstSeenAt": "2026-07-04T11:09:09.484Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-n-fachfrau-fachmann-betriebsunterhalt-efz-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-n-fachfrau-fachmann-betriebsunterhalt-efz-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-c99df1b958a5",
-      "slug": "mitarbeitende-r-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch",
+      "slug": "dipendente-del-servizio-di-manutenzione-stradale-l-f-d-kanton-st-gallen-thal",
       "slugByLocale": {
         "de": "mitarbeitende-r-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch",
-        "it": "mitarbeitende-r-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch",
+        "it": "dipendente-del-servizio-di-manutenzione-stradale-l-f-d-kanton-st-gallen-thal",
         "en": "mitarbeitende-r-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch",
         "fr": "mitarbeitende-r-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch"
       },
@@ -1031,7 +1129,7 @@
       "title": "Mitarbeitende/r Strassenunterhaltsdienst (m/w/d)",
       "titleByLocale": {
         "de": "Mitarbeitende/r Strassenunterhaltsdienst (m/w/d)",
-        "it": "Mitarbeitende/r Strassenunterhaltsdienst (m/w/d)",
+        "it": "Dipendente del servizio di manutenzione stradale (l/f/d)",
         "en": "Mitarbeitende/r Strassenunterhaltsdienst (m/w/d)",
         "fr": "Mitarbeitende/r Strassenunterhaltsdienst (m/w/d)"
       },
@@ -1080,14 +1178,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:08.602Z"
+      "firstSeenAt": "2026-07-04T11:09:08.602Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitende-r-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeitende-r-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-e6f6880ce7a5",
-      "slug": "juristin-juristen-m-w-d-kanton-st-gallen-ch",
+      "slug": "avvocato-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "praktikum-in-der-kommunikation-100-kanton-aargau-ch",
-        "it": "juristin-juristen-m-w-d-kanton-st-gallen-ch",
+        "it": "avvocato-m-f-d-kanton-st-gallen-st-gallen",
         "en": "juristin-juristen-m-w-d-kanton-st-gallen-ch",
         "fr": "juristin-juristen-m-w-d-kanton-st-gallen-ch"
       },
@@ -1097,7 +1203,7 @@
       "title": "Juristin/Juristen (m/w/d)",
       "titleByLocale": {
         "de": "Juristin/Juristen (m/w/d)",
-        "it": "Juristin/Juristen (m/w/d)",
+        "it": "Avvocato (m/f/d)",
         "en": "Juristin/Juristen (m/w/d)",
         "fr": "Juristin/Juristen (m/w/d)"
       },
@@ -1146,14 +1252,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:07.709Z"
+      "firstSeenAt": "2026-07-04T11:09:07.709Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristin-juristen-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juristin-juristen-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-f2e684573128",
-      "slug": "projektleitung-rheinunternehmen-m-w-d-kanton-st-gallen-ch",
+      "slug": "gestione-progetti-rhine-company-l-f-d-kanton-st-gallen-widnau",
       "slugByLocale": {
         "de": "projektleitung-rheinunternehmen-m-w-d-kanton-st-gallen-ch",
-        "it": "projektleitung-rheinunternehmen-m-w-d-kanton-st-gallen-ch",
+        "it": "gestione-progetti-rhine-company-l-f-d-kanton-st-gallen-widnau",
         "en": "projektleitung-rheinunternehmen-m-w-d-kanton-st-gallen-ch",
         "fr": "projektleitung-rheinunternehmen-m-w-d-kanton-st-gallen-ch"
       },
@@ -1163,7 +1277,7 @@
       "title": "Projektleitung Rheinunternehmen (m/w/d)",
       "titleByLocale": {
         "de": "Projektleitung Rheinunternehmen (m/w/d)",
-        "it": "Projektleitung Rheinunternehmen (m/w/d)",
+        "it": "Gestione Progetti Rhine Company (l/f/d)",
         "en": "Projektleitung Rheinunternehmen (m/w/d)",
         "fr": "Projektleitung Rheinunternehmen (m/w/d)"
       },
@@ -1212,14 +1326,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:06.809Z"
+      "firstSeenAt": "2026-07-04T11:09:06.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleitung-rheinunternehmen-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektleitung-rheinunternehmen-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-958d981dbccb",
-      "slug": "juristische-n-sachbearbeiter-in-m-w-d-kanton-st-gallen-ch",
+      "slug": "assistente-legale-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "juristische-n-sachbearbeiter-in-m-w-d-kanton-st-gallen-ch",
-        "it": "juristische-n-sachbearbeiter-in-m-w-d-kanton-st-gallen-ch",
+        "it": "assistente-legale-m-f-d-kanton-st-gallen-st-gallen",
         "en": "juristische-n-sachbearbeiter-in-m-w-d-kanton-st-gallen-ch",
         "fr": "juristische-n-sachbearbeiter-in-m-w-d-kanton-st-gallen-ch"
       },
@@ -1229,7 +1351,7 @@
       "title": "Juristische/n Sachbearbeiter/in (m/w/d)",
       "titleByLocale": {
         "de": "Juristische/n Sachbearbeiter/in (m/w/d)",
-        "it": "Juristische/n Sachbearbeiter/in (m/w/d)",
+        "it": "Assistente legale (m/f/d)",
         "en": "Juristische/n Sachbearbeiter/in (m/w/d)",
         "fr": "Juristische/n Sachbearbeiter/in (m/w/d)"
       },
@@ -1278,14 +1400,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:05.939Z"
+      "firstSeenAt": "2026-07-04T11:09:05.939Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristische-n-sachbearbeiter-in-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juristische-n-sachbearbeiter-in-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-dc290be0196f",
-      "slug": "juristin-juristen-m-w-d-kanton-st-gallen-ch-2",
+      "slug": "avvocato-m-f-d-kanton-st-gallen-st-gallen-7f2d7d",
       "slugByLocale": {
         "de": "juristin-juristen-m-w-d-kanton-st-gallen-ch",
-        "it": "juristin-juristen-m-w-d-kanton-st-gallen-ch-2",
+        "it": "avvocato-m-f-d-kanton-st-gallen-st-gallen-7f2d7d",
         "en": "juristin-juristen-m-w-d-kanton-st-gallen-ch-2",
         "fr": "juristin-juristen-m-w-d-kanton-st-gallen-ch-2"
       },
@@ -1295,7 +1425,7 @@
       "title": "Juristin/Juristen (m/w/d)",
       "titleByLocale": {
         "de": "Juristin/Juristen (m/w/d)",
-        "it": "Juristin/Juristen (m/w/d)",
+        "it": "Avvocato (m/f/d)",
         "en": "Juristin/Juristen (m/w/d)",
         "fr": "Juristin/Juristen (m/w/d)"
       },
@@ -1334,11 +1464,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "juristin-juristen-m-w-d-kanton-st-gallen-ch"
+          "juristin-juristen-m-w-d-kanton-st-gallen-ch",
+          "juristin-juristen-m-w-d-kanton-st-gallen-ch-2"
         ]
       },
       "previousSlugs": [
-        "juristin-juristen-m-w-d-kanton-st-gallen-ch"
+        "juristin-juristen-m-w-d-kanton-st-gallen-ch",
+        "juristin-juristen-m-w-d-kanton-st-gallen-ch-2"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1356,10 +1488,10 @@
     },
     {
       "id": "kanton-st-gallen-0ade83ac18c3",
-      "slug": "reinigungsfachperson-m-w-d-kanton-st-gallen-sargans",
+      "slug": "specialista-nelle-pulizie-lun-f-d-kanton-st-gallen-sargans",
       "slugByLocale": {
         "de": "reinigungsfachperson-m-w-d-kanton-st-gallen-ch",
-        "it": "reinigungsfachperson-m-w-d-kanton-st-gallen-sargans",
+        "it": "specialista-nelle-pulizie-lun-f-d-kanton-st-gallen-sargans",
         "en": "reinigungsfachperson-m-w-d-kanton-st-gallen-sargans",
         "fr": "reinigungsfachperson-m-w-d-kanton-st-gallen-sargans"
       },
@@ -1369,7 +1501,7 @@
       "title": "Reinigungsfachperson (m/w/d)",
       "titleByLocale": {
         "de": "Reinigungsfachperson (m/w/d)",
-        "it": "Reinigungsfachperson (m/w/d)",
+        "it": "Specialista nelle pulizie (lun/f/d)",
         "en": "Reinigungsfachperson (m/w/d)",
         "fr": "Reinigungsfachperson (m/w/d)"
       },
@@ -1408,11 +1540,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "reinigungsfachperson-m-w-d-kanton-st-gallen-ch"
+          "reinigungsfachperson-m-w-d-kanton-st-gallen-ch",
+          "reinigungsfachperson-m-w-d-kanton-st-gallen-sargans"
         ]
       },
       "previousSlugs": [
-        "reinigungsfachperson-m-w-d-kanton-st-gallen-ch"
+        "reinigungsfachperson-m-w-d-kanton-st-gallen-ch",
+        "reinigungsfachperson-m-w-d-kanton-st-gallen-sargans"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1430,10 +1564,10 @@
     },
     {
       "id": "kanton-st-gallen-fec6164135db",
-      "slug": "revierforster-in-m-w-d-kanton-st-gallen-ch",
+      "slug": "forestale-distrettuale-li-f-d-kanton-st-gallen-kaltbrunn",
       "slugByLocale": {
         "de": "revierforster-in-m-w-d-kanton-st-gallen-ch",
-        "it": "revierforster-in-m-w-d-kanton-st-gallen-ch",
+        "it": "forestale-distrettuale-li-f-d-kanton-st-gallen-kaltbrunn",
         "en": "revierforster-in-m-w-d-kanton-st-gallen-ch",
         "fr": "revierforster-in-m-w-d-kanton-st-gallen-ch"
       },
@@ -1443,7 +1577,7 @@
       "title": "Revierförster/in (m/w/d)",
       "titleByLocale": {
         "de": "Revierförster/in (m/w/d)",
-        "it": "Revierförster/in (m/w/d)",
+        "it": "Forestale distrettuale (lì/f/d)",
         "en": "Revierförster/in (m/w/d)",
         "fr": "Revierförster/in (m/w/d)"
       },
@@ -1492,14 +1626,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:03.279Z"
+      "firstSeenAt": "2026-07-04T11:09:03.279Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "revierforster-in-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "revierforster-in-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-0ec69856edd8",
-      "slug": "praktikant-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch",
+      "slug": "tirocinante-presso-il-tribunale-distrettuale-di-wil-f-f-d-kanton-st-gallen-flawil",
       "slugByLocale": {
         "de": "projektleiterin-projektleiter-strassenbau-80-100-kanton-aargau-ch",
-        "it": "praktikant-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch",
+        "it": "tirocinante-presso-il-tribunale-distrettuale-di-wil-f-f-d-kanton-st-gallen-flawil",
         "en": "praktikant-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch",
         "fr": "praktikant-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch"
       },
@@ -1509,7 +1651,7 @@
       "title": "Praktikant/in Kreisgericht Wil (m/w/d)",
       "titleByLocale": {
         "de": "Praktikant/in Kreisgericht Wil (m/w/d)",
-        "it": "Praktikant/in Kreisgericht Wil (m/w/d)",
+        "it": "Tirocinante presso il Tribunale Distrettuale di Wil (f/f/d)",
         "en": "Praktikant/in Kreisgericht Wil (m/w/d)",
         "fr": "Praktikant/in Kreisgericht Wil (m/w/d)"
       },
@@ -1558,14 +1700,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:02.391Z"
+      "firstSeenAt": "2026-07-04T11:09:02.391Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-64bbf559bbfc",
-      "slug": "steuerkommissar-in-naturliche-personen-np-plus-m-w-d-kanton-st-gallen-ch",
+      "slug": "commissario-delle-tasse-per-le-persone-fisiche-np-plus-l-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "steuerkommissar-in-naturliche-personen-np-plus-m-w-d-kanton-st-gallen-ch",
-        "it": "steuerkommissar-in-naturliche-personen-np-plus-m-w-d-kanton-st-gallen-ch",
+        "it": "commissario-delle-tasse-per-le-persone-fisiche-np-plus-l-f-d-kanton-st-gallen-st-gallen",
         "en": "steuerkommissar-in-naturliche-personen-np-plus-m-w-d-kanton-st-gallen-ch",
         "fr": "steuerkommissar-in-naturliche-personen-np-plus-m-w-d-kanton-st-gallen-ch"
       },
@@ -1575,7 +1725,7 @@
       "title": "Steuerkommissär/in Natürliche Personen NP Plus (m/w/d)",
       "titleByLocale": {
         "de": "Steuerkommissär/in Natürliche Personen NP Plus (m/w/d)",
-        "it": "Steuerkommissär/in Natürliche Personen NP Plus (m/w/d)",
+        "it": "Commissario delle Tasse per le Persone Fisiche NP Plus (l/f/d)",
         "en": "Steuerkommissär/in Natürliche Personen NP Plus (m/w/d)",
         "fr": "Steuerkommissär/in Natürliche Personen NP Plus (m/w/d)"
       },
@@ -1624,14 +1774,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:01.505Z"
+      "firstSeenAt": "2026-07-04T11:09:01.505Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "steuerkommissar-in-naturliche-personen-np-plus-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "steuerkommissar-in-naturliche-personen-np-plus-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-293e60e4ae1d",
-      "slug": "raumplaner-in-m-w-d-kanton-st-gallen-ch",
+      "slug": "pianificatore-di-camere-lunedi-merdi-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "raumplaner-in-m-w-d-kanton-st-gallen-ch",
-        "it": "raumplaner-in-m-w-d-kanton-st-gallen-ch",
+        "it": "pianificatore-di-camere-lunedi-merdi-d-kanton-st-gallen-st-gallen",
         "en": "raumplaner-in-m-w-d-kanton-st-gallen-ch",
         "fr": "raumplaner-in-m-w-d-kanton-st-gallen-ch"
       },
@@ -1641,7 +1799,7 @@
       "title": "Raumplaner/in (m/w/d)",
       "titleByLocale": {
         "de": "Raumplaner/in (m/w/d)",
-        "it": "Raumplaner/in (m/w/d)",
+        "it": "Pianificatore di Camere (lunedì/merdì/d)",
         "en": "Raumplaner/in (m/w/d)",
         "fr": "Raumplaner/in (m/w/d)"
       },
@@ -1690,7 +1848,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:09:00.593Z"
+      "firstSeenAt": "2026-07-04T11:09:00.593Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "raumplaner-in-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "raumplaner-in-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-1de18e38f5b5",
@@ -1842,10 +2008,10 @@
     },
     {
       "id": "kanton-st-gallen-0b23a19bd37c",
-      "slug": "personalberater-in-rav-st-gallen-m-w-d-kanton-st-gallen-ch",
+      "slug": "consulente-del-personale-rav-st-gallen-l-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "personalberater-in-rav-st-gallen-m-w-d-kanton-st-gallen-ch",
-        "it": "personalberater-in-rav-st-gallen-m-w-d-kanton-st-gallen-ch",
+        "it": "consulente-del-personale-rav-st-gallen-l-f-d-kanton-st-gallen-st-gallen",
         "en": "personalberater-in-rav-st-gallen-m-w-d-kanton-st-gallen-ch",
         "fr": "personalberater-in-rav-st-gallen-m-w-d-kanton-st-gallen-ch"
       },
@@ -1855,7 +2021,7 @@
       "title": "Personalberater/in RAV St.Gallen (m/w/d)",
       "titleByLocale": {
         "de": "Personalberater/in RAV St.Gallen (m/w/d)",
-        "it": "Personalberater/in RAV St.Gallen (m/w/d)",
+        "it": "Consulente del personale RAV St.Gallen (l/f/d)",
         "en": "Personalberater/in RAV St.Gallen (m/w/d)",
         "fr": "Personalberater/in RAV St.Gallen (m/w/d)"
       },
@@ -1904,14 +2070,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:57.948Z"
+      "firstSeenAt": "2026-07-04T11:08:57.948Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalberater-in-rav-st-gallen-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "personalberater-in-rav-st-gallen-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-c5b8c46dda5e",
-      "slug": "rektor-in-m-w-d-kanton-st-gallen-ch",
+      "slug": "rettore-m-f-d-kanton-st-gallen-rorschach-altstatten",
       "slugByLocale": {
         "de": "rektor-in-m-w-d-kanton-st-gallen-ch",
-        "it": "rektor-in-m-w-d-kanton-st-gallen-ch",
+        "it": "rettore-m-f-d-kanton-st-gallen-rorschach-altstatten",
         "en": "rektor-in-m-w-d-kanton-st-gallen-ch",
         "fr": "rektor-in-m-w-d-kanton-st-gallen-ch"
       },
@@ -1921,7 +2095,7 @@
       "title": "Rektor/in (m/w/d)",
       "titleByLocale": {
         "de": "Rektor/in (m/w/d)",
-        "it": "Rektor/in (m/w/d)",
+        "it": "Rettore (m/f/d)",
         "en": "Rektor/in (m/w/d)",
         "fr": "Rektor/in (m/w/d)"
       },
@@ -1970,14 +2144,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:57.091Z"
+      "firstSeenAt": "2026-07-04T11:08:57.091Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rektor-in-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rektor-in-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-f9fd89e6c0d0",
-      "slug": "sozialarbeiterin-sozialarbeiter-fh-m-w-d-kanton-st-gallen-ch",
+      "slug": "assistente-sociale-fh-l-f-d-kanton-st-gallen-altstatten",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-fh-m-w-d-kanton-st-gallen-ch",
-        "it": "sozialarbeiterin-sozialarbeiter-fh-m-w-d-kanton-st-gallen-ch",
+        "it": "assistente-sociale-fh-l-f-d-kanton-st-gallen-altstatten",
         "en": "sozialarbeiterin-sozialarbeiter-fh-m-w-d-kanton-st-gallen-ch",
         "fr": "sozialarbeiterin-sozialarbeiter-fh-m-w-d-kanton-st-gallen-ch"
       },
@@ -1987,7 +2169,7 @@
       "title": "Sozialarbeiterin / Sozialarbeiter FH (m/w/d)",
       "titleByLocale": {
         "de": "Sozialarbeiterin / Sozialarbeiter FH (m/w/d)",
-        "it": "Sozialarbeiterin / Sozialarbeiter FH (m/w/d)",
+        "it": "Assistente Sociale FH (l/f/d)",
         "en": "Sozialarbeiterin / Sozialarbeiter FH (m/w/d)",
         "fr": "Sozialarbeiterin / Sozialarbeiter FH (m/w/d)"
       },
@@ -2036,14 +2218,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:56.203Z"
+      "firstSeenAt": "2026-07-04T11:08:56.203Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiterin-sozialarbeiter-fh-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-fh-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-8222f8d5ec9a",
-      "slug": "steuerkommissar-in-juristische-personen-m-w-d-kanton-st-gallen-ch",
+      "slug": "entita-legali-del-commissario-delle-imposte-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "steuerkommissar-in-juristische-personen-m-w-d-kanton-st-gallen-ch",
-        "it": "steuerkommissar-in-juristische-personen-m-w-d-kanton-st-gallen-ch",
+        "it": "entita-legali-del-commissario-delle-imposte-m-f-d-kanton-st-gallen-st-gallen",
         "en": "steuerkommissar-in-juristische-personen-m-w-d-kanton-st-gallen-ch",
         "fr": "steuerkommissar-in-juristische-personen-m-w-d-kanton-st-gallen-ch"
       },
@@ -2053,7 +2243,7 @@
       "title": "Steuerkommissär/in Juristische Personen (m/w/d)",
       "titleByLocale": {
         "de": "Steuerkommissär/in Juristische Personen (m/w/d)",
-        "it": "Steuerkommissär/in Juristische Personen (m/w/d)",
+        "it": "Entità Legali del Commissario delle Imposte (m/f/d)",
         "en": "Steuerkommissär/in Juristische Personen (m/w/d)",
         "fr": "Steuerkommissär/in Juristische Personen (m/w/d)"
       },
@@ -2102,14 +2292,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:55.366Z"
+      "firstSeenAt": "2026-07-04T11:08:55.366Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "steuerkommissar-in-juristische-personen-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "steuerkommissar-in-juristische-personen-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-5a4237cada2c",
-      "slug": "landwirt-in-efz-m-w-d-kanton-st-gallen-ch",
+      "slug": "landwirt-in-cfc-m-w-d-kanton-st-gallen-9607-mosnang",
       "slugByLocale": {
         "de": "landwirt-in-efz-m-w-d-kanton-st-gallen-ch",
-        "it": "landwirt-in-efz-m-w-d-kanton-st-gallen-ch",
+        "it": "landwirt-in-cfc-m-w-d-kanton-st-gallen-9607-mosnang",
         "en": "landwirt-in-efz-m-w-d-kanton-st-gallen-ch",
         "fr": "landwirt-in-efz-m-w-d-kanton-st-gallen-ch"
       },
@@ -2168,14 +2366,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:54.481Z"
+      "firstSeenAt": "2026-07-04T11:08:54.481Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "landwirt-in-efz-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "landwirt-in-efz-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-d9e39e2140ba",
-      "slug": "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch",
+      "slug": "consulente-del-personale-rav-wil-m-f-d-kanton-st-gallen-wil",
       "slugByLocale": {
         "de": "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch",
-        "it": "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch",
+        "it": "consulente-del-personale-rav-wil-m-f-d-kanton-st-gallen-wil",
         "en": "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch",
         "fr": "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch"
       },
@@ -2185,7 +2391,7 @@
       "title": "Personalberater/in RAV Wil (m/w/d)",
       "titleByLocale": {
         "de": "Personalberater/in RAV Wil (m/w/d)",
-        "it": "Personalberater/in RAV Wil (m/w/d)",
+        "it": "Consulente del personale RAV Wil (m/f/d)",
         "en": "Personalberater/in RAV Wil (m/w/d)",
         "fr": "Personalberater/in RAV Wil (m/w/d)"
       },
@@ -2234,7 +2440,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:53.591Z"
+      "firstSeenAt": "2026-07-04T11:08:53.591Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-b5110397b8c3",
@@ -2304,10 +2518,10 @@
     },
     {
       "id": "kanton-st-gallen-9c12b33ed03a",
-      "slug": "praktikant-in-m-w-d-kanton-st-gallen-ch",
+      "slug": "stagista-lun-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "praktikant-in-m-w-d-kanton-st-gallen-ch",
-        "it": "praktikant-in-m-w-d-kanton-st-gallen-ch",
+        "it": "stagista-lun-f-d-kanton-st-gallen-st-gallen",
         "en": "praktikant-in-m-w-d-kanton-st-gallen-ch",
         "fr": "praktikant-in-m-w-d-kanton-st-gallen-ch"
       },
@@ -2317,7 +2531,7 @@
       "title": "Praktikant/in (m/w/d)",
       "titleByLocale": {
         "de": "Praktikant/in (m/w/d)",
-        "it": "Praktikant/in (m/w/d)",
+        "it": "Stagista (lun/f/d)",
         "en": "Praktikant/in (m/w/d)",
         "fr": "Praktikant/in (m/w/d)"
       },
@@ -2366,14 +2580,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:51.815Z"
+      "firstSeenAt": "2026-07-04T11:08:51.815Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-2c1180e531a3",
-      "slug": "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch",
+      "slug": "comandante-della-polizia-cantonale-f-m-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch",
-        "it": "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch",
+        "it": "comandante-della-polizia-cantonale-f-m-d-kanton-st-gallen-st-gallen",
         "en": "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch",
         "fr": "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch"
       },
@@ -2384,7 +2606,7 @@
       "titleByLocale": {
         "de": "Kommandantin / Kommandant Kantonspolizei (w/m/d)",
         "fr": "Kommandantin / Kommandant Kantonspolizei (w/m/d)",
-        "it": "Kommandantin / Kommandant Kantonspolizei (w/m/d)",
+        "it": "Comandante della Polizia Cantonale (f/m/d)",
         "en": "Kommandantin / Kommandant Kantonspolizei (w/m/d)"
       },
       "description": "Die Kantonspolizei sorgt mit ihren rund 1000 Mitarbeitenden, als Teil des Sicherheits- und Justizdepartements, rund um die Uhr für Ruhe, Sicherheit und Ordnung im Kanton St.Gallen.\n\nWas Sie erwartet:\n\n• Sie führen die Kantonspolizei in strategischer und operativer Hinsicht, in Zusammenarbeit mit der Geschäftsleitung der Kantonspolizei und in enger Abstimmung mit der Departementsleitung des Sicherheits- und Justizdepartementes\n• Sie entwickeln die Strategie der Kantonspolizei weiter, basierend auf der Schwerpunktplanung der Regierung und den strategischen Zielen des Sicherheits- und Justizdepartementes\n• Sie sorgen für eine zukunftsfähige Personal-, Organisations- und Kulturentwicklung der Kantonspolizei und setzen sich für die weitere Stärkung eines attraktiven und professionellen Polizeikorps ein\n• Sie schaffen optimale Rahmenbedingungen für das Polizeikorps und stellen die Voraussetzungen für eine effektive und effiziente Koordination zwischen allen Hauptabteilungen sowie für die fachtechnische Erfüllung aller Polizeiaufgaben sicher\n• Sie pflegen Kontakt zu Behörden, Partnerorganisationen und anderen Institutionen und vertreten die Interessen der Kantonspolizei St.Gallen in der Öffentlichkeit\n• In überregionalen und nationalen Gremien sowie Kommissionen, Fachgruppen und Projekten vertreten Sie die Kantonspolizei St.Gallen und setzen sich für eine gewinnbringende und zukunftsgerichtete Zusammenarbeit ein\n\nWas Sie auszeichnet:\n\n• Sie verfügen über ein abgeschlossenes Hochschulstudium, vorzugsweise mit rechts- oder betriebswirtschaftlichem Schwerpunkt\n• Sie bringen umfassende Führungsausbildung und Führungserfahrung in grösseren Bereichen der Privatwirtschaft oder der öffentlichen Hand mit\n• Eine Offiziersausbildung bei der Polizei und/oder der Armee ist von Vorteil\n• Sie sind eine integre und teamfähige Persönlichkeit mit ausgeprägten Organisations- und Kommunikationsfähigkeiten, der es leicht fällt, über verschiedene Ebenen hinweg verbindend zu wirken und den positiven Austausch zu fördern\n• Sie haben Erfahrung in der Entwicklung und Umsetzung von neuen Strategien und der Realisierung von entsprechenden Projekten\n• Vorzugsweise bringen Sie Kenntnisse in zukunftsfähigen Entwicklungen im Sicherheitsbereich bzw. der Polizei mit\n• Sie zeichnet eine hohe Motivation, Einsatzfreude sowie Belastbarkeit aus\n\nWas wir bieten:\n\n• Eine anspruchsvolle und vielseitige Führungsfunktion\n• Ein aussergewöhnliches und sinnstiftendes Arbeitsumfeld mit überaus engagierten Mitarbeitenden\n• Die Möglichkeit, ein modernes und professionelles Polizeikorps in die Zukunft zu begleiten\n• Einblick in die Vielseitigkeit des Sicherheits- und Justizdepartements sowie Mitgestaltungsmöglichkeiten als Teil des obersten Kaders\n\nKontakt: Für ergänzende Auskünfte zur Aufgabe steht Ihnen Regierungsrat Christof Hartmann, Vorsteher des Sicherheits- und Justizdepartements (Telefon 058 229 36 00), gerne zur Verfügung. Für Fragen zum Rekrutierungsprozess können Sie sich an Michel Müglich, Leiter Personalamt (Telefon 058 229 65 39) wenden.\n\n• Pensum: 100%\n• Standort: St. Gallen\n• Bewerbung über das offizielle Stellenportal des Kantons St. Gallen (https://www.sg.ch/ueber-den-kanton-st-gallen/arbeitgeber-kanton-stgallen/stellenportal.html)",
@@ -2432,14 +2654,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:50.948Z"
+      "firstSeenAt": "2026-07-04T11:08:50.948Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-7e1b3acd9ee5",
-      "slug": "lehrperson-sport-m-w-d-kanton-st-gallen-ch",
+      "slug": "insegnanti-sport-lun-f-d-kanton-st-gallen-st-gallen-und-rheineck",
       "slugByLocale": {
         "de": "lehrperson-sport-m-w-d-kanton-st-gallen-ch",
-        "it": "lehrperson-sport-m-w-d-kanton-st-gallen-ch",
+        "it": "insegnanti-sport-lun-f-d-kanton-st-gallen-st-gallen-und-rheineck",
         "en": "lehrperson-sport-m-w-d-kanton-st-gallen-ch",
         "fr": "lehrperson-sport-m-w-d-kanton-st-gallen-ch"
       },
@@ -2450,7 +2680,7 @@
       "titleByLocale": {
         "de": "Lehrperson Sport (m/w/d)",
         "en": "Lehrperson Sport (m/w/d)",
-        "it": "Lehrperson Sport (m/w/d)",
+        "it": "Insegnanti Sport (lun/f/d)",
         "fr": "Lehrperson Sport (m/w/d)"
       },
       "description": "Das Berufs- und Weiterbildungszentrum für Gesundheits- und Sozialberufe St.Gallen – BZGS – bildet rund 3’000 Lernende und Studierende in verschiedenen Berufen der Grund- und Weiterbildung in den Bereichen Gesundheit, Soziales und Hauswirtschaft aus. Das BZGS ist ein dynamisches und innovatives Kompetenzzentrum.\n\nWas Sie erwartet:\n\n• Erfüllen des Berufsauftrages für Lehrpersonen an Berufsfachschulen im Fachbereich Sport\n• Sportunterricht gemäss Schullehrplan an den Standorten Rheineck und St.Gallen\n\nWas Sie auszeichnet:\n\n• Lehrbefähigung Sekundarstufe II\n• kommunikative Persönlichkeit mit ausgeprägter Sozialkompetenz\n• versierter Umgang mit ICT\n• Verfügbarkeit an folgenden Wochentagen: Mittwoch und Freitag (allenfalls Montag)\n\nWas wir bieten:\n\n• befristete Anstellung vom 1. August 2026 bis 31. Juli 2027\n• attraktive Stelle im Rahmen kantonaler Anstellungsbedingungen\n• motiviertes Umfeld\n• zeitgemässe Infrastruktur\n\nKontakt: Joel Scheffler\n\n• Standort: St. Gallen und Rheineck\n• Bewerbung über das offizielle Stellenportal des Kantons St. Gallen (https://www.sg.ch/ueber-den-kanton-st-gallen/arbeitgeber-kanton-stgallen/stellenportal.html)",
@@ -2498,7 +2728,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:50.066Z"
+      "firstSeenAt": "2026-07-04T11:08:50.066Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-sport-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-sport-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-17249641d56a",
@@ -2576,10 +2814,10 @@
     },
     {
       "id": "kanton-st-gallen-5fa5a9e90245",
-      "slug": "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch",
+      "slug": "revisore-tirocinante-legale-m-f-d-kanton-st-gallen-rapperswil-jona",
       "slugByLocale": {
         "de": "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch",
-        "it": "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch",
+        "it": "revisore-tirocinante-legale-m-f-d-kanton-st-gallen-rapperswil-jona",
         "en": "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch",
         "fr": "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch"
       },
@@ -2589,7 +2827,7 @@
       "title": "Auditor/in (juristische/r Praktikant/in) (m/w/d)",
       "titleByLocale": {
         "de": "Auditor/in (juristische/r Praktikant/in) (m/w/d)",
-        "it": "Auditor/in (juristische/r Praktikant/in) (m/w/d)",
+        "it": "Revisore (tirocinante legale) (m/f/d)",
         "en": "Auditor/in (juristische/r Praktikant/in) (m/w/d)",
         "fr": "Auditor/in (juristische/r Praktikant/in) (m/w/d)"
       },
@@ -2638,14 +2876,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:48.291Z"
+      "firstSeenAt": "2026-07-04T11:08:48.291Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-eba1c952da17",
-      "slug": "fachperson-behinderung-m-w-d-kanton-st-gallen-ch",
+      "slug": "specialista-per-la-disabilita-l-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "fachperson-behinderung-m-w-d-kanton-st-gallen-ch",
-        "it": "fachperson-behinderung-m-w-d-kanton-st-gallen-ch",
+        "it": "specialista-per-la-disabilita-l-f-d-kanton-st-gallen-st-gallen",
         "en": "fachperson-behinderung-m-w-d-kanton-st-gallen-ch",
         "fr": "fachperson-behinderung-m-w-d-kanton-st-gallen-ch"
       },
@@ -2655,7 +2901,7 @@
       "title": "Fachperson Behinderung (m/w/d)",
       "titleByLocale": {
         "de": "Fachperson Behinderung (m/w/d)",
-        "it": "Fachperson Behinderung (m/w/d)",
+        "it": "Specialista per la Disabilità (l/f/d)",
         "en": "Fachperson Behinderung (m/w/d)",
         "fr": "Fachperson Behinderung (m/w/d)"
       },
@@ -2704,14 +2950,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:47.400Z"
+      "firstSeenAt": "2026-07-04T11:08:47.400Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-behinderung-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-behinderung-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-07a3c66b6145",
-      "slug": "fachperson-gesundheit-hf-fage-mpa-kanton-st-gallen-ch",
+      "slug": "specialista-in-salute-hf-fage-mpa-kanton-st-gallen-amden",
       "slugByLocale": {
         "de": "fachperson-gesundheit-hf-fage-mpa-kanton-st-gallen-ch",
-        "it": "fachperson-gesundheit-hf-fage-mpa-kanton-st-gallen-ch",
+        "it": "specialista-in-salute-hf-fage-mpa-kanton-st-gallen-amden",
         "en": "fachperson-gesundheit-hf-fage-mpa-kanton-st-gallen-ch",
         "fr": "fachperson-gesundheit-hf-fage-mpa-kanton-st-gallen-ch"
       },
@@ -2721,7 +2975,7 @@
       "title": "Fachperson Gesundheit (HF / FaGe / MPA)",
       "titleByLocale": {
         "de": "Fachperson Gesundheit (HF / FaGe / MPA)",
-        "it": "Fachperson Gesundheit (HF / FaGe / MPA)",
+        "it": "Specialista in Salute (HF / FaGe / MPA)",
         "en": "Fachperson Gesundheit (HF / FaGe / MPA)",
         "fr": "Fachperson Gesundheit (HF / FaGe / MPA)"
       },
@@ -2770,7 +3024,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:46.528Z"
+      "firstSeenAt": "2026-07-04T11:08:46.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-hf-fage-mpa-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-hf-fage-mpa-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-8ad93a053a4e",
@@ -2848,10 +3110,10 @@
     },
     {
       "id": "kanton-st-gallen-2615ea8cffda",
-      "slug": "juristische-praktikantin-juristischen-praktikanten-auditor-in-kanton-st-gallen-ch",
+      "slug": "tirocinante-legale-revisore-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "juristische-praktikantin-juristischen-praktikanten-auditor-in-kanton-st-gallen-ch",
-        "it": "juristische-praktikantin-juristischen-praktikanten-auditor-in-kanton-st-gallen-ch",
+        "it": "tirocinante-legale-revisore-kanton-st-gallen-st-gallen",
         "en": "juristische-praktikantin-juristischen-praktikanten-auditor-in-kanton-st-gallen-ch",
         "fr": "juristische-praktikantin-juristischen-praktikanten-auditor-in-kanton-st-gallen-ch"
       },
@@ -2861,7 +3123,7 @@
       "title": "Juristische Praktikantin/Juristischen Praktikanten (Auditor/-in)",
       "titleByLocale": {
         "de": "Juristische Praktikantin/Juristischen Praktikanten (Auditor/-in)",
-        "it": "Juristische Praktikantin/Juristischen Praktikanten (Auditor/-in)",
+        "it": "Tirocinante legale (revisore)",
         "en": "Juristische Praktikantin/Juristischen Praktikanten (Auditor/-in)",
         "fr": "Juristische Praktikantin/Juristischen Praktikanten (Auditor/-in)"
       },
@@ -2910,14 +3172,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:44.733Z"
+      "firstSeenAt": "2026-07-04T11:08:44.733Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristische-praktikantin-juristischen-praktikanten-auditor-in-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juristische-praktikantin-juristischen-praktikanten-auditor-in-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-325df37590db",
-      "slug": "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-2",
+      "slug": "revisore-tirocinante-legale-m-f-d-kanton-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch",
-        "it": "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-2",
+        "it": "revisore-tirocinante-legale-m-f-d-kanton-st-gallen-wil-sg",
         "en": "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-2",
         "fr": "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-2"
       },
@@ -2927,7 +3197,7 @@
       "title": "Auditor/in (juristische/r Praktikant/in) (m/w/d)",
       "titleByLocale": {
         "de": "Auditor/in (juristische/r Praktikant/in) (m/w/d)",
-        "it": "Auditor/in (juristische/r Praktikant/in) (m/w/d)",
+        "it": "Revisore (tirocinante legale) (m/f/d)",
         "en": "Auditor/in (juristische/r Praktikant/in) (m/w/d)",
         "fr": "Auditor/in (juristische/r Praktikant/in) (m/w/d)"
       },
@@ -2966,11 +3236,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch"
+          "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch",
+          "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-2"
         ]
       },
       "previousSlugs": [
-        "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch"
+        "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch",
+        "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-2"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -2988,10 +3260,10 @@
     },
     {
       "id": "kanton-st-gallen-431ff30910af",
-      "slug": "projektleitung-agglomerationsprogramme-m-w-d-kanton-st-gallen-ch",
+      "slug": "programmi-di-agglomerazione-per-la-gestione-dei-progetti-l-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "projektleitung-agglomerationsprogramme-m-w-d-kanton-st-gallen-ch",
-        "it": "projektleitung-agglomerationsprogramme-m-w-d-kanton-st-gallen-ch",
+        "it": "programmi-di-agglomerazione-per-la-gestione-dei-progetti-l-f-d-kanton-st-gallen-st-gallen",
         "en": "projektleitung-agglomerationsprogramme-m-w-d-kanton-st-gallen-ch",
         "fr": "projektleitung-agglomerationsprogramme-m-w-d-kanton-st-gallen-ch"
       },
@@ -3001,7 +3273,7 @@
       "title": "Projektleitung Agglomerationsprogramme (m/w/d)",
       "titleByLocale": {
         "de": "Projektleitung Agglomerationsprogramme (m/w/d)",
-        "it": "Projektleitung Agglomerationsprogramme (m/w/d)",
+        "it": "Programmi di Agglomerazione per la Gestione dei Progetti (l/f/d)",
         "en": "Projektleitung Agglomerationsprogramme (m/w/d)",
         "fr": "Projektleitung Agglomerationsprogramme (m/w/d)"
       },
@@ -3050,7 +3322,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:43.259Z"
+      "firstSeenAt": "2026-07-04T11:08:43.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleitung-agglomerationsprogramme-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektleitung-agglomerationsprogramme-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-18743fe6b75e",
@@ -3204,10 +3484,10 @@
     },
     {
       "id": "kanton-st-gallen-bc1cc3a33b59",
-      "slug": "leitende-staatsanwaltin-leitenden-staatsanwalt-kanton-st-gallen-ch",
+      "slug": "procuratore-pubblico-senior-kanton-st-gallen-uznach",
       "slugByLocale": {
         "de": "leitende-staatsanwaltin-leitenden-staatsanwalt-kanton-st-gallen-ch",
-        "it": "leitende-staatsanwaltin-leitenden-staatsanwalt-kanton-st-gallen-ch",
+        "it": "procuratore-pubblico-senior-kanton-st-gallen-uznach",
         "en": "leitende-staatsanwaltin-leitenden-staatsanwalt-kanton-st-gallen-ch",
         "fr": "leitende-staatsanwaltin-leitenden-staatsanwalt-kanton-st-gallen-ch"
       },
@@ -3217,7 +3497,7 @@
       "title": "Leitende Staatsanwältin/Leitenden Staatsanwalt",
       "titleByLocale": {
         "de": "Leitende Staatsanwältin/Leitenden Staatsanwalt",
-        "it": "Leitende Staatsanwältin/Leitenden Staatsanwalt",
+        "it": "Procuratore Pubblico Senior",
         "en": "Leitende Staatsanwältin/Leitenden Staatsanwalt",
         "fr": "Leitende Staatsanwältin/Leitenden Staatsanwalt"
       },
@@ -3266,14 +3546,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:39.726Z"
+      "firstSeenAt": "2026-07-04T11:08:39.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-staatsanwaltin-leitenden-staatsanwalt-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-staatsanwaltin-leitenden-staatsanwalt-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-1750c0b89a93",
-      "slug": "personalberater-in-iiz-sargans-m-w-d-kanton-st-gallen-ch",
+      "slug": "consulente-del-personale-iiz-sargans-m-f-d-kanton-st-gallen-sargans",
       "slugByLocale": {
         "de": "personalberater-in-iiz-sargans-m-w-d-kanton-st-gallen-ch",
-        "it": "personalberater-in-iiz-sargans-m-w-d-kanton-st-gallen-ch",
+        "it": "consulente-del-personale-iiz-sargans-m-f-d-kanton-st-gallen-sargans",
         "en": "personalberater-in-iiz-sargans-m-w-d-kanton-st-gallen-ch",
         "fr": "personalberater-in-iiz-sargans-m-w-d-kanton-st-gallen-ch"
       },
@@ -3283,7 +3571,7 @@
       "title": "Personalberater/in IIZ Sargans (m/w/d)",
       "titleByLocale": {
         "de": "Personalberater/in IIZ Sargans (m/w/d)",
-        "it": "Personalberater/in IIZ Sargans (m/w/d)",
+        "it": "Consulente del personale IIZ Sargans (m/f/d)",
         "en": "Personalberater/in IIZ Sargans (m/w/d)",
         "fr": "Personalberater/in IIZ Sargans (m/w/d)"
       },
@@ -3332,7 +3620,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:37.948Z"
+      "firstSeenAt": "2026-07-04T11:08:37.948Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalberater-in-iiz-sargans-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "personalberater-in-iiz-sargans-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-b6cf99d759fb",
@@ -3410,10 +3706,10 @@
     },
     {
       "id": "kanton-st-gallen-fd99602be44f",
-      "slug": "sachbearbeiter-in-rechnungswesen-m-w-d-kanton-st-gallen-ch",
+      "slug": "impiegato-contabile-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "sachbearbeiter-in-rechnungswesen-m-w-d-kanton-st-gallen-ch",
-        "it": "sachbearbeiter-in-rechnungswesen-m-w-d-kanton-st-gallen-ch",
+        "it": "impiegato-contabile-m-f-d-kanton-st-gallen-st-gallen",
         "en": "sachbearbeiter-in-rechnungswesen-m-w-d-kanton-st-gallen-ch",
         "fr": "sachbearbeiter-in-rechnungswesen-m-w-d-kanton-st-gallen-ch"
       },
@@ -3423,7 +3719,7 @@
       "title": "Sachbearbeiter/in Rechnungswesen (m/w/d)",
       "titleByLocale": {
         "de": "Sachbearbeiter/in Rechnungswesen (m/w/d)",
-        "it": "Sachbearbeiter/in Rechnungswesen (m/w/d)",
+        "it": "Impiegato contabile (m/f/d)",
         "en": "Sachbearbeiter/in Rechnungswesen (m/w/d)",
         "fr": "Sachbearbeiter/in Rechnungswesen (m/w/d)"
       },
@@ -3472,7 +3768,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:36.496Z"
+      "firstSeenAt": "2026-07-04T11:08:36.496Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-rechnungswesen-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-rechnungswesen-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-73e167ee4254",
@@ -3550,10 +3854,10 @@
     },
     {
       "id": "kanton-st-gallen-c88425a80387",
-      "slug": "konkursbeamtin-konkursbeamter-m-w-d-kanton-st-gallen-ch",
+      "slug": "ufficiale-fallimentare-l-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "konkursbeamtin-konkursbeamter-m-w-d-kanton-st-gallen-ch",
-        "it": "konkursbeamtin-konkursbeamter-m-w-d-kanton-st-gallen-ch",
+        "it": "ufficiale-fallimentare-l-f-d-kanton-st-gallen-st-gallen",
         "en": "konkursbeamtin-konkursbeamter-m-w-d-kanton-st-gallen-ch",
         "fr": "konkursbeamtin-konkursbeamter-m-w-d-kanton-st-gallen-ch"
       },
@@ -3563,7 +3867,7 @@
       "title": "Konkursbeamtin/Konkursbeamter (m/w/d)",
       "titleByLocale": {
         "de": "Konkursbeamtin/Konkursbeamter (m/w/d)",
-        "it": "Konkursbeamtin/Konkursbeamter (m/w/d)",
+        "it": "Ufficiale Fallimentare (l/f/d)",
         "en": "Konkursbeamtin/Konkursbeamter (m/w/d)",
         "fr": "Konkursbeamtin/Konkursbeamter (m/w/d)"
       },
@@ -3612,14 +3916,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:35.509Z"
+      "firstSeenAt": "2026-07-04T11:08:35.509Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "konkursbeamtin-konkursbeamter-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "konkursbeamtin-konkursbeamter-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-c6084963f5a0",
-      "slug": "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-flawil",
+      "slug": "cancelliere-del-tribunale-distrettuale-wil-m-f-d-kanton-st-gallen-flawil",
       "slugByLocale": {
         "de": "schulpsychologin-schulpsychologe-80-kanton-aargau-ch",
-        "it": "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-flawil",
+        "it": "cancelliere-del-tribunale-distrettuale-wil-m-f-d-kanton-st-gallen-flawil",
         "en": "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-flawil",
         "fr": "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-flawil"
       },
@@ -3629,7 +3941,7 @@
       "title": "Sachbearbeiter/in Kreisgericht Wil (m/w/d)",
       "titleByLocale": {
         "de": "Sachbearbeiter/in Kreisgericht Wil (m/w/d)",
-        "it": "Sachbearbeiter/in Kreisgericht Wil (m/w/d)",
+        "it": "Cancelliere del Tribunale Distrettuale Wil (m/f/d)",
         "en": "Sachbearbeiter/in Kreisgericht Wil (m/w/d)",
         "fr": "Sachbearbeiter/in Kreisgericht Wil (m/w/d)"
       },
@@ -3669,7 +3981,8 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch",
-          "schulpsychologin-schulpsychologe-80-kanton-aargau-ch-2"
+          "schulpsychologin-schulpsychologe-80-kanton-aargau-ch-2",
+          "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-flawil"
         ],
         "de": [
           "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch"
@@ -3677,7 +3990,8 @@
       },
       "previousSlugs": [
         "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch",
-        "schulpsychologin-schulpsychologe-80-kanton-aargau-ch-2"
+        "schulpsychologin-schulpsychologe-80-kanton-aargau-ch-2",
+        "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-flawil"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3847,8 +4161,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-innovationsforderung-kanton-st-gallen-ch",
         "it": "responsabile-di-progetto-innovationsforderung-kanton-st-gallen",
-        "en": "projektleiter-in-innovationsforderung-kanton-st-gallen-ch",
-        "fr": "projektleiter-in-innovationsforderung-kanton-st-gallen-ch"
+        "en": "project-manager-innovationsforderung-kanton-st-gallen-st-gallen",
+        "fr": "chef-de-projet-innovationsforderung-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -3896,6 +4210,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-innovationsforderung-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "projektleiter-in-innovationsforderung-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "projektleiter-in-innovationsforderung-kanton-st-gallen-ch"
         ]
       },
       "previousSlugs": [
@@ -3917,10 +4237,10 @@
     },
     {
       "id": "kanton-st-gallen-c8e9092d181c",
-      "slug": "fachspezialist-in-tarife-m-w-d-kanton-st-gallen-ch",
+      "slug": "tariffe-specialistiche-lun-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "fachspezialist-in-tarife-m-w-d-kanton-st-gallen-ch",
-        "it": "fachspezialist-in-tarife-m-w-d-kanton-st-gallen-ch",
+        "it": "tariffe-specialistiche-lun-f-d-kanton-st-gallen-st-gallen",
         "en": "fachspezialist-in-tarife-m-w-d-kanton-st-gallen-ch",
         "fr": "fachspezialist-in-tarife-m-w-d-kanton-st-gallen-ch"
       },
@@ -3930,7 +4250,7 @@
       "title": "Fachspezialist/in Tarife (m/w/d)",
       "titleByLocale": {
         "de": "Fachspezialist/in Tarife (m/w/d)",
-        "it": "Fachspezialist/in Tarife (m/w/d)",
+        "it": "Tariffe Specialistiche (lun/f/d)",
         "en": "Fachspezialist/in Tarife (m/w/d)",
         "fr": "Fachspezialist/in Tarife (m/w/d)"
       },
@@ -3979,7 +4299,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:32.478Z"
+      "firstSeenAt": "2026-07-04T11:08:32.478Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-tarife-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-tarife-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-ea547f356f02",
@@ -4131,10 +4459,10 @@
     },
     {
       "id": "kanton-st-gallen-f6220b6da878",
-      "slug": "projektleitung-energie-m-w-d-kanton-st-gallen-ch",
+      "slug": "project-manager-energy-l-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "projektleitung-energie-m-w-d-kanton-st-gallen-ch",
-        "it": "projektleitung-energie-m-w-d-kanton-st-gallen-ch",
+        "it": "project-manager-energy-l-f-d-kanton-st-gallen-st-gallen",
         "en": "projektleitung-energie-m-w-d-kanton-st-gallen-ch",
         "fr": "projektleitung-energie-m-w-d-kanton-st-gallen-ch"
       },
@@ -4144,7 +4472,7 @@
       "title": "Projektleitung Energie (m/w/d)",
       "titleByLocale": {
         "de": "Projektleitung Energie (m/w/d)",
-        "it": "Projektleitung Energie (m/w/d)",
+        "it": "Project Manager Energy (l/f/d)",
         "en": "Projektleitung Energie (m/w/d)",
         "fr": "Projektleitung Energie (m/w/d)"
       },
@@ -4193,14 +4521,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:30.898Z"
+      "firstSeenAt": "2026-07-04T11:08:30.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleitung-energie-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektleitung-energie-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-eb50fcc1a720",
-      "slug": "gerichtsschreiber-in-kreisgericht-rorschach-m-w-d-kanton-st-gallen-ch",
+      "slug": "cancelliere-del-tribunale-distrettuale-di-rorschach-m-f-d-kanton-st-gallen-rorschach",
       "slugByLocale": {
         "de": "gerichtsschreiber-in-kreisgericht-rorschach-m-w-d-kanton-st-gallen-ch",
-        "it": "gerichtsschreiber-in-kreisgericht-rorschach-m-w-d-kanton-st-gallen-ch",
+        "it": "cancelliere-del-tribunale-distrettuale-di-rorschach-m-f-d-kanton-st-gallen-rorschach",
         "en": "gerichtsschreiber-in-kreisgericht-rorschach-m-w-d-kanton-st-gallen-ch",
         "fr": "gerichtsschreiber-in-kreisgericht-rorschach-m-w-d-kanton-st-gallen-ch"
       },
@@ -4210,7 +4546,7 @@
       "title": "Gerichtsschreiber/in Kreisgericht Rorschach (m/w/d)",
       "titleByLocale": {
         "de": "Gerichtsschreiber/in Kreisgericht Rorschach (m/w/d)",
-        "it": "Gerichtsschreiber/in Kreisgericht Rorschach (m/w/d)",
+        "it": "Cancelliere del Tribunale Distrettuale di Rorschach (m/f/d)",
         "en": "Gerichtsschreiber/in Kreisgericht Rorschach (m/w/d)",
         "fr": "Gerichtsschreiber/in Kreisgericht Rorschach (m/w/d)"
       },
@@ -4259,14 +4595,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:30.319Z"
+      "firstSeenAt": "2026-07-04T11:08:30.319Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gerichtsschreiber-in-kreisgericht-rorschach-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gerichtsschreiber-in-kreisgericht-rorschach-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-10aaf4e3668d",
-      "slug": "sachbearbeitung-empfang-helpdesk-m-w-d-kanton-st-gallen-ch",
+      "slug": "reception-receptiondesk-luni-fi-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "sachbearbeitung-empfang-helpdesk-m-w-d-kanton-st-gallen-ch",
-        "it": "sachbearbeitung-empfang-helpdesk-m-w-d-kanton-st-gallen-ch",
+        "it": "reception-receptiondesk-luni-fi-d-kanton-st-gallen-st-gallen",
         "en": "sachbearbeitung-empfang-helpdesk-m-w-d-kanton-st-gallen-ch",
         "fr": "sachbearbeitung-empfang-helpdesk-m-w-d-kanton-st-gallen-ch"
       },
@@ -4276,7 +4620,7 @@
       "title": "Sachbearbeitung Empfang/Helpdesk (m/w/d)",
       "titleByLocale": {
         "de": "Sachbearbeitung Empfang/Helpdesk (m/w/d)",
-        "it": "Sachbearbeitung Empfang/Helpdesk (m/w/d)",
+        "it": "Reception/Receptiondesk (luni/fì/d)",
         "en": "Sachbearbeitung Empfang/Helpdesk (m/w/d)",
         "fr": "Sachbearbeitung Empfang/Helpdesk (m/w/d)"
       },
@@ -4325,14 +4669,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:29.739Z"
+      "firstSeenAt": "2026-07-04T11:08:29.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeitung-empfang-helpdesk-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeitung-empfang-helpdesk-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-540594251e84",
-      "slug": "sozialarbeiterin-sozialarbeiter-80-100-kanton-st-gallen-ch",
+      "slug": "assistente-sociale-80-100-kanton-st-gallen-altstatten",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-80-100-kanton-st-gallen-ch",
-        "it": "sozialarbeiterin-sozialarbeiter-80-100-kanton-st-gallen-ch",
+        "it": "assistente-sociale-80-100-kanton-st-gallen-altstatten",
         "en": "sozialarbeiterin-sozialarbeiter-80-100-kanton-st-gallen-ch",
         "fr": "sozialarbeiterin-sozialarbeiter-80-100-kanton-st-gallen-ch"
       },
@@ -4342,7 +4694,7 @@
       "title": "Sozialarbeiterin/Sozialarbeiter (80 - 100%)",
       "titleByLocale": {
         "de": "Sozialarbeiterin/Sozialarbeiter (80 - 100%)",
-        "it": "Sozialarbeiterin/Sozialarbeiter (80 - 100%)",
+        "it": "Assistente sociale (80 - 100%)",
         "en": "Sozialarbeiterin/Sozialarbeiter (80 - 100%)",
         "fr": "Sozialarbeiterin/Sozialarbeiter (80 - 100%)"
       },
@@ -4391,7 +4743,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:28.854Z"
+      "firstSeenAt": "2026-07-04T11:08:28.854Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiterin-sozialarbeiter-80-100-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-80-100-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-385b9236ddbd",
@@ -4543,10 +4903,10 @@
     },
     {
       "id": "kanton-st-gallen-8e4cd8a6973e",
-      "slug": "assistent-in-grundbildung-kanton-st-gallen-ch",
+      "slug": "assistente-per-l-istruzione-di-base-kanton-st-gallen-rapperswil",
       "slugByLocale": {
         "de": "assistent-in-grundbildung-kanton-st-gallen-ch",
-        "it": "assistent-in-grundbildung-kanton-st-gallen-ch",
+        "it": "assistente-per-l-istruzione-di-base-kanton-st-gallen-rapperswil",
         "en": "assistent-in-grundbildung-kanton-st-gallen-ch",
         "fr": "assistent-in-grundbildung-kanton-st-gallen-ch"
       },
@@ -4556,7 +4916,7 @@
       "title": "Assistent/in Grundbildung",
       "titleByLocale": {
         "de": "Assistent/in Grundbildung",
-        "it": "Assistent/in Grundbildung",
+        "it": "Assistente per l'Istruzione di Base",
         "en": "Assistent/in Grundbildung",
         "fr": "Assistent/in Grundbildung"
       },
@@ -4605,14 +4965,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:26.515Z"
+      "firstSeenAt": "2026-07-04T11:08:26.515Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-grundbildung-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-grundbildung-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-2b9a23597a3c",
-      "slug": "fachleiter-in-schwarzarbeit-m-w-d-kanton-st-gallen-ch",
+      "slug": "responsabile-del-lavoro-non-dichiarato-l-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "fachleiter-in-schwarzarbeit-m-w-d-kanton-st-gallen-ch",
-        "it": "fachleiter-in-schwarzarbeit-m-w-d-kanton-st-gallen-ch",
+        "it": "responsabile-del-lavoro-non-dichiarato-l-f-d-kanton-st-gallen-st-gallen",
         "en": "fachleiter-in-schwarzarbeit-m-w-d-kanton-st-gallen-ch",
         "fr": "fachleiter-in-schwarzarbeit-m-w-d-kanton-st-gallen-ch"
       },
@@ -4622,7 +4990,7 @@
       "title": "Fachleiter/in Schwarzarbeit (m/w/d)",
       "titleByLocale": {
         "de": "Fachleiter/in Schwarzarbeit (m/w/d)",
-        "it": "Fachleiter/in Schwarzarbeit (m/w/d)",
+        "it": "Responsabile del Lavoro Non Dichiarato (l/f/d)",
         "en": "Fachleiter/in Schwarzarbeit (m/w/d)",
         "fr": "Fachleiter/in Schwarzarbeit (m/w/d)"
       },
@@ -4671,14 +5039,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:25.604Z"
+      "firstSeenAt": "2026-07-04T11:08:25.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachleiter-in-schwarzarbeit-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachleiter-in-schwarzarbeit-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-3db478747157",
-      "slug": "projektleitung-verkehrsplanung-m-w-d-kanton-st-gallen-ch",
+      "slug": "gestione-di-progetti-pianificazione-dei-trasporti-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "projektleitung-verkehrsplanung-m-w-d-kanton-st-gallen-ch",
-        "it": "projektleitung-verkehrsplanung-m-w-d-kanton-st-gallen-ch",
+        "it": "gestione-di-progetti-pianificazione-dei-trasporti-m-f-d-kanton-st-gallen-st-gallen",
         "en": "projektleitung-verkehrsplanung-m-w-d-kanton-st-gallen-ch",
         "fr": "projektleitung-verkehrsplanung-m-w-d-kanton-st-gallen-ch"
       },
@@ -4688,7 +5064,7 @@
       "title": "Projektleitung Verkehrsplanung (m/w/d)",
       "titleByLocale": {
         "de": "Projektleitung Verkehrsplanung (m/w/d)",
-        "it": "Projektleitung Verkehrsplanung (m/w/d)",
+        "it": "Gestione di Progetti Pianificazione dei Trasporti (m/f/d)",
         "en": "Projektleitung Verkehrsplanung (m/w/d)",
         "fr": "Projektleitung Verkehrsplanung (m/w/d)"
       },
@@ -4737,14 +5113,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:24.696Z"
+      "firstSeenAt": "2026-07-04T11:08:24.696Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleitung-verkehrsplanung-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektleitung-verkehrsplanung-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-082c69f50e8a",
-      "slug": "projektleitung-wasserbau-m-w-d-kanton-st-gallen-ch",
+      "slug": "gestione-di-progetti-ingegneria-idraulica-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "projektleitung-wasserbau-m-w-d-kanton-st-gallen-ch",
-        "it": "projektleitung-wasserbau-m-w-d-kanton-st-gallen-ch",
+        "it": "gestione-di-progetti-ingegneria-idraulica-m-f-d-kanton-st-gallen-st-gallen",
         "en": "projektleitung-wasserbau-m-w-d-kanton-st-gallen-ch",
         "fr": "projektleitung-wasserbau-m-w-d-kanton-st-gallen-ch"
       },
@@ -4754,7 +5138,7 @@
       "title": "Projektleitung Wasserbau (m/w/d)",
       "titleByLocale": {
         "de": "Projektleitung Wasserbau (m/w/d)",
-        "it": "Projektleitung Wasserbau (m/w/d)",
+        "it": "Gestione di Progetti Ingegneria Idraulica (m/f/d)",
         "en": "Projektleitung Wasserbau (m/w/d)",
         "fr": "Projektleitung Wasserbau (m/w/d)"
       },
@@ -4803,7 +5187,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:24.114Z"
+      "firstSeenAt": "2026-07-04T11:08:24.114Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleitung-wasserbau-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektleitung-wasserbau-m-w-d-kanton-st-gallen-ch"
+      ]
     }
   ]
 }

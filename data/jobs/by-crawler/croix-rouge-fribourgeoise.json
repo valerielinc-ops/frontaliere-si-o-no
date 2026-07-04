@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "croix-rouge-fribourgeoise-5aa01fedb997",
-      "slug": "responsable-du-service-soutien-a-domicile-membre-de-la-direction-croix-rouge-fribourgeoise",
+      "slug": "capo-del-supporto-domiciliare-membro-del-consiglio-esecutivo-croix-rouge-fribourgeoise-fribourg",
       "slugByLocale": {
         "fr": "responsable-du-service-soutien-a-domicile-membre-de-la-direction-croix-rouge-fribourgeoise",
-        "it": "responsable-du-service-soutien-a-domicile-membre-de-la-direction-croix-rouge-fribourgeoise",
+        "it": "capo-del-supporto-domiciliare-membro-del-consiglio-esecutivo-croix-rouge-fribourgeoise-fribourg",
         "en": "responsable-du-service-soutien-a-domicile-membre-de-la-direction-croix-rouge-fribourgeoise",
         "de": "responsable-du-service-soutien-a-domicile-membre-de-la-direction-croix-rouge-fribourgeoise"
       },
@@ -17,7 +17,7 @@
       "title": "Responsable du service Soutien à domicile (Membre de la direction)",
       "titleByLocale": {
         "fr": "Responsable du service Soutien à domicile (Membre de la direction)",
-        "it": "Responsable du service Soutien à domicile (Membre de la direction)",
+        "it": "Capo del Supporto Domiciliare (Membro del Consiglio Esecutivo)",
         "en": "Responsable du service Soutien à domicile (Membre de la direction)",
         "de": "Responsable du service Soutien à domicile (Membre de la direction)"
       },
@@ -74,14 +74,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:49:18.819Z"
+      "firstSeenAt": "2026-07-04T10:49:18.819Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-du-service-soutien-a-domicile-membre-de-la-direction-croix-rouge-fribourgeoise"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-du-service-soutien-a-domicile-membre-de-la-direction-croix-rouge-fribourgeoise"
+      ]
     },
     {
       "id": "croix-rouge-fribourgeoise-b8671305575d",
-      "slug": "coordinateur-trice-de-l-alarme-croix-rouge-croix-rouge-fribourgeoise-fribourg",
+      "slug": "coordinatore-dell-allarme-della-croce-rossa-croix-rouge-fribourgeoise-fribourg",
       "slugByLocale": {
         "fr": "coordinateur-trice-de-l-alarme-croix-rouge-croix-rouge-fribourgeoise-fribourg",
-        "it": "coordinateur-trice-de-l-alarme-croix-rouge-croix-rouge-fribourgeoise-fribourg",
+        "it": "coordinatore-dell-allarme-della-croce-rossa-croix-rouge-fribourgeoise-fribourg",
         "en": "coordinateur-trice-de-l-alarme-croix-rouge-croix-rouge-fribourgeoise-fribourg",
         "de": "coordinateur-trice-de-l-alarme-croix-rouge-croix-rouge-fribourgeoise-fribourg"
       },
@@ -91,7 +99,7 @@
       "title": "Coordinateur-trice de l'Alarme Croix-Rouge",
       "titleByLocale": {
         "fr": "Coordinateur-trice de l'Alarme Croix-Rouge",
-        "it": "Coordinateur-trice de l'Alarme Croix-Rouge",
+        "it": "Coordinatore dell'Allarme della Croce Rossa",
         "en": "Coordinateur-trice de l'Alarme Croix-Rouge",
         "de": "Coordinateur-trice de l'Alarme Croix-Rouge"
       },
@@ -148,14 +156,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:49:18.789Z"
+      "firstSeenAt": "2026-07-04T10:49:18.789Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-trice-de-l-alarme-croix-rouge-croix-rouge-fribourgeoise-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-trice-de-l-alarme-croix-rouge-croix-rouge-fribourgeoise-fribourg"
+      ]
     },
     {
       "id": "croix-rouge-fribourgeoise-1fb347edb232",
-      "slug": "koordinator-in-des-rotkreuz-notrufs-croix-rouge-fribourgeoise-fribourg",
+      "slug": "coordinatore-della-chiamata-d-emergenza-della-croce-rossa-croix-rouge-fribourgeoise-fribourg",
       "slugByLocale": {
         "de": "koordinator-in-des-rotkreuz-notrufs-croix-rouge-fribourgeoise-fribourg",
-        "it": "koordinator-in-des-rotkreuz-notrufs-croix-rouge-fribourgeoise-fribourg",
+        "it": "coordinatore-della-chiamata-d-emergenza-della-croce-rossa-croix-rouge-fribourgeoise-fribourg",
         "en": "koordinator-in-des-rotkreuz-notrufs-croix-rouge-fribourgeoise-fribourg",
         "fr": "koordinator-in-des-rotkreuz-notrufs-croix-rouge-fribourgeoise-fribourg"
       },
@@ -166,7 +182,7 @@
       "titleByLocale": {
         "de": "Koordinator-in des Rotkreuz-Notrufs",
         "fr": "Koordinator-in des Rotkreuz-Notrufs",
-        "it": "Koordinator-in des Rotkreuz-Notrufs",
+        "it": "Coordinatore della Chiamata d'Emergenza della Croce Rossa",
         "en": "Koordinator-in des Rotkreuz-Notrufs"
       },
       "description": "Das Freiburgische Rote Kreuz (SRK) ist ein 1909 gegründeter Kantonalverband und Mitglied des Schweizerischen Roten Kreuzes. Unser Verband beschäftigt rund 160 Mitarbeitende, wird von 500 Freiwilligen unterstützt und ist in den Bereichen Gesundheit, Migration und Soziales tätig. Wir setzen uns insbesondere für alle bedürftigen Menschen ein und achten dabei die Grundsätze des Roten Kreuzes. Im Hinblick auf die bevorstehende Pensionierung der bisherigen Stelleninhaberin suchen wir Koordinator-in des Rotkreuz-Notrufs Im Rahmen der Leistungen zur Unterstützung von Pflege und Betreuung zu Hause sorgen Sie für die Koordination und den reibungslosen Ablauf des Rotkreuz-Notrufs sowie für die Bearbeitung der Anfragen zu elektrischen Pflegebetten. Sie gewährleisten einen raschen, effizienten und strukturierten Einsatz zwischen den freiwilligen Installateur/-innen, der Notrufzentrale und den Angehörigen. In dieser Funktion nehmen Sie die Anfragen der Kundinnen und Kunden entgegen und bearbeiten diese, organisieren die Installationen, kümmern sich um den technischen und administrativen Bereich der Geräte und tragen zur kontinuierlichen Verbesserung der Abläufe bei. Sie sind die Ansprechperson für logistische und technische Fragen im Zusammenhang mit dem Notrufsystem und den elektrischen Pflegebetten. Hauptaufgaben : - Entgegennahme von Anfragen für die Installation des Notrufsystem sowie Erfassung der Daten in der Software; - Planung der Installationen mit den Freiwilligen und Weitergabe aller notwendigen Informationen; - Überwachung der Einsätze sowie Abwicklung von Notfällen oder technischen Problemen in Zusammenarbeit mit der Notrufzentrale; - Verwaltung der Gerätebestände, inklusive Wartung, Rücknahme, Rotation und Inventur; - Organisation der Lieferungen von elektrischer Pflegebetten; - Überwachung der Rechnungsstellung, der Debitoren, der Abrechnungen der Freiwilligen sowie der Statistiken; - Teilnahme an Koordinationssitzungen mit den verschiedenen Partnern. Gesuchtes Profil: - Kaufmann/-frau EFZ mit mindestens 5 Jahren Berufserfahrung oder gleichwertige Ausbildung; - Erfahrung im sozialen Bereich oder in der Kundenbetreuung; - Muttersprache Französisch oder Deutsch mit ausgezeichneten Kenntnissen der jeweils anderen Sprache; Zweisprachigkeit ist für die Funktion unerlässlich; - Ausgeprägte organisatorische Kompetenzen, Sorgfalt und die Fähigkeit, Prioritäten zu setzen; - Sicherer Umgang mit gängigen digitalen Tools, insbesondere Office-Suite, Tabellenkalkulation, E-Mail und Dateiverwaltung; - Grundlegende technische Kenntnisse in den Bereichen elektronische Geräte, Telefonie und Netzwerkverbindungen sind ein Vorteil; - Sehr gute soziale Kompetenzen, Empathie und diplomatisches Geschick; - Kenntnisse des Netzwerks Gesundheit/Soziales und Erfahrung in der Zusammenarbeit mit Freiwilligen sind wünschenswert. Stellenantritt - 1. Dezember 2026 oder nach Vereinbarung Bewerbungen mit Lebenslauf, Foto und den üblichen Unterlagen sind bis zum 24. Juli 2026 beim Freiburgischen Roten Kreuz einzureichen. <div class=\"",
@@ -222,7 +238,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:49:18.754Z"
+      "firstSeenAt": "2026-07-04T10:49:18.754Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koordinator-in-des-rotkreuz-notrufs-croix-rouge-fribourgeoise-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "koordinator-in-des-rotkreuz-notrufs-croix-rouge-fribourgeoise-fribourg"
+      ]
     }
   ]
 }

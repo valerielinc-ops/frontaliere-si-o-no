@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "felfel-4e04db9f8379",
-      "slug": "senior-tech-product-owner-felfel-zurich",
+      "slug": "proprietario-senior-del-prodotto-tecnologico-felfel-zurich",
       "slugByLocale": {
         "de": "senior-tech-product-owner-felfel-zurich",
-        "it": "senior-tech-product-owner-felfel-zurich",
+        "it": "proprietario-senior-del-prodotto-tecnologico-felfel-zurich",
         "en": "senior-tech-product-owner-felfel-zurich",
         "fr": "proprietaire-de-produit-tech-senior-felfel-zurich"
       },
@@ -65,7 +65,15 @@
         }
       },
       "firstSeenAt": "2026-07-03T21:45:10.729Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-tech-product-owner-felfel-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-tech-product-owner-felfel-zurich"
+      ]
     },
     {
       "id": "felfel-095653aadaa6",
@@ -149,7 +157,7 @@
       "slugByLocale": {
         "it": "operations-coordinatore-60-felfel-zurich",
         "en": "operations-coordinator-60-felfel-zurich",
-        "de": "operations-coordinator-60-felfel-zurich",
+        "de": "operations-koordinator-60-felfel-zurich",
         "fr": "operations-coordinateur-60-felfel-zurich"
       },
       "company": "FELFEL",
@@ -192,20 +200,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "operations-koordinator-60-felfel-zurich",
           "operations-coordinator-60-felfel-zurich"
         ],
         "it": [
-          "operations-coordinator-60-felfel-zurich",
-          "operations-coordinatore-60-felfel-zurich"
+          "operations-coordinator-60-felfel-zurich"
         ],
         "fr": [
           "operations-coordinator-60-felfel-zurich"
         ]
       },
       "previousSlugs": [
-        "operations-coordinator-60-felfel-zurich",
-        "operations-koordinator-60-felfel-zurich"
+        "operations-coordinator-60-felfel-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:45:10.726Z",
@@ -491,8 +496,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-service-manager-60-felfel-zurich",
-          "servizio-clienti-manager-60-felfel-zurich"
+          "customer-service-manager-60-felfel-zurich"
         ],
         "fr": [
           "customer-service-manager-60-felfel-zurich"
@@ -565,8 +569,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-service-agent-60-felfel-lausanne",
-          "servizio-clienti-agent-60-felfel-lausanne"
+          "customer-service-agent-60-felfel-lausanne"
         ],
         "fr": [
           "customer-service-agent-60-felfel-lausanne"
@@ -642,8 +645,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commercial-coordinator-felfel-zurich",
-          "commercial-coordinatore-felfel-zurich"
+          "commercial-coordinator-felfel-zurich"
         ],
         "fr": [
           "commercial-coordinator-felfel-zurich"
@@ -666,19 +668,19 @@
     },
     {
       "id": "felfel-b066294443df",
-      "slug": "business-development-manager-felfel-zurich",
+      "slug": "responsabile-dello-sviluppo-commerciale-felfel-zurich",
       "slugByLocale": {
-        "it": "business-development-manager-felfel-zurich",
+        "it": "responsabile-dello-sviluppo-commerciale-felfel-zurich",
         "en": "business-development-manager-felfel-zurich",
         "de": "business-development-manager-felfel-zurich",
-        "fr": "business-development-manager-felfel-zurich"
+        "fr": "directeur-du-developpement-des-affaires-felfel-zurich"
       },
       "company": "FELFEL",
       "companyKey": "felfel",
       "companyDomain": "felfel.ch",
       "title": "Business Development Manager",
       "titleByLocale": {
-        "it": "Business Development Manager",
+        "it": "Responsabile dello Sviluppo Commerciale",
         "en": "Business Development Manager",
         "de": "Business Development Manager",
         "fr": "Business Development Manager"
@@ -713,11 +715,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "directeur-du-developpement-des-affaires-felfel-zurich"
+          "business-development-manager-felfel-zurich"
+        ],
+        "it": [
+          "business-development-manager-felfel-zurich"
         ]
       },
       "previousSlugs": [
-        "directeur-du-developpement-des-affaires-felfel-zurich"
+        "business-development-manager-felfel-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:45:10.712Z",
@@ -789,8 +794,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "account-executive-felfel-zurich",
-          "account-esecutivo-felfel-zurich"
+          "account-executive-felfel-zurich"
         ],
         "fr": [
           "account-executive-felfel-zurich"
