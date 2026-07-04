@@ -180,8 +180,17 @@ export function useNavigationState(): NavigationState {
  }
  }, []);
 
- // Preload blog slug data and resolve any deferred blog slug from initial URL
+ // Preload blog slug data and resolve any deferred blog slug from initial URL.
+ // Gated on blog-related routes (#3528/#3532): the unconditional call shipped
+ // the ~670 KB raw routerBlogData chunk on EVERY page — homepage included —
+ // where nothing consumes BLOG_SLUGS. Non-initial-blog consumers load it at
+ // their own gates: applyRoute() below (client-side nav to a blog slug URL),
+ // the BlogArticles/JobBoard data gates and the BlogArticles lazy factory in
+ // App.tsx (all pair preloadBlogData() with loadBlogMeta()), plus the
+ // activeTab==='blog' effect below.
  useEffect(() => {
+ const r = initialRoute.route;
+ if (r.activeTab === 'blog' || r.blogSlug || r.blogArticle) {
  preloadBlogData().then(() => {
  const slug = initialRoute.route.blogSlug;
  if (slug && !initialRoute.route.blogArticle) {
@@ -189,6 +198,7 @@ export function useNavigationState(): NavigationState {
  if (resolved) setBlogArticle(resolved);
  }
  }).catch(() => {});
+ }
  if (initialRoute.route.blogSection === 'svizzera') {
  preloadSwissData().then(() => {
  const slug = initialRoute.route.swissSlug;
@@ -207,6 +217,14 @@ export function useNavigationState(): NavigationState {
  useEffect(() => {
  if (blogSection === 'svizzera') preloadSwissData().catch(() => {});
  }, [blogSection]);
+
+ // Same for the frontaliere blog slugs on a client-side switch to the blog
+ // tab: with the initial-mount preload now gated to blog routes, populate
+ // `_blogSlugs` as soon as the user lands on the blog so buildPath emits
+ // canonical localized article URLs everywhere.
+ useEffect(() => {
+ if (activeTab === 'blog') preloadBlogData().catch(() => {});
+ }, [activeTab]);
 
  // Apply noindex SEO immediately on mount for 404 pages (soft-404 protection)
  useEffect(() => {

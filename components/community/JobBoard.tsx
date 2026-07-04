@@ -94,7 +94,7 @@ import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildJobCopyAttribution, shouldAttributeCopy } from '@/services/jobCopyAttribution';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
-import { buildPath, parsePath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugMapLoaded, isJobSlugMapReady, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
+import { buildPath, parsePath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugMapLoaded, isJobSlugMapReady, preloadBlogData, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
@@ -4040,15 +4040,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  .map((x) => x.job);
  }, [expiredJob, sortedJobs]);
 
- // Load blog meta translations + articles data for cross-linking (only when job selected)
+ // Load blog meta translations + articles data for cross-linking (only when job selected).
+ // preloadBlogData in the same gate: blogMetaReady implies BLOG_SLUGS present,
+ // so the related-article hrefs below are canonical by construction (the slug
+ // map no longer preloads unconditionally at App mount — #3528/#3532). Failure
+ // swallowed: degrade to id-fallback hrefs instead of hiding the section.
  const [blogMetaReady, setBlogMetaReady] = useState(false);
  const [blogArticles, setBlogArticles] = useState<Article[]>([]);
  useEffect(() => {
  if (!selectedJob) return;
  Promise.all([
  loadBlogMeta(),
+ preloadBlogData().catch(() => {}),
  import('@/data/blog-articles-data').then(m => m.ARTICLES),
- ]).then(([, data]) => {
+ ]).then(([, , data]) => {
  setBlogArticles(data);
  setBlogMetaReady(true);
  }).catch(() => {});

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useMemo, useCallback, Suspense, memo, Frag
 import { lazyRetry } from '@/services/lazyRetry';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import { buildPath } from '@/services/router';
+import { buildPath, preloadBlogData } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import type { BlogArticleId, AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
@@ -1174,14 +1174,20 @@ function BlogArticles({
 
  // FRO-314: Load blog meta translations AND articles data in parallel on mount.
  // Dynamic import of blog-articles-data (122KB) so it doesn't block component parse time.
+ // preloadBlogData in the same gate: blogReady implies BLOG_SLUGS present, so
+ // every article href below is canonical by construction (the slug map no
+ // longer preloads unconditionally at App mount — #3528/#3532).
  useEffect(() => {
  const articlesPromise = section === 'svizzera'
  ? import('@/data/swiss-articles-data').then(m => m.SWISS_ARTICLES)
  : import('@/data/blog-articles-data').then(m => m.ARTICLES);
  Promise.all([
  loadBlogMeta(section),
+ // Swallow slug-map failure: degrade to id-fallback hrefs (pre-#3532
+ // failure behavior) instead of blocking the whole blog render.
+ preloadBlogData().catch(() => {}),
  articlesPromise,
- ]).then(([, data]) => {
+ ]).then(([, , data]) => {
  setArticles(data);
  setBlogReady(true);
  }).catch(() => {});
