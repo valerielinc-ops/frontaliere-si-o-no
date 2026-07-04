@@ -4121,9 +4121,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // JSON-LD hiringOrganization.logo needs a fetchable URL — companyLogoUrl can
  // now return an inlined initials data: URI (fine for <img>, not for schema),
  // so fall back to the site icon for those rather than emitting a data URI.
+ // Root-relative same-origin paths (CDN base not injected, e.g. dev) are
+ // absolutized: schema.org `logo` is URL-typed and Google can ignore a
+ // relative value (#3473). `//` = protocol-relative, never prefixed.
  const rawLogo = companyLogoUrl(job);
  const logo = rawLogo && !rawLogo.startsWith('data:')
- ? rawLogo
+ ? (rawLogo.startsWith('/') && !rawLogo.startsWith('//')
+ ? `${window.location.origin}${rawLogo}`
+ : rawLogo)
  : 'https://frontaliereticino.ch/icons/icon-512x512.png';
  const salaryMin = Number.isFinite(Number(job.salaryMin))
  ? Number(job.salaryMin)

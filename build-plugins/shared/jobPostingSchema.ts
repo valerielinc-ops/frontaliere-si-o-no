@@ -107,8 +107,8 @@ export interface BuildJobPostingOptions {
   /** Absolute canonical URL for the job page (`url` on the schema). */
   readonly url: string;
   /**
-   * Optional site base URL — reserved for future use (e.g. emitting
-   * `sameAs` for hiring org). Never affects mandatory-field output.
+   * Optional site base URL — used to absolutize a same-origin (root-relative)
+   * `hiringOrganization.logo` path. Never affects mandatory-field output.
    */
   readonly baseUrl?: string;
 }
@@ -187,6 +187,13 @@ export type EmploymentType =
   | 'OTHER';
 
 // ── Internal helpers ────────────────────────────────────────────────────────
+
+/**
+ * Canonical prod origin — fallback base for absolutizing a same-origin
+ * (root-relative) `hiringOrganization.logo` path when the caller omits
+ * `opts.baseUrl` (every current caller passes it).
+ */
+const CANONICAL_ORIGIN = 'https://frontaliereticino.ch';
 
 const EMPLOYMENT_TYPE_MAP: Record<string, EmploymentType> = {
   permanent: 'FULL_TIME',
@@ -534,9 +541,19 @@ export function buildJobPostingSchema(
   );
   const baseSalary = resolveBaseSalary(job);
 
-  const logo = job.companyLogoUrl && String(job.companyLogoUrl).trim().length > 0
+  const rawLogo = job.companyLogoUrl && String(job.companyLogoUrl).trim().length > 0
     ? String(job.companyLogoUrl).trim()
     : undefined;
+  // Schema.org `logo` is URL-typed: Google's job rich-result pipeline expects a
+  // fully-qualified absolute URL and can ignore a root-relative path like the
+  // curated `/images/brands/<key>.png` assets (issue #3473). Absolutize
+  // same-origin root-relative paths against the caller's canonical base (in
+  // prod those paths 301 to the image CDN, so the URL is always fetchable);
+  // already-absolute URLs pass through verbatim. `//`-prefixed values are
+  // protocol-relative, not root-relative — never prefix those.
+  const logo = rawLogo && rawLogo.startsWith('/') && !rawLogo.startsWith('//')
+    ? `${(opts.baseUrl || CANONICAL_ORIGIN).replace(/\/+$/, '')}${rawLogo}`
+    : rawLogo;
   const sameAs = job.companyDomain && String(job.companyDomain).trim().length > 0
     ? `https://${String(job.companyDomain).replace(/^https?:\/\//, '').trim()}`
     : undefined;

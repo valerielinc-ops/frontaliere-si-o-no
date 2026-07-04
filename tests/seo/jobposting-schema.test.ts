@@ -261,3 +261,59 @@ describe('buildJobPostingSchema — required opts', () => {
     ).toThrow();
   });
 });
+
+describe('buildJobPostingSchema — hiringOrganization.logo absolutization (#3473)', () => {
+  const jobWithLogo = (companyLogoUrl: string): JobInput => ({
+    id: 'hirslanden-1',
+    title: 'Infermiere/a diplomato/a',
+    company: 'Hirslanden Klinik',
+    city: 'Lugano',
+    companyLogoUrl,
+  });
+
+  it('absolutizes a root-relative logo path against opts.baseUrl', () => {
+    const schema = buildJobPostingSchema(jobWithLogo('/images/brands/hirslanden.png'), {
+      ...OPTS,
+      baseUrl: 'https://frontaliereticino.ch',
+    });
+    expect(schema.hiringOrganization.logo).toBe(
+      'https://frontaliereticino.ch/images/brands/hirslanden.png',
+    );
+  });
+
+  it('falls back to the canonical origin when opts.baseUrl is omitted', () => {
+    const schema = buildJobPostingSchema(jobWithLogo('/images/brands/hirslanden.png'), OPTS);
+    expect(schema.hiringOrganization.logo).toBe(
+      'https://frontaliereticino.ch/images/brands/hirslanden.png',
+    );
+  });
+
+  it('never emits a double slash when baseUrl has a trailing slash', () => {
+    const schema = buildJobPostingSchema(jobWithLogo('/images/brands/hirslanden.png'), {
+      ...OPTS,
+      baseUrl: 'https://frontaliereticino.ch/',
+    });
+    expect(schema.hiringOrganization.logo).toBe(
+      'https://frontaliereticino.ch/images/brands/hirslanden.png',
+    );
+  });
+
+  it('passes an already-absolute logo URL through verbatim', () => {
+    const abs = 'https://cdn.frontaliereticino.ch/images/brands/hirslanden.png';
+    const schema = buildJobPostingSchema(jobWithLogo(abs), {
+      ...OPTS,
+      baseUrl: 'https://frontaliereticino.ch',
+    });
+    expect(schema.hiringOrganization.logo).toBe(abs);
+  });
+
+  it('never prefixes a protocol-relative URL', () => {
+    const schema = buildJobPostingSchema(jobWithLogo('//example.com/logo.png'), OPTS);
+    expect(schema.hiringOrganization.logo).toBe('//example.com/logo.png');
+  });
+
+  it('omits logo entirely when companyLogoUrl is blank', () => {
+    const schema = buildJobPostingSchema(jobWithLogo('   '), OPTS);
+    expect(schema.hiringOrganization.logo).toBeUndefined();
+  });
+});
