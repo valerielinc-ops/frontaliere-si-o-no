@@ -17,6 +17,7 @@ import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@
 import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { resilientImport } from '@/services/resilientImport';
+import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
@@ -27,7 +28,7 @@ import {
 } from '@/services/newsletterSubscribers';
 
 const POPUP_DISMISSED_KEY = 'newsletter_popup_dismissed';
-const SUBSCRIBED_KEY = 'newsletter_subscribed';
+// Canonical key shared via services/newsletterCtaState (#3529 dedup).
 const DISMISS_DAYS = 7;
 const MIN_TIME_MS = 20_000; // 20 seconds minimum on site
 const SCROLL_THRESHOLD = 0.3; // 30% scroll depth — long blog articles were firing the popup near the end at 0.5

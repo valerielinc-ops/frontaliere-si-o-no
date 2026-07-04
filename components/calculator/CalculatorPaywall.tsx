@@ -26,12 +26,16 @@ import {
   signInWithLinkedIn,
 } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
+import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 
 export const PAYWALL_DISMISSED_KEY = 'frontaliere_paywall_dismissed';
 export const SIM_COMPLETE_COUNTER_KEY = 'counter_sim_complete';
 export const VISIT_COUNTER_KEY = 'visit_count';
 export const JOB_EMAIL_KEY = 'ft_job_email';
-export const NEWSLETTER_SUBSCRIBED_KEY = 'newsletter_subscribed';
+// Canonical 'newsletter_subscribed' key lives in services/newsletterCtaState
+// (shared with SubscriptionCTA + MobileCalcLayout reserve logic); re-exported
+// here for backwards compatibility.
+export { NEWSLETTER_SUBSCRIBED_KEY };
 export const PAYWALL_DISMISS_DAYS = 30;
 
 const FUNCTIONS_BASE = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net';
