@@ -288,13 +288,18 @@ export async function fetchHtmlViaJinaWithRetry(
   // attempt, so the caller's safe-fail (re-throw / skip, prior data preserved)
   // runs without paying the retry tax on every URL in the wave. (#1461 item 2)
   if (jinaBreakerOpen()) return null;
-  const maxRetries = Math.max(
-    0,
-    Number.isFinite(retries) ? retries : Number(process.env.JOBS_JINA_RETRIES) || 2,
-  );
+  // Distinguishes "env var absent/non-numeric" (falls back to default) from
+  // "env var explicitly set to 0" (honors the 0) — `Number(envVal) || fallback`
+  // would silently discard an explicit 0 since `0 || fallback` is `fallback`.
+  const pickEnvNumber = (override, envVal, fallback) => {
+    if (Number.isFinite(override)) return override;
+    const env = Number(envVal);
+    return Number.isFinite(env) ? env : fallback;
+  };
+  const maxRetries = Math.max(0, pickEnvNumber(retries, process.env.JOBS_JINA_RETRIES, 2));
   const baseMs = Math.max(
     0,
-    Number.isFinite(retryBaseMs) ? retryBaseMs : Number(process.env.JOBS_JINA_RETRY_BASE_MS) || 1000,
+    pickEnvNumber(retryBaseMs, process.env.JOBS_JINA_RETRY_BASE_MS, 1000),
   );
   let lastReason = 'unknown';
   for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
