@@ -40,15 +40,32 @@
  *    NOT matched, so the visibility channel keeps getting live locale content
  *    (#1867).
  *
+ * 4. REDIRECT RULES — the managed entries in MANAGED_REDIRECT_RULES (keyed by
+ *    `description`; foreign rules on the entrypoint — e.g. the image→CDN
+ *    apex-404 recovery — preserved). Currently one: trailing-slash-301 —
+ *    301s every extensionless no-trailing-slash apex path to its slash form
+ *    (#3472). Every canonical URL on the site is slash-terminated
+ *    (buildPath()/sitemap/hreflang), but GitHub Pages' extensionless
+ *    resolution serves the flat `<path>.html` noindex bridge
+ *    (flatHtmlRedirectPlugin) with HTTP 200 at the no-slash URL instead of
+ *    301ing — a crawl-budget-wasting 200 duplicate on every deep page. The
+ *    dynamic-redirect phase runs BEFORE the cache and BEFORE Workers routes,
+ *    so the 301 also short-circuits Worker invocations and stale edge-cached
+ *    200s for no-slash variants. Excluded: paths with a "." (real files:
+ *    .xml/.txt/.html/…) and /disiscrivi-* (RFC 8058 one-click unsubscribe —
+ *    a 301 would not be re-issued as a POST by mail clients).
+ *
  * Auth: CF_API_TOKEN — needs Zone→Workers Routes:Edit (already required by
  * deploy-worker.yml) + Zone→Zone Settings/Cache Rules:Edit + Zone→Firewall
- * Services:Edit (WAF custom rules) + zone read.
+ * Services:Edit (WAF custom rules) + Zone→Dynamic URL Redirects:Edit + zone
+ * read.
  * Locally:
  *   eval "$(GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json \
  *     node scripts/load-rc-env.mjs)" && node scripts/cf-locale-failover-setup.mjs
  *
  * Flags: --dry-run (report drift, change nothing) · --routes-only · --rule-only
- *        (cache+firewall) · --cache-only · --firewall-only
+ *        (cache+firewall+redirect) · --cache-only · --firewall-only ·
+ *        --redirect-only
  * Exit: 0 = converged (or already in shape), 1 = API/auth error.
  */
 
@@ -57,6 +74,7 @@ const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';
 const WORKER_SCRIPT = 'frontaliere-locale-router';
 const CACHE_PHASE = 'http_request_cache_settings';
 const FIREWALL_PHASE = 'http_request_firewall_custom';
+const REDIRECT_PHASE = 'http_request_dynamic_redirect';
 
 // Non-visibility crawlers blocked on the locale paths ONLY. These bring no SEO
 // traffic, no clicks, and no monetizable traffic for this audience (owner value
@@ -162,20 +180,70 @@ const MANAGED_CACHE_RULES = [
   },
 ];
 
+// Trailing-slash 301 normalization (#3472). Site convention: every canonical
+// URL ends with "/" (buildPath() in services/router.ts forces it; canonical/
+// sitemap/hreflang all emit slash-terminated URLs). But GitHub Pages resolves
+// the extensionless no-slash URL (/fisco, /en/tax, …) to the flat `<path>.html`
+// noindex bridge emitted by build-plugins/flatHtmlRedirectPlugin.ts and serves
+// it with HTTP 200 — a crawl-budget-wasting duplicate on every deep page,
+// drifting from the documented no-slash→slash 301 behavior. This zone-level
+// dynamic redirect closes the gap for BOTH the IT apex (never Worker-routed)
+// and the Worker-routed locale/Ticino paths: the http_request_dynamic_redirect
+// phase runs BEFORE the edge cache and BEFORE Workers routes, so no-slash hits
+// 301 at the edge without invoking the Worker or hitting a stale cached 200.
+//
+// Exclusions (keep in sync with the header doc §4):
+//   - `contains "."` — real files (/sitemap.xml, /robots.txt, /ads.txt,
+//     /en.html, /404.html, …) and the flat-bridge URLs themselves must keep
+//     serving as-is. No site page path contains a dot.
+//   - /disiscrivi-* — the RFC 8058 one-click unsubscribe proxies accept POST;
+//     a 301 would not be re-issued as a POST by mail clients (see
+//     infra/cloudflare-worker/locale-router.js UNSUB_PROXIES).
+//   - host guard — only the apex; origin-*/cdn.* subdomains are gray-cloud
+//     (never traverse this zone's rules) but the guard keeps it explicit.
+// Root "/" and every canonical URL already end with "/" → never match, so a
+// redirect loop is impossible by construction. Query strings are preserved
+// (preserve_query_string) and fragments survive 301s client-side. Flat-only
+// pages with no directory sibling (e.g. /404) are non-canonical URLs never
+// emitted by the site; their no-slash form 301ing to a 404 is acceptable and
+// strictly more honest than the previous duplicate 200.
+const MANAGED_REDIRECT_RULES = [
+  {
+    description: 'trailing-slash-301 (managed by scripts/cf-locale-failover-setup.mjs)',
+    expression:
+      '(http.host eq "frontaliereticino.ch" ' +
+      'and not ends_with(http.request.uri.path, "/") ' +
+      'and not http.request.uri.path contains "." ' +
+      'and not starts_with(http.request.uri.path, "/disiscrivi-"))',
+    action_parameters: {
+      from_value: {
+        status_code: 301,
+        target_url: {
+          expression: 'concat("https://", http.host, http.request.uri.path, "/")',
+        },
+        preserve_query_string: true,
+      },
+    },
+  },
+];
+
 const args = new Set(process.argv.slice(2));
 const DRY_RUN = args.has('--dry-run');
 // Section gating. --routes-only / --rule-only kept for back-compat (--rule-only
-// = cache + firewall, skip routes). --cache-only / --firewall-only isolate a
-// single ruleset so a targeted live apply never touches a sibling's drift.
+// = every zone ruleset — cache + firewall + redirect — skip routes).
+// --cache-only / --firewall-only / --redirect-only isolate a single ruleset so
+// a targeted live apply never touches a sibling's drift.
 const ONLY =
   (args.has('--routes-only') && 'routes') ||
   (args.has('--cache-only') && 'cache') ||
   (args.has('--firewall-only') && 'firewall') ||
+  (args.has('--redirect-only') && 'redirect') ||
   (args.has('--rule-only') && 'rule') ||
   null;
 const DO_ROUTES = ONLY === null || ONLY === 'routes';
 const DO_CACHE = ONLY === null || ONLY === 'rule' || ONLY === 'cache';
 const DO_FIREWALL = ONLY === null || ONLY === 'rule' || ONLY === 'firewall';
+const DO_REDIRECT = ONLY === null || ONLY === 'rule' || ONLY === 'redirect';
 
 function bail(msg) {
   console.error(`❌ ${msg}`);
@@ -345,8 +413,73 @@ async function assertFirewallRules(zoneId) {
   console.log('firewall rules: applied');
 }
 
+// Field-by-field canonical check for a managed dynamic-redirect rule — same
+// rationale as ruleInShape above (CF re-emits normalized/extra fields; a
+// stringify comparison would never converge). Only OUR contract is checked.
+function redirectRuleInShape(current, desired) {
+  if (!current || current.enabled === false) return false;
+  if (current.action !== 'redirect') return false;
+  if (current.expression !== desired.expression) return false;
+  const from = (current.action_parameters || {}).from_value || {};
+  const want = desired.action_parameters.from_value;
+  if (from.status_code !== want.status_code) return false;
+  if ((from.target_url || {}).expression !== want.target_url.expression) return false;
+  if (from.preserve_query_string !== want.preserve_query_string) return false;
+  return true;
+}
+
+async function assertRedirectRules(zoneId) {
+  // The entrypoint ruleset may not exist yet on a zone with no redirect rules —
+  // GET then answers 404; PUT below creates it.
+  const { status, json } = await cf('GET', `/zones/${zoneId}/rulesets/phases/${REDIRECT_PHASE}/entrypoint`);
+  if (status !== 404 && !json?.success) bail(`Cannot read ${REDIRECT_PHASE} entrypoint: ${JSON.stringify(json?.errors)}`);
+  const existing = status === 404 ? [] : (json.result.rules || []);
+
+  // Same read-modify-write shape as assertCacheRules: every foreign rule (e.g.
+  // the image→CDN apex-404 recovery) preserved at its position, each managed
+  // rule updated in place or APPENDED (first matching redirect rule wins, so
+  // appending keeps existing recoveries' priority; the expressions are disjoint
+  // anyway — image paths carry file extensions, excluded by `contains "."`).
+  const rules = existing.map(({ id, ref, version, last_updated, ...rest }) => rest);
+  let drift = 0;
+  for (const spec of MANAGED_REDIRECT_RULES) {
+    const desired = {
+      description: spec.description,
+      expression: spec.expression,
+      action: 'redirect',
+      action_parameters: spec.action_parameters,
+      enabled: true,
+    };
+    const idx = rules.findIndex((r) => r.description === spec.description);
+    const current = idx >= 0 ? existing[idx] : null;
+    if (redirectRuleInShape(current, desired)) {
+      console.log(`redirect rule "${spec.description.split(' ')[0]}": already in shape`);
+      continue;
+    }
+    drift++;
+    console.log(
+      `redirect rule "${spec.description.split(' ')[0]}": ${current ? 'drift — updating' : 'missing — creating'}${DRY_RUN ? ' (dry-run)' : ''}`,
+    );
+    if (idx >= 0) rules[idx] = desired;
+    else rules.push(desired);
+  }
+
+  if (drift === 0) {
+    console.log('redirect rules: all in shape');
+    return;
+  }
+  if (DRY_RUN) return;
+
+  const { json: put } = await cf('PUT', `/zones/${zoneId}/rulesets/phases/${REDIRECT_PHASE}/entrypoint`, {
+    rules,
+  });
+  if (!put?.success) bail(`PUT ${REDIRECT_PHASE} entrypoint failed: ${JSON.stringify(put?.errors)}`);
+  console.log('redirect rules: applied');
+}
+
 const zoneId = await resolveZoneId();
 if (DO_ROUTES) await assertFailOpenRoutes(zoneId);
 if (DO_CACHE) await assertCacheRules(zoneId);
 if (DO_FIREWALL) await assertFirewallRules(zoneId);
+if (DO_REDIRECT) await assertRedirectRules(zoneId);
 console.log(DRY_RUN ? 'dry-run complete' : 'failover config converged');
