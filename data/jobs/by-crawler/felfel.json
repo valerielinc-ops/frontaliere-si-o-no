@@ -6,9 +6,9 @@
       "id": "felfel-4e04db9f8379",
       "slug": "senior-tech-product-owner-felfel-zurich",
       "slugByLocale": {
+        "de": "senior-tech-product-owner-felfel-zurich",
         "it": "senior-tech-product-owner-felfel-zurich",
         "en": "senior-tech-product-owner-felfel-zurich",
-        "de": "senior-tech-product-owner-felfel-zurich",
         "fr": "proprietaire-de-produit-tech-senior-felfel-zurich"
       },
       "company": "FELFEL",
@@ -16,9 +16,9 @@
       "companyDomain": "felfel.ch",
       "title": "Senior Tech Product Owner",
       "titleByLocale": {
-        "it": "Senior Tech Product Owner",
+        "de": "Senior Tech Produktbesitzer",
         "en": "Senior Tech Product Owner",
-        "de": "Senior Tech Product Owner",
+        "it": "Proprietario senior del prodotto tecnologico",
         "fr": "Propriétaire de produit Tech Senior"
       },
       "description": "Senior Tech Product Owner bei FELFEL in Zürich.",
@@ -30,7 +30,7 @@
       "url": "https://felfel.jobs.personio.de/job/2601890",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:42:30.347Z",
+      "crawledAt": "2026-07-03T21:45:10.729Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -48,9 +48,10 @@
       "applyUrl": "https://felfel.jobs.personio.de/job/2601890",
       "jobReqId": "2601890",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-03T21:45:10.729Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -62,37 +63,42 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-03T21:45:10.729Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "felfel-095653aadaa6",
       "slug": "lavoro-a-tempo-parziale-commissione-nella-cella-frigorifera-2-giorni-a-settimana-felfel-zurich",
       "slugByLocale": {
-        "it": "lavoro-a-tempo-parziale-commissione-nella-cella-frigorifera-2-giorni-a-settimana-felfel-zurich",
         "en": "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich",
+        "it": "lavoro-a-tempo-parziale-commissione-nella-cella-frigorifera-2-giorni-a-settimana-felfel-zurich",
         "de": "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich",
-        "fr": "temps-partiel-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
+        "fr": "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
       },
       "company": "FELFEL",
       "companyKey": "felfel",
       "companyDomain": "felfel.ch",
       "title": "Part-time Job - Commission in the Cool Cell (2 days per Week)",
       "titleByLocale": {
-        "it": "Lavoro a tempo parziale - Commissione nella cella frigorifera (2 giorni a settimana)",
         "en": "Part-time Job - Commission in the Cool Cell (2 days per Week)",
+        "it": "Lavoro a tempo parziale - Commissione nella cella frigorifera (2 giorni a settimana)",
         "de": "Teilzeit Job - Commission in the Cool Cell (2 days per Week)",
         "fr": "Temps partiel Job - Commission in the Cool Cell (2 days per Week)"
       },
       "description": "Part-time Job - Commission in the Cool Cell (2 days per Week) bei FELFEL in Zürich.",
       "descriptionByLocale": {
-        "en": "Part-time Job - Commission in the Cool Cell (2 days per Week) bei FELFEL in Zürich."
+        "en": "Part-time Job - Commission in the Cool Cell (2 days per Week) bei FELFEL in Zürich.",
+        "it": "Lavoro part-time - Commissione nella cella fredda (2 giorni alla settimana) BEI FELFEL a Zurigo.",
+        "de": "Teilzeitjob - Kommission in der Kühlzelle (2 Tage pro Woche) für FELFEL in Zürich.",
+        "fr": "Emploi à temps partiel - Commission dans la cellule Cool (2 jours par semaine) bei FELFEL à Zurich."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://felfel.jobs.personio.de/job/2142463",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T10:42:30.345Z",
+      "crawledAt": "2026-07-03T21:45:10.727Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -110,21 +116,10 @@
       "applyUrl": "https://felfel.jobs.personio.de/job/2142463",
       "jobReqId": "2142463",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich",
-          "lavoro-a-tempo-parziale-commissione-nella-cella-frigorifera-2-giorni-a-settimana-felfel-zurich"
-        ],
-        "fr": [
-          "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
-        ]
+      "requirementsByLocale": {
+        "en": []
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-03T21:45:10.727Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -136,7 +131,17 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-03T21:45:10.727Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "felfel-4c42b5faed3a",
