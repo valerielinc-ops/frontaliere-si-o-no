@@ -1,38 +1,39 @@
 {
   "key": "pdag",
   "label": "Psychiatrische Dienste Aargau (PDAG)",
-  "generatedAt": "2026-07-03T22:46:41.843Z",
+  "generatedAt": "2026-07-04T11:41:28.683Z",
   "total": 69,
-  "newCount": 1,
-  "updatedCount": 67,
+  "newCount": 0,
+  "updatedCount": 68,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4465,
-  "avgDurationMs": 4465,
+  "durationMs": 3454,
+  "avgDurationMs": 3454,
   "durationHistory": [
-    4465
+    3454
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "pdag-fbd27bb5a8e6",
-      "slug": "klinikdirektorin-klinikdirektor-und-chefarztin-chefarzt-kan-br-mitglied-der",
+      "slug": "klinikdirektorin-klinikdirektor-e-chefarztin-chefarzt-kan-br-mitglied-der-geschaftsleitung-psychiatrische-dienste-aargau-pdag-windisch",
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
       "companyDomain": "pdag.ch",
       "title": "Klinikdirektorin/Klinikdirektor und Chefärztin/Chefarzt (KAN)<br/>Mitglied der Geschäftsleitung",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Windisch",
       "canton": "AG",
       "url": "https://jobs.pdag.ch/offene-stellen/klinikdirektorin-klinikdirektor-und-chefaerztin-chefarzt-kan-mitglied-der-geschaeftsleitung/8ccd73c7-b164-45ad-8c9f-f34f775ce9a5",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.779Z",
+      "crawledAt": "2026-07-04T11:41:26.089Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -41,17 +42,16 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-03",
-      "applyUrl": "4031",
-      "_qualityScore": 58,
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/klinikdirektorin-klinikdirektor-und-chefaerztin-chefarzt-kan-mitglied-der-geschaeftsleitung/8ccd73c7-b164-45ad-8c9f-f34f775ce9a5",
+      "firstSeenAt": "2026-07-03T22:46:38.779Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "pdag-c1c1488e452f",
       "slug": "ausbildungsplatz-zur-fachfrau-zum-fachmann-betreuung-fachrichtung-kinder-efz-pdag-windisch",
@@ -65,13 +65,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/ausbildungsplatz-zur-fachfrau-zum-fachmann-betreuung-fachrichtung-kinder-efz/0eda0e5e-eadc-43c1-9c28-45add7dc4ba3",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.787Z",
+      "crawledAt": "2026-07-04T11:41:26.098Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Risorse Umane",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -80,14 +80,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-03",
-      "applyUrl": "4024",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/ausbildungsplatz-zur-fachfrau-zum-fachmann-betreuung-fachrichtung-kinder-efz/0eda0e5e-eadc-43c1-9c28-45add7dc4ba3",
       "firstSeenAt": "2026-07-03T12:34:31.729Z",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -103,13 +103,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/ausbildungsplatz-zur-kauffrau-zum-kaufmann-efz-mit-oder-ohne-berufsmaturitaet/c8b27380-0549-43b7-8db2-c2681997312f",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.788Z",
+      "crawledAt": "2026-07-04T11:41:26.099Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Risorse Umane",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -118,14 +118,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-01",
-      "applyUrl": "4025",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/ausbildungsplatz-zur-kauffrau-zum-kaufmann-efz-mit-oder-ohne-berufsmaturitaet/c8b27380-0549-43b7-8db2-c2681997312f",
       "firstSeenAt": "2026-07-01T23:00:25.385Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -141,13 +141,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-sozialpaedagogin-sozialpaedagoge-hf-fh/dca82952-0d2f-4e91-a48b-3a104a25ca57",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.791Z",
+      "crawledAt": "2026-07-04T11:41:26.103Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -156,14 +156,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-26",
-      "applyUrl": "4021",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/dipl-sozialpaedagogin-sozialpaedagoge-hf-fh/dca82952-0d2f-4e91-a48b-3a104a25ca57",
       "firstSeenAt": "2026-06-26T12:04:38.641Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -179,13 +179,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe/d6538ce0-4938-439e-9c0b-dd4d0ba6bb34",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.795Z",
+      "crawledAt": "2026-07-04T11:41:26.106Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -194,14 +194,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-24",
-      "applyUrl": "4020",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe/d6538ce0-4938-439e-9c0b-dd4d0ba6bb34",
       "firstSeenAt": "2026-06-24T22:39:02.281Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -217,13 +217,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/leitung-fachentwicklung-pflege-sozialpaedagogik/5bf9b2f3-337e-47f0-8dc4-949b64d5577b",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.796Z",
+      "crawledAt": "2026-07-04T11:41:26.108Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -232,14 +232,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-22",
-      "applyUrl": "4019",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/leitung-fachentwicklung-pflege-sozialpaedagogik/5bf9b2f3-337e-47f0-8dc4-949b64d5577b",
       "firstSeenAt": "2026-06-22T14:45:31.217Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -255,13 +255,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-abhaengigkeitserkrankungen/c9df271e-38c0-495d-a417-88f349741a0a",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.799Z",
+      "crawledAt": "2026-07-04T11:41:26.111Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -270,14 +270,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-17",
-      "applyUrl": "4017",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-abhaengigkeitserkrankungen/c9df271e-38c0-495d-a417-88f349741a0a",
       "firstSeenAt": "2026-06-17T13:58:57.782Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -293,13 +293,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe/69fc1bff-ed0d-423f-82bf-0273e45b0ea9",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.800Z",
+      "crawledAt": "2026-07-04T11:41:26.111Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "4310",
-      "streetAddress": "",
+      "streetAddress": "Baslerstrasse 8",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -308,14 +308,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-16",
-      "applyUrl": "3912",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe/69fc1bff-ed0d-423f-82bf-0273e45b0ea9",
       "firstSeenAt": "2026-06-16T14:13:24.265Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -331,13 +331,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf/f9642472-63d9-41a6-b335-a87c75dc845f",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.801Z",
+      "crawledAt": "2026-07-04T11:41:26.112Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -346,14 +346,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "4009",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf/f9642472-63d9-41a6-b335-a87c75dc845f",
       "firstSeenAt": "2026-06-15T15:22:07.963Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -369,13 +369,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe/b9e523a0-1dd9-43da-a70d-47a07cd272bf",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.801Z",
+      "crawledAt": "2026-07-04T11:41:26.113Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -384,14 +384,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-12",
-      "applyUrl": "4004",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe/b9e523a0-1dd9-43da-a70d-47a07cd272bf",
       "firstSeenAt": "2026-06-12T12:43:49.473Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -407,13 +407,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/fachfrau-fachmann-gesundheit-im-zentrum-fuer-neuropsychiatrie/f48b067f-5b57-4a83-a005-c00270d37817",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.802Z",
+      "crawledAt": "2026-07-04T11:41:26.114Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -422,14 +422,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-11",
-      "applyUrl": "3174",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/fachfrau-fachmann-gesundheit-im-zentrum-fuer-neuropsychiatrie/f48b067f-5b57-4a83-a005-c00270d37817",
       "firstSeenAt": "2026-06-12T12:43:49.478Z",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -445,13 +445,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-oder-medizinische-praxisangestellte-medizinischer-praxisangestellter/d5c7a10d-11a8-47d0-99a0-bcef160203d3",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.803Z",
+      "crawledAt": "2026-07-04T11:41:26.115Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -460,14 +460,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-11",
-      "applyUrl": "3792",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-oder-medizinische-praxisangestellte-medizinischer-praxisangestellter/d5c7a10d-11a8-47d0-99a0-bcef160203d3",
       "firstSeenAt": "2026-06-12T12:43:49.479Z",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -483,13 +483,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/fachverantwortliche-fachverantwortlicher-stv-stationsleitung-forensische-psychiatrie-stationaer/e4cc5897-28c5-4a7d-9088-2f938c586232",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.803Z",
+      "crawledAt": "2026-07-04T11:41:26.116Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -498,14 +498,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-11",
-      "applyUrl": "3995",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/fachverantwortliche-fachverantwortlicher-stv-stationsleitung-forensische-psychiatrie-stationaer/e4cc5897-28c5-4a7d-9088-2f938c586232",
       "firstSeenAt": "2026-06-11T13:15:23.496Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -521,13 +521,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/psychologiepraktikantin-psychologiepraktikant-tagesklinik-aarau/b6b8d1c7-52a5-4e27-a5ed-5aef0bd4a5af",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.804Z",
+      "crawledAt": "2026-07-04T11:41:26.116Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5001",
-      "streetAddress": "",
+      "streetAddress": "Bleichemattstrasse 16",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -536,14 +536,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-10",
-      "applyUrl": "4016",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/psychologiepraktikantin-psychologiepraktikant-tagesklinik-aarau/b6b8d1c7-52a5-4e27-a5ed-5aef0bd4a5af",
       "firstSeenAt": "2026-06-11T11:20:03.524Z",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -559,13 +559,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/teamleiterin-teamleiter-tageszentrum/da330930-07e6-462a-abca-f5cffe138835",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.804Z",
+      "crawledAt": "2026-07-04T11:41:26.117Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "4310",
-      "streetAddress": "",
+      "streetAddress": "Baslerstrasse 8",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -574,14 +574,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-10",
-      "applyUrl": "4013",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/teamleiterin-teamleiter-tageszentrum/da330930-07e6-462a-abca-f5cffe138835",
       "firstSeenAt": "2026-06-11T11:20:03.527Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -597,13 +597,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/apothekerin-apotheker-oder-wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter/f8d715f6-b1ab-4932-b327-75868c7f6cc3",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.805Z",
+      "crawledAt": "2026-07-04T11:41:26.118Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -612,14 +612,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-10",
-      "applyUrl": "4007",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/apothekerin-apotheker-oder-wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter/f8d715f6-b1ab-4932-b327-75868c7f6cc3",
       "firstSeenAt": "2026-06-11T11:20:03.530Z",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -635,13 +635,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp/4c22ea79-9df6-46d2-a619-973e930b347e",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.806Z",
+      "crawledAt": "2026-07-04T11:41:26.118Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -650,14 +650,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-09",
-      "applyUrl": "3896",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp/4c22ea79-9df6-46d2-a619-973e930b347e",
       "firstSeenAt": "2026-06-11T11:20:03.533Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -673,13 +673,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt-home-treatment-und-aufsuchende-angebote/2fde1fcb-866b-4eaf-b482-4e15585e33d1",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.806Z",
+      "crawledAt": "2026-07-04T11:41:26.119Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -688,14 +688,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-09",
-      "applyUrl": "3814",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt-home-treatment-und-aufsuchende-angebote/2fde1fcb-866b-4eaf-b482-4e15585e33d1",
       "firstSeenAt": "2026-06-11T11:20:03.536Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -711,13 +711,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberarzt-oberaerztin-autismusfachstelle/98535c2c-3a49-4b20-8f67-a96d7b70ea62",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.807Z",
+      "crawledAt": "2026-07-04T11:41:26.120Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5000",
-      "streetAddress": "",
+      "streetAddress": "Küttigerstrasse 42",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -726,14 +726,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-09",
-      "applyUrl": "3813",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/oberarzt-oberaerztin-autismusfachstelle/98535c2c-3a49-4b20-8f67-a96d7b70ea62",
       "firstSeenAt": "2026-06-11T11:20:03.534Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -749,13 +749,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/ergotherapeutin-ergotherapeut/24001421-6661-4d04-bbea-7f0bf781635b",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.808Z",
+      "crawledAt": "2026-07-04T11:41:26.120Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -764,14 +764,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-09",
-      "applyUrl": "4014",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/ergotherapeutin-ergotherapeut/24001421-6661-4d04-bbea-7f0bf781635b",
       "firstSeenAt": "2026-06-11T13:15:23.507Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -787,13 +787,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-demenz-delir/d2ecba87-d5b1-4ae7-8bbd-ace81b34655f",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.808Z",
+      "crawledAt": "2026-07-04T11:41:26.121Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -802,14 +802,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-04",
-      "applyUrl": "3272",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-demenz-delir/d2ecba87-d5b1-4ae7-8bbd-ace81b34655f",
       "firstSeenAt": "2026-06-11T11:20:03.538Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -825,13 +825,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/assistenzaerztin-assistenzarzt-im-stationaeren-bereich-der-klinik-fuer-psychiatrie-und-psychotherapie-kpp/0a0ba7b8-3fca-48b7-93a4-ef46cc8b19e6",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.809Z",
+      "crawledAt": "2026-07-04T11:41:26.122Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -840,14 +840,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-04",
-      "applyUrl": "4010",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/assistenzaerztin-assistenzarzt-im-stationaeren-bereich-der-klinik-fuer-psychiatrie-und-psychotherapie-kpp/0a0ba7b8-3fca-48b7-93a4-ef46cc8b19e6",
       "firstSeenAt": "2026-06-11T11:20:03.540Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -863,13 +863,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-tagesklinik/8b9dcbed-aa3b-40d8-866c-81a4a5b8907a",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.789Z",
+      "crawledAt": "2026-07-04T11:41:26.101Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -878,14 +878,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-03",
-      "applyUrl": "4005",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-tagesklinik/8b9dcbed-aa3b-40d8-866c-81a4a5b8907a",
       "firstSeenAt": "2026-06-11T11:20:03.541Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -901,13 +901,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie/b98b04e6-6856-4d32-a5d6-cf2a4314145f",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.810Z",
+      "crawledAt": "2026-07-04T11:41:26.123Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -916,14 +916,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-01",
-      "applyUrl": "3895",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie/b98b04e6-6856-4d32-a5d6-cf2a4314145f",
       "firstSeenAt": "2026-06-11T11:20:03.542Z",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -939,13 +939,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation/6f62e723-6c86-4c1f-858d-164d5ab58ea2",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.811Z",
+      "crawledAt": "2026-07-04T11:41:26.123Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -954,14 +954,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-27",
-      "applyUrl": "3615",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation/6f62e723-6c86-4c1f-858d-164d5ab58ea2",
       "firstSeenAt": "2026-06-11T11:20:03.544Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -977,13 +977,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe/cb15bd9a-5f96-4a2e-9a03-4c529f988f19",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.813Z",
+      "crawledAt": "2026-07-04T11:41:26.126Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -992,14 +992,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-27",
-      "applyUrl": "4002",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe/cb15bd9a-5f96-4a2e-9a03-4c529f988f19",
       "firstSeenAt": "2026-06-11T11:20:03.548Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1015,13 +1015,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachpersonen-hf-fh-im-spaet-und-nachtdienst/032ebbd6-4e63-45bd-85b9-d23258a6beb1",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.814Z",
+      "crawledAt": "2026-07-04T11:41:26.126Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -1030,14 +1030,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-22",
-      "applyUrl": "3998",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachpersonen-hf-fh-im-spaet-und-nachtdienst/032ebbd6-4e63-45bd-85b9-d23258a6beb1",
       "firstSeenAt": "2026-06-11T11:20:03.548Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1053,13 +1053,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/sozialarbeiterin-sozialarbeiter-fh/0e5ba355-de0a-4fdd-b1d9-92de79258a75",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.814Z",
+      "crawledAt": "2026-07-04T11:41:26.127Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -1068,14 +1068,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-21",
-      "applyUrl": "3994",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/sozialarbeiterin-sozialarbeiter-fh/0e5ba355-de0a-4fdd-b1d9-92de79258a75",
       "firstSeenAt": "2026-06-11T11:20:03.549Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1091,13 +1091,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/fachfrau-fachmann-gesundheit-nachtwachen-equipe/9b16c43c-1270-4fca-b958-0f7d23a3c1cd",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.792Z",
+      "crawledAt": "2026-07-04T11:41:26.104Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1106,14 +1106,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-18",
-      "applyUrl": "3990",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/fachfrau-fachmann-gesundheit-nachtwachen-equipe/9b16c43c-1270-4fca-b958-0f7d23a3c1cd",
       "firstSeenAt": "2026-06-11T11:20:03.551Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1129,13 +1129,13 @@
       "url": "https://jobs.pdag.ch/offene-stellen/leitende-aerztin-leitender-arzt/bbfaabdc-3515-437c-9cc0-6c704a1ab7a4",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.819Z",
+      "crawledAt": "2026-07-04T11:41:26.132Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5210",
-      "streetAddress": "",
+      "streetAddress": "Königsfelderstrasse 1",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1144,52 +1144,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-17",
-      "applyUrl": "3980",
+      "applyUrl": "https://jobs.pdag.ch/offene-stellen/leitende-aerztin-leitender-arzt/bbfaabdc-3515-437c-9cc0-6c704a1ab7a4",
       "firstSeenAt": "2026-06-11T13:15:23.523Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "pdag-6306e01deea0",
-      "slug": "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
-      "company": "Psychiatrische Dienste Aargau (PDAG)",
-      "companyKey": "pdag",
-      "companyDomain": "pdag.ch",
-      "title": "Assistenzpsychologin / Assistenzpsychologe oder Fachpsychologin / Fachpsychologe",
-      "needsRetranslation": false,
-      "location": "Windisch",
-      "canton": "AG",
-      "url": "https://jobs.pdag.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe/210a0454-1b26-4ee3-90f5-ad9d796e8f83",
-      "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:46:38.818Z",
-      "addressLocality": "Windisch",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5210",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-12",
-      "applyUrl": "3988",
-      "firstSeenAt": "2026-06-11T11:20:03.553Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
@@ -1225,7 +1187,7 @@
       "firstSeenAt": "2026-06-11T11:20:03.557Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
