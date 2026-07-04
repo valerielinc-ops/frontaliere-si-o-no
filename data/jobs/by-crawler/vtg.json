@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-07-03T23:33:48.143Z",
+  "assembledAt": "2026-07-04T12:35:06.530Z",
   "jobs": [
     {
       "id": "company-g1g1m",
@@ -311,7 +311,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-qf6gqz",
@@ -628,7 +629,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-qxa6ru",
@@ -1752,7 +1754,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-vvystb",
@@ -2016,7 +2019,7 @@
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "slugByLocale": {
         "de": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "it": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "it": "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
         "en": "get-out-of-the-routine-become-a-professional-officer-swiss-armed-forces-vtg-bern",
         "fr": "sortir-de-la-routine-devenir-administrateur-swiss-armed-forces-vtg-bern"
       },
@@ -2053,8 +2056,7 @@
       "previousSlugs": [
         "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bern",
         "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bellinzona",
-        "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern"
+        "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2098,7 +2100,7 @@
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "slugByLocale": {
         "de": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "it": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "it": "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-assistente-professionale-swiss-armed-forces-vtg-bern",
         "en": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk",
         "fr": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk"
       },
@@ -2138,8 +2140,7 @@
         "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern",
         "your-profession-should-offer-more-become-a-professional-assistant-swiss-armed-forces-vtg-bern",
         "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bellinzona",
-        "votre-profession-devrait-offrir-plus-devenez-assistant-professionnel-swiss-armed-forces-vtg-bern",
-        "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-assistente-professionale-swiss-armed-forces-vtg-bern"
+        "votre-profession-devrait-offrir-plus-devenez-assistant-professionnel-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2490,20 +2491,6 @@
         ]
       },
       "previousSlugs": [
-        "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern",
-        "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw",
-        "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona",
-        "personalverantwortliche-hq-kfor-swiss-armed-forces-vtg-bellinzona",
-        "personale-attenzione-al-reclutamento-swiss-armed-forces-vtg-bern",
-        "personnel-focus-on-recruitment-swiss-armed-forces-vtg-bern",
-        "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern",
-        "personnel-accent-sur-le-recrutement-swiss-armed-forces-vtg-bern",
-        "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern-etokcg",
-        "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bellinzona",
-        "personale-scientifico-industriale-swiss-armed-forces-vtg-bern",
-        "scientific-industry-staff-swiss-armed-forces-vtg-bern",
-        "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bern",
-        "personnel-scientifique-industriel-swiss-armed-forces-vtg-bern",
         "wissenschaftliche-r-collaboratore-trice-in-swiss-armed-forces-vtg-bern-gt0ems",
         "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bern-gt0ems",
         "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bellinzona",
@@ -2518,7 +2505,21 @@
         "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
         "logistique-lager-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
         "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl",
-        "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-bern"
+        "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-bern",
+        "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern",
+        "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw",
+        "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona",
+        "personalverantwortliche-hq-kfor-swiss-armed-forces-vtg-bellinzona",
+        "personale-attenzione-al-reclutamento-swiss-armed-forces-vtg-bern",
+        "personnel-focus-on-recruitment-swiss-armed-forces-vtg-bern",
+        "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern",
+        "personnel-accent-sur-le-recrutement-swiss-armed-forces-vtg-bern",
+        "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern-etokcg",
+        "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bellinzona",
+        "personale-scientifico-industriale-swiss-armed-forces-vtg-bern",
+        "scientific-industry-staff-swiss-armed-forces-vtg-bern",
+        "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bern",
+        "personnel-scientifique-industriel-swiss-armed-forces-vtg-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2695,7 +2696,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",
