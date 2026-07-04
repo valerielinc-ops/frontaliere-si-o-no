@@ -115,12 +115,15 @@ export function parseReflineAnchorListing(html = '', { listingHost, tenant } = {
  * Parse a Refline listing page using the "table-row" template.
  * Returns: [{ url, posId, rev, title, workplace, workload, entryDate }, ...]
  *
- * Tolerates two known sub-variants beyond the original Hohenegg/Caritas
- * shape (kept backward-compatible — both bits are optional):
+ * Tolerates three known sub-variants beyond the original Hohenegg/Caritas
+ * shape (kept backward-compatible — all bits are optional):
  *  - detail URL without trailing `/index.html` (ZKB `792841`: bare
  *    `.../{posId}/pub/{rev}"` anchors that resolve directly, no redirect).
  *  - an extra `<td class="operationArea">` column between `position` and
  *    `workplace` (ZKB table adds a department/business-area column).
+ *  - an extra `<td class="businessUnit">` column in the same slot (Pfister
+ *    `424626` names the same department column `businessUnit` instead of
+ *    `operationArea` — same shape, different class name).
  */
 export function parseReflineTableListing(html = '', { listingHost, tenant } = {}) {
   if (!html) return [];
@@ -128,7 +131,7 @@ export function parseReflineTableListing(html = '', { listingHost, tenant } = {}
   const seen = new Set();
 
   const rowRe = new RegExp(
-    `<tr[^>]*>\\s*<td class="position">\\s*<a\\s+href="(https?:\\/\\/${listingHost.replace(/\\./g, '\\.')}\\/${tenant}\\/([A-Za-z0-9]+)\\/pub\\/(\\d+)(?:\\/index\\.html)?)"[^>]*>([\\s\\S]*?)<\\/a>\\s*<\\/td>\\s*(?:<td class="operationArea">[\\s\\S]*?<\\/td>\\s*)?(?:<td class="workplace">([\\s\\S]*?)<\\/td>\\s*)?(?:<td class="workload">([\\s\\S]*?)<\\/td>\\s*)?(?:<td class="entryDate">([\\s\\S]*?)<\\/td>)?`,
+    `<tr[^>]*>\\s*<td class="position">\\s*<a\\s+href="(https?:\\/\\/${listingHost.replace(/\\./g, '\\.')}\\/${tenant}\\/([A-Za-z0-9]+)\\/pub\\/(\\d+)(?:\\/index\\.html)?)"[^>]*>([\\s\\S]*?)<\\/a>\\s*<\\/td>\\s*(?:<td class="(?:operationArea|businessUnit)">[\\s\\S]*?<\\/td>\\s*)?(?:<td class="workplace">([\\s\\S]*?)<\\/td>\\s*)?(?:<td class="workload">([\\s\\S]*?)<\\/td>\\s*)?(?:<td class="entryDate">([\\s\\S]*?)<\\/td>)?`,
     'gi',
   );
   let m;
@@ -249,6 +252,16 @@ export function createReflineParser(config) {
     sector = 'Sanità / Ospedali',
     sourceLabel,
     locationHintsFor,
+    // Optional override for the free-text `company` field check inside
+    // isCompanyJob(): receives the already-normalized (trimmed+lowercased)
+    // company string, returns true/false. Default behaviour (substring of the
+    // corporateHost's first label, e.g. "pfister" for "pfister.ch") is kept
+    // for every existing tenant when this is omitted. Needed for tenants
+    // whose brand token is also a generic Swiss surname shared with unrelated
+    // companies (e.g. "Pfister" also matches "Angst+Pfister AG",
+    // "Carrosserie Pfister AG", "PFISTERER Holding AG" under a plain
+    // substring check) — see pfister-job-parser.mjs.
+    companyNameMatch,
   } = config;
 
   if (!reflineTenant || !companyKey || !companyName || !defaultCanton || !defaultCity) {
@@ -265,11 +278,17 @@ export function createReflineParser(config) {
   function isCompanyJob(job) {
     const key = normalize(job?.companyKey || '');
     const company = normalize(job?.company || '');
-    const url = normalize(job?.url || '');
     if (key === companyKey) return true;
-    if (corporateHost && (company.includes(corporateHost.split('.')[0]) || url.includes(corporateHost))) return true;
-    if (url.includes(`${listingHost}/${tenantStr}`)) return true;
-    return false;
+    const companyNameMatches = typeof companyNameMatch === 'function'
+      ? companyNameMatch(company)
+      : Boolean(corporateHost && company.includes(corporateHost.split('.')[0]));
+    if (companyNameMatches) return true;
+    // Domain/tenant check delegates to isTrustedDomain() (proper hostname
+    // parsing) rather than duplicating a plain substring test on the raw URL
+    // string — a naive `url.includes(corporateHost)` would also match an
+    // unrelated domain that merely ends with "-<corporateHost>" (e.g.
+    // "carrosserie-pfister.ch" contains the literal substring "pfister.ch").
+    return isTrustedDomain(job?.url || '');
   }
 
   function isTrustedDomain(rawUrl = '') {
