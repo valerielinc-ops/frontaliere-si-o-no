@@ -354,8 +354,9 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       // behind the unlock gate. The resilient fetch must retry with the CURRENT id
       // resolved from the live slug map (slug → id) before giving up.
       expect(src).toMatch(/async function fetchJobDetailResilient\(jobId: string, slug\?: string \| null\)/);
-      // On a miss it loads the slug map and resolves the live id from the slug.
-      expect(src).toMatch(/await ensureJobSlugMapLoaded\(\)/);
+      // On a miss it loads the slug's shard (#3526: per-slug, not the full
+      // monolith) and resolves the live id from the slug.
+      expect(src).toMatch(/await ensureJobSlugEntriesLoaded\(\[slug\]\)/);
       expect(src).toMatch(/const liveId = getJobMetaForSlug\(slug\)\?\.id/);
       // Only retries when the resolved id actually differs (avoids a redundant 404).
       expect(src).toMatch(/if \(!liveId \|\| liveId === jobId\) return primary/);
