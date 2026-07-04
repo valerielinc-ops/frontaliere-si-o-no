@@ -619,6 +619,11 @@ export const COMPANY_HQ = {
   // CHE-102.232.125) sharing this registered seat. NOT the same company as
   // 'spruengli' (Confiserie Sprüngli AG, Zürich) — unaffiliated, see issue #3337.
   'lindt-spruengli': { city: 'Kilchberg', canton: 'ZH', postalCode: '8802', addressRegion: 'ZH' },
+  // Vision Management Services GmbH (VISIONAPARTMENTS brand), Talstrasse 62,
+  // 8001 Zürich ZH — confirmed via Zefix/Moneyhouse/Northdata (Swiss
+  // commercial register, CHE-114.735.781) AND matches the live jobs.ch
+  // vacancy's own jobLocation.address; no fallback needed.
+  'visionapartments': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
 };
 
 /**
