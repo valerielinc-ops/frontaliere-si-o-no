@@ -427,10 +427,9 @@
       "url": "https://jobs.implenia.com/job/Leitung-Kundenbuchhaltung-%28mwd%29%2C-Opfikon%2C-Bern-oder-Winterthur%2C-80-100/13298-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:52.496Z",
+      "crawledAt": "2026-07-03T22:06:46.282Z",
       "addressLocality": "Thurgauerstrasse 101A-8152 Opfikon",
       "postalCode": "8152",
-      "streetAddress": "",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -460,7 +459,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T22:51:05.301Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -472,7 +470,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-1b9cdac52d2a",
@@ -505,10 +504,9 @@
       "url": "https://jobs.implenia.com/job/Customer-Consultant-Bewirtschaftung-%28mwd%29%2C-Winterthur%2C-60-100/12689-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:52.043Z",
+      "crawledAt": "2026-07-04T11:31:24.840Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
-      "streetAddress": "Theaterstrasse 17",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -529,15 +527,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch",
-          "customer-consulente-bewirtschaftung-m-w-d-winterthur-60-100-implenia-winterthur-roter-turm"
+          "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch"
         ],
         "de": [
           "customer-berater-bewirtschaftung-m-w-d-winterthur-60-100-implenia-winterthur-roter-turm"
         ]
       },
       "firstSeenAt": "2026-07-01T22:37:11.646Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -582,10 +578,9 @@
       "url": "https://jobs.implenia.com/job/%28Senior%29-Immobilienbewirtschafter-%28mwd%29%2C-Basel-oder-Rheinfelden%2C-80-100-befristet/13294-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:51.493Z",
+      "crawledAt": "2026-07-04T11:31:24.395Z",
       "addressLocality": "Basel",
       "postalCode": "4052",
-      "streetAddress": "Grosspeteranlage 5+7",
       "addressRegion": "BS",
       "addressCountry": "CH",
       "country": "CH",
@@ -609,7 +604,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:37:17.024Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -892,10 +886,9 @@
       "url": "https://jobs.implenia.com/job/Vermietungsspezialist-Immobilien-%28mwd%29%2C-St_-Gallen%2C-100/13280-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:49.370Z",
+      "crawledAt": "2026-07-04T11:31:18.455Z",
       "addressLocality": "St. Leonhardstrasse 74 Postfach-9001 St. Gallen",
       "postalCode": "9001",
-      "streetAddress": "",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
@@ -915,8 +908,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
-          "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
+          "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
         ],
         "en": [
           "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
@@ -926,7 +918,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:37:30.570Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1043,10 +1034,9 @@
       "url": "https://jobs.implenia.com/job/Leiterin-Technisches-B%C3%BCro-80-100-%28wmd%29/12462-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:48.779Z",
+      "crawledAt": "2026-07-04T11:31:17.977Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
-      "streetAddress": "",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1063,19 +1053,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch",
-          "bauingenieur-in-geotechnik-80-100-implenia-ch"
+          "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch"
         ],
         "it": [
-          "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch",
-          "ingegneria-civile-ingegneria-geotecnica-80-100-implenia-opfikon"
+          "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch"
         ]
       },
       "previousSlugs": [
         "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch"
       ],
       "firstSeenAt": "2026-06-25T11:46:24.671Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1120,10 +1107,9 @@
       "url": "https://jobs.implenia.com/job/EPC-Proposal-Manager-%28wmd%29/13086-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:48.650Z",
+      "crawledAt": "2026-07-04T11:31:16.857Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
-      "streetAddress": "Thurgauerstrasse 101A",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1143,15 +1129,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "epc-proposal-manager-w-m-d-implenia-ch",
-          "responsabile-della-proposta-epc-f-m-d-implenia-glattpark-opfikon"
+          "epc-proposal-manager-w-m-d-implenia-ch"
         ],
         "fr": [
           "epc-proposal-manager-w-m-d-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-07-01T22:37:15.369Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1274,10 +1258,9 @@
       "url": "https://jobs.implenia.com/job/Senior-Project-Manager-IT-%28mwd%29%2C-Opfikon%2C-80-100/13394-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:47.844Z",
+      "crawledAt": "2026-07-04T11:31:16.995Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
-      "streetAddress": "Thurgauerstrasse 101A",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1293,7 +1276,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-30T11:48:38.648Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -1416,10 +1398,9 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Tunnelbau-%28mwd%29-80-100/9854-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:47.587Z",
+      "crawledAt": "2026-07-04T11:31:16.407Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
-      "streetAddress": "",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1439,8 +1420,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kalkulator-tunnelbau-m-w-d-80-100-implenia-ch",
-          "kalkulator-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
+          "kalkulator-tunnelbau-m-w-d-80-100-implenia-ch"
         ],
         "en": [
           "kalkulator-tunnelbau-m-w-d-80-100-implenia-ch"
@@ -1450,7 +1430,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:14.064Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1711,10 +1690,9 @@
       "url": "https://jobs.implenia.com/job/Projektleiterin-Elektroplanung-%28Gisikon-Opfikon-Bern%29/13041-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:47.038Z",
+      "crawledAt": "2026-07-04T11:31:15.513Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
-      "streetAddress": "",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
@@ -1734,8 +1712,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch",
-          "responsabile-di-progetto-elektroplanung-gisikon-opfikon-bern-implenia-glattpark-opfikon"
+          "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch"
         ],
         "en": [
           "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch"
@@ -1745,7 +1722,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T22:51:02.461Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2022,10 +1998,9 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Ingenieurtiefbau-%28mwd%29-80-100/11117-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:46.327Z",
+      "crawledAt": "2026-07-03T22:06:35.999Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
-      "streetAddress": "",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2045,12 +2020,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kalkulator-ingenieurtiefbau-m-w-d-80-100-implenia-ch",
-          "calcolatore-ingegneria-civile-m-f-d-80-100-implenia-opfikon"
+          "kalkulator-ingenieurtiefbau-m-w-d-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-07-01T12:15:18.574Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2062,7 +2035,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-4f89cdbe6006",
@@ -2405,10 +2379,9 @@
       "url": "https://jobs.implenia.com/job/Immobilienbuchhalter-%28mwd%29%2C-Opfikon%2C-80/12861-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:44.571Z",
+      "crawledAt": "2026-07-04T11:31:12.543Z",
       "addressLocality": "Thurgauerstrasse 101A",
       "postalCode": "8001",
-      "streetAddress": "",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2432,8 +2405,7 @@
         "it": [
           "immobilienbuchhalter-m-w-d-opfikon-80-implenia-ch",
           "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a",
-          "contabile-immobiliare-m-f-d-opfikon-80-implenia-thurgauerstrasse-101a",
-          "contabili-immobiliari-m-f-d-opfikon-80-implenia-thurgauerstrasse-101a"
+          "contabile-immobiliare-m-f-d-opfikon-80-implenia-thurgauerstrasse-101a"
         ],
         "en": [
           "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a"
@@ -2443,7 +2415,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T11:48:20.244Z",
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -2560,10 +2531,9 @@
       "url": "https://jobs.implenia.com/job/HR-Operations-Specialist-8-Monate-100-%28wmd%29-Opfikon/13397-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:44.185Z",
+      "crawledAt": "2026-07-04T11:31:11.799Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
-      "streetAddress": "Thurgauerstrasse 101A",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2583,15 +2553,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-operations-specialist-8-monate-100-w-m-d-opfikon-implenia-ch",
-          "risorse-umane-operations-specialista-8-monate-100-w-m-d-opfikon-implenia-glattpark-opfikon"
+          "hr-operations-specialist-8-monate-100-w-m-d-opfikon-implenia-ch"
         ],
         "fr": [
           "hr-operations-specialist-8-monate-100-w-m-d-opfikon-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-06-29T22:51:17.682Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2717,10 +2685,9 @@
       "url": "https://jobs.implenia.com/job/Team-Lead-SAP-Finance-&-Reporting-%28mwd%29-80-100/12991-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:43.261Z",
+      "crawledAt": "2026-07-04T11:31:10.748Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
-      "streetAddress": "Thurgauerstrasse 101A",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2747,7 +2714,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:29:53.846Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -3034,10 +3000,9 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Holzbau%2C-%28mwd%29%2C-80-100/10512-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:42.737Z",
+      "crawledAt": "2026-07-04T11:31:09.230Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
-      "streetAddress": "",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3057,12 +3022,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
-          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
+          "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-07-02T11:29:50.022Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3107,10 +3070,9 @@
       "url": "https://jobs.implenia.com/job/Ingenieur-Holzbau%2C-%28mwd%29-80-100/9584-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:42.520Z",
+      "crawledAt": "2026-07-03T22:06:26.695Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
-      "streetAddress": "",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3130,12 +3092,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-          "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang"
+          "ingenieur-holzbau-m-w-d-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-07-02T11:29:50.175Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3147,7 +3107,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-04e1ff38d9dc",
@@ -3180,10 +3141,9 @@
       "url": "https://jobs.implenia.com/job/Cost-Manager-Datacenter-%28wmd%29/13303-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:42.391Z",
+      "crawledAt": "2026-07-04T11:31:08.916Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
-      "streetAddress": "Thurgauerstrasse 101A",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3205,15 +3165,13 @@
       "previousSlugsByLocale": {
         "it": [
           "cost-manager-datacenter-w-md-implenia-ch",
-          "datacenter-f-md-implenia-glattpark-opfikon",
-          "cost-manager-data-center-f-md-implenia-glattpark-opfikon"
+          "datacenter-f-md-implenia-glattpark-opfikon"
         ],
         "fr": [
           "cost-manager-datacenter-w-md-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-06-30T11:48:33.339Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3554,10 +3512,9 @@
       "url": "https://jobs.implenia.com/job/Zimmermann-EFZ-%28mwd%29%2C-80-100/13057-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:41.139Z",
+      "crawledAt": "2026-07-04T11:31:07.404Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
-      "streetAddress": "",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3577,12 +3534,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-efz-m-w-d-80-100-implenia-ch",
-          "zimmermann-cfc-m-w-d-80-100-implenia-rumlang"
+          "zimmermann-efz-m-w-d-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-07-01T22:37:18.912Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3627,10 +3582,9 @@
       "url": "https://jobs.implenia.com/job/Polier-Holzbau-%28mwd%29%2C-80-100/12918-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:41.009Z",
+      "crawledAt": "2026-07-04T11:31:07.267Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
-      "streetAddress": "Wibachstrasse 12",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3646,7 +3600,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-01T22:37:18.772Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4005,10 +3958,9 @@
       "url": "https://jobs.implenia.com/job/Senior-ServiceNow-Administrator-%28mwd%29%2C-Opfikon%2C-80-100/12992-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:41:40.217Z",
+      "crawledAt": "2026-07-04T11:31:06.505Z",
       "addressLocality": "Crissier",
       "postalCode": "1023",
-      "streetAddress": "Chemin de Mongevon 2",
       "addressRegion": "VD",
       "addressCountry": "CH",
       "country": "CH",
@@ -4024,7 +3976,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-01T12:15:10.758Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -4615,9 +4566,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      }
     },
     {
       "id": "implenia-f1bf58228d0c",
@@ -5286,9 +5235,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      }
     },
     {
       "id": "implenia-b6024997eb8b",
@@ -5435,8 +5382,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-8e19b606e044",
@@ -5513,8 +5459,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-6b906ce1c464",
@@ -5591,8 +5536,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-e3abbef746d2",
