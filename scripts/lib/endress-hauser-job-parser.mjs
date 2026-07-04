@@ -54,7 +54,7 @@ const parser = createSuccessFactorsParser({
   defaultSourceLang: 'de',
   searchParams: { locationsearch: 'Switzerland' },
   sector: 'Strumentazione industriale / Automazione',
-  categoryFallback: 'Strumentazione industriale / Automazione',
+  fallbackCategory: 'Strumentazione industriale / Automazione',
   descriptionFallbackTagline:
     'ist ein globaler Marktführer für Messtechnik und Automatisierungslösungen für die Prozessindustrie',
   sourceLabel: 'Endress+Hauser Dedicated Parser (SuccessFactors CSB)',

@@ -82,20 +82,12 @@ function countUniqueWords(text = '') {
  * `/hr/` substring (inside "Le**hr**stelle") and end up as "Risorse Umane"
  * instead of "Formazione". We check apprentice / training keywords first.
  */
-function detectCategoryForSf(title = '', categoryFallback = null) {
+function detectCategoryForSf(title = '', fallbackCategory = 'Sanità / Ospedali') {
   const t = normalize(title);
   if (/lehrstelle|lernend|ausbildung|praktik|apprend|stagia|tirocin|formaz|studierend/.test(t)) {
     return 'Formazione';
   }
-  const detected = detectHealthcareCategory(title);
-  // `detectHealthcareCategory` is tuned for hospital/clinic tenants and
-  // defaults to 'Sanità / Ospedali' when nothing else matches. For
-  // non-healthcare SF tenants (industrial, finance, ...) that default is a
-  // mislabel — `categoryFallback` (from `createSuccessFactorsParser` config)
-  // substitutes a tenant-appropriate category instead. Healthcare tenants
-  // never pass `categoryFallback`, so their behavior is unchanged.
-  if (categoryFallback && detected === 'Sanità / Ospedali') return categoryFallback;
-  return detected;
+  return detectHealthcareCategory(title, fallbackCategory);
 }
 
 /* ── Listing page parser ──────────────────────────────────── */
@@ -415,7 +407,7 @@ export function parseCsbDetailPage(html) {
  *   tagline used only inside the thin-description boilerplate guard (default
  *   `'ist ein etablierter Schweizer Gesundheitsdienstleister'` — override for
  *   non-healthcare tenants so the rare fallback text stays factually correct).
- * @param {string} [config.categoryFallback] Category label substituted when
+ * @param {string} [config.fallbackCategory] Category label substituted when
  *   `detectHealthcareCategory()` (hospital-tuned, see
  *   `hospital-custom-html-helpers.mjs`) falls through to its generic
  *   `'Sanità / Ospedali'` default — set for non-healthcare tenants so titles
@@ -450,7 +442,7 @@ export function createSuccessFactorsParser(config) {
     sourceLabel,
     sector = 'Sanità / Ospedali',
     descriptionFallbackTagline = 'ist ein etablierter Schweizer Gesundheitsdienstleister',
-    categoryFallback = null,
+    fallbackCategory = 'Sanità / Ospedali',
     searchParams = null,
     acceptJob = null,
   } = config;
@@ -645,7 +637,7 @@ export function createSuccessFactorsParser(config) {
         addressCountry: 'CH',
         country: 'CH',
         postalCode,
-        category: detectCategoryForSf(title, categoryFallback),
+        category: detectCategoryForSf(title, fallbackCategory),
         contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
         employmentType,
         experienceLevel: detectHealthcareExperienceLevel(title),

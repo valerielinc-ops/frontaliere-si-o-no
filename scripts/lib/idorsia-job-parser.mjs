@@ -38,6 +38,8 @@ const parser = createSuccessFactorsParser({
   defaultSourceLang: 'en',
   searchParams: { locationsearch: 'Switzerland' },
   sourceLabel: 'Idorsia Pharmaceuticals Dedicated Parser (SuccessFactors CSB)',
+  sector: 'Biotech / Farmaceutico',
+  fallbackCategory: 'Amministrazione',
 });
 
 export const fetchAllIdorsiaJobs = parser.fetchAllJobs;
