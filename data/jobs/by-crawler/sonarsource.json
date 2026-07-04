@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonarsource",
-  "assembledAt": "2026-07-04T12:10:32.286Z",
+  "assembledAt": "2026-07-04T23:04:13.704Z",
   "jobs": [
     {
       "id": "sonarsource-ac3e5b1dc0bc",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/sonarsource/1f5fb7b2-30b9-402d-9820-ef81993e2924",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:29.056Z",
+      "crawledAt": "2026-07-04T23:04:10.809Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -60,6 +60,7 @@
           "vp-domain-leader-sonarsource-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:17:45.827Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -107,7 +108,7 @@
       "url": "https://jobs.lever.co/sonarsource/6f3f1499-d6f0-4348-bc8d-15411e986ae4",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:28.754Z",
+      "crawledAt": "2026-07-04T23:04:10.507Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,7 +152,8 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "sonarsource-572b49e7791c",
@@ -184,7 +186,7 @@
       "url": "https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:28.452Z",
+      "crawledAt": "2026-07-04T23:04:10.205Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -228,7 +230,8 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "sonarsource-610c905855c1",
@@ -261,7 +264,7 @@
       "url": "https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:28.150Z",
+      "crawledAt": "2026-07-04T23:04:09.904Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -323,7 +326,7 @@
       "url": "https://jobs.lever.co/sonarsource/e0060bc5-6855-4150-84a3-7d89f9a77cb4",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:27.848Z",
+      "crawledAt": "2026-07-04T23:04:09.602Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -338,10 +341,13 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/e0060bc5-6855-4150-84a3-7d89f9a77cb4",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:17:44.620Z",
+      "previousSlugs": [
+        "staff-software-engineer-java-ai-developer-experience-sonarsource-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "staff-software-engineer-java-ai-developer-experience-sonarsource-ch"
+          "staff-software-engineer-java-ai-developer-experience-sonarsource-ch",
+          "staff-software-ingegnere-java-ai-sviluppatore-experience-sonarsource-sonar-geneva"
         ],
         "de": [
           "staff-software-engineer-java-ai-developer-experience-sonarsource-ch"
@@ -350,9 +356,7 @@
           "staff-software-engineer-java-ai-developer-experience-sonarsource-ch"
         ]
       },
-      "previousSlugs": [
-        "staff-software-engineer-java-ai-developer-experience-sonarsource-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:17:44.620Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -399,7 +403,7 @@
       "url": "https://jobs.lever.co/sonarsource/4a00b120-bd33-460b-a5bf-b935919fc19e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:27.546Z",
+      "crawledAt": "2026-07-04T23:04:09.300Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -414,10 +418,13 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/4a00b120-bd33-460b-a5bf-b935919fc19e",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:17:44.318Z",
+      "previousSlugs": [
+        "staff-full-stack-engineer-java-react-sonarsource-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "staff-full-stack-engineer-java-react-sonarsource-ch"
+          "staff-full-stack-engineer-java-react-sonarsource-ch",
+          "staff-full-stack-ingegnere-java-react-sonarsource-sonar-geneva"
         ],
         "de": [
           "staff-full-stack-engineer-java-react-sonarsource-ch"
@@ -426,9 +433,7 @@
           "staff-full-stack-engineer-java-react-sonarsource-ch"
         ]
       },
-      "previousSlugs": [
-        "staff-full-stack-engineer-java-react-sonarsource-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:17:44.318Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -442,7 +447,8 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "sonarsource-3930161b1335",
@@ -475,7 +481,7 @@
       "url": "https://jobs.lever.co/sonarsource/273df915-3a88-40e8-9fbb-522b2d894f46",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:27.244Z",
+      "crawledAt": "2026-07-04T23:04:08.998Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -490,10 +496,13 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/273df915-3a88-40e8-9fbb-522b2d894f46",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:17:44.016Z",
+      "previousSlugs": [
+        "software-engineer-java-remediation-agent-sonarsource-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-java-remediation-agent-sonarsource-ch"
+          "software-engineer-java-remediation-agent-sonarsource-ch",
+          "software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva"
         ],
         "de": [
           "software-engineer-java-remediation-agent-sonarsource-ch"
@@ -502,9 +511,7 @@
           "software-engineer-java-remediation-agent-sonarsource-ch"
         ]
       },
-      "previousSlugs": [
-        "software-engineer-java-remediation-agent-sonarsource-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:17:44.016Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -551,7 +558,7 @@
       "url": "https://jobs.lever.co/sonarsource/5ec02e8c-02d4-4a82-9e9c-2b81c7229d9e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:26.942Z",
+      "crawledAt": "2026-07-04T23:04:08.696Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -566,10 +573,13 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/5ec02e8c-02d4-4a82-9e9c-2b81c7229d9e",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:17:43.714Z",
+      "previousSlugs": [
+        "senior-software-engineer-java-remediation-agent-sonarsource-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-java-remediation-agent-sonarsource-ch"
+          "senior-software-engineer-java-remediation-agent-sonarsource-ch",
+          "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva"
         ],
         "de": [
           "senior-software-engineer-java-remediation-agent-sonarsource-ch"
@@ -578,9 +588,7 @@
           "senior-software-engineer-java-remediation-agent-sonarsource-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-software-engineer-java-remediation-agent-sonarsource-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:17:43.714Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -627,7 +635,7 @@
       "url": "https://jobs.lever.co/sonarsource/3694f242-8346-4c76-826a-b6340da1797b",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:26.640Z",
+      "crawledAt": "2026-07-04T23:04:08.394Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -704,7 +712,7 @@
       "url": "https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:26.338Z",
+      "crawledAt": "2026-07-04T23:04:08.092Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -781,7 +789,7 @@
       "url": "https://jobs.lever.co/sonarsource/38187073-6976-4791-9bfd-c946fd67faf0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:26.037Z",
+      "crawledAt": "2026-07-04T23:04:07.791Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -858,7 +866,7 @@
       "url": "https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:25.735Z",
+      "crawledAt": "2026-07-04T23:04:07.488Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -935,7 +943,7 @@
       "url": "https://jobs.lever.co/sonarsource/3457f5c9-38ae-4f18-bb04-4eeb21ddf93c",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:25.433Z",
+      "crawledAt": "2026-07-04T23:04:07.186Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -958,13 +966,14 @@
           "partner-business-manager-southern-europe-sonarsource-ch",
           "partner-business-manager-europa-meridionale-sonarsource-sonar-geneva"
         ],
-        "fr": [
+        "de": [
           "partner-business-manager-southern-europe-sonarsource-ch"
         ],
-        "de": [
+        "fr": [
           "partner-business-manager-southern-europe-sonarsource-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:17:42.206Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -1012,7 +1021,7 @@
       "url": "https://jobs.lever.co/sonarsource/211564f9-5d51-454b-94c5-9b7fcfa3c229",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:25.131Z",
+      "crawledAt": "2026-07-04T23:04:06.884Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1035,10 +1044,10 @@
           "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch",
           "partner-business-manager-europa-orientale-f-m-d-sonarsource-sonar-geneva"
         ],
-        "fr": [
+        "de": [
           "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch"
         ],
-        "de": [
+        "fr": [
           "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch"
         ]
       },
@@ -1089,7 +1098,7 @@
       "url": "https://jobs.lever.co/sonarsource/bdd785a1-51bc-428a-8e09-dcd538de3b5a",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:24.829Z",
+      "crawledAt": "2026-07-04T23:04:06.582Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1166,7 +1175,7 @@
       "url": "https://jobs.lever.co/sonarsource/5f08ef0c-6f0d-46fb-883e-0f9e071064da",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:24.526Z",
+      "crawledAt": "2026-07-04T23:04:06.280Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1181,6 +1190,7 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/5f08ef0c-6f0d-46fb-883e-0f9e071064da",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:17:41.300Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1228,7 +1238,7 @@
       "url": "https://jobs.lever.co/sonarsource/d51d7b90-a0b2-47af-8677-1d336badc811",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:24.224Z",
+      "crawledAt": "2026-07-04T23:04:05.977Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1243,6 +1253,7 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/d51d7b90-a0b2-47af-8677-1d336badc811",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:17:40.998Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1290,7 +1301,7 @@
       "url": "https://jobs.lever.co/sonarsource/ca93fe35-2db3-4f5a-8b62-f190ff4e6bf2",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:23.922Z",
+      "crawledAt": "2026-07-04T23:04:05.676Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1305,15 +1316,17 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/ca93fe35-2db3-4f5a-8b62-f190ff4e6bf2",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:17:40.696Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "major-account-manager-dach-sonarsource-ch"
-        ]
-      },
       "previousSlugs": [
         "major-account-manager-dach-sonarsource-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "major-account-manager-dach-sonarsource-ch",
+          "maggiore-account-manager-dach-sonarsource-sonar-geneva"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:17:40.696Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1360,7 +1373,7 @@
       "url": "https://jobs.lever.co/sonarsource/a245e1bd-27b9-4c1a-b5d1-bfaeed1e6d5e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:23.620Z",
+      "crawledAt": "2026-07-04T23:04:05.374Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1375,10 +1388,13 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/a245e1bd-27b9-4c1a-b5d1-bfaeed1e6d5e",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:17:40.394Z",
+      "previousSlugs": [
+        "infrastructure-security-engineer-sonarsource-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "infrastructure-security-engineer-sonarsource-ch"
+          "infrastructure-security-engineer-sonarsource-ch",
+          "infrastructure-security-ingegnere-sonarsource-sonar-geneva"
         ],
         "de": [
           "infrastructure-security-engineer-sonarsource-ch"
@@ -1387,9 +1403,7 @@
           "infrastructure-security-engineer-sonarsource-ch"
         ]
       },
-      "previousSlugs": [
-        "infrastructure-security-engineer-sonarsource-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:17:40.394Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1436,7 +1450,7 @@
       "url": "https://jobs.lever.co/sonarsource/2d8bf9bd-dc47-4396-9e7c-b692ffdba08f",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:23.318Z",
+      "crawledAt": "2026-07-04T23:04:05.072Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1451,10 +1465,13 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/2d8bf9bd-dc47-4396-9e7c-b692ffdba08f",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:17:40.092Z",
+      "previousSlugs": [
+        "full-stack-engineer-sonarsource-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "full-stack-engineer-sonarsource-ch"
+          "full-stack-engineer-sonarsource-ch",
+          "full-stack-ingegnere-sonarsource-sonar-geneva"
         ],
         "de": [
           "full-stack-engineer-sonarsource-ch"
@@ -1463,9 +1480,7 @@
           "full-stack-engineer-sonarsource-ch"
         ]
       },
-      "previousSlugs": [
-        "full-stack-engineer-sonarsource-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:17:40.092Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1512,7 +1527,7 @@
       "url": "https://jobs.lever.co/sonarsource/6fcc969d-d5c6-4ffd-9e8d-41802e310dfd",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:23.016Z",
+      "crawledAt": "2026-07-04T23:04:04.770Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1527,10 +1542,13 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/6fcc969d-d5c6-4ffd-9e8d-41802e310dfd",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:17:39.790Z",
+      "previousSlugs": [
+        "deal-desk-specialist-contractor-sonarsource-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "deal-desk-specialist-contractor-sonarsource-ch"
+          "deal-desk-specialist-contractor-sonarsource-ch",
+          "deal-desk-specialista-contractor-sonarsource-sonar-geneva"
         ],
         "de": [
           "deal-desk-specialist-contractor-sonarsource-ch"
@@ -1539,9 +1557,7 @@
           "deal-desk-specialist-contractor-sonarsource-ch"
         ]
       },
-      "previousSlugs": [
-        "deal-desk-specialist-contractor-sonarsource-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:17:39.790Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1588,7 +1604,7 @@
       "url": "https://jobs.lever.co/sonarsource/bc3d70b3-4c46-4bdb-ac61-d067f00bcda5",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:22.714Z",
+      "crawledAt": "2026-07-04T23:04:04.468Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1603,6 +1619,22 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/bc3d70b3-4c46-4bdb-ac61-d067f00bcda5",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "data-scienziato-analisi-di-marketing-sonarsource-sonar-geneva",
+        "datenwissenschaftler-marketing-analytics-sonarsource-sonar-geneva",
+        "scientifique-des-donnees-analyse-du-marketing-sonarsource-sonar-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "data-scienziato-analisi-di-marketing-sonarsource-sonar-geneva"
+        ],
+        "de": [
+          "datenwissenschaftler-marketing-analytics-sonarsource-sonar-geneva"
+        ],
+        "fr": [
+          "scientifique-des-donnees-analyse-du-marketing-sonarsource-sonar-geneva"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:17:39.488Z",
       "salaryMin": 61500,
@@ -1618,23 +1650,7 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE",
-      "previousSlugsByLocale": {
-        "it": [
-          "data-scienziato-analisi-di-marketing-sonarsource-sonar-geneva"
-        ],
-        "de": [
-          "datenwissenschaftler-marketing-analytics-sonarsource-sonar-geneva"
-        ],
-        "fr": [
-          "scientifique-des-donnees-analyse-du-marketing-sonarsource-sonar-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "data-scienziato-analisi-di-marketing-sonarsource-sonar-geneva",
-        "datenwissenschaftler-marketing-analytics-sonarsource-sonar-geneva",
-        "scientifique-des-donnees-analyse-du-marketing-sonarsource-sonar-geneva"
-      ]
+      "addressRegion": "GE"
     },
     {
       "id": "sonarsource-f25599f7dec9",
@@ -1667,7 +1683,7 @@
       "url": "https://jobs.lever.co/sonarsource/4b6bbce6-6d6f-464a-81c0-c574572fb5a2",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:22.412Z",
+      "crawledAt": "2026-07-04T23:04:04.166Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1682,18 +1698,19 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/4b6bbce6-6d6f-464a-81c0-c574572fb5a2",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:17:39.185Z",
+      "previousSlugs": [
+        "data-product-analyst-sonarsource-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "data-product-analyst-sonarsource-ch"
+          "data-product-analyst-sonarsource-ch",
+          "data-product-analista-sonarsource-sonar-geneva"
         ],
         "fr": [
           "data-product-analyst-sonarsource-ch"
         ]
       },
-      "previousSlugs": [
-        "data-product-analyst-sonarsource-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:17:39.185Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1740,7 +1757,7 @@
       "url": "https://jobs.lever.co/sonarsource/a0535931-bce3-4159-b43d-15ca3eb4d17f",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:10:22.109Z",
+      "crawledAt": "2026-07-04T23:04:03.863Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
