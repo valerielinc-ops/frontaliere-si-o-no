@@ -1,4 +1,5 @@
 import React from 'react';
+import { isNewsletterCtaEligible } from '@/services/newsletterCtaState';
 
 // ---- Skeleton Primitives ----
 
@@ -328,14 +329,28 @@ export const SkeletonMobileCalc: React.FC = () => (
  <div className={`h-[66px] ${pulse} rounded-xl`} />
  <div className={`h-[66px] ${pulse} rounded-xl`} />
  </div>
- {/* Distance-zone toggle (default frontierWorkerType is NEW) */}
- <div className={`h-[46px] ${pulse} rounded-xl mt-2.5`} />
+ {/* Distance-zone toggle (default frontierWorkerType is NEW).
+     41px keeps the mirror's total at the real card's measured 315px. */}
+ <div className={`h-[41px] ${pulse} rounded-xl mt-2.5`} />
  </div>
  </div>
  {/* Reserved instant-result slot — mirrors MobileCalcLayout's pre-result placeholder */}
- <div className="min-h-[240px]">
+ <div className="min-h-[266px]">
  <SkeletonMobileResultCard />
  </div>
+ {/* Customize-hint slot mirror */}
+ <div className="min-h-[32px]" />
+ {/* Shareable-card slot mirror */}
+ <div className="min-h-[70px]">
+ <div aria-hidden="true" className={`mt-6 h-[46px] ${pulse} rounded-xl`} />
+ </div>
+ {/* Newsletter CTA slot mirror — same synchronous eligibility check as
+     MobileCalcLayout so fallback and real component reserve identically */}
+ {isNewsletterCtaEligible() && (
+ <div className="min-h-[731px]">
+ <div aria-hidden="true" className={`mt-6 min-h-[683px] ${pulse} rounded-2xl`} />
+ </div>
+ )}
  </div>
 );
 

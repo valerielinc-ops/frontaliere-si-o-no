@@ -377,8 +377,9 @@ const MobileCalcLayout: React.FC<Props> = ({
      down ~240px mid-viewport (counted fully as CLS — scroll never sets
      hadRecentInput). The min-h wrapper + dimensionally-identical skeleton
      make the swap geometry-neutral. Keep min-h in sync with the real card
-     height (~236px @375px, measured). */}
- <div className="min-h-[240px]">
+     height (266px @375px measured — the card's tallest state, with the
+     monthly-savings note line; the settled state is ~240px). */}
+ <div className="min-h-[266px]">
  {!result && <SkeletonMobileResultCard />}
  {result && (
  <div className={`rounded-2xl shadow-lg border overflow-hidden transition-colors duration-300 ${
@@ -538,7 +539,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  )}
  </div>
  {newsletterCtaEligible && (
- <div className="min-h-[707px]">
+ <div className="min-h-[731px]">
  {!result && <div aria-hidden="true" className="mt-6 min-h-[683px] animate-pulse bg-surface-raised rounded-2xl" />}
  {result && (
  <Suspense fallback={<div aria-hidden="true" className="mt-6 min-h-[683px] animate-pulse bg-surface-raised rounded-2xl" />}>
