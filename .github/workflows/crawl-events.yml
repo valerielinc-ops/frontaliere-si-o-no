@@ -99,19 +99,7 @@ jobs:
           fi
 
           git commit -m "🗺️ Persist tio-agenda geo/translation cache"
-
-          for attempt in 1 2 3 4 5; do
-            if git push origin HEAD:main; then
-              echo "push ok on attempt $attempt"
-              exit 0
-            fi
-            echo "push failed (attempt $attempt), rebasing..."
-            git fetch origin main || true
-            git rebase origin/main || { git rebase --abort; sleep 2; continue; }
-            sleep $((attempt * 2))
-          done
-          echo "::warning::cache push failed after 5 attempts"
-          exit 0
+          bash scripts/ci/git-push-retry.sh
 
       - name: Crawl guidle.com (nationwide)
         id: crawl-guidle
@@ -171,19 +159,7 @@ jobs:
           fi
 
           git commit -m "📅 Refresh Ticino + nationwide events agenda + weekend-digest article (tio.ch, guidle, myswitzerland)"
-
-          for attempt in 1 2 3 4 5; do
-            if git push origin HEAD:main; then
-              echo "push ok on attempt $attempt"
-              exit 0
-            fi
-            echo "push failed (attempt $attempt), rebasing..."
-            git fetch origin main || true
-            git rebase origin/main || { git rebase --abort; sleep 2; continue; }
-            sleep $((attempt * 2))
-          done
-          echo "::warning::push failed after 5 attempts — leaving events uncommitted"
-          exit 0
+          bash scripts/ci/git-push-retry.sh
 
       - name: Report failure to GitHub Issues
         if: failure()
