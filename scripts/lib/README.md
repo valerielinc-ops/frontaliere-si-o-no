@@ -49,7 +49,7 @@ is wrong for a specific caller. Each entry MUST be an absolute path.
 | 1    | Real validation regression — the dataset was present and bad.        |
 | 2    | Infra/sequencing failure — dataset not reachable in any candidate.   |
 
-Distinguishing 1 from 2 lets the GH Actions log + Linear bot route the
+Distinguishing 1 from 2 lets the GH Actions log + GitHub issue route the
 incident correctly: a code-2 failure is an infrastructure problem (missing
 artifact, wrong working directory, deploy mid-rollout) and the playbook is
 to re-run the workflow or fix sequencing, NOT to investigate data quality.

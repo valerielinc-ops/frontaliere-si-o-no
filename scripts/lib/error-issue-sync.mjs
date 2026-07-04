@@ -21,7 +21,7 @@ import { createGithubIssue } from './github-issue-creator.mjs';
  * @param {number} [opts.maxIssues]       Cap on how many issues to open/touch per run (avoids backlog flooding).
  * @param {(entry:object)=>string} opts.titleFor   Stable issue title (first ~60 chars must be a unique discriminator).
  * @param {(entry:object)=>string} opts.bodyFor    Issue body markdown.
- * @param {(entry:object)=>number} [opts.priorityFor]  1-4 (Linear-style, 3=medium default).
+ * @param {(entry:object)=>number} [opts.priorityFor]  1-4 scale, 3=medium default.
  * @param {string[]} [opts.labels]        Extra labels beyond the priority label.
  * @param {string} [opts.source]          Human label for the "Workflow:" line in the issue body.
  * @returns {Promise<Array<object|null>>}

@@ -26,7 +26,7 @@ const DIST_DIR = resolve(__dirname, '..', 'dist');
  * Pages where a multi-H1 emit pattern is intentional and a single-H1
  * fix would require reworking shared chrome (e.g. a static-overlay hub
  * page that wraps editorial content). Add a path here only with a
- * Linear ticket reference explaining why.
+ * GitHub issue reference explaining why.
  */
 const ALLOWLIST_PATHS: readonly string[] = [];
 
