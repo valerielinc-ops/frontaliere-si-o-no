@@ -128,6 +128,24 @@ export function extractUrls(xml, urls) {
   return count;
 }
 
+// ── Extract only hreflang alternate URLs into the accumulator ──
+// Used by the public/-registry compensation pass below: the DEPLOYED
+// sitemaps no longer carry xhtml:link annotations for one-sided hreflang
+// groups (the build strips them per Google's sitemap-hreflang reciprocity
+// rule — see build-plugins/sitemapAliasPlugin.ts, issue #3474), but the
+// EN/DE/FR alternate pages are live and must keep receiving IndexNow
+// submissions. The committed public/ sitemap sources keep the annotations
+// as build metadata, so the locale URLs are read from there. <loc> truth
+// stays with the live/dist sitemaps — only alternate hrefs are unioned.
+export function extractAlternateUrls(xml, urls) {
+  let count = 0;
+  for (const m of xml.matchAll(/hreflang="[^"]*"\s+href="([^"]+)"/g)) {
+    urls.add(m[1].trim());
+    count++;
+  }
+  return count;
+}
+
 // ── Fetch one sub-sitemap live over HTTP (with retry) ─────────
 async function fetchSitemapXml(file) {
   const url = `${SITEMAP_BASE}/${file}`;
@@ -218,6 +236,22 @@ export async function getUrlsFromSitemaps() {
     if (empty.length > 0) {
       console.warn(`  ⚠️  ${empty.length} sitemap(s) returned 200 but 0 URLs: ${empty.join(', ')} — verify this is expected.`);
     }
+  }
+
+  // Locale-alternate compensation from the public/ registry (see
+  // extractAlternateUrls docs). No-op when the checkout is unavailable or
+  // when the sitemap still carries its annotations (pure union).
+  const publicDir = resolve(getProjectRoot(), 'public');
+  let alternatesAdded = 0;
+  for (const file of filteredSitemaps) {
+    const publicPath = resolve(publicDir, file);
+    if (!existsSync(publicPath)) continue;
+    try {
+      alternatesAdded += extractAlternateUrls(readFileSync(publicPath, 'utf-8'), urls);
+    } catch { /* unreadable public sitemap — live/dist collection stands */ }
+  }
+  if (alternatesAdded > 0) {
+    console.log(`  public/ registry: ${alternatesAdded} hreflang alternates unioned (${urls.size} unique total)`);
   }
 
   // Add extra key URLs not typically in sitemaps

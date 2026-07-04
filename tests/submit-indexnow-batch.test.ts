@@ -9,7 +9,10 @@
  */
 
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { extractUrls, getUrlsFromSitemaps } from '../scripts/submit-indexnow-batch.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { extractAlternateUrls, extractUrls, getUrlsFromSitemaps } from '../scripts/submit-indexnow-batch.mjs';
 
 // A fresh Response per call: a Response body is single-use, so reusing one
 // object across the 6 sub-sitemap fetches would throw on the 2nd read and
@@ -102,5 +105,40 @@ describe('getUrlsFromSitemaps (live mode branches)', () => {
     expect(urls).toContain('https://frontaliereticino.ch/lavoro');
     expect(urls).toContain('https://frontaliereticino.ch/');
     expect([...urls]).toEqual([...urls].sort());
+  });
+
+  it('unions the EN/DE/FR alternates from the public/ registry even when the live sitemaps carry none (issue #3474)', async () => {
+    // The deployed sitemaps no longer annotate one-sided hreflang groups
+    // (build-plugins/sitemapAliasPlugin.ts strips them), so the locale
+    // article URLs MUST come from the committed public/ sources — a live
+    // response with zero annotations must not shrink the submission set.
+    vi.stubGlobal('fetch', xmlResponder('<urlset></urlset>'));
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+    const blogXml = fs.readFileSync(path.join(root, 'public', 'sitemap-blog.xml'), 'utf-8');
+    const enAlternate = blogXml.match(/hreflang="en"\s+href="([^"]+)"/)?.[1];
+    expect(enAlternate).toBeTruthy();
+
+    const urls = await getUrlsFromSitemaps();
+    expect(urls).toContain(enAlternate);
+  });
+});
+
+describe('extractAlternateUrls (public/-registry compensation)', () => {
+  it('extracts only hreflang alternate hrefs, never <loc> entries', () => {
+    const urls = new Set<string>();
+    const xml = `<urlset>
+      <url>
+        <loc>https://frontaliereticino.ch/articoli-frontaliere/esempio/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/example/" />
+      </url>
+    </urlset>`;
+
+    const count = extractAlternateUrls(xml, urls);
+
+    expect(count).toBe(1);
+    expect([...urls]).toEqual(['https://frontaliereticino.ch/en/cross-border-articles/example/']);
   });
 });
