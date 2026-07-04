@@ -31,6 +31,7 @@ import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
+import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -141,9 +142,10 @@ function buildFileLocaleIndex(file, maxCommits = 400) {
     try { parsed = JSON.parse(content); } catch { continue; }
     if (!Array.isArray(parsed?.jobs)) continue;
     for (const job of parsed.jobs) {
-      if (!job?.id) continue;
-      let m = byJob.get(job.id);
-      if (!m) { m = new Map(); byJob.set(job.id, m); }
+      const jobKey = resolveJobDiffKey(job);
+      if (!jobKey) continue;
+      let m = byJob.get(jobKey);
+      if (!m) { m = new Map(); byJob.set(jobKey, m); }
       if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
         for (const [loc, arr] of Object.entries(job.previousSlugsByLocale)) {
           for (const s of (arr || [])) {
@@ -201,7 +203,7 @@ function main() {
     }
     process.stderr.write(`  [${fileCount}/${filesByName.size}] ${file} (${entries.length} jobs)\n`);
     const slice = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    const byId = new Map(slice.jobs.map(j => [j.id, j]));
+    const byId = new Map(slice.jobs.map(j => [resolveJobDiffKey(j), j]).filter(([k]) => k));
 
     // Build the per-file locale index ONCE; per-job lookup is O(1) below.
     const fileIndex = buildFileLocaleIndex(filePath);
@@ -225,7 +227,7 @@ function main() {
         const { targetJob, redirected } = resolveRecoveryTarget(job, slug, bySuffixHash);
         if (redirected) {
           stats.slugsRedirected = (stats.slugsRedirected || 0) + 1;
-          console.warn(`  ↪️  Redirect "${slug}" from ${jobId} to ${targetJob.id} (disambiguator tail matches that job instead)`);
+          console.warn(`  ↪️  Redirect "${slug}" from ${jobId} to ${resolveJobDiffKey(targetJob)} (disambiguator tail matches that job instead)`);
         }
         let locale = slugLocaleIndex.get(slug);
         if (locale) {
@@ -246,7 +248,7 @@ function main() {
           if (targetJob.previousSlugsByLocale[locale].length > CAP) {
             targetJob.previousSlugsByLocale[locale] = targetJob.previousSlugsByLocale[locale].slice(-CAP);
           }
-          changedJobIds.add(targetJob.id);
+          changedJobIds.add(resolveJobDiffKey(targetJob));
           stats.slugsRestoredByLocale++;
         }
         // Also sync flat previousSlugs for legacy consumers

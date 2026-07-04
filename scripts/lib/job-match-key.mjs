@@ -31,3 +31,35 @@ export function extractStableJobId(url) {
   // pinned byte-for-byte by tests/job-url-key.test.ts.
   return mergeUrlKey(url);
 }
+
+/**
+ * Resolve a diff-stable key for a job record, for building `Map`s keyed by
+ * job identity in audit tooling that reads raw per-crawler slice files
+ * (scripts/scan-prev-slug-losses.mjs, scripts/backfill-prev-slugs-from-loss-events.mjs).
+ *
+ * `.id` is only stamped at data/jobs.json assembly time
+ * (assemble-jobs-dataset.mjs → buildStableId) and is never written back onto
+ * the committed per-crawler slice on disk. Several dedicated crawlers
+ * (ferrovia-retica, julius-baer, mikron, relewant, swiss-medical-network,
+ * casale — see #3411) therefore commit slices where every job's `.id` is
+ * `undefined`. A `Map` keyed on bare `job.id` collapses ALL such jobs in a
+ * slice onto the single `undefined` key, so lookups silently return an
+ * arbitrary sibling job instead of missing — corrupting the diff instead of
+ * just skipping it.
+ *
+ * Falls back, in order: real `.id` > `extractStableJobId(url)` > `slug`.
+ * Returns null only when a job has none of id/url/slug (should not happen
+ * for a real crawled record) so callers can skip it instead of colliding.
+ *
+ * @param {{id?: string, url?: string, slug?: string}} [job]
+ * @returns {string|null}
+ */
+export function resolveJobDiffKey(job = {}) {
+  if (job?.id) return job.id;
+  // extractStableJobId already namespaces its own return value
+  // (uuid:/num:/hex:/url:), so it's used as-is — no double prefix.
+  const urlKey = extractStableJobId(job?.url);
+  if (urlKey) return urlKey;
+  const slug = String(job?.slug || '').trim().toLowerCase();
+  return slug ? `slug:${slug}` : null;
+}

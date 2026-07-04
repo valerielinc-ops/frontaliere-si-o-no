@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { getEvents, clear as clearSlugHistoryJournal } from '../scripts/lib/slug-history-journal.mjs';
 
 describe('dedicated-crawler-common locale hardening', () => {
@@ -1026,6 +1026,44 @@ describe('mergeAndDeduplicate — previousSlugs history preserved across duplica
     expect(merged.previousSlugsByLocale.it.length).toBe(20);
     const trims = getEvents().filter((e) => e.action === 'cap-trim');
     expect(trims.some((e) => e.source.includes('mergeAndDeduplicate'))).toBe(true);
+  });
+
+  // Regression test for issue #3377: "previousSlugs writer regression: 4193
+  // losses in 24 hours". addPreviousSlugForLocale's per-locale cap was
+  // already correct, but it also rebuilds the flat legacy `previousSlugs`
+  // mirror via syncLegacyPreviousSlugs — that internal helper unioned the
+  // locale-aware (fresh) entries BEFORE the legacy (stale) entries, then
+  // capped with `.slice(0, cap)` (oldest-kept). Net effect: a slug captured
+  // by THIS call was silently dropped instead of the truly stale ones once
+  // the job's history exceeded the 20-entry cap — an inverted LRU.
+  it('addPreviousSlugForLocale keeps a freshly-captured slug on the flat previousSlugs mirror when the job is already at cap (#3377)', () => {
+    clearSlugHistoryJournal();
+    const job = {
+      id: 'job-3377-a',
+      slug: 'old-active-slug',
+      previousSlugs: Array.from({ length: 20 }, (_, i) => `stale-slug-${i}`),
+    };
+    addPreviousSlugForLocale(job, 'it', 'freshly-captured-slug', 20, 'test-source');
+    expect(job.previousSlugs).toHaveLength(20);
+    expect(job.previousSlugs).toContain('freshly-captured-slug');
+    expect(job.previousSlugs).not.toContain('stale-slug-0');
+  });
+
+  // Same regression, exercised through captureLostSlugs — the helper the
+  // 54 hand-rolled company-crawler mergeJobs() functions were codemodded to
+  // call in this PR (they previously did `{...prev, ...job}` with no
+  // capture call at all, silently clobbering the flat `job.slug` field on
+  // every re-crawl with zero history preserved).
+  it('captureLostSlugs preserves the previous active slug when the job is already at the 20-entry cap (#3377)', () => {
+    clearSlugHistoryJournal();
+    const merged = {
+      id: 'job-3377-b',
+      slug: 'new-active-slug-from-this-crawl',
+      previousSlugs: Array.from({ length: 20 }, (_, i) => `stale-slug-${i}`),
+    };
+    captureLostSlugs(merged, {}, 'old-active-slug-about-to-be-lost', 20);
+    expect(merged.previousSlugs).toHaveLength(20);
+    expect(merged.previousSlugs).toContain('old-active-slug-about-to-be-lost');
   });
 });
 

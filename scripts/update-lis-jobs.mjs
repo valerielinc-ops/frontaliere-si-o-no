@@ -28,6 +28,7 @@ import {
   validateDedicatedLocaleCoverage,
   mergeLocaleTextMap,
   isSlugStable,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { callLLM, flushScores, isAnyModelAvailable } from './lib/ai-models.mjs';
 import {
@@ -1037,13 +1038,15 @@ async function crawlArca24Direct() {
     }
     updated += 1;
     // Merge: preserve existing locale translations, update core fields
-    return {
+    const merged = {
       ...prev,
       ...job,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
+    return merged;
   });
 
   // Preserve existing LIS jobs that aren't in this crawl whenever the crawl
