@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-07-04T12:19:57.266Z",
+  "assembledAt": "2026-07-04T23:08:58.211Z",
   "jobs": [
     {
       "title": "Tecnico frigorista (M/F)",
@@ -134,7 +134,8 @@
         "team-leader-industrial-infrastructure-railway-electrical-lines-pemsa-fribourg",
         "teamleiter-industrielle-infrastruktur-eisenbahn-elektroleitungen-pemsa-fribourg",
         "chef-d-equipe-infrastructures-industrielles-lignes-electriques-ferroviaires-pemsa-fribourg"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "IDRAULICO",
@@ -191,8 +192,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6850",
       "firstSeenAt": "2026-07-03T22:39:11.228Z"
     },
     {
@@ -250,8 +251,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6830",
       "firstSeenAt": "2026-07-03T22:39:11.228Z"
     },
     {
@@ -309,8 +310,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6500",
       "firstSeenAt": "2026-07-03T22:39:11.228Z"
     },
     {
@@ -368,8 +369,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
       "previousSlugsByLocale": {
         "en": [
@@ -439,8 +440,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6928",
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
       "previousSlugsByLocale": {
         "en": [
@@ -574,7 +575,7 @@
     },
     {
       "title": "Installatore di tende e tapparelle EFZ / EBA (m/f/d)",
-      "slug": "installatore-di-tende-e-tapparelle-cfc-afp-m-f-d-pemsa-basel",
+      "slug": "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel",
       "url": "https://www.pemsa.ch/it/job/installatore-di-tende-e-tapparelle-efz-eba-m-f-d-2681677/",
       "applyUrl": "https://www.pemsa.ch/it/job/installatore-di-tende-e-tapparelle-efz-eba-m-f-d-2681677/",
       "company": "PEMSA",
@@ -608,7 +609,7 @@
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Installatore di tende e tapparelle EFZ / EBA (m/f/d) à Basel. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
       },
       "slugByLocale": {
-        "it": "installatore-di-tende-e-tapparelle-cfc-afp-m-f-d-pemsa-basel",
+        "it": "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel",
         "en": "installation-of-efz-eba-blinds-m-f-d-pemsa-basel",
         "de": "installation-von-efz-eba-jalousien-m-w-d-pemsa-basel",
         "fr": "installation-des-stores-efz-eba-m-f-d-pemsa-basel"
@@ -632,6 +633,7 @@
       "retranslationAttempts": 0,
       "previousSlugsByLocale": {
         "it": [
+          "installatore-di-tende-e-tapparelle-cfc-afp-m-f-d-pemsa-basel",
           "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel"
         ],
         "de": [
@@ -639,7 +641,7 @@
         ]
       },
       "previousSlugs": [
-        "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel"
+        "installatore-di-tende-e-tapparelle-cfc-afp-m-f-d-pemsa-basel"
       ]
     },
     {
@@ -1318,7 +1320,7 @@
     },
     {
       "title": "Posatore di parquet EFZ / EBA (m/f/d)",
-      "slug": "posatore-di-parquet-cfc-afp-m-f-d-pemsa-basel",
+      "slug": "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel",
       "url": "https://www.pemsa.ch/it/job/posatore-di-parquet-efz-eba-m-f-d-2681636/",
       "applyUrl": "https://www.pemsa.ch/it/job/posatore-di-parquet-efz-eba-m-f-d-2681636/",
       "company": "PEMSA",
@@ -1352,7 +1354,7 @@
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Posatore di parquet EFZ / EBA (m/f/d) à Basel. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
       },
       "slugByLocale": {
-        "it": "posatore-di-parquet-cfc-afp-m-f-d-pemsa-basel",
+        "it": "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel",
         "en": "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel",
         "de": "efz-eba-parkettspender-m-w-d-pemsa-basel",
         "fr": "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel"
@@ -1376,6 +1378,7 @@
       "retranslationAttempts": 0,
       "previousSlugsByLocale": {
         "it": [
+          "posatore-di-parquet-cfc-afp-m-f-d-pemsa-basel",
           "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel"
         ],
         "de": [
@@ -1383,7 +1386,7 @@
         ]
       },
       "previousSlugs": [
-        "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel"
+        "posatore-di-parquet-cfc-afp-m-f-d-pemsa-basel"
       ]
     },
     {
@@ -1974,8 +1977,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6850",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
       "previousSlugs": [
         "pittore-pemsa-mendrisio",
@@ -2045,8 +2048,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6600",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
       "previousSlugs": [
         "pittore-pemsa-mendrisio",
@@ -2110,8 +2113,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6600",
       "firstSeenAt": "2026-07-02T11:47:22.304Z"
     },
     {
@@ -2169,8 +2172,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6600",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
       "previousSlugs": [
         "muratore-carpentiere-pemsa-bellinzona",
@@ -2234,8 +2237,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6600",
       "firstSeenAt": "2026-07-02T11:47:22.304Z"
     },
     {
@@ -2293,8 +2296,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6600",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
       "previousSlugsByLocale": {
         "en": [
@@ -2426,8 +2429,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-07-02T11:47:22.304Z"
     },
     {
@@ -5190,14 +5193,15 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6500",
       "firstSeenAt": "2026-06-30T23:21:20.128Z",
       "previousSlugs": [
         "gardener-pemsa-bellinzona",
         "giardine-pemsa-bellinzona",
         "giardiniere-pemsa-bellinzona-81n69g"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Macchinista",
@@ -5254,8 +5258,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-06-30T23:21:20.128Z"
     },
     {
@@ -5487,8 +5491,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6850",
       "firstSeenAt": "2026-06-30T23:21:20.128Z"
     },
     {
@@ -6071,8 +6075,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-06-30T12:09:55.496Z",
       "previousSlugs": [
         "installatore-idraulico-pemsa-lugano-170hj2",
@@ -6489,7 +6493,8 @@
       "firstSeenAt": "2026-06-29T23:14:34.632Z",
       "previousSlugs": [
         "prepose-alla-bonifica-dell-amianto-hse-m-f-pemsa-plan-les-ouates"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Muratore esperto in ingegneria civile",
@@ -7484,7 +7489,8 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z"
+      "firstSeenAt": "2026-06-29T12:00:35.324Z",
+      "needsRetranslation": true
     },
     {
       "title": "Tecnico addetto alla regolazione e alla tornitura (M/F/D)",
@@ -8018,8 +8024,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-06-26T12:19:20.763Z",
       "previousSlugsByLocale": {
         "en": [
@@ -8093,8 +8099,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6802",
       "firstSeenAt": "2026-06-26T12:19:20.763Z",
       "previousSlugsByLocale": {
         "en": [
@@ -8574,8 +8580,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6814",
       "firstSeenAt": "2026-06-24T22:37:54.074Z",
       "previousSlugsByLocale": {
         "en": [
@@ -8655,8 +8661,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6600",
       "firstSeenAt": "2026-06-24T11:57:47.666Z"
     },
     {
@@ -8714,8 +8720,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6600",
       "firstSeenAt": "2026-06-24T11:57:47.666Z",
       "previousSlugsByLocale": {
         "de": [
@@ -8781,8 +8787,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6600",
       "firstSeenAt": "2026-06-24T11:57:47.666Z"
     },
     {
@@ -8840,8 +8846,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6600",
       "firstSeenAt": "2026-06-24T11:57:47.666Z"
     },
     {
@@ -8899,8 +8905,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6500",
       "firstSeenAt": "2026-06-24T11:57:47.666Z"
     },
     {
@@ -8958,8 +8964,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6850",
       "firstSeenAt": "2026-06-24T11:57:47.666Z"
     },
     {
@@ -9017,8 +9023,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6500",
       "firstSeenAt": "2026-06-24T11:57:47.666Z"
     },
     {
@@ -9076,8 +9082,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6500",
       "firstSeenAt": "2026-06-24T11:57:47.666Z"
     },
     {
@@ -9135,9 +9141,10 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-24T11:57:47.666Z"
+      "streetAddress": "",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-06-24T11:57:47.666Z",
+      "needsRetranslation": true
     },
     {
       "title": "INSTALLATORE-ELETTRICISTA CFC (M/F)",
@@ -9951,126 +9958,10 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-22T15:00:37.452Z"
-    },
-    {
-      "title": "Operatore Impianto di betonaggio",
-      "slug": "operatore-impianto-di-betonaggio-pemsa-bellinzona",
-      "url": "https://www.pemsa.ch/it/job/operatore-impianto-di-betonaggio-2679785/",
-      "applyUrl": "https://www.pemsa.ch/it/job/operatore-impianto-di-betonaggio-2679785/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-19",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-04",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Operatore Impianto di betonaggio\n\n## Missione :\n• Lavoto tramite agenzia interinale\n• Pregressa esperienza nei cantieri Svizzeri\n• Disponibilita immediata\n\n## Profilo :\n• L’operatore lavorerà in cantiere e si occuperà della gestione dell’imbianto di betonaggio\n• Controllare l’impianto e le materie prime\n• Prestare attenzione alla miscelatura e alla colatura del materiale\n• Disponibilità immediata",
-      "titleByLocale": {
-        "it": "Operatore Impianto di betonaggio",
-        "en": "Operator Betoning Plant",
-        "de": "Betreiber einer Betonmischanlage",
-        "fr": "Opérateur d'usine de traitement par regroupement de béton"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Operatore Impianto di betonaggio Missione :\n• Lavoto tramite agenzia interinale\n• Pregressa esperienza nei cantieri Svizzeri\n• Disponibilita immediata Profilo :\n• L’operatore lavorerà in cantiere e si occuperà della gestione dell’imbianto di betonaggio\n• Controllare l’impianto e le materie prime\n• Prestare attenzione alla miscelatura e alla colatura del materiale\n• Disponibilità immediata",
-        "en": "Do you want the freedom of a temporary job and the security of a permanent one? For 30 years, we have been supporting hundreds of companies in the technical fields of building, construction and industry throughout Switzerland and providing them with the best talent. We won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of Concrete Batching Plant Operator Mission :\n• Job through temporary agency\n• Previous experience in Swiss construction sites\n• Immediate availability Profile :\n• The operator will work on site and take care of the management of the concrete mix\n• Check the plant and raw materials\n• Pay attention to the mixing and pouring of the material\n• Immediate availability",
-        "de": "Willst du die Freiheit eines befristeten Jobs und die Sicherheit eines festen Jobs? Seit 30 Jahren unterstützen wir Hunderte von Unternehmen in den technischen Bereichen Bauwesen, Bauwesen und Industrie in der gesamten Schweiz und stellen ihnen das beste Talent zur Verfügung. Wir werden Sie nicht belügen, aber wir fordern es. Wenn du also motiviert und begeistert bist, tritt dem Clan für die Position des Betreibers einer Betonmischungsanlage bei. Mission:\n• Job über Zeitarbeit\n• Vorherige Erfahrung auf Schweizer Baustellen\n• Sofortige Verfügbarkeit Profil:\n• Der Betreiber arbeitet vor Ort und kümmert sich um das Management der Betonmischung\n• Prüfe die Anlage und Rohstoffe\n• Achte auf das Mischen und Gießen des Materials\n• Sofortige Verfügbarkeit",
-        "fr": "Voulez-vous la liberté d'un emploi temporaire et la sécurité d'un emploi permanent? Depuis 30 ans, nous soutenons des centaines d'entreprises dans les domaines techniques du bâtiment, de la construction et de l'industrie à travers la Suisse, en leur fournissant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigents. Ainsi, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste d'opérateur d'usine de traitement de béton Mission :\n• Emploi via une agence temporaire\n• Expérience préalable sur des chantiers suisses\n• Disponibilité immédiate Profil :\n• L'opérateur travaillera sur site et s'occupera de la gestion du mélange pour béton\n• Vérifier l'usine et les matières premières\n• Prêter attention au mélange et au coulage des matériaux\n• Disponibilité immédiate"
-      },
-      "slugByLocale": {
-        "it": "operatore-impianto-di-betonaggio-pemsa-bellinzona",
-        "en": "operator-betoning-plant-pemsa-bellinzona",
-        "de": "betreiber-betonieranlage-pemsa-bellinzona",
-        "fr": "usine-de-parieuse-pemsa-bellinzona"
-      },
-      "id": "pemsa-4ccffa0f00ab",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-19T22:24:16.836Z"
-    },
-    {
-      "title": "Caposquadra impermeabilizzatore (M/F)",
-      "slug": "caposquadra-impermeabilizzatore-m-f-pemsa-geneve",
-      "url": "https://www.pemsa.ch/it/job/caposquadra-impermeabilizzatore-m-f-2679760/",
-      "applyUrl": "https://www.pemsa.ch/it/job/caposquadra-impermeabilizzatore-m-f-2679760/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "canton": "GE",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-19",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-04",
-      "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Caposquadra impermeabilizzatore (M/F)\n\n## Il tuo incarico:\n• Caposquadra \n• Esecuzione di lavori di impermeabilizzazione\n• Tetti, terrazze, fondamenta, muri, ecc.\n• Posa di membrane bituminose, sintetiche o in resina\n• Preparazione dei supporti e finiture\n• Rispetto delle norme di sicurezza e di qualità\n\n## E ora parliamo di te?\n• Esperienza come caposquadra nel settore dell’impermeabilizzazione\n• Buona conoscenza dei materiali e delle tecniche di impermeabilizzazione\n• Patente di guida valida\n• Disponibilità a spostarsi nel cantone di Ginevra\n• Autonomia, rigore e spirito di squadra\n• Conoscenza delle norme di sicurezza\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Tasleem. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-      "titleByLocale": {
-        "it": "Caposquadra impermeabilizzatore (M/F)",
-        "en": "Waterproofing foreman (M/F)",
-        "de": "Abdichtungsvorarbeiter (M/W)",
-        "fr": "Contremaître d'étanchéité (M/F)"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Caposquadra impermeabilizzatore (M/F) ## Il tuo incarico:\n• Caposquadra\n• Esecuzione di lavori di impermeabilizzazione\n• Tetti, terrazze, fondamenta, muri, ecc.\n• Posa di membrane bituminose, sintetiche o in resina\n• Preparazione dei supporti e finiture\n• Rispetto delle norme di sicurezza e di qualità ## E ora parliamo di te?\n• Esperienza come caposquadra nel settore dell’impermeabilizzazione\n• Buona conoscenza dei materiali e delle tecniche di impermeabilizzazione\n• Patente di guida valida\n• Disponibilità a spostarsi nel cantone di Ginevra\n• Autonomia, rigore e spirito di squadra\n• Conoscenza delle norme di sicurezza ## Il tuo referente: Il tuo referente per questa posizione è Tasleem. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-        "en": "Do you want the freedom of temporary work and the security of permanent employment? For 30 years we have supported hundreds of companies in the technical sectors of building, construction and industry throughout Switzerland, offering them the best talent. However, we don't hide from you that we are demanding. So, if you are a motivated and extremely enthusiastic person, join our team for the position of Waterproofing Team Leader (M/F) ## Your assignment:\n• Team leader\n• Carrying out waterproofing work\n• Roofs, terraces, foundations, walls, etc.\n• Installation of bituminous, synthetic or resin membranes\n• Preparation of supports and finishes\n• Compliance with safety and quality standards ## And now let's talk about you?\n• Experience as a team leader in the waterproofing sector\n• Good knowledge of waterproofing materials and techniques\n• Valid driving license\n• Willingness to travel within the canton of Geneva\n• Autonomy, rigor and team spirit\n• Knowledge of safety regulations ## Your contact person: Your contact person for this position is Tasleem. He will be able to accompany you, advise you and answer all your questions relating to the position. This position isn't exactly what you're looking for, but do our values ​​interest you? Don't hesitate to send us your spontaneous application! We will only respond to applications whose profile matches the requested description.",
-        "de": "Sie wünschen sich die Freiheit der Zeitarbeit und die Sicherheit einer Festanstellung? Seit 30 Jahren unterstützen wir schweizweit Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie und bieten ihnen die besten Talente. Allerdings verheimlichen wir Ihnen nicht, dass wir anspruchsvoll sind. Wenn Sie also eine motivierte und äußerst enthusiastische Person sind, verstärken Sie unser Team für die Position des Teamleiters Abdichtung (m/w) ## Ihre Aufgabe:\n• Teamleiter\n• Durchführung von Abdichtungsarbeiten\n• Dächer, Terrassen, Fundamente, Wände usw.\n• Installation von Bitumen-, Kunststoff- oder Harzbahnen\n• Vorbereitung von Trägern und Oberflächen\n• Einhaltung von Sicherheits- und Qualitätsstandards ## Und jetzt wollen wir über Sie sprechen?\n• Erfahrung als Teamleiter im Bereich Abdichtungen\n• Gute Kenntnisse über Abdichtungsmaterialien und -techniken\n• Gültiger Führerschein\n• Reisebereitschaft innerhalb des Kantons Genf\n• Autonomie, Genauigkeit und Teamgeist\n• Kenntnis der Sicherheitsvorschriften ## Ihr Ansprechpartner: Ihr Ansprechpartner für diese Position ist Tasleem. Er kann Sie begleiten, beraten und alle Ihre Fragen rund um die Stelle beantworten. Diese Position ist nicht genau das, was Sie suchen, aber interessieren Sie unsere Werte? Zögern Sie nicht, uns Ihre Initiativbewerbung zu senden! Wir antworten nur auf Bewerbungen, deren Profil mit der angeforderten Beschreibung übereinstimmt.",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d’un emploi permanent ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs techniques du bâtiment, de la construction et de l'industrie dans toute la Suisse, en leur offrant les meilleurs talents. Pour autant, nous ne vous cachons pas que nous sommes exigeants. Alors, si vous êtes une personne motivée et extrêmement enthousiaste, rejoignez notre équipe pour le poste de Chef d'équipe Étanchéité (H/F) ## Votre mission :\n• Chef d'équipe\n• Réalisation de travaux d'étanchéité\n• Toitures, terrasses, fondations, murs, etc.\n• Pose de membranes bitumineuses, synthétiques ou résines\n• Préparation des supports et finitions\n• Respect des normes de sécurité et de qualité ## Et maintenant parlons de vous ?\n• Expérience en tant que chef d'équipe dans le secteur de l'étanchéité\n• Bonne connaissance des matériaux et techniques d'étanchéité\n• Permis de conduire valide\n• Volonté de voyager dans le canton de Genève\n• Autonomie, rigueur et esprit d'équipe\n• Connaissance des règles de sécurité ## Votre interlocuteur : Votre interlocuteur pour ce poste est Tasleem. Il saura vous accompagner, vous conseiller et répondre à toutes vos questions relatives au poste. Ce poste n'est pas exactement ce que vous recherchez, mais nos valeurs vous intéressent ? N'hésitez pas à nous envoyer votre candidature spontanée ! Nous ne répondrons qu'aux candidatures dont le profil correspond à la description demandée."
-      },
-      "slugByLocale": {
-        "it": "caposquadra-impermeabilizzatore-m-f-pemsa-geneve",
-        "en": "waterproofing-foreman-m-f-pemsa-geneve",
-        "de": "abdichtungsvorarbeiter-m-w-pemsa-geneve",
-        "fr": "contremaitre-d-etancheite-m-f-pemsa-geneve"
-      },
-      "id": "pemsa-00bb37deb31d",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1201",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z"
+      "streetAddress": "",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-06-22T15:00:37.452Z",
+      "needsRetranslation": true
     },
     {
       "title": "Elettricista AFC",
@@ -10189,123 +10080,6 @@
       "firstSeenAt": "2026-06-29T12:00:35.324Z"
     },
     {
-      "title": "Assistente di agenzia",
-      "slug": "assistente-di-agenzia-pemsa-bienne",
-      "url": "https://www.pemsa.ch/it/job/assistente-di-agenzia-2679728/",
-      "applyUrl": "https://www.pemsa.ch/it/job/assistente-di-agenzia-2679728/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bienne",
-      "addressLocality": "Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-19",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-04",
-      "description": "Pemsa è una società svizzera specializzata nel reclutamento e nella fornitura di personale, attiva da oltre 30 anni nei settori dell’elettricità, delle costruzioni, dell’edilizia e dell’industria. Grazie alla sua rete di agenzie in Svizzera e al suo approccio orientato alla vicinanza, Pemsa affianca i propri clienti e collaboratori con soluzioni personalizzate, ponendo la persona al centro delle proprie priorità. Per rafforzare il nostro team di Bienne, stiamo cercando un/una Assistente di agenzia.\n\n## La vostra missione:\n• Accoglienza in sede e al telefono\n• Gestione amministrativa dei collaboratori in distacco\n• Redazione e monitoraggio dei contratti di incarico\n• Inserimento dei resoconti delle ore lavorative\n• Supporto amministrativo ai consulenti del personale\n\n## Il tuo profilo\n• Formazione come impiegato/a commerciale o titolo ritenuto equivalente\n• Bilingue francese/tedesco, sia all’orale che allo scritto\n• Una prima esperienza in un’agenzia di collocamento o nell’amministrazione delle risorse umane costituisce un vantaggio\n• Buona padronanza della scrittura\n• Ottima padronanza degli strumenti Microsoft Office\n• La conoscenza di un ERP specifico del settore costituisce un vantaggio\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Maria. Con oltre 17 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e fornirti la risposta a tutte le tue domande relative alla posizione.\nQuesto lavoro non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti rispecchiano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
-      "titleByLocale": {
-        "it": "Assistente di agenzia",
-        "en": "Agency Assistant",
-        "de": "Agenturassistent",
-        "fr": "Assistant d'agence"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa è una società svizzera specializzata nel reclutamento e nella fornitura di personale, attiva da oltre 30 anni nei settori dell’elettricità, delle costruzioni, dell’edilizia e dell’industria. Grazie alla sua rete di agenzie in Svizzera e al suo approccio orientato alla vicinanza, Pemsa affianca i propri clienti e collaboratori con soluzioni personalizzate, ponendo la persona al centro delle proprie priorità. Per rafforzare il nostro team di Bienne, stiamo cercando un/una Assistente di agenzia. ## La vostra missione:\n• Accoglienza in sede e al telefono\n• Gestione amministrativa dei collaboratori in distacco\n• Redazione e monitoraggio dei contratti di incarico\n• Inserimento dei resoconti delle ore lavorative\n• Supporto amministrativo ai consulenti del personale ## Il tuo profilo\n• Formazione come impiegato/a commerciale o titolo ritenuto equivalente\n• Bilingue francese/tedesco, sia all’orale che allo scritto\n• Una prima esperienza in un’agenzia di collocamento o nell’amministrazione delle risorse umane costituisce un vantaggio\n• Buona padronanza della scrittura\n• Ottima padronanza degli strumenti Microsoft Office\n• La conoscenza di un ERP specifico del settore costituisce un vantaggio ## Il tuo referente: Il tuo referente per questa posizione è Maria. Con oltre 17 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e fornirti la risposta a tutte le tue domande relative alla posizione. Questo lavoro non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti rispecchiano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
-        "en": "Pemsa is a Swiss company specializing in the recruitment and supply of personnel, active for over 30 years in the electricity, construction, building and industrial sectors. Thanks to its network of agencies in Switzerland and its proximity-oriented approach, Pemsa supports its customers and collaborators with personalized solutions, placing the person at the center of its priorities. To strengthen our team in Biel, we are looking for an Agency Assistant. ## Your mission:\n• Reception on site and on the telephone\n• Administrative management of seconded collaborators\n• Drafting and monitoring of assignment contracts\n• Insertion of working hour reports\n• Administrative support for personnel consultants ## Your profile\n• Training as a commercial employee or title deemed equivalent\n• Bilingual French/German, both oral and written\n• First experience in an employment agency or in human resources administration is an advantage\n• Good command of writing\n• Excellent command of tools Microsoft Office\n• Knowledge of industry-specific ERP is an advantage ## Your contact person: Your contact person for this position is Maria. With over 17 years of experience in the recruitment sector, he will be able to accompany you, advise you and provide you with the answer to all your questions relating to the position. This job isn't exactly what you're looking for, but do our values ​​resonate with you? Don't hesitate to send us your spontaneous application! We will only respond to applications whose profile matches the requested description.",
-        "de": "Pemsa ist ein Schweizer Unternehmen, das sich auf die Rekrutierung und Bereitstellung von Personal spezialisiert und seit über 30 Jahren in den Bereichen Elektrizität, Bau, Bauwesen und Industrie tätig ist. Dank seines Agenturnetzwerks in der Schweiz und seines auf Nähe ausgerichteten Ansatzes unterstützt Pemsa seine Kunden und Mitarbeiter mit personalisierten Lösungen und stellt den Menschen in den Mittelpunkt seiner Prioritäten. Zur Verstärkung unseres Teams in Biel suchen wir einen Agenturassistenten. ## Ihr Auftrag:\n• Empfang vor Ort und am Telefon\n• Administrative Leitung der entsandten Mitarbeiter\n• Erstellung und Überwachung von Einsatzverträgen\n• Einfügen von Arbeitszeitberichten\n• Administrative Unterstützung von Personalberatern ## Ihr Profil\n• Ausbildung zum kaufmännischen Angestellten oder gleichgestellte Berufsbezeichnung\n• Zweisprachigkeit Französisch/Deutsch in Wort und Schrift\n• Erste Erfahrung in einem Arbeitsvermittler oder in der Personalverwaltung von Vorteil\n• Gute Schreibkenntnisse\n• Sehr gute Beherrschung der Tools Microsoft Office\n• Kenntnisse in branchenspezifischem ERP von Vorteil ## Ihr Ansprechpartner: Ihr Ansprechpartner für diese Position ist Maria. Mit über 17 Jahren Erfahrung in der Personalbeschaffungsbranche kann er Sie begleiten, beraten und Ihnen die Antwort auf alle Ihre Fragen rund um die Stelle geben. Dieser Job ist nicht genau das, was Sie suchen, aber kommen unsere Werte bei Ihnen an? Zögern Sie nicht, uns Ihre Initiativbewerbung zu senden! Wir antworten nur auf Bewerbungen, deren Profil mit der angeforderten Beschreibung übereinstimmt.",
-        "fr": "Pemsa est une entreprise suisse spécialisée dans le recrutement et la mise à disposition de personnel, active depuis plus de 30 ans dans les secteurs de l'électricité, du bâtiment, du bâtiment et de l'industrie. Grâce à son réseau d'agences en Suisse et son approche de proximité, Pemsa accompagne ses clients et collaborateurs avec des solutions personnalisées, plaçant la personne au centre de ses priorités. Pour renforcer notre équipe à Bienne, nous recherchons un(e) Assistant(e) d'agence. ## Votre mission :\n• Accueil sur place et au téléphone\n• Gestion administrative des collaborateurs détachés\n• Rédaction et suivi des contrats de mission\n• Insertion des relevés d'heures de travail\n• Support administratif des consultants en personnel ## Votre profil\n• Formation d'employé de commerce ou titre jugé équivalent\n• Bilingue français/allemand à l'oral et à l'écrit\n• Une première expérience en agence de placement ou en administration des ressources humaines est un avantage\n• Bonne maîtrise de la rédaction\n• Excellente maîtrise des outils Microsoft Office\n• La connaissance des ERP métiers est un avantage ## Votre interlocuteur : Votre interlocuteur pour ce poste est Maria. Avec plus de 17 ans d'expérience dans le secteur du recrutement, il saura vous accompagner, vous conseiller et vous apporter la réponse à toutes vos questions relatives au poste. Ce poste n'est pas exactement ce que vous recherchez, mais nos valeurs vous correspondent-elles ? N'hésitez pas à nous envoyer votre candidature spontanée ! Nous ne répondrons qu'aux candidatures dont le profil correspond à la description demandée."
-      },
-      "slugByLocale": {
-        "it": "assistente-di-agenzia-pemsa-bienne",
-        "en": "agency-assistant-pemsa-bienne",
-        "de": "agenturassistent-pemsa-bienne",
-        "fr": "assistant-d-agence-pemsa-bienne"
-      },
-      "id": "pemsa-e18a8d2ac99a",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z"
-    },
-    {
-      "title": "IDRAULICO AFC Riscaldamenti",
-      "slug": "idraulico-afc-riscaldamenti-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/idraulico-afc-riscaldamenti-2679724/",
-      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-afc-riscaldamenti-2679724/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "impiantistica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-19",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-04",
-      "description": "Pemsa si afferma come leader nel mercato svizzero del placement specializzato nei settori della costruzione, ingegneria civile, elettricità, tecnica del building e industria. Grazie alla profonda conoscenza tecnica e alla rete di collaborazioni consolidate con i principali attori dell’industria, Pemsa offre ai clienti un servizio di reclutamento di altissima qualità, capace di coniugare competenze tecniche precise con un profilo professionale adatto alle esigenze del mercato locale. L'approccio distintivo di Pemsa si fonda sull’ascolto attento del cliente e del candidato, garantendo un posizionamento efficace e duraturo in cantieri e progetti di rilievo in tutto il territorio svizzero.\n\n## Missione:\n• Installazione e messa in opera di centrali termiche per edifici residenziali e commerciali, assicurando la conformità alle normative svizzere vigenti.\n• Montaggio e collegamento di pompe di calore ad alta efficienza energetica, garantendo prestazioni ottimali e sostenibilità ambientale.\n• Realizzazione e manutenzione di impianti di riscaldamento, compresi sistemi tradizionali e a energia rinnovabile, con attenzione alla sicurezza e affidabilità tecnica.\n• Collaborazione con team multidisciplinari per la gestione efficiente dei cantieri e il rispetto dei tempi di consegna stabiliti.\n• Verifica e collaudo degli impianti installati per assicurare conformità ai requisiti qualitativi e normativi.\n\n## Profilo:\n• Formazione: AFC nel settore tecnico, preferibilmente in tecnica del riscaldamento o termotecnica.\n• Esperienza: minimo 5 anni comprovati di attività in Svizzera nell’installazione di centrali termiche, pompe di calore e impianti di riscaldamento.\n• Lingue: Italiano madrelingua, essenziale per la comunicazione efficace in cantiere e con i colleghi.\n• Permessi: patente auto valida, indispensabile per gli spostamenti giornalieri, con domicilio entro 20 km dal sito di lavoro, per garantire puntualità e presenza costante.\n• Competenze tecniche: padronanza completa nelle procedure di installazione, taratura e manutenzione di centrali termiche, pompe di calore e impianti di riscaldamento, preferibilmente con esperienze pratiche certificate.\n• Soft skills: autonomia, precisione tecnica, capacità di problem solving e attitudine al lavoro di squadra in contesti dinamici e complessi.\n\n## Ton interlocuteur/trice :\nIl nostro team è pronto ad accompagnarti passo passo nel processo di candidatura, offrendo supporto professionale e feedback costanti per valorizzare le tue competenze tecniche e la tua esperienza sul mercato svizzero.\nCon Pemsa potrai accedere a opportunità selezionate che valorizzano la tua specializzazione nel settore termotecnico, in un ambiente lavorativo che privilegia la sicurezza, il rispetto delle normative e la crescita personale.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-      "titleByLocale": {
-        "it": "IDRAULICO AFC Riscaldamenti",
-        "en": "PLUMBER AFC Heaters",
-        "de": "PLUMBER AFC Heizungen",
-        "fr": "Chauffages AFC PLUMBER"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa si afferma come leader nel mercato svizzero del placement specializzato nei settori della costruzione, ingegneria civile, elettricità, tecnica del building e industria. Grazie alla profonda conoscenza tecnica e alla rete di collaborazioni consolidate con i principali attori dell’industria, Pemsa offre ai clienti un servizio di reclutamento di altissima qualità, capace di coniugare competenze tecniche precise con un profilo professionale adatto alle esigenze del mercato locale. L'approccio distintivo di Pemsa si fonda sull’ascolto attento del cliente e del candidato, garantendo un posizionamento efficace e duraturo in cantieri e progetti di rilievo in tutto il territorio svizzero. Missione:\n• Installazione e messa in opera di centrali termiche per edifici residenziali e commerciali, assicurando la conformità alle normative svizzere vigenti.\n• Montaggio e collegamento di pompe di calore ad alta efficienza energetica, garantendo prestazioni ottimali e sostenibilità ambientale.\n• Realizzazione e manutenzione di impianti di riscaldamento, compresi sistemi tradizionali e a energia rinnovabile, con attenzione alla sicurezza e affidabilità tecnica.\n• Collaborazione con team multidisciplinari per la gestione efficiente dei cantieri e il rispetto dei tempi di consegna stabiliti.\n• Verifica e collaudo degli impianti installati per assicurare conformità ai requisiti qualitativi e normativi. Profilo:\n• Formazione: AFC nel settore tecnico, preferibilmente in tecnica del riscaldamento o termotecnica.\n• Esperienza: minimo 5 anni comprovati di attività in Svizzera nell’installazione di centrali termiche, pompe di calore e impianti di riscaldamento.\n• Lingue: Italiano madrelingua, essenziale per la comunicazione efficace in cantiere e con i colleghi.\n• Permessi: patente auto valida, indispensabile per gli spostamenti giornalieri, con domicilio entro 20 km dal sito di lavoro, per garantire puntualità e presenza costante.\n• Competenze tecniche: padronanza completa nelle procedure di installazione, taratura e manutenzione di centrali termiche, pompe di calore e impianti di riscaldamento, preferibilmente con esperienze pratiche certificate.\n• Soft skills: autonomia, precisione tecnica, capacità di problem solving e attitudine al lavoro di squadra in contesti dinamici e complessi. Ton interlocuteur/trice : Il nostro team è pronto ad accompagnarti passo passo nel processo di candidatura, offrendo supporto professionale e feedback costanti per valorizzare le tue competenze tecniche e la tua esperienza sul mercato svizzero. Con Pemsa potrai accedere a opportunità selezionate che valorizzano la tua specializzazione nel settore termotecnico, in un ambiente lavorativo che privilegia la sicurezza, il rispetto delle normative e la crescita personale. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "en": "Pemsa establishes itself as a leader in the Swiss placement market specialized in the construction, civil engineering, electricity, building technology and industry sectors. Thanks to its in-depth technical knowledge and the network of consolidated collaborations with the main industry players, Pemsa offers customers a very high quality recruitment service, capable of combining precise technical skills with a professional profile suited to the needs of the local market. Pemsa's distinctive approach is based on attentive listening to the client and the candidate, guaranteeing effective and long-lasting positioning on important construction sites and projects throughout Switzerland. Mission:\n• Installation and commissioning of heating power plants for residential and commercial buildings, ensuring compliance with current Swiss regulations.\n• Assembly and connection of highly energy efficient heat pumps, ensuring optimal performance and environmental sustainability.\n• Construction and maintenance of heating systems, including traditional and renewable energy systems, with attention to safety and technical reliability.\n• Collaboration with multidisciplinary teams for the efficient management of construction sites and compliance with established delivery times.\n• Verification and testing of installed systems to ensure compliance with quality and regulatory requirements. Profile:\n• Training: AFC in the technical sector, preferably in heating or thermotechnics.\n• Experience: minimum 5 proven years of activity in Switzerland in the installation of thermal power plants, heat pumps and heating systems.\n• Languages: Native Italian, essential for effective communication on site and with colleagues.\n• Permits: valid car licence, essential for daily travel, with domicile within 20 km of the work site, to guarantee punctuality and constant presence.\n• Technical skills: complete mastery of the installation, calibration and maintenance procedures of thermal power plants, heat pumps and heating systems, preferably with certified practical experience.\n• Soft skills: autonomy, technical precision, problem solving ability and aptitude for teamwork in dynamic and complex contexts. Ton interlocuteur/trice: Our team is ready to accompany you step by step in the application process, offering professional support and constant feedback to enhance your technical skills and experience on the Swiss market. With Pemsa you will be able to access selected opportunities that enhance your specialization in the thermotechnical sector, in a working environment that favors safety, compliance with regulations and personal growth. We do not answer which applications do not correspond to the description requested.",
-        "de": "Pemsa etabliert sich als führendes Unternehmen auf dem Schweizer Vermittlungsmarkt und ist auf die Branchen Bau, Tiefbau, Elektrizität, Gebäudetechnik und Industrie spezialisiert. Dank seines umfassenden technischen Wissens und des Netzwerks konsolidierter Kooperationen mit den wichtigsten Akteuren der Branche bietet Pemsa seinen Kunden einen Personalvermittlungsservice von höchster Qualität, der in der Lage ist, präzise technische Fähigkeiten mit einem professionellen Profil zu kombinieren, das an die Bedürfnisse des lokalen Marktes angepasst ist. Der besondere Ansatz von Pemsa basiert auf einem aufmerksamen Zuhören gegenüber dem Kunden und dem Kandidaten und garantiert eine effektive und nachhaltige Positionierung auf wichtigen Baustellen und Projekten in der ganzen Schweiz. Mission:\n• Installation und Inbetriebnahme von Heizkraftwerken für Wohn- und Gewerbegebäude unter Einhaltung der geltenden Schweizer Vorschriften.\n• Montage und Anschluss hoch energieeffizienter Wärmepumpen zur Gewährleistung optimaler Leistung und Umweltverträglichkeit.\n• Bau und Wartung von Heizsystemen, einschließlich traditioneller und erneuerbarer Energiesysteme, unter Berücksichtigung von Sicherheit und technischer Zuverlässigkeit.\n• Zusammenarbeit mit multidisziplinären Teams für die effiziente Verwaltung von Baustellen und die Einhaltung festgelegter Lieferzeiten.\n• Überprüfung und Prüfung installierter Systeme, um die Einhaltung von Qualitäts- und Regulierungsanforderungen sicherzustellen. Profil:\n• Ausbildung: AFC im technischen Bereich, vorzugsweise in der Heizungs- oder Thermotechnik.\n• Erfahrung: mindestens 5 nachweisliche Tätigkeit in der Schweiz in der Installation von Wärmekraftwerken, Wärmepumpen und Heizungsanlagen.\n• Sprachen: Muttersprache Italienisch, unerlässlich für eine effektive Kommunikation vor Ort und mit Kollegen.\n• Genehmigungen: Gültiger Pkw-Führerschein, zwingend erforderlich für die tägliche Fahrt, mit Wohnsitz im Umkreis von 20 km um die Arbeitsstelle, um Pünktlichkeit und ständige Anwesenheit zu gewährleisten.\n• Technische Fähigkeiten: vollständige Beherrschung der Installations-, Kalibrierungs- und Wartungsverfahren von Wärmekraftwerken, Wärmepumpen und Heizungsanlagen, vorzugsweise mit zertifizierter praktischer Erfahrung.\n• Soft Skills: Autonomie, technische Präzision, Problemlösungsfähigkeit und Fähigkeit zur Teamarbeit in dynamischen und komplexen Kontexten. Ton interlocuteur/trice: Unser Team begleitet Sie Schritt für Schritt im Bewerbungsprozess und bietet professionelle Unterstützung und kontinuierliches Feedback, um Ihre technischen Fähigkeiten und Erfahrungen auf dem Schweizer Markt zu verbessern. Bei Pemsa erhalten Sie Zugang zu ausgewählten Möglichkeiten, die Ihre Spezialisierung im wärmetechnischen Bereich verbessern, in einem Arbeitsumfeld, das Sicherheit, Einhaltung von Vorschriften und persönliches Wachstum fördert. Wir beantworten nicht, welche Bewerbungen nicht der angeforderten Beschreibung entsprechen.",
-        "fr": "Pemsa s'impose comme leader sur le marché suisse du placement spécialisé dans les secteurs de la construction, du génie civil, de l'électricité, de la technique du bâtiment et de l'industrie. Grâce à ses connaissances techniques approfondies et au réseau de collaborations consolidées avec les principaux acteurs du secteur, Pemsa offre à ses clients un service de recrutement de très haute qualité, capable de combiner des compétences techniques précises avec un profil professionnel adapté aux besoins du marché local. L'approche distinctive de Pemsa repose sur une écoute attentive du client et du candidat, garantissant un positionnement efficace et durable sur les chantiers et projets importants dans toute la Suisse. Mission :\n• Installation et mise en service de centrales de chauffage pour bâtiments résidentiels et commerciaux, en veillant au respect de la réglementation suisse en vigueur.\n• Assemblage et raccordement de pompes à chaleur à haute efficacité énergétique, garantissant des performances optimales et une durabilité environnementale.\n• Construction et maintenance de systèmes de chauffage, y compris les systèmes à énergie traditionnelle et renouvelable, en accordant une attention particulière à la sécurité et à la fiabilité technique.\n• Collaboration avec des équipes multidisciplinaires pour la gestion efficace des chantiers et le respect des délais de livraison établis.\n• Vérification et test des systèmes installés pour assurer la conformité aux exigences de qualité et réglementaires. Profil :\n• Formation : AFC dans le secteur technique, de préférence en chauffage ou thermotechnique.\n• Expérience : minimum 5 années d'activité avérée en Suisse dans l'installation de centrales thermiques, de pompes à chaleur et de systèmes de chauffage.\n• Langues : Italien natif, indispensable pour une communication efficace sur site et avec les collègues.\n• Permis : permis voiture valide, indispensable pour les déplacements quotidiens, avec domicile à moins de 20 km du chantier, pour garantir ponctualité et présence constante.\n• Compétences techniques : maîtrise complète des procédures d'installation, d'étalonnage et de maintenance des centrales thermiques, des pompes à chaleur et des systèmes de chauffage, de préférence avec une expérience pratique certifiée.\n• Soft skills : autonomie, précision technique, capacité à résoudre des problèmes et aptitude au travail en équipe dans des contextes dynamiques et complexes. Ton interlocuteur/trice : Notre équipe est prête à vous accompagner étape par étape dans le processus de candidature, en vous offrant un soutien professionnel et un feedback constant pour améliorer vos compétences techniques et votre expérience sur le marché suisse. Avec Pemsa, vous pourrez accéder à des opportunités sélectionnées qui valorisent votre spécialisation dans le secteur thermotechnique, dans un environnement de travail qui favorise la sécurité, le respect de la réglementation et l'épanouissement personnel. Nous ne répondons pas quelles applications ne correspondent pas à la description demandée."
-      },
-      "slugByLocale": {
-        "it": "idraulico-afc-riscaldamenti-pemsa-lugano",
-        "en": "idraulico-afc-heating-pemsa-lugano",
-        "de": "idraulico-afc-heizung-pemsa-lugano",
-        "fr": "chauffage-idraulico-afc-pemsa-lugano"
-      },
-      "id": "pemsa-3f5a28fc0a56",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-19T13:11:10.120Z"
-    },
-    {
       "title": "Idraulico",
       "slug": "idraulico-pemsa-lamone",
       "url": "https://www.pemsa.ch/it/job/idraulico-2679721/",
@@ -10360,67 +10134,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-19T13:11:10.120Z"
-    },
-    {
-      "title": "Installatore impianti Ventilazione/Clima",
-      "slug": "installatore-impianti-ventilazione-clima-pemsa-taverne",
-      "url": "https://www.pemsa.ch/it/job/installatore-impianti-ventilazione-clima-2679717/",
-      "applyUrl": "https://www.pemsa.ch/it/job/installatore-impianti-ventilazione-clima-2679717/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Taverne",
-      "addressLocality": "Taverne",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-19",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-04",
-      "description": "Pemsa si posiziona come società leader nel panorama della Svizzera per il collocamento di professionisti specializzati nei settori della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. Attraverso una profonda conoscenza tecnica e una rete consolidata di collaborazioni, offriamo soluzioni di reclutamento personalizzate e di elevata qualità, supportando sia i professionisti che le imprese nei loro progetti di crescita e sviluppo. Il nostro impegno per l’eccellenza e la precisione ci rende un partner di riferimento, capace di valorizzare competenze e promuovere percorsi professionali duraturi e soddisfacenti nel panorama svizzero.\n\n## Missione:\n• Installazione professionale di impianti di climatizzazione e ventilazione, garantendo il rispetto degli standard qualitativi e normativi svizzeri.\n• Gestione delle fasi di montaggio, con particolare attenzione alla selezione e alla manipolazione dei materiali tecnici utilizzati, in conformità con le specifiche tecniche di progetto.\n• Applicazione di procedure precise per l’assemblaggio e il posizionamento delle componenti degli impianti, assicurando la funzionalità e la sicurezza degli stessi.\n• Collaborazione attiva con il team tecnico e con i responsabili di progetto per ottimizzare i tempi di posa e garantire la completa soddisfazione del cliente finale.\n\n## Profilo:\n• Esperienza minima di 4 anni nel mercato svizzero , con comprovata competenza tecnica nel settore della climatizzazione e ventilazione, garantendo una perfetta conoscenza dei materiali specifici utilizzati nel campo.\n• Residenza entro 20 km dal luogo di lavoro , per assicurare la puntualità e la flessibilità nelle esigenze operative quotidiane.\n• Italiano livello madrelingua , sia scritto che parlato, per una comunicazione fluida con il team e i clienti.\n• Possesso della patente auto valida in Svizzera , indispensabile per la mobilità e la gestione autonoma dei trasporti di attrezzature e materiali.\n• Conoscenza approfondita e aggiornamenti sulle norme e standard svizzeri relativi agli impianti di climatizzazione e ventilazione.\n• Patentino IPAF (macchine aeree) considerato un plus importante per la gestione di piattaforme elevatrici e movimentazione materiali in quota.\n\n## Ton interlocuteur/trice :\nIn Pemsa, troverai non solo un’agenzia di collocamento, ma un partner dedicato alla tua carriera. Il nostro team di esperti senior è costantemente impegnato a offrire un accompagnamento personalizzato, valorizzando il tuo profilo tecnico e le tue aspirazioni professionali. Grazie alla nostra profonda conoscenza del mercato svizzero e dei requisiti specifici nei settori della costruzione, della tecnica edile e dell’industria, garantiamo opportunità mirate che rispecchiano le tue competenze e i tuoi valori.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-      "titleByLocale": {
-        "it": "Installatore impianti Ventilazione/Clima",
-        "en": "Ventilation/Climate System Installer",
-        "de": "Installateur von Lüftungs-/Klimasystemen",
-        "fr": "Installateur de systèmes de ventilation/climatisation"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa si posiziona come società leader nel panorama della Svizzera per il collocamento di professionisti specializzati nei settori della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. Attraverso una profonda conoscenza tecnica e una rete consolidata di collaborazioni, offriamo soluzioni di reclutamento personalizzate e di elevata qualità, supportando sia i professionisti che le imprese nei loro progetti di crescita e sviluppo. Il nostro impegno per l’eccellenza e la precisione ci rende un partner di riferimento, capace di valorizzare competenze e promuovere percorsi professionali duraturi e soddisfacenti nel panorama svizzero. Missione:\n• Installazione professionale di impianti di climatizzazione e ventilazione, garantendo il rispetto degli standard qualitativi e normativi svizzeri.\n• Gestione delle fasi di montaggio, con particolare attenzione alla selezione e alla manipolazione dei materiali tecnici utilizzati, in conformità con le specifiche tecniche di progetto.\n• Applicazione di procedure precise per l’assemblaggio e il posizionamento delle componenti degli impianti, assicurando la funzionalità e la sicurezza degli stessi.\n• Collaborazione attiva con il team tecnico e con i responsabili di progetto per ottimizzare i tempi di posa e garantire la completa soddisfazione del cliente finale. Profilo:\n• Esperienza minima di 4 anni nel mercato svizzero , con comprovata competenza tecnica nel settore della climatizzazione e ventilazione, garantendo una perfetta conoscenza dei materiali specifici utilizzati nel campo.\n• Residenza entro 20 km dal luogo di lavoro , per assicurare la puntualità e la flessibilità nelle esigenze operative quotidiane.\n• Italiano livello madrelingua , sia scritto che parlato, per una comunicazione fluida con il team e i clienti.\n• Possesso della patente auto valida in Svizzera , indispensabile per la mobilità e la gestione autonoma dei trasporti di attrezzature e materiali.\n• Conoscenza approfondita e aggiornamenti sulle norme e standard svizzeri relativi agli impianti di climatizzazione e ventilazione.\n• Patentino IPAF (macchine aeree) considerato un plus importante per la gestione di piattaforme elevatrici e movimentazione materiali in quota. Ton interlocuteur/trice : In Pemsa, troverai non solo un’agenzia di collocamento, ma un partner dedicato alla tua carriera. Il nostro team di esperti senior è costantemente impegnato a offrire un accompagnamento personalizzato, valorizzando il tuo profilo tecnico e le tue aspirazioni professionali. Grazie alla nostra profonda conoscenza del mercato svizzero e dei requisiti specifici nei settori della costruzione, della tecnica edile e dell’industria, garantiamo opportunità mirate che rispecchiano le tue competenze e i tuoi valori. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "en": "Pemsa is positioned as a leading company in Switzerland for the placement of specialized professionals in the construction, civil engineering, electricity, building technology and industry sectors. Through deep technical knowledge and a consolidated network of collaborations, we offer personalized, high-quality recruitment solutions, supporting both professionals and businesses in their growth and development projects. Our commitment to excellence and precision makes us a reference partner, capable of enhancing skills and promoting long-lasting and satisfying professional paths in the Swiss panorama. Mission:\n• Professional installation of air conditioning and ventilation systems, ensuring compliance with Swiss quality and regulatory standards.\n• Management of the assembly phases, with particular attention to the selection and handling of the technical materials used, in accordance with the technical specifications of the project.\n• Application of precise procedures for the assembly and positioning of the system components, ensuring their functionality and safety.\n• Active collaboration with the technical team and project managers to optimize installation times and guarantee complete satisfaction of the end customer. Profile:\n• Minimum experience of 4 years in the Swiss market, with proven technical expertise in the air conditioning and ventilation sector, ensuring perfect knowledge of the specific materials used in the field.\n• Residence within 20 km of the workplace, to ensure punctuality and flexibility in daily operational needs.\n• Native-level Italian, both written and spoken, for fluid communication with the team and customers.\n• Possession of a car license valid in Switzerland, essential for mobility and autonomous management of transport of equipment and materials.\n• In-depth knowledge and updates on Swiss regulations and standards relating to air conditioning and ventilation systems.\n• IPAF license (aerial machinery) considered an important plus for the management of lifting platforms and material handling at heights. Ton interlocuteur/trice: In Pemsa, you will find not only a recruitment agency, but a partner dedicated to your career. Our team of senior experts is constantly committed to offering personalized support, enhancing your technical profile and your professional aspirations. Thanks to our in-depth knowledge of the Swiss market and the specific requirements in the construction, building technology and industrial sectors, we guarantee targeted opportunities that reflect your skills and values. We do not answer which applications do not correspond to the description requested.",
-        "de": "Pemsa positioniert sich als führendes Unternehmen in der Schweiz für die Vermittlung von Fachkräften in den Bereichen Bau, Tiefbau, Elektrizität, Gebäudetechnik und Industrie. Durch fundiertes technisches Wissen und ein konsolidiertes Netzwerk an Kooperationen bieten wir personalisierte, qualitativ hochwertige Rekrutierungslösungen und unterstützen sowohl Fachkräfte als auch Unternehmen bei ihren Wachstums- und Entwicklungsprojekten. Unser Engagement für Exzellenz und Präzision macht uns zu einem Referenzpartner, der in der Lage ist, Kompetenzen zu verbessern und langfristige und zufriedenstellende berufliche Wege in der Schweiz zu fördern. Mission:\n• Professionelle Installation von Klima- und Lüftungsanlagen unter Einhaltung der Schweizer Qualitäts- und Regulierungsstandards.\n• Leitung der Montagephasen, mit besonderem Augenmerk auf die Auswahl und Handhabung der verwendeten technischen Materialien gemäß den technischen Spezifikationen des Projekts.\n• Anwendung präziser Verfahren zur Montage und Positionierung der Systemkomponenten, um deren Funktionalität und Sicherheit zu gewährleisten.\n• Aktive Zusammenarbeit mit dem technischen Team und den Projektmanagern, um die Installationszeiten zu optimieren und die vollständige Zufriedenheit des Endkunden zu gewährleisten. Profil:\n• Mindestens 4 Jahre Erfahrung auf dem Schweizer Markt mit nachgewiesener technischer Fachkompetenz im Bereich Klimatisierung und Lüftung, die eine perfekte Kenntnis der in diesem Bereich verwendeten spezifischen Materialien gewährleistet.\n• Wohnsitz im Umkreis von 20 km um den Arbeitsplatz, um Pünktlichkeit und Flexibilität bei den täglichen betrieblichen Anforderungen zu gewährleisten.\n• Muttersprachliches Italienisch in Wort und Schrift für eine reibungslose Kommunikation mit dem Team und den Kunden.\n• Besitz eines in der Schweiz gültigen Autoführerscheins, der für die Mobilität und die autonome Bewältigung des Material- und Materialtransports unerlässlich ist.\n• Vertiefte Kenntnisse und Aktualisierungen der Schweizer Vorschriften und Normen für Klima- und Lüftungsanlagen.\n• Die IPAF-Lizenz (Luftmaschinen) gilt als wichtiges Plus für die Verwaltung von Hebebühnen und den Materialtransport in der Höhe. Ton interlocuteur/trice: In Pemsa finden Sie nicht nur eine Personalvermittlung, sondern auch einen Partner, der sich Ihrer Karriere widmet. Unser Team aus erfahrenen Experten ist stets bestrebt, Ihnen individuelle Unterstützung zu bieten und so Ihr technisches Profil und Ihre beruflichen Ambitionen zu verbessern. Dank unserer fundierten Kenntnis des Schweizer Marktes und der spezifischen Anforderungen im Bau-, Gebäudetechnik- und Industriebereich garantieren wir gezielte Einsatzmöglichkeiten, die Ihre Fähigkeiten und Werte widerspiegeln. Wir beantworten nicht, welche Bewerbungen nicht der angeforderten Beschreibung entsprechen.",
-        "fr": "Pemsa se positionne comme une entreprise leader en Suisse pour le placement de professionnels spécialisés dans les secteurs de la construction, du génie civil, de l'électricité, de la technique du bâtiment et de l'industrie. Grâce à des connaissances techniques approfondies et un réseau de collaborations consolidé, nous proposons des solutions de recrutement personnalisées et de qualité, accompagnant aussi bien les professionnels que les entreprises dans leurs projets de croissance et de développement. Notre engagement pour l’excellence et la précision fait de nous un partenaire de référence, capable de valoriser les compétences et de promouvoir des parcours professionnels durables et satisfaisants dans le paysage suisse. Mission :\n• Installation professionnelle de systèmes de climatisation et de ventilation, garantissant le respect des normes de qualité et réglementaires suisses.\n• Gestion des phases de montage, avec une attention particulière à la sélection et à la manipulation des matériaux techniques utilisés, conformément aux spécifications techniques du projet.\n• Application de procédures précises pour l'assemblage et le positionnement des composants du système, garantissant leur fonctionnalité et leur sécurité.\n• Collaboration active avec l'équipe technique et les chefs de projet pour optimiser les temps d'installation et garantir l'entière satisfaction du client final. Profil :\n• Expérience minimum de 4 ans sur le marché Suisse, avec une expertise technique avérée dans le secteur de la climatisation et de la ventilation, assurant une parfaite connaissance des matériaux spécifiques utilisés dans le domaine.\n• Résidence à moins de 20 km du lieu de travail, pour assurer ponctualité et flexibilité dans les besoins opérationnels quotidiens.\n• Italien de niveau natif, écrit et parlé, pour une communication fluide avec l'équipe et les clients.\n• Possession d'un permis voiture valable en Suisse, indispensable à la mobilité et à la gestion autonome des transports de matériels et de matériels.\n• Connaissance approfondie et mise à jour des réglementations et normes suisses relatives aux systèmes de climatisation et de ventilation.\n• Licence IPAF (engins aériens) considérée comme un plus important pour la gestion de plates-formes élévatrices et la manutention de matériaux en hauteur. Ton interlocuteur/trice : Chez Pemsa, vous trouverez non seulement une agence de recrutement, mais un partenaire dédié à votre carrière. Notre équipe d’experts seniors s’engage en permanence à vous offrir un accompagnement personnalisé, valorisant votre profil technique et vos aspirations professionnelles. Grâce à notre connaissance approfondie du marché suisse et des exigences spécifiques des secteurs de la construction, de la technique du bâtiment et de l'industrie, nous garantissons des opportunités ciblées qui reflètent vos compétences et vos valeurs. Nous ne répondons pas quelles applications ne correspondent pas à la description demandée."
-      },
-      "slugByLocale": {
-        "it": "installatore-impianti-ventilazione-clima-pemsa-taverne",
-        "en": "installation-system-ventilation-clima-pemsa-taverne",
-        "de": "anlagenluftung-clima-pemsa-taverne",
-        "fr": "systeme-d-installation-ventilation-clima-pemsa-taverne"
-      },
-      "id": "pemsa-741158129734",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6814",
       "firstSeenAt": "2026-06-19T13:11:10.120Z"
     },
     {
@@ -10478,8 +10193,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-06-19T13:11:10.120Z"
     },
     {
@@ -10537,8 +10252,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6850",
       "firstSeenAt": "2026-06-19T13:11:10.120Z"
     },
     {
@@ -10596,8 +10311,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-06-19T13:11:10.120Z",
       "previousSlugs": [
         "impianti-idraulici-riscaldamento-pemsa-lugano",
@@ -10605,122 +10320,6 @@
         "idrauliko-impianti-riscaldamento-wird-zu-heizungsanlagen-idrianiker-pemsa-lugano",
         "plombier-systemes-de-chauffage-pemsa-lugano"
       ]
-    },
-    {
-      "title": "Installatore elettricista AFC (M/F)",
-      "slug": "installatore-elettricista-afc-m-f-pemsa-biel-bienne",
-      "url": "https://www.pemsa.ch/it/job/installatore-elettricista-afc-m-f-2679704/",
-      "applyUrl": "https://www.pemsa.ch/it/job/installatore-elettricista-afc-m-f-2679704/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "elettricità",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-19",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-04",
-      "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Installatore elettricista AFC (M/F)\n\n## Il tuo incarico:\n• Installare e collegare apparecchiature e quadri elettrici.\n• Partecipare alle operazioni di messa in servizio effettuando prove e controlli.\n• Verificare la conformità degli impianti in base a progetti, norme e regole di sicurezza.\n• Garantire la manutenzione preventiva e correttiva.\n• Diagnosticare i guasti e intervenire in modo efficace.\n• Applicare le procedure interne e i requisiti di qualità.\n• Collaborare con i team tecnici e redigere i rapporti di intervento.\n\n## E ora parliamo di te?\n• Diploma CFC di installatore elettricista o titolo equivalente.\n• Esperienza comprovata nel settore degli impianti elettrici.\n• Esperienza minima di 1 anno in cantiere in Svizzera.\n• Autonomia, rigore e senso di responsabilità.\n• Patente di guida obbligatoria.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Ibrahim. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano?\nNon esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-      "titleByLocale": {
-        "it": "Installatore elettricista AFC (M/F)",
-        "en": "Electrician Installer EFZ (M/F)",
-        "de": "Elektriker Installateur EFZ (M/W)",
-        "fr": "Installateur électricien EFZ (M/F)"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Installatore elettricista AFC (M/F) ## Il tuo incarico:\n• Installare e collegare apparecchiature e quadri elettrici.\n• Partecipare alle operazioni di messa in servizio effettuando prove e controlli.\n• Verificare la conformità degli impianti in base a progetti, norme e regole di sicurezza.\n• Garantire la manutenzione preventiva e correttiva.\n• Diagnosticare i guasti e intervenire in modo efficace.\n• Applicare le procedure interne e i requisiti di qualità.\n• Collaborare con i team tecnici e redigere i rapporti di intervento. ## E ora parliamo di te?\n• Diploma CFC di installatore elettricista o titolo equivalente.\n• Esperienza comprovata nel settore degli impianti elettrici.\n• Esperienza minima di 1 anno in cantiere in Svizzera.\n• Autonomia, rigore e senso di responsabilità.\n• Patente di guida obbligatoria. ## Il tuo referente: Il tuo referente per questa posizione è Ibrahim. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-        "en": "Do you want the freedom of temporary work and the security of permanent employment? For 30 years we have supported hundreds of companies in the technical sectors of building, construction and industry throughout Switzerland, offering them the best talent. However, we don't hide from you that we are demanding. So, if you are a motivated and extremely enthusiastic person, join our team for the position of AFC Electrician Installer (M/F) ## Your assignment:\n• Install and connect electrical equipment and panels.\n• Participate in commissioning operations by carrying out tests and checks.\n• Check the compliance of the systems based on projects, standards and safety rules.\n• Ensure preventive and corrective maintenance.\n• Diagnose faults and intervene effectively.\n• Apply internal procedures and quality requirements.\n• Collaborate with the technical teams and draw up intervention reports. ## And now let's talk about you?\n• CFC diploma as an electrician installer or equivalent qualification.\n• Proven experience in the electrical systems sector.\n• Minimum 1 year experience on construction site in Switzerland.\n• Autonomy, rigor and sense of responsibility.\n• Driving license required. ## Your contact person: Your contact person for this position is Ibrahim. He will be able to accompany you, advise you and answer all your questions relating to the position. This position isn't exactly what you're looking for, but do our values ​​interest you? Don't hesitate to send us your spontaneous application! We will only respond to applications whose profile matches the requested description.",
-        "de": "Sie wünschen sich die Freiheit der Zeitarbeit und die Sicherheit einer Festanstellung? Seit 30 Jahren unterstützen wir schweizweit Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie und bieten ihnen die besten Talente. Allerdings verheimlichen wir Ihnen nicht, dass wir anspruchsvoll sind. Wenn Sie also eine motivierte und äußerst enthusiastische Person sind, schließen Sie sich unserem Team für die Position des AFC-Elektrikerinstallateurs (m/w) an. ## Ihre Aufgabe:\n• Elektrische Geräte und Schalttafeln installieren und anschließen.\n• Mitwirkung bei der Inbetriebnahme durch Durchführung von Tests und Kontrollen.\n• Überprüfen Sie die Konformität der Systeme anhand von Projekten, Standards und Sicherheitsregeln.\n• Sorgen Sie für vorbeugende und korrigierende Wartung.\n• Störungen diagnostizieren und wirksam eingreifen.\n• Interne Verfahren und Qualitätsanforderungen anwenden.\n• Mit den technischen Teams zusammenarbeiten und Interventionsberichte erstellen. ## Und jetzt lass uns über dich reden?\n• CFC-Diplom als Elektroinstallateur oder gleichwertige Qualifikation.\n• Nachgewiesene Erfahrung im Bereich Elektrosysteme.\n• Mindestens 1 Jahr Erfahrung auf einer Baustelle in der Schweiz.\n• Autonomie, Genauigkeit und Verantwortungsbewusstsein.\n• Führerschein erforderlich. ## Ihr Ansprechpartner: Ihr Ansprechpartner für diese Stelle ist Ibrahim. Er kann Sie begleiten, beraten und alle Ihre Fragen rund um die Stelle beantworten. Diese Position ist nicht genau das, was Sie suchen, aber interessieren Sie unsere Werte? Zögern Sie nicht, uns Ihre Initiativbewerbung zu senden! Wir antworten nur auf Bewerbungen, deren Profil mit der angeforderten Beschreibung übereinstimmt.",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d’un emploi permanent ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs techniques du bâtiment, de la construction et de l'industrie dans toute la Suisse, en leur offrant les meilleurs talents. Pour autant, nous ne vous cachons pas que nous sommes exigeants. Alors, si vous êtes une personne motivée et extrêmement enthousiaste, rejoignez notre équipe pour le poste d'AFC Electricien Installateur (H/F) ## Votre mission :\n• Installer et raccorder des équipements et tableaux électriques.\n• Participer aux opérations de mise en service en effectuant des tests et des contrôles.\n• Vérifier la conformité des systèmes en fonction des projets, des normes et des règles de sécurité.\n• Assurer la maintenance préventive et corrective.\n• Diagnostiquer les pannes et intervenir efficacement.\n• Appliquer les procédures internes et les exigences qualité.\n• Collaborer avec les équipes techniques et rédiger des rapports d'intervention. ## Et maintenant parlons de vous ?\n• Diplôme CFC d'installateur électricien ou qualification équivalente.\n• Expérience avérée dans le secteur des systèmes électriques.\n• Expérience d'au moins 1 an sur chantier en Suisse.\n• Autonomie, rigueur et sens des responsabilités.\n• Permis de conduire requis. ## Votre personne de contact : Votre personne de contact pour ce poste est Ibrahim. Il saura vous accompagner, vous conseiller et répondre à toutes vos questions relatives au poste. Ce poste n'est pas exactement ce que vous recherchez, mais nos valeurs vous intéressent ? N'hésitez pas à nous envoyer votre candidature spontanée ! Nous ne répondrons qu'aux candidatures dont le profil correspond à la description demandée."
-      },
-      "slugByLocale": {
-        "it": "installatore-elettricista-afc-m-f-pemsa-biel-bienne",
-        "en": "electrician-installer-efz-m-f-pemsa-biel-bienne",
-        "de": "elektriker-installateur-efz-m-w-pemsa-biel-bienne",
-        "fr": "installateur-electricien-efz-m-f-pemsa-biel-bienne"
-      },
-      "id": "pemsa-2a810ef17981",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "2501",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z"
-    },
-    {
-      "title": "Elettricista di montaggio AFC (M/F)",
-      "slug": "elettricista-di-montaggio-afc-m-f-pemsa-biel-bienne",
-      "url": "https://www.pemsa.ch/it/job/elettricista-di-montaggio-afc-m-f-2679701/",
-      "applyUrl": "https://www.pemsa.ch/it/job/elettricista-di-montaggio-afc-m-f-2679701/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "elettricità",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-19",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-04",
-      "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Elettricista di montaggio AFC (M/F)\n\n## Il tuo incarico:\n• Esecuzione della posa dei cavi, nonché dell’installazione di canaline e guaine tecniche.\n• Collegamento dei quadri elettrici secondo le norme vigenti.\n• Lettura e interpretazione di progetti, schemi e documenti tecnici.\n• Intervento su cantieri di nuova costruzione e in fase di ristrutturazione.\n• Rigorosa applicazione delle norme di sicurezza e degli standard elettrici.\n\n## E ora parliamo di te?\n• In possesso di un Attestato Federale di Qualifica (CFC) come elettricista montatore.\n• Ottima padronanza degli impianti a corrente forte e a corrente debole.\n• Persona autonoma, rigorosa e attenta alla qualità del lavoro.\n• La patente di guida costituisce un vantaggio.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Ibrahim. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano?\nNon esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-      "titleByLocale": {
-        "it": "Elettricista di montaggio AFC (M/F)",
-        "en": "Assembly electrician EFZ (M/F)",
-        "de": "Montageelektriker EFZ (M/F)",
-        "fr": "Électricien d'assemblage EFZ (M/F)"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Elettricista di montaggio AFC (M/F) ## Il tuo incarico:\n• Esecuzione della posa dei cavi, nonché dell’installazione di canaline e guaine tecniche.\n• Collegamento dei quadri elettrici secondo le norme vigenti.\n• Lettura e interpretazione di progetti, schemi e documenti tecnici.\n• Intervento su cantieri di nuova costruzione e in fase di ristrutturazione.\n• Rigorosa applicazione delle norme di sicurezza e degli standard elettrici. ## E ora parliamo di te?\n• In possesso di un Attestato Federale di Qualifica (CFC) come elettricista montatore.\n• Ottima padronanza degli impianti a corrente forte e a corrente debole.\n• Persona autonoma, rigorosa e attenta alla qualità del lavoro.\n• La patente di guida costituisce un vantaggio. ## Il tuo referente: Il tuo referente per questa posizione è Ibrahim. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-        "en": "Do you want the freedom of temporary work and the security of permanent employment? For 30 years we have supported hundreds of companies in the technical sectors of building, construction and industry throughout Switzerland, offering them the best talent. However, we don't hide from you that we are demanding. So, if you are a motivated and extremely enthusiastic person, join our team for the position of AFC Assembly Electrician (M/F) ## Your assignment:\n• Carrying out cable laying, as well as installing technical conduits and sheaths.\n• Connection of electrical panels according to current regulations.\n• Reading and interpretation of projects, diagrams and technical documents.\n• Intervention on new construction sites and those undergoing renovation.\n• Rigorous application of safety regulations and electrical standards. ## And now let's talk about you?\n• Holds a Federal Certificate of Qualification (CFC) as an electrician.\n• Excellent command of strong current and weak current systems.\n• Independent person, rigorous and attentive to the quality of work.\n• Driving license is an advantage. ## Your contact person: Your contact person for this position is Ibrahim. He will be able to accompany you, advise you and answer all your questions relating to the position. This position isn't exactly what you're looking for, but do our values ​​interest you? Don't hesitate to send us your spontaneous application! We will only respond to applications whose profile matches the requested description.",
-        "de": "Sie wünschen sich die Freiheit der Zeitarbeit und die Sicherheit einer Festanstellung? Seit 30 Jahren unterstützen wir schweizweit Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie und bieten ihnen die besten Talente. Allerdings verheimlichen wir Ihnen nicht, dass wir anspruchsvoll sind. Wenn Sie also eine motivierte und äußerst enthusiastische Person sind, verstärken Sie unser Team für die Position des AFC-Montageelektrikers (m/w) ## Ihre Aufgabe:\n• Durchführung der Kabelverlegung sowie Installation technischer Leitungen und Ummantelungen.\n• Anschluss der Schalttafeln gemäß den geltenden Vorschriften.\n• Lesen und Interpretieren von Projekten, Diagrammen und technischen Dokumenten.\n• Eingriffe auf Neubau- und Renovierungsbaustellen.\n• Strikte Anwendung von Sicherheitsvorschriften und Elektronormen. ## Und jetzt lass uns über dich reden?\n• Verfügt über einen eidgenössischen Fähigkeitsausweis (EFZ) als Elektriker.\n• Hervorragende Beherrschung von Starkstrom- und Schwachstromsystemen.\n• Unabhängige Person, streng und aufmerksam auf die Qualität der Arbeit.\n• Führerschein ist von Vorteil. ## Ihr Ansprechpartner: Ihr Ansprechpartner für diese Stelle ist Ibrahim. Er kann Sie begleiten, beraten und alle Ihre Fragen rund um die Stelle beantworten. Diese Position ist nicht genau das, was Sie suchen, aber interessieren Sie unsere Werte? Zögern Sie nicht, uns Ihre Initiativbewerbung zu senden! Wir antworten nur auf Bewerbungen, deren Profil mit der angeforderten Beschreibung übereinstimmt.",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d’un emploi permanent ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs techniques du bâtiment, de la construction et de l'industrie dans toute la Suisse, en leur offrant les meilleurs talents. Pour autant, nous ne vous cachons pas que nous sommes exigeants. Alors, si vous êtes une personne motivée et extrêmement enthousiaste, rejoignez notre équipe pour le poste d'électricien de montage AFC (H/F) ## Votre mission :\n• Réaliser la pose des câbles, ainsi que la pose des conduits et gaines techniques.\n• Raccordement des tableaux électriques selon la réglementation en vigueur.\n• Lecture et interprétation de projets, schémas et documents techniques.\n• Intervention sur les chantiers neufs et en rénovation.\n• Application rigoureuse des règles de sécurité et des normes électriques. ## Et maintenant parlons de vous ?\n• Détient un Certificat fédéral de qualification (CFC) d'électricien.\n• Excellente maîtrise des systèmes à courants forts et à courants faibles.\n• Personne indépendante, rigoureuse et attentive à la qualité du travail.\n• Le permis de conduire est un avantage. ## Votre personne de contact : Votre personne de contact pour ce poste est Ibrahim. Il saura vous accompagner, vous conseiller et répondre à toutes vos questions relatives au poste. Ce poste n'est pas exactement ce que vous recherchez, mais nos valeurs vous intéressent ? N'hésitez pas à nous envoyer votre candidature spontanée ! Nous ne répondrons qu'aux candidatures dont le profil correspond à la description demandée."
-      },
-      "slugByLocale": {
-        "it": "elettricista-di-montaggio-afc-m-f-pemsa-biel-bienne",
-        "en": "assembly-electrician-efz-m-f-pemsa-biel-bienne",
-        "de": "montageelektriker-efz-m-f-pemsa-biel-bienne",
-        "fr": "electricien-d-assemblage-efz-m-f-pemsa-biel-bienne"
-      },
-      "id": "pemsa-9392b9adc4ec",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "2501",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z"
     },
     {
       "title": "Installatore di impianti di riscaldamento con attestato CFC o con vasta esperienza",
@@ -10781,122 +10380,6 @@
       "firstSeenAt": "2026-06-29T12:00:35.324Z"
     },
     {
-      "title": "Macchinista M1",
-      "slug": "macchinista-m1-pemsa-geneve",
-      "url": "https://www.pemsa.ch/it/job/macchinista-m1-2679674/",
-      "applyUrl": "https://www.pemsa.ch/it/job/macchinista-m1-2679674/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "canton": "GE",
-      "country": "CH",
-      "category": "cantiere",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-19",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-04",
-      "description": "Stai cercando di coniugare la libertà del lavoro temporaneo con la sicurezza di un impiego fisso? Da oltre 30 anni, Pemsa opera come partner imprescindibile per centinaia di aziende svizzere nei settori tecnici dell’edilizia, delle costruzioni e dell’industria. Individuiamo e proponiamo i talenti più competenti e specializzati per rispondere con precisione alle esigenze specifiche dei nostri clienti. In Pemsa, l’eccellenza è la nostra forza motrice, perché sappiamo che la qualità fa la differenza. Se sei motivato/a, appassionato/a e pronto/a a impegnarti al massimo, entra a far parte del nostro dinamico team per la posizione di Macchinista M1. Il tuo incarico:\n• Guidare con competenza vari macchinari da cantiere, tra cui dumper, miniescavatori, pale gommate e piccoli rulli compressori, nel rispetto delle norme di sicurezza svizzere.\n• Occuparsi della realizzazione accurata di opere murarie nel settore dell’ingegneria civile, garantendo la stabilità e la durata delle opere realizzate.\n• Eseguire l’installazione completa e accurata delle reti “a secco” (elettricità, telecomunicazioni) e “a umido” (acqua, fognature) nei cantieri.\n• Lavorare in modo efficiente in cantiere, sia all’interno che all’esterno dei macchinari da cantiere, per garantire l’avanzamento ottimale dei lavori.\n• Applicare rigorosamente le norme di sicurezza e le procedure operative specifiche dei cantieri svizzeri, garantendo un ambiente di lavoro sicuro.\n\n## E ora parliamo un po’ di te?\nIl tuo referente:\nIl tuo referente di fiducia per questa posizione è Yannick, con oltre 15 anni di esperienza nel reclutamento specializzato nei settori tecnici. Metterà a tua disposizione la sua competenza e un supporto personalizzato per rispondere a tutte le tue domande e facilitare il tuo inserimento.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea. Siamo sempre alla ricerca di talenti motivati e impegnati.\nRisponderemo solo alle candidature il cui profilo corrisponda esattamente alla descrizione richiesta.",
-      "titleByLocale": {
-        "it": "Macchinista M1",
-        "en": "M1 Machinist",
-        "de": "M1-Maschinist",
-        "fr": "M1 Machinist"
-      },
-      "descriptionByLocale": {
-        "it": "Stai cercando di coniugare la libertà del lavoro temporaneo con la sicurezza di un impiego fisso? Da oltre 30 anni, Pemsa opera come partner imprescindibile per centinaia di aziende svizzere nei settori tecnici dell’edilizia, delle costruzioni e dell’industria. Individuiamo e proponiamo i talenti più competenti e specializzati per rispondere con precisione alle esigenze specifiche dei nostri clienti. In Pemsa, l’eccellenza è la nostra forza motrice, perché sappiamo che la qualità fa la differenza. Se sei motivato/a, appassionato/a e pronto/a a impegnarti al massimo, entra a far parte del nostro dinamico team per la posizione di Macchinista M1. Il tuo incarico:\n• Guidare con competenza vari macchinari da cantiere, tra cui dumper, miniescavatori, pale gommate e piccoli rulli compressori, nel rispetto delle norme di sicurezza svizzere.\n• Occuparsi della realizzazione accurata di opere murarie nel settore dell’ingegneria civile, garantendo la stabilità e la durata delle opere realizzate.\n• Eseguire l’installazione completa e accurata delle reti “a secco” (elettricità, telecomunicazioni) e “a umido” (acqua, fognature) nei cantieri.\n• Lavorare in modo efficiente in cantiere, sia all’interno che all’esterno dei macchinari da cantiere, per garantire l’avanzamento ottimale dei lavori.\n• Applicare rigorosamente le norme di sicurezza e le procedure operative specifiche dei cantieri svizzeri, garantendo un ambiente di lavoro sicuro. ## E ora parliamo un po’ di te? Il tuo referente: Il tuo referente di fiducia per questa posizione è Yannick, con oltre 15 anni di esperienza nel reclutamento specializzato nei settori tecnici. Metterà a tua disposizione la sua competenza e un supporto personalizzato per rispondere a tutte le tue domande e facilitare il tuo inserimento. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea. Siamo sempre alla ricerca di talenti motivati e impegnati. Risponderemo solo alle candidature il cui profilo corrisponda esattamente alla descrizione richiesta.",
-        "en": "Are you looking to combine the freedom of temporary work with the security of a permanent job? For over 30 years, Pemsa has operated as an essential partner for hundreds of Swiss companies in the technical sectors of building, construction and industry. We identify and offer the most competent and specialized talents to precisely respond to the specific needs of our clients. At Pemsa, excellence is our driving force, because we know that quality makes the difference. If you are motivated, passionate and ready to give it your all, join our dynamic team for the M1 Machinist position. Your assignment:\n• Competently drive various construction machinery, including dump trucks, mini excavators, wheel loaders and small road rollers, in compliance with Swiss safety regulations.\n• Take care of the accurate construction of masonry works in the civil engineering sector, guaranteeing the stability and duration of the works carried out.\n• Carry out the complete and accurate installation of \"dry\" (electricity, telecommunications) and \"wet\" (water, sewage) networks on construction sites.\n• Work efficiently on site, both inside and outside construction machinery, to ensure optimal work progress.\n• Strictly apply the safety regulations and specific operating procedures of Swiss construction sites, ensuring a safe working environment. ## And now let's talk a little about you? Your contact: Your trusted contact for this position is Yannick, with over 15 years of experience in recruiting specializing in technical sectors. He will put his expertise and personalized support at your disposal to answer all your questions and facilitate your insertion. This position isn't exactly what you're looking for, but do our values ​​interest you? Don't hesitate to send us your spontaneous application. We are always looking for motivated and committed talent. We will only respond to applications whose profile exactly matches the requested description.",
-        "de": "Sie möchten die Freiheit einer Zeitarbeit mit der Sicherheit einer Festanstellung verbinden? Seit über 30 Jahren ist Pemsa ein wichtiger Partner für Hunderte von Schweizer Unternehmen in den technischen Bereichen Bauwesen und Industrie. Wir identifizieren und bieten die kompetentesten und spezialisiertesten Talente an, um genau auf die spezifischen Bedürfnisse unserer Kunden einzugehen. Bei Pemsa ist Exzellenz unsere treibende Kraft, denn wir wissen, dass Qualität den Unterschied macht. Wenn Sie motiviert, leidenschaftlich und bereit sind, Ihr Bestes zu geben, werden Sie Teil unseres dynamischen Teams für die Stelle als Maschinist M1. Ihre Aufgabe:\n• Führen Sie fachmännisch verschiedene Baumaschinen, darunter Muldenkipper, Minibagger, Radlader und kleine Straßenwalzen, unter Einhaltung der schweizerischen Sicherheitsvorschriften.\n• Sorgen Sie für die sorgfältige Ausführung von Mauerwerksarbeiten im Hoch- und Tiefbau und gewährleisten Sie die Stabilität und Dauer der ausgeführten Arbeiten.\n• Führen Sie die vollständige und genaue Installation von „trockenen“ (Strom, Telekommunikation) und „nassen“ (Wasser, Abwasser) Netzen auf Baustellen durch.\n• Effizientes Arbeiten auf der Baustelle, sowohl innerhalb als auch außerhalb von Baumaschinen, um einen optimalen Arbeitsfortschritt sicherzustellen.\n• Halten Sie sich strikt an die Sicherheitsvorschriften und spezifischen Betriebsabläufe auf Schweizer Baustellen und sorgen Sie so für ein sicheres Arbeitsumfeld. ## Und jetzt lass uns ein wenig über dich reden? Ihr Ansprechpartner: Ihr verlässlicher Ansprechpartner für diese Position ist Yannick, mit über 15 Jahren Erfahrung im Recruiting mit Spezialisierung auf technische Branchen. Er steht Ihnen mit seinem Fachwissen und seiner persönlichen Betreuung zur Verfügung, um alle Ihre Fragen zu beantworten und Ihnen die Eingliederung zu erleichtern. Diese Position ist nicht genau das, was Sie suchen, aber interessieren Sie unsere Werte? Zögern Sie nicht, uns Ihre Initiativbewerbung zu senden. Wir sind immer auf der Suche nach motivierten und engagierten Talenten. Wir antworten nur auf Bewerbungen, deren Profil genau der angeforderten Beschreibung entspricht.",
-        "fr": "Vous cherchez à allier la liberté du travail temporaire avec la sécurité d’un emploi permanent ? Depuis plus de 30 ans, Pemsa est le partenaire incontournable de centaines d'entreprises suisses des secteurs techniques du bâtiment, de la construction et de l'industrie. Nous identifions et proposons les talents les plus compétents et spécialisés pour répondre précisément aux besoins spécifiques de nos clients. Chez Pemsa, l'excellence est notre moteur, car nous savons que la qualité fait la différence. Si vous êtes motivé, passionné et prêt à tout donner, rejoignez notre équipe dynamique pour le poste de Machiniste M1. Votre mission :\n• Conduire avec compétence divers engins de chantier, notamment des camions-bennes, des mini-pelles, des chargeuses sur pneus et des petits rouleaux compresseurs, dans le respect des règles de sécurité suisses.\n• Veiller à la construction soignée des ouvrages de maçonnerie dans le secteur du génie civil, en garantissant la stabilité et la durée des travaux réalisés.\n• Réaliser l'installation complète et précise des réseaux « secs » (électricité, télécommunications) et « humides » (eau, assainissement) sur les chantiers.\n• Travailler efficacement sur chantier, tant à l'intérieur qu'à l'extérieur des engins de chantier, pour assurer une progression optimale des travaux.\n• Appliquer strictement les règles de sécurité et les procédures d'exploitation spécifiques des chantiers de construction suisses, garantissant un environnement de travail sûr. ## Et maintenant parlons un peu de vous ? Votre contact : Votre interlocuteur de confiance pour ce poste est Yannick, avec plus de 15 ans d'expérience en recrutement spécialisé dans les secteurs techniques. Il mettra à votre disposition son expertise et son accompagnement personnalisé pour répondre à toutes vos questions et faciliter votre insertion. Ce poste n'est pas exactement ce que vous recherchez, mais nos valeurs vous intéressent ? N'hésitez pas à nous envoyer votre candidature spontanée. Nous sommes toujours à la recherche de talents motivés et engagés. Nous ne répondrons qu'aux candidatures dont le profil correspond exactement à la description demandée."
-      },
-      "slugByLocale": {
-        "it": "macchinista-m1-pemsa-geneve",
-        "en": "m1-machinist-pemsa-geneve",
-        "de": "m1-maschinist-pemsa-geneve",
-        "fr": "m1-machinist-pemsa-geneve"
-      },
-      "id": "pemsa-d017dd0cafa1",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1201",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z"
-    },
-    {
-      "title": "Operatore addetto al betonaggio",
-      "slug": "operatore-addetto-al-betonaggio-pemsa-geneve",
-      "url": "https://www.pemsa.ch/it/job/operatore-addetto-al-betonaggio-2679671/",
-      "applyUrl": "https://www.pemsa.ch/it/job/operatore-addetto-al-betonaggio-2679671/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "canton": "GE",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-19",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-04",
-      "description": "Desideri coniugare la flessibilità del lavoro temporaneo con la stabilità di un impiego a tempo indeterminato? Da oltre 30 anni, Pemsa si afferma come partner imprescindibile in Svizzera, specializzata nel collocamento di talenti altamente qualificati nei settori tecnici dell’edilizia, delle costruzioni, dell’elettricità, della tecnica degli impianti e dell’industria. I nostri esperti affiancano centinaia di aziende rinomate in tutto il Paese, fornendo loro professionisti competenti e motivati, selezionati con rigorosi criteri di selezione. Il nostro valore aggiunto risiede nella nostra conoscenza approfondita del mercato svizzero e nel nostro impegno a proporre profili perfettamente adeguati alle esigenze tecniche specifiche dei datori di lavoro. Noi di Pemsa non scendiamo a compromessi sulla qualità: se sei una persona determinata e appassionata, desiderosa di entrare a far parte di un ambiente stimolante, unisciti al nostro team per la posizione di Operatore addetto al betonaggio e contribuisci attivamente al successo dei nostri partner. Il tuo incarico:\n• Operare in qualità di operatore specializzato nella conduzione di pompe per calcestruzzo, garantendo un’installazione ottimale e sicura in cantiere, in conformità con le norme svizzere vigenti.\n• Effettuare una stabilizzazione accurata della pompa per calcestruzzo per garantire un funzionamento affidabile e sicuro per tutta la durata della gettata.\n• Installare e regolare con precisione le tubazioni e gli accessori indispensabili per una colata efficiente e senza interruzioni, coordinandone le posizioni secondo il piano esecutivo.\n• Vigilare sullo stato tecnico e sulla manutenzione ordinaria della pompa, nonché sulla verifica delle attrezzature, al fine di garantire una disponibilità ottimale e prevenire qualsiasi rischio operativo.\n• Collaborare strettamente con le squadre di cantiere e gli autisti per garantire una perfetta sincronizzazione delle operazioni di getto del calcestruzzo.\n\n## E ora parliamo di te?\nIl tuo referente:\nPer questa posizione, il tuo referente principale è Yannick, un professionista del reclutamento con oltre 15 anni di esperienza nel mercato svizzero. Farà di tutto per accompagnarti, rispondere alle tue domande e fornirti una consulenza personalizzata durante l’intero processo di selezione.\nSe questa opportunità non corrisponde esattamente al tuo profilo attuale, ma i nostri valori ti rispecchiano, non esitare a inviarci la tua candidatura spontanea. Saremo lieti di valutare insieme le possibilità di una futura collaborazione.\nCi impegniamo a rispondere solo alle candidature che corrispondono esattamente al profilo ricercato.",
-      "titleByLocale": {
-        "it": "Operatore addetto al betonaggio",
-        "en": "Operatore Associate al betonaggio",
-        "de": "Operatore Mitarbeiter al betonaggio",
-        "fr": "Operatore Préposé al betonaggio"
-      },
-      "descriptionByLocale": {
-        "it": "Desideri coniugare la flessibilità del lavoro temporaneo con la stabilità di un impiego a tempo indeterminato? Da oltre 30 anni, Pemsa si afferma come partner imprescindibile in Svizzera, specializzata nel collocamento di talenti altamente qualificati nei settori tecnici dell’edilizia, delle costruzioni, dell’elettricità, della tecnica degli impianti e dell’industria. I nostri esperti affiancano centinaia di aziende rinomate in tutto il Paese, fornendo loro professionisti competenti e motivati, selezionati con rigorosi criteri di selezione. Il nostro valore aggiunto risiede nella nostra conoscenza approfondita del mercato svizzero e nel nostro impegno a proporre profili perfettamente adeguati alle esigenze tecniche specifiche dei datori di lavoro. Noi di Pemsa non scendiamo a compromessi sulla qualità: se sei una persona determinata e appassionata, desiderosa di entrare a far parte di un ambiente stimolante, unisciti al nostro team per la posizione di Operatore addetto al betonaggio e contribuisci attivamente al successo dei nostri partner. Il tuo incarico:\n• Operare in qualità di operatore specializzato nella conduzione di pompe per calcestruzzo, garantendo un’installazione ottimale e sicura in cantiere, in conformità con le norme svizzere vigenti.\n• Effettuare una stabilizzazione accurata della pompa per calcestruzzo per garantire un funzionamento affidabile e sicuro per tutta la durata della gettata.\n• Installare e regolare con precisione le tubazioni e gli accessori indispensabili per una colata efficiente e senza interruzioni, coordinandone le posizioni secondo il piano esecutivo.\n• Vigilare sullo stato tecnico e sulla manutenzione ordinaria della pompa, nonché sulla verifica delle attrezzature, al fine di garantire una disponibilità ottimale e prevenire qualsiasi rischio operativo.\n• Collaborare strettamente con le squadre di cantiere e gli autisti per garantire una perfetta sincronizzazione delle operazioni di getto del calcestruzzo. ## E ora parliamo di te? Il tuo referente: Per questa posizione, il tuo referente principale è Yannick, un professionista del reclutamento con oltre 15 anni di esperienza nel mercato svizzero. Farà di tutto per accompagnarti, rispondere alle tue domande e fornirti una consulenza personalizzata durante l’intero processo di selezione. Se questa opportunità non corrisponde esattamente al tuo profilo attuale, ma i nostri valori ti rispecchiano, non esitare a inviarci la tua candidatura spontanea. Saremo lieti di valutare insieme le possibilità di una futura collaborazione. Ci impegniamo a rispondere solo alle candidature che corrispondono esattamente al profilo ricercato.",
-        "en": "Do you want to combine the flexibility of temporary work with the stability of a permanent job? For over 30 years, Pemsa has established itself as an essential partner in Switzerland, specializing in the placement of highly qualified talent in the technical sectors of building, construction, electricity, plant engineering and industry. Our experts support hundreds of renowned companies across the country, providing them with competent and motivated professionals, selected with rigorous selection criteria. Our added value lies in our in-depth knowledge of the Swiss market and in our commitment to offering profiles perfectly suited to the specific technical needs of employers. At Pemsa we do not compromise on quality: if you are a determined and passionate person, eager to become part of a stimulating environment, join our team for the position of Concrete Mixer Operator and actively contribute to the success of our partners. Your assignment:\n• Operate as a specialized operator in the operation of concrete pumps, ensuring optimal and safe installation on site, in compliance with current Swiss regulations.\n• Carry out thorough stabilization of the concrete pump to ensure reliable and safe operation throughout the pouring period.\n• Install and precisely adjust the pipes and accessories essential for efficient and uninterrupted casting, coordinating their positions according to the executive plan.\n• Supervise the technical status and routine maintenance of the pump, as well as the checking of the equipment, in order to guarantee optimal availability and prevent any operational risk.\n• Work closely with construction crews and drivers to ensure perfect synchronization of concrete pouring operations. ## And now let's talk about you? Your contact person: For this position, your main contact person is Yannick, a recruitment professional with over 15 years of experience in the Swiss market. He will do everything to accompany you, answer your questions and provide you with personalized advice throughout the entire selection process. If this opportunity does not exactly match your current profile, but our values ​​reflect you, do not hesitate to send us your spontaneous application. We will be happy to evaluate together the possibilities of future collaboration. We are committed to responding only to applications that correspond exactly to the profile sought.",
-        "de": "Sie möchten die Flexibilität einer Zeitarbeit mit der Stabilität einer Festanstellung verbinden? Pemsa hat sich seit über 30 Jahren als unverzichtbarer Partner in der Schweiz etabliert und ist auf die Vermittlung hochqualifizierter Talente in den technischen Bereichen Bau, Konstruktion, Elektrizität, Anlagenbau und Industrie spezialisiert. Unsere Experten betreuen Hunderte namhafte Unternehmen im ganzen Land und stellen ihnen kompetente und motivierte Fachkräfte zur Verfügung, die nach strengen Auswahlkriterien ausgewählt werden. Unser Mehrwert liegt in unserer fundierten Kenntnis des Schweizer Marktes und in unserem Engagement, Profile anzubieten, die perfekt auf die spezifischen technischen Bedürfnisse der Arbeitgeber zugeschnitten sind. Bei Pemsa gehen wir bei der Qualität keine Kompromisse ein: Wenn Sie eine zielstrebige und leidenschaftliche Person sind, die gerne Teil eines anregenden Umfelds werden möchte, schließen Sie sich unserem Team für die Position des Betonmischerbetreibers an und tragen Sie aktiv zum Erfolg unserer Partner bei. Ihre Aufgabe:\n• Sie sind als Fachbetrieb für den Betrieb von Betonpumpen tätig und sorgen für eine optimale und sichere Installation vor Ort unter Einhaltung der geltenden Schweizer Vorschriften.\n• Führen Sie eine gründliche Stabilisierung der Betonpumpe durch, um einen zuverlässigen und sicheren Betrieb während der gesamten Betonierzeit zu gewährleisten.\n• Installieren und justieren Sie die Rohre und Zubehörteile, die für einen effizienten und unterbrechungsfreien Guss unerlässlich sind, und stimmen Sie ihre Positionen gemäß dem Ausführungsplan ab.\n• Überwachen Sie den technischen Zustand und die routinemäßige Wartung der Pumpe sowie die Überprüfung der Ausrüstung, um eine optimale Verfügbarkeit zu gewährleisten und jeglichem Betriebsrisiko vorzubeugen.\n• Arbeiten Sie eng mit Bautrupps und Fahrern zusammen, um eine perfekte Synchronisierung der Betoniervorgänge sicherzustellen. ## Und jetzt lass uns über dich reden? Ihr Ansprechpartner: Für diese Position ist Ihr Hauptansprechpartner Yannick, ein Recruiting-Profi mit über 15 Jahren Erfahrung im Schweizer Markt. Er wird alles tun, um Sie während des gesamten Auswahlprozesses zu begleiten, Ihre Fragen zu beantworten und Sie individuell zu beraten. Wenn diese Stelle nicht ganz zu Ihrem aktuellen Profil passt, unsere Werte Sie aber widerspiegeln, zögern Sie nicht, uns Ihre Initiativbewerbung zuzusenden. Gerne evaluieren wir gemeinsam die Möglichkeiten einer zukünftigen Zusammenarbeit. Wir verpflichten uns, nur auf Bewerbungen zu antworten, die genau dem gesuchten Profil entsprechen.",
-        "fr": "Vous souhaitez allier la flexibilité du travail temporaire avec la stabilité d’un emploi permanent ? Depuis plus de 30 ans, Pemsa s'est imposée comme un partenaire incontournable en Suisse, spécialisé dans le placement de talents hautement qualifiés dans les secteurs techniques du bâtiment, de la construction, de l'électricité, de la construction d'installations et de l'industrie. Nos experts accompagnent des centaines d’entreprises de renom à travers le pays, en leur mettant à disposition des professionnels compétents et motivés, sélectionnés selon des critères de sélection rigoureux. Notre valeur ajoutée réside dans notre connaissance approfondie du marché suisse et dans notre engagement à proposer des profils parfaitement adaptés aux besoins techniques spécifiques des employeurs. Chez Pemsa nous ne faisons aucun compromis sur la qualité : si vous êtes une personne déterminée et passionnée, désireuse de faire partie d'un environnement stimulant, rejoignez notre équipe pour le poste d'Opérateur de Bétonnière et contribuez activement au succès de nos partenaires. Votre mission :\n• Agir en tant qu'opérateur spécialisé dans le fonctionnement des pompes à béton, en assurant une installation optimale et sûre sur chantier, dans le respect de la réglementation suisse en vigueur.\n• Effectuer une stabilisation complète de la pompe à béton pour garantir un fonctionnement fiable et sûr tout au long de la période de coulage.\n• Installer et ajuster avec précision les tuyaux et accessoires indispensables à une coulée efficace et ininterrompue, en coordonnant leurs positions selon le plan exécutif.\n• Superviser l'état technique et l'entretien courant de la pompe, ainsi que la vérification des équipements, afin de garantir une disponibilité optimale et prévenir tout risque opérationnel.\n• Travailler en étroite collaboration avec les équipes de construction et les chauffeurs pour assurer une parfaite synchronisation des opérations de coulage du béton. ## Et maintenant parlons de vous ? Votre interlocuteur : Pour ce poste, votre interlocuteur principal est Yannick, un professionnel du recrutement avec plus de 15 ans d'expérience sur le marché suisse. Il fera tout pour vous accompagner, répondre à vos questions et vous apporter des conseils personnalisés tout au long du processus de sélection. Si cette opportunité ne correspond pas exactement à votre profil actuel, mais que nos valeurs vous reflètent, n'hésitez pas à nous envoyer votre candidature spontanée. Nous serons heureux d’évaluer ensemble les possibilités de collaboration future. Nous nous engageons à répondre uniquement aux candidatures correspondant exactement au profil recherché."
-      },
-      "slugByLocale": {
-        "it": "operatore-addetto-al-betonaggio-pemsa-geneve",
-        "en": "operatore-associate-al-betonaggio-pemsa-geneve",
-        "de": "operatore-mitarbeiter-al-betonaggio-pemsa-geneve",
-        "fr": "operatore-prepose-al-betonaggio-pemsa-geneve"
-      },
-      "id": "pemsa-6445913bb6f1",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1201",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z"
-    },
-    {
       "title": "MONTATORE DI MOBILI/FALEGNAME",
       "slug": "montatore-di-mobili-falegname-pemsa-chiasso",
       "url": "https://www.pemsa.ch/it/job/montatore-di-mobili-falegname-2679630/",
@@ -10951,8 +10434,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6830",
       "firstSeenAt": "2026-06-18T23:23:39.257Z"
     },
     {
@@ -12178,8 +11661,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-06-12T12:47:46.667Z"
     },
     {
@@ -12237,8 +11720,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6802",
       "firstSeenAt": "2026-06-12T12:47:46.667Z"
     },
     {
@@ -12296,8 +11779,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6815",
       "firstSeenAt": "2026-06-12T12:47:46.667Z"
     },
     {
@@ -12471,8 +11954,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6850",
       "firstSeenAt": "2026-06-10T12:46:51.447Z"
     },
     {
@@ -12530,8 +12013,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6982",
       "firstSeenAt": "2026-06-10T12:46:51.447Z",
       "previousSlugs": [
         "idraulico-con-esperienza-pemsa-taverne",
@@ -12595,8 +12078,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6500",
       "firstSeenAt": "2026-06-10T12:46:51.447Z",
       "previousSlugsByLocale": {
         "fr": [
@@ -12899,71 +12382,12 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6805",
       "firstSeenAt": "2026-06-24T22:37:54.074Z",
       "previousSlugs": [
         "quadrista-cabaltore-pemsa-lugano"
       ]
-    },
-    {
-      "title": "IDRAULICO AFC Riscaldamenti e/o Sanitari",
-      "slug": "idraulico-afc-riscaldamenti-e-o-sanitari-pemsa-manno",
-      "url": "https://www.pemsa.ch/it/job/idraulico-afc-riscaldamenti-e-o-sanitari-2675695/",
-      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-afc-riscaldamenti-e-o-sanitari-2675695/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Manno",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "impiantistica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-20",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-04",
-      "description": "Pemsa è una realtà leader nel mercato svizzero del reclutamento specializzato, con una forte expertise nei settori della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. Con un approccio che unisce competenza tecnica approfondita a una rete di relazioni consolidate, Pemsa supporta aziende e professionisti nel connettersi efficacemente, garantendo collocamenti di elevata qualità e duraturi. La nostra missione è valorizzare il capitale umano attraverso selezioni rigorose e personalizzate, promuovendo sia la crescita dei nostri clienti che la soddisfazione dei candidati. La solida presenza sul territorio svizzero e la profonda conoscenza delle dinamiche di mercato ci rendono un partner di fiducia per chi cerca eccellenza e precisione nella gestione delle risorse umane.\n\n## Missione:\n• Installazione, manutenzione e riparazione di impianti sanitari e di riscaldamento presso cantieri e clienti finali, assicurando standard elevati di sicurezza e qualità del lavoro.\n• Collaborare attivamente con il team tecnico per la progettazione e l’ottimizzazione degli impianti, garantendo la conformità alle normative svizzere vigenti.\n• Gestione autonoma delle attività giornaliere nel rispetto dei tempi e delle procedure aziendali.\n• Controllo e verifica funzionale dei sistemi installati, con attenzione particolare alla diagnosi e risoluzione tempestiva di eventuali anomalie.\n• Mantenimento e cura degli strumenti e attrezzature indispensabili all’esecuzione dei lavori.\n\n## Profilo:\n• Titolo di studio: AFC (Attestato Federale di Capacità) nel settore tecnico, preferibilmente impiantistica sanitaria o riscaldamento.\n• Esperienza professionale: minimo 2 anni di esperienza comprovata nel settore in Svizzera, con dimostrabile conoscenza delle norme locali e delle pratiche di settore.\n• Lingua: livello madrelingua italiano, indispensabile per interfacciarsi efficacemente con clienti e team.\n• Permessi di guida: patente auto valida per spostamenti di cantiere, con particolare riferimento alla posa di impianti sanitari e/o riscaldamento.\n• Disponibilità territoriale: residenza a massimo 15 km dal luogo di lavoro, garantendo puntualità e flessibilità negli spostamenti.\n• Competenze tecniche: capacità di lettura ed interpretazione di disegni tecnici, conoscenza approfondita dei materiali e componenti impiantistici, e uso corretto degli strumenti di lavoro specialistici.\n• Competenze personali: precisione, autonomia operativa, spirito di squadra, e forte orientamento alla qualità del servizio offerto.\n\n## Ton interlocuteur/trice :\nIn qualità di candidato/a interessato/a, entrerai in contatto con un consulente dedicato di Pemsa che ti accompagnerà lungo tutto il processo di selezione, fornendoti supporto personalizzato e consulenza specialistica. La nostra attenzione al dettaglio e al rispetto delle esigenze individuali garantisce un’esperienza positiva e professionale, finalizzata a valorizzare il tuo profilo sul mercato del lavoro svizzero. La collaborazione con Pemsa è sinonimo di serietà, trasparenza e opportunità di crescita concreta.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-      "titleByLocale": {
-        "it": "IDRAULICO AFC Riscaldamenti e/o Sanitari",
-        "en": "IDRAULICO AFC Heating and/or Sanitary",
-        "de": "IDRAULICO AFC Heizung und/oder Sanitär",
-        "fr": "AFC Idraulico Chauffage et/ou sanitaire"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa è una realtà leader nel mercato svizzero del reclutamento specializzato, con una forte expertise nei settori della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. Con un approccio che unisce competenza tecnica approfondita a una rete di relazioni consolidate, Pemsa supporta aziende e professionisti nel connettersi efficacemente, garantendo collocamenti di elevata qualità e duraturi. La nostra missione è valorizzare il capitale umano attraverso selezioni rigorose e personalizzate, promuovendo sia la crescita dei nostri clienti che la soddisfazione dei candidati. La solida presenza sul territorio svizzero e la profonda conoscenza delle dinamiche di mercato ci rendono un partner di fiducia per chi cerca eccellenza e precisione nella gestione delle risorse umane. ## Missione:\n• Installazione, manutenzione e riparazione di impianti sanitari e di riscaldamento presso cantieri e clienti finali, assicurando standard elevati di sicurezza e qualità del lavoro.\n• Collaborare attivamente con il team tecnico per la progettazione e l’ottimizzazione degli impianti, garantendo la conformità alle normative svizzere vigenti.\n• Gestione autonoma delle attività giornaliere nel rispetto dei tempi e delle procedure aziendali.\n• Controllo e verifica funzionale dei sistemi installati, con attenzione particolare alla diagnosi e risoluzione tempestiva di eventuali anomalie.\n• Mantenimento e cura degli strumenti e attrezzature indispensabili all’esecuzione dei lavori. ## Profilo:\n• Titolo di studio: AFC (Attestato Federale di Capacità) nel settore tecnico, preferibilmente impiantistica sanitaria o riscaldamento.\n• Esperienza professionale: minimo 2 anni di esperienza comprovata nel settore in Svizzera, con dimostrabile conoscenza delle norme locali e delle pratiche di settore.\n• Lingua: livello madrelingua italiano, indispensabile per interfacciarsi efficacemente con clienti e team.\n• Permessi di guida: patente auto valida per spostamenti di cantiere, con particolare riferimento alla posa di impianti sanitari e/o riscaldamento.\n• Disponibilità territoriale: residenza a massimo 15 km dal luogo di lavoro, garantendo puntualità e flessibilità negli spostamenti.\n• Competenze tecniche: capacità di lettura ed interpretazione di disegni tecnici, conoscenza approfondita dei materiali e componenti impiantistici, e uso corretto degli strumenti di lavoro specialistici.\n• Competenze personali: precisione, autonomia operativa, spirito di squadra, e forte orientamento alla qualità del servizio offerto. ## Ton interlocuteur/trice : In qualità di candidato/a interessato/a, entrerai in contatto con un consulente dedicato di Pemsa che ti accompagnerà lungo tutto il processo di selezione, fornendoti supporto personalizzato e consulenza specialistica. La nostra attenzione al dettaglio e al rispetto delle esigenze individuali garantisce un’esperienza positiva e professionale, finalizzata a valorizzare il tuo profilo sul mercato del lavoro svizzero. La collaborazione con Pemsa è sinonimo di serietà, trasparenza e opportunità di crescita concreta. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "en": "Pemsa is a leader in the Swiss market for specialized recruitment, with a strong expertise in the fields of construction, civil engineering, electricity, building technology and industry. With an approach that combines in-depth technical expertise with a network of consolidated relationships, Pemsa supports companies and professionals to connect effectively, ensuring high quality and long-lasting placements. Our mission is to enhance human capital through rigorous and personalized selections, promoting both the growth of our customers and the satisfaction of candidates. The solid presence on Swiss territory and the deep knowledge of market dynamics make us a trusted partner for those seeking excellence and precision in human resource management. Mission:\n• Installation, maintenance and repair of sanitary and heating systems at yards and end customers, ensuring high safety and quality standards of work.\n• Actively collaborate with the technical team for the design and optimization of plants, ensuring compliance with the Swiss regulations in force.\n• Autonomous management of daily activities in compliance with business times and procedures.\n• Control and functional verification of installed systems, with particular attention to the diagnosis and prompt resolution of any anomalies.\n• Maintenance and care of the tools and equipment necessary for the execution of the works. Profile:\n• Title of study: AFC (Federal Capacity Certificate) in the technical sector, preferably sanitary installations or heating.\n• Professional experience: minimum 2 years of proven experience in the field in Switzerland, with demonstrated knowledge of local standards and industry practices.\n• Language: Italian native language level, indispensable to interface effectively with customers and teams.\n• Driving licences: valid driver's license for construction trips, with particular reference to laying sanitary and/or heating systems.\n• Territorial availability: residence up to 15 km from the workplace, ensuring punctuality and flexibility in travel.\n• Technical skills: readability and interpretation of technical drawings, in-depth knowledge of plant materials and components, and correct use of specialist work tools.\n• Personal skills: precision, operational autonomy, team spirit, and strong orientation to the quality of the service offered. Ton interlocuteur/trice: As an interested candidate, you will contact a dedicated Pemsa consultant who will accompany you throughout the selection process, providing you with personalized support and specialist advice. Our attention to detail and respect for individual needs ensures a positive and professional experience, aimed at enhancing your profile on the Swiss labour market. The collaboration with Pemsa is synonymous with seriousness, transparency and opportunities for concrete growth. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "de": "Pemsa ist führend im Schweizer Markt für spezialisierte Rekrutierung, mit einer starken Expertise in den Bereichen Bau, Bauingenieurwesen, Strom, Bautechnik und Industrie. Mit einem Ansatz, der tiefgreifende technische Expertise mit einem Netzwerk von konsolidierten Beziehungen verbindet, unterstützt Pemsa Unternehmen und Profis, sich effektiv zu verbinden und eine hohe Qualität und dauerhafte Platzierungen zu gewährleisten. Unsere Mission ist es, Humankapital durch strenge und personalisierte Auswahl zu verbessern, sowohl das Wachstum unserer Kunden als auch die Zufriedenheit der Kandidaten zu fördern. Die solide Präsenz auf schweizerischem Gebiet und die tiefe Kenntnis der Marktdynamik machen uns zu einem vertrauenswürdigen Partner für diejenigen, die Exzellenz und Präzision im Personalmanagement suchen. Mission:\n• Installation, Wartung und Reparatur von Sanitär- und Heizsystemen an Werften und Endkunden, die hohe Sicherheits- und Qualitätsstandards der Arbeit gewährleisten.\n• aktiv mit dem technischen Team für die Gestaltung und Optimierung von Anlagen zusammenarbeiten, um die Einhaltung der geltenden Schweizer Vorschriften zu gewährleisten.\n• Autonome Verwaltung der täglichen Aktivitäten in Übereinstimmung mit Geschäftszeiten und Verfahren.\n• Kontrolle und funktionelle Überprüfung der installierten Systeme, insbesondere der Diagnose und der schnellen Auflösung der Anomalien.\n• Wartung und Pflege der für die Ausführung der Arbeiten notwendigen Werkzeuge und Geräte. Profil:\n• Titel der Studie: AFC (Federal Capacity Certificate) im technischen Bereich, vorzugsweise Sanitäranlagen oder Heizung.\n• Berufserfahrung: Mindestens 2 Jahre Erfahrung auf dem Gebiet der Schweiz, mit dem Wissen über lokale Standards und Branchenpraktiken.\n• Sprache: Italienische Sprache Ebene, unverzichtbar, um effektiv mit Kunden und Teams zu verbinden.\n• Führerscheine: gültige Führerscheine für Bauausflüge, insbesondere auf die Verlegung von Sanitär- und/oder Heizsystemen.\n• Territoriale Verfügbarkeit: Wohnen bis zu 15 km vom Arbeitsplatz entfernt, um Pünktlichkeit und Flexibilität in der Reise zu gewährleisten.\n• Technische Fähigkeiten: Lesbarkeit und Interpretation von technischen Zeichnungen, fundiertes Wissen über Pflanzenmaterialien und -komponenten und korrekte Verwendung von Spezialwerkzeugen.\n• Persönliche Fähigkeiten: Präzision, operative Autonomie, Teamgeist und starke Ausrichtung auf die Qualität des angebotenen Dienstes. Ton interlocuteur/tric: Als interessierter Kandidat kontaktieren Sie einen engagierten Pemsa-Berater, der Sie während des Auswahlprozesses begleitet und Ihnen personalisierte Unterstützung und fachliche Beratung bietet. Unsere Aufmerksamkeit auf Detail und Respekt für individuelle Bedürfnisse sorgt für eine positive und professionelle Erfahrung, die darauf abzielt, Ihr Profil auf dem Schweizer Arbeitsmarkt zu verbessern. Die Zusammenarbeit mit Pemsa steht für Ernsthaftigkeit, Transparenz und Chancen für konkretes Wachstum. Nous ne répondrons qu’aux candidatures dont le profil has au descriptif demandé.",
-        "fr": "Pemsa est leader sur le marché suisse du recrutement spécialisé, avec une solide expertise dans les domaines de la construction, du génie civil, de l'électricité, de la technologie du bâtiment et de l'industrie. Avec une approche qui combine une expertise technique approfondie avec un réseau de relations consolidées, Pemsa aide les entreprises et les professionnels à se connecter efficacement, assurant des placements de haute qualité et de longue durée. Notre mission est de valoriser le capital humain par des sélections rigoureuses et personnalisées, favorisant à la fois la croissance de nos clients et la satisfaction des candidats. La présence solide sur le territoire suisse et la connaissance approfondie de la dynamique du marché font de nous un partenaire de confiance pour ceux qui recherchent l'excellence et la précision dans la gestion des ressources humaines. Mission :\n• Installation, entretien et réparation de systèmes sanitaires et de chauffage dans les chantiers et les clients finals, assurant un niveau élevé de sécurité et de qualité du travail.\n• Collaborer activement avec l'équipe technique pour la conception et l'optimisation des installations, en veillant au respect de la réglementation suisse en vigueur.\n• Gestion autonome des activités quotidiennes dans le respect des horaires et des procédures.\n• Contrôle et vérification fonctionnelle des systèmes installés, avec une attention particulière au diagnostic et à la résolution rapide des anomalies.\n• Entretien et entretien des outils et équipements nécessaires à l'exécution des travaux. Profil :\n• Titre de l'étude: AFC (certificat fédéral de capacité) dans le secteur technique, de préférence installations sanitaires ou chauffage.\n• Expérience professionnelle: au moins 2 ans d'expérience sur le terrain en Suisse, avec une connaissance démontrée des normes locales et des pratiques industrielles.\n• Langue: langue maternelle italienne, indispensable pour interagir efficacement avec les clients et les équipes.\n• Permis de conduire: permis de conduire valide pour les voyages de construction, en particulier pour la pose de systèmes sanitaires et/ou de chauffage.\n• Disponibilité territoriale: résidence jusqu'à 15 km du lieu de travail, assurant ponctualité et flexibilité des déplacements.\n• Compétences techniques: lisibilité et interprétation des dessins techniques, connaissance approfondie des matériaux et composants végétaux et utilisation correcte des outils de travail spécialisés.\n• Compétences personnelles : précision, autonomie opérationnelle, esprit d'équipe et forte orientation vers la qualité du service offert. Ton interlocuteur/chaîne: En tant que candidat intéressé, vous contacterez un consultant Pemsa qui vous accompagnera tout au long du processus de sélection, en vous fournissant un soutien personnalisé et des conseils spécialisés. Notre attention au détail et au respect des besoins individuels assure une expérience positive et professionnelle, visant à améliorer votre profil sur le marché du travail suisse. La collaboration avec Pemsa est synonyme de sérieux, de transparence et de possibilités de croissance concrète. Nous ne répondrons qu'aux candidatures dont le profil correspond au descriptif demandé."
-      },
-      "slugByLocale": {
-        "it": "idraulico-afc-riscaldamenti-e-o-sanitari-pemsa-manno",
-        "en": "idraulico-afc-heating-and-or-sanitary-pemsa-manno",
-        "de": "idraulico-afc-heizung-und-oder-sanitar-pemsa-manno",
-        "fr": "afc-idraulico-chauffage-et-ou-sanitaire-pemsa-manno"
-      },
-      "id": "pemsa-7794f7c0d516",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-21T12:58:58.143Z"
     },
     {
       "title": "FABBRO/SALDATORE/METALCOSTRUTTORE",
@@ -13020,8 +12444,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6500",
       "firstSeenAt": "2026-06-24T22:37:54.074Z",
       "previousSlugs": [
         "metallbauer-amp-8211-schwei-er-pemsa-bellinzona",
@@ -13085,8 +12509,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6850",
       "firstSeenAt": "2026-05-18T13:02:39.416Z"
     },
     {
@@ -13144,8 +12568,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-05-11T22:43:47.219Z",
       "previousSlugs": [
         "hydraulikinstallateur-efz-pemsa-lugano",
@@ -13209,67 +12633,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-11T22:43:47.219Z"
-    },
-    {
-      "title": "Installatore impianti ventilazione",
-      "slug": "installatore-impianti-ventilazione-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/installatore-impianti-ventilazione-2674339/",
-      "applyUrl": "https://www.pemsa.ch/it/job/installatore-impianti-ventilazione-2674339/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-11",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-04",
-      "description": "Pemsa si conferma come azienda leader nel mercato svizzero nel settore del collocamento specializzato, offrendo soluzioni di alta qualità per professionisti nei campi dell'edilizia, ingegneria civile, elettricità, tecnica degli edifici e industria. Grazie a una consolidata esperienza e a una rete capillare di collaborazioni, Pemsa assicura un servizio personalizzato e efficace che mette al centro le competenze tecniche e le esigenze di candidati e imprese. Con un approccio all'avanguardia e un impegno costante per l'eccellenza, la nostra agenzia promuove la valorizzazione delle risorse umane e sostiene lo sviluppo professionale all'interno di un mercato dinamico e competitivo come quello svizzero.\n\n## Missione:\n• Installazione di canali di ventilazione secondo piani tecnici e specifiche di progetto, garantendo conformità alle normative svizzere in materia di tecnica del building.\n• Posizionamento e fissaggio dei staffaggi con precisione al fine di assicurare stabilità e durata nel tempo dell’impianto di ventilazione.\n• Gestione dei materiali di ventilazione, con particolare attenzione alla scelta e all’utilizzo ottimale in base alle caratteristiche tecniche e ai requisiti del cantiere.\n• Collaborazione con il team tecnico per garantire un montaggio efficiente e la risoluzione tempestiva di eventuali problematiche strutturali o di progetto.\n• Rispetto rigoroso delle normative di sicurezza sul lavoro vigenti in Svizzera nelle attività in cantiere.\n\n## Profilo:\n• Esperienza minima di 4 anni nel settore in Svizzera , comprovata attraverso referenze o incarichi precedenti nel campo dell’installazione di sistemi di ventilazione.\n• Residenza o domicilio entro un raggio massimo di 20 km dall’area di lavoro per garantire puntualità e flessibilità.\n• Padronanza della lingua italiana a livello madrelingua per una comunicazione efficace e per la comprensione di documenti tecnici.\n• Possesso di patente di guida categoria B , indispensabile per la mobilità tra cantieri e per la gestione autonoma dell’attrezzatura.\n• Competenza consolidata nella posa di canali di ventilazione , con conoscenza approfondita delle tecniche di montaggio e degli standard qualitativi richiesti.\n• Abilità nel staffaggio , con particolare attenzione alla precisione e alla sicurezza delle installazioni.\n• Ottima conoscenza dei materiali impiegati nel settore della ventilazione, incluse le proprietà tecniche e i metodi di lavorazione.\n• Conoscenza della lettura del disegno tecnico come requisito preferenziale per interpretare correttamente le planimetrie e i dettagli di montaggio.\n• Titolo di studio correlato al settore tecnico-industriale rappresenta un valore aggiunto.\n• Patentino IPAF (macchinari elevatori a braccio) costituisce un vantaggio supplementare ma non obbligatorio.\n\n## Ton interlocuteur/trice :\nPresso Pemsa, il nostro team dedicato e altamente qualificato accompagna ogni candidato lungo tutto il processo di selezione, fornendo supporto personalizzato e orientato al successo professionale. Crediamo fermamente che un abbinamento di successo risieda non solo nella competenza tecnica, ma anche in un ambiente di lavoro motivante e inclusivo. Attenzione particolare viene riservata alla chiarezza nei requisiti e alla trasparenza delle informazioni, garantendo così un’esperienza di candidatura positiva e rispettosa del valore individuale. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-      "titleByLocale": {
-        "it": "Installatore impianti ventilazione",
-        "en": "Installation of ventilation systems",
-        "de": "Installation von Lüftungssystemen",
-        "fr": "Installation des systèmes de ventilation"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa si conferma come azienda leader nel mercato svizzero nel settore del collocamento specializzato, offrendo soluzioni di alta qualità per professionisti nei campi dell'edilizia, ingegneria civile, elettricità, tecnica degli edifici e industria. Grazie a una consolidata esperienza e a una rete capillare di collaborazioni, Pemsa assicura un servizio personalizzato e efficace che mette al centro le competenze tecniche e le esigenze di candidati e imprese. Con un approccio all'avanguardia e un impegno costante per l'eccellenza, la nostra agenzia promuove la valorizzazione delle risorse umane e sostiene lo sviluppo professionale all'interno di un mercato dinamico e competitivo come quello svizzero. ## Missione:\n• Installazione di canali di ventilazione secondo piani tecnici e specifiche di progetto, garantendo conformità alle normative svizzere in materia di tecnica del building.\n• Posizionamento e fissaggio dei staffaggi con precisione al fine di assicurare stabilità e durata nel tempo dell’impianto di ventilazione.\n• Gestione dei materiali di ventilazione, con particolare attenzione alla scelta e all’utilizzo ottimale in base alle caratteristiche tecniche e ai requisiti del cantiere.\n• Collaborazione con il team tecnico per garantire un montaggio efficiente e la risoluzione tempestiva di eventuali problematiche strutturali o di progetto.\n• Rispetto rigoroso delle normative di sicurezza sul lavoro vigenti in Svizzera nelle attività in cantiere. ## Profilo:\n• Esperienza minima di 4 anni nel settore in Svizzera , comprovata attraverso referenze o incarichi precedenti nel campo dell’installazione di sistemi di ventilazione.\n• Residenza o domicilio entro un raggio massimo di 20 km dall’area di lavoro per garantire puntualità e flessibilità.\n• Padronanza della lingua italiana a livello madrelingua per una comunicazione efficace e per la comprensione di documenti tecnici.\n• Possesso di patente di guida categoria B , indispensabile per la mobilità tra cantieri e per la gestione autonoma dell’attrezzatura.\n• Competenza consolidata nella posa di canali di ventilazione , con conoscenza approfondita delle tecniche di montaggio e degli standard qualitativi richiesti.\n• Abilità nel staffaggio , con particolare attenzione alla precisione e alla sicurezza delle installazioni.\n• Ottima conoscenza dei materiali impiegati nel settore della ventilazione, incluse le proprietà tecniche e i metodi di lavorazione.\n• Conoscenza della lettura del disegno tecnico come requisito preferenziale per interpretare correttamente le planimetrie e i dettagli di montaggio.\n• Titolo di studio correlato al settore tecnico-industriale rappresenta un valore aggiunto.\n• Patentino IPAF (macchinari elevatori a braccio) costituisce un vantaggio supplementare ma non obbligatorio. ## Ton interlocuteur/trice : Presso Pemsa, il nostro team dedicato e altamente qualificato accompagna ogni candidato lungo tutto il processo di selezione, fornendo supporto personalizzato e orientato al successo professionale. Crediamo fermamente che un abbinamento di successo risieda non solo nella competenza tecnica, ma anche in un ambiente di lavoro motivante e inclusivo. Attenzione particolare viene riservata alla chiarezza nei requisiti e alla trasparenza delle informazioni, garantendo così un’esperienza di candidatura positiva e rispettosa del valore individuale. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "en": "Pemsa is a leading company in the Swiss market for specialized placement, offering high-quality solutions for professionals in building, civil engineering, electricity, building technology and industry. Thanks to a consolidated experience and a comprehensive network of collaborations, Pemsa provides a personalized and effective service that focuses on technical skills and needs of candidates and enterprises. With a state-of-the-art approach and a constant commitment to excellence, our agency promotes the enhancement of human resources and supports professional development within a dynamic and competitive market like the Swiss one. Mission:\n• Installation of ventilation channels according to technical plans and project specifications, ensuring compliance with Swiss building technical regulations.\n• Positioning and fixing the brackets with precision to ensure stability and durability of the ventilation system.\n• Management of ventilation materials, with particular attention to the choice and optimal use according to the technical characteristics and requirements of the construction site.\n• Collaboration with the technical team to ensure efficient assembly and timely resolution of any structural or project problems.\n• Strict compliance with the safety regulations in force in Switzerland in the work on site. Profile:\n• Minimum experience of 4 years in the Swiss sector, proven through references or previous assignments in the field of installation of ventilation systems.\n• Residence or domicile within a maximum radius of 20 km from the working area to ensure punctuality and flexibility.\n• Master of the Italian language at the native level for effective communication and understanding of technical documents.\n• Possess of category B driving licence, indispensable for the mobility between yards and for the autonomous management of the equipment.\n• Consolidated compliance with ventilation channels, with in-depth knowledge of assembly techniques and required quality standards.\n• Measuring skills, with particular attention to precision and safety of installations.\n• Excellent knowledge of materials used in the ventilation industry, including technical properties and processing methods.\n• Knowledge of technical drawing reading as a preferential requirement to correctly interpret planes and mounting details.\n• Study title related to the technical-industrial sector is an added value.\n• IPAF patent (arm lifts) is an additional but not mandatory advantage. Ton interlocuteur/trice: At Pemsa, our dedicated and highly qualified team accompanies each candidate throughout the selection process, providing personalized and professional support. We firmly believe that a successful match lies not only in technical competence, but also in a motivating and inclusive working environment. Special attention is given to clarity in the requirements and transparency of information, thus ensuring a positive and respectful application experience of the individual value. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "de": "Pemsa ist ein führendes Unternehmen im Schweizer Markt für spezialisierte Platzierung und bietet qualitativ hochwertige Lösungen für Profis in Gebäude, Bauingenieurwesen, Strom, Bautechnik und Industrie. Dank einer konsolidierten Erfahrung und einem umfassenden Netzwerk von Kooperationen bietet Pemsa einen personalisierten und effektiven Service, der sich auf technische Fähigkeiten und Bedürfnisse von Kandidaten und Unternehmen konzentriert. Mit einem hochmodernen Ansatz und einem stetigen Engagement für Exzellenz fördert unsere Agentur die Verbesserung der Humanressourcen und unterstützt die professionelle Entwicklung in einem dynamischen und wettbewerbsfähigen Markt wie der Schweizer. Mission:\n• Installation von Lüftungskanälen nach technischen Plänen und Projektspezifikationen, um die Einhaltung der schweizerischen bautechnischen Vorschriften zu gewährleisten.\n• Positionieren und Fixieren der Halterungen mit Präzision, um Stabilität und Haltbarkeit des Lüftungssystems zu gewährleisten.\n• Management von Lüftungsmaterialien, mit besonderem Augenmerk auf die Wahl und optimale Nutzung nach den technischen Merkmalen und Anforderungen der Baustelle.\n• Zusammenarbeit mit dem technischen Team, um eine effiziente Montage und zeitnahe Auflösung von Struktur- oder Projektproblemen zu gewährleisten.\n• Strenge Einhaltung der in der Schweiz geltenden Sicherheitsvorschriften bei der Arbeit vor Ort. Profil:\n• Mindesterfahrung von 4 Jahren im Schweizer Bereich, die sich durch Referenzen oder bisherige Aufgaben im Bereich der Installation von Lüftungssystemen bewährt haben.\n• Wohnsitz oder Wohnsitz in einem maximalen Radius von 20 km vom Arbeitsbereich, um die Pünktlichkeit und Flexibilität zu gewährleisten.\n• Master der italienischen Sprache auf der nativen Ebene für effektive Kommunikation und Verständnis von technischen Dokumenten.\n• Besitz der Kategorie B Führerschein, unverzichtbar für die Mobilität zwischen Werften und für die autonome Verwaltung der Ausrüstung.\n• Konsolidierte Einhaltung von Lüftungskanälen, mit eingehenden Kenntnissen über Montagetechniken und geforderten Qualitätsstandards.\n• Lernfähigkeiten, mit besonderer Aufmerksamkeit auf Präzision und Sicherheit von Anlagen.\n• Ausgezeichnete Kenntnisse der in der Lüftungsindustrie verwendeten Materialien, einschließlich technischer Eigenschaften und Verarbeitungsmethoden.\n• Kenntnisse des technischen Zeichnens als Vorzugserfordernis zur korrekten Auslegung von Ebenen und Montagedetails.\n• Studientitel im Zusammenhang mit dem technischen Sektor ist ein Mehrwert.\n• IPAF-Patent (Armlifte) ist ein zusätzlicher, aber nicht zwingender Vorteil. Ton interlocuteur/tric: Bei Pemsa begleitet unser engagiertes und hochqualifiziertes Team jeden Kandidaten während des Auswahlprozesses und bietet personalisierte und professionelle Unterstützung. Wir sind fest davon überzeugt, dass ein erfolgreiches Match nicht nur in technischer Kompetenz, sondern auch in einem motivierenden und integrativen Arbeitsumfeld liegt. Besonderes Augenmerk gilt der Klarheit in den Anforderungen und der Transparenz der Informationen, wodurch eine positive und respektvolle Anwendungserfahrung des individuellen Wertes gewährleistet wird. Nous ne répondrons qu’aux candidatures dont le profil has au descriptif demandé.",
-        "fr": "Pemsa est une entreprise leader sur le marché suisse du placement spécialisé, offrant des solutions de haute qualité pour les professionnels du bâtiment, du génie civil, de l'électricité, de la technologie du bâtiment et de l'industrie. Grâce à une expérience consolidée et à un réseau complet de collaborations, Pemsa offre un service personnalisé et efficace qui se concentre sur les compétences techniques et les besoins des candidats et des entreprises. Avec une approche de pointe et un engagement constant en faveur de l'excellence, notre agence promeut la valorisation des ressources humaines et soutient le développement professionnel dans un marché dynamique et compétitif comme celui de la Suisse. Mission:\n• Installation de canaux de ventilation selon les spécifications techniques et de projet, garantissant le respect des règlements suisses en matière de construction.\n• Positionnement et fixation des supports avec précision pour assurer la stabilité et la durabilité du système de ventilation.\n• Gestion des matériaux de ventilation, avec une attention particulière au choix et une utilisation optimale selon les caractéristiques techniques et les exigences du chantier.\n• Collaboration avec l'équipe technique afin d'assurer un montage efficace et une résolution rapide de tout problème structurel ou de projet.\n• Respect strict des règles de sécurité en vigueur en Suisse dans les travaux sur place. Profil:\n• Expérience minimale de 4 ans en Suisse, prouvée par des références ou des missions antérieures dans le domaine de l'installation de systèmes de ventilation.\n• Résidence ou domicile dans un rayon maximal de 20 km de la zone de travail pour assurer ponctualité et flexibilité.\n• Maîtrise de la langue italienne au niveau natif pour une communication et une compréhension efficaces des documents techniques.\n• Possède un permis de conduire de catégorie B, indispensable à la mobilité entre les chantiers et à la gestion autonome des équipements.\n• Conformité renforcée avec les canaux de ventilation, avec une connaissance approfondie des techniques de montage et des normes de qualité requises.\n• Capacités de mesure, avec une attention particulière à la précision et à la sécurité des installations.\n• Excellente connaissance des matériaux utilisés dans l'industrie de la ventilation, y compris les propriétés techniques et les méthodes de traitement.\n• Connaissance de la lecture technique du dessin comme exigence préférentielle pour interpréter correctement les plans et les détails de montage.\n• Le titre de l'étude relatif au secteur technique-industriel est une valeur ajoutée.\n• Le brevet IPAF est un avantage supplémentaire mais non obligatoire. Ton interlocuteur/trice: Chez Pemsa, notre équipe dévouée et hautement qualifiée accompagne chaque candidat tout au long du processus de sélection, offrant un soutien personnalisé et professionnel. Nous sommes fermement convaincus qu'un adéquation réussie ne réside pas seulement dans la compétence technique, mais aussi dans un environnement de travail stimulant et inclusif. Une attention particulière est accordée à la clarté des exigences et à la transparence de l'information, assurant ainsi une expérience d'application positive et respectueuse de la valeur individuelle. Nous ne répondrons qu'aux candidatures dont le profil correspond au descriptif demandé."
-      },
-      "slugByLocale": {
-        "it": "installatore-impianti-ventilazione-pemsa-lugano",
-        "en": "installation-of-ventilation-systems-pemsa-lugano",
-        "de": "installation-von-luftungssystemen-pemsa-lugano",
-        "fr": "installation-des-systemes-de-ventilation-pemsa-lugano"
-      },
-      "id": "pemsa-8c042bf81813",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6982",
       "firstSeenAt": "2026-05-11T22:43:47.219Z"
     },
     {
@@ -13560,8 +12925,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-06-02T00:50:05.990Z"
     },
     {
@@ -13619,8 +12984,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-06-24T22:37:54.074Z"
     },
     {
@@ -13678,8 +13043,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-05-05T22:23:14.484Z"
     }
   ]
