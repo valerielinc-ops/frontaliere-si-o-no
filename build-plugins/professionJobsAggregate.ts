@@ -157,6 +157,53 @@ const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
   elettricista: {
     title: /\b(elettricist|elektriker|electrician|électricien|electricien|elektromonteur|elektroinstallat)/i,
   },
+  psicologo: {
+    title: /\b(psicolog|psycholog|psychothérap|psychotherap)/i,
+  },
+  fisioterapista: {
+    title: /\b(fisioterap|physiotherap|physiothérap)/i,
+  },
+  logopedista: {
+    title: /\b(logoped|logopäd|orthophonist|speech therap)/i,
+  },
+  farmacista: {
+    title: /\b(farmacist|apotheker|pharmacien|pharmacist|pharma-?assistent)/i,
+  },
+  ostetrica: {
+    title: /\b(ostetric|hebamme|sage-?femme|midwife)/i,
+  },
+  'assistente-dentale': {
+    title: /(dentalassistent|dentalhygien|assistente dentale|igienista dentale|assistante dentaire|dental assistant|dental hygienist|prophylaxeassistent)/i,
+  },
+  'tecnico-radiologia': {
+    title: /(radiologiefach|fachperson mtr|tecnico di radiologia|technicien en radiologie|radiographer|\bmtra\b)/i,
+    // Reject physician titles (Radiologe / medico radiologo are MDs, not TRM).
+    exclude: /\b(arzt|ärztin|medico|facharzt|oberarzt)\b/i,
+  },
+  oss: {
+    title: /(\boss\b|operat(ore|rice) socio|fachfrau gesundheit|fachmann gesundheit|\bfage\b|assistant en soins|aide-?soignant)/i,
+  },
+  'ottico-optometrista': {
+    title: /\b(ottic[oa]\b|optometrist|optiker|opticien)/i,
+  },
+  contabile: {
+    title: /\b(contabil|buchhalt|comptab|accountant|accounting)/i,
+  },
+  'assistente-sociale': {
+    title: /(assistente sociale|sozialarbeit|sozialp[äa]dagog|assistant social|social worker)/i,
+  },
+  macellaio: {
+    title: /\b(macella|metzger|fleischfach|boucher\b|butcher)/i,
+  },
+  saldatore: {
+    title: /\b(saldator|schweisser|schweißer|soudeur|welder)/i,
+  },
+  architetto: {
+    title: /\b(architetto|architekt(:in|\/-?in)?|architecte)\b/i,
+    // The crawler dataset is dominated by IT/solution architects — reject any
+    // title with a tech qualifier so featured cards only show building architects.
+    exclude: /(software|solution|cloud|system|enterprise|data|\bit\b|\bict\b|security|\bai\b|infrastructure|network|platform|application|technical|test|\bsap\b|\biam\b|\berp\b|domain|business|pega|\bot\b|tagetik|informatique|logiciel)/i,
+  },
 };
 
 // ── Cache + load ─────────────────────────────────────────────────────────────

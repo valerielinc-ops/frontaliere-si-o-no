@@ -33,8 +33,8 @@ const SNAP = {
 };
 
 describe('professionCantonData — enumeration', () => {
-  it('enumerates 23 non-TI cantons × 10 professions × 4 locales = 920 routes', () => {
-    expect(PROFESSION_CANTON_ROUTES.length).toBe(920);
+  it('enumerates 23 non-TI cantons × 24 professions × 4 locales = 2208 routes', () => {
+    expect(PROFESSION_CANTON_ROUTES.length).toBe(2208);
   });
   it('every route has a trailing slash and round-trips through parse', () => {
     for (const p of PROFESSION_CANTON_ROUTES) {

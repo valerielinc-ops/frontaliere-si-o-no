@@ -3443,6 +3443,9 @@ Règles :
   'survey.feature.thanks.title': 'Merci !',
   'survey.feature.thanks.body': 'Votre avis nous aide à nous améliorer.',
 
+  'whatsNew.v3570.title': 'Guide frontalier complet et nouveaux guides par profession',
+  'whatsNew.v3570.frontalierePillar.title': 'Pillar frontalier + 14 guides emploi',
+  'whatsNew.v3570.frontalierePillar.desc': 'Nouvelle page /fr/frontalier/ avec tout le parcours (permis G, salaire, impôts, caisse maladie) et 14 nouveaux guides emploi par profession : psychologue, physiothérapeute, pharmacien, sage-femme, ASSC, comptable et plus.',
   'whatsNew.v3560.title': 'Classement des douanes en temps réel',
   'whatsNew.v3560.borderWaitRanking.title': 'Meilleures et pires douanes',
   'whatsNew.v3560.borderWaitRanking.desc': 'Nouvel article mis à jour chaque semaine avec le classement de tous les postes-frontières tessinois par temps d\'attente, les tendances et le nombre de minutes gagnées ou perdues selon le passage choisi.',

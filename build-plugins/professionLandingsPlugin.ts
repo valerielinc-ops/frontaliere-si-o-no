@@ -115,6 +115,17 @@ const PROFESSION_SECTOR_HUB: Partial<Record<ProfessionId, SectorHubKey>> = {
   cuoco: 'cuochi',
   cameriere: 'camerieri',
   elettricista: 'elettricisti',
+  fisioterapista: 'fisioterapisti',
+  farmacista: 'farmacisti',
+  oss: 'oss',
+  contabile: 'contabili',
+  'assistente-sociale': 'educatori',
+  macellaio: 'food',
+  saldatore: 'industria',
+  architetto: 'architetti',
+  // psicologo / logopedista / ostetrica / assistente-dentale /
+  // tecnico-radiologia / ottico-optometrista have no dedicated sector hub
+  // yet → CTA falls back to the job-board root by design.
 };
 
 /**
