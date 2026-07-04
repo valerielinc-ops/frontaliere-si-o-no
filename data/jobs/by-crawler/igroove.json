@@ -1,24 +1,24 @@
 {
   "crawlerKey": "igroove",
-  "assembledAt": "2026-07-03T21:58:05.073Z",
+  "assembledAt": "2026-07-04T11:01:52.079Z",
   "jobs": [
     {
       "id": "igroove-c5d93def086a",
-      "slug": "senior-data-pipeline-engineer-igroove-zurich-hybrid",
+      "slug": "senior-data-pipeline-ingegnere-igroove-ag-zurich",
       "slugByLocale": {
-        "de": "senior-data-pipeline-engineer-igroove-zurich-hybrid",
-        "it": "senior-data-pipeline-engineer-igroove-zurich-hybrid",
+        "it": "senior-data-pipeline-ingegnere-igroove-ag-zurich",
         "en": "senior-data-pipeline-engineer-igroove-zurich-hybrid",
-        "fr": "senior-data-pipeline-engineer-igroove-zurich-hybrid"
+        "de": "senior-data-pipeline-engineer-igroove-zurich-hybrid",
+        "fr": "senior-data-pipeline-ingenieur-igroove-ag-zurich"
       },
       "company": "iGroove AG",
       "companyKey": "igroove",
       "companyDomain": "igroovemusic.com",
       "title": "Senior Data Pipeline Engineer",
       "titleByLocale": {
-        "de": "Senior Data Pipeline Ingenieur",
-        "en": "Senior Data Pipeline Engineer",
         "it": "Senior Data Pipeline Ingegnere",
+        "en": "Senior Data Pipeline Engineer",
+        "de": "Senior Data Pipeline Ingenieur",
         "fr": "Senior Data Pipeline Ingénieur"
       },
       "description": "Senior Data Pipeline Engineer bei iGroove AG in Zürich Hybrid.",
@@ -30,7 +30,7 @@
       "url": "https://igroove.jobs.personio.de/job/2588083",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T21:58:03.200Z",
+      "crawledAt": "2026-07-04T11:01:49.768Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -48,10 +48,20 @@
       "applyUrl": "https://igroove.jobs.personio.de/job/2588083",
       "jobReqId": "2588083",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:58:03.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-data-pipeline-engineer-igroove-zurich-hybrid"
+        ],
+        "fr": [
+          "senior-data-pipeline-engineer-igroove-zurich-hybrid"
+        ]
+      },
+      "previousSlugs": [
+        "senior-data-pipeline-engineer-igroove-zurich-hybrid"
+      ],
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -63,8 +73,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-03T21:58:03.200Z"
+      }
     }
   ]
 }
