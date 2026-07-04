@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swatch-group-assembly",
-  "assembledAt": "2026-07-04T12:17:05.919Z",
+  "assembledAt": "2026-07-04T23:25:32.062Z",
   "jobs": [
     {
       "id": "company-7ubf8t",
@@ -386,7 +386,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubemm",
@@ -542,7 +542,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "SO",
-      "crawlerMissStreak": 2
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubelo",
@@ -619,8 +619,7 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "SO",
-      "crawlerMissStreak": 2
+      "addressRegion": "SO"
     },
     {
       "id": "company-7ubei9",
