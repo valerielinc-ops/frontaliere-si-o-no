@@ -686,6 +686,13 @@ export const COMPANY_HQ = {
   // AND cross-checked against Zefix (Swiss commercial register: legalSeat
   // "Laufen", UID CHE-439.050.235); no fallback needed.
   'ricola': { city: 'Laufen', canton: 'BL', postalCode: '4242', addressRegion: 'BL' },
+  // HORNBACH Baumarkt (Schweiz) AG HQ, Schellenrain 9, 6210 Sursee LU —
+  // confirmed via the company's own Impressum (jobs.hornbach.ch/impressum),
+  // cross-checked against Zefix (uid CHE-101.079.884, legal seat Oberkirch
+  // LU) and Moneyhouse (same street/postal-code/city). Individual Swiss
+  // branch postings outside Sursee use their own city-gated address in
+  // scripts/lib/hornbach-job-parser.mjs; this entry is only the HQ fallback.
+  'hornbach': { city: 'Sursee', canton: 'LU', postalCode: '6210', addressRegion: 'LU' },
 };
 
 /**
