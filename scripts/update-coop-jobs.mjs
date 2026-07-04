@@ -591,8 +591,18 @@ async function postProcessCoopJobs() {
       const markdown = coopDescHtmlToMarkdown(ldDesc);
       const validation = validateCoopDescription(markdown, ldDesc.length);
 
-      // Replace if: current is shorter than JSON-LD markdown, or current is too short
-      if (markdown.length > descLen || descLen < 350) {
+      // Replace if: current is shorter than JSON-LD markdown, current is too
+      // short, OR the raw source text drifted from what's already reflected
+      // in the stored description (issue #3442 completeness gap: this
+      // length-only gate previously skipped the whole rebuild — and
+      // therefore the sourceContentChanged check below — whenever a live
+      // posting was rewritten to similar-or-shorter length, freezing
+      // needsRetranslation exactly like the bug this guard exists to fix).
+      // The incoming markdown still appearing verbatim in the prior stored
+      // text means no real drift; anything else means the source changed.
+      const sourceDrifted =
+        markdown.length > 200 && !normalizeSpace(priorDescriptionText).includes(normalizeSpace(markdown));
+      if (markdown.length > descLen || descLen < 350 || sourceDrifted) {
         if (markdown.length > 200) {
           // Build structured description with metadata
           const lines = [`## ${job.title || ldTitle}`, ''];

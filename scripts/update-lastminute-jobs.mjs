@@ -649,25 +649,25 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
     });
 
     if (existing) {
-      // Only replace if SR API content is richer
-      if (detail.description.length > (existing.description || '').length * 0.8) {
-        // Snapshot BEFORE mergeLocaleTextMap below mutates descriptionByLocale
-        // (issue #3442): this enrichment loop runs after runDedicatedBaseCrawler,
-        // so the merge-time translation stability lock in
-        // dedicated-crawler-common.mjs never sees this job. Without this guard,
-        // an already fully-translated job gets re-flagged (and re-translated,
-        // with MT non-determinism churning slugByLocale) every time the SR API
-        // returns a description within 20% of the current length — which is
-        // most re-crawls, not just genuine content changes.
+      // Snapshot BEFORE mergeLocaleTextMap below mutates descriptionByLocale
+      // (issue #3442): this enrichment loop runs after runDedicatedBaseCrawler,
+      // so the merge-time translation stability lock in
+      // dedicated-crawler-common.mjs never sees this job. Without this guard,
+      // an already fully-translated job gets re-flagged (and re-translated,
+      // with MT non-determinism churning slugByLocale) every time the SR API
+      // returns a description within 20% of the current length — which is
+      // most re-crawls, not just genuine content changes.
+      const priorDescription = existing.description || '';
+      // Compare BEFORE the richer-content gate below (review #3454/completeness
+      // gap): coverage alone freezes the flag forever once a job reaches full
+      // 4-locale coverage, even if the live SR posting is later rewritten to a
+      // similar-or-shorter length — the >80%-length gate alone would silently
+      // skip this whole block (and this comparison) for that case, exactly
+      // reproducing the bug this guard exists to fix.
+      const sourceContentChanged = normalizeSpace(priorDescription) !== normalizeSpace(detail.description);
+      // Only replace if SR API content is richer, or the source text itself drifted
+      if (sourceContentChanged || detail.description.length > priorDescription.length * 0.8) {
         const wasFullyLocalized = hasFullLocaleCoverage(existing);
-        // Snapshot the prior synced source text too (review #3454): coverage
-        // alone freezes the flag forever once a job reaches full 4-locale
-        // coverage, even if the live SR posting is later rewritten.
-        // `existing.description` stays synced with the SR API every crawl
-        // (see below), so comparing it to the fresh `detail.description`
-        // detects genuine content drift — mirrors the sourceTitleStable gate
-        // in mergePreserveLocaleData.
-        const priorDescription = existing.description || '';
         existing.description = detail.description;
         existing.requirements = Array.isArray(detail.requirements) ? detail.requirements : [];
         existing.descriptionByLocale = mergeLocaleTextMap(
@@ -678,7 +678,6 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
         // Mark for re-translation so AI refreshes IT/DE/FR from the richer
         // English — either the job wasn't fully localized yet, or the SR
         // content genuinely changed since the last sync.
-        const sourceContentChanged = normalizeSpace(priorDescription) !== normalizeSpace(detail.description);
         if (!wasFullyLocalized || sourceContentChanged) {
           existing.needsRetranslation = true;
         }
