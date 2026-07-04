@@ -144,7 +144,7 @@ import {
  buildEmployerHubMeta,
  buildRoleHubMeta,
 } from '../services/seo/meta-descriptions';
-import { COMPANY_HQ_ADDRESSES } from './shared/companyHqAddresses';
+import { COMPANY_HQ_ADDRESSES, localityMatchesHq } from './shared/companyHqAddresses';
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
 import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
@@ -1869,9 +1869,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // 1. Try job's own streetAddress — only if it looks like a real street
  const raw = String(job.streetAddress || '').trim();
  if (isValidAddress(raw) && isStreetLikeAddress(raw)) return raw;
- // 2. Try company HQ address
+ // 2. Try company HQ address — ONLY when the job has no own locality or is
+ // in the HQ's own city (#3513). Same-canton is not enough: pairing the
+ // HQ street with a different posting locality (e.g. HQ Manno street on a
+ // Winterthur job) emits a contradictory JSON-LD PostalAddress.
  const companyKey = String(job.companyKey || '').toLowerCase().trim();
- if (companyKey && COMPANY_HQ_ADDRESSES[companyKey]) return COMPANY_HQ_ADDRESSES[companyKey].streetAddress;
+ if (companyKey && COMPANY_HQ_ADDRESSES[companyKey]
+ && localityMatchesHq(String(job.addressLocality || job.location || ''), COMPANY_HQ_ADDRESSES[companyKey])) {
+ return COMPANY_HQ_ADDRESSES[companyKey].streetAddress;
+ }
  // 3. Try city-based generic address (exact match)
  const locality = String(job.addressLocality || '').toLowerCase().trim();
  if (locality && CITY_GENERIC_ADDRESS[locality]) return CITY_GENERIC_ADDRESS[locality];

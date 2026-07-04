@@ -27,6 +27,8 @@
 import {
   COMPANY_HQ_ADDRESSES,
   deriveCantonFromCity,
+  localityMatchesHq,
+  regionLocalityCapital,
   resolveFallbackAddress,
 } from './companyHqAddresses';
 import {
@@ -383,9 +385,14 @@ function resolveAddress(
   locale: string,
 ): PostalAddressSchema {
   const companySlug = job.companySlug || job.companyKey || '';
-  const cityRaw = String(
+  let cityRaw = String(
     job.addressLocality || job.city || job.location || '',
   ).trim();
+  // #3513: a REGION name shipped as locality ("Ticino") is not a schema.org
+  // locality — substitute the canton capital's coherent locality so
+  // street/CAP/locality all anchor on one real place.
+  const regionCapital = regionLocalityCapital(cityRaw);
+  if (regionCapital) cityRaw = regionCapital.addressLocality;
 
   const hqEntry = companySlug
     ? COMPANY_HQ_ADDRESSES[companySlug.toLowerCase()]
@@ -401,18 +408,20 @@ function resolveAddress(
   const addressLocality =
     cityRaw.length > 0 ? cityRaw : fallback.addressLocality;
 
-  // A curated company HQ address is only trustworthy for jobs in the HQ's own
-  // canton. A posting in a different canton (e.g. a Zurich job for a Ticino-seat
-  // employer) must NOT inherit the HQ street/CAP — that yields a Bellinzona
-  // address on a Zurich job. Fall through to the city lookup instead.
+  // A curated company HQ address is only trustworthy for jobs with no own
+  // city or in the HQ's own CITY (#3513). Canton-level matching is not
+  // enough: a Lugano posting for a Bellinzona-seat employer (same canton)
+  // must not pair the HQ street/CAP with the Lugano locality. Fall through
+  // to the city lookup instead, which anchors on the job's own city.
   const hqUsable =
     !!hqEntry &&
-    String(hqEntry.addressRegion || '').toUpperCase() === String(region || '').toUpperCase();
+    String(hqEntry.addressRegion || '').toUpperCase() === String(region || '').toUpperCase() &&
+    localityMatchesHq(cityRaw, hqEntry);
 
-  // Precedence: explicit source value → company HQ (only when same canton) →
-  // city lookup → canton-capital fallback. Company HQ wins over city lookup
-  // because the HQ registry is curated and therefore more accurate than
-  // a generic-city postal code.
+  // Precedence: explicit source value → company HQ (only when same city, or
+  // no city signal) → city lookup → canton-capital fallback. Company HQ wins
+  // over city lookup because the HQ registry is curated and therefore more
+  // accurate than a generic-city postal code.
   const postalCode = isValidPostalCode(job.postalCode)
     ? String(job.postalCode).trim()
     : (hqUsable && hqEntry.postalCode && isValidPostalCode(hqEntry.postalCode) ? hqEntry.postalCode : '') ||
