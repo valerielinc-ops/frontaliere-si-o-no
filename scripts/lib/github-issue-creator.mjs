@@ -321,8 +321,8 @@ export async function createGithubIssue({
   consecutiveGate = 0,
   gateWindowHours = DEFAULT_CRAWLER_GATE_WINDOW_HOURS,
   // `project` accepted for backward compatibility but not used (GH issues
-  // don't have a free-form project field comparable to Linear's; the
-  // workflow name is preserved in the body for grouping).
+  // don't have a free-form project field; the workflow name is preserved
+  // in the body for grouping instead).
 } = {}) {
   if (process.env.ENABLE_FAILURE_REPORT === 'false') {
     console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping');
