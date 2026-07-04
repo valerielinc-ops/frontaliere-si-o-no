@@ -118,6 +118,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeSpace } from './crawler-template.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 import {
   createBrowser,
   createPoliteContext,
@@ -274,6 +275,26 @@ export function resolveAddress(raw = {}) {
     postalCode: explicitPostal || (branch ? branch.postalCode : ''),
     streetAddress: explicitStreet || (branch ? branch.streetAddress : ''),
   };
+}
+
+/**
+ * Resolve canton/addressRegion for a job, matched by postalCode (unique per
+ * branch — city alone is ambiguous for the 2 Zürich branches). Falls through
+ * to city-text canton inference (never straight to the HQ canton) so a job
+ * posted from a city outside the 5 known branches — a scrape drift or a
+ * genuinely new location — doesn't get silently mislabeled as Oberrieden/ZH.
+ *
+ * @param {string} postalCode
+ * @param {string} city
+ * @param {string} [location]
+ * @returns {string} canton/addressRegion code
+ */
+export function resolveCantonFallback(postalCode, city, location = '') {
+  return (
+    BRANCHES.find((b) => b.postalCode === postalCode)?.canton ||
+    inferAnyCanton(city || location) ||
+    CONFIG_HQ.canton
+  );
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -553,7 +574,7 @@ export async function fetchAllHolmesPlaceJobs() {
       location,
       // Matched by postalCode (unique per branch — city alone is ambiguous
       // for the 2 Zürich branches) rather than re-deriving from resolveAddress.
-      canton: BRANCHES.find((b) => b.postalCode === postalCode)?.canton || CONFIG_HQ.canton,
+      canton: resolveCantonFallback(postalCode, city, location),
       url: CAREER_URL,
       source: 'Holmes Place Dedicated Parser',
       sourceLang,
@@ -561,7 +582,7 @@ export async function fetchAllHolmesPlaceJobs() {
 
       // ── Recommended fields ──
       addressLocality: city || location,
-      addressRegion: BRANCHES.find((b) => b.postalCode === postalCode)?.addressRegion || CONFIG_HQ.addressRegion,
+      addressRegion: resolveCantonFallback(postalCode, city, location),
       streetAddress,
       postalCode,
       addressCountry: 'CH',
