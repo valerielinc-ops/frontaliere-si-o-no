@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-07-04T10:54:43.954Z",
+  "assembledAt": "2026-07-04T22:15:57.737Z",
   "jobs": [
     {
       "id": "company-3re66d",
@@ -136,9 +136,9 @@
         "property-manager-in-coop-immobilien-dietikon-zurich",
         "gestionnaire-immobilier-in-coop-immobilien-dietikon-zurich",
         "responsabile-della-proprieta-in-coop-immobilien-dietikon-zurich",
-        "immobilienbewirtschafter-in-coop-immobilien-dietikon-zurich",
         "property-manager-in-coop-immobilien-dietikon-zurich-bup22x",
-        "gestionnaire-immobilier-in-coop-immobilien-dietikon-zurich-bup22x"
+        "gestionnaire-immobilier-in-coop-immobilien-dietikon-zurich-bup22x",
+        "immobilienbewirtschafter-in-coop-immobilien-dietikon-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -797,7 +797,8 @@
       },
       "previousSlugs": [
         "store-manager-100-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-a7w43s",
@@ -869,7 +870,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-1zpyeq",
@@ -1300,10 +1302,10 @@
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-h26um4"
         ],
-        "fr": [
+        "de": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-h26um4"
         ],
-        "de": [
+        "fr": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-h26um4"
         ]
       },
@@ -2300,7 +2302,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-8p9fby",
@@ -3889,8 +3892,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 1",
-      "postalCode": "6593",
+      "streetAddress": "",
+      "postalCode": "6532",
       "addressLocality": "Castione, Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -4804,7 +4807,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-w1zgcb",
@@ -5331,7 +5335,7 @@
       "firstSeenAt": "2026-06-30T11:26:22.953Z",
       "slugByLocale": {
         "it": "risorse-umane-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
-        "en": "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
+        "en": "hr-officer-bale-hotels-group-balehotels-basel-basel-stadt",
         "de": "personalwesen-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
         "fr": "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9"
       },
@@ -5352,6 +5356,7 @@
       "previousSlugsByLocale": {
         "en": [
           "hr-sachbearbeiter-in-bale-hotels-group-balehotels-basel-basel-stadt",
+          "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
           "hr-officer-bale-hotels-group-balehotels-basel-basel-stadt"
         ],
         "it": [
@@ -5361,7 +5366,7 @@
       "previousSlugs": [
         "hr-sachbearbeiter-in-bale-hotels-group-balehotels-basel-basel-stadt",
         "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt",
-        "hr-officer-bale-hotels-group-balehotels-basel-basel-stadt"
+        "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5380,7 +5385,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-o12jyr",
@@ -5620,7 +5626,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8400",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-9wwgfj",
@@ -5860,7 +5867,8 @@
       },
       "previousSlugs": [
         "service-desk-analyst-coop-pronto-ag-allschwil-basel-landschaft"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-wu9scy",
@@ -9181,7 +9189,8 @@
       },
       "previousSlugs": [
         "leiter-in-verkauf-und-marketing-retail-steinfels-swiss-winterthur-80-100-steinfels-swiss-winterthur-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-cjzk4b",
@@ -9433,7 +9442,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-xtsw3e",
@@ -9822,7 +9832,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8305",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-mk74pe",
@@ -12019,7 +12030,7 @@
         "fr": "La Suisse achète chez Fust ! Nous sommes fiers d'être un leader dans les appareils électroménagers, l'électronique multimédia / divertissement et la rénovation de la cuisine et de la salle de bains, et grâce à notre gamme complète de services et de services uniques, nous créons une réelle valeur ajoutée! Devenez membre de notre équipe et aidez-nous à continuer à créer des expériences client! Un boulot à Fust, et il court !\n\nTâche\n\n- Planification, installation et configuration des produits Fust-Professional Solutions (systèmes de surveillance vidéo, solutions d'affichage numérique, systèmes d'adresses publiques, systèmes de télécommunications, systèmes d'alarme d'intrusion et appareils électroniques grand public)\n\n- Enregistrement et rectification des incidents\n\n- Préparation et installation de nouvelles installations\n\n- Formation opérationnelle des clients\n\n- Facturation des services dans le système\n\nExigences\n\n- Formation professionnelle technique terminée\n\n- Spécialisation dans les systèmes d'adresses publiques\n\n- Les compétences allemandes, italiennes seraient d'un grand avantage\n\n- Permis de conduire de catégorie B\n\n- Préparation aux affectations en dehors des heures normales de bureau\n\nCe que nous offrons\n\n- Conditions d'emploi: horaires flexibles, salaire fixe attractif avec supplément, primes de performance, indemnité forfaitaire, véhicule d'entreprise pour usage privé\n\n- Réductions : Réductions dans différents formats de coop, 5 fois le nombre de super points de coop, Jusqu'à 20% de réduction sur les différents services d'assurance, Abonnements mobiles et prépayés à bas prix chez Coop Mobile, Reka Card: Réductions sur l'abonnement, réduction personnel également pour les partenaires:in (habitant dans le même ménage), réduction sur l'offre voyage ITS Coop Travel, CHF 650.- Bon pour l'achat d'un CFF GA\n\n- Formation : formation interne, soutien à la formation externe, possibilités de développement\n\n- Communication & culture : culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n\n- Assurance : Caisse de retraite : 2/3 est versée par Coop (base), divers plans d'épargne à la caisse de retraite, prestations d'assurance généreuses et super-obligatoires en cas d'accident et de maladie\n\n- Jours fériés : Au moins 25 jours de vacances ou selon GAV valide, si possible soutien pour des vacances non rémunérées\n\n- Santé : Mise à jour Fitness : CHF 200.- Réduction sur l'abonnement annuel, conseil social gratuit et anonyme 24/7\n\nVos personnes de contact chez Fust\n\nTanja Voser\nResponsable des partenariats d'affaires\n\nSteven Vivre\nSpécialiste du recrutement"
       },
       "slugByLocale": {
-        "it": "servicetechniker-in-professional-solutions-fust-bern",
+        "it": "tecnico-di-servizio-in-soluzioni-professionali-fust-bern",
         "en": "service-technician-in-professional-solutions-fust-swiss-household-services-ag-bern",
         "de": "servicetechniker-in-professional-solutions-fust-bern-3qkfr2",
         "fr": "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-bern"
@@ -12052,8 +12063,7 @@
         "service-technician-in-professional-solutions-fust-swiss-household-services-ag-luzern",
         "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
         "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
-        "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern",
-        "tecnico-di-servizio-in-soluzioni-professionali-fust-bern"
+        "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -12989,7 +12999,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-27idnp",
@@ -13056,7 +13067,8 @@
       },
       "previousSlugs": [
         "senior-it-business-analyst-sap-produktion-80-100-coop-basel-stadt"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-bkpgak",
@@ -13349,7 +13361,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3600",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-n63zcr",
@@ -15122,8 +15135,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 1",
-      "postalCode": "6593",
+      "streetAddress": "",
+      "postalCode": "6815",
       "addressLocality": "Melide, Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -16780,7 +16793,7 @@
       "firstSeenAt": "2026-06-15T14:33:43.940Z",
       "slugByLocale": {
         "it": "marketing-assistant-dekoboutique-festtage-m-w-d-coop-basel-stadt-4fo4b0",
-        "en": "marketing-assistant-dekoboutique-festtage-m-w-d-coop-basel-stadt-4fo4b0",
+        "en": "marketing-assistant-dekoboutique-holidays-m-w-d-coop-genossenschaft-basel-stadt-4fo4b0",
         "de": "marketing-assistent-dekoboutique-festtage-m-w-d-coop-basel-stadt-4fo4b0",
         "fr": "marketing-assistant-dekoboutique-festtage-m-w-d-coop-basel-stadt-4fo4b0"
       },
@@ -16811,8 +16824,7 @@
       },
       "previousSlugs": [
         "marketing-assistant-dekoboutique-festtage-m-w-d-coop-genossenschaft-basel-stadt-4fo4b0",
-        "marketing-assistant-dekoboutique-festtage-m-w-d-coop-basel-stadt",
-        "marketing-assistant-dekoboutique-holidays-m-w-d-coop-genossenschaft-basel-stadt-4fo4b0"
+        "marketing-assistant-dekoboutique-festtage-m-w-d-coop-basel-stadt"
       ],
       "sourceLang": "de",
       "salaryMin": 62000,
@@ -17230,7 +17242,8 @@
       "previousSlugs": [
         "e-commerce-manager-in-80-100-fust-oberburen-sankt-gallen-2uek4a",
         "e-commerce-manager-in-80-100-fust-oberburen-sankt-gallen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-d4h9qk",
@@ -17624,8 +17637,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 1",
-      "postalCode": "6593",
+      "streetAddress": "",
+      "postalCode": "6500",
       "addressLocality": "Bellinzona, Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
