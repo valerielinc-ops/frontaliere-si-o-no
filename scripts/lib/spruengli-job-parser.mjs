@@ -90,6 +90,17 @@ function normalizeSpace(s = '') {
 /**
  * Check if a job belongs to Confiserie Sprüngli.
  * Used by the template to filter this company's jobs from the global dataset.
+ *
+ * NOT AFFILIATED guard: "Lindt & Sprüngli" (companyKey `lindt-spruengli`,
+ * scripts/lib/lindt-spruengli-job-parser.mjs) is a completely separate global
+ * chocolate manufacturer (HQ Kilchberg ZH) that happens to share the
+ * "Sprüngli" name for historical reasons (a 19th-century family-business
+ * split) — issue #3337 explicitly flags the two as "non affiliata". Because
+ * Lindt & Sprüngli's real company name genuinely contains the substring
+ * "sprüngli"/"spruengli", the loose `company.includes(...)` checks below
+ * would otherwise sweep Lindt jobs into this Confiserie Sprüngli slice (and
+ * delete them as "others" on every Sprüngli crawler run). Must exclude Lindt
+ * jobs BEFORE the loose substring checks run.
  */
 export function isSpruengliJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
@@ -99,6 +110,18 @@ export function isSpruengliJob(job) {
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
   const url = normalize(job?.url || '');
+
+  // Lindt & Sprüngli exclusion — checked first, unconditionally wins.
+  if (
+    key === 'lindt-spruengli' ||
+    key.startsWith('lindt') ||
+    company.includes('lindt') ||
+    url.includes('lindt-spruengli.com') ||
+    url.includes('lindt.com') ||
+    url.includes('myworkdayjobs.com/lindtspruengli')
+  ) {
+    return false;
+  }
 
   return (
     key === SPRUENGLI_KEY ||
