@@ -9,7 +9,7 @@
 //   import { buildClaimReview } from './claim-review';
 //
 //   const cr = buildClaimReview({
-//     pageUrl: 'https://frontaliereticino.ch/tasse-e-pensione/nuova-legge-frontalieri-2026',
+//     pageUrl: 'https://frontaliereticino.ch/tasse-e-pensione/nuova-legge-frontalieri-2026/',
 //     claimReviewed: 'La franchigia IRPEF per i nuovi frontalieri è di 10.000 euro annui',
 //     datePublished: '2026-04-23',
 //     rating: 'true',
@@ -122,7 +122,7 @@ export function buildClaimReview(input: Readonly<ClaimReviewInput>): ClaimReview
     author: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
     datePublished: input.datePublished,
     reviewRating: {

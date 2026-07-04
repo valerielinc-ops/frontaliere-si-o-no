@@ -564,10 +564,13 @@ describe('renderCompanyCityPage', () => {
     expect(html).toContain('Lugano');
   });
 
-  it('uses COMPANY_HQ_ADDRESSES fallback when job has no streetAddress/postalCode', () => {
-    // fixture.stats.companySlug === 'eoc-ente-ospedaliero-cantonale' → HQ in Bellinzona.
-    // Individual activeJobs have no streetAddress/postalCode — so the JSON-LD
-    // must pull the HQ address from the shared registry.
+  it('uses a locality-coherent fallback when job has no streetAddress/postalCode', () => {
+    // fixture.stats.companySlug === 'eoc-ente-ospedaliero-cantonale' → HQ in
+    // Bellinzona, but this is the LUGANO city page: pairing the HQ street with
+    // a different posting locality is exactly the incoherence #3513 fixed.
+    // Individual activeJobs have no streetAddress/postalCode — the JSON-LD
+    // must fall back to the locality-coherent registry entry, never the
+    // cross-locality HQ street.
     const withCompanySlug = {
       ...fixture,
       stats: {
@@ -579,9 +582,11 @@ describe('renderCompanyCityPage', () => {
       },
     };
     const html = renderCompanyCityPage(withCompanySlug);
-    // Expect EOC HQ data: Viale Officina 3, 6500 Bellinzona.
-    expect(html).toContain('Viale Officina 3');
-    expect(html).toContain('6500');
+    // Expect the Lugano locality default (CITY_FALLBACK_ADDRESSES), not the
+    // Bellinzona HQ street.
+    expect(html).toContain('Piazza Riforma 1');
+    expect(html).toContain('6900');
+    expect(html).not.toContain('Viale Officina 3');
   });
 
   it('links each listed job to the canonical detail path', () => {

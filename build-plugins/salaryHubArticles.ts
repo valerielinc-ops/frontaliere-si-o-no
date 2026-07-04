@@ -17,6 +17,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
+import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -643,6 +644,8 @@ export function generateArticleHtml(
           <h2>${locale === 'it' ? 'Domande frequenti' : 'FAQ'}</h2>
           ${faqs.map(f => `<div class="faq-item"><div class="faq-q">${f.q}</div><div class="faq-a">${f.a}</div></div>`).join('\n')}
         </div>
+
+        ${renderAuthoritativeSourcesHtml(locale)}
 
         <div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>
       </div>

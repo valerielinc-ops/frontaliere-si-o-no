@@ -35,9 +35,7 @@ import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput'
 import { useAuth } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 
-const CTA_DISMISSED_KEY = 'newsletter_cta_dismissed';
-const SUBSCRIBED_KEY = 'newsletter_subscribed';
-const CTA_DISMISS_DAYS = 14;
+import { NEWSLETTER_CTA_DISMISSED_KEY as CTA_DISMISSED_KEY, isNewsletterCtaEligible } from '@/services/newsletterCtaState';
 
 /** Calculate days until next Monday (newsletter send day) */
 function daysUntilNextMonday(): number {
@@ -72,7 +70,11 @@ const initFirestore = async () => {
 const SubscriptionCTA: React.FC = () => {
  const { t, locale } = useTranslation();
  const { user } = useAuth();
- const [visible, setVisible] = useState(false);
+ // CLS fix (#3529): compute visibility SYNCHRONOUSLY (localStorage) so the
+ // banner is part of the component's first commit instead of mounting one
+ // effect-tick later (null → ~700px growth mid-flow counted as layout shift).
+ // Shared eligibility logic lives in services/newsletterCtaState.ts.
+ const [visible, setVisible] = useState(isNewsletterCtaEligible);
  const [email, setEmail] = useState('');
  const [consentChecked, setConsentChecked] = useState(false);
  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'pending' | 'error' | 'exists'>('idle');
@@ -80,18 +82,10 @@ const SubscriptionCTA: React.FC = () => {
  const [resendStatus, setResendStatus] = useState<'idle' | 'sending' | 'sent' | 'cooldown' | 'error'>('idle');
 
  useEffect(() => {
- // Don't show if already subscribed
- if (localStorage.getItem(SUBSCRIBED_KEY) === 'true') return;
-
- // Don't show if dismissed recently
- const dismissed = localStorage.getItem(CTA_DISMISSED_KEY);
- if (dismissed) {
- const daysSince = (Date.now() - parseInt(dismissed, 10)) / (1000 * 60 * 60 * 24);
- if (daysSince < CTA_DISMISS_DAYS) return;
- }
-
- setVisible(true);
+ if (visible) {
  Analytics.trackUIInteraction('newsletter_cta', 'banner', 'show', 'post_calc');
+ }
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- fire the "show" event once per mount only
  }, []);
 
  const handleDismiss = () => {
