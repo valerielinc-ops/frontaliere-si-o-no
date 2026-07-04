@@ -607,8 +607,11 @@ async function sendViaCloudflare(email) {
   );
 
   if (!res.ok) {
-    // 429 (code 10004 throttled) and quota-exceeded bodies are caught by
-    // isRateLimitedError → provider retired for the rest of the run.
+    // code=10004 (email.sending.error.throttled) is a short burst-window
+    // rate limit, distinct from quota-exceeded — caught by
+    // isSoftThrottleError → provider cools down briefly instead of being
+    // retired for the rest of the run. Other 429/403 bodies still go
+    // through isRateLimitedError → hard exhaustion.
     const err = await res.text().catch(() => '');
     // Surface the CF error code/message as discrete fields. The raw JSON body
     // gets truncated in CI logs right after `"code":` (GitHub secret masking),
@@ -677,12 +680,42 @@ const SEND_FNS = {
  */
 function isRateLimitedError(msg) {
   if (!msg) return false;
+  if (isSoftThrottleError(msg)) return false;
   if (msg.includes('429')) return true;
   if (msg.includes('403') &&
       /reached[^"]{0,40}(limit|quota|cap|messages)|rate.?limit|too many|quota|limit of/i.test(msg)) {
     return true;
   }
   return false;
+}
+
+/**
+ * Detect a transient burst-window throttle (Cloudflare code 10004,
+ * "email.sending.error.throttled") as opposed to real quota exhaustion.
+ * Cloudflare can return this well before its documented daily/monthly cap
+ * is reached, and it clears after a short cooldown — treating it like
+ * isRateLimitedError permanently benches a provider that still has quota
+ * to spare (root cause of the 2026-07-04 mass-failure: cloudflare hit
+ * this at send #100/1000 and every other provider was already at its
+ * daily cap, so the rest of the run had nothing left to fall back to).
+ */
+function isSoftThrottleError(msg) {
+  return !!msg && /code=10004|email\.sending\.error\.throttled/i.test(msg);
+}
+
+// Short cooldown for soft-throttled providers (mirrors the AI-model
+// provider cooldown in ai-models.mjs) — provider skipped for a bit,
+// quota counter left untouched so it resumes once the burst window clears.
+const PROVIDER_COOLDOWN_MS = 30_000;
+const _providerCooldownUntil = {};
+
+function cooldownProvider(providerId) {
+  _providerCooldownUntil[providerId] = Date.now() + PROVIDER_COOLDOWN_MS;
+  console.warn(`🧊 ${providerId} cooled down for ${PROVIDER_COOLDOWN_MS / 1000}s (throttled, quota untouched)`);
+}
+
+function isProviderCoolingDown(providerId) {
+  return (_providerCooldownUntil[providerId] || 0) > Date.now();
 }
 
 async function sendSingle(email, forceProvider, finalizeForProvider) {
@@ -694,6 +727,7 @@ async function sendSingle(email, forceProvider, finalizeForProvider) {
   for (const provider of providers) {
     if (!isProviderConfigured(provider.id)) continue;
     if (remainingQuota(provider.id) <= 0) continue;
+    if (isProviderCoolingDown(provider.id)) continue;
 
     try {
       // Optional hook: let the caller finalize the payload for the provider that
@@ -707,7 +741,9 @@ async function sendSingle(email, forceProvider, finalizeForProvider) {
       return result;
     } catch (err) {
       errors.push(`[${provider.id}] ${err.message}`);
-      if (isRateLimitedError(err.message)) {
+      if (isSoftThrottleError(err.message)) {
+        cooldownProvider(provider.id);
+      } else if (isRateLimitedError(err.message)) {
         incrementCounter(provider.id, remainingQuota(provider.id));
         console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run`);
       }
@@ -727,7 +763,8 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
   const providers = forceProvider
     ? PROVIDERS.filter(p => p.id === forceProvider)
     : PROVIDERS;
-  const nextProvider = providers.find(p => isProviderConfigured(p.id) && remainingQuota(p.id) > 0);
+  const nextProvider = providers.find(p =>
+    isProviderConfigured(p.id) && remainingQuota(p.id) > 0 && !isProviderCoolingDown(p.id));
 
   if (nextProvider) {
     // Reserve a delay-spaced slot SYNCHRONOUSLY (read + write lastSendMap with no
