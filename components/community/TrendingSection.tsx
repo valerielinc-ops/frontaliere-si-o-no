@@ -86,6 +86,8 @@ function TrendingSection({ trendingJobs, popularity, onJobClick, heading, ariaLa
  <img
  src={job.logoUrl}
  alt=""
+ width={24}
+ height={24}
  className="w-6 h-6 object-contain"
  loading="lazy"
  onError={(e) => {
