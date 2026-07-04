@@ -3299,6 +3299,7 @@ export const COMPANY_DEFAULTS = {
   'medacta-international':                { streetAddress: 'Strada Regina',            postalCode: '6874', addressLocality: 'Castel San Pietro', addressRegion: 'TI', addressCountry: 'CH' },
   'microsoft':                            { streetAddress: 'The Circle 02',            postalCode: '8058', addressLocality: 'Zürich',            addressRegion: 'ZH', addressCountry: 'CH' },
   'zurich-insurance-sede-ticino':         { streetAddress: 'Via Pretorio 22',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'medbase':                              { streetAddress: 'Schützenstrasse 3',        postalCode: '8400', addressLocality: 'Winterthur',        addressRegion: 'ZH', addressCountry: 'CH' },
 };
 
 // ── Truncated "St" locality recovery ──────────────────────────────────────────
