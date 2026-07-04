@@ -23,12 +23,12 @@
  *   });
  */
 
-export const SITE_LICENSE_PAGE = 'https://frontaliereticino.ch/termini-di-servizio#licenza-immagini';
+export const SITE_LICENSE_PAGE = 'https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini';
 
 const SITE_ORG = Object.freeze({
   '@type': 'Organization' as const,
   name: 'Frontaliere Ticino',
-  url: 'https://frontaliereticino.ch',
+  url: 'https://frontaliereticino.ch/',
 });
 
 const COPYRIGHT_YEAR_START = 2024;

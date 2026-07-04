@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useMemo, useCallback, Suspense, memo, Frag
 import { lazyRetry } from '@/services/lazyRetry';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import { buildPath } from '@/services/router';
+import { buildPath, preloadBlogData } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import type { BlogArticleId, AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
@@ -1174,14 +1174,20 @@ function BlogArticles({
 
  // FRO-314: Load blog meta translations AND articles data in parallel on mount.
  // Dynamic import of blog-articles-data (122KB) so it doesn't block component parse time.
+ // preloadBlogData in the same gate: blogReady implies BLOG_SLUGS present, so
+ // every article href below is canonical by construction (the slug map no
+ // longer preloads unconditionally at App mount — #3528/#3532).
  useEffect(() => {
  const articlesPromise = section === 'svizzera'
  ? import('@/data/swiss-articles-data').then(m => m.SWISS_ARTICLES)
  : import('@/data/blog-articles-data').then(m => m.ARTICLES);
  Promise.all([
  loadBlogMeta(section),
+ // Swallow slug-map failure: degrade to id-fallback hrefs (pre-#3532
+ // failure behavior) instead of blocking the whole blog render.
+ preloadBlogData().catch(() => {}),
  articlesPromise,
- ]).then(([, data]) => {
+ ]).then(([, , data]) => {
  setArticles(data);
  setBlogReady(true);
  }).catch(() => {});
@@ -1302,6 +1308,11 @@ function BlogArticles({
  const articleBodyText = collectBodyParts(article.id, t).join(' ');
  const articleBodyWordCount = articleBodyText.split(/\s+/).filter(Boolean).length;
  const wordCount = articleBodyWordCount || estimateReadingMinutes(article.id, t) * 200;
+ // Author matches the visible byline (#3520): a named Person when the
+ // article carries one (same merge the rendered byline uses), the
+ // editorial Organization only as fallback — mirroring the static
+ // ogPagesPlugin NewsArticle so SPA and static declare the same entity.
+ const { authorSlug: ldAuthorSlug, authorName: ldAuthorName } = mergeArticleByline(articleAuthorOverride, article);
  const jsonLd: Record<string, unknown> = {
  '@context': 'https://schema.org',
  '@type': 'NewsArticle',
@@ -1309,7 +1320,14 @@ function BlogArticles({
  description: excerpt.startsWith('blog.article.') ? title : excerpt,
  datePublished: `${article.date}T00:00:00+01:00`,
  dateModified: `${(article.updatedAt || article.date).slice(0, 10)}T00:00:00+01:00`,
- author: {
+ author: ldAuthorName
+ ? {
+ '@type': 'Person',
+ name: ldAuthorName,
+ ...(ldAuthorSlug ? { url: `https://frontaliereticino.ch/autori/${ldAuthorSlug}/` } : {}),
+ worksFor: { '@type': 'Organization', '@id': 'https://frontaliereticino.ch/#organization', name: 'Frontaliere Ticino' },
+ }
+ : {
  '@type': 'Organization',
  '@id': 'https://frontaliereticino.ch/#organization',
  name: 'Redazione Frontaliere Ticino',
@@ -1317,8 +1335,9 @@ function BlogArticles({
  },
  publisher: {
  '@type': 'Organization',
+ '@id': 'https://frontaliereticino.ch/#organization',
  name: 'Frontaliere Ticino',
- url: 'https://frontaliereticino.ch',
+ url: 'https://frontaliereticino.ch/',
  logo: {
  '@type': 'ImageObject',
  url: 'https://frontaliereticino.ch/icons/icon-512x512.png',
@@ -1402,7 +1421,7 @@ function BlogArticles({
  if (existing) existing.remove();
  document.getElementById(faqScriptId)?.remove();
  };
- }, [selectedArticle, articles, locale, t]);
+ }, [selectedArticle, articles, locale, t, articleAuthorOverride]);
 
  const handleResponsiveImageError = useCallback((imagePath: string) => {
  setImageFallbackMap(prev => (prev[imagePath] ? prev : { ...prev, [imagePath]: true }));

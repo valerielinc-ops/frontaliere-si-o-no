@@ -211,6 +211,56 @@ export function deriveCantonFromCity(city: string | undefined | null): string {
 }
 
 /**
+ * True when the job's city is empty (no signal — HQ is the best guess) or
+ * names the HQ's own city (#3513). Case/diacritic-insensitive, tolerates
+ * decorated localities ("Bellinzona (TI)", "Bellinzona, Ticino").
+ */
+export function localityMatchesHq(
+  city: string | undefined,
+  hq: Pick<CompanyHqAddress, 'addressLocality'>,
+): boolean {
+  const norm = (s: string): string => s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z ]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const cityNorm = norm(String(city || ''));
+  if (!cityNorm) return true;
+  const hqNorm = norm(String(hq.addressLocality || ''));
+  if (!hqNorm) return false;
+  return cityNorm === hqNorm
+    || cityNorm.startsWith(`${hqNorm} `)
+    || cityNorm.includes(` ${hqNorm}`);
+}
+
+/**
+ * Region names that crawlers sometimes ship as `addressLocality` (#3513 —
+ * e.g. UBS postings with addressLocality "Ticino"). A region is not a
+ * schema.org locality: map it to the canton so the emitter can substitute
+ * the canton-capital locality, keeping street/CAP/locality coherent.
+ */
+const REGION_NAME_TO_CANTON: Record<string, string> = {
+  'ticino': 'TI', 'tessin': 'TI',
+  'grigioni': 'GR', 'graubünden': 'GR', 'graubunden': 'GR', 'grisons': 'GR', 'grischun': 'GR',
+  'vallese': 'VS', 'valais': 'VS', 'wallis': 'VS',
+};
+
+/**
+ * When `city` is actually a REGION name, return the canton-capital address
+ * (fully coherent street+CAP+locality) to use instead; `null` when `city`
+ * is a real locality (or empty).
+ */
+export function regionLocalityCapital(city: string | undefined | null): CompanyHqAddress | null {
+  const raw = String(city || '').trim().toLowerCase();
+  if (!raw) return null;
+  const canton = REGION_NAME_TO_CANTON[raw];
+  if (!canton) return null;
+  return CANTON_CAPITAL_ADDRESSES[canton] || null;
+}
+
+/**
  * Lookup a fallback HQ address by company slug, then by city name, with a
  * final canton-capital guarantee. Always returns a fully populated address —
  * never returns empty strings (CLAUDE.md rule #3).
@@ -222,10 +272,12 @@ export function resolveFallbackAddress(
   const cityCanton = deriveCantonFromCity(city);
   if (companySlug) {
     const hq = COMPANY_HQ_ADDRESSES[companySlug.toLowerCase()];
-    // Only trust the curated HQ when the job's city is in the HQ's own canton.
-    // A cross-canton job (e.g. a Zurich posting for a Ticino-seat employer)
-    // must not inherit the HQ address — fall through to a city/canton lookup.
-    if (hq && hq.addressRegion === cityCanton) return hq;
+    // Only trust the curated HQ when the job has no own city or sits in the
+    // HQ's own city (#3513). Canton-level matching is NOT enough: a Lugano
+    // posting for a Bellinzona-seat employer (same canton TI) must not pair
+    // the HQ street+CAP with the Lugano locality — fall through to the
+    // city/canton lookup, which anchors street/CAP on the job's own city.
+    if (hq && hq.addressRegion === cityCanton && localityMatchesHq(city, hq)) return hq;
   }
   if (city) {
     const cityHq = CITY_FALLBACK_ADDRESSES[city.toLowerCase()];

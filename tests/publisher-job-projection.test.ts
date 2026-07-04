@@ -137,6 +137,22 @@ describe('publisherJobToRecords', () => {
     expect(new Date(r.validThrough).getTime()).toBeGreaterThan(new Date('2026-09-15').getTime());
   });
 
+  it('floors validThrough to a future date when projected without nowIso from a stale paidAt (#3505)', () => {
+    // No nowIso → crawledAt anchors to the (old) paidAt; without the floor the
+    // record would carry validThrough = paidAt + 30d, already in the past.
+    // Relative dates (never absolute): fixture must not become a time-bomb.
+    const daysAgoIso = (n: number) => new Date(Date.now() - n * 86400000).toISOString();
+    const stalePaidAt = daysAgoIso(120);
+    const [r] = publisherJobToRecords(
+      paidJob({ paidAt: stalePaidAt, createdAt: stalePaidAt }),
+    );
+    // Floored to ≥ today(day-granular) + 30d — strictly in the future.
+    expect(new Date(r.validThrough).getTime()).toBeGreaterThan(
+      Date.now() + 28 * 86400000,
+    );
+    expect(r.postedDate).toBe(stalePaidAt); // datePosted stays true
+  });
+
   it('honors explicit location address + canton', () => {
     const recs = publisherJobToRecords(
       paidJob({

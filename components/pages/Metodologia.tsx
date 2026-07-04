@@ -10,6 +10,7 @@ import {
   ListChecks,
 } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
+import { ORGANIZATION_LD } from '@/services/seo/organizationLd';
 
 /**
  * Metodologia — /metodologia/ Editorial methodology page.
@@ -37,7 +38,7 @@ export const Metodologia: React.FC = () => {
     description:
       "Come utilizziamo l'IA generativa, le fonti primarie e il processo di revisione editoriale per garantire accuratezza e trasparenza.",
     lastReviewed,
-    publisher: { '@id': 'https://frontaliereticino.ch/#organization' },
+    publisher: ORGANIZATION_LD,
     inLanguage: 'it',
     isPartOf: { '@id': 'https://frontaliereticino.ch/#website' },
   };

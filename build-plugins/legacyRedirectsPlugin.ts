@@ -416,7 +416,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '@type': 'WebPage',
  name: `Redirect ${from} → ${to}`,
  url: fromUrl,
- isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL },
+ isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
  mainEntityOfPage: toUrl,
  description: `Pagina legacy reindirizzata verso ${to}`,
  inLanguage: 'it',

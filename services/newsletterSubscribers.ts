@@ -10,8 +10,9 @@ import {
 } from 'firebase/firestore';
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { reportCaughtError } from '@/services/errorReporter';
+import { NEWSLETTER_SUBSCRIBED_KEY as LOCAL_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 
-const LOCAL_SUBSCRIBED_KEY = 'newsletter_subscribed';
+// Canonical key shared via services/newsletterCtaState (#3529 dedup).
 
 const GEO_CACHE_KEY = 'newsletter_geo_snapshot_v1';
 const GEO_CACHE_TTL_MS = 24 * 60 * 60 * 1000;

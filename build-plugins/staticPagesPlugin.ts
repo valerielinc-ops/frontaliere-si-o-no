@@ -16,9 +16,11 @@ import { resolveStaticPagesFlushed } from './shared/buildSignals';
 import { findChunkFile, findChunkFiles } from './shared/chunkFiles';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
-import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
+import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
+import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
+import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
 import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
 import { railGutters } from './shared/railGutters';
@@ -4279,6 +4281,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  } catch { /* structured data not parseable, skip FAQ rendering */ }
  }
 
+ // ── #organization page-local definition (#3524) ─────────────
+ // SEO_PAGES structured data references the site Organization as a bare
+ // `{"@id": ".../#organization"}` pointer (publisher/author). A static
+ // page is a standalone document — the rich Organization block lives in
+ // index.html only — so page-local structured-data parsers cannot resolve
+ // the entity. Append the compact canonical node whenever the page graph
+ // references it; the includes() guard keeps the append idempotent.
+ if (seoData.sd && seoData.sd.includes('/#organization') && !seoData.sd.includes(ORGANIZATION_LD_JSON)) {
+ seoData.sd = `${seoData.sd}</script>\n <script type="application/ld+json">${ORGANIZATION_LD_JSON}`;
+ }
+
  // ── Pre-rendered comparison tables for AI crawlers ──────────
  // Key comparison pages contain rich data tables that React renders
  // client-side. AI crawlers (ChatGPT, Perplexity, Gemini) only see
@@ -4344,12 +4357,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const statsSlugs = ['statistiche', 'statistics', 'statistiken', 'statistiques'];
  const blogSlugs = ['articoli-frontaliere', 'cross-border-articles', 'frontier-articles', 'grenzgaenger-artikel', 'articles-frontalier'];
  const vitaSlugs = ['vivere-in-ticino', 'living-in-ticino', 'leben-im-tessin', 'vivre-au-tessin'];
- const bodyHeadingByLocale: Record<string, string[]> = {
- it: ['Contesto', 'Dettagli operativi', 'Punti chiave'],
- en: ['Context', 'Operational details', 'Key points'],
- de: ['Kontext', 'Operative Details', 'Wichtige Punkte'],
- fr: ['Contexte', 'Details pratiques', 'Points cles'],
- };
  const isBlogDetailPage = blogSlugs.includes(firstSeg) && urlSegs.length > (localePrefixes.includes(urlSegs[0] ?? '') ? 2 : 1);
  const localeKey = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const articleSlug = isBlogDetailPage ? (urlSegs[urlSegs.length - 1] ?? '') : '';
@@ -4375,9 +4382,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const bodyWordCount = blogBodySections.map((s) => s.html).join(' ').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
  // Pair each rendered body with its heading by stable key (not post-filter array
  // index) — an empty body2 must not shift body3's html onto body2's heading.
- const bodyKeyHeadingIndex: Record<string, number> = { body1: 0, body2: 1, body3: 2 };
  const blogBodyDerivedSections = blogBodySections.map(({ key, html }) => ({
- heading: bodyHeadingByLocale[localeKey][bodyKeyHeadingIndex[key] ?? 2] ?? bodyHeadingByLocale[localeKey][2],
+ heading: articleBodySectionLabel(localeKey, parseInt(key.replace(/^body/, ''), 10)),
  html,
  }));
  const blogFallbackDerivedSections = blogFallbackSections.map((section) => ({
@@ -4389,9 +4395,22 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  : (bodyWordCount < 360
  ? [...blogBodyDerivedSections, ...blogFallbackDerivedSections]
  : blogBodyDerivedSections);
- const blogArticleHtml = blogSectionData
- .map((section) => `<section class="s-Zua2Uq"><h2 class="s-pIiivc">${esc(section.heading)}</h2>${section.html}</section>`)
- .join('');
+ // Duplicate generic headings collapse to one visible <h2>; repeats keep
+ // content + aria-label (#3521).
+ const blogArticleHtml = renderArticleDerivedSectionsHtml(blogSectionData, { sectionClass: 's-Zua2Uq', headingClass: 's-pIiivc' });
+
+ // EEAT (#3515): outbound citations to primary sources on the YMYL
+ // tax/salary page classes flagged by the audit — blog articles, glossary
+ // term pages and /tasse-e-pensione/ pages. Appended below the content
+ // (mobile-first) and rendered from the single shared source registry so
+ // the verified-200 URL list can't drift between templates.
+ const isGlossaryDetailPage = /^\/(?:(?:en|de|fr)\/)?glossario-frontaliere\/[^/]+/.test(canonicalPath);
+ const editorialSourcesHtml = (isGlossaryDetailPage || fiscoSlugs.includes(firstSeg))
+ ? renderAuthoritativeSourcesHtml(localeKey, undefined, { section: 's-Zua2Uq', heading: 's-fd95FC', list: 's-2u1Hmp', item: 's-wP4Jn1' })
+ : '';
+ const blogSourcesHtml = isBlogDetailPage
+ ? renderAuthoritativeSourcesHtml(localeKey, undefined, { section: 's-Zua2Uq', heading: 's-pIiivc', list: 's-2u1Hmp', item: 's-wP4Jn1' })
+ : '';
 
  // Build skeleton-matching HTML for #root to minimize CLS at hydration
  let rootHtml: string;
@@ -4426,16 +4445,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (comparatorSlugs.includes(firstSeg)) {
  rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:9rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-d0FtpK"><div style="${sp};height:12rem"></div><div style="${sp};height:12rem"></div></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (guideSlugs.includes(firstSeg)) {
- rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-1oTdPl">${`<div style="${sp};height:5rem"></div>`.repeat(4)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
+ rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}${editorialSourcesHtml}</article><div class="s-1oTdPl">${`<div style="${sp};height:5rem"></div>`.repeat(4)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (fiscoSlugs.includes(firstSeg)) {
- rootHtml = `<div class="s-wWmcGm"><div class="s-34uchz">${`<div style="${sp};width:6rem;height:2.25rem;border-radius:9999px"></div>`.repeat(5)}</div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:14rem;margin-top:1.5rem"></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
+ rootHtml = `<div class="s-wWmcGm"><div class="s-34uchz">${`<div style="${sp};width:6rem;height:2.25rem;border-radius:9999px"></div>`.repeat(5)}</div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}${editorialSourcesHtml}</article><div style="${sp};height:14rem;margin-top:1.5rem"></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (blogSlugs.includes(firstSeg)) {
  const heroImg = blogHeroImageStatic ? `<img class="s-zYpvpO" src="${blogHeroImageStatic}" alt="${esc(seoData.ogT)}" width="800" height="320" fetchpriority="high">` : `<div style="${sp};height:16rem;margin-bottom:1.5rem"></div>`;
  // Ad placeholders reserve vertical space so React hydration doesn't cause layout shifts (CLS).
  // Heights match AdSenseBanner's placeholderMinHeight values.
  const adPlaceholder = `<div class="s-1zvlaE" aria-hidden="true"></div>`;
  rootHtml = isBlogDetailPage
- ? `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p><div class="s-6z0aHu ft-blog-body">${blogArticleHtml}</div>${adPlaceholder}${relatedHtml}</article>${adPlaceholder}<div class="s-WR7RLD">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`
+ ? `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p><div class="s-6z0aHu ft-blog-body">${blogArticleHtml}${blogSourcesHtml}</div>${adPlaceholder}${relatedHtml}</article>${adPlaceholder}<div class="s-WR7RLD">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`
  : (() => {
  // FRO-330: SSG article cards — render first 20 articles with real titles for crawlers
  const blogListSlug = firstSeg;

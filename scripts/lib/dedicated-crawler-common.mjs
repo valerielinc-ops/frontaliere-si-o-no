@@ -3537,6 +3537,30 @@ export function healTruncatedStLocalities(jobs) {
  * Only fills fields that are missing or empty — never overwrites existing data.
  * Also sets employmentType to 'FULL_TIME' when absent.
  */
+/**
+ * True when the job's city is empty (no signal — HQ is the best guess) or
+ * names the HQ's own city (#3513). Local twin of `localityMatchesHq` in
+ * build-plugins/shared/companyHqAddresses.ts (this module imports only from
+ * scripts/lib per its contract). Case/diacritic-insensitive, tolerates
+ * decorated localities ("Bellinzona (TI)", "Bellinzona, Ticino").
+ */
+export function sameLocalityAsHq(city, hqLocality) {
+  const norm = (v) => String(v || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z ]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const cityNorm = norm(city);
+  if (!cityNorm) return true;
+  const hqNorm = norm(hqLocality);
+  if (!hqNorm) return false;
+  return cityNorm === hqNorm
+    || cityNorm.startsWith(`${hqNorm} `)
+    || cityNorm.includes(` ${hqNorm}`);
+}
+
 export function applyCompanyDefaults(job, companySlug) {
   const slug = companySlug || job?.companyKey || '';
   const defaults = COMPANY_DEFAULTS[slug];
@@ -3550,7 +3574,12 @@ export function applyCompanyDefaults(job, companySlug) {
     const cityCanton = cityForCanton ? inferAnyCanton(cityForCanton) : '';
     const sameCanton = !cityCanton || cityCanton === defaults.addressRegion;
 
-    if (sameCanton) {
+    // #3513: street+CAP are CITY-anchored — same canton is not enough. An
+    // EOC job in Lugano (canton TI, same as the Bellinzona HQ) must not be
+    // stamped with 'Viale Officina 3'/'6500': the emitted PostalAddress
+    // would pair a Bellinzona street+CAP with the Lugano locality. Stamp HQ
+    // street/CAP only when the job has no own city or sits in the HQ city.
+    if (sameCanton && sameLocalityAsHq(cityForCanton, defaults.addressLocality)) {
       if (!job.streetAddress)  job.streetAddress = defaults.streetAddress;
       if (!job.postalCode)     job.postalCode    = defaults.postalCode;
     }
@@ -3647,18 +3676,26 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     const cityCanton = (job.canton && /^[A-Z]{2}$/i.test(job.canton))
       ? job.canton.toUpperCase()
       : inferAnyCanton(city);
-    if (!cityCanton || cityCanton === hq.addressRegion) continue;
+    const crossCanton = !!cityCanton && cityCanton !== hq.addressRegion;
+    // #3513: heal also SAME-canton contamination — records stamped with the
+    // HQ street/CAP while the job sits in a different city of the same
+    // canton (e.g. EOC Lugano jobs carrying 'Viale Officina 3'/'6500'
+    // Bellinzona). Strip the HQ pair so the PLZ enrichment below and the
+    // build-time city fallback re-derive values coherent with the job's
+    // own locality.
+    const crossLocality = !sameLocalityAsHq(city, hq.addressLocality);
+    if (!crossCanton && !crossLocality) continue;
     let touched = false;
     if (job.postalCode === hq.postalCode) { job.postalCode = ''; touched = true; }
     if (job.streetAddress === hq.streetAddress) { job.streetAddress = ''; touched = true; }
-    if (String(job.addressRegion || '').toUpperCase() === String(hq.addressRegion).toUpperCase()) {
+    if (crossCanton && String(job.addressRegion || '').toUpperCase() === String(hq.addressRegion).toUpperCase()) {
       job.addressRegion = cityCanton;
       touched = true;
     }
     if (touched) crossCantonHealed++;
   }
   if (crossCantonHealed > 0) {
-    console.log(`  🧭 Cross-canton heal: stripped HQ address from ${crossCantonHealed} out-of-canton jobs (CAP/street re-derived from city).`);
+    console.log(`  🧭 Cross-canton/locality heal: stripped HQ address from ${crossCantonHealed} jobs outside the HQ city (CAP/street re-derived from city).`);
   }
 
   // ── PostalCode enrichment from swiss-postal-codes.json ──
