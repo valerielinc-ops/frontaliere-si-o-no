@@ -1,18 +1,19 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-07-03T22:32:50.786Z",
+  "generatedAt": "2026-07-04T11:49:21.556Z",
   "total": 16,
-  "newCount": 3,
-  "updatedCount": 13,
+  "newCount": 0,
+  "updatedCount": 16,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5363,
-  "avgDurationMs": 5363,
+  "durationMs": 5689,
+  "avgDurationMs": 5689,
   "durationHistory": [
-    5363
+    5689
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "EVENT COORDINATOR",
       "slug": "event-coordinator-lwp-ledermann-wieting-partners-lugano",
@@ -35,11 +36,13 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 79,
+      "id": "lwphr-8a81d1b72888",
+      "firstSeenAt": "2026-07-03T22:32:50.784Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -65,11 +68,13 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 79,
+      "id": "lwphr-18974787daa7",
+      "firstSeenAt": "2026-07-03T22:32:50.784Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -95,16 +100,16 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 79,
+      "id": "lwphr-64c97595da41",
+      "firstSeenAt": "2026-07-03T22:32:50.784Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "​RELATIONSHIP MANAGERS O PRIVATE BANKERS",
       "slug": "relationship-managers-o-private-bankers-lwp-ledermann-wieting-partners-ticino",
