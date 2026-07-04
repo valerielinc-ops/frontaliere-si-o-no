@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-07-04T12:19:08.626Z",
-  "total": 21,
-  "newCount": 21,
+  "generatedAt": "2026-07-04T23:08:45.132Z",
+  "total": 20,
+  "newCount": 20,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 139207,
-  "avgDurationMs": 139207,
+  "durationMs": 143465,
+  "avgDurationMs": 143465,
   "durationHistory": [
-    139207
+    143465
   ],
   "newJobs": [
     {
@@ -24,7 +24,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "postedDate": "2026-07-01",
       "url": "https://www.supsi.ch/bando26_5032",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -40,19 +40,19 @@
       "sourceLang": "it",
       "salaryMin": 51500,
       "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -124,19 +124,19 @@
       "sourceLang": "it",
       "salaryMin": 51500,
       "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -166,19 +166,19 @@
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -266,48 +266,6 @@
       }
     },
     {
-      "id": "company-l4u553",
-      "slug": "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano-grado-",
-      "company": "SUPSI / DTI",
-      "title": "Scuola universitaria professionale della Svizzera italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "url": "https://www.supsi.ch/bando26_5031",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-06-15T15:58:36.017Z",
-      "firstSeenAt": "2026-06-15T15:58:36.017Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "id": "company-l4s84r",
       "slug": "professore-professoressa-associato-a-in-politiche-sociali-e-care-supsi-dti-manno",
       "company": "SUPSI / DTI",
@@ -360,7 +318,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "postedDate": "2026-06-11",
       "url": "https://www.supsi.ch/bando26_5029",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -376,19 +334,19 @@
       "sourceLang": "it",
       "salaryMin": 51500,
       "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -418,19 +376,19 @@
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -460,19 +418,19 @@
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -502,19 +460,19 @@
       "sourceLang": "it",
       "salaryMin": 51500,
       "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6850",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -544,19 +502,19 @@
       "sourceLang": "it",
       "salaryMin": 51500,
       "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6850",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -586,19 +544,19 @@
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -628,19 +586,19 @@
       "sourceLang": "it",
       "salaryMin": 51500,
       "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -670,19 +628,19 @@
       "sourceLang": "it",
       "salaryMin": 51500,
       "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -712,19 +670,19 @@
       "sourceLang": "it",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6500",
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -838,19 +796,19 @@
       "sourceLang": "it",
       "salaryMin": 51500,
       "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6850",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -880,19 +838,19 @@
       "sourceLang": "it",
       "salaryMin": 70500,
       "salaryMax": 98500,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 22
       }
     }
   ],
