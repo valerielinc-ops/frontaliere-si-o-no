@@ -44,6 +44,7 @@ import {
   normalize,
   normalizeKey,
 mergeLocaleTextMap,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, buildJob, stripHtml } from './lib/ems-chemie-job-parser.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -163,7 +164,7 @@ function mergeJobs(discoveredJobs) {
       return job;
     }
     updated += 1;
-    return {
+    const merged = {
       ...prev,
       ...job,
       postedDate: job.postedDate || prev.postedDate,
@@ -176,6 +177,8 @@ function mergeJobs(discoveredJobs) {
       sourceLang: prev.sourceLang || job.sourceLang,
       needsRetranslation: prev.needsRetranslation ?? job.needsRetranslation,
     };
+    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
+    return merged;
   });
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-07-03T12:47:42.633Z",
+  "assembledAt": "2026-07-04T00:11:54.725Z",
   "jobs": [
     {
       "id": "company-l4s84u",
@@ -169,54 +169,8 @@
           "Good organizational and problem-solving skills.",
           "Good knowledge of spoken and written English."
         ],
-        "de": [
-          "Dottorato di ricerca in Informatica, Machine Learning, Linguistica Computazionale o in un settore affine, con un curriculum di pubblicazioni nel campo del NLP e del Deep Learning.",
-          "Ottima conoscenza di LLM, Transformers, e delle tecniche di fine-tuning (ad es. LoRA, PEFT) e dell'ottimizzazione dei modelli linguistici pre-addestrati.",
-          "Ottime competenze di programmazione in Python ed esperienza con moderni strumenti di ML e framework di Deep Learning (ad es. PyTorch, TensorFlow, Pandas e Numpy).",
-          "Familiarità con la progettazione di agenti AI.",
-          "Familiarità con le principali attività di NLP quali l'estrazione di informazioni, la sintesi di testi, la risposta a domande, la classificazione di testi, e i sistemi di dialogo.",
-          "Capacità di condurre ricerche in modo autonomo e di collaborare efficacemente all'interno di un gruppo.",
-          "Buone capacità relazionali e capacità di lavorare sia in modo autonomo che in gruppo, in un ambiente orientato agli obiettivi.",
-          "Buone capacità organizzative e di risoluzione dei problemi.",
-          "Buona conoscenza dell'inglese parlato e scritto.",
-          "Vasta esperienza nel campo del Deep Learning, in particolare nel contesto di LLMs.",
-          "Vasta esperienza nel campo del Reinforcement Learning (RL), in particolare nel contesto di LLMs.",
-          "Esperienza nella progettazione di tecniche di generazione vincolata e strategie di allineamento LLMs.",
-          "Esperienza nella rappresentazione della conoscenza, compresa la creazione e l'utilizzo di knowledge bases e knowledge graphs.",
-          "Conoscenza dei temi relativi a pregiudizi, equità e sicurezza nei sistemi AI.",
-          "Interesse per i sistemi modulari o multi-agente, la rappresentazione semantica, e i metodi efficienti di addestramento dei modelli.",
-          "Familiarità con la Retrieval-Augmented Generation (RAG) e la multimodalità.",
-          "Familiarità con applicazioni NLP specifiche di settore, come l'elaborazione di testi finanziari o legali.",
-          "Sviluppo di agenti di IA.",
-          "Buona conoscenza dell'italiano parlato e scritto.",
-          "Esperienza lavorativa o di ricerca in ambito finanziario.",
-          "Esperienza con cluster di calcolo ad alte prestazioni (HPC).",
-          "Conoscenza di una seconda lingua nazionale."
-        ],
-        "fr": [
-          "Dottorato di ricerca in Informatica, Machine Learning, Linguistica Computazionale o in un settore affine, con un curriculum di pubblicazioni nel campo del NLP e del Deep Learning.",
-          "Ottima conoscenza di LLM, Transformers, e delle tecniche di fine-tuning (ad es. LoRA, PEFT) e dell'ottimizzazione dei modelli linguistici pre-addestrati.",
-          "Ottime competenze di programmazione in Python ed esperienza con moderni strumenti di ML e framework di Deep Learning (ad es. PyTorch, TensorFlow, Pandas e Numpy).",
-          "Familiarità con la progettazione di agenti AI.",
-          "Familiarità con le principali attività di NLP quali l'estrazione di informazioni, la sintesi di testi, la risposta a domande, la classificazione di testi, e i sistemi di dialogo.",
-          "Capacità di condurre ricerche in modo autonomo e di collaborare efficacemente all'interno di un gruppo.",
-          "Buone capacità relazionali e capacità di lavorare sia in modo autonomo che in gruppo, in un ambiente orientato agli obiettivi.",
-          "Buone capacità organizzative e di risoluzione dei problemi.",
-          "Buona conoscenza dell'inglese parlato e scritto.",
-          "Vasta esperienza nel campo del Deep Learning, in particolare nel contesto di LLMs.",
-          "Vasta esperienza nel campo del Reinforcement Learning (RL), in particolare nel contesto di LLMs.",
-          "Esperienza nella progettazione di tecniche di generazione vincolata e strategie di allineamento LLMs.",
-          "Esperienza nella rappresentazione della conoscenza, compresa la creazione e l'utilizzo di knowledge bases e knowledge graphs.",
-          "Conoscenza dei temi relativi a pregiudizi, equità e sicurezza nei sistemi AI.",
-          "Interesse per i sistemi modulari o multi-agente, la rappresentazione semantica, e i metodi efficienti di addestramento dei modelli.",
-          "Familiarità con la Retrieval-Augmented Generation (RAG) e la multimodalità.",
-          "Familiarità con applicazioni NLP specifiche di settore, come l'elaborazione di testi finanziari o legali.",
-          "Sviluppo di agenti di IA.",
-          "Buona conoscenza dell'italiano parlato e scritto.",
-          "Esperienza lavorativa o di ricerca in ambito finanziario.",
-          "Esperienza con cluster di calcolo ad alte prestazioni (HPC).",
-          "Conoscenza di una seconda lingua nazionale."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -237,7 +191,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u555",
@@ -293,16 +248,8 @@
           "Esperienza nello sviluppo di software e contributi open source."
         ],
         "en": [],
-        "de": [
-          "Competenza dimostrata nel campo dei sistemi esoscheletrici (teoria del controllo).",
-          "Navigazione e machine vision per sistemi robotici.",
-          "Esperienza nello sviluppo di software e contributi open source."
-        ],
-        "fr": [
-          "Competenza dimostrata nel campo dei sistemi esoscheletrici (teoria del controllo).",
-          "Navigazione e machine vision per sistemi robotici.",
-          "Esperienza nello sviluppo di software e contributi open source."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -323,7 +270,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u556",
@@ -384,30 +332,9 @@
           "Ottima conoscenza delle lingue italiana e inglese (lingue di insegnamento).",
           "L’esperienza professionale maturata al di fuori del contesto accademico costituisce titolo preferenziale."
         ],
-        "en": [
-          "Laurea Magistrale in Matematica o Fisica.",
-          "Comprovate esperienza e capacità di insegnamento a livello liceale e/o universitario.",
-          "Competenze nell’utilizzo di strumenti didattici digitali, preferenzialmente moodle e stack questions.",
-          "Competenze relazionali e di gestione di gruppi di lavoro.",
-          "Ottima conoscenza delle lingue italiana e inglese (lingue di insegnamento).",
-          "L’esperienza professionale maturata al di fuori del contesto accademico costituisce titolo preferenziale."
-        ],
-        "de": [
-          "Laurea Magistrale in Matematica o Fisica.",
-          "Comprovate esperienza e capacità di insegnamento a livello liceale e/o universitario.",
-          "Competenze nell’utilizzo di strumenti didattici digitali, preferenzialmente moodle e stack questions.",
-          "Competenze relazionali e di gestione di gruppi di lavoro.",
-          "Ottima conoscenza delle lingue italiana e inglese (lingue di insegnamento).",
-          "L’esperienza professionale maturata al di fuori del contesto accademico costituisce titolo preferenziale."
-        ],
-        "fr": [
-          "Laurea Magistrale in Matematica o Fisica.",
-          "Comprovate esperienza e capacità di insegnamento a livello liceale e/o universitario.",
-          "Competenze nell’utilizzo di strumenti didattici digitali, preferenzialmente moodle e stack questions.",
-          "Competenze relazionali e di gestione di gruppi di lavoro.",
-          "Ottima conoscenza delle lingue italiana e inglese (lingue di insegnamento).",
-          "L’esperienza professionale maturata al di fuori del contesto accademico costituisce titolo preferenziale."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -446,7 +373,8 @@
         "dozent-in-fur-mathematik-supsi-dti-lugano",
         "mathelehrer-supsi-dti-lugano",
         "enseignant-e-de-mathematiques-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4s845",
@@ -496,7 +424,7 @@
         "it": "Professoressa/Professore associata/o in Governance della sostenibilità e trasformazione sistemica",
         "en": "Associated Professorship in Sustainability Governance and Transformation",
         "de": "Associate Professor / Professor / oder Governance von Nachhaltigkeit und systemischer Transformation",
-        "fr": "Professeur associé/professeur/gouvernance de la durabilité et de la transformation systémique"
+        "fr": "Professoressa/Professore associata/o in Governance della sostenibilità e trasformazione sistemica"
       },
       "descriptionByLocale": {
         "it": "# Professoressa/Professore associata/o in Governance della sostenibilità e trasformazione sistemica\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso, presso il Dipartimento economia aziendale, sanità e sociale (DEASS), una posizione di\nProfessoressa/Professore associata/o in Governance della sostenibilità e trasformazione sistemica\nal\n\n## Centro competenze management e imprenditorialità (CMI)\n. Grado di occupazione: 80%-100%. Entrata in funzione: 1 gennaio 2027 o data da convenire.\n\n## Contesto professionale\nIl Centro di competenza management e imprenditorialità (CMI) svolge attività di ricerca applicata, formazione manageriale e trasferimento di conoscenze nei campi del management, dell’imprenditorialità, dell’innovazione organizzativa, della sostenibilità, della governance e dei processi di trasformazione. Il Centro contribuisce allo sviluppo di organizzazioni e sistemi responsabili, innovativi e sostenibili, generando valore e impatto per il territorio e la società in una prospettiva sia locale che internazionale.\nIl CMI coniuga il rigore della ricerca scientifica con una forte attenzione alle sfide concrete affrontate da organizzazioni pubbliche e private. Le sue attività si concentrano sui processi di trasformazione organizzativa, istituzionale e socio-tecnica, sull’innovazione, sull’imprenditorialità, sulla leadership, sulle transizioni verso la sostenibilità, sui sistemi di governance e sulla gestione della complessità. Il Centro opera in stretta collaborazione con stakeholder e le istituzioni regionali e partecipa attivamente a reti accademiche e professionali nazionali e internazionali.\nIn questo contesto, il/la Professore/a Associato/a contribuirà a rafforzare il profilo della SUPSI negli ambiti della sostenibilità, della governance e dei processi di trasformazione, con particolare attenzione alle dimensioni sociali e istituzionali della sostenibilità.\n\n## Compiti e responsabilità\n\n## Ricerca e servizi\n- Assumere un ruolo di leadership scientifica negli ambiti della governance della sostenibilità e dei processi di trasformazione, con particolare attenzione alle risposte della società alle sfide di ambientali, sociali ed economiche della sostenibilità.\n- Sviluppare e coordinare progetti di ricerca applicata e attività scientifiche a livello regionale, nazionale e internazionale.\n- Pubblicare i risultati della ricerca su riviste scientifiche internazionali di elevata qualità e contribuire all’avanzamento delle conoscenze nel settore.\n- Acquisire finanziamenti competitivi per la ricerca e mandati di prestazione da istituzioni pubbliche, fondazioni, imprese e organizzazioni internazionali.\n- Promuovere collaborazioni con partner accademici, istituzionali e professionali, rafforzando le reti locali e internazionali del CMI.\n- Contribuire alla diffusione e al trasferimento delle conoscenze scientifiche verso organizzazioni, istituzioni e società.\n\n## Formazione\n- Progettare e svolgere attività didattiche a livello bachelor, master, formazione manageriale e formazione continua.\n- Contribuire allo sviluppo di offerte formative innovative negli ambiti della sostenibilità, della governance, delle trasformazioni sociali e del management responsabile.\n- Supervisionare progetti e lavori di tesi a livello bachelor, master e formazione continua.\n- Contribuire attivamente e in modo collegiale allo sviluppo strategico dell’offerta formativa del Dipartimento.\n\n## Conduzione/gestione\n- Dirigere progetti di ricerca dal punto di vista scientifico e gestionale, assicurandone la qualità, l’impatto e la sostenibilità economica.\n- Contribuire allo sviluppo strategico del CMI e promuovere collaborazioni interdisciplinari e transdisciplinari all’interno del DEASS, della SUPSI e con organizzazioni partner esterne.\n- Favorire lo sviluppo di reti e iniziative istituzionali in linea con la missione e le priorità strategiche della SUPSI.\n- Promuovere un ambiente accademico collaborativo, inclusivo e orientato all’innovazione.\n\n## Profilo di competenze e requisiti necessari\n- Dottorato di ricerca in Studi sulla sostenibilità, Scienze politiche, Sociologia, Economia o in un ambito disciplinare affine pertinente alla posizione.\n- Solido profilo scientifico e comprovata esperienza di pubblicazione in ambiti connessi alla sostenibilità, alla trasformazione socio-tecnica, alla governance e all’analisi delle politiche pubbliche.\n- Esperienza di ricerca e insegnamento nell’ambito del pensiero sistemico e della modellizzazione delle dinamiche dei sistemi applicate ai processi di trasformazione socio-tecnica.\n- Comprovata esperienza nell'acquisizione e nel coordinamento di progetti finanziati da fondi esterni e di mandati di prestazione.\n- Significativa esperienza didattica a livello universitario.\n- Comprovata esperienza nella collaborazione con attori della società e nella ricerca transdisciplinare, nonché comprovata capacità di collegare le attività scientifiche alla generazione di impatto sociale e organizzativo.\n- Ottime capacità relazionali, organizzative e di gestione dei progetti.\n- Ottima padronanza dell'inglese e dell'italiano.\n\n## Ulteriori criteri preferenziali\n- Abilitazione all’insegnamento universitario o disponibilità a conseguirla entro quattro anni dalla nomina, in conformità con i regolamenti della SUPSI.\n- Conoscenza del sistema svizzero di formazione superiore e della ricerca.\n- Conoscenza del contesto socioeconomico e istituzionale del Cantone Ticino.\n- Esperienza nell’ambito della formazione manageriale, dell’apprendimento permanente o delle attività di formazione professionale continua.\n- Partecipazione attiva a comunità e reti scientifiche nazionali e internazionali.\n- Conoscenza del tedesco e/o del francese.\n\n## Offriamo\n- Una posizione accademica all'interno di una scuola universitaria professionale dinamica e orientata a livello internazionale.\n- L'opportunità di contribuire allo sviluppo strategico delle attività di ricerca e formazione nel campo della sostenibilità.\n- Un ambiente interdisciplinare stimolante e collaborativo, caratterizzato da un alto grado di autonomia e responsabilità.\n- Forti legami con reti istituzionali, professionali e internazionali.\n- Un ambiente di lavoro attento all'innovazione, all'inclusione, alla qualità delle relazioni umane e all'impatto sociale.\n\n## Requisiti della funzione\nI requisiti per questa funzione sono pubblicati nelle “Direttive interne SUPSI” e nel “Regolamento del personale SUPSI” disponibili alla pagina “Documenti ufficiali”.\nSaranno prese in considerazione unicamente le candidature inoltrate entro il 15.09.2026 tramite il formulario dedicato, corredate da:\n- Lettera di presentazione in lingua inglese, contenente le proprie motivazioni.\n- Curriculum vitae completo.\n- Elenco delle pubblicazioni scientifiche e copia delle 5 pubblicazioni più significative.\n- Diplomi formativi e certificati di lavoro.\n- Onorificenze e premi conseguiti.\n- Almeno due lettere di referenza recenti che comprovino la qualità professionale, scientifica e didattica.\n- Presentazione delle attività svolte nei progetti di ricerca.\n- Presentazione delle attività didattiche svolte a livello universitario con relative valutazioni da parte degli studenti.\n\n## Informazioni per la candidatura\nInformazioni supplementari possono essere richieste a:\nLuca Crivelli\n, Direttore DEASS (telefono segretariato: +41 58 666 64 44).\nNon saranno accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.",
@@ -541,46 +469,8 @@
           "Strong relational, organizational, and project-management skills.",
           "Excellent command of English and Italian."
         ],
-        "de": [
-          "Dottorato di ricerca in Studi sulla sostenibilità, Scienze politiche, Sociologia, Economia o in un ambito disciplinare affine pertinente alla posizione.",
-          "Solido profilo scientifico e comprovata esperienza di pubblicazione in ambiti connessi alla sostenibilità, alla trasformazione socio-tecnica, alla governance e all’analisi delle politiche pubbliche.",
-          "Esperienza di ricerca e insegnamento nell’ambito del pensiero sistemico e della modellizzazione delle dinamiche dei sistemi applicate ai processi di trasformazione socio-tecnica.",
-          "Comprovata esperienza nell'acquisizione e nel coordinamento di progetti finanziati da fondi esterni e di mandati di prestazione.",
-          "Significativa esperienza didattica a livello universitario.",
-          "Comprovata esperienza nella collaborazione con attori della società e nella ricerca transdisciplinare, nonché comprovata capacità di collegare le attività scientifiche alla generazione di impatto sociale e organizzativo.",
-          "Ottime capacità relazionali, organizzative e di gestione dei progetti.",
-          "Ottima padronanza dell'inglese e dell'italiano.",
-          "I requisiti per questa funzione sono pubblicati nelle “Direttive interne SUPSI” e nel “Regolamento del personale SUPSI” disponibili alla pagina “Documenti ufficiali”.",
-          "Saranno prese in considerazione unicamente le candidature inoltrate entro il 15.09.2026 tramite il formulario dedicato, corredate da:",
-          "Lettera di presentazione in lingua inglese, contenente le proprie motivazioni.",
-          "Curriculum vitae completo.",
-          "Elenco delle pubblicazioni scientifiche e copia delle 5 pubblicazioni più significative.",
-          "Diplomi formativi e certificati di lavoro.",
-          "Onorificenze e premi conseguiti.",
-          "Almeno due lettere di referenza recenti che comprovino la qualità professionale, scientifica e didattica.",
-          "Presentazione delle attività svolte nei progetti di ricerca.",
-          "Presentazione delle attività didattiche svolte a livello universitario con relative valutazioni da parte degli studenti."
-        ],
-        "fr": [
-          "Dottorato di ricerca in Studi sulla sostenibilità, Scienze politiche, Sociologia, Economia o in un ambito disciplinare affine pertinente alla posizione.",
-          "Solido profilo scientifico e comprovata esperienza di pubblicazione in ambiti connessi alla sostenibilità, alla trasformazione socio-tecnica, alla governance e all’analisi delle politiche pubbliche.",
-          "Esperienza di ricerca e insegnamento nell’ambito del pensiero sistemico e della modellizzazione delle dinamiche dei sistemi applicate ai processi di trasformazione socio-tecnica.",
-          "Comprovata esperienza nell'acquisizione e nel coordinamento di progetti finanziati da fondi esterni e di mandati di prestazione.",
-          "Significativa esperienza didattica a livello universitario.",
-          "Comprovata esperienza nella collaborazione con attori della società e nella ricerca transdisciplinare, nonché comprovata capacità di collegare le attività scientifiche alla generazione di impatto sociale e organizzativo.",
-          "Ottime capacità relazionali, organizzative e di gestione dei progetti.",
-          "Ottima padronanza dell'inglese e dell'italiano.",
-          "I requisiti per questa funzione sono pubblicati nelle “Direttive interne SUPSI” e nel “Regolamento del personale SUPSI” disponibili alla pagina “Documenti ufficiali”.",
-          "Saranno prese in considerazione unicamente le candidature inoltrate entro il 15.09.2026 tramite il formulario dedicato, corredate da:",
-          "Lettera di presentazione in lingua inglese, contenente le proprie motivazioni.",
-          "Curriculum vitae completo.",
-          "Elenco delle pubblicazioni scientifiche e copia delle 5 pubblicazioni più significative.",
-          "Diplomi formativi e certificati di lavoro.",
-          "Onorificenze e premi conseguiti.",
-          "Almeno due lettere di referenza recenti che comprovino la qualità professionale, scientifica e didattica.",
-          "Presentazione delle attività svolte nei progetti di ricerca.",
-          "Presentazione delle attività didattiche svolte a livello universitario con relative valutazioni da parte degli studenti."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -601,7 +491,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4s84t",
@@ -690,30 +581,8 @@
           "Presentation of activities conducted in research projects.",
           "Presentation of teaching activities conducted at university level with relevant evaluations."
         ],
-        "de": [
-          "Dottorato di ricerca in Ergoterapia, Scienze della riabilitazione, Scienze della salute, salute pubblica o discipline affini.",
-          "Produzione scientifica rilevante e continuativa nell’ambito dell’ergoterapia, della riabilitazione e/o delle condizioni croniche.",
-          "Comprovata esperienza nella progettazione, acquisizione e conduzione di progetti di ricerca applicata e mandati di servizio in contesti universitari o di ricerca.",
-          "Capacità di sviluppare collaborazioni interdisciplinari e interprofessionali con partner clinici, istituzionali e accademici.",
-          "Appartenenza attiva alla comunità scientifica nazionale e internazionale di riferimento.",
-          "Esperienza significativa nell’insegnamento universitario e nella supervisione di studenti e studentesse.",
-          "Capacità di integrare attività di ricerca, formazione e trasferimento della conoscenza nella pratica professionale.",
-          "Attitudine al lavoro in team e alla costruzione di reti collaborative.",
-          "Interesse per lo sviluppo di modelli riabilitativi innovativi centrati sulla persona, sulla partecipazione e sulla qualità di vita nelle condizioni croniche.",
-          "Ottima conoscenza della lingua italiana e del tedesco e/o francese oltre a buona conoscenza della lingua inglese."
-        ],
-        "fr": [
-          "Dottorato di ricerca in Ergoterapia, Scienze della riabilitazione, Scienze della salute, salute pubblica o discipline affini.",
-          "Produzione scientifica rilevante e continuativa nell’ambito dell’ergoterapia, della riabilitazione e/o delle condizioni croniche.",
-          "Comprovata esperienza nella progettazione, acquisizione e conduzione di progetti di ricerca applicata e mandati di servizio in contesti universitari o di ricerca.",
-          "Capacità di sviluppare collaborazioni interdisciplinari e interprofessionali con partner clinici, istituzionali e accademici.",
-          "Appartenenza attiva alla comunità scientifica nazionale e internazionale di riferimento.",
-          "Esperienza significativa nell’insegnamento universitario e nella supervisione di studenti e studentesse.",
-          "Capacità di integrare attività di ricerca, formazione e trasferimento della conoscenza nella pratica professionale.",
-          "Attitudine al lavoro in team e alla costruzione di reti collaborative.",
-          "Interesse per lo sviluppo di modelli riabilitativi innovativi centrati sulla persona, sulla partecipazione e sulla qualità di vita nelle condizioni croniche.",
-          "Ottima conoscenza della lingua italiana e del tedesco e/o francese oltre a buona conoscenza della lingua inglese."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -734,7 +603,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u553",
@@ -837,8 +707,26 @@
           "Good knowledge of spoken and written English, and Italian.",
           "The candidate should be among the top 10 % of Master graduates of their university."
         ],
-        "de": [],
-        "fr": []
+        "de": [
+          "Master in Ingegneria Informatica, in Machine Learning, o formazione equivalente.",
+          "Conoscenza approfondita dei linguaggi di programmazione e di scripting, come Python e Bash.",
+          "Esperienza con i moderni strumenti ML.",
+          "Esperienza comprovata con librerie di Deep Learning (es. PyTorch), Pandas, e NumPy.",
+          "Buone capacità organizzative e di risoluzione dei problemi.",
+          "Buona conoscenza dell'inglese e dell'italiano, sia scritto che parlato.",
+          "Essere tra il 10% dei migliori laureati Master della propria università.",
+          "Vasta esperienza con il Deep Learning, in particolare nel contesto dei LLM."
+        ],
+        "fr": [
+          "Master in Ingegneria Informatica, in Machine Learning, o formazione equivalente.",
+          "Conoscenza approfondita dei linguaggi di programmazione e di scripting, come Python e Bash.",
+          "Esperienza con i moderni strumenti ML.",
+          "Esperienza comprovata con librerie di Deep Learning (es. PyTorch), Pandas, e NumPy.",
+          "Buone capacità organizzative e di risoluzione dei problemi.",
+          "Buona conoscenza dell'inglese e dell'italiano, sia scritto che parlato.",
+          "Essere tra il 10% dei migliori laureati Master della propria università.",
+          "Vasta esperienza con il Deep Learning, in particolare nel contesto dei LLM."
+        ]
       },
       "country": "CH",
       "sourceLang": "it",
@@ -874,7 +762,8 @@
         "scuola-universitaria-professionale-della-svizzera-italiana-supsi-dti-lugano",
         "collaborateur-scientifique-collaborateur-scientifique-en-apprentissage-automatique-et-nlp-pour-le-secteur-financier"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "company-l4s84r",
@@ -952,28 +841,8 @@
           "Knowledge of at least one national Swiss language in addition to Italian and English.",
           "Strong communication, interpersonal and social skills."
         ],
-        "de": [
-          "Dottorato di ricerca (PhD) in sociologia, scienze politiche, scienze sociali o ambiti affini.",
-          "Produzione scientifica rilevante per i temi della posizione.",
-          "Esperienza comprovata nella ricerca qualitativa e partecipativa e in approcci collaborativi, inclusa la partecipazione attiva delle comunità interessate. L’esperienza in metodi quantitativi e/o misti costituisce titolo preferenziale.",
-          "Esperienza comprovata nella ricerca applicata presso università o scuole universitarie professionali, con acquisizione e gestione di progetti.",
-          "Esperienza significativa e riconosciuta nell’insegnamento universitario.",
-          "Aver contribuito, nel proprio percorso professionale, allo sviluppo istituzionale.",
-          "Esperienza dimostrabile nel trasferimento di conoscenze verso partner socio-economici, nonché partecipazione ad associazioni professionali o scientifiche.",
-          "Conoscenza di almeno una lingua nazionale svizzera oltre all’italiano e all’inglese.",
-          "Spiccate competenze comunicative, relazionali e sociali."
-        ],
-        "fr": [
-          "Dottorato di ricerca (PhD) in sociologia, scienze politiche, scienze sociali o ambiti affini.",
-          "Produzione scientifica rilevante per i temi della posizione.",
-          "Esperienza comprovata nella ricerca qualitativa e partecipativa e in approcci collaborativi, inclusa la partecipazione attiva delle comunità interessate. L’esperienza in metodi quantitativi e/o misti costituisce titolo preferenziale.",
-          "Esperienza comprovata nella ricerca applicata presso università o scuole universitarie professionali, con acquisizione e gestione di progetti.",
-          "Esperienza significativa e riconosciuta nell’insegnamento universitario.",
-          "Aver contribuito, nel proprio percorso professionale, allo sviluppo istituzionale.",
-          "Esperienza dimostrabile nel trasferimento di conoscenze verso partner socio-economici, nonché partecipazione ad associazioni professionali o scientifiche.",
-          "Conoscenza di almeno una lingua nazionale svizzera oltre all’italiano e all’inglese.",
-          "Spiccate competenze comunicative, relazionali e sociali."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1069,33 +938,9 @@
           "Attitudine al ragionamento logico, forte senso tecnico e buone capacità pratiche",
           "Spirito di iniziativa, proattività e capacità di lavorare in team"
         ],
-        "en": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in ingegneria elettronica o titolo affine.",
-          "Basi scientifiche in uno dei campi citati sopra.",
-          "Buona conoscenza della lingua inglese.",
-          "Buone capacità di comprensione, spirito metodico, accuratezza e precisione",
-          "Attitudine al ragionamento logico, forte senso tecnico e buone capacità pratiche",
-          "Spirito di iniziativa, proattività e capacità di lavorare in team"
-        ],
-        "de": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in ingegneria elettronica o titolo affine.",
-          "Basi scientifiche in uno dei campi citati sopra.",
-          "Buona conoscenza della lingua inglese.",
-          "Buone capacità di comprensione, spirito metodico, accuratezza e precisione",
-          "Attitudine al ragionamento logico, forte senso tecnico e buone capacità pratiche",
-          "Spirito di iniziativa, proattività e capacità di lavorare in team"
-        ],
-        "fr": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in ingegneria elettronica o titolo affine.",
-          "Basi scientifiche in uno dei campi citati sopra.",
-          "Buona conoscenza della lingua inglese.",
-          "Buone capacità di comprensione, spirito metodico, accuratezza e precisione",
-          "Attitudine al ragionamento logico, forte senso tecnico e buone capacità pratiche",
-          "Spirito di iniziativa, proattività e capacità di lavorare in team"
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1140,7 +985,8 @@
         "assistant-bachelor-en-education-mse-master-en-genie-electrique-supsi-dti-lugano",
         "licence-en-education-master-mse-en-genie-electrique-supsi-dti-lugano",
         "assistant-bachelor-in-education-mse-master-in-electrical-engineering-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54e",
@@ -1205,36 +1051,9 @@
           "della termodinamica e fluidodinamica e della simulazione.",
           "Buona capacità di comunicazione e di presentazione in inglese."
         ],
-        "en": [
-          "La frequenza del corso di Master MSE.",
-          "A dipendenza del settore per cui si invia la propria candidatura, formazione Bachelor in ingegneria: meccanica, dei materiali, aerospaziale, chimica, energetica.",
-          "Interessi di ricerca multidisciplinare e forte background (a dipendenza del settore) nel campo:",
-          "dei materiali ceramici e compositi e della manifattura additiva (stampa 3D);",
-          "dei materiali polimerici e compositi;",
-          "dell’ingegneria meccanica;",
-          "della termodinamica e fluidodinamica e della simulazione.",
-          "Buona capacità di comunicazione e di presentazione in inglese."
-        ],
-        "de": [
-          "La frequenza del corso di Master MSE.",
-          "A dipendenza del settore per cui si invia la propria candidatura, formazione Bachelor in ingegneria: meccanica, dei materiali, aerospaziale, chimica, energetica.",
-          "Interessi di ricerca multidisciplinare e forte background (a dipendenza del settore) nel campo:",
-          "dei materiali ceramici e compositi e della manifattura additiva (stampa 3D);",
-          "dei materiali polimerici e compositi;",
-          "dell’ingegneria meccanica;",
-          "della termodinamica e fluidodinamica e della simulazione.",
-          "Buona capacità di comunicazione e di presentazione in inglese."
-        ],
-        "fr": [
-          "La frequenza del corso di Master MSE.",
-          "A dipendenza del settore per cui si invia la propria candidatura, formazione Bachelor in ingegneria: meccanica, dei materiali, aerospaziale, chimica, energetica.",
-          "Interessi di ricerca multidisciplinare e forte background (a dipendenza del settore) nel campo:",
-          "dei materiali ceramici e compositi e della manifattura additiva (stampa 3D);",
-          "dei materiali polimerici e compositi;",
-          "dell’ingegneria meccanica;",
-          "della termodinamica e fluidodinamica e della simulazione.",
-          "Buona capacità di comunicazione e di presentazione in inglese."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1362,32 +1181,8 @@
           "Initiative, flexibility, and ability to work in multidisciplinary and multicultural environments",
           "Excellent interpersonal and collaborative skills"
         ],
-        "de": [
-          "Dottorato di ricerca (PhD) in microelettronica",
-          "Esperienza comprovata nel design e nella validazione di ASIC digitali e misti (analogico/digitale)",
-          "Solida esperienza con il tool di progettazione Cadence e tools EDA",
-          "Ottima padronanza di C/C++, Python e familiarità con sistemi di controllo versione (ad es. Git)",
-          "Ottima padronanza di tool di simulazione numerica",
-          "Solida preparazione matematica",
-          "Capacità di lavorare in autonomia e di gestire scadenze e consegne di progetto",
-          "Storico di pubblicazioni scientifiche o brevetti nel settore della progettazione di circuiti integrati e in ambiti affini al presente bando",
-          "Comprovata capacità di lavorare in team interdisciplinari e internazionali",
-          "Spirito d’iniziativa, flessibilità e attitudine al lavoro in contesti multidisciplinari e multiculturali",
-          "Ottime capacità relazionali e collaborative"
-        ],
-        "fr": [
-          "Dottorato di ricerca (PhD) in microelettronica",
-          "Esperienza comprovata nel design e nella validazione di ASIC digitali e misti (analogico/digitale)",
-          "Solida esperienza con il tool di progettazione Cadence e tools EDA",
-          "Ottima padronanza di C/C++, Python e familiarità con sistemi di controllo versione (ad es. Git)",
-          "Ottima padronanza di tool di simulazione numerica",
-          "Solida preparazione matematica",
-          "Capacità di lavorare in autonomia e di gestire scadenze e consegne di progetto",
-          "Storico di pubblicazioni scientifiche o brevetti nel settore della progettazione di circuiti integrati e in ambiti affini al presente bando",
-          "Comprovata capacità di lavorare in team interdisciplinari e internazionali",
-          "Spirito d’iniziativa, flessibilità e attitudine al lavoro in contesti multidisciplinari e multiculturali",
-          "Ottime capacità relazionali e collaborative"
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1426,7 +1221,8 @@
         "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano",
         "forscher-phd-forscher-im-bereich-digitale-elektronik-mikroelektronik-und-bioelektronik-supsi-dti-lugano",
         "chercheur-phd-chercheur-dans-le-domaine-de-l-electronique-numerique-de-la-microelectronique-et-de-la-bioelectronique"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4rl5a",
@@ -1493,39 +1289,9 @@
           "Capacità di lavorare in autonomia rispettando le scadenze stabilite.",
           "Ottime conoscenze della lingua italiana. La conoscenza della lingua inglese e di una seconda lingua nazionale costituisce titolo preferenziale."
         ],
-        "de": [
-          "Master in Comunicazione visiva, Disegno industriale, Interaction design (o titolo affine) conseguito da non più di tre anni.",
-          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
-          "Auspicabili conoscenze di strumenti tecnici per il web design e di linguaggi di programmazione software.",
-          "Auspicabili conoscenze di linguaggi di programmazione hardware (arduino) e di tecniche e tecnologie di prototipazione rapida (stampa 3D, laser cutter, CNC).",
-          "Attitudini creative e spirito di iniziativa.",
-          "Precisione e cura dei dettagli.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione interdisciplinare.",
-          "Capacità di lavorare in autonomia rispettando le scadenze stabilite.",
-          "Ottime conoscenze della lingua italiana. La conoscenza della lingua inglese e di una seconda lingua nazionale costituisce titolo preferenziale."
-        ],
-        "fr": [
-          "Master in Comunicazione visiva, Disegno industriale, Interaction design (o titolo affine) conseguito da non più di tre anni.",
-          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
-          "Auspicabili conoscenze di strumenti tecnici per il web design e di linguaggi di programmazione software.",
-          "Auspicabili conoscenze di linguaggi di programmazione hardware (arduino) e di tecniche e tecnologie di prototipazione rapida (stampa 3D, laser cutter, CNC).",
-          "Attitudini creative e spirito di iniziativa.",
-          "Precisione e cura dei dettagli.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione interdisciplinare.",
-          "Capacità di lavorare in autonomia rispettando le scadenze stabilite.",
-          "Ottime conoscenze della lingua italiana. La conoscenza della lingua inglese e di una seconda lingua nazionale costituisce titolo preferenziale."
-        ],
-        "en": [
-          "Master in Comunicazione visiva, Disegno industriale, Interaction design (o titolo affine) conseguito da non più di tre anni.",
-          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
-          "Auspicabili conoscenze di strumenti tecnici per il web design e di linguaggi di programmazione software.",
-          "Auspicabili conoscenze di linguaggi di programmazione hardware (arduino) e di tecniche e tecnologie di prototipazione rapida (stampa 3D, laser cutter, CNC).",
-          "Attitudini creative e spirito di iniziativa.",
-          "Precisione e cura dei dettagli.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione interdisciplinare.",
-          "Capacità di lavorare in autonomia rispettando le scadenze stabilite.",
-          "Ottime conoscenze della lingua italiana. La conoscenza della lingua inglese e di una seconda lingua nazionale costituisce titolo preferenziale."
-        ]
+        "de": [],
+        "fr": [],
+        "en": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1645,30 +1411,8 @@
           "Flexibility and availability in pursuit of project objectives.",
           "Good command of the English language. Knowledge of Italian is desirable and/or willingness to learn the language in order to integrate into an Italian-speaking work environment. Proficiency in a second national language will be considered an advantage."
         ],
-        "de": [
-          "Bachelor in Comunicazione visiva, Architettura d’interni, Architettura, design del prodotto e media interaction design, design engineering o design e tecnologia conseguito da non più di tre anni.",
-          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
-          "Ottima attidudine all’apprendimento di tecnologie per la prototipazione.",
-          "Auspicabili conoscenze in comunicazione digitale, di linguaggi e tecniche di progettazione web e/o programmazione informatica come pure di tecniche e tecnologie di modellazione 3D e prototipazione rapida (stampa 3D, taglio laser).",
-          "Attitudini creative, spirito di iniziativa e buone competenze di comunicazione.",
-          "Precisione e cura dei dettagli.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.",
-          "Capacità di lavorare in autonomia su percorsi progettuali con scadenze stabilite.",
-          "Disponibilità e flessibilità per il raggiungimento degli obiettivi.",
-          "Buone conoscenze della lingua inglese. Conoscenza della lingua italiana auspicabile e/o volontà ad imparare la lingua per l’inserimento in un contesto lavorativo italofono. La conoscenza di una seconda lingua nazionale costituisce titolo preferenziale."
-        ],
-        "fr": [
-          "Bachelor in Comunicazione visiva, Architettura d’interni, Architettura, design del prodotto e media interaction design, design engineering o design e tecnologia conseguito da non più di tre anni.",
-          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
-          "Ottima attidudine all’apprendimento di tecnologie per la prototipazione.",
-          "Auspicabili conoscenze in comunicazione digitale, di linguaggi e tecniche di progettazione web e/o programmazione informatica come pure di tecniche e tecnologie di modellazione 3D e prototipazione rapida (stampa 3D, taglio laser).",
-          "Attitudini creative, spirito di iniziativa e buone competenze di comunicazione.",
-          "Precisione e cura dei dettagli.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.",
-          "Capacità di lavorare in autonomia su percorsi progettuali con scadenze stabilite.",
-          "Disponibilità e flessibilità per il raggiungimento degli obiettivi.",
-          "Buone conoscenze della lingua inglese. Conoscenza della lingua italiana auspicabile e/o volontà ad imparare la lingua per l’inserimento in un contesto lavorativo italofono. La conoscenza di una seconda lingua nazionale costituisce titolo preferenziale."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1763,30 +1507,9 @@
           "Sostenibilità industriale.",
           "Robotica industriale, collaborativa e di servizio; Controllo di piattaforme mobili per applicazioni di ripristino superficiale mediante tecnologie laser pulsato."
         ],
-        "de": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in ingegneria o data science. Un’ammissione “su dossier” è possibile e da concordare.",
-          "Buone capacità di comunicazione e di presentazione in inglese.",
-          "Trasformazione digitale dei sistemi di produzione.",
-          "Sostenibilità industriale.",
-          "Robotica industriale, collaborativa e di servizio; Controllo di piattaforme mobili per applicazioni di ripristino superficiale mediante tecnologie laser pulsato."
-        ],
-        "fr": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in ingegneria o data science. Un’ammissione “su dossier” è possibile e da concordare.",
-          "Buone capacità di comunicazione e di presentazione in inglese.",
-          "Trasformazione digitale dei sistemi di produzione.",
-          "Sostenibilità industriale.",
-          "Robotica industriale, collaborativa e di servizio; Controllo di piattaforme mobili per applicazioni di ripristino superficiale mediante tecnologie laser pulsato."
-        ],
-        "en": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in ingegneria o data science. Un’ammissione “su dossier” è possibile e da concordare.",
-          "Buone capacità di comunicazione e di presentazione in inglese.",
-          "Trasformazione digitale dei sistemi di produzione.",
-          "Sostenibilità industriale.",
-          "Robotica industriale, collaborativa e di servizio; Controllo di piattaforme mobili per applicazioni di ripristino superficiale mediante tecnologie laser pulsato."
-        ]
+        "de": [],
+        "fr": [],
+        "en": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1902,30 +1625,9 @@
           "Buone capacità di comunicazione interpersonale.",
           "È richiesta la conoscenza operativa della lingua inglese, parlata e scritta."
         ],
-        "en": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in informatica o ingegneria.",
-          "Interessi di ricerca multidisciplinare nei settori del profilo di formazione in Data Science.",
-          "Solide conoscenze delle metodologie e dei linguaggi di programmazione come C++, Java, Python.",
-          "Buone capacità di comunicazione interpersonale.",
-          "È richiesta la conoscenza operativa della lingua inglese, parlata e scritta."
-        ],
-        "de": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in informatica o ingegneria.",
-          "Interessi di ricerca multidisciplinare nei settori del profilo di formazione in Data Science.",
-          "Solide conoscenze delle metodologie e dei linguaggi di programmazione come C++, Java, Python.",
-          "Buone capacità di comunicazione interpersonale.",
-          "È richiesta la conoscenza operativa della lingua inglese, parlata e scritta."
-        ],
-        "fr": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in informatica o ingegneria.",
-          "Interessi di ricerca multidisciplinare nei settori del profilo di formazione in Data Science.",
-          "Solide conoscenze delle metodologie e dei linguaggi di programmazione come C++, Java, Python.",
-          "Buone capacità di comunicazione interpersonale.",
-          "È richiesta la conoscenza operativa della lingua inglese, parlata e scritta."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1985,7 +1687,8 @@
           "assistants-bachelor-pour-mse-en-data-science-supsi-dti-lugano",
           "assistant-bachelor-en-data-science-master-mse-supsi-dti-lugano-l4u54a"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u549",
@@ -2050,36 +1753,9 @@
           "Sviluppo di applicazioni in ambito realtà virtuale, realtà aumentata e realtà mista.",
           "Sviluppo di applicazioni in ambito audio-visual processing."
         ],
-        "en": [
-          "La frequenza del Master MSE nei profili di Computer Science o Data Science.",
-          "Formazione Bachelor in informatica o scienza dei dati.",
-          "Interessi di ricerca multidisciplinare in ambito ICT.",
-          "Buona capacità di comunicazione e di presentazione in inglese.",
-          "Sviluppo di applicazioni in ambito ingegneria del software in particolare; cloud-native application e sicurezza informatica.",
-          "Sviluppo di applicazioni in ambito data analysis e data processing.",
-          "Sviluppo di applicazioni in ambito realtà virtuale, realtà aumentata e realtà mista.",
-          "Sviluppo di applicazioni in ambito audio-visual processing."
-        ],
-        "de": [
-          "La frequenza del Master MSE nei profili di Computer Science o Data Science.",
-          "Formazione Bachelor in informatica o scienza dei dati.",
-          "Interessi di ricerca multidisciplinare in ambito ICT.",
-          "Buona capacità di comunicazione e di presentazione in inglese.",
-          "Sviluppo di applicazioni in ambito ingegneria del software in particolare; cloud-native application e sicurezza informatica.",
-          "Sviluppo di applicazioni in ambito data analysis e data processing.",
-          "Sviluppo di applicazioni in ambito realtà virtuale, realtà aumentata e realtà mista.",
-          "Sviluppo di applicazioni in ambito audio-visual processing."
-        ],
-        "fr": [
-          "La frequenza del Master MSE nei profili di Computer Science o Data Science.",
-          "Formazione Bachelor in informatica o scienza dei dati.",
-          "Interessi di ricerca multidisciplinare in ambito ICT.",
-          "Buona capacità di comunicazione e di presentazione in inglese.",
-          "Sviluppo di applicazioni in ambito ingegneria del software in particolare; cloud-native application e sicurezza informatica.",
-          "Sviluppo di applicazioni in ambito data analysis e data processing.",
-          "Sviluppo di applicazioni in ambito realtà virtuale, realtà aumentata e realtà mista.",
-          "Sviluppo di applicazioni in ambito audio-visual processing."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -2195,36 +1871,9 @@
           "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
           "Flessibilità rivolta al buon funzionamento del Servizio."
         ],
-        "en": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ],
-        "de": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ],
-        "fr": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -2349,26 +1998,8 @@
           "High level of motivation, intellectual curiosity, and willingness to engage in collaborative and interdisciplinary work.",
           "Flexibility, enthusiasm, and a proactive attitude to contribute actively to the project and to the scientific life of the CARES."
         ],
-        "de": [
-          "Dottorato di ricerca in scienze sociali.",
-          "Ottima padronanza del francese o del tedesco (parlato e scritto), dell’italiano (parlato e scritto) e dell’inglese (parlato e scritto); conoscenza di una terza lingua nazionale, rispettivamente francese o tedesco (parlato), costituisce titolo preferenziale.",
-          "Comprovata esperienza nella o forte interesse per la ricerca qualitativa ed etnografica, comprese la raccolta e l’analisi dei dati.",
-          "Esperienza comprovata in tematiche relative alle pratiche sanitarie e alla cura, alle conoscenze specialistiche e profane, all’antropologia/sociologia della salute e della malattia e/o agli studi della scienza e la tecnologia.",
-          "Comprovata esperienza nella redazione di testi scientifici e nella comunicazione orale.",
-          "Ottime capacità comunicative, capacità di risolvere i problemi e attitudine alla collaborazione.",
-          "Elevato livello di motivazione, curiosità intellettuale e disponibilità a impegnarsi in un lavoro collaborativo e interdisciplinare.",
-          "Flessibilità, entusiasmo e un atteggiamento proattivo per contribuire attivamente al progetto e alla vita scientifica del CARES."
-        ],
-        "fr": [
-          "Dottorato di ricerca in scienze sociali.",
-          "Ottima padronanza del francese o del tedesco (parlato e scritto), dell’italiano (parlato e scritto) e dell’inglese (parlato e scritto); conoscenza di una terza lingua nazionale, rispettivamente francese o tedesco (parlato), costituisce titolo preferenziale.",
-          "Comprovata esperienza nella o forte interesse per la ricerca qualitativa ed etnografica, comprese la raccolta e l’analisi dei dati.",
-          "Esperienza comprovata in tematiche relative alle pratiche sanitarie e alla cura, alle conoscenze specialistiche e profane, all’antropologia/sociologia della salute e della malattia e/o agli studi della scienza e la tecnologia.",
-          "Comprovata esperienza nella redazione di testi scientifici e nella comunicazione orale.",
-          "Ottime capacità comunicative, capacità di risolvere i problemi e attitudine alla collaborazione.",
-          "Elevato livello di motivazione, curiosità intellettuale e disponibilità a impegnarsi in un lavoro collaborativo e interdisciplinare.",
-          "Flessibilità, entusiasmo e un atteggiamento proattivo per contribuire attivamente al progetto e alla vita scientifica del CARES."
-        ]
+        "de": [],
+        "fr": []
       },
       "slugByLocale": {
         "it": "ricercatrice-ricercatore-con-titolo-di-dottorato-postdoc-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-della-scienza-e-l4s841",
@@ -2415,7 +2046,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4s840",
@@ -2481,24 +2113,8 @@
           "High level of motivation, intellectual curiosity, and willingness to engage in collaborative and interdisciplinary work.",
           "Flexibility, enthusiasm, and a proactive attitude to contribute actively to the project and to the scientific life of the CARES."
         ],
-        "de": [
-          "Laurea magistrale in scienze sociali.",
-          "Ottima padronanza dell’italiano (parlato e scritto), del francese (parlato e scritto) e dell’inglese (parlato e scritto); la conoscenza del tedesco costituisce titolo preferenziale.",
-          "Comprovata esperienza nella o forte interesse per la ricerca qualitativa ed etnografica, incluso la raccolta e l’analisi di dati qualitativi.",
-          "Esperienza comprovata in tematiche relative alle pratiche sanitarie e alla cura, alle conoscenze specialistiche e profane, all’antropologia/sociologia della salute e della malattia e/o agli studi della scienza e la tecnologia.",
-          "Ottime capacità comunicative, capacità di risolvere i problemi e attitudine alla collaborazione.",
-          "Elevato livello di motivazione, curiosità intellettuale e disponibilità a impegnarsi in un lavoro collaborativo e interdisciplinare.",
-          "Flessibilità, entusiasmo e un atteggiamento proattivo al fine di contribuire attivamente al progetto e alla vita scientifica del CARES."
-        ],
-        "fr": [
-          "Laurea magistrale in scienze sociali.",
-          "Ottima padronanza dell’italiano (parlato e scritto), del francese (parlato e scritto) e dell’inglese (parlato e scritto); la conoscenza del tedesco costituisce titolo preferenziale.",
-          "Comprovata esperienza nella o forte interesse per la ricerca qualitativa ed etnografica, incluso la raccolta e l’analisi di dati qualitativi.",
-          "Esperienza comprovata in tematiche relative alle pratiche sanitarie e alla cura, alle conoscenze specialistiche e profane, all’antropologia/sociologia della salute e della malattia e/o agli studi della scienza e la tecnologia.",
-          "Ottime capacità comunicative, capacità di risolvere i problemi e attitudine alla collaborazione.",
-          "Elevato livello di motivazione, curiosità intellettuale e disponibilità a impegnarsi in un lavoro collaborativo e interdisciplinare.",
-          "Flessibilità, entusiasmo e un atteggiamento proattivo al fine di contribuire attivamente al progetto e alla vita scientifica del CARES."
-        ]
+        "de": [],
+        "fr": []
       },
       "slugByLocale": {
         "it": "dottorato-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-sulla-scienza-e-la-tecnologia-supsi-dti-manno",
@@ -2533,7 +2149,8 @@
       },
       "previousSlugs": [
         "doctorat-en-anthropologie-sociologie-de-la-sante-et-des-maladies-et-ou-etudes-scientifiques-et-technologiques-supsi-dti"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4rl4m",
@@ -2570,7 +2187,7 @@
       "firstSeenAt": "2026-05-21T00:28:42.108Z",
       "titleByLocale": {
         "it": "Dottorando / Dottoranda in processi orogenici alpini",
-        "en": "PhD / PhD in Alpine orogenic processes",
+        "en": "Dottorando / Dottoranda in processi orogenici alpini",
         "de": "PhD / PhD in Alpine orogene Prozesse",
         "fr": "Doctorat en processus orogènes alpins"
       },
@@ -2590,33 +2207,9 @@
           "Disponibilità a spostamenti anche prolungati nell’ambito del progetto e flessibilità per il raggiungimento degli obiettivi.",
           "È richiesta una buona conoscenza della lingua inglese e possibilmente delle lingue nazionali."
         ],
-        "en": [
-          "Master universitario in geologia, possibilmente con specializzazione in geologia strutturale o in petrologia metamorfica.",
-          "Ottime conoscenze della geologia regionale alpina, petrologia metamorfica e termodinamica.",
-          "Esperienza di rilevamento geologico e cartografia.",
-          "Capacità di lavorare in maniera autonoma rispettando le scadenze stabilite.",
-          "Capacità di muoversi in ambienti alpini di alta montagna.",
-          "Disponibilità a spostamenti anche prolungati nell’ambito del progetto e flessibilità per il raggiungimento degli obiettivi.",
-          "È richiesta una buona conoscenza della lingua inglese e possibilmente delle lingue nazionali."
-        ],
-        "de": [
-          "Master universitario in geologia, possibilmente con specializzazione in geologia strutturale o in petrologia metamorfica.",
-          "Ottime conoscenze della geologia regionale alpina, petrologia metamorfica e termodinamica.",
-          "Esperienza di rilevamento geologico e cartografia.",
-          "Capacità di lavorare in maniera autonoma rispettando le scadenze stabilite.",
-          "Capacità di muoversi in ambienti alpini di alta montagna.",
-          "Disponibilità a spostamenti anche prolungati nell’ambito del progetto e flessibilità per il raggiungimento degli obiettivi.",
-          "È richiesta una buona conoscenza della lingua inglese e possibilmente delle lingue nazionali."
-        ],
-        "fr": [
-          "Master universitario in geologia, possibilmente con specializzazione in geologia strutturale o in petrologia metamorfica.",
-          "Ottime conoscenze della geologia regionale alpina, petrologia metamorfica e termodinamica.",
-          "Esperienza di rilevamento geologico e cartografia.",
-          "Capacità di lavorare in maniera autonoma rispettando le scadenze stabilite.",
-          "Capacità di muoversi in ambienti alpini di alta montagna.",
-          "Disponibilità a spostamenti anche prolungati nell’ambito del progetto e flessibilità per il raggiungimento degli obiettivi.",
-          "È richiesta una buona conoscenza della lingua inglese e possibilmente delle lingue nazionali."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "slugByLocale": {
         "it": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
@@ -2671,7 +2264,8 @@
         "doctorant-e-en-processus-orogeniques-alpins-supsi-dti-mendrisio",
         "doctorant-en-processus-orogeniques-alpins-supsi-dti-mendrisio",
         "doctorat-en-processus-orogenes-alpins-supsi-dti-mendrisio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u547",
@@ -2744,48 +2338,9 @@
           "familiarità con strumenti di laboratorio elettronico",
           "interesse per sistemi di controllo e automazione"
         ],
-        "de": [
-          "Iscrizione o intenzione di iscriversi al Master MSE",
-          "Formazione Bachelor in ingegneria elettronica o disciplina affine",
-          "Buone competenze in elettronica analogica e digitale",
-          "Conoscenze di base nello sviluppo di sistemi embedded e acquisizione dati",
-          "Familiarità con sensori, attuatori e sistemi di misura",
-          "Interesse per applicazioni biomedicali e sistemi interdisciplinari",
-          "Conoscenza della lingua inglese",
-          "Buona capacità comunicativa e attitudine al lavoro in team",
-          "esperienza con microcontrollori e sistemi embedded",
-          "conoscenze di programmazione (C/C++, Python o equivalenti)",
-          "familiarità con strumenti di laboratorio elettronico",
-          "interesse per sistemi di controllo e automazione"
-        ],
-        "fr": [
-          "Iscrizione o intenzione di iscriversi al Master MSE",
-          "Formazione Bachelor in ingegneria elettronica o disciplina affine",
-          "Buone competenze in elettronica analogica e digitale",
-          "Conoscenze di base nello sviluppo di sistemi embedded e acquisizione dati",
-          "Familiarità con sensori, attuatori e sistemi di misura",
-          "Interesse per applicazioni biomedicali e sistemi interdisciplinari",
-          "Conoscenza della lingua inglese",
-          "Buona capacità comunicativa e attitudine al lavoro in team",
-          "esperienza con microcontrollori e sistemi embedded",
-          "conoscenze di programmazione (C/C++, Python o equivalenti)",
-          "familiarità con strumenti di laboratorio elettronico",
-          "interesse per sistemi di controllo e automazione"
-        ],
-        "en": [
-          "Iscrizione o intenzione di iscriversi al Master MSE",
-          "Formazione Bachelor in ingegneria elettronica o disciplina affine",
-          "Buone competenze in elettronica analogica e digitale",
-          "Conoscenze di base nello sviluppo di sistemi embedded e acquisizione dati",
-          "Familiarità con sensori, attuatori e sistemi di misura",
-          "Interesse per applicazioni biomedicali e sistemi interdisciplinari",
-          "Conoscenza della lingua inglese",
-          "Buona capacità comunicativa e attitudine al lavoro in team",
-          "esperienza con microcontrollori e sistemi embedded",
-          "conoscenze di programmazione (C/C++, Python o equivalenti)",
-          "familiarità con strumenti di laboratorio elettronico",
-          "interesse per sistemi di controllo e automazione"
-        ]
+        "de": [],
+        "fr": [],
+        "en": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -2820,7 +2375,8 @@
         "fr": [
           "assistant-bachelor-en-formation-master-en-bioelectronique-pour-le-developpement-de-bioreacteurs-miniaturises-organ-on",
           "bachelor-en-formation-pour-master-en-bioelectronique-pour-le-developpement-de-bioreacteurs-miniaturises-organ-on-chip",
-          "baccalaureat-en-education-maitrise-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur"
+          "baccalaureat-en-education-maitrise-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur",
+          "baccalaureat-en-education-maitrise-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur-puce-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
@@ -2831,7 +2387,8 @@
         "bachelor-in-ausbildung-fur-master-in-bioelektronik-zur-entwicklung-von-miniaturisierten-organ-on-chip-bioreaktoren-supsi",
         "assistant-bachelor-en-formation-master-en-bioelectronique-pour-le-developpement-de-bioreacteurs-miniaturises-organ-on",
         "bachelor-en-formation-pour-master-en-bioelectronique-pour-le-developpement-de-bioreacteurs-miniaturises-organ-on-chip",
-        "baccalaureat-en-education-maitrise-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur"
+        "baccalaureat-en-education-maitrise-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur",
+        "baccalaureat-en-education-maitrise-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur-puce-supsi-dti-lugano"
       ]
     }
   ]

@@ -5,11 +5,13 @@
  *
  * The ratchet escalates a `no-structured-content` warning to CRITICAL when:
  *   - the crawler is NEW (no baseline entry) AND has >=95% flat AND >=10 jobs
- *   - the crawler EXISTS in baseline AND its current count is HIGHER than the
- *     baseline count
+ *   - the crawler EXISTS in baseline AND its current no-structure RATIO is more
+ *     than 10 percentage points higher than the baseline ratio
  *
  * Existing crawlers staying at the same count, or improving, must NOT trigger
  * CRITICAL. Crawlers with <10 jobs must NOT trigger CRITICAL even at 100% flat.
+ * Crawlers whose absolute count grows only because they discovered more real
+ * jobs (ratio unchanged) must NOT trigger CRITICAL either.
  */
 
 import { describe, it, expect } from 'vitest';
@@ -96,7 +98,40 @@ describe('applyNoStructureRatchet', () => {
     expect(report['regressed'].severity).toBe('CRITICAL');
     expect(regressions).toHaveLength(1);
     expect(regressions[0]).toMatchObject({ key: 'regressed', was: 30, now: 50 });
-    expect(report['regressed'].issues[0].message).toMatch(/REGRESSION: was 30, now 50/);
+    expect(report['regressed'].issues[0].message).toMatch(/REGRESSION: was 60% \(30\/50\), now 83% \(50\/60\)/);
+  });
+
+  it('does NOT escalate an existing crawler whose count grew only because it found more real jobs (ratio unchanged)', () => {
+    // Regression case: galenica grew from 12 -> 270 total jobs while its
+    // no-structure ratio stayed ~flat (92% -> 99.6%). The old count-based
+    // check (269 > 11) falsely flagged this as a regression.
+    const report: Record<string, Entry> = {
+      'galenica': makeEntry(269, 270),
+    };
+    const baseline = {
+      generatedAt: '2026-05-06T00:00:00Z',
+      perCrawler: { 'galenica': { noStructureCount: 11, total: 12 } },
+    };
+
+    const regressions = applyNoStructureRatchet(report, baseline);
+
+    expect(report['galenica'].severity).toBe('WARNING');
+    expect(regressions).toHaveLength(0);
+  });
+
+  it('does NOT escalate an existing crawler whose ratio stayed at 100% while volume grew', () => {
+    const report: Record<string, Entry> = {
+      'rss-surselva': makeEntry(19, 19),
+    };
+    const baseline = {
+      generatedAt: '2026-05-06T00:00:00Z',
+      perCrawler: { 'rss-surselva': { noStructureCount: 15, total: 15 } },
+    };
+
+    const regressions = applyNoStructureRatchet(report, baseline);
+
+    expect(report['rss-surselva'].severity).toBe('WARNING');
+    expect(regressions).toHaveLength(0);
   });
 
   it('does NOT escalate a NEW crawler with only 5 jobs at 100% flat', () => {

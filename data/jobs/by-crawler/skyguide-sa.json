@@ -1,6 +1,6 @@
 {
   "crawlerKey": "skyguide-sa",
-  "assembledAt": "2026-07-03T12:20:48.075Z",
+  "assembledAt": "2026-07-03T23:26:29.160Z",
   "jobs": [
     {
       "title": "Formation contrôleur·euse de la circulation aérienne - Sion",
@@ -282,10 +282,10 @@
       },
       "previousSlugs": [
         "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
+        "fluglotsenausbildung-lugano-skyguide-lugano-agno",
         "air-traffic-controller-training-lugano-skyguide-lugano-agno",
         "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno",
-        "formation-controleur-du-trafic-aerien-lugano-skyguide-lugano-agno",
-        "fluglotsenausbildung-lugano-skyguide-lugano-agno"
+        "formation-controleur-du-trafic-aerien-lugano-skyguide-lugano-agno"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -365,11 +365,11 @@
       },
       "previousSlugs": [
         "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
+        "fluglotsenausbildung-locarno-skyguide-locarno",
+        "formation-controleur-du-trafic-aerien-locarno-skyguide-locarno",
         "air-traffic-controller-training-locarno-skyguide-locarno",
         "flugverkehrskontrollerausbildung-locarno-skyguide-locarno",
-        "formation-aux-controleurs-du-trafic-aerien-locarno-skyguide-locarno",
-        "fluglotsenausbildung-locarno-skyguide-locarno",
-        "formation-controleur-du-trafic-aerien-locarno-skyguide-locarno"
+        "formation-aux-controleurs-du-trafic-aerien-locarno-skyguide-locarno"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -522,7 +522,8 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "streetAddress": ""
+      "streetAddress": "",
+      "needsRetranslation": true
     }
   ]
 }
