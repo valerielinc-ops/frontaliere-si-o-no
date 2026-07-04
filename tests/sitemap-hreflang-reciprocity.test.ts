@@ -105,6 +105,24 @@ describe('sanitizeSitemapHreflangReciprocity — fixtures', () => {
     expect(countLocs(sanitized)).toBe(2);
   });
 
+  it('strips a degenerate self-only group (seo-hubs page-N pattern: sole annotation is the own <loc>)', () => {
+    const pageNLoc = `${BASE}/lavoro-svizzera/2/`;
+    const xml = urlset(
+      urlBlock(pageNLoc, [ann('it', pageNLoc)]),
+      urlBlock(itLoc, fullGroup()),
+      urlBlock(enLoc, fullGroup()),
+    );
+    const out = sanitizeSitemapHreflangReciprocity([{ file: 'sitemap-seo-hubs.xml', xml }]);
+    const sanitized = out.get('sitemap-seo-hubs.xml')!;
+    // The self-referential annotation goes; loc entries and the complete
+    // reciprocal group survive untouched.
+    expect(sanitized).not.toContain(`href="${pageNLoc}"`);
+    expect(countAnnotations(sanitized)).toBe(6);
+    expect(countLocs(sanitized)).toBe(3);
+    expect(sanitized).toContain(`<loc>${pageNLoc}</loc>`);
+    expect(sanitized).not.toMatch(/\n[ \t]*\n/);
+  });
+
   it('cascades to a fixpoint: stripping an invalid group also strips neighbours that relied on its return tag', () => {
     const cLoc = `${BASE}/de/grenzgaenger-artikel/beispiel/`; // never a <loc>
     const xml = urlset(

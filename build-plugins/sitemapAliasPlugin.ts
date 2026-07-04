@@ -135,7 +135,9 @@ const XHTML_LINK_LINE_RX = /[ \t]*<xhtml:link\b[^>]*?\/>[ \t]*\r?\n?/g;
  * listed nowhere, so those annotations never had effect at the sitemap level.
  *
  * This pass removes the `xhtml:link` elements from every `<url>` block whose
- * annotation group is incomplete, and keeps complete groups byte-identical
+ * annotation group is incomplete — including degenerate self-only groups
+ * (every href equal to the block's own `<loc>`) — and keeps complete groups
+ * byte-identical
  * (e.g. sitemap-salary-hub.xml, the reciprocal subsets of
  * sitemap-pages.xml). `<loc>` entries are NEVER added or removed. The
  * on-page HTML hreflang mesh — complete and reciprocal for every stripped
@@ -192,9 +194,16 @@ export function sanitizeSitemapHreflangReciprocity(
     let changed = false;
     for (const b of annotated) {
       if (!b.alive) continue;
-      const ok = b.hrefs.every(
-        (a) => locSet.has(a.href) && backRefs.get(a.href)?.has(b.loc),
-      );
+      // A group whose every href is the block's own <loc> (seo-hubs page-N
+      // emits a single self-referential hreflang="it" link) self-satisfies
+      // the reciprocity check while carrying zero hreflang information — and
+      // an it-only survivor makes validate-locale-shard-build's all-locales
+      // check depend on readdir order. Degenerate ⇒ strip.
+      const ok =
+        b.hrefs.some((a) => a.href !== b.loc) &&
+        b.hrefs.every(
+          (a) => locSet.has(a.href) && backRefs.get(a.href)?.has(b.loc),
+        );
       if (!ok) {
         b.alive = false;
         changed = true;
