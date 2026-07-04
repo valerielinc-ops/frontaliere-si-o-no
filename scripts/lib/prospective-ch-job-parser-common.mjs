@@ -76,6 +76,14 @@ function pickLocation(job, defaultCity) {
   // plain city name without postal prefix) — newer schema, e.g. asana Spital AG.
   const workplaceCity = String(szas['sza_workplace.city'] || '').trim();
   if (workplaceCity) return normalizeSpace(workplaceCity);
+  // Some tenants (e.g. Stadt Bern, medium 1840) expose a flat `sza_location`
+  // string "Street Number, ZIP City" instead of the dotted `sza_location.city`
+  // key above — parse the trailing "ZIP City" segment when present.
+  const flatLocation = String(szas['sza_location'] || '').trim();
+  if (flatLocation) {
+    const flatMatch = flatLocation.match(/\b\d{4}\s+([^\n,]+)$/);
+    if (flatMatch) return normalizeSpace(flatMatch[1]);
+  }
   // Sometimes the site label is in attributes[10] (legacy fallback). Skip it
   // when it's clearly a department code (4-letter all-caps) rather than a city,
   // so callers fall through to defaultCity.
@@ -113,13 +121,21 @@ function pickPostalCode(job, defaultPostal, location, defaultCity) {
   const locationZip = String(job?.szas?.['sza_location.zip'] || '').trim();
   const m3 = locationZip.match(/\b(\d{4})\b/);
   if (m3) return m3[1];
+  // Some tenants (e.g. Stadt Bern, medium 1840) expose a flat `sza_location`
+  // string "Street Number, ZIP City" instead of the dotted keys above.
+  const flatLocation = String(job?.szas?.['sza_location'] || '').trim();
+  const m4 = flatLocation.match(/\b(\d{4})\s+[^\n,]+$/);
+  if (m4) return m4[1];
   return isHqCity(location, defaultCity) ? defaultPostal : '';
 }
 
 function pickStreetAddress(job, defaultStreet, location, defaultCity) {
   const szas = job?.szas || {};
-  // Explicit street fields (e.g. Volksschule Luzern medium 1005619), tried
-  // before the free-text `sza_workplace` parse below.
+  // Explicit street fields, tried before the free-text `sza_workplace` parse
+  // below (e.g. Volksschule Luzern medium 1005619; Stadt Luzern medium
+  // 1005002: `sza_location.street: 'Hirschengraben 17'`, confirmed live —
+  // each listing carries its own real office street, distinct from the
+  // `sza_workplace.zip`-style variant already handled in `pickPostalCode`).
   const explicitStreet = normalizeSpace(szas['sza_location.street'] || '');
   if (explicitStreet) return explicitStreet;
   const workplaceStreetField = normalizeSpace(szas['sza_workplace.street'] || '');
@@ -133,6 +149,14 @@ function pickStreetAddress(job, defaultStreet, location, defaultCity) {
     const parts = workplace.split(',').map((p) => p.trim()).filter(Boolean);
     const streetPart = parts.find((p) => /\d/.test(p) && !/^\d{4}\b/.test(p));
     if (streetPart) return streetPart;
+  }
+  // Some tenants (e.g. Stadt Bern, medium 1840) expose a flat `sza_location`
+  // string "Street Number, ZIP City" — same comma-segment heuristic applies.
+  const flatLocation = String(job?.szas?.sza_location || '').trim();
+  if (flatLocation) {
+    const flatParts = flatLocation.split(',').map((p) => p.trim()).filter(Boolean);
+    const flatStreetPart = flatParts.find((p) => /\d/.test(p) && !/^\d{4}\b/.test(p));
+    if (flatStreetPart) return flatStreetPart;
   }
   return isHqCity(location, defaultCity) ? defaultStreet : '';
 }
@@ -226,7 +250,9 @@ function detectExperienceLevel(title = '') {
  * @param {(title: string, department: string) => string} [config.categoryFn]
  *   Override the per-job category classifier. Defaults to the shared
  *   healthcare-biased `detectCategory()` (its unmatched-role fallback is
- *   'Sanità / Ospedali', wrong for a non-healthcare tenant).
+ *   'Sanità / Ospedali', wrong for a non-healthcare tenant). Non-healthcare
+ *   tenants with a single fixed category (e.g. a school district or municipal
+ *   administration) can pass a constant-returning function.
  */
 export function createProspectiveChParser(config) {
   const {
@@ -245,6 +271,10 @@ export function createProspectiveChParser(config) {
     acceptDirectlinkHosts = [],
     sharedMedium = false,
     filterListing,
+    // Both default to the historical hardcoded literal so every pre-existing
+    // consumer (hospitals, insurers, finance — see file header) is
+    // unaffected. Only a genuinely different-industry tenant (e.g. a
+    // hospitality employer or municipal administration) needs to pass these.
     sector = 'Sanità / Ospedali',
     categoryFn = detectCategory,
   } = config;

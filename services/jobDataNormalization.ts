@@ -261,6 +261,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'hopital-la-tour': '/images/brands/hopital-la-tour.png',
  'hoval': '/images/brands/hoval.png',
  'hrc': cLogo('hopitalrivierachablais.ch'),
+ 'huber-suhner': cLogo('hubersuhner.com'),
  'hug': cLogo('hug.ch'),
  'huntsman': '/images/brands/huntsman.png',
  'ibsa-institut-biochimique': 'https://rmkcdn.successfactors.com/0628fab4/f37d25aa-93c8-4480-bb16-3.png',

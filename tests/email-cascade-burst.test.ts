@@ -7,6 +7,7 @@ import {
   fetchCloudflareDeliveryStats,
   campaignIdTag,
   PROVIDERS,
+  remainingQuota,
 } from '../scripts/lib/email-cascade.mjs';
 
 /* ------------------------------------------------------------------ */
@@ -35,6 +36,10 @@ describe('isRateLimitedError', () => {
   it('does NOT match a 403 with bare "reached" lacking limit/quota context', () => {
     // e.g. a network-style 403 body — must not retire a healthy provider.
     expect(isRateLimitedError('Mailgun 403: {"errors":["upstream host could not be reached"]}')).toBe(false);
+  });
+
+  it('does NOT match Cloudflare code=10004 (soft burst throttle, handled by cooldown instead)', () => {
+    expect(isRateLimitedError('Cloudflare 429 code=10004: email.sending.error.throttled')).toBe(false);
   });
 
   it('does NOT match unrelated errors', () => {
@@ -257,7 +262,7 @@ describe('sendEmailCascade — cloudflare provider', () => {
     delete process.env.CF_API_TOKEN;
   });
 
-  it('retires cloudflare after a 429 throttle (no burst across a batch)', async () => {
+  it('cools down cloudflare after a code=10004 soft throttle without burning quota (no burst across a batch)', async () => {
     const calls: string[] = [];
     globalThis.fetch = (async (url: string) => {
       calls.push(String(url));
@@ -279,12 +284,16 @@ describe('sendEmailCascade — cloudflare provider', () => {
       meta: {},
     }));
 
+    const quotaBefore = remainingQuota('cloudflare');
     const { sent, failed } = await sendEmailCascade(emails, { forceProvider: 'cloudflare', delayMs: 0 });
 
     const sendCalls = calls.filter(u => u.includes(CF_SEND)).length;
-    expect(sendCalls).toBe(1); // 429 → provider exhausted → rest skipped locally
+    expect(sendCalls).toBe(1); // 429 → provider cools down → rest skipped locally within the cooldown window
     expect(sent.length).toBe(0);
     expect(failed.length).toBe(10);
+    // code=10004 is a burst throttle, not the daily cap being reached —
+    // quota must stay exactly where it was before the batch.
+    expect(remainingQuota('cloudflare')).toBe(quotaBefore);
   });
 });
 

@@ -274,7 +274,7 @@ export function createWorkdaySwissParser(config) {
       // rollup, an unparseable string, or an absent location. Before dropping,
       // try the `externalPath` primary-location segment (Workday's stable
       // `/job/{Location}/...` convention across tenants) — some tenants (e.g.
-      // Eraneos) publish every posting as a multi-site rollup in
+      // Eraneos, Medbase) publish some postings as a multi-site rollup in
       // `locationsText` even though `externalPath` always carries the actual
       // primary work city. Only accepted when it resolves to a confident Swiss
       // canton and isn't explicitly foreign, so this can only recover
