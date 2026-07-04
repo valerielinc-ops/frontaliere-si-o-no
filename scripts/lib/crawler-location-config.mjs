@@ -619,6 +619,10 @@ export const COMPANY_HQ = {
   // CHE-102.232.125) sharing this registered seat. NOT the same company as
   // 'spruengli' (Confiserie Sprüngli AG, Zürich) — unaffiliated, see issue #3337.
   'lindt-spruengli': { city: 'Kilchberg', canton: 'ZH', postalCode: '8802', addressRegion: 'ZH' },
+  // GIM Architekten AG HQ, Altenbergstrasse 28, 3013 Bern — confirmed via
+  // jobs.ch company-profile Organization JSON-LD (both known company ids
+  // resolve to the same address) and gim.ch imprint/contact page.
+  'gim-architekten': { city: 'Bern', canton: 'BE', postalCode: '3013', addressRegion: 'BE' },
 };
 
 /**
