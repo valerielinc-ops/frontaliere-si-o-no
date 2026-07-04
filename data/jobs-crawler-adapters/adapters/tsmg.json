@@ -13,7 +13,7 @@
     "https://api.lever.co/v0/postings/tsmg?mode=json"
   ],
   "notes": "Dedicated TSMG crawler uses Lever API and keeps only jobs in Ticino or Grigioni.",
-  "updatedAt": "2026-07-04T12:38:59.919Z",
+  "updatedAt": "2026-07-04T23:25:39.859Z",
   "seedMetaByUrl": {
     "https://jobs.lever.co/tsmg/dcde88fa-6cf1-4e00-8634-5d4ac062c5c3": {
       "location": "Lausanne",
@@ -210,6 +210,42 @@
     "https://jobs.lever.co/tsmg/5b79d7da-bf41-4a97-a320-96b0e2a71898": {
       "location": "Bern",
       "canton": "BE",
+      "company": "TSMG",
+      "postedDate": "2026-07-04"
+    },
+    "https://jobs.lever.co/tsmg/5042ec3e-341c-4818-86fc-a9bf1ea3bfac": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "TSMG",
+      "postedDate": "2026-07-04"
+    },
+    "https://jobs.lever.co/tsmg/e45bb9e7-5828-46bc-a19b-38a90ad2c2ac": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "TSMG",
+      "postedDate": "2026-07-04"
+    },
+    "https://jobs.lever.co/tsmg/4ec0e949-ad3f-41ef-9600-0bb432e2d01d": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "TSMG",
+      "postedDate": "2026-07-04"
+    },
+    "https://jobs.lever.co/tsmg/cbc6a406-68ac-4530-8cb5-54db02c85e25": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "TSMG",
+      "postedDate": "2026-07-04"
+    },
+    "https://jobs.lever.co/tsmg/0dea39bb-e454-4f75-b48c-008c39ce2daa": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "TSMG",
+      "postedDate": "2026-07-04"
+    },
+    "https://jobs.lever.co/tsmg/64fe4432-c141-44cc-9f6e-344608a44ad4": {
+      "location": "Lausanne",
+      "canton": "VD",
       "company": "TSMG",
       "postedDate": "2026-07-04"
     }
