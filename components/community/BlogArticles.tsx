@@ -1308,6 +1308,11 @@ function BlogArticles({
  const articleBodyText = collectBodyParts(article.id, t).join(' ');
  const articleBodyWordCount = articleBodyText.split(/\s+/).filter(Boolean).length;
  const wordCount = articleBodyWordCount || estimateReadingMinutes(article.id, t) * 200;
+ // Author matches the visible byline (#3520): a named Person when the
+ // article carries one (same merge the rendered byline uses), the
+ // editorial Organization only as fallback — mirroring the static
+ // ogPagesPlugin NewsArticle so SPA and static declare the same entity.
+ const { authorSlug: ldAuthorSlug, authorName: ldAuthorName } = mergeArticleByline(articleAuthorOverride, article);
  const jsonLd: Record<string, unknown> = {
  '@context': 'https://schema.org',
  '@type': 'NewsArticle',
@@ -1315,7 +1320,14 @@ function BlogArticles({
  description: excerpt.startsWith('blog.article.') ? title : excerpt,
  datePublished: `${article.date}T00:00:00+01:00`,
  dateModified: `${(article.updatedAt || article.date).slice(0, 10)}T00:00:00+01:00`,
- author: {
+ author: ldAuthorName
+ ? {
+ '@type': 'Person',
+ name: ldAuthorName,
+ ...(ldAuthorSlug ? { url: `https://frontaliereticino.ch/autori/${ldAuthorSlug}/` } : {}),
+ worksFor: { '@type': 'Organization', '@id': 'https://frontaliereticino.ch/#organization', name: 'Frontaliere Ticino' },
+ }
+ : {
  '@type': 'Organization',
  '@id': 'https://frontaliereticino.ch/#organization',
  name: 'Redazione Frontaliere Ticino',
@@ -1323,8 +1335,9 @@ function BlogArticles({
  },
  publisher: {
  '@type': 'Organization',
+ '@id': 'https://frontaliereticino.ch/#organization',
  name: 'Frontaliere Ticino',
- url: 'https://frontaliereticino.ch',
+ url: 'https://frontaliereticino.ch/',
  logo: {
  '@type': 'ImageObject',
  url: 'https://frontaliereticino.ch/icons/icon-512x512.png',
@@ -1408,7 +1421,7 @@ function BlogArticles({
  if (existing) existing.remove();
  document.getElementById(faqScriptId)?.remove();
  };
- }, [selectedArticle, articles, locale, t]);
+ }, [selectedArticle, articles, locale, t, articleAuthorOverride]);
 
  const handleResponsiveImageError = useCallback((imagePath: string) => {
  setImageFallbackMap(prev => (prev[imagePath] ? prev : { ...prev, [imagePath]: true }));

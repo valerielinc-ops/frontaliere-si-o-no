@@ -1774,7 +1774,7 @@ function buildThinCantonHubHtml(args: {
         description: intro,
         url: canonicalUrl,
         inLanguage: locale,
-        isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL },
+        isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
         mainEntity: {
           '@type': 'ItemList',
           numberOfItems: totalItems,

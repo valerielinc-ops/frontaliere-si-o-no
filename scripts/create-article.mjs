@@ -7288,10 +7288,10 @@ function modifySeoService(data) {
       "description": "${String(data.seo.description || '').replace(/"/g, '\\"')}",
       "image": {
         "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
         "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
-        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
         "creditText": "Frontaliere Ticino",
         "url": \`\${BASE_URL}/${imagePath}\`,
         "width": ${data._generatedImagePath ? 1200 : 1200},
@@ -7308,7 +7308,7 @@ function modifySeoService(data) {
         "url": "${BASE_URL}/autori/${data.author?.slug || 'redazione'}/"
       },
       "publisher": {"@id": "${BASE_URL}/#organization"},
-      "mainEntityOfPage": \`\${BASE_URL}${itHubPath}\`,
+      "mainEntityOfPage": \`\${BASE_URL}${itHubPath.endsWith('/') ? itHubPath : `${itHubPath}/`}\`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },`;
@@ -7432,9 +7432,9 @@ function validateStructuredData(data) {
       '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE,
       logo: {
         '@type': 'ImageObject',
-        acquireLicensePage: 'https://frontaliereticino.ch/termini-di-servizio#licenza-immagini',
+        acquireLicensePage: 'https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini',
         copyrightNotice: '© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.',
-        license: 'https://frontaliereticino.ch/termini-di-servizio#licenza-immagini',
+        license: 'https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini',
         creator: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE },
         creditText: 'Frontaliere Ticino',
         url: `${BASE}/icons/icon-512x512.png`,

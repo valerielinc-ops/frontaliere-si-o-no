@@ -20,6 +20,7 @@ import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySection
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
+import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
 import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
 import { railGutters } from './shared/railGutters';
@@ -4278,6 +4279,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  }
  } catch { /* structured data not parseable, skip FAQ rendering */ }
+ }
+
+ // ── #organization page-local definition (#3524) ─────────────
+ // SEO_PAGES structured data references the site Organization as a bare
+ // `{"@id": ".../#organization"}` pointer (publisher/author). A static
+ // page is a standalone document — the rich Organization block lives in
+ // index.html only — so page-local structured-data parsers cannot resolve
+ // the entity. Append the compact canonical node whenever the page graph
+ // references it; the includes() guard keeps the append idempotent.
+ if (seoData.sd && seoData.sd.includes('/#organization') && !seoData.sd.includes(ORGANIZATION_LD_JSON)) {
+ seoData.sd = `${seoData.sd}</script>\n <script type="application/ld+json">${ORGANIZATION_LD_JSON}`;
  }
 
  // ── Pre-rendered comparison tables for AI crawlers ──────────
