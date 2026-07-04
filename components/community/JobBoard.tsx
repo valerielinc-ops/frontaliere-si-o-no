@@ -6648,7 +6648,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  width={48}
  height={48}
  className="w-12 h-12 rounded-lg object-contain bg-surface-alt flex-shrink-0"
- loading="lazy"
+ decoding="async"
  onError={handleCompanyLogoError}
  />
  )}
@@ -7407,7 +7407,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  className="w-10 h-10 sm:w-14 sm:h-14 object-contain"
  width={56}
  height={56}
- loading="lazy"
+ decoding="async"
  onError={handleCompanyLogoError}
  />
  ) : (
