@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
   "notes": "Confederazione Svizzera — CH-wide federal jobs (all 26 cantons). Fetches the unfiltered national listing from the Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch) and keeps every job whose location resolves to a Swiss canton (inferAnyCanton); foreign \"Estero\" postings are dropped. Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-07-03T21:45:50.778Z",
+  "updatedAt": "2026-07-04T10:39:53.350Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-domotik-digitalisierung/8d3c7ebd-c083-4615-8382-2cf25e9fea5e": {
       "location": "Meiringen oder Bern",
@@ -655,17 +655,17 @@
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-19"
     },
-    "https://jobs.admin.ch/posti-vacanti/logistiker-in-vorortlager/ba7dd09e-bdd8-4337-8a88-d31621d89956": {
-      "location": "Chur",
-      "canton": "GR",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-06-18"
-    },
     "https://jobs.admin.ch/posti-vacanti/identification-operator-in-einsatzzentrale-luftverteidigung/16a35745-3b0d-4c9f-af9f-f88de7a9d657": {
       "location": "Dübendorf",
       "canton": "ZH",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-25"
+    },
+    "https://jobs.admin.ch/posti-vacanti/logistiker-in-vorortlager/ba7dd09e-bdd8-4337-8a88-d31621d89956": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-06-18"
     },
     "https://jobs.admin.ch/posti-vacanti/spezialist-in-foerdertechnik/93b8a897-e56f-4fa8-ade0-0b690d374924": {
       "location": "Andermatt",
@@ -775,17 +775,17 @@
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-23"
     },
-    "https://jobs.admin.ch/posti-vacanti/leiter-in-sicherheitsprojekte-stv-chef-security/477fd4d9-f3ba-4c14-bddc-541e9a16c28d": {
-      "location": "Thun",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-06-15"
-    },
     "https://jobs.admin.ch/posti-vacanti/chef-in-troubleshooter-hornet/a1eb5401-45b9-4aec-8853-f1529f0abef1": {
       "location": "Emmen",
       "canton": "LU",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-22"
+    },
+    "https://jobs.admin.ch/posti-vacanti/leiter-in-sicherheitsprojekte-stv-chef-security/477fd4d9-f3ba-4c14-bddc-541e9a16c28d": {
+      "location": "Thun",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-06-15"
     },
     "https://jobs.admin.ch/posti-vacanti/gruppenfuehrer-in-luftfahrzeugmechaniker-in-hornet/b1872c96-8cf7-4c46-93dc-4881adee26a8": {
       "location": "Emmen",
@@ -985,15 +985,15 @@
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-16"
     },
-    "https://jobs.admin.ch/posti-vacanti/flugsicherungstechniker-in-support-flugsicherungssysteme-sufs/c33ec515-a1f8-4ab0-9283-a958fd62d763": {
-      "location": "Flugplatz Locarno, 6595 Riazzino",
-      "canton": "TI",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-06-16"
-    },
     "https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-devsecops/665f5e1e-0e48-4722-af93-ae377876cd23": {
       "location": "Bern",
       "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-06-16"
+    },
+    "https://jobs.admin.ch/posti-vacanti/flugsicherungstechniker-in-support-flugsicherungssysteme-sufs/c33ec515-a1f8-4ab0-9283-a958fd62d763": {
+      "location": "Flugplatz Locarno, 6595 Riazzino",
+      "canton": "TI",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-16"
     },
@@ -1032,12 +1032,6 @@
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-09"
-    },
-    "https://jobs.admin.ch/posti-vacanti/senior-devops-engineer/de9057e6-e153-4ba8-a1e4-00895ef9e00a": {
-      "location": "Neuenburg",
-      "canton": "NE",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-06-10"
     },
     "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-wertschoepfungsstatistik-ws/3a1b84c0-e2ab-4ee0-ae61-384976225002": {
       "location": "Neuenburg",
@@ -1177,12 +1171,6 @@
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-11"
     },
-    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-waldgesundheit/91575d21-90ed-4f2e-b2ee-e5b218a77032": {
-      "location": "Ittigen",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-06-04"
-    },
     "https://jobs.admin.ch/posti-vacanti/ict-architekt-in-senior-739/286bde03-e728-404b-b572-52995c85b3a8": {
       "location": "Zollikofen, mobiles Arbeiten",
       "canton": "BE",
@@ -1315,12 +1303,6 @@
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-03"
     },
-    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in/8c89fb7c-01af-4552-a36a-b6afd1f4b55f": {
-      "location": "Neuenburg",
-      "canton": "NE",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-06-10"
-    },
     "https://jobs.admin.ch/posti-vacanti/flugsicherungstechniker-in-support-flugsicherungssysteme-sufs/535d3aaf-7aed-4325-a325-c5e588921e77": {
       "location": "Emmen",
       "canton": "LU",
@@ -1342,12 +1324,6 @@
     "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-administration-programmbeteiligungen/b93ad13c-f6de-4d15-b82d-4f3db3e89d8f": {
       "location": "Bern",
       "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-06-10"
-    },
-    "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in/c54c3462-d2e2-4acf-9cfc-c46ed86aff15": {
-      "location": "Neuenburg",
-      "canton": "NE",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-10"
     },
