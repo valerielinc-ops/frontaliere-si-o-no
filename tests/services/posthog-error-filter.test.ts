@@ -85,4 +85,85 @@ describe('createExceptionFilter()', () => {
     const event = { event: '$exception', properties: { $exception_values: [] } };
     expect(filter(event)).toBe(event);
   });
+
+  // Issue #3407 ("Error: oa"): live PostHog data showed every sampled
+  // occurrence's resolved stack lives entirely inside Google's own
+  // accounts.google.com/gsi/client script — a third-party origin we do
+  // not control. The message itself ("oa") is too short/generic to
+  // pattern-match safely, so the filter inspects resolved stack frames.
+  it('drops exceptions whose entire resolved stack is Google Identity Services (#3407)', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'oa' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'oa',
+            stacktrace: {
+              frames: [
+                { filename: 'https://accounts.google.com/gsi/client', lineno: 193, colno: 71 },
+                { filename: 'https://accounts.google.com/gsi/client', lineno: 188, colno: 1 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(filter(event)).toBeNull();
+  });
+
+  it('keeps exceptions with a mixed first-party + third-party stack', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'TypeError', value: 'oa' }],
+        $exception_list: [
+          {
+            type: 'TypeError',
+            value: 'oa',
+            stacktrace: {
+              frames: [
+                { filename: 'https://accounts.google.com/gsi/client', lineno: 193, colno: 71 },
+                { filename: 'https://frontaliereticino.ch/assets/index-entry.js', lineno: 12, colno: 4 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(filter(event)).toBe(event);
+  });
+
+  it('keeps exceptions with no resolved stack frames even if message is short/opaque', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'oa' }],
+        $exception_list: [{ type: 'Error', value: 'oa' }],
+      },
+    };
+    expect(filter(event)).toBe(event);
+  });
+
+  it('supports junk_drawer.raw_frame.filename fallback for unresolved frames', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'oa' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'oa',
+            stacktrace: {
+              frames: [
+                { junk_drawer: { raw_frame: { filename: 'https://accounts.google.com/gsi/client' } } },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(filter(event)).toBeNull();
+  });
 });

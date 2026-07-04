@@ -21,6 +21,7 @@ import {
   hasFormChrome,
   fingerprintsForCrawler,
   countDuplicates,
+  effectiveDescription,
 } from '../../scripts/audit-parser-quality.mjs';
 
 type Issue = {
@@ -419,5 +420,49 @@ describe('hasFormChrome', () => {
   it('does NOT flag a generic role description', () => {
     const desc = 'We are looking for a Senior Engineer to join our team in Lugano. Responsibilities include designing systems, reviewing code, and mentoring junior engineers.';
     expect(hasFormChrome(desc)).toBe(false);
+  });
+});
+
+describe('effectiveDescription (issue #3432 — burkhalter-group false positive)', () => {
+  it('prefers descriptionByLocale over a stale/thin top-level description', () => {
+    const richIt =
+      'Per il nostro cliente cerchiamo un elettricista qualificato con esperienza in impianti industriali. ' +
+      'Le responsabilità includono la manutenzione, la diagnosi guasti e la posa di nuovi impianti elettrici in tutta la regione.';
+    const job = {
+      // Stale placeholder left behind by a crawler re-run that failed to
+      // refresh the top-level field (the burkhalter-group merge-function gap).
+      description: 'Elettricista presso Burkhalter, Lugano',
+      descriptionByLocale: { it: richIt, en: '', de: '', fr: '' },
+    };
+    expect(effectiveDescription(job)).toBe(richIt);
+  });
+
+  it('checks locales in it, en, de, fr order and returns the first rich candidate', () => {
+    const richEn =
+      'We are looking for a qualified electrician with experience in industrial installations. ' +
+      'Responsibilities include maintenance, fault diagnosis, and installation of new electrical systems.';
+    const job = {
+      description: 'thin',
+      descriptionByLocale: { it: 'troppo corto', en: richEn, de: '', fr: '' },
+    };
+    expect(effectiveDescription(job)).toBe(richEn);
+  });
+
+  it('falls back to the top-level description when no locale slot is rich enough', () => {
+    const job = {
+      description: 'the only content available',
+      descriptionByLocale: { it: 'corto', en: '', de: '', fr: '' },
+    };
+    expect(effectiveDescription(job)).toBe('the only content available');
+  });
+
+  it('falls back to the top-level description when descriptionByLocale is absent', () => {
+    const job = { description: 'legacy-only job with no locale map' };
+    expect(effectiveDescription(job)).toBe('legacy-only job with no locale map');
+  });
+
+  it('falls back to an empty string when neither field carries content', () => {
+    expect(effectiveDescription({})).toBe('');
+    expect(effectiveDescription(null)).toBe('');
   });
 });

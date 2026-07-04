@@ -24,6 +24,7 @@ import { execSync } from 'child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { BOT_UA_PATTERNS } from '../services/botPatterns';
+import { BENIGN_MESSAGES, THIRD_PARTY_STACK_ORIGINS } from '../services/posthog-error-filter';
 import {
   CALL_TIME_SKEW_PATTERNS,
   CHUNK_LOAD_ERROR_PATTERN_SOURCE,
@@ -46,6 +47,22 @@ import { clampMetaDescription } from './shared/titleSuffix';
 const CALL_TIME_SKEW_SOURCE = CALL_TIME_SKEW_PATTERNS.map((re) => re.source).join('|');
 const MODULE_LINK_SKEW_SOURCE = MODULE_LINK_SKEW_PATTERNS.map((re) => re.source).join('|');
 const CHUNK_LOAD_ERROR_SOURCE = CHUNK_LOAD_ERROR_PATTERN_SOURCE;
+
+/**
+ * Same regex-source-generation technique as above, applied to the PostHog
+ * `before_send` benign-noise filter (issue #3406/#3407 fix): the static-page
+ * PostHog init snippet below (POSTHOG_INIT_CONTENT) is plain externalised JS
+ * that cannot `import` services/posthog-error-filter.ts, so its filter logic
+ * is generated from the SAME source arrays the React/SPA init
+ * (services/posthog.ts) uses. Before this fix, POSTHOG_INIT_CONTENT had NO
+ * `before_send` at all — a sibling-drift bug (AGENTS.md §Non-Negotiables #6):
+ * PR #2733 (2026-06-22) added the benign-noise deny-list only to the SPA
+ * path, never to this raw-JS twin, so every static SEO page (the dominant
+ * traffic surface) sent unfiltered exceptions, including confirmed-benign
+ * "Script error." noise.
+ */
+const POSTHOG_BENIGN_SOURCE = BENIGN_MESSAGES.map((re) => re.source).join('|');
+const POSTHOG_THIRD_PARTY_STACK_SOURCE = THIRD_PARTY_STACK_ORIGINS.map((re) => re.source).join('|');
 
 const DEPLOY_BUILD_ID_OVERRIDE = (process.env.DEPLOY_BUILD_ID || '').replace(/\D/g, '');
 export const BUILD_ID = DEPLOY_BUILD_ID_OVERRIDE || String(Date.now());
@@ -481,8 +498,18 @@ export const BOT_GATE_FN = `function(){var ua=(navigator.userAgent||'').toLowerC
  * so without the gate every bot hit on a bridge/landing page fired a $pageview —
  * a large slice of the free-tier 1M/mo event budget at zero analytics value.
  * Mirrors the SPA gate in services/posthog.ts `ensurePostHog()`.
+ *
+ * `before_send` (issue #3406/#3407 fix, see POSTHOG_BENIGN_SOURCE comment
+ * above): re-implements `createExceptionFilter()` from
+ * services/posthog-error-filter.ts in plain ES5 — extracts
+ * `$exception_values`/`$exception_list` message text and drops the event on
+ * a BENIGN_MESSAGES match, then falls back to a resolved-stack-frame check
+ * that drops exceptions whose ENTIRE stack lives in a known third-party
+ * script origin (THIRD_PARTY_STACK_ORIGINS). Wrapped in try/catch to fail
+ * OPEN — a filter bug must never break PostHog init or hide a real error.
  */
-export const POSTHOG_INIT_CONTENT = `if(!(${BOT_GATE_FN})()){!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage'});}`;
+const POSTHOG_BEFORE_SEND_FN = `function(ev){try{if(!ev||ev.event!=='$exception')return ev||null;var p=ev.properties||{};var rv=p.$exception_values||p.$exception_list;var msgs=[];if(Array.isArray(rv)){for(var i=0;i<rv.length;i++){var v=rv[i];if(typeof v==='string')msgs.push(v);else if(v&&typeof v==='object'&&typeof v.value==='string')msgs.push(v.value);}}var blob=msgs.join(' | ');if(blob&&/${POSTHOG_BENIGN_SOURCE}/i.test(blob))return null;var list=p.$exception_list;var origins=[];if(Array.isArray(list)){for(var j=0;j<list.length;j++){var exc=list[j];var frames=exc&&exc.stacktrace&&exc.stacktrace.frames;if(Array.isArray(frames)){for(var k=0;k<frames.length;k++){var fr=frames[k];var fn=fr&&(fr.filename||(fr.junk_drawer&&fr.junk_drawer.raw_frame&&fr.junk_drawer.raw_frame.filename));if(fn)origins.push(fn);}}}}if(origins.length>0){var allTP=true;for(var m=0;m<origins.length;m++){if(!/${POSTHOG_THIRD_PARTY_STACK_SOURCE}/i.test(origins[m])){allTP=false;break;}}if(allTP)return null;}return ev;}catch(e){return ev||null;}}`;
+export const POSTHOG_INIT_CONTENT = `if(!(${BOT_GATE_FN})()){!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage',before_send:${POSTHOG_BEFORE_SEND_FN}});}`;
 export const POSTHOG_INIT_FILENAME = 'posthog-init.js';
 export const POSTHOG_SNIPPET = `<script src="/assets/${POSTHOG_INIT_FILENAME}"></script>`;
 

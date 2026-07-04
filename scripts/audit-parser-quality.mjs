@@ -203,6 +203,43 @@ export function hasFormChrome(desc) {
   return FORM_CHROME_PATTERNS.some((re) => re.test(text));
 }
 
+/**
+ * Effective description for content-quality checks: prefer descriptionByLocale
+ * over the possibly-stale top-level `description` field, mirroring how
+ * production actually renders a job (jobPostingSchema.ts, seoService.ts,
+ * JobBoard.tsx all read `descriptionByLocale[locale]` first and only fall
+ * back to `description` when that locale's slot is empty — never the other
+ * way around).
+ *
+ * Several dedicated-crawler merge functions (mergeJobs/mergePreserveLocaleData)
+ * explicitly preserve descriptionByLocale across re-crawls but do NOT protect
+ * the top-level `description` field the same way: a transient detail-page
+ * scrape failure on a single run resets `description` to the crawler's thin
+ * fallback placeholder (e.g. "{title} presso {company}, {city}") while
+ * descriptionByLocale keeps the rich content captured by an earlier
+ * successful scrape. Auditing the raw `description` field alone then
+ * false-positives on jobs that are actually fine in every locale a user or
+ * Google ever sees.
+ *
+ * Found 2026-07-04 (issue #3432): burkhalter-group's "strict" audit flagged
+ * 192/243 jobs as thin descriptions; 191 of those had full, non-thin content
+ * in all four descriptionByLocale slots — only the legacy top-level field
+ * had gone stale.
+ *
+ * @param {{ description?: string, descriptionByLocale?: Record<string, string> }} job
+ * @returns {string}
+ */
+export function effectiveDescription(job) {
+  const byLocale = job?.descriptionByLocale;
+  if (byLocale && typeof byLocale === 'object') {
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const candidate = byLocale[locale];
+      if (candidate && plainText(candidate).length >= 100) return candidate;
+    }
+  }
+  return job?.description || '';
+}
+
 function isThinDescription(desc) {
   const text = plainText(desc);
   if (text.length < 100) return 'too-short';
@@ -403,8 +440,9 @@ async function main() {
       continue;
     }
 
-    // 1. Thin descriptions
-    const thinResults = jobs.map((j) => ({ job: j, reason: isThinDescription(j.description) }));
+    // 1. Thin descriptions — checked against the effective (locale-aware)
+    // description, not the raw top-level field (see effectiveDescription doc).
+    const thinResults = jobs.map((j) => ({ job: j, reason: isThinDescription(effectiveDescription(j)) }));
     const thinJobs = thinResults.filter((r) => r.reason);
     if (thinJobs.length > 0) {
       const reasons = {};
@@ -420,8 +458,8 @@ async function main() {
     }
 
     // 2. Missing structured content (only flag when >=80% lack structure and 5+ jobs)
-    const nonThinJobs = jobs.filter((j) => !isThinDescription(j.description));
-    const noStructure = nonThinJobs.filter((j) => !hasStructuredContent(j.description));
+    const nonThinJobs = jobs.filter((j) => !isThinDescription(effectiveDescription(j)));
+    const noStructure = nonThinJobs.filter((j) => !hasStructuredContent(effectiveDescription(j)));
     if (nonThinJobs.length >= 5 && noStructure.length / nonThinJobs.length >= 0.8) {
       issues.push({
         type: 'no-structured-content',
