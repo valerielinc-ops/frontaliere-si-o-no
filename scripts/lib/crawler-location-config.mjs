@@ -728,6 +728,16 @@ export const COMPANY_HQ = {
   // Genève, keep their own street address; only a Rikon-city posting or an
   // empty city inherits this HQ street).
   'kuhn-rikon': { city: 'Rikon im Tösstal', canton: 'ZH', postalCode: '8486', addressRegion: 'ZH' },
+  // migrolino AG HQ, Wynenfeldstrasse 3, 5034 Suhr AG — confirmed via 3
+  // independent sources: the company's own JSON-LD (LocalBusiness +
+  // JobPosting) on migrolino.ch/migrolino-ag.ch, help.ch Handelsregister
+  // (UID CHE-105.489.643), and Moneyhouse/NorthData. migrolino is a
+  // convenience-store chain with ~700 shop locations nationwide — per-job
+  // addresses come from the shared jobs.migros.ch JobPosting JSON-LD
+  // (real per-store address); this HQ entry is only the city-gated
+  // fallback for HQ/regional roles, see resolveAddress() in
+  // scripts/lib/migrolino-job-parser.mjs.
+  'migrolino': { city: 'Suhr', canton: 'AG', postalCode: '5034', addressRegion: 'AG' },
 };
 
 /**
