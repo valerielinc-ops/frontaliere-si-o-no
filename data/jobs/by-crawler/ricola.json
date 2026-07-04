@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ricola-2c30adc9413a",
-      "slug": "accounting-specialist-ricola-ch",
+      "slug": "accounting-specialista-ricola-laufen",
       "slugByLocale": {
         "en": "accounting-specialist-ricola-ch",
-        "it": "accounting-specialist-ricola-ch",
-        "de": "accounting-specialist-ricola-ch",
-        "fr": "accounting-specialist-ricola-ch"
+        "it": "accounting-specialista-ricola-laufen",
+        "de": "accounting-spezialist-ricola-laufen",
+        "fr": "accounting-specialiste-ricola-laufen"
       },
       "company": "Ricola",
       "companyKey": "ricola",
@@ -66,7 +66,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:16:40.503Z"
+      "firstSeenAt": "2026-07-04T12:16:40.503Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "accounting-specialist-ricola-ch"
+        ],
+        "de": [
+          "accounting-specialist-ricola-ch"
+        ],
+        "fr": [
+          "accounting-specialist-ricola-ch"
+        ]
+      },
+      "previousSlugs": [
+        "accounting-specialist-ricola-ch"
+      ]
     }
   ]
 }

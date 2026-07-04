@@ -588,10 +588,10 @@
     },
     {
       "id": "suva-02c2520ec7f0",
-      "slug": "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern",
+      "slug": "sachbearbeiter-in-servizio-clienti-center-100-de-fr-suva-luzern",
       "slugByLocale": {
         "de": "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern",
-        "it": "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern",
+        "it": "sachbearbeiter-in-servizio-clienti-center-100-de-fr-suva-luzern",
         "en": "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern",
         "fr": "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern"
       },
@@ -648,7 +648,15 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-07-04T12:22:45.392Z"
+      "firstSeenAt": "2026-07-04T12:22:45.392Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern"
+      ]
     },
     {
       "id": "suva-8cfeb210d5bd",

@@ -208,12 +208,12 @@
     },
     {
       "id": "totalenergies-7415ff78503e",
-      "slug": "shipping-operator-totalenergies-geneve",
+      "slug": "shipping-operatore-totalenergies-geneve",
       "slugByLocale": {
         "en": "shipping-operator-totalenergies-geneve",
-        "it": "shipping-operator-totalenergies-geneve",
+        "it": "shipping-operatore-totalenergies-geneve",
         "de": "shipping-operator-totalenergies-geneve",
-        "fr": "shipping-operator-totalenergies-geneve"
+        "fr": "shipping-operateur-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -272,7 +272,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:38:28.344Z"
+      "firstSeenAt": "2026-07-04T12:38:28.344Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "shipping-operator-totalenergies-geneve"
+        ],
+        "fr": [
+          "shipping-operator-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "shipping-operator-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-269db3b907e2",
@@ -344,12 +355,12 @@
     },
     {
       "id": "totalenergies-3a7c4ce2ac8f",
-      "slug": "tax-advisor-totalenergies-geneve",
+      "slug": "tax-consulente-totalenergies-geneve",
       "slugByLocale": {
         "en": "tax-advisor-totalenergies-geneve",
-        "it": "tax-advisor-totalenergies-geneve",
-        "de": "tax-advisor-totalenergies-geneve",
-        "fr": "tax-advisor-totalenergies-geneve"
+        "it": "tax-consulente-totalenergies-geneve",
+        "de": "tax-berater-totalenergies-geneve",
+        "fr": "tax-conseiller-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -408,14 +419,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:38:28.342Z"
+      "firstSeenAt": "2026-07-04T12:38:28.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tax-advisor-totalenergies-geneve"
+        ],
+        "de": [
+          "tax-advisor-totalenergies-geneve"
+        ],
+        "fr": [
+          "tax-advisor-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "tax-advisor-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-5ab5723cccdb",
-      "slug": "business-analyst-finance-shared-services-totalenergies-geneve",
+      "slug": "business-analista-finanza-shared-services-totalenergies-geneve",
       "slugByLocale": {
         "en": "business-analyst-finance-shared-services-totalenergies-geneve",
-        "it": "business-analyst-finance-shared-services-totalenergies-geneve",
+        "it": "business-analista-finanza-shared-services-totalenergies-geneve",
         "de": "business-analyst-finance-shared-services-totalenergies-geneve",
         "fr": "business-analyst-finance-shared-services-totalenergies-geneve"
       },
@@ -476,16 +501,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:38:28.341Z"
+      "firstSeenAt": "2026-07-04T12:38:28.341Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-finance-shared-services-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-finance-shared-services-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-cf16f75636e9",
-      "slug": "trade-support-analyst-intern-totalenergies-geneve",
+      "slug": "trade-support-analista-tirocinante-totalenergies-geneve",
       "slugByLocale": {
         "en": "trade-support-analyst-intern-totalenergies-geneve",
-        "it": "trade-support-analyst-intern-totalenergies-geneve",
+        "it": "trade-support-analista-tirocinante-totalenergies-geneve",
         "de": "trade-support-analyst-intern-totalenergies-geneve",
-        "fr": "trade-support-analyst-intern-totalenergies-geneve"
+        "fr": "trade-support-analyste-stagiaire-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -544,7 +577,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:38:28.339Z"
+      "firstSeenAt": "2026-07-04T12:38:28.339Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "trade-support-analyst-intern-totalenergies-geneve"
+        ],
+        "fr": [
+          "trade-support-analyst-intern-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "trade-support-analyst-intern-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-52d23f0013f7",
@@ -616,12 +660,12 @@
     },
     {
       "id": "totalenergies-fe50956f7b99",
-      "slug": "procurement-analyst-intern-totalenergies-geneve",
+      "slug": "procurement-analista-tirocinante-totalenergies-geneve",
       "slugByLocale": {
         "en": "procurement-analyst-intern-totalenergies-geneve",
-        "it": "procurement-analyst-intern-totalenergies-geneve",
+        "it": "procurement-analista-tirocinante-totalenergies-geneve",
         "de": "procurement-analyst-intern-totalenergies-geneve",
-        "fr": "procurement-analyst-intern-totalenergies-geneve"
+        "fr": "procurement-analyste-stagiaire-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -680,16 +724,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:38:28.336Z"
+      "firstSeenAt": "2026-07-04T12:38:28.336Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-analyst-intern-totalenergies-geneve"
+        ],
+        "fr": [
+          "procurement-analyst-intern-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "procurement-analyst-intern-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-577928fa49a3",
-      "slug": "credit-analyst-intern-totalenergies-geneve",
+      "slug": "credit-analista-tirocinante-totalenergies-geneve",
       "slugByLocale": {
         "en": "credit-analyst-intern-totalenergies-geneve",
-        "it": "credit-analyst-intern-totalenergies-geneve",
+        "it": "credit-analista-tirocinante-totalenergies-geneve",
         "de": "credit-analyst-intern-totalenergies-geneve",
-        "fr": "credit-analyst-intern-totalenergies-geneve"
+        "fr": "credit-analyste-stagiaire-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -748,7 +803,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:38:28.335Z"
+      "firstSeenAt": "2026-07-04T12:38:28.335Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "credit-analyst-intern-totalenergies-geneve"
+        ],
+        "fr": [
+          "credit-analyst-intern-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "credit-analyst-intern-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-64cb68c2103f",

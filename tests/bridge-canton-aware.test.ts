@@ -22,6 +22,10 @@ describe('Bridge page canton-aware UX', () => {
     path.resolve(root, 'components/community/JobBoard.tsx'),
     'utf-8',
   );
+  const jobSlugShardsSrc = fs.readFileSync(
+    path.resolve(root, 'services/jobSlugShards.ts'),
+    'utf-8',
+  );
 
   describe('F3: canton-aware breadcrumb text', () => {
     it('exports a helper that adapts the breadcrumb label to the canton display name', () => {
@@ -90,9 +94,12 @@ describe('Bridge page canton-aware UX', () => {
       // Type signature must accept id + canton.
       expect(routerSrc).toContain('id?: string');
       expect(routerSrc).toContain('canton?: string');
-      // Meta is stored under reserved keys to avoid colliding with locale keys.
-      expect(routerSrc).toContain('record._id = job.id');
-      expect(routerSrc).toContain('record._canton');
+      // Record building is shared with the build-time shard emitter
+      // (services/jobSlugShards.ts) so router and emitter cannot drift; meta
+      // is stored under reserved keys to avoid colliding with locale keys.
+      expect(routerSrc).toContain('buildJobSlugRecord');
+      expect(jobSlugShardsSrc).toContain('record._id = job.id');
+      expect(jobSlugShardsSrc).toContain('record._canton');
     });
 
     it('router exports getJobMetaForSlug for SPA bridge resolution', () => {
@@ -103,7 +110,8 @@ describe('Bridge page canton-aware UX', () => {
     it('JobBoard wires a cross-canton lazy fetch when bridgeTarget is in a different canton shard', () => {
       // Must import the new router helper.
       expect(jobBoardSrc).toContain('getJobMetaForSlug');
-      expect(jobBoardSrc).toContain('ensureJobSlugMapLoaded');
+      // Per-slug shard ensure (#3526) replaced the full-monolith ensure.
+      expect(jobBoardSrc).toContain('ensureJobSlugEntriesLoaded');
       // Must call fetchJobsForCanton with the looked-up canton when selectedJob
       // is missing but a bridge target slug is set.
       expect(jobBoardSrc).toMatch(/getJobMetaForSlug\(targetSlug\)/);
