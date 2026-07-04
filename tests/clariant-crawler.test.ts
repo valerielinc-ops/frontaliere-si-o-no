@@ -143,6 +143,16 @@ describe('Clariant crawler parser', () => {
       expect(resolveClariantCanton('Bern', 'Bern', 'Bern')).toBe('BE');
       expect(resolveClariantCanton('Bern', 'Bern', 'Bern')).not.toBe('BL');
     });
+
+    it('returns null (skip) when the 3rd arg is the pre-HQ-default cityOnly and it is empty — never fabricates BL via a resolveAddress()-defaulted "Muttenz"', () => {
+      // Regression: the 3rd arg must be the pre-`resolveAddress()` cityOnly text,
+      // NOT resolveAddress()'s HQ-defaulted output — passing the latter would
+      // make an empty cityOnly resolve to 'Muttenz' and trivially infer 'BL',
+      // silently defeating this exact guard for real-but-unresolvable text
+      // (e.g. a tile whose location is only ", Switzerland").
+      expect(resolveClariantCanton(', Switzerland', ', Switzerland', '')).toBeNull();
+      expect(resolveClariantCanton(', Switzerland', ', Switzerland', 'Muttenz')).not.toBeNull();
+    });
   });
 
   // ── Listing parse (real jobs2web search-results table fixture) ──

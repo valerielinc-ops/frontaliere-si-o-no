@@ -250,15 +250,20 @@ export async function fetchAllMigrosHqJobs() {
       const title = normalizeSpace(listing.title || '');
       if (!title || title.length < 3) continue;
 
-      // Default to Zürich (Migros HQ) when SR doesn't return a city; canton ZH.
-      const location = listing.location || 'Zürich';
       // Location-first: resolve the specific location before the broader region.
       // inferAnyCanton already checks target cantons first internally, so a
       // separate inferSwissTargetCanton pass is redundant; splitting the fields
       // keeps the specific location winning over array-order sensitivity.
-      const canton = inferAnyCanton(location)
-        || inferAnyCanton(listing.region || '')
-        || 'ZH';
+      const realLocationText = normalizeSpace(listing.location || '');
+      const realRegionText = normalizeSpace(listing.region || '');
+      const inferredCanton = inferAnyCanton(realLocationText) || inferAnyCanton(realRegionText) || null;
+      if ((realLocationText || realRegionText) && !inferredCanton) {
+        console.warn(`  ⚠️ Migros HQ: skipping unresolvable location "${realLocationText || realRegionText}" (${title})`);
+        continue;
+      }
+      // Default to Zürich (Migros HQ) only when SR returned no location text at all.
+      const location = realLocationText || 'Zürich';
+      const canton = inferredCanton || 'ZH';
       const descriptionText = stripHtml(listing.description || '');
       const publicUrl = listing.url || CAREER_URL;
 

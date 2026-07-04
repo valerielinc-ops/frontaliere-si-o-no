@@ -540,8 +540,14 @@ export async function fetchAllHirslandenJobs() {
 
       const title = detail?.title || listing.title;
       const { city, postalCode: parsedPostal } = parseLocation(listing.location);
-      const location = detail?.location || city;
-      const canton = inferSwissTargetCanton(location) || 'ZH';
+      const realLocationText = normalizeSpace(detail?.location || '') || normalizeSpace(listing.location || '');
+      const location = realLocationText || city;
+      const inferredCanton = inferSwissTargetCanton(location) || null;
+      if (realLocationText && !inferredCanton) {
+        console.warn(`  ⚠️ Hirslanden: skipping unresolvable location "${realLocationText}" (${title})`);
+        continue;
+      }
+      const canton = inferredCanton || 'ZH';
       const postalCode = parsedPostal || '8008';
 
       let description = '';

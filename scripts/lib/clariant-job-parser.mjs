@@ -141,11 +141,17 @@ export function resolveAddress(raw = {}) {
  *
  * @param {string} realLocationText - location text as scraped, BEFORE the HQ.city fallback
  * @param {string} rawLocation - realLocationText, or HQ.city when absent
- * @param {string} city - resolved city (from resolveAddress)
+ * @param {string} cityOnly - country-suffix-stripped city text, BEFORE
+ * `resolveAddress()`'s HQ.city fallback. Passing `resolveAddress()`'s output
+ * instead re-introduces the exact footgun this guard exists to close: an
+ * empty `cityOnly` would resolve through `resolveAddress` to HQ.city
+ * ('Muttenz'), which then trivially infers canton 'BL' here and silently
+ * defeats the skip guard for real-but-unresolvable location text (e.g. a
+ * tile whose location is only ", Switzerland").
  * @returns {string|null} canton code, or null meaning "skip this job"
  */
-export function resolveClariantCanton(realLocationText, rawLocation, city) {
-  const inferredCanton = inferSwissTargetCanton(rawLocation) || inferSwissTargetCanton(city);
+export function resolveClariantCanton(realLocationText, rawLocation, cityOnly) {
+  const inferredCanton = inferSwissTargetCanton(rawLocation) || inferSwissTargetCanton(cityOnly);
   if (normalizeSpace(realLocationText) && !inferredCanton) {
     return null;
   }
@@ -384,7 +390,7 @@ export async function fetchAllClariantJobs() {
     const cityOnly = rawLocation.replace(/,\s*(CH|Switzerland|Schweiz|Suisse|Svizzera)\s*$/i, '').trim();
     const { city, postalCode, streetAddress } = resolveAddress({ city: cityOnly });
     const location = normalizeSpace(cityOnly || city);
-    const canton = resolveClariantCanton(realLocationText, rawLocation, city);
+    const canton = resolveClariantCanton(realLocationText, rawLocation, cityOnly);
     if (canton === null) {
       console.warn(` ⚠️ Clariant: skipping unresolvable location "${realLocationText}" (${title})`);
       continue;
