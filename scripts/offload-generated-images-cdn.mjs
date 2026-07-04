@@ -183,9 +183,19 @@ const DATA_FILE = "([^\"'\\s)?<>]+?\\.(?:json|csv))";
 function offloadAll(distDir, cdnBase) {
   const escOrigin = ORIGIN.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-  // og rewrite/guard regexes per present target dir.
+  // og/image rewrite/guard regexes: compiled for EVERY target, NOT gated on
+  // the target dir being present in THIS dist (#3475). Shard dists (the en/de/
+  // fr shard runners and the Ticino staged copies) are pruned to one locale
+  // subtree and carry no dist/og or dist/images/* — yet their HTML still
+  // references those paths, and the bytes are already on the CDN (the IT leg
+  // pushes them). Gating the rewrite on fs.existsSync silently no-op'd it
+  // there: og:image + brand/logo <img> refs stayed on the main domain and paid
+  // a CF 301 hop to the CDN on every fetch (users, social scrapers,
+  // Googlebot-Image) while /assets/ + /data/ rewrites on the SAME pages did
+  // apply. Dir presence only matters for the guarded DELETE below (can't
+  // delete what isn't there) — that's what ogTargets gates.
   const ogTargets = TARGETS.filter((t) => fs.existsSync(path.join(distDir, ...t.dir)));
-  const ogCompiled = ogTargets.map((t) => {
+  const ogCompiled = TARGETS.map((t) => {
     const escUrl = t.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     return {
       t,
@@ -403,7 +413,9 @@ function offloadAll(distDir, cdnBase) {
       log(`GUARD: unrewritten same-origin ref(s) survive — keeping in dist (non-fatal): ${kept.join(' | ')}`);
     }
   } else {
-    log('no OG offload target dirs present — skipping og delete');
+    // Shard-dist path (#3475): no local dirs to delete, but the rewrites above
+    // DID run — log the count so CI shows the offload applied on shard legs.
+    log(`no OG offload target dirs present — skipping og delete (og/image refs rewritten in ${ogRewritten} files)`);
   }
 
   // data: delete cdn-only files, keep any /data/ path referenced same-origin in HTML.
