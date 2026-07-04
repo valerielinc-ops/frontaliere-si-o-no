@@ -131,8 +131,11 @@ function pickPostalCode(job, defaultPostal, location, defaultCity) {
 
 function pickStreetAddress(job, defaultStreet, location, defaultCity) {
   const szas = job?.szas || {};
-  // Explicit street fields (e.g. Volksschule Luzern medium 1005619), tried
-  // before the free-text `sza_workplace` parse below.
+  // Explicit street fields, tried before the free-text `sza_workplace` parse
+  // below (e.g. Volksschule Luzern medium 1005619; Stadt Luzern medium
+  // 1005002: `sza_location.street: 'Hirschengraben 17'`, confirmed live —
+  // each listing carries its own real office street, distinct from the
+  // `sza_workplace.zip`-style variant already handled in `pickPostalCode`).
   const explicitStreet = normalizeSpace(szas['sza_location.street'] || '');
   if (explicitStreet) return explicitStreet;
   const workplaceStreetField = normalizeSpace(szas['sza_workplace.street'] || '');
@@ -182,7 +185,12 @@ function buildDescription(job) {
   return parts.join('\n\n');
 }
 
-function detectCategory(title = '', dept = '') {
+// `fallbackCategory` lets non-healthcare tenants (e.g. a hospitality
+// employer reusing this hospital-oriented factory) override the
+// last-resort bucket for titles that don't match any keyword below.
+// Defaults to the historical literal so every pre-existing call site
+// (all hospital/insurance/finance consumers) is byte-identical.
+function detectCategory(title = '', dept = '', fallbackCategory = 'Sanità / Ospedali') {
   const t = normalize(`${title} ${dept}`);
   if (/\b(pflege|pflegefach|stationsleitung|fage|spitex|nachtwache|geburts|hebamme)/.test(t)) return 'Sanità / Ospedali';
   if (/\b(arzt|ärztin|oberarzt|chefarzt|leitend|medizin|chirurg|anästhes|onkolog|kardiolog|neurolog|pädiatr|gynäk|psychi|geriatr)/.test(t)) return 'Sanità / Ospedali';
@@ -196,7 +204,7 @@ function detectCategory(title = '', dept = '') {
   if (/\b(logist|magazz|lager|einkauf|transport)/.test(t)) return 'Logistica';
   if (/\b(market|kommunik)/.test(t)) return 'Marketing';
   if (/\b(lernend|praktik|ausbildung|apprenti|werkstudent)/.test(t)) return 'Formazione';
-  return 'Sanità / Ospedali';
+  return fallbackCategory;
 }
 
 function detectExperienceLevel(title = '') {
@@ -242,7 +250,9 @@ function detectExperienceLevel(title = '') {
  * @param {(title: string, department: string) => string} [config.categoryFn]
  *   Override the per-job category classifier. Defaults to the shared
  *   healthcare-biased `detectCategory()` (its unmatched-role fallback is
- *   'Sanità / Ospedali', wrong for a non-healthcare tenant).
+ *   'Sanità / Ospedali', wrong for a non-healthcare tenant). Non-healthcare
+ *   tenants with a single fixed category (e.g. a school district or municipal
+ *   administration) can pass a constant-returning function.
  */
 export function createProspectiveChParser(config) {
   const {
@@ -261,6 +271,10 @@ export function createProspectiveChParser(config) {
     acceptDirectlinkHosts = [],
     sharedMedium = false,
     filterListing,
+    // Both default to the historical hardcoded literal so every pre-existing
+    // consumer (hospitals, insurers, finance — see file header) is
+    // unaffected. Only a genuinely different-industry tenant (e.g. a
+    // hospitality employer or municipal administration) needs to pass these.
     sector = 'Sanità / Ospedali',
     categoryFn = detectCategory,
   } = config;
@@ -387,7 +401,15 @@ export function createProspectiveChParser(config) {
       }
 
       const directLink = normalizeSpace(listing?.links?.directlink || '');
-      const applyLink = normalizeSpace(szas.sza_apply_link || '');
+      // `sza_apply_link` is meant to hold an absolute external apply URL
+      // (confirmed real on e.g. VZ VermögensZentrum, medium 1003550), but
+      // at least one tenant (Grand Resort Bad Ragaz, medium 1004484)
+      // mis-maps it to a bare internal numeric reference ("1693") instead
+      // of a URL. Guard with a shape check so a malformed value never
+      // gets stamped as `applyUrl` — falls through to the real `directLink`
+      // instead, same as the empty-field case already handled below.
+      const rawApplyLink = normalizeSpace(szas.sza_apply_link || '');
+      const applyLink = /^https?:\/\//i.test(rawApplyLink) ? rawApplyLink : '';
       const publicUrl = directLink || applyLink || publicCareerUrl || API_BASE;
 
       const location = pickLocation(listing, defaultCity);
