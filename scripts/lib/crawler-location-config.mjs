@@ -619,6 +619,11 @@ export const COMPANY_HQ = {
   // CHE-102.232.125) sharing this registered seat. NOT the same company as
   // 'spruengli' (Confiserie Sprüngli AG, Zürich) — unaffiliated, see issue #3337.
   'lindt-spruengli': { city: 'Kilchberg', canton: 'ZH', postalCode: '8802', addressRegion: 'ZH' },
+  // Bucher + Suter AG HQ, Lindenpark, Lindenhofstrasse 1, CH-3048 Worblaufen
+  // (Bern) BE — confirmed via the company's own imprint page
+  // (bucher-suter.com/imprint/, "Lindenhofstrasse 1, CH-3048 Worblaufen");
+  // no fallback needed.
+  'bucher-suter': { city: 'Bern', canton: 'BE', postalCode: '3048', addressRegion: 'BE' },
 };
 
 /**
