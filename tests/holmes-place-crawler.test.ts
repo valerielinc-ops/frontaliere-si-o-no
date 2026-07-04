@@ -6,6 +6,7 @@ import {
   isHolmesPlaceJob,
   isTrustedDomain,
   resolveAddress,
+  resolveCantonFallback,
   normalizeHolmesPlaceListing,
   buildDescription,
   detectCategory,
@@ -154,6 +155,26 @@ describe('Holmes Place crawler parser', () => {
     it('matches Oberrieden case-insensitively and ignores surrounding whitespace', () => {
       const resolved = resolveAddress({ city: '  OBERRIEDEN  ' });
       expect(resolved.streetAddress).toBe('Seestrasse 97');
+    });
+  });
+
+  // ── resolveCantonFallback (never falls straight to the HQ canton for an
+  // unrecognized city — must try city-text canton inference first) ──
+  describe('resolveCantonFallback', () => {
+    it('matches a known branch by postalCode first', () => {
+      expect(resolveCantonFallback('1204', 'Genève')).toBe('GE');
+    });
+
+    it('infers canton from city text when no branch postalCode matches, instead of defaulting to the Oberrieden HQ canton (ZH)', () => {
+      // Bern is not one of the 5 known Holmes Place branches, and its
+      // postalCode (3011) matches no branch — a canton-only/HQ-only fallback
+      // would mislabel this BE job as ZH. This is the exact bug class this
+      // test guards against.
+      expect(resolveCantonFallback('3011', 'Bern')).toBe('BE');
+    });
+
+    it('falls back to the Oberrieden HQ canton only when the city itself cannot be resolved to any canton', () => {
+      expect(resolveCantonFallback('', '')).toBe('ZH');
     });
   });
 
