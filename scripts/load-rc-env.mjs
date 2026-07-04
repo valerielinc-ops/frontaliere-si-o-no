@@ -127,8 +127,6 @@ const RC_TO_ENV = {
   SERVER_REDDIT_PASSWORD:         ['REDDIT_PASSWORD'],
   SERVER_REDDIT_REFRESH_TOKEN:    ['REDDIT_REFRESH_TOKEN'],
 
-  // Linear API (issue creation on CI failure)
-
   // LLM providers (AI model chain for articles + crawlers)
   GROQ_API_KEY:                   ['GROQ_API_KEY'],
   OPENROUTER_API_KEY:             ['OPENROUTER_API_KEY'],
