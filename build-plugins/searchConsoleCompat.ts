@@ -238,9 +238,15 @@ function normalizePath(input: string): string {
 }
 
 function inferLocale(path: string): SupportedLocale {
- if (path.startsWith('/en/')) return 'en';
- if (path.startsWith('/de/')) return 'de';
- if (path.startsWith('/fr/')) return 'fr';
+ // Match case-insensitively (GSC may index a locale segment with drifted
+ // casing, e.g. `/EN/find-jobs-ticino/...`) — mirrors normalizePath()'s
+ // duplicate-hostname-prefix check above (PR #3419). Unlike that check there
+ // is nothing to slice/preserve here: the return value is always one of the
+ // four fixed locale codes, never a substring of `path`.
+ const lowerPath = path.toLowerCase();
+ if (lowerPath.startsWith('/en/')) return 'en';
+ if (lowerPath.startsWith('/de/')) return 'de';
+ if (lowerPath.startsWith('/fr/')) return 'fr';
  return 'it';
 }
 
