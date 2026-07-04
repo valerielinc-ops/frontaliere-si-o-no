@@ -9030,6 +9030,14 @@ ${staticAnalyticsHtml}
      // become BFS-orphaned (audit-bfs-depth.mjs treats noindex as a dead
      // end — see line 276 of that script).
      if (!meetsThreshold) markCantonNoindex(entry.key);
+     // Sitemap coverage (#3518): the hub-root landing itself was never pushed
+     // into the sharded sitemaps — only its child job URLs were — leaving all
+     // non-TI canton hubs (and their locale variants) out of every sub-sitemap
+     // despite being emitted index,follow with self-canonicals. Push indexable
+     // roots only: a noindex URL in a sitemap trips audit:sitemap-canonicals.
+     if (meetsThreshold) {
+       shardUrls.push({ loc: canonicalUrl, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: entry.key });
+     }
      const labels = buildCantonLocaleLabels(entry.locale, display);
      // The visible `lede` stays short (header tagline); the SEO meta + JSON-LD
      // description use a 140-160 char canton+count-aware snippet so GSC no
@@ -9722,6 +9730,16 @@ ${staticAnalyticsHtml}
      if (u._canton === AGGREGATE_KEY) return getCantonUrlSlugLocal(AGGREGATE_KEY, 'it'); // 'svizzera'
      return getCantonUrlSlugLocal(u._canton, 'it'); // e.g. 'ZH' → 'zurigo'
    };
+   // Sitemap coverage (#3518, TI half): the localized Ticino hub roots
+   // (/en/find-jobs-ticino/, /de/jobs-im-tessin/, /fr/...) are emitted by
+   // staticPagesPlugin (TI is skipped in cantonsToEmit above) and were listed
+   // in no sitemap at all. The IT root /cerca-lavoro-ticino/ already lives in
+   // sitemap-pages.xml — push only the three locale variants, into the TI shard.
+   for (const tiLocale of ['en', 'de', 'fr'] as const) {
+     const tiSection = buildCantonAwareSection(tiLocale, 'TI');
+     const tiPath = withSlash(`${localePrefix[tiLocale]}/${tiSection}`.replace(/\/+/g, '/'));
+     shardUrls.push({ loc: `${BASE_URL}${tiPath}`, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: 'TI' });
+   }
    const shards = splitToShards(shardUrls, { shardKey: shardKeyForUrl });
    // writeShardsToDist writes each `sitemap-jobs-{italian-slug}.xml` to the
    // top-level dist/ directory + emits dist/sitemap-index.xml referencing
