@@ -1028,6 +1028,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="675">
  <meta property="og:image:type" content="${en.img?.includes('.webp') ? 'image/webp' : 'image/jpeg'}">
+ <meta property="og:image:alt" content="${esc(localizedTitle)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
