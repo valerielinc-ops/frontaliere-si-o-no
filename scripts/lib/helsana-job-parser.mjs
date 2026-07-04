@@ -29,6 +29,8 @@ const parser = createSuccessFactorsParser({
   defaultPostalCode: '8600',
   defaultSourceLang: 'de',
   sourceLabel: 'Helsana Dedicated Parser (SuccessFactors CSB)',
+  sector: 'Assicurazioni',
+  fallbackCategory: 'Amministrazione',
 });
 
 export const fetchAllHelsanaJobs = parser.fetchAllJobs;

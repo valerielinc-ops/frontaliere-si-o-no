@@ -210,8 +210,16 @@ export function extractBalancedTagBlock(rest, tagName, scanCap = 20000) {
 /**
  * Healthcare-tuned category detector. Default = "Sanità / Ospedali" because
  * most jobs at a hospital are clinical.
+ *
+ * @param {string} [text]
+ * @param {string} [fallback] — catch-all category when no keyword matches.
+ *   Defaults to 'Sanità / Ospedali' (correct for genuine hospital/clinic
+ *   tenants). Non-healthcare employers reusing this detector via the shared
+ *   SuccessFactors CSB factory can override the catch-all only — the 3
+ *   clinical-keyword matches above stay hardcoded, since a job that genuinely
+ *   reads as clinical should stay "Sanità / Ospedali" regardless of employer.
  */
-export function detectHealthcareCategory(text = '') {
+export function detectHealthcareCategory(text = '', fallback = 'Sanità / Ospedali') {
   const t = normalize(text);
   if (/pfleg|infirm|cure|soin|aide.soignant|asa|asse|fage|spitex|nachtwache|geburts|hebamme|levatrice|ostetric/.test(t)) return 'Sanità / Ospedali';
   if (/arzt|ärztin|oberarzt|chefarzt|leitend|medizin|medic|chirurg|anästhes|onkolog|kardiolog|neurolog|pädiatr|gynäk|psichiatr|geriatr|m[ée]decin/.test(t)) return 'Sanità / Ospedali';
@@ -224,7 +232,7 @@ export function detectHealthcareCategory(text = '') {
   if (/logist|magazz|lager|einkauf|transport|approvvig/.test(t)) return 'Logistica';
   if (/market|kommunik|communic|comunicaz/.test(t)) return 'Marketing';
   if (/lernend|praktik|ausbildung|apprenti|stage|stagiair|tirocin|formaz/.test(t)) return 'Formazione';
-  return 'Sanità / Ospedali';
+  return fallback;
 }
 
 export function detectHealthcareExperienceLevel(text = '') {

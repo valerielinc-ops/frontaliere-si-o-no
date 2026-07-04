@@ -42,6 +42,8 @@ const parser = createSuccessFactorsParser({
   defaultSourceLang: 'en',
   searchParams: { locationsearch: 'Switzerland' },
   sourceLabel: 'Medartis Dedicated Parser (SuccessFactors CSB)',
+  sector: 'MedTech / Dispositivi medici',
+  fallbackCategory: 'Tecnica',
 });
 
 export const fetchAllMedartisJobs = parser.fetchAllJobs;

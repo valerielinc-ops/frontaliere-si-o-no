@@ -78,6 +78,8 @@ export const COMPANY_HQ_ADDRESSES: Record<string, CompanyHqAddress> = {
   'fust': { streetAddress: 'Zürcherstrasse 22', postalCode: '9246', addressLocality: 'Niederbüren', addressRegion: 'SG' },
   // Crawler backlog #3337 batch 2
   'zkb': { streetAddress: 'Bahnhofstrasse 9', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
+  // Crawler backlog #3342 round 2
+  'pfister': { streetAddress: 'Bernstrasse Ost 49', postalCode: '5034', addressLocality: 'Suhr', addressRegion: 'AG' },
 };
 
 /**
