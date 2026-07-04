@@ -628,6 +628,15 @@ export const COMPANY_HQ = {
   // lives in `resolveAddress()` in scripts/lib/on-running-job-parser.mjs;
   // this HQ entry is only the generic city/canton fallback.
   'on-running': { city: 'Zürich', canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
+  // SFS Group AG HQ, Rosenbergsaustrasse 8, CH-9435 Heerbrugg SG — confirmed
+  // via the company's own Impressum pages (join.sfs.com/ch/en/imprint/ and
+  // www.sfs.com/ch/en/imprint/, both agree; UID CHE-103.670.002). ATS
+  // investigation for issue #3337 found this "Custom"-labeled company is
+  // actually Umantis (apply-flow backend) fronted by an AEM career portal;
+  // see the city-gated `resolveAddress()` in
+  // scripts/lib/sfs-group-job-parser.mjs for the HQ-vs-other-SG-towns gating
+  // (this entry is only the generic fallback).
+  'sfs-group': { city: 'Heerbrugg', canton: 'SG', postalCode: '9435', addressRegion: 'SG' },
 };
 
 /**
