@@ -1,18 +1,19 @@
 {
   "key": "equans",
   "label": "Equans Switzerland",
-  "generatedAt": "2026-07-04T10:42:27.743Z",
+  "generatedAt": "2026-07-04T21:48:52.614Z",
   "total": 88,
-  "newCount": 88,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 88,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 44218,
-  "avgDurationMs": 44218,
+  "durationMs": 34830,
+  "avgDurationMs": 34830,
   "durationHistory": [
-    44218
+    34830
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "equans-5c597e9cfa8e",
       "slug": "responsabile-team-fm-equans-monteceneri",
@@ -25,7 +26,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/39910467-9616-4e52-a8f7-5913509b8307/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-04T10:41:44.324Z",
+      "crawledAt": "2026-07-04T21:48:18.695Z",
       "addressLocality": "Monteceneri",
       "addressRegion": "TI",
       "streetAddress": "Via Cantonale 43",
@@ -42,11 +43,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/39910467-9616-4e52-a8f7-5913509b8307/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:44.324Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/31902142-d2c8-4c52-9391-32d7969d1aa5/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:44.824Z",
+      "crawledAt": "2026-07-04T21:48:18.714Z",
       "addressLocality": "Sisseln",
       "addressRegion": "AG",
       "streetAddress": "Hauptstrasse 4",
@@ -79,11 +81,12 @@
       "postedDate": "2026-07-03",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/31902142-d2c8-4c52-9391-32d7969d1aa5/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:44.824Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -99,7 +102,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/edf25f4e-3781-4e10-a5a1-8b2c8c4d31a4/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:47.226Z",
+      "crawledAt": "2026-07-04T21:48:18.804Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 150",
@@ -116,11 +119,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/edf25f4e-3781-4e10-a5a1-8b2c8c4d31a4/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:47.226Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -136,7 +140,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/3bb94161-97fb-437e-8bfe-b0259e0cd50d/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:47.321Z",
+      "crawledAt": "2026-07-04T21:48:19.187Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 150",
@@ -153,11 +157,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/3bb94161-97fb-437e-8bfe-b0259e0cd50d/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:47.321Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -173,7 +178,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/6430f86c-0194-4815-a735-2a23436c5d62/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T10:41:47.418Z",
+      "crawledAt": "2026-07-04T21:48:19.278Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 150",
@@ -190,11 +195,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/6430f86c-0194-4815-a735-2a23436c5d62/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:47.418Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 23,
         "completeness": 20
       }
     },
@@ -210,7 +216,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/0562e815-4614-47d9-ac9f-95a9ac8b6596/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:47.817Z",
+      "crawledAt": "2026-07-04T21:48:19.611Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Weltpoststrasse 5",
@@ -227,11 +233,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/0562e815-4614-47d9-ac9f-95a9ac8b6596/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:47.817Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -247,7 +254,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/9b890159-bdf6-4d3b-95b0-1015eddf3d03/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:48.232Z",
+      "crawledAt": "2026-07-04T21:48:19.701Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Weltpoststrasse 5",
@@ -264,11 +271,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/9b890159-bdf6-4d3b-95b0-1015eddf3d03/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:48.232Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -284,7 +292,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/e4d2e3aa-663b-4f98-bc01-210c2079253b/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:48.672Z",
+      "crawledAt": "2026-07-04T21:48:20.262Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lindentalstrasse 10",
@@ -301,11 +309,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/e4d2e3aa-663b-4f98-bc01-210c2079253b/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:48.672Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -321,7 +330,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/34e7d249-b2de-4b88-acb9-bb3b693f0ef8/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:51.208Z",
+      "crawledAt": "2026-07-04T21:48:20.876Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lindentalstrasse 10",
@@ -338,11 +347,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/34e7d249-b2de-4b88-acb9-bb3b693f0ef8/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:51.208Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -358,7 +368,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/b24e9a7d-828f-4bca-85be-72299b43fcb0/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:51.608Z",
+      "crawledAt": "2026-07-04T21:48:20.973Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -375,11 +385,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/b24e9a7d-828f-4bca-85be-72299b43fcb0/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-04T10:41:51.608Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -395,7 +406,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/535231ff-282d-446f-b6a7-e7451c160e94/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:51.703Z",
+      "crawledAt": "2026-07-04T21:48:21.343Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Zollhausstrasse 2",
@@ -412,11 +423,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/535231ff-282d-446f-b6a7-e7451c160e94/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:51.703Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -432,7 +444,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/6cbc7268-4d81-41ee-bfae-a0cabc7e7261/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:52.060Z",
+      "crawledAt": "2026-07-04T21:48:21.432Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "streetAddress": "Brandstrasse 24",
@@ -449,11 +461,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/6cbc7268-4d81-41ee-bfae-a0cabc7e7261/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 71,
+      "firstSeenAt": "2026-07-04T10:41:52.060Z",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -469,7 +482,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/eefdca3d-ed7b-4f7f-afcb-3bab4a30b895/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:52.592Z",
+      "crawledAt": "2026-07-04T21:48:21.782Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Holeestrasse 87",
@@ -486,11 +499,12 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/eefdca3d-ed7b-4f7f-afcb-3bab4a30b895/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:52.592Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -506,7 +520,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/60f922da-4da2-4f66-a0b9-44be0d1c17be/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:53.885Z",
+      "crawledAt": "2026-07-04T21:48:21.874Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lindentalstrasse 10",
@@ -523,11 +537,12 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/60f922da-4da2-4f66-a0b9-44be0d1c17be/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:53.885Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -543,7 +558,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/ddde6dd9-7bc3-479f-b0b7-12383afcbd9a/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-04T10:41:53.924Z",
+      "crawledAt": "2026-07-04T21:48:21.989Z",
       "addressLocality": "Rivera",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -560,11 +575,12 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/ddde6dd9-7bc3-479f-b0b7-12383afcbd9a/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-04T10:41:53.924Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -580,7 +596,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/37dcaa53-3692-4e15-8351-e00b0c6f1c35/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:54.231Z",
+      "crawledAt": "2026-07-04T21:48:22.080Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Zollhausstrasse 2",
@@ -597,11 +613,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/37dcaa53-3692-4e15-8351-e00b0c6f1c35/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:54.231Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -617,7 +634,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/69447e0c-b3a6-435f-92a1-c5e043f609f5/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:54.322Z",
+      "crawledAt": "2026-07-04T21:48:22.169Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Zollhausstrasse 2",
@@ -634,11 +651,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/69447e0c-b3a6-435f-92a1-c5e043f609f5/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:54.322Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -654,7 +672,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/d5eebd73-2e05-4978-b3aa-71f34c87e23d/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:54.812Z",
+      "crawledAt": "2026-07-04T21:48:22.480Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "streetAddress": "Ebisquare-Strasse 1",
@@ -671,11 +689,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/d5eebd73-2e05-4978-b3aa-71f34c87e23d/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:54.812Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -691,7 +710,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/680b5784-e86f-42f0-950a-10aee5436504/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:55.198Z",
+      "crawledAt": "2026-07-04T21:48:22.571Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Zollhausstrasse 2",
@@ -708,11 +727,12 @@
       "postedDate": "2026-06-29",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/680b5784-e86f-42f0-950a-10aee5436504/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:55.198Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -728,7 +748,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/6a31d360-f6f3-43fd-b6ba-f871f5b10503/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:55.576Z",
+      "crawledAt": "2026-07-04T21:48:23.146Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Rötzmattweg 115",
@@ -745,11 +765,12 @@
       "postedDate": "2026-06-29",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/6a31d360-f6f3-43fd-b6ba-f871f5b10503/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:55.576Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -765,7 +786,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/a6d4a846-df49-4d8a-a9c6-3a618971afdc/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:55.924Z",
+      "crawledAt": "2026-07-04T21:48:23.556Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "Industriestrasse 163",
@@ -782,11 +803,12 @@
       "postedDate": "2026-06-29",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/a6d4a846-df49-4d8a-a9c6-3a618971afdc/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:55.924Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -802,7 +824,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/8b379713-890c-4ad8-a138-e0b8a36009dd/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:56.317Z",
+      "crawledAt": "2026-07-04T21:48:23.647Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "Industriestrasse 163",
@@ -819,11 +841,12 @@
       "postedDate": "2026-06-28",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/8b379713-890c-4ad8-a138-e0b8a36009dd/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:56.317Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -839,7 +862,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/0f6eb8e6-db63-469f-bb9d-2cfa5626b440/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:56.411Z",
+      "crawledAt": "2026-07-04T21:48:24.100Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Triststrasse 3",
@@ -856,11 +879,12 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/0f6eb8e6-db63-469f-bb9d-2cfa5626b440/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:56.411Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -876,7 +900,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/0b561440-2274-47ba-b119-ef6ba0b84ec7/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:56.782Z",
+      "crawledAt": "2026-07-04T21:48:24.197Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Triststrasse 3",
@@ -893,11 +917,12 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/0b561440-2274-47ba-b119-ef6ba0b84ec7/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:56.782Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -913,7 +938,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/05a526c7-790c-405c-bdbb-25f614c9cd2a/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:57.257Z",
+      "crawledAt": "2026-07-04T21:48:24.217Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "streetAddress": "St. Gallerstrasse 161",
@@ -930,11 +955,12 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/05a526c7-790c-405c-bdbb-25f614c9cd2a/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:57.257Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -950,7 +976,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/10b19fdc-673a-44b6-9027-688e55f34478/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:57.697Z",
+      "crawledAt": "2026-07-04T21:48:24.239Z",
       "addressLocality": "Buchs",
       "addressRegion": "SG",
       "streetAddress": "Kornstrasse 7",
@@ -967,11 +993,12 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/10b19fdc-673a-44b6-9027-688e55f34478/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:57.697Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -987,7 +1014,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/c1e4adcd-27fa-4d78-8cd1-b6488fac1750/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:57.793Z",
+      "crawledAt": "2026-07-04T21:48:24.554Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Triststrasse 3",
@@ -1004,11 +1031,12 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/c1e4adcd-27fa-4d78-8cd1-b6488fac1750/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:57.793Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1024,7 +1052,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1ba68b5d-f4b6-40e6-b018-c982bc59ddfa/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:58.185Z",
+      "crawledAt": "2026-07-04T21:48:24.644Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Triststrasse 3",
@@ -1041,11 +1069,12 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/1ba68b5d-f4b6-40e6-b018-c982bc59ddfa/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:41:58.185Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1061,7 +1090,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/910fa99b-6bb0-4b28-8395-4d99b4fd51f5/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:58.206Z",
+      "crawledAt": "2026-07-04T21:48:25.062Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 150",
@@ -1078,11 +1107,12 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/910fa99b-6bb0-4b28-8395-4d99b4fd51f5/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-07-04T10:41:58.206Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1098,7 +1128,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/474b260b-ede9-4bb9-8ea8-4a7b5201b955/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:41:58.236Z",
+      "crawledAt": "2026-07-04T21:48:26.335Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1115,16 +1145,16 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/474b260b-ede9-4bb9-8ea8-4a7b5201b955/",
       "hiringOrganizationName": "Equans Switzerland AG",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-04T10:41:58.236Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
