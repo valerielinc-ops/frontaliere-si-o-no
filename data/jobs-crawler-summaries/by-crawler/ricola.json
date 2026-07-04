@@ -1,0 +1,57 @@
+{
+  "key": "ricola",
+  "label": "Ricola",
+  "generatedAt": "2026-07-04T12:16:42.891Z",
+  "total": 1,
+  "newCount": 1,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 6932,
+  "avgDurationMs": 6932,
+  "durationHistory": [
+    6932
+  ],
+  "newJobs": [
+    {
+      "id": "ricola-2c30adc9413a",
+      "slug": "accounting-specialist-ricola-ch",
+      "company": "Ricola",
+      "companyKey": "ricola",
+      "companyDomain": "ricola.com",
+      "title": "Accounting Specialist",
+      "needsRetranslation": true,
+      "location": "Laufen",
+      "canton": "BL",
+      "url": "https://career.ricola.com/Vacancies/1048/Description/2",
+      "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-04T12:16:40.503Z",
+      "addressLocality": "Laufen",
+      "addressRegion": "BL",
+      "streetAddress": "Baselstrasse 31",
+      "postalCode": "4242",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria alimentare / Dolciumi",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-04",
+      "applyUrl": "https://career.ricola.com/Vacancies/1048/Description/2",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": []
+}
