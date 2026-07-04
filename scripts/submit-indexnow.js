@@ -136,10 +136,44 @@ function getRecentNewsUrls(newsXml, count) {
   return locs.slice(-count);
 }
 
+// Read a sitemap from public/ ONLY (no dist/ preference). The URL-block
+// lookups below resolve a URL's hreflang alternates, and since the build
+// strips one-sided xhtml:link groups from dist/ sitemaps (issue #3474 —
+// see build-plugins/sitemapAliasPlugin.ts), the annotated public/ sources
+// are the registry for locale alternates. <loc> sets are identical in both.
+function readPublicXml(file) {
+  const __dirname = dirname(fileURLToPath(import.meta.url));
+  const rootDir = resolve(__dirname, '..');
+  return readFileSync(resolve(rootDir, 'public', file), 'utf-8');
+}
+
+// Expand a list of newly deployed URLs with their hreflang alternates from
+// the public/ sitemap registry (issue #3474): a new article surfaces in the
+// sitemap diff only via its IT <loc> once dist/ annotations are stripped,
+// but its EN/DE/FR alternate pages are just as new and live, and must keep
+// receiving IndexNow submissions. No-op for URLs without an annotated
+// public/ <url> block. Never removes URLs.
+function expandWithPublicAlternates(urls) {
+  if (urls.length === 0) return urls;
+  const publicXml = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml', 'sitemap-news.xml']
+    .map(f => { try { return readPublicXml(f); } catch { return ''; } }).join('\n');
+  const expanded = new Set(urls);
+  const targets = new Set(urls);
+  for (const match of publicXml.matchAll(/<url>[\s\S]*?<\/url>/g)) {
+    const block = match[0];
+    const blockUrls = extractUrlsFromUrlBlock(block);
+    if (blockUrls.some(u => targets.has(u))) {
+      for (const u of blockUrls) expanded.add(u);
+    }
+  }
+  return [...expanded].sort();
+}
+
 function getBingUrlsSubset() {
-  // Read all sub-sitemaps for URL block lookup
+  // Read all sub-sitemaps for URL block lookup — public/ only, since the
+  // lookup exists to resolve hreflang alternates (see readPublicXml docs).
   const sitemapXml = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml']
-    .map(f => { try { return readXml(['public', f]); } catch { return ''; } }).join('\n');
+    .map(f => { try { return readPublicXml(f); } catch { return ''; } }).join('\n');
 
   // Preferred: the newly generated article URL (from CI workflow output)
   if (ARTICLE_URL) {
@@ -159,7 +193,7 @@ function getBingUrlsSubset() {
   }
   let newsXml = '';
   try {
-    newsXml = readXml(['public', 'sitemap-news.xml']);
+    newsXml = readPublicXml('sitemap-news.xml');
   } catch {
     return { urls: [], reason: 'no-news-sitemap' };
   }
@@ -474,9 +508,12 @@ async function submitToIndexNow() {
   const urlList = getUrlsFromSitemaps();
   console.log(`📊 ${urlList.length} URLs trovati nelle sitemap (tutte le lingue)`);
 
-  // Sitemap diff: fetch deployed sitemaps and find new URLs
+  // Sitemap diff: fetch deployed sitemaps and find new URLs.
+  // The diff is expanded with each new URL's hreflang alternates from the
+  // public/ registry (see expandWithPublicAlternates) — dist/live sitemaps
+  // no longer annotate one-sided groups (issue #3474).
   const deployedUrls = await getDeployedUrls();
-  const newUrls = getNewUrls(urlList, deployedUrls);
+  const newUrls = expandWithPublicAlternates(getNewUrls(urlList, deployedUrls));
 
   if (deployedUrls.size === 0) {
     console.log('ℹ️  Nessuna sitemap deployata trovata — invio tutti gli URLs');
