@@ -576,6 +576,17 @@ export const COMPANY_HQ = {
   // plausible-looking but wrong guess — that is Wetzikon's postal code, a
   // different nearby ZH town); no fallback needed.
   'belimo': { city: 'Hinwil', canton: 'ZH', postalCode: '8340', addressRegion: 'ZH' },
+  // Clariant AG, Rothausstrasse 61, 4132 Muttenz BL — confirmed via Zefix
+  // (Swiss commercial register, firm ehraid 356887, legalSeat "Muttenz").
+  // Real street address lives in the city-gated `resolveAddress()` in
+  // scripts/lib/clariant-job-parser.mjs (gate matches Muttenz OR Pratteln —
+  // Clariant's own postings label the same physical HQ campus "Pratteln");
+  // this HQ entry is only the generic city/canton fallback.
+  'clariant': { city: 'Muttenz', canton: 'BL', postalCode: '4132', addressRegion: 'BL' },
+  // Planzer Transport AG, Lerzenstrasse 14, 8953 Dietikon ZH — confirmed
+  // via the company's own Impressum page (https://www.planzer.ch/de/impressum/,
+  // "Kontaktadresse & Hauptsitz").
+  'planzer': { city: 'Dietikon', canton: 'ZH', postalCode: '8953', addressRegion: 'ZH' },
 };
 
 /**
