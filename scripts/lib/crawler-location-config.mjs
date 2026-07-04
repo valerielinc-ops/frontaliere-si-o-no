@@ -629,6 +629,137 @@ export const COMPANY_HQ = {
   // CHE-102.232.125) sharing this registered seat. NOT the same company as
   // 'spruengli' (Confiserie Sprüngli AG, Zürich) — unaffiliated, see issue #3337.
   'lindt-spruengli': { city: 'Kilchberg', canton: 'ZH', postalCode: '8802', addressRegion: 'ZH' },
+  // On Clouds GmbH (On Running) HQ, Förrlibuckstrasse 190, 8005 Zürich —
+  // confirmed via Zefix (Swiss commercial registry, CHE-109.909.325,
+  // legalSeat "Zürich") cross-checked against Moneyhouse's registered
+  // address AND the company's own Greenhouse `offices[].location` field
+  // ("HQ Zurich" -> "Förrlibuckstrasse 190, 8005 Zürich, Switzerland") —
+  // three independent sources agree. City-gated street/postal fallback
+  // lives in `resolveAddress()` in scripts/lib/on-running-job-parser.mjs;
+  // this HQ entry is only the generic city/canton fallback.
+  'on-running': { city: 'Zürich', canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
+  // SFS Group AG HQ, Rosenbergsaustrasse 8, CH-9435 Heerbrugg SG — confirmed
+  // via the company's own Impressum pages (join.sfs.com/ch/en/imprint/ and
+  // www.sfs.com/ch/en/imprint/, both agree; UID CHE-103.670.002). ATS
+  // investigation for issue #3337 found this "Custom"-labeled company is
+  // actually Umantis (apply-flow backend) fronted by an AEM career portal;
+  // see the city-gated `resolveAddress()` in
+  // scripts/lib/sfs-group-job-parser.mjs for the HQ-vs-other-SG-towns gating
+  // (this entry is only the generic fallback).
+  'sfs-group': { city: 'Heerbrugg', canton: 'SG', postalCode: '9435', addressRegion: 'SG' },
+  // Komax AG HQ, Industriestrasse 6, 6036 Dierikon LU — confirmed via Zefix
+  // (Swiss commercial register REST API, firm ehraid 100752, uid
+  // CHE-102.274.193, legalSeat "Dierikon"); cross-checked against Komax's own
+  // live job feed (https://jobs.komaxgroup.com/sitemap_index.xml), which
+  // lists postal code "6036" for every Dierikon posting. Street address lives
+  // in the city-gated `resolveAddress()` in scripts/lib/komax-group-job-parser.mjs
+  // (gate matches Dierikon only — Komax also posts jobs from Thun BE, a
+  // different canton, which must NOT inherit this HQ).
+  'komax': { city: 'Dierikon', canton: 'LU', postalCode: '6036', addressRegion: 'LU' },
+  // Selecta AG HQ, Hinterbergstrasse 16, 6312 Steinhausen ZG — confirmed via
+  // Moneyhouse's company extract (mirrors the Swiss commercial register /
+  // Zefix record), which shows the registered seat moved to Steinhausen per
+  // SHAB publication No. 154 of 13.08.2025 (previously Cham ZG — do NOT use
+  // the older Cham address). NOT Rotkreuz ZG either — a plausible-looking
+  // but wrong guess from some secondary sources; Rotkreuz was never
+  // Selecta's registered seat. Selecta's own Swiss postings are region-
+  // based (e.g. "Region Solothurn"), not tied to this legal seat — see the
+  // city-gated (never canton-gated) `resolveAddress()` in
+  // scripts/lib/selecta-job-parser.mjs for the per-job-posting fallback
+  // logic; this HQ entry is only the generic never-drop fallback.
+  'selecta': { city: 'Steinhausen', canton: 'ZG', postalCode: '6312', addressRegion: 'ZG' },
+  // Orell Füssli Thalia AG HQ, Dietzingerstrasse 3, 8003 Zürich ZH — confirmed
+  // via Handelsregister/Zefix (CHE-172.909.619, legal seat Zürich, domicile
+  // Dietzingerstrasse 3, 8003 Zürich per SHAB mutation), cross-checked against
+  // the company's own jobs.ch profile listing the same address. Real per-job
+  // city is city-gated in `resolveAddress()` in
+  // scripts/lib/orell-fuessli-thalia-job-parser.mjs (gate matches Zürich only,
+  // never canton alone); this HQ entry is only the generic fallback.
+  'orell-fuessli-thalia': { city: 'Zürich', canton: 'ZH', postalCode: '8003', addressRegion: 'ZH' },
+  // Swisslog AG / Swisslog Holding AG registered legal seat is "Buchs (AG)"
+  // per Zefix (Swiss commercial register, uid CHE-116.033.187) — Webereiweg
+  // 3, 5033 Buchs, confirmed independently via Moneyhouse and the company's
+  // own de-de career-page Organization JSON-LD. The GitHub issue #3337
+  // backlog row said "Buchs ZH", which is WRONG: Buchs ZH (postal 8107, near
+  // Regensdorf) is a different town in a different canton from Swisslog's
+  // actual HQ, Buchs AG (canton Aargau, postal 5033, near Aarau/Baden) —
+  // there is also a third unrelated "Buchs SG" (St. Gallen). Postal code
+  // 5033 confirms Aargau, not Zürich or St. Gallen. IMPORTANT for any
+  // consumer: `inferSwissTargetCanton('Buchs')` alone would misroute to 'SG'
+  // because SWISS_CANTONS.SG's curated `names` list includes the generic
+  // town token 'buchs' (for Buchs SG) with no canton disambiguation — the
+  // Swisslog parser's own resolveCanton() gates on the city text BEFORE
+  // calling inferSwissTargetCanton, forcing 'AG' for this company.
+  'swisslog': { city: 'Buchs', canton: 'AG', postalCode: '5033', addressRegion: 'AG' },
+  // Ricola Group AG HQ, Baselstrasse 31, 4242 Laufen BL — confirmed via the
+  // company's own Impressum page (ricola.com/it-it/chi-siamo/impressum/)
+  // AND cross-checked against Zefix (Swiss commercial register: legalSeat
+  // "Laufen", UID CHE-439.050.235); no fallback needed.
+  'ricola': { city: 'Laufen', canton: 'BL', postalCode: '4242', addressRegion: 'BL' },
+  // HORNBACH Baumarkt (Schweiz) AG HQ, Schellenrain 9, 6210 Sursee LU —
+  // confirmed via the company's own Impressum (jobs.hornbach.ch/impressum),
+  // cross-checked against Zefix (uid CHE-101.079.884, legal seat Oberkirch
+  // LU) and Moneyhouse (same street/postal-code/city). Individual Swiss
+  // branch postings outside Sursee use their own city-gated address in
+  // scripts/lib/hornbach-job-parser.mjs; this entry is only the HQ fallback.
+  'hornbach': { city: 'Sursee', canton: 'LU', postalCode: '6210', addressRegion: 'LU' },
+  // NEW YORKER (Schweiz) GmbH, Rietbrunnen 2, 8808 Pfäffikon SZ (legal seat
+  // registered as the municipality "Freienbach"), UID CHE-112.007.794 —
+  // confirmed via the official Zefix REST API
+  // (zefix.ch/ZefixREST/api/v1/firm/768755.json) AND cross-checked against
+  // northdata.com + moneyhouse.ch (see scripts/lib/new-yorker-job-parser.mjs
+  // docblock for full source detail). No stores are actually posted at this
+  // address — see the city-gated `resolveAddress()` in that parser for the
+  // per-store street (the retail chain spans 8+ Swiss cantons).
+  'new-yorker': { city: 'Pfäffikon', canton: 'SZ', postalCode: '8808', addressRegion: 'SZ' },
+  // Rue de Bourg 16, 1003 Lausanne (VD) — Kiabi Suisse SA's registered legal
+  // seat (Moneyhouse CHE-442.567.929 + local.ch/FOSC gazette entry, both
+  // agree). This is a fiduciary/law-firm domiciliation ("c/o LEGAL INSIGHTS
+  // Sàrl"), NOT an operational site — Kiabi Suisse's actual stores are
+  // Fribourg-Sud (Villars-sur-Glâne FR) and Marin Centre (Marin-Epagnier NE),
+  // both opened April 2026. See scripts/lib/kiabi-job-parser.mjs for the
+  // city-gated resolveAddress() that keeps this fallback scoped to a literal
+  // "Lausanne" match only.
+  'kiabi': { city: 'Lausanne', canton: 'VD', postalCode: '1003', addressRegion: 'VD' },
+  // Josef Müller Gemüse AG HQ, Rothusstrasse 26, 6331 Hünenberg ZG — legal
+  // entity confirmed via Zefix/Moneyhouse/North Data (UID CHE-100.379.852,
+  // legal seat Hünenberg). Address cross-checked across THREE independent
+  // sources: jobs.ch company-profile JSON-LD, the company's own
+  // muellergemuese.com site footer, and North Data's Handelsregister
+  // mirror — all three agree exactly. City-gated in
+  // scripts/lib/josef-mueller-job-parser.mjs's `resolveAddress()`.
+  'josef-mueller': { city: 'Hünenberg', canton: 'ZG', postalCode: '6331', addressRegion: 'ZG' },
+  // Kuhn Rikon AG HQ, Neschwilerstrasse 4, 8486 Rikon im Tösstal ZH — confirmed
+  // via (1) the company's own JSON-LD Organization block + Impressum page
+  // (kuhnrikon.com), (2) Northdata's mirror of the Zefix commercial register
+  // entry (CHE-102.058.330, "KUHN RIKON AG, Rikon im Tösstal"), (3) search.ch
+  // directory listing. City-gated fallback only — see `resolveAddress()` in
+  // scripts/lib/kuhn-rikon-job-parser.mjs (per-outlet postings, e.g. Landquart/
+  // Genève, keep their own street address; only a Rikon-city posting or an
+  // empty city inherits this HQ street).
+  'kuhn-rikon': { city: 'Rikon im Tösstal', canton: 'ZH', postalCode: '8486', addressRegion: 'ZH' },
+  // migrolino AG HQ, Wynenfeldstrasse 3, 5034 Suhr AG — confirmed via 3
+  // independent sources: the company's own JSON-LD (LocalBusiness +
+  // JobPosting) on migrolino.ch/migrolino-ag.ch, help.ch Handelsregister
+  // (UID CHE-105.489.643), and Moneyhouse/NorthData. migrolino is a
+  // convenience-store chain with ~700 shop locations nationwide — per-job
+  // addresses come from the shared jobs.migros.ch JobPosting JSON-LD
+  // (real per-store address); this HQ entry is only the city-gated
+  // fallback for HQ/regional roles, see resolveAddress() in
+  // scripts/lib/migrolino-job-parser.mjs.
+  'migrolino': { city: 'Suhr', canton: 'AG', postalCode: '5034', addressRegion: 'AG' },
+  // Holmes Place (Schweiz) GmbH HQ, Seestrasse 97, 8942 Oberrieden ZH —
+  // confirmed via 2 independent sources: Zefix (Swiss commercial register
+  // public API, firm search "Holmes Place") + jobs.ch company profile page
+  // (independent third-party listing), both agreeing on this address. Legal
+  // form converted AG → GmbH in 2024 (SHAB-confirmed via Zefix mutation
+  // history) — several third-party sources (jobs.ch prose, general web
+  // results) still say "Holmes Place AG"; that is stale. Holmes Place runs
+  // MULTIPLE gym branches across Switzerland (Zürich x2, Genève, Lausanne) —
+  // the per-branch street address lives in the city/branch-gated
+  // `resolveAddress()` in scripts/lib/holmes-place-job-parser.mjs; this HQ
+  // entry is only the generic canton/postal fallback.
+  'holmes-place': { city: 'Oberrieden', canton: 'ZH', postalCode: '8942', addressRegion: 'ZH' },
 };
 
 /**
