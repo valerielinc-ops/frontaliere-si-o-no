@@ -619,6 +619,15 @@ export const COMPANY_HQ = {
   // CHE-102.232.125) sharing this registered seat. NOT the same company as
   // 'spruengli' (Confiserie Sprüngli AG, Zürich) — unaffiliated, see issue #3337.
   'lindt-spruengli': { city: 'Kilchberg', canton: 'ZH', postalCode: '8802', addressRegion: 'ZH' },
+  // On Clouds GmbH (On Running) HQ, Förrlibuckstrasse 190, 8005 Zürich —
+  // confirmed via Zefix (Swiss commercial registry, CHE-109.909.325,
+  // legalSeat "Zürich") cross-checked against Moneyhouse's registered
+  // address AND the company's own Greenhouse `offices[].location` field
+  // ("HQ Zurich" -> "Förrlibuckstrasse 190, 8005 Zürich, Switzerland") —
+  // three independent sources agree. City-gated street/postal fallback
+  // lives in `resolveAddress()` in scripts/lib/on-running-job-parser.mjs;
+  // this HQ entry is only the generic city/canton fallback.
+  'on-running': { city: 'Zürich', canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
 };
 
 /**
