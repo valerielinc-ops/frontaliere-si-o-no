@@ -544,6 +544,16 @@ export const COMPANY_HQ = {
   // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
   'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
   'victorinox': { city: 'Ibach-Schwyz', canton: 'SZ', postalCode: '6438', addressRegion: 'SZ' },
+  // Fallback only — ETAVIS is a multi-canton electrical-installation group
+  // (ETAVIS AG, ETAVIS Grossenbacher, ETAVIS Elettro-Impianti SA, etc.);
+  // every job carries a real per-branch address from Softgarden JSON-LD, so
+  // this entry is only used on the rare row where the detail-page fetch
+  // fails. Zürich chosen as the group's largest hub (etavis.ch legal seat).
+  'etavis': { city: 'Zürich', canton: 'ZH', postalCode: '8050', addressRegion: 'ZH' },
+  // Hintermättlistrasse 3, 5506 Mägenwil (BRACK.CH HQ). Second real site:
+  // Alltron logistics center, Rossgassmoos 10, 6131 Willisau (LU) — handled
+  // directly in brack-alltron-job-parser.mjs since this registry is single-site.
+  'brack-alltron': { city: 'Mägenwil', canton: 'AG', postalCode: '5506', addressRegion: 'AG' },
   // Rektorat Volksschule Stadt Luzern, Winkelriedstrasse 12a, 6002 Luzern LU
   // (confirmed via stadtluzern.ch contact page). Most postings carry their
   // own school-building street/ZIP via the Prospective API; this is only the
