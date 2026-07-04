@@ -1,18 +1,19 @@
 {
   "key": "migrolino",
   "label": "migrolino",
-  "generatedAt": "2026-07-04T11:29:11.766Z",
+  "generatedAt": "2026-07-04T22:24:01.957Z",
   "total": 30,
-  "newCount": 30,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 30,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 24878,
-  "avgDurationMs": 24878,
+  "durationMs": 30442,
+  "avgDurationMs": 30442,
   "durationHistory": [
-    24878
+    30442
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "migrolino-31b2fdd0e1d8",
       "slug": "verkaufsmitarbeiter-in-migrolino-bern",
@@ -25,7 +26,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/1b1c9896-4f2d-461a-95d8-1b8b7fe49fb6",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:28:53.913Z",
+      "crawledAt": "2026-07-04T22:23:42.144Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Egghölzlistrasse 1",
@@ -40,11 +41,13 @@
       "featured": false,
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/1b1c9896-4f2d-461a-95d8-1b8b7fe49fb6",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:28:53.913Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/5ecf1dad-eb30-4ea4-bd64-64707ea02ff7",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:28:54.464Z",
+      "crawledAt": "2026-07-04T22:23:42.809Z",
       "addressLocality": "Schmerikon",
       "addressRegion": "SG",
       "streetAddress": "Bahnhofstrasse 2",
@@ -75,11 +78,13 @@
       "featured": false,
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/5ecf1dad-eb30-4ea4-bd64-64707ea02ff7",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:28:54.464Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -95,7 +100,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/4d92d6ef-c776-4b95-85fb-c5f2cc415a05",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:28:54.995Z",
+      "crawledAt": "2026-07-04T22:23:43.452Z",
       "addressLocality": "Glarus",
       "addressRegion": "GL",
       "streetAddress": "Schweizerhofstrasse 2",
@@ -110,11 +115,13 @@
       "featured": false,
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/4d92d6ef-c776-4b95-85fb-c5f2cc415a05",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:28:54.995Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -130,7 +137,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/736b0a9c-4e54-486c-a87f-72d62cb29a9d",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:28:56.541Z",
+      "crawledAt": "2026-07-04T22:23:44.120Z",
       "addressLocality": "Siebnen",
       "addressRegion": "Aargau",
       "streetAddress": "Glarnerstrasse 77",
@@ -145,11 +152,13 @@
       "featured": false,
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/736b0a9c-4e54-486c-a87f-72d62cb29a9d",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:28:56.541Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -165,7 +174,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/2d6aff27-f161-492d-9f35-e1a2a767c63d",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:28:57.087Z",
+      "crawledAt": "2026-07-04T22:23:44.618Z",
       "addressLocality": "Romanshorn",
       "addressRegion": "TG",
       "streetAddress": "Mittlere Gasse 5",
@@ -180,11 +189,13 @@
       "featured": false,
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/2d6aff27-f161-492d-9f35-e1a2a767c63d",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:28:57.087Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -200,7 +211,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/ee2790b4-646e-43e5-acea-be8c38dd11cb",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:28:57.610Z",
+      "crawledAt": "2026-07-04T22:23:45.126Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "Rotzlochstrasse 1",
@@ -215,11 +226,13 @@
       "featured": false,
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/ee2790b4-646e-43e5-acea-be8c38dd11cb",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:28:57.610Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -235,7 +248,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/a3d242d6-5d89-4dbc-bb27-c5924ed6febb",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:28:58.160Z",
+      "crawledAt": "2026-07-04T22:23:45.769Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "streetAddress": "Obernauerstrasse 47",
@@ -250,11 +263,13 @@
       "featured": false,
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/a3d242d6-5d89-4dbc-bb27-c5924ed6febb",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:28:58.160Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -270,7 +285,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/7a9dac95-1fe3-4cd9-98c2-9dd0267717e7",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:28:58.680Z",
+      "crawledAt": "2026-07-04T22:23:46.431Z",
       "addressLocality": "Füllinsdorf",
       "addressRegion": "BL",
       "streetAddress": "Rheinstrasse 46",
@@ -285,11 +300,13 @@
       "featured": false,
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/7a9dac95-1fe3-4cd9-98c2-9dd0267717e7",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:28:58.680Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -305,7 +322,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/bcae143d-01b2-4d85-987f-94ca3a6a1e87",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:28:59.204Z",
+      "crawledAt": "2026-07-04T22:23:46.932Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "streetAddress": "Gotthardstrasse 45",
@@ -320,11 +337,13 @@
       "featured": false,
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/bcae143d-01b2-4d85-987f-94ca3a6a1e87",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:28:59.204Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -340,7 +359,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/1bddb3d0-bf3d-4c47-ab95-bcdb7ac8b0fa",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:28:59.741Z",
+      "crawledAt": "2026-07-04T22:23:47.591Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "Rotzlochstrasse 1",
@@ -355,11 +374,13 @@
       "featured": false,
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/1bddb3d0-bf3d-4c47-ab95-bcdb7ac8b0fa",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:28:59.741Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -375,7 +396,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/8dbc5b71-319d-47fe-b675-278939bd6f77",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:00.270Z",
+      "crawledAt": "2026-07-04T22:23:48.235Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Weststrasse 10",
@@ -390,11 +411,13 @@
       "featured": false,
       "postedDate": "2026-06-29",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/8dbc5b71-319d-47fe-b675-278939bd6f77",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:00.270Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -410,7 +433,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsstellenplanerin-cad/39da75f9-cebd-4a59-adfa-ece0600d23a8",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:00.801Z",
+      "crawledAt": "2026-07-04T22:23:48.896Z",
       "addressLocality": "Suhr",
       "addressRegion": "Aargau",
       "streetAddress": "Wynenfeldstrasse 3",
@@ -425,11 +448,13 @@
       "featured": false,
       "postedDate": "2026-06-26",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsstellenplanerin-cad/39da75f9-cebd-4a59-adfa-ece0600d23a8",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:00.801Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -445,7 +470,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin-auf-stundenbasis/2f22bb3a-48bf-4ec6-8d2f-19fdd26d0419",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:01.240Z",
+      "crawledAt": "2026-07-04T22:23:49.414Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Birmensdorferstrasse 517",
@@ -460,11 +485,13 @@
       "featured": false,
       "postedDate": "2026-06-25",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin-auf-stundenbasis/2f22bb3a-48bf-4ec6-8d2f-19fdd26d0419",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:01.240Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -480,7 +507,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/9003d084-5a59-4f21-80bc-177726ce39b4",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:01.770Z",
+      "crawledAt": "2026-07-04T22:23:49.967Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "Industriestrasse 20a",
@@ -495,11 +522,13 @@
       "featured": false,
       "postedDate": "2026-06-23",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/9003d084-5a59-4f21-80bc-177726ce39b4",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:01.770Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -515,7 +544,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/2817dfe0-4a96-4c9e-9936-164c6d7852d7",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:02.299Z",
+      "crawledAt": "2026-07-04T22:23:50.491Z",
       "addressLocality": "Romanshorn",
       "addressRegion": "TG",
       "streetAddress": "Mittlere Gasse 5",
@@ -530,11 +559,13 @@
       "featured": false,
       "postedDate": "2026-06-23",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/2817dfe0-4a96-4c9e-9936-164c6d7852d7",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:02.299Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -550,7 +581,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/6d346f9c-91eb-4ee4-9070-b911b90c2a76",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:02.839Z",
+      "crawledAt": "2026-07-04T22:23:50.984Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "streetAddress": "Zürichstrasse 57",
@@ -565,11 +596,13 @@
       "featured": false,
       "postedDate": "2026-06-15",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/6d346f9c-91eb-4ee4-9070-b911b90c2a76",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:02.839Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -585,7 +618,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/field-merchandiserin-region-ostschweiz/15984b32-3e14-4555-b50a-3ecc660366fe",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:03.372Z",
+      "crawledAt": "2026-07-04T22:23:51.631Z",
       "addressLocality": "Suhr",
       "addressRegion": "Aargau",
       "streetAddress": "Wynenfeldstrasse 3",
@@ -600,11 +633,13 @@
       "featured": false,
       "postedDate": "2026-06-10",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/field-merchandiserin-region-ostschweiz/15984b32-3e14-4555-b50a-3ecc660366fe",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:03.372Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -620,7 +655,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/9228038d-5d31-495e-92ad-a0fc4cd20934",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:03.811Z",
+      "crawledAt": "2026-07-04T22:23:52.140Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "streetAddress": "Nordbahnhofstrasse 43",
@@ -635,11 +670,13 @@
       "featured": false,
       "postedDate": "2026-06-10",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/9228038d-5d31-495e-92ad-a0fc4cd20934",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:03.811Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -655,7 +692,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/7ac97bfd-6ee0-424a-8276-6aeedb6d0780",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:04.242Z",
+      "crawledAt": "2026-07-04T22:23:52.677Z",
       "addressLocality": "Ipsach",
       "addressRegion": "BE",
       "streetAddress": "Hauptstrasse 87",
@@ -670,11 +707,13 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/7ac97bfd-6ee0-424a-8276-6aeedb6d0780",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:04.242Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -690,7 +729,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/0d97542a-6458-4e32-bf80-653e5e365c13",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:04.684Z",
+      "crawledAt": "2026-07-04T22:23:53.342Z",
       "addressLocality": "Brügg",
       "addressRegion": "Aargau",
       "streetAddress": "Bahnhofstrasse 8",
@@ -705,11 +744,13 @@
       "featured": false,
       "postedDate": "2026-06-05",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/0d97542a-6458-4e32-bf80-653e5e365c13",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:04.684Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -725,7 +766,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/1ac20e92-a8eb-400e-9e7f-b88bb6340ce6",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:05.127Z",
+      "crawledAt": "2026-07-04T22:23:53.856Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "Gsteigstrasse 6",
@@ -740,11 +781,13 @@
       "featured": false,
       "postedDate": "2026-06-02",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/1ac20e92-a8eb-400e-9e7f-b88bb6340ce6",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:05.127Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -760,7 +803,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/549fd513-b305-4b54-8285-1d62f1552453",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:05.569Z",
+      "crawledAt": "2026-07-04T22:23:54.369Z",
       "addressLocality": "Gümligen",
       "addressRegion": "Aargau",
       "streetAddress": "Bahnhofstrasse 21",
@@ -775,11 +818,13 @@
       "featured": false,
       "postedDate": "2026-05-28",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/549fd513-b305-4b54-8285-1d62f1552453",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:05.569Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -795,7 +840,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-im-familienbetrieb-ganze-schweiz/f94be982-f278-4652-834e-d3fed727e3a1",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:06.101Z",
+      "crawledAt": "2026-07-04T22:23:55.039Z",
       "addressLocality": "Suhr",
       "addressRegion": "Aargau",
       "streetAddress": "Wynenfeldstrasse 3",
@@ -810,11 +855,13 @@
       "featured": false,
       "postedDate": "2026-05-26",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-im-familienbetrieb-ganze-schweiz/f94be982-f278-4652-834e-d3fed727e3a1",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:06.101Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -830,7 +877,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/6a22eee3-8ca3-432a-a73b-99d66e1d1305",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:06.536Z",
+      "crawledAt": "2026-07-04T22:23:55.545Z",
       "addressLocality": "Worblaufen-Ittigen",
       "addressRegion": "BE",
       "streetAddress": "Worblaufenstrasse 161",
@@ -845,11 +892,13 @@
       "featured": false,
       "postedDate": "2026-05-22",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/6a22eee3-8ca3-432a-a73b-99d66e1d1305",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:06.536Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -865,7 +914,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/c93cc90e-b3ca-4285-9c6b-f19607bc8b0d",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:07.062Z",
+      "crawledAt": "2026-07-04T22:23:56.212Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Egghölzlistrasse 1",
@@ -880,11 +929,13 @@
       "featured": false,
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/c93cc90e-b3ca-4285-9c6b-f19607bc8b0d",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:07.062Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -900,7 +951,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/08fc05b5-db8e-41ba-93de-3ac8dc53de0b",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:07.501Z",
+      "crawledAt": "2026-07-04T22:23:56.715Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofplatz 8",
@@ -915,11 +966,13 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/08fc05b5-db8e-41ba-93de-3ac8dc53de0b",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:07.501Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -935,7 +988,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-emmen-lu/b972ac74-1584-475c-8b31-3c13bfc15f57",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:08.024Z",
+      "crawledAt": "2026-07-04T22:23:57.371Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Seetalplatz",
@@ -950,11 +1003,13 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-emmen-lu/b972ac74-1584-475c-8b31-3c13bfc15f57",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:08.024Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -970,7 +1025,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-einsiedeln-sz/771ed591-174b-4eab-94a8-4f9bcbb3f823",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:08.554Z",
+      "crawledAt": "2026-07-04T22:23:58.017Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "Bahnhofplatz 1",
@@ -985,11 +1040,13 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-einsiedeln-sz/771ed591-174b-4eab-94a8-4f9bcbb3f823",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:08.554Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -1005,7 +1062,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-sursee-lu/6dcebf4a-68ba-4a83-9dbf-2dd74ef01d2c",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:29:09.083Z",
+      "crawledAt": "2026-07-04T22:23:58.685Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "Zeughausstrasse 38",
@@ -1020,11 +1077,13 @@
       "featured": false,
       "postedDate": "2026-05-05",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-sursee-lu/6dcebf4a-68ba-4a83-9dbf-2dd74ef01d2c",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:09.083Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -1040,7 +1099,7 @@
       "url": "https://jobs.migros.ch/it/le-nostre-imprese/job/migrolino/franchisee-lugano/8e356892-9033-4db3-9507-e70ce8df3924",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-04T11:29:09.519Z",
+      "crawledAt": "2026-07-04T22:23:59.235Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddress": "Piazzale Stazione",
@@ -1055,16 +1114,17 @@
       "featured": false,
       "postedDate": "2026-04-21",
       "applyUrl": "https://jobs.migros.ch/it/le-nostre-imprese/job/migrolino/franchisee-lugano/8e356892-9033-4db3-9507-e70ce8df3924",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:29:09.519Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
