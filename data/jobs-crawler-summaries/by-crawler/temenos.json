@@ -1,18 +1,19 @@
 {
   "key": "temenos",
   "label": "Temenos",
-  "generatedAt": "2026-07-04T12:20:20.502Z",
+  "generatedAt": "2026-07-04T23:37:01.472Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9878,
-  "avgDurationMs": 9878,
+  "durationMs": 10661,
+  "avgDurationMs": 10661,
   "durationHistory": [
-    9878
+    10661
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "temenos-f097cba31228",
       "slug": "head-of-talent-performance-org-design-temenos-ch",
@@ -20,13 +21,13 @@
       "companyKey": "temenos",
       "companyDomain": "temenos.com",
       "title": "Head of Talent, Performance & Org Design",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "ExCo-Geneva",
       "canton": "GE",
       "url": "https://temenos.wd103.myworkdayjobs.com/en-US/Temenoscareers/job/ExCo-Geneva/Head-of-Talent--Performance---Org-Design_JR1629",
       "source": "Temenos Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:20:18.485Z",
+      "crawledAt": "2026-07-04T23:36:59.104Z",
       "addressLocality": "ExCo-Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -41,16 +42,16 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://temenos.wd103.myworkdayjobs.com/en-US/Temenoscareers/job/ExCo-Geneva/Head-of-Talent--Performance---Org-Design_JR1629",
       "jobReqId": "JR1629",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-04T12:20:18.485Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
