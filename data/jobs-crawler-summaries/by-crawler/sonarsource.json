@@ -1,18 +1,19 @@
 {
   "key": "sonarsource",
   "label": "SonarSource (Sonar)",
-  "generatedAt": "2026-07-03T23:17:48.815Z",
+  "generatedAt": "2026-07-04T12:10:32.291Z",
   "total": 24,
-  "newCount": 24,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 24,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10859,
-  "avgDurationMs": 10859,
+  "durationMs": 10651,
+  "avgDurationMs": 10651,
   "durationHistory": [
-    10859
+    10651
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "sonarsource-e0df4cbca93e",
       "slug": "ai-research-scientist-engineer-sonarsource-ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.lever.co/sonarsource/a0535931-bce3-4159-b43d-15ca3eb4d17f",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:38.882Z",
+      "crawledAt": "2026-07-04T12:10:22.109Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -38,11 +39,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/a0535931-bce3-4159-b43d-15ca3eb4d17f",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:38.882Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -58,7 +60,7 @@
       "url": "https://jobs.lever.co/sonarsource/4b6bbce6-6d6f-464a-81c0-c574572fb5a2",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:39.185Z",
+      "crawledAt": "2026-07-04T12:10:22.412Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -71,11 +73,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/4b6bbce6-6d6f-464a-81c0-c574572fb5a2",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:39.185Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -91,7 +94,7 @@
       "url": "https://jobs.lever.co/sonarsource/bc3d70b3-4c46-4bdb-ac61-d067f00bcda5",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:39.488Z",
+      "crawledAt": "2026-07-04T12:10:22.714Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -104,11 +107,13 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/bc3d70b3-4c46-4bdb-ac61-d067f00bcda5",
-      "_qualityScore": 63,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-03T23:17:39.488Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 20,
         "completeness": 14
       }
     },
@@ -124,7 +129,7 @@
       "url": "https://jobs.lever.co/sonarsource/6fcc969d-d5c6-4ffd-9e8d-41802e310dfd",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:39.790Z",
+      "crawledAt": "2026-07-04T12:10:23.016Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -137,11 +142,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/6fcc969d-d5c6-4ffd-9e8d-41802e310dfd",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:39.790Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -157,7 +163,7 @@
       "url": "https://jobs.lever.co/sonarsource/2d8bf9bd-dc47-4396-9e7c-b692ffdba08f",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:40.092Z",
+      "crawledAt": "2026-07-04T12:10:23.318Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -170,11 +176,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/2d8bf9bd-dc47-4396-9e7c-b692ffdba08f",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-03T23:17:40.092Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -190,7 +197,7 @@
       "url": "https://jobs.lever.co/sonarsource/a245e1bd-27b9-4c1a-b5d1-bfaeed1e6d5e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:40.394Z",
+      "crawledAt": "2026-07-04T12:10:23.620Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,11 +210,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/a245e1bd-27b9-4c1a-b5d1-bfaeed1e6d5e",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:40.394Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -223,7 +231,7 @@
       "url": "https://jobs.lever.co/sonarsource/ca93fe35-2db3-4f5a-8b62-f190ff4e6bf2",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:40.696Z",
+      "crawledAt": "2026-07-04T12:10:23.922Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -236,11 +244,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/ca93fe35-2db3-4f5a-8b62-f190ff4e6bf2",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:40.696Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -256,7 +265,7 @@
       "url": "https://jobs.lever.co/sonarsource/d51d7b90-a0b2-47af-8677-1d336badc811",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:40.998Z",
+      "crawledAt": "2026-07-04T12:10:24.224Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,11 +278,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/d51d7b90-a0b2-47af-8677-1d336badc811",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-03T23:17:40.998Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -289,7 +299,7 @@
       "url": "https://jobs.lever.co/sonarsource/5f08ef0c-6f0d-46fb-883e-0f9e071064da",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:41.300Z",
+      "crawledAt": "2026-07-04T12:10:24.526Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -302,11 +312,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/5f08ef0c-6f0d-46fb-883e-0f9e071064da",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-03T23:17:41.300Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -322,7 +333,7 @@
       "url": "https://jobs.lever.co/sonarsource/bdd785a1-51bc-428a-8e09-dcd538de3b5a",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:41.602Z",
+      "crawledAt": "2026-07-04T12:10:24.829Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -335,11 +346,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/bdd785a1-51bc-428a-8e09-dcd538de3b5a",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:41.602Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -355,7 +367,7 @@
       "url": "https://jobs.lever.co/sonarsource/211564f9-5d51-454b-94c5-9b7fcfa3c229",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:41.904Z",
+      "crawledAt": "2026-07-04T12:10:25.131Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -368,11 +380,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/211564f9-5d51-454b-94c5-9b7fcfa3c229",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:41.904Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -388,7 +401,7 @@
       "url": "https://jobs.lever.co/sonarsource/3457f5c9-38ae-4f18-bb04-4eeb21ddf93c",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:42.206Z",
+      "crawledAt": "2026-07-04T12:10:25.433Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -401,11 +414,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/3457f5c9-38ae-4f18-bb04-4eeb21ddf93c",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:42.206Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -421,7 +435,7 @@
       "url": "https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:42.506Z",
+      "crawledAt": "2026-07-04T12:10:25.735Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -434,11 +448,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:42.506Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -454,7 +469,7 @@
       "url": "https://jobs.lever.co/sonarsource/38187073-6976-4791-9bfd-c946fd67faf0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:42.808Z",
+      "crawledAt": "2026-07-04T12:10:26.037Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -467,11 +482,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/38187073-6976-4791-9bfd-c946fd67faf0",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:42.808Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -487,7 +503,7 @@
       "url": "https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:43.110Z",
+      "crawledAt": "2026-07-04T12:10:26.338Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -500,11 +516,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:43.110Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -520,7 +537,7 @@
       "url": "https://jobs.lever.co/sonarsource/3694f242-8346-4c76-826a-b6340da1797b",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:43.412Z",
+      "crawledAt": "2026-07-04T12:10:26.640Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -533,11 +550,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/3694f242-8346-4c76-826a-b6340da1797b",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-03T23:17:43.412Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -553,7 +571,7 @@
       "url": "https://jobs.lever.co/sonarsource/5ec02e8c-02d4-4a82-9e9c-2b81c7229d9e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:43.714Z",
+      "crawledAt": "2026-07-04T12:10:26.942Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -566,11 +584,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/5ec02e8c-02d4-4a82-9e9c-2b81c7229d9e",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:43.714Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -586,7 +605,7 @@
       "url": "https://jobs.lever.co/sonarsource/273df915-3a88-40e8-9fbb-522b2d894f46",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:44.016Z",
+      "crawledAt": "2026-07-04T12:10:27.244Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -599,11 +618,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/273df915-3a88-40e8-9fbb-522b2d894f46",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:44.016Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -619,7 +639,7 @@
       "url": "https://jobs.lever.co/sonarsource/4a00b120-bd33-460b-a5bf-b935919fc19e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:44.318Z",
+      "crawledAt": "2026-07-04T12:10:27.546Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -632,11 +652,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/4a00b120-bd33-460b-a5bf-b935919fc19e",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:44.318Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -652,7 +673,7 @@
       "url": "https://jobs.lever.co/sonarsource/e0060bc5-6855-4150-84a3-7d89f9a77cb4",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:44.620Z",
+      "crawledAt": "2026-07-04T12:10:27.848Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -665,11 +686,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/e0060bc5-6855-4150-84a3-7d89f9a77cb4",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:44.620Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -685,7 +707,7 @@
       "url": "https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:44.922Z",
+      "crawledAt": "2026-07-04T12:10:28.150Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -698,11 +720,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:44.922Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -718,7 +741,7 @@
       "url": "https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:45.224Z",
+      "crawledAt": "2026-07-04T12:10:28.452Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -731,11 +754,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:45.224Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -751,7 +775,7 @@
       "url": "https://jobs.lever.co/sonarsource/6f3f1499-d6f0-4348-bc8d-15411e986ae4",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:45.525Z",
+      "crawledAt": "2026-07-04T12:10:28.754Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -764,11 +788,12 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/6f3f1499-d6f0-4348-bc8d-15411e986ae4",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:45.525Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -784,7 +809,7 @@
       "url": "https://jobs.lever.co/sonarsource/1f5fb7b2-30b9-402d-9820-ef81993e2924",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:17:45.827Z",
+      "crawledAt": "2026-07-04T12:10:29.056Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -797,16 +822,16 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.lever.co/sonarsource/1f5fb7b2-30b9-402d-9820-ef81993e2924",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T23:17:45.827Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
