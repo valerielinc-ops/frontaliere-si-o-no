@@ -58,6 +58,24 @@ function capitalize(s) {
 // Title case but keep Italian prepositions lowercase (di, in, per, a, al, etc.)
 // Declared before the generation loop so titleCase() can access LOWERCASE_WORDS.
 const LOWERCASE_WORDS = new Set(['di', 'in', 'per', 'a', 'al', 'e', 'il', 'la', 'le', 'i', 'un', 'una', 'del', 'della', 'delle', 'dei', 'degli', 'da', 'con', 'su', 'lo', 'gli', 'nel', 'nella']);
+// Shared by GSC-cluster pages and profession-gap fed pages (#3396) so the
+// two page families can't drift in title/description shape.
+function buildKeywordPageCopy(query) {
+  const titleCaseQuery = titleCase(query);
+  const hasLocationInQuery = /\b(lugano|bellinzona|mendrisio|locarno|chiasso|stabio|ticino|tessin)\b/i.test(query);
+  const titleSuffix = hasLocationInQuery ? '' : ' in Ticino';
+  const seoTitle = `${titleCaseQuery}${titleSuffix} - Posizioni Aperte | Frontaliere Ticino`;
+  // Cap title at ~60 chars for SERP display
+  const finalTitle = seoTitle.length > 70 ? `${titleCaseQuery}${titleSuffix} | Frontaliere Ticino` : seoTitle;
+  return {
+    it: {
+      title: finalTitle,
+      description: `Offerte di lavoro per "${query}"${titleSuffix}. Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.`,
+      heading: `${titleCaseQuery}${titleSuffix}`,
+    },
+  };
+}
+
 function titleCase(s) {
   return s.split(/\s+/).map((word, idx) => {
     if (idx === 0) return capitalize(word);
@@ -178,14 +196,6 @@ for (const cluster of topClusters) {
   const filterKeywords = extractKeywords(query);
   if (filterKeywords.length === 0) continue;
 
-  // Build SEO-friendly title: "Keyword Phrase - Offerte di Lavoro Ticino | Frontaliere Ticino"
-  const titleCaseQuery = titleCase(query);
-  const hasLocationInQuery = /\b(lugano|bellinzona|mendrisio|locarno|chiasso|stabio|ticino|tessin)\b/i.test(query);
-  const titleSuffix = hasLocationInQuery ? '' : ' in Ticino';
-  const seoTitle = `${titleCaseQuery}${titleSuffix} - Posizioni Aperte | Frontaliere Ticino`;
-  // Cap title at ~60 chars for SERP display
-  const finalTitle = seoTitle.length > 70 ? `${titleCaseQuery}${titleSuffix} | Frontaliere Ticino` : seoTitle;
-
   keywordPages.push({
     slug,
     query: cluster.representative,
@@ -194,14 +204,91 @@ for (const cluster of topClusters) {
     totalImpressions: cluster.totalImpressions,
     queryCount: cluster.queries.length,
     allQueries: cluster.queries.map(q => q.query),
-    copy: {
-      it: {
-        title: finalTitle,
-        description: `Offerte di lavoro per "${query}"${titleSuffix}. Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.`,
-        heading: `${titleCaseQuery}${titleSuffix}`,
-      },
-    },
+    copy: buildKeywordPageCopy(query),
   });
+}
+
+// ── Profession-gap feed (#3396) ──────────────────────────────────────────
+// data/profession-keyword-opportunities.json is produced weekly by
+// scripts/profession-keyword-opportunities.mjs (on-site search ∪ crawler
+// titles − existing coverage). Double-validated gaps become keyword pages.
+//
+// Carry-forward contract: fed pages get `source: 'profession-gap'` and
+// PERSIST across regenerations — this script rebuilds the config from
+// scratch, and once a fed page exists the opportunities file counts its
+// profession as covered; without carry-forward the page would flip-flop
+// weekly (URL churn). A carried page is dropped only when a DEDICATED
+// landing (profession/nursing hub) takes over its profession.
+const OPPORTUNITIES_PATH = path.join(ROOT, 'data/profession-keyword-opportunities.json');
+const FEED_MIN_ONSITE = 25; // on-site searches in the window
+const FEED_MAX_NEW_PAGES = 10; // per run
+
+if (fs.existsSync(OPPORTUNITIES_PATH)) {
+  try {
+    const opp = JSON.parse(fs.readFileSync(OPPORTUNITIES_PATH, 'utf-8'));
+    const dedicatedCovered = new Set(
+      (opp.covered || [])
+        .filter(row => /^(profession|nursing) landing/.test(String(row.coveredBy || '')))
+        .map(row => row.id),
+    );
+    const usedSlugs = new Set(keywordPages.map(p => p.slug));
+    const usedProfessions = new Set();
+
+    // Carry forward previously fed pages (unless a dedicated landing took over).
+    let prevPages = [];
+    try {
+      prevPages = JSON.parse(fs.readFileSync(OUTPUT_PATH, 'utf-8')).pages || [];
+    } catch { /* first run or unreadable previous config — nothing to carry */ }
+    for (const page of prevPages) {
+      if (page?.source !== 'profession-gap' || !page.professionId) continue;
+      if (dedicatedCovered.has(page.professionId)) continue;
+      if (usedSlugs.has(page.slug)) continue;
+      keywordPages.push(page);
+      usedSlugs.add(page.slug);
+      usedProfessions.add(page.professionId);
+    }
+
+    // Feed new double-validated gaps (opportunities are already
+    // coverage-subtracted and sorted by priority upstream).
+    let fed = 0;
+    for (const o of opp.opportunities || []) {
+      if (fed >= FEED_MAX_NEW_PAGES) break;
+      if (usedProfessions.has(o.id)) continue;
+      if (!o.doubleValidated || o.onsiteCount < FEED_MIN_ONSITE) continue;
+      // Literal-match support: jobsSeoPagesPlugin filters with
+      // `filterKeywords: [feedFilter]` (single substring) and skips pages
+      // with <3 matching jobs — feeding below that produces a page that
+      // silently never emits. Missing field (stale file) → treat as 0.
+      if ((Number(o.feedFilterJobCount) || 0) < 3) continue;
+      const label = String(o.label || '').replace(/\s*\([^)]*\)/g, '').trim().toLowerCase();
+      if (!label) continue;
+      const query = `${label} ticino`;
+      const slug = slugify(query);
+      if (!slug || slug.length < 5 || usedSlugs.has(slug)) continue;
+      if ([...COVERED_KEYWORDS].some(kw => query.includes(kw))) continue;
+      const filterKeywords = [String(o.feedFilter || label)];
+      keywordPages.push({
+        slug,
+        query,
+        filterKeywords,
+        totalClicks: Number(o.gscClicks) || 0,
+        totalImpressions: Number(o.gscImpressions) || 0,
+        queryCount: 1,
+        allQueries: [query],
+        source: 'profession-gap',
+        professionId: o.id,
+        copy: buildKeywordPageCopy(query),
+      });
+      usedSlugs.add(slug);
+      usedProfessions.add(o.id);
+      fed++;
+    }
+    if (fed > 0 || usedProfessions.size > 0) {
+      console.log(`Profession-gap feed: ${fed} new page(s), ${usedProfessions.size - fed} carried forward`);
+    }
+  } catch (err) {
+    console.error(`Profession-gap feed skipped: ${err?.message || err}`);
+  }
 }
 
 // 6. Write config

@@ -1,0 +1,123 @@
+name: Profession Keyword Opportunities
+
+# Weekly "professioni da attaccare" gap ranking (#3396).
+# Signals: PostHog on-site search (60d) ∪ crawler job titles − existing
+# landing coverage → data/profession-keyword-opportunities.json + one
+# dedup GitHub issue with the top opportunities.
+#
+# Zero-Claude by contract (AGENTS.md quota frugality): the script is pure
+# HogQL + parsing + regex. Deterministic given the same inputs.
+#
+# Scheduling: Monday 03:00 UTC — after the Sunday 14:30 UTC GSC orphan
+# sync (sync-gsc-orphans.yml) and before refresh-keyword-config.yml at
+# 03:30, so the fresh opportunities file feeds the keyword-pages
+# generator the same morning.
+#
+# Secrets pattern mirrors refresh-thin-promotions.yml: the only GH-Actions
+# secret needed is FIREBASE_SERVICE_ACCOUNT_JSON; POSTHOG_* are loaded
+# from Firebase Remote Config at runtime via scripts/load-rc-env.mjs.
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+    inputs:
+      window_days:
+        description: 'On-site search window in days (default 60)'
+        required: false
+        default: '60'
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: profession-keyword-opportunities
+  cancel-in-progress: false
+
+jobs:
+  rank:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # Full history for the rebase-retry push loop (same rationale as
+          # refresh-thin-promotions.yml: shallow clones break `git rebase
+          # origin/main` on bursts of concurrent data commits).
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Prepare Firebase service-account credentials
+        run: |
+          echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}' > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+
+      - name: Rank profession keyword opportunities
+        run: |
+          node scripts/profession-keyword-opportunities.mjs \
+            --window-days="${{ github.event.inputs.window_days || '60' }}" \
+            --markdown-out=/tmp/profession-opportunities.md
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/profession-keyword-opportunities.json
+          if git diff --cached --quiet; then
+            echo "No changes to profession opportunities"
+            exit 0
+          fi
+          git commit -m "chore: weekly profession keyword opportunities refresh"
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/profession-keyword-opportunities.mjs --window-days='${{ github.event.inputs.window_days || '60' }}' --markdown-out=/tmp/profession-opportunities.md && git add data/profession-keyword-opportunities.json"
+
+      - name: Open/update dedup issue with top opportunities
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Skip the issue when every profession with signal is already
+          # covered — no gap, no noise.
+          OPP_COUNT="$(node -e "console.log((JSON.parse(require('fs').readFileSync('data/profession-keyword-opportunities.json','utf8')).opportunities||[]).length)")"
+          if [ "$OPP_COUNT" -eq 0 ]; then
+            echo "No uncovered opportunities — skipping issue"
+            exit 0
+          fi
+          # Stable title (no run-number/date in the first 60 chars) →
+          # github-issue-creator dedups by commenting on the canonical issue.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "SEO: professioni da attaccare — gap ranking settimanale" \
+            --description "$(cat /tmp/profession-opportunities.md)" \
+            --priority 3 \
+            --label seo \
+            --workflow "${{ github.workflow }}"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label bug \
+            --workflow "${{ github.workflow }}"
