@@ -3301,6 +3301,7 @@ export const COMPANY_DEFAULTS = {
   'microsoft':                            { streetAddress: 'The Circle 02',            postalCode: '8058', addressLocality: 'Zürich',            addressRegion: 'ZH', addressCountry: 'CH' },
   'zurich-insurance-sede-ticino':         { streetAddress: 'Via Pretorio 22',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
   'groupe-e':                             { streetAddress: 'Route de Morat 135',       postalCode: '1763', addressLocality: 'Granges-Paccot',     addressRegion: 'FR', addressCountry: 'CH' },
+  'medbase':                              { streetAddress: 'Schützenstrasse 3',        postalCode: '8400', addressLocality: 'Winterthur',        addressRegion: 'ZH', addressCountry: 'CH' },
 };
 
 // ── Truncated "St" locality recovery ──────────────────────────────────────────
@@ -5469,6 +5470,25 @@ export function localeTextCoverage(map = {}, minChars = 1) {
   return c;
 }
 
+/**
+ * Full 4-locale coverage check for title/slug/description — the bar the
+ * merge-time "translation stability lock" below uses to decide a job no
+ * longer needs (re)translation. Extracted so dedicated-crawler post-processing
+ * steps that set `needsRetranslation` OUTSIDE the merge step (i.e. after
+ * runDedicatedBaseCrawler already ran, where the stability lock has no
+ * chance to fire) can apply the same guard instead of unconditionally
+ * re-flagging an already fully-translated job on every re-crawl (issue
+ * #3442: unconditional post-merge `needsRetranslation = true` forces the AI
+ * pipeline to re-translate the same source title every run, producing
+ * non-deterministic slugByLocale variants that churn through the
+ * previousSlugs cap and evict still-indexed historical slugs).
+ */
+export function hasFullLocaleCoverage(job, { minTitleChars = 3, minSlugChars = 3, minDescChars = 120 } = {}) {
+  return localeTextCoverage(job?.titleByLocale || {}, minTitleChars) >= LOCALES.length
+    && localeTextCoverage(job?.slugByLocale || {}, minSlugChars) >= LOCALES.length
+    && localeTextCoverage(job?.descriptionByLocale || {}, minDescChars) >= LOCALES.length;
+}
+
 export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = null) {
   const out = {};
 
@@ -5710,10 +5730,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       const newSrcTitle = normalizeSpace(String(fresh?.titleByLocale?.[srcLang] || fresh?.title || ''));
       const sourceTitleStable = oldSrcTitle.length >= 3 && oldSrcTitle === newSrcTitle;
       if (sourceTitleStable) {
-        const titleCoverageOk = localeTextCoverage(old?.titleByLocale || {}, 3) >= LOCALES.length;
-        const slugCoverageOk = localeTextCoverage(old?.slugByLocale || {}, 3) >= LOCALES.length;
-        const descCoverageOk = localeTextCoverage(old?.descriptionByLocale || {}, 120) >= LOCALES.length;
-        if (titleCoverageOk && slugCoverageOk && descCoverageOk) {
+        if (hasFullLocaleCoverage(old)) {
           fresh.needsRetranslation = false;
         }
       }
