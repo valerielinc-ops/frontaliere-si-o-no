@@ -253,6 +253,7 @@ export async function fetchAllCernJobs() {
       titleByLocale: { [sourceLang]: title },
       description,
       descriptionByLocale: { [sourceLang]: description },
+      needsRetranslation: true,
       location,
       canton,
       url: publicUrl,

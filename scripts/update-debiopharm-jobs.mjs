@@ -217,7 +217,11 @@ function buildDebiopharmJob(listing, detail) {
   const detailUrl = buildDebiopharmDetailUrl(listing.shortcode);
   const applyUrl = buildDebiopharmApplyUrl(listing.shortcode);
   const publishedDate = toIsoDate(parsed.publishedDate);
-  const canton = inferAnyCanton(city) || parsed.inferredCanton || DEFAULT_CANTON;
+  const canton = inferAnyCanton(city) || parsed.inferredCanton;
+  if (canton === null) {
+    console.warn(`     ⚠️  Skipping unresolvable location "${city}" (${title})`);
+    return null;
+  }
 
   return {
     title,
@@ -449,7 +453,9 @@ async function main() {
       console.log(`     ⏭️  Skipping (not Switzerland): ${detail?.location?.countryCode || '?'}`);
       continue;
     }
-    discoveredJobs.push(buildDebiopharmJob(listing, detail));
+    const job = buildDebiopharmJob(listing, detail);
+    if (!job) continue;
+    discoveredJobs.push(job);
   }
 
   if (discoveredJobs.length === 0) {

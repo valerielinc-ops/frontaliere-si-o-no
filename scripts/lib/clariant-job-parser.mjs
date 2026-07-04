@@ -130,6 +130,28 @@ export function resolveAddress(raw = {}) {
   };
 }
 
+/**
+ * Resolve the canton for a job, or signal that it should be skipped.
+ *
+ * Mirrors the unresolved-canton skip guard in scripts/lib/planzer-job-parser.mjs:
+ * when real location text was present but doesn't resolve to any known Swiss
+ * canton, never fabricate the Muttenz HQ canton for a job that isn't
+ * positively there (AGENTS.md Non-Negotiable #3) — return null so the caller
+ * skips the job instead of defaulting to HQ.canton.
+ *
+ * @param {string} realLocationText - location text as scraped, BEFORE the HQ.city fallback
+ * @param {string} rawLocation - realLocationText, or HQ.city when absent
+ * @param {string} city - resolved city (from resolveAddress)
+ * @returns {string|null} canton code, or null meaning "skip this job"
+ */
+export function resolveClariantCanton(realLocationText, rawLocation, city) {
+  const inferredCanton = inferSwissTargetCanton(rawLocation) || inferSwissTargetCanton(city);
+  if (normalizeSpace(realLocationText) && !inferredCanton) {
+    return null;
+  }
+  return inferredCanton || HQ.canton;
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -240,7 +262,7 @@ export function extractClariantDetailContent(html = '') {
   const start = html.indexOf(startMarker);
   if (start === -1) return '';
   const rest = html.slice(start + startMarker.length);
-  const end = rest.search(/<div\s+class="jobColumnTwo"/i);
+  const end = rest.search(/<div\s+class="[^"]*\bjobColumnTwo\b[^"]*"/i);
   const raw = end === -1 ? rest : rest.slice(0, end);
   return normalizeSpace(decodeHtmlEntities(stripHtml(raw)));
 }
@@ -356,12 +378,17 @@ export async function fetchAllClariantJobs() {
     const jobReqId = parseClariantJobId(detailDescription);
 
     const title = tile.title;
-    const rawLocation = tile.location || microdata.locationLabel || HQ.city;
+    const realLocationText = tile.location || microdata.locationLabel || '';
+    const rawLocation = realLocationText || HQ.city;
     // Strip a trailing ", CH"/", Switzerland" country suffix before resolving.
     const cityOnly = rawLocation.replace(/,\s*(CH|Switzerland|Schweiz|Suisse|Svizzera)\s*$/i, '').trim();
     const { city, postalCode, streetAddress } = resolveAddress({ city: cityOnly });
     const location = normalizeSpace(cityOnly || city);
-    const canton = inferSwissTargetCanton(rawLocation) || inferSwissTargetCanton(city) || HQ.canton;
+    const canton = resolveClariantCanton(realLocationText, rawLocation, city);
+    if (canton === null) {
+      console.warn(` ⚠️ Clariant: skipping unresolvable location "${realLocationText}" (${title})`);
+      continue;
+    }
 
     const descParts = [];
     if (detailDescription) descParts.push(detailDescription);

@@ -201,6 +201,7 @@ export const COMPANY_HQ = {
   // Cathedral CH-wide expansion (2026-05-10): UBS HQ is Zürich. Per-job
   // canton is set by the canton-quorum-gate on the parser output.
   'ubs':                          { city: 'Zürich',             canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  'smg-swiss-marketplace-group':  { city: 'Zürich',             canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
   'interdiscount':                { city: 'Naters',             canton: 'VS', postalCode: '3904', addressRegion: 'VS' },
   'matterhorn-gotthard-bahn':     { city: 'Brig',               canton: 'VS', postalCode: '3900', addressRegion: 'VS' },
   'swiss-life':                   { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },

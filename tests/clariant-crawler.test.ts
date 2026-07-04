@@ -10,6 +10,7 @@ import {
   parseClariantMicrodata,
   parseClariantJobId,
   extractClariantDetailContent,
+  resolveClariantCanton,
 } from '../scripts/lib/clariant-job-parser.mjs';
 
 describe('Clariant crawler parser', () => {
@@ -123,6 +124,27 @@ describe('Clariant crawler parser', () => {
     });
   });
 
+  // ── resolveClariantCanton (unresolved-canton skip guard — task-critical) ──
+  describe('resolveClariantCanton', () => {
+    it('resolves a known Swiss city to its canton', () => {
+      expect(resolveClariantCanton('Muttenz', 'Muttenz', 'Muttenz')).toBe('BL');
+      expect(resolveClariantCanton('Bern', 'Bern', 'Bern')).toBe('BE');
+    });
+
+    it('falls back to the Muttenz HQ canton when no real location text was scraped at all', () => {
+      expect(resolveClariantCanton('', 'Muttenz', 'Muttenz')).toBe('BL');
+    });
+
+    it('returns null (skip) when real location text is present but unresolvable — never fabricates HQ canton', () => {
+      expect(resolveClariantCanton('Nonexistentburg', 'Nonexistentburg', 'Nonexistentburg')).toBeNull();
+    });
+
+    it('does NOT return null for the negative-control case that would have failed under the old logic (Bern, not BL)', () => {
+      expect(resolveClariantCanton('Bern', 'Bern', 'Bern')).toBe('BE');
+      expect(resolveClariantCanton('Bern', 'Bern', 'Bern')).not.toBe('BL');
+    });
+  });
+
   // ── Listing parse (real jobs2web search-results table fixture) ──
   describe('parseClariantListing', () => {
     // Verbatim structure observed live at
@@ -233,6 +255,20 @@ describe('Clariant crawler parser', () => {
       expect(description).toContain('41492');
       expect(description).toContain('Global Headquarters in Pratteln, Switzerland');
       expect(description).toContain('Responsibilities include strategic analysis and reporting');
+      expect(description).not.toContain('Sidebar content that must NOT be included');
+    });
+
+    it('stops at a compound-class jobColumnTwo marker (e.g. class="col jobColumnTwo"), not just an exact match', () => {
+      const html = `
+        <span class="jobdescription">
+        <p>Join Clariant at its Global Headquarters in Pratteln, Switzerland.</p>
+        </span>
+        <div class="col jobColumnTwo" style="width:25%;">
+        <p>Sidebar content that must NOT be included.</p>
+        </div>
+      `;
+      const description = extractClariantDetailContent(html);
+      expect(description).toContain('Global Headquarters in Pratteln, Switzerland');
       expect(description).not.toContain('Sidebar content that must NOT be included');
     });
 
