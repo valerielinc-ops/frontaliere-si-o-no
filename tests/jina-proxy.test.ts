@@ -264,3 +264,36 @@ describe('Jina egress circuit breaker (#1461 item 2)', () => {
     expect(fetchMock).toHaveBeenCalledTimes(12);
   });
 });
+
+describe('JOBS_JINA_RETRIES / JOBS_JINA_RETRY_BASE_MS env override (falsy-zero regression)', () => {
+  // `Number(env) || fallback` silently discards an explicit '0' (0 is falsy),
+  // so JOBS_JINA_RETRIES=0 used to still run the default 2 retries (3 attempts
+  // total). Discovered while wiring a deterministic env-based test elsewhere
+  // (Pfister crawler #3342 round 2) — the override had no effect.
+  const origFetch = global.fetch;
+
+  beforeEach(() => {
+    __resetJinaBreaker();
+  });
+  afterEach(() => {
+    global.fetch = origFetch;
+    __resetJinaBreaker();
+    delete process.env.JOBS_JINA_RETRIES;
+    delete process.env.JOBS_JINA_RETRY_BASE_MS;
+    vi.restoreAllMocks();
+  });
+
+  it('honors JOBS_JINA_RETRIES=0 (exactly 1 attempt, no retries)', async () => {
+    process.env.JOBS_JINA_RETRIES = '0';
+    process.env.JOBS_JINA_RETRY_BASE_MS = '0';
+    const fetchMock = vi.fn(async () => {
+      throw new Error('network down');
+    });
+    global.fetch = fetchMock as any;
+
+    const html = await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50 } as any);
+
+    expect(html).toBeNull();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});
