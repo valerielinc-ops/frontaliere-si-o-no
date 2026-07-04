@@ -1152,7 +1152,7 @@ async function main() {
     for (const p of compatData.paths) {
       const m = String(p || '').match(COMPAT_JOB_RE);
       if (!m) continue;
-      const slug = m[1];
+      const slug = m[1].toLowerCase();
       if (!slug || SKIP_RE.test(slug)) continue;
       const locale = detectLocaleFromPath(p);
       const key = `${locale}:${slug}`;
