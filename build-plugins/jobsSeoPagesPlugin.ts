@@ -996,10 +996,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  fr: '/fr',
  };
  const localeOg: Record<'it' | 'en' | 'de' | 'fr', string> = {
- it: 'it_IT',
+ it: 'it_CH',
  en: 'en_US',
- de: 'de_DE',
- fr: 'fr_FR',
+ de: 'de_CH',
+ fr: 'fr_CH',
  };
  const homeLabel: Record<'it' | 'en' | 'de' | 'fr', string> = {
  it: 'Home',

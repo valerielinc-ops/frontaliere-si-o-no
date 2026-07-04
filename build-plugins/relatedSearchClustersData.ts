@@ -18,10 +18,10 @@ export const LOCALE_PREFIX: Record<Locale, string> = {
 };
 
 export const OG_LOCALE: Record<Locale, string> = {
-  it: 'it_IT',
+  it: 'it_CH',
   en: 'en_US',
-  de: 'de_DE',
-  fr: 'fr_FR',
+  de: 'de_CH',
+  fr: 'fr_CH',
 };
 
 /** Known Swiss cities used to detect a city suffix in `sampleTerms[0]`. */

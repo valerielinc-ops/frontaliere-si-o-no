@@ -125,10 +125,10 @@ function basePathFor(canton: string): Record<Locale, string> {
 }
 
 const LOCALE_OG: Record<Locale, string> = {
-  it: 'it_IT',
+  it: 'it_CH',
   en: 'en_US',
-  de: 'de_DE',
-  fr: 'fr_FR',
+  de: 'de_CH',
+  fr: 'fr_CH',
 };
 
 const INTL_LANG: Record<Locale, string> = {

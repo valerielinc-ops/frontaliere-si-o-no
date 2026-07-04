@@ -178,9 +178,9 @@ export function withSlash(p: string): string {
  return p.endsWith('/') ? p : p + '/';
 }
 
-/** OG locale mapping (e.g., 'it' → 'it_IT'). */
+/** OG locale mapping (e.g., 'it' → 'it_CH'). */
 export const LOCALE_OG: Record<string, string> = {
- it: 'it_IT',
+ it: 'it_CH',
  en: 'en_GB',
  de: 'de_CH',
  fr: 'fr_CH',
@@ -309,7 +309,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  seoMainClass = 'seo-static-content',
  } = opts;
 
- const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_IT';
+ const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_CH';
  // Clamp the <meta name="description"> / og:description to the SERP snippet
  // budget (word-aware, ≤160 char). JSON-LD `description` in jsonLdScripts is
  // untouched. Mirrors the runtime clamp in services/seoService.ts so the
