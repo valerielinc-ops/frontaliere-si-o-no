@@ -1,18 +1,19 @@
 {
   "key": "igroove",
   "label": "iGroove AG",
-  "generatedAt": "2026-07-03T21:58:05.073Z",
+  "generatedAt": "2026-07-04T11:01:52.080Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2699,
-  "avgDurationMs": 2699,
+  "durationMs": 3096,
+  "avgDurationMs": 3096,
   "durationHistory": [
-    2699
+    3096
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "igroove-c5d93def086a",
       "slug": "senior-data-pipeline-engineer-igroove-zurich-hybrid",
@@ -25,7 +26,7 @@
       "url": "https://igroove.jobs.personio.de/job/2588083",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T21:58:03.200Z",
+      "crawledAt": "2026-07-04T11:01:49.768Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -42,16 +43,17 @@
       "postedDate": "2026-03-31",
       "applyUrl": "https://igroove.jobs.personio.de/job/2588083",
       "jobReqId": "2588083",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:58:03.200Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
