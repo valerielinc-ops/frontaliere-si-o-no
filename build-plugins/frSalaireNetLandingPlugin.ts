@@ -60,6 +60,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { FX_HREF } from './shared/comparatorHref';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
@@ -490,6 +491,8 @@ function renderPage(opts: RenderOpts): RenderResult {
       <h2 style="${H2_STYLE}">Questions fréquentes</h2>
       ${renderFaqBlock()}
     </section>
+
+    ${renderAuthoritativeSourcesHtml('fr', undefined, { section: 's-KZc0LQ', headingStyle: H2_STYLE, list: 'my-2.5 ml-5 list-disc space-y-1.5 text-body' })}
 
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">Liens utiles</h2>
