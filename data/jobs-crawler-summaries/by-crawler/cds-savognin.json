@@ -1,32 +1,33 @@
 {
   "key": "cds-savognin",
   "label": "Center da Sanadad Savognin",
-  "generatedAt": "2026-07-03T21:37:22.859Z",
+  "generatedAt": "2026-07-04T10:17:04.999Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 5,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4349,
-  "avgDurationMs": 4349,
+  "durationMs": 3241,
+  "avgDurationMs": 3241,
   "durationHistory": [
-    4349
+    3241
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cds-savognin-256-fad11546e038",
-      "slug": "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk",
+      "slug": "pflegehilfsperson-srk-im-nachtdienst-m-w-d-o-pflegehilfsperson-con-bereitschaft-den-srk-kurs-zu-absolvieren-center-da-sanadad-savognin",
       "company": "Center da Sanadad Savognin",
       "companyKey": "cds-savognin",
       "companyDomain": "cds-savognin.ch",
       "title": "Pflegehilfsperson SRK im Nachtdienst (m/w) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Savognin",
       "canton": "GR",
       "url": "https://cds-savognin.ch/DE/aktuelles/256.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T21:37:20.484Z",
+      "crawledAt": "2026-07-04T10:17:03.002Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://cds-savognin.ch/uploads/files/nachtwache-pflegehilfsperson-srk_bh_mitqr-code.pdf",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-03T21:37:20.484Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "cds-savognin-270-1dc201a15dcc",
       "slug": "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin",
@@ -64,7 +64,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T21:37:20.454Z",
+      "crawledAt": "2026-07-04T10:17:02.971Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/402.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T21:37:20.477Z",
+      "crawledAt": "2026-07-04T10:17:02.994Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/410.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T21:37:20.480Z",
+      "crawledAt": "2026-07-04T10:17:02.998Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/405.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T21:37:20.482Z",
+      "crawledAt": "2026-07-04T10:17:03.000Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -200,47 +200,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "cds-savognin-413-da45d8e30829",
-      "slug": "pflegehilfsperson-srk-50-100-o-pflegehilfsperson-con-bereitschaft-den-srk-kurs-zu-absolvieren-center-da-sanadad-savognin",
-      "company": "Center da Sanadad Savognin",
-      "companyKey": "cds-savognin",
-      "companyDomain": "cds-savognin.ch",
-      "title": "Pflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren",
-      "needsRetranslation": false,
-      "location": "Savognin",
-      "canton": "GR",
-      "url": "https://cds-savognin.ch/DE/aktuelles/413.html",
-      "source": "CDS Savognin Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-02T10:43:48.594Z",
-      "addressLocality": "Savognin",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7460",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://cds-savognin.ch/uploads/files/pflegehilfsperson_mitqr-code.pdf",
-      "firstSeenAt": "2026-06-15T22:41:27.024Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
