@@ -3672,10 +3672,32 @@ ${staticAnalyticsHtml}
  return `<section class="s-7uP4UM"><h3 class="s-sobAsC">${esc(labels.intro)}</h3>${parts.join('')}</section>`;
  };
 
- // Collect unique companies by canonical slug (mirrors runtime grouping)
+ // Collect unique companies by canonical slug (mirrors runtime grouping).
+ //
+ // TI-only scope (classifier-drift fix, issue #3232): this block emits
+ // pages EXCLUSIVELY under the Ticino-branded URL (/cerca-lavoro-ticino/
+ // azienda-*, title/description hardcode "Ticino"/"Tessin" via
+ // buildEmployerHubTitle below) — see the sibling per-canton block
+ // ~6900 lines down, whose own comment states TI hubs are "handled
+ // exclusively" by this loop. Before the nationwide canton expansion,
+ // validJobs was implicitly TI-only so this held true. Once validJobs
+ // covers all of Switzerland, this loop kept ingesting every company
+ // from every canton with no filter — so non-TI companies got a hub
+ // page falsely branded "Ticino" (title/meta mismatch vs the correctly
+ // canton-aware heading/editorial copy below), duplicating the content
+ // the sibling per-canton block already emits correctly. That unbounded
+ // non-TI company population is what blew the weekly-employers
+ // title-length ratchet 12→514 (data/title-length-baseline.json).
+ // Filter to real TI jobs only, via the same sharedResolveJobCanton
+ // resolver the per-canton sibling block uses (not the raw `job.canton`
+ // field with DEFAULT_CANTON fallback used a few lines below) so a
+ // multi-canton company still gets a TI hub scoped to its actual TI
+ // jobs, and companies with zero TI jobs get no TI hub at all (their
+ // other-canton jobs remain covered by the per-canton block).
  const companyMap = new Map<string, { name: string; jobs: typeof validJobs; rawSlugs: Set<string> }>();
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
+ if (sharedResolveJobCanton(job as { canton?: string; location?: string }) !== 'TI') continue;
  const canonical = canonicalCompanySlugBuild(job.company, job.companyKey);
  const raw = slugifyCompanyBuild(job.company);
  if (!canonical) continue;

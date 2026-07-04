@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T20:50:00.000Z",
+  "generated": "2026-07-04T07:46:31.383Z",
   "mode": "rate",
   "threshold": 10,
   "tolerance": {
@@ -8,34 +8,34 @@
     "minAbsDelta": 5,
     "maxDeltaPp": 3
   },
-  "scanned": 48315,
-  "totalOffenders": 111,
-  "totalRatePct": 0.2297,
+  "scanned": 53381,
+  "totalOffenders": 1032,
+  "totalRatePct": 1.9333,
   "byFeature": {
     "blog": {
-      "scanned": 11898,
+      "scanned": 12178,
       "offenders": 0,
       "ratePct": 0.0
     },
     "border-wait": {
-      "scanned": 187,
+      "scanned": 207,
       "offenders": 0,
       "ratePct": 0.0
     },
     "career-landings": {
-      "scanned": 2662,
+      "scanned": 4762,
       "offenders": 0,
       "ratePct": 0.0
     },
     "eventi": {
-      "scanned": 56,
-      "offenders": 56,
-      "ratePct": 100.0
+      "scanned": 1304,
+      "offenders": 1001,
+      "ratePct": 76.7638
     },
     "fuel-daily": {
-      "scanned": 6229,
-      "offenders": 27,
-      "ratePct": 0.4335
+      "scanned": 6365,
+      "offenders": 24,
+      "ratePct": 0.3771
     },
     "health-premiums": {
       "scanned": 733,
@@ -43,32 +43,32 @@
       "ratePct": 0.0
     },
     "job-board": {
-      "scanned": 21141,
-      "offenders": 1,
-      "ratePct": 0.0047
+      "scanned": 22403,
+      "offenders": 0,
+      "ratePct": 0.0
     },
     "job-market-snapshot": {
-      "scanned": 120,
+      "scanned": 124,
       "offenders": 0,
       "ratePct": 0.0
     },
     "spa-locale": {
-      "scanned": 3394,
-      "offenders": 17,
-      "ratePct": 0.5009
+      "scanned": 3406,
+      "offenders": 5,
+      "ratePct": 0.1468
     },
     "spa-other": {
-      "scanned": 1418,
-      "offenders": 9,
-      "ratePct": 0.6347
+      "scanned": 1426,
+      "offenders": 2,
+      "ratePct": 0.1403
     },
     "weather": {
       "scanned": 39,
-      "offenders": 1,
-      "ratePct": 2.5641
+      "offenders": 0,
+      "ratePct": 0.0
     },
     "weekly-employers": {
-      "scanned": 338,
+      "scanned": 334,
       "offenders": 0,
       "ratePct": 0.0
     },
@@ -78,5 +78,5 @@
       "ratePct": 0.0
     }
   },
-  "_comment": "Rate-based baseline for audit-text-html-ratio (page ratio ≤ 10%). The per-page threshold is the hard quality gate; this ratchet tracks the offender RATE (offenders/scanned) per feature so organic content growth does not regress the build. A feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its absolute offender count grows by more than minAbsDelta. Rates must only DECREASE going forward (modulo tolerance)."
+  "_comment": "Rate-based baseline for audit-text-html-ratio (page ratio ≤ 10%). The per-page threshold is the hard quality gate; this ratchet tracks the offender RATE (offenders/scanned) per feature so organic content growth does not regress the build. A feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its absolute offender count grows by more than minAbsDelta. Rates must only DECREASE going forward (modulo tolerance). Regenerated 2026-07-04 (issue #3232): `eventi` scanned 56→1304 and offenders 56→1001 purely from the approved nationwide events expansion (#3125, merged) — eventi's OWN offender rate actually IMPROVED (100%→76.76%, still within its own ratchet), but its much larger absolute share of total scanned pages mechanically dragged the TOTAL aggregate rate from 0.23%→1.93%, past the total-cap tolerance, with zero per-template quality regression (regressedFeatures was empty; eventi/border-wait/fuel-daily/weather are accepted as inherently markup-heavy listing/detail templates, same design category since baseline inception). Re-baselined from the audit-reports/text-html-ratio.json artifact of the real dist audited by validate-dist run 28697987396 (deploy run 28695687535, SHA 05fd203b0b9) — same scanned/offenders/rate fields `--write-baseline` would produce, transcribed rather than re-run locally (full local SSG build OOMs, see docs/LOCAL-DEV.md)."
 }
