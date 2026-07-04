@@ -27,6 +27,20 @@ const SPEAKABLE_SECTION = {
  "cssSelector": ["h1", "[data-speakable]", "article p:first-of-type"]
 } as const;
 
+const HOWTO_CALCULATOR = {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Come calcolare lo stipendio netto da frontaliere Svizzera-Italia",
+ "description": "Guida passo-passo per calcolare il tuo stipendio netto come lavoratore frontaliere usando il simulatore fiscale gratuito di Frontaliere Ticino.",
+ "totalTime": "PT1M",
+ "step": [
+ { "@type": "HowToStep", "position": 1, "name": "Inserisci il salario lordo annuo", "text": "Inserisci il tuo salario lordo annuo in CHF nel campo dedicato.", "url": `${BASE_URL}/calcola-stipendio/` },
+ { "@type": "HowToStep", "position": 2, "name": "Seleziona stato civile e figli", "text": "Scegli stato civile (single, coniugato, genitore solo) e numero di figli per determinare la tabella d'imposta corretta (A, B, C o H).", "url": `${BASE_URL}/calcola-stipendio/` },
+ { "@type": "HowToStep", "position": 3, "name": "Scegli vecchio o nuovo frontaliere", "text": "Indica se sei stato assunto prima o dopo il 17 luglio 2023 e se risiedi entro o oltre 20 km dal confine svizzero.", "url": `${BASE_URL}/calcola-stipendio/` },
+ { "@type": "HowToStep", "position": 4, "name": "Analizza i risultati", "text": "Visualizza il dettaglio di imposta alla fonte, contributi sociali (AVS, AC, LAA, LPP), eventuale IRPEF italiana e stipendio netto mensile in CHF e EUR.", "url": `${BASE_URL}/calcola-stipendio/` }
+ ]
+ };
+
 const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  calculator: {
  title: 'Frontalieri Svizzera 2026 — Calcolo Stipendio Netto, Tasse, Guida',
@@ -131,19 +145,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ],
  "speakable": SPEAKABLE_SECTION
  },
- {
- "@context": "https://schema.org",
- "@type": "HowTo",
- "name": "Come calcolare lo stipendio netto da frontaliere Svizzera-Italia",
- "description": "Guida passo-passo per calcolare il tuo stipendio netto come lavoratore frontaliere usando il simulatore fiscale gratuito di Frontaliere Ticino.",
- "totalTime": "PT1M",
- "step": [
- { "@type": "HowToStep", "position": 1, "name": "Inserisci il salario lordo annuo", "text": "Inserisci il tuo salario lordo annuo in CHF nel campo dedicato.", "url": `${BASE_URL}/calcola-stipendio/` },
- { "@type": "HowToStep", "position": 2, "name": "Seleziona stato civile e figli", "text": "Scegli stato civile (single, coniugato, genitore solo) e numero di figli per determinare la tabella d'imposta corretta (A, B, C o H).", "url": `${BASE_URL}/calcola-stipendio/` },
- { "@type": "HowToStep", "position": 3, "name": "Scegli vecchio o nuovo frontaliere", "text": "Indica se sei stato assunto prima o dopo il 17 luglio 2023 e se risiedi entro o oltre 20 km dal confine svizzero.", "url": `${BASE_URL}/calcola-stipendio/` },
- { "@type": "HowToStep", "position": 4, "name": "Analizza i risultati", "text": "Visualizza il dettaglio di imposta alla fonte, contributi sociali (AVS, AC, LAA, LPP), eventuale IRPEF italiana e stipendio netto mensile in CHF e EUR.", "url": `${BASE_URL}/calcola-stipendio/` }
- ]
- }
+ HOWTO_CALCULATOR
  ]
  },
 
@@ -498,7 +500,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // A.3 — primary target keyword "calcolo stipendio netto svizzera" (vol 390).
  // See docs/seo-semrush-growth-plan.md Task A.3.
  title: 'Calcolo Stipendio Netto Svizzera 2026 — Simulatore Frontalieri',
- description: 'Calcolo stipendio netto Svizzera 2026 per frontalieri: AVS, imposta alla fonte, IRPEF con franchigia 10.000 €. 8 simulatori gratuiti, calcolo istantaneo.',
+ description: 'Con 60.000 CHF lordi un frontaliere netta circa 3.200–3.500 €/mese. Calcola il tuo netto esatto 2026: imposta alla fonte, AVS, IRPEF e franchigia 10.000 €. Gratis.',
  keywords: 'calcolo stipendio netto svizzera, calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, calcolatore imposte alla fonte 2026, etax ticino 2026, imposta alla fonte ticino, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
  ogTitle: 'Calcolo Stipendio Netto Svizzera 2026 — Simulatore Frontalieri',
  ogDescription: 'Un frontaliere con 60.000 CHF lordi/anno netta circa 3.200–3.500 €/mese dopo contributi svizzeri e tasse italiane. Usa 8 simulatori gratuiti per calcolare il tuo netto esatto (accordo 2026).',
@@ -553,6 +555,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Come confrontare due offerte di lavoro CH con stipendi diversi?", "acceptedAnswer": { "@type": "Answer", "text": "Non confrontare solo il lordo: usa il simulatore 'Confronto RAL CH-IT' inserendo entrambi i lordi, lo stesso stato civile/figli e il comune di residenza. Confronta poi netto mensile in EUR, tredicesima (sempre obbligatoria in CH), contributi LPP (7–18% in base all'età), partecipazione LAMal del datore (se presente), e benefit (mensa, buoni pasto, auto aziendale). Una differenza di CHF 500 lordi può diventare solo 250–300 € netti." } }
  ]
  }
+  ,
+ HOWTO_CALCULATOR
  ]
  },
 
