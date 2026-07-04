@@ -50,7 +50,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, inferAnyCanton, findSwissCityInText } from './target-swiss-locations.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -252,8 +252,13 @@ export async function fetchAllGimArchitektenJobs() {
     if (!title) continue;
 
     const addr = posting.jobLocation?.address || {};
-    // jobs.ch quirk: addressRegion sometimes holds a canton/region NAME, not a city.
-    const city = decodeEntities(addr.addressLocality || addr.addressRegion || '').trim() || HQ.city;
+    // jobs.ch quirk: addressRegion sometimes holds a canton/region NAME, not a city
+    // (e.g. "Jura") — only trust it as a city fallback when it actually resolves to
+    // a known Swiss municipality, otherwise fall back to HQ.city.
+    const addressLocality = decodeEntities(addr.addressLocality || '').trim();
+    const addressRegionRaw = decodeEntities(addr.addressRegion || '').trim();
+    const regionAsCity = addressRegionRaw && findSwissCityInText(addressRegionRaw) ? addressRegionRaw : '';
+    const city = addressLocality || regionAsCity || HQ.city;
     const postalCode = String(addr.postalCode || '').trim() || HQ.postalCode;
     const canton = inferSwissTargetCanton(city) || inferAnyCanton(city) || HQ.canton;
     const country = 'CH';
