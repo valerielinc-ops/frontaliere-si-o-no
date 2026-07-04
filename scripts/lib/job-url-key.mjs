@@ -72,6 +72,10 @@ export function workdayReqFromLeaf(leaf) {
 
 export { WORKDAY_HOST_RE };
 
+// Umantis job urls: recruitingapp-<tenantId>.umantis.com/Vacancies/<id>/Description/<lang>
+// Tenant lives in the subdomain; host-gated so no other crawler's key changes.
+const UMANTIS_HOST_RE = /(?:^|\/\/)recruitingapp-\d+\.umantis\.com(?:[:/]|$)/;
+
 // A path leaf that is a generic directory-index page (apply.refline.ch ends
 // every job at `…/<companyId>/<jobId>/pub/1/index.html`) — the only extractable
 // token is the shared companyId, so the per-job identity is the whole URL.
@@ -231,6 +235,21 @@ export function mergeUrlKey(url) {
     if (ln) return `num:${ln[0]}`;
     const lh = leaf.match(HEX_TOKEN_RE);
     if (lh) return `hex:${lh[0]}`;
+  }
+
+  // Rule U — Umantis host-gated guard (dormant today, prevents future
+  // collision). Umantis job urls (`recruitingapp-<tenantId>.umantis.com/
+  // Vacancies/<id>/Description/<lang>`) carry the id in an ANCESTOR segment —
+  // the leaf is the 2-letter locale code — so a future id that grows to
+  // ≥6 digits would hit the legacy num:/hex: rule bare (no tenant scoping)
+  // and could collide across tenants (ids are per-tenant sequences).
+  // Prefixing the host only when the legacy key is already a bare num:/hex:
+  // token keeps TODAY's output identical (ids are 3-4 digits, legacy already
+  // falls to url:) — only changes behavior once a tenant crosses the
+  // collision-risk threshold.
+  if (UMANTIS_HOST_RE.test(u) && (legacy.startsWith('num:') || legacy.startsWith('hex:'))) {
+    const host = u.match(/^https?:\/\/([^/]+)/)?.[1] || '';
+    return `req:${host}:${legacy}`;
   }
 
   // Rule C — legacy leftmost whole-URL scan (unchanged).

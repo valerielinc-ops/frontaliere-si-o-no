@@ -25,8 +25,8 @@
  * API: https://ohws.prospective.ch/public/v1/medium/1006570/jobs?lang=de
  * Public career site: https://jobs.livit.ch
  *
- * Default canton ZH (Livit HQ: Bahnhofstrasse, Zürich); postal/street
- * used only as a city-gated HQ fallback per the shared factory.
+ * Default canton ZH (Livit HQ: Altstetterstrasse 124, 8048 Zürich); postal/
+ * street used only as a city-gated HQ fallback per the shared factory.
  *
  * Uses shared Prospective.ch factory.
  */
@@ -44,8 +44,8 @@ const parser = createProspectiveChParser({
   apiLang: 'de',
   defaultCanton: 'ZH',
   defaultCity: 'Zürich',
-  defaultPostalCode: '8005',
-  defaultStreetAddress: 'Aargauerstrasse 1',
+  defaultPostalCode: '8048',
+  defaultStreetAddress: 'Altstetterstrasse 124',
   publicCareerUrl: 'https://jobs.livit.ch',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.livit.ch'],

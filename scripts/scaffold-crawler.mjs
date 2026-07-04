@@ -821,7 +821,7 @@ ${playwrightTier ? `
           SKIP_AI_TRANSLATION: \${{ github.event.inputs.skip_ai_translation || '0' }}
         run: bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ${companyName} jobs (dedicated crawler)" data/jobs-crawler-adapters/
 
-      - name: Report failure to Linear
+      - name: Report failure to GitHub Issue
         if: failure()
         continue-on-error: true
         env:
