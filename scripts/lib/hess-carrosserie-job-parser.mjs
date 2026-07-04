@@ -242,12 +242,18 @@ export async function fetchAllHessCarrosserieJobs() {
 
     const address = ld?.jobLocation?.address || {};
     const city = normalizeSpace(address.addressLocality || listing.city || HQ.city);
-    const postalCode = normalizeSpace(address.postalCode || listing.zip || HQ.postalCode);
-    const streetAddress = normalizeSpace(address.streetAddress || HQ.streetAddress);
     const canton =
       normalizeSpace(address.addressRegion || '').toUpperCase() ||
       inferSwissTargetCanton(city) ||
       HQ.canton;
+    // HQ street/postal code only apply to the HQ canton — a second real site
+    // (Rothenburg, LU) exists, so an ungated fallback would stamp the wrong
+    // address on a job whose own postal/street is missing (e.g. detail-fetch
+    // failure) but whose canton resolves elsewhere.
+    const postalCode = normalizeSpace(address.postalCode || listing.zip || '') ||
+      (canton === HQ.canton ? HQ.postalCode : '');
+    const streetAddress = normalizeSpace(address.streetAddress || '') ||
+      (canton === HQ.canton ? HQ.streetAddress : '');
 
     const descriptionHtml = ld?.description || '';
     const descriptionText = stripHtml(descriptionHtml);
