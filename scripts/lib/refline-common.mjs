@@ -122,8 +122,9 @@ export function parseReflineAnchorListing(html = '', { listingHost, tenant } = {
  * this generalizes over:
  *  - detail URL without trailing `/index.html` (ZKB `792841`: bare
  *    `.../{posId}/pub/{rev}"` anchors that resolve directly, no redirect).
- *  - extra columns anywhere in the row, e.g. ZKB's `operationArea`
- *    (department/business-area) between `position` and `workplace`.
+ *  - extra columns anywhere in the row, e.g. ZKB's `operationArea` or
+ *    Pfister's `businessUnit` `424626` (department/business-area column,
+ *    different class name, same shape) between `position` and `workplace`.
  *  - reordered + renamed columns, e.g. Empa `673276`: `position`,
  *    `workload`, `workplace`, `published` (workload BEFORE workplace, and
  *    the date column is named `published` rather than `entryDate`).
@@ -299,6 +300,16 @@ export function createReflineParser(config) {
     sector = 'Sanità / Ospedali',
     sourceLabel,
     locationHintsFor,
+    // Optional override for the free-text `company` field check inside
+    // isCompanyJob(): receives the already-normalized (trimmed+lowercased)
+    // company string, returns true/false. Default behaviour (substring of the
+    // corporateHost's first label, e.g. "pfister" for "pfister.ch") is kept
+    // for every existing tenant when this is omitted. Needed for tenants
+    // whose brand token is also a generic Swiss surname shared with unrelated
+    // companies (e.g. "Pfister" also matches "Angst+Pfister AG",
+    // "Carrosserie Pfister AG", "PFISTERER Holding AG" under a plain
+    // substring check) — see pfister-job-parser.mjs.
+    companyNameMatch,
   } = config;
 
   if (!reflineTenant || !companyKey || !companyName || !defaultCanton || !defaultCity) {
@@ -315,11 +326,17 @@ export function createReflineParser(config) {
   function isCompanyJob(job) {
     const key = normalize(job?.companyKey || '');
     const company = normalize(job?.company || '');
-    const url = normalize(job?.url || '');
     if (key === companyKey) return true;
-    if (corporateHost && (company.includes(corporateHost.split('.')[0]) || url.includes(corporateHost))) return true;
-    if (url.includes(`${listingHost}/${tenantStr}`)) return true;
-    return false;
+    const companyNameMatches = typeof companyNameMatch === 'function'
+      ? companyNameMatch(company)
+      : Boolean(corporateHost && company.includes(corporateHost.split('.')[0]));
+    if (companyNameMatches) return true;
+    // Domain/tenant check delegates to isTrustedDomain() (proper hostname
+    // parsing) rather than duplicating a plain substring test on the raw URL
+    // string — a naive `url.includes(corporateHost)` would also match an
+    // unrelated domain that merely ends with "-<corporateHost>" (e.g.
+    // "carrosserie-pfister.ch" contains the literal substring "pfister.ch").
+    return isTrustedDomain(job?.url || '');
   }
 
   function isTrustedDomain(rawUrl = '') {
