@@ -15,6 +15,7 @@ import { adSlotHtml } from './lib/adSlotHtml';
 import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
+import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import {
   renderSalaryLandingShell,
   type SalaryLandingData,
@@ -641,6 +642,7 @@ export function generatePageHtml(
     <h2>${l.budgetTitle}</h2><p>${l.budgetExplain(scenario, result)}</p>
     <h2>${l.tipsTitle}</h2><p>${l.tipsExplain(scenario, result)}</p>
     <h2>${l.relatedTitle}</h2><div class="related-grid">${relatedHtml}</div>
+    ${renderAuthoritativeSourcesHtml(locale)}
     <div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>
   </section>`;
 
