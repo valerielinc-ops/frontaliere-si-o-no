@@ -841,6 +841,41 @@ The write was refused — the prior slice on disk was kept, no data was lost.
 }
 
 /**
+ * Cross-locale NEAR-duplicate title detector (#3509).
+ *
+ * A failed/partial AI translation can return the source-language title almost
+ * verbatim (e.g. a FR title that is 90% Italian with only a trailing noun
+ * translated). The exact-equality duplicate check misses it, the wrong-language
+ * word list rarely covers domain-specific vocabulary, and the page then serves
+ * a source-language <title>/H1/JSON-LD title next to a localized
+ * description+slug.
+ *
+ * Heuristic: accent-normalized significant tokens (len ≥ 4); when ≥70% of the
+ * source-title tokens survive verbatim in the candidate title AND the source
+ * title has ≥5 significant tokens, the "translation" is still the source text.
+ * Short titles are deliberately excluded — brand/proper-noun tokens dominate
+ * them (legitimately untranslated) and the exact-equality rule already covers
+ * the fully-identical case.
+ *
+ * @param {string} candidate - Localized title under test (locale ≠ sourceLang)
+ * @param {string} source    - Source-language title
+ * @returns {boolean}
+ */
+export function isNearDuplicateLocalizedTitle(candidate, source) {
+  const tokens = (text) => String(text || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w.length >= 4);
+  const src = [...new Set(tokens(source))];
+  if (src.length < 5) return false;
+  const cand = new Set(tokens(candidate));
+  const shared = src.filter((w) => cand.has(w)).length;
+  return shared / src.length >= 0.7;
+}
+
+/**
  * Write a per-crawler jobs slice.
  *
  * Migrated crawlers call this instead of writing directly to data/jobs.json.
@@ -887,6 +922,18 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
     return false;
   };
   let flagged = 0;
+  // #3509 throttle: the near-duplicate detector uncovers a LARGE latent
+  // backlog (measured 2026-07-04: ~1.5k jobs across 268 slices whose non-source
+  // titles are still mostly source-language text). Flagging them all at once
+  // would drop ~6% of job URLs from the sitemap in one deploy and swamp the
+  // relocalize queue (RELOCALIZE_MAX_JOBS defaults to 200/day). Cap near-dup
+  // flags per slice write so the backlog drains gradually (cap x staggered
+  // crawler runs/day inflow, close to the relocalize drain rate) while NEW
+  // partial translations are still caught within a few runs. Exact-duplicate
+  // and wrong-language-word flags stay uncapped (existing behavior). Override
+  // for a deliberate owner-driven backfill: NEAR_DUP_TITLE_FLAG_CAP=<n>.
+  const nearDupFlagCap = Number.parseInt(process.env.NEAR_DUP_TITLE_FLAG_CAP || '3', 10);
+  let nearDupFlagged = 0;
   for (const job of jobs) {
     // Skip already-flagged and jobs the pipeline gave up on (relocalize sets
     // localeMismatchSuppressed after repeated failed retranslation runs) —
@@ -899,6 +946,15 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
       if (!titles[locale]) continue;
       // Cross-locale duplicate: title identical to source-language title
       if (locale !== sl && titles[locale] === titles[sl]) { needsFlag = true; break; }
+      // Cross-locale NEAR-duplicate (#3509): a partially-translated title keeps
+      // most source-language tokens verbatim (observed: FR title 90% Italian
+      // with only the trailing lab name translated) — the exact-equality check
+      // above misses it and the page ships a source-language <title>/H1/
+      // JSON-LD title next to a localized description+slug.
+      if (locale !== sl && nearDupFlagged < nearDupFlagCap
+        && isNearDuplicateLocalizedTitle(titles[locale], titles[sl])) {
+        needsFlag = true; nearDupFlagged++; break;
+      }
       // Wrong-language words in title
       if (_hasWrongLangWords(titles[locale], locale)) { needsFlag = true; break; }
       // Wrong-language words in slug
@@ -906,7 +962,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
     }
     if (needsFlag) { job.needsRetranslation = true; flagged++; }
   }
-  if (flagged > 0) console.log(`🔍 Quality gate: flagged ${flagged} jobs with wrong-language content`);
+  if (flagged > 0) console.log(`🔍 Quality gate: flagged ${flagged} jobs with wrong-language content${nearDupFlagged > 0 ? ` (${nearDupFlagged} near-duplicate titles, cap ${nearDupFlagCap}/run)` : ''}`);
 
   // Boilerplate guard: detect parsers that silently fell back to generic descriptions.
   if (!process.env.SKIP_BOILERPLATE_GUARD) {

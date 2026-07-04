@@ -16,6 +16,7 @@ import { callLLM, isAnyModelAvailable } from './lib/ai-models.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { reduceSalaryToPartTime } from './lib/structured-salary.mjs';
+import { sameLocalityAsHq } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1024,10 +1025,16 @@ async function enrichJob(job, aiState) {
     const realLocality = String(job.location || job.addressLocality || '').trim();
     const realLocalityKey = realLocality.toLowerCase();
     const postalFromRealCity = realLocality && TICINO_CITY_POSTAL[realLocalityKey];
+    // #3513: HQ street/CAP are CITY-anchored — pair them with the job's
+    // locality only when the job has no real city or sits in the HQ city.
+    // Otherwise the emitted PostalAddress would mix an HQ street/CAP with a
+    // different locality (e.g. 'Viale Officina 3'/'6500' Bellinzona on a
+    // Lugano posting). Build-time fallbacks derive coherent city values.
+    const hqLocalityOk = sameLocalityAsHq(realLocality, knownAddr.addressLocality);
     job = {
       ...job,
-      streetAddress: job.streetAddress || knownAddr.streetAddress,
-      postalCode: job.postalCode || postalFromRealCity || knownAddr.postalCode,
+      streetAddress: job.streetAddress || (hqLocalityOk ? knownAddr.streetAddress : ''),
+      postalCode: job.postalCode || postalFromRealCity || (hqLocalityOk ? knownAddr.postalCode : ''),
       addressLocality: realLocality || knownAddr.addressLocality,
       addressCountry: 'CH',
     };

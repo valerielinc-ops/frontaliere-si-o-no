@@ -34,6 +34,7 @@ import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
 // Shared with the crawler + assembler + tests (AGENTS.md §6 — one source of truth).
 import {
   loadEventsDataset,
@@ -2053,7 +2054,9 @@ function buildSitemap(
   }
   // Per-event detail pages
   for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp));
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`;
+  // #3516: half-canton merges (BS/BL → /eventi/basilea/) can push the same
+  // hub <loc> twice within this one file — dedupe keep-first at assembly.
+  return dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`);
 }
 
 function eventDetailSitemapUrl(canton: string, comune: string, slug: string, dateStamp: string): string {

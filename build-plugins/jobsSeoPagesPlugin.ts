@@ -19,6 +19,7 @@ import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
 import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
 import { minifyHtml } from './shared/htmlMinify';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
@@ -143,7 +144,7 @@ import {
  buildEmployerHubMeta,
  buildRoleHubMeta,
 } from '../services/seo/meta-descriptions';
-import { COMPANY_HQ_ADDRESSES } from './shared/companyHqAddresses';
+import { COMPANY_HQ_ADDRESSES, localityMatchesHq } from './shared/companyHqAddresses';
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
 import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
@@ -1546,7 +1547,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  const result = new Date(base);
  result.setUTCDate(result.getUTCDate() + (crawledAt ? 60 : 90));
- return result.toISOString();
+ // Floor to now+30d (#3505): this helper feeds ACTIVE job emissions only —
+ // the expired soft-landing derives its own, deliberately-past validThrough.
+ // A stale crawledAt/postedDate would otherwise emit validThrough < now on a
+ // live "Apply now" page → GSC "Job posting has expired" and the posting is
+ // dropped from Google Jobs while still indexed as active.
+ const floor = new Date();
+ floor.setUTCDate(floor.getUTCDate() + 30);
+ return (result.getTime() < floor.getTime() ? floor : result).toISOString();
  };
  const contractMap: Record<string, string> = {
  'full-time': 'FULL_TIME',
@@ -1622,23 +1630,30 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  /**
   * Cap the description used inside JobPosting JSON-LD.
   *
-  * Why: Google's structured-data tester treats ~500-char descriptions as
-  * ideal and the field is an *abstract*, not the full ad. Embedding the
-  * raw 6-7 KB ATS body inflates `<head>` size, drags down text/HTML ratio
-  * (Semrush threshold 10 %), and provides no SERP benefit.
+  * Why 5000 (#3514): Google's JobPosting docs require `description` to be
+  * "a complete representation of the job" and explicitly say NOT to ship a
+  * truncated version — the previous 500-char abstract cap left 29/30 sampled
+  * pages ending in an ellipsis (rich-result compliance risk). 5000 matches
+  * the surrogate-safe budget already applied upstream when the description
+  * HTML is assembled, and covers 96.7% of the dataset untruncated (p95 =
+  * 4659 chars, measured 2026-07-04 across all by-crawler locale descriptions).
+  * The residual byte concern (raw 6-7 KB ATS bodies inflating `<head>` /
+  * text-HTML ratio) is still bounded by this cap — only the long tail >5000
+  * gets cut, at a sentence boundary where possible.
   *
   * Behavior:
   *  - Strip HTML tags so the truncation operates on visible text.
   *  - Collapse all whitespace runs to a single space.
-  *  - Cap at MAX_JSONLD_DESCRIPTION_CHARS (500), preferring sentence
+  *  - Cap at MAX_JSONLD_DESCRIPTION_CHARS (5000), preferring sentence
   *    boundaries (`. `, `! `, `? `) before falling back to word boundaries.
-  *  - Append a single ellipsis only when truncation actually trimmed text.
+  *  - Sentence-boundary cut ends on complete text — no ellipsis appended;
+  *    a single ellipsis marks only the mid-sentence word-boundary fallback.
   *  - Returns the original (whitespace-collapsed) input when already short.
   *
   * NOTE: This affects ONLY the JSON-LD `description` field. The visible
   * page body keeps the full text — see `descriptionHtmlParts` upstream.
   */
- const MAX_JSONLD_DESCRIPTION_CHARS = 500;
+ const MAX_JSONLD_DESCRIPTION_CHARS = 5000;
  const capJsonLdDescription = (input: string): string => {
  if (!input) return input;
  // Strip tags and collapse whitespace so length math reflects visible text.
@@ -1647,12 +1662,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Surrogate-safe window: a raw slice can split an emoji pair and leave a lone
  // surrogate that breaks JSON-LD parsing if the word/sentence fallback keeps it.
  const window = truncateCodeUnits(plain, MAX_JSONLD_DESCRIPTION_CHARS);
- // Prefer the last sentence boundary inside the window.
+ // Prefer the last sentence boundary inside the window. A sentence-boundary
+ // cut ends on complete text, so no truncation marker is appended (#3514).
  const sentenceMatch = window.match(/^[\s\S]*[.!?](?=\s)/);
  if (sentenceMatch && sentenceMatch[0].length >= 200) {
- return `${sentenceMatch[0].trim()}…`;
+ return sentenceMatch[0].trim();
  }
- // Fall back to the last word boundary.
+ // Fall back to the last word boundary (mid-sentence → keep the honest marker).
  const lastSpace = window.lastIndexOf(' ');
  const cut = lastSpace > 200 ? window.slice(0, lastSpace) : window;
  return `${cut.trim()}…`;
@@ -1853,9 +1869,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // 1. Try job's own streetAddress — only if it looks like a real street
  const raw = String(job.streetAddress || '').trim();
  if (isValidAddress(raw) && isStreetLikeAddress(raw)) return raw;
- // 2. Try company HQ address
+ // 2. Try company HQ address — ONLY when the job has no own locality or is
+ // in the HQ's own city (#3513). Same-canton is not enough: pairing the
+ // HQ street with a different posting locality (e.g. HQ Manno street on a
+ // Winterthur job) emits a contradictory JSON-LD PostalAddress.
  const companyKey = String(job.companyKey || '').toLowerCase().trim();
- if (companyKey && COMPANY_HQ_ADDRESSES[companyKey]) return COMPANY_HQ_ADDRESSES[companyKey].streetAddress;
+ if (companyKey && COMPANY_HQ_ADDRESSES[companyKey]
+ && localityMatchesHq(String(job.addressLocality || job.location || ''), COMPANY_HQ_ADDRESSES[companyKey])) {
+ return COMPANY_HQ_ADDRESSES[companyKey].streetAddress;
+ }
  // 3. Try city-based generic address (exact match)
  const locality = String(job.addressLocality || '').toLowerCase().trim();
  if (locality && CITY_GENERIC_ADDRESS[locality]) return CITY_GENERIC_ADDRESS[locality];
@@ -8631,7 +8653,9 @@ ${staticAnalyticsHtml}
  const paginationSitemap = paginationSitemapEntries.length > 0 ? '\n' + paginationSitemapEntries.join('\n') : '';
  const categorySitemap = categorySitemapEntries.length > 0 ? '\n' + categorySitemapEntries.join('\n') : '';
  const keywordSitemap = keywordSitemapEntries.length > 0 ? '\n' + keywordSitemapEntries.join('\n') : '';
- const sitemapJobs = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}${paginationSitemap}${categorySitemap}${keywordSitemap}\n</urlset>\n`;
+ // #3516: independent segments (search clusters, keyword pages, …) can emit
+ // the same <loc> twice within this one file — dedupe keep-first at assembly.
+ const sitemapJobs = dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}${paginationSitemap}${categorySitemap}${keywordSitemap}\n</urlset>\n`);
  const sitemapJobsPath = np.join(distDir, 'sitemap-jobs.xml');
  fs.writeFileSync(sitemapJobsPath, sitemapJobs, 'utf-8');
 
