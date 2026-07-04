@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { type Locale, getLocale, setLocale, onLocaleChange, LOCALE_LABELS } from '@/services/i18n';
-import { ensureJobSlugMapLoaded, updatePathForLocale } from '@/services/router';
+import { ensureJobSlugMapForPath, updatePathForLocale } from '@/services/router';
 import { Analytics } from '@/services/analytics';
 
 const locales = Object.keys(LOCALE_LABELS) as Locale[];
@@ -35,7 +35,11 @@ const LanguageSelector: React.FC = () => {
 
  const handleSelect = useCallback(async (locale: Locale) => {
  try {
- await ensureJobSlugMapLoaded();
+ // Per-slug shard fetch (~16 KB br) covering the current URL's job slug,
+ // if any — updatePathForLocale / getLocalizedJobSlug only ever translate
+ // the CURRENT slug, so the full slug-map monolith is not needed here
+ // (issue #3526).
+ await ensureJobSlugMapForPath();
  } catch {
  // Non-blocking
  }
