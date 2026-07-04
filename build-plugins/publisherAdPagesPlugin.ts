@@ -38,7 +38,7 @@ import { generateInitialsLogo } from '../services/logoService';
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type AdLocale = (typeof LOCALES)[number];
 
-const OG_LOCALE: Record<AdLocale, string> = { it: 'it_IT', en: 'en_US', de: 'de_DE', fr: 'fr_FR' };
+const OG_LOCALE: Record<AdLocale, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
 
 // Locale URL prefix (IT is unprefixed — site convention).
 const localePrefix = (locale: AdLocale): string => (locale === 'it' ? '' : `/${locale}`);

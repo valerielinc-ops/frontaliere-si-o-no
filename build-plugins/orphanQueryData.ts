@@ -31,10 +31,10 @@ export const ORPHAN_LANDING_LOCALE_PREFIX: Record<OrphanLandingLocale, string> =
 };
 
 export const ORPHAN_LANDING_OG_LOCALE: Record<OrphanLandingLocale, string> = {
-  it: 'it_IT',
+  it: 'it_CH',
   en: 'en_US',
-  de: 'de_DE',
-  fr: 'fr_FR',
+  de: 'de_CH',
+  fr: 'fr_CH',
 };
 
 /** Shape of a single cluster as serialized to data/gsc-orphan-queries-clusters.json. */

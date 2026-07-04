@@ -82,10 +82,10 @@ const SECTION_IDS: readonly SectionId[] = [
 const LOCALES: readonly SectionLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
 const OG_LOCALE: Record<SectionLocale, string> = {
-  it: 'it_IT',
+  it: 'it_CH',
   en: 'en_US',
-  de: 'de_DE',
-  fr: 'fr_FR',
+  de: 'de_CH',
+  fr: 'fr_CH',
 };
 
 // ── Locale-specific labels and copy ───────────────────────────────
