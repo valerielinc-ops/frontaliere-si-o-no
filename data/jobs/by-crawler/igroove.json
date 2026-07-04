@@ -1,6 +1,6 @@
 {
   "crawlerKey": "igroove",
-  "assembledAt": "2026-07-04T11:01:52.079Z",
+  "assembledAt": "2026-07-04T22:02:06.739Z",
   "jobs": [
     {
       "id": "igroove-c5d93def086a",
@@ -30,7 +30,7 @@
       "url": "https://igroove.jobs.personio.de/job/2588083",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:01:49.768Z",
+      "crawledAt": "2026-07-04T22:02:04.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -49,19 +49,20 @@
       "jobReqId": "2588083",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-03T21:58:03.200Z",
+      "previousSlugs": [
+        "senior-data-pipeline-engineer-igroove-zurich-hybrid"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-data-pipeline-engineer-igroove-zurich-hybrid"
+          "senior-data-pipeline-engineer-igroove-zurich-hybrid",
+          "senior-data-pipeline-ingegnere-igroove-ag-zurich"
         ],
         "fr": [
           "senior-data-pipeline-engineer-igroove-zurich-hybrid"
         ]
       },
-      "previousSlugs": [
-        "senior-data-pipeline-engineer-igroove-zurich-hybrid"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:58:03.200Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
