@@ -255,6 +255,11 @@ if (fs.existsSync(OPPORTUNITIES_PATH)) {
       if (fed >= FEED_MAX_NEW_PAGES) break;
       if (usedProfessions.has(o.id)) continue;
       if (!o.doubleValidated || o.onsiteCount < FEED_MIN_ONSITE) continue;
+      // Literal-match support: jobsSeoPagesPlugin filters with
+      // `filterKeywords: [feedFilter]` (single substring) and skips pages
+      // with <3 matching jobs — feeding below that produces a page that
+      // silently never emits. Missing field (stale file) → treat as 0.
+      if ((Number(o.feedFilterJobCount) || 0) < 3) continue;
       const label = String(o.label || '').replace(/\s*\([^)]*\)/g, '').trim().toLowerCase();
       if (!label) continue;
       const query = `${label} ticino`;

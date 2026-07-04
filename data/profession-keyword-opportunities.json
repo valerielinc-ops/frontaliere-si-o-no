@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-04T09:27:04.111Z",
+  "generatedAt": "2026-07-04T10:00:32.126Z",
   "windowDays": 60,
   "signals": {
     "onsiteSearch": {
       "uniqueTerms": 1000,
-      "totalEvents": 20533
+      "totalEvents": 20529
     },
     "crawlerJobs": 19121,
     "gscQueriesFile": true
@@ -14,8 +14,9 @@
       "id": "medico",
       "label": "Medico",
       "feedFilter": "medico",
-      "onsiteCount": 711,
+      "onsiteCount": 704,
       "jobCount": 694,
+      "feedFilterJobCount": 803,
       "cantons": {
         "ZH": 150,
         "TI": 77,
@@ -47,7 +48,7 @@
       "gscImpressions": 204,
       "gscClicks": 1,
       "doubleValidated": true,
-      "score": 2291
+      "score": 2270
     },
     {
       "id": "psicologo",
@@ -55,6 +56,7 @@
       "feedFilter": "psicolog",
       "onsiteCount": 630,
       "jobCount": 98,
+      "feedFilterJobCount": 129,
       "cantons": {
         "BE": 16,
         "LU": 14,
@@ -87,6 +89,7 @@
       "feedFilter": "magazzin",
       "onsiteCount": 297,
       "jobCount": 126,
+      "feedFilterJobCount": 180,
       "cantons": {
         "ZH": 18,
         "AG": 17,
@@ -120,8 +123,9 @@
       "id": "fisioterapista",
       "label": "Fisioterapista",
       "feedFilter": "fisioterap",
-      "onsiteCount": 279,
+      "onsiteCount": 286,
       "jobCount": 81,
+      "feedFilterJobCount": 87,
       "cantons": {
         "ZH": 11,
         "VD": 8,
@@ -146,14 +150,15 @@
       "gscImpressions": 22,
       "gscClicks": 4,
       "doubleValidated": true,
-      "score": 919
+      "score": 940
     },
     {
       "id": "farmacista",
       "label": "Farmacista",
       "feedFilter": "farmacist",
-      "onsiteCount": 235,
+      "onsiteCount": 228,
       "jobCount": 293,
+      "feedFilterJobCount": 25,
       "cantons": {
         "BE": 53,
         "VD": 45,
@@ -181,7 +186,7 @@
       "gscImpressions": 40,
       "gscClicks": 0,
       "doubleValidated": true,
-      "score": 857
+      "score": 836
     },
     {
       "id": "segretaria",
@@ -189,6 +194,7 @@
       "feedFilter": "segretar",
       "onsiteCount": 218,
       "jobCount": 18,
+      "feedFilterJobCount": 117,
       "cantons": {
         "TI": 4,
         "VD": 4,
@@ -209,6 +215,7 @@
       "feedFilter": "sala operatoria",
       "onsiteCount": 167,
       "jobCount": 222,
+      "feedFilterJobCount": 34,
       "cantons": {
         "ZH": 46,
         "BS": 44,
@@ -244,6 +251,7 @@
       "feedFilter": "contabil",
       "onsiteCount": 161,
       "jobCount": 130,
+      "feedFilterJobCount": 81,
       "cantons": {
         "BS": 49,
         "ZH": 38,
@@ -265,51 +273,12 @@
       "score": 614
     },
     {
-      "id": "responsabile-negozio",
-      "label": "Responsabile di negozio",
-      "feedFilter": "responsabile del negozio",
-      "onsiteCount": 152,
-      "jobCount": 279,
-      "cantons": {
-        "ZH": 57,
-        "BE": 31,
-        "LU": 23,
-        "GR": 18,
-        "SG": 14,
-        "BS": 14,
-        "AG": 13,
-        "BL": 12,
-        "GE": 12,
-        "VD": 11,
-        "VS": 10,
-        "SO": 9,
-        "ZG": 9,
-        "SZ": 7,
-        "FR": 6,
-        "NW": 5,
-        "NE": 5,
-        "JU": 4,
-        "TG": 4,
-        "GL": 3,
-        "TI": 3,
-        "??": 2,
-        "SH": 2,
-        "UR": 2,
-        "OW": 1,
-        "AI": 1,
-        "AR": 1
-      },
-      "gscImpressions": 10,
-      "gscClicks": 1,
-      "doubleValidated": true,
-      "score": 606
-    },
-    {
       "id": "ottico-optometrista",
       "label": "Ottico optometrista",
       "feedFilter": "optometrist",
-      "onsiteCount": 175,
+      "onsiteCount": 182,
       "jobCount": 30,
+      "feedFilterJobCount": 39,
       "cantons": {
         "ZH": 5,
         "BE": 3,
@@ -329,7 +298,7 @@
       "gscImpressions": 75,
       "gscClicks": 0,
       "doubleValidated": true,
-      "score": 558
+      "score": 579
     },
     {
       "id": "assistente-medico",
@@ -337,6 +306,7 @@
       "feedFilter": "studio medico",
       "onsiteCount": 129,
       "jobCount": 180,
+      "feedFilterJobCount": 26,
       "cantons": {
         "ZH": 48,
         "BS": 16,
@@ -370,8 +340,9 @@
       "id": "macellaio",
       "label": "Macellaio",
       "feedFilter": "macella",
-      "onsiteCount": 125,
+      "onsiteCount": 118,
       "jobCount": 190,
+      "feedFilterJobCount": 76,
       "cantons": {
         "ZH": 53,
         "BE": 24,
@@ -396,14 +367,15 @@
       "gscImpressions": 7,
       "gscClicks": 0,
       "doubleValidated": true,
-      "score": 525
+      "score": 504
     },
     {
       "id": "informatico",
       "label": "Informatico",
       "feedFilter": "informatic",
-      "onsiteCount": 115,
+      "onsiteCount": 108,
       "jobCount": 225,
+      "feedFilterJobCount": 315,
       "cantons": {
         "BS": 49,
         "ZH": 47,
@@ -425,7 +397,7 @@
       "gscImpressions": 99,
       "gscClicks": 2,
       "doubleValidated": true,
-      "score": 499
+      "score": 478
     },
     {
       "id": "tecnico-radiologia",
@@ -433,6 +405,7 @@
       "feedFilter": "radiolog",
       "onsiteCount": 104,
       "jobCount": 120,
+      "feedFilterJobCount": 301,
       "cantons": {
         "ZH": 23,
         "VD": 13,
@@ -464,6 +437,7 @@
       "feedFilter": "idraulic",
       "onsiteCount": 109,
       "jobCount": 98,
+      "feedFilterJobCount": 62,
       "cantons": {
         "TI": 26,
         "GR": 14,
@@ -494,6 +468,7 @@
       "feedFilter": "ostetric",
       "onsiteCount": 131,
       "jobCount": 20,
+      "feedFilterJobCount": 40,
       "cantons": {
         "BE": 6,
         "TI": 3,
@@ -517,6 +492,7 @@
       "feedFilter": "assistente sociale",
       "onsiteCount": 108,
       "jobCount": 53,
+      "feedFilterJobCount": 23,
       "cantons": {
         "ZH": 17,
         "AG": 11,
@@ -541,8 +517,9 @@
       "id": "assistente-dentale",
       "label": "Assistente dentale",
       "feedFilter": "dental",
-      "onsiteCount": 122,
+      "onsiteCount": 115,
       "jobCount": 15,
+      "feedFilterJobCount": 180,
       "cantons": {
         "VD": 7,
         "ZH": 5,
@@ -552,7 +529,7 @@
       "gscImpressions": 8,
       "gscClicks": 0,
       "doubleValidated": true,
-      "score": 381
+      "score": 360
     },
     {
       "id": "docente",
@@ -560,6 +537,7 @@
       "feedFilter": "docente",
       "onsiteCount": 86,
       "jobCount": 74,
+      "feedFilterJobCount": 10,
       "cantons": {
         "SG": 20,
         "ZH": 17,
@@ -588,6 +566,7 @@
       "feedFilter": "progettista",
       "onsiteCount": 93,
       "jobCount": 20,
+      "feedFilterJobCount": 32,
       "cantons": {
         "ZH": 5,
         "GR": 3,
@@ -610,6 +589,7 @@
       "feedFilter": "consulente",
       "onsiteCount": 49,
       "jobCount": 229,
+      "feedFilterJobCount": 703,
       "cantons": {
         "TI": 77,
         "ZH": 45,
@@ -647,6 +627,7 @@
       "feedFilter": "dietist",
       "onsiteCount": 85,
       "jobCount": 30,
+      "feedFilterJobCount": 5,
       "cantons": {
         "AG": 6,
         "ZH": 4,
@@ -677,6 +658,7 @@
       "feedFilter": "logoped",
       "onsiteCount": 89,
       "jobCount": 8,
+      "feedFilterJobCount": 8,
       "cantons": {
         "SO": 3,
         "ZH": 2,
@@ -695,6 +677,7 @@
       "feedFilter": "meccanic",
       "onsiteCount": 62,
       "jobCount": 65,
+      "feedFilterJobCount": 175,
       "cantons": {
         "ZH": 21,
         "BE": 12,
@@ -725,6 +708,7 @@
       "feedFilter": "automazion",
       "onsiteCount": 44,
       "jobCount": 83,
+      "feedFilterJobCount": 53,
       "cantons": {
         "VS": 15,
         "BE": 13,
@@ -755,6 +739,7 @@
       "feedFilter": "montator",
       "onsiteCount": 21,
       "jobCount": 345,
+      "feedFilterJobCount": 49,
       "cantons": {
         "ZH": 74,
         "BS": 40,
@@ -792,6 +777,7 @@
       "feedFilter": "pulizie",
       "onsiteCount": 46,
       "jobCount": 44,
+      "feedFilterJobCount": 32,
       "cantons": {
         "ZH": 6,
         "SG": 6,
@@ -822,6 +808,7 @@
       "feedFilter": "saldator",
       "onsiteCount": 50,
       "jobCount": 8,
+      "feedFilterJobCount": 6,
       "cantons": {
         "ZH": 3,
         "SG": 2,
@@ -840,6 +827,7 @@
       "feedFilter": "risorse umane",
       "onsiteCount": 38,
       "jobCount": 26,
+      "feedFilterJobCount": 127,
       "cantons": {
         "TI": 7,
         "BS": 4,
@@ -863,6 +851,7 @@
       "feedFilter": "pasticc",
       "onsiteCount": 30,
       "jobCount": 49,
+      "feedFilterJobCount": 41,
       "cantons": {
         "ZH": 10,
         "BE": 8,
@@ -890,6 +879,7 @@
       "feedFilter": "ergoterap",
       "onsiteCount": 15,
       "jobCount": 51,
+      "feedFilterJobCount": 38,
       "cantons": {
         "ZH": 9,
         "TI": 7,
@@ -920,6 +910,7 @@
       "feedFilter": "giardin",
       "onsiteCount": 14,
       "jobCount": 52,
+      "feedFilterJobCount": 16,
       "cantons": {
         "ZH": 19,
         "LU": 5,
@@ -947,6 +938,7 @@
       "feedFilter": "imbianchin",
       "onsiteCount": 29,
       "jobCount": 7,
+      "feedFilterJobCount": 3,
       "cantons": {
         "FR": 2,
         "TI": 2,
@@ -965,6 +957,7 @@
       "feedFilter": "cassier",
       "onsiteCount": 11,
       "jobCount": 53,
+      "feedFilterJobCount": 14,
       "cantons": {
         "VD": 10,
         "ZH": 9,
@@ -994,6 +987,7 @@
       "feedFilter": "cnc",
       "onsiteCount": 20,
       "jobCount": 9,
+      "feedFilterJobCount": 66,
       "cantons": {
         "TI": 3,
         "SG": 2,
@@ -1012,6 +1006,7 @@
       "feedFilter": "meccatronic",
       "onsiteCount": 14,
       "jobCount": 15,
+      "feedFilterJobCount": 36,
       "cantons": {
         "VD": 3,
         "BS": 3,
@@ -1033,6 +1028,7 @@
       "feedFilter": "piastrell",
       "onsiteCount": 14,
       "jobCount": 3,
+      "feedFilterJobCount": 3,
       "cantons": {
         "BS": 1,
         "VD": 1,
@@ -1044,11 +1040,53 @@
       "score": 45
     },
     {
+      "id": "responsabile-negozio",
+      "label": "Responsabile di negozio",
+      "feedFilter": "responsabile del negozio",
+      "onsiteCount": 152,
+      "jobCount": 279,
+      "feedFilterJobCount": 2,
+      "cantons": {
+        "ZH": 57,
+        "BE": 31,
+        "LU": 23,
+        "GR": 18,
+        "SG": 14,
+        "BS": 14,
+        "AG": 13,
+        "BL": 12,
+        "GE": 12,
+        "VD": 11,
+        "VS": 10,
+        "SO": 9,
+        "ZG": 9,
+        "SZ": 7,
+        "FR": 6,
+        "NW": 5,
+        "NE": 5,
+        "JU": 4,
+        "TG": 4,
+        "GL": 3,
+        "TI": 3,
+        "??": 2,
+        "SH": 2,
+        "UR": 2,
+        "OW": 1,
+        "AI": 1,
+        "AR": 1
+      },
+      "gscImpressions": 10,
+      "gscClicks": 1,
+      "doubleValidated": false,
+      "score": 606
+    },
+    {
       "id": "parrucchiere",
       "label": "Parrucchiere",
       "feedFilter": "parrucchier",
       "onsiteCount": 21,
       "jobCount": 1,
+      "feedFilterJobCount": 1,
       "cantons": {
         "GR": 1
       },
@@ -1058,11 +1096,33 @@
       "score": 64
     },
     {
+      "id": "falegname",
+      "label": "Falegname",
+      "feedFilter": "falegnam",
+      "onsiteCount": 9,
+      "jobCount": 13,
+      "feedFilterJobCount": 18,
+      "cantons": {
+        "ZH": 3,
+        "FR": 3,
+        "BS": 2,
+        "GE": 2,
+        "TI": 1,
+        "GR": 1,
+        "TG": 1
+      },
+      "gscImpressions": 2,
+      "gscClicks": 0,
+      "doubleValidated": false,
+      "score": 40
+    },
+    {
       "id": "custode",
       "label": "Custode / portinaio",
       "feedFilter": "custode",
-      "onsiteCount": 7,
+      "onsiteCount": 0,
       "jobCount": 36,
+      "feedFilterJobCount": 2,
       "cantons": {
         "ZH": 8,
         "BE": 7,
@@ -1083,27 +1143,7 @@
       "gscImpressions": 41,
       "gscClicks": 0,
       "doubleValidated": false,
-      "score": 59
-    },
-    {
-      "id": "falegname",
-      "label": "Falegname",
-      "feedFilter": "falegnam",
-      "onsiteCount": 9,
-      "jobCount": 13,
-      "cantons": {
-        "ZH": 3,
-        "FR": 3,
-        "BS": 2,
-        "GE": 2,
-        "TI": 1,
-        "GR": 1,
-        "TG": 1
-      },
-      "gscImpressions": 2,
-      "gscClicks": 0,
-      "doubleValidated": false,
-      "score": 40
+      "score": 38
     },
     {
       "id": "polimeccanico",
@@ -1111,6 +1151,7 @@
       "feedFilter": "polimeccanic",
       "onsiteCount": 0,
       "jobCount": 34,
+      "feedFilterJobCount": 17,
       "cantons": {
         "BE": 5,
         "SG": 3,
@@ -1141,6 +1182,7 @@
       "feedFilter": "gruista",
       "onsiteCount": 9,
       "jobCount": 1,
+      "feedFilterJobCount": 1,
       "cantons": {
         "TI": 1
       },
@@ -1155,6 +1197,7 @@
       "feedFilter": "aiuto cucina",
       "onsiteCount": 0,
       "jobCount": 28,
+      "feedFilterJobCount": 4,
       "cantons": {
         "ZH": 6,
         "AG": 5,
@@ -1179,6 +1222,7 @@
       "feedFilter": "disegnator",
       "onsiteCount": 0,
       "jobCount": 20,
+      "feedFilterJobCount": 9,
       "cantons": {
         "ZH": 5,
         "SO": 3,
@@ -1204,6 +1248,7 @@
       "feedFilter": "sicurezza",
       "onsiteCount": 0,
       "jobCount": 11,
+      "feedFilterJobCount": 381,
       "cantons": {
         "BE": 4,
         "ZH": 3,
@@ -1222,6 +1267,7 @@
       "feedFilter": "estetist",
       "onsiteCount": 0,
       "jobCount": 10,
+      "feedFilterJobCount": 0,
       "cantons": {
         "ZH": 3,
         "BS": 3,
@@ -1240,6 +1286,7 @@
       "feedFilter": "lattonier",
       "onsiteCount": 0,
       "jobCount": 8,
+      "feedFilterJobCount": 5,
       "cantons": {
         "TI": 2,
         "FR": 2,
@@ -1259,6 +1306,7 @@
       "feedFilter": "carpent",
       "onsiteCount": 0,
       "jobCount": 7,
+      "feedFilterJobCount": 27,
       "cantons": {
         "TI": 2,
         "FR": 2,
@@ -1277,6 +1325,7 @@
       "feedFilter": "panettier",
       "onsiteCount": 0,
       "jobCount": 7,
+      "feedFilterJobCount": 13,
       "cantons": {
         "VD": 2,
         "GE": 2,
@@ -1295,6 +1344,7 @@
       "feedFilter": "fiduciar",
       "onsiteCount": 0,
       "jobCount": 4,
+      "feedFilterJobCount": 10,
       "cantons": {
         "ZH": 2,
         "GE": 1,
@@ -1311,6 +1361,7 @@
       "feedFilter": "veterinar",
       "onsiteCount": 0,
       "jobCount": 3,
+      "feedFilterJobCount": 25,
       "cantons": {
         "FR": 2,
         "ZH": 1
@@ -1326,6 +1377,7 @@
       "feedFilter": "gessator",
       "onsiteCount": 0,
       "jobCount": 3,
+      "feedFilterJobCount": 3,
       "cantons": {
         "TI": 3
       },
@@ -1340,6 +1392,7 @@
       "feedFilter": "podolog",
       "onsiteCount": 0,
       "jobCount": 2,
+      "feedFilterJobCount": 4,
       "cantons": {
         "BS": 1,
         "BE": 1
@@ -1355,6 +1408,7 @@
       "feedFilter": "corrier",
       "onsiteCount": 0,
       "jobCount": 2,
+      "feedFilterJobCount": 0,
       "cantons": {
         "GE": 1,
         "TI": 1
@@ -1370,6 +1424,7 @@
       "feedFilter": "barista",
       "onsiteCount": 0,
       "jobCount": 1,
+      "feedFilterJobCount": 8,
       "cantons": {
         "GR": 1
       },
@@ -1386,6 +1441,7 @@
       "feedFilter": "infermier",
       "onsiteCount": 1318,
       "jobCount": 1095,
+      "feedFilterJobCount": 1004,
       "cantons": {
         "ZH": 297,
         "BE": 144,
@@ -1425,6 +1481,7 @@
       "feedFilter": "ingegner",
       "onsiteCount": 719,
       "jobCount": 636,
+      "feedFilterJobCount": 956,
       "cantons": {
         "ZH": 207,
         "BS": 89,
@@ -1460,6 +1517,7 @@
       "feedFilter": "educator",
       "onsiteCount": 518,
       "jobCount": 14,
+      "feedFilterJobCount": 34,
       "cantons": {
         "VD": 6,
         "TI": 5,
@@ -1476,8 +1534,9 @@
       "id": "autista",
       "label": "Autista",
       "feedFilter": "autista",
-      "onsiteCount": 451,
+      "onsiteCount": 454,
       "jobCount": 62,
+      "feedFilterJobCount": 40,
       "cantons": {
         "GR": 14,
         "BE": 10,
@@ -1499,7 +1558,7 @@
       "gscImpressions": 81,
       "gscClicks": 1,
       "doubleValidated": true,
-      "score": 1418,
+      "score": 1427,
       "coveredBy": "profession landing /lavoro-ticino-autista/"
     },
     {
@@ -1508,6 +1567,7 @@
       "feedFilter": "socio sanitario",
       "onsiteCount": 193,
       "jobCount": 401,
+      "feedFilterJobCount": 18,
       "cantons": {
         "ZH": 114,
         "BE": 68,
@@ -1544,6 +1604,7 @@
       "feedFilter": "cuoc",
       "onsiteCount": 172,
       "jobCount": 199,
+      "feedFilterJobCount": 82,
       "cantons": {
         "ZH": 39,
         "BE": 26,
@@ -1578,8 +1639,9 @@
       "id": "impiegato",
       "label": "Impiegato di commercio",
       "feedFilter": "impiegat",
-      "onsiteCount": 139,
+      "onsiteCount": 146,
       "jobCount": 175,
+      "feedFilterJobCount": 130,
       "cantons": {
         "BE": 44,
         "ZH": 29,
@@ -1609,7 +1671,7 @@
       "gscImpressions": 131,
       "gscClicks": 4,
       "doubleValidated": true,
-      "score": 572,
+      "score": 593,
       "coveredBy": "profession landing /lavoro-ticino-impiegato/"
     },
     {
@@ -1618,6 +1680,7 @@
       "feedFilter": "elettricist",
       "onsiteCount": 103,
       "jobCount": 329,
+      "feedFilterJobCount": 120,
       "cantons": {
         "BE": 54,
         "ZH": 41,
@@ -1653,8 +1716,9 @@
       "id": "venditore",
       "label": "Venditore",
       "feedFilter": "venditor",
-      "onsiteCount": 84,
+      "onsiteCount": 91,
       "jobCount": 1809,
+      "feedFilterJobCount": 593,
       "cantons": {
         "ZH": 491,
         "BE": 272,
@@ -1687,7 +1751,7 @@
       "gscImpressions": 778,
       "gscClicks": 41,
       "doubleValidated": true,
-      "score": 433,
+      "score": 454,
       "coveredBy": "keyword page /venditrice-lavoro-ticino/"
     },
     {
@@ -1696,6 +1760,7 @@
       "feedFilter": "assistente di cura",
       "onsiteCount": 55,
       "jobCount": 281,
+      "feedFilterJobCount": 21,
       "cantons": {
         "ZH": 81,
         "BE": 61,
@@ -1730,6 +1795,7 @@
       "feedFilter": "operai",
       "onsiteCount": 71,
       "jobCount": 59,
+      "feedFilterJobCount": 17,
       "cantons": {
         "ZH": 11,
         "AG": 10,
@@ -1757,6 +1823,7 @@
       "feedFilter": "camerier",
       "onsiteCount": 81,
       "jobCount": 16,
+      "feedFilterJobCount": 7,
       "cantons": {
         "GR": 7,
         "VS": 4,
@@ -1776,6 +1843,7 @@
       "feedFilter": "receptionist",
       "onsiteCount": 31,
       "jobCount": 38,
+      "feedFilterJobCount": 12,
       "cantons": {
         "ZH": 9,
         "VS": 5,
@@ -1803,6 +1871,7 @@
       "feedFilter": "murator",
       "onsiteCount": 0,
       "jobCount": 13,
+      "feedFilterJobCount": 23,
       "cantons": {
         "FR": 5,
         "VS": 3,
@@ -1910,11 +1979,11 @@
       "count": 41
     },
     {
-      "term": "finance",
+      "term": "junior project manager",
       "count": 37
     },
     {
-      "term": "junior project manager",
+      "term": "finance",
       "count": 37
     },
     {
@@ -1942,14 +2011,6 @@
       "count": 30
     },
     {
-      "term": "apprendista laboratorista in chimica afc mendrisio",
-      "count": 28
-    },
-    {
-      "term": "biologia mendrisio",
-      "count": 28
-    },
-    {
       "term": "controller",
       "count": 28
     },
@@ -1958,7 +2019,19 @@
       "count": 28
     },
     {
+      "term": "apprendista laboratorista in chimica afc mendrisio",
+      "count": 28
+    },
+    {
+      "term": "biologia mendrisio",
+      "count": 28
+    },
+    {
       "term": "giurista per il servizio legale attivita di segreteria",
+      "count": 27
+    },
+    {
+      "term": "tecnico biomedico",
       "count": 27
     },
     {
@@ -1970,19 +2043,7 @@
       "count": 27
     },
     {
-      "term": "tecnico biomedico",
-      "count": 27
-    },
-    {
-      "term": "comunicazione ticino",
-      "count": 26
-    },
-    {
-      "term": "apprentice electrical installer efz w m d",
-      "count": 26
-    },
-    {
-      "term": "assistente hr 40",
+      "term": "senza esperienza",
       "count": 26
     },
     {
@@ -1991,6 +2052,14 @@
     },
     {
       "term": "offerte lavoro clinica moncucco",
+      "count": 26
+    },
+    {
+      "term": "apprentice electrical installer efz w m d",
+      "count": 26
+    },
+    {
+      "term": "ristorazione",
       "count": 26
     }
   ]

@@ -251,15 +251,40 @@ for (const { term, count } of onsiteTerms || []) {
 
 // Aggregate signal B per profession (+ canton split = the locality
 // dimension on the supply side, feeds profession × canton pairs).
+//
+// Two distinct counts per profession:
+//  - count: loose multi-lingual alias match on the title — the DEMAND-side
+//    market size, used for ranking/score only.
+//  - feedFilterCount: literal `feedFilter` substring on the same haystack
+//    jobsSeoPagesPlugin filters with (title/description/company/location/
+//    titleByLocale). This is what the emitted page would actually show, so
+//    it — not the loose count — gates doubleValidated: the loose matcher
+//    counts DE/FR/EN ads a `filterKeywords: [feedFilter]` page can never
+//    surface (e.g. "filialleiter" for responsabile-negozio).
 const jobsByProfession = new Map();
+const pluginHaystack = (job) => [
+  String(job.title || ''),
+  String(job.description || ''),
+  String(job.company || ''),
+  String(job.location || ''),
+  ...Object.values(job.titleByLocale || {}),
+].join(' ').toLowerCase();
 for (const job of jobs) {
   const id = matchProfession(job.title);
-  if (!id) continue;
-  const agg = jobsByProfession.get(id) || { count: 0, cantons: new Map() };
-  agg.count += 1;
-  const canton = typeof job.canton === 'string' && job.canton ? job.canton.toUpperCase() : '??';
-  agg.cantons.set(canton, (agg.cantons.get(canton) || 0) + 1);
-  jobsByProfession.set(id, agg);
+  const haystack = pluginHaystack(job);
+  for (const entry of PROFESSION_TAXONOMY) {
+    const loose = entry.id === id;
+    const literal = haystack.includes(entry.feedFilter);
+    if (!loose && !literal) continue;
+    const agg = jobsByProfession.get(entry.id) || { count: 0, feedFilterCount: 0, cantons: new Map() };
+    if (loose) {
+      agg.count += 1;
+      const canton = typeof job.canton === 'string' && job.canton ? job.canton.toUpperCase() : '??';
+      agg.cantons.set(canton, (agg.cantons.get(canton) || 0) + 1);
+    }
+    if (literal) agg.feedFilterCount += 1;
+    jobsByProfession.set(entry.id, agg);
+  }
 }
 
 // Rank: every taxonomy entry with any signal, coverage subtracted.
@@ -272,20 +297,27 @@ for (const entry of PROFESSION_TAXONOMY) {
   const onsite = onsiteByProfession.get(entry.id) || 0;
   const jobAgg = jobsByProfession.get(entry.id);
   const jobCount = jobAgg ? jobAgg.count : 0;
+  const feedFilterJobCount = jobAgg ? jobAgg.feedFilterCount : 0;
   const gsc = gscByProfession.get(entry.id);
-  if (onsite === 0 && jobCount === 0 && !gsc) continue;
+  if (onsite === 0 && jobCount === 0 && feedFilterJobCount === 0 && !gsc) continue;
   const row = {
     id: entry.id,
     label: entry.label,
     feedFilter: entry.feedFilter,
     onsiteCount: onsite,
     jobCount,
+    // Jobs a fed keyword page would ACTUALLY list (literal feedFilter
+    // substring, same semantics as jobsSeoPagesPlugin). Gates the feed:
+    // below the plugin's ≥3 threshold the page would silently never emit.
+    feedFilterJobCount,
     cantons: jobAgg
       ? Object.fromEntries([...jobAgg.cantons.entries()].sort((a, b) => b[1] - a[1]))
       : {},
     gscImpressions: gsc ? gsc.impressions : 0,
     gscClicks: gsc ? gsc.clicks : 0,
-    doubleValidated: onsite >= DOUBLE_VALIDATED_MIN_ONSITE && jobCount >= DOUBLE_VALIDATED_MIN_JOBS,
+    doubleValidated: onsite >= DOUBLE_VALIDATED_MIN_ONSITE
+      && jobCount >= DOUBLE_VALIDATED_MIN_JOBS
+      && feedFilterJobCount >= DOUBLE_VALIDATED_MIN_JOBS,
     score: scoreOf(onsite, jobCount, gsc),
   };
   if (covered.has(entry.id)) {
@@ -316,8 +348,22 @@ const output = {
   unmappedSearchTerms: topN(unmappedTermCounts, MAX_UNMAPPED_REPORTED),
 };
 
-fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2) + '\n', 'utf-8');
-console.error(`Wrote ${OUTPUT_PATH}: ${opportunities.length} opportunities, ${coveredRows.length} covered`);
+// Skip the write when nothing but the timestamp changed, so the weekly
+// workflow's `git diff --cached --quiet` guard actually holds and identical
+// rankings don't produce a no-op commit on main every Monday.
+const stripTimestamp = (obj) => JSON.stringify({ ...obj, generatedAt: null });
+let unchanged = false;
+if (fs.existsSync(OUTPUT_PATH)) {
+  try {
+    unchanged = stripTimestamp(JSON.parse(fs.readFileSync(OUTPUT_PATH, 'utf-8'))) === stripTimestamp(output);
+  } catch { /* unreadable previous file → rewrite */ }
+}
+if (unchanged) {
+  console.error(`${OUTPUT_PATH} unchanged (timestamp-only diff) — not rewritten`);
+} else {
+  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2) + '\n', 'utf-8');
+  console.error(`Wrote ${OUTPUT_PATH}: ${opportunities.length} opportunities, ${coveredRows.length} covered`);
+}
 
 // ── Markdown report (stdout / --markdown-out) ────────────────────────────
 
@@ -328,13 +374,13 @@ md.push(`Finestra: ${WINDOW_DAYS} giorni · on-site search: ${onsiteTerms ? `${o
 md.push('');
 md.push('Doppia validazione = c\'è chi cerca on-site **e** ci sono annunci reali da mostrare → landing converte subito.');
 md.push('');
-md.push('| # | Professione | On-site (60g) | Annunci | Cantoni top | GSC impr. | Score | Doppia val. |');
-md.push('| --- | --- | --- | --- | --- | --- | --- | --- |');
+md.push('| # | Professione | On-site (60g) | Annunci | Match filtro | Cantoni top | GSC impr. | Score | Doppia val. |');
+md.push('| --- | --- | --- | --- | --- | --- | --- | --- | --- |');
 opportunities.slice(0, 20).forEach((o, i) => {
   const cantonTop = Object.entries(o.cantons).slice(0, 3).map(([c, n]) => `${c}:${n}`).join(' ') || '—';
-  md.push(`| ${i + 1} | ${o.label} (\`${o.id}\`) | ${o.onsiteCount} | ${o.jobCount} | ${cantonTop} | ${o.gscImpressions} | ${o.score} | ${o.doubleValidated ? '✅' : '—'} |`);
+  md.push(`| ${i + 1} | ${o.label} (\`${o.id}\`) | ${o.onsiteCount} | ${o.jobCount} | ${o.feedFilterJobCount} | ${cantonTop} | ${o.gscImpressions} | ${o.score} | ${o.doubleValidated ? '✅' : '—'} |`);
 });
-if (opportunities.length === 0) md.push('| — | _nessun gap: tutte le professioni con segnale sono già coperte_ | | | | | | |');
+if (opportunities.length === 0) md.push('| — | _nessun gap: tutte le professioni con segnale sono già coperte_ | | | | | | | |');
 md.push('');
 md.push(`<details><summary>Già coperte (${coveredRows.length}) — escluse dal ranking</summary>`);
 md.push('');
