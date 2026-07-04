@@ -39,6 +39,8 @@ const parser = createSuccessFactorsParser({
   defaultSourceLang: 'de',
   searchParams: { locationsearch: 'Switzerland' },
   sourceLabel: 'Octapharma Dedicated Parser (SuccessFactors CSB)',
+  sector: 'Farmaceutica',
+  fallbackCategory: 'Tecnica',
 });
 
 export const fetchAllOctapharmaJobs = parser.fetchAllJobs;

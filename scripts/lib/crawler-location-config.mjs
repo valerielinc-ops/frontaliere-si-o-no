@@ -245,6 +245,7 @@ export const COMPANY_HQ = {
   'institution-lavigny':          { city: 'Lavigny',            canton: 'VD', postalCode: '1175', addressRegion: 'VD' },
   'ophtalmique':                  { city: 'Lausanne',           canton: 'VD', postalCode: '1004', addressRegion: 'VD' },
   'clinique-la-source':           { city: 'Lausanne',           canton: 'VD', postalCode: '1004', addressRegion: 'VD' },
+  'fondation-soins-lausanne':     { city: 'Lausanne',           canton: 'VD', postalCode: '1010', addressRegion: 'VD' },
   // ── Batch 5 (SPA + EMS networks + Prospective discovery) ──
   'spital-buelach':               { city: 'Bülach',             canton: 'ZH', postalCode: '8180', addressRegion: 'ZH' },
   'gzo-wetzikon':                 { city: 'Wetzikon',           canton: 'ZH', postalCode: '8620', addressRegion: 'ZH' },
@@ -505,6 +506,9 @@ export const COMPANY_HQ = {
   // fallback needed.
   'hospice-general': { city: 'Genève', canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
   'zkb': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  // Möbel Pfister AG HQ, Bernstrasse Ost 49, 5034 Suhr AG — confirmed via
+  // public directory listings (search.ch, local.ch); Refline tenant 424626.
+  'pfister': { city: 'Suhr', canton: 'AG', postalCode: '5034', addressRegion: 'AG' },
   // HQ address (Route de Chêne 48, 1208 Genève) confirmed via public
   // directory listing (search.ch) + epi.ge.ch contact page; SmartRecruiters
   // tenant only exposes per-posting city, not always a street address.

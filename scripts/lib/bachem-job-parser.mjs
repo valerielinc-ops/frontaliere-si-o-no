@@ -40,6 +40,8 @@ const parser = createSuccessFactorsParser({
   defaultSourceLang: 'en',
   searchParams: { locationsearch: 'Switzerland' },
   sourceLabel: 'Bachem AG Dedicated Parser (SuccessFactors CSB)',
+  sector: 'Biotecnologia / Farmaceutica',
+  fallbackCategory: 'Tecnica',
 });
 
 export const fetchAllBachemJobs = parser.fetchAllJobs;
