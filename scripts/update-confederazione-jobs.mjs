@@ -58,6 +58,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { normalizeFederalJobLocation } from './lib/federal-job-normalization.mjs';
@@ -510,13 +511,15 @@ function mergeJobs(discoveredJobs) {
         delete prevDescs.it;
       }
     }
-    return {
+    const merged = {
       ...prev,
       ...job,
       titleByLocale: mergeLocaleTextMap(prevTitles, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prevDescs, job.descriptionByLocale, 30),
       slugByLocale: mergeLocaleTextMap(prevSlugs, job.slugByLocale, 3),
     };
+    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
+    return merged;
   });
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];

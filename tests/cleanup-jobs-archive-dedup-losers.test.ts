@@ -378,6 +378,142 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
     expect(archived?.previousSlugs).toContain('legacy-lead-engineer-2025');
     expect(archived?.previousSlugs).toContain('lead-engineer');
   }, 30000);
+
+  // #3411: dedicated crawlers (ferrovia-retica, julius-baer, mikron,
+  // relewant, swiss-medical-network, casale) commit slices where `.id` is
+  // never stamped (it's only added at data/jobs.json assembly time). Two
+  // id-less jobs that both age out (> JOBS_STALE_DAYS) land in
+  // `sliceRemoved`, each referenced by `{ id: j.id }` — before the fix that
+  // was `{ id: undefined }` for both, so `archiveJobsById.get(undefined)`
+  // resolved to whichever job the Map's bare-id keying happened to keep
+  // last, archiving one job's content twice under two different slugs
+  // instead of each job's own content. These jobs carry no `id` field at
+  // all — that's what real per-crawler slices look like.
+  it('does not collide id-less slice jobs when archiving age-pruned removals', async () => {
+    const dir = makeTempDir();
+    const slicePath = path.join(dir, 'id-less-age-prune-test.json');
+    const expiredDir = path.join(dir, 'expired');
+    const crawlerKey = `id-less-age-prune-${Date.now()}`;
+
+    const stripId = (job: CleanupSliceJob): Omit<CleanupSliceJob, 'id'> => {
+      const { id: _id, ...rest } = job;
+      return rest;
+    };
+
+    const jobs = [
+      stripId(buildJob({
+        id: 'job-stale-A',
+        slug: 'engineer-lugano-stale',
+        title: 'Engineer Lugano (stale A)',
+        crawledAt: daysAgo(90),
+      })),
+      stripId(buildJob({
+        id: 'job-stale-B',
+        slug: 'designer-bellinzona-stale',
+        title: 'Designer Bellinzona (stale B)',
+        location: 'Bellinzona',
+        addressLocality: 'Bellinzona',
+        crawledAt: daysAgo(95),
+      })),
+      stripId(buildJob({
+        id: 'job-fresh-C',
+        slug: 'nurse-mendrisio-fresh',
+        title: 'Nurse Mendrisio (fresh)',
+        location: 'Mendrisio',
+        addressLocality: 'Mendrisio',
+        crawledAt: daysAgo(1),
+      })),
+    ];
+
+    fs.writeFileSync(slicePath, JSON.stringify({ crawlerKey, jobs }, null, 2), 'utf-8');
+
+    const result = await runCleanupSlice(slicePath, expiredDir);
+    const output = result.stdout + result.stderr;
+    expect(result.code, output).toBe(0);
+
+    const sliceParsed = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+    const keptJobs: CleanupSliceJob[] = Array.isArray(sliceParsed?.jobs) ? sliceParsed.jobs : sliceParsed;
+    expect(keptJobs.length).toBe(1);
+    expect(keptJobs[0].slug).toBe('nurse-mendrisio-fresh');
+
+    const expiredSlicePath = path.join(expiredDir, `${crawlerKey}.json`);
+    expect(fs.existsSync(expiredSlicePath)).toBe(true);
+    const expiredEntries: ExpiredEntry[] = JSON.parse(fs.readFileSync(expiredSlicePath, 'utf-8'));
+
+    // Before the fix, both stale removals resolved to the same (last-keyed)
+    // job under the collapsed `undefined` key — asserting each archived
+    // slug carries ITS OWN title (not a copy of the other's) catches that
+    // regression; a count-only assertion would pass even with swapped/
+    // duplicated content.
+    expect(expiredEntries).toHaveLength(2);
+    const bySlug = new Map(expiredEntries.map((e) => [e.slug, e]));
+    expect(bySlug.get('engineer-lugano-stale')?.title).toBe('Engineer Lugano (stale A)');
+    expect(bySlug.get('designer-bellinzona-stale')?.title).toBe('Designer Bellinzona (stale B)');
+  }, 30000);
+
+  it('does not collide id-less slice jobs when validating URLs (checkById/fallbackById)', async () => {
+    const server = http.createServer((req, res) => {
+      if (req.url === '/apply') {
+        res.writeHead(200, { 'content-type': 'text/html' });
+        res.end('<html><body>Application form</body></html>');
+        return;
+      }
+      res.writeHead(404, { 'content-type': 'text/html' });
+      res.end('<html><body>Not found</body></html>');
+    });
+    await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
+
+    try {
+      const address = server.address();
+      if (!address || typeof address === 'string') throw new Error('test server did not bind to a port');
+      const baseUrl = `http://127.0.0.1:${address.port}`;
+      const dir = makeTempDir();
+      const slicePath = path.join(dir, 'id-less-url-validation-test.json');
+      const expiredDir = path.join(dir, 'expired');
+      const crawlerKey = `id-less-url-validation-${Date.now()}`;
+
+      const stripId = (job: CleanupSliceJob): Omit<CleanupSliceJob, 'id'> => {
+        const { id: _id, ...rest } = job;
+        return rest;
+      };
+
+      // Both jobs are id-less. One has a dead canonical URL but a live
+      // applyUrl fallback (must survive); the other has a fully dead URL
+      // with no fallback (must be removed). Before the fix, checkById /
+      // fallbackById collapsed both onto the `undefined` key, so either
+      // job could inherit the other's validation verdict.
+      const jobs = [
+        stripId(buildJob({
+          id: 'job-fallback-kept',
+          slug: 'nurse-live-apply',
+          title: 'Nurse With Live Apply URL',
+          crawledAt: new Date().toISOString(),
+          url: `${baseUrl}/dead-detail-A`,
+          applyUrl: `${baseUrl}/apply`,
+        })),
+        stripId(buildJob({
+          id: 'job-dead-removed',
+          slug: 'nurse-dead-url',
+          title: 'Nurse With Dead URL',
+          crawledAt: new Date().toISOString(),
+          url: `${baseUrl}/dead-detail-B`,
+        })),
+      ];
+
+      fs.writeFileSync(slicePath, JSON.stringify({ crawlerKey, jobs }, null, 2), 'utf-8');
+
+      const result = await runCleanupSliceWithUrlValidation(slicePath, expiredDir);
+      const output = result.stdout + result.stderr;
+      expect(result.code, output).toBe(0);
+
+      const sliceParsed = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+      const keptJobs: CleanupSliceJob[] = Array.isArray(sliceParsed?.jobs) ? sliceParsed.jobs : sliceParsed;
+      expect(keptJobs).toHaveLength(1);
+      expect(keptJobs[0].slug).toBe('nurse-live-apply');
+    } finally {
+      await new Promise<void>((resolve) => server.close(() => resolve()));
+    }
+  });
 });
 
 describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers', () => {

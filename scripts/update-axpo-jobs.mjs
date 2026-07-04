@@ -24,6 +24,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   htmlToMarkdown,
@@ -307,7 +308,7 @@ function mergeJobs(discoveredJobs) {
       prevDesc.length > 0 &&
       Math.abs(newDesc.length - prevDesc.length) > 100;
 
-    return {
+    const merged = {
       ...prev,
       ...job,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
@@ -319,6 +320,8 @@ function mergeJobs(discoveredJobs) {
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
       ...(descChanged ? { needsRetranslation: true } : {}),
     };
+    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
+    return merged;
   });
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
