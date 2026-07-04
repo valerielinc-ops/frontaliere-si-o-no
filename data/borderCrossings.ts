@@ -77,6 +77,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'high',
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.chiassoCentro',
+ webcams: [
+  {
+   label: 'A2 – Chiasso via Como (direzione sud)',
+   imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/01.2S.gif',
+   sourceName: TI_POLCA_SOURCE_NAME,
+   sourceUrl: TI_POLCA_SOURCE_URL,
+   refreshIntervalMs: 60000,
+  },
+ ],
  },
  {
  name: 'Chiasso-Brogeda',
@@ -128,6 +137,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'medium',
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.chiassoStrada',
+ webcams: [
+  {
+   label: 'A2 – Chiasso via Como (direzione sud)',
+   imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/01.2S.gif',
+   sourceName: TI_POLCA_SOURCE_NAME,
+   sourceUrl: TI_POLCA_SOURCE_URL,
+   refreshIntervalMs: 60000,
+  },
+ ],
  },
  {
  name: 'Maslianico-Pizzamiglio',
