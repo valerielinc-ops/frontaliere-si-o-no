@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tsmg",
-  "assembledAt": "2026-07-04T12:39:00.226Z",
+  "assembledAt": "2026-07-04T23:25:40.201Z",
   "jobs": [
     {
       "title": "Tester conversazioni vocali AI (French native speaker - Switzerland regional variant)",
@@ -274,8 +274,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Cantonale 1",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6500",
       "id": "tsmg-a2d608938d5a",
       "previousSlugsByLocale": {
         "it": [
@@ -381,8 +381,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Cantonale 1",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6900",
       "id": "tsmg-024bd327dfe2",
       "previousSlugsByLocale": {
         "it": [
@@ -557,7 +557,8 @@
       },
       "previousSlugs": [
         "audio-recording-specialist-with-german-switzerland-regional-variant-tsmg-geneva-f120cfcb"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Driver (Bertha Certified)",
@@ -630,7 +631,8 @@
       "previousSlugs": [
         "autonomer-fahrzeugfuhrer-bertha-zertifiziert-tsmg-geneva-7972e86b",
         "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Driver (T1 Certified)",
@@ -857,7 +859,8 @@
         ]
       },
       "slugDisambiguator": "c23075ac",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -966,7 +969,8 @@
         ]
       },
       "slugDisambiguator": "dfa1adf1",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Gossau, Switzerland",
@@ -1034,7 +1038,8 @@
       },
       "streetAddress": "",
       "postalCode": "9200",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Grabs, Switzerland",
@@ -1102,7 +1107,8 @@
       },
       "streetAddress": "",
       "postalCode": "9000",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Kreuzlingen, Switzerland",
@@ -1170,7 +1176,8 @@
       },
       "streetAddress": "",
       "postalCode": "8500",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Landquart, Switzerland (for Chur area)",
@@ -1265,7 +1272,8 @@
         ]
       },
       "slugDisambiguator": "061cc5b5",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Obervaz, Switzerland (for Chur area)",
@@ -1360,7 +1368,8 @@
         ]
       },
       "slugDisambiguator": "661cb622",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Saanen, Switzerland",
@@ -1428,7 +1437,8 @@
       },
       "streetAddress": "",
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Signau, Switzerland",
@@ -1496,7 +1506,8 @@
       },
       "streetAddress": "",
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Wil, Switzerland",
@@ -1564,7 +1575,8 @@
       },
       "streetAddress": "",
       "postalCode": "9500",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Zweisimmen, Switzerland",
@@ -1632,7 +1644,8 @@
       },
       "streetAddress": "",
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Basel, Switzerland",
@@ -1704,7 +1717,8 @@
       },
       "streetAddress": "",
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Bellinzona, Switzerland",
@@ -1772,8 +1786,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Cantonale 1",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6500",
       "id": "tsmg-6b9039517b65",
       "previousSlugsByLocale": {
         "it": [
@@ -1805,7 +1819,8 @@
         ]
       },
       "slugDisambiguator": "677ef911",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -1895,7 +1910,8 @@
       },
       "streetAddress": "",
       "postalCode": "7000",
-      "firstSeenAt": "2026-05-17T11:16:47.206Z"
+      "firstSeenAt": "2026-05-17T11:16:47.206Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Lausanne, Switzerland",
@@ -1963,7 +1979,8 @@
       },
       "streetAddress": "",
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Lucerne, Switzerland",
@@ -2031,7 +2048,8 @@
       },
       "streetAddress": "",
       "postalCode": "6003",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Winterthur, Switzerland",
@@ -2099,7 +2117,8 @@
       },
       "streetAddress": "",
       "postalCode": "8400",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Field Data Collection Specialist\\Surveyor",
@@ -2518,6 +2537,364 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z"
+    },
+    {
+      "title": "Robotics AI Data Collection Operator",
+      "slug": "robotics-ai-data-collection-operator-tsmg-lausanne-5042ec3e",
+      "slugDisambiguator": "5042ec3e",
+      "url": "https://jobs.lever.co/tsmg/5042ec3e-341c-4818-86fc-a9bf1ea3bfac",
+      "applyUrl": "https://jobs.lever.co/tsmg/5042ec3e-341c-4818-86fc-a9bf1ea3bfac/apply",
+      "company": "TSMG",
+      "companyKey": "tsmg",
+      "companyDomain": "tsmg.co",
+      "location": "Lausanne",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "other",
+      "sector": "Tecnologia & IT",
+      "source": "tsmg-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "TSMG cerca Robotics AI Data Collection Operator per attivita operative sul territorio in Lausanne. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are looking for Robotics AI Data Collection Operators to support the development of next-generation intelligent robotic systems. In this role, you will interact directly with robotic platforms, perform structured tasks, and generate high-quality demonstration data used to train advanced AI models. Your work will contribute to the development of robots capable of performing real-world tasks across homes, warehouses, manufacturing facilities, and service environments.\n\n## Panoramica del progetto\n\n## Responsibilities\n\n- Operate robotic systems using teleoperation interfaces and specialized controllers\n- Perform demonstrations of physical tasks to generate training data\n- Execute repetitive tasks with a strong focus on consistency and quality\n- Follow detailed operational procedures and data collection protocols\n- Capture and validate training data generated during robot operation\n- Review completed demonstrations for quality and accuracy\n- Assist with annotation and verification activities\n- Maintain detailed records of completed tasks\n- Provide feedback on robot behavior and task execution\n- Support testing of new robotic workflows\n- Help improve data collection procedures and operational efficiency\n\n## Example Tasks\n\n- Picking and placing objects\n- Sorting items into designated containers\n- Opening and closing containers\n- Folding clothing and textiles\n- Assembly and manipulation tasks\n- Multi-step operational workflows\n\n## Requirements\n\n- Excellent attention to detail\n- Strong hand-eye coordination\n- Ability to follow detailed instructions\n- Comfortable performing repetitive tasks\n- Basic computer skills\n- Experience with gaming controllers or simulation platforms\n- Manufacturing, assembly, laboratory, or technical experience\n- Interest in robotics, AI, automation, or emerging technologies\n- Experience in quality assurance or process-driven environments\n\n## What We Offer\n\n- Direct involvement in AI and robotics innovation\n- Hands-on experience with advanced robotic systems\n- Comprehensive training program\n- Opportunity to work on projects for global technology companies\n- Long-term career opportunities within robotics operations",
+      "titleByLocale": {
+        "it": "Robotics AI Data Collection Operatore",
+        "en": "Robotics AI Data Collection Operator",
+        "de": "Robotics AI Data Collection Operator",
+        "fr": "Robotics AI Data Collection Opérateur"
+      },
+      "descriptionByLocale": {
+        "it": "TSMG cerca Robotics AI Data Collection Operator per attivita operative sul territorio in Lausanne. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are looking for Robotics AI Data Collection Operators to support the development of next-generation intelligent robotic systems. In this role, you will interact directly with robotic platforms, perform structured tasks, and generate high-quality demonstration data used to train advanced AI models. Your work will contribute to the development of robots capable of performing real-world tasks across homes, warehouses, manufacturing facilities, and service environments.\n\n## Panoramica del progetto\n\n## Responsibilities\n\n- Operate robotic systems using teleoperation interfaces and specialized controllers\n- Perform demonstrations of physical tasks to generate training data\n- Execute repetitive tasks with a strong focus on consistency and quality\n- Follow detailed operational procedures and data collection protocols\n- Capture and validate training data generated during robot operation\n- Review completed demonstrations for quality and accuracy\n- Assist with annotation and verification activities\n- Maintain detailed records of completed tasks\n- Provide feedback on robot behavior and task execution\n- Support testing of new robotic workflows\n- Help improve data collection procedures and operational efficiency\n\n## Example Tasks\n\n- Picking and placing objects\n- Sorting items into designated containers\n- Opening and closing containers\n- Folding clothing and textiles\n- Assembly and manipulation tasks\n- Multi-step operational workflows\n\n## Requirements\n\n- Excellent attention to detail\n- Strong hand-eye coordination\n- Ability to follow detailed instructions\n- Comfortable performing repetitive tasks\n- Basic computer skills\n- Experience with gaming controllers or simulation platforms\n- Manufacturing, assembly, laboratory, or technical experience\n- Interest in robotics, AI, automation, or emerging technologies\n- Experience in quality assurance or process-driven environments\n\n## What We Offer\n\n- Direct involvement in AI and robotics innovation\n- Hands-on experience with advanced robotic systems\n- Comprehensive training program\n- Opportunity to work on projects for global technology companies\n- Long-term career opportunities within robotics operations",
+        "en": "TSMG is hiring Robotics AI Data Collection Operator for field operations in Lausanne. Below is the full Lever job description with responsibilities, requirements and practical project details.\n\nAbout the Role We are looking for Robotics AI Data Collection Operators to support the development of next-generation intelligent robotic systems. In this role, you will interact directly with robotic platforms, perform structured tasks, and generate high-quality demonstration data used to train advanced AI models. Your work will contribute to the development of robots capable of performing real-world tasks across homes, warehouses, manufacturing facilities, and service environments.\n\n## Project overview\n\n## Responsibilities\n\n- Operate robotic systems using teleoperation interfaces and specialized controllers\n- Perform demonstrations of physical tasks to generate training data\n- Execute repetitive tasks with a strong focus on consistency and quality\n- Follow detailed operational procedures and data collection protocols\n- Capture and validate training data generated during robot operation\n- Review completed demonstrations for quality and accuracy\n- Assist with annotation and verification activities\n- Maintain detailed records of completed tasks\n- Provide feedback on robot behavior and task execution\n- Support testing of new robotic workflows\n- Help improve data collection procedures and operational efficiency\n\n## Example Tasks\n\n- Picking and placing objects\n- Sorting items into designated containers\n- Opening and closing containers\n- Folding clothing and textiles\n- Assembly and manipulation tasks\n- Multi-step operational workflows\n\n## Requirements\n\n- Excellent attention to detail\n- Strong hand-eye coordination\n- Ability to follow detailed instructions\n- Comfortable performing repetitive tasks\n- Basic computer skills\n- Experience with gaming controllers or simulation platforms\n- Manufacturing, assembly, laboratory, or technical experience\n- Interest in robotics, AI, automation, or emerging technologies\n- Experience in quality assurance or process-driven environments\n\n## What We Offer\n\n- Direct involvement in AI and robotics innovation\n- Hands-on experience with advanced robotic systems\n- Comprehensive training program\n- Opportunity to work on projects for global technology companies\n- Long-term career opportunities within robotics operations",
+        "de": "TSMG sucht Robotics AI Data Collection Operator fur operative Einsatze in Lausanne. Unten findest du die vollstandige Lever-Stellenbeschreibung mit Aufgaben, Anforderungen und Projektinformationen.\n\nAbout the Role We are looking for Robotics AI Data Collection Operators to support the development of next-generation intelligent robotic systems. In this role, you will interact directly with robotic platforms, perform structured tasks, and generate high-quality demonstration data used to train advanced AI models. Your work will contribute to the development of robots capable of performing real-world tasks across homes, warehouses, manufacturing facilities, and service environments.\n\n## Projektuberblick\n\n## Responsibilities\n\n- Operate robotic systems using teleoperation interfaces and specialized controllers\n- Perform demonstrations of physical tasks to generate training data\n- Execute repetitive tasks with a strong focus on consistency and quality\n- Follow detailed operational procedures and data collection protocols\n- Capture and validate training data generated during robot operation\n- Review completed demonstrations for quality and accuracy\n- Assist with annotation and verification activities\n- Maintain detailed records of completed tasks\n- Provide feedback on robot behavior and task execution\n- Support testing of new robotic workflows\n- Help improve data collection procedures and operational efficiency\n\n## Example Tasks\n\n- Picking and placing objects\n- Sorting items into designated containers\n- Opening and closing containers\n- Folding clothing and textiles\n- Assembly and manipulation tasks\n- Multi-step operational workflows\n\n## Requirements\n\n- Excellent attention to detail\n- Strong hand-eye coordination\n- Ability to follow detailed instructions\n- Comfortable performing repetitive tasks\n- Basic computer skills\n- Experience with gaming controllers or simulation platforms\n- Manufacturing, assembly, laboratory, or technical experience\n- Interest in robotics, AI, automation, or emerging technologies\n- Experience in quality assurance or process-driven environments\n\n## What We Offer\n\n- Direct involvement in AI and robotics innovation\n- Hands-on experience with advanced robotic systems\n- Comprehensive training program\n- Opportunity to work on projects for global technology companies\n- Long-term career opportunities within robotics operations",
+        "fr": "TSMG recrute Robotics AI Data Collection Operator pour des activites terrain a Lausanne. Ci-dessous tu trouves la description complete Lever avec responsabilites, exigences et details pratiques du projet.\n\nAbout the Role We are looking for Robotics AI Data Collection Operators to support the development of next-generation intelligent robotic systems. In this role, you will interact directly with robotic platforms, perform structured tasks, and generate high-quality demonstration data used to train advanced AI models. Your work will contribute to the development of robots capable of performing real-world tasks across homes, warehouses, manufacturing facilities, and service environments.\n\n## Vue d'ensemble du projet\n\n## Responsibilities\n\n- Operate robotic systems using teleoperation interfaces and specialized controllers\n- Perform demonstrations of physical tasks to generate training data\n- Execute repetitive tasks with a strong focus on consistency and quality\n- Follow detailed operational procedures and data collection protocols\n- Capture and validate training data generated during robot operation\n- Review completed demonstrations for quality and accuracy\n- Assist with annotation and verification activities\n- Maintain detailed records of completed tasks\n- Provide feedback on robot behavior and task execution\n- Support testing of new robotic workflows\n- Help improve data collection procedures and operational efficiency\n\n## Example Tasks\n\n- Picking and placing objects\n- Sorting items into designated containers\n- Opening and closing containers\n- Folding clothing and textiles\n- Assembly and manipulation tasks\n- Multi-step operational workflows\n\n## Requirements\n\n- Excellent attention to detail\n- Strong hand-eye coordination\n- Ability to follow detailed instructions\n- Comfortable performing repetitive tasks\n- Basic computer skills\n- Experience with gaming controllers or simulation platforms\n- Manufacturing, assembly, laboratory, or technical experience\n- Interest in robotics, AI, automation, or emerging technologies\n- Experience in quality assurance or process-driven environments\n\n## What We Offer\n\n- Direct involvement in AI and robotics innovation\n- Hands-on experience with advanced robotic systems\n- Comprehensive training program\n- Opportunity to work on projects for global technology companies\n- Long-term career opportunities within robotics operations"
+      },
+      "slugByLocale": {
+        "it": "robotics-ai-data-collection-operator-tsmg-lausanne-5042ec3e",
+        "en": "robotics-ai-data-collection-operator-tsmg-lausanne-5042ec3e",
+        "de": "robotics-ai-data-collection-operator-tsmg-lausanne-5042ec3e",
+        "fr": "robotics-ai-data-collection-operator-tsmg-lausanne-5042ec3e"
+      },
+      "id": "tsmg-5f01c4c7df5f",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T23:25:40.200Z"
+    },
+    {
+      "title": "Robotics AI Data Collection Operator",
+      "slug": "robotics-ai-data-collection-operator-tsmg-zurich-e45bb9e7",
+      "slugDisambiguator": "e45bb9e7",
+      "url": "https://jobs.lever.co/tsmg/e45bb9e7-5828-46bc-a19b-38a90ad2c2ac",
+      "applyUrl": "https://jobs.lever.co/tsmg/e45bb9e7-5828-46bc-a19b-38a90ad2c2ac/apply",
+      "company": "TSMG",
+      "companyKey": "tsmg",
+      "companyDomain": "tsmg.co",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "other",
+      "sector": "Tecnologia & IT",
+      "source": "tsmg-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "TSMG cerca Robotics AI Data Collection Operator per attivita operative sul territorio in Zurich. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are looking for Robotics AI Data Collection Operators to support the development of next-generation intelligent robotic systems. In this role, you will interact directly with robotic platforms, perform structured tasks, and generate high-quality demonstration data used to train advanced AI models. Your work will contribute to the development of robots capable of performing real-world tasks across homes, warehouses, manufacturing facilities, and service environments.\n\n## Panoramica del progetto\n\n## Responsibilities\n\n- Operate robotic systems using teleoperation interfaces and specialized controllers\n- Perform demonstrations of physical tasks to generate training data\n- Execute repetitive tasks with a strong focus on consistency and quality\n- Follow detailed operational procedures and data collection protocols\n- Capture and validate training data generated during robot operation\n- Review completed demonstrations for quality and accuracy\n- Assist with annotation and verification activities\n- Maintain detailed records of completed tasks\n- Provide feedback on robot behavior and task execution\n- Support testing of new robotic workflows\n- Help improve data collection procedures and operational efficiency\n\n## Example Tasks\n\n- Picking and placing objects\n- Sorting items into designated containers\n- Opening and closing containers\n- Folding clothing and textiles\n- Assembly and manipulation tasks\n- Multi-step operational workflows\n\n## Requirements\n\n- Excellent attention to detail\n- Strong hand-eye coordination\n- Ability to follow detailed instructions\n- Comfortable performing repetitive tasks\n- Basic computer skills\n- Experience with gaming controllers or simulation platforms\n- Manufacturing, assembly, laboratory, or technical experience\n- Interest in robotics, AI, automation, or emerging technologies\n- Experience in quality assurance or process-driven environments\n\n## What We Offer\n\n- Direct involvement in AI and robotics innovation\n- Hands-on experience with advanced robotic systems\n- Comprehensive training program\n- Opportunity to work on projects for global technology companies\n- Long-term career opportunities within robotics operations",
+      "titleByLocale": {
+        "it": "Robotics AI Data Collection Operatore",
+        "en": "Robotics AI Data Collection Operator",
+        "de": "Robotics AI Data Collection Operator",
+        "fr": "Robotics AI Data Collection Opérateur"
+      },
+      "descriptionByLocale": {
+        "it": "TSMG cerca Robotics AI Data Collection Operator per attivita operative sul territorio in Zurich. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are looking for Robotics AI Data Collection Operators to support the development of next-generation intelligent robotic systems. In this role, you will interact directly with robotic platforms, perform structured tasks, and generate high-quality demonstration data used to train advanced AI models. Your work will contribute to the development of robots capable of performing real-world tasks across homes, warehouses, manufacturing facilities, and service environments.\n\n## Panoramica del progetto\n\n## Responsibilities\n\n- Operate robotic systems using teleoperation interfaces and specialized controllers\n- Perform demonstrations of physical tasks to generate training data\n- Execute repetitive tasks with a strong focus on consistency and quality\n- Follow detailed operational procedures and data collection protocols\n- Capture and validate training data generated during robot operation\n- Review completed demonstrations for quality and accuracy\n- Assist with annotation and verification activities\n- Maintain detailed records of completed tasks\n- Provide feedback on robot behavior and task execution\n- Support testing of new robotic workflows\n- Help improve data collection procedures and operational efficiency\n\n## Example Tasks\n\n- Picking and placing objects\n- Sorting items into designated containers\n- Opening and closing containers\n- Folding clothing and textiles\n- Assembly and manipulation tasks\n- Multi-step operational workflows\n\n## Requirements\n\n- Excellent attention to detail\n- Strong hand-eye coordination\n- Ability to follow detailed instructions\n- Comfortable performing repetitive tasks\n- Basic computer skills\n- Experience with gaming controllers or simulation platforms\n- Manufacturing, assembly, laboratory, or technical experience\n- Interest in robotics, AI, automation, or emerging technologies\n- Experience in quality assurance or process-driven environments\n\n## What We Offer\n\n- Direct involvement in AI and robotics innovation\n- Hands-on experience with advanced robotic systems\n- Comprehensive training program\n- Opportunity to work on projects for global technology companies\n- Long-term career opportunities within robotics operations",
+        "en": "TSMG is hiring Robotics AI Data Collection Operator for field operations in Zurich. Below is the full Lever job description with responsibilities, requirements and practical project details.\n\nAbout the Role We are looking for Robotics AI Data Collection Operators to support the development of next-generation intelligent robotic systems. In this role, you will interact directly with robotic platforms, perform structured tasks, and generate high-quality demonstration data used to train advanced AI models. Your work will contribute to the development of robots capable of performing real-world tasks across homes, warehouses, manufacturing facilities, and service environments.\n\n## Project overview\n\n## Responsibilities\n\n- Operate robotic systems using teleoperation interfaces and specialized controllers\n- Perform demonstrations of physical tasks to generate training data\n- Execute repetitive tasks with a strong focus on consistency and quality\n- Follow detailed operational procedures and data collection protocols\n- Capture and validate training data generated during robot operation\n- Review completed demonstrations for quality and accuracy\n- Assist with annotation and verification activities\n- Maintain detailed records of completed tasks\n- Provide feedback on robot behavior and task execution\n- Support testing of new robotic workflows\n- Help improve data collection procedures and operational efficiency\n\n## Example Tasks\n\n- Picking and placing objects\n- Sorting items into designated containers\n- Opening and closing containers\n- Folding clothing and textiles\n- Assembly and manipulation tasks\n- Multi-step operational workflows\n\n## Requirements\n\n- Excellent attention to detail\n- Strong hand-eye coordination\n- Ability to follow detailed instructions\n- Comfortable performing repetitive tasks\n- Basic computer skills\n- Experience with gaming controllers or simulation platforms\n- Manufacturing, assembly, laboratory, or technical experience\n- Interest in robotics, AI, automation, or emerging technologies\n- Experience in quality assurance or process-driven environments\n\n## What We Offer\n\n- Direct involvement in AI and robotics innovation\n- Hands-on experience with advanced robotic systems\n- Comprehensive training program\n- Opportunity to work on projects for global technology companies\n- Long-term career opportunities within robotics operations",
+        "de": "TSMG sucht Robotics AI Data Collection Operator fur operative Einsatze in Zurich. Unten findest du die vollstandige Lever-Stellenbeschreibung mit Aufgaben, Anforderungen und Projektinformationen.\n\nAbout the Role We are looking for Robotics AI Data Collection Operators to support the development of next-generation intelligent robotic systems. In this role, you will interact directly with robotic platforms, perform structured tasks, and generate high-quality demonstration data used to train advanced AI models. Your work will contribute to the development of robots capable of performing real-world tasks across homes, warehouses, manufacturing facilities, and service environments.\n\n## Projektuberblick\n\n## Responsibilities\n\n- Operate robotic systems using teleoperation interfaces and specialized controllers\n- Perform demonstrations of physical tasks to generate training data\n- Execute repetitive tasks with a strong focus on consistency and quality\n- Follow detailed operational procedures and data collection protocols\n- Capture and validate training data generated during robot operation\n- Review completed demonstrations for quality and accuracy\n- Assist with annotation and verification activities\n- Maintain detailed records of completed tasks\n- Provide feedback on robot behavior and task execution\n- Support testing of new robotic workflows\n- Help improve data collection procedures and operational efficiency\n\n## Example Tasks\n\n- Picking and placing objects\n- Sorting items into designated containers\n- Opening and closing containers\n- Folding clothing and textiles\n- Assembly and manipulation tasks\n- Multi-step operational workflows\n\n## Requirements\n\n- Excellent attention to detail\n- Strong hand-eye coordination\n- Ability to follow detailed instructions\n- Comfortable performing repetitive tasks\n- Basic computer skills\n- Experience with gaming controllers or simulation platforms\n- Manufacturing, assembly, laboratory, or technical experience\n- Interest in robotics, AI, automation, or emerging technologies\n- Experience in quality assurance or process-driven environments\n\n## What We Offer\n\n- Direct involvement in AI and robotics innovation\n- Hands-on experience with advanced robotic systems\n- Comprehensive training program\n- Opportunity to work on projects for global technology companies\n- Long-term career opportunities within robotics operations",
+        "fr": "TSMG recrute Robotics AI Data Collection Operator pour des activites terrain a Zurich. Ci-dessous tu trouves la description complete Lever avec responsabilites, exigences et details pratiques du projet.\n\nAbout the Role We are looking for Robotics AI Data Collection Operators to support the development of next-generation intelligent robotic systems. In this role, you will interact directly with robotic platforms, perform structured tasks, and generate high-quality demonstration data used to train advanced AI models. Your work will contribute to the development of robots capable of performing real-world tasks across homes, warehouses, manufacturing facilities, and service environments.\n\n## Vue d'ensemble du projet\n\n## Responsibilities\n\n- Operate robotic systems using teleoperation interfaces and specialized controllers\n- Perform demonstrations of physical tasks to generate training data\n- Execute repetitive tasks with a strong focus on consistency and quality\n- Follow detailed operational procedures and data collection protocols\n- Capture and validate training data generated during robot operation\n- Review completed demonstrations for quality and accuracy\n- Assist with annotation and verification activities\n- Maintain detailed records of completed tasks\n- Provide feedback on robot behavior and task execution\n- Support testing of new robotic workflows\n- Help improve data collection procedures and operational efficiency\n\n## Example Tasks\n\n- Picking and placing objects\n- Sorting items into designated containers\n- Opening and closing containers\n- Folding clothing and textiles\n- Assembly and manipulation tasks\n- Multi-step operational workflows\n\n## Requirements\n\n- Excellent attention to detail\n- Strong hand-eye coordination\n- Ability to follow detailed instructions\n- Comfortable performing repetitive tasks\n- Basic computer skills\n- Experience with gaming controllers or simulation platforms\n- Manufacturing, assembly, laboratory, or technical experience\n- Interest in robotics, AI, automation, or emerging technologies\n- Experience in quality assurance or process-driven environments\n\n## What We Offer\n\n- Direct involvement in AI and robotics innovation\n- Hands-on experience with advanced robotic systems\n- Comprehensive training program\n- Opportunity to work on projects for global technology companies\n- Long-term career opportunities within robotics operations"
+      },
+      "slugByLocale": {
+        "it": "robotics-ai-data-collection-operator-tsmg-zurich-e45bb9e7",
+        "en": "robotics-ai-data-collection-operator-tsmg-zurich-e45bb9e7",
+        "de": "robotics-ai-data-collection-operator-tsmg-zurich-e45bb9e7",
+        "fr": "robotics-ai-data-collection-operator-tsmg-zurich-e45bb9e7"
+      },
+      "id": "tsmg-e3f24f56d8e2",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T23:25:40.200Z"
+    },
+    {
+      "title": "Robotics Teleoperations Specialist",
+      "slug": "robotics-teleoperations-specialist-tsmg-lausanne-4ec0e949",
+      "slugDisambiguator": "4ec0e949",
+      "url": "https://jobs.lever.co/tsmg/4ec0e949-ad3f-41ef-9600-0bb432e2d01d",
+      "applyUrl": "https://jobs.lever.co/tsmg/4ec0e949-ad3f-41ef-9600-0bb432e2d01d/apply",
+      "company": "TSMG",
+      "companyKey": "tsmg",
+      "companyDomain": "tsmg.co",
+      "location": "Lausanne",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "other",
+      "sector": "Tecnologia & IT",
+      "source": "tsmg-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "TSMG cerca Robotics Teleoperations Specialist per attivita operative sul territorio in Lausanne. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are seeking Robotics Teleoperations Specialists to support robotics testing, deployment, and operational programs across Europe. The successful candidate will remotely operate robotic systems, monitor robot performance, and ensure operational activities are executed safely, efficiently, and according to quality standards. This role combines technical operations, quality assurance, and robotics support activities within a structured operational environment.\n\n## Panoramica del progetto\n\n## Key Responsibilities\n\n- Operate robotic platforms through dedicated teleoperation interfaces\n- Monitor robot activities through video feeds and control dashboards\n- Execute assigned tasks according to operational procedures\n- Maintain compliance with safety and operational requirements\n- Perform real-time movement adjustments when required\n- Ensure smooth execution of robotic tasks and workflows\n- Verify correct robot behavior and task execution\n- Identify and report operational issues\n- Conduct quality reviews of completed robot tasks\n- Maintain detailed operational records and reports\n- Escalate technical issues to engineering teams\n- Assist with robot setup and deployment activities\n- Support testing and validation programs\n- Collaborate with engineering and operations teams\n- Participate in process improvement initiatives\n\n## Requirements\n\n- Strong attention to detail\n- Good hand-eye coordination\n- Ability to follow structured procedures\n- Good communication skills\n- Basic computer literacy\n- Ability to work in a fast-paced operational environment\n- Experience in robotics, automation, manufacturing, logistics, warehouse operations, or quality control\n- Experience with control systems or teleoperation platforms\n- Technical or vocational education\n- Experience working in shift-based operations\n\n## What We Offer\n\n- Opportunity to work with cutting-edge robotics technologies\n- Structured onboarding and training\n- Career development opportunities within robotics operations\n- International and collaborative work environment\n- Exposure to leading AI and robotics programs",
+      "titleByLocale": {
+        "it": "Robotics Teleoperations Specialista",
+        "en": "Robotics Teleoperations Specialist",
+        "de": "Robotics Teleoperations Spezialist",
+        "fr": "Robotics Teleoperations Spécialiste"
+      },
+      "descriptionByLocale": {
+        "it": "TSMG cerca Robotics Teleoperations Specialist per attivita operative sul territorio in Lausanne. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are seeking Robotics Teleoperations Specialists to support robotics testing, deployment, and operational programs across Europe. The successful candidate will remotely operate robotic systems, monitor robot performance, and ensure operational activities are executed safely, efficiently, and according to quality standards. This role combines technical operations, quality assurance, and robotics support activities within a structured operational environment.\n\n## Panoramica del progetto\n\n## Key Responsibilities\n\n- Operate robotic platforms through dedicated teleoperation interfaces\n- Monitor robot activities through video feeds and control dashboards\n- Execute assigned tasks according to operational procedures\n- Maintain compliance with safety and operational requirements\n- Perform real-time movement adjustments when required\n- Ensure smooth execution of robotic tasks and workflows\n- Verify correct robot behavior and task execution\n- Identify and report operational issues\n- Conduct quality reviews of completed robot tasks\n- Maintain detailed operational records and reports\n- Escalate technical issues to engineering teams\n- Assist with robot setup and deployment activities\n- Support testing and validation programs\n- Collaborate with engineering and operations teams\n- Participate in process improvement initiatives\n\n## Requirements\n\n- Strong attention to detail\n- Good hand-eye coordination\n- Ability to follow structured procedures\n- Good communication skills\n- Basic computer literacy\n- Ability to work in a fast-paced operational environment\n- Experience in robotics, automation, manufacturing, logistics, warehouse operations, or quality control\n- Experience with control systems or teleoperation platforms\n- Technical or vocational education\n- Experience working in shift-based operations\n\n## What We Offer\n\n- Opportunity to work with cutting-edge robotics technologies\n- Structured onboarding and training\n- Career development opportunities within robotics operations\n- International and collaborative work environment\n- Exposure to leading AI and robotics programs",
+        "en": "TSMG is hiring Robotics Teleoperations Specialist for field operations in Lausanne. Below is the full Lever job description with responsibilities, requirements and practical project details.\n\nAbout the Role We are seeking Robotics Teleoperations Specialists to support robotics testing, deployment, and operational programs across Europe. The successful candidate will remotely operate robotic systems, monitor robot performance, and ensure operational activities are executed safely, efficiently, and according to quality standards. This role combines technical operations, quality assurance, and robotics support activities within a structured operational environment.\n\n## Project overview\n\n## Key Responsibilities\n\n- Operate robotic platforms through dedicated teleoperation interfaces\n- Monitor robot activities through video feeds and control dashboards\n- Execute assigned tasks according to operational procedures\n- Maintain compliance with safety and operational requirements\n- Perform real-time movement adjustments when required\n- Ensure smooth execution of robotic tasks and workflows\n- Verify correct robot behavior and task execution\n- Identify and report operational issues\n- Conduct quality reviews of completed robot tasks\n- Maintain detailed operational records and reports\n- Escalate technical issues to engineering teams\n- Assist with robot setup and deployment activities\n- Support testing and validation programs\n- Collaborate with engineering and operations teams\n- Participate in process improvement initiatives\n\n## Requirements\n\n- Strong attention to detail\n- Good hand-eye coordination\n- Ability to follow structured procedures\n- Good communication skills\n- Basic computer literacy\n- Ability to work in a fast-paced operational environment\n- Experience in robotics, automation, manufacturing, logistics, warehouse operations, or quality control\n- Experience with control systems or teleoperation platforms\n- Technical or vocational education\n- Experience working in shift-based operations\n\n## What We Offer\n\n- Opportunity to work with cutting-edge robotics technologies\n- Structured onboarding and training\n- Career development opportunities within robotics operations\n- International and collaborative work environment\n- Exposure to leading AI and robotics programs",
+        "de": "TSMG sucht Robotics Teleoperations Specialist fur operative Einsatze in Lausanne. Unten findest du die vollstandige Lever-Stellenbeschreibung mit Aufgaben, Anforderungen und Projektinformationen.\n\nAbout the Role We are seeking Robotics Teleoperations Specialists to support robotics testing, deployment, and operational programs across Europe. The successful candidate will remotely operate robotic systems, monitor robot performance, and ensure operational activities are executed safely, efficiently, and according to quality standards. This role combines technical operations, quality assurance, and robotics support activities within a structured operational environment.\n\n## Projektuberblick\n\n## Key Responsibilities\n\n- Operate robotic platforms through dedicated teleoperation interfaces\n- Monitor robot activities through video feeds and control dashboards\n- Execute assigned tasks according to operational procedures\n- Maintain compliance with safety and operational requirements\n- Perform real-time movement adjustments when required\n- Ensure smooth execution of robotic tasks and workflows\n- Verify correct robot behavior and task execution\n- Identify and report operational issues\n- Conduct quality reviews of completed robot tasks\n- Maintain detailed operational records and reports\n- Escalate technical issues to engineering teams\n- Assist with robot setup and deployment activities\n- Support testing and validation programs\n- Collaborate with engineering and operations teams\n- Participate in process improvement initiatives\n\n## Requirements\n\n- Strong attention to detail\n- Good hand-eye coordination\n- Ability to follow structured procedures\n- Good communication skills\n- Basic computer literacy\n- Ability to work in a fast-paced operational environment\n- Experience in robotics, automation, manufacturing, logistics, warehouse operations, or quality control\n- Experience with control systems or teleoperation platforms\n- Technical or vocational education\n- Experience working in shift-based operations\n\n## What We Offer\n\n- Opportunity to work with cutting-edge robotics technologies\n- Structured onboarding and training\n- Career development opportunities within robotics operations\n- International and collaborative work environment\n- Exposure to leading AI and robotics programs",
+        "fr": "TSMG recrute Robotics Teleoperations Specialist pour des activites terrain a Lausanne. Ci-dessous tu trouves la description complete Lever avec responsabilites, exigences et details pratiques du projet.\n\nAbout the Role We are seeking Robotics Teleoperations Specialists to support robotics testing, deployment, and operational programs across Europe. The successful candidate will remotely operate robotic systems, monitor robot performance, and ensure operational activities are executed safely, efficiently, and according to quality standards. This role combines technical operations, quality assurance, and robotics support activities within a structured operational environment.\n\n## Vue d'ensemble du projet\n\n## Key Responsibilities\n\n- Operate robotic platforms through dedicated teleoperation interfaces\n- Monitor robot activities through video feeds and control dashboards\n- Execute assigned tasks according to operational procedures\n- Maintain compliance with safety and operational requirements\n- Perform real-time movement adjustments when required\n- Ensure smooth execution of robotic tasks and workflows\n- Verify correct robot behavior and task execution\n- Identify and report operational issues\n- Conduct quality reviews of completed robot tasks\n- Maintain detailed operational records and reports\n- Escalate technical issues to engineering teams\n- Assist with robot setup and deployment activities\n- Support testing and validation programs\n- Collaborate with engineering and operations teams\n- Participate in process improvement initiatives\n\n## Requirements\n\n- Strong attention to detail\n- Good hand-eye coordination\n- Ability to follow structured procedures\n- Good communication skills\n- Basic computer literacy\n- Ability to work in a fast-paced operational environment\n- Experience in robotics, automation, manufacturing, logistics, warehouse operations, or quality control\n- Experience with control systems or teleoperation platforms\n- Technical or vocational education\n- Experience working in shift-based operations\n\n## What We Offer\n\n- Opportunity to work with cutting-edge robotics technologies\n- Structured onboarding and training\n- Career development opportunities within robotics operations\n- International and collaborative work environment\n- Exposure to leading AI and robotics programs"
+      },
+      "slugByLocale": {
+        "it": "robotics-teleoperations-specialist-tsmg-lausanne-4ec0e949",
+        "en": "robotics-teleoperations-specialist-tsmg-lausanne-4ec0e949",
+        "de": "robotics-teleoperations-specialist-tsmg-lausanne-4ec0e949",
+        "fr": "robotics-teleoperations-specialist-tsmg-lausanne-4ec0e949"
+      },
+      "id": "tsmg-84d1468e4e5c",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "firstSeenAt": "2026-07-04T23:25:40.200Z"
+    },
+    {
+      "title": "Robotics Teleoperations Specialist",
+      "slug": "robotics-teleoperations-specialist-tsmg-zurich-cbc6a406",
+      "slugDisambiguator": "cbc6a406",
+      "url": "https://jobs.lever.co/tsmg/cbc6a406-68ac-4530-8cb5-54db02c85e25",
+      "applyUrl": "https://jobs.lever.co/tsmg/cbc6a406-68ac-4530-8cb5-54db02c85e25/apply",
+      "company": "TSMG",
+      "companyKey": "tsmg",
+      "companyDomain": "tsmg.co",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "other",
+      "sector": "Tecnologia & IT",
+      "source": "tsmg-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "TSMG cerca Robotics Teleoperations Specialist per attivita operative sul territorio in Zurich. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are seeking Robotics Teleoperations Specialists to support robotics testing, deployment, and operational programs across Europe. The successful candidate will remotely operate robotic systems, monitor robot performance, and ensure operational activities are executed safely, efficiently, and according to quality standards. This role combines technical operations, quality assurance, and robotics support activities within a structured operational environment.\n\n## Panoramica del progetto\n\n## Key Responsibilities\n\n- Operate robotic platforms through dedicated teleoperation interfaces\n- Monitor robot activities through video feeds and control dashboards\n- Execute assigned tasks according to operational procedures\n- Maintain compliance with safety and operational requirements\n- Perform real-time movement adjustments when required\n- Ensure smooth execution of robotic tasks and workflows\n- Verify correct robot behavior and task execution\n- Identify and report operational issues\n- Conduct quality reviews of completed robot tasks\n- Maintain detailed operational records and reports\n- Escalate technical issues to engineering teams\n- Assist with robot setup and deployment activities\n- Support testing and validation programs\n- Collaborate with engineering and operations teams\n- Participate in process improvement initiatives\n\n## Requirements\n\n- Strong attention to detail\n- Good hand-eye coordination\n- Ability to follow structured procedures\n- Good communication skills\n- Basic computer literacy\n- Ability to work in a fast-paced operational environment\n- Experience in robotics, automation, manufacturing, logistics, warehouse operations, or quality control\n- Experience with control systems or teleoperation platforms\n- Technical or vocational education\n- Experience working in shift-based operations\n\n## What We Offer\n\n- Opportunity to work with cutting-edge robotics technologies\n- Structured onboarding and training\n- Career development opportunities within robotics operations\n- International and collaborative work environment\n- Exposure to leading AI and robotics programs",
+      "titleByLocale": {
+        "it": "Robotics Teleoperations Specialista",
+        "en": "Robotics Teleoperations Specialist",
+        "de": "Robotics Teleoperations Spezialist",
+        "fr": "Robotics Teleoperations Spécialiste"
+      },
+      "descriptionByLocale": {
+        "it": "TSMG cerca Robotics Teleoperations Specialist per attivita operative sul territorio in Zurich. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are seeking Robotics Teleoperations Specialists to support robotics testing, deployment, and operational programs across Europe. The successful candidate will remotely operate robotic systems, monitor robot performance, and ensure operational activities are executed safely, efficiently, and according to quality standards. This role combines technical operations, quality assurance, and robotics support activities within a structured operational environment.\n\n## Panoramica del progetto\n\n## Key Responsibilities\n\n- Operate robotic platforms through dedicated teleoperation interfaces\n- Monitor robot activities through video feeds and control dashboards\n- Execute assigned tasks according to operational procedures\n- Maintain compliance with safety and operational requirements\n- Perform real-time movement adjustments when required\n- Ensure smooth execution of robotic tasks and workflows\n- Verify correct robot behavior and task execution\n- Identify and report operational issues\n- Conduct quality reviews of completed robot tasks\n- Maintain detailed operational records and reports\n- Escalate technical issues to engineering teams\n- Assist with robot setup and deployment activities\n- Support testing and validation programs\n- Collaborate with engineering and operations teams\n- Participate in process improvement initiatives\n\n## Requirements\n\n- Strong attention to detail\n- Good hand-eye coordination\n- Ability to follow structured procedures\n- Good communication skills\n- Basic computer literacy\n- Ability to work in a fast-paced operational environment\n- Experience in robotics, automation, manufacturing, logistics, warehouse operations, or quality control\n- Experience with control systems or teleoperation platforms\n- Technical or vocational education\n- Experience working in shift-based operations\n\n## What We Offer\n\n- Opportunity to work with cutting-edge robotics technologies\n- Structured onboarding and training\n- Career development opportunities within robotics operations\n- International and collaborative work environment\n- Exposure to leading AI and robotics programs",
+        "en": "TSMG is hiring Robotics Teleoperations Specialist for field operations in Zurich. Below is the full Lever job description with responsibilities, requirements and practical project details.\n\nAbout the Role We are seeking Robotics Teleoperations Specialists to support robotics testing, deployment, and operational programs across Europe. The successful candidate will remotely operate robotic systems, monitor robot performance, and ensure operational activities are executed safely, efficiently, and according to quality standards. This role combines technical operations, quality assurance, and robotics support activities within a structured operational environment.\n\n## Project overview\n\n## Key Responsibilities\n\n- Operate robotic platforms through dedicated teleoperation interfaces\n- Monitor robot activities through video feeds and control dashboards\n- Execute assigned tasks according to operational procedures\n- Maintain compliance with safety and operational requirements\n- Perform real-time movement adjustments when required\n- Ensure smooth execution of robotic tasks and workflows\n- Verify correct robot behavior and task execution\n- Identify and report operational issues\n- Conduct quality reviews of completed robot tasks\n- Maintain detailed operational records and reports\n- Escalate technical issues to engineering teams\n- Assist with robot setup and deployment activities\n- Support testing and validation programs\n- Collaborate with engineering and operations teams\n- Participate in process improvement initiatives\n\n## Requirements\n\n- Strong attention to detail\n- Good hand-eye coordination\n- Ability to follow structured procedures\n- Good communication skills\n- Basic computer literacy\n- Ability to work in a fast-paced operational environment\n- Experience in robotics, automation, manufacturing, logistics, warehouse operations, or quality control\n- Experience with control systems or teleoperation platforms\n- Technical or vocational education\n- Experience working in shift-based operations\n\n## What We Offer\n\n- Opportunity to work with cutting-edge robotics technologies\n- Structured onboarding and training\n- Career development opportunities within robotics operations\n- International and collaborative work environment\n- Exposure to leading AI and robotics programs",
+        "de": "TSMG sucht Robotics Teleoperations Specialist fur operative Einsatze in Zurich. Unten findest du die vollstandige Lever-Stellenbeschreibung mit Aufgaben, Anforderungen und Projektinformationen.\n\nAbout the Role We are seeking Robotics Teleoperations Specialists to support robotics testing, deployment, and operational programs across Europe. The successful candidate will remotely operate robotic systems, monitor robot performance, and ensure operational activities are executed safely, efficiently, and according to quality standards. This role combines technical operations, quality assurance, and robotics support activities within a structured operational environment.\n\n## Projektuberblick\n\n## Key Responsibilities\n\n- Operate robotic platforms through dedicated teleoperation interfaces\n- Monitor robot activities through video feeds and control dashboards\n- Execute assigned tasks according to operational procedures\n- Maintain compliance with safety and operational requirements\n- Perform real-time movement adjustments when required\n- Ensure smooth execution of robotic tasks and workflows\n- Verify correct robot behavior and task execution\n- Identify and report operational issues\n- Conduct quality reviews of completed robot tasks\n- Maintain detailed operational records and reports\n- Escalate technical issues to engineering teams\n- Assist with robot setup and deployment activities\n- Support testing and validation programs\n- Collaborate with engineering and operations teams\n- Participate in process improvement initiatives\n\n## Requirements\n\n- Strong attention to detail\n- Good hand-eye coordination\n- Ability to follow structured procedures\n- Good communication skills\n- Basic computer literacy\n- Ability to work in a fast-paced operational environment\n- Experience in robotics, automation, manufacturing, logistics, warehouse operations, or quality control\n- Experience with control systems or teleoperation platforms\n- Technical or vocational education\n- Experience working in shift-based operations\n\n## What We Offer\n\n- Opportunity to work with cutting-edge robotics technologies\n- Structured onboarding and training\n- Career development opportunities within robotics operations\n- International and collaborative work environment\n- Exposure to leading AI and robotics programs",
+        "fr": "TSMG recrute Robotics Teleoperations Specialist pour des activites terrain a Zurich. Ci-dessous tu trouves la description complete Lever avec responsabilites, exigences et details pratiques du projet.\n\nAbout the Role We are seeking Robotics Teleoperations Specialists to support robotics testing, deployment, and operational programs across Europe. The successful candidate will remotely operate robotic systems, monitor robot performance, and ensure operational activities are executed safely, efficiently, and according to quality standards. This role combines technical operations, quality assurance, and robotics support activities within a structured operational environment.\n\n## Vue d'ensemble du projet\n\n## Key Responsibilities\n\n- Operate robotic platforms through dedicated teleoperation interfaces\n- Monitor robot activities through video feeds and control dashboards\n- Execute assigned tasks according to operational procedures\n- Maintain compliance with safety and operational requirements\n- Perform real-time movement adjustments when required\n- Ensure smooth execution of robotic tasks and workflows\n- Verify correct robot behavior and task execution\n- Identify and report operational issues\n- Conduct quality reviews of completed robot tasks\n- Maintain detailed operational records and reports\n- Escalate technical issues to engineering teams\n- Assist with robot setup and deployment activities\n- Support testing and validation programs\n- Collaborate with engineering and operations teams\n- Participate in process improvement initiatives\n\n## Requirements\n\n- Strong attention to detail\n- Good hand-eye coordination\n- Ability to follow structured procedures\n- Good communication skills\n- Basic computer literacy\n- Ability to work in a fast-paced operational environment\n- Experience in robotics, automation, manufacturing, logistics, warehouse operations, or quality control\n- Experience with control systems or teleoperation platforms\n- Technical or vocational education\n- Experience working in shift-based operations\n\n## What We Offer\n\n- Opportunity to work with cutting-edge robotics technologies\n- Structured onboarding and training\n- Career development opportunities within robotics operations\n- International and collaborative work environment\n- Exposure to leading AI and robotics programs"
+      },
+      "slugByLocale": {
+        "it": "robotics-teleoperations-specialist-tsmg-zurich-cbc6a406",
+        "en": "robotics-teleoperations-specialist-tsmg-zurich-cbc6a406",
+        "de": "robotics-teleoperations-specialist-tsmg-zurich-cbc6a406",
+        "fr": "robotics-teleoperations-specialist-tsmg-zurich-cbc6a406"
+      },
+      "id": "tsmg-6fa456a8ee9a",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "firstSeenAt": "2026-07-04T23:25:40.200Z"
+    },
+    {
+      "title": "Senior Teleoperations Lead",
+      "slug": "senior-teleoperations-lead-tsmg-zurich-0dea39bb",
+      "slugDisambiguator": "0dea39bb",
+      "url": "https://jobs.lever.co/tsmg/0dea39bb-e454-4f75-b48c-008c39ce2daa",
+      "applyUrl": "https://jobs.lever.co/tsmg/0dea39bb-e454-4f75-b48c-008c39ce2daa/apply",
+      "company": "TSMG",
+      "companyKey": "tsmg",
+      "companyDomain": "tsmg.co",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "other",
+      "sector": "Tecnologia & IT",
+      "source": "tsmg-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "TSMG cerca Senior Teleoperations Lead per attivita operative sul territorio in Zurich. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are seeking an experienced Senior Teleoperations Lead to oversee robotics operations teams supporting AI training, robotic testing, and commercial deployment programs. In this role, you will be responsible for coordinating teleoperators, ensuring operational excellence, maintaining quality and safety standards, and serving as the primary point of contact between field operations, engineering teams, and client stakeholders. The ideal candidate combines strong operational leadership with a passion for emerging technologies and has experience managing teams in robotics, autonomous systems, technical operations, control room environments, fleet operations, or other mission-critical programs.\n\n## Panoramica del progetto\n\n## Key Responsibilities\n\n- Lead and coordinate teleoperations teams across multiple shifts\n- Manage daily staffing and operational coverage\n- Support onboarding, training, and mentoring of new operators\n- Promote compliance with safety and operational procedures\n- Monitor operational KPIs and productivity metrics\n- Ensure delivery against quality and performance targets\n- Coordinate robot deployment schedules and operational readiness\n- Manage incident escalation and resolution processes\n- Serve as the primary operational contact for internal and external stakeholders\n- Collaborate with engineering, product, and project management teams\n- Prepare operational reports and performance summaries\n- Support customer-facing robotics programs and deployments\n\n## Requirements\n\n- Previous experience leading operational teams\n- Strong communication and organizational skills\n- Experience in robotics operations, teleoperations, autonomous systems, fleet management, control rooms, or technical operations\n- Ability to work in fast-paced, technology-driven environments\n- Experience supporting robotics, AI, AV/ADAS, drone, or automation programs\n- Experience managing distributed or shift-based teams\n- Technical background in engineering, operations, or industrial environments\n\n## What We Offer\n\n- Leadership role within a rapidly growing robotics sector\n- Opportunity to help scale next-generation robotics deployments\n- International projects and client exposure\n- Career growth opportunities across robotics and AI operations\n- Collaborative environment working alongside engineering and product teams",
+      "titleByLocale": {
+        "it": "Senior Teleoperations Lead",
+        "en": "Senior Teleoperations Lead",
+        "de": "Senior Teleoperations Lead",
+        "fr": "Senior Teleoperations Lead"
+      },
+      "descriptionByLocale": {
+        "it": "TSMG cerca Senior Teleoperations Lead per attivita operative sul territorio in Zurich. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are seeking an experienced Senior Teleoperations Lead to oversee robotics operations teams supporting AI training, robotic testing, and commercial deployment programs. In this role, you will be responsible for coordinating teleoperators, ensuring operational excellence, maintaining quality and safety standards, and serving as the primary point of contact between field operations, engineering teams, and client stakeholders. The ideal candidate combines strong operational leadership with a passion for emerging technologies and has experience managing teams in robotics, autonomous systems, technical operations, control room environments, fleet operations, or other mission-critical programs.\n\n## Panoramica del progetto\n\n## Key Responsibilities\n\n- Lead and coordinate teleoperations teams across multiple shifts\n- Manage daily staffing and operational coverage\n- Support onboarding, training, and mentoring of new operators\n- Promote compliance with safety and operational procedures\n- Monitor operational KPIs and productivity metrics\n- Ensure delivery against quality and performance targets\n- Coordinate robot deployment schedules and operational readiness\n- Manage incident escalation and resolution processes\n- Serve as the primary operational contact for internal and external stakeholders\n- Collaborate with engineering, product, and project management teams\n- Prepare operational reports and performance summaries\n- Support customer-facing robotics programs and deployments\n\n## Requirements\n\n- Previous experience leading operational teams\n- Strong communication and organizational skills\n- Experience in robotics operations, teleoperations, autonomous systems, fleet management, control rooms, or technical operations\n- Ability to work in fast-paced, technology-driven environments\n- Experience supporting robotics, AI, AV/ADAS, drone, or automation programs\n- Experience managing distributed or shift-based teams\n- Technical background in engineering, operations, or industrial environments\n\n## What We Offer\n\n- Leadership role within a rapidly growing robotics sector\n- Opportunity to help scale next-generation robotics deployments\n- International projects and client exposure\n- Career growth opportunities across robotics and AI operations\n- Collaborative environment working alongside engineering and product teams",
+        "en": "TSMG is hiring Senior Teleoperations Lead for field operations in Zurich. Below is the full Lever job description with responsibilities, requirements and practical project details.\n\nAbout the Role We are seeking an experienced Senior Teleoperations Lead to oversee robotics operations teams supporting AI training, robotic testing, and commercial deployment programs. In this role, you will be responsible for coordinating teleoperators, ensuring operational excellence, maintaining quality and safety standards, and serving as the primary point of contact between field operations, engineering teams, and client stakeholders. The ideal candidate combines strong operational leadership with a passion for emerging technologies and has experience managing teams in robotics, autonomous systems, technical operations, control room environments, fleet operations, or other mission-critical programs.\n\n## Project overview\n\n## Key Responsibilities\n\n- Lead and coordinate teleoperations teams across multiple shifts\n- Manage daily staffing and operational coverage\n- Support onboarding, training, and mentoring of new operators\n- Promote compliance with safety and operational procedures\n- Monitor operational KPIs and productivity metrics\n- Ensure delivery against quality and performance targets\n- Coordinate robot deployment schedules and operational readiness\n- Manage incident escalation and resolution processes\n- Serve as the primary operational contact for internal and external stakeholders\n- Collaborate with engineering, product, and project management teams\n- Prepare operational reports and performance summaries\n- Support customer-facing robotics programs and deployments\n\n## Requirements\n\n- Previous experience leading operational teams\n- Strong communication and organizational skills\n- Experience in robotics operations, teleoperations, autonomous systems, fleet management, control rooms, or technical operations\n- Ability to work in fast-paced, technology-driven environments\n- Experience supporting robotics, AI, AV/ADAS, drone, or automation programs\n- Experience managing distributed or shift-based teams\n- Technical background in engineering, operations, or industrial environments\n\n## What We Offer\n\n- Leadership role within a rapidly growing robotics sector\n- Opportunity to help scale next-generation robotics deployments\n- International projects and client exposure\n- Career growth opportunities across robotics and AI operations\n- Collaborative environment working alongside engineering and product teams",
+        "de": "TSMG sucht Senior Teleoperations Lead fur operative Einsatze in Zurich. Unten findest du die vollstandige Lever-Stellenbeschreibung mit Aufgaben, Anforderungen und Projektinformationen.\n\nAbout the Role We are seeking an experienced Senior Teleoperations Lead to oversee robotics operations teams supporting AI training, robotic testing, and commercial deployment programs. In this role, you will be responsible for coordinating teleoperators, ensuring operational excellence, maintaining quality and safety standards, and serving as the primary point of contact between field operations, engineering teams, and client stakeholders. The ideal candidate combines strong operational leadership with a passion for emerging technologies and has experience managing teams in robotics, autonomous systems, technical operations, control room environments, fleet operations, or other mission-critical programs.\n\n## Projektuberblick\n\n## Key Responsibilities\n\n- Lead and coordinate teleoperations teams across multiple shifts\n- Manage daily staffing and operational coverage\n- Support onboarding, training, and mentoring of new operators\n- Promote compliance with safety and operational procedures\n- Monitor operational KPIs and productivity metrics\n- Ensure delivery against quality and performance targets\n- Coordinate robot deployment schedules and operational readiness\n- Manage incident escalation and resolution processes\n- Serve as the primary operational contact for internal and external stakeholders\n- Collaborate with engineering, product, and project management teams\n- Prepare operational reports and performance summaries\n- Support customer-facing robotics programs and deployments\n\n## Requirements\n\n- Previous experience leading operational teams\n- Strong communication and organizational skills\n- Experience in robotics operations, teleoperations, autonomous systems, fleet management, control rooms, or technical operations\n- Ability to work in fast-paced, technology-driven environments\n- Experience supporting robotics, AI, AV/ADAS, drone, or automation programs\n- Experience managing distributed or shift-based teams\n- Technical background in engineering, operations, or industrial environments\n\n## What We Offer\n\n- Leadership role within a rapidly growing robotics sector\n- Opportunity to help scale next-generation robotics deployments\n- International projects and client exposure\n- Career growth opportunities across robotics and AI operations\n- Collaborative environment working alongside engineering and product teams",
+        "fr": "TSMG recrute Senior Teleoperations Lead pour des activites terrain a Zurich. Ci-dessous tu trouves la description complete Lever avec responsabilites, exigences et details pratiques du projet.\n\nAbout the Role We are seeking an experienced Senior Teleoperations Lead to oversee robotics operations teams supporting AI training, robotic testing, and commercial deployment programs. In this role, you will be responsible for coordinating teleoperators, ensuring operational excellence, maintaining quality and safety standards, and serving as the primary point of contact between field operations, engineering teams, and client stakeholders. The ideal candidate combines strong operational leadership with a passion for emerging technologies and has experience managing teams in robotics, autonomous systems, technical operations, control room environments, fleet operations, or other mission-critical programs.\n\n## Vue d'ensemble du projet\n\n## Key Responsibilities\n\n- Lead and coordinate teleoperations teams across multiple shifts\n- Manage daily staffing and operational coverage\n- Support onboarding, training, and mentoring of new operators\n- Promote compliance with safety and operational procedures\n- Monitor operational KPIs and productivity metrics\n- Ensure delivery against quality and performance targets\n- Coordinate robot deployment schedules and operational readiness\n- Manage incident escalation and resolution processes\n- Serve as the primary operational contact for internal and external stakeholders\n- Collaborate with engineering, product, and project management teams\n- Prepare operational reports and performance summaries\n- Support customer-facing robotics programs and deployments\n\n## Requirements\n\n- Previous experience leading operational teams\n- Strong communication and organizational skills\n- Experience in robotics operations, teleoperations, autonomous systems, fleet management, control rooms, or technical operations\n- Ability to work in fast-paced, technology-driven environments\n- Experience supporting robotics, AI, AV/ADAS, drone, or automation programs\n- Experience managing distributed or shift-based teams\n- Technical background in engineering, operations, or industrial environments\n\n## What We Offer\n\n- Leadership role within a rapidly growing robotics sector\n- Opportunity to help scale next-generation robotics deployments\n- International projects and client exposure\n- Career growth opportunities across robotics and AI operations\n- Collaborative environment working alongside engineering and product teams"
+      },
+      "slugByLocale": {
+        "it": "senior-teleoperations-lead-tsmg-zurich-0dea39bb",
+        "en": "senior-teleoperations-lead-tsmg-zurich-0dea39bb",
+        "de": "senior-teleoperations-lead-tsmg-zurich-0dea39bb",
+        "fr": "senior-teleoperations-lead-tsmg-zurich-0dea39bb"
+      },
+      "id": "tsmg-fafa9624358a",
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "firstSeenAt": "2026-07-04T23:25:40.200Z"
+    },
+    {
+      "title": "Senior Teleoperations Lead",
+      "slug": "senior-teleoperations-lead-tsmg-lausanne-64fe4432",
+      "slugDisambiguator": "64fe4432",
+      "url": "https://jobs.lever.co/tsmg/64fe4432-c141-44cc-9f6e-344608a44ad4",
+      "applyUrl": "https://jobs.lever.co/tsmg/64fe4432-c141-44cc-9f6e-344608a44ad4/apply",
+      "company": "TSMG",
+      "companyKey": "tsmg",
+      "companyDomain": "tsmg.co",
+      "location": "Lausanne",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "other",
+      "sector": "Tecnologia & IT",
+      "source": "tsmg-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "TSMG cerca Senior Teleoperations Lead per attivita operative sul territorio in Lausanne. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are seeking an experienced Senior Teleoperations Lead to oversee robotics operations teams supporting AI training, robotic testing, and commercial deployment programs. In this role, you will be responsible for coordinating teleoperators, ensuring operational excellence, maintaining quality and safety standards, and serving as the primary point of contact between field operations, engineering teams, and client stakeholders. The ideal candidate combines strong operational leadership with a passion for emerging technologies and has experience managing teams in robotics, autonomous systems, technical operations, control room environments, fleet operations, or other mission-critical programs.\n\n## Panoramica del progetto\n\n## Key Responsibilities\n\n- Lead and coordinate teleoperations teams across multiple shifts\n- Manage daily staffing and operational coverage\n- Support onboarding, training, and mentoring of new operators\n- Promote compliance with safety and operational procedures\n- Monitor operational KPIs and productivity metrics\n- Ensure delivery against quality and performance targets\n- Coordinate robot deployment schedules and operational readiness\n- Manage incident escalation and resolution processes\n- Serve as the primary operational contact for internal and external stakeholders\n- Collaborate with engineering, product, and project management teams\n- Prepare operational reports and performance summaries\n- Support customer-facing robotics programs and deployments\n\n## Requirements\n\n- Previous experience leading operational teams\n- Strong communication and organizational skills\n- Experience in robotics operations, teleoperations, autonomous systems, fleet management, control rooms, or technical operations\n- Ability to work in fast-paced, technology-driven environments\n- Experience supporting robotics, AI, AV/ADAS, drone, or automation programs\n- Experience managing distributed or shift-based teams\n- Technical background in engineering, operations, or industrial environments\n\n## What We Offer\n\n- Leadership role within a rapidly growing robotics sector\n- Opportunity to help scale next-generation robotics deployments\n- International projects and client exposure\n- Career growth opportunities across robotics and AI operations\n- Collaborative environment working alongside engineering and product teams",
+      "titleByLocale": {
+        "it": "Senior Teleoperations Lead",
+        "en": "Senior Teleoperations Lead",
+        "de": "Senior Teleoperations Lead",
+        "fr": "Senior Teleoperations Lead"
+      },
+      "descriptionByLocale": {
+        "it": "TSMG cerca Senior Teleoperations Lead per attivita operative sul territorio in Lausanne. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are seeking an experienced Senior Teleoperations Lead to oversee robotics operations teams supporting AI training, robotic testing, and commercial deployment programs. In this role, you will be responsible for coordinating teleoperators, ensuring operational excellence, maintaining quality and safety standards, and serving as the primary point of contact between field operations, engineering teams, and client stakeholders. The ideal candidate combines strong operational leadership with a passion for emerging technologies and has experience managing teams in robotics, autonomous systems, technical operations, control room environments, fleet operations, or other mission-critical programs.\n\n## Panoramica del progetto\n\n## Key Responsibilities\n\n- Lead and coordinate teleoperations teams across multiple shifts\n- Manage daily staffing and operational coverage\n- Support onboarding, training, and mentoring of new operators\n- Promote compliance with safety and operational procedures\n- Monitor operational KPIs and productivity metrics\n- Ensure delivery against quality and performance targets\n- Coordinate robot deployment schedules and operational readiness\n- Manage incident escalation and resolution processes\n- Serve as the primary operational contact for internal and external stakeholders\n- Collaborate with engineering, product, and project management teams\n- Prepare operational reports and performance summaries\n- Support customer-facing robotics programs and deployments\n\n## Requirements\n\n- Previous experience leading operational teams\n- Strong communication and organizational skills\n- Experience in robotics operations, teleoperations, autonomous systems, fleet management, control rooms, or technical operations\n- Ability to work in fast-paced, technology-driven environments\n- Experience supporting robotics, AI, AV/ADAS, drone, or automation programs\n- Experience managing distributed or shift-based teams\n- Technical background in engineering, operations, or industrial environments\n\n## What We Offer\n\n- Leadership role within a rapidly growing robotics sector\n- Opportunity to help scale next-generation robotics deployments\n- International projects and client exposure\n- Career growth opportunities across robotics and AI operations\n- Collaborative environment working alongside engineering and product teams",
+        "en": "TSMG is hiring Senior Teleoperations Lead for field operations in Lausanne. Below is the full Lever job description with responsibilities, requirements and practical project details.\n\nAbout the Role We are seeking an experienced Senior Teleoperations Lead to oversee robotics operations teams supporting AI training, robotic testing, and commercial deployment programs. In this role, you will be responsible for coordinating teleoperators, ensuring operational excellence, maintaining quality and safety standards, and serving as the primary point of contact between field operations, engineering teams, and client stakeholders. The ideal candidate combines strong operational leadership with a passion for emerging technologies and has experience managing teams in robotics, autonomous systems, technical operations, control room environments, fleet operations, or other mission-critical programs.\n\n## Project overview\n\n## Key Responsibilities\n\n- Lead and coordinate teleoperations teams across multiple shifts\n- Manage daily staffing and operational coverage\n- Support onboarding, training, and mentoring of new operators\n- Promote compliance with safety and operational procedures\n- Monitor operational KPIs and productivity metrics\n- Ensure delivery against quality and performance targets\n- Coordinate robot deployment schedules and operational readiness\n- Manage incident escalation and resolution processes\n- Serve as the primary operational contact for internal and external stakeholders\n- Collaborate with engineering, product, and project management teams\n- Prepare operational reports and performance summaries\n- Support customer-facing robotics programs and deployments\n\n## Requirements\n\n- Previous experience leading operational teams\n- Strong communication and organizational skills\n- Experience in robotics operations, teleoperations, autonomous systems, fleet management, control rooms, or technical operations\n- Ability to work in fast-paced, technology-driven environments\n- Experience supporting robotics, AI, AV/ADAS, drone, or automation programs\n- Experience managing distributed or shift-based teams\n- Technical background in engineering, operations, or industrial environments\n\n## What We Offer\n\n- Leadership role within a rapidly growing robotics sector\n- Opportunity to help scale next-generation robotics deployments\n- International projects and client exposure\n- Career growth opportunities across robotics and AI operations\n- Collaborative environment working alongside engineering and product teams",
+        "de": "TSMG sucht Senior Teleoperations Lead fur operative Einsatze in Lausanne. Unten findest du die vollstandige Lever-Stellenbeschreibung mit Aufgaben, Anforderungen und Projektinformationen.\n\nAbout the Role We are seeking an experienced Senior Teleoperations Lead to oversee robotics operations teams supporting AI training, robotic testing, and commercial deployment programs. In this role, you will be responsible for coordinating teleoperators, ensuring operational excellence, maintaining quality and safety standards, and serving as the primary point of contact between field operations, engineering teams, and client stakeholders. The ideal candidate combines strong operational leadership with a passion for emerging technologies and has experience managing teams in robotics, autonomous systems, technical operations, control room environments, fleet operations, or other mission-critical programs.\n\n## Projektuberblick\n\n## Key Responsibilities\n\n- Lead and coordinate teleoperations teams across multiple shifts\n- Manage daily staffing and operational coverage\n- Support onboarding, training, and mentoring of new operators\n- Promote compliance with safety and operational procedures\n- Monitor operational KPIs and productivity metrics\n- Ensure delivery against quality and performance targets\n- Coordinate robot deployment schedules and operational readiness\n- Manage incident escalation and resolution processes\n- Serve as the primary operational contact for internal and external stakeholders\n- Collaborate with engineering, product, and project management teams\n- Prepare operational reports and performance summaries\n- Support customer-facing robotics programs and deployments\n\n## Requirements\n\n- Previous experience leading operational teams\n- Strong communication and organizational skills\n- Experience in robotics operations, teleoperations, autonomous systems, fleet management, control rooms, or technical operations\n- Ability to work in fast-paced, technology-driven environments\n- Experience supporting robotics, AI, AV/ADAS, drone, or automation programs\n- Experience managing distributed or shift-based teams\n- Technical background in engineering, operations, or industrial environments\n\n## What We Offer\n\n- Leadership role within a rapidly growing robotics sector\n- Opportunity to help scale next-generation robotics deployments\n- International projects and client exposure\n- Career growth opportunities across robotics and AI operations\n- Collaborative environment working alongside engineering and product teams",
+        "fr": "TSMG recrute Senior Teleoperations Lead pour des activites terrain a Lausanne. Ci-dessous tu trouves la description complete Lever avec responsabilites, exigences et details pratiques du projet.\n\nAbout the Role We are seeking an experienced Senior Teleoperations Lead to oversee robotics operations teams supporting AI training, robotic testing, and commercial deployment programs. In this role, you will be responsible for coordinating teleoperators, ensuring operational excellence, maintaining quality and safety standards, and serving as the primary point of contact between field operations, engineering teams, and client stakeholders. The ideal candidate combines strong operational leadership with a passion for emerging technologies and has experience managing teams in robotics, autonomous systems, technical operations, control room environments, fleet operations, or other mission-critical programs.\n\n## Vue d'ensemble du projet\n\n## Key Responsibilities\n\n- Lead and coordinate teleoperations teams across multiple shifts\n- Manage daily staffing and operational coverage\n- Support onboarding, training, and mentoring of new operators\n- Promote compliance with safety and operational procedures\n- Monitor operational KPIs and productivity metrics\n- Ensure delivery against quality and performance targets\n- Coordinate robot deployment schedules and operational readiness\n- Manage incident escalation and resolution processes\n- Serve as the primary operational contact for internal and external stakeholders\n- Collaborate with engineering, product, and project management teams\n- Prepare operational reports and performance summaries\n- Support customer-facing robotics programs and deployments\n\n## Requirements\n\n- Previous experience leading operational teams\n- Strong communication and organizational skills\n- Experience in robotics operations, teleoperations, autonomous systems, fleet management, control rooms, or technical operations\n- Ability to work in fast-paced, technology-driven environments\n- Experience supporting robotics, AI, AV/ADAS, drone, or automation programs\n- Experience managing distributed or shift-based teams\n- Technical background in engineering, operations, or industrial environments\n\n## What We Offer\n\n- Leadership role within a rapidly growing robotics sector\n- Opportunity to help scale next-generation robotics deployments\n- International projects and client exposure\n- Career growth opportunities across robotics and AI operations\n- Collaborative environment working alongside engineering and product teams"
+      },
+      "slugByLocale": {
+        "it": "senior-teleoperations-lead-tsmg-lausanne-64fe4432",
+        "en": "senior-teleoperations-lead-tsmg-lausanne-64fe4432",
+        "de": "senior-teleoperations-lead-tsmg-lausanne-64fe4432",
+        "fr": "senior-teleoperations-lead-tsmg-lausanne-64fe4432"
+      },
+      "id": "tsmg-c8a8c7b3131c",
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "firstSeenAt": "2026-07-04T23:25:40.200Z"
     }
   ]
 }
