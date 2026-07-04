@@ -9,7 +9,7 @@
  * stable token preserves the merge.
  */
 import { describe, it, expect } from 'vitest';
-import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
+import { extractStableJobId, resolveJobDiffKey } from '../scripts/lib/job-match-key.mjs';
 
 describe('extractStableJobId', () => {
   it('extracts the UUID from PwC-style URLs', () => {
@@ -69,5 +69,53 @@ describe('extractStableJobId', () => {
 
   it('normalises trailing slashes and case', () => {
     expect(extractStableJobId('https://Example.com/Path/')).toBe(extractStableJobId('https://example.com/path'));
+  });
+});
+
+// Regression coverage for #3411: scan-prev-slug-losses.mjs and
+// backfill-prev-slugs-from-loss-events.mjs build Map<key, job> diff/lookup
+// structures from raw per-crawler slice files, where several dedicated
+// crawlers (ferrovia-retica, julius-baer, mikron, relewant,
+// swiss-medical-network, casale) commit records with `.id` unset — it's
+// only stamped at data/jobs.json assembly time. Keying those Maps on bare
+// `job.id` collapsed every id-less job in a slice onto the shared
+// `undefined` key, corrupting lookups instead of just missing them.
+describe('resolveJobDiffKey', () => {
+  it('prefers the real .id when present', () => {
+    const job = { id: 'company-abc123', url: 'https://example.com/jobs/1' };
+    expect(resolveJobDiffKey(job)).toBe('company-abc123');
+  });
+
+  it('falls back to the stable URL-derived key when .id is absent', () => {
+    const job = { url: 'https://www.rhb.ch/it/job/some-title_2026-2227/' };
+    expect(resolveJobDiffKey(job)).toBe(extractStableJobId(job.url));
+    expect(resolveJobDiffKey(job)).not.toContain('undefined');
+  });
+
+  it('produces distinct keys for distinct id-less jobs sharing no id (no collision)', () => {
+    const jobA = { url: 'https://www.rhb.ch/it/job/job-a/' };
+    const jobB = { url: 'https://www.rhb.ch/it/job/job-b/' };
+    const keyA = resolveJobDiffKey(jobA);
+    const keyB = resolveJobDiffKey(jobB);
+    expect(keyA).not.toBe(keyB);
+    expect(keyA).not.toBeNull();
+    expect(keyB).not.toBeNull();
+  });
+
+  it('falls back to slug when both .id and .url are absent', () => {
+    const job = { slug: 'Some-Job-Slug' };
+    expect(resolveJobDiffKey(job)).toBe('slug:some-job-slug');
+  });
+
+  it('returns null when a job has no id, url, or slug', () => {
+    expect(resolveJobDiffKey({})).toBeNull();
+    expect(resolveJobDiffKey(undefined as unknown as Record<string, unknown>)).toBeNull();
+  });
+
+  it('does not double-prefix the already-namespaced extractStableJobId output', () => {
+    const job = { url: 'https://example.com/jobs/only-a-slug' };
+    const key = resolveJobDiffKey(job);
+    expect(key).toBe('url:https://example.com/jobs/only-a-slug');
+    expect(key).not.toContain('url:url:');
   });
 });

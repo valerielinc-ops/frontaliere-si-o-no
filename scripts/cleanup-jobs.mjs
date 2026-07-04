@@ -22,6 +22,7 @@ import {
 } from './lib/validate-job-url.mjs';
 import { hardenJobLocaleFields, stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -388,24 +389,29 @@ async function main() {
         console.log(`⏭️  Slice URL validation skipped (JOBS_SKIP_URL_VALIDATION=1) — keeping ${kept.length} jobs`);
       } else {
         console.log(`🧹 Slice housekeeping: checking ${kept.length} jobs (concurrency=${MAX_CONCURRENCY}, timeout=${TIMEOUT_MS}ms)`);
-        const checks = await validateJobUrls(kept.map((j) => ({ id: j.id, url: j.url })), { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS });
+        // Keyed by resolveJobDiffKey() not bare job.id: id-less per-crawler
+        // slices (JOBS_HOUSEKEEPING_SCOPE+SLICE_FILE mode — see #3411) stamp
+        // `.id` only at data/jobs.json assembly time, so every job.id here is
+        // `undefined` and a bare-id Map collapses all of them onto one key,
+        // making lookups return an arbitrary sibling job's validation result.
+        const checks = await validateJobUrls(kept.map((j) => ({ id: resolveJobDiffKey(j), url: j.url })), { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS });
         const checkById = new Map(checks.map((c) => [c.id, c]));
         const fallbackCandidates = kept
           .filter((job) => {
-            const c = checkById.get(job.id);
+            const c = checkById.get(resolveJobDiffKey(job));
             return c?.valid === false && job.applyUrl && job.applyUrl !== job.url;
           })
-          .map((job) => ({ id: job.id, url: job.applyUrl }));
+          .map((job) => ({ id: resolveJobDiffKey(job), url: job.applyUrl }));
         const fallbackById = fallbackCandidates.length > 0
           ? new Map((await validateJobUrls(fallbackCandidates, { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS })).map((c) => [c.id, c]))
           : new Map();
         kept = kept.filter((job) => {
-          const c = checkById.get(job.id);
+          const c = checkById.get(resolveJobDiffKey(job));
           if (c && c.valid === false) {
-            const fallback = fallbackById.get(job.id);
+            const fallback = fallbackById.get(resolveJobDiffKey(job));
             if (fallback && fallback.valid !== false) return true;
             if (isFreshProtected(job) && !c.definitive) return true;
-            urlRemoved.push({ id: job.id, reason: c.reason });
+            urlRemoved.push({ id: resolveJobDiffKey(job), reason: c.reason });
             return false;
           }
           return true;
@@ -464,12 +470,14 @@ async function main() {
       // map under their disambiguated slug, so they're tracked separately.
       const keptSlugs = new Set(kept.map((j) => j.slug).filter(Boolean));
       const sliceRemoved = hardenedJobs.filter((j) => j.slug && !keptSlugs.has(j.slug));
-      const archiveJobsById = new Map(hardenedJobs.map((j) => [j.id, j]));
-      const archiveRefs = sliceRemoved.map((j) => ({ id: j.id }));
+      // Keyed by resolveJobDiffKey() not bare j.id — see comment above on the
+      // checkById Map for why bare id-less-slice ids collide (#3411).
+      const archiveJobsById = new Map(hardenedJobs.map((j) => [resolveJobDiffKey(j), j]));
+      const archiveRefs = sliceRemoved.map((j) => ({ id: resolveJobDiffKey(j) }));
       for (const loser of dedupLosers) {
-        // Use a synthetic id key to avoid colliding with the original job id
+        // Use a synthetic key to avoid colliding with the original job's key
         // (the original may already be in the map under its pre-dedup slug).
-        const loserKey = `__dedup__${loser.id}__${loser.slug}`;
+        const loserKey = `__dedup__${resolveJobDiffKey(loser)}__${loser.slug}`;
         archiveJobsById.set(loserKey, loser);
         archiveRefs.push({ id: loserKey });
       }
