@@ -619,7 +619,7 @@ function renderPage(opts: {
     url: canonicalUrl,
     description: editorialBody.slice(0, 200),
     inLanguage: locale,
-    isPartOf: { '@type': 'WebSite', url: BASE_URL, name: 'Frontaliere Ticino' },
+    isPartOf: { '@type': 'WebSite', url: `${BASE_URL}/`, name: 'Frontaliere Ticino' },
     datePublished: dateStamp,
     dateModified: dateStamp,
   });

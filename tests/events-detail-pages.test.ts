@@ -151,7 +151,7 @@ describe('eventLd nationwide fields (#3125)', () => {
     expect(ld.image.creator).toEqual({
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: 'https://frontaliereticino.ch',
+      url: 'https://frontaliereticino.ch/',
     });
     expect(ld.image.copyrightNotice).toBeTruthy();
   });

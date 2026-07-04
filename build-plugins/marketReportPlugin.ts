@@ -562,12 +562,12 @@ function renderReport(opts: {
     author: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
     publisher: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
       logo: imageObjectLd({
         url: `${BASE_URL}/icons/icon-512x512.png`,
         width: 512,
@@ -587,7 +587,7 @@ function renderReport(opts: {
     creator: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
     datePublished: dateStamp,
     dateModified: dateStamp,

@@ -794,11 +794,11 @@ function renderReport(opts: {
     url: canonicalUrl,
     datePublished: agg.generatedAt,
     dateModified: agg.generatedAt,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL },
+    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
       logo: imageObjectLd({
         url: `${BASE_URL}/icons/icon-512x512.png`,
         width: 512,
@@ -815,7 +815,7 @@ function renderReport(opts: {
     description: copy.description,
     url: canonicalUrl,
     license: 'https://creativecommons.org/licenses/by/4.0/',
-    creator: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL },
+    creator: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     datePublished: agg.generatedAt,
     dateModified: agg.generatedAt,
     inLanguage: locale,

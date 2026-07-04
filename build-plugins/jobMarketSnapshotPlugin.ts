@@ -1629,12 +1629,12 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     author: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
     publisher: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
       logo: imageObjectLd({
         url: `${BASE_URL}/logo-512.png`,
       }),
@@ -1655,12 +1655,12 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     creator: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
     publisher: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
     dateModified: `${todayIso}T00:00:00.000Z`,
     datePublished: stats.endDate.toISOString(),
@@ -1928,7 +1928,7 @@ function renderHubPage(inp: HubPageInputs): string {
     isPartOf: {
       '@type': 'WebSite',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
   });
 
@@ -1944,12 +1944,12 @@ function renderHubPage(inp: HubPageInputs): string {
     creator: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
     publisher: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
     dateModified: `${todayIso}T00:00:00.000Z`,
     spatialCoverage: {
@@ -2908,7 +2908,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     isPartOf: {
       '@type': 'WebSite',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
   });
 
@@ -2924,12 +2924,12 @@ function renderSectorPage(inp: SectorPageInputs): string {
     creator: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
     publisher: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
     dateModified: `${todayIso}T00:00:00.000Z`,
     spatialCoverage: {

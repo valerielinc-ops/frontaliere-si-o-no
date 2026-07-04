@@ -891,7 +891,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  // keep it resolvable by page-local structured-data parsers.
  '@id': `${BASE_URL}/#organization`,
  name: 'Frontaliere Ticino',
- url: BASE_URL,
+ url: `${BASE_URL}/`,
  logo: imageObjectLd({
  url: `${BASE_URL}/images/logo-192.png`,
  }),
