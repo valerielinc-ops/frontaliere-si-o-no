@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-07-03T21:14:00.273Z",
+  "assembledAt": "2026-07-04T10:02:29.348Z",
   "jobs": [
     {
       "id": "alpiq-beb74dfaeacf",
@@ -47,7 +47,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9535&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:13:58.235Z",
+      "crawledAt": "2026-07-04T10:02:26.963Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -108,7 +108,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T21:13:58.236Z",
+      "crawledAt": "2026-07-04T10:02:26.964Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -169,7 +169,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9542&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:13:58.237Z",
+      "crawledAt": "2026-07-04T10:02:26.965Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -230,7 +230,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9547&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T21:13:58.237Z",
+      "crawledAt": "2026-07-04T10:02:26.965Z",
       "previousSlugs": [
         "anlageningenieur-all-100-alpiq-niedergosgen"
       ],
@@ -299,7 +299,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9545&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:13:58.238Z",
+      "crawledAt": "2026-07-04T10:02:26.965Z",
       "firstSeenAt": "2026-06-29T21:34:24.957Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -366,7 +366,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9595&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:13:58.238Z",
+      "crawledAt": "2026-07-04T10:02:26.966Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -442,66 +442,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "alpiq-70d91ad872b7",
-      "slug": "electricien-ne-automaticien-ne-alpiq-martigny",
-      "slugByLocale": {
-        "it": "elettricista-automatico-alpiq-martigny",
-        "en": "electricien-ne-automaticien-ne-alpiq-martigny",
-        "de": "elektriker-automatisch-alpiq-martigny",
-        "fr": "electricien-ne-automatiqueien-ne-alpiq-martigny"
-      },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Electricien(ne) - automaticien(ne)",
-      "titleByLocale": {
-        "it": "Elettricista - Automatico",
-        "en": "Electrician - Automatician",
-        "de": "Elektriker - Automatisch",
-        "fr": "Électricien(ne) - automatiqueien(ne)"
-      },
-      "description": "Electricien(ne) - automaticien(ne)\n\nMartigny - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Electricien(ne) - automaticien(ne) Martigny - 100% Permanent"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Martigny",
-      "canton": "",
-      "postalCode": "",
-      "streetAddress": "",
-      "addressLocality": "Martigny",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-30",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9518",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:13:58.238Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-30T09:56:14.281Z",
-      "country": "CH",
-      "salaryMin": 68000,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 2
     },
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -548,7 +489,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:13:58.238Z",
+      "crawledAt": "2026-07-04T10:02:26.965Z",
       "firstSeenAt": "2026-05-30T09:56:14.282Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -560,6 +501,65 @@
           "@type": "QuantitativeValue",
           "minValue": 96000,
           "maxValue": 146500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "alpiq-70d91ad872b7",
+      "slug": "electricien-ne-automaticien-ne-alpiq-martigny",
+      "slugByLocale": {
+        "it": "elettricista-automatico-alpiq-martigny",
+        "en": "electricien-ne-automaticien-ne-alpiq-martigny",
+        "de": "elektriker-automatisch-alpiq-martigny",
+        "fr": "electricien-ne-automatiqueien-ne-alpiq-martigny"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Electricien(ne) - automaticien(ne)",
+      "titleByLocale": {
+        "it": "Elettricista - Automatico",
+        "en": "Electrician - Automatician",
+        "de": "Elektriker - Automatisch",
+        "fr": "Électricien(ne) - automatiqueien(ne)"
+      },
+      "description": "Electricien(ne) - automaticien(ne)\n\nMartigny - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Electricien(ne) - automaticien(ne) Martigny - 100% Permanent"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Martigny",
+      "canton": "",
+      "postalCode": "",
+      "streetAddress": "",
+      "addressLocality": "Martigny",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-30",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9518",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-04T10:02:26.966Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-30T09:56:14.281Z",
+      "country": "CH",
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
