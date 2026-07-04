@@ -121,16 +121,24 @@ export function applyNoStructureRatchet(report, baseline) {
     if (!issue) continue;
     const baseRecord = baseline?.perCrawler?.[key];
     const baseCount = baseRecord?.noStructureCount ?? 0;
+    const baseTotal = baseRecord?.total ?? 0;
     const ratio = issue.count / issue.total;
+    const baseRatio = baseTotal > 0 ? baseCount / baseTotal : 0;
     const isNew = !baseRecord;
-    const regressed = !!baseRecord && issue.count > baseCount;
-    // New crawler entering 95%+ flat territory, or any existing crawler going UP, triggers CRITICAL
+    // Compare RATIO, not raw count — a healthy crawler that simply discovers more
+    // real jobs over time will grow its absolute no-structure count without any
+    // actual quality regression. A fixed tolerance absorbs small-baseline-N noise
+    // (e.g. 11/12 → 269/270 is the same ~flat rate, not a new regression).
+    const REGRESSION_EPSILON = 0.1;
+    const regressed = !!baseRecord && ratio > baseRatio + REGRESSION_EPSILON;
+    // New crawler entering 95%+ flat territory, or any existing crawler's ratio
+    // meaningfully worsening, triggers CRITICAL
     const newOffender = isNew && ratio >= 0.95 && issue.total >= 10;
     if (newOffender || regressed) {
       entry.severity = 'CRITICAL';
       issue.message += newOffender
         ? ` [NEW OFFENDER: ${issue.count}/${issue.total} flat, no baseline tolerance]`
-        : ` [REGRESSION: was ${baseCount}, now ${issue.count}]`;
+        : ` [REGRESSION: was ${(baseRatio * 100).toFixed(0)}% (${baseCount}/${baseTotal}), now ${(ratio * 100).toFixed(0)}% (${issue.count}/${issue.total})]`;
       const ratchetAction = `Parser strips list structure — descriptions are flat prose. Either preserve <ul><li> in the parser, or rebaseline if intentional via: npm run audit:parser-quality:rebaseline`;
       entry.action = `${entry.action ? entry.action + ' ' : ''}${ratchetAction}`;
       regressions.push({ key, was: baseCount, now: issue.count, total: issue.total });
