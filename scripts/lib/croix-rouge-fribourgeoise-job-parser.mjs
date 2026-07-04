@@ -74,6 +74,7 @@ export const CROIX_ROUGE_FRIBOURGEOISE_COMPANY_DOMAIN = 'croix-rouge-fr.ch';
 
 const LISTING_ID = '1773421929172x328595190866247700';
 const ATS_HOST = 'company.jobcloud.ch';
+// locale-segment-ok: '/fr/' is JobCloud's own Company Page URL path, the org only publishes this listing in French
 const LISTING_URL = `https://${ATS_HOST}/fr/job-list/${LISTING_ID}`;
 
 const SECTOR = 'Sociale / Socio-sanitario';
