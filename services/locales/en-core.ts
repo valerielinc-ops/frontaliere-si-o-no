@@ -3440,6 +3440,9 @@ Rules:
   'survey.feature.thanks.title': 'Thank you!',
   'survey.feature.thanks.body': 'Your feedback helps us improve.',
 
+  'whatsNew.v3570.title': 'Complete cross-border guide and new per-profession job guides',
+  'whatsNew.v3570.frontalierePillar.title': 'Cross-border pillar + 14 job guides',
+  'whatsNew.v3570.frontalierePillar.desc': 'New /en/cross-border-worker/ page with the full path (G permit, salary, taxes, health insurance) and 14 new per-profession job guides: psychologist, physiotherapist, pharmacist, midwife, healthcare assistant, accountant and more.',
   'whatsNew.v3560.title': 'Real-time border crossing ranking',
   'whatsNew.v3560.borderWaitRanking.title': 'Best and worst border crossings',
   'whatsNew.v3560.borderWaitRanking.desc': 'New weekly-updated article ranking every Ticino border crossing by wait time, with trends and how many minutes you lose or save picking one crossing over another.',

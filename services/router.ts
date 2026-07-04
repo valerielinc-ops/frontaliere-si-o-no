@@ -55,6 +55,7 @@ import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../bu
 import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath } from '../build-plugins/nursingLandingsData';
 import { CAREER_LANDING_ROUTES, isCareerLandingPath, parseCareerLandingPath } from '../build-plugins/careerLandingsData';
 import { PROFESSION_LANDING_ROUTES, isProfessionLandingPath, parseProfessionLandingPath } from '../build-plugins/professionLandingsData';
+import { FRONTALIERE_PILLAR_ROUTES, isFrontalierePillarPath, parseFrontalierePillarPath } from '../build-plugins/frontalierePillarData';
 import { isProfessionCantonPath, parseProfessionCantonPath } from '../build-plugins/professionCantonData';
 import {
   COST_OF_LIVING_LANDING_ROUTES,
@@ -2629,6 +2630,20 @@ export function parsePath(pathname: string): ParseResult {
      const parsed = parseProfessionLandingPath(pathname);
      if (parsed) {
        return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
+     }
+   }
+ }
+
+ // Pillar hub "frontaliere" (#3393) — 1 page × 4 locales. Orchestrates the
+ // topic cluster (permits, salary, taxes, health, profession landings);
+ // static HTML emitted by frontalierePillarPlugin outside #root, so the
+ // staticOverlay route keeps it visible after SPA hydrate.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (FRONTALIERE_PILLAR_ROUTES.includes(normalized) || isFrontalierePillarPath(pathname)) {
+     const parsed = parseFrontalierePillarPath(pathname);
+     if (parsed) {
+       return { route: { activeTab: 'guida', staticOverlay: true }, locale: parsed.locale as Locale };
      }
    }
  }

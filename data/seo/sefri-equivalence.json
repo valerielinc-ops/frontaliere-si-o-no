@@ -136,6 +136,96 @@
       "cclUrl": "https://www.reg.ch/",
       "notes": "Professione non regolamentata per l'impiego corrente, ma il REG è il canale ufficiale per esercitare come ingegnere libero-professionista o firmare progetti edili. Molti studi tecnici ticinesi assumono ingegneri italiani senza REG.",
       "regulated": false
+    },
+    "assistente-dentale": {
+      "itTitle": "Assistente dentale",
+      "authority": "SEFRI (riconoscimento del titolo AFC, facoltativo)",
+      "authorityUrl": "https://www.sbfi.admin.ch/it",
+      "diplomaTypeIt": "Qualifica di assistente alla poltrona (ASO)",
+      "swissEquivalent": "Assistente dentale AFC",
+      "leadTimeMonths": [
+        2,
+        4
+      ],
+      "cclReference": "Nessun CCL obbligatorio (raccomandazioni SSO)",
+      "cclUrl": "https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro",
+      "regulated": false,
+      "notes": "Professione non regolamentata a livello federale; radioprotezione secondo le norme svizzere per le radiografie endorali."
+    },
+    "contabile": {
+      "itTitle": "Contabile",
+      "authority": "Nessuna (professione non regolamentata; riconoscimento SEFRI facoltativo)",
+      "authorityUrl": "https://www.sbfi.admin.ch/it",
+      "diplomaTypeIt": "Diploma di ragioneria o laurea in economia",
+      "swissEquivalent": "Specialista in finanza e contabilità con attestato professionale federale (riferimento)",
+      "leadTimeMonths": [
+        0,
+        0
+      ],
+      "cclReference": "Nessun CCL obbligatorio",
+      "cclUrl": "https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro",
+      "regulated": false,
+      "notes": "Assunzione diretta con titolo estero; contano IVA svizzera, certificato di salario e Swiss GAAP RPC."
+    },
+    "assistente-sociale": {
+      "itTitle": "Assistente sociale",
+      "authority": "SEFRI (riconoscimento del titolo SUP, facoltativo)",
+      "authorityUrl": "https://www.sbfi.admin.ch/it",
+      "diplomaTypeIt": "Laurea in Servizio Sociale (L-39/LM-87)",
+      "swissEquivalent": "Bachelor SUP in Lavoro sociale",
+      "leadTimeMonths": [
+        2,
+        5
+      ],
+      "cclReference": "CCL Settore sociale ticinese (istituti sociali)",
+      "cclUrl": "https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro",
+      "regulated": false,
+      "notes": "Gli enti pubblici richiedono spesso il riconoscimento SEFRI del titolo SUP."
+    },
+    "macellaio": {
+      "itTitle": "Macellaio / Macellaia",
+      "authority": "SEFRI (riconoscimento del titolo AFC, facoltativo)",
+      "authorityUrl": "https://www.sbfi.admin.ch/it",
+      "diplomaTypeIt": "Qualifica IeFP di settore o esperienza equivalente",
+      "swissEquivalent": "Macellaio-salumiere AFC",
+      "leadTimeMonths": [
+        2,
+        4
+      ],
+      "cclReference": "CCL per l'industria svizzera della carne (obbligatorietà generale)",
+      "cclUrl": "https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro",
+      "regulated": false,
+      "notes": "Il CCL di settore fissa i minimi salariali; HACCP secondo la legislazione svizzera sulle derrate alimentari."
+    },
+    "saldatore": {
+      "itTitle": "Saldatore / Saldatrice",
+      "authority": "Nessuna (certificazioni EN ISO 9606 richieste dai datori)",
+      "authorityUrl": "https://www.sbfi.admin.ch/it",
+      "diplomaTypeIt": "Certificazioni di saldatura EN ISO 9606 (TIG/MIG/MAG/elettrodo)",
+      "swissEquivalent": "Nessun titolo richiesto; contano i certificati di procedimento validi",
+      "leadTimeMonths": [
+        0,
+        0
+      ],
+      "cclReference": "CCL industria MEM / metalcostruzione",
+      "cclUrl": "https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro",
+      "regulated": false,
+      "notes": "Le certificazioni vanno mantenute in corso di validità; i datori verificano i procedimenti richiesti."
+    },
+    "architetto": {
+      "itTitle": "Architetto / Architetta",
+      "authority": "REG (Fondazione dei Registri svizzeri) + OTIA per l'esercizio in Ticino",
+      "authorityUrl": "https://www.reg.ch/",
+      "diplomaTypeIt": "Laurea magistrale in Architettura con abilitazione",
+      "swissEquivalent": "Iscrizione REG A/B; iscrizione OTIA per firmare progetti in Ticino",
+      "leadTimeMonths": [
+        2,
+        6
+      ],
+      "cclReference": "Nessun CCL (onorari secondo regolamenti SIA)",
+      "cclUrl": "https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro",
+      "regulated": true,
+      "notes": "In Ticino la firma di progetti richiede l'iscrizione OTIA secondo la LEPIA; il registro REG attesta l'equivalenza del titolo."
     }
   },
   "note": "Curated, hand-verified equivalence summary. Update TRADE_PROFESSIONS when SEFRI / SECO publish CCL revisions. Regulated = requires authority pre-approval before employment.",
