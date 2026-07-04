@@ -73,9 +73,13 @@ function extractSlugFromPath(urlPath) {
     '/en/job-search-ticino/', '/de/jobs-im-tessin/', '/de/jobsuche-tessin/',
     '/fr/recherche-emploi-tessin/', '/fr/trouver-emploi-tessin/',
   ];
+  // Match case-insensitively (GSC may index a locale segment with drifted
+  // casing, e.g. `/EN/find-jobs-ticino/...`) — mirrors inferLocale() in
+  // build-plugins/searchConsoleCompat.ts.
+  const lowerPath = urlPath.toLowerCase();
   for (const prefix of allPrefixes) {
-    if (urlPath.startsWith(prefix)) {
-      const slug = urlPath.slice(prefix.length).replace(/\/$/, '');
+    if (lowerPath.startsWith(prefix)) {
+      const slug = lowerPath.slice(prefix.length).replace(/\/$/, '');
       if (slug && !slug.includes('/')) return slug;
       return null;
     }
@@ -236,10 +240,13 @@ function mineCompatPaths() {
     const slug = extractSlugFromPath(p);
     if (!isValidJobSlug(slug)) continue;
     if (!slugs.has(slug)) slugs.set(slug, { locales: {} });
-    // Detect locale from path
-    if (p.startsWith('/en/')) slugs.get(slug).locales.en = p;
-    else if (p.startsWith('/de/')) slugs.get(slug).locales.de = p;
-    else if (p.startsWith('/fr/')) slugs.get(slug).locales.fr = p;
+    // Detect locale from path, case-insensitively (GSC may index a locale
+    // segment with drifted casing, e.g. `/EN/find-jobs-ticino/...`) — mirrors
+    // inferLocale() in build-plugins/searchConsoleCompat.ts.
+    const lowerPath = p.toLowerCase();
+    if (lowerPath.startsWith('/en/')) slugs.get(slug).locales.en = p;
+    else if (lowerPath.startsWith('/de/')) slugs.get(slug).locales.de = p;
+    else if (lowerPath.startsWith('/fr/')) slugs.get(slug).locales.fr = p;
     else slugs.get(slug).locales.it = p;
   }
   return slugs;
