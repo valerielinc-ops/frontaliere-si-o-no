@@ -700,7 +700,7 @@ function isRateLimitedError(msg) {
  * daily cap, so the rest of the run had nothing left to fall back to).
  */
 function isSoftThrottleError(msg) {
-  return !!msg && /code=10004|email\.sending\.error\.throttled/i.test(msg);
+  return !!msg && /code=10004\b|email\.sending\.error\.throttled/i.test(msg);
 }
 
 // Short cooldown for soft-throttled providers (mirrors the AI-model
