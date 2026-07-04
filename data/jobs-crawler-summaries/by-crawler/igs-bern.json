@@ -1,16 +1,16 @@
 {
   "key": "igs-bern",
   "label": "Interessengemeinschaft Sozialpsychiatrie Bern",
-  "generatedAt": "2026-07-03T22:13:59.803Z",
+  "generatedAt": "2026-07-04T10:56:24.310Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3115,
-  "avgDurationMs": 3115,
+  "durationMs": 2811,
+  "avgDurationMs": 2811,
   "durationHistory": [
-    3115
+    2811
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job153622?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:13:57.690Z",
+      "crawledAt": "2026-07-04T10:56:22.312Z",
       "addressLocality": "Moosseedorf",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -54,49 +54,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "igs-bern-9c98977693d2",
-      "slug": "servizio-di-guardia-notturna-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern",
-      "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
-      "companyKey": "igs-bern",
-      "companyDomain": "igsbern.ch",
-      "title": "Nachtpikett-Dienst (ca. 30-40%)",
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.publicjobs.ch/jobs/fachpersonen-gesundheit-%28fage%29-und-betreuung-%28fabe%29/~job155180?ext",
-      "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-02T11:14:23.971Z",
-      "addressLocality": "Bern",
-      "postalCode": "3000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-63",
-      "applyUrl": "https://www.publicjobs.ch/jobs/fachpersonen-gesundheit-%28fage%29-und-betreuung-%28fabe%29/~job155180?ext",
-      "pensumMin": 30,
-      "pensumMax": 40,
-      "pensum": "30 - 40%",
-      "firstSeenAt": "2026-05-19T21:18:41.342Z",
-      "salaryMin": 27400,
-      "salaryMax": 41600,
-      "addressRegion": "BE",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
