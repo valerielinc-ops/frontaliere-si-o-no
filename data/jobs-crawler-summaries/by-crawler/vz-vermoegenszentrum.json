@@ -1,18 +1,19 @@
 {
   "key": "vz-vermoegenszentrum",
   "label": "VZ VermögensZentrum",
-  "generatedAt": "2026-07-04T12:46:48.378Z",
+  "generatedAt": "2026-07-04T23:20:53.527Z",
   "total": 49,
-  "newCount": 49,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 49,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3476,
-  "avgDurationMs": 3476,
+  "durationMs": 4058,
+  "avgDurationMs": 4058,
   "durationHistory": [
-    3476
+    4058
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "vz-vermoegenszentrum-8f38bed48b0a",
       "slug": "application-manager-banking-80-100-vz-vermoegenszentrum-ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/application-manager-banking/24778a23-0ea3-48af-8433-0156da6da762",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.751Z",
+      "crawledAt": "2026-07-04T23:20:50.459Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -40,11 +41,13 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/application-manager-banking/24778a23-0ea3-48af-8433-0156da6da762",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.751Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/0567d2ec-8a48-4e62-9dbe-db325b313313",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.753Z",
+      "crawledAt": "2026-07-04T23:20:50.461Z",
       "addressLocality": "Basel",
       "postalCode": "4051",
       "addressRegion": "Basel-Stadt",
@@ -75,11 +78,13 @@
       "featured": false,
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/0567d2ec-8a48-4e62-9dbe-db325b313313",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.753Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -95,7 +100,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/studentenjob-mitarbeiter-in-datenerfassung/9e7c2c70-9ed6-4e10-a23f-390db989753d",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.756Z",
+      "crawledAt": "2026-07-04T23:20:50.464Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -110,11 +115,13 @@
       "featured": false,
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/studentenjob-mitarbeiter-in-datenerfassung/9e7c2c70-9ed6-4e10-a23f-390db989753d",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.756Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -130,7 +137,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-datenerfassung/6e003f1d-ea39-47ad-9bbb-30808bb0f3b3",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.758Z",
+      "crawledAt": "2026-07-04T23:20:50.465Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -145,11 +152,13 @@
       "featured": false,
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-datenerfassung/6e003f1d-ea39-47ad-9bbb-30808bb0f3b3",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.758Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -165,7 +174,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/m365-workplace-engineer-mit-fokus-security/ac9c0183-f58f-447d-a339-31db530b5860",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.760Z",
+      "crawledAt": "2026-07-04T23:20:50.468Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -180,11 +189,13 @@
       "featured": false,
       "postedDate": "2026-06-29",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/m365-workplace-engineer-mit-fokus-security/ac9c0183-f58f-447d-a339-31db530b5860",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:46:45.760Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -200,7 +211,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/software-engineer-net-full-stack/99e23064-34c1-47ee-a79e-352c5a86c8c9",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.761Z",
+      "crawledAt": "2026-07-04T23:20:50.469Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -215,11 +226,13 @@
       "featured": false,
       "postedDate": "2026-06-29",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/software-engineer-net-full-stack/99e23064-34c1-47ee-a79e-352c5a86c8c9",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:46:45.761Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -235,7 +248,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-investment-solutions-manager/dbf7696d-b9ae-43cf-b33c-98643156dfc3",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.762Z",
+      "crawledAt": "2026-07-04T23:20:50.470Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -250,11 +263,13 @@
       "featured": false,
       "postedDate": "2026-06-29",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-investment-solutions-manager/dbf7696d-b9ae-43cf-b33c-98643156dfc3",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.762Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -270,7 +285,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/senior-software-engineer-net-fullstack/d63d23e5-a261-431d-a0db-370b91d32023",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.763Z",
+      "crawledAt": "2026-07-04T23:20:50.471Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -285,11 +300,13 @@
       "featured": false,
       "postedDate": "2026-06-29",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/senior-software-engineer-net-fullstack/d63d23e5-a261-431d-a0db-370b91d32023",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:46:45.763Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -305,7 +322,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/teamleiter-in-hr-administration/9b6ef0ce-901f-4621-8a77-9e7fb10b2864",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.764Z",
+      "crawledAt": "2026-07-04T23:20:50.472Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -320,11 +337,13 @@
       "featured": false,
       "postedDate": "2026-06-26",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/teamleiter-in-hr-administration/9b6ef0ce-901f-4621-8a77-9e7fb10b2864",
-      "_qualityScore": 65,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.764Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 21,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -340,7 +359,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/disponent-in/caa6b9a7-2db4-4187-9f5f-32e1419b6b73",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.765Z",
+      "crawledAt": "2026-07-04T23:20:50.472Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -355,11 +374,13 @@
       "featured": false,
       "postedDate": "2026-06-26",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/disponent-in/caa6b9a7-2db4-4187-9f5f-32e1419b6b73",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.765Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -375,7 +396,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/leitende-funktion-in-der-nachlassabteilung/760357c2-bc0b-44a5-b83a-c6476f4c793e",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.766Z",
+      "crawledAt": "2026-07-04T23:20:50.473Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -390,11 +411,13 @@
       "featured": false,
       "postedDate": "2026-06-24",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/leitende-funktion-in-der-nachlassabteilung/760357c2-bc0b-44a5-b83a-c6476f4c793e",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.766Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -410,7 +433,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-accountant/f3d1a4a1-3f2e-4729-94d9-90d7268b4385",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.767Z",
+      "crawledAt": "2026-07-04T23:20:50.473Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -425,11 +448,13 @@
       "featured": false,
       "postedDate": "2026-06-24",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-accountant/f3d1a4a1-3f2e-4729-94d9-90d7268b4385",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:46:45.767Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -445,7 +470,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-kundenempfang/8050d7ef-fc32-4c1a-ac63-904c951ae922",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.767Z",
+      "crawledAt": "2026-07-04T23:20:50.474Z",
       "addressLocality": "Thun",
       "postalCode": "3600",
       "addressRegion": "Bern",
@@ -460,11 +485,13 @@
       "featured": false,
       "postedDate": "2026-06-24",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-kundenempfang/8050d7ef-fc32-4c1a-ac63-904c951ae922",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.767Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -480,7 +507,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-kundenempfang/ef69c729-b7a3-4d91-9576-2ed3c3acac59",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.767Z",
+      "crawledAt": "2026-07-04T23:20:50.474Z",
       "addressLocality": "Basel",
       "postalCode": "4051",
       "addressRegion": "Basel-Stadt",
@@ -495,11 +522,13 @@
       "featured": false,
       "postedDate": "2026-06-23",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-kundenempfang/ef69c729-b7a3-4d91-9576-2ed3c3acac59",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.767Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -515,7 +544,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/0beb9f32-fe8c-4974-abd7-96c8a2b68d3d",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.768Z",
+      "crawledAt": "2026-07-04T23:20:50.474Z",
       "addressLocality": "Solothurn",
       "postalCode": "4500",
       "addressRegion": "Solothurn",
@@ -530,11 +559,13 @@
       "featured": false,
       "postedDate": "2026-06-19",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/0beb9f32-fe8c-4974-abd7-96c8a2b68d3d",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:46:45.768Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -550,7 +581,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/29fa574b-ee34-4ab2-ad1b-7e0d30087e47",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.770Z",
+      "crawledAt": "2026-07-04T23:20:50.475Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "Graubünden",
@@ -565,11 +596,13 @@
       "featured": false,
       "postedDate": "2026-06-19",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/29fa574b-ee34-4ab2-ad1b-7e0d30087e47",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:46:45.770Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -585,7 +618,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/leitung-it-management-office/7ff14fd1-b815-46f0-8d64-624d4f563759",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.770Z",
+      "crawledAt": "2026-07-04T23:20:50.476Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -600,11 +633,13 @@
       "featured": false,
       "postedDate": "2026-06-19",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/leitung-it-management-office/7ff14fd1-b815-46f0-8d64-624d4f563759",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.770Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -620,7 +655,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/ca75c4c3-e622-428f-89e0-b099c4f6d87f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.771Z",
+      "crawledAt": "2026-07-04T23:20:50.477Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "addressRegion": "Sankt Gallen",
@@ -635,11 +670,13 @@
       "featured": false,
       "postedDate": "2026-06-19",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/ca75c4c3-e622-428f-89e0-b099c4f6d87f",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:46:45.771Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -655,7 +692,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/netzwerkmanager-mit-flair-fuer-infrastrukturprojekte/2e19b692-9c50-477b-98c6-63afe1b1a69f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.771Z",
+      "crawledAt": "2026-07-04T23:20:50.479Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -670,11 +707,13 @@
       "featured": false,
       "postedDate": "2026-06-18",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/netzwerkmanager-mit-flair-fuer-infrastrukturprojekte/2e19b692-9c50-477b-98c6-63afe1b1a69f",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.771Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -690,7 +729,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/f014db32-8852-4779-8b8b-441fec0e9058",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.772Z",
+      "crawledAt": "2026-07-04T23:20:50.480Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -705,11 +744,13 @@
       "featured": false,
       "postedDate": "2026-06-18",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/f014db32-8852-4779-8b8b-441fec0e9058",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:46:45.772Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -725,7 +766,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/pwa-praktikum-im-bereich-hypotheken-und-immobilien-august-2026/b990c96d-afbf-4832-add4-281da3845b7e",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.773Z",
+      "crawledAt": "2026-07-04T23:20:50.481Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -740,11 +781,13 @@
       "featured": false,
       "postedDate": "2026-06-18",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/pwa-praktikum-im-bereich-hypotheken-und-immobilien-august-2026/b990c96d-afbf-4832-add4-281da3845b7e",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.773Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -760,7 +803,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/23aa33b0-6d03-46ff-b19f-999f71fe2430",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.773Z",
+      "crawledAt": "2026-07-04T23:20:50.481Z",
       "addressLocality": "Sursee",
       "postalCode": "6210",
       "addressRegion": "Luzern",
@@ -775,11 +818,13 @@
       "featured": false,
       "postedDate": "2026-06-18",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/23aa33b0-6d03-46ff-b19f-999f71fe2430",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.773Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -795,7 +840,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/career-start-dans-le-conseil-bancaire/b22c778e-de45-445c-bd98-698654f95820",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:46:45.774Z",
+      "crawledAt": "2026-07-04T23:20:50.482Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "Vaud",
@@ -810,11 +855,13 @@
       "featured": false,
       "postedDate": "2026-06-16",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/career-start-dans-le-conseil-bancaire/b22c778e-de45-445c-bd98-698654f95820",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.774Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -830,7 +877,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/conseiller-ere-clients-service-center/13edaaa1-b5ee-486e-816f-6f705a01e7bc",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:46:45.775Z",
+      "crawledAt": "2026-07-04T23:20:50.482Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "Vaud",
@@ -845,11 +892,13 @@
       "featured": false,
       "postedDate": "2026-06-16",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/conseiller-ere-clients-service-center/13edaaa1-b5ee-486e-816f-6f705a01e7bc",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.775Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -865,7 +914,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung/317c3f61-0a4d-4c1b-9942-ff6983b5e284",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.775Z",
+      "crawledAt": "2026-07-04T23:20:50.483Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -880,11 +929,13 @@
       "featured": false,
       "postedDate": "2026-06-15",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung/317c3f61-0a4d-4c1b-9942-ff6983b5e284",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.775Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -900,7 +951,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/kundenbetreuer-in-pensionskasse/60d39b8f-dd27-4b3d-bf0c-52815543438f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.776Z",
+      "crawledAt": "2026-07-04T23:20:50.483Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -915,11 +966,13 @@
       "featured": false,
       "postedDate": "2026-06-15",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/kundenbetreuer-in-pensionskasse/60d39b8f-dd27-4b3d-bf0c-52815543438f",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.776Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -935,7 +988,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/specialiste-hypothecaire/e1aacd4b-1aa1-498e-ab1e-5b1f349e2e24",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:46:45.776Z",
+      "crawledAt": "2026-07-04T23:20:50.484Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "Vaud",
@@ -950,11 +1003,13 @@
       "featured": false,
       "postedDate": "2026-06-15",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/specialiste-hypothecaire/e1aacd4b-1aa1-498e-ab1e-5b1f349e2e24",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.776Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -970,7 +1025,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-hypothekarspezialist-in/25f650ec-55a5-4a7d-8a42-20004020ccda",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.777Z",
+      "crawledAt": "2026-07-04T23:20:50.484Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -985,11 +1040,13 @@
       "featured": false,
       "postedDate": "2026-06-15",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-hypothekarspezialist-in/25f650ec-55a5-4a7d-8a42-20004020ccda",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.777Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -1005,7 +1062,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-vorsorgeplanung/2165a4c9-9d2f-4422-9a4a-4e7a198f70b8",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.778Z",
+      "crawledAt": "2026-07-04T23:20:50.485Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -1020,11 +1077,13 @@
       "featured": false,
       "postedDate": "2026-06-12",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-vorsorgeplanung/2165a4c9-9d2f-4422-9a4a-4e7a198f70b8",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.778Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -1040,7 +1099,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/senior-stiftungsbuchhalter-in/018d82d4-2378-4d23-bff4-d939d2ab9944",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:46:45.778Z",
+      "crawledAt": "2026-07-04T23:20:50.486Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -1055,16 +1114,17 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/senior-stiftungsbuchhalter-in/018d82d4-2378-4d23-bff4-d939d2ab9944",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:46:45.778Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
