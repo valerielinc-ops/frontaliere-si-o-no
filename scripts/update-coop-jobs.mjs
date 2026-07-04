@@ -43,7 +43,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, hasFullLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, hasFullLocaleCoverage, normalizeSpace } from './lib/dedicated-crawler-common.mjs';
 import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 import {
   fetchCoopJsonLd,
@@ -549,6 +549,13 @@ async function postProcessCoopJobs() {
     // post-processing step), forcing the AI pipeline to re-translate an
     // already fully-translated title every run and churn slugByLocale.
     const wasFullyLocalized = hasFullLocaleCoverage(job);
+    // Snapshot the prior assembled description too (review #3454): coverage
+    // alone freezes the flag forever once a job reaches full 4-locale
+    // coverage, even if the live Coop posting is later rewritten. The
+    // assembly below is deterministic from title/company/locality/ldDesc, so
+    // comparing old vs new full text detects genuine source content drift —
+    // mirrors the sourceTitleStable gate in mergePreserveLocaleData.
+    const priorDescriptionText = job.description || '';
 
     // ── Location & company update from JSON-LD ──
     const ldResult = applyCoopJsonLdToJob(job, jsonLd);
@@ -626,12 +633,17 @@ async function postProcessCoopJobs() {
           // the guard correctly excludes it (translation backlog ≠ parser
           // failure) and the next localization pass fills IT. Jobs whose source
           // already IS Italian keep IT populated and pass the guard directly.
-          // Guard (issue #3442): skip the flag entirely when the job already had
-          // full 4-locale coverage BEFORE this repair ran — descLang !== 'it' is
-          // near-permanent for German/French Coop postings, so without this guard
-          // an already-translated job gets re-flagged (and re-translated, with MT
-          // non-determinism churning slugByLocale) on every single re-crawl.
-          if (!wasFullyLocalized && (descLang !== 'it' || !String(job.descriptionByLocale?.it || '').trim())) {
+          // Guard (issue #3442): skip the flag when the job already had full
+          // 4-locale coverage BEFORE this repair ran — descLang !== 'it' is
+          // near-permanent for German/French Coop postings, so without this
+          // guard an already-translated job gets re-flagged (and
+          // re-translated, with MT non-determinism churning slugByLocale) on
+          // every single re-crawl. But coverage alone must not freeze the
+          // flag forever (review #3454): also re-flag when the assembled
+          // description actually changed from the previous crawl, so a
+          // rewritten live posting still reaches the translation pipeline.
+          const sourceContentChanged = normalizeSpace(priorDescriptionText) !== normalizeSpace(fullDesc);
+          if ((!wasFullyLocalized || sourceContentChanged) && (descLang !== 'it' || !String(job.descriptionByLocale?.it || '').trim())) {
             job.needsRetranslation = true;
           }
           changed = true;
