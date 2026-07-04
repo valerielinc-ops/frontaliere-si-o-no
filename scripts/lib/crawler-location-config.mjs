@@ -637,6 +637,15 @@ export const COMPANY_HQ = {
   // scripts/lib/sfs-group-job-parser.mjs for the HQ-vs-other-SG-towns gating
   // (this entry is only the generic fallback).
   'sfs-group': { city: 'Heerbrugg', canton: 'SG', postalCode: '9435', addressRegion: 'SG' },
+  // Komax AG HQ, Industriestrasse 6, 6036 Dierikon LU — confirmed via Zefix
+  // (Swiss commercial register REST API, firm ehraid 100752, uid
+  // CHE-102.274.193, legalSeat "Dierikon"); cross-checked against Komax's own
+  // live job feed (https://jobs.komaxgroup.com/sitemap_index.xml), which
+  // lists postal code "6036" for every Dierikon posting. Street address lives
+  // in the city-gated `resolveAddress()` in scripts/lib/komax-group-job-parser.mjs
+  // (gate matches Dierikon only — Komax also posts jobs from Thun BE, a
+  // different canton, which must NOT inherit this HQ).
+  'komax': { city: 'Dierikon', canton: 'LU', postalCode: '6036', addressRegion: 'LU' },
 };
 
 /**
