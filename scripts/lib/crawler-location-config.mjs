@@ -693,6 +693,15 @@ export const COMPANY_HQ = {
   // branch postings outside Sursee use their own city-gated address in
   // scripts/lib/hornbach-job-parser.mjs; this entry is only the HQ fallback.
   'hornbach': { city: 'Sursee', canton: 'LU', postalCode: '6210', addressRegion: 'LU' },
+  // NEW YORKER (Schweiz) GmbH, Rietbrunnen 2, 8808 Pfäffikon SZ (legal seat
+  // registered as the municipality "Freienbach"), UID CHE-112.007.794 —
+  // confirmed via the official Zefix REST API
+  // (zefix.ch/ZefixREST/api/v1/firm/768755.json) AND cross-checked against
+  // northdata.com + moneyhouse.ch (see scripts/lib/new-yorker-job-parser.mjs
+  // docblock for full source detail). No stores are actually posted at this
+  // address — see the city-gated `resolveAddress()` in that parser for the
+  // per-store street (the retail chain spans 8+ Swiss cantons).
+  'new-yorker': { city: 'Pfäffikon', canton: 'SZ', postalCode: '8808', addressRegion: 'SZ' },
 };
 
 /**
