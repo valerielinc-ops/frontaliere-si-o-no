@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ruag-ag",
-  "assembledAt": "2026-07-04T12:29:54.970Z",
+  "assembledAt": "2026-07-04T22:50:24.075Z",
   "jobs": [
     {
       "title": "Facility Manager Networks / BetriebselektrikerIn Schwachstrom 80 - 100% (w/m/d)",
@@ -198,17 +198,17 @@
       "postalCode": "3600",
       "firstSeenAt": "2026-06-29T23:02:14.767Z",
       "previousSlugsByLocale": {
-        "it": [
-          "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun"
-        ],
         "fr": [
           "assistant-a-la-gestion-de-la-construction-ouest-80-100-f-m-d-ruag-ag-thun",
+          "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun"
+        ],
+        "it": [
           "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun"
         ]
       },
       "previousSlugs": [
-        "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun",
-        "assistant-a-la-gestion-de-la-construction-ouest-80-100-f-m-d-ruag-ag-thun"
+        "assistant-a-la-gestion-de-la-construction-ouest-80-100-f-m-d-ruag-ag-thun",
+        "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun"
       ],
       "needsRetranslation": true
     },
@@ -1372,11 +1372,11 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-07-02T12:36:02.356Z",
       "previousSlugsByLocale": {
-        "it": [
-          "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach"
-        ],
         "fr": [
           "gestionnaire-d-essais-60-100-m-j-ruag-ag-zurich-seebach",
+          "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach"
+        ],
+        "it": [
           "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach"
         ],
         "en": [
@@ -1384,8 +1384,8 @@
         ]
       },
       "previousSlugs": [
-        "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach",
-        "gestionnaire-d-essais-60-100-m-j-ruag-ag-zurich-seebach"
+        "gestionnaire-d-essais-60-100-m-j-ruag-ag-zurich-seebach",
+        "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach"
       ],
       "needsRetranslation": true
     },
@@ -1445,7 +1445,8 @@
         }
       },
       "postalCode": "3600",
-      "firstSeenAt": "2026-07-02T22:37:51.768Z"
+      "firstSeenAt": "2026-07-02T22:37:51.768Z",
+      "needsRetranslation": true
     },
     {
       "title": "Strategische/r EinkäuferIn Immobilien (Bauleistungen, Generalplaner. Generalunternehmer) 80-100% (w/m/d)",
