@@ -4373,15 +4373,34 @@ export function guessCategory(title = '', description = '') {
   return 'other';
 }
 
+/**
+ * Extract the workload percent from ONE source string: a RANGE
+ * ("70% - 100%", "70\u2013100%") classifies by its upper bound \u2014 a job is only
+ * genuinely part-time when even its maximum workload stays below the
+ * full-time threshold (#3482) \u2014 otherwise the FIRST single percent wins.
+ */
+export function workloadPercent(text) {
+  // Both range spellings occur in the wild: "70-100%" and "70% - 100%".
+  const range = String(text).match(/\b(\d{1,3})\s*%?\s*[-\u2013\u2014]\s*(\d{1,3})\s*%/);
+  if (range) return Math.max(Number(range[1]), Number(range[2]));
+  const single = String(text).match(/\b(\d{1,3})\s*%/);
+  return single ? Number(single[1]) : NaN;
+}
+
 export function normalizeContract(raw = '', title = '', description = '') {
   const s = String(`${raw} ${title} ${description}`).replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
-  // Workload can be a RANGE (e.g. "70% - 100%"): classify by the range's
-  // upper bound, not the first number found - a job is only genuinely
-  // part-time when even its maximum workload stays below the full-time
-  // threshold. Matching the lower bound would misread a full-time-eligible
-  // "70% - 100%" role as part-time (#3482).
-  const percents = [...s.matchAll(/\b(\d{1,3})\s*%/g)].map((m) => Number(m[1]));
-  const percent = percents.length ? Math.max(...percents) : NaN;
+  // Workload precedence: rawContract, then title, then description \u2014 the
+  // description is NOISY (Swiss ads carry marketing percentages like "100%
+  // Lohnfortzahlung bei Krankheit"), so a blanket max over every percent in
+  // the whole ad would flip an explicit "Verk\u00e4ufer 60%" title to full-time.
+  // Within the first source carrying a percent, a range classifies by its
+  // upper bound (#3482), a single value by first match.
+  const normSource = (v) => String(v).replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
+  let percent = NaN;
+  for (const source of [normSource(raw), normSource(title), normSource(description)]) {
+    percent = workloadPercent(source);
+    if (Number.isFinite(percent)) break;
+  }
   if (Number.isFinite(percent) && percent > 0 && percent < 90) return 'part-time';
   for (const [k, v] of Object.entries(CONTRACT_MAP)) {
     if (s.replace(/[\s-]/g, '_').includes(k)) return v;

@@ -39,7 +39,7 @@
 // URL/id, since those differ between the duplicate rows.
 
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, workloadPercent } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, normalizeSpace } from './crawler-template.mjs';
 import { decodeHtmlEntities } from './decode-html-entities.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
@@ -204,12 +204,12 @@ function detectExperienceLevel(title = '') {
 function detectEmploymentType(title = '') {
   const t = normalize(title);
   if (/lehrstelle|lehrling|ausbildung|apprenti|schnupperpraktikum|praktikum|trainee/.test(t)) return 'INTERN';
-  if (/\b(\d{1,2})\s*-\s*(\d{2,3})\s*%/.test(t)) {
-    const m = t.match(/\b(\d{1,2})\s*-\s*(\d{2,3})\s*%/);
-    const min = m ? Number(m[1]) : 100;
-    return min < 50 ? 'PART_TIME' : 'FULL_TIME';
-  }
-  if (/teilzeit|part[\s-]?time|\b[1-7]\d\s*%/.test(t)) return 'PART_TIME';
+  // Aligned to the canonical upper-bound rule (#3482 class, shared helper):
+  // a range is part-time only when even its MAX workload stays under 90%
+  // (the old lower-bound<50 rule read "50-70%" as FULL_TIME).
+  const percent = workloadPercent(t);
+  if (Number.isFinite(percent) && percent > 0 && percent < 90) return 'PART_TIME';
+  if (/teilzeit|part[\s-]?time/.test(t)) return 'PART_TIME';
   return 'FULL_TIME';
 }
 

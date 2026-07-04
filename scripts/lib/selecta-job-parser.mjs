@@ -64,7 +64,7 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, workloadPercent } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 
@@ -230,9 +230,10 @@ function detectExperienceLevel(title = '') {
 function detectEmploymentType(text = '') {
   const t = normalize(text);
   if (/\b(ausbildung|lehrstelle|lernende|apprenti)\b/.test(t)) return 'INTERN';
-  const percentMatch = t.match(/\b(\d{1,3})\s*%/);
-  const percent = percentMatch ? Number(percentMatch[1]) : null;
-  if (percent !== null && percent > 0 && percent < 90) return 'PART_TIME';
+  // Range-aware (#3482 class): "60% - 100%" classifies by upper bound via
+  // the shared helper, a single value by first match.
+  const percent = workloadPercent(t);
+  if (Number.isFinite(percent) && percent > 0 && percent < 90) return 'PART_TIME';
   if (/\b(befristet|aushilfe|temporary|zeitarbeit)\b/.test(t)) return 'CONTRACTOR';
   return 'FULL_TIME';
 }

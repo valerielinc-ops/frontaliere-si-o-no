@@ -23,6 +23,23 @@ describe('normalizeContract — workload percentage-range classification (#3482)
   it('still classifies a single at/above-threshold percentage as full-time', () => {
     expect(normalizeContract('', 'Verkäufer 100%', '')).toBe('full-time');
   });
+
+  it('never lets a marketing percent in the NOISY description override an explicit title workload', () => {
+    // Swiss ads routinely carry benefit/marketing figures ("100% Lohnfortzahlung",
+    // "zu 95% weiterempfohlen") — a blanket max over the whole ad would flip an
+    // explicit part-time title to full-time (local review of #3536).
+    expect(normalizeContract('', 'Verkäufer 60%', 'Wir bieten 100% Lohnfortzahlung bei Krankheit')).toBe('part-time');
+    expect(normalizeContract('', 'Pflegefachfrau 50-80%', 'Von Mitarbeitenden zu 95% weiterempfohlen')).toBe('part-time');
+  });
+
+  it('uses the description percent only when raw and title carry none', () => {
+    expect(normalizeContract('', 'Sachbearbeiter Finanzen', 'Pensum: 60%')).toBe('part-time');
+    expect(normalizeContract('', 'Sachbearbeiter Finanzen', 'Pensum: 60% - 100%')).toBe('full-time');
+  });
+
+  it('rawContract percent takes precedence over both title and description', () => {
+    expect(normalizeContract('50%', 'Stellvertretung 100%', '')).toBe('part-time');
+  });
 });
 
 describe('dedicated-crawler-common locale hardening', () => {
