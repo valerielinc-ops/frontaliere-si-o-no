@@ -173,7 +173,7 @@ const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
     title: /\b(ostetric|hebamme|sage-?femme|midwife)/i,
   },
   'assistente-dentale': {
-    title: /(dentalassistent|dentalhygien|assistente dentale|igienista dentale|assistante dentaire|dental assistant|dental hygienist|prophylaxeassistent)/i,
+    title: /\b(dentalassistent|dentalhygien|assistente dentale|igienista dentale|assistante dentaire|dental assistant|dental hygienist|prophylaxeassistent)/i,
   },
   'tecnico-radiologia': {
     title: /(radiologiefach|fachperson mtr|tecnico di radiologia|technicien en radiologie|radiographer|\bmtra\b)/i,
@@ -185,12 +185,16 @@ const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
   },
   'ottico-optometrista': {
     title: /\b(ottic[oa]\b|optometrist|optiker|opticien)/i,
+    // "ottico/ottica" is a common bare adjective in physics/tech titles
+    // (fibra ottica, sensore ottico, ottica adattiva) — reject those so the
+    // landing only features eyewear-profession ads.
+    exclude: /(ottica adattiva|fibra ottic|sensore ottic|microscopio ottic|lettore ottic|cavo ottic|disco ottic|amplificatore ottic|ricercator|postdoc|dottorato|fisica|physics|laser)/i,
   },
   contabile: {
     title: /\b(contabil|buchhalt|comptab|accountant|accounting)/i,
   },
   'assistente-sociale': {
-    title: /(assistente sociale|sozialarbeit|sozialp[äa]dagog|assistant social|social worker)/i,
+    title: /\b(assistente sociale|sozialarbeit|sozialp[äa]dagog|assistant social|social worker)/i,
   },
   macellaio: {
     title: /\b(macella|metzger|fleischfach|boucher\b|butcher)/i,
