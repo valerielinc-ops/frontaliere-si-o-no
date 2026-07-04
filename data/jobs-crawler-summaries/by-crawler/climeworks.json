@@ -1,18 +1,19 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-07-03T21:37:34.918Z",
+  "generatedAt": "2026-07-04T10:28:59.592Z",
   "total": 12,
-  "newCount": 12,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2920,
-  "avgDurationMs": 2920,
+  "durationMs": 2637,
+  "avgDurationMs": 2637,
   "durationHistory": [
-    2920
+    2637
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "climeworks-1cbaf2706361",
       "slug": "commercial-growth-intern-100-climeworks-zurich",
@@ -25,7 +26,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-growth-intern-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:37:32.343Z",
+      "crawledAt": "2026-07-04T10:28:57.271Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -39,11 +40,12 @@
       "postedDate": "2026-07-03",
       "applyUrl": "https://climeworks.recruitee.com/o/commercial-growth-intern-100",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-03T21:37:32.343Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -59,7 +61,7 @@
       "url": "https://climeworks.recruitee.com/o/monitoring-alerting-engineering-intern-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:37:32.349Z",
+      "crawledAt": "2026-07-04T10:28:57.276Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,11 +75,12 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://climeworks.recruitee.com/o/monitoring-alerting-engineering-intern-100",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-03T21:37:32.349Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -93,7 +96,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-growth-lead-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:37:32.351Z",
+      "crawledAt": "2026-07-04T10:28:57.280Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -107,11 +110,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://climeworks.recruitee.com/o/commercial-growth-lead-100",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-03T21:37:32.351Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -127,7 +131,7 @@
       "url": "https://climeworks.recruitee.com/o/hse-facility-senior-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:37:32.354Z",
+      "crawledAt": "2026-07-04T10:28:57.282Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,11 +145,13 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://climeworks.recruitee.com/o/hse-facility-senior-manager-100",
       "remote": false,
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-03T21:37:32.354Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 20,
         "completeness": 14
       }
     },
@@ -161,7 +167,7 @@
       "url": "https://climeworks.recruitee.com/o/senior-strategic-partnership-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:37:32.358Z",
+      "crawledAt": "2026-07-04T10:28:57.283Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -175,11 +181,12 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://climeworks.recruitee.com/o/senior-strategic-partnership-manager-100",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-03T21:37:32.358Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -195,7 +202,7 @@
       "url": "https://climeworks.recruitee.com/o/senior-synthetic-chemist-sorbent-innovation-lead-80100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:37:32.359Z",
+      "crawledAt": "2026-07-04T10:28:57.285Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -209,11 +216,12 @@
       "postedDate": "2026-06-24",
       "applyUrl": "https://climeworks.recruitee.com/o/senior-synthetic-chemist-sorbent-innovation-lead-80100",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-03T21:37:32.359Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -229,7 +237,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:37:32.360Z",
+      "crawledAt": "2026-07-04T10:28:57.287Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -243,11 +251,12 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-03T21:37:32.360Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -263,7 +272,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-piping-and-plant-layout-engineer-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:37:32.361Z",
+      "crawledAt": "2026-07-04T10:28:57.290Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -277,11 +286,12 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://climeworks.recruitee.com/o/lead-piping-and-plant-layout-engineer-100",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-03T21:37:32.361Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -297,7 +307,7 @@
       "url": "https://climeworks.recruitee.com/o/intern-in-sorbent-characterization-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:37:32.362Z",
+      "crawledAt": "2026-07-04T10:28:57.291Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -311,11 +321,12 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://climeworks.recruitee.com/o/intern-in-sorbent-characterization-100-101",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-03T21:37:32.362Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -331,7 +342,7 @@
       "url": "https://climeworks.recruitee.com/o/patent-counsel-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:37:32.364Z",
+      "crawledAt": "2026-07-04T10:28:57.292Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -345,11 +356,12 @@
       "postedDate": "2026-05-05",
       "applyUrl": "https://climeworks.recruitee.com/o/patent-counsel-80-100",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-03T21:37:32.364Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -365,7 +377,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-mechanical-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:37:32.366Z",
+      "crawledAt": "2026-07-04T10:28:57.293Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -379,11 +391,12 @@
       "postedDate": "2026-04-29",
       "applyUrl": "https://climeworks.recruitee.com/o/lead-mechanical-engineer-100-101",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-03T21:37:32.366Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -399,7 +412,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:37:32.367Z",
+      "crawledAt": "2026-07-04T10:28:57.294Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -413,16 +426,16 @@
       "postedDate": "2026-02-10",
       "applyUrl": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-03T21:37:32.367Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
