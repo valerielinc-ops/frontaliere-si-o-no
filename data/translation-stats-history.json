@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-06-17T04:51:18.687Z",
-    "label": "after",
-    "total": 16679,
-    "needsRetranslation": 4776,
-    "suppressed": 633,
-    "incomplete": 2849,
-    "complete": 13830,
-    "missingByLocale": {
-      "it": 1525,
-      "en": 1307,
-      "de": 1481,
-      "fr": 1310
-    },
-    "topPending": [
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1859
-      },
-      {
-        "company": "Manor AG",
-        "pending": 115
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 93
-      },
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 72
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 66
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 46
-      },
-      {
-        "company": "Implenia",
-        "pending": 41
-      },
-      {
-        "company": "Roche",
-        "pending": 35
-      },
-      {
-        "company": "The Swatch Group (España) S.A.",
-        "pending": 35
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-17T08:46:08.053Z",
-    "label": "before",
-    "total": 16781,
-    "needsRetranslation": 4791,
-    "suppressed": 633,
-    "incomplete": 2694,
-    "complete": 14087,
-    "missingByLocale": {
-      "it": 1449,
-      "en": 1202,
-      "de": 1310,
-      "fr": 1215
-    },
-    "topPending": [
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1720
-      },
-      {
-        "company": "Manor AG",
-        "pending": 115
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 93
-      },
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 72
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 66
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Roche",
-        "pending": 49
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 46
-      },
-      {
-        "company": "Implenia",
-        "pending": 41
-      },
-      {
-        "company": "The Swatch Group (España) S.A.",
-        "pending": 35
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-17T10:53:44.983Z",
-    "label": "after",
-    "total": 16781,
-    "needsRetranslation": 4337,
-    "suppressed": 734,
-    "incomplete": 2592,
-    "complete": 14189,
-    "missingByLocale": {
-      "it": 1362,
-      "en": 977,
-      "de": 1325,
-      "fr": 1090
-    },
-    "topPending": [
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1681
-      },
-      {
-        "company": "Manor AG",
-        "pending": 115
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 93
-      },
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 72
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 66
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 46
-      },
-      {
-        "company": "Roche",
-        "pending": 44
-      },
-      {
-        "company": "UBS",
-        "pending": 42
-      },
-      {
-        "company": "Implenia",
-        "pending": 41
-      },
-      {
-        "company": "The Swatch Group (España) S.A.",
-        "pending": 35
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-17T23:48:01.903Z",
-    "label": "before",
-    "total": 17302,
-    "needsRetranslation": 10078,
-    "suppressed": 594,
-    "incomplete": 3571,
-    "complete": 13731,
-    "missingByLocale": {
-      "it": 2168,
-      "en": 1907,
-      "de": 1212,
-      "fr": 1728
-    },
-    "topPending": [
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1573
-      },
-      {
-        "company": "Fresh Food & Beverage Group",
-        "pending": 644
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "Cartier",
-        "pending": 104
-      },
-      {
-        "company": "PostAuto",
-        "pending": 97
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 80
-      },
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 71
-      },
-      {
-        "company": "Roche",
-        "pending": 70
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 58
-      },
-      {
-        "company": "Implenia",
-        "pending": 55
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-18T02:14:12.552Z",
     "label": "after",
     "total": 17302,
@@ -11509,6 +11281,120 @@
       },
       {
         "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-04T02:12:55.294Z",
+    "label": "before",
+    "total": 19650,
+    "needsRetranslation": 4757,
+    "suppressed": 391,
+    "incomplete": 916,
+    "complete": 18734,
+    "missingByLocale": {
+      "it": 495,
+      "en": 341,
+      "de": 399,
+      "fr": 196
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 735
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 60
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 22
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 19
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "FELFEL",
+        "pending": 8
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-04T02:16:46.933Z",
+    "label": "after",
+    "total": 19650,
+    "needsRetranslation": 2307,
+    "suppressed": 385,
+    "incomplete": 912,
+    "complete": 18738,
+    "missingByLocale": {
+      "it": 495,
+      "en": 338,
+      "de": 395,
+      "fr": 194
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 731
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 60
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 22
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 19
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "FELFEL",
+        "pending": 8
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
         "pending": 3
       }
     ]

@@ -50,7 +50,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-02T22:19:09.547Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -298,7 +297,7 @@
       "companyDomain": "microsoft.com",
       "title": "Strategic Account Executive",
       "titleByLocale": {
-        "it": "Strategic Account Executive",
+        "it": "Amministratore Delegato",
         "en": "Strategic Account Executive",
         "de": "Strategischer Account Executive",
         "fr": "Exécutif du compte stratégique"
@@ -360,8 +359,7 @@
       },
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
