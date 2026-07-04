@@ -496,6 +496,37 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  // Issue #3429 — follow-up to PR #3419. GSC may index a locale-prefix
+  // segment with drifted casing (e.g. `/EN/...` instead of `/en/`). The
+  // case-sensitive section-match regexes below still fail to recover the
+  // SPECIFIC slug for a case-drifted path (that's a separate, harder
+  // problem not in scope here), but inferLocale() must still detect the
+  // correct locale so the generic search-fallback branch lands on the
+  // right-locale listing instead of silently defaulting to 'it'.
+  it('detects the correct locale from a case-drifted locale prefix (search fallback)', () => {
+    expect(
+      resolveSearchConsoleCompatTarget('/EN/find-jobs-ticino/ricerca-qualcosa'),
+    ).toEqual({
+      canonicalPath: '/en/find-jobs-ticino/',
+      kind: 'search',
+      locale: 'en',
+    });
+    expect(
+      resolveSearchConsoleCompatTarget('/De/jobs-im-tessin/suche-qualcosa'),
+    ).toEqual({
+      canonicalPath: '/de/jobs-im-tessin/',
+      kind: 'search',
+      locale: 'de',
+    });
+    expect(
+      resolveSearchConsoleCompatTarget('/FR/trouver-emploi-tessin/recherche-quelque-chose'),
+    ).toEqual({
+      canonicalPath: '/fr/trouver-emploi-tessin/',
+      kind: 'search',
+      locale: 'fr',
+    });
+  });
+
   it('recovers the wrong-locale-word DE TI section guess to the real jobs-im-tessin section', () => {
     expect(resolveSearchConsoleCompatTarget('/de/jobs-in-ticino')).toEqual({
       canonicalPath: '/de/jobs-im-tessin/',
