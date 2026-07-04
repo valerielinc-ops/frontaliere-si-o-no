@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tinext",
-  "assembledAt": "2026-07-03T23:14:42.572Z",
+  "assembledAt": "2026-07-04T12:26:05.430Z",
   "jobs": [
     {
       "title": "Security & Network Engineer",
@@ -115,6 +115,22 @@
         "fr": "employe-e-amministrativo-contabile-tinext-sa-morbio"
       },
       "id": "tinext-02ce24a236a5",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Cantonale 18",
+      "postalCode": "6928",
+      "firstSeenAt": "2026-07-01T13:10:04.732Z",
       "previousSlugsByLocale": {
         "it": [
           "impiegato-a-amministrativo-contabile-tinext-lugano-backoffthb"
@@ -131,23 +147,7 @@
       },
       "previousSlugs": [
         "impiegato-a-amministrativo-contabile-tinext-lugano-backoffthb"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928",
-      "firstSeenAt": "2026-07-01T13:10:04.732Z"
+      ]
     }
   ]
 }
