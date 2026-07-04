@@ -1,14 +1,14 @@
 {
   "crawlerKey": "felfel",
-  "assembledAt": "2026-07-04T10:42:32.683Z",
+  "assembledAt": "2026-07-04T21:52:20.273Z",
   "jobs": [
     {
       "id": "felfel-4e04db9f8379",
       "slug": "proprietario-senior-del-prodotto-tecnologico-felfel-zurich",
       "slugByLocale": {
-        "de": "senior-tech-product-owner-felfel-zurich",
         "it": "proprietario-senior-del-prodotto-tecnologico-felfel-zurich",
         "en": "senior-tech-product-owner-felfel-zurich",
+        "de": "senior-tech-product-owner-felfel-zurich",
         "fr": "proprietaire-de-produit-tech-senior-felfel-zurich"
       },
       "company": "FELFEL",
@@ -16,9 +16,9 @@
       "companyDomain": "felfel.ch",
       "title": "Senior Tech Product Owner",
       "titleByLocale": {
-        "de": "Senior Tech Produktbesitzer",
-        "en": "Senior Tech Product Owner",
         "it": "Proprietario senior del prodotto tecnologico",
+        "en": "Senior Tech Product Owner",
+        "de": "Senior Tech Product Owner",
         "fr": "Propriétaire de produit Tech Senior"
       },
       "description": "Senior Tech Product Owner bei FELFEL in Zürich.",
@@ -30,7 +30,7 @@
       "url": "https://felfel.jobs.personio.de/job/2601890",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T21:45:10.729Z",
+      "crawledAt": "2026-07-04T21:52:17.904Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -48,10 +48,18 @@
       "applyUrl": "https://felfel.jobs.personio.de/job/2601890",
       "jobReqId": "2601890",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-tech-product-owner-felfel-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-tech-product-owner-felfel-zurich",
+          "proprietario-senior-del-prodotto-tecnologico-felfel-zurich"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:45:10.729Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -63,41 +71,31 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-03T21:45:10.729Z",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-tech-product-owner-felfel-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "senior-tech-product-owner-felfel-zurich"
-      ]
+      }
     },
     {
       "id": "felfel-095653aadaa6",
       "slug": "lavoro-a-tempo-parziale-commissione-nella-cella-frigorifera-2-giorni-a-settimana-felfel-zurich",
       "slugByLocale": {
-        "en": "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich",
         "it": "lavoro-a-tempo-parziale-commissione-nella-cella-frigorifera-2-giorni-a-settimana-felfel-zurich",
+        "en": "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich",
         "de": "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich",
-        "fr": "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
+        "fr": "temps-partiel-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
       },
       "company": "FELFEL",
       "companyKey": "felfel",
       "companyDomain": "felfel.ch",
       "title": "Part-time Job - Commission in the Cool Cell (2 days per Week)",
       "titleByLocale": {
-        "en": "Part-time Job - Commission in the Cool Cell (2 days per Week)",
         "it": "Lavoro a tempo parziale - Commissione nella cella frigorifera (2 giorni a settimana)",
+        "en": "Part-time Job - Commission in the Cool Cell (2 days per Week)",
         "de": "Teilzeit Job - Commission in the Cool Cell (2 days per Week)",
         "fr": "Temps partiel Job - Commission in the Cool Cell (2 days per Week)"
       },
       "description": "Part-time Job - Commission in the Cool Cell (2 days per Week) bei FELFEL in Zürich.",
       "descriptionByLocale": {
-        "en": "Part-time Job - Commission in the Cool Cell (2 days per Week) bei FELFEL in Zürich.",
         "it": "Lavoro part-time - Commissione nella cella fredda (2 giorni alla settimana) BEI FELFEL a Zurigo.",
+        "en": "Part-time Job - Commission in the Cool Cell (2 days per Week) bei FELFEL in Zürich.",
         "de": "Teilzeitjob - Kommission in der Kühlzelle (2 Tage pro Woche) für FELFEL in Zürich.",
         "fr": "Emploi à temps partiel - Commission dans la cellule Cool (2 jours par semaine) bei FELFEL à Zurich."
       },
@@ -106,7 +104,7 @@
       "url": "https://felfel.jobs.personio.de/job/2142463",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:45:10.727Z",
+      "crawledAt": "2026-07-04T21:52:17.903Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -124,10 +122,22 @@
       "applyUrl": "https://felfel.jobs.personio.de/job/2142463",
       "jobReqId": "2142463",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich",
+          "lavoro-a-tempo-parziale-commissione-nella-cella-frigorifera-2-giorni-a-settimana-felfel-zurich"
+        ],
+        "fr": [
+          "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich",
+          "temps-partiel-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:45:10.727Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -139,21 +149,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-03T21:45:10.727Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
-        ],
-        "fr": [
-          "temps-partiel-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich",
-        "temps-partiel-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
-      ],
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "felfel-4c42b5faed3a",
@@ -183,7 +179,7 @@
       "url": "https://felfel.jobs.personio.de/job/2696431",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T10:42:30.344Z",
+      "crawledAt": "2026-07-04T21:52:17.902Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -202,12 +198,16 @@
       "jobReqId": "2696431",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:45:10.726Z",
       "previousSlugsByLocale": {
-        "de": [
-          "operations-coordinator-60-felfel-zurich"
-        ],
         "it": [
-          "operations-coordinator-60-felfel-zurich"
+          "operations-coordinator-60-felfel-zurich",
+          "operations-coordinatore-60-felfel-zurich"
+        ],
+        "de": [
+          "operations-coordinator-60-felfel-zurich",
+          "operations-koordinator-60-felfel-zurich"
         ],
         "fr": [
           "operations-coordinator-60-felfel-zurich"
@@ -216,8 +216,6 @@
       "previousSlugs": [
         "operations-coordinator-60-felfel-zurich"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-03T21:45:10.726Z",
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -259,7 +257,7 @@
       "url": "https://felfel.jobs.personio.de/job/2693407",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:42:30.343Z",
+      "crawledAt": "2026-07-04T21:52:17.900Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -321,7 +319,7 @@
       "url": "https://felfel.jobs.personio.de/job/2687300",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:42:30.341Z",
+      "crawledAt": "2026-07-04T21:52:17.898Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -340,11 +338,13 @@
       "jobReqId": "2687300",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-03T21:45:10.723Z",
+      "previousSlugs": [
+        "iot-platform-engineer-felfel-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "iot-platform-engineer-felfel-zurich"
+          "iot-platform-engineer-felfel-zurich",
+          "iot-platform-ingegnere-felfel-zurich"
         ],
         "de": [
           "iot-platform-engineer-felfel-zurich"
@@ -353,9 +353,8 @@
           "iot-platform-engineer-felfel-zurich"
         ]
       },
-      "previousSlugs": [
-        "iot-platform-engineer-felfel-zurich"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:45:10.723Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -397,7 +396,7 @@
       "url": "https://felfel.jobs.personio.de/job/2685922",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:42:30.339Z",
+      "crawledAt": "2026-07-04T21:52:17.896Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -416,11 +415,13 @@
       "jobReqId": "2685922",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-03T21:45:10.720Z",
+      "previousSlugs": [
+        "edge-platform-engineer-felfel-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "edge-platform-engineer-felfel-zurich"
+          "edge-platform-engineer-felfel-zurich",
+          "edge-platform-ingegnere-felfel-zurich"
         ],
         "de": [
           "edge-platform-engineer-felfel-zurich"
@@ -429,9 +430,8 @@
           "edge-platform-engineer-felfel-zurich"
         ]
       },
-      "previousSlugs": [
-        "edge-platform-engineer-felfel-zurich"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:45:10.720Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -476,7 +476,7 @@
       "url": "https://felfel.jobs.personio.de/job/2692840",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:42:30.338Z",
+      "crawledAt": "2026-07-04T21:52:17.895Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -500,13 +500,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-service-manager-60-felfel-zurich"
+          "customer-service-manager-60-felfel-zurich",
+          "servizio-clienti-manager-60-felfel-zurich"
         ],
         "fr": [
           "customer-service-manager-60-felfel-zurich"
         ]
       },
       "firstSeenAt": "2026-07-03T21:45:10.717Z",
+      "needsRetranslation": true,
       "salaryMin": 60900,
       "salaryMax": 92400,
       "baseSalary": {
@@ -548,7 +550,7 @@
       "url": "https://felfel.jobs.personio.de/job/2633046",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:42:30.334Z",
+      "crawledAt": "2026-07-04T21:52:17.891Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -572,7 +574,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-service-agent-60-felfel-lausanne"
+          "customer-service-agent-60-felfel-lausanne",
+          "servizio-clienti-agent-60-felfel-lausanne"
         ],
         "fr": [
           "customer-service-agent-60-felfel-lausanne"
@@ -624,7 +627,7 @@
       "url": "https://felfel.jobs.personio.de/job/2682823",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:42:30.333Z",
+      "crawledAt": "2026-07-04T21:52:17.890Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -648,13 +651,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commercial-coordinator-felfel-zurich"
+          "commercial-coordinator-felfel-zurich",
+          "commercial-coordinatore-felfel-zurich"
         ],
         "fr": [
           "commercial-coordinator-felfel-zurich"
         ]
       },
       "firstSeenAt": "2026-07-03T21:45:10.714Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -685,7 +690,7 @@
         "it": "Responsabile dello Sviluppo Commerciale",
         "en": "Business Development Manager",
         "de": "Business Development Manager",
-        "fr": "Directeur du développement des affaires"
+        "fr": "Business Development Manager"
       },
       "description": "Business Development Manager bei FELFEL in Zürich.",
       "descriptionByLocale": {
@@ -696,7 +701,7 @@
       "url": "https://felfel.jobs.personio.de/job/2656265",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:42:30.331Z",
+      "crawledAt": "2026-07-04T21:52:17.888Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -716,11 +721,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "fr": [
-          "business-development-manager-felfel-zurich"
-        ],
         "it": [
-          "business-development-manager-felfel-zurich"
+          "business-development-manager-felfel-zurich",
+          "responsabile-dello-sviluppo-commerciale-felfel-zurich"
+        ],
+        "fr": [
+          "business-development-manager-felfel-zurich",
+          "directeur-du-developpement-des-affaires-felfel-zurich"
         ]
       },
       "previousSlugs": [
@@ -772,7 +779,7 @@
       "url": "https://felfel.jobs.personio.de/job/2668071",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:42:30.301Z",
+      "crawledAt": "2026-07-04T21:52:17.862Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -796,13 +803,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "account-executive-felfel-zurich"
+          "account-executive-felfel-zurich",
+          "account-esecutivo-felfel-zurich"
         ],
         "fr": [
           "account-executive-felfel-zurich"
         ]
       },
       "firstSeenAt": "2026-07-03T21:45:10.682Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
