@@ -1,18 +1,19 @@
 {
   "key": "veeam",
   "label": "Veeam Software",
-  "generatedAt": "2026-07-04T12:23:04.803Z",
+  "generatedAt": "2026-07-04T23:13:14.680Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2232,
-  "avgDurationMs": 2232,
+  "durationMs": 2600,
+  "avgDurationMs": 2600,
   "durationHistory": [
-    2232
+    2600
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "veeam-d366ba0cf23b",
       "slug": "sales-specialist-data-ai-security-veeam-ch",
@@ -25,7 +26,7 @@
       "url": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4781641101",
       "source": "Veeam Software Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:23:02.853Z",
+      "crawledAt": "2026-07-04T23:13:12.565Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "streetAddress": "Lindenstrasse 16",
@@ -47,11 +48,13 @@
         "canton": "ZG",
         "location": "Baar"
       },
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:23:02.853Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -67,7 +70,7 @@
       "url": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4781639101",
       "source": "Veeam Software Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:23:02.867Z",
+      "crawledAt": "2026-07-04T23:13:12.590Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "streetAddress": "Lindenstrasse 16",
@@ -89,16 +92,17 @@
         "canton": "ZG",
         "location": "Baar"
       },
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:23:02.867Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
