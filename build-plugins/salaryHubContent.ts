@@ -29,6 +29,20 @@ const fmtCHF = (n: number): string => Math.round(n).toLocaleString('de-CH');
 const fmtEUR = (n: number): string => Math.round(n).toLocaleString('de-DE');
 const fmtPct = (n: number): string => (n * 100).toFixed(1);
 
+/**
+ * Human tax-table letter from the calc source key: 'calc.tableA' → 'A'.
+ * `details.source` carries the i18n KEY (see calculationService.ts
+ * getTicinoTaxRate), not display copy — interpolating a bare
+ * `replace('calc.', '')` leaked the raw identifier into meta descriptions
+ * and body prose ("Tabella tableA", issue #3519). One shared helper for all
+ * template call sites so the munging can't drift again; anything that isn't
+ * a clean single table letter falls back to 'A' (the pre-existing default).
+ */
+const taxTableCode = (source?: string): string => {
+  const code = (source ?? '').replace(/^calc\.table/, '');
+  return /^[A-Z]$/.test(code) ? code : 'A';
+};
+
 // ── Locale labels ───────────────────────────────────────────────
 
 interface Labels {
@@ -131,7 +145,7 @@ const IT: Labels = {
   budgetTitle: 'Budget mensile indicativo',
   tipsTitle: 'Consigli pratici e servizi utili',
   howToCalc: (salary, s, r) =>
-    `Con un reddito lordo di CHF ${fmtCHF(salary)} annui, il datore di lavoro svizzero trattiene contributi sociali obbligatori per circa CHF ${fmtCHF(r.chResident.socialContributions)}: AVS (5,3%), assicurazione disoccupazione (1,1%), LAINF (0,7%), indennità giornaliera malattia (0,8%) e previdenza professionale LPP (5% a 35 anni). A queste si aggiunge l'imposta alla fonte ticinese calcolata secondo la tabella ${r.chResident.details.source?.replace('calc.', '') || 'A'}, che per questo reddito corrisponde a un'aliquota effettiva del ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
+    `Con un reddito lordo di CHF ${fmtCHF(salary)} annui, il datore di lavoro svizzero trattiene contributi sociali obbligatori per circa CHF ${fmtCHF(r.chResident.socialContributions)}: AVS (5,3%), assicurazione disoccupazione (1,1%), LAINF (0,7%), indennità giornaliera malattia (0,8%) e previdenza professionale LPP (5% a 35 anni). A queste si aggiunge l'imposta alla fonte ticinese calcolata secondo la tabella ${taxTableCode(r.chResident.details.source)}, che per questo reddito corrisponde a un'aliquota effettiva del ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
   regimeExplain: (s, r) => s.frontierType === 'OLD'
     ? `In qualità di vecchio frontaliere (accordo pre-2024), la tassazione avviene esclusivamente in Svizzera tramite l'imposta alla fonte. Non è prevista alcuna dichiarazione IRPEF in Italia sul reddito svizzero, il che semplifica notevolmente la gestione fiscale. L'aliquota effettiva complessiva è del ${fmtPct(r.itResident.details.effectiveRate / 100)}%.`
     : `Come nuovo frontaliere (accordo fiscale dal 2024), il reddito è soggetto a tassazione concorrente: ${s.distanceZone === 'WITHIN_20KM' ? 'l\'80% dell\'imposta alla fonte resta in Svizzera e il 20% viene retrocesso all\'Italia' : 'il 100% dell\'imposta alla fonte resta in Svizzera'}. In Italia si applica l'IRPEF con una franchigia di €10.000 e il credito d'imposta proporzionale per le tasse già pagate in Svizzera. Il saldo IRPEF netto è di circa EUR ${fmtEUR(r.itResident.details.irpefDetails?.finalNetTaxEUR ?? 0)}.`,
@@ -175,7 +189,7 @@ const IT: Labels = {
   },
   metaDesc: (s, r) => {
     const netMonthEUR = fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate);
-    return `Con ${fmtCHF(s.salary)} CHF lordi, un frontaliere ${s.frontierType === 'OLD' ? 'vecchio' : 'nuovo'} ${s.maritalStatus === 'MARRIED' ? 'sposato' : 'single'}${s.children > 0 ? ` con ${s.children} figli` : ''} netta circa EUR ${netMonthEUR}/mese. Tabella ${r.chResident.details.source?.replace('calc.', '') || 'A'}, aliquota ${fmtPct(r.itResident.details.effectiveRate / 100)}%. Simulazione 2026.`;
+    return `Con ${fmtCHF(s.salary)} CHF lordi, un frontaliere ${s.frontierType === 'OLD' ? 'vecchio' : 'nuovo'} ${s.maritalStatus === 'MARRIED' ? 'sposato' : 'single'}${s.children > 0 ? ` con ${s.children} figli` : ''} netta circa EUR ${netMonthEUR}/mese. Tabella ${taxTableCode(r.chResident.details.source)}, aliquota ${fmtPct(r.itResident.details.effectiveRate / 100)}%. Simulazione 2026.`;
   },
   h1: (s) => {
     const parts = [`Stipendio Netto ${fmtCHF(s.salary)} CHF`];
@@ -194,7 +208,7 @@ const IT: Labels = {
     },
     {
       q: `Quale tabella fiscale si applica con ${fmtCHF(s.salary)} CHF ${s.maritalStatus === 'MARRIED' ? 'da sposato' : 'da single'}?`,
-      a: `Si applica la tabella ${r.chResident.details.source?.replace('calc.', '').replace('table', '') || 'A'} dell'imposta alla fonte ticinese, con un'aliquota effettiva del ${fmtPct(r.chResident.details.effectiveRate / 100)}% sul reddito lordo.`,
+      a: `Si applica la tabella ${taxTableCode(r.chResident.details.source)} dell'imposta alla fonte ticinese, con un'aliquota effettiva del ${fmtPct(r.chResident.details.effectiveRate / 100)}% sul reddito lordo.`,
     },
     {
       q: `Conviene vivere in Svizzera o fare il frontaliere con ${fmtCHF(s.salary)} CHF?`,
@@ -245,7 +259,7 @@ const EN: Labels = {
   budgetTitle: 'Indicative monthly budget',
   tipsTitle: 'Practical tips and useful services',
   howToCalc: (salary, s, r) =>
-    `With a gross annual income of CHF ${fmtCHF(salary)}, the Swiss employer withholds mandatory social contributions of approximately CHF ${fmtCHF(r.chResident.socialContributions)}: AVS (5.3%), unemployment insurance (1.1%), accident insurance (0.7%), daily sickness allowance (0.8%), and occupational pension LPP. The Ticino withholding tax is calculated using table ${r.chResident.details.source?.replace('calc.', '') || 'A'}, resulting in an effective rate of ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
+    `With a gross annual income of CHF ${fmtCHF(salary)}, the Swiss employer withholds mandatory social contributions of approximately CHF ${fmtCHF(r.chResident.socialContributions)}: AVS (5.3%), unemployment insurance (1.1%), accident insurance (0.7%), daily sickness allowance (0.8%), and occupational pension LPP. The Ticino withholding tax is calculated using table ${taxTableCode(r.chResident.details.source)}, resulting in an effective rate of ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
   regimeExplain: (s, r) => s.frontierType === 'OLD'
     ? `As an old cross-border worker (pre-2024 agreement), taxation is exclusively in Switzerland through withholding tax. No Italian IRPEF declaration is required, with an overall effective rate of ${fmtPct(r.itResident.details.effectiveRate / 100)}%.`
     : `As a new cross-border worker (2024+ agreement), income is subject to concurrent taxation: ${s.distanceZone === 'WITHIN_20KM' ? '80% of the withholding tax stays in Switzerland and 20% is returned to Italy' : '100% of the withholding tax stays in Switzerland'}. Italian IRPEF applies with a €10,000 deduction and proportional tax credit for Swiss taxes paid.`,
@@ -287,7 +301,7 @@ const EN: Labels = {
     },
     {
       q: `Which tax table applies to CHF ${fmtCHF(s.salary)} ${s.maritalStatus === 'MARRIED' ? 'married' : 'single'}?`,
-      a: `Tax table ${r.chResident.details.source?.replace('calc.', '').replace('table', '') || 'A'} applies with an effective rate of ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
+      a: `Tax table ${taxTableCode(r.chResident.details.source)} applies with an effective rate of ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
     },
     {
       q: `Is it better to live in Switzerland or commute with CHF ${fmtCHF(s.salary)}?`,
@@ -358,7 +372,7 @@ const DE: Labels = {
     },
     {
       q: `Welche Steuertabelle gilt für CHF ${fmtCHF(s.salary)} ${s.maritalStatus === 'MARRIED' ? 'verheiratet' : 'ledig'}?`,
-      a: `Es gilt Tabelle ${r.chResident.details.source?.replace('calc.', '').replace('table', '') || 'A'} mit einem effektiven Satz von ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
+      a: `Es gilt Tabelle ${taxTableCode(r.chResident.details.source)} mit einem effektiven Satz von ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
     },
   ],
 };
@@ -423,7 +437,7 @@ const FR: Labels = {
     },
     {
       q: `Quel barème fiscal s'applique pour CHF ${fmtCHF(s.salary)} ${s.maritalStatus === 'MARRIED' ? 'marié' : 'célibataire'}?`,
-      a: `Le barème ${r.chResident.details.source?.replace('calc.', '').replace('table', '') || 'A'} s'applique avec un taux effectif de ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
+      a: `Le barème ${taxTableCode(r.chResident.details.source)} s'applique avec un taux effectif de ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
     },
   ],
 };

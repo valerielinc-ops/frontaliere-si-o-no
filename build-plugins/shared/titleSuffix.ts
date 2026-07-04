@@ -72,6 +72,75 @@ export function truncateHeadline(headline: string, max: number): string {
 }
 
 /**
+ * Words that must never dangle at the end of a truncated title — conjunctions,
+ * prepositions, articles and interrogatives across the 4 site locales
+ * (it/en/de/fr). A budget cut that lands mid-clause leaves one of these
+ * hanging ("Stipendio netto frontaliere 2026: come | simulazione | 2026",
+ * issue #3510); {@link truncateTitleAtClauseBoundary} peels them off.
+ */
+const TRAILING_STOPWORDS = new Set([
+  // it
+  'e', 'ed', 'o', 'od', 'a', 'ad', 'i', 'il', 'lo', 'la', 'le', 'un', 'una',
+  'uno', 'di', 'del', 'dello', 'della', 'dei', 'degli', 'delle', 'da', 'dal',
+  'dalla', 'in', 'nel', 'nella', 'nei', 'nelle', 'con', 'per', 'tra', 'fra',
+  'su', 'sul', 'sulla', 'al', 'allo', 'alla', 'ai', 'agli', 'alle', 'che',
+  'come', 'quanto', 'quando', 'dove', 'cosa', 'se', 'non', 'senza', 'verso',
+  // en
+  'and', 'or', 'the', 'an', 'of', 'to', 'on', 'at', 'for', 'with', 'by',
+  'from', 'how', 'what', 'which', 'when', 'where', 'why', 'is', 'are',
+  'your', 'without',
+  // de
+  'und', 'oder', 'der', 'die', 'das', 'ein', 'eine', 'einem', 'einen',
+  'einer', 'eines', 'von', 'vom', 'zu', 'zum', 'zur', 'im', 'mit', 'für',
+  'auf', 'aus', 'bei', 'beim', 'nach', 'wie', 'was', 'wann', 'wo', 'als',
+  'den', 'dem', 'des', 'ohne', 'über',
+  // fr
+  'et', 'ou', 'le', 'les', 'une', 'des', 'de', 'du', 'en', 'dans', 'pour',
+  'avec', 'par', 'sur', 'sous', 'comme', 'comment', 'que', 'qui', 'quand',
+  'où', 'au', 'aux', 'à', 'sans', 'chez',
+]);
+
+/**
+ * Truncate a title segment to `maxLen` code units ending on a whole clause:
+ * backs off to a word boundary, strips any dangling ` | <partial>` pipe
+ * segment, then peels trailing clause separators (`:,;.!?—–·-`) and dangling
+ * stopwords (see {@link TRAILING_STOPWORDS}) that a mid-clause cut leaves
+ * behind — "Stipendio netto frontaliere 2026: come" → "Stipendio netto
+ * frontaliere 2026" (issue #3510).
+ *
+ * Never appends an ellipsis (SERP-title contract, see module header). May
+ * return a short or empty string when the budget only fits stopwords —
+ * callers must treat a too-short result as "use the untruncated title"
+ * (the SERP-experiment caller falls back below 10 chars).
+ */
+export function truncateTitleAtClauseBoundary(s: string, maxLen: number): string {
+  let truncated = truncateCodeUnits(s, maxLen);
+  // Cut landed mid-word → drop the partial word.
+  if (truncated.length < s.length && /\S/.test(s.charAt(truncated.length))) {
+    truncated = truncated.replace(/\S+$/, '');
+  }
+  truncated = truncated.trimEnd();
+  // Strip any trailing incomplete ` | <partial>` segment (e.g. "| A" or "| Ag")
+  // that would read as a malformed extra pipe part next to a suffix.
+  truncated = truncated.replace(/\s*\|\s*[^|]*$/, '').trimEnd();
+  // Peel trailing clause separators and dangling stopwords until the title
+  // ends on a content word: "…2026: come" → "…2026:" → "…2026".
+  for (;;) {
+    const sepStripped = truncated.replace(/[\s:,;.!?—–·-]+$/u, '');
+    if (sepStripped !== truncated) {
+      truncated = sepStripped;
+      continue;
+    }
+    const lastWord = /(\S+)$/.exec(truncated)?.[1]?.toLowerCase() ?? '';
+    if (lastWord && TRAILING_STOPWORDS.has(lastWord)) {
+      truncated = truncated.slice(0, truncated.length - lastWord.length).trimEnd();
+      continue;
+    }
+    return truncated;
+  }
+}
+
+/**
  * SERP meta-description budget. Google truncates the snippet at ~155-160 char
  * on desktop; past this the tail (often the CTA/long-tail keywords) is dropped
  * from the displayed snippet, costing CTR. Generators should aim under this;

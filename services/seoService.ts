@@ -14,7 +14,7 @@ import { normalizeStructuredData } from './seo/schema-normalizers';
 import { cdnBlogImage } from './seo/blogImageCdn';
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
-import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription } from '../build-plugins/shared/titleSuffix';
+import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateTitleAtClauseBoundary } from '../build-plugins/shared/titleSuffix';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 
 /**
@@ -587,17 +587,11 @@ function applySerpTitleDescriptionVariant(
  const intent = getSerpIntentLabel(path, locale);
  const cleanTitle = title.replace(/\s+\|\s+Frontaliere Ticino$/i, '').trim();
 
- /**
-  * Truncate a title segment to `maxLen` characters, stripping any dangling
-  * ` | X` pipe separator that would produce a malformed title like
-  * "2200+ Offerte di Lavoro Ticino 2026 | A | simulazione | 2026".
-  * The `| A |` arises when the cut lands mid-way through a ` | Foo` part.
-  */
- function safeTruncate(s: string, maxLen: number): string {
-   const truncated = truncateCodeUnits(s, maxLen).trimEnd();
-   // Strip any trailing incomplete ` | <partial>` segment (e.g. "| A" or "| Ag")
-   return truncated.replace(/\s*\|\s*[^|]*$/, '').trimEnd();
- }
+ // Clause-boundary truncation (shared, build-plugins/shared/titleSuffix.ts):
+ // strips dangling ` | X` pipe segments AND dangling conjunctions/prepositions
+ // ("Stipendio netto frontaliere 2026: come | simulazione | 2026", #3510).
+ // A result under 10 chars falls back to the untruncated title below.
+ const safeTruncate = truncateTitleAtClauseBoundary;
 
  if (serpExperimentState.variant === 'year_intent') {
  const suffix = ` ${year} | ${intent}`;
