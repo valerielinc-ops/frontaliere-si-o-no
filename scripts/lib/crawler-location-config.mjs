@@ -738,6 +738,18 @@ export const COMPANY_HQ = {
   // fallback for HQ/regional roles, see resolveAddress() in
   // scripts/lib/migrolino-job-parser.mjs.
   'migrolino': { city: 'Suhr', canton: 'AG', postalCode: '5034', addressRegion: 'AG' },
+  // Holmes Place (Schweiz) GmbH HQ, Seestrasse 97, 8942 Oberrieden ZH —
+  // confirmed via 2 independent sources: Zefix (Swiss commercial register
+  // public API, firm search "Holmes Place") + jobs.ch company profile page
+  // (independent third-party listing), both agreeing on this address. Legal
+  // form converted AG → GmbH in 2024 (SHAB-confirmed via Zefix mutation
+  // history) — several third-party sources (jobs.ch prose, general web
+  // results) still say "Holmes Place AG"; that is stale. Holmes Place runs
+  // MULTIPLE gym branches across Switzerland (Zürich x2, Genève, Lausanne) —
+  // the per-branch street address lives in the city/branch-gated
+  // `resolveAddress()` in scripts/lib/holmes-place-job-parser.mjs; this HQ
+  // entry is only the generic canton/postal fallback.
+  'holmes-place': { city: 'Oberrieden', canton: 'ZH', postalCode: '8942', addressRegion: 'ZH' },
 };
 
 /**
