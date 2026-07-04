@@ -658,6 +658,14 @@ export const COMPANY_HQ = {
   // scripts/lib/selecta-job-parser.mjs for the per-job-posting fallback
   // logic; this HQ entry is only the generic never-drop fallback.
   'selecta': { city: 'Steinhausen', canton: 'ZG', postalCode: '6312', addressRegion: 'ZG' },
+  // Orell Füssli Thalia AG HQ, Dietzingerstrasse 3, 8003 Zürich ZH — confirmed
+  // via Handelsregister/Zefix (CHE-172.909.619, legal seat Zürich, domicile
+  // Dietzingerstrasse 3, 8003 Zürich per SHAB mutation), cross-checked against
+  // the company's own jobs.ch profile listing the same address. Real per-job
+  // city is city-gated in `resolveAddress()` in
+  // scripts/lib/orell-fuessli-thalia-job-parser.mjs (gate matches Zürich only,
+  // never canton alone); this HQ entry is only the generic fallback.
+  'orell-fuessli-thalia': { city: 'Zürich', canton: 'ZH', postalCode: '8003', addressRegion: 'ZH' },
 };
 
 /**
