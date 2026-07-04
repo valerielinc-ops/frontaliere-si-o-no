@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-07-04T10:15:17.828Z",
+  "assembledAt": "2026-07-04T21:13:44.136Z",
   "jobs": [
     {
       "id": "bcvs-3b0c960c56d3",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-dagence-conseiller-ere-en-gestion-de-fortune-2524",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T10:15:15.478Z",
+      "crawledAt": "2026-07-04T21:13:41.787Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -86,6 +86,7 @@
         "leiter-der-agentur-assistant-im-kapitalmanagement-banque-cantonale-du-valais-crans-montana"
       ],
       "firstSeenAt": "2026-04-14T09:26:21.120Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -131,7 +132,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/specialiste-tresorerie-devises-2540",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T10:15:15.067Z",
+      "crawledAt": "2026-07-04T21:13:41.275Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -185,6 +186,7 @@
         "specialiste-en-investissement-banque-cantonale-du-valais-sion"
       ],
       "firstSeenAt": "2026-05-06T21:27:36.448Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -230,7 +232,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-en-gestion-de-fortune-2552",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T10:15:14.562Z",
+      "crawledAt": "2026-07-04T21:13:40.762Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -283,6 +285,7 @@
         "berater-fur-das-management-von-kapital-banque-cantonale-du-valais-martigny"
       ],
       "firstSeenAt": "2026-05-07T10:31:53.966Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -328,7 +331,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-economat-courrier-et-ged-2555",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T10:15:14.054Z",
+      "crawledAt": "2026-07-04T21:13:40.340Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -379,6 +382,7 @@
         "gestionnaire-economat-courrier-et-ged-bcvs-sion"
       ],
       "firstSeenAt": "2026-05-07T10:31:53.489Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -424,7 +428,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/assistant-e-asset-management-2568",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T10:15:13.642Z",
+      "crawledAt": "2026-07-04T21:13:39.829Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -468,6 +472,7 @@
         "assistentin-des-managements-banque-cantonale-du-valais-sion"
       ],
       "firstSeenAt": "2026-05-29T11:37:18.594Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -497,7 +502,7 @@
       "title": "Expert-e immobilier senior",
       "titleByLocale": {
         "it": "Senior immobiliare esperto",
-        "en": "Senior real estate expert",
+        "en": "Expert-e immobilier senior",
         "de": "Senior Immobilienexperte",
         "fr": "Expert-e immobilier senior"
       },
@@ -513,7 +518,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-immobilier-senior-2570",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T10:15:13.133Z",
+      "crawledAt": "2026-07-04T21:13:39.414Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -548,6 +553,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:08:31.768Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -577,7 +583,7 @@
       "title": "Berater/in Customer Center",
       "titleByLocale": {
         "it": "Consulente Centro Clienti",
-        "en": "Consultant/Customer Center",
+        "en": "Berater/in Customer Center",
         "de": "Berater/in Customer Center",
         "fr": "Conseiller/Conseillère Centre Client"
       },
@@ -593,7 +599,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/berater-in-customer-center-2572",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:15:12.720Z",
+      "crawledAt": "2026-07-04T21:13:38.995Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -633,6 +639,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T22:15:42.716Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -678,7 +685,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sachbearbeiter-in-kredit-backoffice-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:15:12.213Z",
+      "crawledAt": "2026-07-04T21:13:38.583Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -758,7 +765,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-fichier-central-2593",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T10:15:11.801Z",
+      "crawledAt": "2026-07-04T21:13:38.162Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -802,6 +809,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T10:53:41.259Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -847,7 +855,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-bancaire-2596",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T10:15:11.293Z",
+      "crawledAt": "2026-07-04T21:13:37.744Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -893,6 +901,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:12:48.710Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
