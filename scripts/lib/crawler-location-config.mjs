@@ -686,6 +686,15 @@ export const COMPANY_HQ = {
   // AND cross-checked against Zefix (Swiss commercial register: legalSeat
   // "Laufen", UID CHE-439.050.235); no fallback needed.
   'ricola': { city: 'Laufen', canton: 'BL', postalCode: '4242', addressRegion: 'BL' },
+  // Bucher + Suter AG HQ, Lindenpark, Lindenhofstrasse 1, CH-3048 Worblaufen
+  // (Bern) BE — confirmed via the company's own imprint page
+  // (bucher-suter.com/imprint/, "Lindenhofstrasse 1, CH-3048 Worblaufen");
+  // no fallback needed.
+  'bucher-suter': { city: 'Bern', canton: 'BE', postalCode: '3048', addressRegion: 'BE' },
+  // GIM Architekten AG HQ, Altenbergstrasse 28, 3013 Bern — confirmed via
+  // jobs.ch company-profile Organization JSON-LD (both known company ids
+  // resolve to the same address) and gim.ch imprint/contact page.
+  'gim-architekten': { city: 'Bern', canton: 'BE', postalCode: '3013', addressRegion: 'BE' },
   // AnswerConsulting SA HQ, Via Penate 4, 6850 Mendrisio TI — confirmed via
   // the company's own site/careers page (answerconsulting.ch); no fallback
   // needed. Small single-office ICT/OpenText ECM consultancy — Workable ATS
