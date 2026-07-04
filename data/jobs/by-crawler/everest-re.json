@@ -9,7 +9,7 @@
         "en": "senior-underwriting-assistant-everest-re-ch",
         "it": "senior-underwriting-assistant-everest-re-ch",
         "de": "senior-underwriting-assistant-everest-re-ch",
-        "fr": "senior-underwriting-assistant-everest-re-ch"
+        "fr": "assistant-principal-de-souscription-everest-re-zurich"
       },
       "company": "Everest Re",
       "companyKey": "everest-re",
@@ -69,12 +69,12 @@
     },
     {
       "id": "everest-re-c78959051657",
-      "slug": "underwriter-i-reinsurance-everest-re-ch",
+      "slug": "sottoscrittore-i-reinsurance-everest-re-zurich",
       "slugByLocale": {
         "en": "underwriter-i-reinsurance-everest-re-ch",
-        "it": "underwriter-i-reinsurance-everest-re-ch",
-        "de": "underwriter-i-reinsurance-everest-re-zurich",
-        "fr": "underwriter-i-reinsurance-everest-re-ch"
+        "it": "sottoscrittore-i-reinsurance-everest-re-zurich",
+        "de": "versicherer-i-ruckversicherung-everest-re-zurich",
+        "fr": "sous-traitant-i-reassurance-everest-re-zurich"
       },
       "company": "Everest Re",
       "companyKey": "everest-re",
@@ -130,7 +130,22 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-03T21:59:52.543Z"
+      "firstSeenAt": "2026-07-03T21:59:52.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "underwriter-i-reinsurance-everest-re-ch"
+        ],
+        "de": [
+          "underwriter-i-reinsurance-everest-re-zurich"
+        ],
+        "fr": [
+          "underwriter-i-reinsurance-everest-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "underwriter-i-reinsurance-everest-re-ch",
+        "underwriter-i-reinsurance-everest-re-zurich"
+      ]
     }
   ]
 }

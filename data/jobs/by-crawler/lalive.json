@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "lalive-33c01e772d82",
-      "slug": "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra",
+      "slug": "cliente-privato-geneva-lalive-ginevra",
       "slugByLocale": {
         "fr": "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra",
-        "it": "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra",
-        "en": "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra",
-        "de": "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra"
+        "it": "cliente-privato-geneva-lalive-ginevra",
+        "en": "private-customer-geneva-lalive-ginevra",
+        "de": "private-kunde-geneva-lalive-ginevra"
       },
       "company": "LALIVE",
       "companyKey": "lalive",
@@ -64,16 +64,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T22:12:34.425Z"
+      "firstSeenAt": "2026-07-03T22:12:34.425Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra"
+        ],
+        "en": [
+          "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra"
+        ],
+        "de": [
+          "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra"
+        ]
+      },
+      "previousSlugs": [
+        "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra"
+      ]
     },
     {
       "id": "lalive-5955fcade4d0",
-      "slug": "avocat-e-s-stagiaires-geneve-lalive-ginevra",
+      "slug": "avoluzione-stagiaria-geneva-lalive-ginevra",
       "slugByLocale": {
         "fr": "avocat-e-s-stagiaires-geneve-lalive-ginevra",
-        "it": "avocat-e-s-stagiaires-geneve-lalive-ginevra",
-        "en": "avocat-e-s-stagiaires-geneve-lalive-ginevra",
-        "de": "avocat-e-s-stagiaires-geneve-lalive-ginevra"
+        "it": "avoluzione-stagiaria-geneva-lalive-ginevra",
+        "en": "stagiary-avolutions-geneva-lalive-ginevra",
+        "de": "stagiary-avolututions-geneva-lalive-ginevra"
       },
       "company": "LALIVE",
       "companyKey": "lalive",
@@ -128,16 +142,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T22:12:34.425Z"
+      "firstSeenAt": "2026-07-03T22:12:34.425Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "avocat-e-s-stagiaires-geneve-lalive-ginevra"
+        ],
+        "en": [
+          "avocat-e-s-stagiaires-geneve-lalive-ginevra"
+        ],
+        "de": [
+          "avocat-e-s-stagiaires-geneve-lalive-ginevra"
+        ]
+      },
+      "previousSlugs": [
+        "avocat-e-s-stagiaires-geneve-lalive-ginevra"
+      ]
     },
     {
       "id": "lalive-b7a0d1f89ecf",
-      "slug": "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra",
+      "slug": "associato-internazionale-di-arbitrazione-sviluppo-geneva-zurich-lalive-ginevra",
       "slugByLocale": {
         "en": "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra",
-        "it": "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra",
-        "de": "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra",
-        "fr": "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra"
+        "it": "associato-internazionale-di-arbitrazione-sviluppo-geneva-zurich-lalive-ginevra",
+        "de": "schweiz-qualifiziertes-internationales-schiedeverbindungsverbunden-geneva-zurich-lalive-ginevra",
+        "fr": "associat-international-d-arbitrage-suisse-geneve-zurich-lalive-ginevra"
       },
       "company": "LALIVE",
       "companyKey": "lalive",
@@ -192,16 +220,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T22:12:34.423Z"
+      "firstSeenAt": "2026-07-03T22:12:34.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra"
+        ],
+        "de": [
+          "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra"
+        ],
+        "fr": [
+          "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra"
+        ]
+      },
+      "previousSlugs": [
+        "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra"
+      ]
     },
     {
       "id": "lalive-6ed33eb0ad02",
-      "slug": "international-trainees-lalive-ginevra",
+      "slug": "traine-internazionali-lalive-ginevra",
       "slugByLocale": {
         "en": "international-trainees-lalive-ginevra",
-        "it": "international-trainees-lalive-ginevra",
-        "de": "international-trainees-lalive-ginevra",
-        "fr": "international-trainees-lalive-ginevra"
+        "it": "traine-internazionali-lalive-ginevra",
+        "de": "internationale-ausbildungen-lalive-ginevra",
+        "fr": "trains-internationaux-lalive-ginevra"
       },
       "company": "LALIVE",
       "companyKey": "lalive",
@@ -256,7 +298,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T22:12:34.423Z"
+      "firstSeenAt": "2026-07-03T22:12:34.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "international-trainees-lalive-ginevra"
+        ],
+        "de": [
+          "international-trainees-lalive-ginevra"
+        ],
+        "fr": [
+          "international-trainees-lalive-ginevra"
+        ]
+      },
+      "previousSlugs": [
+        "international-trainees-lalive-ginevra"
+      ]
     },
     {
       "id": "lalive-5a0a08825acb",
@@ -265,7 +321,7 @@
         "en": "lawyers-geneva-zurich-london-lalive-ginevra",
         "it": "lawyers-geneva-zurich-london-lalive-ginevra",
         "de": "lawyers-geneva-zurich-london-lalive-ginevra",
-        "fr": "lawyers-geneva-zurich-london-lalive-ginevra"
+        "fr": "les-legislateurs-geneve-zurich-london-lalive-ginevra"
       },
       "company": "LALIVE",
       "companyKey": "lalive",
@@ -324,12 +380,12 @@
     },
     {
       "id": "lalive-d0ab9525d872",
-      "slug": "substitut-innen-zurich-lalive-zurigo",
+      "slug": "istituti-dentro-austria-lalive-zurigo",
       "slugByLocale": {
         "de": "substitut-innen-zurich-lalive-zurigo",
-        "it": "substitut-innen-zurich-lalive-zurigo",
-        "en": "substitut-innen-zurich-lalive-zurigo",
-        "fr": "substitut-innen-zurich-lalive-zurigo"
+        "it": "istituti-dentro-austria-lalive-zurigo",
+        "en": "substitutes-inside-austria-lalive-zurigo",
+        "fr": "substitats-insidiaires-autriche-lalive-zurigo"
       },
       "company": "LALIVE",
       "companyKey": "lalive",
@@ -384,7 +440,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T22:12:34.421Z"
+      "firstSeenAt": "2026-07-03T22:12:34.421Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "substitut-innen-zurich-lalive-zurigo"
+        ],
+        "en": [
+          "substitut-innen-zurich-lalive-zurigo"
+        ],
+        "fr": [
+          "substitut-innen-zurich-lalive-zurigo"
+        ]
+      },
+      "previousSlugs": [
+        "substitut-innen-zurich-lalive-zurigo"
+      ]
     },
     {
       "id": "lalive-793e2caa68fe",
@@ -393,7 +463,7 @@
         "en": "support-staff-geneva-zurich-london-lalive-ginevra",
         "it": "support-staff-geneva-zurich-london-lalive-ginevra",
         "de": "support-staff-geneva-zurich-london-lalive-ginevra",
-        "fr": "support-staff-geneva-zurich-london-lalive-ginevra"
+        "fr": "personnel-d-appui-geneve-zurich-london-lalive-ginevra"
       },
       "company": "LALIVE",
       "companyKey": "lalive",

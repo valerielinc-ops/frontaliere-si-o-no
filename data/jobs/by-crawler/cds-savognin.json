@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk",
         "it": "pflegehilfsperson-srk-im-nachtdienst-m-w-d-o-pflegehilfsperson-con-bereitschaft-den-srk-kurs-zu-absolvieren-center-da-sanadad-savognin",
-        "en": "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk",
-        "fr": "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk"
+        "en": "night-service-nursing-assistant-m-f-or-nursing-assistant-willing-to-complete-the-src-course-center-da-sanadad-savognin",
+        "fr": "assistante-infirmiere-de-nuit-m-f-ou-assistante-infirmiere-prete-a-suivre-le-cours-de-src-center-da-sanadad-savognin"
       },
       "company": "Center da Sanadad Savognin",
       "companyKey": "cds-savognin",
@@ -54,6 +54,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk"
+        ],
+        "en": [
+          "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk"
+        ],
+        "fr": [
           "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk"
         ]
       },
@@ -130,8 +136,7 @@
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistentin-praxisassistenten-cds-savognin-savognin",
-          "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin",
-          "med-assistente-pratica-assistente-pratico-center-da-sanadad-savognin-savognin"
+          "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin"
         ],
         "en": [
           "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin"
@@ -288,8 +293,7 @@
         "it": [
           "dipl-pflegefachperson-m-w-hf-fh-cds-savognin-savognin",
           "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin",
-          "infermiera-m-f-hf-fh-center-da-sanadad-savognin-savognin",
-          "dipl-infermiera-m-f-hf-fh-center-da-sanadad-savognin-savognin"
+          "infermiera-m-f-hf-fh-center-da-sanadad-savognin-savognin"
         ],
         "en": [
           "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin"
@@ -366,8 +370,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin",
-          "co-chefarzt-co-chefarztin-con-option-chefarzt-chefarztin-innere-medizin-center-da-sanadad-savognin-savognin"
+          "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin"
         ]
       },
       "firstSeenAt": "2026-06-27T10:16:30.022Z",

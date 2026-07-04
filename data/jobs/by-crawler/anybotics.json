@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "anybotics-74337a3d76ea",
-      "slug": "vp-system-architecture-anybotics-ch",
+      "slug": "architettura-del-sistema-vp-anybotics-zurich-switzerland",
       "slugByLocale": {
         "en": "vp-system-architecture-anybotics-ch",
-        "it": "vp-system-architecture-anybotics-ch",
-        "de": "vp-system-architecture-anybotics-zurich-switzerland",
-        "fr": "vp-system-architecture-anybotics-ch"
+        "it": "architettura-del-sistema-vp-anybotics-zurich-switzerland",
+        "de": "vp-systemarchitektur-anybotics-zurich-switzerland",
+        "fr": "vp-architecture-du-systeme-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
       "companyKey": "anybotics",
@@ -64,7 +64,22 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-03T21:18:39.699Z"
+      "firstSeenAt": "2026-07-03T21:18:39.699Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vp-system-architecture-anybotics-ch"
+        ],
+        "de": [
+          "vp-system-architecture-anybotics-zurich-switzerland"
+        ],
+        "fr": [
+          "vp-system-architecture-anybotics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vp-system-architecture-anybotics-ch",
+        "vp-system-architecture-anybotics-zurich-switzerland"
+      ]
     },
     {
       "id": "anybotics-c31b9bb9e207",
@@ -132,12 +147,12 @@
     },
     {
       "id": "anybotics-0d831f9b484a",
-      "slug": "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+      "slug": "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland",
       "slugByLocale": {
         "en": "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
-        "it": "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
-        "de": "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
-        "fr": "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+        "it": "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland",
+        "de": "senior-manager-produktstruktur-systeme-plm-mes-anybotics-zurich-switzerland",
+        "fr": "gestionnaire-principal-structure-et-systemes-de-produits-plm-mes-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
       "companyKey": "anybotics",
@@ -192,7 +207,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-03T21:18:39.094Z"
+      "firstSeenAt": "2026-07-03T21:18:39.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+        ],
+        "de": [
+          "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+        ],
+        "fr": [
+          "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+      ]
     },
     {
       "id": "anybotics-fa7c9a824afe",
@@ -260,12 +289,12 @@
     },
     {
       "id": "anybotics-b8ea5408fd23",
-      "slug": "product-data-management-internship-anybotics-ch",
+      "slug": "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland",
       "slugByLocale": {
         "en": "product-data-management-internship-anybotics-ch",
-        "it": "product-data-management-internship-anybotics-ch",
-        "de": "product-data-management-internship-anybotics-ch",
-        "fr": "product-data-management-internship-anybotics-ch"
+        "it": "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland",
+        "de": "praktikum-produktdatenmanagement-anybotics-zurich-switzerland",
+        "fr": "stage-de-gestion-des-donnees-de-produits-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
       "companyKey": "anybotics",
@@ -320,15 +349,29 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-03T21:18:38.489Z"
+      "firstSeenAt": "2026-07-03T21:18:38.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-data-management-internship-anybotics-ch"
+        ],
+        "de": [
+          "product-data-management-internship-anybotics-ch"
+        ],
+        "fr": [
+          "product-data-management-internship-anybotics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-data-management-internship-anybotics-ch"
+      ]
     },
     {
       "id": "anybotics-4743d1cfd1f3",
-      "slug": "manufacturing-engineer-anybotics-ch",
+      "slug": "manufacturing-ingegnere-anybotics-zurich-switzerland",
       "slugByLocale": {
         "en": "manufacturing-engineer-anybotics-ch",
-        "it": "manufacturing-engineer-anybotics-ch",
-        "de": "manufacturing-engineer-anybotics-ch",
+        "it": "manufacturing-ingegnere-anybotics-zurich-switzerland",
+        "de": "manufacturing-ingenieur-anybotics-zurich-switzerland",
         "fr": "manufacturing-engineer-anybotics-ch"
       },
       "company": "ANYbotics",
@@ -384,16 +427,27 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-03T21:18:38.185Z"
+      "firstSeenAt": "2026-07-03T21:18:38.185Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manufacturing-engineer-anybotics-ch"
+        ],
+        "de": [
+          "manufacturing-engineer-anybotics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manufacturing-engineer-anybotics-ch"
+      ]
     },
     {
       "id": "anybotics-15d30a66bcfa",
-      "slug": "electrical-engineering-internship-anybotics-ch",
+      "slug": "ingegneria-elettrica-stage-anybotics-zurich",
       "slugByLocale": {
         "en": "electrical-engineering-internship-anybotics-ch",
-        "it": "electrical-engineering-internship-anybotics-ch",
-        "de": "electrical-engineering-internship-anybotics-ch",
-        "fr": "electrical-engineering-internship-anybotics-ch"
+        "it": "ingegneria-elettrica-stage-anybotics-zurich",
+        "de": "elektrotechnik-praktikum-anybotics-zurich",
+        "fr": "genie-electrique-stage-anybotics-zurich"
       },
       "company": "ANYbotics",
       "companyKey": "anybotics",
@@ -448,7 +502,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-03T21:18:37.881Z"
+      "firstSeenAt": "2026-07-03T21:18:37.881Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "electrical-engineering-internship-anybotics-ch"
+        ],
+        "de": [
+          "electrical-engineering-internship-anybotics-ch"
+        ],
+        "fr": [
+          "electrical-engineering-internship-anybotics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "electrical-engineering-internship-anybotics-ch"
+      ]
     }
   ]
 }

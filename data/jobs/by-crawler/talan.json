@@ -138,12 +138,12 @@
     },
     {
       "id": "talan-c905f2a296a3",
-      "slug": "head-of-ai-engineering-talan-geneva-ge-switzerland",
+      "slug": "responsabile-ai-engineering-talan-geneva-ge-switzerland",
       "slugByLocale": {
         "fr": "head-of-ai-engineering-talan-geneva-ge-switzerland",
-        "it": "head-of-ai-engineering-talan-geneva-ge-switzerland",
+        "it": "responsabile-ai-engineering-talan-geneva-ge-switzerland",
         "en": "head-of-ai-engineering-talan-geneva-ge-switzerland",
-        "de": "head-of-ai-engineering-talan-geneva-ge-switzerland"
+        "de": "leiter-ai-engineering-talan-geneva-ge-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
@@ -201,7 +201,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:41:37.250Z"
+      "firstSeenAt": "2026-07-03T23:41:37.250Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-ai-engineering-talan-geneva-ge-switzerland"
+        ],
+        "de": [
+          "head-of-ai-engineering-talan-geneva-ge-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-ai-engineering-talan-geneva-ge-switzerland"
+      ]
     },
     {
       "id": "talan-2b500bb7c102",
@@ -473,10 +484,10 @@
     },
     {
       "id": "talan-8b2dd9df4445",
-      "slug": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
+      "slug": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
       "slugByLocale": {
         "fr": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
-        "it": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
+        "it": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
         "en": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
         "de": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
       },
@@ -536,7 +547,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:41:37.237Z"
+      "firstSeenAt": "2026-07-03T23:41:37.237Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
+      ]
     }
   ]
 }

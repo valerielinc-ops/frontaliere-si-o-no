@@ -524,11 +524,11 @@
     },
     {
       "id": "sonarsource-a1b0639ed53f",
-      "slug": "senior-ai-engineer-sonarsource-ch",
+      "slug": "senior-ai-ingegnere-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "senior-ai-engineer-sonarsource-ch",
-        "it": "senior-ai-engineer-sonarsource-ch",
-        "de": "senior-ai-engineer-sonarsource-ch",
+        "it": "senior-ai-ingegnere-sonarsource-sonar-geneva",
+        "de": "senior-ai-ingenieur-sonarsource-sonar-geneva",
         "fr": "senior-ai-engineer-sonarsource-ch"
       },
       "company": "SonarSource (Sonar)",
@@ -585,7 +585,18 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:17:43.412Z"
+      "firstSeenAt": "2026-07-03T23:17:43.412Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-ai-engineer-sonarsource-ch"
+        ],
+        "de": [
+          "senior-ai-engineer-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-ai-engineer-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-72dcff8e007b",
@@ -914,11 +925,11 @@
     },
     {
       "id": "sonarsource-a79f251cee92",
-      "slug": "network-engineer-sonarsource-ch",
+      "slug": "network-ingegnere-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "network-engineer-sonarsource-ch",
-        "it": "network-engineer-sonarsource-ch",
-        "de": "network-engineer-sonarsource-ch",
+        "it": "network-ingegnere-sonarsource-sonar-geneva",
+        "de": "network-ingenieur-sonarsource-sonar-geneva",
         "fr": "network-engineer-sonarsource-ch"
       },
       "company": "SonarSource (Sonar)",
@@ -975,7 +986,18 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:17:41.602Z"
+      "firstSeenAt": "2026-07-03T23:17:41.602Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "network-engineer-sonarsource-ch"
+        ],
+        "de": [
+          "network-engineer-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "network-engineer-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-e7961432f3d0",
@@ -1499,12 +1521,12 @@
     },
     {
       "id": "sonarsource-e0df4cbca93e",
-      "slug": "ai-research-scientist-engineer-sonarsource-ch",
+      "slug": "ai-ricerca-scientist-ingegnere-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "ai-research-scientist-engineer-sonarsource-ch",
-        "it": "ai-research-scientist-engineer-sonarsource-ch",
-        "de": "ai-research-scientist-engineer-sonarsource-ch",
-        "fr": "ai-research-scientist-engineer-sonarsource-ch"
+        "it": "ai-ricerca-scientist-ingegnere-sonarsource-sonar-geneva",
+        "de": "ai-forschung-scientist-ingenieur-sonarsource-sonar-geneva",
+        "fr": "ai-recherche-scientist-ingenieur-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -1560,7 +1582,21 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:17:38.882Z"
+      "firstSeenAt": "2026-07-03T23:17:38.882Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-research-scientist-engineer-sonarsource-ch"
+        ],
+        "de": [
+          "ai-research-scientist-engineer-sonarsource-ch"
+        ],
+        "fr": [
+          "ai-research-scientist-engineer-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ai-research-scientist-engineer-sonarsource-ch"
+      ]
     }
   ]
 }

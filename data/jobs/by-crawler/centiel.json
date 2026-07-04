@@ -40,8 +40,8 @@
       "slugByLocale": {
         "it": "product-manager-critical-power-centiel-ticino",
         "en": "product-manager-critical-power-centiel-lugano",
-        "de": "product-manager-critical-power-centiel-ticino",
-        "fr": "product-manager-critical-power-centiel-ticino"
+        "de": "produktmanager-critical-power-centiel-cadro-lugano",
+        "fr": "gestionnaire-de-produits-puissance-critique-centiel-cadro-lugano"
       },
       "id": "centiel-5b2ad723a13f",
       "salaryMin": 68000,
@@ -98,13 +98,22 @@
       },
       "slugByLocale": {
         "it": "specialista-ufficio-tecnico-centiel-lugano",
-        "en": "specialista-ufficio-tecnico-centiel-ticino",
-        "de": "specialista-ufficio-tecnico-centiel-ticino",
-        "fr": "specialista-ufficio-tecnico-centiel-ticino"
+        "en": "specialista-ufficio-technician-centiel-cadro-lugano",
+        "de": "specialista-ufficio-techniker-centiel-cadro-lugano",
+        "fr": "specialista-ufficio-technicien-centiel-cadro-lugano"
       },
       "id": "centiel-6c09b1f01934",
       "previousSlugsByLocale": {
         "it": [
+          "specialista-ufficio-tecnico-centiel-ticino"
+        ],
+        "en": [
+          "specialista-ufficio-tecnico-centiel-ticino"
+        ],
+        "de": [
+          "specialista-ufficio-tecnico-centiel-ticino"
+        ],
+        "fr": [
           "specialista-ufficio-tecnico-centiel-ticino"
         ]
       },
@@ -165,13 +174,19 @@
       },
       "slugByLocale": {
         "it": "operatore-di-produzione-centiel-lugano",
-        "en": "operatore-di-produzione-centiel-ticino",
-        "de": "operatore-di-produzione-centiel-ticino",
+        "en": "operatore-di-production-centiel-cadro-lugano",
+        "de": "operatore-di-produktion-centiel-cadro-lugano",
         "fr": "operatore-di-produzione-centiel-ticino"
       },
       "id": "centiel-5d6623fa2ed6",
       "previousSlugsByLocale": {
         "it": [
+          "operatore-di-produzione-centiel-ticino"
+        ],
+        "en": [
+          "operatore-di-produzione-centiel-ticino"
+        ],
+        "de": [
           "operatore-di-produzione-centiel-ticino"
         ]
       },
@@ -232,13 +247,22 @@
       },
       "slugByLocale": {
         "it": "tecnico-collaudatore-centiel-lugano",
-        "en": "tecnico-collaudatore-centiel-ticino",
-        "de": "tecnico-collaudatore-centiel-ticino",
-        "fr": "tecnico-collaudatore-centiel-ticino"
+        "en": "technician-collaudatore-centiel-cadro-lugano",
+        "de": "techniker-collaudatore-centiel-cadro-lugano",
+        "fr": "technicien-collaudatore-centiel-cadro-lugano"
       },
       "id": "centiel-807453cca7cd",
       "previousSlugsByLocale": {
         "it": [
+          "tecnico-collaudatore-centiel-ticino"
+        ],
+        "en": [
+          "tecnico-collaudatore-centiel-ticino"
+        ],
+        "de": [
+          "tecnico-collaudatore-centiel-ticino"
+        ],
+        "fr": [
           "tecnico-collaudatore-centiel-ticino"
         ]
       },
