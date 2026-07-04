@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fincons-group",
-  "assembledAt": "2026-07-03T21:49:18.569Z",
+  "assembledAt": "2026-07-04T11:15:11.449Z",
   "jobs": [
     {
       "title": "Angular Software Engineer",
@@ -304,11 +304,11 @@
       "streetAddress": "Via Industria 3",
       "firstSeenAt": "2026-05-07T11:00:54.190Z",
       "previousSlugs": [
-        "developer-pl-sql-banking-area-fincons-group-lugano-switzerland",
         "developer-pl-sql-banking-area-fincons-group-lugano",
         "sviluppatore-pl-sql-settore-bancario-fincons-group-lugano",
         "pl-sql-entwickler-im-bankwesen-fincons-group-lugano",
-        "developpeur-pl-sql-secteur-bancaire-fincons-group-lugano"
+        "developpeur-pl-sql-secteur-bancaire-fincons-group-lugano",
+        "developer-pl-sql-banking-area-fincons-group-lugano-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -623,6 +623,11 @@
       },
       "streetAddress": "Via Industria 3",
       "firstSeenAt": "2026-05-29T12:22:56.132Z",
+      "previousSlugs": [
+        "ingegnere-qa-test-automation-fincons-group-lugano",
+        "qa-test-automation-engineer-fincons-group-lugano-ticino-switzerland",
+        "senior-test-automation-engineer-fincons-group-lugano-ticino-switzerland"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-test-automation-engineer-fincons-group-lugano-ticino-switzerland"
@@ -633,12 +638,7 @@
         "fr": [
           "senior-test-automation-engineer-fincons-group-lugano-ticino-switzerland"
         ]
-      },
-      "previousSlugs": [
-        "senior-test-automation-engineer-fincons-group-lugano-ticino-switzerland",
-        "ingegnere-qa-test-automation-fincons-group-lugano",
-        "qa-test-automation-engineer-fincons-group-lugano-ticino-switzerland"
-      ]
+      }
     }
   ]
 }
