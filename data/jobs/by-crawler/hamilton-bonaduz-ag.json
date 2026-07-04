@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hamilton-bonaduz-ag",
-  "assembledAt": "2026-07-04T11:05:57.689Z",
+  "assembledAt": "2026-07-04T22:15:38.532Z",
   "jobs": [
     {
       "title": "Produktionsmitarbeiter im 3-Schichtbetrieb 80 - 100 % (w/m/d)",
@@ -45,7 +45,7 @@
         "de": "produktionsmitarbeiter-im-3-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "employes-de-production-en-3-postes-80-100-m-j-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-07-04T11:05:28.840Z",
+      "crawledAt": "2026-07-04T22:15:23.038Z",
       "id": "hamilton-bonaduz-ag-52b17a349890",
       "previousSlugsByLocale": {
         "it": [
@@ -76,8 +76,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Crusch 8",
-      "postalCode": "7402",
+      "streetAddress": "",
+      "postalCode": "7013",
       "firstSeenAt": "2026-07-03T22:10:39.854Z"
     },
     {
@@ -123,12 +123,12 @@
         "de": "assembly-operator-80-100-w-m-d-jr-5993",
         "fr": "assembly-operateur-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-07-04T11:05:29.604Z",
+      "crawledAt": "2026-07-04T22:15:23.781Z",
       "id": "hamilton-bonaduz-ag-3bf4e197333a",
       "previousSlugsByLocale": {
         "it": [
-          "assembly-operator-80-100-w-m-d-jr-5993",
-          "operatore-di-montaggio-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems"
+          "operatore-di-montaggio-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
+          "assembly-operator-80-100-w-m-d-jr-5993"
         ],
         "fr": [
           "assembly-operator-80-100-w-m-d-jr-5993"
@@ -138,8 +138,8 @@
         ]
       },
       "previousSlugs": [
-        "assembly-operator-80-100-w-m-d-jr-5993",
-        "operatore-di-montaggio-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems"
+        "operatore-di-montaggio-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
+        "assembly-operator-80-100-w-m-d-jr-5993"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -154,9 +154,10 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Crusch 8",
-      "postalCode": "7402",
-      "firstSeenAt": "2026-07-01T22:30:50.236Z"
+      "streetAddress": "",
+      "postalCode": "7013",
+      "firstSeenAt": "2026-07-01T22:30:50.236Z",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroplaner für Robotik und Automation 80 - 100 % (w/m/d)",
@@ -201,7 +202,7 @@
         "de": "elektroplaner-fur-robotik-und-automation-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "planificateur-trice-electrique-fur-robotik-und-automation-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-07-04T11:05:30.230Z",
+      "crawledAt": "2026-07-04T22:15:24.548Z",
       "id": "hamilton-bonaduz-ag-7aa847ce9807",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -216,8 +217,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Crusch 8",
-      "postalCode": "7402",
+      "streetAddress": "",
+      "postalCode": "7013",
       "firstSeenAt": "2026-06-30T22:26:25.083Z",
       "previousSlugsByLocale": {
         "it": [
@@ -277,7 +278,7 @@
         "de": "kaltetechniker-spezialist-kaltetechnik-fur-automatisierte-pharma-lagersysteme-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "technicien-de-refrigeration-dans-le-support-technique-avec-activite-de-voyage-international-80-100-h-m-d-hamilton"
       },
-      "crawledAt": "2026-07-04T11:05:30.958Z",
+      "crawledAt": "2026-07-04T22:15:25.293Z",
       "previousSlugs": [
         "kaltetechniker-im-technical-support-mit-internationaler-reisetatigkeit-80-100-w-m-d-jr-5129",
         "tecnico-refrigerazione-nel-technical-support-con-attivita-di-viaggio-internazionale-80-100-h-m-d-hamilton-bonaduz-ag-dom",
@@ -302,8 +303,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Crusch 8",
-      "postalCode": "7402",
+      "streetAddress": "",
+      "postalCode": "7013",
       "id": "hamilton-bonaduz-ag-87c22fca377e",
       "previousSlugsByLocale": {
         "it": [
@@ -372,7 +373,7 @@
         "de": "operativer-einkaufer-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "acheteur-operationnel-80-100-f-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-07-04T11:05:31.583Z",
+      "crawledAt": "2026-07-04T22:15:26.017Z",
       "id": "hamilton-bonaduz-ag-cfa0d6e0d26d",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -453,7 +454,7 @@
         "de": "product-master-data-product-change-management-manager-50-100-w-m-d-jr-5776",
         "fr": "product-master-data-product-change-management-manager-50-100-w-m-d-jr-5776"
       },
-      "crawledAt": "2026-07-04T11:05:32.205Z",
+      "crawledAt": "2026-07-04T22:15:26.771Z",
       "id": "hamilton-bonaduz-ag-9b6dd8851d50",
       "previousSlugsByLocale": {
         "fr": [
@@ -480,8 +481,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Crusch 8",
-      "postalCode": "7402",
+      "streetAddress": "",
+      "postalCode": "7013",
       "firstSeenAt": "2026-06-19T12:40:38.646Z"
     },
     {
@@ -527,7 +528,7 @@
         "de": "team-leader-auftragsverarbeitung-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "traitement-des-commandes-par-le-chef-d-equipe-80-100-f-m-j-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-07-04T11:05:32.805Z",
+      "crawledAt": "2026-07-04T22:15:27.515Z",
       "id": "hamilton-bonaduz-ag-a7982b335c9f",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -580,13 +581,13 @@
       "sector": "Chimica & Analisi",
       "department": "Process Analytics",
       "source": "hamilton-dedicated-crawler",
-      "sourceLang": "en",
+      "sourceLang": "de",
       "postedDate": "2026-06-19",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
-      "description": "",
+      "description": "Getreu der Vision \"We drive innovation to improve people's lives\" liefern die Hamilton Unternehmen seit 1950 Lösungen für die Gesundheitsbranche. Wir sind ein innovativer Vorreiter was Beatmungsgeräte, das automatisierte Pipettieren und Lagern von Proben sowie die Entwicklung von Prozesssensoren anbelangt.\n\nDie Business Unit Process Analytics entwickelt, produziert und vertreibt modernste Prozessmesstechnik für Kunden in Biopharma, Chemie und Brauereien. Unser Produktportfolio umfasst Sensoren für kritische Prozessparameter wie den pH-Wert, Sauerstoff, oder auch Sensoren zur Messung der Zelldichte, wie sie in biologischen Prozessen enorm wichtig und mit ihrer innovativen Technologie weltweit einzigartig sind.\n\nDas kannst du bewirken :\n\n- Enge Zusammenarbeit mit dem Vertriebsaussendienst sowie aktive Unterstützung in allen verkaufsrelevanten Prozessen – von der Angebotserstellung bis hin zur technischen Beratung unserer Kundschaft\n\n- Proaktive Ansprache potenzieller Neukundinnen und Neukunden durch telefonische Kaltakquise, E‑Mail‑Kampagnen und strukturiertes Lead‑Management; qualifizierte Übergabe der Leads an das Vertriebsteam\n\n- Strategische Vermarktung unserer Produkte und Dienstleistungen\n\n- Unterstützung bei der Planung und Umsetzung verkaufsorientierter Kampagnen zur Neukundengewinnung sowie bei der Organisation von Messen und Veranstaltungen\n\n- Durchführung von Follow-ups zu Verbrauchsmaterialien, Schulungen und After-Sales-Services zur Sicherstellung nachhaltiger Kundenzufriedenheit\n\n- Identifikation neuer Geschäftsmöglichkeiten, relevanter Markttrends und führender Meinungsbildnerinnen und Meinungsbildner; systematische Sammlung und Aufbereitung von Markt- und Wettbewerbsinformationen\n\nDas bringst du mit :\n\n- Abgeschlossenes Studium oder gleichwertige Ausbildung im Bereich Verfahrenstechnik, Naturwissenschaften, E-Technik oder einem verwandten Bereich; Kenntnisse in der Prozessanalytik sind wünschenswert\n\n- Mehrjährige Erfahrung im Bereich Inside-Sales oder einer ähnlichen Rolle\n\n- Sicherer Umgang mit CRM-Software (Dynamics, Hubspot), MS Office Suite und anderen produktivitätssteigernden Tools\n\n- Kontaktfreudig, überzeugend und kundenorientiert\n\n- Selbstmotiviert, flexibel und in der Lage mehrere Aufgaben effektiv zu priorisieren\n\n- Fliessende Deutsch-und Englischkenntnisse in Wort und Schrift (C1)\n\nErfahre mehr über berufliche Möglichkeiten bei Hamilton unter jobs.hamilton.ch .\n\nTeilst du unsere Werte und fühlst du dich in einem kollegialen und bodenständigen Umfeld zu Hause? Bei Hamilton bieten wir nicht nur ein motivierendes Arbeitsumfeld, sondern auch verschiedene Freizeitangebote und zeitgemässe Arbeitsbedingungen. Unsere Du-Kultur fördert eine offene Kommunikation und ein angenehmes Miteinander. Werde Teil eines Teams, in dem deine Kompetenzen geschätzt werden und Raum für innovative Ideen geschaffen wird. Interessiert? Bei Rückfragen kontaktiere uns bitte unter jobs@hamilton.ch und teile uns die folgenden Details mit:\nReferenz",
       "titleByLocale": {
         "it": "Specialista Vendite Interne 80 - 100 % (f/m/d)",
         "en": "Inside Sales Specialist 80 - 100 % (w/m/d)",
@@ -605,7 +606,7 @@
         "de": "innenverkaufsspezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "specialiste-des-ventes-interieure-80-100-f-m-d-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-07-04T11:05:48.113Z",
+      "crawledAt": "2026-07-04T22:15:28.226Z",
       "id": "hamilton-bonaduz-ag-14b2a2aab814",
       "previousSlugsByLocale": {
         "it": [
@@ -639,8 +640,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Crusch 8",
-      "postalCode": "7402",
+      "streetAddress": "",
+      "postalCode": "7013",
       "firstSeenAt": "2026-06-19T12:40:39.978Z"
     },
     {
@@ -686,7 +687,7 @@
         "de": "senior-projektleiter-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "chef-de-projet-senior-80-100-f-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-07-04T11:05:48.737Z",
+      "crawledAt": "2026-07-04T22:15:28.867Z",
       "id": "hamilton-bonaduz-ag-ab6b23e8a12a",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -762,7 +763,7 @@
         "de": "hauswart-fachmann-betriebsunterhalt-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "menage-expert-entretien-de-fonctionnement-80-100-p-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-07-04T11:05:49.558Z",
+      "crawledAt": "2026-07-04T22:15:29.658Z",
       "id": "hamilton-bonaduz-ag-c5d8318e2fcd",
       "previousSlugsByLocale": {
         "it": [
@@ -842,7 +843,7 @@
         "de": "hr-admin-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "ressources-humaines-admin-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-07-04T11:05:50.181Z",
+      "crawledAt": "2026-07-04T22:15:30.259Z",
       "id": "hamilton-bonaduz-ag-91aa9b76a7c7",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -913,7 +914,7 @@
         "de": "lagermitarbeiter-und-prufer-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "employes-et-inspecteurs-de-l-entrepot-80-100-m-j-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-07-04T11:05:50.952Z",
+      "crawledAt": "2026-07-04T22:15:30.862Z",
       "id": "hamilton-bonaduz-ag-b8cf24c4e779",
       "previousSlugsByLocale": {
         "en": [
@@ -943,8 +944,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Crusch 8",
-      "postalCode": "7402",
+      "streetAddress": "",
+      "postalCode": "7013",
       "firstSeenAt": "2026-06-11T22:44:36.907Z"
     },
     {
@@ -990,7 +991,7 @@
         "de": "junior-au-endiensttechniker-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "ingenieur-auxiliaire-du-service-mobile-80-100-f-m-j-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-07-04T11:05:51.568Z",
+      "crawledAt": "2026-07-04T22:15:31.467Z",
       "id": "hamilton-bonaduz-ag-0a708f2cbd96",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -1005,8 +1006,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Crusch 8",
-      "postalCode": "7402",
+      "streetAddress": "",
+      "postalCode": "7013",
       "firstSeenAt": "2026-06-11T22:44:37.714Z",
       "previousSlugs": [
         "ingegnere-di-servizio-80-100-w-m-d-hamilton-bonaduz-ag-home-office-switzerland",
@@ -1066,7 +1067,7 @@
         "de": "technischer-support-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "ingenieur-de-soutien-technique-80-100-m-j-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-07-04T11:05:52.179Z",
+      "crawledAt": "2026-07-04T22:15:32.247Z",
       "id": "hamilton-bonaduz-ag-2439108fbd9a",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1142,7 +1143,7 @@
         "de": "product-spezialist-partnering-80-100-f-m-d-temporary-hamilton-bonaduz-ag-bonaduz",
         "fr": "specialiste-des-produits-partenariat-80-100-f-m-d-temporaire-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-07-04T11:05:52.792Z",
+      "crawledAt": "2026-07-04T22:15:32.961Z",
       "id": "hamilton-bonaduz-ag-3f65ca547f8e",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1218,7 +1219,7 @@
         "de": "ict-ingenieur-m365-sharepoint-power-platform-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "ict-ingenieur-m365-sharepoint-power-platform-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-07-04T11:05:53.404Z",
+      "crawledAt": "2026-07-04T22:15:33.560Z",
       "id": "hamilton-bonaduz-ag-2fe18c83b533",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1249,7 +1250,8 @@
       },
       "previousSlugs": [
         "ict-engineer-m365-sharepoint-power-platform-80-100-w-m-d-jr-5551"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Polymechaniker im 2-Schichtbetrieb 80 - 100 % (w/m/d)",
@@ -1294,7 +1296,7 @@
         "de": "polymechaniker-im-2-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "mechanical-operateur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-07-04T11:05:54.051Z",
+      "crawledAt": "2026-07-04T22:15:34.572Z",
       "id": "hamilton-bonaduz-ag-356231582f5c",
       "previousSlugsByLocale": {
         "it": [
@@ -1377,7 +1379,7 @@
         "de": "unaufgeforderte-bewerbungen-schweiz-m-w-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "candidatures-spontanees-suisse-f-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-07-04T11:05:54.674Z",
+      "crawledAt": "2026-07-04T22:15:35.274Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1467,7 +1469,7 @@
         "de": "ict-ingenieur-ot-security-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "ict-ingenieur-ot-security-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-07-04T11:05:55.307Z",
+      "crawledAt": "2026-07-04T22:15:35.994Z",
       "previousSlugs": [
         "business-process-system-engineer-80-100-f-m-d-hamilton-bonaduz-ag-bonaduz",
         "business-process-system-ingegnere-80-100-f-m-d-hamilton-bonaduz-ag-bonaduz",
@@ -1552,7 +1554,7 @@
         "de": "electrical-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "electrical-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-07-04T11:05:55.923Z",
+      "crawledAt": "2026-07-04T22:15:36.753Z",
       "previousSlugs": [
         "ingegnere-elettrico-80-100-l-m-g-hamilton-bonaduz-ag-domat-ems",
         "ingenieur-electricien-80-100-f-m-d-hamilton-bonaduz-ag-domat-ems",
@@ -1582,8 +1584,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Crusch 8",
-      "postalCode": "7402",
+      "streetAddress": "",
+      "postalCode": "7013",
       "id": "hamilton-bonaduz-ag-b2dd2a546303",
       "previousSlugsByLocale": {
         "it": [
@@ -1642,7 +1644,7 @@
         "de": "software-ingenieur-embedded-system-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "ingenieur-logiciel-systeme-embarque-80-100-f-m-d-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-07-04T11:05:56.694Z",
+      "crawledAt": "2026-07-04T22:15:37.500Z",
       "previousSlugs": [
         "software-ingegnere-embedded-system-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "software-ingenieur-embedded-system-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
@@ -1665,8 +1667,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Crusch 8",
-      "postalCode": "7402",
+      "streetAddress": "",
+      "postalCode": "7013",
       "id": "hamilton-bonaduz-ag-9e9fed64ea91",
       "previousSlugsByLocale": {
         "it": [
@@ -1725,7 +1727,7 @@
         "de": "teamleiter-ict-systeme-und-infrastruktur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "chef-d-equipe-systemes-et-infrastructures-tic-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-07-04T11:05:57.326Z",
+      "crawledAt": "2026-07-04T22:15:38.208Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
