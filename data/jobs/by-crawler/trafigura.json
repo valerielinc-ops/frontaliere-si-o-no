@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "trafigura-674732b4e044",
-      "slug": "lpg-analyst-trafigura-ch",
+      "slug": "lpg-analista-trafigura-geneva",
       "slugByLocale": {
         "en": "lpg-analyst-trafigura-ch",
-        "it": "lpg-analyst-trafigura-ch",
+        "it": "lpg-analista-trafigura-geneva",
         "de": "lpg-analyst-trafigura-ch",
-        "fr": "lpg-analyst-trafigura-ch"
+        "fr": "lpg-analyste-trafigura-geneva"
       },
       "company": "Trafigura",
       "companyKey": "trafigura",
@@ -66,7 +66,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-03T23:41:01.667Z"
+      "firstSeenAt": "2026-07-03T23:41:01.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lpg-analyst-trafigura-ch"
+        ],
+        "fr": [
+          "lpg-analyst-trafigura-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lpg-analyst-trafigura-ch"
+      ]
     },
     {
       "id": "trafigura-4d0f13caea76",

@@ -392,7 +392,7 @@
       "slugByLocale": {
         "en": "ch-expert-m-f-d-apple-retail-switzerland-ch",
         "it": "ch-expert-m-f-d-apple-retail-switzerland-ch",
-        "de": "ch-expert-m-f-d-apple-retail-switzerland-ch",
+        "de": "ch-experte-m-w-d-apple-retail-switzerland-bahnhofstrasse",
         "fr": "ch-expert-m-f-d-apple-retail-switzerland-ch"
       },
       "company": "Apple Retail Switzerland",
@@ -452,12 +452,12 @@
     },
     {
       "id": "apple-retail-switzerland-3ae00fdfd694",
-      "slug": "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch",
+      "slug": "aiml-ricercatore-di-apprendimento-automatico-mlr-apple-retail-switzerland-lausanne",
       "slugByLocale": {
         "en": "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch",
-        "it": "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch",
+        "it": "aiml-ricercatore-di-apprendimento-automatico-mlr-apple-retail-switzerland-lausanne",
         "de": "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch",
-        "fr": "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch"
+        "fr": "aiml-chercheur-en-apprentissage-automatique-mlr-apple-retail-switzerland-lausanne"
       },
       "company": "Apple Retail Switzerland",
       "companyKey": "apple-retail-switzerland",
@@ -512,7 +512,18 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-07-03T21:19:38.768Z"
+      "firstSeenAt": "2026-07-03T21:19:38.768Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch"
+        ]
+      },
+      "previousSlugs": [
+        "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch"
+      ]
     },
     {
       "id": "apple-retail-switzerland-cfc6d52e2ab7",
@@ -844,12 +855,12 @@
     },
     {
       "id": "apple-retail-switzerland-3d4b15d6efc3",
-      "slug": "ch-technical-specialist-m-f-d-apple-retail-switzerland-ch",
+      "slug": "ch-technical-specialista-m-f-d-apple-retail-switzerland-switzerland",
       "slugByLocale": {
         "en": "ch-technical-specialist-m-f-d-apple-retail-switzerland-ch",
-        "it": "ch-technical-specialist-m-f-d-apple-retail-switzerland-ch",
-        "de": "ch-technical-specialist-m-f-d-apple-retail-switzerland-ch",
-        "fr": "ch-technical-specialist-m-f-d-apple-retail-switzerland-ch"
+        "it": "ch-technical-specialista-m-f-d-apple-retail-switzerland-switzerland",
+        "de": "ch-technical-spezialist-m-f-d-apple-retail-switzerland-switzerland",
+        "fr": "ch-technical-specialiste-m-f-d-apple-retail-switzerland-switzerland"
       },
       "company": "Apple Retail Switzerland",
       "companyKey": "apple-retail-switzerland",
@@ -904,7 +915,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-03T21:19:38.761Z"
+      "firstSeenAt": "2026-07-03T21:19:38.761Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ch-technical-specialist-m-f-d-apple-retail-switzerland-ch"
+        ],
+        "de": [
+          "ch-technical-specialist-m-f-d-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "ch-technical-specialist-m-f-d-apple-retail-switzerland-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ch-technical-specialist-m-f-d-apple-retail-switzerland-ch"
+      ]
     },
     {
       "id": "apple-retail-switzerland-86f997e905a7",
@@ -913,7 +938,7 @@
         "en": "ch-operations-expert-m-f-d-apple-retail-switzerland-ch",
         "it": "ch-operations-expert-m-f-d-apple-retail-switzerland-ch",
         "de": "ch-operations-expert-m-f-d-apple-retail-switzerland-ch",
-        "fr": "ch-operations-expert-m-f-d-apple-retail-switzerland-ch"
+        "fr": "specialiste-des-operations-du-ch-m-f-d-apple-retail-switzerland-switzerland"
       },
       "company": "Apple Retail Switzerland",
       "companyKey": "apple-retail-switzerland",
@@ -972,12 +997,12 @@
     },
     {
       "id": "apple-retail-switzerland-9ea4c7a211dc",
-      "slug": "ch-specialist-m-f-d-apple-retail-switzerland-ch",
+      "slug": "ch-specialista-m-f-d-apple-retail-switzerland-switzerland",
       "slugByLocale": {
         "en": "ch-specialist-m-f-d-apple-retail-switzerland-ch",
-        "it": "ch-specialist-m-f-d-apple-retail-switzerland-ch",
-        "de": "ch-specialist-m-f-d-apple-retail-switzerland-ch",
-        "fr": "ch-specialist-m-f-d-apple-retail-switzerland-ch"
+        "it": "ch-specialista-m-f-d-apple-retail-switzerland-switzerland",
+        "de": "ch-spezialist-m-f-d-apple-retail-switzerland-switzerland",
+        "fr": "ch-specialiste-m-f-d-apple-retail-switzerland-switzerland"
       },
       "company": "Apple Retail Switzerland",
       "companyKey": "apple-retail-switzerland",
@@ -1032,7 +1057,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-03T21:19:38.735Z"
+      "firstSeenAt": "2026-07-03T21:19:38.735Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ch-specialist-m-f-d-apple-retail-switzerland-ch"
+        ],
+        "de": [
+          "ch-specialist-m-f-d-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "ch-specialist-m-f-d-apple-retail-switzerland-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ch-specialist-m-f-d-apple-retail-switzerland-ch"
+      ]
     }
   ]
 }

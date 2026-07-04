@@ -64,8 +64,7 @@
         "it": [
           "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
           "infermiere-laureato-in-hf-fh-servizio-notturno-psychiatrie-st-gallen-wil-sg-bbbc9d",
-          "infermiere-laureato-in-hf-fh-servizio-notturno-psychiatrie-st-gallen-wil-sg",
-          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
+          "infermiere-laureato-in-hf-fh-servizio-notturno-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "firstSeenAt": "2026-06-25T12:04:54.821Z",
@@ -139,8 +138,7 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
-          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
-          "assistente-psicologo-psychiatrie-st-gallen-wil-sg"
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "firstSeenAt": "2026-06-26T12:09:48.662Z",
@@ -210,8 +208,7 @@
         "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-ocnp1r",
         "assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-        "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg-2",
-        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg"
+        "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -298,8 +295,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-psgn-wil-sg",
-          "collaboratore-trice-reinigung-psychiatrie-st-gallen-wil-sg"
+          "mitarbeiter-in-reinigung-psgn-wil-sg"
         ]
       },
       "firstSeenAt": "2026-06-26T22:36:14.089Z",
@@ -369,8 +365,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachpsychologin-fachpsychologe-psgn-wil-sg",
-          "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-wil-sg"
+          "fachpsychologin-fachpsychologe-psgn-wil-sg"
         ]
       },
       "firstSeenAt": "2026-06-29T22:47:34.980Z",
@@ -445,8 +440,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-psgn-wil-sg",
-          "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg"
+          "oberarztin-oberarzt-psgn-wil-sg"
         ],
         "en": [
           "oberarztin-oberarzt-psgn-wil-sg"
@@ -596,8 +590,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-unternehmensentwicklung-psgn-wil-sg",
-          "praktikantin-praktikant-unternehmensentwicklung-psychiatrie-st-gallen-wil-sg"
+          "praktikantin-praktikant-unternehmensentwicklung-psgn-wil-sg"
         ]
       },
       "firstSeenAt": "2026-07-02T22:41:07.515Z",
@@ -688,12 +681,12 @@
     },
     {
       "id": "psgn-788348f76ff8",
-      "slug": "fachperson-gesundheit-psgn-wil-sg",
+      "slug": "salute-professionale-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "fachperson-gesundheit-psgn-wil-sg",
-        "it": "fachperson-gesundheit-psgn-wil-sg",
-        "en": "fachperson-gesundheit-psgn-wil-sg",
-        "fr": "fachperson-gesundheit-psgn-wil-sg"
+        "it": "salute-professionale-psychiatrie-st-gallen-wil-sg",
+        "en": "health-professional-psychiatrie-st-gallen-wil-sg",
+        "fr": "professionnels-de-la-sante-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -755,8 +748,20 @@
         "professionnel-de-la-sante-psychiatrie-st-gallen-wil-sg",
         "dipl-pflegefachperson-o-fachperson-gesundheit-per-pflegepool-psychiatrie-st-gallen-wil-sg",
         "dipl-pflegefachperson-oder-fachperson-gesundheit-fur-pflegepool-psychiatrie-st-gallen-wil-sg",
-        "dipl-pflegefachperson-oder-fachperson-gesundheit-fur-pflegepool-psgn-wil-sg"
-      ]
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-fur-pflegepool-psgn-wil-sg",
+        "fachperson-gesundheit-psgn-wil-sg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-psgn-wil-sg"
+        ],
+        "en": [
+          "fachperson-gesundheit-psgn-wil-sg"
+        ],
+        "fr": [
+          "fachperson-gesundheit-psgn-wil-sg"
+        ]
+      }
     },
     {
       "id": "psgn-7425b3076a3f",

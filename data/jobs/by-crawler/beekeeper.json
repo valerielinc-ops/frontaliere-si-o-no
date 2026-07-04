@@ -9,7 +9,7 @@
         "en": "account-manager-zurich-beekeeper-zurich",
         "it": "account-manager-zurich-beekeeper-zurich",
         "de": "account-manager-zurich-beekeeper-zurich",
-        "fr": "account-manager-zurich-beekeeper-zurich"
+        "fr": "gestionnaire-de-comptes-zurich-beekeeper-zurich"
       },
       "company": "Beekeeper",
       "companyKey": "beekeeper",
@@ -136,12 +136,12 @@
     },
     {
       "id": "beekeeper-96ff67b0d9e3",
-      "slug": "business-development-representative-dach-beekeeper-zurich",
+      "slug": "rappresentante-per-lo-sviluppo-delle-imprese-dach-beekeeper-zurich",
       "slugByLocale": {
         "en": "business-development-representative-dach-beekeeper-zurich",
-        "it": "business-development-representative-dach-beekeeper-zurich",
-        "de": "business-development-representative-dach-beekeeper-zurich",
-        "fr": "business-development-representative-dach-beekeeper-zurich"
+        "it": "rappresentante-per-lo-sviluppo-delle-imprese-dach-beekeeper-zurich",
+        "de": "geschaftsentwicklungsbeauftragte-dach-beekeeper-zurich",
+        "fr": "representant-pour-le-developpement-des-entreprises-dach-beekeeper-zurich"
       },
       "company": "Beekeeper",
       "companyKey": "beekeeper",
@@ -198,7 +198,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:28:59.363Z"
+      "firstSeenAt": "2026-07-03T21:28:59.363Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-development-representative-dach-beekeeper-zurich"
+        ],
+        "de": [
+          "business-development-representative-dach-beekeeper-zurich"
+        ],
+        "fr": [
+          "business-development-representative-dach-beekeeper-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "business-development-representative-dach-beekeeper-zurich"
+      ]
     },
     {
       "id": "beekeeper-38aca6feeb2e",
@@ -207,7 +221,7 @@
         "en": "director-of-account-management-f-m-zurich-hybrid-or-germany-remote-beekeeper-zurich",
         "it": "director-of-account-management-f-m-zurich-hybrid-or-germany-remote-beekeeper-zurich",
         "de": "director-of-account-management-f-m-zurich-hybrid-or-germany-remote-beekeeper-zurich",
-        "fr": "director-of-account-management-f-m-zurich-hybrid-or-germany-remote-beekeeper-zurich"
+        "fr": "directeur-de-la-gestion-des-comptes-f-m-zurich-hybride-ou-allemagne-remote-beekeeper-zurich"
       },
       "company": "Beekeeper",
       "companyKey": "beekeeper",
@@ -273,7 +287,7 @@
         "en": "customer-success-manager-fr-speaking-beekeeper-zurich",
         "it": "customer-success-manager-fr-speaking-beekeeper-zurich",
         "de": "customer-success-manager-fr-speaking-beekeeper-zurich",
-        "fr": "customer-success-manager-fr-speaking-beekeeper-zurich"
+        "fr": "gestionnaire-de-la-reussite-client-fr-beekeeper-zurich"
       },
       "company": "Beekeeper",
       "companyKey": "beekeeper",

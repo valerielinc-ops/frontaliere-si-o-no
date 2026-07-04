@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-frigorista-m-f-pemsa-geneve",
-        "en": "tecnico-frigorista-m-f-pemsa-geneve",
-        "de": "tecnico-frigorista-m-f-pemsa-geneve",
-        "fr": "tecnico-frigorista-m-f-pemsa-geneve"
+        "en": "technician-frigorista-m-f-pemsa-geneve",
+        "de": "techniker-frigorista-m-f-pemsa-geneve",
+        "fr": "technicien-frigorista-m-f-pemsa-geneve"
       },
       "id": "pemsa-634a4b1ccdb5",
       "salaryMin": 60500,
@@ -159,9 +159,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-pemsa-mendrisio",
-        "en": "idraulico-pemsa-mendrisio",
-        "de": "idraulico-pemsa-mendrisio",
-        "fr": "idraulico-pemsa-mendrisio"
+        "en": "idraulation-pemsa-mendrisio",
+        "de": "idraulierung-pemsa-mendrisio",
+        "fr": "idraulement-pemsa-mendrisio"
       },
       "id": "pemsa-57dfc3d858e1",
       "needsRetranslation": true,
@@ -219,9 +219,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-pemsa-chiasso",
-        "en": "idraulico-pemsa-chiasso",
-        "de": "idraulico-pemsa-chiasso",
-        "fr": "idraulico-pemsa-chiasso"
+        "en": "hydraulic-pemsa-chiasso",
+        "de": "hydraulik-pemsa-chiasso",
+        "fr": "hydraulique-pemsa-chiasso"
       },
       "id": "pemsa-fee9f7e92dbe",
       "needsRetranslation": true,
@@ -240,12 +240,7 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-07-03T22:39:11.228Z",
-      "previousSlugs": [
-        "hydraulic-pemsa-chiasso",
-        "hydraulik-pemsa-chiasso",
-        "hydraulique-pemsa-chiasso"
-      ]
+      "firstSeenAt": "2026-07-03T22:39:11.228Z"
     },
     {
       "title": "Installatore impianti ventilazione",
@@ -284,9 +279,9 @@
       },
       "slugByLocale": {
         "it": "installatore-impianti-ventilazione-pemsa-sigirino",
-        "en": "installatore-impianti-ventilazione-pemsa-sigirino",
-        "de": "installatore-impianti-ventilazione-pemsa-sigirino",
-        "fr": "installatore-impianti-ventilazione-pemsa-sigirino"
+        "en": "installation-of-ventilation-systems-pemsa-sigirino",
+        "de": "installation-von-luftungssystemen-pemsa-sigirino",
+        "fr": "installation-des-systemes-de-ventilation-pemsa-sigirino"
       },
       "id": "pemsa-cafcec4a886b",
       "needsRetranslation": true,
@@ -346,7 +341,7 @@
         "it": "idraulico-imp-riscaldamento-pemsa-lugano",
         "en": "idraulico-imp-riscaldamento-pemsa-lugano",
         "de": "idraulico-imp-riscaldamento-pemsa-lugano",
-        "fr": "idraulico-imp-riscaldamento-pemsa-lugano"
+        "fr": "idrautico-imp-chauffage-pemsa-lugano"
       },
       "id": "pemsa-2b1c1b91e5a8",
       "needsRetranslation": true,
@@ -406,7 +401,7 @@
         "it": "idraulico-imp-sanitari-pemsa-manno",
         "en": "idraulico-imp-sanitari-pemsa-manno",
         "de": "idraulico-imp-sanitari-pemsa-manno",
-        "fr": "idraulico-imp-sanitari-pemsa-manno"
+        "fr": "idrautico-imp-sante-pemsa-manno"
       },
       "id": "pemsa-649599fdb807",
       "needsRetranslation": true,
@@ -464,9 +459,9 @@
       },
       "slugByLocale": {
         "it": "caposquadra-edile-pemsa-fribourg",
-        "en": "caposquadra-edile-pemsa-fribourg",
-        "de": "caposquadra-edile-pemsa-fribourg",
-        "fr": "caposquadra-edile-pemsa-fribourg"
+        "en": "head-of-construction-pemsa-fribourg",
+        "de": "bauleiter-pemsa-fribourg",
+        "fr": "chef-de-la-construction-pemsa-fribourg"
       },
       "id": "pemsa-4506017399e4",
       "needsRetranslation": true,
@@ -523,9 +518,9 @@
       },
       "slugByLocale": {
         "it": "costruttore-di-strade-afc-m-f-d-pemsa-basel",
-        "en": "costruttore-di-strade-afc-m-f-d-pemsa-basel",
-        "de": "costruttore-di-strade-afc-m-f-d-pemsa-basel",
-        "fr": "costruttore-di-strade-afc-m-f-d-pemsa-basel"
+        "en": "road-manufacturer-afc-m-f-d-pemsa-basel",
+        "de": "stra-enhersteller-afc-m-w-d-pemsa-basel",
+        "fr": "fabricant-routier-afc-m-f-d-pemsa-basel"
       },
       "id": "pemsa-5544e8bc9a2c",
       "needsRetranslation": true,
@@ -582,9 +577,9 @@
       },
       "slugByLocale": {
         "it": "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel",
-        "en": "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel",
-        "de": "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel",
-        "fr": "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel"
+        "en": "installation-of-efz-eba-blinds-m-f-d-pemsa-basel",
+        "de": "installation-von-efz-eba-jalousien-m-w-d-pemsa-basel",
+        "fr": "installation-des-stores-efz-eba-m-f-d-pemsa-basel"
       },
       "id": "pemsa-ce2eb6c0915a",
       "salaryMin": 62000,
@@ -642,9 +637,9 @@
       },
       "slugByLocale": {
         "it": "elettricista-montatore-afc-m-f-d-pemsa-basel",
-        "en": "elettricista-montatore-afc-m-f-d-pemsa-basel",
-        "de": "elettricista-montatore-afc-m-f-d-pemsa-basel",
-        "fr": "elettricista-montatore-afc-m-f-d-pemsa-basel"
+        "en": "electricizer-afc-m-f-d-pemsa-basel",
+        "de": "elektrische-afc-m-w-d-pemsa-basel",
+        "fr": "electrificateur-afc-m-f-d-pemsa-basel"
       },
       "id": "pemsa-d257acdc209e",
       "needsRetranslation": true,
@@ -760,9 +755,9 @@
       },
       "slugByLocale": {
         "it": "installatore-di-impianti-di-riscaldamento-afc-aep-m-f-d-pemsa-basel",
-        "en": "installatore-di-impianti-di-riscaldamento-afc-aep-m-f-d-pemsa-basel",
-        "de": "installatore-di-impianti-di-riscaldamento-afc-aep-m-f-d-pemsa-basel",
-        "fr": "installatore-di-impianti-di-riscaldamento-afc-aep-m-f-d-pemsa-basel"
+        "en": "afc-aep-heating-system-installer-m-f-d-pemsa-basel",
+        "de": "afc-aep-heizsystem-installateur-m-w-d-pemsa-basel",
+        "fr": "installation-du-systeme-de-chauffage-afc-aep-m-f-d-pemsa-basel"
       },
       "id": "pemsa-b918872920cf",
       "needsRetranslation": true,
@@ -1174,9 +1169,9 @@
       },
       "slugByLocale": {
         "it": "installatore-elettrico-afc-aec-m-f-d-pemsa-basel",
-        "en": "installatore-elettrico-afc-aec-m-f-d-pemsa-basel",
-        "de": "installatore-elettrico-afc-aec-m-f-d-pemsa-basel",
-        "fr": "installatore-elettrico-afc-aec-m-f-d-pemsa-basel"
+        "en": "afc-aec-electrical-installer-m-f-d-pemsa-basel",
+        "de": "afc-aec-elektroinstallateur-m-w-d-pemsa-basel",
+        "fr": "installateur-electrique-afc-aec-m-f-d-pemsa-basel"
       },
       "id": "pemsa-3baf7dcb6168",
       "needsRetranslation": true,
@@ -1293,7 +1288,7 @@
       "slugByLocale": {
         "it": "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel",
         "en": "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel",
-        "de": "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel",
+        "de": "efz-eba-parkettspender-m-w-d-pemsa-basel",
         "fr": "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel"
       },
       "id": "pemsa-fc17a3eb00b2",
@@ -1411,9 +1406,9 @@
       },
       "slugByLocale": {
         "it": "giardiniere-paesaggista-afc-aep-m-f-d-pemsa-basel",
-        "en": "giardiniere-paesaggista-afc-aep-m-f-d-pemsa-basel",
-        "de": "giardiniere-paesaggista-afc-aep-m-f-d-pemsa-basel",
-        "fr": "giardiniere-paesaggista-afc-aep-m-f-d-pemsa-basel"
+        "en": "afc-landscape-gardener-aep-m-f-d-pemsa-basel",
+        "de": "afc-landschaftsgartner-aep-m-w-d-pemsa-basel",
+        "fr": "jardinier-paysagiste-afc-aep-m-f-d-pemsa-basel"
       },
       "id": "pemsa-58c62999508a",
       "needsRetranslation": true,

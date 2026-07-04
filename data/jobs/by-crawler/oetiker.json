@@ -71,10 +71,10 @@
     },
     {
       "id": "oetiker-e346f07e412c",
-      "slug": "team-leader-procurement-planning-logistics-all-oetiker-horgen-switzerland",
+      "slug": "capo-squadra-procurement-planning-logistica-all-oetiker-horgen-switzerland",
       "slugByLocale": {
         "de": "team-leader-procurement-planning-logistics-all-oetiker-horgen-switzerland",
-        "it": "team-leader-procurement-planning-logistics-all-oetiker-horgen-switzerland",
+        "it": "capo-squadra-procurement-planning-logistica-all-oetiker-horgen-switzerland",
         "en": "team-leader-procurement-planning-logistics-all-oetiker-horgen-switzerland",
         "fr": "team-leader-procurement-planning-logistics-all-oetiker-horgen-switzerland"
       },
@@ -134,7 +134,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:28:43.862Z"
+      "firstSeenAt": "2026-07-03T23:28:43.862Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-procurement-planning-logistics-all-oetiker-horgen-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-procurement-planning-logistics-all-oetiker-horgen-switzerland"
+      ]
     }
   ]
 }

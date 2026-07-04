@@ -741,11 +741,11 @@
     },
     {
       "id": "swissquote-fd3e2ea21364",
-      "slug": "ai-infrastructure-engineer-swissquote-gland",
+      "slug": "ai-infrastructure-ingegnere-swissquote-gland",
       "slugByLocale": {
         "en": "ai-infrastructure-engineer-swissquote-gland",
-        "it": "ai-infrastructure-engineer-swissquote-gland",
-        "de": "ai-infrastructure-engineer-swissquote-gland",
+        "it": "ai-infrastructure-ingegnere-swissquote-gland",
+        "de": "ai-infrastructure-ingenieur-swissquote-gland",
         "fr": "ai-infrastructure-engineer-swissquote-gland"
       },
       "company": "Swissquote",
@@ -804,7 +804,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:37:13.804Z"
+      "firstSeenAt": "2026-07-03T23:37:13.804Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-infrastructure-engineer-swissquote-gland"
+        ],
+        "de": [
+          "ai-infrastructure-engineer-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "ai-infrastructure-engineer-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-c4a8a4c8dd95",
@@ -1411,11 +1422,11 @@
     },
     {
       "id": "swissquote-add7c7d71fa5",
-      "slug": "product-engineer-swissquote-gland",
+      "slug": "product-ingegnere-swissquote-gland",
       "slugByLocale": {
         "en": "product-engineer-swissquote-gland",
-        "it": "product-engineer-swissquote-gland",
-        "de": "product-engineer-swissquote-gland",
+        "it": "product-ingegnere-swissquote-gland",
+        "de": "product-ingenieur-swissquote-gland",
         "fr": "product-engineer-swissquote-gland"
       },
       "company": "Swissquote",
@@ -1474,7 +1485,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:37:13.758Z"
+      "firstSeenAt": "2026-07-03T23:37:13.758Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-engineer-swissquote-gland"
+        ],
+        "de": [
+          "product-engineer-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "product-engineer-swissquote-gland"
+      ]
     }
   ]
 }

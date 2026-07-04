@@ -3729,9 +3729,9 @@
       },
       "slugByLocale": {
         "it": "venditore-con-salario-orario-denner-ag-binningen",
-        "en": "venditore-con-salario-orario-denner-ag-binningen",
+        "en": "seller-in-the-hourly-wage-denner-ag-binningen",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv",
-        "fr": "venditore-con-salario-orario-denner-ag-binningen"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-ag-binningen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -3754,20 +3754,16 @@
           "venditore-nel-salario-orario-denner-ag-spreitenbach"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv",
-          "seller-in-the-hourly-wage-denner-ag-binningen"
+          "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv",
-          "vendeur-dans-le-salaire-horaire-denner-ag-binningen"
+          "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-ag-binningen",
         "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv",
         "venditore-nel-salario-orario-denner-ag-spreitenbach",
-        "seller-in-the-hourly-wage-denner-ag-binningen",
-        "vendeur-dans-le-salaire-horaire-denner-ag-binningen",
         "vendeur-vendeuse-denner-ag-schiers-8ubm2h",
         "vendeur-a-salaire-horaire-denner-ag-schiers-b2shd8",
         "verkaufer-in-im-stundenlohn-denner-ag-schiers",
@@ -3775,7 +3771,6 @@
         "venditore-con-salario-orario-denner-ag-uetendorf",
         "salesperson-on-an-hourly-wage-denner-ag-uetendorf",
         "verkaufer-in-im-stundenlohn-denner-ag-uetendorf-9elgt8",
-        "venditore-con-salario-orario-denner-ag-binningen",
         "salesperson-on-an-hourly-wage-denner-ag-binningen",
         "verkaufer-in-im-stundenlohn-denner-ag-binningen-gjmk23",
         "vendeur-a-salaire-horaire-denner-ag-binningen",
@@ -3851,8 +3846,8 @@
       "firstSeenAt": "2026-07-03T12:10:52.243Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-wetzikon",
-        "en": "seller-denner-ag-wetzikon-8e6f7a",
-        "fr": "vendeur-denner-ag-wetzikon-8e6f7a",
+        "en": "seller-denner-ag-wetzikon",
+        "fr": "vendeur-denner-ag-wetzikon",
         "de": "verkaufer-in-denner-ag-wetzikon"
       },
       "titleByLocale": {
@@ -3886,12 +3881,10 @@
           "verkaufer-in-denner-ag-wetzikon-douzkp"
         ],
         "en": [
-          "seller-denner-ag-wetzikon-8e6f7a",
-          "seller-denner-ag-wetzikon"
+          "seller-denner-ag-wetzikon-8e6f7a"
         ],
         "fr": [
-          "vendeur-denner-ag-wetzikon-8e6f7a",
-          "vendeur-denner-ag-wetzikon"
+          "vendeur-denner-ag-wetzikon-8e6f7a"
         ],
         "it": [
           "venditore-denner-ag-urdorf"
@@ -3900,9 +3893,7 @@
       "previousSlugs": [
         "verkaufer-in-denner-ag-wetzikon-douzkp",
         "seller-denner-ag-wetzikon-8e6f7a",
-        "seller-denner-ag-wetzikon",
         "vendeur-denner-ag-wetzikon-8e6f7a",
-        "vendeur-denner-ag-wetzikon",
         "venditore-denner-ag-urdorf",
         "venditore-denner-ag-dubendorf",
         "seller-denner-ag-dubendorf",
@@ -3910,7 +3901,6 @@
         "vendeur-denner-ag-dubendorf",
         "verkaufer-in-denner-ag-dubendorf-9wcq9n",
         "venditore-denner-ag-wetzikon-8e6f7a",
-        "venditore-denner-ag-wetzikon",
         "seller-denner-ag-frauenfeld-008421",
         "verkaufer-in-denner-ag-frauenfeld",
         "vendeur-denner-ag-frauenfeld-008421",
@@ -4032,10 +4022,7 @@
         "vendeur-denner-ag-dubendorf",
         "verkaufer-in-denner-ag-dubendorf-9wcq9n",
         "verkaufer-in-denner-ag-wetzikon-douzkp",
-        "seller-denner-ag-wetzikon-8e6f7a",
-        "vendeur-denner-ag-wetzikon-8e6f7a",
         "venditore-denner-ag-wetzikon-8e6f7a",
-        "venditore-denner-ag-wetzikon",
         "seller-denner-ag-frauenfeld-008421",
         "verkaufer-in-denner-ag-frauenfeld",
         "vendeur-denner-ag-frauenfeld-008421",
@@ -4211,9 +4198,9 @@
       "firstSeenAt": "2026-07-03T12:10:52.243Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-dubendorf",
-        "en": "verkaufer-in-denner-dubendorf",
+        "en": "seller-denner-ag-dubendorf",
         "de": "verkaufer-in-denner-ag-dubendorf",
-        "fr": "verkaufer-in-denner-dubendorf"
+        "fr": "vendeur-denner-ag-dubendorf"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -4266,20 +4253,19 @@
         ],
         "en": [
           "verkaufer-in-denner-ag-dubendorf",
-          "seller-denner-ag-dubendorf"
+          "verkaufer-in-denner-dubendorf"
         ],
         "fr": [
           "verkaufer-in-denner-ag-dubendorf",
-          "vendeur-denner-ag-dubendorf"
+          "verkaufer-in-denner-dubendorf"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-ag-dubendorf",
         "venditore-denner-ag-wetzikon",
-        "seller-denner-ag-dubendorf",
-        "vendeur-denner-ag-dubendorf",
         "verkaufer-in-denner-ag-wetzikon",
-        "verkaufer-in-denner-ag-dubendorf-9wcq9n"
+        "verkaufer-in-denner-ag-dubendorf-9wcq9n",
+        "verkaufer-in-denner-dubendorf"
       ]
     },
     {
@@ -4345,9 +4331,9 @@
       },
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-denner-ag-schaffhausen-8cfca5",
-        "en": "vice-direttore-di-filiale-denner-ag-schaffhausen-8cfca5",
+        "en": "stv-branch-manager-in-denner-ag-schaffhausen",
         "de": "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
-        "fr": "vice-direttore-di-filiale-denner-ag-schaffhausen-8cfca5"
+        "fr": "directeur-de-succursale-stv-in-denner-ag-schaffhausen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -4369,19 +4355,15 @@
           "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
         ],
         "en": [
-          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
-          "stv-branch-manager-in-denner-ag-schaffhausen"
+          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
         ],
         "fr": [
-          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
-          "directeur-de-succursale-stv-in-denner-ag-schaffhausen"
+          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-schaffhausen",
-        "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
-        "stv-branch-manager-in-denner-ag-schaffhausen",
-        "directeur-de-succursale-stv-in-denner-ag-schaffhausen"
+        "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -10396,9 +10378,9 @@
       "firstSeenAt": "2026-07-02T12:16:59.926Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld-008421",
+        "en": "seller-denner-ag-frauenfeld",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld-008421"
+        "fr": "vendeur-denner-ag-frauenfeld"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -10446,9 +10428,7 @@
       "country": "CH",
       "previousSlugs": [
         "seller-denner-ag-frauenfeld-008421",
-        "seller-denner-ag-frauenfeld",
         "vendeur-denner-ag-frauenfeld-008421",
-        "vendeur-denner-ag-frauenfeld",
         "verkaufer-in-denner-ag-langenthal",
         "verkaufer-in-denner-ag-wattwil",
         "vendeur-denner-ag-wattwil",
@@ -10468,12 +10448,10 @@
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-frauenfeld-008421",
-          "seller-denner-ag-frauenfeld"
+          "seller-denner-ag-frauenfeld-008421"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld-008421",
-          "vendeur-denner-ag-frauenfeld"
+          "vendeur-denner-ag-frauenfeld-008421"
         ],
         "it": [
           "verkaufer-in-denner-ag-langenthal",
@@ -43507,7 +43485,7 @@
         "it": "assistant-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a",
         "en": "assistant-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a",
         "de": "assistent-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a",
-        "fr": "club-de-remise-en-forme-m-w-d-activ-fitness-baar-jwmq7a"
+        "fr": "assistant-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a"
       },
       "requirementsByLocale": {
         "it": [],
@@ -43535,7 +43513,8 @@
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-baar",
         "vice-direttore-del-fitness-club-lunedi-venerdi-activ-fitness-baar",
-        "club-de-remise-en-forme-m-f-d-activ-fitness-baar"
+        "club-de-remise-en-forme-m-f-d-activ-fitness-baar",
+        "club-de-remise-en-forme-m-w-d-activ-fitness-baar-jwmq7a"
       ],
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -44098,9 +44077,6 @@
         "it": [
           "manager-fitness-club-m-w-d-activ-fitness-stans",
           "responsabile-del-fitness-club-lun-f-d-activ-fitness-stans"
-        ],
-        "de": [
-          "manager-fitnessclub-m-w-d-activ-fitness-stans-a2ntgs"
         ]
       },
       "previousSlugs": [
@@ -69229,8 +69205,7 @@
         "teaching-groupfitness-in-hourly-wage-genossenschaft-migros-ostschweiz-chur",
         "enseignement-de-l-adequation-du-groupe-au-salaire-horaire-genossenschaft-migros-ostschweiz-chur",
         "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
-        "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona",
-        "riformatore-di-pilates-insegnante-con-un-salario-orario-genossenschaft-migros-ostschweiz-chur"
+        "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -73199,9 +73174,6 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-st-moritz",
           "istruttore-di-fitness-f-m-d-activ-fitness-st-moritz"
-        ],
-        "de": [
-          "fitnesstrainer-m-w-d-activ-fitness-st-moritz-8hd2h2"
         ]
       },
       "previousSlugs": [
@@ -73437,8 +73409,7 @@
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz",
-        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
-        "responsabile-assistente-fitness-club-m-w-d-activ-fitness-st-moritz"
+        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -77468,9 +77439,6 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-wadenswil",
           "istruttore-di-fitness-f-m-d-activ-fitness-wadenswil"
-        ],
-        "de": [
-          "fitnesstrainer-m-w-d-activ-fitness-wadenswil-1wnagn"
         ]
       },
       "previousSlugs": [
@@ -78935,9 +78903,6 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-horgen",
           "istruttore-di-fitness-f-m-d-activ-fitness-horgen"
-        ],
-        "de": [
-          "fitnesstrainer-m-w-d-activ-fitness-horgen-tdafr5"
         ]
       },
       "previousSlugs": [
@@ -86659,9 +86624,6 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-zurich"
-        ],
-        "de": [
-          "fitnesstrainer-m-w-d-activ-fitness-zurich-6yyz7w"
         ]
       },
       "previousSlugs": [

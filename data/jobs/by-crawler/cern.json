@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "cern-1af7749d827c",
-      "slug": "non-member-state-postdoc-fellowship-programme-theoretical-physics-cern-geneva-ge",
+      "slug": "programma-di-fellowship-postdoc-di-stato-non-membro-fisica-teorica-cern-geneva-ge-switzerland",
       "slugByLocale": {
         "en": "non-member-state-postdoc-fellowship-programme-theoretical-physics-cern-geneva-ge",
-        "it": "non-member-state-postdoc-fellowship-programme-theoretical-physics-cern-geneva-ge",
-        "de": "non-member-state-postdoc-fellowship-programme-theoretical-physics-cern-geneva-ge",
-        "fr": "non-member-state-postdoc-fellowship-programme-theoretical-physics-cern-geneva-ge"
+        "it": "programma-di-fellowship-postdoc-di-stato-non-membro-fisica-teorica-cern-geneva-ge-switzerland",
+        "de": "postdoc-fellowship-programm-theoretische-physik-cern-geneva-ge-switzerland",
+        "fr": "programme-de-bourses-postdoc-physique-theorique-cern-geneva-ge-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -66,16 +66,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.517Z"
+      "firstSeenAt": "2026-07-03T21:35:58.517Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "non-member-state-postdoc-fellowship-programme-theoretical-physics-cern-geneva-ge"
+        ],
+        "de": [
+          "non-member-state-postdoc-fellowship-programme-theoretical-physics-cern-geneva-ge"
+        ],
+        "fr": [
+          "non-member-state-postdoc-fellowship-programme-theoretical-physics-cern-geneva-ge"
+        ]
+      },
+      "previousSlugs": [
+        "non-member-state-postdoc-fellowship-programme-theoretical-physics-cern-geneva-ge"
+      ]
     },
     {
       "id": "cern-fbd8a0f91c10",
-      "slug": "theoretical-physicist-th-sp-2026-68-ld-cern-geneva-geneva-switzerland",
+      "slug": "teoretico-fisico-th-sp-2026-68-ld-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "theoretical-physicist-th-sp-2026-68-ld-cern-geneva-geneva-switzerland",
-        "it": "theoretical-physicist-th-sp-2026-68-ld-cern-geneva-geneva-switzerland",
-        "de": "theoretical-physicist-th-sp-2026-68-ld-cern-geneva-geneva-switzerland",
-        "fr": "theoretical-physicist-th-sp-2026-68-ld-cern-geneva-geneva-switzerland"
+        "it": "teoretico-fisico-th-sp-2026-68-ld-cern-geneva-geneva-switzerland",
+        "de": "theoretische-physikerin-th-sp-2026-68-ld-cern-geneva-geneva-switzerland",
+        "fr": "physicien-theorique-th-sp-2026-68-ld-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -132,16 +146,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.516Z"
+      "firstSeenAt": "2026-07-03T21:35:58.516Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "theoretical-physicist-th-sp-2026-68-ld-cern-geneva-geneva-switzerland"
+        ],
+        "de": [
+          "theoretical-physicist-th-sp-2026-68-ld-cern-geneva-geneva-switzerland"
+        ],
+        "fr": [
+          "theoretical-physicist-th-sp-2026-68-ld-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "theoretical-physicist-th-sp-2026-68-ld-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-7cf655c16ec3",
-      "slug": "short-term-internship-2026-cern-geneva-ge-switzerland",
+      "slug": "interno-a-breve-termine-2026-cern-geneva-ge-switzerland",
       "slugByLocale": {
         "en": "short-term-internship-2026-cern-geneva-ge-switzerland",
-        "it": "short-term-internship-2026-cern-geneva-ge-switzerland",
-        "de": "short-term-internship-2026-cern-geneva-ge-switzerland",
-        "fr": "short-term-internship-2026-cern-geneva-ge-switzerland"
+        "it": "interno-a-breve-termine-2026-cern-geneva-ge-switzerland",
+        "de": "kurzzeitpraktikum-2026-cern-geneva-ge-switzerland",
+        "fr": "stage-de-courte-duree-2026-cern-geneva-ge-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -198,7 +226,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.516Z"
+      "firstSeenAt": "2026-07-03T21:35:58.516Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "short-term-internship-2026-cern-geneva-ge-switzerland"
+        ],
+        "de": [
+          "short-term-internship-2026-cern-geneva-ge-switzerland"
+        ],
+        "fr": [
+          "short-term-internship-2026-cern-geneva-ge-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "short-term-internship-2026-cern-geneva-ge-switzerland"
+      ]
     },
     {
       "id": "cern-822a61f357f4",
@@ -466,12 +508,12 @@
     },
     {
       "id": "cern-799fa453687a",
-      "slug": "financial-support-officer-for-the-cms-experiment-ep-cms-org-2026-120-ld-cern-geneva-geneva",
+      "slug": "responsabile-del-supporto-finanziario-per-l-esperimento-cms-ep-cms-org-2026-120-ld-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "financial-support-officer-for-the-cms-experiment-ep-cms-org-2026-120-ld-cern-geneva-geneva",
-        "it": "financial-support-officer-for-the-cms-experiment-ep-cms-org-2026-120-ld-cern-geneva-geneva",
+        "it": "responsabile-del-supporto-finanziario-per-l-esperimento-cms-ep-cms-org-2026-120-ld-cern-geneva-geneva-switzerland",
         "de": "financial-support-officer-for-the-cms-experiment-ep-cms-org-2026-120-ld-cern-geneva-geneva",
-        "fr": "financial-support-officer-for-the-cms-experiment-ep-cms-org-2026-120-ld-cern-geneva-geneva"
+        "fr": "agent-de-soutien-financier-pour-l-experience-de-la-smc-ep-cms-org-2026-120-ld-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -528,7 +570,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.512Z"
+      "firstSeenAt": "2026-07-03T21:35:58.512Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-support-officer-for-the-cms-experiment-ep-cms-org-2026-120-ld-cern-geneva-geneva"
+        ],
+        "fr": [
+          "financial-support-officer-for-the-cms-experiment-ep-cms-org-2026-120-ld-cern-geneva-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "financial-support-officer-for-the-cms-experiment-ep-cms-org-2026-120-ld-cern-geneva-geneva"
+      ]
     },
     {
       "id": "cern-c49f71256bd0",
@@ -1258,10 +1311,10 @@
     },
     {
       "id": "cern-d0b06eb1e0c5",
-      "slug": "electrical-cabling-project-technician-en-el-cs-2025-277-ld-cern-geneva-geneva-switzerland",
+      "slug": "progetto-di-cablaggio-elettrico-tecnico-en-el-cs-2025-277-ld-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "electrical-cabling-project-technician-en-el-cs-2025-277-ld-cern-geneva-geneva-switzerland",
-        "it": "electrical-cabling-project-technician-en-el-cs-2025-277-ld-cern-geneva-geneva-switzerland",
+        "it": "progetto-di-cablaggio-elettrico-tecnico-en-el-cs-2025-277-ld-cern-geneva-geneva-switzerland",
         "de": "electrical-cabling-project-technician-en-el-cs-2025-277-ld-cern-geneva-geneva-switzerland",
         "fr": "electrical-cabling-project-technician-en-el-cs-2025-277-ld-cern-geneva-geneva-switzerland"
       },
@@ -1320,7 +1373,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.503Z"
+      "firstSeenAt": "2026-07-03T21:35:58.503Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "electrical-cabling-project-technician-en-el-cs-2025-277-ld-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "electrical-cabling-project-technician-en-el-cs-2025-277-ld-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-983de2196734",
@@ -1390,10 +1451,10 @@
     },
     {
       "id": "cern-76232038693f",
-      "slug": "electromechanical-technician-ep-atl-so-2026-129-ld-cern-geneva-geneva-switzerland",
+      "slug": "tecnico-elettromeccanico-ep-atl-so-2026-129-ld-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "electromechanical-technician-ep-atl-so-2026-129-ld-cern-geneva-geneva-switzerland",
-        "it": "electromechanical-technician-ep-atl-so-2026-129-ld-cern-geneva-geneva-switzerland",
+        "it": "tecnico-elettromeccanico-ep-atl-so-2026-129-ld-cern-geneva-geneva-switzerland",
         "de": "electromechanical-technician-ep-atl-so-2026-129-ld-cern-geneva-geneva-switzerland",
         "fr": "electromechanical-technician-ep-atl-so-2026-129-ld-cern-geneva-geneva-switzerland"
       },
@@ -1452,7 +1513,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.501Z"
+      "firstSeenAt": "2026-07-03T21:35:58.501Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "electromechanical-technician-ep-atl-so-2026-129-ld-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "electromechanical-technician-ep-atl-so-2026-129-ld-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-6f981627cee9",
@@ -1593,7 +1662,7 @@
         "en": "mechanical-designer-en-mme-md-2026-132-ld-cern-geneva-geneva-switzerland",
         "it": "mechanical-designer-en-mme-md-2026-132-ld-cern-geneva-geneva-switzerland",
         "de": "mechanical-designer-en-mme-md-2026-132-ld-cern-geneva-geneva-switzerland",
-        "fr": "mechanical-designer-en-mme-md-2026-132-ld-cern-geneva-geneva-switzerland"
+        "fr": "conception-mecanique-en-mme-md-2026-132-ld-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -1786,12 +1855,12 @@
     },
     {
       "id": "cern-01250c32cd47",
-      "slug": "applied-physicist-in-gas-detectors-and-systems-ep-dt-gd-2026-114-grap-cern-geneva-geneva",
+      "slug": "medico-applicato-in-rilevatori-e-sistemi-gas-ep-dt-gd-2026-114-grap-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "applied-physicist-in-gas-detectors-and-systems-ep-dt-gd-2026-114-grap-cern-geneva-geneva",
-        "it": "applied-physicist-in-gas-detectors-and-systems-ep-dt-gd-2026-114-grap-cern-geneva-geneva",
-        "de": "applied-physicist-in-gas-detectors-and-systems-ep-dt-gd-2026-114-grap-cern-geneva-geneva",
-        "fr": "applied-physicist-in-gas-detectors-and-systems-ep-dt-gd-2026-114-grap-cern-geneva-geneva"
+        "it": "medico-applicato-in-rilevatori-e-sistemi-gas-ep-dt-gd-2026-114-grap-cern-geneva-geneva-switzerland",
+        "de": "angewandter-physiker-in-gasdetektoren-und-systemen-ep-dt-gd-2026-114-grap-cern-geneva-geneva-switzerland",
+        "fr": "physicien-applique-dans-les-detecteurs-et-systemes-de-gaz-ep-dt-gd-2026-114-grap-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -1848,7 +1917,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.496Z"
+      "firstSeenAt": "2026-07-03T21:35:58.496Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "applied-physicist-in-gas-detectors-and-systems-ep-dt-gd-2026-114-grap-cern-geneva-geneva"
+        ],
+        "de": [
+          "applied-physicist-in-gas-detectors-and-systems-ep-dt-gd-2026-114-grap-cern-geneva-geneva"
+        ],
+        "fr": [
+          "applied-physicist-in-gas-detectors-and-systems-ep-dt-gd-2026-114-grap-cern-geneva-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "applied-physicist-in-gas-detectors-and-systems-ep-dt-gd-2026-114-grap-cern-geneva-geneva"
+      ]
     },
     {
       "id": "cern-00c0e9075b3f",
@@ -1857,7 +1940,7 @@
         "en": "applied-physicist-on-daq-software-ep-cms-id-2026-113-grap-cern-geneva-geneva-switzerland",
         "it": "applied-physicist-on-daq-software-ep-cms-id-2026-113-grap-cern-geneva-geneva-switzerland",
         "de": "applied-physicist-on-daq-software-ep-cms-id-2026-113-grap-cern-geneva-geneva-switzerland",
-        "fr": "applied-physicist-on-daq-software-ep-cms-id-2026-113-grap-cern-geneva-geneva-switzerland"
+        "fr": "physicien-applique-au-logiciel-daq-ep-cms-id-2026-113-grap-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -1984,10 +2067,10 @@
     },
     {
       "id": "cern-15eef710c81e",
-      "slug": "source-and-linac-physicist-be-abp-hsl-2026-133-ld-cern-geneva-geneva-switzerland",
+      "slug": "fonte-e-linacicista-be-abp-hsl-2026-133-ld-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "source-and-linac-physicist-be-abp-hsl-2026-133-ld-cern-geneva-geneva-switzerland",
-        "it": "source-and-linac-physicist-be-abp-hsl-2026-133-ld-cern-geneva-geneva-switzerland",
+        "it": "fonte-e-linacicista-be-abp-hsl-2026-133-ld-cern-geneva-geneva-switzerland",
         "de": "source-and-linac-physicist-be-abp-hsl-2026-133-ld-cern-geneva-geneva-switzerland",
         "fr": "source-and-linac-physicist-be-abp-hsl-2026-133-ld-cern-geneva-geneva-switzerland"
       },
@@ -2046,16 +2129,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.494Z"
+      "firstSeenAt": "2026-07-03T21:35:58.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "source-and-linac-physicist-be-abp-hsl-2026-133-ld-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "source-and-linac-physicist-be-abp-hsl-2026-133-ld-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-7312fac96bbb",
-      "slug": "assistant-departmental-safety-officer-en-rms-2026-147-grae-cern-geneva-geneva-switzerland",
+      "slug": "assistente-responsabile-della-sicurezza-dipartimentale-en-rms-2026-147-grae-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "assistant-departmental-safety-officer-en-rms-2026-147-grae-cern-geneva-geneva-switzerland",
-        "it": "assistant-departmental-safety-officer-en-rms-2026-147-grae-cern-geneva-geneva-switzerland",
+        "it": "assistente-responsabile-della-sicurezza-dipartimentale-en-rms-2026-147-grae-cern-geneva-geneva-switzerland",
         "de": "assistant-departmental-safety-officer-en-rms-2026-147-grae-cern-geneva-geneva-switzerland",
-        "fr": "assistant-departmental-safety-officer-en-rms-2026-147-grae-cern-geneva-geneva-switzerland"
+        "fr": "agent-de-securite-ministeriel-adjoint-en-rms-2026-147-grae-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -2112,14 +2203,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.493Z"
+      "firstSeenAt": "2026-07-03T21:35:58.493Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-departmental-safety-officer-en-rms-2026-147-grae-cern-geneva-geneva-switzerland"
+        ],
+        "fr": [
+          "assistant-departmental-safety-officer-en-rms-2026-147-grae-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-departmental-safety-officer-en-rms-2026-147-grae-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-beab20bd177a",
-      "slug": "mechanical-technician-sy-rf-ac-2026-172-grae-cern-geneva-geneva-switzerland",
+      "slug": "tecnico-meccanico-sy-rf-ac-2026-172-grae-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "mechanical-technician-sy-rf-ac-2026-172-grae-cern-geneva-geneva-switzerland",
-        "it": "mechanical-technician-sy-rf-ac-2026-172-grae-cern-geneva-geneva-switzerland",
+        "it": "tecnico-meccanico-sy-rf-ac-2026-172-grae-cern-geneva-geneva-switzerland",
         "de": "mechanical-technician-sy-rf-ac-2026-172-grae-cern-geneva-geneva-switzerland",
         "fr": "mechanical-technician-sy-rf-ac-2026-172-grae-cern-geneva-geneva-switzerland"
       },
@@ -2178,7 +2280,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.493Z"
+      "firstSeenAt": "2026-07-03T21:35:58.493Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-technician-sy-rf-ac-2026-172-grae-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-technician-sy-rf-ac-2026-172-grae-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-06091de02286",
@@ -2314,10 +2424,10 @@
     },
     {
       "id": "cern-d0b295de3bb0",
-      "slug": "mechanical-technician-for-the-cms-ecal-detector-at-lhc-ep-cms-ld-2026-138-ld-cern-geneva",
+      "slug": "tecnico-meccanico-per-il-rilevatore-cms-ecal-a-lhc-ep-cms-ld-2026-138-ld-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "mechanical-technician-for-the-cms-ecal-detector-at-lhc-ep-cms-ld-2026-138-ld-cern-geneva",
-        "it": "mechanical-technician-for-the-cms-ecal-detector-at-lhc-ep-cms-ld-2026-138-ld-cern-geneva",
+        "it": "tecnico-meccanico-per-il-rilevatore-cms-ecal-a-lhc-ep-cms-ld-2026-138-ld-cern-geneva-geneva-switzerland",
         "de": "mechanical-technician-for-the-cms-ecal-detector-at-lhc-ep-cms-ld-2026-138-ld-cern-geneva",
         "fr": "mechanical-technician-for-the-cms-ecal-detector-at-lhc-ep-cms-ld-2026-138-ld-cern-geneva"
       },
@@ -2376,7 +2486,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.489Z"
+      "firstSeenAt": "2026-07-03T21:35:58.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-technician-for-the-cms-ecal-detector-at-lhc-ep-cms-ld-2026-138-ld-cern-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-technician-for-the-cms-ecal-detector-at-lhc-ep-cms-ld-2026-138-ld-cern-geneva"
+      ]
     },
     {
       "id": "cern-8f8e86621b62",
@@ -2583,7 +2701,7 @@
         "en": "computer-scientist-open-science-analysis-facilities-it-ca-ir-2026-139-ld-cern-geneva",
         "it": "computer-scientist-open-science-analysis-facilities-it-ca-ir-2026-139-ld-cern-geneva",
         "de": "computer-scientist-open-science-analysis-facilities-it-ca-ir-2026-139-ld-cern-geneva",
-        "fr": "computer-scientist-open-science-analysis-facilities-it-ca-ir-2026-139-ld-cern-geneva"
+        "fr": "computer-scientist-installations-ouvertes-de-science-analyse-it-ca-ir-2026-139-ld-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -2644,12 +2762,12 @@
     },
     {
       "id": "cern-4dd8c90bb1ae",
-      "slug": "lead-simulation-physicist-high-performance-detector-simulation-ep-sft-2026-136-ld-cern",
+      "slug": "simulazione-di-piombo-medico-simulazione-di-rilevatore-ad-alta-efficienza-ep-sft-2026-136-ld-cern-geneva-geneva",
       "slugByLocale": {
         "en": "lead-simulation-physicist-high-performance-detector-simulation-ep-sft-2026-136-ld-cern",
-        "it": "lead-simulation-physicist-high-performance-detector-simulation-ep-sft-2026-136-ld-cern",
-        "de": "lead-simulation-physicist-high-performance-detector-simulation-ep-sft-2026-136-ld-cern",
-        "fr": "lead-simulation-physicist-high-performance-detector-simulation-ep-sft-2026-136-ld-cern"
+        "it": "simulazione-di-piombo-medico-simulazione-di-rilevatore-ad-alta-efficienza-ep-sft-2026-136-ld-cern-geneva-geneva",
+        "de": "leitender-simulationsphysiker-hochleistungsdetektorsimulation-ep-sft-2026-136-ld-cern-geneva-geneva-switzerland",
+        "fr": "physicien-de-simulation-de-plomb-simulation-de-detecteurs-a-haut-rendement-ep-sft-2026-136-ld-cern-geneva-geneva"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -2706,7 +2824,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.484Z"
+      "firstSeenAt": "2026-07-03T21:35:58.484Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-simulation-physicist-high-performance-detector-simulation-ep-sft-2026-136-ld-cern"
+        ],
+        "de": [
+          "lead-simulation-physicist-high-performance-detector-simulation-ep-sft-2026-136-ld-cern"
+        ],
+        "fr": [
+          "lead-simulation-physicist-high-performance-detector-simulation-ep-sft-2026-136-ld-cern"
+        ]
+      },
+      "previousSlugs": [
+        "lead-simulation-physicist-high-performance-detector-simulation-ep-sft-2026-136-ld-cern"
+      ]
     },
     {
       "id": "cern-93298d15b4f6",
@@ -3242,8 +3374,8 @@
       "slugByLocale": {
         "en": "sustainability-reporting-communications-project-officer-osi-ics-2026-125-grap-cern-geneva",
         "it": "sustainability-reporting-communications-project-officer-osi-ics-2026-125-grap-cern-geneva",
-        "de": "sustainability-reporting-communications-project-officer-osi-ics-2026-125-grap-cern-geneva",
-        "fr": "sustainability-reporting-communications-project-officer-osi-ics-2026-125-grap-cern-geneva"
+        "de": "projektleiter-fur-nachhaltigkeitsberichterstattung-und-kommunikation-osi-ics-2026-125-grap-cern-geneva-geneva",
+        "fr": "agent-de-projet-de-rapports-et-de-communications-sur-la-durabilite-osi-ics-2026-125-grap-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -3436,11 +3568,11 @@
     },
     {
       "id": "cern-e5d79d62e8d2",
-      "slug": "particle-accelerator-operator-be-op-psb-2026-141-ld-cern-geneva-geneva-switzerland",
+      "slug": "operatore-acceleratore-di-particelle-be-op-psb-2026-141-ld-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "particle-accelerator-operator-be-op-psb-2026-141-ld-cern-geneva-geneva-switzerland",
-        "it": "particle-accelerator-operator-be-op-psb-2026-141-ld-cern-geneva-geneva-switzerland",
-        "de": "particle-accelerator-operator-be-op-psb-2026-141-ld-cern-geneva-geneva-switzerland",
+        "it": "operatore-acceleratore-di-particelle-be-op-psb-2026-141-ld-cern-geneva-geneva-switzerland",
+        "de": "partikelbeschleuniger-be-op-psb-2026-141-ld-cern-geneva-geneva-switzerland",
         "fr": "particle-accelerator-operator-be-op-psb-2026-141-ld-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
@@ -3498,7 +3630,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.471Z"
+      "firstSeenAt": "2026-07-03T21:35:58.471Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "particle-accelerator-operator-be-op-psb-2026-141-ld-cern-geneva-geneva-switzerland"
+        ],
+        "de": [
+          "particle-accelerator-operator-be-op-psb-2026-141-ld-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "particle-accelerator-operator-be-op-psb-2026-141-ld-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-89376758d266",
@@ -3506,8 +3649,8 @@
       "slugByLocale": {
         "en": "cern-pension-fund-governing-board-external-professional-expert-cern-meyrin-ch-ge",
         "it": "cern-pension-fund-governing-board-external-professional-expert-cern-meyrin-ch-ge",
-        "de": "cern-pension-fund-governing-board-external-professional-expert-cern-meyrin-ch-ge",
-        "fr": "cern-pension-fund-governing-board-external-professional-expert-cern-meyrin-ch-ge"
+        "de": "cern-pension-fund-governing-board-externer-sachverstandiger-cern-meyrin-ch-ge-switzerland",
+        "fr": "cern-conseil-de-direction-du-fonds-de-pension-expert-professionnel-externe-cern-meyrin-ch-ge-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -3568,10 +3711,10 @@
     },
     {
       "id": "cern-2a5c181580fd",
-      "slug": "technician-for-industrial-cooling-ventilation-refrigeration-en-cv-psm-2026-122-ld-cern",
+      "slug": "tecnico-per-raffreddamento-industriale-ventilazione-e-refrigerazione-en-cv-psm-2026-122-ld-cern-geneva-geneva",
       "slugByLocale": {
         "en": "technician-for-industrial-cooling-ventilation-refrigeration-en-cv-psm-2026-122-ld-cern",
-        "it": "technician-for-industrial-cooling-ventilation-refrigeration-en-cv-psm-2026-122-ld-cern",
+        "it": "tecnico-per-raffreddamento-industriale-ventilazione-e-refrigerazione-en-cv-psm-2026-122-ld-cern-geneva-geneva",
         "de": "technician-for-industrial-cooling-ventilation-refrigeration-en-cv-psm-2026-122-ld-cern",
         "fr": "technician-for-industrial-cooling-ventilation-refrigeration-en-cv-psm-2026-122-ld-cern"
       },
@@ -3630,16 +3773,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.469Z"
+      "firstSeenAt": "2026-07-03T21:35:58.469Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technician-for-industrial-cooling-ventilation-refrigeration-en-cv-psm-2026-122-ld-cern"
+        ]
+      },
+      "previousSlugs": [
+        "technician-for-industrial-cooling-ventilation-refrigeration-en-cv-psm-2026-122-ld-cern"
+      ]
     },
     {
       "id": "cern-92ccd01f0fbb",
-      "slug": "calorimeter-development-physicist-ep-lcb-2026-126-grap-cern-geneva-geneva-switzerland",
+      "slug": "fisico-di-sviluppo-del-calcio-ep-lcb-2026-126-grap-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "calorimeter-development-physicist-ep-lcb-2026-126-grap-cern-geneva-geneva-switzerland",
-        "it": "calorimeter-development-physicist-ep-lcb-2026-126-grap-cern-geneva-geneva-switzerland",
+        "it": "fisico-di-sviluppo-del-calcio-ep-lcb-2026-126-grap-cern-geneva-geneva-switzerland",
         "de": "calorimeter-development-physicist-ep-lcb-2026-126-grap-cern-geneva-geneva-switzerland",
-        "fr": "calorimeter-development-physicist-ep-lcb-2026-126-grap-cern-geneva-geneva-switzerland"
+        "fr": "medecin-du-developpement-du-calorimetre-ep-lcb-2026-126-grap-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -3696,7 +3847,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.468Z"
+      "firstSeenAt": "2026-07-03T21:35:58.468Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "calorimeter-development-physicist-ep-lcb-2026-126-grap-cern-geneva-geneva-switzerland"
+        ],
+        "fr": [
+          "calorimeter-development-physicist-ep-lcb-2026-126-grap-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "calorimeter-development-physicist-ep-lcb-2026-126-grap-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-31db468b808b",
@@ -3766,10 +3928,10 @@
     },
     {
       "id": "cern-23dbf4828dc5",
-      "slug": "installation-and-maintenance-technician-sy-bi-bl-2026-176-grae-cern-geneva-geneva",
+      "slug": "tecnica-di-installazione-e-manutenzione-sy-bi-bl-2026-176-grae-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "installation-and-maintenance-technician-sy-bi-bl-2026-176-grae-cern-geneva-geneva",
-        "it": "installation-and-maintenance-technician-sy-bi-bl-2026-176-grae-cern-geneva-geneva",
+        "it": "tecnica-di-installazione-e-manutenzione-sy-bi-bl-2026-176-grae-cern-geneva-geneva-switzerland",
         "de": "installation-and-maintenance-technician-sy-bi-bl-2026-176-grae-cern-geneva-geneva",
         "fr": "installation-and-maintenance-technician-sy-bi-bl-2026-176-grae-cern-geneva-geneva"
       },
@@ -3828,7 +3990,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.466Z"
+      "firstSeenAt": "2026-07-03T21:35:58.466Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "installation-and-maintenance-technician-sy-bi-bl-2026-176-grae-cern-geneva-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "installation-and-maintenance-technician-sy-bi-bl-2026-176-grae-cern-geneva-geneva"
+      ]
     },
     {
       "id": "cern-eab57588aa77",
@@ -3964,12 +4134,12 @@
     },
     {
       "id": "cern-a60b7eef8e9a",
-      "slug": "applied-physicist-future-superconducting-detector-magnets-ep-cms-ic-2026-99-grap-cern",
+      "slug": "medico-applicato-futuri-magneti-del-rilevatore-superconducting-ep-cms-ic-2026-99-grap-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "applied-physicist-future-superconducting-detector-magnets-ep-cms-ic-2026-99-grap-cern",
-        "it": "applied-physicist-future-superconducting-detector-magnets-ep-cms-ic-2026-99-grap-cern",
-        "de": "applied-physicist-future-superconducting-detector-magnets-ep-cms-ic-2026-99-grap-cern",
-        "fr": "applied-physicist-future-superconducting-detector-magnets-ep-cms-ic-2026-99-grap-cern"
+        "it": "medico-applicato-futuri-magneti-del-rilevatore-superconducting-ep-cms-ic-2026-99-grap-cern-geneva-geneva-switzerland",
+        "de": "angewandter-physiker-zukunftige-supraleitende-detektormagnete-ep-cms-ic-2026-99-grap-cern-geneva-geneva-switzerland",
+        "fr": "physicien-applique-futurs-aimants-de-detecteurs-supraconducteurs-ep-cms-ic-2026-99-grap-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -4026,7 +4196,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T21:35:58.460Z"
+      "firstSeenAt": "2026-07-03T21:35:58.460Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "applied-physicist-future-superconducting-detector-magnets-ep-cms-ic-2026-99-grap-cern"
+        ],
+        "de": [
+          "applied-physicist-future-superconducting-detector-magnets-ep-cms-ic-2026-99-grap-cern"
+        ],
+        "fr": [
+          "applied-physicist-future-superconducting-detector-magnets-ep-cms-ic-2026-99-grap-cern"
+        ]
+      },
+      "previousSlugs": [
+        "applied-physicist-future-superconducting-detector-magnets-ep-cms-ic-2026-99-grap-cern"
+      ]
     }
   ]
 }

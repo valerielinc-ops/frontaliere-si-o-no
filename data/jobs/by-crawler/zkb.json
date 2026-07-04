@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-empfang-zkb-zurich",
         "it": "collaboratore-trice-empfang-zurcher-kantonalbank-zurich",
-        "en": "mitarbeiter-in-empfang-zurcher-kantonalbank-zurich",
-        "fr": "mitarbeiter-in-empfang-zurcher-kantonalbank-zurich"
+        "en": "associate-empfang-zurcher-kantonalbank-zurich",
+        "fr": "collaborateur-trice-empfang-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -60,10 +60,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-empfang-zkb-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-empfang-zurcher-kantonalbank-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-empfang-zurcher-kantonalbank-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-empfang-zkb-zurich"
+        "mitarbeiter-in-empfang-zkb-zurich",
+        "mitarbeiter-in-empfang-zurcher-kantonalbank-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -219,12 +226,12 @@
     },
     {
       "id": "zkb-9f38f9b15d9d",
-      "slug": "hr-business-advisor-w-m-d-zkb-zurich",
+      "slug": "risorse-umane-business-consulente-w-m-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "hr-business-advisor-w-m-d-zkb-zurich",
-        "it": "hr-business-advisor-w-m-d-zkb-zurich",
+        "it": "risorse-umane-business-consulente-w-m-d-zurcher-kantonalbank-zurich",
         "en": "hr-business-advisor-w-m-d-zurcher-kantonalbank-zurich",
-        "fr": "hr-business-advisor-w-m-d-zkb-zurich"
+        "fr": "ressources-humaines-business-conseiller-w-m-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -284,7 +291,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:48:53.304Z"
+      "firstSeenAt": "2026-07-03T23:48:53.304Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-business-advisor-w-m-d-zkb-zurich"
+        ],
+        "fr": [
+          "hr-business-advisor-w-m-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hr-business-advisor-w-m-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-949c1295f17a",
@@ -447,7 +465,7 @@
         "de": "mitarbeiter-in-wertschriftenertr-u00e4ge-zkb-zurich",
         "it": "collaboratore-trice-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich",
         "en": "mitarbeiter-in-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich",
-        "fr": "mitarbeiter-in-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich"
+        "fr": "collaborateur-trice-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -498,10 +516,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-wertschriftenertr-u00e4ge-zkb-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-wertschriftenertr-u00e4ge-zkb-zurich"
+        "mitarbeiter-in-wertschriftenertr-u00e4ge-zkb-zurich",
+        "mitarbeiter-in-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1257,10 +1279,10 @@
     },
     {
       "id": "zkb-3bc52404605c",
-      "slug": "fullstack-devops-engineer-m-w-d-zkb-zurich",
+      "slug": "fullstack-devops-ingegnere-m-w-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "fullstack-devops-engineer-m-w-d-zkb-zurich",
-        "it": "fullstack-devops-engineer-m-w-d-zkb-zurich",
+        "it": "fullstack-devops-ingegnere-m-w-d-zurcher-kantonalbank-zurich",
         "en": "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich",
         "fr": "fullstack-devops-engineer-m-w-d-zkb-zurich"
       },
@@ -1322,7 +1344,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:48:46.662Z"
+      "firstSeenAt": "2026-07-03T23:48:46.662Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fullstack-devops-engineer-m-w-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fullstack-devops-engineer-m-w-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-1d2a53f3724b",
@@ -1480,10 +1510,10 @@
     },
     {
       "id": "zkb-688eba3ac2e9",
-      "slug": "business-engineer-ai-genai-w-m-d-zkb-zurich",
+      "slug": "business-ingegnere-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "business-engineer-ai-genai-w-m-d-zkb-zurich",
-        "it": "business-engineer-ai-genai-w-m-d-zkb-zurich",
+        "it": "business-ingegnere-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
         "en": "business-engineer-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
         "fr": "business-engineer-ai-genai-w-m-d-zkb-zurich"
       },
@@ -1545,16 +1575,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:48:45.196Z"
+      "firstSeenAt": "2026-07-03T23:48:45.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-engineer-ai-genai-w-m-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "business-engineer-ai-genai-w-m-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-f0274348731e",
-      "slug": "sap-s-4hana-developer-m-w-d-zkb-zurich",
+      "slug": "sap-s-4hana-sviluppatore-m-w-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "sap-s-4hana-developer-m-w-d-zkb-zurich",
-        "it": "sap-s-4hana-developer-m-w-d-zkb-zurich",
+        "it": "sap-s-4hana-sviluppatore-m-w-d-zurcher-kantonalbank-zurich",
         "en": "sap-s-4hana-developer-m-w-d-zurcher-kantonalbank-zurich",
-        "fr": "sap-s-4hana-developer-m-w-d-zkb-zurich"
+        "fr": "sap-s-4hana-developpeur-m-w-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -1614,7 +1652,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:48:44.721Z"
+      "firstSeenAt": "2026-07-03T23:48:44.721Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-s-4hana-developer-m-w-d-zkb-zurich"
+        ],
+        "fr": [
+          "sap-s-4hana-developer-m-w-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sap-s-4hana-developer-m-w-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-73a578fcf7ad",
@@ -1963,10 +2012,10 @@
     },
     {
       "id": "zkb-60b577a06f34",
-      "slug": "senior-accountant-zkb-zurich",
+      "slug": "senior-contabile-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "senior-accountant-zkb-zurich",
-        "it": "senior-accountant-zkb-zurich",
+        "it": "senior-contabile-zurcher-kantonalbank-zurich",
         "en": "senior-accountant-zkb-zurich",
         "fr": "senior-accountant-zurcher-kantonalbank-zurich"
       },
@@ -2028,7 +2077,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:48:41.860Z"
+      "firstSeenAt": "2026-07-03T23:48:41.860Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-accountant-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-accountant-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-67bde41d03de",
@@ -2178,10 +2235,10 @@
     },
     {
       "id": "zkb-154222ed0eb2",
-      "slug": "business-engineer-erp-m-w-d-zkb-zurich",
+      "slug": "business-ingegnere-erp-m-w-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "business-engineer-erp-m-w-d-zkb-zurich",
-        "it": "business-engineer-erp-m-w-d-zkb-zurich",
+        "it": "business-ingegnere-erp-m-w-d-zurcher-kantonalbank-zurich",
         "en": "business-engineer-erp-m-w-d-zurcher-kantonalbank-zurich",
         "fr": "business-engineer-erp-m-w-d-zkb-zurich"
       },
@@ -2243,7 +2300,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:48:40.416Z"
+      "firstSeenAt": "2026-07-03T23:48:40.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-engineer-erp-m-w-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "business-engineer-erp-m-w-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-6bc800ef9d5b",
@@ -3099,12 +3164,12 @@
     },
     {
       "id": "zkb-03f6fb7fc0d6",
-      "slug": "entra-id-security-specialist-m-w-d-zkb-zurich",
+      "slug": "entra-id-security-specialista-m-w-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "entra-id-security-specialist-m-w-d-zkb-zurich",
-        "it": "entra-id-security-specialist-m-w-d-zkb-zurich",
+        "it": "entra-id-security-specialista-m-w-d-zurcher-kantonalbank-zurich",
         "en": "entra-id-security-specialist-m-w-d-zurcher-kantonalbank-zurich",
-        "fr": "entra-id-security-specialist-m-w-d-zkb-zurich"
+        "fr": "entra-id-security-specialiste-m-w-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -3164,7 +3229,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:48:34.248Z"
+      "firstSeenAt": "2026-07-03T23:48:34.248Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "entra-id-security-specialist-m-w-d-zkb-zurich"
+        ],
+        "fr": [
+          "entra-id-security-specialist-m-w-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "entra-id-security-specialist-m-w-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-0b9b339b2d1a",
@@ -3396,7 +3472,7 @@
         "de": "enterprise-architect-ai-data-m-w-d-zkb-zurich",
         "it": "enterprise-architect-ai-data-m-w-d-zurcher-kantonalbank-zurich",
         "en": "enterprise-architect-ai-data-m-w-d-zkb-zurich",
-        "fr": "enterprise-architect-ai-data-m-w-d-zkb-zurich"
+        "fr": "enterprise-architecte-ai-data-m-w-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -3446,6 +3522,9 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
+          "enterprise-architect-ai-data-m-w-d-zkb-zurich"
+        ],
+        "fr": [
           "enterprise-architect-ai-data-m-w-d-zkb-zurich"
         ]
       },
@@ -3606,10 +3685,10 @@
     },
     {
       "id": "zkb-22e1068e0faf",
-      "slug": "devops-engineer-fullstack-m-w-d-zkb-zurich",
+      "slug": "devops-ingegnere-fullstack-m-w-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "devops-engineer-fullstack-m-w-d-zkb-zurich",
-        "it": "devops-engineer-fullstack-m-w-d-zkb-zurich",
+        "it": "devops-ingegnere-fullstack-m-w-d-zurcher-kantonalbank-zurich",
         "en": "devops-engineer-fullstack-m-w-d-zurcher-kantonalbank-zurich",
         "fr": "devops-engineer-fullstack-m-w-d-zkb-zurich"
       },
@@ -3671,7 +3750,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:48:30.894Z"
+      "firstSeenAt": "2026-07-03T23:48:30.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-fullstack-m-w-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "devops-engineer-fullstack-m-w-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-250dd790025b",
@@ -3680,7 +3767,7 @@
         "de": "enterprise-it-technology-architect-m-w-d-zkb-zurich",
         "it": "enterprise-it-technology-architect-m-w-d-zurcher-kantonalbank-zurich",
         "en": "enterprise-it-technology-architect-m-w-d-zkb-zurich",
-        "fr": "enterprise-it-technology-architect-m-w-d-zkb-zurich"
+        "fr": "enterprise-it-technology-architecte-m-w-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -3730,6 +3817,9 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
+          "enterprise-it-technology-architect-m-w-d-zkb-zurich"
+        ],
+        "fr": [
           "enterprise-it-technology-architect-m-w-d-zkb-zurich"
         ]
       },

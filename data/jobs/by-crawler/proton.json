@@ -654,11 +654,11 @@
     },
     {
       "id": "proton-82a2e728edb3",
-      "slug": "senior-r-d-engineer-proton-ch",
+      "slug": "senior-r-d-ingegnere-proton-barcelona",
       "slugByLocale": {
         "en": "senior-r-d-engineer-proton-ch",
-        "it": "senior-r-d-engineer-proton-ch",
-        "de": "senior-r-d-engineer-proton-ch",
+        "it": "senior-r-d-ingegnere-proton-barcelona",
+        "de": "senior-r-d-ingenieur-proton-barcelona",
         "fr": "senior-r-d-engineer-proton-ch"
       },
       "company": "Proton",
@@ -715,7 +715,18 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:16:32.209Z"
+      "firstSeenAt": "2026-07-03T23:16:32.209Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-r-d-engineer-proton-ch"
+        ],
+        "de": [
+          "senior-r-d-engineer-proton-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-r-d-engineer-proton-ch"
+      ]
     },
     {
       "id": "proton-6565c2255033",
@@ -1824,12 +1835,12 @@
     },
     {
       "id": "proton-7194e049aa57",
-      "slug": "engineering-director-proton-ch",
+      "slug": "engineering-direttore-proton-london",
       "slugByLocale": {
         "en": "engineering-director-proton-ch",
-        "it": "engineering-director-proton-ch",
-        "de": "engineering-director-proton-ch",
-        "fr": "engineering-director-proton-ch"
+        "it": "engineering-direttore-proton-london",
+        "de": "engineering-direktor-proton-london",
+        "fr": "engineering-directeur-proton-london"
       },
       "company": "Proton",
       "companyKey": "proton",
@@ -1885,7 +1896,21 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:16:26.773Z"
+      "firstSeenAt": "2026-07-03T23:16:26.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "engineering-director-proton-ch"
+        ],
+        "de": [
+          "engineering-director-proton-ch"
+        ],
+        "fr": [
+          "engineering-director-proton-ch"
+        ]
+      },
+      "previousSlugs": [
+        "engineering-director-proton-ch"
+      ]
     },
     {
       "id": "proton-c3d287128680",

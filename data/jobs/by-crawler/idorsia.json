@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "idorsia-1375cbff38b8",
-      "slug": "senior-clinical-pharmacologist-idorsia-allschwil",
+      "slug": "farmacia-clinica-senior-idorsia-pharmaceuticals-allschwil",
       "slugByLocale": {
         "en": "senior-clinical-pharmacologist-idorsia-allschwil",
-        "it": "senior-clinical-pharmacologist-idorsia-allschwil",
+        "it": "farmacia-clinica-senior-idorsia-pharmaceuticals-allschwil",
         "de": "senior-clinical-pharmacologist-idorsia-allschwil",
-        "fr": "senior-clinical-pharmacologist-idorsia-allschwil"
+        "fr": "pharmacologue-clinique-principal-idorsia-pharmaceuticals-allschwil"
       },
       "company": "Idorsia Pharmaceuticals",
       "companyKey": "idorsia",
@@ -64,16 +64,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T22:50:55.908Z"
+      "firstSeenAt": "2026-07-03T22:50:55.908Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-clinical-pharmacologist-idorsia-allschwil"
+        ],
+        "fr": [
+          "senior-clinical-pharmacologist-idorsia-allschwil"
+        ]
+      },
+      "previousSlugs": [
+        "senior-clinical-pharmacologist-idorsia-allschwil"
+      ]
     },
     {
       "id": "idorsia-cf9a4bf44447",
-      "slug": "accounting-specialist-idorsia-allschwil",
+      "slug": "accounting-specialista-idorsia-pharmaceuticals-allschwil",
       "slugByLocale": {
         "en": "accounting-specialist-idorsia-allschwil",
-        "it": "accounting-specialist-idorsia-allschwil",
-        "de": "accounting-specialist-idorsia-allschwil",
-        "fr": "accounting-specialist-idorsia-allschwil"
+        "it": "accounting-specialista-idorsia-pharmaceuticals-allschwil",
+        "de": "accounting-spezialist-idorsia-pharmaceuticals-allschwil",
+        "fr": "accounting-specialiste-idorsia-pharmaceuticals-allschwil"
       },
       "company": "Idorsia Pharmaceuticals",
       "companyKey": "idorsia",
@@ -128,16 +139,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T22:50:55.433Z"
+      "firstSeenAt": "2026-07-03T22:50:55.433Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "accounting-specialist-idorsia-allschwil"
+        ],
+        "de": [
+          "accounting-specialist-idorsia-allschwil"
+        ],
+        "fr": [
+          "accounting-specialist-idorsia-allschwil"
+        ]
+      },
+      "previousSlugs": [
+        "accounting-specialist-idorsia-allschwil"
+      ]
     },
     {
       "id": "idorsia-1d6a128aa44b",
-      "slug": "drug-safety-case-manager-idorsia-allschwil",
+      "slug": "gestione-dei-casi-di-sicurezza-idorsia-pharmaceuticals-allschwil",
       "slugByLocale": {
         "en": "drug-safety-case-manager-idorsia-allschwil",
-        "it": "drug-safety-case-manager-idorsia-allschwil",
+        "it": "gestione-dei-casi-di-sicurezza-idorsia-pharmaceuticals-allschwil",
         "de": "drug-safety-case-manager-idorsia-allschwil",
-        "fr": "drug-safety-case-manager-idorsia-allschwil"
+        "fr": "gestionnaire-de-cas-d-innocuite-des-medicaments-idorsia-pharmaceuticals-allschwil"
       },
       "company": "Idorsia Pharmaceuticals",
       "companyKey": "idorsia",
@@ -192,7 +217,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T22:50:54.960Z"
+      "firstSeenAt": "2026-07-03T22:50:54.960Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "drug-safety-case-manager-idorsia-allschwil"
+        ],
+        "fr": [
+          "drug-safety-case-manager-idorsia-allschwil"
+        ]
+      },
+      "previousSlugs": [
+        "drug-safety-case-manager-idorsia-allschwil"
+      ]
     },
     {
       "id": "idorsia-cb84574d662b",
@@ -200,8 +236,8 @@
       "slugByLocale": {
         "en": "head-of-global-supply-chain-idorsia-basel",
         "it": "head-of-global-supply-chain-idorsia-basel",
-        "de": "head-of-global-supply-chain-idorsia-basel",
-        "fr": "head-of-global-supply-chain-idorsia-basel"
+        "de": "leiter-global-lieferkette-idorsia-pharmaceuticals-basel",
+        "fr": "responsable-global-chaine-d-approvisionnement-idorsia-pharmaceuticals-basel"
       },
       "company": "Idorsia Pharmaceuticals",
       "companyKey": "idorsia",
@@ -260,12 +296,12 @@
     },
     {
       "id": "idorsia-a2ace9816d9f",
-      "slug": "team-leader-compound-management-idorsia-basel",
+      "slug": "capo-squadra-compound-management-idorsia-pharmaceuticals-basel",
       "slugByLocale": {
         "en": "team-leader-compound-management-idorsia-basel",
-        "it": "team-leader-compound-management-idorsia-basel",
-        "de": "team-leader-compound-management-idorsia-basel",
-        "fr": "team-leader-compound-management-idorsia-basel"
+        "it": "capo-squadra-compound-management-idorsia-pharmaceuticals-basel",
+        "de": "teamleiter-compound-management-idorsia-pharmaceuticals-basel",
+        "fr": "chef-d-equipe-gestion-des-composes-idorsia-pharmaceuticals-basel"
       },
       "company": "Idorsia Pharmaceuticals",
       "companyKey": "idorsia",
@@ -320,16 +356,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T22:50:53.937Z"
+      "firstSeenAt": "2026-07-03T22:50:53.937Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-compound-management-idorsia-basel"
+        ],
+        "de": [
+          "team-leader-compound-management-idorsia-basel"
+        ],
+        "fr": [
+          "team-leader-compound-management-idorsia-basel"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-compound-management-idorsia-basel"
+      ]
     },
     {
       "id": "idorsia-1002afb3a3de",
-      "slug": "hr-services-specialist-idorsia-basel",
+      "slug": "risorse-umane-services-specialista-idorsia-pharmaceuticals-basel",
       "slugByLocale": {
         "en": "hr-services-specialist-idorsia-basel",
-        "it": "hr-services-specialist-idorsia-basel",
-        "de": "hr-services-specialist-idorsia-basel",
-        "fr": "hr-services-specialist-idorsia-basel"
+        "it": "risorse-umane-services-specialista-idorsia-pharmaceuticals-basel",
+        "de": "personalwesen-services-spezialist-idorsia-pharmaceuticals-basel",
+        "fr": "ressources-humaines-services-specialiste-idorsia-pharmaceuticals-basel"
       },
       "company": "Idorsia Pharmaceuticals",
       "companyKey": "idorsia",
@@ -384,16 +434,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T22:50:53.461Z"
+      "firstSeenAt": "2026-07-03T22:50:53.461Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-services-specialist-idorsia-basel"
+        ],
+        "de": [
+          "hr-services-specialist-idorsia-basel"
+        ],
+        "fr": [
+          "hr-services-specialist-idorsia-basel"
+        ]
+      },
+      "previousSlugs": [
+        "hr-services-specialist-idorsia-basel"
+      ]
     },
     {
       "id": "idorsia-1c8b2da94e05",
-      "slug": "hr-trainee-12-months-idorsia-basel",
+      "slug": "risorse-umane-apprendista-12-months-idorsia-pharmaceuticals-basel",
       "slugByLocale": {
         "en": "hr-trainee-12-months-idorsia-basel",
-        "it": "hr-trainee-12-months-idorsia-basel",
-        "de": "hr-trainee-12-months-idorsia-basel",
-        "fr": "hr-trainee-12-months-idorsia-basel"
+        "it": "risorse-umane-apprendista-12-months-idorsia-pharmaceuticals-basel",
+        "de": "hr-trainee-12-monate-idorsia-pharmaceuticals-basel",
+        "fr": "ressources-humaines-apprenti-12-months-idorsia-pharmaceuticals-basel"
       },
       "company": "Idorsia Pharmaceuticals",
       "companyKey": "idorsia",
@@ -448,7 +512,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T22:50:52.901Z"
+      "firstSeenAt": "2026-07-03T22:50:52.901Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-trainee-12-months-idorsia-basel"
+        ],
+        "de": [
+          "hr-trainee-12-months-idorsia-basel"
+        ],
+        "fr": [
+          "hr-trainee-12-months-idorsia-basel"
+        ]
+      },
+      "previousSlugs": [
+        "hr-trainee-12-months-idorsia-basel"
+      ]
     }
   ]
 }

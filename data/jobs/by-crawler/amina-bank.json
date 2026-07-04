@@ -68,10 +68,10 @@
     },
     {
       "id": "amina-bank-91724c96b714",
-      "slug": "process-quality-control-and-audit-amina-bank-zug",
+      "slug": "controllo-qualita-di-processo-e-audit-amina-bank-zug",
       "slugByLocale": {
         "en": "process-quality-control-and-audit-amina-bank-zug",
-        "it": "process-quality-control-and-audit-amina-bank-zug",
+        "it": "controllo-qualita-di-processo-e-audit-amina-bank-zug",
         "de": "process-quality-control-and-audit-amina-bank-zug",
         "fr": "process-quality-control-and-audit-amina-bank-zug"
       },
@@ -128,16 +128,24 @@
         }
       },
       "addressRegion": "ZG",
-      "firstSeenAt": "2026-07-03T21:21:14.965Z"
+      "firstSeenAt": "2026-07-03T21:21:14.965Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "process-quality-control-and-audit-amina-bank-zug"
+        ]
+      },
+      "previousSlugs": [
+        "process-quality-control-and-audit-amina-bank-zug"
+      ]
     },
     {
       "id": "amina-bank-51ed398a193e",
-      "slug": "senior-compliance-officer-amina-bank-zug",
+      "slug": "ufficiale-di-conformita-senior-amina-bank-zug",
       "slugByLocale": {
         "en": "senior-compliance-officer-amina-bank-zug",
-        "it": "senior-compliance-officer-amina-bank-zug",
+        "it": "ufficiale-di-conformita-senior-amina-bank-zug",
         "de": "senior-compliance-officer-amina-bank-zug",
-        "fr": "senior-compliance-officer-amina-bank-zug"
+        "fr": "fonctionnaire-principal-charge-du-respect-des-dispositions-amina-bank-zug"
       },
       "company": "AMINA Bank",
       "companyKey": "amina-bank",
@@ -192,16 +200,27 @@
         }
       },
       "addressRegion": "ZG",
-      "firstSeenAt": "2026-07-03T21:21:14.963Z"
+      "firstSeenAt": "2026-07-03T21:21:14.963Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-compliance-officer-amina-bank-zug"
+        ],
+        "fr": [
+          "senior-compliance-officer-amina-bank-zug"
+        ]
+      },
+      "previousSlugs": [
+        "senior-compliance-officer-amina-bank-zug"
+      ]
     },
     {
       "id": "amina-bank-d9043ec49821",
-      "slug": "compliance-officer-amina-bank-zug",
+      "slug": "ufficiale-di-conformita-amina-bank-zug",
       "slugByLocale": {
         "en": "compliance-officer-amina-bank-zug",
-        "it": "compliance-officer-amina-bank-zug",
-        "de": "compliance-officer-amina-bank-zug",
-        "fr": "compliance-officer-amina-bank-zug"
+        "it": "ufficiale-di-conformita-amina-bank-zug",
+        "de": "compliance-beauftragter-amina-bank-zug",
+        "fr": "specialiste-du-respect-des-dispositions-amina-bank-zug"
       },
       "company": "AMINA Bank",
       "companyKey": "amina-bank",
@@ -256,7 +275,21 @@
         }
       },
       "addressRegion": "ZG",
-      "firstSeenAt": "2026-07-03T21:21:14.960Z"
+      "firstSeenAt": "2026-07-03T21:21:14.960Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-amina-bank-zug"
+        ],
+        "de": [
+          "compliance-officer-amina-bank-zug"
+        ],
+        "fr": [
+          "compliance-officer-amina-bank-zug"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-amina-bank-zug"
+      ]
     },
     {
       "id": "amina-bank-6dc97b03283f",
