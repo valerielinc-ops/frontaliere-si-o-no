@@ -83,6 +83,16 @@ jobs:
         # future run redoes it from scratch. if: always() so it still fires
         # even if a later step gets cancelled by timeout-minutes.
         if: always()
+        # continue-on-error: this is a best-effort optimization, not the main
+        # deliverable (that's the "Commit dataset" step below) — a push
+        # failure here (e.g. 5 retries genuinely exhausted under heavy
+        # concurrent-push contention on main) must never abort the job and
+        # skip-cascade guidle/myswitzerland/assemble/gate/commit, which is
+        # exactly the bug this step exists to prevent (run 28687792336,
+        # 2026-07-04 — the step's own rebase failure, not a real exhaustion,
+        # cascaded into zero net progress; see scripts/lib/git-push-with-retry.sh
+        # for the root cause and --stash-dirty fix).
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -99,7 +109,11 @@ jobs:
           fi
 
           git commit -m "🗺️ Persist tio-agenda geo/translation cache"
-          bash scripts/ci/git-push-retry.sh
+          # --stash-dirty: crawl-tio-agenda.mjs also writes
+          # data/events/by-source/tio-agenda.json (staged later, by "Commit
+          # dataset"), which the default `git reset --hard HEAD` recovery
+          # would discard on a rebase retry — losing today's crawl output.
+          bash scripts/lib/git-push-with-retry.sh --stash-dirty
 
       - name: Crawl guidle.com (nationwide)
         id: crawl-guidle
@@ -126,6 +140,11 @@ jobs:
 
       - name: Commit dataset (rebase-retry pattern)
         id: commit
+        # Best-effort: a permanently-exhausted push (heavy concurrent-push
+        # contention on main) must not hard-fail the job — next scheduled run
+        # retries with fresh data. Matches the original inline retry loop's
+        # `exit 0` on exhaustion.
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -159,7 +178,7 @@ jobs:
           fi
 
           git commit -m "📅 Refresh Ticino + nationwide events agenda + weekend-digest article (tio.ch, guidle, myswitzerland)"
-          bash scripts/ci/git-push-retry.sh
+          bash scripts/lib/git-push-with-retry.sh
 
       - name: Report failure to GitHub Issues
         if: failure()
