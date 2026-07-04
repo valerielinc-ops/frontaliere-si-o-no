@@ -3264,8 +3264,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss",
         "it": "collaboratore-trice-fachverarbeitung-m-w-d-raiffeisen-lyss",
-        "en": "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss",
-        "fr": "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
+        "en": "associate-fachverarbeitung-m-w-d-raiffeisen-lyss",
+        "fr": "collaborateur-trice-fachverarbeitung-m-w-d-raiffeisen-lyss"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -3312,6 +3312,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
+        ],
+        "en": [
+          "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
+        ],
+        "fr": [
           "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
         ]
       },

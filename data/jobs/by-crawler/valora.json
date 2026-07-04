@@ -741,10 +741,10 @@
     },
     {
       "id": "valora-4107bf0e5365",
-      "slug": "consumer-finance-specialist-w-m-d-valora-zurich",
+      "slug": "consumer-finanza-specialista-w-m-d-valora-group-zurich",
       "slugByLocale": {
         "de": "consumer-finance-specialist-w-m-d-valora-zurich",
-        "it": "consumer-finance-specialist-w-m-d-valora-zurich",
+        "it": "consumer-finanza-specialista-w-m-d-valora-group-zurich",
         "en": "consumer-finance-specialist-w-m-d-valora-zurich",
         "fr": "consumer-finance-specialist-w-m-d-valora-zurich"
       },
@@ -804,7 +804,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.465Z"
+      "firstSeenAt": "2026-07-04T12:43:13.465Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consumer-finance-specialist-w-m-d-valora-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "consumer-finance-specialist-w-m-d-valora-zurich"
+      ]
     },
     {
       "id": "valora-534b5d9aa129",
@@ -2952,12 +2960,12 @@
     },
     {
       "id": "valora-702992765f06",
-      "slug": "hr-specialist-w-m-d-valora-muttenz",
+      "slug": "risorse-umane-specialista-w-m-d-valora-group-muttenz",
       "slugByLocale": {
         "de": "hr-specialist-w-m-d-valora-muttenz",
-        "it": "hr-specialist-w-m-d-valora-muttenz",
+        "it": "risorse-umane-specialista-w-m-d-valora-group-muttenz",
         "en": "hr-specialist-w-m-d-valora-group-muttenz",
-        "fr": "hr-specialist-w-m-d-valora-muttenz"
+        "fr": "ressources-humaines-specialiste-w-m-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3015,7 +3023,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.420Z"
+      "firstSeenAt": "2026-07-04T12:43:13.420Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-w-m-d-valora-muttenz"
+        ],
+        "fr": [
+          "hr-specialist-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-w-m-d-valora-muttenz"
+      ]
     },
     {
       "id": "valora-cab209f5124a",
@@ -3434,7 +3453,7 @@
         "de": "supply-chain-coordinator-w-m-d-valora-muttenz",
         "it": "supply-chain-coordinator-w-m-d-valora-muttenz",
         "en": "supply-chain-coordinator-w-m-d-valora-muttenz",
-        "fr": "supply-chain-coordinator-w-m-d-valora-muttenz"
+        "fr": "chaine-d-approvisionnement-coordinateur-w-m-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",

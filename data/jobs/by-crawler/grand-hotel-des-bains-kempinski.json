@@ -885,7 +885,7 @@
       "slugByLocale": {
         "it": "assistente-di-stanza-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "en": "room-attendant-f-m-d-537572",
-        "de": "room-attendant-f-m-d-537572",
+        "de": "zimmerbegleiter-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "room-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
       "crawledAt": "2026-07-04T11:15:36.270Z",
@@ -908,6 +908,9 @@
       "firstSeenAt": "2026-07-04T11:15:36.270Z",
       "previousSlugsByLocale": {
         "it": [
+          "room-attendant-f-m-d-537572"
+        ],
+        "de": [
           "room-attendant-f-m-d-537572"
         ]
       },

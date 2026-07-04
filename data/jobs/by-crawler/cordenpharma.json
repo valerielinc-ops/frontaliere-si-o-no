@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-logistik-m-w-d-cordenpharma-ettingen",
         "it": "addetto-a-alla-logistica-m-w-d-cordenpharma-ettingen",
-        "en": "mitarbeiter-logistik-m-w-d-cordenpharma-ettingen",
-        "fr": "mitarbeiter-logistik-m-w-d-cordenpharma-ettingen"
+        "en": "employee-logistics-m-f-d-cordenpharma-ettingen",
+        "fr": "logistique-des-employes-m-f-d-cordenpharma-ettingen"
       },
       "company": "CordenPharma",
       "companyKey": "cordenpharma",
@@ -56,6 +56,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-logistik-m-w-d-cordenpharma-ettingen"
+        ],
+        "en": [
+          "mitarbeiter-logistik-m-w-d-cordenpharma-ettingen"
+        ],
+        "fr": [
+          "mitarbeiter-logistik-m-w-d-cordenpharma-ettingen"
         ]
       },
       "previousSlugs": [
@@ -81,8 +87,8 @@
       "slugByLocale": {
         "de": "betriebsmechaniker-produktions-und-gebaudetechnik-m-w-d-cordenpharma-ettingen",
         "it": "betriebsmechaniker-produktions-e-gebaudetechnik-m-w-d-cordenpharma-ettingen",
-        "en": "betriebsmechaniker-produktions-und-gebaudetechnik-m-w-d-cordenpharma-ettingen",
-        "fr": "betriebsmechaniker-produktions-und-gebaudetechnik-m-w-d-cordenpharma-ettingen"
+        "en": "production-and-building-engineering-mechanic-m-f-d-cordenpharma-ettingen",
+        "fr": "mecanicien-de-la-production-et-du-genie-du-batiment-m-f-d-cordenpharma-ettingen"
       },
       "company": "CordenPharma",
       "companyKey": "cordenpharma",
@@ -128,6 +134,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "betriebsmechaniker-produktions-und-gebaudetechnik-m-w-d-cordenpharma-ettingen"
+        ],
+        "en": [
+          "betriebsmechaniker-produktions-und-gebaudetechnik-m-w-d-cordenpharma-ettingen"
+        ],
+        "fr": [
           "betriebsmechaniker-produktions-und-gebaudetechnik-m-w-d-cordenpharma-ettingen"
         ]
       },
@@ -285,7 +297,7 @@
         "de": "analytical-scientist-100-m-w-d-cordenpharma-liestal",
         "it": "scienziato-analitico-100-m-f-d-cordenpharma-liestal",
         "en": "analytical-scientist-100-m-w-d-cordenpharma-liestal",
-        "fr": "analytical-scientist-100-m-w-d-cordenpharma-liestal"
+        "fr": "scientifique-analytique-100-m-f-d-cordenpharma-liestal"
       },
       "company": "CordenPharma",
       "companyKey": "cordenpharma",
@@ -345,6 +357,9 @@
       "previousSlugsByLocale": {
         "it": [
           "analytical-scientist-100-m-w-d-cordenpharma-liestal"
+        ],
+        "fr": [
+          "analytical-scientist-100-m-w-d-cordenpharma-liestal"
         ]
       },
       "previousSlugs": [
@@ -358,7 +373,7 @@
         "de": "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal",
         "it": "capo-progetto-analitico-apl-100-lunedi-f-g-cordenpharma-liestal",
         "en": "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal",
-        "fr": "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
+        "fr": "chef-de-projet-analytique-apl-100-m-f-d-cordenpharma-liestal"
       },
       "company": "CordenPharma",
       "companyKey": "cordenpharma",
@@ -417,6 +432,9 @@
       "firstSeenAt": "2026-07-04T10:47:48.276Z",
       "previousSlugsByLocale": {
         "it": [
+          "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
+        ],
+        "fr": [
           "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
         ]
       },

@@ -347,12 +347,12 @@
     },
     {
       "id": "planzer-76b6ac3e3021",
-      "slug": "cobol-developer-m-w-d-planzer-dietikon",
+      "slug": "cobol-sviluppatore-m-w-d-planzer-dietikon",
       "slugByLocale": {
         "de": "cobol-developer-m-w-d-planzer-dietikon",
-        "it": "cobol-developer-m-w-d-planzer-dietikon",
+        "it": "cobol-sviluppatore-m-w-d-planzer-dietikon",
         "en": "cobol-developer-m-w-d-planzer-dietikon",
-        "fr": "cobol-developer-m-w-d-planzer-dietikon"
+        "fr": "cobol-developpeur-m-w-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -410,7 +410,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:15:54.402Z"
+      "firstSeenAt": "2026-07-04T12:15:54.402Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cobol-developer-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "cobol-developer-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "cobol-developer-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-3e719c82cf43",

@@ -9,7 +9,7 @@
         "de": "production-planner-special-products-100-w-m-d-endress-hauser-reinach",
         "it": "production-planner-prodotti-speciali-100-f-m-d-endress-hauser-reinach",
         "en": "production-planner-special-products-100-w-m-d-endress-hauser-reinach",
-        "fr": "production-planner-special-products-100-w-m-d-endress-hauser-reinach"
+        "fr": "planificateur-de-production-produits-speciaux-100-f-m-j-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -67,6 +67,9 @@
       "firstSeenAt": "2026-07-04T10:44:13.177Z",
       "previousSlugsByLocale": {
         "it": [
+          "production-planner-special-products-100-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
           "production-planner-special-products-100-w-m-d-endress-hauser-reinach"
         ]
       },
@@ -144,8 +147,8 @@
       "slugByLocale": {
         "de": "bachelor-thesis-untersuchung-alternativer-materialien-fur-die-lebensmittel-und",
         "it": "bachelor-thesis-untersuchung-alternativer-materialien-per-la-alimentari-e-getrankeindustrie-endress-hauser-reinach",
-        "en": "bachelor-thesis-untersuchung-alternativer-materialien-fur-die-lebensmittel-und",
-        "fr": "bachelor-thesis-untersuchung-alternativer-materialien-fur-die-lebensmittel-und"
+        "en": "bachelor-thesis-investigation-of-alternative-materials-for-the-food-and-beverage-industry-endress-hauser-reinach",
+        "fr": "these-de-baccalaureat-etude-de-materiaux-alternatifs-pour-l-industrie-des-aliments-et-des-boissons-endress-hauser"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -190,6 +193,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bachelor-thesis-untersuchung-alternativer-materialien-fur-die-lebensmittel-und"
+        ],
+        "en": [
+          "bachelor-thesis-untersuchung-alternativer-materialien-fur-die-lebensmittel-und"
+        ],
+        "fr": [
           "bachelor-thesis-untersuchung-alternativer-materialien-fur-die-lebensmittel-und"
         ]
       },
@@ -280,8 +289,8 @@
       "slugByLocale": {
         "de": "praktikum-entscheidungsunterstutzung-fur-second-multi-sourcing-w-m-d-endress-hauser",
         "it": "praktikum-entscheidungsunterstutzung-per-second-multi-sourcing-m-w-d-endress-hauser-reinach",
-        "en": "praktikum-entscheidungsunterstutzung-fur-second-multi-sourcing-w-m-d-endress-hauser",
-        "fr": "praktikum-entscheidungsunterstutzung-fur-second-multi-sourcing-w-m-d-endress-hauser"
+        "en": "internship-decision-support-for-second-multi-sourcing-f-m-d-endress-hauser-reinach",
+        "fr": "stage-soutien-a-la-decision-pour-la-seconde-et-la-multisource-f-m-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -327,6 +336,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikum-entscheidungsunterstutzung-fur-second-multi-sourcing-w-m-d-endress-hauser"
+        ],
+        "en": [
+          "praktikum-entscheidungsunterstutzung-fur-second-multi-sourcing-w-m-d-endress-hauser"
+        ],
+        "fr": [
+          "praktikum-entscheidungsunterstutzung-fur-second-multi-sourcing-w-m-d-endress-hauser"
         ]
       },
       "previousSlugs": [
@@ -353,7 +368,7 @@
         "de": "production-master-data-manager-w-m-d-endress-hauser-reinach",
         "it": "production-master-data-manager-w-m-d-endress-hauser-reinach",
         "en": "production-master-data-manager-w-m-d-endress-hauser-reinach",
-        "fr": "production-master-data-manager-w-m-d-endress-hauser-reinach"
+        "fr": "gestionnaire-principal-de-donnees-de-production-f-m-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -412,12 +427,12 @@
     },
     {
       "id": "endress-hauser-c838e224ed97",
-      "slug": "assistant-corporate-advisory-functions-f-m-d-endress-hauser-reinach",
+      "slug": "funzioni-consultive-aziendali-f-m-d-endress-hauser-reinach",
       "slugByLocale": {
         "en": "assistant-corporate-advisory-functions-f-m-d-endress-hauser-reinach",
-        "it": "assistant-corporate-advisory-functions-f-m-d-endress-hauser-reinach",
+        "it": "funzioni-consultive-aziendali-f-m-d-endress-hauser-reinach",
         "de": "assistant-corporate-advisory-functions-f-m-d-endress-hauser-reinach",
-        "fr": "assistant-corporate-advisory-functions-f-m-d-endress-hauser-reinach"
+        "fr": "fonctions-consultatives-adjointes-f-m-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -472,7 +487,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:44:09.644Z"
+      "firstSeenAt": "2026-07-04T10:44:09.644Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-corporate-advisory-functions-f-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "assistant-corporate-advisory-functions-f-m-d-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-corporate-advisory-functions-f-m-d-endress-hauser-reinach"
+      ]
     },
     {
       "id": "endress-hauser-51c9b7349eba",
@@ -480,8 +506,8 @@
       "slugByLocale": {
         "en": "technology-manager-industrial-networks-iiot-m-f-d-endress-hauser-reinach",
         "it": "responsabile-tecnologico-reti-industriali-e-iiot-m-f-d-endress-hauser-reinach",
-        "de": "technology-manager-industrial-networks-iiot-m-f-d-endress-hauser-reinach",
-        "fr": "technology-manager-industrial-networks-iiot-m-f-d-endress-hauser-reinach"
+        "de": "technologiemanager-industrielle-netzwerke-iiot-m-w-d-endress-hauser-reinach",
+        "fr": "gestionnaire-de-technologie-reseaux-industriels-et-iiot-m-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -540,6 +566,12 @@
       "previousSlugsByLocale": {
         "it": [
           "technology-manager-industrial-networks-iiot-m-f-d-endress-hauser-reinach"
+        ],
+        "de": [
+          "technology-manager-industrial-networks-iiot-m-f-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "technology-manager-industrial-networks-iiot-m-f-d-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
@@ -552,8 +584,8 @@
       "slugByLocale": {
         "de": "entwicklungsingenieur-in-technischer-projektleiter-in-80-100-w-m-d-endress-hauser-reinach",
         "it": "ingegnere-di-sviluppo-responsabile-tecnico-di-progetto-80-100-f-m-g-endress-hauser-reinach",
-        "en": "entwicklungsingenieur-in-technischer-projektleiter-in-80-100-w-m-d-endress-hauser-reinach",
-        "fr": "entwicklungsingenieur-in-technischer-projektleiter-in-80-100-w-m-d-endress-hauser-reinach"
+        "en": "development-engineer-technical-project-manager-80-100-f-m-d-endress-hauser-reinach",
+        "fr": "ingenieur-de-developpement-gestionnaire-de-projet-technique-80-100-f-m-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -600,6 +632,12 @@
         "it": [
           "entwicklungsingenieur-in-technischer-projektleiter-in-80-100-w-m-d-endress-hauser-reinach",
           "entwicklungsingenieur-in-technischer-projektleiter-in-80-100-m-w-d-endress-hauser-reinach"
+        ],
+        "en": [
+          "entwicklungsingenieur-in-technischer-projektleiter-in-80-100-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "entwicklungsingenieur-in-technischer-projektleiter-in-80-100-w-m-d-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
@@ -826,8 +864,8 @@
       "slugByLocale": {
         "de": "strategische-r-einkaufer-in-bau-baudienstleistungen-80-100-w-m-d-endress-hauser-reinach",
         "it": "servizi-di-costruzione-costruzione-per-acquirenti-strategici-80-100-f-m-d-endress-hauser-reinach",
-        "en": "strategische-r-einkaufer-in-bau-baudienstleistungen-80-100-w-m-d-endress-hauser-reinach",
-        "fr": "strategische-r-einkaufer-in-bau-baudienstleistungen-80-100-w-m-d-endress-hauser-reinach"
+        "en": "strategic-buyer-in-construction-construction-services-80-100-f-m-d-endress-hauser-reinach",
+        "fr": "acheteur-strategique-en-construction-services-de-construction-80-100-f-m-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -886,6 +924,12 @@
       "previousSlugsByLocale": {
         "it": [
           "strategische-r-einkaufer-in-bau-baudienstleistungen-80-100-w-m-d-endress-hauser-reinach"
+        ],
+        "en": [
+          "strategische-r-einkaufer-in-bau-baudienstleistungen-80-100-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "strategische-r-einkaufer-in-bau-baudienstleistungen-80-100-w-m-d-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
@@ -898,8 +942,8 @@
       "slugByLocale": {
         "en": "strategic-buyer-construction-construction-services-80-100-f-m-d-endress-hauser-reinach",
         "it": "servizi-di-costruzione-costruzione-per-acquirenti-strategici-80-100-f-m-d-endress-hauser-reinach-744237",
-        "de": "strategic-buyer-construction-construction-services-80-100-f-m-d-endress-hauser-reinach",
-        "fr": "strategic-buyer-construction-construction-services-80-100-f-m-d-endress-hauser-reinach"
+        "de": "strategische-kaufer-bau-baudienstleistungen-80-100-w-m-d-endress-hauser-reinach",
+        "fr": "services-strategiques-de-construction-et-d-achat-80-100-f-m-j-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -958,6 +1002,12 @@
       "previousSlugsByLocale": {
         "it": [
           "strategic-buyer-construction-construction-services-80-100-f-m-d-endress-hauser-reinach"
+        ],
+        "de": [
+          "strategic-buyer-construction-construction-services-80-100-f-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "strategic-buyer-construction-construction-services-80-100-f-m-d-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
@@ -970,8 +1020,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-elektronikfertigung-dauernachtschicht-w-m-d-100-endress-hauser-reinach",
         "it": "collaboratore-trice-in-elektronikfertigung-dauernachtschicht-m-w-d-100-endress-hauser-reinach",
-        "en": "mitarbeiter-in-elektronikfertigung-dauernachtschicht-w-m-d-100-endress-hauser-reinach",
-        "fr": "mitarbeiter-in-elektronikfertigung-dauernachtschicht-w-m-d-100-endress-hauser-reinach"
+        "en": "employee-in-electronics-manufacturing-permanent-night-shift-f-m-d-100-endress-hauser-reinach",
+        "fr": "employe-dans-l-electronique-fabrication-poste-de-nuit-permanent-f-m-j-100-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1017,6 +1067,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-elektronikfertigung-dauernachtschicht-w-m-d-100-endress-hauser-reinach"
+        ],
+        "en": [
+          "mitarbeiter-in-elektronikfertigung-dauernachtschicht-w-m-d-100-endress-hauser-reinach"
+        ],
+        "fr": [
+          "mitarbeiter-in-elektronikfertigung-dauernachtschicht-w-m-d-100-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
@@ -1043,7 +1099,7 @@
         "de": "senior-project-manager-in-data-management-w-m-d-endress-hauser-reinach",
         "it": "senior-project-manager-gestione-dei-dati-f-m-d-endress-hauser-reinach",
         "en": "senior-project-manager-in-data-management-w-m-d-endress-hauser-reinach",
-        "fr": "senior-project-manager-in-data-management-w-m-d-endress-hauser-reinach"
+        "fr": "gestionnaire-principal-de-projet-en-gestion-des-donnees-f-m-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1102,6 +1158,9 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-project-manager-in-data-management-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "senior-project-manager-in-data-management-w-m-d-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
@@ -1115,7 +1174,7 @@
         "de": "senior-talent-acquisition-expert-in-80-100-w-m-d-endress-hauser-reinach",
         "it": "esperto-senior-di-acquisizione-talenti-80-100-f-m-d-endress-hauser-reinach",
         "en": "senior-talent-acquisition-expert-in-80-100-w-m-d-endress-hauser-reinach",
-        "fr": "senior-talent-acquisition-expert-in-80-100-w-m-d-endress-hauser-reinach"
+        "fr": "expert-principal-en-acquisition-de-talents-en-80-100-f-m-j-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1174,6 +1233,9 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-talent-acquisition-expert-in-80-100-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "senior-talent-acquisition-expert-in-80-100-w-m-d-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
@@ -1186,8 +1248,8 @@
       "slugByLocale": {
         "de": "spezialist-in-fur-elektrotechnik-100-m-w-d-endress-hauser-reinach",
         "it": "spezialist-in-per-elektrotechnik-100-m-w-d-endress-hauser-reinach",
-        "en": "spezialist-in-fur-elektrotechnik-100-m-w-d-endress-hauser-reinach",
-        "fr": "spezialist-in-fur-elektrotechnik-100-m-w-d-endress-hauser-reinach"
+        "en": "specialist-for-electrical-engineering-100-m-f-d-endress-hauser-reinach",
+        "fr": "specialiste-en-genie-electrique-100-m-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1232,6 +1294,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "spezialist-in-fur-elektrotechnik-100-m-w-d-endress-hauser-reinach"
+        ],
+        "en": [
+          "spezialist-in-fur-elektrotechnik-100-m-w-d-endress-hauser-reinach"
+        ],
+        "fr": [
           "spezialist-in-fur-elektrotechnik-100-m-w-d-endress-hauser-reinach"
         ]
       },
@@ -1318,11 +1386,11 @@
     },
     {
       "id": "endress-hauser-4e5c5411fc55",
-      "slug": "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress",
+      "slug": "leader-tecnico-embedded-c-sw-developer-architect-dal-settore-industriale-100-endress-hauser-reinach",
       "slugByLocale": {
         "de": "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress",
-        "it": "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress",
-        "en": "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress",
+        "it": "leader-tecnico-embedded-c-sw-developer-architect-dal-settore-industriale-100-endress-hauser-reinach",
+        "en": "technical-lead-embedded-c-sw-developer-architect-from-the-industrial-sector-100-endress-hauser-reinach",
         "fr": "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress"
       },
       "company": "Endress+Hauser",
@@ -1378,7 +1446,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:44:02.140Z"
+      "firstSeenAt": "2026-07-04T10:44:02.140Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress"
+        ],
+        "en": [
+          "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress"
+        ]
+      },
+      "previousSlugs": [
+        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress"
+      ]
     },
     {
       "id": "endress-hauser-a6d973fb3e99",
@@ -1386,8 +1465,8 @@
       "slugByLocale": {
         "de": "produktmanager-digitale-losungen-100-w-m-d-endress-hauser-reinach",
         "it": "product-manager-digital-solutions-al-100-f-m-d-endress-hauser-reinach",
-        "en": "produktmanager-digitale-losungen-100-w-m-d-endress-hauser-reinach",
-        "fr": "produktmanager-digitale-losungen-100-w-m-d-endress-hauser-reinach"
+        "en": "product-manager-digital-solutions-100-f-m-d-endress-hauser-reinach",
+        "fr": "gestionnaire-de-produits-solutions-numeriques-100-f-m-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1445,6 +1524,12 @@
       "firstSeenAt": "2026-07-04T10:44:01.566Z",
       "previousSlugsByLocale": {
         "it": [
+          "produktmanager-digitale-losungen-100-w-m-d-endress-hauser-reinach"
+        ],
+        "en": [
+          "produktmanager-digitale-losungen-100-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
           "produktmanager-digitale-losungen-100-w-m-d-endress-hauser-reinach"
         ]
       },
@@ -1536,8 +1621,8 @@
       "slugByLocale": {
         "de": "maschinenfuhrer-in-m-w-d-rohrfertigung-endress-hauser-reinach",
         "it": "produttore-di-tubi-per-operatori-meccanici-m-f-d-endress-hauser-reinach",
-        "en": "maschinenfuhrer-in-m-w-d-rohrfertigung-endress-hauser-reinach",
-        "fr": "maschinenfuhrer-in-m-w-d-rohrfertigung-endress-hauser-reinach"
+        "en": "machine-operator-in-m-f-d-pipe-production-endress-hauser-reinach",
+        "fr": "manufacturier-en-m-f-d-production-de-tubes-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1596,6 +1681,12 @@
       "previousSlugsByLocale": {
         "it": [
           "maschinenfuhrer-in-m-w-d-rohrfertigung-endress-hauser-reinach"
+        ],
+        "en": [
+          "maschinenfuhrer-in-m-w-d-rohrfertigung-endress-hauser-reinach"
+        ],
+        "fr": [
+          "maschinenfuhrer-in-m-w-d-rohrfertigung-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
@@ -1608,8 +1699,8 @@
       "slugByLocale": {
         "de": "technischer-mitarbeiter-in-w-m-d-mechanik-endress-hauser-reinach",
         "it": "technischer-collaboratore-trice-in-m-w-d-mechanik-endress-hauser-reinach",
-        "en": "technischer-mitarbeiter-in-w-m-d-mechanik-endress-hauser-reinach",
-        "fr": "technischer-mitarbeiter-in-w-m-d-mechanik-endress-hauser-reinach"
+        "en": "technical-employee-in-f-m-d-mechanics-endress-hauser-reinach",
+        "fr": "employe-technique-en-f-m-d-mecanique-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1655,6 +1746,12 @@
       "previousSlugsByLocale": {
         "it": [
           "technischer-mitarbeiter-in-w-m-d-mechanik-endress-hauser-reinach"
+        ],
+        "en": [
+          "technischer-mitarbeiter-in-w-m-d-mechanik-endress-hauser-reinach"
+        ],
+        "fr": [
+          "technischer-mitarbeiter-in-w-m-d-mechanik-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
@@ -1680,8 +1777,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-technik-im-facility-management-100-m-w-d-endress-hauser-reinach",
         "it": "project-manager-tecnologia-nella-gestione-delle-strutture-al-100-m-f-d-endress-hauser-reinach",
-        "en": "projektleiter-in-technik-im-facility-management-100-m-w-d-endress-hauser-reinach",
-        "fr": "projektleiter-in-technik-im-facility-management-100-m-w-d-endress-hauser-reinach"
+        "en": "project-manager-in-technology-in-facility-management-100-m-f-d-endress-hauser-reinach",
+        "fr": "gestionnaire-de-projet-en-technologie-dans-la-gestion-des-installations-100-m-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1740,6 +1837,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-technik-im-facility-management-100-m-w-d-endress-hauser-reinach"
+        ],
+        "en": [
+          "projektleiter-in-technik-im-facility-management-100-m-w-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "projektleiter-in-technik-im-facility-management-100-m-w-d-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
@@ -1752,8 +1855,8 @@
       "slugByLocale": {
         "en": "technical-project-manager-in-facility-management-100-m-f-d-endress-hauser-reinach",
         "it": "responsabile-tecnico-di-progetto-in-gestione-strutture-al-100-m-f-d-endress-hauser-reinach",
-        "de": "technical-project-manager-in-facility-management-100-m-f-d-endress-hauser-reinach",
-        "fr": "technical-project-manager-in-facility-management-100-m-f-d-endress-hauser-reinach"
+        "de": "technischer-projektmanager-im-facility-management-100-m-w-d-endress-hauser-reinach",
+        "fr": "gestionnaire-de-projet-technique-en-gestion-des-installations-100-m-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1811,6 +1914,12 @@
       "firstSeenAt": "2026-07-04T10:43:58.694Z",
       "previousSlugsByLocale": {
         "it": [
+          "technical-project-manager-in-facility-management-100-m-f-d-endress-hauser-reinach"
+        ],
+        "de": [
+          "technical-project-manager-in-facility-management-100-m-f-d-endress-hauser-reinach"
+        ],
+        "fr": [
           "technical-project-manager-in-facility-management-100-m-f-d-endress-hauser-reinach"
         ]
       },
@@ -1903,7 +2012,7 @@
         "en": "assistant-coo-cto-f-m-d-endress-hauser-reinach",
         "it": "assistant-coo-cto-f-m-d-endress-hauser-reinach",
         "de": "assistant-coo-cto-f-m-d-endress-hauser-reinach",
-        "fr": "assistant-coo-cto-f-m-d-endress-hauser-reinach"
+        "fr": "assistant-du-bureau-du-coordonnateur-des-operations-de-maintien-de-la-paix-f-m-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1966,8 +2075,8 @@
       "slugByLocale": {
         "de": "praktikum-bereich-schulungen-medien-technik-m-w-d-100-endress-hauser-reinach",
         "it": "tirocinio-formazione-media-e-tecnologia-l-f-d-al-100-endress-hauser-reinach",
-        "en": "praktikum-bereich-schulungen-medien-technik-m-w-d-100-endress-hauser-reinach",
-        "fr": "praktikum-bereich-schulungen-medien-technik-m-w-d-100-endress-hauser-reinach"
+        "en": "internship-training-media-technology-m-f-d-100-endress-hauser-reinach",
+        "fr": "stage-formation-medias-et-technologie-m-f-d-100-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -2025,6 +2134,12 @@
       "firstSeenAt": "2026-07-04T10:43:56.920Z",
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-bereich-schulungen-medien-technik-m-w-d-100-endress-hauser-reinach"
+        ],
+        "en": [
+          "praktikum-bereich-schulungen-medien-technik-m-w-d-100-endress-hauser-reinach"
+        ],
+        "fr": [
           "praktikum-bereich-schulungen-medien-technik-m-w-d-100-endress-hauser-reinach"
         ]
       },
@@ -2174,8 +2289,8 @@
       "slugByLocale": {
         "de": "maschinenfuhrer-in-in-der-schwei-technik-100-w-m-d-endress-hauser-reinach",
         "it": "operatore-di-macchine-nella-tecnologia-della-saldatura-100-f-m-d-endress-hauser-reinach",
-        "en": "maschinenfuhrer-in-in-der-schwei-technik-100-w-m-d-endress-hauser-reinach",
-        "fr": "maschinenfuhrer-in-in-der-schwei-technik-100-w-m-d-endress-hauser-reinach"
+        "en": "machine-operator-in-welding-technology-100-w-m-d-endress-hauser-reinach",
+        "fr": "operateur-de-machine-en-technologie-de-soudage-100-m-j-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -2233,6 +2348,12 @@
       "firstSeenAt": "2026-07-04T10:43:55.169Z",
       "previousSlugsByLocale": {
         "it": [
+          "maschinenfuhrer-in-in-der-schwei-technik-100-w-m-d-endress-hauser-reinach"
+        ],
+        "en": [
+          "maschinenfuhrer-in-in-der-schwei-technik-100-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
           "maschinenfuhrer-in-in-der-schwei-technik-100-w-m-d-endress-hauser-reinach"
         ]
       },

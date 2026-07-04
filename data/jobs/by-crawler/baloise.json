@@ -132,14 +132,10 @@
         ],
         "de": [
           "kv-lehrstelle-bank-w-m-d-2027-solothurn-baloise-solothurn"
-        ],
-        "en": [
-          "kv-apprendistato-bank-m-w-d-2027-solothurn-helvetia-versicherungen-solothurn"
         ]
       },
       "previousSlugs": [
-        "kv-lehrstelle-bank-w-m-d-2027-solothurn-baloise-solothurn",
-        "kv-apprendistato-bank-m-w-d-2027-solothurn-helvetia-versicherungen-solothurn"
+        "kv-lehrstelle-bank-w-m-d-2027-solothurn-baloise-solothurn"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -456,8 +452,8 @@
       "slugByLocale": {
         "de": "it-projektleitung-und-business-analyse-m-w-d-finanzieren-baloise-solothurn",
         "it": "it-projektleitung-e-business-analyse-m-w-d-finanzieren-baloise-solothurn",
-        "en": "it-projektleitung-und-business-analyse-m-w-d-finanzieren-baloise-solothurn",
-        "fr": "it-projektleitung-und-business-analyse-m-w-d-finanzieren-baloise-solothurn"
+        "en": "it-project-management-and-business-analysis-m-f-d-baloise-solothurn",
+        "fr": "gestion-des-projets-informatiques-et-analyse-des-activites-m-f-d-baloise-solothurn"
       },
       "company": "Baloise",
       "companyKey": "baloise",
@@ -503,6 +499,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "it-projektleitung-und-business-analyse-m-w-d-finanzieren-baloise-solothurn"
+        ],
+        "en": [
+          "it-projektleitung-und-business-analyse-m-w-d-finanzieren-baloise-solothurn"
+        ],
+        "fr": [
           "it-projektleitung-und-business-analyse-m-w-d-finanzieren-baloise-solothurn"
         ]
       },
@@ -603,7 +605,7 @@
         "de": "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn",
         "fr": "collaborateur-operations-de-credit-h-f-d-helvetia-versicherungen-solothurn",
         "it": "collaboratore-trice-credit-operations-m-w-d-helvetia-versicherungen-solothurn",
-        "en": "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn"
+        "en": "employee-credit-operations-baloise-solothurn"
       },
       "company": "Baloise",
       "companyKey": "baloise",
@@ -653,10 +655,14 @@
         ],
         "de": [
           "mitarbeiter-credit-operations-baloise-solothurn"
+        ],
+        "en": [
+          "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-credit-operations-baloise-solothurn"
+        "mitarbeiter-credit-operations-baloise-solothurn",
+        "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -751,8 +757,8 @@
       "slugByLocale": {
         "de": "leiter-zahlungsverkehr-w-m-d-baloise-solothurn",
         "it": "responsabile-delle-transazioni-di-pagamento-f-m-d-baloise-solothurn",
-        "en": "leiter-zahlungsverkehr-w-m-d-baloise-solothurn",
-        "fr": "leiter-zahlungsverkehr-w-m-d-baloise-solothurn"
+        "en": "head-of-payment-f-m-d-baloise-solothurn",
+        "fr": "responsable-du-paiement-f-m-d-baloise-solothurn"
       },
       "company": "Baloise",
       "companyKey": "baloise",
@@ -800,6 +806,12 @@
         "it": [
           "leiter-zahlungsverkehr-w-m-d-baloise-solothurn",
           "leiter-zahlungsverkehr-m-w-d-baloise-solothurn"
+        ],
+        "en": [
+          "leiter-zahlungsverkehr-w-m-d-baloise-solothurn"
+        ],
+        "fr": [
+          "leiter-zahlungsverkehr-w-m-d-baloise-solothurn"
         ]
       },
       "previousSlugs": [
@@ -826,8 +838,8 @@
       "slugByLocale": {
         "de": "leiter-kundenzonen-w-m-d-baloise-solothurn",
         "it": "capo-delle-zone-clienti-f-m-d-baloise-solothurn",
-        "en": "leiter-kundenzonen-w-m-d-baloise-solothurn",
-        "fr": "leiter-kundenzonen-w-m-d-baloise-solothurn"
+        "en": "head-of-customer-zones-f-m-d-baloise-solothurn",
+        "fr": "chef-des-zones-clientes-f-m-d-baloise-solothurn"
       },
       "company": "Baloise",
       "companyKey": "baloise",
@@ -875,6 +887,12 @@
         "it": [
           "leiter-kundenzonen-w-m-d-baloise-solothurn",
           "leiter-kundenzonen-m-w-d-baloise-solothurn"
+        ],
+        "en": [
+          "leiter-kundenzonen-w-m-d-baloise-solothurn"
+        ],
+        "fr": [
+          "leiter-kundenzonen-w-m-d-baloise-solothurn"
         ]
       },
       "previousSlugs": [
@@ -901,8 +919,8 @@
       "slugByLocale": {
         "de": "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn",
         "it": "capo-assistente-hub-private-banking-f-m-d-baloise-solothurn",
-        "en": "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn",
-        "fr": "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn"
+        "en": "head-of-assistant-hub-private-customers-bank-f-m-d-baloise-solothurn",
+        "fr": "chef-de-la-banque-de-clients-prives-hub-assistant-f-m-d-baloise-solothurn"
       },
       "company": "Baloise",
       "companyKey": "baloise",
@@ -950,6 +968,12 @@
         "it": [
           "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn",
           "leiter-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn"
+        ],
+        "en": [
+          "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn"
+        ],
+        "fr": [
+          "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn"
         ]
       },
       "previousSlugs": [

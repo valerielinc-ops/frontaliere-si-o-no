@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "leitung-administration-personal-finanzbuchhaltung-gim-architekten-bern",
         "it": "capo-dell-amministrazione-risorse-umane-e-contabilita-finanziaria-gim-architekten-ag-bern",
-        "en": "leitung-administration-personal-finanzbuchhaltung-gim-architekten-bern",
-        "fr": "leitung-administration-personal-finanzbuchhaltung-gim-architekten-bern"
+        "en": "head-of-administration-personnel-financial-accounting-gim-architekten-ag-bern",
+        "fr": "chef-de-l-administration-du-personnel-et-de-la-comptabilite-financiere-gim-architekten-ag-bern"
       },
       "company": "GIM Architekten AG",
       "companyKey": "gim-architekten",
@@ -69,6 +69,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leitung-administration-personal-finanzbuchhaltung-gim-architekten-bern"
+        ],
+        "en": [
+          "leitung-administration-personal-finanzbuchhaltung-gim-architekten-bern"
+        ],
+        "fr": [
+          "leitung-administration-personal-finanzbuchhaltung-gim-architekten-bern"
         ]
       },
       "previousSlugs": [
@@ -81,7 +87,7 @@
       "slugByLocale": {
         "en": "dipl-architect-gim-gim-architekten-bern",
         "it": "dipl-architetto-gim-gim-architekten-ag-bern",
-        "de": "dipl-architect-gim-gim-architekten-bern",
+        "de": "dipl-architekt-gim-gim-architekten-ag-bern",
         "fr": "dipl-architecte-gim-gim-architekten-ag-bern"
       },
       "company": "GIM Architekten AG",
@@ -144,6 +150,9 @@
           "dipl-architect-gim-gim-architekten-bern"
         ],
         "fr": [
+          "dipl-architect-gim-gim-architekten-bern"
+        ],
+        "de": [
           "dipl-architect-gim-gim-architekten-bern"
         ]
       },

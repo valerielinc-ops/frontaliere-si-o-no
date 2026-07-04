@@ -74,7 +74,7 @@
         "de": "bar-service-mitarbeiter-in-50-zfv-unternehmungen-basel",
         "it": "bar-service-collaboratore-trice-50-zfv-unternehmungen-basel",
         "en": "bar-service-mitarbeiter-in-50-zfv-unternehmungen-basel",
-        "fr": "bar-service-mitarbeiter-in-50-zfv-unternehmungen-basel"
+        "fr": "bar-service-collaborateur-trice-50-zfv-unternehmungen-basel"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -120,6 +120,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bar-service-mitarbeiter-in-50-zfv-unternehmungen-basel"
+        ],
+        "fr": [
           "bar-service-mitarbeiter-in-50-zfv-unternehmungen-basel"
         ]
       },
@@ -683,7 +686,7 @@
         "de": "catering-mitarbeiter-in-60-100-zfv-unternehmungen-zurich",
         "it": "catering-collaboratore-trice-60-100-zfv-unternehmungen-zurich",
         "en": "catering-mitarbeiter-in-60-100-zfv-unternehmungen-zurich",
-        "fr": "catering-mitarbeiter-in-60-100-zfv-unternehmungen-zurich"
+        "fr": "catering-collaborateur-trice-60-100-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -730,6 +733,9 @@
       "previousSlugsByLocale": {
         "it": [
           "catering-mitarbeiter-in-60-100-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "catering-mitarbeiter-in-60-100-zfv-unternehmungen-zurich"
         ]
       },
       "previousSlugs": [
@@ -755,8 +761,8 @@
       "slugByLocale": {
         "de": "event-mitarbeiter-in-zfv-unternehmungen-winterthur",
         "it": "event-collaboratore-trice-zfv-unternehmungen-winterthur",
-        "en": "event-mitarbeiter-in-zfv-unternehmungen-winterthur",
-        "fr": "event-mitarbeiter-in-zfv-unternehmungen-winterthur"
+        "en": "event-associate-zfv-unternehmungen-winterthur",
+        "fr": "event-collaborateur-trice-zfv-unternehmungen-winterthur"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -802,6 +808,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "event-mitarbeiter-in-zfv-unternehmungen-winterthur"
+        ],
+        "en": [
+          "event-mitarbeiter-in-zfv-unternehmungen-winterthur"
+        ],
+        "fr": [
           "event-mitarbeiter-in-zfv-unternehmungen-winterthur"
         ]
       },
@@ -3135,8 +3147,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich",
         "it": "collaboratore-trice-hauswirtschaft-zfv-unternehmungen-zurich",
-        "en": "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich",
-        "fr": "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich"
+        "en": "associate-hauswirtschaft-zfv-unternehmungen-zurich",
+        "fr": "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3183,6 +3195,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich"
         ]
       },
       "previousSlugs": [
@@ -3208,8 +3226,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-40-zfv-unternehmungen-bad-ragaz",
         "it": "collaboratore-trice-hauswirtschaft-40-zfv-unternehmungen-bad-ragaz",
-        "en": "mitarbeiter-in-hauswirtschaft-40-zfv-unternehmungen-bad-ragaz",
-        "fr": "mitarbeiter-in-hauswirtschaft-40-zfv-unternehmungen-bad-ragaz"
+        "en": "associate-hauswirtschaft-40-zfv-unternehmungen-bad-ragaz",
+        "fr": "collaborateur-trice-hauswirtschaft-40-zfv-unternehmungen-bad-ragaz"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3256,6 +3274,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-40-zfv-unternehmungen-bad-ragaz"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-40-zfv-unternehmungen-bad-ragaz"
+        ],
+        "fr": [
+          "mitarbeiter-in-hauswirtschaft-40-zfv-unternehmungen-bad-ragaz"
         ]
       },
       "previousSlugs": [
@@ -3281,8 +3305,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-80-zfv-unternehmungen-dubendorf",
         "it": "collaboratore-trice-hauswirtschaft-80-zfv-unternehmungen-dubendorf",
-        "en": "mitarbeiter-in-hauswirtschaft-80-zfv-unternehmungen-dubendorf",
-        "fr": "mitarbeiter-in-hauswirtschaft-80-zfv-unternehmungen-dubendorf"
+        "en": "associate-hauswirtschaft-80-zfv-unternehmungen-dubendorf",
+        "fr": "collaborateur-trice-hauswirtschaft-80-zfv-unternehmungen-dubendorf"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3329,6 +3353,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-80-zfv-unternehmungen-dubendorf"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-80-zfv-unternehmungen-dubendorf"
+        ],
+        "fr": [
+          "mitarbeiter-in-hauswirtschaft-80-zfv-unternehmungen-dubendorf"
         ]
       },
       "previousSlugs": [
@@ -3355,7 +3385,7 @@
         "de": "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
         "it": "collaboratore-trice-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
         "en": "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
-        "fr": "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
+        "fr": "collaborateur-trice-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3402,6 +3432,9 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
+        ],
+        "fr": [
+          "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
         ]
       },
       "previousSlugs": [
@@ -3427,8 +3460,8 @@
       "slugByLocale": {
         "de": "office-mitarbeiter-in-zfv-unternehmungen-zug",
         "it": "office-collaboratore-trice-zfv-unternehmungen-zug",
-        "en": "office-mitarbeiter-in-zfv-unternehmungen-zug",
-        "fr": "office-mitarbeiter-in-zfv-unternehmungen-zug"
+        "en": "office-associate-zfv-unternehmungen-zug",
+        "fr": "office-collaborateur-trice-zfv-unternehmungen-zug"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3475,6 +3508,12 @@
       "previousSlugsByLocale": {
         "it": [
           "office-mitarbeiter-in-zfv-unternehmungen-zug"
+        ],
+        "en": [
+          "office-mitarbeiter-in-zfv-unternehmungen-zug"
+        ],
+        "fr": [
+          "office-mitarbeiter-in-zfv-unternehmungen-zug"
         ]
       },
       "previousSlugs": [
@@ -3500,8 +3539,8 @@
       "slugByLocale": {
         "de": "office-mitarbeiter-in-80-zfv-unternehmungen-basel",
         "it": "office-collaboratore-trice-80-zfv-unternehmungen-basel",
-        "en": "office-mitarbeiter-in-80-zfv-unternehmungen-basel",
-        "fr": "office-mitarbeiter-in-80-zfv-unternehmungen-basel"
+        "en": "office-associate-80-zfv-unternehmungen-basel",
+        "fr": "office-collaborateur-trice-80-zfv-unternehmungen-basel"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3547,6 +3586,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "office-mitarbeiter-in-80-zfv-unternehmungen-basel"
+        ],
+        "en": [
+          "office-mitarbeiter-in-80-zfv-unternehmungen-basel"
+        ],
+        "fr": [
           "office-mitarbeiter-in-80-zfv-unternehmungen-basel"
         ]
       },
@@ -3906,8 +3951,8 @@
       "slugByLocale": {
         "de": "service-mitarbeiter-in-zfv-unternehmungen-zurich",
         "it": "service-collaboratore-trice-zfv-unternehmungen-zurich",
-        "en": "service-mitarbeiter-in-zfv-unternehmungen-zurich",
-        "fr": "service-mitarbeiter-in-zfv-unternehmungen-zurich"
+        "en": "service-associate-zfv-unternehmungen-zurich",
+        "fr": "service-collaborateur-trice-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3954,6 +3999,12 @@
       "previousSlugsByLocale": {
         "it": [
           "service-mitarbeiter-in-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "service-mitarbeiter-in-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "service-mitarbeiter-in-zfv-unternehmungen-zurich"
         ]
       },
       "previousSlugs": [
@@ -3979,8 +4030,8 @@
       "slugByLocale": {
         "de": "service-mitarbeiter-in-zfv-unternehmungen-bern",
         "it": "service-collaboratore-trice-zfv-unternehmungen-bern",
-        "en": "service-mitarbeiter-in-zfv-unternehmungen-bern",
-        "fr": "service-mitarbeiter-in-zfv-unternehmungen-bern"
+        "en": "service-associate-zfv-unternehmungen-bern",
+        "fr": "service-collaborateur-trice-zfv-unternehmungen-bern"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4027,6 +4078,12 @@
       "previousSlugsByLocale": {
         "it": [
           "service-mitarbeiter-in-zfv-unternehmungen-bern"
+        ],
+        "en": [
+          "service-mitarbeiter-in-zfv-unternehmungen-bern"
+        ],
+        "fr": [
+          "service-mitarbeiter-in-zfv-unternehmungen-bern"
         ]
       },
       "previousSlugs": [
@@ -4052,8 +4109,8 @@
       "slugByLocale": {
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
-        "en": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-        "fr": "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
+        "en": "service-associate-20-zfv-unternehmungen-bern",
+        "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4100,6 +4157,12 @@
       "previousSlugsByLocale": {
         "it": [
           "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
+        ],
+        "en": [
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
+        ],
+        "fr": [
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
         ]
       },
       "previousSlugs": [
@@ -4125,8 +4188,8 @@
       "slugByLocale": {
         "de": "service-mitarbeiter-in-30-zfv-unternehmungen-zurich",
         "it": "service-collaboratore-trice-30-zfv-unternehmungen-zurich",
-        "en": "service-mitarbeiter-in-30-zfv-unternehmungen-zurich",
-        "fr": "service-mitarbeiter-in-30-zfv-unternehmungen-zurich"
+        "en": "service-associate-30-zfv-unternehmungen-zurich",
+        "fr": "service-collaborateur-trice-30-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4173,6 +4236,12 @@
       "previousSlugsByLocale": {
         "it": [
           "service-mitarbeiter-in-30-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "service-mitarbeiter-in-30-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "service-mitarbeiter-in-30-zfv-unternehmungen-zurich"
         ]
       },
       "previousSlugs": [
@@ -4199,7 +4268,7 @@
         "de": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-winterthur",
         "it": "service-collaboratore-trice-aushilfe-zfv-unternehmungen-winterthur",
         "en": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-winterthur",
-        "fr": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-winterthur"
+        "fr": "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4245,6 +4314,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-winterthur"
+        ],
+        "fr": [
           "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-winterthur"
         ]
       },
