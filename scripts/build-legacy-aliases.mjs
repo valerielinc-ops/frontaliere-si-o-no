@@ -263,9 +263,13 @@ function resolveWeeklyEmployersDeep(orphanPath) {
 }
 
 function pathLocale(orphanPath) {
-  if (orphanPath.startsWith('/en/')) return 'en';
-  if (orphanPath.startsWith('/de/')) return 'de';
-  if (orphanPath.startsWith('/fr/')) return 'fr';
+  // Match case-insensitively (GSC may index a locale segment with drifted
+  // casing, e.g. `/EN/find-jobs-ticino/...`) — mirrors inferLocale() in
+  // build-plugins/searchConsoleCompat.ts.
+  const lowerPath = orphanPath.toLowerCase();
+  if (lowerPath.startsWith('/en/')) return 'en';
+  if (lowerPath.startsWith('/de/')) return 'de';
+  if (lowerPath.startsWith('/fr/')) return 'fr';
   return 'it';
 }
 
