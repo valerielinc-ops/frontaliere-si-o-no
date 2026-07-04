@@ -318,6 +318,7 @@ function renderPage(opts: {
     '@type': 'Article',
     headline: h1,
     description,
+    image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
     datePublished: dateStamp,

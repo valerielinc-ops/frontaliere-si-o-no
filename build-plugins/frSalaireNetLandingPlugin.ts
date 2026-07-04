@@ -380,6 +380,7 @@ function renderPage(opts: RenderOpts): RenderResult {
     '@type': 'Article',
     headline: H1,
     description: META_DESCRIPTION,
+    image: `${BASE_URL}/og-image.png`,
     inLanguage: LOCALE,
     url: canonicalUrl,
     datePublished: dateStamp,

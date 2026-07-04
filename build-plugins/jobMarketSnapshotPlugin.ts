@@ -1623,6 +1623,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     '@type': 'NewsArticle',
     headline: h1,
     description: truncateAtWordBoundary(intro, 220),
+    image: `${BASE_URL}/og-image.png`,
     datePublished: stats.endDate.toISOString(),
     dateModified: `${todayIso}T00:00:00.000Z`,
     author: {

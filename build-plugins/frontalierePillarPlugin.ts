@@ -183,6 +183,7 @@ ${sourcesHtml}
     '@type': 'Article',
     headline: copy.h1,
     description: copy.description,
+    image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
     datePublished: dateStamp,
