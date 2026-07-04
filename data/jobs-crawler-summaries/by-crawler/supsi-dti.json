@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-07-03T12:47:42.636Z",
+  "generatedAt": "2026-07-04T00:11:54.728Z",
   "total": 21,
   "newCount": 21,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 105684,
-  "avgDurationMs": 105684,
+  "durationMs": 2013292,
+  "avgDurationMs": 2013292,
   "durationHistory": [
-    105684
+    2013292
   ],
   "newJobs": [
     {
@@ -24,7 +24,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-07-01",
       "url": "https://www.supsi.ch/bando26_2013",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -46,12 +46,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -89,11 +88,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -131,11 +130,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -173,11 +172,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 81,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 21,
-        "translation": 18,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -192,7 +191,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-06-19",
       "url": "https://www.supsi.ch/bando26_2009",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -215,11 +214,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -257,11 +256,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -299,6 +298,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 1,
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -318,7 +318,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-06-12",
       "url": "https://www.supsi.ch/bando26_2010",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -340,12 +340,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -360,7 +359,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-06-11",
       "url": "https://www.supsi.ch/bando26_5028",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -383,11 +382,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 18,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -396,7 +395,7 @@
       "slug": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
       "company": "SUPSI / DTI",
       "title": "Assistenti Bachelor in Formazione Master MSE in Mechanical Engineering and Materials",
-      "location": "Lugano. Grado d",
+      "location": "Lugano",
       "canton": "TI",
       "category": "engineering",
       "contract": "part-time",
@@ -424,12 +423,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -438,7 +436,7 @@
       "slug": "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano-in-base-all",
       "company": "SUPSI / DTI",
       "title": "Ricercatrice / Ricercatore con PhD nell’area di Elettronica digitale, microelettronica e bioelettronica",
-      "location": "Lugano. In base all",
+      "location": "Lugano",
       "canton": "TI",
       "category": "tech",
       "contract": "part-time",
@@ -467,11 +465,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 96,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -508,12 +506,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -550,12 +547,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -564,7 +560,7 @@
       "slug": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano-grado-d",
       "company": "SUPSI / DTI",
       "title": "Assistente Bachelor in formazione Master of Science in Engineering (MSE) presso l’istituto ISTePS",
-      "location": "Lugano. Grado d",
+      "location": "Lugano",
       "canton": "TI",
       "category": "engineering",
       "contract": "part-time",
@@ -592,12 +588,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -606,7 +601,7 @@
       "slug": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d",
       "company": "SUPSI / DTI",
       "title": "Assistenti Bachelor in formazione Master MSE in Data Science",
-      "location": "Lugano. Grado d",
+      "location": "Lugano",
       "canton": "TI",
       "category": "tech",
       "contract": "part-time",
@@ -635,11 +630,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -648,7 +643,7 @@
       "slug": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d",
       "company": "SUPSI / DTI",
       "title": "Assistenti Bachelor in formazione Master MSE in Computer Science o Data Science",
-      "location": "Lugano. Grado d",
+      "location": "Lugano",
       "canton": "TI",
       "category": "tech",
       "contract": "part-time",
@@ -676,12 +671,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -718,12 +712,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -761,11 +754,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -803,11 +796,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -845,11 +838,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -858,7 +851,7 @@
       "slug": "assistente-bachelor-in-formazione-master-in-ambito-bioelettronica-per-lo-sviluppo-di-bioreattori-miniaturizzati-organ-on-chip-supsi-dti-luga",
       "company": "SUPSI / DTI",
       "title": "Assistente Bachelor in formazione Master in ambito bioelettronica per lo sviluppo di bioreattori miniaturizzati Organ-on-Chip",
-      "location": "Lugano. Grado d",
+      "location": "Lugano",
       "canton": "TI",
       "category": "health",
       "contract": "part-time",
@@ -886,12 +879,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     }
