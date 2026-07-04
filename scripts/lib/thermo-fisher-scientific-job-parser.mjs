@@ -202,6 +202,7 @@ async function fetchJobListings() {
       listings.push({
         title,
         location: swissLocation,
+        rawLocation: normalizeSpace(raw?.location || raw?.cityStateCountry || raw?.city || ''),
         url,
         applyUrl: raw.applyUrl || url,
         postedAt: raw.postedDate || raw.dateCreated || '',
@@ -284,8 +285,14 @@ export async function fetchAllThermoFisherScientificJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
+    const realLocationText = normalizeSpace(listing.rawLocation || '');
     const location = normalizeSpace(listing.location || '') || `${HQ.city}, Switzerland`;
-    const canton = inferSwissTargetCanton(location) || HQ.canton;
+    const inferredCanton = inferSwissTargetCanton(realLocationText) || null;
+    if (realLocationText && !inferredCanton) {
+      console.warn(`  ⚠️ Thermo Fisher Scientific: skipping unresolvable location "${realLocationText}" (${title})`);
+      continue;
+    }
+    const canton = inferredCanton || HQ.canton;
     const addressLocality = normalizeSpace(location.split(',')[0]) || HQ.city;
     const publicUrl = listing.url || CAREER_URL;
     const applyUrl = listing.applyUrl || publicUrl;

@@ -337,12 +337,23 @@ export async function fetchAllKuehneNagelJobs() {
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
 
-    const city = normalizeSpace(stub.city || detail.addressLocality || HQ.city);
-    const canton =
-      (detail.cantonCode && detail.cantonCode.length === 2 ? detail.cantonCode : '') ||
-      inferSwissTargetCanton(city) ||
-      inferSwissTargetCanton(stub.location || '') ||
-      HQ.canton;
+    // Unresolved-canton skip guard: infer from the real (pre-HQ-default) city
+    // text, never from a fallback that's already defaulted to HQ.city —
+    // otherwise real-but-unresolvable location text (e.g. only a country
+    // name) would trivially resolve through HQ.city and silently fabricate
+    // the HQ canton for a job that isn't positively there (AGENTS.md
+    // Non-Negotiable #3). Absent location text entirely still defaults to HQ.
+    const realCityText = normalizeSpace(stub.city || detail.addressLocality || '');
+    const rawLocationText = normalizeSpace(stub.location || '');
+    const directCantonCode = detail.cantonCode && detail.cantonCode.length === 2 ? detail.cantonCode : '';
+    const inferredCanton =
+      directCantonCode || inferSwissTargetCanton(realCityText) || inferSwissTargetCanton(rawLocationText);
+    if (!directCantonCode && (realCityText || rawLocationText) && !inferredCanton) {
+      console.warn(`  ⚠️ Kuehne+Nagel: skipping unresolvable location "${realCityText || rawLocationText}" (${title})`);
+      continue;
+    }
+    const canton = inferredCanton || HQ.canton;
+    const city = realCityText || HQ.city;
 
     const descriptionHtml = detail.descriptionHtml || '';
     const descriptionText = stripHtml(descriptionHtml) || normalizeSpace(stub.descriptionTeaser || '');

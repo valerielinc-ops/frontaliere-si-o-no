@@ -371,10 +371,21 @@ export async function fetchAllDormakabaJobs() {
 
     const addrs = Array.isArray(rec.addresses) ? rec.addresses : [];
     const addr = addrs.find((a) => a && a.isPrimary) || addrs[0] || {};
-    const location = normalizeSpace(addr.city || HQ.city);
-
-    const resolved = resolveAddress(location);
-    const canton = resolved?.canton || getCantonForLocation(location) || HQ.canton;
+    // Unresolved-canton skip guard: resolve from the real (pre-HQ-default)
+    // city text, never from a fallback already defaulted to HQ.city — else
+    // real-but-unresolvable location text would trivially resolve through
+    // HQ.city (matches the ruemlang known-office pattern) and silently
+    // fabricate the HQ canton for a job that isn't positively there (AGENTS.md
+    // Non-Negotiable #3). No text at all still defaults to HQ.
+    const realCity = normalizeSpace(addr.city || '');
+    const resolved = resolveAddress(realCity);
+    const inferredCanton = resolved?.canton || getCantonForLocation(realCity) || null;
+    if (realCity && !inferredCanton) {
+      console.warn(`  ⚠️ Dormakaba: skipping unresolvable location "${realCity}" (${title})`);
+      continue;
+    }
+    const location = realCity || HQ.city;
+    const canton = inferredCanton || HQ.canton;
     const postalCode = resolved?.postalCode
       || (location === HQ.city ? HQ.postalCode : CANTON_POSTAL_FALLBACK[canton])
       || HQ.postalCode;

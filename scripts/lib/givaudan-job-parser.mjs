@@ -161,6 +161,18 @@ function pickSwissLocation(raw) {
   return null;
 }
 
+/** The real, pre-HQ-fabrication location text (empty when nothing was scraped at all). */
+function pickRealLocationText(raw) {
+  if (String(raw?.country || '').trim() === 'Switzerland') {
+    return String(raw.cityStateCountry || raw.location || raw.city || '').trim();
+  }
+  const arr = Array.isArray(raw?.multi_location_array) ? raw.multi_location_array : [];
+  const swiss = arr.find((m) => /,\s*Switzerland$/i.test(m?.location || ''));
+  if (swiss) return String(swiss.location || '').trim();
+  if (/Switzerland/i.test(raw?.cityStateCountry || '')) return String(raw.cityStateCountry || '').trim();
+  return '';
+}
+
 /**
  * Fetch all Swiss listings from the Phenom widgets endpoint, paginating via
  * `from`/`size` until `from >= totalHits`. Returns normalized raw listings.
@@ -208,6 +220,7 @@ async function fetchJobListings() {
       listings.push({
         title,
         location: swissLocation,
+        rawLocation: pickRealLocationText(raw),
         url,
         applyUrl: raw.applyUrl || raw.externalApply || url,
         postedAt: raw.postedDate || raw.dateCreated || '',
@@ -290,8 +303,14 @@ export async function fetchAllGivaudanJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
+    const realLocationText = normalizeSpace(listing.rawLocation || '');
     const location = normalizeSpace(listing.location || '') || `${HQ.city}, Switzerland`;
-    const canton = inferSwissTargetCanton(location) || HQ.canton;
+    const inferredCanton = inferSwissTargetCanton(realLocationText) || null;
+    if (realLocationText && !inferredCanton) {
+      console.warn(`  ⚠️ Givaudan: skipping unresolvable location "${realLocationText}" (${title})`);
+      continue;
+    }
+    const canton = inferredCanton || HQ.canton;
     // Locality = leading city token of the "City, Switzerland" string.
     const addressLocality = normalizeSpace(location.split(',')[0]) || HQ.city;
     const publicUrl = listing.url || CAREER_URL;
