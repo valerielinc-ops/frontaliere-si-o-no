@@ -1,6 +1,6 @@
 {
   "crawlerKey": "yapeal",
-  "assembledAt": "2026-07-04T12:44:06.615Z",
+  "assembledAt": "2026-07-04T23:31:28.611Z",
   "jobs": [
     {
       "id": "yapeal-a42b1135bd09",
@@ -30,7 +30,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2680753",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:44:04.656Z",
+      "crawledAt": "2026-07-04T23:31:26.743Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -49,14 +49,14 @@
       "jobReqId": "2680753",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "aml-agent-de-conformite-80-100-yapeal-zurich-hybrid"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "aml-agent-de-conformite-80-100-yapeal-zurich-hybrid"
         ]
       },
-      "previousSlugs": [
-        "aml-agent-de-conformite-80-100-yapeal-zurich-hybrid"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:45:02.153Z",
       "salaryMin": 73500,
