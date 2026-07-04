@@ -1,16 +1,16 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-07-04T11:24:09.454Z",
-  "total": 5,
+  "generatedAt": "2026-07-04T22:45:18.369Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 9755,
-  "avgDurationMs": 9755,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 12546,
+  "avgDurationMs": 12546,
   "durationHistory": [
-    9755
+    12546
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556924215",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T11:24:07.051Z",
+      "crawledAt": "2026-07-04T22:45:16.159Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -50,41 +50,6 @@
       }
     },
     {
-      "id": "microsoft-200040836",
-      "slug": "senior-software-engineer-microsoft-zurich",
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Senior Software Engineer",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393556887764",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-04T11:24:07.046Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556887764",
-      "firstSeenAt": "2026-06-26T11:45:55.897Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
       "id": "microsoft-200041378",
       "slug": "services-account-executive-microsoft-zurich",
       "company": "Microsoft",
@@ -96,7 +61,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556913974",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T11:24:07.048Z",
+      "crawledAt": "2026-07-04T22:45:16.153Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -120,6 +85,41 @@
       }
     },
     {
+      "id": "microsoft-200040836",
+      "slug": "senior-software-engineer-microsoft-zurich",
+      "company": "Microsoft",
+      "companyKey": "microsoft",
+      "companyDomain": "microsoft.com",
+      "title": "Senior Software Engineer",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.careers.microsoft.com/careers/job/1970393556887764",
+      "source": "Microsoft Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-04T22:45:16.156Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-26",
+      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556887764",
+      "firstSeenAt": "2026-06-26T11:45:55.897Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
       "id": "microsoft-200005606",
       "slug": "applied-sciences-internship-microsoft-zurich",
       "company": "Microsoft",
@@ -131,7 +131,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556625311",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T11:24:07.042Z",
+      "crawledAt": "2026-07-04T22:45:16.150Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -155,8 +155,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "microsoft-200041079",
       "slug": "amministratore-delegato-microsoft-zurich",
@@ -197,5 +196,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
