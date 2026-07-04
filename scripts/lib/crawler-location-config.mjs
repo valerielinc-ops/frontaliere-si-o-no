@@ -686,6 +686,11 @@ export const COMPANY_HQ = {
   // AND cross-checked against Zefix (Swiss commercial register: legalSeat
   // "Laufen", UID CHE-439.050.235); no fallback needed.
   'ricola': { city: 'Laufen', canton: 'BL', postalCode: '4242', addressRegion: 'BL' },
+  // Bucher + Suter AG HQ, Lindenpark, Lindenhofstrasse 1, CH-3048 Worblaufen
+  // (Bern) BE — confirmed via the company's own imprint page
+  // (bucher-suter.com/imprint/, "Lindenhofstrasse 1, CH-3048 Worblaufen");
+  // no fallback needed.
+  'bucher-suter': { city: 'Bern', canton: 'BE', postalCode: '3048', addressRegion: 'BE' },
 };
 
 /**
