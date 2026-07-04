@@ -1,55 +1,18 @@
 {
   "key": "klinik-lengg",
   "label": "Klinik Lengg",
-  "generatedAt": "2026-07-03T22:22:45.700Z",
+  "generatedAt": "2026-07-04T11:22:43.670Z",
   "total": 21,
-  "newCount": 2,
-  "updatedCount": 18,
+  "newCount": 1,
+  "updatedCount": 19,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3066,
-  "avgDurationMs": 3066,
+  "durationMs": 3060,
+  "avgDurationMs": 3060,
   "durationHistory": [
-    3066
+    3060
   ],
   "newJobs": [
-    {
-      "id": "klinik-lengg-b536e4e0a263",
-      "slug": "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich",
-      "company": "Klinik Lengg",
-      "companyKey": "klinik-lengg",
-      "companyDomain": "kliniklengg.ch",
-      "title": "Dipl. Pflegefachperson HF / FH Neurorehabilitation (a) als Dauernachtwache",
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache/01fa115e-9d01-46d2-ac0f-f6e257fd73e5",
-      "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.449Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "3097",
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
     {
       "id": "klinik-lengg-33f251d83464",
       "slug": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
@@ -63,13 +26,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/012fc645-391a-4a4c-a0f4-0b34fa06e1e0",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.460Z",
+      "crawledAt": "2026-07-04T11:22:41.442Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -78,17 +41,55 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-17",
-      "applyUrl": "2964",
-      "_qualityScore": 66,
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/012fc645-391a-4a4c-a0f4-0b34fa06e1e0",
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 4,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
   "updatedJobs": [
+    {
+      "id": "klinik-lengg-b536e4e0a263",
+      "slug": "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-come-dauernachtwache-klinik-lengg-zurich",
+      "company": "Klinik Lengg",
+      "companyKey": "klinik-lengg",
+      "companyDomain": "kliniklengg.ch",
+      "title": "Dipl. Pflegefachperson HF / FH Neurorehabilitation (a) als Dauernachtwache",
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache/01fa115e-9d01-46d2-ac0f-f6e257fd73e5",
+      "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-04T11:22:41.432Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "streetAddress": "Bleulerstrasse 60",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache/01fa115e-9d01-46d2-ac0f-f6e257fd73e5",
+      "firstSeenAt": "2026-07-03T22:22:43.449Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
     {
       "id": "klinik-lengg-1cbf430fa9fc",
       "slug": "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich",
@@ -102,13 +103,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-im-frueh-und-spaetdienst/7c141e72-d48e-4c1c-8115-e1c841c6db9e",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.453Z",
+      "crawledAt": "2026-07-04T11:22:41.436Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -117,14 +118,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-01",
-      "applyUrl": "2886",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-im-frueh-und-spaetdienst/7c141e72-d48e-4c1c-8115-e1c841c6db9e",
       "firstSeenAt": "2026-07-02T22:20:52.373Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -140,13 +141,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027/8c55a1bd-f7c3-473a-9f54-ed90d5badbc3",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.456Z",
+      "crawledAt": "2026-07-04T11:22:41.440Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -155,14 +156,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-01",
-      "applyUrl": "3376",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027/8c55a1bd-f7c3-473a-9f54-ed90d5badbc3",
       "firstSeenAt": "2026-07-01T12:18:15.327Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -178,13 +179,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/leiterin-leiter-ergotherapie/1e62fa80-792e-4654-8db8-847b2938de89",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.455Z",
+      "crawledAt": "2026-07-04T11:22:41.438Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -193,14 +194,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-30",
-      "applyUrl": "4043",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/leiterin-leiter-ergotherapie/1e62fa80-792e-4654-8db8-847b2938de89",
       "firstSeenAt": "2026-06-30T22:38:16.308Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -216,13 +217,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/qualitaets-und-prozessmanager-a/165883ba-acbe-4705-81d3-02cbb566d9b4",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.459Z",
+      "crawledAt": "2026-07-04T11:22:41.442Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -231,14 +232,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-29",
-      "applyUrl": "4028",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/qualitaets-und-prozessmanager-a/165883ba-acbe-4705-81d3-02cbb566d9b4",
       "firstSeenAt": "2026-06-29T13:46:56.027Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -254,13 +255,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/94592149-ddbf-40a6-bcd2-d389e3b37d4c",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.462Z",
+      "crawledAt": "2026-07-04T11:22:41.444Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -269,14 +270,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-17",
-      "applyUrl": "2964",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/94592149-ddbf-40a6-bcd2-d389e3b37d4c",
       "firstSeenAt": "2026-06-25T11:44:31.103Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -292,13 +293,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-frueh-und-spaetdienst/1f5cb508-e2d2-4603-b4c6-85b05333f7f9",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.463Z",
+      "crawledAt": "2026-07-04T11:22:41.445Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -307,14 +308,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-17",
-      "applyUrl": "2942",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-frueh-und-spaetdienst/1f5cb508-e2d2-4603-b4c6-85b05333f7f9",
       "firstSeenAt": "2026-06-18T12:35:53.537Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -330,13 +331,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-fachfrau-fachmann-gesundheit-a/bd031dc3-88d9-4cd2-a2ae-aa4d8512d16b",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.464Z",
+      "crawledAt": "2026-07-04T11:22:41.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -345,14 +346,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-17",
-      "applyUrl": "3047",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-fachfrau-fachmann-gesundheit-a/bd031dc3-88d9-4cd2-a2ae-aa4d8512d16b",
       "firstSeenAt": "2026-06-18T12:35:53.562Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -368,13 +369,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/assistenzaerztin-assistenzarzt-neurorehabilitation-a/0415652b-0903-4688-b7a3-4b1e42110871",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.465Z",
+      "crawledAt": "2026-07-04T11:22:41.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -383,14 +384,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-17",
-      "applyUrl": "3211",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/assistenzaerztin-assistenzarzt-neurorehabilitation-a/0415652b-0903-4688-b7a3-4b1e42110871",
       "firstSeenAt": "2026-06-18T12:35:53.568Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -406,13 +407,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/parkinson-nurse-dipl-pflegefachperson-a/8d548bde-6b77-4823-a117-cf1903618621",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.460Z",
+      "crawledAt": "2026-07-04T11:22:41.443Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -421,14 +422,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "3665",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/parkinson-nurse-dipl-pflegefachperson-a/8d548bde-6b77-4823-a117-cf1903618621",
       "firstSeenAt": "2026-06-15T14:39:57.852Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -444,13 +445,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/b5a23cc0-f4a0-4bb9-a084-1e424a28cbde",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.461Z",
+      "crawledAt": "2026-07-04T11:22:41.444Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -459,14 +460,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-09",
-      "applyUrl": "3826",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/b5a23cc0-f4a0-4bb9-a084-1e424a28cbde",
       "firstSeenAt": "2026-06-10T12:22:05.282Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -482,13 +483,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/ernaehrungsberaterin-ernaehrungsberater-svde-a/f8083361-6422-45d9-ba7d-c2387dabdfb3",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.466Z",
+      "crawledAt": "2026-07-04T11:22:41.448Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Risorse Umane",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -497,14 +498,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-09",
-      "applyUrl": "3881",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/ernaehrungsberaterin-ernaehrungsberater-svde-a/f8083361-6422-45d9-ba7d-c2387dabdfb3",
       "firstSeenAt": "2026-06-10T12:22:05.303Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -520,13 +521,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/quereinsteiger-in-neurophysiologie-im-tagdienst/328a1ae3-3bc1-4591-bf90-d3e3f626a20f",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.468Z",
+      "crawledAt": "2026-07-04T11:22:41.451Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -535,14 +536,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-05",
-      "applyUrl": "3962",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/quereinsteiger-in-neurophysiologie-im-tagdienst/328a1ae3-3bc1-4591-bf90-d3e3f626a20f",
       "firstSeenAt": "2026-06-05T12:05:44.589Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -558,13 +559,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik/dedfd67d-49de-4c72-a00d-01f7a2894530",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.469Z",
+      "crawledAt": "2026-07-04T11:22:41.452Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -573,14 +574,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-04",
-      "applyUrl": "3887",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik/dedfd67d-49de-4c72-a00d-01f7a2894530",
       "firstSeenAt": "2026-06-05T12:05:44.610Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -596,13 +597,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/fachpersonen-pflege-im-flexiblen-pflegepool-a/31f1983f-5f09-4c1c-a1a0-a19e99be9210",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.463Z",
+      "crawledAt": "2026-07-04T11:22:41.446Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -611,14 +612,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-02",
-      "applyUrl": "1895",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/fachpersonen-pflege-im-flexiblen-pflegepool-a/31f1983f-5f09-4c1c-a1a0-a19e99be9210",
       "firstSeenAt": "2026-06-03T14:10:02.864Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -634,13 +635,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/psychotherapeutin-psychotherapeut-fuer-vielseitige-taetigkeit-mit-schwerpunkt-neuropsychosomatik/08c1c891-1321-45a2-89d3-0ccdda477dd6",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.466Z",
+      "crawledAt": "2026-07-04T11:22:41.449Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -649,14 +650,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-02",
-      "applyUrl": "3965",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/psychotherapeutin-psychotherapeut-fuer-vielseitige-taetigkeit-mit-schwerpunkt-neuropsychosomatik/08c1c891-1321-45a2-89d3-0ccdda477dd6",
       "firstSeenAt": "2026-06-02T13:36:58.760Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -672,13 +673,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/ad835304-93b3-48f4-8dc1-26ace217e71e",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.470Z",
+      "crawledAt": "2026-07-04T11:22:41.452Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -687,14 +688,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-02-16",
-      "applyUrl": "2894",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/ad835304-93b3-48f4-8dc1-26ace217e71e",
       "firstSeenAt": "2026-05-19T12:22:17.538Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -710,13 +711,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a/441f7e8a-f768-4396-b9fe-c886ef55e55c",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.471Z",
+      "crawledAt": "2026-07-04T11:22:41.453Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -725,14 +726,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-01-12",
-      "applyUrl": "265",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a/441f7e8a-f768-4396-b9fe-c886ef55e55c",
       "firstSeenAt": "2026-05-19T12:22:17.545Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -748,13 +749,13 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/studierende-studierender-hf-fh-pflege-akut-somatik-a/70b0b145-c264-46c2-9724-755b6cabc071",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:22:43.471Z",
+      "crawledAt": "2026-07-04T11:22:41.453Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8008",
-      "streetAddress": "",
+      "streetAddress": "Bleulerstrasse 60",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -763,14 +764,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-01-12",
-      "applyUrl": "266",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/studierende-studierender-hf-fh-pflege-akut-somatik-a/70b0b145-c264-46c2-9724-755b6cabc071",
       "firstSeenAt": "2026-05-19T12:22:17.547Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
@@ -806,7 +807,7 @@
       "firstSeenAt": "2026-05-19T12:22:17.534Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
