@@ -173,4 +173,12 @@ describe('Web Vitals telemetry', () => {
     expect(source).toContain('lcp_element_render_delay');
     expect(source).toContain('inp_style_layout_duration');
   });
+
+  it('sends web_vitals event to PostHog for first-party RUM (issue 3558)', () => {
+    const source = readFileSync(resolve(__dirname, '../services/webVitals.ts'), 'utf8');
+    expect(source).toContain("captureEvent('web_vitals'");
+    expect(source).toContain('POSTHOG_INCLUDE');
+    expect(source).toContain('metric_name');
+    expect(source).toContain('metric_rating');
+  });
 });
