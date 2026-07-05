@@ -1,16 +1,16 @@
 {
   "key": "swica",
   "label": "SWICA",
-  "generatedAt": "2026-07-04T23:34:07.028Z",
+  "generatedAt": "2026-07-05T12:48:28.640Z",
   "total": 34,
   "newCount": 0,
   "updatedCount": 34,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 26355,
-  "avgDurationMs": 26355,
+  "durationMs": 20164,
+  "avgDurationMs": 20164,
   "durationHistory": [
-    26355
+    20164
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/8fe5857b-5ddf-4c69-b81c-66bdb011240e",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:43.556Z",
+      "crawledAt": "2026-07-05T12:48:10.116Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 69",
@@ -44,17 +44,17 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/8fe5857b-5ddf-4c69-b81c-66bdb011240e",
       "firstSeenAt": "2026-07-04T12:28:31.230Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "swica-5392e9858d55",
-      "slug": "gestionnaire-sante-tous-swica-gesundheitsorganisation-lausanne",
+      "slug": "gestionnaire-sante-tous-swica-lausanne",
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
       "companyDomain": "swica.ch",
@@ -65,7 +65,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/gestionnaire-sante-tous/554ba66d-5485-4744-8bbd-f990f42d6729",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T23:33:44.198Z",
+      "crawledAt": "2026-07-05T12:48:10.658Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Boulevard de Grancy 39",
@@ -82,11 +82,11 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/gestionnaire-sante-tous/554ba66d-5485-4744-8bbd-f990f42d6729",
       "firstSeenAt": "2026-07-04T12:28:31.850Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -103,7 +103,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/apprendistato-come-impiegata-impiegato-di-commercio-afc-assicurazioni-sociali-e-malattia-2026/8da3b7b7-c2cb-4582-ae46-e150a53f0b7f",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-04T23:33:44.933Z",
+      "crawledAt": "2026-07-05T12:48:11.113Z",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "streetAddress": "Viale Stazione 28a",
@@ -120,11 +120,11 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/apprendistato-come-impiegata-impiegato-di-commercio-afc-assicurazioni-sociali-e-malattia-2026/8da3b7b7-c2cb-4582-ae46-e150a53f0b7f",
       "firstSeenAt": "2026-07-04T12:28:32.498Z",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -141,7 +141,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/gesundheitsberater-mit-sehr-guten-deutsch-und-italienischkenntnissen-alle/f5fc704c-ae39-4afa-8e6c-2dae4ec93423",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:45.609Z",
+      "crawledAt": "2026-07-05T12:48:11.635Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -158,11 +158,11 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/gesundheitsberater-mit-sehr-guten-deutsch-und-italienischkenntnissen-alle/f5fc704c-ae39-4afa-8e6c-2dae4ec93423",
       "firstSeenAt": "2026-07-04T12:28:33.064Z",
-      "_qualityScore": 82,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -179,7 +179,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenbetreuer-temporaer-alle/e37a6fa0-13cd-4efc-918d-2e4638e2ddd2",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:46.253Z",
+      "crawledAt": "2026-07-05T12:48:12.083Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zollstrasse 42",
@@ -196,11 +196,11 @@
       "postedDate": "2026-06-27",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/kundenbetreuer-temporaer-alle/e37a6fa0-13cd-4efc-918d-2e4638e2ddd2",
       "firstSeenAt": "2026-07-04T12:28:33.495Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -217,7 +217,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/arzt-aerztin-telemedizin-alle/8b58c06f-9d66-4399-83e5-bc42f0090045",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:46.887Z",
+      "crawledAt": "2026-07-05T12:48:12.593Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -234,11 +234,11 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/arzt-aerztin-telemedizin-alle/8b58c06f-9d66-4399-83e5-bc42f0090045",
       "firstSeenAt": "2026-07-04T12:28:34.063Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -255,7 +255,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/pflegefachperson-fh-telepsychiatrie-alle/cea1e3ed-28e5-4b38-9bfb-47b123cd5ff0",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:47.438Z",
+      "crawledAt": "2026-07-05T12:48:13.106Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -272,11 +272,11 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/pflegefachperson-fh-telepsychiatrie-alle/cea1e3ed-28e5-4b38-9bfb-47b123cd5ff0",
       "firstSeenAt": "2026-07-04T12:28:34.634Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -293,7 +293,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-software-engineer-integration-platform-owner-alle/bb882901-5d04-4672-907d-d4b96fcdded6",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:48.000Z",
+      "crawledAt": "2026-07-05T12:48:13.674Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -310,17 +310,17 @@
       "postedDate": "2026-06-23",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/senior-software-engineer-integration-platform-owner-alle/bb882901-5d04-4672-907d-d4b96fcdded6",
       "firstSeenAt": "2026-07-04T12:28:35.194Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "swica-a6e87d514a81",
-      "slug": "gestionnaire-clientele-tous-swica-gesundheitsorganisation-lausanne",
+      "slug": "gestionnaire-clientele-tous-swica-lausanne",
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
       "companyDomain": "swica.ch",
@@ -331,7 +331,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/gestionnaire-clientele-tous/401f4efc-0100-4e72-83bd-bb19db659c22",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T23:33:48.464Z",
+      "crawledAt": "2026-07-05T12:48:14.190Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Boulevard de Grancy 39",
@@ -348,11 +348,11 @@
       "postedDate": "2026-06-23",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/gestionnaire-clientele-tous/401f4efc-0100-4e72-83bd-bb19db659c22",
       "firstSeenAt": "2026-07-04T12:28:35.750Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -369,7 +369,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/trainer-market-academy-alle/64af0c7f-f976-463b-9524-d5ef3a40bfcf",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:49.144Z",
+      "crawledAt": "2026-07-05T12:48:14.702Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 37",
@@ -386,11 +386,11 @@
       "postedDate": "2026-06-23",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/trainer-market-academy-alle/64af0c7f-f976-463b-9524-d5ef3a40bfcf",
       "firstSeenAt": "2026-07-04T12:28:36.399Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -407,7 +407,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungsmanagement-uvg-komplex-alle/8392664e-ae72-4118-85a4-80d932bc0192",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:49.586Z",
+      "crawledAt": "2026-07-05T12:48:15.118Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -424,11 +424,11 @@
       "postedDate": "2026-06-19",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungsmanagement-uvg-komplex-alle/8392664e-ae72-4118-85a4-80d932bc0192",
       "firstSeenAt": "2026-07-04T12:28:36.846Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -445,7 +445,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/verantwortlicher-fachbereich-vertrauensaerztlicher-dienst/109588ff-819e-4a05-a895-17814aea2dcb",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:50.272Z",
+      "crawledAt": "2026-07-05T12:48:15.647Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -462,11 +462,11 @@
       "postedDate": "2026-06-19",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/verantwortlicher-fachbereich-vertrauensaerztlicher-dienst/109588ff-819e-4a05-a895-17814aea2dcb",
       "firstSeenAt": "2026-07-04T12:28:37.413Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -483,7 +483,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungsmanagement-unternehmen-alle/2a3f2742-f837-4d54-b55e-3019766f90b0",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:50.711Z",
+      "crawledAt": "2026-07-05T12:48:16.045Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zollstrasse 42",
@@ -500,11 +500,11 @@
       "postedDate": "2026-06-11",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungsmanagement-unternehmen-alle/2a3f2742-f837-4d54-b55e-3019766f90b0",
       "firstSeenAt": "2026-07-04T12:28:37.841Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -521,7 +521,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle/54f8d0fa-5f51-43e2-ac48-835cdd912422",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:51.381Z",
+      "crawledAt": "2026-07-05T12:48:16.446Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Schwarzenburgstrasse 160",
@@ -538,11 +538,11 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle/54f8d0fa-5f51-43e2-ac48-835cdd912422",
       "firstSeenAt": "2026-07-04T12:28:38.275Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -559,7 +559,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/teamleiter-medikamente-alle/7e33d108-b43b-438f-91cb-172b4449c5e2",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:52.082Z",
+      "crawledAt": "2026-07-05T12:48:16.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 37",
@@ -576,11 +576,11 @@
       "postedDate": "2026-06-09",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/teamleiter-medikamente-alle/7e33d108-b43b-438f-91cb-172b4449c5e2",
       "firstSeenAt": "2026-07-04T12:28:38.829Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -597,7 +597,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungsmanagement-uvg-alle/4dfb9ca4-8d6d-4034-ac90-43842be4a66a",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:52.500Z",
+      "crawledAt": "2026-07-05T12:48:17.381Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -614,17 +614,17 @@
       "postedDate": "2026-06-02",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungsmanagement-uvg-alle/4dfb9ca4-8d6d-4034-ac90-43842be4a66a",
       "firstSeenAt": "2026-07-04T12:28:39.262Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "swica-c6a8229fe2d3",
-      "slug": "gestionnaire-sante-stationnaire-tous-swica-gesundheitsorganisation-lausanne",
+      "slug": "gestionnaire-sante-stationnaire-tous-swica-lausanne",
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
       "companyDomain": "swica.ch",
@@ -635,7 +635,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/gestionnaire-sante-stationnaire-tous/15e4b8f8-70bb-4a9e-ba70-191794d6cc4d",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T23:33:53.173Z",
+      "crawledAt": "2026-07-05T12:48:17.899Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Boulevard de Grancy 39",
@@ -652,11 +652,11 @@
       "postedDate": "2026-06-02",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/gestionnaire-sante-stationnaire-tous/15e4b8f8-70bb-4a9e-ba70-191794d6cc4d",
       "firstSeenAt": "2026-07-04T12:28:39.909Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -673,7 +673,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle/a948e357-edbc-415a-b6b3-b69cea70f8cc",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:53.823Z",
+      "crawledAt": "2026-07-05T12:48:18.429Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -690,11 +690,11 @@
       "postedDate": "2026-05-28",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle/a948e357-edbc-415a-b6b3-b69cea70f8cc",
       "firstSeenAt": "2026-07-04T12:28:40.514Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -711,7 +711,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/expert-cyber-security-und-network-engineer-alle/e4ec2337-9dfa-4037-9e4f-7cb482191196",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:54.378Z",
+      "crawledAt": "2026-07-05T12:48:18.967Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -728,11 +728,11 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/expert-cyber-security-und-network-engineer-alle/e4ec2337-9dfa-4037-9e4f-7cb482191196",
       "firstSeenAt": "2026-07-04T12:28:41.077Z",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -749,7 +749,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/versicherungsberater-alle/8ab28dd2-82c2-46c2-8371-9be6c51537a2",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:55.075Z",
+      "crawledAt": "2026-07-05T12:48:19.485Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -766,11 +766,11 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/versicherungsberater-alle/8ab28dd2-82c2-46c2-8371-9be6c51537a2",
       "firstSeenAt": "2026-07-04T12:28:41.661Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -787,7 +787,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/teamleiter-in-leistungsmanagement-krankentaggeld-alle/61ce51ab-69fd-4be4-9384-29a6f5542be6",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:55.736Z",
+      "crawledAt": "2026-07-05T12:48:20.008Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -804,11 +804,11 @@
       "postedDate": "2026-05-20",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/teamleiter-in-leistungsmanagement-krankentaggeld-alle/61ce51ab-69fd-4be4-9384-29a6f5542be6",
       "firstSeenAt": "2026-07-04T12:28:42.349Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -825,7 +825,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-in-de-fr-alle/93c293da-f22b-4660-bb7d-7a51b7ddf9c2",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:56.372Z",
+      "crawledAt": "2026-07-05T12:48:20.414Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 38",
@@ -842,11 +842,11 @@
       "postedDate": "2026-05-13",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/kundenberater-in-de-fr-alle/93c293da-f22b-4660-bb7d-7a51b7ddf9c2",
       "firstSeenAt": "2026-07-04T12:28:42.779Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -863,7 +863,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/2429d8ab-a822-4d37-a3a7-f7d3e0e5f248",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:57.041Z",
+      "crawledAt": "2026-07-05T12:48:20.943Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Teufener Strasse 5",
@@ -880,11 +880,11 @@
       "postedDate": "2026-05-13",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/2429d8ab-a822-4d37-a3a7-f7d3e0e5f248",
       "firstSeenAt": "2026-07-04T12:28:43.367Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -901,7 +901,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/89735a66-1b63-4240-87d7-cff574aa1984",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:57.669Z",
+      "crawledAt": "2026-07-05T12:48:21.452Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -918,11 +918,11 @@
       "postedDate": "2026-05-13",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/89735a66-1b63-4240-87d7-cff574aa1984",
       "firstSeenAt": "2026-07-04T12:28:43.931Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -939,7 +939,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/teamleiter-fallmanagement-alle/4823fa4d-2810-40e8-b974-92a5090dd4d1",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:58.335Z",
+      "crawledAt": "2026-07-05T12:48:21.867Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -956,11 +956,11 @@
       "postedDate": "2026-05-13",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/teamleiter-fallmanagement-alle/4823fa4d-2810-40e8-b974-92a5090dd4d1",
       "firstSeenAt": "2026-07-04T12:28:44.379Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -977,7 +977,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-in-gesundheit/93fc1d29-cc2c-4518-9e04-6c658ea4bd83",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:58.972Z",
+      "crawledAt": "2026-07-05T12:48:22.272Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hirschmattstrasse 32",
@@ -994,11 +994,11 @@
       "postedDate": "2026-05-05",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-in-gesundheit/93fc1d29-cc2c-4518-9e04-6c658ea4bd83",
       "firstSeenAt": "2026-07-04T12:28:44.820Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1015,7 +1015,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/versicherungsberater-in/38c76531-33a1-4f25-bdf4-bd67787a9901",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:33:59.702Z",
+      "crawledAt": "2026-07-05T12:48:22.823Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hirschmattstrasse 32",
@@ -1032,11 +1032,11 @@
       "postedDate": "2026-04-30",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/versicherungsberater-in/38c76531-33a1-4f25-bdf4-bd67787a9901",
       "firstSeenAt": "2026-07-04T12:28:45.442Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1053,7 +1053,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/versicherungsberater-alle/3f913a01-8f2c-48f0-b37a-4cba76bdd1c8",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:34:00.438Z",
+      "crawledAt": "2026-07-05T12:48:23.354Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "streetAddress": "Flughafenstrasse 7",
@@ -1070,11 +1070,11 @@
       "postedDate": "2026-04-20",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/versicherungsberater-alle/3f913a01-8f2c-48f0-b37a-4cba76bdd1c8",
       "firstSeenAt": "2026-07-04T12:28:46.003Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1091,7 +1091,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/60c781d7-6196-4ebe-b1fa-1da7be7f4893",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:34:01.142Z",
+      "crawledAt": "2026-07-05T12:48:23.757Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "streetAddress": "Kasernenstrasse 6",
@@ -1108,11 +1108,11 @@
       "postedDate": "2026-04-07",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/60c781d7-6196-4ebe-b1fa-1da7be7f4893",
       "firstSeenAt": "2026-07-04T12:28:46.436Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1129,7 +1129,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/gesundheitsberater-mit-sehr-guten-deutsch-und-franzoesischkenntnissen-alle/155c5351-57a5-4f0a-aa52-f05ce6e674d5",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:34:01.803Z",
+      "crawledAt": "2026-07-05T12:48:24.270Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1146,11 +1146,11 @@
       "postedDate": "2026-03-25",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/gesundheitsberater-mit-sehr-guten-deutsch-und-franzoesischkenntnissen-alle/155c5351-57a5-4f0a-aa52-f05ce6e674d5",
       "firstSeenAt": "2026-07-04T12:28:47.006Z",
-      "_qualityScore": 82,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 20
       }
     }
