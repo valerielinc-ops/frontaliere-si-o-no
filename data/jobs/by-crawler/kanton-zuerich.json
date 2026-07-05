@@ -952,7 +952,7 @@
         "it": "it-system-ingegnere-in-befristet-auf-drei-jahre-kantonale-verwaltung-zurich",
         "en": "it-system-engineer-in-befristet-auf-drei-jahre-kantonale-verwaltung-zurich-zurich",
         "de": "it-system-engineer-in-befristet-auf-drei-jahre-kanton-zuerich-zurich",
-        "fr": "it-system-engineer-in-befristet-auf-drei-jahre-kanton-zuerich-zurich"
+        "fr": "ingenieur-systeme-it-temporaire-pour-trois-ans-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1002,6 +1002,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "it-system-engineer-in-befristet-auf-drei-jahre-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "it-system-engineer-in-befristet-auf-drei-jahre-kanton-zuerich-zurich"
         ]
       },
@@ -6407,10 +6410,10 @@
     },
     {
       "id": "kanton-zuerich-61a54a91499a",
-      "slug": "prorector-prorector-kantonale-verwaltung-zurich-8400-winterthur",
+      "slug": "prorettore-produttore-kantonale-verwaltung-zurich-8400-winterthur",
       "slugByLocale": {
-        "it": "prorector-prorector-kantonale-verwaltung-zurich-8400-winterthur",
-        "en": "prorektorin-prorektor-kanton-zuerich-8400-winterthur",
+        "it": "prorettore-produttore-kantonale-verwaltung-zurich-8400-winterthur",
+        "en": "prorector-prorector-kantonale-verwaltung-zurich-8400-winterthur",
         "de": "prorektorin-prorektor-kanton-zuerich-8400-winterthur",
         "fr": "prorecteur-prorecteur-kantonale-verwaltung-zurich-8400-winterthur"
       },
@@ -6461,15 +6464,20 @@
       "previousSlugs": [
         "prorektorin-prorektor-kanton-zuerich-8400-winterthur",
         "prorektorin-prorektor-kantonale-verwaltung-zurich-8400-winterthur",
-        "vice-rettore-kantonale-verwaltung-zurich-8400-winterthur"
+        "vice-rettore-kantonale-verwaltung-zurich-8400-winterthur",
+        "prorector-prorector-kantonale-verwaltung-zurich-8400-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "prorektorin-prorektor-kanton-zuerich-8400-winterthur",
           "prorektorin-prorektor-kantonale-verwaltung-zurich-8400-winterthur",
-          "vice-rettore-kantonale-verwaltung-zurich-8400-winterthur"
+          "vice-rettore-kantonale-verwaltung-zurich-8400-winterthur",
+          "prorector-prorector-kantonale-verwaltung-zurich-8400-winterthur"
         ],
         "fr": [
+          "prorektorin-prorektor-kanton-zuerich-8400-winterthur"
+        ],
+        "en": [
           "prorektorin-prorektor-kanton-zuerich-8400-winterthur"
         ]
       },

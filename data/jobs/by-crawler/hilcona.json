@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "lkw-fahrer-m-w-d-hilcona-pfaffstatt",
         "it": "camionista-m-w-d-hubers-landhendl-gmbh-pfaffstatt-d87d97",
-        "en": "lkw-fahrer-m-w-d-hilcona-pfaffstatt",
-        "fr": "lkw-fahrer-m-w-d-hilcona-pfaffstatt"
+        "en": "truck-driver-m-w-d-hubers-landhendl-gmbh-pfaffstatt-d87d97",
+        "fr": "conducteur-de-camion-m-w-d-hubers-landhendl-gmbh-pfaffstatt-d87d97"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -65,6 +65,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lkw-fahrer-m-w-d-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "lkw-fahrer-m-w-d-hilcona-pfaffstatt"
+        ],
+        "fr": [
+          "lkw-fahrer-m-w-d-hilcona-pfaffstatt"
         ]
       },
       "previousSlugs": [
@@ -77,8 +83,8 @@
       "slugByLocale": {
         "de": "linienleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
         "it": "responsabile-linea-produzione-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt-91bc29",
-        "en": "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "en": "food-production-line-manager-m-w-d-hubers-landhendl-gmbh-pfaffstatt-91bc29",
+        "fr": "directeur-de-ligne-de-production-alimentaire-m-w-d-hubers-landhendl-gmbh-pfaffstatt-91bc29"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -118,6 +124,12 @@
       "previousSlugsByLocale": {
         "it": [
           "linienleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
+          "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
           "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
@@ -8346,7 +8358,7 @@
         "it": "prelievo-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "en": "order-picking-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "de": "kommissionierung-m-w-d-hilcona-ampfing",
-        "fr": "cueillette-des-commandes-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "fr": "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -8384,7 +8396,7 @@
       "previousSlugs": [
         "kommissionierung-m-w-d-hilcona-ampfing",
         "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "cueillette-des-commandes-m-w-d-suddeutsche-truthahn-ag-ampfing"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8396,7 +8408,7 @@
         ],
         "fr": [
           "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing",
-          "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
+          "cueillette-des-commandes-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "firstSeenAt": "2026-06-15T14:30:15.396Z",
