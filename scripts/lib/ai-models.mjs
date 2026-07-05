@@ -1590,7 +1590,12 @@ export async function initScoreStore() {
         });
       }
 
-      if (data.exhaustedUntil) {
+      // Local CPU fallback has no daily-quota concept (unlike a remote API
+      // account) — a stale content/timeout failure from hours ago says
+      // nothing about whether the local server will fail again right now.
+      // Skip restoring any persisted ban for it so it's always eligible as
+      // last resort every run. See markModelExhausted / _persistScoresToFirestore.
+      if (data.exhaustedUntil && getProvider(modelId) !== PROVIDER.LOCAL) {
         const resetTime = data.exhaustedUntil.toDate
           ? data.exhaustedUntil.toDate()   // Firestore Timestamp
           : new Date(data.exhaustedUntil); // ISO string fallback
@@ -1655,8 +1660,11 @@ async function _persistScoresToFirestore() {
       updatedAt: now,
     };
 
-    // If model is exhausted, persist the reset time (next midnight UTC)
-    if (_exhaustedModels.has(modelId)) {
+    // If model is exhausted, persist the reset time (next midnight UTC).
+    // Local CPU fallback is exempt: it has no daily-quota concept, so a
+    // content/timeout failure must never survive past this process — see
+    // the matching restore-path guard above (initScoreStore).
+    if (_exhaustedModels.has(modelId) && getProvider(modelId) !== PROVIDER.LOCAL) {
       const tomorrow = new Date();
       tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
       tomorrow.setUTCHours(0, 0, 0, 0);
@@ -2227,6 +2235,32 @@ const MODEL_MAX_REQUEST_TOKENS = {
   'Llama-3.2-90B-Vision-Instruct':      8000,
   // cerebras/* models — apiModelId is stripped of the provider prefix
   'llama3.1-8b':                        8000,
+};
+
+/**
+ * Per-PROVIDER default request-token cap, consulted only when a model has no
+ * entry in MODEL_MAX_REQUEST_TOKENS above. MODEL_MAX_REQUEST_TOKENS is a
+ * whack-a-mole list grown one incident at a time (each entry added only
+ * after that specific model 413'd in production); dozens of models on the
+ * same account-wide tier never get added and burn a full 413 round-trip
+ * every time the prompt grows past the tier's real ceiling.
+ *
+ * GitHub Models specifically is verified account-wide, not per-model: runs
+ * 28730759322 / 28729689806 (2026-07-05) show Phi-4-mini-reasoning,
+ * Meta-Llama-3.1-405B-Instruct, Meta-Llama-3.1-8B-Instruct, Ministral-3B, and
+ * Llama-4-Maverick-17B-128E-Instruct-FP8 — five otherwise-unrelated model
+ * families — all fail with the byte-identical "Request body too large ...
+ * Max size: 8000 tokens" at the same ~9600-token estimate. That is the free
+ * tier's request cap, independent of any single model's advertised context
+ * window. Applying it as a provider default (instead of waiting to hardcode
+ * each new model one incident at a time) lets the pre-flight skip-guard
+ * catch the whole family immediately and fall through to a provider that can
+ * actually take the payload — most importantly the local fallback, which
+ * would otherwise only be reached after burning the entire GitHub Models
+ * roster on guaranteed 413s.
+ */
+const DEFAULT_REQUEST_TOKENS_BY_PROVIDER = {
+  [PROVIDER.GITHUB]: 8000,
 };
 
 /**
@@ -3118,8 +3152,11 @@ export async function callLLM(messages, opts = {}) {
     // Skip models whose REQUEST (input) token cap is below the estimated prompt
     // size. Without this, models like o1 / gpt-5-mini / Phi-4 get tried with a
     // payload they cannot fit and return HTTP 413, burning a retry slot for
-    // every fallback. See MODEL_MAX_REQUEST_TOKENS for the per-model caps.
-    const reqLimit = MODEL_MAX_REQUEST_TOKENS[apiModelId];
+    // every fallback. Per-model overrides in MODEL_MAX_REQUEST_TOKENS win;
+    // otherwise fall back to the provider-wide default (see
+    // DEFAULT_REQUEST_TOKENS_BY_PROVIDER) so untracked models on the same
+    // account-wide tier are caught too, not just the handful hardcoded so far.
+    const reqLimit = MODEL_MAX_REQUEST_TOKENS[apiModelId] ?? DEFAULT_REQUEST_TOKENS_BY_PROVIDER[provider];
     if (reqLimit) {
       const estTokens = estimateRequestTokens(messages, o);
       if (estTokens > reqLimit) {
