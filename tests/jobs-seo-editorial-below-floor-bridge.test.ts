@@ -72,4 +72,34 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
       expect(body).toContain('noindex: true');
     }
   });
+
+  it('defines the TI location/type/sector below-floor bridge helpers and wires them into every floor-check site', () => {
+    expect(source).toContain('const emitLocationBelowFloorBridge = (locale: \'it\' | \'en\' | \'de\' | \'fr\', loc: string): void => {');
+    expect(source).toContain('const emitLocationTypeBelowFloorBridge = (locale: \'it\' | \'en\' | \'de\' | \'fr\', loc: string, typeKeyArg: (typeof editorialTypeKeys)[number]): void => {');
+    expect(source).toContain('const emitLocationSectorBelowFloorBridge = (locale: \'it\' | \'en\' | \'de\' | \'fr\', loc: string, sectorKeyArg: (typeof editorialSectorKeys)[number]): void => {');
+    expect(source).toContain('emitLocationBelowFloorBridge(locale, location);');
+    expect(source).toContain('emitLocationTypeBelowFloorBridge(locale, location, typeKey);');
+    expect(source).toContain('emitLocationSectorBelowFloorBridge(locale, location, sectorKey);');
+  });
+
+  it('does not contain the bare-continue 404 bug pattern for the TI location/type/sector floors', () => {
+    expect(source).not.toContain('if (italianLocationModel.totalJobs === 0) continue;');
+    expect(source).not.toContain('if (italianTypeModel.totalJobs === 0) continue;');
+    expect(source).not.toContain('if (italianSectorModel.totalJobs === 0) continue;');
+  });
+
+  it('location-level below-floor bridge dual-writes both the clean city-hub URL and the legacy editorial URL when they differ', () => {
+    const startIdx = source.indexOf("const emitLocationBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', loc: string): void => {");
+    expect(startIdx).toBeGreaterThan(-1);
+    const body = source.slice(startIdx, startIdx + 1400);
+    expect(body).toContain('buildCityHubPath(locale, cityHubKey)');
+    expect(body).toContain("if (!cityHubKey || legacyPath !== buildCityHubPath(locale, cityHubKey)) writeLocationFamilyBridge(legacyPath, targetPath, locale);");
+  });
+
+  it('location/type/sector bridges all route through the shared writer with noindex canonical-bridge pages', () => {
+    expect(source).toContain('const writeLocationFamilyBridge = (canonicalPath: string, targetPath: string, locale: \'it\' | \'en\' | \'de\' | \'fr\'): void => {');
+    const startIdx = source.indexOf('const writeLocationFamilyBridge = ');
+    const body = source.slice(startIdx, startIdx + 700);
+    expect(body).toContain('noindex: true');
+  });
 });
