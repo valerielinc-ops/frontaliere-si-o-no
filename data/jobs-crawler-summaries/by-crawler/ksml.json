@@ -1,51 +1,51 @@
 {
   "key": "ksml",
   "label": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
-  "generatedAt": "2026-07-04T22:44:59.373Z",
-  "total": 146,
+  "generatedAt": "2026-07-05T12:03:32.442Z",
+  "total": 147,
   "newCount": 4,
-  "updatedCount": 143,
+  "updatedCount": 144,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5270,
-  "avgDurationMs": 5270,
+  "durationMs": 5082,
+  "avgDurationMs": 5082,
   "durationHistory": [
-    5270
+    5082
   ],
   "newJobs": [
     {
-      "id": "ksml-22ed94472fd8",
-      "slug": "logopadie-ca-18-l-deine-aufgabe-mit-sinn-und-wirkung-schule-dennigkofen-ostermundigen-36933",
-      "slugDisambiguator": "36933",
+      "id": "ksml-612ca81218ce",
+      "slug": "fachperson-neurodiversitat-80-divergenta-grunaustrass-15-wabern-39879",
+      "slugDisambiguator": "39879",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
       "companyKey": "ksml",
       "companyDomain": "ksml.apps.be.ch",
-      "title": "Logopädie (ca. 18 L.) Deine Aufgabe - mit Sinn und Wirkung",
-      "location": "Ostermundigen",
+      "title": "Fachperson Neurodiversität, 80%",
+      "location": "Wabern",
       "canton": "BE",
-      "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/36933",
+      "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39879",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.081Z",
-      "addressLocality": "Ostermundigen",
-      "streetAddress": "Ostermundigen",
-      "postalCode": "3072",
+      "crawledAt": "2026-07-05T12:03:28.150Z",
+      "addressLocality": "Wabern",
+      "streetAddress": "Wabern",
+      "postalCode": "3084",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Istruzione / Sostegno pedagogico",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
+      "category": "Istruzione / Docenza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Istruzione / Scuola pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/36933",
-      "_qualityScore": 69,
+      "postedDate": "2026-07-05",
+      "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39879",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 4,
         "completeness": 20
       }
@@ -63,7 +63,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39854",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.068Z",
+      "crawledAt": "2026-07-05T12:03:28.144Z",
       "addressLocality": "Oberdiessbach",
       "streetAddress": "Oberdiessbach",
       "postalCode": "3672",
@@ -100,7 +100,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39855",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.068Z",
+      "crawledAt": "2026-07-05T12:03:28.144Z",
       "addressLocality": "Oberdiessbach",
       "streetAddress": "Oberdiessbach",
       "postalCode": "3672",
@@ -137,7 +137,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39599",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.080Z",
+      "crawledAt": "2026-07-05T12:03:28.156Z",
       "addressLocality": "Kehrsatz",
       "streetAddress": "Kehrsatz",
       "postalCode": "3122",
@@ -176,7 +176,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39878",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.063Z",
+      "crawledAt": "2026-07-05T12:03:28.140Z",
       "addressLocality": "Bern",
       "streetAddress": "Mädergutstrasse 52",
       "postalCode": "3018",
@@ -194,11 +194,49 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39878",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.449Z",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 21,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "ksml-22ed94472fd8",
+      "slug": "logopadie-ca-18-l-deine-aufgabe-mit-sinn-und-wirkung-schule-dennigkofen-ostermundigen-36933",
+      "slugDisambiguator": "36933",
+      "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "companyKey": "ksml",
+      "companyDomain": "ksml.apps.be.ch",
+      "title": "Logopädie (ca. 18 L.) Deine Aufgabe - mit Sinn und Wirkung",
+      "location": "Ostermundigen",
+      "canton": "BE",
+      "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/36933",
+      "source": "KSML Dedicated Parser (ws/stellen JSON API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-05T12:03:28.157Z",
+      "addressLocality": "Ostermundigen",
+      "streetAddress": "Ostermundigen",
+      "postalCode": "3072",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Istruzione / Sostegno pedagogico",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Istruzione / Scuola pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-04",
+      "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/36933",
+      "firstSeenAt": "2026-07-04T22:44:55.081Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -215,7 +253,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39665",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.065Z",
+      "crawledAt": "2026-07-05T12:03:28.142Z",
       "addressLocality": "Thun",
       "streetAddress": "Schönaustrasse 33",
       "postalCode": "3600",
@@ -233,11 +271,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39665",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.451Z",
-      "_qualityScore": 85,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -254,7 +292,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39871",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.068Z",
+      "crawledAt": "2026-07-05T12:03:28.145Z",
       "addressLocality": "Bern",
       "streetAddress": "Bern",
       "postalCode": "3018",
@@ -272,11 +310,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39871",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.456Z",
-      "_qualityScore": 85,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 23,
         "completeness": 20
       }
     },
@@ -293,7 +331,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39875",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.074Z",
+      "crawledAt": "2026-07-05T12:03:28.149Z",
       "addressLocality": "Rüegsauschachen",
       "streetAddress": "Gempenstrasse 3",
       "postalCode": "3415",
@@ -311,11 +349,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39875",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.461Z",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -332,7 +370,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39877",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.076Z",
+      "crawledAt": "2026-07-05T12:03:28.151Z",
       "addressLocality": "Laupen",
       "streetAddress": "Laupen",
       "postalCode": "3177",
@@ -350,11 +388,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39877",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.464Z",
-      "_qualityScore": 81,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -371,7 +409,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39758",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.081Z",
+      "crawledAt": "2026-07-05T12:03:28.157Z",
       "addressLocality": "Oberburg",
       "streetAddress": "Oberburg",
       "postalCode": "3414",
@@ -389,11 +427,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39758",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.467Z",
-      "_qualityScore": 84,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -410,7 +448,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39873",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.082Z",
+      "crawledAt": "2026-07-05T12:03:28.158Z",
       "addressLocality": "Schliern b. Köniz",
       "streetAddress": "Schliern b. Köniz",
       "postalCode": "3098",
@@ -428,11 +466,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39873",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.467Z",
-      "_qualityScore": 81,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -449,7 +487,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39874",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.082Z",
+      "crawledAt": "2026-07-05T12:03:28.159Z",
       "addressLocality": "Schliern b. Köniz",
       "streetAddress": "Schliern b. Köniz",
       "postalCode": "3098",
@@ -467,11 +505,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39874",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.468Z",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -488,7 +526,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39872",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.084Z",
+      "crawledAt": "2026-07-05T12:03:28.160Z",
       "addressLocality": "Orpund",
       "streetAddress": "Orpund",
       "postalCode": "2552",
@@ -506,11 +544,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39872",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.469Z",
-      "_qualityScore": 81,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -527,7 +565,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39870",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.065Z",
+      "crawledAt": "2026-07-05T12:03:28.142Z",
       "addressLocality": "Münsingen",
       "streetAddress": "Münsingen",
       "postalCode": "3110",
@@ -545,11 +583,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39870",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.451Z",
-      "_qualityScore": 81,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -566,7 +604,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39726",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.073Z",
+      "crawledAt": "2026-07-05T12:03:28.147Z",
       "addressLocality": "Grosshöchstetten",
       "streetAddress": "Grosshöchstetten",
       "postalCode": "3506",
@@ -584,11 +622,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39726",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.460Z",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -605,7 +643,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39727",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.073Z",
+      "crawledAt": "2026-07-05T12:03:28.148Z",
       "addressLocality": "Grosshöchstetten",
       "streetAddress": "Grosshöchstetten",
       "postalCode": "3506",
@@ -623,11 +661,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39727",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.460Z",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -644,7 +682,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39864",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.075Z",
+      "crawledAt": "2026-07-05T12:03:28.151Z",
       "addressLocality": "Niederbipp",
       "streetAddress": "Niederbipp",
       "postalCode": "4704",
@@ -662,11 +700,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39864",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.463Z",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -683,7 +721,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/37845",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.077Z",
+      "crawledAt": "2026-07-05T12:03:28.152Z",
       "addressLocality": "Boll",
       "streetAddress": "Boll",
       "postalCode": "3067",
@@ -701,11 +739,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/37845",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.464Z",
-      "_qualityScore": 81,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -722,7 +760,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39863",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.077Z",
+      "crawledAt": "2026-07-05T12:03:28.153Z",
       "addressLocality": "Spiez, Krattigstrasse 48",
       "streetAddress": "Spiez, Krattigstrasse 48",
       "postalCode": "3700",
@@ -740,11 +778,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39863",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.465Z",
-      "_qualityScore": 81,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -761,7 +799,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39869",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.078Z",
+      "crawledAt": "2026-07-05T12:03:28.153Z",
       "addressLocality": "Moosseedorf",
       "streetAddress": "Moosseedorf",
       "postalCode": "3302",
@@ -779,11 +817,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39869",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.465Z",
-      "_qualityScore": 81,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -800,7 +838,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39868",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.078Z",
+      "crawledAt": "2026-07-05T12:03:28.153Z",
       "addressLocality": "Moosseedorf",
       "streetAddress": "Moosseedorf",
       "postalCode": "3302",
@@ -818,11 +856,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39868",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.465Z",
-      "_qualityScore": 81,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -839,7 +877,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/38644",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.078Z",
+      "crawledAt": "2026-07-05T12:03:28.154Z",
       "addressLocality": "Moosseedorf",
       "streetAddress": "Moosseedorf",
       "postalCode": "3302",
@@ -857,11 +895,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/38644",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.465Z",
-      "_qualityScore": 84,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -878,7 +916,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39866",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.079Z",
+      "crawledAt": "2026-07-05T12:03:28.154Z",
       "addressLocality": "Lyss",
       "streetAddress": "Lyss",
       "postalCode": "3250",
@@ -896,11 +934,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39866",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.466Z",
-      "_qualityScore": 84,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -917,7 +955,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39804",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.079Z",
+      "crawledAt": "2026-07-05T12:03:28.154Z",
       "addressLocality": "Ostermundigen",
       "streetAddress": "Kilchgrundstrasse 25",
       "postalCode": "3072",
@@ -935,11 +973,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39804",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.466Z",
-      "_qualityScore": 81,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -956,7 +994,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39867",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.079Z",
+      "crawledAt": "2026-07-05T12:03:28.155Z",
       "addressLocality": "Schlosswil",
       "streetAddress": "Schlosswil",
       "postalCode": "3082",
@@ -974,11 +1012,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39867",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.466Z",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -995,7 +1033,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39606",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.084Z",
+      "crawledAt": "2026-07-05T12:03:28.160Z",
       "addressLocality": "Utzigen",
       "streetAddress": "Utzigen",
       "postalCode": "3068",
@@ -1013,11 +1051,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39606",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.469Z",
-      "_qualityScore": 81,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -1034,7 +1072,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/36248",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.085Z",
+      "crawledAt": "2026-07-05T12:03:28.160Z",
       "addressLocality": "Grosshöchstetten",
       "streetAddress": "Grosshöchstetten",
       "postalCode": "3506",
@@ -1052,11 +1090,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/36248",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.470Z",
-      "_qualityScore": 85,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -1073,7 +1111,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39577",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.090Z",
+      "crawledAt": "2026-07-05T12:03:28.164Z",
       "addressLocality": "Meinisberg",
       "streetAddress": "Meinisberg",
       "postalCode": "2554",
@@ -1091,11 +1129,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39577",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.472Z",
-      "_qualityScore": 85,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -1112,7 +1150,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39856",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.066Z",
+      "crawledAt": "2026-07-05T12:03:28.143Z",
       "addressLocality": "Ins",
       "streetAddress": "Ins",
       "postalCode": "3232",
@@ -1130,11 +1168,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39856",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.452Z",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -1151,7 +1189,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39853",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.068Z",
+      "crawledAt": "2026-07-05T12:03:28.144Z",
       "addressLocality": "Oberdiessbach",
       "streetAddress": "Oberdiessbach",
       "postalCode": "3672",
@@ -1169,11 +1207,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39853",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.456Z",
-      "_qualityScore": 85,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -1190,7 +1228,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39857",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.077Z",
+      "crawledAt": "2026-07-05T12:03:28.153Z",
       "addressLocality": "Erlach Oberstufe",
       "streetAddress": "Erlach Oberstufe",
       "postalCode": "3235",
@@ -1208,11 +1246,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39857",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.465Z",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -1229,7 +1267,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39860",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.078Z",
+      "crawledAt": "2026-07-05T12:03:28.154Z",
       "addressLocality": "Sumiswald",
       "streetAddress": "Lütoldstrasse 3",
       "postalCode": "3454",
@@ -1247,11 +1285,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39860",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.465Z",
-      "_qualityScore": 81,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -1268,7 +1306,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39269",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.080Z",
+      "crawledAt": "2026-07-05T12:03:28.155Z",
       "addressLocality": "Port",
       "streetAddress": "Port",
       "postalCode": "2562",
@@ -1286,50 +1324,11 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39269",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:03:34.466Z",
-      "_qualityScore": 84,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "ksml-caf35b04f958",
-      "slug": "lehrperson-und-oder-schulische-heilpadagogin-schulischer-heilpadagoge-17-5-lektionen-39600",
-      "slugDisambiguator": "39600",
-      "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
-      "companyKey": "ksml",
-      "companyDomain": "ksml.apps.be.ch",
-      "title": "Lehrperson und/oder schulische Heilpädagogin / schulischer Heilpädagoge 17,5 Lektionen, Zyklus 3",
-      "location": "Kehrsatz",
-      "canton": "BE",
-      "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39600",
-      "source": "KSML Dedicated Parser (ws/stellen JSON API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:44:55.080Z",
-      "addressLocality": "Kehrsatz",
-      "streetAddress": "Kehrsatz",
-      "postalCode": "3122",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Istruzione / Scuola speciale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Istruzione / Scuola pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39600",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-07-04T12:03:34.466Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     }
@@ -1338,7 +1337,7 @@
   "unchangedJobs": [
     {
       "id": "ksml-d739a639d69f",
-      "slug": "wir-suchen-eine-fachehrperson-technisches-gestalten-5-9-klasse-5-lektionen-schule-39227",
+      "slug": "stiamo-cercando-un-design-tecnico-specializzato-5-9-class-5-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-39227",
       "slugDisambiguator": "39227",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
       "companyKey": "ksml",
@@ -1365,22 +1364,21 @@
       "featured": false,
       "postedDate": "2026-06-24",
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39227",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "firstSeenAt": "2026-07-04T12:03:34.473Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
+      "crawlerMissStreak": 2,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "ksml-8bcbc675df36",
-      "slug": "if-lehrperson-zyklus-2-ca-8-lektionen-schule-trub-schachen-trub-38898",
+      "slug": "if-insegnante-ciclo-2-circa-8-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-trub-38898",
       "slugDisambiguator": "38898",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
       "companyKey": "ksml",
@@ -1407,16 +1405,15 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/38898",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "firstSeenAt": "2026-07-04T12:03:34.464Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 86,
+      "crawlerMissStreak": 2,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
