@@ -1,18 +1,23 @@
 /**
- * Web Vitals Telemetry — reports Core Web Vitals to GA4
+ * Web Vitals Telemetry — reports Core Web Vitals to GA4 and PostHog
  *
  * Uses Google's official `web-vitals` library for accurate measurements.
  * Reports: LCP, INP, CLS, FCP, TTFB
  *
- * Data is sent to GA4 via the existing Analytics.log() pipeline,
- * respecting consent state.
+ * GA4: all sessions, via Analytics.log() pipeline, respects consent state.
+ * PostHog: 20% sample (session-level), first-party RUM — CF Web Analytics
+ *   ingest is defunct on this zone (see issue 3558 / 3503).
  *
  * Enhanced with device-type and connection-quality dimensions so that
- * GA4 reports can be filtered by mobile vs desktop and by network speed.
+ * reports can be filtered by mobile vs desktop and by network speed.
  */
 
 import { isAnalyticsGranted } from '@/services/consentService';
 import { deriveAnalyticsPageContext } from '@/services/analyticsPageContext';
+
+// Session-level sampling: all CWV metrics for a session are included or excluded
+// together so p75 calculations remain consistent across metrics.
+const POSTHOG_INCLUDE = Math.random() < 0.2; // 20% → within PostHog free-tier 1M/mo
 
 type WebVitalMetric = {
  name: string;
@@ -123,17 +128,37 @@ function sendToGA4(metric: WebVitalMetric) {
  }
 }
 
+function sendToPostHog(metric: WebVitalMetric) {
+ if (!POSTHOG_INCLUDE) return;
+ const value = Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value);
+ const attribution = getMetricAttribution(metric);
+ import('@/services/posthog').then(({ captureEvent }) => {
+ captureEvent('web_vitals', {
+ metric_name: metric.name,
+ metric_value: value,
+ metric_rating: metric.rating,
+ path: location.pathname,
+ device_type: getDeviceType(),
+ ...attribution,
+ });
+ }).catch(() => {});
+}
+
 /**
  * Initialize Web Vitals observers. Call once after first user interaction.
  * Uses Google's `web-vitals` library for accurate, spec-compliant measurements.
  */
 export function initWebVitals() {
  import('web-vitals/attribution').then(({ onCLS, onLCP, onFCP, onTTFB, onINP }) => {
- onCLS(sendToGA4);
- onLCP(sendToGA4);
- onFCP(sendToGA4);
- onTTFB(sendToGA4);
- onINP(sendToGA4);
+ const report = (metric: WebVitalMetric) => {
+ sendToGA4(metric);
+ sendToPostHog(metric);
+ };
+ onCLS(report);
+ onLCP(report);
+ onFCP(report);
+ onTTFB(report);
+ onINP(report);
  }).catch(() => {
  // Fallback: web-vitals not available — fail silently
  });
