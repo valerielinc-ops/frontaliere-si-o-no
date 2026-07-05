@@ -3366,7 +3366,11 @@ export async function callLLM(messages, opts = {}) {
       if (is429Failure) {
         const count = (_consecutive429.get(model) || 0) + 1;
         _consecutive429.set(model, count);
-        if (count >= MAX_CONSECUTIVE_429) {
+        // local/fallback is exempt from the hard ban — see the matching
+        // PROVIDER.LOCAL carve-out on recordModelContentFailure above: no
+        // external quota, so exhausting it mid-run just guarantees zero
+        // output for the rest of the wall-clock budget.
+        if (count >= MAX_CONSECUTIVE_429 && getProvider(model) !== PROVIDER.LOCAL) {
           markModelExhausted(model);
           _stats.exhausted++;
           console.warn(`🚫 [${model}] Exhausted after ${count} consecutive 429s`);
@@ -3377,8 +3381,11 @@ export async function callLLM(messages, opts = {}) {
       }
       // Timeout circuit breaker: if a model timed out after retries, mark it
       // exhausted so subsequent callLLM invocations skip it entirely.
+      // Same PROVIDER.LOCAL exemption as the 429 branch above — _callLocal
+      // intentionally raises the timeout floor for slow CPU inference, so a
+      // timeout there is expected load, not a dead provider.
       const isTimeoutFailure = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(msg);
-      if (isTimeoutFailure) {
+      if (isTimeoutFailure && getProvider(model) !== PROVIDER.LOCAL) {
         markModelExhausted(model, 'timeout');
         _stats.exhausted++;
       }
