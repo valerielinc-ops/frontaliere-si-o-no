@@ -1,6 +1,6 @@
 {
   "crawlerKey": "matterhorn-gotthard-bahn",
-  "assembledAt": "2026-07-05T11:36:20.284Z",
+  "assembledAt": "2026-07-05T23:27:17.323Z",
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-7644459024cb",
@@ -19,7 +19,7 @@
         "it": "Ingegnere automatico o installatore automatico (m/f/d)",
         "en": "Additional doctrine Automatic engineer or automatic installer (m/f/d)",
         "de": "Zusatzlehre Automatiker oder Automatikmonteur (m/w/d)",
-        "fr": "Doctrine supplémentaire Ingénieur automatique ou installateur automatique (m/f/d)"
+        "fr": "Zusatzlehre Automatiker oder Automatikmonteur (m/w/d)"
       },
       "description": "Dein Antrieb\n Das Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam:\n Emotionen sind unser Antrieb. Was ist dein Antrieb?\n\nDu stehst kurz vor Lehrabschluss oder hast deine Lehre bereits abgeschlossen und möchtest in die spannende Welt des öffentlichen Verkehrs blicken?\n\nAb Lehrbeginn 1. August 2026 suchen wir einen Lernenden für die Zusatzlehre Automatiker oder Automatikmonteur (m/w/d) in unserer Polywerkstatt in Brig .\n Dein Wirkungsfeld\n\n• Mitarbeit im Team Fahrzeugtechnik\n\n• Analyse und Behebung von Störungen an Lokomotiven und Triebfahrzeugen\n\n• Instandhaltung und Reparaturen des Rollmaterials der Matterhorn Gotthard Bahn\n\n• Planung und Umsetzung kleiner Projekte und Testgeräte\n Dein Profil\n\n• Abgeschlossene Lehre als Polymechaniker:in, Produktionsmechaniker:in oder eine andere Lehre im technischen Bereich\n\n• Freude an Technik\n\n• Faszination für die Welt des öffentlichen Verkehrs\n\n• Handwerkliches Geschick\n\n• Bereitschaft zur Übernahme von Verantwortung\n Deine Vorteile\n\n• Dreijährige Zusatzlehre als Automatiker:in oder zweijährige als Automatikmonteur:in\n\n• Attraktives Lern- und Arbeitsumfeld\n\n• Gut eingespieltes Team\n\n• Verantwortungsvolle, interessante Arbeiten\n\n• GA für die freie Benutzung der öffentlichen Verkehrsmittel\n\n• 6 Wochen Ferien\n\n• Weitere tolle Vorteile",
       "descriptionByLocale": {
@@ -33,7 +33,7 @@
       "url": "https://jobs.bvzholding.ch/Zusatzlehre-Automatiker-oder-Automatikmonteur-mwd-de-j680.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:36:17.638Z",
+      "crawledAt": "2026-07-05T23:27:14.787Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -74,7 +74,8 @@
       },
       "previousSlugs": [
         "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch",
-        "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig"
+        "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig",
+        "formazione-complementare-automatiker-o-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -89,6 +90,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:19:32.137Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -134,7 +136,7 @@
       "url": "https://jobs.bvzholding.ch/Werkstattmitarbeiter-Instandhaltung-GGB-mwd-de-j713.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:36:16.638Z",
+      "crawledAt": "2026-07-05T23:27:13.725Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -171,7 +173,8 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
+        "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch",
+        "manutenzione-dei-dipendenti-dell-officina-ggb-m-f-d-matterhorn-gotthard-bahn-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -186,6 +189,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T11:47:25.555Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -215,7 +219,7 @@
       "title": "Sales Manager (m/w/d) 80%",
       "titleByLocale": {
         "it": "Responsabile vendite (m/f/d) 80 %",
-        "en": "Sales Manager (m/f/d) 80%",
+        "en": "Sales Manager (m/w/d) 80%",
         "de": "Sales Manager (m/w/d) 80%",
         "fr": "Directeur des ventes (m/f/d) 80%"
       },
@@ -231,7 +235,7 @@
       "url": "https://jobs.bvzholding.ch/Sales-Manager-mwd-80-de-j711.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:36:15.765Z",
+      "crawledAt": "2026-07-05T23:27:12.807Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -276,7 +280,8 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "sales-manager-m-w-d-80-matterhorn-gotthard-bahn-ch"
+        "sales-manager-m-w-d-80-matterhorn-gotthard-bahn-ch",
+        "responsabile-vendite-m-f-d-80-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -288,6 +293,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T13:32:55.662Z",
+      "needsRetranslation": true,
       "salaryMin": 66800,
       "salaryMax": 101200,
       "baseSalary": {
@@ -333,7 +339,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Gleisbau-Instandhaltung-mwd-de-j664.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:36:14.895Z",
+      "crawledAt": "2026-07-05T23:27:11.893Z",
       "addressLocality": "Herbriggen",
       "addressCountry": "CH",
       "country": "CH",
@@ -372,7 +378,8 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
+        "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
+        "collaboratore-trice-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-herbriggen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -387,6 +394,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T22:19:51.816Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -432,7 +440,7 @@
       "url": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-j689.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:36:13.894Z",
+      "crawledAt": "2026-07-05T23:27:10.830Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -472,7 +480,8 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
+        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
+        "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -487,6 +496,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:59:54.848Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -532,7 +542,7 @@
       "url": "https://jobs.bvzholding.ch/Fachspezialist-Fahrbahn-mwd-de-j623.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:36:13.013Z",
+      "crawledAt": "2026-07-05T23:27:09.909Z",
       "addressLocality": "Ulrichen, Fiesch",
       "addressCountry": "CH",
       "country": "CH",
@@ -572,7 +582,8 @@
       },
       "previousSlugs": [
         "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "superficie-stradale-specialistica-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
+        "superficie-stradale-specialistica-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+        "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -588,6 +599,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:38:46.882Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -633,7 +645,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j624.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:36:12.101Z",
+      "crawledAt": "2026-07-05T23:27:08.980Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -675,7 +687,8 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard"
+        "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
+        "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -690,6 +703,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:40:14.439Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -735,7 +749,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-mwd-de-j707.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:36:11.086Z",
+      "crawledAt": "2026-07-05T23:27:07.914Z",
       "addressLocality": "Andermatt, Sedrun",
       "addressCountry": "CH",
       "country": "CH",
@@ -777,7 +791,8 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
+        "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch",
+        "installatore-trice-elettrico-a-m-w-d-matterhorn-gotthard-bahn-andermatt-sedrun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -792,6 +807,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:38:45.109Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -837,7 +853,7 @@
       "url": "https://jobs.bvzholding.ch/Carrosserielackierer-fachmann-mwd-de-j697.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:36:10.051Z",
+      "crawledAt": "2026-07-05T23:27:06.840Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -874,7 +890,8 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch"
+        "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch",
+        "verniciatore-specialista-carrozziere-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund"
       ],
       "previousSlugsByLocale": {
         "it": [
