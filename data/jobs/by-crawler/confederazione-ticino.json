@@ -2246,7 +2246,7 @@
       },
       "slugByLocale": {
         "it": "capo-del-parlamento-confederazione-svizzera-berne",
-        "en": "leader-of-parliament-confederazione-svizzera-berne",
+        "en": "parlamentsfuhrer-in-confederazione-svizzera-berne",
         "de": "parlamentsfuhrer-in-confederazione-berne",
         "fr": "parlamentsfuhrer-in-confederazione-svizzera-berne"
       },
@@ -2257,13 +2257,13 @@
           "parlamentsfuhrer-in-confederazione-berne"
         ],
         "en": [
-          "parlamentsfuhrer-in-confederazione-svizzera-berne",
           "leader-of-parliament-confederazione-svizzera-berne"
         ]
       },
       "previousSlugs": [
         "parlamentsfuhrer-in-confederazione-svizzera-berne",
-        "parlamentsfuhrer-in-confederazione-berne"
+        "parlamentsfuhrer-in-confederazione-berne",
+        "leader-of-parliament-confederazione-svizzera-berne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4076,21 +4076,19 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern",
-        "en": "logistics-specialist-swiss-armed-forces-vtg-bern",
+        "en": "logistics-specialist-confederazione-svizzera-schattdorf",
         "de": "logistiker-in-swiss-armed-forces-vtg-bern-qjueiz",
-        "fr": "logisticien-ne-swiss-armed-forces-vtg-bern"
+        "fr": "logisticien-ne-confederazione-svizzera-schattdorf"
       },
       "id": "confederazione-ticino-cbc901308131",
       "previousSlugsByLocale": {
         "en": [
           "logistiker-in-confederazione-svizzera-schattdorf",
-          "logistics-specialist-swiss-armed-forces-vtg-bern",
-          "logistics-specialist-confederazione-svizzera-schattdorf"
+          "logistics-specialist-swiss-armed-forces-vtg-bern"
         ],
         "fr": [
           "logistiker-in-confederazione-svizzera-schattdorf",
-          "logisticien-ne-swiss-armed-forces-vtg-bern",
-          "logisticien-ne-confederazione-svizzera-schattdorf"
+          "logisticien-ne-swiss-armed-forces-vtg-bern"
         ],
         "it": [
           "logistiker-in-confederazione-schattdorf"
@@ -4103,9 +4101,7 @@
         "logistiker-in-confederazione-svizzera-schattdorf",
         "logistics-specialist-swiss-armed-forces-vtg-bern",
         "logisticien-ne-swiss-armed-forces-vtg-bern",
-        "logistiker-in-confederazione-schattdorf",
-        "logistics-specialist-confederazione-svizzera-schattdorf",
-        "logisticien-ne-confederazione-svizzera-schattdorf"
+        "logistiker-in-confederazione-schattdorf"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -7696,21 +7692,19 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-bern",
-        "en": "logistician-on-site-warehouse-swiss-armed-forces-vtg-bern",
+        "en": "logistician-on-site-warehouse-confederazione-svizzera-chur",
         "de": "logistiker-in-vorortlager-swiss-armed-forces-vtg-bern-tvrgfb",
-        "fr": "logistique-entrepot-sur-place-swiss-armed-forces-vtg-bern"
+        "fr": "logistique-entrepot-sur-place-confederazione-svizzera-chur"
       },
       "id": "confederazione-ticino-f9c0d0e43d80",
       "previousSlugsByLocale": {
         "en": [
           "logistician-on-site-warehouse-swiss-armed-forces-vtg-bern",
-          "logistiker-in-vorortlager-confederazione-chur",
-          "logistician-on-site-warehouse-confederazione-svizzera-chur"
+          "logistiker-in-vorortlager-confederazione-chur"
         ],
         "fr": [
           "logistique-entrepot-sur-place-swiss-armed-forces-vtg-bern",
-          "logistiker-in-vorortlager-confederazione-chur",
-          "logistique-entrepot-sur-place-confederazione-svizzera-chur"
+          "logistiker-in-vorortlager-confederazione-chur"
         ],
         "it": [
           "logistiker-in-vorortlager-confederazione-chur"
@@ -7723,9 +7717,7 @@
         "logistician-on-site-warehouse-swiss-armed-forces-vtg-bern",
         "logistique-entrepot-sur-place-swiss-armed-forces-vtg-bern",
         "impiegato-a-in-logistica-vorortlager-confederazione-svizzera-chur",
-        "logistiker-in-vorortlager-confederazione-chur",
-        "logistician-on-site-warehouse-confederazione-svizzera-chur",
-        "logistique-entrepot-sur-place-confederazione-svizzera-chur"
+        "logistiker-in-vorortlager-confederazione-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -11631,7 +11623,7 @@
       },
       "slugByLocale": {
         "it": "ingegnere-di-controllo-del-traffico-aereo-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-flugplatz",
-        "en": "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-b3kpbb",
+        "en": "air-traffic-control-engineer-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-flugplatz-locarno-6595",
         "de": "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-flugplatz-locarno-6595-riazzino",
         "fr": "ingenieur-du-controle-de-la-circulation-aerienne-in-support-systemes-de-controle-de-la-circulation-aerienne-sufs"
       },
@@ -11654,7 +11646,6 @@
       "firstSeenAt": "2026-06-16T22:36:29.909Z",
       "previousSlugsByLocale": {
         "en": [
-          "air-traffic-control-engineer-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-flugplatz-locarno-6595",
           "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-flugplatz-locarno-6595-riazzino",
           "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-b3kpbb"
         ],
@@ -11667,7 +11658,7 @@
       },
       "previousSlugs": [
         "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-flugplatz-locarno-6595-riazzino",
-        "air-traffic-control-engineer-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-flugplatz-locarno-6595"
+        "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-b3kpbb"
       ]
     },
     {
@@ -14134,23 +14125,21 @@
       },
       "slugByLocale": {
         "it": "offizier-in-rustung-e-weiterentwicklung-confederazione-svizzera-rivera",
-        "en": "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
+        "en": "officer-in-armor-and-development-confederazione-svizzera-rivera",
         "de": "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
-        "fr": "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern"
+        "fr": "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
       },
       "id": "confederazione-ticino-6d52f47f3206",
       "previousSlugsByLocale": {
         "en": [
           "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
           "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
-          "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
-          "officer-in-armor-and-development-confederazione-svizzera-rivera"
+          "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera"
         ],
         "fr": [
           "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
           "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern",
-          "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
-          "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
+          "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera"
         ],
         "it": [
           "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera"
@@ -14160,9 +14149,7 @@
         "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
         "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
         "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern",
-        "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
-        "officer-in-armor-and-development-confederazione-svizzera-rivera",
-        "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
+        "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -15392,7 +15379,7 @@
       },
       "slugByLocale": {
         "it": "tecnico-di-controllo-del-traffico-aereo-in-supporto-sistemi-di-controllo-del-traffico-aereo-sufs-confederazione-svizzera",
-        "en": "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q",
+        "en": "air-traffic-control-technician-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-emmen",
         "de": "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-emmen",
         "fr": "technicien-en-controle-de-la-circulation-aerienne-soutien-aux-systemes-de-controle-de-la-circulation-aerienne-sufs"
       },
@@ -15414,7 +15401,6 @@
       "firstSeenAt": "2026-06-10T22:26:55.170Z",
       "previousSlugsByLocale": {
         "en": [
-          "air-traffic-control-technician-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-emmen",
           "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q"
         ],
         "fr": [
@@ -15428,7 +15414,7 @@
       "previousSlugs": [
         "technicien-du-controle-de-la-circulation-aerienne-appui-aux-systemes-de-controle-de-la-circulation-aerienne-sufs",
         "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-emmen",
-        "air-traffic-control-technician-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-emmen"
+        "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q"
       ],
       "needsRetranslation": true
     },
@@ -20555,7 +20541,7 @@
       },
       "slugByLocale": {
         "it": "esperienza-informatica-confederazione-svizzera-zollikofen-suisse",
-        "en": "erlebnistag-informatik-confederazione-svizzera-zollikofen-suisse",
+        "en": "computer-science-experience-confederazione-svizzera-zollikofen-suisse",
         "de": "erlebnistag-informatik-confederazione-zollikofen-suisse",
         "fr": "experience-en-informatique-confederazione-svizzera-zollikofen-suisse"
       },
@@ -20578,7 +20564,6 @@
       "previousSlugsByLocale": {
         "en": [
           "computer-science-experience-day-confederazione-svizzera-zollikofen-suisse",
-          "computer-science-experience-confederazione-svizzera-zollikofen-suisse",
           "erlebnistag-informatik-confederazione-zollikofen-suisse",
           "erlebnistag-informatik-confederazione-svizzera-zollikofen-suisse"
         ],
@@ -20594,7 +20579,7 @@
         "computer-science-experience-day-confederazione-svizzera-zollikofen-suisse",
         "journee-de-l-experience-en-informatique-confederazione-svizzera-zollikofen-suisse",
         "erlebnistag-informatik-confederazione-zollikofen-suisse",
-        "computer-science-experience-confederazione-svizzera-zollikofen-suisse"
+        "erlebnistag-informatik-confederazione-svizzera-zollikofen-suisse"
       ],
       "needsRetranslation": true
     },
@@ -21516,21 +21501,19 @@
       },
       "slugByLocale": {
         "it": "offiziere-per-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
-        "en": "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
+        "en": "senior-consultant-m-w-confederazione-svizzera-stans-oberdorf-ausland",
         "de": "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
-        "fr": "consultant-principal-m-m-swiss-armed-forces-vtg-bern"
+        "fr": "consultant-principal-m-m-confederazione-svizzera-stans-oberdorf-ausland"
       },
       "id": "confederazione-ticino-8823a8430d20",
       "previousSlugsByLocale": {
         "en": [
           "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
-          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland",
-          "senior-consultant-m-w-confederazione-svizzera-stans-oberdorf-ausland"
+          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland"
         ],
         "fr": [
           "consultant-principal-m-m-swiss-armed-forces-vtg-bern",
-          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland",
-          "consultant-principal-m-m-confederazione-svizzera-stans-oberdorf-ausland"
+          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland"
         ],
         "it": [
           "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland"
@@ -21542,9 +21525,7 @@
       "previousSlugs": [
         "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
         "consultant-principal-m-m-swiss-armed-forces-vtg-bern",
-        "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland",
-        "senior-consultant-m-w-confederazione-svizzera-stans-oberdorf-ausland",
-        "consultant-principal-m-m-confederazione-svizzera-stans-oberdorf-ausland"
+        "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -21632,7 +21613,7 @@
     },
     {
       "title": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
-      "slug": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
+      "slug": "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
       "url": "https://jobs.admin.ch/posti-vacanti/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db",
       "applyUrl": "https://jobs.admin.ch/posti-vacanti/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db",
       "company": "Confederazione Svizzera",
@@ -21666,27 +21647,24 @@
         "fr": "Vos tâches\n\n- Préparation et soutien du contrôle périodique des installations de construction et gestion correcte du papier des protocoles de mesure et d'essai\n\n- Entretien des installations électriques\n\n- Consultation dans la planification de nouveaux projets concernant les installations électriques\n\n- Assurer le service d'électro-picett et la volonté d'éliminer les perturbations électriques\n\nCela vous rend unique\n\n- Enseignement professionnel complet en tant qu'installateur électrique\n\n- La connaissance de la langue allemande (mention A1) est souhaitable pour cette fonction afin d'assurer la sécurité et la sécurité des camarades femmes et femmes ainsi qu'une coopération harmonieuse avec les collègues autrichiens et les employés locaux.\n\n- carte de conducteur civil (cat B)\n\n- Âge entre 18 et 65 ans\n\n- École complète de recrutement de l'armée suisse, les femmes de nationalité suisse sans formation militaire de base sont formées selon la fonction militaire\n\nNous offrons\n\n- Travailler pour la Suisse Nous sommes attachés au modèle de réussite de la Suisse et travaillons pour le bien-être de la population.\n\n- Diversité vécue Grâce à l'égalité des chances, nous développons nos compétences et introduisons différentes perspectives.\n\nNous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nLe SWISSINT Competence Center est le commandement national de déploiement pour la promotion militaire de la paix de l'armée suisse et est responsable de la planification, de la fourniture et de la direction nationale de tous les contingents et individus militaires suisses dans l'Ordre de l'Armée pour la promotion de la paix."
       },
       "slugByLocale": {
-        "it": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
-        "en": "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
+        "it": "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
+        "en": "infrastructure-specialist-in-electrical-power-confederazione-svizzera-stans-oberdorf-ausland",
         "de": "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
-        "fr": "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern"
+        "fr": "specialiste-des-infrastructures-electriques-electriques-confederazione-svizzera-stans-oberdorf-ausland"
       },
       "id": "confederazione-ticino-92d728aafc57",
       "previousSlugsByLocale": {
         "it": [
           "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
-          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
           "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v"
         ],
         "en": [
           "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
-          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
-          "infrastructure-specialist-in-electrical-power-confederazione-svizzera-stans-oberdorf-ausland"
+          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland"
         ],
         "fr": [
           "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern",
-          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
-          "specialiste-des-infrastructures-electriques-electriques-confederazione-svizzera-stans-oberdorf-ausland"
+          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland"
         ],
         "de": [
           "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
@@ -21697,10 +21675,7 @@
         "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
         "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern",
         "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
-        "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
-        "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
-        "infrastructure-specialist-in-electrical-power-confederazione-svizzera-stans-oberdorf-ausland",
-        "specialiste-des-infrastructures-electriques-electriques-confederazione-svizzera-stans-oberdorf-ausland"
+        "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

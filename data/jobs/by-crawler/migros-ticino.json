@@ -50,8 +50,8 @@
       "crawledAt": "2026-07-05T11:56:33.828Z",
       "firstSeenAt": "2026-07-05T11:56:33.828Z",
       "slugByLocale": {
-        "en": "seller-denner-ag-wetzikon-8e6f7a",
-        "fr": "vendeur-denner-ag-wetzikon-8e6f7a",
+        "en": "seller-denner-ag-wetzikon",
+        "fr": "vendeur-denner-ag-wetzikon",
         "it": "venditore-denner-ag-wetzikon",
         "de": "verkaufer-in-denner-ag-wetzikon"
       },
@@ -86,16 +86,16 @@
           "verkaufer-in-denner-ag-wetzikon-douzkp"
         ],
         "en": [
-          "seller-denner-ag-wetzikon"
+          "seller-denner-ag-wetzikon-8e6f7a"
         ],
         "fr": [
-          "vendeur-denner-ag-wetzikon"
+          "vendeur-denner-ag-wetzikon-8e6f7a"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-ag-wetzikon-douzkp",
-        "seller-denner-ag-wetzikon",
-        "vendeur-denner-ag-wetzikon"
+        "seller-denner-ag-wetzikon-8e6f7a",
+        "vendeur-denner-ag-wetzikon-8e6f7a"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -682,8 +682,8 @@
       "firstSeenAt": "2026-07-04T12:04:49.748Z",
       "slugByLocale": {
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld-008421",
-        "fr": "vendeur-denner-ag-frauenfeld-008421",
+        "en": "seller-denner-ag-frauenfeld",
+        "fr": "vendeur-denner-ag-frauenfeld",
         "it": "venditore-denner-ag-frauenfeld"
       },
       "titleByLocale": {
@@ -740,12 +740,10 @@
           "seller-denner-ag-zurich"
         ],
         "en": [
-          "seller-denner-ag-frauenfeld-008421",
-          "seller-denner-ag-frauenfeld"
+          "seller-denner-ag-frauenfeld-008421"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld-008421",
-          "vendeur-denner-ag-frauenfeld"
+          "vendeur-denner-ag-frauenfeld-008421"
         ]
       },
       "previousSlugs": [
@@ -756,9 +754,7 @@
         "venditore-denner-ag-zurich-e89fe9",
         "seller-denner-ag-zurich",
         "seller-denner-ag-frauenfeld-008421",
-        "vendeur-denner-ag-frauenfeld-008421",
-        "seller-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld"
+        "vendeur-denner-ag-frauenfeld-008421"
       ]
     },
     {
@@ -43707,7 +43703,7 @@
         "it": "assistant-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a",
         "en": "assistant-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a",
         "de": "assistent-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a",
-        "fr": "club-de-remise-en-forme-m-w-d-activ-fitness-baar-jwmq7a"
+        "fr": "assistant-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a"
       },
       "requirementsByLocale": {
         "it": [],
@@ -43735,7 +43731,8 @@
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-baar",
         "vice-direttore-del-fitness-club-lunedi-venerdi-activ-fitness-baar",
-        "club-de-remise-en-forme-m-f-d-activ-fitness-baar"
+        "club-de-remise-en-forme-m-f-d-activ-fitness-baar",
+        "club-de-remise-en-forme-m-w-d-activ-fitness-baar-jwmq7a"
       ],
       "salaryMin": 96000,
       "salaryMax": 146000,
