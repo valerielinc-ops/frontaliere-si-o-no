@@ -25,6 +25,8 @@ import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { EVENTS_SECTION_RX } from './lib/eventsSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
+import { insertBounded } from './lib/boundedTopN.mjs';
+import { classifyEmployerLandingFeature } from './lib/employerLandingSections.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
@@ -67,14 +69,15 @@ export function extractVisibleText(html) {
   return s;
 }
 
-/** Different from audit-title-length's classifyFeature — has career-landings,
- *  weekly-employers per-company×city, weather, more granular fuel-daily slugs. */
-function classifyFeature(relPath) {
+/** Different from audit-title-length's classifyFeature — has weather and more
+ *  granular fuel-daily slugs. career-landings/weekly-employers/weekly-employers-hub
+ *  are shared via scripts/lib/employerLandingSections.mjs (no longer diverge). */
+export function classifyFeature(relPath) {
   const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
-  if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-[^/]+\/?$/.test(p)) return 'career-landings';
+  const employerFeature = classifyEmployerLandingFeature(p);
+  if (employerFeature === 'career-landings') return 'career-landings';
   if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
-  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\/[^/]+\/[^/]+\//.test(p)) return 'weekly-employers';
-  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers-hub';
+  if (employerFeature) return employerFeature;
   // Canton-aware job-board sections (TI legacy, every canton, + svizzera
   // aggregator) → shared matcher. See scripts/lib/jobBoardSections.mjs.
   if (JOB_BOARD_SECTION_RX.test(p)) return 'job-board';
@@ -111,8 +114,23 @@ export function createAuditor(opts = {}) {
   const baselinePath = opts.baselinePath ?? null;
   const writeBaselinePath = opts.writeBaselinePath ?? null;
 
-  const samples = [];
-  const ejpSamples = [];
+  // Bounded top-N previews (worst/lowest-ratio N), plus incremental scalar
+  // counters — NOT a full per-page `samples` array. dist/ scans ~2.8M pages;
+  // retaining one object per page just to filter/sort/slice at report() time
+  // is what threw `JSON.stringify`'s "Invalid string length" (same class of
+  // bug as audit-page-weight.mjs's `rawSamples`, see scripts/lib/boundedTopN.mjs).
+  // `offenders` itself stays a plain array (not bounded): real offender counts
+  // are a few thousand at most, several orders of magnitude below the
+  // millions-scale scan, so pushing every match during collect() is cheap.
+  let scannedCount = 0;
+  const scannedByFeature = {};
+  const offenders = [];
+  let nearFloorCount = 0;
+  const nearFloorByFeature = {};
+  const nearFloorTop = [];
+  let ejpCount = 0;
+  const ejpByFeature = {};
+  const ejpLowestTop = [];
   let skippedNoindex = 0;
   let skippedEjpStripped = 0;
 
@@ -133,23 +151,19 @@ export function createAuditor(opts = {}) {
       if (html.includes(EJP_STRIPPED_MARKER) || html.includes('<!--ejp-stripped-->')) {
         skippedEjpStripped++;
         // Drift visibility: marked shells are excluded from the offender
-        // ratchet by design, so they never enter `samples` — which left them
-        // invisible to the nearFloor band (the prior "keep nearFloor
-        // un-suppressed" mitigation was a no-op because skipped pages never
-        // reach sampling). The index,follow ones stay in Google's index, so a
+        // ratchet by design, so they never enter the offender/nearFloor
+        // population — the index,follow ones stay in Google's index, so a
         // silent further shrink (prose-helper/template regression) must still
         // be seen. Sample their ratio into a separate, non-blocking band.
         // noindex/redirect marked pages are out of the index → no SEO drift.
         if (includeNoindex || !(NOINDEX_RE.test(html) || META_REFRESH_RE.test(html))) {
           const textBytes = Buffer.byteLength(extractVisibleText(html), 'utf8');
           const rel = relative(ROOT, file);
-          ejpSamples.push({
-            file: rel,
-            feature: classifyFeature(rel),
-            htmlBytes,
-            textBytes,
-            ratio: (textBytes / htmlBytes) * 100,
-          });
+          const feature = classifyFeature(rel);
+          const ratio = (textBytes / htmlBytes) * 100;
+          ejpCount++;
+          ejpByFeature[feature] = (ejpByFeature[feature] ?? 0) + 1;
+          insertBounded(ejpLowestTop, { file: rel, feature, htmlBytes, textBytes, ratio }, limit, (r) => -r.ratio);
         }
         return;
       }
@@ -163,10 +177,23 @@ export function createAuditor(opts = {}) {
       const rel = relative(ROOT, file);
       const feature = classifyFeature(rel);
       if (featureFilter && feature !== featureFilter) return;
-      samples.push({ file: rel, feature, htmlBytes, textBytes, ratio });
+
+      scannedCount++;
+      scannedByFeature[feature] = (scannedByFeature[feature] ?? 0) + 1;
+
+      if (ratio <= threshold) {
+        offenders.push({ file: rel, feature, htmlBytes, textBytes, ratio });
+      } else if (ratio <= warnThreshold) {
+        // Near-floor band: pages that pass the hard gate but sit in the
+        // (threshold, warnThreshold] zone — early-warning signal, never
+        // blocks the build.
+        nearFloorCount++;
+        nearFloorByFeature[feature] = (nearFloorByFeature[feature] ?? 0) + 1;
+        insertBounded(nearFloorTop, { file: rel, feature, htmlBytes, textBytes, ratio }, limit, (r) => -r.ratio);
+      }
     },
     async report() {
-      const offenders = samples.filter((r) => r.ratio <= threshold).sort((a, b) => a.ratio - b.ratio);
+      offenders.sort((a, b) => a.ratio - b.ratio);
 
       const byFeature = {};
       for (const r of offenders) {
@@ -177,13 +204,11 @@ export function createAuditor(opts = {}) {
       // growth (more pages of the same template, same per-page quality) does
       // NOT trip the gate. Only a genuine per-template quality regression
       // raises the offender RATE.
-      const scannedByFeature = {};
-      for (const r of samples) scannedByFeature[r.feature] = (scannedByFeature[r.feature] ?? 0) + 1;
       const rateByFeature = {};
       for (const f of Object.keys(scannedByFeature)) {
         rateByFeature[f] = (byFeature[f] ?? 0) / scannedByFeature[f] * 100;
       }
-      const totalRatePct = samples.length ? (offenders.length / samples.length) * 100 : 0;
+      const totalRatePct = scannedCount ? (offenders.length / scannedCount) * 100 : 0;
       // maxDeltaPp caps the relative term so a high-base feature can't earn
       // unbounded absolute slack (a 12%-rate feature would otherwise tolerate
       // +2.4pp from relPct alone before the cap bites).
@@ -203,7 +228,7 @@ export function createAuditor(opts = {}) {
           mode: 'rate',
           threshold,
           tolerance: DEFAULT_TOL,
-          scanned: samples.length,
+          scanned: scannedCount,
           totalOffenders: offenders.length,
           totalRatePct: Number(totalRatePct.toFixed(4)),
           byFeature: byFeatureRate,
@@ -228,7 +253,7 @@ export function createAuditor(opts = {}) {
               ratio: Number(r.ratio.toFixed(2)), htmlBytes: r.htmlBytes, textBytes: r.textBytes,
             })),
             threshold: { metric: 'ratio', value: threshold, comparator: '>=' },
-            extra: { scanned: samples.length, skippedNoindex, skippedEjpStripped, baselineError: err.message },
+            extra: { scanned: scannedCount, skippedNoindex, skippedEjpStripped, baselineError: err.message },
             humanSummary: `cannot read baseline ${baselinePath}: ${err.message}`,
           };
         }
@@ -287,20 +312,13 @@ export function createAuditor(opts = {}) {
       }));
 
       // Near-floor band: pages that pass the hard gate but sit in the
-      // (threshold, warnThreshold] zone. Treated as an early-warning signal,
-      // never blocks the build.
-      const nearFloorSamples = samples
-        .filter((r) => r.ratio > threshold && r.ratio <= warnThreshold)
-        .sort((a, b) => a.ratio - b.ratio);
-      const nearFloorByFeature = {};
-      for (const r of nearFloorSamples) {
-        nearFloorByFeature[r.feature] = (nearFloorByFeature[r.feature] ?? 0) + 1;
-      }
+      // (threshold, warnThreshold] zone — collected incrementally in collect()
+      // above (nearFloorTop is already bounded to `limit`, lowest-ratio-first).
       const nearFloor = {
         warnThreshold,
-        total: nearFloorSamples.length,
+        total: nearFloorCount,
         byFeature: nearFloorByFeature,
-        top: nearFloorSamples.slice(0, limit).map((r) => ({
+        top: nearFloorTop.map((r) => ({
           path: r.file,
           feature: r.feature,
           ratio: Number(r.ratio.toFixed(2)),
@@ -311,19 +329,15 @@ export function createAuditor(opts = {}) {
 
       // Drift band for EJP-marked index,follow shells. They are excluded from
       // the offender ratchet by design (intentionally thin), so they never
-      // enter `samples` and the nearFloor band can't see them. This band
-      // restores that visibility WITHOUT gating — it surfaces the marked
-      // shells' ratios (lowest first) so a silent regression on indexed thin
-      // pages is caught before Google does. Never affects `passed`.
-      const ejpDriftSorted = [...ejpSamples].sort((a, b) => a.ratio - b.ratio);
-      const ejpDriftByFeature = {};
-      for (const r of ejpSamples) {
-        ejpDriftByFeature[r.feature] = (ejpDriftByFeature[r.feature] ?? 0) + 1;
-      }
+      // enter the offender/nearFloor population. This band restores that
+      // visibility WITHOUT gating — it surfaces the marked shells' ratios
+      // (lowest first, collected incrementally in collect() above) so a
+      // silent regression on indexed thin pages is caught before Google does.
+      // Never affects `passed`.
       const ejpDrift = {
-        total: ejpSamples.length,
-        byFeature: ejpDriftByFeature,
-        lowest: ejpDriftSorted.slice(0, limit).map((r) => ({
+        total: ejpCount,
+        byFeature: ejpByFeature,
+        lowest: ejpLowestTop.map((r) => ({
           path: r.file,
           feature: r.feature,
           ratio: Number(r.ratio.toFixed(2)),
@@ -344,7 +358,7 @@ export function createAuditor(opts = {}) {
         baselineFile: relBaseline(baselinePath),
         baselineDelta,
         byFeature,
-        extra: { scanned: samples.length, skippedNoindex, skippedEjpStripped, regressedFeatures, scannedByFeature, rateByFeature, totalRatePct: Number(totalRatePct.toFixed(4)), limit, threshold, warnThreshold, nearFloor, ejpDrift, rawSamples: samples },
+        extra: { scanned: scannedCount, skippedNoindex, skippedEjpStripped, regressedFeatures, scannedByFeature, rateByFeature, totalRatePct: Number(totalRatePct.toFixed(4)), limit, threshold, warnThreshold, nearFloor, ejpDrift },
         humanSummary,
       };
     },
@@ -412,13 +426,14 @@ async function standalone() {
     byFeature: result.byFeature,
   });
 
-  const samples = result.extra.rawSamples;
-  const offenders = samples.filter((r) => r.ratio <= opts.threshold).sort((a, b) => a.ratio - b.ratio);
+  // report() already built + sorted (ascending by ratio) this exact list —
+  // no need to re-derive it from a retained full-corpus sample array.
+  const offenders = result.offenders;
 
   if (MODE_CSV) {
     console.log('file,feature,html_bytes,text_bytes,ratio_pct');
     for (const r of offenders) {
-      console.log(`${r.file},${r.feature},${r.htmlBytes},${r.textBytes},${r.ratio.toFixed(2)}`);
+      console.log(`${r.path},${r.feature},${r.htmlBytes},${r.textBytes},${r.ratio.toFixed(2)}`);
     }
     process.exit(result.passed ? 0 : 1);
   }
@@ -464,7 +479,7 @@ async function standalone() {
   if (offenders.length > 0) {
     console.log(`\nWorst ${Math.min(opts.limit, offenders.length)} offenders:`);
     for (const r of offenders.slice(0, opts.limit)) {
-      console.log(`  ${r.ratio.toFixed(2).padStart(5)} %  ${(r.htmlBytes / 1024).toFixed(1).padStart(6)} KB  ${r.file}`);
+      console.log(`  ${r.ratio.toFixed(2).padStart(5)} %  ${(r.htmlBytes / 1024).toFixed(1).padStart(6)} KB  ${r.path}`);
     }
   }
 
@@ -492,7 +507,7 @@ async function standalone() {
         .sort((a, b) => a.ratio - b.ratio);
       console.error(`\nFull offender list for feature "${f.feature}" (${f.count} pages, baseline ${f.max}, +${f.count - f.max}):`);
       for (const o of featOffenders) {
-        console.error(`  ${o.ratio.toFixed(2).padStart(6)} %  ${(o.htmlBytes / 1024).toFixed(1).padStart(7)} KB  ${o.file}`);
+        console.error(`  ${o.ratio.toFixed(2).padStart(6)} %  ${(o.htmlBytes / 1024).toFixed(1).padStart(7)} KB  ${o.path}`);
       }
     }
     console.error('\nThe rate ratchet trips only when the offender RATE rises beyond');

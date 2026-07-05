@@ -37,6 +37,7 @@ import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { EVENTS_SECTION_RX } from './lib/eventsSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
+import { classifyEmployerLandingFeature } from './lib/employerLandingSections.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
@@ -66,8 +67,8 @@ function normalizeText(raw) {
 export function classifyFeature(relPath) {
   const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
   if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
-  if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-/.test(p)) return 'weekly-employers';
-  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|unternehmen-die-einstellen|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers-hub';
+  const employerFeature = classifyEmployerLandingFeature(p);
+  if (employerFeature) return employerFeature;
   // Canton-aware job-board sections (TI legacy, every canton, + svizzera
   // aggregator) → shared matcher. Was TI-only, which leaked non-TI canton
   // job pages into spa-locale/spa-other (2026-06-11 post-deploy failure).

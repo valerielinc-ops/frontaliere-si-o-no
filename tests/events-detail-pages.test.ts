@@ -215,6 +215,28 @@ describe('renderEventDetailPage', () => {
       expect(page.html).toContain(seg);
     }
   });
+
+  it('truncates an overlong crawled event title (word-aware) so <title> stays within the 66-char SERP cap, keeping the comune suffix (audit:title-length regression: eventi 707>340 offenders)', () => {
+    const longTitle =
+      'Concerto sinfonico straordinario di beneficenza con orchestra e coro per la giornata mondiale della musica al LAC';
+    const longEvent = { ...EVENT, id: 'tio-agenda:99', title: longTitle };
+    const longPage = renderEventDetailPage({
+      locale: 'it',
+      event: longEvent as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(longEvent),
+      sameComuneEvents: [longEvent] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const titleTag = /<title>([^<]*)<\/title>/.exec(longPage.html)?.[1] ?? '';
+    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag).toContain('…');
+    expect(titleTag).toContain('Lugano (Ticino) | Eventi');
+    // Never a naive hard cut mid-word or a dangling separator before the ellipsis.
+    expect(titleTag).not.toMatch(/[\s—–\-·|,;:&(]…/);
+  });
 });
 
 describe('router recognises per-event detail URLs (staticOverlay)', () => {

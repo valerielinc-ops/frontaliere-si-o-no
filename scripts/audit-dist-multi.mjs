@@ -37,10 +37,9 @@ import { join, relative, sep, isAbsolute, dirname, extname, basename } from 'nod
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitelist.data.mjs';
-import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
-import { EVENTS_SECTION_RX } from './lib/eventsSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
-import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
+import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-html-ratio.mjs';
+import { classifyFeature as classifyFeatureTitleOriginal } from './audit-title-length.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -305,71 +304,15 @@ function flattenSdSchemas(blocks) {
   return out;
 }
 
-// ───── feature classifiers (one per audit — they intentionally diverge) ──────
+// ───── feature classifiers (one per audit — imported directly from the
+// originals so this mirror cannot drift from them again; see
+// scripts/lib/employerLandingSections.mjs for the incident this replaced) ────
 
-/** From audit-text-html-ratio.classifyFeature. */
-function classifyFeatureRatio(relPath) {
-  const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
-  if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-[^/]+\/?$/.test(p)) {
-    return 'career-landings';
-  }
-  if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
-  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\/[^/]+\/[^/]+\//.test(p)) {
-    return 'weekly-employers';
-  }
-  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\//.test(p)) {
-    return 'weekly-employers-hub';
-  }
-  if (JOB_BOARD_SECTION_RX.test(p)) return 'job-board'; // canton-aware (shared matcher)
-  if (/(?:^|\/)(?:premi-cassa-malati|health-insurance-premiums|health-premiums|krankenkassenpraemien|krankenkassen-praemien|primes-assurance-maladie|primes-assurance-maladie-communes|primi-cassa-malati-comuni)\//.test(p)) return 'health-premiums';
-  if (/(?:^|\/)(?:mercato-lavoro-ticino|ticino-job-market|tessiner-arbeitsmarkt|tessin-arbeitsmarkt|marche-travail-tessin|tessin-marche-emploi|mercato-lavoro|job-market|arbeitsmarkt|marche-emploi)\//.test(p)) return 'job-market-snapshot';
-  if (BLOG_SECTION_RX.test(p) || /(?:^|\/)(?:blog|articles)\//.test(p)) return 'blog';
-  if (/(?:^|\/)(?:traffico-dogane|border-wait|wartezeit-grenze|temps-attente-douane|tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|temps-attente-frontiere)\//.test(p)) return 'border-wait';
-  // Canton-aware events sections → shared matcher (scripts/lib/eventsSections.mjs).
-  // Was TI-only; leaked non-TI canton events pages into spa-locale/spa-other
-  // once nationwide event sourcing shipped (#3125/#3243), causing #3232.
-  if (EVENTS_SECTION_RX.test(p)) return 'eventi';
-  if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
-  return 'spa-other';
-}
-
-/** From audit-title-length.classifyFeature. */
-function classifyFeatureTitle(relPath) {
-  const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
-  if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
-  if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-/.test(p)) return 'weekly-employers';
-  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|unternehmen-die-einstellen|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers-hub';
-  if (JOB_BOARD_SECTION_RX.test(p)) return 'job-board'; // canton-aware (shared matcher)
-  if (/(?:^|\/)(?:premi-cassa-malati|cassa-malati|health-premiums|health-insurance|krankenkassen-praemien|krankenkasse|primes-assurance-maladie)\//.test(p)) return 'health-premiums';
-  if (/(?:^|\/)(?:mercato-lavoro|mercato-lavoro-ticino|job-market|ticino-job-market|arbeitsmarkt|arbeitsmarkt-tessin|marche-emploi|marche-travail|marche-emploi-tessin|marche-travail-tessin)\//.test(p)) return 'job-market-snapshot';
-  if (BLOG_SECTION_RX.test(p)) return 'blog';
-  if (/(?:^|\/)(?:tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|wartezeit-grenze|temps-attente-frontiere)\//.test(p)) return 'border-wait';
-  // Canton-aware events sections → shared matcher (scripts/lib/eventsSections.mjs).
-  // Was TI-only; leaked non-TI canton events pages into spa-locale/spa-other
-  // once nationwide event sourcing shipped (#3125/#3243), causing #3232.
-  if (EVENTS_SECTION_RX.test(p)) return 'eventi';
-  if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
-  return 'spa-other';
-}
-
-/** From audit-h1-title-duplicates.classifyFeature. */
-function classifyFeatureH1(relPath) {
-  const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
-  if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
-  if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-/.test(p)) return 'weekly-employers';
-  if (JOB_BOARD_SECTION_RX.test(p)) return 'job-board'; // canton-aware (shared matcher)
-  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers-hub';
-  if (/(?:^|\/)(?:premi-cassa-malati|health-premiums|krankenkassen-praemien|primes-assurance-maladie)\//.test(p)) return 'health-premiums';
-  if (/(?:^|\/)(?:mercato-lavoro|job-market|arbeitsmarkt|marche-emploi)\//.test(p)) return 'job-market-snapshot';
-  if (BLOG_SECTION_RX.test(p)) return 'blog';
-  if (/(?:^|\/)(?:tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|wartezeit-grenze|temps-attente-frontiere)\//.test(p)) return 'border-wait';
-  // Canton-aware events sections → shared matcher (scripts/lib/eventsSections.mjs).
-  // Was TI-only; leaked non-TI canton events pages into spa-locale/spa-other
-  // once nationwide event sourcing shipped (#3125/#3243), causing #3232.
-  if (EVENTS_SECTION_RX.test(p)) return 'eventi';
-  if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
-  return 'spa-other';
-}
+const classifyFeatureRatio = classifyFeatureRatioOriginal;
+/** audit-h1-title-duplicates has no classifier of its own — it imports
+ * audit-title-length's, so both accumulators below share this one. */
+const classifyFeatureTitle = classifyFeatureTitleOriginal;
+const classifyFeatureH1 = classifyFeatureTitleOriginal;
 
 // ───── per-audit accumulators ────────────────────────────────────────────────
 
