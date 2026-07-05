@@ -435,10 +435,6 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
   // (already linked on this page) instead of a per-page inline <style> block.
   // The classes keep the rendered HTML under the 200 KB page-weight gate; the
   // shared sheet drops the ~2 KB block from every FAQ hub page.
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   const wordCount = countHtmlBodyWords(body);
 
   const html = buildSeoPageHtml({
@@ -450,7 +446,6 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: alternates,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, faqLd, articleLd],
     bodyHtml,
     distDir,

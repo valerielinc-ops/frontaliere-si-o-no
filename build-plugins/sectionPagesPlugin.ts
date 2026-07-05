@@ -1086,10 +1086,6 @@ function renderSectionPage(opts: {
 
   const bodyHtml = `<div class="s-it71Rt">${body}</div>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   const html = buildSeoPageHtml({
     locale,
     title: copy.title,
@@ -1099,7 +1095,6 @@ function renderSectionPage(opts: {
     ogType: 'website',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: alternates,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, collectionLd],
     bodyHtml,
     distDir,

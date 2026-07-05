@@ -2377,10 +2377,6 @@ function renderLeafPage(inp: LeafInputs): string {
   </section>
 </article>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   return buildSeoPageHtml({
     disableAutoAds: false,
     locale,
@@ -2391,7 +2387,6 @@ function renderLeafPage(inp: LeafInputs): string {
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, webPageLd, faqLd, productLd],
     bodyHtml,
     distDir,
@@ -2691,10 +2686,6 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   </section>
 </article>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   return buildSeoPageHtml({
     disableAutoAds: false,
     locale,
@@ -2705,7 +2696,6 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, webPageLd, faqLd],
     bodyHtml,
     distDir,
@@ -2962,10 +2952,6 @@ function renderRootHubPage(inp: RootHubInputs): string {
   </section>
 </article>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   return buildSeoPageHtml({
     disableAutoAds: false,
     locale,
@@ -2976,7 +2962,6 @@ function renderRootHubPage(inp: RootHubInputs): string {
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, webPageLd, faqLd],
     bodyHtml,
     distDir,

@@ -748,12 +748,6 @@ function renderPage(opts: {
   const editorialH1 = buildEditorialH1(cluster.canonicalQuery, locale);
   const editorialPageTitle = buildEditorialTitle(cluster.canonicalQuery, locale);
   const description = buildEditorialDescription(cluster.canonicalQuery, locale, editorialBody);
-  // Extra <head> tags (OG image + Twitter card) that buildSimplePage doesn't
-  // emit by default — keeps the social-share preview identical to the
-  // pre-shell-wrap HTML.
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
 
   const jsonLdScripts = [breadcrumbLd, webPageLd];
   if (itemListLd) jsonLdScripts.push(itemListLd);
@@ -777,7 +771,6 @@ function renderPage(opts: {
     ogType: 'website',
     ogLocale: ORPHAN_LANDING_OG_LOCALE[locale],
     hreflangHtml: alternates,
-    extraHeadHtml: extraHead,
     jsonLdScripts,
     bodyHtml,
     distDir,
