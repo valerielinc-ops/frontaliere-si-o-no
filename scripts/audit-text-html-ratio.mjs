@@ -27,6 +27,7 @@ import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 import { insertBounded } from './lib/boundedTopN.mjs';
 import { classifyEmployerLandingFeature } from './lib/employerLandingSections.mjs';
+import { evaluateMixAdjustedTotalRegression } from './lib/mixAdjustedRateGate.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
@@ -239,6 +240,7 @@ export function createAuditor(opts = {}) {
 
       let passed = !(failOnOffenders && offenders.length > 0);
       let baselineDelta = null;
+      let totalCapInfo = null;
       const regressedFeatures = [];
 
       if (baselinePath) {
@@ -283,9 +285,26 @@ export function createAuditor(opts = {}) {
           }
           const baseTotalRate = Number(baseline.totalRatePct ?? 0);
           const baseTotalOff = Number(baseline.totalOffenders ?? 0);
-          const totalCap = baseTotalRate + Math.min(baseTotalRate * tol.relPct / 100, tol.maxDeltaPp) + tol.absPp;
-          const totalRegression = totalRatePct > totalCap && offenders.length > baseTotalOff + tol.minAbsDelta;
-          baselineDelta = { before: baseTotalOff, after: offenders.length, beforeRate: baseTotalRate, afterRate: Number(totalRatePct.toFixed(3)), regression: Math.max(0, offenders.length - baseTotalOff) };
+          // Mix-adjusted total check (fix for #3232 recurrence): the naive
+          // version compared totalRatePct against a flat historical blended
+          // baseline rate, which mechanically regresses whenever an
+          // accepted-thin feature (e.g. "eventi") grows its SHARE of total
+          // scanned pages — even with regressedFeatures empty and every
+          // feature's own rate flat or improving. See
+          // scripts/lib/mixAdjustedRateGate.mjs for the full rationale.
+          const {
+            expectedOffenders, expectedTotalRate, totalCap, regression: totalRegression,
+          } = evaluateMixAdjustedTotalRegression({
+            scannedByFeature, baseByFeature, tol,
+            actualOffenders: offenders.length, actualScanned: scannedCount,
+          });
+          baselineDelta = {
+            before: baseTotalOff, after: offenders.length,
+            beforeRate: baseTotalRate, afterRate: Number(totalRatePct.toFixed(3)),
+            expectedRate: Number(expectedTotalRate.toFixed(3)), expectedOffenders: Number(expectedOffenders.toFixed(2)),
+            regression: Math.max(0, offenders.length - Math.round(expectedOffenders)),
+          };
+          totalCapInfo = { actual: Number(totalRatePct.toFixed(3)), expected: Number(expectedTotalRate.toFixed(3)), cap: Number(totalCap.toFixed(3)) };
           if (totalRegression || regressedFeatures.length > 0) passed = false;
         } else {
           // Legacy absolute-count baseline (pre rate-ratchet). Kept so the
@@ -348,7 +367,7 @@ export function createAuditor(opts = {}) {
 
       const humanSummary = passed
         ? `${offenders.length} offender(s) within baseline (threshold ${threshold} %), ${nearFloor.total} page(s) in near-floor band (${threshold}-${warnThreshold} %), ${ejpDrift.total} EJP-marked index,follow shell(s) tracked for drift`
-        : `${offenders.length} offender(s) ≤ ${threshold} % — regressed features: ${regressedFeatures.map(r => r.rate != null ? `${r.feature}(${r.rate}% > ${r.maxRate}% allowed, ${r.count} vs ${r.max})` : `${r.feature}(${r.count}>${r.max})`).join(', ') || 'total rate cap exceeded'}`;
+        : `${offenders.length} offender(s) ≤ ${threshold} % — regressed features: ${regressedFeatures.map(r => r.rate != null ? `${r.feature}(${r.rate}% > ${r.maxRate}% allowed, ${r.count} vs ${r.max})` : `${r.feature}(${r.count}>${r.max})`).join(', ') || (totalCapInfo ? `total rate cap exceeded (actual ${totalCapInfo.actual}% > mix-adjusted expected ${totalCapInfo.expected}% + tolerance = ${totalCapInfo.cap}%)` : 'total rate cap exceeded')}`;
 
       return {
         passed,
