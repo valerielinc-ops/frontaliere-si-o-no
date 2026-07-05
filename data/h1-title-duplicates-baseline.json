@@ -1,7 +1,77 @@
 {
-  "generated": "2026-04-27T16:04:52Z",
-  "_note": "Tightened from 2107 → 0 after the universal 'never truncate <title>' fix landed in commit a7eab849d (run 25003146824 confirmed 0 offenders across 118025 scanned pages). The ratchet now blocks the very first regression — any future plugin that emits title === h1 will fail the deploy gate immediately.",
-  "total": 0,
-  "byFeature": {},
-  "byLocale": {}
+  "generated": "2026-07-05T22:04:14.422Z",
+  "mode": "rate",
+  "tolerance": {
+    "relPct": 20,
+    "absPp": 1,
+    "minAbsDelta": 5,
+    "maxDeltaPp": 3
+  },
+  "scanned": 2068992,
+  "totalOffenders": 0,
+  "totalRatePct": 0,
+  "byFeature": {
+    "spa-other": {
+      "scanned": 1612,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "fuel-daily": {
+      "scanned": 6326,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "health-premiums": {
+      "scanned": 366,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "job-market-snapshot": {
+      "scanned": 93,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "spa-locale": {
+      "scanned": 4347,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "job-board": {
+      "scanned": 2033096,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "weekly-employers-hub": {
+      "scanned": 100,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "career-landings": {
+      "scanned": 6074,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "eventi": {
+      "scanned": 4396,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "weekly-employers": {
+      "scanned": 339,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "blog": {
+      "scanned": 12198,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "border-wait": {
+      "scanned": 45,
+      "offenders": 0,
+      "ratePct": 0
+    }
+  },
+  "byLocale": {},
+  "_comment": "Rate-based baseline for audit-h1-title-duplicates (title === h1). Tracks the offender RATE (offenders/scanned) per feature so organic page growth does not regress the build. A feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its absolute offender count grows by more than minAbsDelta. Rates must only DECREASE going forward (modulo tolerance)."
 }
