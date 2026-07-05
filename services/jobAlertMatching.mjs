@@ -264,9 +264,21 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
     ...municipalityToCantons(sub.municipality).map((c) => c.toLowerCase()),
   ]);
 
+  // A raw 2-letter canton code (from a clicked/source job's geography) is
+  // already fully captured by preferredCantons above via lookupCanton.
+  // Leaving it in preferredLocations too would make partitionByGeoPreference's
+  // locTokenHit() treat the bare code as a city name — a redundant surface
+  // that could theoretically collide with an unrelated 2-letter token in a
+  // job's location text. Canton-level matching already covers this signal,
+  // so drop bare codes here instead of reasoning about token collisions
+  // downstream (review nit on PR #3146, issue #3155).
+  const preferredLocationNames = preferredLocations.filter(
+    (l) => !(l.length === 2 && SWISS_CANTONS.has(l)),
+  );
+
   return {
     hardKeywords, softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
-    specificJobIds, specificCompanyKey, preferredLocations, preferredCantons,
+    specificJobIds, specificCompanyKey, preferredLocations: preferredLocationNames, preferredCantons,
   };
 }
 

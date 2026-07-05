@@ -233,14 +233,46 @@ export async function fetchAllRitualsCosmeticsJobs() {
       `${title} — ${RITUALS_COSMETICS_COMPANY_NAME}, ${location}.`,
       '',
       'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
+      `• Location: ${rawLocation}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
       '• Employer: Rituals Cosmetics — cosmetica / home & body / profumeria di lusso olandese.',
       `• Swiss footprint: sede legale a ${DEFAULT_CITY} (${DEFAULT_CANTON}) + rete retail in tutta la Svizzera.`,
       '• Apply: Rituals Workday careers portal.',
     ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    const baseDescription = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
 
-    const sourceLang = detectLang(descriptionText || title, 'de');
+    const sourceLang = detectLang(baseDescription || title, 'de');
+
+    // Rituals authors ONE corporate template per job TITLE and reuses it,
+    // byte-for-byte, across every store that opens that role — verified live
+    // against the Workday detail API: distinct req IDs at "Basel St Jakob
+    // Park", "Basel Freie Strasse" and "Basel SBB" all return an identical
+    // jobPostingInfo.jobDescription. That's genuine source content, not a
+    // chrome-scraping/fetch bug — but `location` above intentionally collapses
+    // to the bare city for canton inference (see cleanRitualsLocation doc),
+    // which silently discards the per-listing detail Workday does provide.
+    // Two real distinguishers exist and were previously thrown away:
+    //   1. the specific store/mall descriptor (e.g. "Basel St Jakob Park"
+    //      vs "Basel Freie Strasse" — both collapse to "Basel");
+    //   2. Rituals genuinely runs MULTIPLE concurrent open reqs for the same
+    //      role at the exact same store (verified live: R3932-R3935, four
+    //      distinct "Mitarbeiter Warenverräumung" reqs at the identical
+    //      Basel St Jakob Park store) — same title, same store, same body,
+    //      only the Workday requisition ID differs.
+    // Surfacing both (store descriptor + the standard "Job ID" reference
+    // line real job boards show for applicant/recruiter reference) gives
+    // every one of the ~638 live postings genuinely unique, sourced content
+    // instead of a handful of copies of one of ~16 role templates. Computed
+    // AFTER language detection above so this English/German meta-line can't
+    // skew detectLang on French/Italian source text, and without touching
+    // the city/canton pipeline other code relies on.
+    // publicUrl is always unique per listing (built from the Workday
+    // externalPath), so it's a safe fallback identifier on the rare chance
+    // Workday omits jobReqId on a given posting.
+    const jobRefId = listing.jobReqId || publicUrl.split('_').pop() || publicUrl.slice(-10);
+    const storeLine = detailDescription.length >= 100
+      ? `Store: ${rawLocation}${canton ? `, ${canton}` : ''}, Switzerland. Job ID: ${jobRefId}.\n\n`
+      : '';
+    const descriptionText = `${storeLine}${baseDescription}`;
     const jobSlug = slugify(`${title} ${RITUALS_COSMETICS_KEY} ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
