@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-07-05T11:28:39.248Z",
+  "generatedAt": "2026-07-05T23:18:36.339Z",
   "total": 87,
   "newCount": 3,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 80,
-  "durationMs": 53131,
-  "avgDurationMs": 53131,
+  "durationMs": 62041,
+  "avgDurationMs": 62041,
   "durationHistory": [
-    53131
+    62041
   ],
   "newJobs": [
     {
@@ -1144,6 +1144,7 @@
       "salaryMax": 154000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1182,6 +1183,7 @@
       "salaryMax": 154000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "needsRetranslation": true,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -1372,6 +1374,7 @@
       "salaryMax": 94000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "needsRetranslation": true,
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
