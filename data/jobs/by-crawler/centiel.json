@@ -1,6 +1,6 @@
 {
   "crawlerKey": "centiel",
-  "assembledAt": "2026-07-04T21:19:56.068Z",
+  "assembledAt": "2026-07-05T10:48:52.032Z",
   "jobs": [
     {
       "title": "Product Manager – Critical Power",
@@ -57,9 +57,10 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Luserte 11",
-      "postalCode": "6572",
-      "firstSeenAt": "2026-07-03T21:38:35.083Z"
+      "streetAddress": "",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-07-03T21:38:35.083Z",
+      "needsRetranslation": true
     },
     {
       "title": "Specialista Ufficio Tecnico",
@@ -344,8 +345,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Luserte 11",
-      "postalCode": "6572",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-06-19T12:14:25.157Z",
       "previousSlugsByLocale": {
         "it": [
@@ -357,7 +358,8 @@
       },
       "previousSlugs": [
         "technical-services-manager-centiel-uk-centiel-ticino"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Category Buyer",
@@ -559,7 +561,8 @@
       "previousSlugs": [
         "pre-sales-application-ingenieur-critical-power-centiel-lugano",
         "ingegnere-di-applicazione-pre-sales-potere-critico-centiel-cadro-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Research & Development Engineer",
