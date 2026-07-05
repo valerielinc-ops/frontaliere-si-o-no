@@ -84,12 +84,17 @@ export function __resetJinaBreaker() {
   jinaBreakerTripped = false;
 }
 
-/** Build the Jina-proxied request (URL + headers) for a target URL. */
-export function jinaProxiedRequest(targetUrl) {
+/**
+ * Build the Jina-proxied request (URL + headers) for a target URL.
+ * `format` defaults to 'html' (raw HTML, matching a direct fetch) — pass
+ * 'markdown' for callers written against Jina's own default Markdown
+ * rendering instead (e.g. google-switzerland-job-parser.mjs).
+ */
+export function jinaProxiedRequest(targetUrl, { format = 'html' } = {}) {
   const headers = {
     // Return the page's raw HTML (not Jina's default markdown) so downstream
     // HTML/JSON-LD parsers see exactly what a direct fetch would have returned.
-    'X-Return-Format': 'html',
+    'X-Return-Format': format,
   };
   const key = (process.env.JINA_API_KEY || '').trim();
   if (key) headers.Authorization = `Bearer ${key}`;
@@ -102,8 +107,11 @@ export function jinaProxiedRequest(targetUrl) {
  * timeout. Returns the raw `Response`. Used by dedicated crawlers that fetch
  * outside the shared `fetchWithTimeout` chokepoint (discovery / single-page).
  */
-export async function fetchViaJina(targetUrl, { timeoutMs = 30000, fetchImpl = fetch } = {}) {
-  const { url, headers } = jinaProxiedRequest(targetUrl);
+export async function fetchViaJina(
+  targetUrl,
+  { timeoutMs = 30000, fetchImpl = fetch, format } = {},
+) {
+  const { url, headers } = jinaProxiedRequest(targetUrl, { format });
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
@@ -134,7 +142,7 @@ export async function fetchViaJina(targetUrl, { timeoutMs = 30000, fetchImpl = f
  */
 export async function fetchViaJinaWithRetry(
   targetUrl,
-  { timeoutMs = 30000, attempts = 4, retryDelayMs = 800, fetchImpl = fetch } = {},
+  { timeoutMs = 30000, attempts = 4, retryDelayMs = 800, fetchImpl = fetch, format } = {},
 ) {
   // Broad egress outage already detected this run → fast-fail with the same
   // exhausted-response shape (no attempt), so the caller's graceful-skip path
@@ -150,7 +158,7 @@ export async function fetchViaJinaWithRetry(
   let lastReason = 'no attempt made';
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const res = await fetchViaJina(targetUrl, { timeoutMs, fetchImpl });
+      const res = await fetchViaJina(targetUrl, { timeoutMs, fetchImpl, format });
       lastStatus = res.status;
       if (!res.ok) {
         // Jina's own non-2xx (rate limit / upstream) — a fresh IP may fare better.

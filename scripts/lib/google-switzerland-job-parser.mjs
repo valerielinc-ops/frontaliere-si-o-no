@@ -14,18 +14,16 @@
  * client-rendered: a plain `curl`/`fetch` of either URL returns only the JS
  * app shell (~500KB of bootstrap script, zero job data — confirmed via direct
  * `curl` during discovery). Per the task brief's documented fallback, this
- * parser routes every fetch through the Jina Reader proxy
- * (`JINA_READER_BASE` from ./jina-proxy.mjs + fetchHtml() from this module's
- * sibling ./crawler-template.mjs) which renders the page with a real browser
- * and returns clean Markdown — verified live: the Zurich-filtered search
- * (`?location=Zurich%2C%20Switzerland`) rendered "61 jobs matched" across 4
- * pages of ?page=N (20/20/20/1), and each detail page rendered a clean
- * Minimum/Preferred qualifications + About the job + Responsibilities body.
- * fetchHtml()'s own WAF/anti-bot rescue never fires here (the shell page
- * carries no anti-bot challenge marker — it is a legitimate empty JS shell,
- * not a block), so this parser explicitly builds the Jina-proxied URL itself
- * and hands it to fetchHtml() for the actual network call + retry/timeout
- * handling (no custom Jina retry/backoff logic duplicated here).
+ * parser routes every fetch through the Jina Reader proxy via the shared
+ * `fetchViaJinaWithRetry()` (./jina-proxy.mjs), requesting `format: 'markdown'`
+ * (its default 'html' would break the regex-based extraction below) — which
+ * renders the page with a real browser and returns clean Markdown — verified
+ * live: the Zurich-filtered search (`?location=Zurich%2C%20Switzerland`)
+ * rendered "61 jobs matched" across 4 pages of ?page=N (20/20/20/1), and each
+ * detail page rendered a clean Minimum/Preferred qualifications + About the
+ * job + Responsibilities body. `fetchViaJinaWithRetry()` already owns
+ * IP-rotation retry, the shared circuit breaker, and challenge-body detection
+ * (./jina-proxy.mjs), so none of that is duplicated here.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllGoogleSwitzerlandJobs() — Fetch and parse all Zurich-eligible jobs
@@ -35,9 +33,9 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { JINA_READER_BASE } from './jina-proxy.mjs';
+import { fetchViaJinaWithRetry } from './jina-proxy.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -173,13 +171,17 @@ function resolveAddress(cityText = '') {
 
 /**
  * Fetch a Google careers URL through the Jina Reader proxy via the shared
- * fetchHtml() (timeout/retry/anti-bot-rescue all live there — this only
- * builds the proxied URL from the shared JINA_READER_BASE constant).
- * Jina's default response format is Markdown, which is what the regex-based
- * extraction below is written against.
+ * fetchViaJinaWithRetry() (timeout/IP-rotation-retry/circuit-breaker all live
+ * there). Requests `format: 'markdown'` — Jina's default response format,
+ * which is what the regex-based extraction below is written against — and
+ * throws on exhausted retries so callers' existing try/catch still fires.
  */
 async function fetchJinaMarkdown(targetUrl) {
-  return fetchHtml(`${JINA_READER_BASE}${targetUrl}`);
+  const res = await fetchViaJinaWithRetry(targetUrl, { format: 'markdown' });
+  if (!res.ok) {
+    throw new Error(`Jina fetch failed for ${targetUrl}: HTTP ${res.status}`);
+  }
+  return res.text();
 }
 
 /**
