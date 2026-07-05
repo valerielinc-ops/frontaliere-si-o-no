@@ -1,16 +1,16 @@
 {
   "key": "komax",
   "label": "Komax",
-  "generatedAt": "2026-07-05T11:28:56.630Z",
+  "generatedAt": "2026-07-05T23:11:28.510Z",
   "total": 16,
   "newCount": 1,
   "updatedCount": 14,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 2626,
-  "avgDurationMs": 2626,
+  "durationMs": 3193,
+  "avgDurationMs": 3193,
   "durationHistory": [
-    2626
+    3193
   ],
   "newJobs": [
     {
@@ -25,7 +25,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Elektroingenieurin-Embedded-Software-&amp;-Hardware-80-100-6036/1163802255/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.611Z",
+      "crawledAt": "2026-07-05T23:11:26.356Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -42,11 +42,12 @@
       "postedDate": "2026-07-05",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Elektroingenieurin-Embedded-Software-&amp;-Hardware-80-100-6036/1163802255/",
       "jobReqId": "1163802255",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-07-05T11:28:54.611Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
@@ -64,7 +65,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Fachspezialist-in-Industrialisierung-80-100-3608/1164731155/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.600Z",
+      "crawledAt": "2026-07-05T23:11:26.346Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -81,13 +82,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Thun-Fachspezialist-in-Industrialisierung-80-100-3608/1164731155/",
       "jobReqId": "1164731155",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:37:16.818Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -103,7 +103,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Strategic-Procurement-Manager-100-%28mwd%29-6036/1164641455/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.602Z",
+      "crawledAt": "2026-07-05T23:11:26.347Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -120,13 +120,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Strategic-Procurement-Manager-100-%28mwd%29-6036/1164641455/",
       "jobReqId": "1164641455",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:37:16.819Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -142,7 +141,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Informatikerin-Informatiker-EFZ-Applikationsentwicklung-2027-6036/1164646955/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.604Z",
+      "crawledAt": "2026-07-05T23:11:26.350Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -159,13 +158,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Informatikerin-Informatiker-EFZ-Applikationsentwicklung-2027-6036/1164646955/",
       "jobReqId": "1164646955",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:37:16.821Z",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -181,7 +179,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Mediamatikerin-EFZ-2027-6036/1164647055/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.605Z",
+      "crawledAt": "2026-07-05T23:11:26.351Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -198,13 +196,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Mediamatikerin-EFZ-2027-6036/1164647055/",
       "jobReqId": "1164647055",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:37:16.822Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -220,7 +217,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Polymechanikerin-EFZ-2027-6036/1164647155/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.606Z",
+      "crawledAt": "2026-07-05T23:11:26.352Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -237,13 +234,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Polymechanikerin-EFZ-2027-6036/1164647155/",
       "jobReqId": "1164647155",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:37:16.823Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -259,7 +255,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Automatikerin-EFZ-2027-6036/1164647355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.607Z",
+      "crawledAt": "2026-07-05T23:11:26.353Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -276,13 +272,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Automatikerin-EFZ-2027-6036/1164647355/",
       "jobReqId": "1164647355",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -298,7 +293,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Logistikerin-EFZ-2027-6036/1164647555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.607Z",
+      "crawledAt": "2026-07-05T23:11:26.353Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -315,13 +310,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Logistikerin-EFZ-2027-6036/1164647555/",
       "jobReqId": "1164647555",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -337,7 +331,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Konstrukteurin-EFZ-2027-6036/1164647655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.608Z",
+      "crawledAt": "2026-07-05T23:11:26.353Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -354,13 +348,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Konstrukteurin-EFZ-2027-6036/1164647655/",
       "jobReqId": "1164647655",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:37:16.825Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -376,7 +369,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Fachfrau-Fachmann-Betriebsunterhalt-EFZ-2027-6036/1164647755/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.608Z",
+      "crawledAt": "2026-07-05T23:11:26.354Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -393,13 +386,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Fachfrau-Fachmann-Betriebsunterhalt-EFZ-2027-6036/1164647755/",
       "jobReqId": "1164647755",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:37:16.826Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -415,7 +407,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Service-Support-80-100-%28mw%29-3608/1164577555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.609Z",
+      "crawledAt": "2026-07-05T23:11:26.354Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -432,13 +424,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Thun-Technical-Service-Support-80-100-%28mw%29-3608/1164577555/",
       "jobReqId": "1164577555",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:37:16.826Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -454,7 +445,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Sales-Specialist-80-100-%28mw%29-3608/1164577655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.609Z",
+      "crawledAt": "2026-07-05T23:11:26.355Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -471,13 +462,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Thun-Technical-Sales-Specialist-80-100-%28mw%29-3608/1164577655/",
       "jobReqId": "1164577655",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:37:16.827Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -493,7 +483,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-SoftwareSystem-Ingenieur-80-100-%28mw%29-6036/1164965555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.609Z",
+      "crawledAt": "2026-07-05T23:11:26.355Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -510,13 +500,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-SoftwareSystem-Ingenieur-80-100-%28mw%29-6036/1164965555/",
       "jobReqId": "1164965555",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:37:16.828Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -532,7 +521,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Monteur-in-100-3608/1164799855/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.610Z",
+      "crawledAt": "2026-07-05T23:11:26.356Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -549,13 +538,12 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Thun-Monteur-in-100-3608/1164799855/",
       "jobReqId": "1164799855",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:37:16.828Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -571,7 +559,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Procurement-Specialist-80-100-%28wmd%29-6036/1164075855/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:28:54.610Z",
+      "crawledAt": "2026-07-05T23:11:26.356Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -588,18 +576,58 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Procurement-Specialist-80-100-%28wmd%29-6036/1164075855/",
       "jobReqId": "1164075855",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:37:16.828Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "komax-0ab9ff8c6148",
+      "slug": "elektroingenieur-in-embedded-software-hardware-80-100-komax-ch",
+      "company": "Komax",
+      "companyKey": "komax",
+      "companyDomain": "komaxgroup.com",
+      "title": "Elektroingenieur/in Embedded Software & Hardware 80-100%",
+      "location": "Dierikon",
+      "canton": "LU",
+      "url": "https://jobs.komaxgroup.com/job/Dierikon-Elektroingenieurin-Embedded-Software-&-Hardware-80-100-6036/1163802255/",
+      "source": "Komax Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-05T11:28:54.611Z",
+      "addressLocality": "Dierikon",
+      "addressRegion": "LU",
+      "streetAddress": "Industriestrasse 6",
+      "postalCode": "6036",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-05",
+      "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Elektroingenieurin-Embedded-Software-&-Hardware-80-100-6036/1163802255/",
+      "jobReqId": "1163802255",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "firstSeenAt": "2026-07-05T11:28:54.611Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "id": "komax-bdefcf087aa3",
@@ -630,16 +658,15 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Elektroingenieurin-Embedded-Software-&-Hardware-80-100-6036/1163802155/",
       "jobReqId": "1163802155",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:37:16.827Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "crawlerMissStreak": 1,
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
