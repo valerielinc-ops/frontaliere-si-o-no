@@ -82740,7 +82740,7 @@
       "slug": "marketing-tirocinante-roche-mexico-city",
       "slugByLocale": {
         "it": "marketing-tirocinante-roche-mexico-city",
-        "en": "marketing-intern-roche-mexico-city",
+        "en": "internal-marketing-roche-mexico-city",
         "de": "marketing-praktikant-roche-mexico-city",
         "fr": "marketing-intern-roche-ch"
       },
@@ -82783,14 +82783,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "marketing-intern-roche-ch-2",
-        "internal-marketing-roche-mexico-city"
+        "marketing-intern-roche-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "marketing-intern-roche-ch-2"
         ],
         "en": [
-          "internal-marketing-roche-mexico-city"
+          "marketing-intern-roche-mexico-city"
         ],
         "de": [
           "marketing-intern-roche-ch-2"
@@ -92936,12 +92936,12 @@
     },
     {
       "id": "roche-9db07225f2a0",
-      "slug": "key-account-manager-comptes-publics-lead-spectrometrie-de-masse-d-f-m-roche-ch",
+      "slug": "key-account-manager-conti-pubblici-lead-mass-spectrometry-d-f-m-roche-france",
       "slugByLocale": {
         "fr": "key-account-manager-comptes-publics-lead-spectrometrie-de-masse-d-f-m-roche-ch",
-        "it": "key-account-manager-comptes-publics-lead-spectrometrie-de-masse-d-f-m-roche-ch",
-        "en": "key-account-manager-comptes-publics-lead-spectrometrie-de-masse-d-f-m-roche-ch",
-        "de": "key-account-manager-comptes-publics-lead-spectrometrie-de-masse-d-f-m-roche-ch"
+        "it": "key-account-manager-conti-pubblici-lead-mass-spectrometry-d-f-m-roche-france",
+        "en": "key-account-manager-public-accounts-lead-mass-spectrometry-d-f-m-roche-france",
+        "de": "key-account-manager-public-accounts-lead-massenspektrometrie-d-w-m-roche-france"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -92996,16 +92996,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-04T23:08:15.956Z"
+      "firstSeenAt": "2026-07-04T23:08:15.956Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-comptes-publics-lead-spectrometrie-de-masse-d-f-m-roche-ch"
+        ],
+        "en": [
+          "key-account-manager-comptes-publics-lead-spectrometrie-de-masse-d-f-m-roche-ch"
+        ],
+        "de": [
+          "key-account-manager-comptes-publics-lead-spectrometrie-de-masse-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-comptes-publics-lead-spectrometrie-de-masse-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-a1afb12eb6b7",
-      "slug": "responsable-equioe-service-installation-sous-traitance-d-f-m-roche-ch",
+      "slug": "responsabile-servizio-equioe-installazione-e-trattamento-d-f-m-roche-france",
       "slugByLocale": {
         "fr": "responsable-equioe-service-installation-sous-traitance-d-f-m-roche-ch",
-        "it": "responsable-equioe-service-installation-sous-traitance-d-f-m-roche-ch",
-        "en": "responsable-equioe-service-installation-sous-traitance-d-f-m-roche-ch",
-        "de": "responsable-equioe-service-installation-sous-traitance-d-f-m-roche-ch"
+        "it": "responsabile-servizio-equioe-installazione-e-trattamento-d-f-m-roche-france",
+        "en": "head-of-equioe-service-installation-treatment-d-f-m-roche-france",
+        "de": "leiter-equioe-service-installation-behandlung-d-w-m-roche-france"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -93060,7 +93074,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-04T23:08:15.093Z"
+      "firstSeenAt": "2026-07-04T23:08:15.093Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-equioe-service-installation-sous-traitance-d-f-m-roche-ch"
+        ],
+        "en": [
+          "responsable-equioe-service-installation-sous-traitance-d-f-m-roche-ch"
+        ],
+        "de": [
+          "responsable-equioe-service-installation-sous-traitance-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-equioe-service-installation-sous-traitance-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-d3c5fcf62f89",

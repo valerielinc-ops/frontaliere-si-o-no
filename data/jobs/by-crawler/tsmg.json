@@ -598,7 +598,7 @@
       "slugByLocale": {
         "it": "driver-autonomo-del-veicolo-bertha-certified-tsmg-geneva-7972e86b",
         "en": "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b",
-        "de": "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b",
+        "de": "autonomer-fahrzeugfuhrer-bertha-zertifiziert-tsmg-geneva-7972e86b",
         "fr": "conducteur-de-vehicule-autonome-certifie-bertha-tsmg-geneva-7972e86b"
       },
       "id": "tsmg-8e347256f8c1",
@@ -620,7 +620,6 @@
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "previousSlugsByLocale": {
         "de": [
-          "autonomer-fahrzeugfuhrer-bertha-zertifiziert-tsmg-geneva-7972e86b",
           "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b"
         ],
         "it": [
@@ -628,7 +627,6 @@
         ]
       },
       "previousSlugs": [
-        "autonomer-fahrzeugfuhrer-bertha-zertifiziert-tsmg-geneva-7972e86b",
         "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b"
       ]
     },
@@ -2757,7 +2755,7 @@
     },
     {
       "title": "Senior Teleoperations Lead",
-      "slug": "senior-teleoperations-lead-tsmg-zurich-0dea39bb",
+      "slug": "guida-per-le-telecomunicazioni-senior-tsmg-zurich-0dea39bb",
       "slugDisambiguator": "0dea39bb",
       "url": "https://jobs.lever.co/tsmg/0dea39bb-e454-4f75-b48c-008c39ce2daa",
       "applyUrl": "https://jobs.lever.co/tsmg/0dea39bb-e454-4f75-b48c-008c39ce2daa/apply",
@@ -2792,10 +2790,10 @@
         "fr": "TSMG recrute Senior Teleoperations Lead pour des activites terrain a Zurich. Ci-dessous tu trouves la description complete Lever avec responsabilites, exigences et details pratiques du projet.\n\nAbout the Role We are seeking an experienced Senior Teleoperations Lead to oversee robotics operations teams supporting AI training, robotic testing, and commercial deployment programs. In this role, you will be responsible for coordinating teleoperators, ensuring operational excellence, maintaining quality and safety standards, and serving as the primary point of contact between field operations, engineering teams, and client stakeholders. The ideal candidate combines strong operational leadership with a passion for emerging technologies and has experience managing teams in robotics, autonomous systems, technical operations, control room environments, fleet operations, or other mission-critical programs.\n\n## Vue d'ensemble du projet\n\n## Key Responsibilities\n\n- Lead and coordinate teleoperations teams across multiple shifts\n- Manage daily staffing and operational coverage\n- Support onboarding, training, and mentoring of new operators\n- Promote compliance with safety and operational procedures\n- Monitor operational KPIs and productivity metrics\n- Ensure delivery against quality and performance targets\n- Coordinate robot deployment schedules and operational readiness\n- Manage incident escalation and resolution processes\n- Serve as the primary operational contact for internal and external stakeholders\n- Collaborate with engineering, product, and project management teams\n- Prepare operational reports and performance summaries\n- Support customer-facing robotics programs and deployments\n\n## Requirements\n\n- Previous experience leading operational teams\n- Strong communication and organizational skills\n- Experience in robotics operations, teleoperations, autonomous systems, fleet management, control rooms, or technical operations\n- Ability to work in fast-paced, technology-driven environments\n- Experience supporting robotics, AI, AV/ADAS, drone, or automation programs\n- Experience managing distributed or shift-based teams\n- Technical background in engineering, operations, or industrial environments\n\n## What We Offer\n\n- Leadership role within a rapidly growing robotics sector\n- Opportunity to help scale next-generation robotics deployments\n- International projects and client exposure\n- Career growth opportunities across robotics and AI operations\n- Collaborative environment working alongside engineering and product teams"
       },
       "slugByLocale": {
-        "it": "senior-teleoperations-lead-tsmg-zurich-0dea39bb",
+        "it": "guida-per-le-telecomunicazioni-senior-tsmg-zurich-0dea39bb",
         "en": "senior-teleoperations-lead-tsmg-zurich-0dea39bb",
         "de": "senior-teleoperations-lead-tsmg-zurich-0dea39bb",
-        "fr": "senior-teleoperations-lead-tsmg-zurich-0dea39bb"
+        "fr": "chef-de-file-des-teleoperations-tsmg-zurich-0dea39bb"
       },
       "id": "tsmg-fafa9624358a",
       "salaryMin": 101500,
@@ -2812,11 +2810,22 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-04T23:25:40.200Z"
+      "firstSeenAt": "2026-07-04T23:25:40.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-teleoperations-lead-tsmg-zurich-0dea39bb"
+        ],
+        "fr": [
+          "senior-teleoperations-lead-tsmg-zurich-0dea39bb"
+        ]
+      },
+      "previousSlugs": [
+        "senior-teleoperations-lead-tsmg-zurich-0dea39bb"
+      ]
     },
     {
       "title": "Senior Teleoperations Lead",
-      "slug": "senior-teleoperations-lead-tsmg-lausanne-64fe4432",
+      "slug": "guida-per-le-telecomunicazioni-senior-tsmg-lausanne-64fe4432",
       "slugDisambiguator": "64fe4432",
       "url": "https://jobs.lever.co/tsmg/64fe4432-c141-44cc-9f6e-344608a44ad4",
       "applyUrl": "https://jobs.lever.co/tsmg/64fe4432-c141-44cc-9f6e-344608a44ad4/apply",
@@ -2851,10 +2860,10 @@
         "fr": "TSMG recrute Senior Teleoperations Lead pour des activites terrain a Lausanne. Ci-dessous tu trouves la description complete Lever avec responsabilites, exigences et details pratiques du projet.\n\nAbout the Role We are seeking an experienced Senior Teleoperations Lead to oversee robotics operations teams supporting AI training, robotic testing, and commercial deployment programs. In this role, you will be responsible for coordinating teleoperators, ensuring operational excellence, maintaining quality and safety standards, and serving as the primary point of contact between field operations, engineering teams, and client stakeholders. The ideal candidate combines strong operational leadership with a passion for emerging technologies and has experience managing teams in robotics, autonomous systems, technical operations, control room environments, fleet operations, or other mission-critical programs.\n\n## Vue d'ensemble du projet\n\n## Key Responsibilities\n\n- Lead and coordinate teleoperations teams across multiple shifts\n- Manage daily staffing and operational coverage\n- Support onboarding, training, and mentoring of new operators\n- Promote compliance with safety and operational procedures\n- Monitor operational KPIs and productivity metrics\n- Ensure delivery against quality and performance targets\n- Coordinate robot deployment schedules and operational readiness\n- Manage incident escalation and resolution processes\n- Serve as the primary operational contact for internal and external stakeholders\n- Collaborate with engineering, product, and project management teams\n- Prepare operational reports and performance summaries\n- Support customer-facing robotics programs and deployments\n\n## Requirements\n\n- Previous experience leading operational teams\n- Strong communication and organizational skills\n- Experience in robotics operations, teleoperations, autonomous systems, fleet management, control rooms, or technical operations\n- Ability to work in fast-paced, technology-driven environments\n- Experience supporting robotics, AI, AV/ADAS, drone, or automation programs\n- Experience managing distributed or shift-based teams\n- Technical background in engineering, operations, or industrial environments\n\n## What We Offer\n\n- Leadership role within a rapidly growing robotics sector\n- Opportunity to help scale next-generation robotics deployments\n- International projects and client exposure\n- Career growth opportunities across robotics and AI operations\n- Collaborative environment working alongside engineering and product teams"
       },
       "slugByLocale": {
-        "it": "senior-teleoperations-lead-tsmg-lausanne-64fe4432",
+        "it": "guida-per-le-telecomunicazioni-senior-tsmg-lausanne-64fe4432",
         "en": "senior-teleoperations-lead-tsmg-lausanne-64fe4432",
         "de": "senior-teleoperations-lead-tsmg-lausanne-64fe4432",
-        "fr": "senior-teleoperations-lead-tsmg-lausanne-64fe4432"
+        "fr": "chef-de-file-des-teleoperations-tsmg-lausanne-64fe4432"
       },
       "id": "tsmg-c8a8c7b3131c",
       "salaryMin": 83500,
@@ -2871,7 +2880,18 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-07-04T23:25:40.200Z"
+      "firstSeenAt": "2026-07-04T23:25:40.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-teleoperations-lead-tsmg-lausanne-64fe4432"
+        ],
+        "fr": [
+          "senior-teleoperations-lead-tsmg-lausanne-64fe4432"
+        ]
+      },
+      "previousSlugs": [
+        "senior-teleoperations-lead-tsmg-lausanne-64fe4432"
+      ]
     }
   ]
 }
