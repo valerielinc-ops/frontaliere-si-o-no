@@ -21,7 +21,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, warnIfListingAtCap } from './crawler-template.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -37,7 +37,8 @@ export const BACHTELEN_KEY = 'bachtelen';
 export const BACHTELEN_COMPANY_NAME = 'Stiftung Bachtelen';
 export const BACHTELEN_COMPANY_DOMAIN = 'bachtelen.ch';
 
-const API_URL = 'https://www.bachtelen.ch/wp-json/wp/v2/job-listings?per_page=50';
+const LISTING_PAGE_CAP = 50;
+const API_URL = `https://www.bachtelen.ch/wp-json/wp/v2/job-listings?per_page=${LISTING_PAGE_CAP}`;
 const PUBLIC_CAREER_URL = 'https://www.bachtelen.ch/arbeiten-bei-uns/offene-stellen/';
 
 const DEFAULT_CITY = 'Grenchen';
@@ -112,6 +113,7 @@ export async function fetchAllBachtelenJobs() {
   }
 
   console.log(`  📋 ${records.length} job listings from WP REST\n`);
+  warnIfListingAtCap({ label: 'Bachtelen WP REST listing', count: records.length, cap: LISTING_PAGE_CAP });
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 

@@ -37,6 +37,7 @@ import {
   stripHtml,
   normalizeSpace,
   fetchJson,
+  warnIfListingAtCap,
 } from './crawler-template.mjs';
 
 export const RHEINMETALL_AIR_DEFENCE_KEY = 'rheinmetall-air-defence';
@@ -44,10 +45,11 @@ export const RHEINMETALL_AIR_DEFENCE_COMPANY_NAME = 'Rheinmetall Air Defence AG'
 export const RHEINMETALL_AIR_DEFENCE_COMPANY_DOMAIN = 'rheinmetall.com';
 
 const API_BASE = 'https://www.rheinmetall.com/api';
+const LISTING_SIZE_CAP = 200;
 const LISTING_URL =
   `${API_BASE}/en/career/vacancies?filter=${encodeURIComponent(
     JSON.stringify({ companyName: [RHEINMETALL_AIR_DEFENCE_COMPANY_NAME] })
-  )}&size=200`;
+  )}&size=${LISTING_SIZE_CAP}`;
 
 const TRUSTED_HOSTS = new Set(['www.rheinmetall.com', 'rheinmetall.com']);
 
@@ -185,6 +187,11 @@ function buildJob(listing, detail) {
 export async function fetchAllRheinmetallAirDefenceJobs() {
   const results = await fetchListingResults();
   console.log(`📋 Rheinmetall Air Defence AG: ${results.length} listings found`);
+  warnIfListingAtCap({
+    label: 'Rheinmetall Air Defence AG listing',
+    count: results.length,
+    cap: LISTING_SIZE_CAP,
+  });
 
   const seen = new Set();
   const jobs = [];

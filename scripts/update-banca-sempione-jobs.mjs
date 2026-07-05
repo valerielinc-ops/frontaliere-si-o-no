@@ -48,7 +48,7 @@ import {
   normalizeKey,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, warnIfListingAtCap } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 
@@ -63,7 +63,8 @@ const BANCA_SEMPIONE_KEY = 'banca-sempione';
 const HQ = getCompanyDefaults(BANCA_SEMPIONE_KEY);
 const BANCA_SEMPIONE_COMPANY_NAME = 'Banca del Sempione';
 const BANCA_SEMPIONE_HOST = 'www.bancasempione.ch';
-const BANCA_SEMPIONE_API_URL = 'https://www.bancasempione.ch/wp-json/wp/v2/job?per_page=100';
+const LISTING_PAGE_CAP = 100;
+const BANCA_SEMPIONE_API_URL = `https://www.bancasempione.ch/wp-json/wp/v2/job?per_page=${LISTING_PAGE_CAP}`;
 const BANCA_SEMPIONE_CAREERS_URL = 'https://www.bancasempione.ch/lavora-con-noi/';
 const BANCA_SEMPIONE_LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -249,6 +250,7 @@ async function fetchBancaSempioneJobs() {
   }
 
   console.log(`📋 WP REST API returned ${wpJobs.length} job listing(s).`);
+  warnIfListingAtCap({ label: 'Banca del Sempione listing', count: wpJobs.length, cap: LISTING_PAGE_CAP });
 
   const jobs = [];
 

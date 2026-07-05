@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, warnIfListingAtCap } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
@@ -153,6 +153,10 @@ async function tryServiceNowApi() {
         });
         if (items.length > 0) {
           console.log(`   ServiceNow API returned ${items.length} items`);
+          const limitParam = new URL(apiUrl).searchParams.get('sysparm_limit');
+          if (limitParam) {
+            warnIfListingAtCap({ label: 'Canton du Valais listing', count: items.length, cap: Number(limitParam) });
+          }
           return items;
         }
       } else {

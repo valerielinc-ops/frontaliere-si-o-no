@@ -33,7 +33,7 @@
  *     step fills in fr/it/en.
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, warnIfListingAtCap } from './crawler-template.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -46,6 +46,7 @@ export const KSGL_COMPANY_DOMAIN = 'ksgl.ch';
 const CAREER_URL = 'https://www.ksgl.ch/karriere';
 const PROSPECTIVE_TENANT = '1000665';
 const LISTING_URL = `https://ohws.prospective.ch/public/v1/careercenter/${PROSPECTIVE_TENANT}/`;
+const LISTING_PAGE_CAP = 200;
 const JOBS_HOST = 'jobs.ksgl.ch';
 
 const DEFAULT_CANTON = 'GL';
@@ -249,7 +250,7 @@ export async function fetchAllKsglJobs() {
   // Step 1: POST listing with limit=200 to grab every advert in one page.
   const html = await safeFetch(LISTING_URL, {
     method: 'POST',
-    body: 'offset=0&limit=200&lang=de',
+    body: `offset=0&limit=${LISTING_PAGE_CAP}&lang=de`,
     accept: 'text',
   });
   if (!html) {
@@ -258,6 +259,7 @@ export async function fetchAllKsglJobs() {
   }
   const listings = parseListingHtml(html);
   console.log(`   ✓ Discovered ${listings.length} advert links in listing`);
+  warnIfListingAtCap({ label: 'KSGL Career Center listing', count: listings.length, cap: LISTING_PAGE_CAP });
   if (listings.length === 0) return [];
 
   // Step 2: fetch each detail page and extract JSON-LD JobPosting.

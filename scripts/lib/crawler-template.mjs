@@ -646,6 +646,32 @@ export async function fetchHtmlWithCookies(url, options = {}) {
  *
  * Usage: `main().catch((err) => exitCrawlerOnError(err, 'Company Label'));`
  */
+/**
+ * Warn when a single-shot listing fetch (fixed page-size/limit query param,
+ * no offset pagination) comes back with exactly `cap` results — the
+ * canonical signal that the real listing count may have exceeded the
+ * hardcoded cap and been silently truncated (issue #3436). If the API
+ * response carries its own `total`/`count` metadata, pass it as `total` for
+ * a precise check instead of the `count === cap` heuristic.
+ *
+ * Pure logging — never throws, never changes control flow.
+ */
+export function warnIfListingAtCap({ label, count, cap, total }) {
+  if (typeof total === 'number' && total > count) {
+    console.warn(
+      `⚠️  ${label}: API reports ${total} total listings but only ${count} were fetched (cap=${cap}). Listing is truncated — add pagination.`,
+    );
+    return true;
+  }
+  if (typeof total !== 'number' && count === cap) {
+    console.warn(
+      `⚠️  ${label}: fetched exactly the cap (${cap}) with no total/count field to verify completeness. If the real listing count ever exceeds ${cap}, jobs will be silently dropped — verify live count or add pagination.`,
+    );
+    return true;
+  }
+  return false;
+}
+
 export function exitCrawlerOnError(err, label = 'crawler') {
   if (isConnectionLevelFetchError(err)) {
     console.log(

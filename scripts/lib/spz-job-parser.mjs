@@ -21,7 +21,7 @@
  * entries → fetch each detail page → extract JSON-LD JobPosting.
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, warnIfListingAtCap } from './crawler-template.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -34,6 +34,7 @@ export const SPZ_COMPANY_DOMAIN = 'paraplegie.ch';
 const CAREER_URL = 'https://www.paraplegie.ch/de/karriere';
 const PROSPECTIVE_TENANT = '1001777';
 const LISTING_URL = `https://ohws.prospective.ch/public/v1/careercenter/${PROSPECTIVE_TENANT}/`;
+const LISTING_PAGE_CAP = 200;
 
 const DEFAULT_CANTON = 'LU';
 const DEFAULT_CITY = 'Nottwil';
@@ -234,7 +235,7 @@ export async function fetchAllSpzJobs() {
 
   const html = await safeFetch(LISTING_URL, {
     method: 'POST',
-    body: 'offset=0&limit=200&lang=de',
+    body: `offset=0&limit=${LISTING_PAGE_CAP}&lang=de`,
     accept: 'text',
   });
   if (!html) {
@@ -243,6 +244,7 @@ export async function fetchAllSpzJobs() {
   }
   const listings = parseListingHtml(html);
   console.log(`   ✓ Discovered ${listings.length} advert links in listing`);
+  warnIfListingAtCap({ label: 'SPZ Career Center listing', count: listings.length, cap: LISTING_PAGE_CAP });
   if (listings.length === 0) return [];
 
   const jobs = [];

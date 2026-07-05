@@ -18,7 +18,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, warnIfListingAtCap } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -32,7 +32,8 @@ export const SPITAL_LACHEN_KEY = 'spital-lachen';
 export const SPITAL_LACHEN_COMPANY_NAME = 'Spital Lachen';
 export const SPITAL_LACHEN_COMPANY_DOMAIN = 'spital-lachen.ch';
 
-const REST_LISTING_URL = 'https://spital-lachen.ch/wp-json/wp/v2/dcwi_jobs?per_page=100&_fields=id,slug,link,title,date,modified,unternehmensbereich';
+const LISTING_PAGE_CAP = 100;
+const REST_LISTING_URL = `https://spital-lachen.ch/wp-json/wp/v2/dcwi_jobs?per_page=${LISTING_PAGE_CAP}&_fields=id,slug,link,title,date,modified,unternehmensbereich`;
 const PUBLIC_CAREER_URL = 'https://spital-lachen.ch/jobs-karriere/offene-stellen/';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
@@ -136,6 +137,7 @@ export async function fetchAllSpitalLachenJobs() {
     return [];
   }
   console.log(`  ✓ ${data.length} jobs from REST listing`);
+  warnIfListingAtCap({ label: 'Spital Lachen WP REST listing', count: data.length, cap: LISTING_PAGE_CAP });
   if (!data.length) return [];
 
   const todayIso = new Date().toISOString().slice(0, 10);

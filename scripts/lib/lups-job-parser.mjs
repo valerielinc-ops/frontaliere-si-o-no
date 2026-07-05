@@ -31,7 +31,7 @@
  *     step fills in fr/it/en.
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, warnIfListingAtCap } from './crawler-template.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -44,6 +44,7 @@ export const LUPS_COMPANY_DOMAIN = 'lups.ch';
 const CAREER_URL = 'https://www.lups.ch/karriere';
 const PROSPECTIVE_TENANT = '1001516';
 const LISTING_URL = `https://ohws.prospective.ch/public/v1/careercenter/${PROSPECTIVE_TENANT}/`;
+const LISTING_PAGE_CAP = 200;
 
 const DEFAULT_CANTON = 'LU';
 const DEFAULT_CITY = 'Luzern';
@@ -244,7 +245,7 @@ export async function fetchAllLupsJobs() {
 
   const html = await safeFetch(LISTING_URL, {
     method: 'POST',
-    body: 'offset=0&limit=200&lang=de',
+    body: `offset=0&limit=${LISTING_PAGE_CAP}&lang=de`,
     accept: 'text',
   });
   if (!html) {
@@ -253,6 +254,7 @@ export async function fetchAllLupsJobs() {
   }
   const listings = parseListingHtml(html);
   console.log(`   ✓ Discovered ${listings.length} advert links in listing`);
+  warnIfListingAtCap({ label: 'LUPS Career Center listing', count: listings.length, cap: LISTING_PAGE_CAP });
   if (listings.length === 0) return [];
 
   const jobs = [];
