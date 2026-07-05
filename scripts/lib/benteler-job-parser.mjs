@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson, warnIfListingAtCap } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
@@ -33,9 +33,10 @@ const HQ = getCompanyDefaults('benteler');
  * We try to discover the SuccessFactors API endpoint and fall back to
  * HTML scraping.
  */
+const SF_API_LIMIT = 50;
 const SF_API_URLS = [
-  'https://career.benteler.com/api/jobs?country=CH&limit=50',
-  'https://career.benteler.com/api/v1/jobs?location=Switzerland&limit=50',
+  `https://career.benteler.com/api/jobs?country=CH&limit=${SF_API_LIMIT}`,
+  `https://career.benteler.com/api/v1/jobs?location=Switzerland&limit=${SF_API_LIMIT}`,
 ];
 
 /* ── Helpers ───────────────────────────────────────────────── */
@@ -154,6 +155,7 @@ async function trySuccessFactorsApi() {
       });
       if (items.length > 0) {
         console.log(`   API returned ${items.length} jobs`);
+        warnIfListingAtCap({ label: 'Benteler SuccessFactors listing', count: items.length, cap: SF_API_LIMIT });
         return items;
       }
     } catch (err) {

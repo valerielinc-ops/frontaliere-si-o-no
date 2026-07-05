@@ -32,7 +32,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, warnIfListingAtCap } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -41,7 +41,8 @@ export const GIARDINO_KEY = 'giardino';
 export const GIARDINO_COMPANY_NAME = 'Giardino Group';
 export const GIARDINO_COMPANY_DOMAIN = 'giardinohotels.ch';
 
-const API_URL = 'https://giardinohotels.ch/wp-json/wp/v2/jobs?per_page=50';
+const LISTING_PAGE_CAP = 50;
+const API_URL = `https://giardinohotels.ch/wp-json/wp/v2/jobs?per_page=${LISTING_PAGE_CAP}`;
 const SITE_BASE = 'https://giardinohotels.ch';
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -352,6 +353,7 @@ export async function fetchAllGiardinoJobs() {
   }
 
   console.log(`  📋 WordPress jobs found: ${listings.length}`);
+  warnIfListingAtCap({ label: 'Giardino Group WP REST listing', count: listings.length, cap: LISTING_PAGE_CAP });
 
   const jobs = [];
   for (const listing of listings) {

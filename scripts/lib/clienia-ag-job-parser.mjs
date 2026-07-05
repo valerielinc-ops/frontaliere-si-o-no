@@ -18,7 +18,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, warnIfListingAtCap } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -32,7 +32,8 @@ export const CLIENIA_AG_KEY = 'clienia-ag';
 export const CLIENIA_AG_COMPANY_NAME = 'Clienia AG';
 export const CLIENIA_AG_COMPANY_DOMAIN = 'clienia.ch';
 
-const API_URL = 'https://www.clienia.ch/wp-json/wp/v2/jobs?per_page=100&_fields=id,slug,link,title,date,location';
+const LISTING_PAGE_CAP = 100;
+const API_URL = `https://www.clienia.ch/wp-json/wp/v2/jobs?per_page=${LISTING_PAGE_CAP}&_fields=id,slug,link,title,date,location`;
 const POLITE_DELAY_MS = 250;
 
 export function isCleniaAgJob(job) {
@@ -101,6 +102,7 @@ export async function fetchAllCleniaAgJobs() {
     return [];
   }
   console.log(`  ✓ ${listings.length} jobs from WP REST`);
+  warnIfListingAtCap({ label: 'Clienia AG WP REST listing', count: listings.length, cap: LISTING_PAGE_CAP });
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
   const todayIso = new Date().toISOString().slice(0, 10);

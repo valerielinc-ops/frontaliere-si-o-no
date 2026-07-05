@@ -54,7 +54,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { slugify, normalizeSpace, normalizeDescriptionSpace, warnIfListingAtCap } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, canonicalSwissCityName, findSwissCityInText } from './target-swiss-locations.mjs';
 import {
@@ -77,7 +77,8 @@ const HQ = getCompanyDefaults(BUCHER_SUTER_KEY) || {
 };
 
 const BASE_URL = 'https://www.bucher-suter.com';
-const API_URL = `${BASE_URL}/wp-json/wp/v2/job-listings?per_page=50`;
+const LISTING_PAGE_CAP = 50;
+const API_URL = `${BASE_URL}/wp-json/wp/v2/job-listings?per_page=${LISTING_PAGE_CAP}`;
 
 /* ── Discovery: WordPress REST API listing metadata ─────────────────── */
 
@@ -199,6 +200,7 @@ export async function fetchAllBucherSuterJobs() {
   }
 
   console.log(`   📋 WordPress job listings found: ${listings.length}`);
+  warnIfListingAtCap({ label: 'Bucher + Suter WP REST listing', count: listings.length, cap: LISTING_PAGE_CAP });
 
   const jobs = [];
   let skippedNonSwiss = 0;

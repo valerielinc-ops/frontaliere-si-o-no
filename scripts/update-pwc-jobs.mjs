@@ -13,7 +13,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, warnIfListingAtCap } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   printPublishedJobUrls,
@@ -61,7 +61,8 @@ const COMPANY_NAME = 'PwC Switzerland';
 const COMPANY_HOST = 'www.pwc.ch';
 const COMPANY_DOMAIN = 'pwc.ch';
 const CAREERS_URL = 'https://www.pwc.ch/en/careers-with-pwc/open-positions.html';
-const API_URL = 'https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500';
+const LISTING_LIMIT = 500;
+const API_URL = `https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=${LISTING_LIMIT}`;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000;
@@ -138,6 +139,7 @@ async function fetchAllListings() {
 
   console.log(`API returned ${total} PwC jobs total`);
   console.log(`Parsed ${items.length} job items`);
+  warnIfListingAtCap({ label: 'PwC listing', count: items.length, cap: LISTING_LIMIT, total });
 
   return items;
 }

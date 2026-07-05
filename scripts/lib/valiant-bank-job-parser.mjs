@@ -52,7 +52,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, fetchHtml } from './crawler-template.mjs';
+import { slugify, fetchHtml, warnIfListingAtCap } from './crawler-template.mjs';
 import { extractJobPostingLd, jobPostingAddress, jobPostingDescriptionText } from './jsonld-jobposting.mjs';
 import { normalizeCantonCode, inferAnyCanton } from './target-swiss-locations.mjs';
 
@@ -63,7 +63,8 @@ export const VALIANT_BANK_COMPANY_NAME = 'Valiant Bank AG';
 export const VALIANT_BANK_COMPANY_DOMAIN = 'valiant.ch';
 
 const CAREERCENTER_TENANT = '1000394';
-const LISTING_URL = `https://jobs.valiant.ch/public/v1/careercenter/${CAREERCENTER_TENANT}/?lang=de&limit=100`;
+const LISTING_PAGE_CAP = 100;
+const LISTING_URL = `https://jobs.valiant.ch/public/v1/careercenter/${CAREERCENTER_TENANT}/?lang=de&limit=${LISTING_PAGE_CAP}`;
 const CAREER_URL = 'https://www.valiant.ch/en/ueber-valiant/arbeiten-bei-valiant-offene-stellen';
 const SECTOR = 'Banche / Servizi Finanziari';
 
@@ -218,6 +219,7 @@ export async function fetchAllValiantBankJobs() {
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
+  warnIfListingAtCap({ label: 'Valiant Bank Career Center listing', count: listings.length, cap: LISTING_PAGE_CAP });
 
   const jobs = [];
   const seenSlugs = new Set();
