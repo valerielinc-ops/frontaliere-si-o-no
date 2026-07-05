@@ -9,7 +9,7 @@
         "it": "ingegnere-software-sistema-80-100-m-f-komax-dierikon",
         "en": "software-system-ingenieur-80-100-m-w-komax-ch",
         "de": "software-system-ingenieur-80-100-m-w-komax-ch",
-        "fr": "software-system-ingenieur-80-100-m-w-komax-ch"
+        "fr": "ingenieur-logiciel-80-100-m-w-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -57,8 +57,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-system-ingenieur-80-100-m-w-komax-ch",
-          "ingegnere-software-sistema-80-100-m-f-komax-dierikon"
+          "software-system-ingenieur-80-100-m-w-komax-ch"
+        ],
+        "fr": [
+          "software-system-ingenieur-80-100-m-w-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -81,9 +83,9 @@
       "slug": "piu-in-forma-al-100-komax-thun",
       "slugByLocale": {
         "it": "piu-in-forma-al-100-komax-thun",
-        "en": "monteur-in-100-komax-ch",
+        "en": "installer-in-100-komax-thun",
         "de": "monteur-in-100-komax-ch",
-        "fr": "monteur-in-100-komax-ch"
+        "fr": "installateur-en-100-komax-thun"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -131,8 +133,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "monteur-in-100-komax-ch",
-          "piu-in-forma-al-100-komax-thun"
+          "monteur-in-100-komax-ch"
+        ],
+        "en": [
+          "monteur-in-100-komax-ch"
+        ],
+        "fr": [
+          "monteur-in-100-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -309,7 +316,7 @@
         "it": "ingegneria-elettrica-software-e-hardware-embedded-80-100-komax-dierikon",
         "en": "elektroingenieur-in-embedded-software-hardware-80-100-komax-ch",
         "de": "elektroingenieur-in-embedded-software-hardware-80-100-komax-ch",
-        "fr": "elektroingenieur-in-embedded-software-hardware-80-100-komax-ch"
+        "fr": "ingenieur-electrique-en-logiciel-et-materiel-embarque-80-100-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -357,6 +364,9 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroingenieur-in-embedded-software-hardware-80-100-komax-ch"
+        ],
+        "fr": [
+          "elektroingenieur-in-embedded-software-hardware-80-100-komax-ch"
         ]
       },
       "previousSlugs": [
@@ -380,9 +390,9 @@
       "slug": "apprendistato-fachfrau-fachmann-betriebsunterhalt-cfc-2027-komax-dierikon",
       "slugByLocale": {
         "it": "apprendistato-fachfrau-fachmann-betriebsunterhalt-cfc-2027-komax-dierikon",
-        "en": "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-2027-komax-ch",
+        "en": "apprenticeship-specialist-specialist-for-maintenance-efz-2027-komax-dierikon",
         "de": "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-2027-komax-ch",
-        "fr": "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-2027-komax-ch"
+        "fr": "specialiste-de-l-apprentissage-specialiste-de-la-maintenance-efz-2027-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -430,8 +440,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-2027-komax-ch",
-          "apprendistato-fachfrau-fachmann-betriebsunterhalt-cfc-2027-komax-dierikon"
+          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-2027-komax-ch"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-2027-komax-ch"
+        ],
+        "fr": [
+          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-2027-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -456,7 +471,7 @@
         "it": "supporto-tecnico-80-100-lunedi-f-komax-thun",
         "en": "technical-service-support-80-100-m-w-komax-ch",
         "de": "technical-service-support-80-100-m-w-komax-ch",
-        "fr": "technical-service-support-80-100-m-w-komax-ch"
+        "fr": "soutien-technique-80-100-m-m-komax-thun"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -504,8 +519,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-service-support-80-100-m-w-komax-ch",
-          "supporto-tecnico-80-100-lunedi-f-komax-thun"
+          "technical-service-support-80-100-m-w-komax-ch"
+        ],
+        "fr": [
+          "technical-service-support-80-100-m-w-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -528,9 +545,9 @@
       "slug": "apprendistato-logistiker-in-cfc-2027-komax-dierikon",
       "slugByLocale": {
         "it": "apprendistato-logistiker-in-cfc-2027-komax-dierikon",
-        "en": "lehrstelle-logistiker-in-efz-2027-komax-ch",
+        "en": "apprenticeship-in-logistics-in-efz-2027-komax-dierikon",
         "de": "lehrstelle-logistiker-in-efz-2027-komax-ch",
-        "fr": "lehrstelle-logistiker-in-efz-2027-komax-ch"
+        "fr": "apprentissage-en-logistique-en-efz-2027-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -578,8 +595,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-2027-komax-ch",
-          "apprendistato-logistiker-in-cfc-2027-komax-dierikon"
+          "lehrstelle-logistiker-in-efz-2027-komax-ch"
+        ],
+        "en": [
+          "lehrstelle-logistiker-in-efz-2027-komax-ch"
+        ],
+        "fr": [
+          "lehrstelle-logistiker-in-efz-2027-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -602,9 +624,9 @@
       "slug": "apprendistato-konstrukteur-in-cfc-2027-komax-dierikon",
       "slugByLocale": {
         "it": "apprendistato-konstrukteur-in-cfc-2027-komax-dierikon",
-        "en": "lehrstelle-konstrukteur-in-efz-2027-komax-ch",
+        "en": "apprenticeship-constructor-in-efz-2027-komax-dierikon",
         "de": "lehrstelle-konstrukteur-in-efz-2027-komax-ch",
-        "fr": "lehrstelle-konstrukteur-in-efz-2027-komax-ch"
+        "fr": "apprentissage-constructeur-dans-efz-2027-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -652,8 +674,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-konstrukteur-in-efz-2027-komax-ch",
-          "apprendistato-konstrukteur-in-cfc-2027-komax-dierikon"
+          "lehrstelle-konstrukteur-in-efz-2027-komax-ch"
+        ],
+        "en": [
+          "lehrstelle-konstrukteur-in-efz-2027-komax-ch"
+        ],
+        "fr": [
+          "lehrstelle-konstrukteur-in-efz-2027-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -676,9 +703,9 @@
       "slug": "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon",
       "slugByLocale": {
         "it": "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon",
-        "en": "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
+        "en": "polymechanical-apprenticeship-in-efz-2027-komax-dierikon",
         "de": "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
-        "fr": "lehrstelle-polymechaniker-in-efz-2027-komax-ch"
+        "fr": "l-apprentissage-polymecanique-en-efz-2027-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -726,8 +753,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
-          "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon"
+          "lehrstelle-polymechaniker-in-efz-2027-komax-ch"
+        ],
+        "en": [
+          "lehrstelle-polymechaniker-in-efz-2027-komax-ch"
+        ],
+        "fr": [
+          "lehrstelle-polymechaniker-in-efz-2027-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -750,9 +782,9 @@
       "slug": "apprendistato-automatiker-in-cfc-2027-komax-dierikon",
       "slugByLocale": {
         "it": "apprendistato-automatiker-in-cfc-2027-komax-dierikon",
-        "en": "lehrstelle-automatiker-in-efz-2027-komax-ch",
+        "en": "apprenticeship-automatic-in-efz-2027-komax-dierikon",
         "de": "lehrstelle-automatiker-in-efz-2027-komax-ch",
-        "fr": "lehrstelle-automatiker-in-efz-2027-komax-ch"
+        "fr": "apprentissage-automatique-en-efz-2027-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -800,8 +832,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-automatiker-in-efz-2027-komax-ch",
-          "apprendistato-automatiker-in-cfc-2027-komax-dierikon"
+          "lehrstelle-automatiker-in-efz-2027-komax-ch"
+        ],
+        "en": [
+          "lehrstelle-automatiker-in-efz-2027-komax-ch"
+        ],
+        "fr": [
+          "lehrstelle-automatiker-in-efz-2027-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -824,9 +861,9 @@
       "slug": "apprendistato-mediamatiker-in-cfc-2027-komax-dierikon",
       "slugByLocale": {
         "it": "apprendistato-mediamatiker-in-cfc-2027-komax-dierikon",
-        "en": "lehrstelle-mediamatiker-in-efz-2027-komax-ch",
+        "en": "apprenticeship-in-media-matter-efz-2027-komax-dierikon",
         "de": "lehrstelle-mediamatiker-in-efz-2027-komax-ch",
-        "fr": "lehrstelle-mediamatiker-in-efz-2027-komax-ch"
+        "fr": "apprentissage-dans-les-medias-efz-2027-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -874,8 +911,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-mediamatiker-in-efz-2027-komax-ch",
-          "apprendistato-mediamatiker-in-cfc-2027-komax-dierikon"
+          "lehrstelle-mediamatiker-in-efz-2027-komax-ch"
+        ],
+        "en": [
+          "lehrstelle-mediamatiker-in-efz-2027-komax-ch"
+        ],
+        "fr": [
+          "lehrstelle-mediamatiker-in-efz-2027-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -898,9 +940,9 @@
       "slug": "apprendistato-informatikerin-informatiker-cfc-applikationsentwicklung-2027-komax-dierikon",
       "slugByLocale": {
         "it": "apprendistato-informatikerin-informatiker-cfc-applikationsentwicklung-2027-komax-dierikon",
-        "en": "lehrstelle-informatikerin-informatiker-efz-applikationsentwicklung-2027-komax-ch",
+        "en": "computer-scientist-computer-scientist-efz-application-development-2027-komax-dierikon",
         "de": "lehrstelle-informatikerin-informatiker-efz-applikationsentwicklung-2027-komax-ch",
-        "fr": "lehrstelle-informatikerin-informatiker-efz-applikationsentwicklung-2027-komax-ch"
+        "fr": "computer-scientist-computer-scientist-efz-developpement-des-applications-2027-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -948,8 +990,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-informatikerin-informatiker-efz-applikationsentwicklung-2027-komax-ch",
-          "apprendistato-informatikerin-informatiker-cfc-applikationsentwicklung-2027-komax-dierikon"
+          "lehrstelle-informatikerin-informatiker-efz-applikationsentwicklung-2027-komax-ch"
+        ],
+        "en": [
+          "lehrstelle-informatikerin-informatiker-efz-applikationsentwicklung-2027-komax-ch"
+        ],
+        "fr": [
+          "lehrstelle-informatikerin-informatiker-efz-applikationsentwicklung-2027-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -974,7 +1021,7 @@
         "it": "responsabile-strategico-degli-approvvigionamenti-al-100-lun-venerdi-komax-dierikon",
         "en": "strategic-procurement-manager-100-m-w-d-komax-ch",
         "de": "strategic-procurement-manager-100-m-w-d-komax-ch",
-        "fr": "strategic-procurement-manager-100-m-w-d-komax-ch"
+        "fr": "gestionnaire-strategique-des-achats-100-m-f-d-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -1022,8 +1069,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategic-procurement-manager-100-m-w-d-komax-ch",
-          "responsabile-strategico-degli-approvvigionamenti-al-100-lun-venerdi-komax-dierikon"
+          "strategic-procurement-manager-100-m-w-d-komax-ch"
+        ],
+        "fr": [
+          "strategic-procurement-manager-100-m-w-d-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1046,9 +1095,9 @@
       "slug": "industrializzazione-specializzata-80-100-komax-thun",
       "slugByLocale": {
         "it": "industrializzazione-specializzata-80-100-komax-thun",
-        "en": "fachspezialist-in-industrialisierung-80-100-komax-ch",
+        "en": "specialist-in-industrialization-80-100-komax-thun",
         "de": "fachspezialist-in-industrialisierung-80-100-komax-ch",
-        "fr": "fachspezialist-in-industrialisierung-80-100-komax-ch"
+        "fr": "specialiste-en-industrialisation-80-100-komax-thun"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -1096,8 +1145,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-industrialisierung-80-100-komax-ch",
-          "industrializzazione-specializzata-80-100-komax-thun"
+          "fachspezialist-in-industrialisierung-80-100-komax-ch"
+        ],
+        "en": [
+          "fachspezialist-in-industrialisierung-80-100-komax-ch"
+        ],
+        "fr": [
+          "fachspezialist-in-industrialisierung-80-100-komax-ch"
         ]
       },
       "needsRetranslation": true,

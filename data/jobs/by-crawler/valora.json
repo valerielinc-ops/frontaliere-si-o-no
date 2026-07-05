@@ -542,7 +542,7 @@
         "de": "assistant-tax-manager-w-m-d-valora-muttenz",
         "it": "assistant-tax-manager-w-m-d-valora-muttenz",
         "en": "assistant-tax-manager-w-m-d-valora-muttenz",
-        "fr": "assistant-tax-manager-w-m-d-valora-muttenz"
+        "fr": "gestionnaire-fiscal-adjoint-f-m-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -814,7 +814,7 @@
         "de": "sap-basis-consultant-w-m-d-valora-muttenz",
         "it": "sap-basis-consultant-w-m-d-valora-muttenz",
         "en": "sap-basis-consultant-w-m-d-valora-muttenz",
-        "fr": "sap-basis-consultant-w-m-d-valora-muttenz"
+        "fr": "consultant-en-comptabilite-de-base-f-m-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -875,12 +875,12 @@
     },
     {
       "id": "valora-a4d56caca414",
-      "slug": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
+      "slug": "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
       "slugByLocale": {
         "de": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-        "it": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-        "en": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-        "fr": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke"
+        "it": "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
+        "en": "teamlead-maintenance-f-m-d-valora-group-emmenbrucke",
+        "fr": "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -937,16 +937,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.464Z"
+      "firstSeenAt": "2026-07-04T12:43:13.464Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamlead-instandhaltung-w-m-d-valora-emmenbrucke"
+        ],
+        "en": [
+          "teamlead-instandhaltung-w-m-d-valora-emmenbrucke"
+        ],
+        "fr": [
+          "teamlead-instandhaltung-w-m-d-valora-emmenbrucke"
+        ]
+      },
+      "previousSlugs": [
+        "teamlead-instandhaltung-w-m-d-valora-emmenbrucke"
+      ]
     },
     {
       "id": "valora-a3e02954c443",
-      "slug": "verkauferin-verkaufer-k-kiosk-20-std-valora-wengen",
+      "slug": "venditore-venditore-k-kiosk-20-ore-valora-group-wengen",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-wengen",
-        "it": "verkauferin-verkaufer-k-kiosk-20-std-valora-wengen",
-        "en": "verkauferin-verkaufer-k-kiosk-20-std-valora-wengen",
-        "fr": "verkauferin-verkaufer-k-kiosk-20-std-valora-wengen"
+        "it": "venditore-venditore-k-kiosk-20-ore-valora-group-wengen",
+        "en": "seller-seller-k-kiosk-20-hours-valora-group-wengen",
+        "fr": "vendeur-vendeur-k-kiosque-20-heures-valora-group-wengen"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1003,16 +1017,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.462Z"
+      "firstSeenAt": "2026-07-04T12:43:13.462Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-wengen"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-wengen"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-wengen"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-wengen"
+      ]
     },
     {
       "id": "valora-74b4b7cd3bd2",
-      "slug": "verkauferin-verkaufer-k-kiosk-15-std-valora-koniz",
+      "slug": "venditore-venditore-k-kiosk-15-ore-valora-group-koniz",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-koniz",
-        "it": "verkauferin-verkaufer-k-kiosk-15-std-valora-koniz",
-        "en": "verkauferin-verkaufer-k-kiosk-15-std-valora-koniz",
-        "fr": "verkauferin-verkaufer-k-kiosk-15-std-valora-koniz"
+        "it": "venditore-venditore-k-kiosk-15-ore-valora-group-koniz",
+        "en": "seller-seller-k-kiosk-15-hours-valora-group-koniz",
+        "fr": "vendeur-vendeur-k-kiosque-15-heures-valora-group-koniz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1069,7 +1097,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.460Z"
+      "firstSeenAt": "2026-07-04T12:43:13.460Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-koniz"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-koniz"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-koniz"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-koniz"
+      ]
     },
     {
       "id": "valora-555c8a267e0a",
@@ -1139,12 +1181,12 @@
     },
     {
       "id": "valora-3e6e69824357",
-      "slug": "verkauferin-verkaufer-k-kiosk-32-std-valora-bern",
+      "slug": "venditore-venditore-k-kiosk-32-ore-valora-group-bern",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-32-std-valora-bern",
-        "it": "verkauferin-verkaufer-k-kiosk-32-std-valora-bern",
-        "en": "verkauferin-verkaufer-k-kiosk-32-std-valora-bern",
-        "fr": "verkauferin-verkaufer-k-kiosk-32-std-valora-bern"
+        "it": "venditore-venditore-k-kiosk-32-ore-valora-group-bern",
+        "en": "seller-seller-k-kiosk-32-hours-valora-group-bern",
+        "fr": "vendeur-vendeur-k-kiosque-32-heures-valora-group-bern"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1201,16 +1243,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.460Z"
+      "firstSeenAt": "2026-07-04T12:43:13.460Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-32-std-valora-bern"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-32-std-valora-bern"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-32-std-valora-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-32-std-valora-bern"
+      ]
     },
     {
       "id": "valora-d1aa8d435cfe",
-      "slug": "verkauferin-verkaufer-k-kiosk-12-std-valora-jegenstorf",
+      "slug": "venditore-venditore-k-kiosk-12-ore-valora-group-jegenstorf",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-12-std-valora-jegenstorf",
-        "it": "verkauferin-verkaufer-k-kiosk-12-std-valora-jegenstorf",
-        "en": "verkauferin-verkaufer-k-kiosk-12-std-valora-jegenstorf",
-        "fr": "verkauferin-verkaufer-k-kiosk-12-std-valora-jegenstorf"
+        "it": "venditore-venditore-k-kiosk-12-ore-valora-group-jegenstorf",
+        "en": "seller-seller-k-kiosk-12-hours-valora-group-jegenstorf",
+        "fr": "vendeur-vendeur-k-kiosque-12-heures-valora-group-jegenstorf"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1267,16 +1323,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.459Z"
+      "firstSeenAt": "2026-07-04T12:43:13.459Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-12-std-valora-jegenstorf"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-12-std-valora-jegenstorf"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-12-std-valora-jegenstorf"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-12-std-valora-jegenstorf"
+      ]
     },
     {
       "id": "valora-e1d1ee4c7c31",
-      "slug": "verkauferin-verkaufer-avec-8-6-std-valora-bern",
+      "slug": "venditore-venditore-avec-8-6-ore-valora-group-bern",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-avec-8-6-std-valora-bern",
-        "it": "verkauferin-verkaufer-avec-8-6-std-valora-bern",
-        "en": "verkauferin-verkaufer-avec-8-6-std-valora-bern",
-        "fr": "verkauferin-verkaufer-avec-8-6-std-valora-bern"
+        "it": "venditore-venditore-avec-8-6-ore-valora-group-bern",
+        "en": "seller-seller-avec-8-6-hours-valora-group-bern",
+        "fr": "vendeur-avec-8-6-heures-valora-group-bern"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1333,16 +1403,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.459Z"
+      "firstSeenAt": "2026-07-04T12:43:13.459Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-avec-8-6-std-valora-bern"
+        ],
+        "en": [
+          "verkauferin-verkaufer-avec-8-6-std-valora-bern"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-avec-8-6-std-valora-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-avec-8-6-std-valora-bern"
+      ]
     },
     {
       "id": "valora-f047dd20dfc1",
-      "slug": "verkauferin-verkaufer-avec-25-std-valora-muttenz",
+      "slug": "venditore-avec-25-ore-valora-group-muttenz",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-avec-25-std-valora-muttenz",
-        "it": "verkauferin-verkaufer-avec-25-std-valora-muttenz",
-        "en": "verkauferin-verkaufer-avec-25-std-valora-muttenz",
-        "fr": "verkauferin-verkaufer-avec-25-std-valora-muttenz"
+        "it": "venditore-avec-25-ore-valora-group-muttenz",
+        "en": "seller-avec-25-hours-valora-group-muttenz",
+        "fr": "vendeur-avec-25-heures-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1399,16 +1483,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.458Z"
+      "firstSeenAt": "2026-07-04T12:43:13.458Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-avec-25-std-valora-muttenz"
+        ],
+        "en": [
+          "verkauferin-verkaufer-avec-25-std-valora-muttenz"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-avec-25-std-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-avec-25-std-valora-muttenz"
+      ]
     },
     {
       "id": "valora-f0c939899522",
-      "slug": "verkauferin-verkaufer-k-kiosk-10-std-valora-muensingen",
+      "slug": "venditore-venditore-k-kiosk-10-ore-valora-group-muensingen",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-muensingen",
-        "it": "verkauferin-verkaufer-k-kiosk-10-std-valora-muensingen",
-        "en": "verkauferin-verkaufer-k-kiosk-10-std-valora-muensingen",
-        "fr": "verkauferin-verkaufer-k-kiosk-10-std-valora-muensingen"
+        "it": "venditore-venditore-k-kiosk-10-ore-valora-group-muensingen",
+        "en": "seller-seller-k-kiosk-10-hours-valora-group-muensingen",
+        "fr": "kiosque-vendeur-vendeur-k-10-heures-valora-group-muensingen"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1465,16 +1563,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.458Z"
+      "firstSeenAt": "2026-07-04T12:43:13.458Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-muensingen"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-muensingen"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-muensingen"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-muensingen"
+      ]
     },
     {
       "id": "valora-1350c37a5178",
-      "slug": "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-80-100-valora-oberhofen",
+      "slug": "amministratore-delegato-k-kiosk-80-100-valora-group-oberhofen",
       "slugByLocale": {
         "de": "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-80-100-valora-oberhofen",
-        "it": "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-80-100-valora-oberhofen",
-        "en": "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-80-100-valora-oberhofen",
-        "fr": "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-80-100-valora-oberhofen"
+        "it": "amministratore-delegato-k-kiosk-80-100-valora-group-oberhofen",
+        "en": "managing-director-k-kiosk-80-100-valora-group-oberhofen",
+        "fr": "directeur-general-k-kiosque-80-100-valora-group-oberhofen"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1531,16 +1643,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.455Z"
+      "firstSeenAt": "2026-07-04T12:43:13.455Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-80-100-valora-oberhofen"
+        ],
+        "en": [
+          "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-80-100-valora-oberhofen"
+        ],
+        "fr": [
+          "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-80-100-valora-oberhofen"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-80-100-valora-oberhofen"
+      ]
     },
     {
       "id": "valora-1745b052b64e",
-      "slug": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+      "slug": "venditore-k-chiosco-15-ore-valora-group-uetendorf",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
-        "it": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
-        "en": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
-        "fr": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+        "it": "venditore-k-chiosco-15-ore-valora-group-uetendorf",
+        "en": "seller-k-kiosk-15-hours-valora-group-uetendorf",
+        "fr": "kiosque-du-vendeur-k-15-heures-valora-group-uetendorf"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1597,16 +1723,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.456Z"
+      "firstSeenAt": "2026-07-04T12:43:13.456Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+      ]
     },
     {
       "id": "valora-6061ed176308",
-      "slug": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
+      "slug": "venditrice-avec-20-ore-valora-group-wangen-a",
       "slugByLocale": {
         "de": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
-        "it": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
-        "en": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
-        "fr": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+        "it": "venditrice-avec-20-ore-valora-group-wangen-a",
+        "en": "seller-avec-20-hours-valora-group-wangen-a",
+        "fr": "vendeur-avec-20-heures-valora-group-wangen-a"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1663,16 +1803,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.453Z"
+      "firstSeenAt": "2026-07-04T12:43:13.453Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+        ],
+        "en": [
+          "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+        ],
+        "fr": [
+          "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+      ]
     },
     {
       "id": "valora-c7a41560cff6",
-      "slug": "verkauferin-verkaufer-k-kiosk-6-std-valora-bern",
+      "slug": "venditore-venditore-k-kiosk-6-ore-valora-group-bern",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-6-std-valora-bern",
-        "it": "verkauferin-verkaufer-k-kiosk-6-std-valora-bern",
-        "en": "verkauferin-verkaufer-k-kiosk-6-std-valora-bern",
-        "fr": "verkauferin-verkaufer-k-kiosk-6-std-valora-bern"
+        "it": "venditore-venditore-k-kiosk-6-ore-valora-group-bern",
+        "en": "seller-seller-k-kiosk-6-hours-valora-group-bern",
+        "fr": "vendeur-vendeur-k-kiosque-6-heures-valora-group-bern"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1729,16 +1883,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.443Z"
+      "firstSeenAt": "2026-07-04T12:43:13.443Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-6-std-valora-bern"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-6-std-valora-bern"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-6-std-valora-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-6-std-valora-bern"
+      ]
     },
     {
       "id": "valora-f1b4720f0bef",
-      "slug": "verkauferin-verkaufer-k-kiosk-20-std-valora-bern",
+      "slug": "venditore-venditore-k-kiosk-20-ore-valora-group-bern",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-bern",
-        "it": "verkauferin-verkaufer-k-kiosk-20-std-valora-bern",
-        "en": "verkauferin-verkaufer-k-kiosk-20-std-valora-bern",
-        "fr": "verkauferin-verkaufer-k-kiosk-20-std-valora-bern"
+        "it": "venditore-venditore-k-kiosk-20-ore-valora-group-bern",
+        "en": "seller-seller-k-kiosk-20-hours-valora-group-bern",
+        "fr": "vendeur-vendeur-k-kiosque-20-heures-valora-group-bern"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1795,16 +1963,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.443Z"
+      "firstSeenAt": "2026-07-04T12:43:13.443Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-bern"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-bern"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-bern"
+      ]
     },
     {
       "id": "valora-e13884067eb6",
-      "slug": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-2",
+      "slug": "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
-        "it": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-2",
-        "en": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-2",
-        "fr": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-2"
+        "it": "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
+        "en": "seller-seller-k-kiosk-10-hours-valora-group-bern",
+        "fr": "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1861,16 +2043,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.442Z"
+      "firstSeenAt": "2026-07-04T12:43:13.442Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-2"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-2"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-2"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-2"
+      ]
     },
     {
       "id": "valora-0d37f928dafa",
-      "slug": "verkauferin-verkaufer-k-kiosk-21-5-std-valora-brig",
+      "slug": "venditore-venditore-k-chiosco-21-5-ore-valora-group-brig",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-21-5-std-valora-brig",
-        "it": "verkauferin-verkaufer-k-kiosk-21-5-std-valora-brig",
-        "en": "verkauferin-verkaufer-k-kiosk-21-5-std-valora-brig",
-        "fr": "verkauferin-verkaufer-k-kiosk-21-5-std-valora-brig"
+        "it": "venditore-venditore-k-chiosco-21-5-ore-valora-group-brig",
+        "en": "seller-seller-k-kiosk-21-5-hours-valora-group-brig",
+        "fr": "vendeur-vendeur-k-kiosque-21-5-heures-valora-group-brig"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1927,16 +2123,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.443Z"
+      "firstSeenAt": "2026-07-04T12:43:13.443Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-21-5-std-valora-brig"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-21-5-std-valora-brig"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-21-5-std-valora-brig"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-21-5-std-valora-brig"
+      ]
     },
     {
       "id": "valora-dae6af10f51a",
-      "slug": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
+      "slug": "venditore-venditore-k-kiosk-10-ore-valora-group-bern-ae7749",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
-        "it": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
-        "en": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
-        "fr": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
+        "it": "venditore-venditore-k-kiosk-10-ore-valora-group-bern-ae7749",
+        "en": "seller-seller-k-kiosk-10-hours-valora-group-bern-ae7749",
+        "fr": "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-ae7749"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1993,16 +2203,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.443Z"
+      "firstSeenAt": "2026-07-04T12:43:13.443Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
+      ]
     },
     {
       "id": "valora-745834e61e8b",
-      "slug": "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist",
+      "slug": "venditore-venditore-k-kiosk-13-ore-valora-group-biberist",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist",
-        "it": "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist",
-        "en": "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist",
-        "fr": "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist"
+        "it": "venditore-venditore-k-kiosk-13-ore-valora-group-biberist",
+        "en": "seller-seller-k-kiosk-13-hours-valora-group-biberist",
+        "fr": "vendeur-vendeur-k-kiosque-13-heures-valora-group-biberist"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2059,16 +2283,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.442Z"
+      "firstSeenAt": "2026-07-04T12:43:13.442Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist"
+      ]
     },
     {
       "id": "valora-78eb59e80539",
-      "slug": "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2",
+      "slug": "venditore-venditore-k-kiosk-13-ore-valora-group-biberist-d6764a",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist",
-        "it": "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2",
-        "en": "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2",
-        "fr": "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2"
+        "it": "venditore-venditore-k-kiosk-13-ore-valora-group-biberist-d6764a",
+        "en": "seller-seller-k-kiosk-13-hours-valora-group-biberist-d6764a",
+        "fr": "vendeur-vendeur-k-kiosque-13-heures-valora-group-biberist-d6764a"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2125,16 +2363,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.441Z"
+      "firstSeenAt": "2026-07-04T12:43:13.441Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2"
+      ]
     },
     {
       "id": "valora-3a4ac09836d8",
-      "slug": "verkauferin-verkaufer-k-kiosk-13-std-valora-derendingen",
+      "slug": "venditore-venditore-k-kiosk-13-ore-valora-group-derendingen",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-13-std-valora-derendingen",
-        "it": "verkauferin-verkaufer-k-kiosk-13-std-valora-derendingen",
-        "en": "verkauferin-verkaufer-k-kiosk-13-std-valora-derendingen",
-        "fr": "verkauferin-verkaufer-k-kiosk-13-std-valora-derendingen"
+        "it": "venditore-venditore-k-kiosk-13-ore-valora-group-derendingen",
+        "en": "seller-seller-k-kiosk-13-hours-valora-group-derendingen",
+        "fr": "vendeur-vendeur-k-kiosque-13-heures-valora-group-derendingen"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2191,16 +2443,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.440Z"
+      "firstSeenAt": "2026-07-04T12:43:13.440Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-13-std-valora-derendingen"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-13-std-valora-derendingen"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-13-std-valora-derendingen"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-13-std-valora-derendingen"
+      ]
     },
     {
       "id": "valora-71cf11e373f1",
-      "slug": "verkauferin-verkaufer-k-kiosk-60-valora-brig",
+      "slug": "venditore-venditore-k-chiosco-60-valora-group-brig",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-60-valora-brig",
-        "it": "verkauferin-verkaufer-k-kiosk-60-valora-brig",
-        "en": "verkauferin-verkaufer-k-kiosk-60-valora-brig",
-        "fr": "verkauferin-verkaufer-k-kiosk-60-valora-brig"
+        "it": "venditore-venditore-k-chiosco-60-valora-group-brig",
+        "en": "seller-seller-k-kiosk-60-valora-group-brig",
+        "fr": "vendeur-vendeur-k-kiosque-60-valora-group-brig"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2257,16 +2523,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.433Z"
+      "firstSeenAt": "2026-07-04T12:43:13.433Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-60-valora-brig"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-60-valora-brig"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-60-valora-brig"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-60-valora-brig"
+      ]
     },
     {
       "id": "valora-ed9f3a6d08a3",
-      "slug": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
+      "slug": "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
-        "it": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
-        "en": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
-        "fr": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        "it": "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf",
+        "en": "seller-seller-k-kiosk-10-hours-valora-group-uetendorf",
+        "fr": "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2323,7 +2603,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.433Z"
+      "firstSeenAt": "2026-07-04T12:43:13.433Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+      ]
     },
     {
       "id": "valora-f7847d5e9bd7",
@@ -2528,11 +2822,11 @@
     },
     {
       "id": "valora-773ba873c128",
-      "slug": "manager-integration-services-f-m-d-valora-muttenz",
+      "slug": "servizi-di-integrazione-manager-f-m-d-valora-group-muttenz",
       "slugByLocale": {
         "en": "manager-integration-services-f-m-d-valora-muttenz",
-        "it": "manager-integration-services-f-m-d-valora-muttenz",
-        "de": "manager-integration-services-f-m-d-valora-muttenz",
+        "it": "servizi-di-integrazione-manager-f-m-d-valora-group-muttenz",
+        "de": "manager-integrationsdienste-w-m-d-valora-group-muttenz",
         "fr": "manager-integration-services-f-m-d-valora-muttenz"
       },
       "company": "Valora Group",
@@ -2590,14 +2884,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.426Z"
+      "firstSeenAt": "2026-07-04T12:43:13.426Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-integration-services-f-m-d-valora-muttenz"
+        ],
+        "de": [
+          "manager-integration-services-f-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "manager-integration-services-f-m-d-valora-muttenz"
+      ]
     },
     {
       "id": "valora-d13e479f3783",
-      "slug": "manager-integration-services-w-m-d-valora-muttenz",
+      "slug": "servizi-di-integrazione-manager-f-m-d-valora-group-muttenz-4db532",
       "slugByLocale": {
         "de": "manager-integration-services-w-m-d-valora-muttenz",
-        "it": "manager-integration-services-w-m-d-valora-muttenz",
+        "it": "servizi-di-integrazione-manager-f-m-d-valora-group-muttenz-4db532",
         "en": "manager-integration-services-w-m-d-valora-muttenz",
         "fr": "manager-integration-services-w-m-d-valora-muttenz"
       },
@@ -2656,7 +2961,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.423Z"
+      "firstSeenAt": "2026-07-04T12:43:13.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-integration-services-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "manager-integration-services-w-m-d-valora-muttenz"
+      ]
     },
     {
       "id": "valora-a3b60fc49f5b",
@@ -2727,12 +3040,12 @@
     },
     {
       "id": "valora-6d97900f4ee4",
-      "slug": "management-amp-project-assistant-w-m-d-valora-muttenz",
+      "slug": "gestione-project-assistant-f-m-d-valora-group-muttenz",
       "slugByLocale": {
         "de": "management-amp-project-assistant-w-m-d-valora-muttenz",
-        "it": "management-amp-project-assistant-w-m-d-valora-muttenz",
+        "it": "gestione-project-assistant-f-m-d-valora-group-muttenz",
         "en": "management-amp-project-assistant-w-m-d-valora-muttenz",
-        "fr": "management-amp-project-assistant-w-m-d-valora-muttenz"
+        "fr": "assistant-de-gestion-et-de-projet-f-m-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2789,7 +3102,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.422Z"
+      "firstSeenAt": "2026-07-04T12:43:13.422Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "management-amp-project-assistant-w-m-d-valora-muttenz"
+        ],
+        "fr": [
+          "management-amp-project-assistant-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "management-amp-project-assistant-w-m-d-valora-muttenz"
+      ]
     },
     {
       "id": "valora-702992765f06",
@@ -2875,7 +3199,7 @@
         "de": "sap-employee-central-payroll-ecp-consultant-w-m-d-valora-muttenz",
         "it": "sap-employee-central-payroll-ecp-consultant-w-m-d-valora-muttenz",
         "en": "sap-employee-central-payroll-ecp-consultant-w-m-d-valora-muttenz",
-        "fr": "sap-employee-central-payroll-ecp-consultant-w-m-d-valora-muttenz"
+        "fr": "conseiller-en-remuneration-centrale-pce-de-l-employe-sap-f-m-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2936,12 +3260,12 @@
     },
     {
       "id": "valora-3c40da2d474a",
-      "slug": "verkauferin-verkaufer-k-kiosk-8-std-woche-valora-bern",
+      "slug": "venditore-venditore-k-chiosco-8-ore-settimana-valora-group-bern",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-8-std-woche-valora-bern",
-        "it": "verkauferin-verkaufer-k-kiosk-8-std-woche-valora-bern",
-        "en": "verkauferin-verkaufer-k-kiosk-8-std-woche-valora-bern",
-        "fr": "verkauferin-verkaufer-k-kiosk-8-std-woche-valora-bern"
+        "it": "venditore-venditore-k-chiosco-8-ore-settimana-valora-group-bern",
+        "en": "seller-seller-k-kiosk-8-hours-week-valora-group-bern",
+        "fr": "vendeur-vendeur-k-kiosque-8-heures-semaine-valora-group-bern"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2998,7 +3322,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.421Z"
+      "firstSeenAt": "2026-07-04T12:43:13.421Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-8-std-woche-valora-bern"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-8-std-woche-valora-bern"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-8-std-woche-valora-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-8-std-woche-valora-bern"
+      ]
     },
     {
       "id": "valora-cab209f5124a",
@@ -3007,7 +3345,7 @@
         "de": "category-field-manager-non-food-w-m-d-valora-muttenz",
         "it": "category-field-manager-non-food-w-m-d-valora-muttenz",
         "en": "category-field-manager-non-food-w-m-d-valora-muttenz",
-        "fr": "category-field-manager-non-food-w-m-d-valora-muttenz"
+        "fr": "categorie-gestionnaire-de-terrain-non-alimentation-f-m-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3068,12 +3406,12 @@
     },
     {
       "id": "valora-dbbff5057602",
-      "slug": "sachbearbeiter-facility-management-100-w-m-d-valora-muttenz",
+      "slug": "gestione-delle-strutture-100-f-m-d-valora-group-muttenz",
       "slugByLocale": {
         "de": "sachbearbeiter-facility-management-100-w-m-d-valora-muttenz",
-        "it": "sachbearbeiter-facility-management-100-w-m-d-valora-muttenz",
+        "it": "gestione-delle-strutture-100-f-m-d-valora-group-muttenz",
         "en": "sachbearbeiter-facility-management-100-w-m-d-valora-muttenz",
-        "fr": "sachbearbeiter-facility-management-100-w-m-d-valora-muttenz"
+        "fr": "gestion-des-installations-100-f-m-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3130,7 +3468,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.418Z"
+      "firstSeenAt": "2026-07-04T12:43:13.418Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-facility-management-100-w-m-d-valora-muttenz"
+        ],
+        "fr": [
+          "sachbearbeiter-facility-management-100-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-facility-management-100-w-m-d-valora-muttenz"
+      ]
     },
     {
       "id": "valora-4189d7d3e44c",
@@ -3266,12 +3615,12 @@
     },
     {
       "id": "valora-0063ef7817a8",
-      "slug": "manager-betreibermodelle-w-m-d-valora-muttenz",
+      "slug": "modelli-di-operatore-di-gestione-f-m-d-valora-group-muttenz",
       "slugByLocale": {
         "de": "manager-betreibermodelle-w-m-d-valora-muttenz",
-        "it": "manager-betreibermodelle-w-m-d-valora-muttenz",
-        "en": "manager-betreibermodelle-w-m-d-valora-muttenz",
-        "fr": "manager-betreibermodelle-w-m-d-valora-muttenz"
+        "it": "modelli-di-operatore-di-gestione-f-m-d-valora-group-muttenz",
+        "en": "manager-operator-models-f-m-d-valora-group-muttenz",
+        "fr": "modeles-d-operateur-gestionnaire-f-m-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3328,7 +3677,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.415Z"
+      "firstSeenAt": "2026-07-04T12:43:13.415Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-betreibermodelle-w-m-d-valora-muttenz"
+        ],
+        "en": [
+          "manager-betreibermodelle-w-m-d-valora-muttenz"
+        ],
+        "fr": [
+          "manager-betreibermodelle-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "manager-betreibermodelle-w-m-d-valora-muttenz"
+      ]
     },
     {
       "id": "valora-666960abf792",
@@ -3398,12 +3761,12 @@
     },
     {
       "id": "valora-b105d2d7e124",
-      "slug": "immobilienbewirtschafter-w-m-d-valora-group-muttenz",
+      "slug": "real-estate-manager-f-m-d-valora-group-muttenz",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-w-m-d-valora-muttenz",
-        "it": "immobilienbewirtschafter-w-m-d-valora-group-muttenz",
+        "it": "real-estate-manager-f-m-d-valora-group-muttenz",
         "en": "immobilienbewirtschafter-w-m-d-valora-group-muttenz",
-        "fr": "immobilienbewirtschafter-w-m-d-valora-group-muttenz"
+        "fr": "directeur-immobilier-f-m-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3450,11 +3813,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbewirtschafter-w-m-d-valora-muttenz"
+          "immobilienbewirtschafter-w-m-d-valora-muttenz",
+          "immobilienbewirtschafter-w-m-d-valora-group-muttenz"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-w-m-d-valora-group-muttenz"
         ]
       },
       "previousSlugs": [
-        "immobilienbewirtschafter-w-m-d-valora-muttenz"
+        "immobilienbewirtschafter-w-m-d-valora-muttenz",
+        "immobilienbewirtschafter-w-m-d-valora-group-muttenz"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3472,12 +3840,12 @@
     },
     {
       "id": "valora-9f060ef633aa",
-      "slug": "verkauferin-verkaufer-avec-12-std-valora-liebefeld",
+      "slug": "venditore-avec-12-ore-valora-group-liebefeld",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-avec-12-std-valora-liebefeld",
-        "it": "verkauferin-verkaufer-avec-12-std-valora-liebefeld",
-        "en": "verkauferin-verkaufer-avec-12-std-valora-liebefeld",
-        "fr": "verkauferin-verkaufer-avec-12-std-valora-liebefeld"
+        "it": "venditore-avec-12-ore-valora-group-liebefeld",
+        "en": "seller-avec-12-hours-valora-group-liebefeld",
+        "fr": "vendeur-avec-12-heures-valora-group-liebefeld"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3534,7 +3902,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:13.412Z"
+      "firstSeenAt": "2026-07-04T12:43:13.412Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-avec-12-std-valora-liebefeld"
+        ],
+        "en": [
+          "verkauferin-verkaufer-avec-12-std-valora-liebefeld"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-avec-12-std-valora-liebefeld"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-avec-12-std-valora-liebefeld"
+      ]
     }
   ]
 }

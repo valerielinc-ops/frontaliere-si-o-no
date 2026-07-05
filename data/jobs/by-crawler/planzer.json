@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "planzer-abc3f9bd4633",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-emmen",
+      "slug": "gatto-di-chauffeur-ce-m-f-d-planzer-emmen",
       "slugByLocale": {
-        "it": "chauffeur-kat-ce-m-w-d-planzer-emmen",
-        "en": "chauffeur-kat-ce-m-w-d-planzer-emmen",
+        "it": "gatto-di-chauffeur-ce-m-f-d-planzer-emmen",
+        "en": "chauffeur-cat-ce-m-f-d-planzer-emmen",
         "de": "chauffeur-kat-ce-m-w-d-planzer-emmen",
         "fr": "chauffeur-kat-ce-m-w-d-planzer-emmen"
       },
@@ -65,16 +65,27 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-emmen"
+        ],
+        "en": [
+          "chauffeur-kat-ce-m-w-d-planzer-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-emmen"
+      ]
     },
     {
       "id": "planzer-def680875ae8",
-      "slug": "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen",
+      "slug": "amministrazione-logistica-del-personale-m-f-d-planzer-villmergen",
       "slugByLocale": {
-        "it": "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen",
-        "en": "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen",
+        "it": "amministrazione-logistica-del-personale-m-f-d-planzer-villmergen",
+        "en": "personnel-logistics-administration-m-f-d-planzer-villmergen",
         "de": "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen",
-        "fr": "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
+        "fr": "administration-de-la-logistique-du-personnel-m-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -130,16 +141,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
+        ],
+        "en": [
+          "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
+          "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
+      ]
     },
     {
       "id": "planzer-126cfb0f2252",
       "slug": "collaboratore-trice-paketsortierung-m-w-d-planzer-kolliken",
       "slugByLocale": {
         "it": "collaboratore-trice-paketsortierung-m-w-d-planzer-kolliken",
-        "en": "mitarbeiter-paketsortierung-m-w-d-planzer-kolliken",
+        "en": "employee-package-sorting-m-f-d-planzer-kolliken",
         "de": "mitarbeiter-paketsortierung-m-w-d-planzer-kolliken",
-        "fr": "mitarbeiter-paketsortierung-m-w-d-planzer-kolliken"
+        "fr": "tri-des-paquets-d-employes-m-f-d-planzer-kolliken"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -188,8 +213,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-paketsortierung-m-w-d-planzer-kolliken",
-          "collaboratore-trice-paketsortierung-m-w-d-planzer-kolliken"
+          "mitarbeiter-paketsortierung-m-w-d-planzer-kolliken"
+        ],
+        "en": [
+          "mitarbeiter-paketsortierung-m-w-d-planzer-kolliken"
+        ],
+        "fr": [
+          "mitarbeiter-paketsortierung-m-w-d-planzer-kolliken"
         ]
       },
       "firstSeenAt": "2026-07-04T12:15:55.594Z",
@@ -208,12 +238,12 @@
     },
     {
       "id": "planzer-d9f88756759a",
-      "slug": "disponent-stuckgut-m-w-d-planzer-villmergen",
+      "slug": "distribuzione-del-carico-generale-m-f-d-planzer-villmergen",
       "slugByLocale": {
-        "it": "disponent-stuckgut-m-w-d-planzer-villmergen",
-        "en": "disponent-stuckgut-m-w-d-planzer-villmergen",
+        "it": "distribuzione-del-carico-generale-m-f-d-planzer-villmergen",
+        "en": "dispatch-of-general-cargo-m-f-d-planzer-villmergen",
         "de": "disponent-stuckgut-m-w-d-planzer-villmergen",
-        "fr": "disponent-stuckgut-m-w-d-planzer-villmergen"
+        "fr": "expedition-de-marchandises-generales-m-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -269,7 +299,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-stuckgut-m-w-d-planzer-villmergen"
+        ],
+        "en": [
+          "disponent-stuckgut-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
+          "disponent-stuckgut-m-w-d-planzer-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-stuckgut-m-w-d-planzer-villmergen"
+      ]
     },
     {
       "id": "planzer-76b6ac3e3021",
@@ -327,8 +371,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cobol-developer-m-w-d-planzer-dietikon",
-          "cobol-sviluppatore-m-w-d-planzer-dietikon"
+          "cobol-developer-m-w-d-planzer-dietikon"
         ],
         "fr": [
           "cobol-developer-m-w-d-planzer-dietikon"
@@ -415,9 +458,9 @@
     },
     {
       "id": "planzer-6f8c75280bf7",
-      "slug": "chauffeur-kat-c-m-w-d-planzer-dietikon",
+      "slug": "chauffeur-cat-c-m-f-d-planzer-dietikon",
       "slugByLocale": {
-        "it": "chauffeur-kat-c-m-w-d-planzer-dietikon",
+        "it": "chauffeur-cat-c-m-f-d-planzer-dietikon",
         "en": "chauffeur-kat-c-m-w-d-planzer-dietikon",
         "de": "chauffeur-kat-c-m-w-d-planzer-dietikon",
         "fr": "chauffeur-kat-c-m-w-d-planzer-dietikon"
@@ -476,14 +519,22 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-3ca9fa1a2f63",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
+      "slug": "gatto-di-chauffeur-ce-m-f-d-planzer-marstetten",
       "slugByLocale": {
-        "it": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
-        "en": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
+        "it": "gatto-di-chauffeur-ce-m-f-d-planzer-marstetten",
+        "en": "chauffeur-cat-ce-m-f-d-planzer-marstetten",
         "de": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
         "fr": "chauffeur-kat-ce-m-w-d-planzer-marstetten"
       },
@@ -541,16 +592,27 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+        ],
+        "en": [
+          "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+      ]
     },
     {
       "id": "planzer-70ec77fb3e0a",
-      "slug": "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen",
+      "slug": "tecnico-operativo-in-2-turni-m-f-d-planzer-harkingen",
       "slugByLocale": {
-        "it": "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen",
-        "en": "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen",
+        "it": "tecnico-operativo-in-2-turni-m-f-d-planzer-harkingen",
+        "en": "operational-technician-in-2-shift-operation-m-f-d-planzer-harkingen",
         "de": "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen",
-        "fr": "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
+        "fr": "technicien-operationnel-en-2-postes-m-f-d-planzer-harkingen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -606,16 +668,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
+        ],
+        "en": [
+          "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
+        ],
+        "fr": [
+          "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
+        ]
+      },
+      "previousSlugs": [
+        "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
+      ]
     },
     {
       "id": "planzer-695b007bc1fd",
-      "slug": "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon",
+      "slug": "chauffeur-cat-c-ce-nel-settore-dei-veicoli-a-gru-jumpers-m-f-d-planzer-schmerikon",
       "slugByLocale": {
         "de": "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon",
-        "it": "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon",
-        "en": "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon",
-        "fr": "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
+        "it": "chauffeur-cat-c-ce-nel-settore-dei-veicoli-a-gru-jumpers-m-f-d-planzer-schmerikon",
+        "en": "chauffeur-cat-c-ce-in-the-field-of-crane-vehicles-jumpers-m-f-d-planzer-schmerikon",
+        "fr": "chauffeur-cat-c-ce-dans-le-domaine-des-vehicules-a-grue-jumpers-m-f-d-planzer-schmerikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -672,14 +748,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T22:48:40.794Z"
+      "firstSeenAt": "2026-07-04T22:48:40.794Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
+        ],
+        "en": [
+          "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
+          "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
+      ]
     },
     {
       "id": "planzer-b6fce477bcbd",
-      "slug": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
+      "slug": "chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
-        "it": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
+        "it": "chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs",
         "en": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
         "fr": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs"
       },
@@ -739,7 +829,15 @@
         }
       },
       "firstSeenAt": "2026-07-04T12:15:57.696Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs"
+      ]
     }
   ]
 }

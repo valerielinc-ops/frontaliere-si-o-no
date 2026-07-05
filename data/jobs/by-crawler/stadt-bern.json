@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "stadt-bern-3b169ae7b01a",
-      "slug": "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
+      "slug": "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern",
       "slugByLocale": {
         "de": "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
-        "it": "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
-        "en": "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
-        "fr": "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern"
+        "it": "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern",
+        "en": "adult-protection-professional-assistant-stadt-bern-bern",
+        "fr": "assistant-professionnel-de-protection-des-adultes-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -65,16 +65,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.739Z"
+      "firstSeenAt": "2026-07-04T12:31:55.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "en": [
+          "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "fr": [
+          "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-37dd788cb791",
-      "slug": "springer-in-im-erwachsenenschutz-stadt-bern-bern",
+      "slug": "springer-in-nella-protezione-degli-adulti-stadt-bern-bern",
       "slugByLocale": {
         "de": "springer-in-im-erwachsenenschutz-stadt-bern-bern",
-        "it": "springer-in-im-erwachsenenschutz-stadt-bern-bern",
-        "en": "springer-in-im-erwachsenenschutz-stadt-bern-bern",
-        "fr": "springer-in-im-erwachsenenschutz-stadt-bern-bern"
+        "it": "springer-in-nella-protezione-degli-adulti-stadt-bern-bern",
+        "en": "springer-in-in-adult-protection-stadt-bern-bern",
+        "fr": "springer-in-dans-la-protection-des-adultes-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -130,16 +144,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.740Z"
+      "firstSeenAt": "2026-07-04T12:31:55.740Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "springer-in-im-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "en": [
+          "springer-in-im-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "fr": [
+          "springer-in-im-erwachsenenschutz-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "springer-in-im-erwachsenenschutz-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-4f5b6d77ecfc",
-      "slug": "vorarbeiter-in-stadt-bern-bern",
+      "slug": "foreman-stadt-bern-bern",
       "slugByLocale": {
         "de": "vorarbeiter-in-stadt-bern-bern",
-        "it": "vorarbeiter-in-stadt-bern-bern",
+        "it": "foreman-stadt-bern-bern",
         "en": "vorarbeiter-in-stadt-bern-bern",
-        "fr": "vorarbeiter-in-stadt-bern-bern"
+        "fr": "contremaitre-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -195,7 +223,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.740Z"
+      "firstSeenAt": "2026-07-04T12:31:55.740Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorarbeiter-in-stadt-bern-bern"
+        ],
+        "fr": [
+          "vorarbeiter-in-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "vorarbeiter-in-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-7c63b72c5c77",
@@ -203,8 +242,8 @@
       "slugByLocale": {
         "de": "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
         "it": "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
-        "en": "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
-        "fr": "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern"
+        "en": "teaching-as-a-motorized-mechanic-efz-stadt-bern-bern",
+        "fr": "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -251,6 +290,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern"
+        ],
+        "en": [
+          "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
@@ -272,12 +317,12 @@
     },
     {
       "id": "stadt-bern-d9ece9ee8baa",
-      "slug": "fachmitarbeiter-in-hausdienst-stadt-bern-bern",
+      "slug": "specialista-nel-servizio-domestico-stadt-bern-bern",
       "slugByLocale": {
         "de": "fachmitarbeiter-in-hausdienst-stadt-bern-bern",
-        "it": "fachmitarbeiter-in-hausdienst-stadt-bern-bern",
-        "en": "fachmitarbeiter-in-hausdienst-stadt-bern-bern",
-        "fr": "fachmitarbeiter-in-hausdienst-stadt-bern-bern"
+        "it": "specialista-nel-servizio-domestico-stadt-bern-bern",
+        "en": "specialist-in-domestic-service-stadt-bern-bern",
+        "fr": "specialiste-en-service-domestique-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -333,16 +378,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.737Z"
+      "firstSeenAt": "2026-07-04T12:31:55.737Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmitarbeiter-in-hausdienst-stadt-bern-bern"
+        ],
+        "en": [
+          "fachmitarbeiter-in-hausdienst-stadt-bern-bern"
+        ],
+        "fr": [
+          "fachmitarbeiter-in-hausdienst-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachmitarbeiter-in-hausdienst-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-07e582d8655e",
-      "slug": "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern",
+      "slug": "membro-della-direzione-medica-area-di-responsabilita-centro-di-chiamata-di-emergenza-stadt-bern-bern",
       "slugByLocale": {
         "de": "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern",
-        "it": "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern",
-        "en": "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern",
-        "fr": "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern"
+        "it": "membro-della-direzione-medica-area-di-responsabilita-centro-di-chiamata-di-emergenza-stadt-bern-bern",
+        "en": "member-of-the-medical-management-area-of-responsibility-emergency-call-centre-stadt-bern-bern",
+        "fr": "membre-de-la-direction-medicale-secteur-de-responsabilite-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -398,16 +457,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.739Z"
+      "firstSeenAt": "2026-07-04T12:31:55.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern"
+        ],
+        "en": [
+          "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern"
+        ],
+        "fr": [
+          "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-43643bf27597",
-      "slug": "betreuungsfachperson-tertiar-stadt-bern-bern",
+      "slug": "terziario-professionale-stadt-bern-bern",
       "slugByLocale": {
         "de": "betreuungsfachperson-tertiar-stadt-bern-bern",
-        "it": "betreuungsfachperson-tertiar-stadt-bern-bern",
-        "en": "betreuungsfachperson-tertiar-stadt-bern-bern",
-        "fr": "betreuungsfachperson-tertiar-stadt-bern-bern"
+        "it": "terziario-professionale-stadt-bern-bern",
+        "en": "tertiary-care-professional-stadt-bern-bern",
+        "fr": "specialiste-des-soins-tertiaires-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -463,16 +536,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.738Z"
+      "firstSeenAt": "2026-07-04T12:31:55.738Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betreuungsfachperson-tertiar-stadt-bern-bern"
+        ],
+        "en": [
+          "betreuungsfachperson-tertiar-stadt-bern-bern"
+        ],
+        "fr": [
+          "betreuungsfachperson-tertiar-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "betreuungsfachperson-tertiar-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-ed44079f79f9",
-      "slug": "bereichsleiter-in-entwicklung-stadt-bern-bern",
+      "slug": "division-manager-in-sviluppo-stadt-bern-bern",
       "slugByLocale": {
         "de": "bereichsleiter-in-entwicklung-stadt-bern-bern",
-        "it": "bereichsleiter-in-entwicklung-stadt-bern-bern",
-        "en": "bereichsleiter-in-entwicklung-stadt-bern-bern",
-        "fr": "bereichsleiter-in-entwicklung-stadt-bern-bern"
+        "it": "division-manager-in-sviluppo-stadt-bern-bern",
+        "en": "division-manager-in-development-stadt-bern-bern",
+        "fr": "directeur-de-division-en-developpement-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -528,16 +615,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.737Z"
+      "firstSeenAt": "2026-07-04T12:31:55.737Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichsleiter-in-entwicklung-stadt-bern-bern"
+        ],
+        "en": [
+          "bereichsleiter-in-entwicklung-stadt-bern-bern"
+        ],
+        "fr": [
+          "bereichsleiter-in-entwicklung-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "bereichsleiter-in-entwicklung-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-bd88a4d4be75",
-      "slug": "bereichsleiter-in-entwicklung-stadt-bern-bern-2",
+      "slug": "division-manager-in-sviluppo-stadt-bern-bern-596d9f",
       "slugByLocale": {
         "de": "bereichsleiter-in-entwicklung-stadt-bern-bern",
-        "it": "bereichsleiter-in-entwicklung-stadt-bern-bern-2",
-        "en": "bereichsleiter-in-entwicklung-stadt-bern-bern-2",
-        "fr": "bereichsleiter-in-entwicklung-stadt-bern-bern-2"
+        "it": "division-manager-in-sviluppo-stadt-bern-bern-596d9f",
+        "en": "division-manager-in-development-stadt-bern-bern-596d9f",
+        "fr": "directeur-de-division-en-developpement-stadt-bern-bern-596d9f"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -593,16 +694,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.736Z"
+      "firstSeenAt": "2026-07-04T12:31:55.736Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichsleiter-in-entwicklung-stadt-bern-bern-2"
+        ],
+        "en": [
+          "bereichsleiter-in-entwicklung-stadt-bern-bern-2"
+        ],
+        "fr": [
+          "bereichsleiter-in-entwicklung-stadt-bern-bern-2"
+        ]
+      },
+      "previousSlugs": [
+        "bereichsleiter-in-entwicklung-stadt-bern-bern-2"
+      ]
     },
     {
       "id": "stadt-bern-a9f3646cb452",
-      "slug": "projektleiter-in-lichtsignalanlagen-stadt-bern",
+      "slug": "project-manager-in-sistemi-di-segnale-luminoso-stadt-bern-bern",
       "slugByLocale": {
         "de": "projektleiter-in-lichtsignalanlagen-stadt-bern-bern",
-        "it": "projektleiter-in-lichtsignalanlagen-stadt-bern",
-        "en": "projektleiter-in-lichtsignalanlagen-stadt-bern-bern",
-        "fr": "projektleiter-in-lichtsignalanlagen-stadt-bern-bern"
+        "it": "project-manager-in-sistemi-di-segnale-luminoso-stadt-bern-bern",
+        "en": "project-manager-in-light-signal-systems-stadt-bern-bern",
+        "fr": "gestionnaire-de-projet-dans-les-systemes-de-signalisation-lumineuse-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -648,11 +763,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-lichtsignalanlagen-stadt-bern-bern",
+          "projektleiter-in-lichtsignalanlagen-stadt-bern"
+        ],
+        "en": [
+          "projektleiter-in-lichtsignalanlagen-stadt-bern-bern"
+        ],
+        "fr": [
           "projektleiter-in-lichtsignalanlagen-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-lichtsignalanlagen-stadt-bern-bern"
+        "projektleiter-in-lichtsignalanlagen-stadt-bern-bern",
+        "projektleiter-in-lichtsignalanlagen-stadt-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -675,7 +798,7 @@
         "de": "ict-supporter-in-service-desk-stadt-bern-bern",
         "it": "ict-supporter-in-service-desk-stadt-bern-bern",
         "en": "ict-supporter-in-service-desk-stadt-bern-bern",
-        "fr": "ict-supporter-in-service-desk-stadt-bern-bern"
+        "fr": "supporteur-tic-service-desk-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -735,12 +858,12 @@
     },
     {
       "id": "stadt-bern-c1b4ae206b3c",
-      "slug": "hilfskoch-hilfskochin-stadt-bern-bern",
+      "slug": "assistente-cuoco-cuoco-ausiliario-stadt-bern-bern",
       "slugByLocale": {
         "de": "hilfskoch-hilfskochin-stadt-bern-bern",
-        "it": "hilfskoch-hilfskochin-stadt-bern-bern",
-        "en": "hilfskoch-hilfskochin-stadt-bern-bern",
-        "fr": "hilfskoch-hilfskochin-stadt-bern-bern"
+        "it": "assistente-cuoco-cuoco-ausiliario-stadt-bern-bern",
+        "en": "assistant-cook-auxiliary-cook-stadt-bern-bern",
+        "fr": "cuisinier-adjoint-cuisinier-auxiliaire-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -796,16 +919,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.734Z"
+      "firstSeenAt": "2026-07-04T12:31:55.734Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskoch-hilfskochin-stadt-bern-bern"
+        ],
+        "en": [
+          "hilfskoch-hilfskochin-stadt-bern-bern"
+        ],
+        "fr": [
+          "hilfskoch-hilfskochin-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskoch-hilfskochin-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-1cdd2ca4743e",
-      "slug": "betreuungsfachperson-stadt-bern-bern",
+      "slug": "cura-professionale-stadt-bern-bern",
       "slugByLocale": {
         "de": "betreuungsfachperson-stadt-bern-bern",
-        "it": "betreuungsfachperson-stadt-bern-bern",
-        "en": "betreuungsfachperson-stadt-bern-bern",
-        "fr": "betreuungsfachperson-stadt-bern-bern"
+        "it": "cura-professionale-stadt-bern-bern",
+        "en": "care-professional-stadt-bern-bern",
+        "fr": "professionnel-de-soins-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -861,7 +998,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.734Z"
+      "firstSeenAt": "2026-07-04T12:31:55.734Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betreuungsfachperson-stadt-bern-bern"
+        ],
+        "en": [
+          "betreuungsfachperson-stadt-bern-bern"
+        ],
+        "fr": [
+          "betreuungsfachperson-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "betreuungsfachperson-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-e008f4d21939",
@@ -869,8 +1020,8 @@
       "slugByLocale": {
         "de": "fachangestellte-r-verkehrspolizeiliche-bewilligungen-orts-und-gewerbepolizei-stadt-bern",
         "it": "fachangestellte-r-verkehrspolizeiliche-bewilligungen-orts-e-gewerbepolizei-stadt-bern",
-        "en": "fachangestellte-r-verkehrspolizeiliche-bewilligungen-orts-und-gewerbepolizei-stadt-bern",
-        "fr": "fachangestellte-r-verkehrspolizeiliche-bewilligungen-orts-und-gewerbepolizei-stadt-bern"
+        "en": "specialist-employees-r-traffic-police-permits-local-and-commercial-police-stadt-bern-bern",
+        "fr": "employes-specialises-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -917,6 +1068,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachangestellte-r-verkehrspolizeiliche-bewilligungen-orts-und-gewerbepolizei-stadt-bern"
+        ],
+        "en": [
+          "fachangestellte-r-verkehrspolizeiliche-bewilligungen-orts-und-gewerbepolizei-stadt-bern"
+        ],
+        "fr": [
+          "fachangestellte-r-verkehrspolizeiliche-bewilligungen-orts-und-gewerbepolizei-stadt-bern"
         ]
       },
       "previousSlugs": [
@@ -942,8 +1099,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-punkt6-stadt-bern-bern",
         "it": "collaboratore-trice-in-punkt6-stadt-bern",
-        "en": "mitarbeiter-in-punkt6-stadt-bern-bern",
-        "fr": "mitarbeiter-in-punkt6-stadt-bern-bern"
+        "en": "employees-in-point-6-stadt-bern-bern",
+        "fr": "employes-au-point-6-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -990,6 +1147,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-punkt6-stadt-bern-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-punkt6-stadt-bern-bern"
+        ],
+        "fr": [
+          "mitarbeiter-in-punkt6-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
@@ -1011,12 +1174,12 @@
     },
     {
       "id": "stadt-bern-e274a7269bd1",
-      "slug": "sozialarbeiter-in-kindesschutz-stadt-bern-bern",
+      "slug": "lavoratore-sociale-nella-protezione-dei-bambini-stadt-bern-bern",
       "slugByLocale": {
         "de": "sozialarbeiter-in-kindesschutz-stadt-bern-bern",
-        "it": "sozialarbeiter-in-kindesschutz-stadt-bern-bern",
-        "en": "sozialarbeiter-in-kindesschutz-stadt-bern-bern",
-        "fr": "sozialarbeiter-in-kindesschutz-stadt-bern-bern"
+        "it": "lavoratore-sociale-nella-protezione-dei-bambini-stadt-bern-bern",
+        "en": "social-worker-in-child-protection-stadt-bern-bern",
+        "fr": "travailleur-social-en-protection-de-l-enfance-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1072,16 +1235,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.732Z"
+      "firstSeenAt": "2026-07-04T12:31:55.732Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-kindesschutz-stadt-bern-bern"
+        ],
+        "en": [
+          "sozialarbeiter-in-kindesschutz-stadt-bern-bern"
+        ],
+        "fr": [
+          "sozialarbeiter-in-kindesschutz-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-kindesschutz-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-95559103cdbe",
-      "slug": "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern",
+      "slug": "lavoratore-sociale-nella-protezione-dei-minori-rappresentazione-della-maternita-stadt-bern-bern",
       "slugByLocale": {
         "de": "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern",
-        "it": "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern",
-        "en": "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern",
-        "fr": "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern"
+        "it": "lavoratore-sociale-nella-protezione-dei-minori-rappresentazione-della-maternita-stadt-bern-bern",
+        "en": "social-worker-in-child-protection-maternity-representation-stadt-bern-bern",
+        "fr": "travailleur-social-dans-la-protection-de-l-enfance-representation-de-la-maternite-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1137,7 +1314,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.733Z"
+      "firstSeenAt": "2026-07-04T12:31:55.733Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern"
+        ],
+        "en": [
+          "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern"
+        ],
+        "fr": [
+          "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-2373e07f5947",
@@ -1145,8 +1336,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-in-administration-mit-schwerpunkt-finanzen-amp-controlling-stadt-bern-bern",
         "it": "sachbearbeiter-in-administration-mit-schwerpunkt-finanzen-amp-controlling-stadt-bern-bern",
-        "en": "sachbearbeiter-in-administration-mit-schwerpunkt-finanzen-amp-controlling-stadt-bern-bern",
-        "fr": "sachbearbeiter-in-administration-mit-schwerpunkt-finanzen-amp-controlling-stadt-bern-bern"
+        "en": "administration-with-a-focus-on-finance-controlling-stadt-bern-bern",
+        "fr": "administration-axee-sur-les-finances-et-le-controle-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1206,12 +1397,12 @@
     },
     {
       "id": "stadt-bern-fb4ba4853237",
-      "slug": "jurist-in-stadt-bern-bern",
+      "slug": "un-avvocato-stadt-bern-bern",
       "slugByLocale": {
         "de": "jurist-in-stadt-bern-bern",
-        "it": "jurist-in-stadt-bern-bern",
-        "en": "jurist-in-stadt-bern-bern",
-        "fr": "jurist-in-stadt-bern-bern"
+        "it": "un-avvocato-stadt-bern-bern",
+        "en": "a-lawyer-stadt-bern-bern",
+        "fr": "un-avocat-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1267,7 +1458,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.731Z"
+      "firstSeenAt": "2026-07-04T12:31:55.731Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-stadt-bern-bern"
+        ],
+        "en": [
+          "jurist-in-stadt-bern-bern"
+        ],
+        "fr": [
+          "jurist-in-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-468547082be3",
@@ -1275,8 +1480,8 @@
       "slugByLocale": {
         "de": "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-amp",
         "it": "programm-e-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern",
-        "en": "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern-bern",
-        "fr": "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern-bern"
+        "en": "program-and-project-manager-in-data-excellence-focus-on-data-management-data-architecture-stadt-bern-bern",
+        "fr": "gestionnaire-de-programme-et-de-projet-dans-excellence-des-donnees-focus-sur-la-gestion-des-donnees-et-l-architecture"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1323,10 +1528,17 @@
       "previousSlugsByLocale": {
         "it": [
           "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-amp"
+        ],
+        "en": [
+          "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern-bern"
+        ],
+        "fr": [
+          "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
-        "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-amp"
+        "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-amp",
+        "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern-bern"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -1344,12 +1556,12 @@
     },
     {
       "id": "stadt-bern-f76e2de30dc8",
-      "slug": "leiter-in-digitale-unternehmensarchitektur-stadt-bern",
+      "slug": "responsabile-dell-architettura-digitale-aziendale-stadt-bern-bern",
       "slugByLocale": {
         "de": "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern",
-        "it": "leiter-in-digitale-unternehmensarchitektur-stadt-bern",
-        "en": "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern",
-        "fr": "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern"
+        "it": "responsabile-dell-architettura-digitale-aziendale-stadt-bern-bern",
+        "en": "head-of-digital-corporate-architecture-stadt-bern-bern",
+        "fr": "responsable-de-l-architecture-d-entreprise-numerique-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1395,11 +1607,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern",
+          "leiter-in-digitale-unternehmensarchitektur-stadt-bern"
+        ],
+        "en": [
+          "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern"
+        ],
+        "fr": [
           "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
-        "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern"
+        "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern",
+        "leiter-in-digitale-unternehmensarchitektur-stadt-bern"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1417,12 +1637,12 @@
     },
     {
       "id": "stadt-bern-74234262d2f1",
-      "slug": "abklarungsperson-erwachsenenschutz-stadt-bern-bern",
+      "slug": "ricercatore-di-protezione-per-adulti-stadt-bern-bern",
       "slugByLocale": {
         "de": "abklarungsperson-erwachsenenschutz-stadt-bern-bern",
-        "it": "abklarungsperson-erwachsenenschutz-stadt-bern-bern",
-        "en": "abklarungsperson-erwachsenenschutz-stadt-bern-bern",
-        "fr": "abklarungsperson-erwachsenenschutz-stadt-bern-bern"
+        "it": "ricercatore-di-protezione-per-adulti-stadt-bern-bern",
+        "en": "adult-protection-investigator-stadt-bern-bern",
+        "fr": "enqueteur-de-la-protection-des-adultes-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1478,16 +1698,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:31:55.727Z"
+      "firstSeenAt": "2026-07-04T12:31:55.727Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "abklarungsperson-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "en": [
+          "abklarungsperson-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "fr": [
+          "abklarungsperson-erwachsenenschutz-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "abklarungsperson-erwachsenenschutz-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-fc2d1af16fa9",
-      "slug": "projektleiter-in-stadt-bern",
+      "slug": "responsabile-del-progetto-stadt-bern-bern",
       "slugByLocale": {
         "de": "projektleiter-in-stadt-bern-bern",
-        "it": "projektleiter-in-stadt-bern",
-        "en": "projektleiter-in-stadt-bern-bern",
-        "fr": "projektleiter-in-stadt-bern-bern"
+        "it": "responsabile-del-progetto-stadt-bern-bern",
+        "en": "project-manager-stadt-bern-bern",
+        "fr": "gestionnaire-de-projet-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1533,11 +1767,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-stadt-bern-bern",
+          "projektleiter-in-stadt-bern"
+        ],
+        "en": [
+          "projektleiter-in-stadt-bern-bern"
+        ],
+        "fr": [
           "projektleiter-in-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-stadt-bern-bern"
+        "projektleiter-in-stadt-bern-bern",
+        "projektleiter-in-stadt-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1559,8 +1801,8 @@
       "slugByLocale": {
         "de": "verantwortliche-r-m365-kollaboration-und-kommunikation-schwerpunkt-schulen-und-power",
         "it": "verantwortliche-r-m365-kollaboration-e-kommunikation-schwerpunkt-schulen-e-power-platform-stadt-bern",
-        "en": "verantwortliche-r-m365-kollaboration-und-kommunikation-schwerpunkt-schulen-und-power",
-        "fr": "verantwortliche-r-m365-kollaboration-und-kommunikation-schwerpunkt-schulen-und-power"
+        "en": "responsible-m365-collaboration-and-communication-focus-on-schools-and-power-platform-stadt-bern-bern",
+        "fr": "collaboration-et-communication-responsables-m365-accent-sur-les-ecoles-et-la-plate-forme-electrique-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1607,6 +1849,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verantwortliche-r-m365-kollaboration-und-kommunikation-schwerpunkt-schulen-und-power"
+        ],
+        "en": [
+          "verantwortliche-r-m365-kollaboration-und-kommunikation-schwerpunkt-schulen-und-power"
+        ],
+        "fr": [
+          "verantwortliche-r-m365-kollaboration-und-kommunikation-schwerpunkt-schulen-und-power"
         ]
       },
       "previousSlugs": [
@@ -1632,8 +1880,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-in-finanzen-und-gebuhren-stadt-bern-bern",
         "it": "sachbearbeiter-in-finanzen-e-gebuhren-stadt-bern",
-        "en": "sachbearbeiter-in-finanzen-und-gebuhren-stadt-bern-bern",
-        "fr": "sachbearbeiter-in-finanzen-und-gebuhren-stadt-bern-bern"
+        "en": "personnel-in-finances-and-fees-stadt-bern-bern",
+        "fr": "personnel-en-finances-et-honoraires-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1679,6 +1927,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-finanzen-und-gebuhren-stadt-bern-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-finanzen-und-gebuhren-stadt-bern-bern"
+        ],
+        "fr": [
           "sachbearbeiter-in-finanzen-und-gebuhren-stadt-bern-bern"
         ]
       },

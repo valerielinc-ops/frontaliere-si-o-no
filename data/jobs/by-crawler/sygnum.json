@@ -70,12 +70,12 @@
     },
     {
       "id": "sygnum-d9d5b434b7a9",
-      "slug": "head-financial-crime-compliance-sygnum-zurich",
+      "slug": "compliance-del-crimine-finanziario-sygnum-bank-zurich",
       "slugByLocale": {
         "en": "head-financial-crime-compliance-sygnum-zurich",
-        "it": "head-financial-crime-compliance-sygnum-zurich",
-        "de": "head-financial-crime-compliance-sygnum-zurich",
-        "fr": "head-financial-crime-compliance-sygnum-zurich"
+        "it": "compliance-del-crimine-finanziario-sygnum-bank-zurich",
+        "de": "leiter-finanzkriminalitat-compliance-sygnum-bank-zurich",
+        "fr": "criminalite-financiere-sygnum-bank-zurich"
       },
       "company": "Sygnum Bank",
       "companyKey": "sygnum",
@@ -132,7 +132,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:01.915Z"
+      "firstSeenAt": "2026-07-04T12:43:01.915Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-financial-crime-compliance-sygnum-zurich"
+        ],
+        "de": [
+          "head-financial-crime-compliance-sygnum-zurich"
+        ],
+        "fr": [
+          "head-financial-crime-compliance-sygnum-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "head-financial-crime-compliance-sygnum-zurich"
+      ]
     },
     {
       "id": "sygnum-f3df3880c0fe",
@@ -141,7 +155,7 @@
         "en": "head-digital-wealth-sygnum-zurich",
         "it": "head-digital-wealth-sygnum-zurich",
         "de": "head-digital-wealth-sygnum-zurich",
-        "fr": "head-digital-wealth-sygnum-zurich"
+        "fr": "richesse-numerique-en-tete-sygnum-bank-zurich"
       },
       "company": "Sygnum Bank",
       "companyKey": "sygnum",
@@ -202,10 +216,10 @@
     },
     {
       "id": "sygnum-1f04e644231a",
-      "slug": "frontend-tech-lead-sygnum-zurich",
+      "slug": "guida-tecnica-anteriore-sygnum-bank-zurich",
       "slugByLocale": {
         "en": "frontend-tech-lead-sygnum-zurich",
-        "it": "frontend-tech-lead-sygnum-zurich",
+        "it": "guida-tecnica-anteriore-sygnum-bank-zurich",
         "de": "frontend-tech-lead-sygnum-zurich",
         "fr": "frontend-responsable-technique-sygnum-bank-zurich"
       },
@@ -264,16 +278,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:00.177Z"
+      "firstSeenAt": "2026-07-04T12:43:00.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "frontend-tech-lead-sygnum-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "frontend-tech-lead-sygnum-zurich"
+      ]
     },
     {
       "id": "sygnum-d063aa2fbf0d",
-      "slug": "financial-crime-compliance-lead-sygnum-zurich",
+      "slug": "piombo-di-conformita-del-crimine-finanziario-sygnum-bank-zurich",
       "slugByLocale": {
         "en": "financial-crime-compliance-lead-sygnum-zurich",
-        "it": "financial-crime-compliance-lead-sygnum-zurich",
-        "de": "financial-crime-compliance-lead-sygnum-zurich",
-        "fr": "financial-crime-compliance-lead-sygnum-zurich"
+        "it": "piombo-di-conformita-del-crimine-finanziario-sygnum-bank-zurich",
+        "de": "compliance-lead-bei-finanzkriminalitat-sygnum-bank-zurich",
+        "fr": "criminalite-financiere-sygnum-bank-zurich-608481"
       },
       "company": "Sygnum Bank",
       "companyKey": "sygnum",
@@ -330,16 +352,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:42:59.558Z"
+      "firstSeenAt": "2026-07-04T12:42:59.558Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-crime-compliance-lead-sygnum-zurich"
+        ],
+        "de": [
+          "financial-crime-compliance-lead-sygnum-zurich"
+        ],
+        "fr": [
+          "financial-crime-compliance-lead-sygnum-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "financial-crime-compliance-lead-sygnum-zurich"
+      ]
     },
     {
       "id": "sygnum-99e5cb96a4db",
-      "slug": "dpo-and-legal-counsel-sygnum-zurich",
+      "slug": "dpo-e-avvocato-sygnum-bank-zurich",
       "slugByLocale": {
         "en": "dpo-and-legal-counsel-sygnum-zurich",
-        "it": "dpo-and-legal-counsel-sygnum-zurich",
+        "it": "dpo-e-avvocato-sygnum-bank-zurich",
         "de": "dpo-and-legal-counsel-sygnum-zurich",
-        "fr": "dpo-and-legal-counsel-sygnum-zurich"
+        "fr": "dpo-et-conseiller-juridique-sygnum-bank-zurich"
       },
       "company": "Sygnum Bank",
       "companyKey": "sygnum",
@@ -396,16 +432,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:42:58.928Z"
+      "firstSeenAt": "2026-07-04T12:42:58.928Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dpo-and-legal-counsel-sygnum-zurich"
+        ],
+        "fr": [
+          "dpo-and-legal-counsel-sygnum-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dpo-and-legal-counsel-sygnum-zurich"
+      ]
     },
     {
       "id": "sygnum-120133664c35",
-      "slug": "digital-marketing-manager-sygnum-zurich",
+      "slug": "responsabile-marketing-digitale-sygnum-bank-zurich",
       "slugByLocale": {
         "en": "digital-marketing-manager-sygnum-zurich",
-        "it": "digital-marketing-manager-sygnum-zurich",
+        "it": "responsabile-marketing-digitale-sygnum-bank-zurich",
         "de": "digital-marketing-manager-sygnum-zurich",
-        "fr": "digital-marketing-manager-sygnum-zurich"
+        "fr": "gestionnaire-du-marketing-numerique-sygnum-bank-zurich"
       },
       "company": "Sygnum Bank",
       "companyKey": "sygnum",
@@ -462,16 +509,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:42:58.344Z"
+      "firstSeenAt": "2026-07-04T12:42:58.344Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-marketing-manager-sygnum-zurich"
+        ],
+        "fr": [
+          "digital-marketing-manager-sygnum-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "digital-marketing-manager-sygnum-zurich"
+      ]
     },
     {
       "id": "sygnum-398bb82b0b31",
-      "slug": "communications-manager-sygnum-zurich",
+      "slug": "gestione-delle-comunicazioni-sygnum-bank-zurich",
       "slugByLocale": {
         "en": "communications-manager-sygnum-zurich",
-        "it": "communications-manager-sygnum-zurich",
-        "de": "communications-manager-sygnum-zurich",
-        "fr": "communications-manager-sygnum-zurich"
+        "it": "gestione-delle-comunicazioni-sygnum-bank-zurich",
+        "de": "kommunikationsmanager-sygnum-bank-zurich",
+        "fr": "gestionnaire-des-communications-sygnum-bank-zurich"
       },
       "company": "Sygnum Bank",
       "companyKey": "sygnum",
@@ -528,7 +586,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:42:57.767Z"
+      "firstSeenAt": "2026-07-04T12:42:57.767Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "communications-manager-sygnum-zurich"
+        ],
+        "de": [
+          "communications-manager-sygnum-zurich"
+        ],
+        "fr": [
+          "communications-manager-sygnum-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "communications-manager-sygnum-zurich"
+      ]
     },
     {
       "id": "sygnum-92b7e64f81bc",
@@ -537,7 +609,7 @@
         "en": "senior-relationship-manager-eam-mfo-suisse-romande-sygnum-zurich",
         "it": "senior-relationship-manager-eam-mfo-suisse-romande-sygnum-zurich",
         "de": "senior-relationship-manager-eam-mfo-suisse-romande-sygnum-zurich",
-        "fr": "senior-relationship-manager-eam-mfo-suisse-romande-sygnum-zurich"
+        "fr": "directeur-des-relations-eam-mfo-suisse-romande-sygnum-bank-zurich"
       },
       "company": "Sygnum Bank",
       "companyKey": "sygnum",

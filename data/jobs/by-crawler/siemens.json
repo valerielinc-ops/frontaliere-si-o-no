@@ -759,7 +759,7 @@
         "en": "service-solution-architect-enterprise-business-80-100-siemens-zug",
         "it": "architetto-di-soluzioni-di-servizio-business-aziendale-80-100-siemens-zug",
         "de": "service-solution-architect-enterprise-business-80-100-siemens-zug",
-        "fr": "service-solution-architect-enterprise-business-80-100-siemens-zug"
+        "fr": "solution-de-service-architecte-entreprise-entreprise-80-100-siemens-zug"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -807,6 +807,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "service-solution-architect-enterprise-business-80-100-siemens-zug"
+        ],
+        "fr": [
           "service-solution-architect-enterprise-business-80-100-siemens-zug"
         ]
       },
@@ -979,12 +982,12 @@
     },
     {
       "id": "siemens-13e512d96198",
-      "slug": "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich",
+      "slug": "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-zuerich",
       "slugByLocale": {
         "de": "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich",
-        "it": "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich",
-        "en": "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich",
-        "fr": "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich"
+        "it": "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-zuerich",
+        "en": "service-technician-in-building-automation-80-100-siemens-zuerich",
+        "fr": "technicien-de-service-dans-l-automatisation-des-batiments-80-100-siemens-zuerich"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -1042,7 +1045,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:52:16.394Z"
+      "firstSeenAt": "2026-07-04T11:52:16.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich"
+        ],
+        "en": [
+          "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich"
+        ],
+        "fr": [
+          "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich"
+      ]
     },
     {
       "id": "siemens-27a2faa54fe1",
@@ -1196,12 +1213,12 @@
     },
     {
       "id": "siemens-7ba8e0e47084",
-      "slug": "systemtechniker-in-gebaudeleitsysteme-80-100-siemens-ostermundigen",
+      "slug": "tecnico-di-sistema-nei-sistemi-di-controllo-degli-edifici-80-100-siemens-ostermundigen",
       "slugByLocale": {
         "de": "systemtechniker-in-gebaudeleitsysteme-80-100-siemens-ostermundigen",
-        "it": "systemtechniker-in-gebaudeleitsysteme-80-100-siemens-ostermundigen",
-        "en": "systemtechniker-in-gebaudeleitsysteme-80-100-siemens-ostermundigen",
-        "fr": "systemtechniker-in-gebaudeleitsysteme-80-100-siemens-ostermundigen"
+        "it": "tecnico-di-sistema-nei-sistemi-di-controllo-degli-edifici-80-100-siemens-ostermundigen",
+        "en": "system-technician-in-building-control-systems-80-100-siemens-ostermundigen",
+        "fr": "technicien-systeme-dans-les-systemes-de-commande-de-batiment-80-100-siemens-ostermundigen"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -1259,7 +1276,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:52:08.999Z"
+      "firstSeenAt": "2026-07-04T11:52:08.999Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "systemtechniker-in-gebaudeleitsysteme-80-100-siemens-ostermundigen"
+        ],
+        "en": [
+          "systemtechniker-in-gebaudeleitsysteme-80-100-siemens-ostermundigen"
+        ],
+        "fr": [
+          "systemtechniker-in-gebaudeleitsysteme-80-100-siemens-ostermundigen"
+        ]
+      },
+      "previousSlugs": [
+        "systemtechniker-in-gebaudeleitsysteme-80-100-siemens-ostermundigen"
+      ]
     },
     {
       "id": "siemens-72d0f9f2cdd9",
@@ -1413,12 +1444,12 @@
     },
     {
       "id": "siemens-929e2e617c95",
-      "slug": "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil",
+      "slug": "tecnico-di-sistema-nei-sistemi-di-controllo-80-100-zurich-siemens-volketswil",
       "slugByLocale": {
         "de": "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil",
-        "it": "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil",
-        "en": "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil",
-        "fr": "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil"
+        "it": "tecnico-di-sistema-nei-sistemi-di-controllo-80-100-zurich-siemens-volketswil",
+        "en": "system-technician-in-control-systems-80-100-zurich-siemens-volketswil",
+        "fr": "technicien-systeme-dans-les-systemes-de-commande-80-100-zurich-siemens-volketswil"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -1476,7 +1507,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:52:02.311Z"
+      "firstSeenAt": "2026-07-04T11:52:02.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil"
+        ],
+        "en": [
+          "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil"
+        ],
+        "fr": [
+          "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil"
+        ]
+      },
+      "previousSlugs": [
+        "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil"
+      ]
     },
     {
       "id": "siemens-8aaf36079c4e",
@@ -1484,8 +1529,8 @@
       "slugByLocale": {
         "de": "systemtechniker-in-fur-sicherheitstechnik-und-zutrittskontrollsysteme-80-100-siemens",
         "it": "systemtechniker-in-per-sicherheitstechnik-e-zutrittskontrollsysteme-80-100-siemens-reinach",
-        "en": "systemtechniker-in-fur-sicherheitstechnik-und-zutrittskontrollsysteme-80-100-siemens",
-        "fr": "systemtechniker-in-fur-sicherheitstechnik-und-zutrittskontrollsysteme-80-100-siemens"
+        "en": "system-technician-in-security-technology-and-access-control-systems-80-100-siemens-reinach",
+        "fr": "technicien-systeme-dans-les-systemes-de-securite-et-de-controle-d-acces-80-100-siemens-reinach"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -1533,6 +1578,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "systemtechniker-in-fur-sicherheitstechnik-und-zutrittskontrollsysteme-80-100-siemens"
+        ],
+        "en": [
+          "systemtechniker-in-fur-sicherheitstechnik-und-zutrittskontrollsysteme-80-100-siemens"
+        ],
+        "fr": [
           "systemtechniker-in-fur-sicherheitstechnik-und-zutrittskontrollsysteme-80-100-siemens"
         ]
       },
@@ -1627,7 +1678,7 @@
         "de": "technischer-sales-support-niederspannungsprodukte-80-100-siemens-zuerich",
         "fr": "soutien-aux-ventes-technischer-niederspannungsprodukte-80-100-siemens-zuerich",
         "it": "supporto-alle-vendite-technischer-niederspannungsprodukte-80-100-siemens-zuerich",
-        "en": "technischer-sales-support-niederspannungsprodukte-80-100-siemens-zuerich"
+        "en": "technical-sales-support-low-voltage-products-80-100-siemens-zuerich"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -1675,6 +1726,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "technischer-sales-support-niederspannungsprodukte-80-100-siemens-zuerich"
+        ],
+        "en": [
           "technischer-sales-support-niederspannungsprodukte-80-100-siemens-zuerich"
         ]
       },
@@ -2597,12 +2651,12 @@
     },
     {
       "id": "siemens-e0c23ad891e5",
-      "slug": "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil",
+      "slug": "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-volketswil",
       "slugByLocale": {
         "de": "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil",
-        "it": "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil",
-        "en": "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil",
-        "fr": "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil"
+        "it": "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-volketswil",
+        "en": "service-technician-in-building-automation-80-100-siemens-volketswil",
+        "fr": "technicien-de-service-dans-l-automatisation-des-batiments-80-100-siemens-volketswil"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -2660,7 +2714,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:51:26.177Z"
+      "firstSeenAt": "2026-07-04T11:51:26.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil"
+        ],
+        "en": [
+          "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil"
+        ],
+        "fr": [
+          "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil"
+      ]
     },
     {
       "id": "siemens-451a791ffbda",
@@ -3193,8 +3261,8 @@
       "slugByLocale": {
         "de": "projektleitung-software-entwicklung-80-100-siemens-wallisellen",
         "it": "sviluppo-del-software-di-progettazione-80-100-siemens-wallisellen",
-        "en": "projektleitung-software-entwicklung-80-100-siemens-wallisellen",
-        "fr": "projektleitung-software-entwicklung-80-100-siemens-wallisellen"
+        "en": "project-management-software-development-80-100-siemens-wallisellen",
+        "fr": "developpement-de-logiciels-de-gestion-de-projet-80-100-siemens-wallisellen"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -3242,6 +3310,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleitung-software-entwicklung-80-100-siemens-wallisellen"
+        ],
+        "en": [
+          "projektleitung-software-entwicklung-80-100-siemens-wallisellen"
+        ],
+        "fr": [
           "projektleitung-software-entwicklung-80-100-siemens-wallisellen"
         ]
       },
@@ -3481,12 +3555,12 @@
     },
     {
       "id": "siemens-5890c491d03e",
-      "slug": "lead-data-product-owner-80-100-siemens-zug",
+      "slug": "titolare-del-prodotto-80-100-siemens-zug",
       "slugByLocale": {
         "en": "lead-data-product-owner-80-100-siemens-zug",
-        "it": "lead-data-product-owner-80-100-siemens-zug",
+        "it": "titolare-del-prodotto-80-100-siemens-zug",
         "de": "lead-data-product-owner-80-100-siemens-zug",
-        "fr": "lead-data-product-owner-80-100-siemens-zug"
+        "fr": "proprietaire-de-produit-de-donnees-de-plomb-80-100-siemens-zug"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -3544,7 +3618,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:50:58.507Z"
+      "firstSeenAt": "2026-07-04T11:50:58.507Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-data-product-owner-80-100-siemens-zug"
+        ],
+        "fr": [
+          "lead-data-product-owner-80-100-siemens-zug"
+        ]
+      },
+      "previousSlugs": [
+        "lead-data-product-owner-80-100-siemens-zug"
+      ]
     },
     {
       "id": "siemens-f4c6a2574a6c",
@@ -3553,7 +3638,7 @@
         "de": "leitung-process-datamanagement-digitalization-siemens-wallisellen",
         "fr": "processus-leitung-gestion-des-donnees-et-numerisation-siemens-wallisellen",
         "it": "processo-leitung-gestione-dei-dati-e-digitalizzazione-siemens-wallisellen",
-        "en": "leitung-process-datamanagement-digitalization-siemens-wallisellen"
+        "en": "head-of-process-data-management-digitalization-siemens-wallisellen"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -3601,6 +3686,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leitung-process-datamanagement-digitalization-siemens-wallisellen"
+        ],
+        "en": [
           "leitung-process-datamanagement-digitalization-siemens-wallisellen"
         ]
       },
@@ -3848,12 +3936,12 @@
     },
     {
       "id": "siemens-0106d2616007",
-      "slug": "chef-de-projet-moyenne-tension-80-100-f-h-d-siemens-renens",
+      "slug": "responsabile-del-progetto-a-media-tensione-80-100-f-h-d-siemens-renens",
       "slugByLocale": {
         "fr": "chef-de-projet-moyenne-tension-80-100-f-h-d-siemens-renens",
         "de": "projektmanager-moyenne-tension-80-100-w-h-d-siemens-renens",
         "en": "project-manager-moyenne-tension-80-100-f-h-d-siemens-renens",
-        "it": "chef-de-projet-moyenne-tension-80-100-f-h-d-siemens-renens"
+        "it": "responsabile-del-progetto-a-media-tensione-80-100-f-h-d-siemens-renens"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -3911,7 +3999,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:50:46.662Z"
+      "firstSeenAt": "2026-07-04T11:50:46.662Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projet-moyenne-tension-80-100-f-h-d-siemens-renens"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projet-moyenne-tension-80-100-f-h-d-siemens-renens"
+      ]
     },
     {
       "id": "siemens-5e620da12632",
@@ -4515,12 +4611,12 @@
     },
     {
       "id": "siemens-33acbdbbb32f",
-      "slug": "systemtechniker-in-raumautomation-80-100-siemens-reinach",
+      "slug": "tecnico-di-sistema-in-automazione-ambiente-80-100-siemens-reinach",
       "slugByLocale": {
         "de": "systemtechniker-in-raumautomation-80-100-siemens-reinach",
-        "it": "systemtechniker-in-raumautomation-80-100-siemens-reinach",
-        "en": "systemtechniker-in-raumautomation-80-100-siemens-reinach",
-        "fr": "systemtechniker-in-raumautomation-80-100-siemens-reinach"
+        "it": "tecnico-di-sistema-in-automazione-ambiente-80-100-siemens-reinach",
+        "en": "system-technician-in-room-automation-80-100-siemens-reinach",
+        "fr": "technicien-systeme-dans-l-automatisation-des-locaux-80-100-siemens-reinach"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -4578,7 +4674,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:50:24.272Z"
+      "firstSeenAt": "2026-07-04T11:50:24.272Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "systemtechniker-in-raumautomation-80-100-siemens-reinach"
+        ],
+        "en": [
+          "systemtechniker-in-raumautomation-80-100-siemens-reinach"
+        ],
+        "fr": [
+          "systemtechniker-in-raumautomation-80-100-siemens-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "systemtechniker-in-raumautomation-80-100-siemens-reinach"
+      ]
     },
     {
       "id": "siemens-0030b4c4fa54",
@@ -4662,7 +4772,7 @@
         "en": "ai-data-scientist-80-100-siemens-zug",
         "it": "ai-data-scientist-80-100-siemens-zug",
         "de": "ai-data-scientist-80-100-siemens-zug",
-        "fr": "ai-data-scientist-80-100-siemens-zug"
+        "fr": "chercheur-en-donnees-ai-80-100-siemens-zug"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -4724,12 +4834,12 @@
     },
     {
       "id": "siemens-d37a0e3c0267",
-      "slug": "ai-product-owner-80-100-siemens-zug",
+      "slug": "ai-proprietario-del-prodotto-80-100-siemens-zug",
       "slugByLocale": {
         "en": "ai-product-owner-80-100-siemens-zug",
-        "it": "ai-product-owner-80-100-siemens-zug",
+        "it": "ai-proprietario-del-prodotto-80-100-siemens-zug",
         "de": "ai-product-owner-80-100-siemens-zug",
-        "fr": "ai-product-owner-80-100-siemens-zug"
+        "fr": "proprietaire-de-produits-ai-80-100-siemens-zug"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -4787,7 +4897,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:50:15.855Z"
+      "firstSeenAt": "2026-07-04T11:50:15.855Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-product-owner-80-100-siemens-zug"
+        ],
+        "fr": [
+          "ai-product-owner-80-100-siemens-zug"
+        ]
+      },
+      "previousSlugs": [
+        "ai-product-owner-80-100-siemens-zug"
+      ]
     },
     {
       "id": "siemens-64016df4cbc4",

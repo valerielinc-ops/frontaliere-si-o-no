@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "tl-lausanne-14a8ebf962fa",
-      "slug": "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne",
+      "slug": "tecnico-di-manutenzione-stradale-meccatronico-meccanico-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne",
-        "it": "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne",
-        "en": "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne",
-        "de": "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne"
+        "it": "tecnico-di-manutenzione-stradale-meccatronico-meccanico-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "road-maintenance-technician-mechatronician-mechanic-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "techniker-fur-stra-eninstandhaltung-mechatroniker-mechaniker-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -65,16 +65,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:29:34.295Z"
+      "firstSeenAt": "2026-07-04T12:29:34.295Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-420730b1cc49",
-      "slug": "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
+      "slug": "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-        "it": "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-        "en": "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-        "de": "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
+        "it": "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -130,16 +144,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:29:33.535Z"
+      "firstSeenAt": "2026-07-04T12:29:33.535Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-a5136e497189",
-      "slug": "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-transports-publics-de-la-region-lausannoise",
+      "slug": "infrastrutture-e-progetti-di-costruzione-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-lausanne-lausanne",
-        "it": "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-transports-publics-de-la-region-lausannoise",
-        "en": "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-transports-publics-de-la-region-lausannoise",
-        "de": "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-lausanne-lausanne"
+        "it": "infrastrutture-e-progetti-di-costruzione-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "infrastructure-and-building-project-planning-specialist-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "infrastruktur-und-bauprojektplanung-spezialist-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -185,11 +213,19 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugsByLocale": {
         "it": [
+          "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-lausanne-lausanne",
+          "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-transports-publics-de-la-region-lausannoise"
+        ],
+        "en": [
+          "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-transports-publics-de-la-region-lausannoise"
+        ],
+        "de": [
           "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-lausanne-lausanne"
         ]
       },
       "previousSlugs": [
-        "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-lausanne-lausanne"
+        "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-lausanne-lausanne",
+        "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-transports-publics-de-la-region-lausannoise"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -207,12 +243,12 @@
     },
     {
       "id": "tl-lausanne-89a5b0ee385c",
-      "slug": "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne",
+      "slug": "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne",
-        "it": "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne",
-        "en": "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne",
-        "de": "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne"
+        "it": "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "bus-drivers-and-trolleybus-drivers-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "busfahrer-und-trolleybusfahrer-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -268,7 +304,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:29:32.003Z"
+      "firstSeenAt": "2026-07-04T12:29:32.003Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne"
+      ]
     }
   ]
 }

@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "livit-53c3199b3e1f",
-      "slug": "assistant-e-gerance-commerciale-livit-geneve",
+      "slug": "assistente-commerciale-livit-ag-geneve",
       "slugByLocale": {
-        "it": "assistant-e-gerance-commerciale-livit-geneve",
-        "en": "assistant-e-gerance-commerciale-livit-geneve",
+        "it": "assistente-commerciale-livit-ag-geneve",
+        "en": "trade-assistant-livit-ag-geneve",
         "de": "assistent-e-gerance-commerciale-livit-ag-geneve",
         "fr": "assistant-e-gerance-commerciale-livit-geneve"
       },
@@ -64,16 +64,27 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-gerance-commerciale-livit-geneve"
+        ],
+        "en": [
+          "assistant-e-gerance-commerciale-livit-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-gerance-commerciale-livit-geneve"
+      ]
     },
     {
       "id": "livit-9ca126a4c4fa",
       "slug": "gestore-immobiliare-nel-settore-commerciale-livit-ag-zurich",
       "slugByLocale": {
         "it": "gestore-immobiliare-nel-settore-commerciale-livit-ag-zurich",
-        "en": "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
+        "en": "property-manager-in-business-premises-livit-ag-zurich",
         "de": "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
-        "fr": "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich"
+        "fr": "directeur-immobilier-dans-les-locaux-commerciaux-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -122,6 +133,12 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:42:21.278Z",
@@ -143,9 +160,9 @@
       "slug": "consulente-per-affitti-limitato-fino-al-30-04-2027-livit-ag-bern",
       "slugByLocale": {
         "it": "consulente-per-affitti-limitato-fino-al-30-04-2027-livit-ag-bern",
-        "en": "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern",
+        "en": "rental-consultant-in-temporary-until-30-04-2027-livit-ag-bern",
         "de": "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern",
-        "fr": "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern"
+        "fr": "consultant-en-location-temporaire-jusqu-au-30-04-2027-livit-ag-bern"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -196,6 +213,12 @@
         "it": [
           "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern",
           "vermietungsberater-in-befristet-bis-30-04-2027-livit-ag-bern"
+        ],
+        "en": [
+          "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern"
+        ],
+        "fr": [
+          "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:42:21.278Z",
@@ -217,8 +240,8 @@
       "slug": "gestore-immobiliare-junior-livit-ag-geneve",
       "slugByLocale": {
         "it": "gestore-immobiliare-junior-livit-ag-geneve",
-        "en": "gerant-e-junior-d-immeubles-livit-geneve",
-        "de": "gerant-e-junior-d-immeubles-livit-geneve",
+        "en": "junior-building-manager-livit-ag-geneve",
+        "de": "junior-gebaudemanager-livit-ag-geneve",
         "fr": "gerant-e-junior-d-immeubles-livit-geneve"
       },
       "company": "Livit AG",
@@ -270,6 +293,12 @@
         "it": [
           "gerant-e-junior-d-immeubles-livit-geneve",
           "gerant-e-junior-d-immeubles-livit-ag-geneve"
+        ],
+        "en": [
+          "gerant-e-junior-d-immeubles-livit-geneve"
+        ],
+        "de": [
+          "gerant-e-junior-d-immeubles-livit-geneve"
         ]
       },
       "firstSeenAt": "2026-07-04T11:42:21.277Z",
@@ -291,8 +320,8 @@
       "slug": "gestore-immobiliare-livit-ag-geneve",
       "slugByLocale": {
         "it": "gestore-immobiliare-livit-ag-geneve",
-        "en": "gerant-e-d-immeubles-livit-geneve",
-        "de": "gerant-e-d-immeubles-livit-geneve",
+        "en": "building-manager-livit-ag-geneve",
+        "de": "gebaudeverwalter-livit-ag-geneve",
         "fr": "gerant-e-d-immeubles-livit-geneve"
       },
       "company": "Livit AG",
@@ -344,6 +373,12 @@
         "it": [
           "gerant-e-d-immeubles-livit-geneve",
           "gerant-e-d-immeubles-livit-ag-geneve"
+        ],
+        "en": [
+          "gerant-e-d-immeubles-livit-geneve"
+        ],
+        "de": [
+          "gerant-e-d-immeubles-livit-geneve"
         ]
       },
       "firstSeenAt": "2026-07-04T11:42:21.269Z",
@@ -365,9 +400,9 @@
       "slug": "impiegato-nella-gestione-immobiliare-livit-ag-basel",
       "slugByLocale": {
         "it": "impiegato-nella-gestione-immobiliare-livit-ag-basel",
-        "en": "sachbearbeiter-in-immobilienbewirtschaftung-livit-basel",
+        "en": "personnel-in-real-estate-management-livit-ag-basel",
         "de": "sachbearbeiter-in-immobilienbewirtschaftung-livit-basel",
-        "fr": "sachbearbeiter-in-immobilienbewirtschaftung-livit-basel"
+        "fr": "personnel-dans-la-gestion-immobiliere-livit-ag-basel"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -416,6 +451,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-immobilienbewirtschaftung-livit-basel"
+        ],
+        "en": [
+          "sachbearbeiter-in-immobilienbewirtschaftung-livit-basel"
+        ],
+        "fr": [
+          "sachbearbeiter-in-immobilienbewirtschaftung-livit-basel"
         ]
       },
       "firstSeenAt": "2026-07-04T11:42:21.258Z",
@@ -437,9 +478,9 @@
       "slug": "gestore-immobiliare-nel-settore-commerciale-livit-ag-solothurn",
       "slugByLocale": {
         "it": "gestore-immobiliare-nel-settore-commerciale-livit-ag-solothurn",
-        "en": "immobilienbewirtschafter-in-geschaftsflachen-livit-solothurn",
+        "en": "property-manager-in-business-premises-livit-ag-solothurn",
         "de": "immobilienbewirtschafter-in-geschaftsflachen-livit-solothurn",
-        "fr": "immobilienbewirtschafter-in-geschaftsflachen-livit-solothurn"
+        "fr": "directeur-immobilier-dans-les-locaux-commerciaux-livit-ag-solothurn"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -488,6 +529,12 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienbewirtschafter-in-geschaftsflachen-livit-solothurn"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-geschaftsflachen-livit-solothurn"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-geschaftsflachen-livit-solothurn"
         ]
       },
       "firstSeenAt": "2026-07-04T11:42:21.257Z",
@@ -509,9 +556,9 @@
       "slug": "senior-gestore-immobiliare-nel-settore-commerciale-livit-ag-zurich",
       "slugByLocale": {
         "it": "senior-gestore-immobiliare-nel-settore-commerciale-livit-ag-zurich",
-        "en": "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
+        "en": "senior-property-managers-in-business-premises-livit-ag-zurich",
         "de": "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
-        "fr": "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-zurich"
+        "fr": "gestionnaires-de-biens-immobiliers-dans-les-locaux-des-entreprises-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -560,6 +607,12 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-zurich"
+        ],
+        "en": [
+          "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-zurich"
+        ],
+        "fr": [
+          "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:42:21.256Z",
@@ -581,9 +634,9 @@
       "slug": "allenatore-livit-ag-st-gallen",
       "slugByLocale": {
         "it": "allenatore-livit-ag-st-gallen",
-        "en": "bewirtschafter-in-livit-st-gallen",
+        "en": "manager-in-livit-ag-st-gallen",
         "de": "bewirtschafter-in-livit-st-gallen",
-        "fr": "bewirtschafter-in-livit-st-gallen"
+        "fr": "directeur-livit-ag-st-gallen"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -632,6 +685,12 @@
       "previousSlugsByLocale": {
         "it": [
           "bewirtschafter-in-livit-st-gallen"
+        ],
+        "en": [
+          "bewirtschafter-in-livit-st-gallen"
+        ],
+        "fr": [
+          "bewirtschafter-in-livit-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:42:21.255Z",
@@ -653,9 +712,9 @@
       "slug": "senior-real-estate-manager-livit-ag-zurich",
       "slugByLocale": {
         "it": "senior-real-estate-manager-livit-ag-zurich",
-        "en": "senior-immobilienbewirtschafter-in-livit-zurich",
+        "en": "senior-property-manager-in-livit-ag-zurich",
         "de": "senior-immobilienbewirtschafter-in-livit-zurich",
-        "fr": "senior-immobilienbewirtschafter-in-livit-zurich"
+        "fr": "directeur-immobilier-principal-en-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -704,6 +763,12 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-immobilienbewirtschafter-in-livit-zurich"
+        ],
+        "en": [
+          "senior-immobilienbewirtschafter-in-livit-zurich"
+        ],
+        "fr": [
+          "senior-immobilienbewirtschafter-in-livit-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:42:21.254Z",
@@ -725,9 +790,9 @@
       "slug": "gestione-dei-jumper-livit-ag-zurich",
       "slugByLocale": {
         "it": "gestione-dei-jumper-livit-ag-zurich",
-        "en": "springer-in-bewirtschaftung-livit-zurich",
+        "en": "springer-in-management-livit-ag-zurich",
         "de": "springer-in-bewirtschaftung-livit-zurich",
-        "fr": "springer-in-bewirtschaftung-livit-zurich"
+        "fr": "springer-en-gestion-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -776,6 +841,12 @@
       "previousSlugsByLocale": {
         "it": [
           "springer-in-bewirtschaftung-livit-zurich"
+        ],
+        "en": [
+          "springer-in-bewirtschaftung-livit-zurich"
+        ],
+        "fr": [
+          "springer-in-bewirtschaftung-livit-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:42:21.253Z",
@@ -797,7 +868,7 @@
       "slug": "werkstudent-in-risorse-umane-services-befristet-bis-31-12-2026-livit-ag-zurich",
       "slugByLocale": {
         "it": "werkstudent-in-risorse-umane-services-befristet-bis-31-12-2026-livit-ag-zurich",
-        "en": "werkstudent-in-hr-services-befristet-bis-31-12-2026-livit-zurich",
+        "en": "working-student-in-hr-services-temporary-until-31-12-2026-livit-ag-zurich",
         "de": "werkstudent-in-hr-services-befristet-bis-31-12-2026-livit-zurich",
         "fr": "werkstudent-in-hr-services-befristet-bis-31-12-2026-livit-zurich"
       },
@@ -848,6 +919,9 @@
       "previousSlugsByLocale": {
         "it": [
           "werkstudent-in-hr-services-befristet-bis-31-12-2026-livit-zurich"
+        ],
+        "en": [
+          "werkstudent-in-hr-services-befristet-bis-31-12-2026-livit-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:42:21.252Z",
@@ -869,9 +943,9 @@
       "slug": "senior-real-estate-manager-livit-ag-zurich-8dab2d",
       "slugByLocale": {
         "it": "senior-real-estate-manager-livit-ag-zurich-8dab2d",
-        "en": "senior-immobilienbewirtschafter-in-livit-zurich-2",
+        "en": "senior-property-manager-in-livit-ag-zurich-8dab2d",
         "de": "senior-immobilienbewirtschafter-in-livit-zurich",
-        "fr": "senior-immobilienbewirtschafter-in-livit-zurich-2"
+        "fr": "directeur-immobilier-principal-en-livit-ag-zurich-8dab2d"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -921,6 +995,12 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-immobilienbewirtschafter-in-livit-zurich",
+          "senior-immobilienbewirtschafter-in-livit-zurich-2"
+        ],
+        "en": [
+          "senior-immobilienbewirtschafter-in-livit-zurich-2"
+        ],
+        "fr": [
           "senior-immobilienbewirtschafter-in-livit-zurich-2"
         ]
       },
@@ -1007,9 +1087,9 @@
       "slug": "impiegato-nella-gestione-immobiliare-livit-ag-zurich",
       "slugByLocale": {
         "it": "impiegato-nella-gestione-immobiliare-livit-ag-zurich",
-        "en": "sachbearbeiter-in-immobilienbewirtschaftung-livit-zurich",
+        "en": "personnel-in-real-estate-management-livit-ag-zurich",
         "de": "sachbearbeiter-in-immobilienbewirtschaftung-livit-zurich",
-        "fr": "sachbearbeiter-in-immobilienbewirtschaftung-livit-zurich"
+        "fr": "personnel-dans-la-gestion-immobiliere-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1058,6 +1138,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-immobilienbewirtschaftung-livit-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-immobilienbewirtschaftung-livit-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-immobilienbewirtschaftung-livit-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:42:21.247Z",
@@ -1079,8 +1165,8 @@
       "slug": "contabile-immobiliare-livit-ag-lausanne",
       "slugByLocale": {
         "it": "contabile-immobiliare-livit-ag-lausanne",
-        "en": "comptable-immobilier-livit-lausanne",
-        "de": "comptable-immobilier-livit-lausanne",
+        "en": "real-estate-accountant-livit-ag-lausanne",
+        "de": "immobilienbuchhalter-livit-ag-lausanne",
         "fr": "comptable-immobilier-livit-lausanne"
       },
       "company": "Livit AG",
@@ -1129,6 +1215,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "comptable-immobilier-livit-lausanne"
+        ],
+        "en": [
+          "comptable-immobilier-livit-lausanne"
+        ],
+        "de": [
           "comptable-immobilier-livit-lausanne"
         ]
       },

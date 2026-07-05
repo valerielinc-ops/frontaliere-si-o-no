@@ -88,8 +88,8 @@
       "slugByLocale": {
         "de": "automatiker-in-efz-swisslog-buchs-switzerland",
         "it": "automatiker-in-cfc-swisslog-buchs-switzerland",
-        "en": "automatiker-in-efz-swisslog-buchs-switzerland",
-        "fr": "automatiker-in-efz-swisslog-buchs-switzerland"
+        "en": "automatician-efz-swisslog-buchs-switzerland",
+        "fr": "automatique-efz-swisslog-buchs-switzerland"
       },
       "company": "Swisslog",
       "companyKey": "swisslog",
@@ -149,6 +149,12 @@
       "firstSeenAt": "2026-07-04T12:41:26.496Z",
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-in-efz-swisslog-buchs-switzerland"
+        ],
+        "en": [
+          "automatiker-in-efz-swisslog-buchs-switzerland"
+        ],
+        "fr": [
           "automatiker-in-efz-swisslog-buchs-switzerland"
         ]
       },
@@ -228,8 +234,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-instandhaltung-m-w-d-swisslog-magenwil-switzerland",
         "it": "collaboratore-trice-instandhaltung-m-w-d-swisslog-magenwil",
-        "en": "mitarbeiter-in-instandhaltung-m-w-d-swisslog-magenwil-switzerland",
-        "fr": "mitarbeiter-in-instandhaltung-m-w-d-swisslog-magenwil-switzerland"
+        "en": "maintenance-staff-m-f-d-swisslog-magenwil-switzerland",
+        "fr": "personnel-d-entretien-m-f-d-swisslog-magenwil-switzerland"
       },
       "company": "Swisslog",
       "companyKey": "swisslog",
@@ -277,6 +283,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-instandhaltung-m-w-d-swisslog-magenwil-switzerland"
+        ],
+        "en": [
+          "mitarbeiter-in-instandhaltung-m-w-d-swisslog-magenwil-switzerland"
+        ],
+        "fr": [
+          "mitarbeiter-in-instandhaltung-m-w-d-swisslog-magenwil-switzerland"
         ]
       },
       "previousSlugs": [
@@ -298,12 +310,12 @@
     },
     {
       "id": "swisslog-e7aa3af0b05e",
-      "slug": "technical-project-manager-m-w-d-swisslog-buchs-switzerland",
+      "slug": "responsabile-del-progetto-tecnico-m-f-d-swisslog-buchs-switzerland",
       "slugByLocale": {
         "de": "technical-project-manager-m-w-d-swisslog-buchs-switzerland",
-        "it": "technical-project-manager-m-w-d-swisslog-buchs-switzerland",
+        "it": "responsabile-del-progetto-tecnico-m-f-d-swisslog-buchs-switzerland",
         "en": "technical-project-manager-m-w-d-swisslog-buchs-switzerland",
-        "fr": "technical-project-manager-m-w-d-swisslog-buchs-switzerland"
+        "fr": "gestionnaire-de-projet-technique-m-f-d-swisslog-buchs-switzerland"
       },
       "company": "Swisslog",
       "companyKey": "swisslog",
@@ -360,7 +372,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:41:26.494Z"
+      "firstSeenAt": "2026-07-04T12:41:26.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-project-manager-m-w-d-swisslog-buchs-switzerland"
+        ],
+        "fr": [
+          "technical-project-manager-m-w-d-swisslog-buchs-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "technical-project-manager-m-w-d-swisslog-buchs-switzerland"
+      ]
     }
   ]
 }
