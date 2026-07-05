@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import http from 'node:http';
 import type { Socket } from 'node:net';
 import { once } from 'node:events';
@@ -296,6 +296,111 @@ describe('local LLM fallback provider', () => {
       if (prevForce === undefined) delete process.env.AI_MODELS_FORCE_CHAIN; else process.env.AI_MODELS_FORCE_CHAIN = prevForce;
       if (prevGem === undefined) delete process.env.GEMINI_API_KEY; else process.env.GEMINI_API_KEY = prevGem;
       if (prevUrl === undefined) delete process.env.LOCAL_LLM_URL; else process.env.LOCAL_LLM_URL = prevUrl;
+    }
+  });
+});
+
+// Regression guard for the outage where `local/fallback` sat wrongly banned
+// for up to 24h, across every workflow run, after just 2 bad structured-JSON
+// outputs from the small quantized model. The daily-quota "exhausted until
+// next midnight UTC" persistence in ai-models.mjs was written for remote
+// rate-limited providers and was applying identically to the local CPU
+// fallback, which has no such quota — permanently disabling the one
+// guaranteed last-resort model meant to keep article generation from failing
+// end-to-end. Exercised against an in-memory firebase-admin stub (same
+// pattern as tests/publisher-pending-reap.test.ts) since the real behaviour
+// only shows up across the read/write round-trip with Firestore.
+describe('local LLM fallback exhaustion never persists past the run (Firestore)', () => {
+  const prevCreds = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  const prevFetch = globalThis.fetch;
+
+  beforeEach(() => {
+    vi.resetModules();
+    process.env.GOOGLE_APPLICATION_CREDENTIALS = '/dev/null';
+    // Discovery hits real provider APIs when a key is configured in the
+    // environment; force every discovery fetch to fail fast so this test
+    // never depends on network access or ambient API keys.
+    globalThis.fetch = (async () => { throw new Error('network disabled in test'); }) as typeof fetch;
+  });
+
+  afterEach(() => {
+    globalThis.fetch = prevFetch;
+    if (prevCreds === undefined) delete process.env.GOOGLE_APPLICATION_CREDENTIALS; else process.env.GOOGLE_APPLICATION_CREDENTIALS = prevCreds;
+    vi.doUnmock('firebase-admin');
+  });
+
+  // In-memory Firestore stub matching the single-aggregate-doc layout
+  // initScoreStore/_persistScoresToFirestore use:
+  //   collection('ai_model_scores').doc('_all').get() / .set({models}, {merge:true})
+  function mockFirestore(store: Record<string, { models?: Record<string, unknown> }>) {
+    vi.doMock('firebase-admin', () => {
+      const admin: Record<string, unknown> = {
+        apps: [] as unknown[],
+        credential: { applicationDefault: () => ({}) },
+        initializeApp: () => { (admin.apps as unknown[]).push({}); },
+        firestore: () => ({
+          collection: () => ({
+            doc: (id: string) => ({
+              get: async () => ({
+                exists: store[id] != null,
+                data: () => store[id],
+              }),
+              set: async (data: { models?: Record<string, unknown> }, opts?: { merge?: boolean }) => {
+                if (opts?.merge && store[id]) {
+                  store[id] = { ...store[id], ...data, models: { ...(store[id].models || {}), ...(data.models || {}) } };
+                } else {
+                  store[id] = data;
+                }
+              },
+            }),
+            // Legacy per-model collection scan (one-time migration path in
+            // initScoreStore, used only when the aggregate doc has no models yet).
+            get: async () => ({ docs: [] }),
+          }),
+        }),
+      };
+      return { default: admin };
+    });
+  }
+
+  it('write path: exhausting local/fallback never sets exhaustedUntil; exhausting a remote model still does', async () => {
+    const store: Record<string, { models?: Record<string, unknown> }> = {};
+    mockFirestore(store);
+    const mod = await import('../scripts/lib/ai-models.mjs');
+    await mod.initScoreStore();
+    mod.markModelExhausted(mod.AI_MODELS.LOCAL_FALLBACK, 'content');
+    mod.markModelExhausted(mod.AI_MODELS.GPT4O, 'quota');
+    await mod.flushScores();
+
+    const persisted = store._all.models as Record<string, { exhaustedUntil: string | null }>;
+    expect(persisted['local__fallback'].exhaustedUntil).toBeNull();
+    expect(persisted['gpt-4o'].exhaustedUntil).not.toBeNull();
+    expect(new Date(persisted['gpt-4o'].exhaustedUntil as string).getTime()).toBeGreaterThan(Date.now());
+  });
+
+  it('restore path: a pre-existing persisted ban on local/fallback is never restored on process restart; the same ban on a remote model is', async () => {
+    const tomorrow = new Date();
+    tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+    tomorrow.setUTCHours(0, 0, 0, 0);
+    const store: Record<string, { models?: Record<string, unknown> }> = {
+      _all: {
+        models: {
+          local__fallback: { modelId: 'local/fallback', score: 0, exhaustedUntil: tomorrow.toISOString() },
+          'gpt-4o': { modelId: 'gpt-4o', score: 0, exhaustedUntil: tomorrow.toISOString() },
+        },
+      },
+    };
+    mockFirestore(store);
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      const mod = await import('../scripts/lib/ai-models.mjs');
+      await mod.initScoreStore();
+      const loadLine = logSpy.mock.calls.map((c) => String(c[0])).find((l) => l.includes('[ScoreStore] Loaded'));
+      expect(loadLine).toBeDefined();
+      // Only gpt-4o's ban should survive the restore — local/fallback's must not.
+      expect(loadLine).toMatch(/\(0 decayed, 1 still exhausted\)/);
+    } finally {
+      logSpy.mockRestore();
     }
   });
 });
