@@ -2149,10 +2149,6 @@ function renderHubPage(inp: HubInputs): string {
 </article>
   ${BORDER_WAIT_HYDRATION_SCRIPT_TAG}`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   return buildSeoPageHtml({
     disableAutoAds: false,
     locale,
@@ -2163,7 +2159,6 @@ function renderHubPage(inp: HubInputs): string {
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, webPageLd],
     bodyHtml,
     distDir,

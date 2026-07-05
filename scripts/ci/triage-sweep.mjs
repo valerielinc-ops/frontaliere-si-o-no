@@ -16,23 +16,24 @@
  *
  * Questo sweep, schedulato, recupera le orfane qualunque sia la causa: riusa il
  * classifier deterministico (`classify-issue.mjs`, stesse regole del path
- * event-driven — niente auto-route di revenue/tracker/validation-failure) e
- * applica `agent:triaged` + routing.
+ * event-driven — ogni categoria autofix dal 2026-07-05, owner decision "Rimuovi
+ * tutte le guardie") e applica `agent:triaged` + routing.
  *
  * GENTLE BY-CONSTRUCTION (anti-burst, frugalità quota):
  *   - crawler-transient → solo `agent:triaged`, NIENTE route: si auto-chiudono
  *     quando il crawler recupera; routarle brucerebbe issue-fix per nulla.
- *   - follow-up → `agent:fix-queued` (+fu-prio): il followup-drainer le promuove
- *     UNA alla volta → nessun burst per costruzione.
  *   - crawler (non-transient) → `agent:fix`, ma CAP per run (ROUTE_FIX_CAP):
  *     ogni agent:fix accende un run issue-fix; il cap fa drenare il backlog su
  *     più tick invece di un'unica raffica. Eccesso loggato (no silent cap).
- *   - revenue/tracker/validation-failure/other → solo `agent:triaged` (umano).
+ *   - ogni altra categoria (follow-up, revenue, tracker, validation-failure,
+ *     other, …) → `agent:fix-queued` (+fu-prio): il followup-drainer le
+ *     promuove UNA alla volta → nessun burst per costruzione.
  *
  * `agent:triaged` SEMPRE via GITHUB_TOKEN (idempotenza, non deve triggerare);
  * il routing SEMPRE via GITHUB_PAT (anti-ricorsione + gate sender, come il path
  * event-driven). PAT assente → le routabili (fix/queue) restano ORFANE (no
- * triaged): uno sweep post-recovery le routa. Tagghiamo solo transient/human.
+ * triaged): uno sweep post-recovery le routa. Tagghiamo solo crawler-transient
+ * (l'unica categoria non-routabile per costruzione, vedi sopra).
  *
  * Uso:  node scripts/ci/triage-sweep.mjs [--dry-run] [--cap N]
  * Env:  GH_TOKEN (GITHUB_TOKEN: list + agent:triaged + commenti),
@@ -108,7 +109,7 @@ function main() {
 
     // PAT assente: routing impossibile. Lascia orfana (NO triaged) → uno sweep
     // post-recovery (PAT ripristinato — evento ricorrente, vedi gh-pat-expiry-monitor)
-    // la routa. Tagghiamo solo le NON-routabili (transient/human) sotto.
+    // la routa. Tagghiamo solo le NON-routabili (crawler-transient) sotto.
     if (isRoutable && !PAT) {
       routeDeferredNoPat++;
       console.log(`::warning::#${n} route=${route} ma GITHUB_PAT assente → lasciata orfana (no triaged), retry al prossimo sweep con PAT.`);
@@ -132,7 +133,9 @@ function main() {
       continue;
     }
 
-    // categorie non auto-route (revenue/tracker/validation-failure/other) → human.
+    // Difensivo: dal 2026-07-05 classifyIssue non produce più route='none'/
+    // autofix=false per nessuna categoria — questo branch resta come guard
+    // contro un futuro classifier che reintroduca una categoria human-only.
     if (route === 'none' || autofix !== true) { markedOnly++; continue; }
     // PAT garantito qui: le routabili con !PAT sono già state lasciate orfane sopra.
 

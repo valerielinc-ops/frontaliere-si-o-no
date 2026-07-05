@@ -1776,10 +1776,6 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     </section>
   </article>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   return buildSeoPageHtml({
     locale,
     title,
@@ -1789,7 +1785,6 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ogType: 'article',
     ogLocale: JOB_MARKET_OG_LOCALE[locale],
     hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, articleLd, datasetLd, faqLd],
     bodyHtml,
     distDir,
@@ -2051,10 +2046,6 @@ function renderHubPage(inp: HubPageInputs): string {
     </section>
   </article>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   return buildSeoPageHtml({
     locale,
     title,
@@ -2064,7 +2055,6 @@ function renderHubPage(inp: HubPageInputs): string {
     ogType: 'website',
     ogLocale: JOB_MARKET_OG_LOCALE[locale],
     hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, collectionLd, hubDatasetLd, faqLd],
     bodyHtml,
     distDir,
@@ -3047,10 +3037,6 @@ function renderSectorPage(inp: SectorPageInputs): string {
     </section>
   </article>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   return buildSeoPageHtml({
     locale,
     title,
@@ -3064,7 +3050,6 @@ function renderSectorPage(inp: SectorPageInputs): string {
     ogType: 'website',
     ogLocale: JOB_MARKET_OG_LOCALE[locale],
     hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, webPageLd, datasetLd, faqLd],
     bodyHtml,
     distDir,

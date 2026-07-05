@@ -457,9 +457,13 @@ export const GTAG_INIT_FILENAME = 'gtag-init.js';
  * (apex HTML flows through the locale-router Worker), so every emitted page
  * ships the beacon directly. Appended to GTAG_SNIPPET so all static emitters
  * get it by construction; index.html carries its own copy for the SPA.
- * The token is public by design (it is meant to appear in served HTML). #3503
+ * The token is public by design (it is meant to appear in served HTML).
+ * The `version` key is REQUIRED: without it beacon.min.js posts to the
+ * decommissioned central ingest (cloudflareinsights.com → HTML 404); with it
+ * the beacon posts same-origin /cdn-cgi/rum (zone ingest — excluded from the
+ * trailing-slash-301 rule, which was silently 301-killing beacon POSTs). #3503
  */
-export const CF_BEACON_SNIPPET = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "52ad88ab198a42df98d2f363531b6429"}'></script>`;
+export const CF_BEACON_SNIPPET = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1268b58e83f74d22a2136ff48e0746b7", "version": "2024.6.1"}'></script>`;
 
 export const GTAG_SNIPPET = `<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
  <script defer src="/assets/${GTAG_INIT_FILENAME}"></script>

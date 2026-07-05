@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-07-04T08:42:49.198Z",
+  "assembledAt": "2026-07-05T08:40:55.902Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -2095,48 +2095,6 @@
       "imageUrl": "/images/events/guidle-AEaVZnH.jpg"
     },
     {
-      "id": "guidle:AsZ6Tk9",
-      "title": "Back to the 80's - Happy Birthday openair disco",
-      "titleByLocale": {
-        "it": "Back to the 80's - Happy Birthday openair disco",
-        "en": "Back to the 80's - Happy Birthday openair disco",
-        "de": "Back to the 80's - Happy Birthday openair disco",
-        "fr": "Back to the 80's - Happy Birthday openair disco"
-      },
-      "description": "Vöööööllig looooosgeeelöööööst tanzen wir seit dreissig Jahren die Vergangenheit in die Gegenwart. Darum feiern wir das Jahr 2026 open air auf dem bäumigen Areal des Schwimmbads Eichholz Gerlafingen.",
-      "descriptionByLocale": {
-        "it": "Vöööööllig looooosgeeelöööööst tanzen wir seit dreissig Jahren die Vergangenheit in die Gegenwart. Darum feiern wir das Jahr 2026 open air auf dem bäumigen Areal des Schwimmbads Eichholz Gerlafingen.",
-        "en": "Vöööööllig looooosgeeelöööööst tanzen wir seit dreissig Jahren die Vergangenheit in die Gegenwart. Darum feiern wir das Jahr 2026 open air auf dem bäumigen Areal des Schwimmbads Eichholz Gerlafingen.",
-        "de": "Vöööööllig looooosgeeelöööööst tanzen wir seit dreissig Jahren die Vergangenheit in die Gegenwart. Darum feiern wir das Jahr 2026 open air auf dem bäumigen Areal des Schwimmbads Eichholz Gerlafingen.",
-        "fr": "Vöööööllig looooosgeeelöööööst tanzen wir seit dreissig Jahren die Vergangenheit in die Gegenwart. Darum feiern wir das Jahr 2026 open air auf dem bäumigen Areal des Schwimmbads Eichholz Gerlafingen."
-      },
-      "startDate": "2026-07-04",
-      "endDate": "2026-07-04",
-      "startTime": "18:30",
-      "category": "Open Air",
-      "venue": "Schwimmbad Eichholz",
-      "comune": "Gerlafingen",
-      "canton": "SO",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/gerlafingen/back-to-the-80s-happy-birthday-openair-disco_AsZ6Tk9",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 5,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Schwimmbadstrasse 1",
-        "postalCode": "4563"
-      },
-      "geo": {
-        "lat": 47.1784688,
-        "lng": 7.5799552
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AsZ6Tk9.jpg"
-    },
-    {
       "id": "guidle:AmdDDy2",
       "title": "Frank Turner Openair",
       "titleByLocale": {
@@ -2297,6 +2255,781 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AXCaSrt.jpg"
+    },
+    {
+      "id": "guidle:AXxtYrG",
+      "title": "PFF FFS 26",
+      "titleByLocale": {
+        "it": "PFF FFS 26",
+        "en": "PFF FFS 26",
+        "de": "PFF FFS 26",
+        "fr": "PFF FFS 26"
+      },
+      "description": "Das Pfadi Folk Fest (PFF) entstand vor über 50 Jahren aus einer spontanen Idee zweier Pfadis und hat sich seither zu einem einzigartigen Kultur- und Musikfestival entwickelt.",
+      "descriptionByLocale": {
+        "it": "Das Pfadi Folk Fest (PFF) entstand vor über 50 Jahren aus einer spontanen Idee zweier Pfadis und hat sich seither zu einem einzigartigen Kultur- und Musikfestival entwickelt.",
+        "en": "Das Pfadi Folk Fest (PFF) entstand vor über 50 Jahren aus einer spontanen Idee zweier Pfadis und hat sich seither zu einem einzigartigen Kultur- und Musikfestival entwickelt.",
+        "de": "Das Pfadi Folk Fest (PFF) entstand vor über 50 Jahren aus einer spontanen Idee zweier Pfadis und hat sich seither zu einem einzigartigen Kultur- und Musikfestival entwickelt.",
+        "fr": "Das Pfadi Folk Fest (PFF) entstand vor über 50 Jahren aus einer spontanen Idee zweier Pfadis und hat sich seither zu einem einzigartigen Kultur- und Musikfestival entwickelt."
+      },
+      "startDate": "2026-08-28",
+      "endDate": "2026-08-30",
+      "startTime": "00:00",
+      "category": "Festival / Incontro",
+      "venue": "Chalchofenstrasse",
+      "comune": "Affoltern am Albis",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/affoltern-am-albis/pff-ffs-26_AXxtYrG",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 5,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Chalchofenstrasse",
+        "postalCode": "8910"
+      },
+      "geo": {
+        "lat": 47.2769797,
+        "lng": 8.4386683
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AXxtYrG.jpg"
+    },
+    {
+      "id": "guidle:AfkkHMQ",
+      "title": "Linux Install und Repair Café Bern",
+      "titleByLocale": {
+        "it": "Linux Install und Repair Café Bern",
+        "en": "Linux Install und Repair Café Bern",
+        "de": "Linux Install und Repair Café Bern",
+        "fr": "Linux Install und Repair Café Bern"
+      },
+      "description": "Am Repair-Café kann man nicht nur Geräte reparieren, sondern auch den eigenen Computer mitbringen und zusammen mit unseren erfahrenen Linux-Benutzer/innen darauf Linux installieren!",
+      "descriptionByLocale": {
+        "it": "Am Repair-Café kann man nicht nur Geräte reparieren, sondern auch den eigenen Computer mitbringen und zusammen mit unseren erfahrenen Linux-Benutzer/innen darauf Linux installieren!",
+        "en": "Am Repair-Café kann man nicht nur Geräte reparieren, sondern auch den eigenen Computer mitbringen und zusammen mit unseren erfahrenen Linux-Benutzer/innen darauf Linux installieren!",
+        "de": "Am Repair-Café kann man nicht nur Geräte reparieren, sondern auch den eigenen Computer mitbringen und zusammen mit unseren erfahrenen Linux-Benutzer/innen darauf Linux installieren!",
+        "fr": "Am Repair-Café kann man nicht nur Geräte reparieren, sondern auch den eigenen Computer mitbringen und zusammen mit unseren erfahrenen Linux-Benutzer/innen darauf Linux installieren!"
+      },
+      "startDate": "2026-08-29",
+      "endDate": "2026-12-05",
+      "startTime": "10:00",
+      "category": "Informatica / Internet",
+      "venue": "PROGR - Zentrum für Kulturproduktion",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/bern/linux-install-und-repair-cafe-bern_AfkkHMQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Speichergasse 4",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9504112,
+        "lng": 7.4431704
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AfkkHMQ.png"
+    },
+    {
+      "id": "guidle:AMa9FZu",
+      "title": "missa solluna - spazio del cuore aperto",
+      "titleByLocale": {
+        "it": "missa solluna - spazio del cuore aperto",
+        "en": "missa solluna - open heart space",
+        "de": "missa solluna - open heart space",
+        "fr": "missa solluna - espace à cœur ouvert"
+      },
+      "description": "Spazio a cuore aperto per persone di tutte le età che sono curiose, vogliono fare nuove esperienze e vogliono sentirsi di nuovo più consapevoli.",
+      "descriptionByLocale": {
+        "it": "Spazio a cuore aperto per persone di tutte le età che sono curiose, vogliono fare nuove esperienze e vogliono sentirsi di nuovo più consapevoli.",
+        "en": "Open heart space for people of all ages who are curious, want to make new experiences and want to feel themselves more consciously again.",
+        "de": "Offener Herzraum für Menschen jeden Alters, die neugierig sind, neue Erfahrungen machen möchten und sich selbst wieder bewusster spüren wollen.",
+        "fr": "Espace du cœur ouvert aux personnes de tous âges qui sont curieuses, qui souhaitent faire de nouvelles expériences et se sentir à nouveau plus conscientes d'elles-mêmes."
+      },
+      "startDate": "2026-07-05",
+      "endDate": "2026-12-06",
+      "startTime": "11:00",
+      "category": "Danza libera",
+      "venue": "Seminarhaus am Hofplatz",
+      "comune": "Bischofszell",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/events/alternative/bischofszell/missa-solluna-open-heart-space_AMa9FZu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hofplatz 7",
+        "postalCode": "9220"
+      },
+      "geo": {
+        "lat": 47.4942688,
+        "lng": 9.2375676
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AMa9FZu.jpg"
+    },
+    {
+      "id": "guidle:AMPbY8G",
+      "title": "Zurigo Improv Comedy - Spettacoli di teatro inglese e sport",
+      "titleByLocale": {
+        "it": "Zurigo Improv Comedy - Spettacoli di teatro inglese e sport",
+        "en": "Zurich Improv Comedy - English theater sport shows",
+        "de": "Zurich Improv Comedy - English theater sport shows",
+        "fr": "Zurich Improv Comedy - Spectacles de théâtre sportif en anglais"
+      },
+      "description": "Teatro comico dal ritmo incalzante, spontaneo, divertente, interattivo e coinvolgente!",
+      "descriptionByLocale": {
+        "it": "Teatro comico dal ritmo incalzante, spontaneo, divertente, interattivo e coinvolgente!",
+        "en": "Fast-paced comedy theater - spontaneous, entertaining, interactive, engaging and fun!",
+        "de": "Fast-paced comedy theater – spontaneous, entertaining, interactive, engaging and fun!",
+        "fr": "Fast-paced comedy theater - spontané, divertissant, interactif, engageant et amusant !"
+      },
+      "startDate": "2026-10-08",
+      "endDate": "2026-11-12",
+      "startTime": "20:00",
+      "category": "Commedia",
+      "venue": "ComedyHaus",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/events/alternative/zuerich/zurich-improv-comedy-english-theater-sport-shows_AMPbY8G",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Albisriederstrasse 16",
+        "postalCode": "8003"
+      },
+      "geo": {
+        "lat": 47.3782758,
+        "lng": 8.5087026
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AMPbY8G.jpg"
+    },
+    {
+      "id": "guidle:A8RhKcA",
+      "title": "***Ersatzdatum*** Prince Jelleh",
+      "titleByLocale": {
+        "it": "***Ersatzdatum*** Prince Jelleh",
+        "en": "***Ersatzdatum*** Prince Jelleh",
+        "de": "***Ersatzdatum*** Prince Jelleh",
+        "fr": "***Ersatzdatum*** Prince Jelleh"
+      },
+      "description": "EP-Taufe \"Not the Moon\"",
+      "descriptionByLocale": {
+        "it": "EP-Taufe \"Not the Moon\"",
+        "en": "EP-Taufe \"Not the Moon\"",
+        "de": "EP-Taufe \"Not the Moon\"",
+        "fr": "EP-Taufe \"Not the Moon\""
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "startTime": "20:00",
+      "category": "Folk Music",
+      "venue": "Albani Music Club",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/winterthur/prince-jelleh_A8RhKcA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 14,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Steinberggasse 16",
+        "postalCode": "8400"
+      },
+      "geo": {
+        "lat": 47.4984843,
+        "lng": 8.7291693
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A8RhKcA.jpg"
+    },
+    {
+      "id": "guidle:A84qwvX",
+      "title": "Allein – die improvisierte Solo-Show mit da vorne links",
+      "titleByLocale": {
+        "it": "Allein – die improvisierte Solo-Show mit da vorne links",
+        "en": "Allein – die improvisierte Solo-Show mit da vorne links",
+        "de": "Allein – die improvisierte Solo-Show mit da vorne links",
+        "fr": "Allein – die improvisierte Solo-Show mit da vorne links"
+      },
+      "description": "Die Improgruppe da vorne links präsentiert fünf improvisierte Solo-Shows voller Humor und Tiefgang im Theater Ida.",
+      "descriptionByLocale": {
+        "it": "Die Improgruppe da vorne links präsentiert fünf improvisierte Solo-Shows voller Humor und Tiefgang im Theater Ida.",
+        "en": "Die Improgruppe da vorne links präsentiert fünf improvisierte Solo-Shows voller Humor und Tiefgang im Theater Ida.",
+        "de": "Die Improgruppe da vorne links präsentiert fünf improvisierte Solo-Shows voller Humor und Tiefgang im Theater Ida.",
+        "fr": "Die Improgruppe da vorne links präsentiert fünf improvisierte Solo-Shows voller Humor und Tiefgang im Theater Ida."
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "20:00",
+      "category": "Commedia",
+      "venue": "Theater Ida",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/allein-die-improvisierte-solo-show-mit-da-vorne-links_A84qwvX",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Aargauerstrasse 80",
+        "postalCode": "8048"
+      },
+      "geo": {
+        "lat": 47.3929035,
+        "lng": 8.4964634
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A84qwvX.jpg"
+    },
+    {
+      "id": "guidle:ABvU2MD",
+      "title": "Sons of the East Openair",
+      "titleByLocale": {
+        "it": "Sons of the East Openair",
+        "en": "Sons of the East Openair",
+        "de": "Sons of the East Openair",
+        "fr": "Sons of the East Openair"
+      },
+      "description": "Nach drei restlos ausverkauften Konzerten kehren Sons of the East 2026 zurück – und zwar dahin, wo ihre Mitsinghymnen am allermeisten zur Geltung komment: unter freiem Himmel auf der Bühne am Teich!",
+      "descriptionByLocale": {
+        "it": "Nach drei restlos ausverkauften Konzerten kehren Sons of the East 2026 zurück – und zwar dahin, wo ihre Mitsinghymnen am allermeisten zur Geltung komment: unter freiem Himmel auf der Bühne am Teich!",
+        "en": "Nach drei restlos ausverkauften Konzerten kehren Sons of the East 2026 zurück – und zwar dahin, wo ihre Mitsinghymnen am allermeisten zur Geltung komment: unter freiem Himmel auf der Bühne am Teich!",
+        "de": "Nach drei restlos ausverkauften Konzerten kehren Sons of the East 2026 zurück – und zwar dahin, wo ihre Mitsinghymnen am allermeisten zur Geltung komment: unter freiem Himmel auf der Bühne am Teich!",
+        "fr": "Nach drei restlos ausverkauften Konzerten kehren Sons of the East 2026 zurück – und zwar dahin, wo ihre Mitsinghymnen am allermeisten zur Geltung komment: unter freiem Himmel auf der Bühne am Teich!"
+      },
+      "startDate": "2026-08-04",
+      "endDate": "2026-08-04",
+      "startTime": "19:00",
+      "category": "Folk Music",
+      "venue": "Mühle Hunziken",
+      "comune": "Rubigen",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/rubigen/sons-of-the-east-zusatzshow_ABvU2MD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hunziken 101",
+        "postalCode": "3113"
+      },
+      "geo": {
+        "lat": 46.8907188,
+        "lng": 7.5418315
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ABvU2MD.jpg"
+    },
+    {
+      "id": "guidle:AnBhUFt",
+      "title": "Genuss & Impro mit Mirjam Woggon & Romeo Meyer",
+      "titleByLocale": {
+        "it": "Genuss & Impro mit Mirjam Woggon & Romeo Meyer",
+        "en": "Enjoyment & Impro with Mirjam Woggon & Romeo Meyer",
+        "de": "Genuss & Impro mit Mirjam Woggon & Romeo Meyer",
+        "fr": "Genuss & Impro mit Mirjam Woggon & Romeo Meyer"
+      },
+      "description": "Lacher am Laufband, spontane Comedy und dazu feines Essen!",
+      "descriptionByLocale": {
+        "it": "Lacher am Laufband, spontane Comedy und dazu feines Essen!",
+        "en": "Laughter on the treadmill, spontaneous comedy and delicious food!",
+        "de": "Lacher am Laufband, spontane Comedy und dazu feines Essen!",
+        "fr": "Lacher am Laufband, spontane Comedy und dazu feines Essen!"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "18:30",
+      "category": "Teatro: improvisazione",
+      "venue": "Grischa – DAS Hotel Davos",
+      "comune": "Davos",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/events/alternative/davos-platz/enjoyment-und-impro-with-mirjam-woggon-und-romeo-meyer_AnBhUFt",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Talstrasse 3",
+        "postalCode": "7270"
+      },
+      "geo": {
+        "lat": 46.7915672,
+        "lng": 9.8202317
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AnBhUFt.jpg"
+    },
+    {
+      "id": "guidle:AcLP7cg",
+      "title": "The Minx x Bbr",
+      "titleByLocale": {
+        "it": "The Minx x Bbr",
+        "en": "The Minx x Bbr",
+        "de": "The Minx x Bbr",
+        "fr": "The Minx x Bbr"
+      },
+      "description": "Zwei Jahrzehnte Rock’n’Roll, Schweiss und unbändige Live-Energie: <b>The MinX</b> feiern 2026 ihr 20-jähriges Bandjubiläum – und das standesgemäss mit einer fetten Liveshow und ihren Freunden von",
+      "descriptionByLocale": {
+        "it": "Zwei Jahrzehnte Rock’n’Roll, Schweiss und unbändige Live-Energie: <b>The MinX</b> feiern 2026 ihr 20-jähriges Bandjubiläum – und das standesgemäss mit einer fetten Liveshow und ihren Freunden von",
+        "en": "Zwei Jahrzehnte Rock’n’Roll, Schweiss und unbändige Live-Energie: <b>The MinX</b> feiern 2026 ihr 20-jähriges Bandjubiläum – und das standesgemäss mit einer fetten Liveshow und ihren Freunden von",
+        "de": "Zwei Jahrzehnte Rock’n’Roll, Schweiss und unbändige Live-Energie: <b>The MinX</b> feiern 2026 ihr 20-jähriges Bandjubiläum – und das standesgemäss mit einer fetten Liveshow und ihren Freunden von",
+        "fr": "Zwei Jahrzehnte Rock’n’Roll, Schweiss und unbändige Live-Energie: <b>The MinX</b> feiern 2026 ihr 20-jähriges Bandjubiläum – und das standesgemäss mit einer fetten Liveshow und ihren Freunden von"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "20:30",
+      "category": "Indipendente / Alternative Rock",
+      "venue": "OldCapitol",
+      "comune": "Langenthal",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/langenthal/the-minx-x-bbr_AcLP7cg",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 31.5,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Spitalgasse 6",
+        "postalCode": "4900"
+      },
+      "geo": {
+        "lat": 47.2110391,
+        "lng": 7.7898409
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AcLP7cg.jpg"
+    },
+    {
+      "id": "guidle:Aq2Dqyi",
+      "title": "Seraina Telli - All Over Europe Tour 2026",
+      "titleByLocale": {
+        "it": "Seraina Telli - All Over Europe Tour 2026",
+        "en": "Seraina Telli - All Over Europe Tour 2026",
+        "de": "Seraina Telli - All Over Europe Tour 2026",
+        "fr": "Seraina Telli - All Over Europe Tour 2026"
+      },
+      "description": "EIN BUNTES UPDATE FÜR DIE MUSIKWELT!",
+      "descriptionByLocale": {
+        "it": "EIN BUNTES UPDATE FÜR DIE MUSIKWELT!",
+        "en": "EIN BUNTES UPDATE FÜR DIE MUSIKWELT!",
+        "de": "EIN BUNTES UPDATE FÜR DIE MUSIKWELT!",
+        "fr": "EIN BUNTES UPDATE FÜR DIE MUSIKWELT!"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "20:30",
+      "category": "Rock generalmente",
+      "venue": "Werkk Kulturlokal Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/baden/seraina-telli-all-over-europe-tour-2026_Aq2Dqyi",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Schmiedestrasse 1",
+        "postalCode": "5400"
+      },
+      "geo": {
+        "lat": 47.4799963,
+        "lng": 8.3006636
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Aq2Dqyi.jpg"
+    },
+    {
+      "id": "guidle:ArPD8yH",
+      "title": "Projekt ET",
+      "titleByLocale": {
+        "it": "Projekt ET",
+        "en": "Projekt ET",
+        "de": "Projekt ET",
+        "fr": "Projekt ET"
+      },
+      "description": "Projekt ET landet im EXIL und macht die Hardbrücke zum Planet Erdbeertörtli. Mit dabei hat die Rap Crew aus Will ihr aktuelles Projekt «Eskapade & Tumult» und jede Menge Battlerap mit Haltung.",
+      "descriptionByLocale": {
+        "it": "Projekt ET landet im EXIL und macht die Hardbrücke zum Planet Erdbeertörtli. Mit dabei hat die Rap Crew aus Will ihr aktuelles Projekt «Eskapade & Tumult» und jede Menge Battlerap mit Haltung.",
+        "en": "Projekt ET landet im EXIL und macht die Hardbrücke zum Planet Erdbeertörtli. Mit dabei hat die Rap Crew aus Will ihr aktuelles Projekt «Eskapade & Tumult» und jede Menge Battlerap mit Haltung.",
+        "de": "Projekt ET landet im EXIL und macht die Hardbrücke zum Planet Erdbeertörtli. Mit dabei hat die Rap Crew aus Will ihr aktuelles Projekt «Eskapade & Tumult» und jede Menge Battlerap mit Haltung.",
+        "fr": "Projekt ET landet im EXIL und macht die Hardbrücke zum Planet Erdbeertörtli. Mit dabei hat die Rap Crew aus Will ihr aktuelles Projekt «Eskapade & Tumult» und jede Menge Battlerap mit Haltung."
+      },
+      "startDate": "2026-09-17",
+      "endDate": "2026-09-17",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "EXIL",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/projekt-et_ArPD8yH",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 28,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hardstrasse 245",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3882889,
+        "lng": 8.5193377
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ArPD8yH.jpg"
+    },
+    {
+      "id": "guidle:ATbaQyH",
+      "title": "Holy Fuck (CAN)",
+      "titleByLocale": {
+        "it": "Holy Fuck (CAN)",
+        "en": "Holy Fuck (CAN)",
+        "de": "Holy Fuck (CAN)",
+        "fr": "Holy Fuck (CAN)"
+      },
+      "description": "Holy Fuck (CAN) & Support08.10.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 UhrWEITERE INFOSBogen F",
+      "descriptionByLocale": {
+        "it": "Holy Fuck (CAN) & Support08.10.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 UhrWEITERE INFOSBogen F",
+        "en": "Holy Fuck (CAN) & Support08.10.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 UhrWEITERE INFOSBogen F",
+        "de": "Holy Fuck (CAN) & Support08.10.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 UhrWEITERE INFOSBogen F",
+        "fr": "Holy Fuck (CAN) & Support08.10.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 UhrWEITERE INFOSBogen F"
+      },
+      "startDate": "2026-10-08",
+      "endDate": "2026-10-08",
+      "startTime": "20:30",
+      "category": "Sperimentale",
+      "venue": "Bogen F",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/holy-fuck-can_ATbaQyH",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Viaduktstrasse 97",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3847733,
+        "lng": 8.5208588
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ATbaQyH.jpg"
+    },
+    {
+      "id": "guidle:AYXpJFr",
+      "title": "Old Sea Brigade & Luke Sital-Singh",
+      "titleByLocale": {
+        "it": "Old Sea Brigade & Luke Sital-Singh",
+        "en": "Old Sea Brigade & Luke Sital-Singh",
+        "de": "Old Sea Brigade & Luke Sital-Singh",
+        "fr": "Old Sea Brigade & Luke Sital-Singh"
+      },
+      "description": "Zum allerersten Mal stehen Old Sea Brigade &amp; Luke Sital-Singh gemeinsam im wohl idyllischsten Sommergarten überhaupt auf der Bühne – und besser könnte ein lauer Abend im<strong> Mü</strong>",
+      "descriptionByLocale": {
+        "it": "Zum allerersten Mal stehen Old Sea Brigade &amp; Luke Sital-Singh gemeinsam im wohl idyllischsten Sommergarten überhaupt auf der Bühne – und besser könnte ein lauer Abend im<strong> Mü</strong>",
+        "en": "Zum allerersten Mal stehen Old Sea Brigade &amp; Luke Sital-Singh gemeinsam im wohl idyllischsten Sommergarten überhaupt auf der Bühne – und besser könnte ein lauer Abend im<strong> Mü</strong>",
+        "de": "Zum allerersten Mal stehen Old Sea Brigade &amp; Luke Sital-Singh gemeinsam im wohl idyllischsten Sommergarten überhaupt auf der Bühne – und besser könnte ein lauer Abend im<strong> Mü</strong>",
+        "fr": "Zum allerersten Mal stehen Old Sea Brigade &amp; Luke Sital-Singh gemeinsam im wohl idyllischsten Sommergarten überhaupt auf der Bühne – und besser könnte ein lauer Abend im<strong> Mü</strong>"
+      },
+      "startDate": "2026-07-11",
+      "endDate": "2026-07-11",
+      "startTime": "19:00",
+      "category": "cantautore",
+      "venue": "Mühle Hunziken",
+      "comune": "Rubigen",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/rubigen/old-sea-brigade-und-luke-sital-singh_AYXpJFr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hunziken 101",
+        "postalCode": "3113"
+      },
+      "geo": {
+        "lat": 46.8907188,
+        "lng": 7.5418315
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AYXpJFr.jpg"
+    },
+    {
+      "id": "guidle:AGtXXrD",
+      "title": "Main Concept",
+      "titleByLocale": {
+        "it": "Main Concept",
+        "en": "Main Concept",
+        "de": "Main Concept",
+        "fr": "Main Concept"
+      },
+      "description": "Es gibt etwas zu feiern: Und zwar 35 Jahre Main Concept!",
+      "descriptionByLocale": {
+        "it": "Es gibt etwas zu feiern: Und zwar 35 Jahre Main Concept!",
+        "en": "Es gibt etwas zu feiern: Und zwar 35 Jahre Main Concept!",
+        "de": "Es gibt etwas zu feiern: Und zwar 35 Jahre Main Concept!",
+        "fr": "Es gibt etwas zu feiern: Und zwar 35 Jahre Main Concept!"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "startTime": "19:30",
+      "category": "Altri eventi",
+      "venue": "EXIL",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/main-concept_AGtXXrD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 38,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hardstrasse 245",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3882889,
+        "lng": 8.5193377
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AGtXXrD.jpg"
+    },
+    {
+      "id": "guidle:AwkBJEa",
+      "title": "Bright",
+      "titleByLocale": {
+        "it": "Bright",
+        "en": "Bright",
+        "de": "Bright",
+        "fr": "Bright"
+      },
+      "description": "Seit 20 Jahren packen die fünf Ostschweizer mit viel Herz und Liebe ihre Gefühle in die Musik und bringen zum Ausdruck, was vielen auf der Zunge liegt.",
+      "descriptionByLocale": {
+        "it": "Seit 20 Jahren packen die fünf Ostschweizer mit viel Herz und Liebe ihre Gefühle in die Musik und bringen zum Ausdruck, was vielen auf der Zunge liegt.",
+        "en": "Seit 20 Jahren packen die fünf Ostschweizer mit viel Herz und Liebe ihre Gefühle in die Musik und bringen zum Ausdruck, was vielen auf der Zunge liegt.",
+        "de": "Seit 20 Jahren packen die fünf Ostschweizer mit viel Herz und Liebe ihre Gefühle in die Musik und bringen zum Ausdruck, was vielen auf der Zunge liegt.",
+        "fr": "Seit 20 Jahren packen die fünf Ostschweizer mit viel Herz und Liebe ihre Gefühle in die Musik und bringen zum Ausdruck, was vielen auf der Zunge liegt."
+      },
+      "startDate": "2026-10-14",
+      "endDate": "2026-10-14",
+      "startTime": "20:30",
+      "category": "Pop generalmente",
+      "venue": "Restaurant Werk 1",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/gossau-sg/bright_AwkBJEa",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Fabrikstrasse 7",
+        "postalCode": "9200"
+      },
+      "geo": {
+        "lat": 47.4152593,
+        "lng": 9.2534754
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AwkBJEa.jpg"
+    },
+    {
+      "id": "guidle:A4Tpucb",
+      "title": "Cory Hanson (US) // Cole Berliner (US)",
+      "titleByLocale": {
+        "it": "Cory Hanson (US) // Cole Berliner (US)",
+        "en": "Cory Hanson (US) // Cole Berliner (US)",
+        "de": "Cory Hanson (US) // Cole Berliner (US)",
+        "fr": "Cory Hanson (US) // Cole Berliner (US)"
+      },
+      "description": "Cory Hanson ist ein kalifornische Gitarrist und Sänger - vor zehn Jahren wurde er bekannt als Kopf der Psychedelic-Prog-Band WAND. Parallel dazu hat er sich als Solokünstler profiliert.",
+      "descriptionByLocale": {
+        "it": "Cory Hanson ist ein kalifornische Gitarrist und Sänger - vor zehn Jahren wurde er bekannt als Kopf der Psychedelic-Prog-Band WAND. Parallel dazu hat er sich als Solokünstler profiliert.",
+        "en": "Cory Hanson ist ein kalifornische Gitarrist und Sänger - vor zehn Jahren wurde er bekannt als Kopf der Psychedelic-Prog-Band WAND. Parallel dazu hat er sich als Solokünstler profiliert.",
+        "de": "Cory Hanson ist ein kalifornische Gitarrist und Sänger - vor zehn Jahren wurde er bekannt als Kopf der Psychedelic-Prog-Band WAND. Parallel dazu hat er sich als Solokünstler profiliert.",
+        "fr": "Cory Hanson ist ein kalifornische Gitarrist und Sänger - vor zehn Jahren wurde er bekannt als Kopf der Psychedelic-Prog-Band WAND. Parallel dazu hat er sich als Solokünstler profiliert."
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "21:00",
+      "category": "Pop generalmente",
+      "venue": "Gaswerk Kulturzentrum",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/winterthur/cory-hanson-us_A4Tpucb",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 14,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Untere Schöntalstrasse 19",
+        "postalCode": "8406"
+      },
+      "geo": {
+        "lat": 47.4945654,
+        "lng": 8.7077457
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A4Tpucb.jpg"
+    },
+    {
+      "id": "guidle:AFR3ch6",
+      "title": "SLOPE (DE)",
+      "titleByLocale": {
+        "it": "SLOPE (DE)",
+        "en": "SLOPE (DE)",
+        "de": "SLOPE (DE)",
+        "fr": "SLOPE (DE)"
+      },
+      "description": "Aus der Underground-Hardcore-Szene von Duisburg (Deutschland) hervorgegangen, kanalisieren SLOPE schwere Grooves, rohe Aggression und den Spirit des Crossover der späten 80er und frühen 90er Jahre –",
+      "descriptionByLocale": {
+        "it": "Aus der Underground-Hardcore-Szene von Duisburg (Deutschland) hervorgegangen, kanalisieren SLOPE schwere Grooves, rohe Aggression und den Spirit des Crossover der späten 80er und frühen 90er Jahre –",
+        "en": "Aus der Underground-Hardcore-Szene von Duisburg (Deutschland) hervorgegangen, kanalisieren SLOPE schwere Grooves, rohe Aggression und den Spirit des Crossover der späten 80er und frühen 90er Jahre –",
+        "de": "Aus der Underground-Hardcore-Szene von Duisburg (Deutschland) hervorgegangen, kanalisieren SLOPE schwere Grooves, rohe Aggression und den Spirit des Crossover der späten 80er und frühen 90er Jahre –",
+        "fr": "Aus der Underground-Hardcore-Szene von Duisburg (Deutschland) hervorgegangen, kanalisieren SLOPE schwere Grooves, rohe Aggression und den Spirit des Crossover der späten 80er und frühen 90er Jahre –"
+      },
+      "startDate": "2026-10-15",
+      "endDate": "2026-10-15",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "KiFF - Kultur in der Futterfabrik",
+      "comune": "Aarau",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/aarau/slope-de_AFR3ch6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Tellistrasse 118",
+        "postalCode": "5000"
+      },
+      "geo": {
+        "lat": 47.3985618,
+        "lng": 8.0647273
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AFR3ch6.jpg"
+    },
+    {
+      "id": "guidle:AKZv4dT",
+      "title": "Etna ROM",
+      "titleByLocale": {
+        "it": "Etna ROM",
+        "en": "Etna ROM",
+        "de": "Etna ROM",
+        "fr": "Etna ROM"
+      },
+      "description": "Etna ROM spielt zwischen Hell und Dunkel – eine Welt aus Industrial Blue Noir, in der eine sanfte Stimme über schweren Drones und tiefen Bässen schwebt, verwoben zu einer düsterglänzenden",
+      "descriptionByLocale": {
+        "it": "Etna ROM spielt zwischen Hell und Dunkel – eine Welt aus Industrial Blue Noir, in der eine sanfte Stimme über schweren Drones und tiefen Bässen schwebt, verwoben zu einer düsterglänzenden",
+        "en": "Etna ROM spielt zwischen Hell und Dunkel – eine Welt aus Industrial Blue Noir, in der eine sanfte Stimme über schweren Drones und tiefen Bässen schwebt, verwoben zu einer düsterglänzenden",
+        "de": "Etna ROM spielt zwischen Hell und Dunkel – eine Welt aus Industrial Blue Noir, in der eine sanfte Stimme über schweren Drones und tiefen Bässen schwebt, verwoben zu einer düsterglänzenden",
+        "fr": "Etna ROM spielt zwischen Hell und Dunkel – eine Welt aus Industrial Blue Noir, in der eine sanfte Stimme über schweren Drones und tiefen Bässen schwebt, verwoben zu einer düsterglänzenden"
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-11",
+      "startTime": "20:30",
+      "category": "Sperimentale",
+      "venue": "Werkhof Egelsee",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/bern/etna-rom_AKZv4dT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Muristrasse 21E",
+        "postalCode": "3006"
+      },
+      "geo": {
+        "lat": 46.9436444,
+        "lng": 7.464051
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AKZv4dT.jpg"
+    },
+    {
+      "id": "guidle:A4pdqiN",
+      "title": "Paradisco",
+      "titleByLocale": {
+        "it": "Paradisco",
+        "en": "Paradisco",
+        "de": "Paradisco",
+        "fr": "Paradisco"
+      },
+      "description": "Paradisco sind die Berner Sängerin und Elektronikerin Lea Heimann und ihre Blutsschwester, die Groove-Zauberin Katharina Reidy.",
+      "descriptionByLocale": {
+        "it": "Paradisco sind die Berner Sängerin und Elektronikerin Lea Heimann und ihre Blutsschwester, die Groove-Zauberin Katharina Reidy.",
+        "en": "Paradisco sind die Berner Sängerin und Elektronikerin Lea Heimann und ihre Blutsschwester, die Groove-Zauberin Katharina Reidy.",
+        "de": "Paradisco sind die Berner Sängerin und Elektronikerin Lea Heimann und ihre Blutsschwester, die Groove-Zauberin Katharina Reidy.",
+        "fr": "Paradisco sind die Berner Sängerin und Elektronikerin Lea Heimann und ihre Blutsschwester, die Groove-Zauberin Katharina Reidy."
+      },
+      "startDate": "2026-07-25",
+      "endDate": "2026-07-25",
+      "startTime": "20:30",
+      "category": "Sperimentale",
+      "venue": "Werkhof Egelsee",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/bern/paradisco_A4pdqiN",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Muristrasse 21E",
+        "postalCode": "3006"
+      },
+      "geo": {
+        "lat": 46.9436444,
+        "lng": 7.464051
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A4pdqiN.jpg"
     }
   ]
 }
