@@ -181,6 +181,41 @@ export function sanitizeSitemapHreflangReciprocity(
     }
   }
 
+  // ── Pass 1.5: cross-file <loc> collision guard ──
+  // `locSet`/`backRefs` treat <loc> as a single global identity across every
+  // sitemap file, which is correct for the *intentional* case of the same
+  // URL re-listed by multiple shard files (see sitemapUrlsetDedupe.ts) — those
+  // always carry identical annotations. If two DIFFERENT hub-type generators
+  // ever emitted the same <loc> for what are really two different pages
+  // (slug collision), their annotation sets would disagree, and one page's
+  // alternates would spuriously satisfy the other's reciprocity check. Detect
+  // that disagreement up front — before it can affect the fixpoint below —
+  // by grouping blocks per <loc> and comparing their (order-independent)
+  // hreflang signature; more than one distinct signature for the same <loc>
+  // means it was annotated inconsistently, so drop every block sharing it
+  // rather than trust either side.
+  const signatureOf = (hrefs: { lang: string; href: string }[]) =>
+    hrefs.map((a) => `${a.lang}|${a.href}`).sort().join(' ');
+  const signaturesByLoc = new Map<string, Set<string>>();
+  for (const b of annotated) {
+    let sigs = signaturesByLoc.get(b.loc);
+    if (!sigs) {
+      sigs = new Set<string>();
+      signaturesByLoc.set(b.loc, sigs);
+    }
+    sigs.add(signatureOf(b.hrefs));
+  }
+  const conflictedLocs = new Set<string>();
+  for (const [loc, sigs] of signaturesByLoc) {
+    if (sigs.size > 1) conflictedLocs.add(loc);
+  }
+  if (conflictedLocs.size > 0) {
+    for (const b of annotated) if (conflictedLocs.has(b.loc)) b.alive = false;
+    console.warn(
+      `\x1b[33m[sitemap-alias]\x1b[0m Cross-file <loc> collision: ${[...conflictedLocs].join(', ')} — annotated with conflicting hreflang sets by more than one sitemap file. Dropping all annotations for these <loc> entries instead of trusting either side.`,
+    );
+  }
+
   // ── Pass 2: reciprocity fixpoint ──
   // A group survives iff every annotated href is a listed <loc> AND that
   // loc's own (still-alive) annotations point back. Stripping a one-sided
