@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-07-04T21:01:24.816Z",
+  "assembledAt": "2026-07-05T10:05:10.967Z",
   "jobs": [
     {
       "id": "abraxas-5dc4f61fd5f2",
@@ -17,7 +17,7 @@
       "title": "System Engineer – DevOps (Deutsch) 80–100 %",
       "titleByLocale": {
         "it": "System Ingegnere – DevOps (Deutsch) 80–100 %",
-        "en": "System Engineer – DevOps (German) 80-100%",
+        "en": "System Engineer – DevOps (Deutsch) 80–100 %",
         "de": "System Ingenieur – DevOps (Deutsch) 80–100 %",
         "fr": "System Ingénieur – DevOps (Deutsch) 80–100 %"
       },
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-devops-deutsch-80-100-2472",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:22.345Z",
+      "crawledAt": "2026-07-05T10:05:08.469Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -55,18 +56,19 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-04T10:00:06.686Z",
+      "previousSlugs": [
+        "system-engineer-devops-deutsch-80-100-abraxas-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-devops-deutsch-80-100-abraxas-bern"
+          "system-engineer-devops-deutsch-80-100-abraxas-bern",
+          "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern"
         ],
         "fr": [
           "system-engineer-devops-deutsch-80-100-abraxas-bern"
         ]
       },
-      "previousSlugs": [
-        "system-engineer-devops-deutsch-80-100-abraxas-bern"
-      ],
+      "firstSeenAt": "2026-07-04T10:00:06.686Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -95,7 +97,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software Engineer 80-100%",
+        "en": "Software-Engineer 80–100 %",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -111,7 +113,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-9347",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:21.893Z",
+      "crawledAt": "2026-07-05T10:05:07.993Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -133,18 +136,19 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-04T10:00:06.178Z",
+      "previousSlugs": [
+        "software-engineer-80-100-abraxas-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-80-100-abraxas-st-gallen"
+          "software-engineer-80-100-abraxas-st-gallen",
+          "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "software-engineer-80-100-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "software-engineer-80-100-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-07-04T10:00:06.178Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -173,7 +177,7 @@
       "title": "Software Engineer C#/.net 80–100 %",
       "titleByLocale": {
         "it": "Software Ingegnere C#/.net 80–100 %",
-        "en": "Software Engineer C#/.net 80-100%",
+        "en": "Software Engineer C#/.net 80–100 %",
         "de": "Software Ingenieur C#/.net 80–100 %",
         "fr": "Software Ingénieur C#/.net 80–100 %"
       },
@@ -189,7 +193,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-cnet-80-100-8664",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:21.432Z",
+      "crawledAt": "2026-07-05T10:05:07.536Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -211,18 +216,19 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-04T10:00:05.635Z",
+      "previousSlugs": [
+        "software-engineer-c-net-80-100-abraxas-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-c-net-80-100-abraxas-st-gallen"
+          "software-engineer-c-net-80-100-abraxas-st-gallen",
+          "software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "software-engineer-c-net-80-100-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "software-engineer-c-net-80-100-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-07-04T10:00:05.635Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -250,7 +256,7 @@
       "companyDomain": "abraxas.ch",
       "title": "Software Architekt:in 80–100 %",
       "titleByLocale": {
-        "it": "Software Architetto: in 80-100%",
+        "it": "Software Architekt:in 80–100 %",
         "en": "Software Architect: in 80-100%",
         "de": "Software Architekt:in 80–100 %",
         "fr": "Architecte logiciel: en 80-100%"
@@ -267,7 +273,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-80-100-4606",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:20.945Z",
+      "crawledAt": "2026-07-05T10:05:07.083Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -318,7 +325,7 @@
       "title": "ServiceNow Engineer KI & Automation 80-100%",
       "titleByLocale": {
         "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer KI & Automation 80-100 %",
+        "en": "ServiceNow Engineer KI & Automation 80-100%",
         "de": "ServiceNow Ingenieur KI & Automation 80-100%",
         "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
       },
@@ -334,7 +341,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-engineer-ki-amp-automation-80-100-3223",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:20.492Z",
+      "crawledAt": "2026-07-05T10:05:06.619Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -356,18 +364,19 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-04T10:00:04.573Z",
+      "previousSlugs": [
+        "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
+          "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen",
+          "servicenow-ingegnere-ki-automation-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-07-04T10:00:04.573Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -412,7 +421,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-7406",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:20.033Z",
+      "crawledAt": "2026-07-05T10:05:06.156Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -479,7 +488,7 @@
       "title": "Senior OpenStack Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior OpenStack Ingegnere 80–100 %",
-        "en": "Senior OpenStack Engineer 80-100%",
+        "en": "Senior OpenStack Engineer 80–100 %",
         "de": "Senior OpenStack Ingenieur 80–100 %",
         "fr": "Senior OpenStack Ingénieur 80–100 %"
       },
@@ -495,7 +504,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-1267",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:19.580Z",
+      "crawledAt": "2026-07-05T10:05:05.665Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -517,18 +527,19 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-04T10:00:03.527Z",
+      "previousSlugs": [
+        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
         ]
       },
-      "previousSlugs": [
-        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
-      ],
+      "firstSeenAt": "2026-07-04T10:00:03.527Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -557,7 +568,7 @@
       "title": "Senior Cyber Security Analyst / Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior Cyber Security Analista / Ingegnere 80–100 %",
-        "en": "Senior Cyber Security Analyst / Engineer 80-100%",
+        "en": "Senior Cyber Security Analyst / Engineer 80–100 %",
         "de": "Senior Cyber Security Analyst / Ingenieur 80–100 %",
         "fr": "Senior Cyber Security Analyste / Ingénieur 80–100 %"
       },
@@ -573,7 +584,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-cyber-security-analyst-engineer-80-100-9650",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:19.127Z",
+      "crawledAt": "2026-07-05T10:05:05.210Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -595,18 +607,19 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-04T10:00:02.973Z",
+      "previousSlugs": [
+        "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
         ]
       },
-      "previousSlugs": [
-        "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
-      ],
+      "firstSeenAt": "2026-07-04T10:00:02.973Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -651,7 +664,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/kundenbetreuerin-fuer-applikationssupport-finanzen-80-100-4516",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:18.664Z",
+      "crawledAt": "2026-07-05T10:05:04.757Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -733,7 +746,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/junior-solution-architekt-80-100-9473",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:18.210Z",
+      "crawledAt": "2026-07-05T10:05:04.301Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -756,10 +769,13 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-04T10:00:01.925Z",
+      "previousSlugs": [
+        "junior-solution-architekt-80-100-abraxas-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-solution-architekt-80-100-abraxas-st-gallen"
+          "junior-solution-architekt-80-100-abraxas-st-gallen",
+          "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "junior-solution-architekt-80-100-abraxas-st-gallen"
@@ -768,9 +784,7 @@
           "junior-solution-architekt-80-100-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "junior-solution-architekt-80-100-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-07-04T10:00:01.925Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -815,7 +829,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-services-engineer-windows-server-100-8548",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:17.756Z",
+      "crawledAt": "2026-07-05T10:05:03.832Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -866,7 +881,7 @@
       "title": "ICT-System Engineer 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere 80–100 %",
-        "en": "ICT System Engineer 80-100%",
+        "en": "ICT-System Engineer 80–100 %",
         "de": "ICT-System Ingenieur 80–100 %",
         "fr": "ICT-System Ingénieur 80–100 %"
       },
@@ -882,7 +897,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-3625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:17.288Z",
+      "crawledAt": "2026-07-05T10:05:03.376Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -904,18 +920,19 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-07-04T10:00:00.855Z",
+      "previousSlugs": [
+        "ict-system-engineer-80-100-abraxas-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-system-engineer-80-100-abraxas-bern"
+          "ict-system-engineer-80-100-abraxas-bern",
+          "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern"
         ],
         "fr": [
           "ict-system-engineer-80-100-abraxas-bern"
         ]
       },
-      "previousSlugs": [
-        "ict-system-engineer-80-100-abraxas-bern"
-      ],
+      "firstSeenAt": "2026-07-04T10:00:00.855Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -944,7 +961,7 @@
       "title": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere con Projektleitungserfahrung 80–100 %",
-        "en": "ICT System Engineer with project management experience 80-100%",
+        "en": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
         "de": "ICT System Ingenieur mit Projektleitungserfahrung 80–100 %",
         "fr": "ICT System Ingénieur mit Projektleitungserfahrung 80–100 %"
       },
@@ -960,7 +977,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-1145",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:16.802Z",
+      "crawledAt": "2026-07-05T10:05:02.887Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1027,7 +1045,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:16.349Z",
+      "crawledAt": "2026-07-05T10:05:02.430Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1078,7 +1097,7 @@
       "title": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere – IAM (WAF/IDP) 80%–100 %",
-        "en": "ICT System Engineer – IAM (WAF/IDP) 80%-100%",
+        "en": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
         "de": "ICT System Ingenieur – IAM (WAF/IDP) 80%–100 %",
         "fr": "ICT System Ingénieur – IAM (WAF/IDP) 80%–100 %"
       },
@@ -1094,7 +1113,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-7949",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:15.894Z",
+      "crawledAt": "2026-07-05T10:05:01.971Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1145,7 +1165,7 @@
       "title": "DevOps Engineer 80–100 %",
       "titleByLocale": {
         "it": "DevOps Ingegnere 80–100 %",
-        "en": "DevOps Engineer 80-100%",
+        "en": "DevOps Engineer 80–100 %",
         "de": "DevOps Ingenieur 80–100 %",
         "fr": "DevOps Ingénieur 80–100 %"
       },
@@ -1161,7 +1181,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/devops-engineer-80-100-7012",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:15.437Z",
+      "crawledAt": "2026-07-05T10:05:01.514Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1183,18 +1204,19 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-04T09:59:58.708Z",
+      "previousSlugs": [
+        "devops-engineer-80-100-abraxas-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-80-100-abraxas-st-gallen"
+          "devops-engineer-80-100-abraxas-st-gallen",
+          "devops-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "devops-engineer-80-100-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "devops-engineer-80-100-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-07-04T09:59:58.708Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1239,7 +1261,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-1052",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:14.979Z",
+      "crawledAt": "2026-07-05T10:05:00.989Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1262,18 +1284,19 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-04T09:59:58.195Z",
+      "previousSlugs": [
+        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+          "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-07-04T09:59:58.195Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1318,7 +1341,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:14.525Z",
+      "crawledAt": "2026-07-05T10:05:00.532Z",
       "needsRetranslation": false,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1385,7 +1408,7 @@
       "title": "AIOps Transformation Lead 80-100%",
       "titleByLocale": {
         "it": "AIOps Trasformazione Piombo 80-100 %",
-        "en": "AIOps Transformation Lead 80-100 %",
+        "en": "AIOps Transformation Lead 80-100%",
         "de": "AIOps Transformation Lead 80-100%",
         "fr": "AIOps Transformation plomb 80-100 %"
       },
@@ -1401,7 +1424,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/aiops-transformation-lead-80-100-7995",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:14.062Z",
+      "crawledAt": "2026-07-05T10:05:00.064Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1480,7 +1504,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/agile-testmanagerin-80-100-2201",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:13.607Z",
+      "crawledAt": "2026-07-05T10:04:59.607Z",
       "needsRetranslation": false,
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
@@ -1511,10 +1535,10 @@
           "agile-testmanager-in-80-100-abraxas-frauenfeld",
           "agile-test-manager-in-80-100-abraxas-informatik-ag-frauenfeld"
         ],
-        "fr": [
+        "en": [
           "agile-testmanager-in-80-100-abraxas-frauenfeld"
         ],
-        "en": [
+        "fr": [
           "agile-testmanager-in-80-100-abraxas-frauenfeld"
         ]
       },
@@ -1563,7 +1587,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:13.154Z",
+      "crawledAt": "2026-07-05T10:04:59.150Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1594,10 +1618,10 @@
           "abacus-teamleiter-in-80-100-abraxas-st-gallen",
           "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
         ],
-        "fr": [
+        "en": [
           "abacus-teamleiter-in-80-100-abraxas-st-gallen"
         ],
-        "en": [
+        "fr": [
           "abacus-teamleiter-in-80-100-abraxas-st-gallen"
         ]
       },
@@ -1646,7 +1670,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:12.681Z",
+      "crawledAt": "2026-07-05T10:04:58.583Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1669,10 +1693,13 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-04T09:59:55.420Z",
+      "previousSlugs": [
+        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+          "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
@@ -1681,9 +1708,7 @@
           "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-07-04T09:59:55.420Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1728,7 +1753,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:01:12.129Z",
+      "crawledAt": "2026-07-05T10:04:58.023Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
