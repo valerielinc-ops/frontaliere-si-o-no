@@ -36,9 +36,9 @@ export const JSON_QUOTE_SAFETY_RULE_IT = '⚠️ VIRGOLETTE NEI VALORI JSON: se 
  * naive toggle's parity and makes depth-counting skip past or never reach
  * the true matching bracket, returning -1 or a wrong earlier close and
  * corrupting the *preceding* sibling field's own valid closing quote
- * (confirmed regression: `{"imagePrompt":"...","imageAlt":{"it":"...
- * torre "di Lugano...","en":"..."}}`, odd embedded quote count in `it` →
- * old toggle desyncs → `imagePrompt` itself gets corrupted). */
+ * (confirmed regression, issue #3604: `{"imagePrompt":"...","imageAlt":
+ * {"it":"...torre "di Lugano...","en":"..."}}`, odd embedded quote count
+ * in `it` → old toggle desyncs → `imagePrompt` itself gets corrupted). */
 export function findMatchingClose(src, openIdx, fixAsterisks = false) {
   const open = src[openIdx];
   const close = open === '[' ? ']' : open === '{' ? '}' : null;
