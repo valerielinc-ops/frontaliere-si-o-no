@@ -48,7 +48,7 @@ import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
-import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities } from './lib/dedicated-crawler-common.mjs';
+import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
@@ -285,6 +285,7 @@ export function applyPerLocaleSlugCollisionGuard(jobs) {
       if (!slug || slug === myBaseSlug) continue;
       const owner = baseSlugOwners.get(`${canton}|${slug}`);
       if (!owner || owner === myId) continue;
+      addPreviousSlugForLocale(job, locale, slug, 20, 'assemble-jobs-dataset.collision-guard');
       delete job.slugByLocale[locale];
       if (job.titleByLocale && typeof job.titleByLocale === 'object') {
         delete job.titleByLocale[locale];
@@ -1825,9 +1826,9 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
     const prior = priorByIdentity.get(id);
     if (!prior) continue;
 
-    // Capture every old slug variant that exists on the prior entry but
-    // is missing on the current one (including prior previousSlugs that
-    // might have been dropped during a baseline filter — defensive).
+    // Snapshot "already known" values BEFORE mutation, so carry-forward below
+    // doesn't re-add values that are already the job's current active slug
+    // (per-locale or master) or already tracked anywhere.
     const knownNew = new Set();
     if (job.slug) knownNew.add(String(job.slug));
     for (const s of Object.values(job.slugByLocale || {})) if (s) knownNew.add(String(s));
@@ -1840,34 +1841,13 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
 
     let driftedThisJob = false;
 
-    // Flat slug drift → push old `slug` into previousSlugs (legacy flat list).
-    if (prior.slug && !knownNew.has(String(prior.slug))) {
-      if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
-      job.previousSlugs.push(String(prior.slug));
-      knownNew.add(String(prior.slug));
-      mergedSlugs++;
+    // Flat + per-locale slug drift → journaled capture (addPreviousSlugForLocale),
+    // same helper the per-crawl write path uses.
+    const lost = captureLostSlugs(job, prior.slugByLocale || {}, prior.slug || '', 20);
+    if (lost.length > 0) {
+      for (const s of lost) knownNew.add(String(s));
+      mergedSlugs += lost.length;
       driftedThisJob = true;
-    }
-
-    // Per-locale slug drift → push old `slugByLocale[locale]` into
-    // `previousSlugsByLocale[locale]` (per-locale tracking). Preserves the
-    // 4-locale bridge so any locale entry-point keeps resolving.
-    if (prior.slugByLocale && typeof prior.slugByLocale === 'object') {
-      for (const [locale, oldSlug] of Object.entries(prior.slugByLocale)) {
-        if (!oldSlug) continue;
-        const oldStr = String(oldSlug);
-        if (knownNew.has(oldStr)) continue;
-        if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object') {
-          job.previousSlugsByLocale = {};
-        }
-        if (!Array.isArray(job.previousSlugsByLocale[locale])) {
-          job.previousSlugsByLocale[locale] = [];
-        }
-        job.previousSlugsByLocale[locale].push(oldStr);
-        knownNew.add(oldStr);
-        mergedSlugs++;
-        driftedThisJob = true;
-      }
     }
 
     // Also carry forward any previousSlugs from the prior entry that aren't
@@ -1876,10 +1856,10 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
     for (const s of (prior.previousSlugs || [])) {
       const sStr = String(s || '');
       if (!sStr || knownNew.has(sStr)) continue;
-      if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
-      job.previousSlugs.push(sStr);
+      addPreviousSlugForLocale(job, 'it', sStr, 20, 'trackSlugHistoryDrift/carry-forward-flat');
       knownNew.add(sStr);
       mergedSlugs++;
+      driftedThisJob = true;
     }
     if (prior.previousSlugsByLocale && typeof prior.previousSlugsByLocale === 'object') {
       for (const [locale, arr] of Object.entries(prior.previousSlugsByLocale)) {
@@ -1892,16 +1872,12 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
           // routes through previousSlugsByLocale[locale] preferentially, so
           // we must hydrate the locale bucket even when flat already has it.
           // Dedup per-locale instead.
-          if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object') {
-            job.previousSlugsByLocale = {};
-          }
-          if (!Array.isArray(job.previousSlugsByLocale[locale])) {
-            job.previousSlugsByLocale[locale] = [];
-          }
-          if (job.previousSlugsByLocale[locale].includes(sStr)) continue;
-          job.previousSlugsByLocale[locale].push(sStr);
+          const bucket = (job.previousSlugsByLocale && job.previousSlugsByLocale[locale]) || [];
+          if (bucket.includes(sStr)) continue;
+          addPreviousSlugForLocale(job, locale, sStr, 20, 'trackSlugHistoryDrift/carry-forward-locale');
           knownNew.add(sStr);
           mergedSlugs++;
+          driftedThisJob = true;
         }
       }
     }
@@ -1963,22 +1939,28 @@ function reconcileGhostExpired(activeJobs, expiredJobs) {
     // Mark as ghost
     ghostIds.add(ej.slug || ej.id || JSON.stringify(ej.slugByLocale));
 
-    // Merge expired slugs into active job's previousSlugs
+    // Merge expired slugs into active job's previousSlugs (journaled + capped,
+    // matching the write path everywhere else — see addPreviousSlugForLocale).
     const existingSlugs = new Set([
       ...(match.slugByLocale ? Object.values(match.slugByLocale) : []),
       ...(match.previousSlugs || []),
     ]);
-    const newSlugs = [
-      ...expSlugs.filter(s => s && !existingSlugs.has(s)),
-      ...(ej.previousSlugs || []).filter(s => s && !existingSlugs.has(s)),
-    ];
-    const uniqueNew = [...new Set(newSlugs)];
-
-    if (uniqueNew.length > 0) {
-      if (!match.previousSlugs) match.previousSlugs = [];
-      match.previousSlugs.push(...uniqueNew);
-      mergedSlugs += uniqueNew.length;
+    let addedCount = 0;
+    if (ej.slugByLocale && typeof ej.slugByLocale === 'object') {
+      for (const [locale, s] of Object.entries(ej.slugByLocale)) {
+        if (!s || existingSlugs.has(s)) continue;
+        addPreviousSlugForLocale(match, locale, s, 20, 'assemble-jobs-dataset.reconcileGhostExpired');
+        existingSlugs.add(s);
+        addedCount++;
+      }
     }
+    for (const s of (ej.previousSlugs || [])) {
+      if (!s || existingSlugs.has(s)) continue;
+      addPreviousSlugForLocale(match, 'it', s, 20, 'assemble-jobs-dataset.reconcileGhostExpired');
+      existingSlugs.add(s);
+      addedCount++;
+    }
+    mergedSlugs += addedCount;
   }
 
   // Filter out ghosts
