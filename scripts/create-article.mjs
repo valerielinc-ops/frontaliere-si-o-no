@@ -3209,11 +3209,13 @@ async function callLLM(messages, opts = {}) {
 
       if (missing.length > 0) {
         console.error(`  ⚠️  output JSON incompleto: ${missing.join(', ')} (tentativo ${attempt}/${maxBody2Retries}) — rigenero...`);
-        // Penalize the model that produced the unusable payload so the next
-        // attempt picks a different one (remote models get excluded for the
-        // rest of this run after MAX_CONSECUTIVE_CONTENT_FAILURES; local/fallback
-        // never is — it's the last resort when the whole remote chain is dead).
-        recordModelContentFailure(modelUsedRef.model);
+        // Penalize the model only for genuine content failures, not budget-induced
+        // exits. When wallBudgetExceeded() is true the throw below is caused by
+        // time pressure, not by model output quality; scoring it as a failure would
+        // bias Firestore ai_model_scores against a model that may be perfectly fine.
+        if (!wallBudgetExceeded()) {
+          recordModelContentFailure(modelUsedRef.model);
+        }
         // Bail out of this retry budget the moment the run-wide wall-clock
         // deadline is gone, instead of blindly looping to maxBody2Retries.
         // When every remote model is already exhausted, each retry here
