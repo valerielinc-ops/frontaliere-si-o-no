@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oetiker",
-  "assembledAt": "2026-07-05T12:06:42.454Z",
+  "assembledAt": "2026-07-05T23:35:19.632Z",
   "jobs": [
     {
       "id": "oetiker-a9477d03bf4c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000129430049-teamleiter-cnc-frasen-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:06:40.088Z",
+      "crawledAt": "2026-07-05T23:35:17.676Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -53,7 +53,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-cnc-frasen-all-oetiker-horgen-switzerland"
+        "teamleiter-cnc-frasen-all-oetiker-horgen-switzerland",
+        "team-leader-cnc-milling-tutti-oetiker-horgen-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -112,7 +113,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135449649-team-leader-procurement-planning-logistics-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:06:40.067Z",
+      "crawledAt": "2026-07-05T23:35:17.655Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -132,7 +133,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "team-leader-procurement-planning-logistics-all-oetiker-horgen-switzerland"
+        "team-leader-procurement-planning-logistics-all-oetiker-horgen-switzerland",
+        "capo-squadra-procurement-planning-logistica-all-oetiker-horgen-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -144,6 +146,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:28:43.862Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
