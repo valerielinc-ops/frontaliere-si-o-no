@@ -26,20 +26,32 @@ export function stripCodeFences(raw) {
  */
 export const JSON_QUOTE_SAFETY_RULE_IT = '⚠️ VIRGOLETTE NEI VALORI JSON: se riporti un termine o una frase citata tra virgolette (es. la cosiddetta "tassa sulla salute"), NON usare mai il carattere " dentro un valore stringa JSON — usa virgolette singole (\'tassa sulla salute\') o guillemet («tassa sulla salute»). Se devi proprio usare virgolette doppie interne, escapale sempre con \\" (es. "la cosiddetta \\"tassa sulla salute\\""). Una virgoletta doppia non escapata dentro una stringa rende l\'intero JSON non valido e scarta l\'intero articolo.';
 
-/** Index of the bracket/brace matching the opener at openIdx, quote/escape aware. */
-export function findMatchingClose(src, openIdx) {
+/** Index of the bracket/brace matching the opener at openIdx.
+ *
+ * Skips over string content using scanStringEnd's quote-disambiguation
+ * (`fixAsterisks` must match the caller's setting) rather than a naive
+ * unescaped-quote toggle: a nested string value can itself legitimately
+ * contain a lone stray unescaped quote (an odd count before the real
+ * closer — e.g. a quoted term missing its closing mark), which flips a
+ * naive toggle's parity and makes depth-counting skip past or never reach
+ * the true matching bracket, returning -1 or a wrong earlier close and
+ * corrupting the *preceding* sibling field's own valid closing quote
+ * (confirmed regression, issue #3604: `{"imagePrompt":"...","imageAlt":
+ * {"it":"...torre "di Lugano...","en":"..."}}`, odd embedded quote count
+ * in `it` → old toggle desyncs → `imagePrompt` itself gets corrupted). */
+export function findMatchingClose(src, openIdx, fixAsterisks = false) {
   const open = src[openIdx];
   const close = open === '[' ? ']' : open === '{' ? '}' : null;
   if (!close) return -1;
   let depth = 0;
-  let inStr = false;
-  let esc = false;
   for (let i = openIdx; i < src.length; i++) {
     const ch = src[i];
-    if (esc) { esc = false; continue; }
-    if (ch === '\\') { esc = true; continue; }
-    if (ch === '"') { inStr = !inStr; continue; }
-    if (inStr) continue;
+    if (ch === '"') {
+      const strEnd = scanStringEnd(src, i, fixAsterisks);
+      if (strEnd === -1) return -1;
+      i = strEnd - 1;
+      continue;
+    }
     if (ch === open) depth++;
     else if (ch === close) { depth--; if (depth === 0) return i; }
   }
@@ -158,31 +170,49 @@ function decideQuoteCloses(str, quoteIdx, fixAsterisks) {
  * `fixAsterisks` must match the caller's setting — this lookahead has to
  * agree with the real main-loop pass on whether a bare `*` run is a
  * structural comma-stand-in or literal content, or it can mis-scan across
- * an asterisk boundary the main loop would have converted. */
+ * an asterisk boundary the main loop would have converted.
+ *
+ * A `{`/`[` value must scan all the way to its real matching close (via
+ * findMatchingClose), not just past the opening bracket — an early `i + 1`
+ * return left `looksLikeJsonContinuation` checking the character right
+ * after the bracket (the nested value's own first key/element, never a
+ * valid top-level continuation), so it always rejected. That falsely
+ * rejected any string value immediately followed by a nested-object/array
+ * sibling — exactly `"imagePrompt": "...", "imageAlt": {"it": ...}`, used
+ * in every article-generation prompt — cascading into "Expected ',' or
+ * '}'" on the article's *own* well-formed imagePrompt string (run
+ * 28751915972, confirmed post-#3597, 2026-07-05). */
 function scanValueEnd(str, i, fixAsterisks) {
   if (i >= str.length) return -1;
   const ch = str[i];
   if (ch === '{' || ch === '[') {
-    const closeIdx = findMatchingClose(str, i);
+    const closeIdx = findMatchingClose(str, i, fixAsterisks);
     return closeIdx === -1 ? -1 : closeIdx + 1;
   }
-  if (ch === '"') {
-    let j = i + 1;
-    while (j < str.length) {
-      if (str[j] === '\\') { j += 2; continue; }
-      if (str[j] === '"') {
-        if (decideQuoteCloses(str, j, fixAsterisks)) return j + 1;
-        j++;
-        continue;
-      }
-      j++;
-    }
-    return -1;
-  }
+  if (ch === '"') return scanStringEnd(str, i, fixAsterisks);
   const numMatch = /^-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/.exec(str.slice(i));
   if (numMatch && numMatch[0]) return i + numMatch[0].length;
   const kwMatch = /^(?:true|false|null)\b/.exec(str.slice(i));
   if (kwMatch) return i + kwMatch[0].length;
+  return -1;
+}
+
+/** Index just past a string's real closing quote (str[i] must be '"'), using
+ * decideQuoteCloses to skip stray embedded unescaped quotes rather than
+ * stopping at the first one. -1 if unterminated. Shared by scanValueEnd and
+ * findMatchingClose so both treat "does this quote really close the
+ * string?" identically. */
+function scanStringEnd(str, i, fixAsterisks) {
+  let j = i + 1;
+  while (j < str.length) {
+    if (str[j] === '\\') { j += 2; continue; }
+    if (str[j] === '"') {
+      if (decideQuoteCloses(str, j, fixAsterisks)) return j + 1;
+      j++;
+      continue;
+    }
+    j++;
+  }
   return -1;
 }
 

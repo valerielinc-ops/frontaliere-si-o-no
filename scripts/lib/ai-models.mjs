@@ -82,18 +82,18 @@ export const AI_MODELS = Object.freeze({
   LLAMA_4_MAVERICK: 'Llama-4-Maverick-17B-128E-Instruct-FP8',
   LLAMA_4_SCOUT:    'Llama-4-Scout-17B-16E-Instruct',
   LLAMA_3_3_70B:    'Llama-3.3-70B-Instruct',
-  LLAMA_3_1_405B:   'Meta-Llama-3.1-405B-Instruct',
-  LLAMA_3_1_8B:     'Meta-Llama-3.1-8B-Instruct',
+  // LLAMA_3_1_405B removed — GitHub Models HTTP 400 "unknown_model: Meta-Llama-3.1-405B-Instruct" (2026-07-05, confirmed retired live against the real inference endpoint, 20x in 30-run sample)
+  // LLAMA_3_1_8B removed — GitHub Models HTTP 400 "unknown_model: Meta-Llama-3.1-8B-Instruct" (2026-07-05, confirmed retired live against the real inference endpoint, 20x in 30-run sample). NB: GROQ_LLAMA_3_1_8B/CB_LLAMA_3_1_8B/FW_LLAMA_3_1_8B/NV_LLAMA_3_1_8B are separate, still-alive constants on other providers.
   PHI_4:            'Phi-4',
   DEEPSEEK_R1:      'DeepSeek-R1',
-  COHERE_CMD_R_PLUS:'Cohere-command-r-plus-08-2024',
+  // COHERE_CMD_R_PLUS removed — GitHub Models HTTP 400 "unknown_model: Cohere-command-r-plus-08-2024" (2026-07-05, confirmed retired live against the real inference endpoint, 14x in 30-run sample)
   CODESTRAL:        'Codestral-2501',
   GPT_4_1:          'gpt-4.1',
   GPT_4_1_MINI:     'gpt-4.1-mini',
   GPT_4_1_NANO:     'gpt-4.1-nano',
   // COHERE_CMD_R removed — GitHub Models HTTP 400 "unknown_model: Cohere-command-r-08-2024" (2026-07-05, confirmed retired live against the real inference endpoint)
   COHERE_CMD_A:     'Cohere-command-a',
-  LLAMA_3_2_90B:    'Llama-3.2-90B-Vision-Instruct',
+  // LLAMA_3_2_90B removed — GitHub Models HTTP 400 "unknown_model: Llama-3.2-90B-Vision-Instruct" (2026-07-05, confirmed retired live against the real inference endpoint, 12x in 30-run sample)
   DEEPSEEK_V3:      'DeepSeek-V3-0324',
   // GPT_5_NANO removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   // GPT_5_MINI removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
@@ -384,12 +384,12 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.COHERE_CMD_A,       // 15. Cohere latest          (GitHub Models)
   AI_MODELS.MISTRAL_SMALL,      // 16. Mistral Small latest   (Mistral AI direct)
   AI_MODELS.GROQ_LLAMA_3_3,     // 17. Llama 3.3 70B          (Groq)
-  AI_MODELS.COHERE_CMD_R_PLUS,  // 18. Cohere multilingual    (GitHub Models)
+  // AI_MODELS.COHERE_CMD_R_PLUS removed chain — GitHub Models HTTP 400 "unknown_model: Cohere-command-r-plus-08-2024" (2026-07-05, confirmed retired live, 14x in 30-run sample)
   AI_MODELS.COH_CMD_A,          // 18b. Cohere Command A      (Cohere direct - 1000/month)
   AI_MODELS.GEMINI_31_PRO,      // 18d. Gemini 3.1 Pro preview (Gemini API free)
   AI_MODELS.COH_CMD_R_PLUS,     // 18c. Cohere Command R+     (Cohere direct - 1000/month)
   AI_MODELS.CF_LLAMA_3_3_70B,   // 19. Llama 3.3 70B FP8     (Cloudflare Workers AI)
-  AI_MODELS.LLAMA_3_1_405B,     // 20. Meta 405B flagship     (GitHub Models)
+  // AI_MODELS.LLAMA_3_1_405B removed chain — GitHub Models HTTP 400 "unknown_model: Meta-Llama-3.1-405B-Instruct" (2026-07-05, confirmed retired live, 20x in 30-run sample)
   // MISTRAL_MEDIUM_3 removed — GitHub Models HTTP 404 "unknown_model" (2026-04)
   AI_MODELS.GROQ_QWEN3_32B,      // 22. Qwen3 32B              (Groq - ultra fast)
   AI_MODELS.CB_QWEN3_235B,       // 22a. Qwen3 235B frontier   (Cerebras preview — ultra fast)
@@ -398,7 +398,7 @@ export const DEFAULT_CHAIN = [
   // JAMBA_1_5_LARGE removed — GitHub Models HTTP 400 "unknown_model" (2026-04)
   // SN_LLAMA_3_3_70B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   // AI_MODELS.O1 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
-  AI_MODELS.LLAMA_3_2_90B,      // 24. Llama 3.2 90B           (GitHub Models)
+  // AI_MODELS.LLAMA_3_2_90B removed chain — GitHub Models HTTP 400 "unknown_model: Llama-3.2-90B-Vision-Instruct" (2026-07-05, confirmed retired live, 12x in 30-run sample)
   AI_MODELS.GEMINI_2_FLASH,     // 25. Google 2.0 flash       (Gemini API free)
   // AI_MODELS.GEMINI_31_FLASH_LITE removed — Gemini API HTTP 404 "models/gemini-3.1-flash-lite-preview is no longer available" (2026-05-27, run 26534353239).
   //                                 The deprecated preview kept winning the fallback selector because 404 didn't mark it exhausted, causing the
@@ -451,7 +451,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.OR_GEMMA_4_26B,     // 55. Gemma 4 26B MoE         (OpenRouter free — replaces DeepSeek R1 Zero)
   // OR_DEEPSEEK_R1Z removed from OpenRouter free list (2026-04)
   // GROQ_COMPOUND_MINI removed — Groq HTTP 404 "model compound-mini does not exist" (2026-04)
-  AI_MODELS.LLAMA_3_1_8B,       // 56. Meta 8B fast           (GitHub Models)
+  // AI_MODELS.LLAMA_3_1_8B removed chain — GitHub Models HTTP 400 "unknown_model: Meta-Llama-3.1-8B-Instruct" (2026-07-05, confirmed retired live, 20x in 30-run sample)
   AI_MODELS.MINISTRAL_3B,       // 57. Mistral 3B fast        (GitHub Models)
   AI_MODELS.CF_GPT_OSS_20B,     // 58. GPT-OSS 20B            (Cloudflare Workers AI)
   // AI_MODELS.O3_MINI removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
@@ -2282,7 +2282,7 @@ const MAX_COMPLETION_TOKENS_MODELS = new Set([
  *   - Phi-4 / Cohere-command-a / Cohere-command-r-plus-08-2024 /
  *     Llama-3.2-90B-Vision-Instruct / cerebras/llama3.1-8b cap at 8000
  *
- * Heuristic: estimated_tokens = chars / 4 + safety_margin (500).
+ * Heuristic: estimated_tokens = chars / 3.5 + safety_margin (500).
  * If the estimate exceeds MODEL_MAX_REQUEST_TOKENS[apiModelId], skip the model.
  *
  * Conservative caps: a few of these limits are higher in practice but the
@@ -2460,10 +2460,16 @@ function _learnSchemaIncompatible(modelForTracking) {
 }
 
 /**
- * Estimate token count for a list of OpenAI-format messages. Uses the standard
- * chars/4 ≈ tokens heuristic — accurate enough for "is this prompt going to
- * blow past 4000?" decisions. Adds a 500-token safety margin to account for
- * the response prefix, role markers, and tokenizer variance.
+ * Estimate token count for a list of OpenAI-format messages. Uses a chars/3.5
+ * ≈ tokens heuristic — accurate enough for "is this prompt going to blow past
+ * 4000?" decisions. Adds a 500-token safety margin to account for the
+ * response prefix, role markers, and tokenizer variance.
+ *
+ * Divisor verified 2026-07-05 against run 28732970228: NVIDIA's own tokenizer
+ * reported 8771 tokens for a prompt whose chars/4 + 500 estimate came out to
+ * only 7785 — a ~13% undercount that let the 8000-token skip-guard under-fire
+ * and let a doomed HTTP call through. chars/3.5 + 500 on the same prompt
+ * yields ~8826, within 1% of the real count and back over the cap.
  *
  * Exported for tests / smoke probes.
  */
@@ -2484,7 +2490,7 @@ export function estimateRequestTokens(messages, opts = {}) {
   if (opts.jsonSchema?.schema) {
     try { chars += JSON.stringify(opts.jsonSchema.schema).length; } catch { /* noop */ }
   }
-  return Math.ceil(chars / 4) + SAFETY_MARGIN;
+  return Math.ceil(chars / 3.5) + SAFETY_MARGIN;
 }
 
 /** Models with lower max output token limits.
@@ -2504,6 +2510,11 @@ const MODEL_MAX_OUTPUT_TOKENS = {
   'command-r7b-12-2024': 4096,
   // Groq Llama 4 family enforces max_tokens <= 8192.
   'meta-llama/llama-4-scout-17b-16e-instruct': 8192,
+  // GitHub Models HTTP 400 (run 28732970228, 2026-07-05, 19x in 30-run sample):
+  // "max_completion_tokens=8000 cannot be greater than max_model_len=
+  // max_total_tokens=4096" — this codebase's default article-generation
+  // maxTokens (8000) always overran Phi-4-mini-reasoning's real 4096 limit.
+  'Phi-4-mini-reasoning': 4000,
 };
 
 // ── Low-level provider calls ─────────────────────────────────
