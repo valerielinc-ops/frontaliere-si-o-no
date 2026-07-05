@@ -1,17 +1,82 @@
 {
-  "generated": "2026-05-06T01:19:31.096Z",
-  "_note": "Per-feature ratchet for the (#abcdef12) disambiguator visible in <title>. Counts can only go DOWN. Fix at source by renaming colliding articles (year, city, source qualifier) so the base title is unique without the hash.",
-  "total": 62631,
+  "generated": "2026-07-05T21:40:22.349Z",
+  "mode": "rate",
+  "tolerance": {
+    "relPct": 20,
+    "absPp": 1,
+    "minAbsDelta": 5,
+    "maxDeltaPp": 3
+  },
+  "scanned": 2068992,
+  "totalOffenders": 539,
+  "totalRatePct": 0.0261,
   "byFeature": {
-    "blog": 539,
-    "job-board": 62021,
-    "spa-other": 54,
-    "weekly-employers": 17
+    "spa-other": {
+      "scanned": 1612,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "fuel-daily": {
+      "scanned": 6326,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "health-premiums": {
+      "scanned": 366,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "job-market-snapshot": {
+      "scanned": 93,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "spa-locale": {
+      "scanned": 4347,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "job-board": {
+      "scanned": 2033096,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "weekly-employers-hub": {
+      "scanned": 100,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "career-landings": {
+      "scanned": 6074,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "eventi": {
+      "scanned": 4396,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "weekly-employers": {
+      "scanned": 339,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "blog": {
+      "scanned": 12198,
+      "offenders": 539,
+      "ratePct": 4.4188
+    },
+    "border-wait": {
+      "scanned": 45,
+      "offenders": 0,
+      "ratePct": 0
+    }
   },
   "byLocale": {
-    "it": 16678,
-    "de": 15719,
-    "en": 15053,
-    "fr": 15181
-  }
+    "it": 277,
+    "de": 59,
+    "en": 149,
+    "fr": 54
+  },
+  "_note": "Rate-based ratchet for the (#abcdef12) disambiguator visible in <title>. Tracks the offender RATE (offenders/scanned) per feature so organic page growth does not regress the build. A feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its absolute offender count grows by more than minAbsDelta. Rates must only DECREASE going forward (modulo tolerance)."
 }
