@@ -255,6 +255,37 @@ function looksLikeJsonContinuation(str, pos, fixAsterisks) {
   return afterSeparatorLooksValid(str, i + 1, ch === ':', fixAsterisks);
 }
 
+/**
+ * Build a log-ready excerpt of `repairedText` centered on the byte offset a
+ * `JSON.parse()` SyntaxError reports, so the logged snippet actually shows
+ * the character that broke parsing.
+ *
+ * `repairedText` MUST be the exact string passed to `JSON.parse()` (i.e. the
+ * repairLlmJson/repairJsonArray OUTPUT), not the original raw LLM response.
+ * repairLlmJson/repairJsonArray change the string's length (escaping inner
+ * quotes, collapsing `\n`, stripping code fences), so a `raw[0:300]` snippet
+ * of the PRE-repair text logged next to a POST-repair error position points
+ * at an unrelated byte — every "JSON parse fallito" log produced this way is
+ * undiagnosable (confirmed by hand-reconstructing run 28744325535's logged
+ * position against its logged raw snippet: they land on different
+ * characters). Node's `SyntaxError.message` embeds the offset as
+ * `at position N`; when present, this returns a window around N in
+ * `repairedText` instead of an arbitrary prefix.
+ */
+export function describeJsonParseError(repairedText, parseErr, contextChars = 120) {
+  const str = String(repairedText);
+  const m = /position (\d+)/.exec(parseErr?.message || '');
+  if (!m) {
+    return `repaired[0:${contextChars * 2}]: ${str.slice(0, contextChars * 2).replace(/\n/g, '\\n')}`;
+  }
+  const pos = Math.min(Number(m[1]), str.length);
+  const start = Math.max(0, pos - contextChars);
+  const end = Math.min(str.length, pos + contextChars);
+  const before = str.slice(start, pos).replace(/\n/g, '\\n');
+  const after = str.slice(pos, end).replace(/\n/g, '\\n');
+  return `repaired[${start}:${end}] around position ${pos}: ${before}<<HERE>>${after}`;
+}
+
 export function fixJsonStringBody(input, { fixAsterisks = false } = {}) {
   let out = '';
   let inStr = false;

@@ -76,7 +76,7 @@ import { translateFieldFreeMt } from './lib/article-free-mt.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
-import { stripCodeFences, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT } from './lib/llm-json-repair.mjs';
+import { stripCodeFences, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError } from './lib/llm-json-repair.mjs';
 import {
   factCheckFingerprint,
   totalMajorWeight,
@@ -3167,8 +3167,10 @@ async function callLLM(messages, opts = {}) {
     if (isBody2Check) {
       let itContent = null;
       let parseErr = null;
+      let repaired = null;
       try {
-        const parsed = JSON.parse(repairLlmJson(result));
+        repaired = repairLlmJson(result);
+        const parsed = JSON.parse(repaired);
         itContent = normalizeItalianContentFromPayload(parsed);
       } catch (e) {
         parseErr = e;
@@ -3180,11 +3182,10 @@ async function callLLM(messages, opts = {}) {
         missing.push('content.it non normalizzabile');
         // Previously swallowed silently — every "non normalizzabile" failure
         // was unreproducible (no evidence of what the model actually sent).
-        // Log the parse error + a raw snippet so a recurring malformed-JSON
+        // Log the parse error + a snippet so a recurring malformed-JSON
         // pattern from a specific model can actually be root-caused.
         if (parseErr) {
-          const snippet = String(result).slice(0, 300).replace(/\n/g, '\\n');
-          console.error(`  🔎 JSON parse fallito (${modelUsedRef.model || 'unknown'}): ${parseErr.message} — raw[0:300]: ${snippet}`);
+          console.error(`  🔎 JSON parse fallito (${modelUsedRef.model || 'unknown'}): ${parseErr.message} — ${describeJsonParseError(repaired, parseErr)}`);
         }
       } else {
         for (const field of REQUIRED_IT_BODY_FIELDS) {
@@ -4452,14 +4453,15 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     itRaw = await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, temperature, maxTokens: 8000, jsonMode: true, jsonSchema: articleSchema });
   }
   let itData;
+  const itRepaired = repairLlmJson(itRaw);
   try {
-    itData = JSON.parse(repairLlmJson(itRaw));
+    itData = JSON.parse(itRepaired);
   } catch (parseErr) {
     // One repair-aware regenerate before giving up. Truncation (output cap
     // hit) gets 2× tokens; structural corruption keeps the same budget so
     // we don't pay double for a transient `***`-between-properties glitch.
     console.error(`❌ JSON parse error: ${parseErr.message}`);
-    console.error(`   Raw response (last 200 chars): ...${itRaw.slice(-200)}`);
+    console.error(`   ${describeJsonParseError(itRepaired, parseErr)}`);
     const isTruncation = /Unterminated|Unexpected end/i.test(parseErr.message);
     const retryTokens = isTruncation ? 16000 : 8000;
     console.error(`  🔄 Retry IT con maxTokens=${retryTokens}${isTruncation ? ' (troncamento rilevato)' : ''}...`);
@@ -4757,11 +4759,12 @@ async function translateArticle(data) {
       [{ role: 'user', content: safePrompt }],
       { temperature: 0.5, maxTokens, jsonMode: true },
     );
+    const repaired = repairLlmJson(raw);
     try {
-      return JSON.parse(repairLlmJson(raw));
+      return JSON.parse(repaired);
     } catch (parseErr) {
       console.error(`  ⚠️  JSON parse error (${label}): ${parseErr.message}`);
-      console.error(`     Raw (last 200 chars): ...${raw.slice(-200)}`);
+      console.error(`     ${describeJsonParseError(repaired, parseErr)}`);
       // Detect truncation (model hit output cap): use 3× tokens on retry
       const isTruncation = parseErr.message.includes('Unterminated') || parseErr.message.includes('Unexpected end');
       const retry1Tokens = isTruncation ? Math.max(maxTokens * 3, 12000) : maxTokens + 4000;

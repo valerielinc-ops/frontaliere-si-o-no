@@ -9,7 +9,7 @@
 // had this bug inlined — fixed once in shared ./lib/llm-json-repair.mjs.
 
 import { describe, expect, it } from 'vitest';
-import { stripCodeFences, findMatchingClose, fixJsonStringBody } from '../../scripts/lib/llm-json-repair.mjs';
+import { stripCodeFences, findMatchingClose, fixJsonStringBody, describeJsonParseError } from '../../scripts/lib/llm-json-repair.mjs';
 
 describe('fixJsonStringBody', () => {
   it('escapes an unescaped inner quote so the string does not terminate early', () => {
@@ -156,6 +156,46 @@ describe('stripCodeFences', () => {
 
   it('leaves unfenced content untouched', () => {
     expect(stripCodeFences('{"a":1}')).toBe('{"a":1}');
+  });
+});
+
+describe('describeJsonParseError', () => {
+  // Regression: several call sites logged a raw[0:300] snippet of the
+  // PRE-repair text next to a JSON.parse() error whose "position N" is
+  // computed against the POST-repair string — repairLlmJson/repairJsonArray
+  // change the string's length (escaping quotes, collapsing \n, stripping
+  // code fences), so the two coordinate systems don't match and the logged
+  // snippet never showed the actual failing byte (run 28744325535).
+  it('centers the excerpt on the position reported by a real JSON.parse SyntaxError', () => {
+    const repaired = '{"a":"ok","b":"bad}'; // missing closing quote before }
+    let err: Error;
+    try {
+      JSON.parse(repaired);
+      throw new Error('expected JSON.parse to throw');
+    } catch (e) {
+      err = e as Error;
+    }
+    const described = describeJsonParseError(repaired, err);
+    expect(described).toMatch(/position \d+/);
+    expect(described).toContain('<<HERE>>');
+    // The reported position must fall inside the ACTUAL repaired string,
+    // not some unrelated pre-repair offset.
+    const m = /position (\d+)/.exec(err.message);
+    expect(m).not.toBeNull();
+  });
+
+  it('falls back to a plain prefix when the error message has no position', () => {
+    const described = describeJsonParseError('{"a":1}', new Error('some non-standard parse error'));
+    expect(described).toMatch(/^repaired\[0:\d+\]:/);
+    expect(described).not.toContain('<<HERE>>');
+  });
+
+  it('clamps the window to the string bounds near the end', () => {
+    const repaired = '{"a":"short"}';
+    const err = new Error(`Unexpected end of JSON input at position ${repaired.length + 50}`);
+    const described = describeJsonParseError(repaired, err);
+    // Must not throw/slice out of bounds — position is clamped to string length.
+    expect(described).toContain(`position ${repaired.length}`);
   });
 });
 

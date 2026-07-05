@@ -449,7 +449,7 @@ describe('local LLM fallback exhaustion never persists past the run (Firestore)'
       const loadLine = logSpy.mock.calls.map((c) => String(c[0])).find((l) => l.includes('[ScoreStore] Loaded'));
       expect(loadLine).toBeDefined();
       // Only gpt-4o's ban should survive the restore — local/fallback's must not.
-      expect(loadLine).toMatch(/\(0 decayed, 1 still exhausted, \d+ learned token limits\)/);
+      expect(loadLine).toMatch(/\(0 decayed, 1 still exhausted, \d+ learned token limits, \d+ schema-incompatible\)/);
     } finally {
       logSpy.mockRestore();
     }
@@ -563,5 +563,122 @@ describe('self-learning request-token-limit discovery (generalizes beyond hardco
     const bigPrompt = 'x'.repeat(10_000);
     await expect(mod.callLLM([{ role: 'user', content: bigPrompt }], { maxRetriesPerModel: 1 })).rejects.toThrow('All AI models failed');
     expect(fetchCalled).toBe(false);
+  });
+});
+
+// Regression guard for the structural fix (2026-07-05): GitHub Models proxies
+// several sub-model families (Ministral-3B, Codestral-2501, the Phi-4 family)
+// with inconsistent strict-JSON-schema support despite GitHub being in
+// PROVIDERS_WITH_STRICT_JSON_SCHEMA — a model that 400s on response_format=
+// json_schema got the exact same failing request replayed on every cascade
+// pass, forever, wasting a round-trip each time. Mirrors the self-learning
+// request-token-limit mechanism above: learn per-model (not per-provider),
+// persist via the same Firestore aggregate doc, and stop offering schema mode
+// to that model going forward via shouldUseSchemaMode().
+describe('self-learning schema-incompatibility discovery (per-model, not per-provider)', () => {
+  const prevCreds = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  const prevGhPat = process.env.GH_MODELS_PAT;
+  const prevForceChain = process.env.AI_MODELS_FORCE_CHAIN;
+  const prevFetch = globalThis.fetch;
+
+  const testSchema = { name: 'test_schema', schema: { type: 'object', properties: { a: { type: 'string' } } } };
+
+  beforeEach(() => {
+    vi.resetModules();
+    process.env.GOOGLE_APPLICATION_CREDENTIALS = '/dev/null';
+    process.env.GH_MODELS_PAT = 'test-pat';
+    globalThis.fetch = (async () => { throw new Error('network disabled in test'); }) as typeof fetch;
+  });
+
+  afterEach(() => {
+    globalThis.fetch = prevFetch;
+    if (prevCreds === undefined) delete process.env.GOOGLE_APPLICATION_CREDENTIALS; else process.env.GOOGLE_APPLICATION_CREDENTIALS = prevCreds;
+    if (prevGhPat === undefined) delete process.env.GH_MODELS_PAT; else process.env.GH_MODELS_PAT = prevGhPat;
+    if (prevForceChain === undefined) delete process.env.AI_MODELS_FORCE_CHAIN; else process.env.AI_MODELS_FORCE_CHAIN = prevForceChain;
+    vi.doUnmock('firebase-admin');
+  });
+
+  it('write path: a GitHub 400 "does not support response format" persists schemaIncompatible for that model only', async () => {
+    const store: Record<string, { models?: Record<string, unknown> }> = {};
+    mockFirestore(store);
+    process.env.AI_MODELS_FORCE_CHAIN = 'gpt-4o-mini';
+    globalThis.fetch = (async () => ({
+      ok: false,
+      status: 400,
+      text: async () => JSON.stringify({
+        error: {
+          message: 'Invalid schema for response_format: model does not support response format json_schema',
+          code: 'invalid_request',
+        },
+      }),
+    })) as unknown as typeof fetch;
+
+    const mod = await import('../scripts/lib/ai-models.mjs');
+    await mod.initScoreStore();
+    await expect(
+      mod.callLLM([{ role: 'user', content: 'hi' }], { maxRetriesPerModel: 1, jsonSchema: testSchema }),
+    ).rejects.toThrow('All AI models failed');
+
+    const persisted = store._all.models as Record<string, { schemaIncompatible?: boolean }>;
+    expect(persisted['gpt-4o-mini'].schemaIncompatible).toBe(true);
+  });
+
+  it('does NOT tag a bare "unsupported parameter" (max_tokens) rejection as schema-incompatible', async () => {
+    // Same nonRetryable classification path as the schema-format case, but a
+    // different real cause (max_tokens vs max_completion_tokens) — tagging it
+    // schema_unsupported would wrongly disable schema mode for a model whose
+    // actual problem has nothing to do with response_format/response_schema.
+    const store: Record<string, { models?: Record<string, unknown> }> = {};
+    mockFirestore(store);
+    process.env.AI_MODELS_FORCE_CHAIN = 'gpt-4o-mini';
+    globalThis.fetch = (async () => ({
+      ok: false,
+      status: 400,
+      text: async () => JSON.stringify({
+        error: { message: "Unsupported parameter: 'max_tokens' is not supported with this model.", code: 'unsupported_parameter' },
+      }),
+    })) as unknown as typeof fetch;
+
+    const mod = await import('../scripts/lib/ai-models.mjs');
+    await mod.initScoreStore();
+    await expect(
+      mod.callLLM([{ role: 'user', content: 'hi' }], { maxRetriesPerModel: 1, jsonSchema: testSchema }),
+    ).rejects.toThrow('All AI models failed');
+
+    const persisted = store._all.models as Record<string, { schemaIncompatible?: boolean }> | undefined;
+    expect(persisted?.['gpt-4o-mini']?.schemaIncompatible).toBeUndefined();
+  });
+
+  it('restore path: a pre-existing learned incompatibility is loaded on init and shouldUseSchemaMode stops offering schema mode', async () => {
+    const store: Record<string, { models?: Record<string, unknown> }> = {
+      _all: { models: { 'gpt-4o-mini': { modelId: 'gpt-4o-mini', score: 0, schemaIncompatible: true } } },
+    };
+    mockFirestore(store);
+
+    const mod = await import('../scripts/lib/ai-models.mjs');
+    await mod.initScoreStore();
+
+    // Provider-level allowlist alone would say yes (GitHub is in
+    // PROVIDERS_WITH_STRICT_JSON_SCHEMA) — the per-model learned flag must
+    // override that for this specific model, without punishing a sibling
+    // GitHub model that was never flagged.
+    expect(mod.shouldUseSchemaMode('GitHub', true, 'gpt-4o-mini')).toBe(false);
+    expect(mod.shouldUseSchemaMode('GitHub', true, 'gpt-4o')).toBe(true);
+  });
+
+  it('AI_MODELS_SCHEMA_MODE=force still probes a flagged model (explicit ops override, not silently suppressed)', async () => {
+    const store: Record<string, { models?: Record<string, unknown> }> = {
+      _all: { models: { 'gpt-4o-mini': { modelId: 'gpt-4o-mini', score: 0, schemaIncompatible: true } } },
+    };
+    mockFirestore(store);
+    const prevMode = process.env.AI_MODELS_SCHEMA_MODE;
+    process.env.AI_MODELS_SCHEMA_MODE = 'force';
+    try {
+      const mod = await import('../scripts/lib/ai-models.mjs');
+      await mod.initScoreStore();
+      expect(mod.shouldUseSchemaMode('GitHub', true, 'gpt-4o-mini')).toBe(true);
+    } finally {
+      if (prevMode === undefined) delete process.env.AI_MODELS_SCHEMA_MODE; else process.env.AI_MODELS_SCHEMA_MODE = prevMode;
+    }
   });
 });
