@@ -35,7 +35,7 @@ import {
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, warnIfListingAtCap } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -49,7 +49,8 @@ const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'ALTEN Switzerland';
 const COMPANY_DOMAIN = 'alten.ch';
 const COMPANY_HOST = 'www.alten.ch';
-const CAREERS_URL = 'https://www.alten.ch/career/jobs/?pagenum=1&per_page=100';
+const LISTING_PAGE_CAP = 100;
+const CAREERS_URL = `https://www.alten.ch/career/jobs/?pagenum=1&per_page=${LISTING_PAGE_CAP}`;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function readJson(filePath, fallback) {
@@ -158,6 +159,7 @@ async function discoverListings() {
       const html = await page.content();
       const listings = parseAltenListingHtml(html);
       console.log(`📋 Total Swiss ALTEN jobs discovered (CH-wide): ${listings.length}`);
+      warnIfListingAtCap({ label: 'ALTEN listing', count: listings.length, cap: LISTING_PAGE_CAP });
       for (const listing of listings) console.log(`  📄 ${listing.title} (${listing.location})`);
       if (listings.length < 1) throw new Error(`Expected at least 1 ALTEN Swiss job, found ${listings.length}`);
       return listings;

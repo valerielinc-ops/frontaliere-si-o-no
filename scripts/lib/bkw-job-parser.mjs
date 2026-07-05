@@ -25,7 +25,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml, warnIfListingAtCap } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -39,6 +39,7 @@ const CAREER_URL = 'https://job.bkw.com/?lang=en';
 // returns all open positions in a single response.
 const LISTING_URL = 'https://job.bkw.com/?lang=en';
 const LISTING_HOST = 'job.bkw.com';
+const LISTING_PAGE_CAP = 2000;
 const SECTOR = 'Energy / Buildings / Infrastructure (utilities & engineering services)';
 
 // Realistic browser UA — the front (www.bkw.ch) is Akamai-protected and 403s
@@ -179,7 +180,7 @@ async function fetchListingHtml() {
         Accept: 'text/html,application/xhtml+xml',
         'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
       },
-      body: 'offset=0&limit=2000&lang=en&query=&place=&radius=50000',
+      body: `offset=0&limit=${LISTING_PAGE_CAP}&lang=en&query=&place=&radius=50000`,
       signal: controller.signal,
     });
     if (!res.ok) {
@@ -285,10 +286,11 @@ async function enrichListing(row) {
  * Returns an array of raw listing objects ready for the assembly loop.
  */
 async function fetchJobListings() {
-  console.log(`   Fetching listing: POST ${LISTING_URL} (limit=2000)`);
+  console.log(`   Fetching listing: POST ${LISTING_URL} (limit=${LISTING_PAGE_CAP})`);
   const html = await fetchListingHtml();
   const rows = parseListingRows(html);
   console.log(`  📋 Listing rows: ${rows.length}`);
+  warnIfListingAtCap({ label: 'BKW Career Center listing', count: rows.length, cap: LISTING_PAGE_CAP });
 
   // Cheap pre-filter: drop the obvious German/Austrian cities before we pay
   // for a detail-page fetch. inferSwissTargetCanton returns null for them.
