@@ -29,6 +29,16 @@
  *     other, …) → `agent:fix-queued` (+fu-prio): il followup-drainer le
  *     promuove UNA alla volta → nessun burst per costruzione.
  *
+ * Secondo passaggio — triaged-but-not-routed (aggiunto 2026-07-05, follow-up #3580):
+ * Copre un terzo buco: issue-triage.yml applica `agent:triaged` e routing nella
+ * stessa run; se la run viene cancellata DOPO aver applicato agent:triaged ma
+ * PRIMA del routing (race di concurrency) l'issue resta triaged-ma-non-routata
+ * per sempre (il primo passaggio non la vede: non è orfana). Usato anche per il
+ * backfill one-time post-PR #3554 (nuova policy routing universale: categorie
+ * revenue/tracker/validation-failure/other ora ricevono agent:fix-queued). Non
+ * tocca le issue già in stato di routing (agent:fix/agent:fix-queued/fu-parked/
+ * fu-attempt:*) né le crawler-transient.
+ *
  * `agent:triaged` SEMPRE via GITHUB_TOKEN (idempotenza, non deve triggerare);
  * il routing SEMPRE via GITHUB_PAT (anti-ricorsione + gate sender, come il path
  * event-driven). PAT assente → le routabili (fix/queue) restano ORFANE (no
@@ -59,6 +69,9 @@ function gh(args, { json = true, token } = {}) {
 const names = (iss) => (iss.labels || []).map((l) => l.name);
 const has = (iss, n) => names(iss).includes(n);
 
+// Labels che indicano che il routing è già stato applicato (in qualsiasi forma).
+const ROUTING_LABELS = ['agent:fix', 'agent:fix-queued', 'fu-parked', 'fu-attempt:1', 'fu-attempt:2', 'fu-attempt:3'];
+
 function main() {
   if (!REPO) { console.error('GH_REPO/GITHUB_REPOSITORY mancante'); process.exit(1); }
   console.log(`triage-sweep${DRY ? ' [DRY-RUN]' : ''} repo=${REPO} cap=${ROUTE_FIX_CAP}`);
@@ -75,13 +88,7 @@ function main() {
     .sort((a, b) => a.number - b.number);
   const orphans = allOrphans.slice(0, SWEEP_MAX);
 
-  if (!orphans.length) { console.log('Nessuna issue orfana (tutte triaged). ✅'); return; }
-  // Logga il TOTALE pre-slice (no silent cap): l'eccesso oltre SWEEP_MAX è ripreso al prossimo tick.
-  console.log(`Issue orfane senza agent:triaged: ${allOrphans.length}` +
-    (allOrphans.length > orphans.length
-      ? ` (ispeziono prime ${orphans.length}/${allOrphans.length} questo run, resto al prossimo tick).`
-      : ''));
-
+  // Contatori condivisi tra i due passaggi (aggregati nel summary finale).
   let routedFix = 0;
   let routedQueue = 0;
   let markedOnly = 0;
@@ -95,74 +102,140 @@ function main() {
     catch (e) { console.log(`::warning::#${n} agent:triaged fallito: ${String(e).slice(0, 100)}`); }
   };
 
-  for (const iss of orphans) {
-    const n = iss.number;
-    const { category, autofix, route, fuPrio } = classifyIssue(iss.title, names(iss));
+  // --- Primo passaggio: orfane (senza agent:triaged) ---
+  if (!orphans.length) {
+    console.log('Nessuna issue orfana (tutte triaged). ✅');
+  } else {
+    // Logga il TOTALE pre-slice (no silent cap): l'eccesso oltre SWEEP_MAX è ripreso al prossimo tick.
+    console.log(`Issue orfane senza agent:triaged: ${allOrphans.length}` +
+      (allOrphans.length > orphans.length
+        ? ` (ispeziono prime ${orphans.length}/${allOrphans.length} questo run, resto al prossimo tick).`
+        : ''));
 
-    // Routable = ha un routing reale (fix/queue), auto-route consentito, non transient.
-    // Decisione PRIMA di qualunque label: marcare triaged una routabile che NON
-    // riusciamo a routare (PAT assente o oltre cap) la perderebbe dal filtro
-    // orfani per sempre → nessuno sweep successivo la routa mai (defeat-self).
-    const isCrawlerTransient = has(iss, 'crawler-transient');
-    const isRoutable = autofix === true && (route === 'fix' || route === 'queue') && !isCrawlerTransient;
-    const isCrawlerFix = isRoutable && route === 'fix';
+    for (const iss of orphans) {
+      const n = iss.number;
+      const { category, autofix, route, fuPrio } = classifyIssue(iss.title, names(iss));
 
-    // PAT assente: routing impossibile. Lascia orfana (NO triaged) → uno sweep
-    // post-recovery (PAT ripristinato — evento ricorrente, vedi gh-pat-expiry-monitor)
-    // la routa. Tagghiamo solo le NON-routabili (crawler-transient) sotto.
-    if (isRoutable && !PAT) {
-      routeDeferredNoPat++;
-      console.log(`::warning::#${n} route=${route} ma GITHUB_PAT assente → lasciata orfana (no triaged), retry al prossimo sweep con PAT.`);
-      continue;
+      // Routable = ha un routing reale (fix/queue), auto-route consentito, non transient.
+      // Decisione PRIMA di qualunque label: marcare triaged una routabile che NON
+      // riusciamo a routare (PAT assente o oltre cap) la perderebbe dal filtro
+      // orfani per sempre → nessuno sweep successivo la routa mai (defeat-self).
+      const isCrawlerTransient = has(iss, 'crawler-transient');
+      const isRoutable = autofix === true && (route === 'fix' || route === 'queue') && !isCrawlerTransient;
+      const isCrawlerFix = isRoutable && route === 'fix';
+
+      // PAT assente: routing impossibile. Lascia orfana (NO triaged) → uno sweep
+      // post-recovery (PAT ripristinato — evento ricorrente, vedi gh-pat-expiry-monitor)
+      // la routa. Tagghiamo solo le NON-routabili (crawler-transient) sotto.
+      if (isRoutable && !PAT) {
+        routeDeferredNoPat++;
+        console.log(`::warning::#${n} route=${route} ma GITHUB_PAT assente → lasciata orfana (no triaged), retry al prossimo sweep con PAT.`);
+        continue;
+      }
+
+      // crawler non-transient oltre il cap: NON marcare triaged → resta orfano →
+      // il prossimo tick lo riprende (drain del backlog su più run, anti-burst).
+      if (isCrawlerFix && routedFix >= ROUTE_FIX_CAP) {
+        fixDeferredByCap++;
+        continue;
+      }
+
+      // Da qui marchiamo SEMPRE triaged (idempotente).
+      markTriaged(n);
+
+      // crawler-transient → solo triaged (si auto-chiudono, routarle = burn).
+      if (isCrawlerTransient) {
+        console.log(`#${n} crawler-transient → solo triaged (auto-close, no route).`);
+        markedOnly++;
+        continue;
+      }
+
+      // Difensivo: dal 2026-07-05 classifyIssue non produce più route='none'/
+      // autofix=false per nessuna categoria — questo branch resta come guard
+      // contro un futuro classifier che reintroduca una categoria human-only.
+      if (route === 'none' || autofix !== true) { markedOnly++; continue; }
+      // PAT garantito qui: le routabili con !PAT sono già state lasciate orfane sopra.
+
+      if (route === 'queue') {
+        // follow-up: gentle by-construction (drainer 1-alla-volta) → nessun cap.
+        const prio = fuPrio || 'low';
+        if (DRY) { console.log(`[dry] #${n} → agent:fix-queued + fu-prio:${prio}`); routedQueue++; continue; }
+        try {
+          gh(['issue', 'edit', String(n), '--repo', REPO,
+            '--add-label', 'agent:fix-queued', '--add-label', `fu-prio:${prio}`], { json: false, token: PAT });
+          console.log(`#${n} → agent:fix-queued + fu-prio:${prio} (drainer).`);
+          routedQueue++;
+        } catch (e) { console.log(`::warning::#${n} accodamento PAT fallito: ${String(e).slice(0, 100)}`); }
+      } else {
+        // crawler non-transient → agent:fix (sotto cap, già verificato sopra).
+        if (DRY) { console.log(`[dry] #${n} → agent:fix (crawler)`); routedFix++; continue; }
+        try {
+          gh(['issue', 'edit', String(n), '--repo', REPO, '--add-label', 'agent:fix'], { json: false, token: PAT });
+          console.log(`#${n} → agent:fix (crawler, triggera issue-fix).`);
+          routedFix++;
+        } catch (e) { console.log(`::warning::#${n} agent:fix PAT fallito: ${String(e).slice(0, 100)}`); }
+      }
     }
+  }
 
-    // crawler non-transient oltre il cap: NON marcare triaged → resta orfano →
-    // il prossimo tick lo riprende (drain del backlog su più run, anti-burst).
-    if (isCrawlerFix && routedFix >= ROUTE_FIX_CAP) {
-      fixDeferredByCap++;
-      continue;
-    }
+  // --- Secondo passaggio: triaged-but-not-routed ---
+  // Copre issue che hanno agent:triaged ma nessuna label di routing: triage
+  // interrotto dopo agent:triaged (race concurrency), o issue triagiate sotto
+  // la vecchia policy prima che il routing universale fosse esteso (PR #3554).
+  let allTriaged = [];
+  try {
+    allTriaged = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
+      '--label', 'agent:triaged', '--limit', '300', '--json', 'number,title,labels']);
+  } catch (e) { console.error(`gh issue list (triaged-no-route): ${String(e).slice(0, 160)}`); }
 
-    // Da qui marchiamo SEMPRE triaged (idempotente).
-    markTriaged(n);
+  const unrouted = allTriaged.filter((i) => !ROUTING_LABELS.some((r) => has(i, r)));
+  if (!unrouted.length) {
+    console.log('Nessuna issue triaged-but-not-routed. ✅');
+  } else {
+    console.log(`Issue triaged-but-not-routed: ${unrouted.length}`);
+    for (const iss of unrouted) {
+      const n = iss.number;
+      const { route, fuPrio } = classifyIssue(iss.title, names(iss));
+      const isCrawlerTransient = has(iss, 'crawler-transient');
 
-    // crawler-transient → solo triaged (si auto-chiudono, routarle = burn).
-    if (isCrawlerTransient) {
-      console.log(`#${n} crawler-transient → solo triaged (auto-close, no route).`);
-      markedOnly++;
-      continue;
-    }
+      // crawler-transient: si auto-chiudono quando il crawler recupera.
+      if (isCrawlerTransient) {
+        console.log(`#${n} triaged-no-route crawler-transient → skip (auto-close).`);
+        markedOnly++;
+        continue;
+      }
 
-    // Difensivo: dal 2026-07-05 classifyIssue non produce più route='none'/
-    // autofix=false per nessuna categoria — questo branch resta come guard
-    // contro un futuro classifier che reintroduca una categoria human-only.
-    if (route === 'none' || autofix !== true) { markedOnly++; continue; }
-    // PAT garantito qui: le routabili con !PAT sono già state lasciate orfane sopra.
+      if (!PAT) {
+        routeDeferredNoPat++;
+        console.log(`::warning::#${n} triaged-no-route route=${route} GITHUB_PAT assente → skip, retry al prossimo sweep.`);
+        continue;
+      }
 
-    if (route === 'queue') {
-      // follow-up: gentle by-construction (drainer 1-alla-volta) → nessun cap.
-      const prio = fuPrio || 'low';
-      if (DRY) { console.log(`[dry] #${n} → agent:fix-queued + fu-prio:${prio}`); routedQueue++; continue; }
-      try {
-        gh(['issue', 'edit', String(n), '--repo', REPO,
-          '--add-label', 'agent:fix-queued', '--add-label', `fu-prio:${prio}`], { json: false, token: PAT });
-        console.log(`#${n} → agent:fix-queued + fu-prio:${prio} (drainer).`);
-        routedQueue++;
-      } catch (e) { console.log(`::warning::#${n} accodamento PAT fallito: ${String(e).slice(0, 100)}`); }
-    } else {
-      // crawler non-transient → agent:fix (sotto cap, già verificato sopra).
-      if (DRY) { console.log(`[dry] #${n} → agent:fix (crawler)`); routedFix++; continue; }
-      try {
-        gh(['issue', 'edit', String(n), '--repo', REPO, '--add-label', 'agent:fix'], { json: false, token: PAT });
-        console.log(`#${n} → agent:fix (crawler, triggera issue-fix).`);
-        routedFix++;
-      } catch (e) { console.log(`::warning::#${n} agent:fix PAT fallito: ${String(e).slice(0, 100)}`); }
+      if (route === 'queue') {
+        const prio = fuPrio || 'low';
+        if (DRY) { console.log(`[dry] #${n} triaged-no-route → agent:fix-queued + fu-prio:${prio}`); routedQueue++; continue; }
+        try {
+          gh(['issue', 'edit', String(n), '--repo', REPO,
+            '--add-label', 'agent:fix-queued', '--add-label', `fu-prio:${prio}`], { json: false, token: PAT });
+          console.log(`#${n} triaged-no-route → agent:fix-queued + fu-prio:${prio}.`);
+          routedQueue++;
+        } catch (e) { console.log(`::warning::#${n} triaged-no-route accodamento fallito: ${String(e).slice(0, 100)}`); }
+      } else if (route === 'fix') {
+        // crawler non-transient: soggetto allo stesso cap del primo passaggio.
+        if (routedFix >= ROUTE_FIX_CAP) { fixDeferredByCap++; continue; }
+        if (DRY) { console.log(`[dry] #${n} triaged-no-route → agent:fix (crawler)`); routedFix++; continue; }
+        try {
+          gh(['issue', 'edit', String(n), '--repo', REPO, '--add-label', 'agent:fix'], { json: false, token: PAT });
+          console.log(`#${n} triaged-no-route → agent:fix (crawler).`);
+          routedFix++;
+        } catch (e) { console.log(`::warning::#${n} triaged-no-route agent:fix fallito: ${String(e).slice(0, 100)}`); }
+      }
     }
   }
 
   console.log(`\nSweep done: fix=${routedFix} queue=${routedQueue} marked-only=${markedOnly}` +
     (fixDeferredByCap ? ` · ${fixDeferredByCap} crawler-fix rinviati dal cap ${ROUTE_FIX_CAP}/run (no silent cap; prossimo tick).` : '') +
-    (routeDeferredNoPat ? ` · ${routeDeferredNoPat} routabili lasciate orfane (GITHUB_PAT assente; retry sweep post-recovery).` : ''));
+    (routeDeferredNoPat ? ` · ${routeDeferredNoPat} routabili lasciate orfane/skip (GITHUB_PAT assente; retry sweep post-recovery).` : ''));
 }
 
 main();
