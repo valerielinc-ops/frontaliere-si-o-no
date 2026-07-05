@@ -179,6 +179,16 @@ describe('collectWebcamUrls', () => {
     expect(collectWebcamUrls([]).size).toBe(0);
     expect(collectWebcamUrls(undefined as unknown as []).size).toBe(0);
   });
+
+  it('carries a per-webcam minBytes override through to the map entry (issue #3438)', () => {
+    const crossings = [
+      { name: 'Zenna-Dirinella', webcams: [{ imageUrl: 'https://x/small.jpg', label: 'Small', minBytes: 4000 }] },
+      { name: 'Chiasso Centro', webcams: [{ imageUrl: 'https://x/a.gif', label: 'A' }] },
+    ];
+    const map = collectWebcamUrls(crossings);
+    expect(map.get('https://x/small.jpg')!.minBytes).toBe(4000);
+    expect(map.get('https://x/a.gif')!.minBytes).toBeUndefined();
+  });
 });
 
 describe('isStalenessCheckActive (active-window gate)', () => {

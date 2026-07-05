@@ -17,6 +17,13 @@ export interface WebcamRef {
  refreshIntervalMs?: number;
  /** Optional explicit license note shown in <figcaption>. */
  license?: string;
+ /**
+  * Per-webcam override for the watchdog's MIN_WEBCAM_BYTES floor
+  * (scripts/check-border-data-health.mjs). Some vendors legitimately serve a
+  * much smaller real JPEG than the ~10KB Ticino-GIF default; without an
+  * override the watchdog mis-flags them as broken (issue #3438).
+  */
+ minBytes?: number;
 }
 
 export interface BorderCrossing {
@@ -267,11 +274,18 @@ export const borderCrossings: BorderCrossing[] = [
  tips: 'border.tips.lanzoArogno',
  webcams: [
  {
- label: "Lago di Lugano – vista da Lanzo d'Intelvi (SkylineWebcams)",
- imageUrl: 'https://cdn.skylinewebcams.com/live5540.jpg',
- sourceName: 'SkylineWebcams',
- sourceUrl: 'https://www.skylinewebcams.com/en/webcam/italia/lombardia/como/lago-di-lugano.html',
+ // SkylineWebcams retired the hotlinkable snapshot endpoint (live5540.jpg
+ // now returns a 200 with a static "404 Not Found" HTML stub cached since
+ // 2021 — genuinely dead, not a monitor false-positive; verified 2026-07-05,
+ // issue #3438). Replaced with the same underlying camera (id 5540) served
+ // directly by its originating vendor, visioray — already trusted elsewhere
+ // in this file for Zenna-Dirinella (same low-res JPEG class, see minBytes).
+ label: "Lago di Lugano – vista da Lanzo d'Intelvi",
+ imageUrl: 'https://weather-cams.visioray.com/snap/5540.jpg',
+ sourceName: "Webcam Lago di Lugano – Lanzo d'Intelvi",
+ sourceUrl: 'https://www.ilmeteo.it/webcam/Lanzo+d%27Intelvi',
  refreshIntervalMs: 300000,
+ minBytes: 4000,
  },
  ],
  },
@@ -476,6 +490,9 @@ export const borderCrossings: BorderCrossing[] = [
  sourceName: '4Insiders Weather Webcam',
  sourceUrl: 'https://www.4insiders.webcam/webcam/arzo/10557',
  refreshIntervalMs: 300000,
+ // Vendor serves a real ~2.6-3.7KB JPEG thumbnail (verified 2026-07-05,
+ // issue #3438) — below the ~10KB Ticino-GIF default floor.
+ minBytes: 1500,
  },
  ],
  },
@@ -579,6 +596,9 @@ export const borderCrossings: BorderCrossing[] = [
  sourceName: 'Webcam Maccagno – Lago Maggiore',
  sourceUrl: 'https://www.ilmeteo.it/webcam/Maccagno',
  refreshIntervalMs: 300000,
+ // Vendor serves a real ~6.6-8.9KB JPEG (verified 2026-07-05, issue #3438)
+ // — below the ~10KB Ticino-GIF default floor.
+ minBytes: 4000,
  },
  ],
  },
