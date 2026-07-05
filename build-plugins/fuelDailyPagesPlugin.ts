@@ -1858,12 +1858,6 @@ function renderPage(inp: PageInputs): string {
   </section>
 </article>`;
 
-  // Extra head: OG image dimensions + twitter card — kept for parity with the
-  // pre-shell-wrap emission so social-share previews are unchanged.
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   const jsonLdScripts = [breadcrumbLd, webPageLd, faqLd];
 
   // Word count sanity check (hard-gated later by the caller)
@@ -1877,7 +1871,6 @@ function renderPage(inp: PageInputs): string {
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts,
     bodyHtml,
     distDir,
@@ -3211,10 +3204,6 @@ function renderStationPage(opts: {
   </section>
 </article>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   return buildSeoPageHtml({
     disableAutoAds: false,
     locale,
@@ -3225,7 +3214,6 @@ function renderStationPage(opts: {
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, webPageLd, gasStationLd],
     bodyHtml,
     distDir,
@@ -3868,10 +3856,6 @@ function renderItalianCityPage(opts: {
   </section>
 </article>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   return buildSeoPageHtml({
     disableAutoAds: false,
     locale,
@@ -3882,7 +3866,6 @@ function renderItalianCityPage(opts: {
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd],
     bodyHtml,
     distDir,
@@ -4973,10 +4956,6 @@ function renderItalianStationPage(opts: {
   </section>
 </article>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   return buildSeoPageHtml({
     disableAutoAds: false,
     locale,
@@ -4987,7 +4966,6 @@ function renderItalianStationPage(opts: {
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, webPageLd, gasStationLd],
     bodyHtml,
     distDir,

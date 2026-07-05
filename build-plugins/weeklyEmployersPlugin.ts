@@ -2454,9 +2454,6 @@ ${faqHtml}
 
   const title = buildTitleWithBrand(t.topHubTitle);
   const description = lede[locale].slice(0, 180);
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
 
   return buildSeoPageHtml({
     locale,
@@ -2467,7 +2464,6 @@ ${faqHtml}
     ogType: 'website',
     ogLocale: WEEKLY_EMPLOYERS_OG_LOCALE[locale],
     hreflangHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, faqLd],
     bodyHtml,
     distDir,
@@ -3039,11 +3035,6 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   ${wrapHubSeoContextWeekly(locale, cityDisplay, isRegional)}
 </article>`;
 
-  // Extra head: OG image dims + twitter card — matches pre-shell-wrap output.
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   // `alternatesHtml` already includes x-default via the shared helper.
   const hreflangHtml = alternatesHtml;
 
@@ -3056,7 +3047,6 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     ogType: 'website',
     ogLocale: WEEKLY_EMPLOYERS_OG_LOCALE[locale],
     hreflangHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, faqLd],
     bodyHtml,
     distDir,
@@ -3614,10 +3604,6 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   ${wrapHubSeoContextWeekly(locale, cityDisplay, false)}
 </article>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   return buildSeoPageHtml({
     locale,
     title,
@@ -3627,7 +3613,6 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     ogType: 'website',
     ogLocale: WEEKLY_EMPLOYERS_OG_LOCALE[locale],
     hreflangHtml,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, faqLd],
     bodyHtml,
     distDir,
