@@ -1,16 +1,16 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-07-05T10:05:37.184Z",
-  "total": 44,
+  "generatedAt": "2026-07-05T22:01:50.305Z",
+  "total": 43,
   "newCount": 0,
   "updatedCount": 14,
   "removedCount": 0,
-  "unchangedCount": 30,
-  "durationMs": 54297,
-  "avgDurationMs": 54297,
+  "unchangedCount": 29,
+  "durationMs": 59203,
+  "avgDurationMs": 59203,
   "durationHistory": [
-    54297
+    59203
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1565,46 +1565,6 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "company-gzgcmy",
-      "slug": "stage-strategischer-einkauf-80-100-abb-svizzera-sede-ticino-schaffhausen",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Internship - strategischer Einkauf (80-100%)",
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-09",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00034494EXTERNALENGLOBAL/Internship-Procurement",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Schaffhausen, Schaffhausen, Switzerland",
-        "canton": "SH"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-06-10T22:07:02.928Z",
-      "firstSeenAt": "2026-06-10T22:07:02.928Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8200",
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
