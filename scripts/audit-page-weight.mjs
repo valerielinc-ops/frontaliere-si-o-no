@@ -19,6 +19,7 @@ import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
+import { insertBounded } from './lib/boundedTopN.mjs';
 
 // 215 KB cap (was 200 KB). The TI job-board landing
 // /cerca-lavoro-ticino/index.html crossed the original 200 KB cap on run
@@ -96,21 +97,36 @@ function inlineBreakdown(html) {
   return { inlineJs, inlineCss };
 }
 
+const TOP_HEAVIEST_LIMIT = 10;
+const NEAR_BUDGET_PREVIEW_LIMIT = 3;
+
 export function createAuditor() {
-  const samples = [];
+  let scannedCount = 0;
+  let nearBudgetCount = 0;
   const oversized = [];
   const imgIssuesByFile = [];
+  const heaviestTop = [];
+  const nearBudgetTop = [];
 
   return {
     name: 'page-weight',
     collect(file, html) {
+      scannedCount++;
       const bytes = Buffer.byteLength(html, 'utf8');
       const { inlineJs, inlineCss } = inlineBreakdown(html);
       const imgIssues = findImgIssues(html);
       const rel = relative(ROOT, file);
-      samples.push({ file: rel, bytes, inlineJs, inlineCss, imgIssues: imgIssues.length });
-      if (bytes > budgetForPath(rel)) oversized.push({ file: rel, bytes, inlineJs, inlineCss });
-      if (imgIssues.length > 0) imgIssuesByFile.push({ file: rel, issues: imgIssues });
+      const budget = budgetForPath(rel);
+
+      insertBounded(heaviestTop, { file: rel, bytes, inlineJs, inlineCss }, TOP_HEAVIEST_LIMIT, (s) => s.bytes);
+
+      if (bytes <= budget && bytes > budget * 0.9) {
+        nearBudgetCount++;
+        insertBounded(nearBudgetTop, { file: rel, bytes, budget }, NEAR_BUDGET_PREVIEW_LIMIT, (s) => s.bytes / s.budget);
+      }
+
+      if (bytes > budget) oversized.push({ file: rel, bytes, inlineJs, inlineCss });
+      if (imgIssues.length > 0) imgIssuesByFile.push({ file: rel, issues: imgIssues, bytes, inlineJs, inlineCss });
     },
     report() {
       // Build structured offenders (oversized + img-attr issues, deduped).
@@ -129,11 +145,10 @@ export function createAuditor() {
           if (ex) { ex.kind = 'oversized+img-attrs'; ex.imgIssues = o.issues; }
           continue;
         }
-        const matched = samples.find((r) => r.file === o.file);
         structured.push({
           path: o.file, feature: featureForPath(o.file),
-          metric: matched ? matched.bytes : 0, ratio: null, kind: 'img-attrs',
-          inlineJs: matched?.inlineJs ?? 0, inlineCss: matched?.inlineCss ?? 0,
+          metric: o.bytes, ratio: null, kind: 'img-attrs',
+          inlineJs: o.inlineJs, inlineCss: o.inlineCss,
           imgIssues: o.issues.slice(0, 3),
         });
       }
@@ -155,17 +170,14 @@ export function createAuditor() {
       // next gate breakers (cerca-lavoro-ticino sat at 99.6% for days before
       // run 27386112992 went red). Surfacing them in the PASS line turns the
       // budget cliff into a visible drift trend in every deploy log.
-      const nearBudget = samples
-        .filter((s) => s.bytes <= budgetForPath(s.file) && s.bytes > budgetForPath(s.file) * 0.9)
-        .sort((a, b) => (b.bytes / budgetForPath(b.file)) - (a.bytes / budgetForPath(a.file)));
-      const nearNote = nearBudget.length > 0
-        ? ` — WARNING ${nearBudget.length} page(s) ≥90% of budget, next breakers: ${nearBudget.slice(0, 3)
-            .map((s) => `${s.file} (${Math.round((s.bytes / budgetForPath(s.file)) * 100)}%)`)
+      const nearNote = nearBudgetCount > 0
+        ? ` — WARNING ${nearBudgetCount} page(s) ≥90% of budget, next breakers: ${nearBudgetTop
+            .map((s) => `${s.file} (${Math.round((s.bytes / s.budget) * 100)}%)`)
             .join(', ')}`
         : '';
       const humanSummary = hasOffenders
         ? `${oversized.length} oversized + ${imgIssuesByFile.length} img-attr offender(s): ${topPaths}${structured.length > 3 ? ', …' : ''}`
-        : `all ${samples.length} pages within budget and <img> attrs present${nearNote}`;
+        : `all ${scannedCount} pages within budget and <img> attrs present${nearNote}`;
 
       return {
         passed: !hasOffenders,
@@ -173,7 +185,7 @@ export function createAuditor() {
         offenders: structured,
         threshold: { metric: 'bytes', value: MAX_HTML_BYTES, comparator: '<=' },
         byFeature,
-        extra: { scanned: samples.length, maxHtmlBytes: MAX_HTML_BYTES, oversizedCount: oversized.length, imgIssuesCount: imgIssuesByFile.length, rawSamples: samples },
+        extra: { scanned: scannedCount, maxHtmlBytes: MAX_HTML_BYTES, oversizedCount: oversized.length, imgIssuesCount: imgIssuesByFile.length, topHeaviest: heaviestTop },
         humanSummary,
       };
     },
@@ -221,7 +233,7 @@ async function standalone() {
     process.exit(result.passed ? 0 : 1);
   }
 
-  const topTen = [...result.extra.rawSamples].sort((a, b) => b.bytes - a.bytes).slice(0, 10);
+  const topTen = result.extra.topHeaviest;
   console.log(`audit-page-weight: scanned ${result.extra.scanned} HTML files in dist/`);
   console.log(`Top 10 heaviest pages:`);
   for (const r of topTen) {

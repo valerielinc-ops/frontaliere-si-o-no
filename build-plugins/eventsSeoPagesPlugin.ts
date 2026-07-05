@@ -32,6 +32,7 @@ import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { truncateHeadline, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
@@ -1467,9 +1468,25 @@ interface DetailCopy {
   descriptionTitle: string;
 }
 
+/**
+ * Event-detail <title>: "{event title} {suffix}" where suffix carries
+ * comune + region + brand (` — Lugano (Ticino) | Eventi`). Event titles are
+ * crawled third-party text (tio.ch agenda) of uncontrolled length — fixing
+ * "at source" isn't actionable the way it is for owned-copy headlines, so
+ * (like {@link composeSerpJobTitle}'s role/city cascade) the title itself is
+ * the truncatable token: word-aware {@link truncateHeadline}, never a naive
+ * mid-string cut. Suffix (comune/region/brand) is always preserved — it's
+ * the local-SEO signal, analogous to city in job titles.
+ */
+function eventDetailMetaTitle(rawTitle: string, suffix: string): string {
+  const budget = TITLE_MAX_CHARS - suffix.length;
+  const title = rawTitle.length > budget ? truncateHeadline(rawTitle, budget) : rawTitle;
+  return `${title}${suffix}`;
+}
+
 const DETAIL_COPY: Record<Locale, DetailCopy> = {
   it: {
-    metaTitle: (t, c) => `${t} — ${c} (Ticino) | Eventi`,
+    metaTitle: (t, c) => eventDetailMetaTitle(t, ` — ${c} (Ticino) | Eventi`),
     metaDesc: (t, c, w) => `${t}: ${w} a ${c}, in Ticino. Data, orario, luogo e link al sito ufficiale dell'evento.`,
     whenLabel: 'Quando',
     whereLabel: 'Dove',
@@ -1497,7 +1514,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     descriptionTitle: 'Descrizione',
   },
   en: {
-    metaTitle: (t, c) => `${t} — ${c} (Ticino) | Events`,
+    metaTitle: (t, c) => eventDetailMetaTitle(t, ` — ${c} (Ticino) | Events`),
     metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Ticino. Date, time, venue and a link to the event’s official site.`,
     whenLabel: 'When',
     whereLabel: 'Where',
@@ -1525,7 +1542,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     descriptionTitle: 'Description',
   },
   de: {
-    metaTitle: (t, c) => `${t} — ${c} (Tessin) | Veranstaltungen`,
+    metaTitle: (t, c) => eventDetailMetaTitle(t, ` — ${c} (Tessin) | Veranstaltungen`),
     metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Tessin. Datum, Uhrzeit, Ort und Link zur offiziellen Website der Veranstaltung.`,
     whenLabel: 'Wann',
     whereLabel: 'Wo',
@@ -1553,7 +1570,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     descriptionTitle: 'Beschreibung',
   },
   fr: {
-    metaTitle: (t, c) => `${t} — ${c} (Tessin) | Événements`,
+    metaTitle: (t, c) => eventDetailMetaTitle(t, ` — ${c} (Tessin) | Événements`),
     metaDesc: (t, c, w) => `${t} : ${w} à ${c}, au Tessin. Date, heure, lieu et lien vers le site officiel de l’événement.`,
     whenLabel: 'Quand',
     whereLabel: 'Où',
