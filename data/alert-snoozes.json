@@ -2,19 +2,19 @@
   "version": 1,
   "snoozes": {
     "A.1.cluster-monoculture": {
-      "consecutiveDays": 2,
-      "lastSeen": "2026-07-04",
-      "snoozedUntil": null
+      "consecutiveDays": 3,
+      "lastSeen": "2026-07-05",
+      "snoozedUntil": "2026-07-12"
     },
     "B.5.cluster-stats-degenerate": {
-      "consecutiveDays": 53,
-      "lastSeen": "2026-07-04",
-      "snoozedUntil": "2026-07-11"
+      "consecutiveDays": 54,
+      "lastSeen": "2026-07-05",
+      "snoozedUntil": "2026-07-12"
     },
     "C.4.engagement-dive": {
-      "consecutiveDays": 7,
-      "lastSeen": "2026-07-04",
-      "snoozedUntil": "2026-07-11"
+      "consecutiveDays": 8,
+      "lastSeen": "2026-07-05",
+      "snoozedUntil": "2026-07-12"
     }
   }
 }
