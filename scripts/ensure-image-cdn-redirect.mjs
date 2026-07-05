@@ -29,7 +29,8 @@
  *   node scripts/ensure-image-cdn-redirect.mjs --dry-run
  */
 
-import { resolveZoneId, DEFAULT_ZONE_NAME, REST_BASE } from './lib/cf-analytics.mjs';
+import { resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
+import { REDIRECT_RULE_PHASE, ensureRedirectRule } from './lib/cf-redirect-rules.mjs';
 
 const CDN_BASE = 'https://cdn.frontaliereticino.ch';
 
@@ -56,13 +57,13 @@ const OFFLOADED_PREFIXES = [
 ];
 
 const RULE_DESCRIPTION = 'Offloaded images -> CDN (apex 404 recovery)';
-const PHASE = 'http_request_dynamic_redirect';
 
 // Host-scoped to apex + www. The rule lives at zone level; without a host guard
-// it would fire on every proxied hostname in the zone. cdn.frontaliereticino.ch
-// is DNS-only today (not proxied), so the Dynamic Redirect phase doesn't run on
-// CDN requests — but if the CDN were ever orange-clouded, the prefix match would
-// fire there too, 301-ing cdn…/images/brands/x.png to itself → infinite loop.
+// it would fire on every proxied hostname in the zone — including
+// cdn.frontaliereticino.ch, which IS proxied (verified 2026-07-05, contrary to
+// an earlier "DNS-only" assumption here; see ensure-cdn-fonts-redirect.mjs).
+// Without the host guard the prefix match would fire there too, 301-ing
+// cdn…/images/brands/x.png to itself → infinite loop.
 // The host guard restricts the rule to apex and its www variant. www is included
 // because external referrers and Google-Images cache can hold www.frontaliereticino.ch
 // image URLs: if www→apex is a Page Rule it fires before this Dynamic Redirect
@@ -88,42 +89,6 @@ const buildRule = () => ({
   enabled: true,
 });
 
-async function cfFetch(token, path, init = {}) {
-  const res = await fetch(`${REST_BASE}${path}`, {
-    ...init,
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...(init.headers || {}) },
-  });
-  const json = await res.json().catch(() => null);
-  if (!json) throw new Error(`Cloudflare returned non-JSON (HTTP ${res.status}) for ${path}`);
-  if (!json.success) {
-    const err = new Error(`Cloudflare API error for ${path}: ${JSON.stringify(json.errors || [])}`);
-    err.cfErrors = json.errors || [];
-    err.httpStatus = res.status;
-    throw err;
-  }
-  return json.result;
-}
-
-/**
- * Read the dynamic_redirect entrypoint rules. A phase that has NEVER had a
- * ruleset returns CF error code 10003 ("could not find entrypoint ruleset …") —
- * that is the only "genuinely empty" case, treated as `[]`. EVERY other failure
- * (429/5xx/network/missing-scope) MUST propagate: swallowing it here would make
- * `existing` empty and the subsequent full-array PUT would clobber any OTHER
- * redirect rules already in the phase (data loss). Reviewer 🔴 on #2396.
- */
-async function readEntrypointRules(token, zoneId) {
-  try {
-    const result = await cfFetch(token, `/zones/${zoneId}/rulesets/phases/${PHASE}/entrypoint`);
-    return Array.isArray(result?.rules) ? result.rules : [];
-  } catch (err) {
-    const noEntrypoint =
-      err.httpStatus === 404 || (err.cfErrors || []).some((e) => e?.code === 10003);
-    if (noEntrypoint) return [];
-    throw err; // transient / auth / other — never proceed to a truncating PUT
-  }
-}
-
 async function main() {
   const dryRun = process.argv.includes('--dry-run');
   const token = process.env.CF_API_TOKEN;
@@ -133,49 +98,7 @@ async function main() {
   }
   const zoneId = await resolveZoneId(token, process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME, process.env.CF_ZONE_ID);
 
-  const existing = await readEntrypointRules(token, zoneId);
-  const desired = buildRule();
-
-  const idx = existing.findIndex((r) => r.description === RULE_DESCRIPTION);
-  const next = existing.map((r) => ({
-    // Strip server-managed fields so the PUT round-trips cleanly.
-    action: r.action,
-    action_parameters: r.action_parameters,
-    expression: r.expression,
-    description: r.description,
-    enabled: r.enabled,
-  }));
-  if (idx >= 0) {
-    const cur = existing[idx];
-    const curFv = cur.action_parameters?.from_value;
-    const wantFv = desired.action_parameters.from_value;
-    if (cur.expression === desired.expression &&
-        curFv?.target_url?.expression === wantFv.target_url.expression &&
-        curFv?.status_code === wantFv.status_code &&
-        curFv?.preserve_query_string === wantFv.preserve_query_string &&
-        cur.enabled === desired.enabled) {
-      console.log('✅ Redirect Rule already present and current — no change.');
-      return;
-    }
-    next[idx] = desired;
-    console.log('🔁 Updating existing Redirect Rule.');
-  } else {
-    next.push(desired);
-    console.log('➕ Appending new Redirect Rule.');
-  }
-
-  console.log(`   expr: ${desired.expression}`);
-  console.log(`   →     ${desired.action_parameters.from_value.target_url.expression} (301)`);
-  if (dryRun) {
-    console.log('🧪 --dry-run: no write.');
-    return;
-  }
-
-  await cfFetch(token, `/zones/${zoneId}/rulesets/phases/${PHASE}/entrypoint`, {
-    method: 'PUT',
-    body: JSON.stringify({ rules: next }),
-  });
-  console.log(`✅ Redirect Rule ensured (${next.length} rule(s) in ${PHASE}).`);
+  await ensureRedirectRule(token, zoneId, buildRule(), { dryRun, phase: REDIRECT_RULE_PHASE });
 }
 
 main().catch((err) => {

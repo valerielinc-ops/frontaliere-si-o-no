@@ -19,9 +19,13 @@
  * SCOPE: purge_everything. The site deploys as a whole (every HTML page can
  * change per build), and the free plan's granular purge is capped at 30 URLs
  * — far below the page count — so a full purge is the correct primitive.
- * It also clears the locale-shard failover entries (they simply re-warm) and
- * is harmless to the gray-cloud cdn.* assets (those are NOT in Cloudflare's
- * cache — they serve from Fastly/GitHub Pages and bypass this zone's edge).
+ * It also clears the locale-shard failover entries (they simply re-warm).
+ * cdn.frontaliereticino.ch IS Cloudflare-proxied (verified 2026-07-05 via the
+ * zone's DNS record, proxied: true — an earlier "DNS-only/Fastly" assumption
+ * here was stale; see scripts/ensure-cdn-fonts-redirect.mjs), so this same
+ * purge_everything call ALSO clears any edge-cached response for cdn.* (e.g.
+ * the /fonts/* redirect from issue #3248). Desired, not a scope gap: one
+ * zone, one purge covers both hostnames.
  *
  * Auth: CF_API_TOKEN — needs Zone→Cache Purge. Resolves zone by name unless
  * CF_ZONE_ID is set. Hydrate locally via:
