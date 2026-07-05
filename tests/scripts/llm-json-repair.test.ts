@@ -147,6 +147,27 @@ describe('fixJsonStringBody', () => {
     expect(parsed.a).toBe('Il termine "extra" qui.');
     expect(parsed.b).toBe('Anche "questo" qui.');
   });
+
+  // Regression: scanValueEnd() treated '{'/'[' as ending the value immediately
+  // after the opening bracket instead of finding the matching close. That made
+  // the lookahead wrongly reject a preceding string field's real closing quote
+  // whenever it was followed by a nested-object field — e.g. the article
+  // schema's imagePrompt (string) always followed by imageAlt ({it,en,de,fr}) —
+  // corrupting already-valid JSON (run 28751915972).
+  it('does not corrupt a valid string field immediately followed by a nested locale object', () => {
+    const valid = '{"title":"Test","imagePrompt":"Panoramic view of Lugano.","imageAlt":{"it":"Vista panoramica.","en":"Panoramic view","de":"Panoramablick","fr":"Vue panoramique"}}';
+    expect(JSON.parse(valid)).toBeTruthy(); // sanity: input is already valid JSON
+    const repaired = fixJsonStringBody(valid, { fixAsterisks: true });
+    expect(repaired).toBe(valid);
+    expect(JSON.parse(repaired)).toEqual(JSON.parse(valid));
+  });
+
+  it('does not corrupt a valid string field immediately followed by a nested array of objects (body3 -> faq shape)', () => {
+    const valid = '{"body3":"Step-by-step guide.","faq":[{"q":"Domanda 1?","a":"Risposta 1."},{"q":"Domanda 2?","a":"Risposta 2."}]}';
+    const repaired = fixJsonStringBody(valid, { fixAsterisks: true });
+    expect(repaired).toBe(valid);
+    expect(JSON.parse(repaired)).toEqual(JSON.parse(valid));
+  });
 });
 
 describe('stripCodeFences', () => {

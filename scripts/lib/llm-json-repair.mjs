@@ -162,7 +162,10 @@ function decideQuoteCloses(str, quoteIdx, fixAsterisks) {
 function scanValueEnd(str, i, fixAsterisks) {
   if (i >= str.length) return -1;
   const ch = str[i];
-  if (ch === '{' || ch === '[') return i + 1;
+  if (ch === '{' || ch === '[') {
+    const closeIdx = findMatchingClose(str, i);
+    return closeIdx === -1 ? -1 : closeIdx + 1;
+  }
   if (ch === '"') {
     let j = i + 1;
     while (j < str.length) {
