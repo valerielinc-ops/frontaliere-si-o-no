@@ -151,7 +151,17 @@ async function fetchJuliusBaerJobs() {
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = buildPublicUrl(externalPath);
     const descEn = descriptionText || `${title} position at Julius Baer in ${city}, Switzerland.`;
-    const descIt = `Posizione aperta presso Julius Baer a ${city}.\nRuolo: ${title}.\n\nJulius Baer è uno dei principali gruppi bancari privati svizzeri con sede a Zurigo e uffici a Lugano, Ticino.`;
+    // Reuse the real scraped Workday description (which carries genuine
+    // bullet markup converted by stripHtml()) as the interim 'it' value too.
+    // Previously this always wrote a synthetic per-city boilerplate paragraph
+    // regardless of whether real content was scraped — that paragraph has no
+    // list markup and, because effectiveDescription() checks the 'it' locale
+    // before 'en', it masked the real bulleted content for both the
+    // parser-quality audit and real Italian-locale site visitors. Only fall
+    // back to synthetic boilerplate when no real description was scraped.
+    const descIt = descriptionText
+      ? descEn
+      : `Posizione aperta presso Julius Baer a ${city}.\nRuolo: ${title}.\n\nJulius Baer è uno dei principali gruppi bancari privati svizzeri con sede a Zurigo e uffici a Lugano, Ticino.`;
     const slug = slugify(title, 'julius-baer');
 
     jobs.push({

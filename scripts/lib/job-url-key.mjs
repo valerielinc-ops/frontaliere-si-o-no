@@ -76,6 +76,38 @@ export { WORKDAY_HOST_RE };
 // Tenant lives in the subdomain; host-gated so no other crawler's key changes.
 const UMANTIS_HOST_RE = /(?:^|\/\/)recruitingapp-\d+\.umantis\.com(?:[:/]|$)/;
 
+// Bank Cler job urls: cler.ch/…/<any-path>/offene-stellen/<title-slug>-<reqId>.
+// Cler's own requisition id is only 3-4 digits — below the generic
+// \b\d{6,}\b threshold — so the leaf carries no extractable token and every
+// key falls back to the whole URL (Rule C). Observed 2026-07-04: Cler
+// relaunched the career section mid-day (`jobs-und-karriere` →
+// `jobs-und-karriere-2026`, an ANCESTOR segment unrelated to job identity),
+// which changed the whole-URL key for every open position and duplicated
+// all of them (#3497). Host-gated so no other crawler's key changes.
+const CLER_HOST_RE = /(?:^|\/\/)(?:www\.)?cler\.ch(?:[:/]|$)/;
+
+// ETA SA (Swatch Group) job urls: eta.ch/…/vacancies/detail/<reqId>. Same
+// slug-drift class as Cler above — eta.ch's requisition id is only 4 digits
+// (below the generic \b\d{6,}\b threshold) and the site toggles an ANCESTOR
+// `index.php/` path segment (`/en/jobs-careers/…` vs `/index.php/en/jobs-careers/…`)
+// unrelated to job identity, which duplicated every open position under two
+// whole-URL keys (#3497). Host-gated so no other crawler's key changes.
+const ETA_HOST_RE = /(?:^|\/\/)(?:www\.)?eta\.ch(?:[:/]|$)/;
+
+/**
+ * Trailing digit run of a path leaf (`…-w-m-2589` → `2589`, `…/detail/3719` →
+ * `3719`). Returns '' when the leaf has no trailing digit run. Shared by the
+ * Cler (Rule K) and ETA SA (Rule L) host-gated guards — both sites publish a
+ * short (3-4 digit) requisition id in the leaf, too short for Rule B's
+ * ≥6-digit threshold, behind an ancestor path segment prone to drifting.
+ * @param {string} leaf - path leaf (last `/`-separated segment, no query/hash)
+ * @returns {string}
+ */
+export function trailingDigitRunFromLeaf(leaf) {
+  const m = String(leaf || '').match(/(\d+)$/);
+  return m ? m[1] : '';
+}
+
 // A path leaf that is a generic directory-index page (apply.refline.ch ends
 // every job at `…/<companyId>/<jobId>/pub/1/index.html`) — the only extractable
 // token is the shared companyId, so the per-job identity is the whole URL.
@@ -250,6 +282,23 @@ export function mergeUrlKey(url) {
   if (UMANTIS_HOST_RE.test(u) && (legacy.startsWith('num:') || legacy.startsWith('hex:'))) {
     const host = u.match(/^https?:\/\/([^/]+)/)?.[1] || '';
     return `req:${host}:${legacy}`;
+  }
+
+  // Rule K — Bank Cler requisition id (host-gated). The leaf's trailing digit
+  // run is too short (3-4 digits) for Rule B's ≥6-digit threshold, so without
+  // this it falls all the way to the whole-URL fallback (Rule C) — see
+  // CLER_HOST_RE above for the incident this caused.
+  if (CLER_HOST_RE.test(u)) {
+    const req = trailingDigitRunFromLeaf(leaf);
+    if (req) return `req:cler.ch:${req}`;
+  }
+
+  // Rule L — ETA SA (Swatch Group) requisition id (host-gated). Same
+  // too-short-leaf-token problem as Rule K above — see ETA_HOST_RE above for
+  // the incident this caused.
+  if (ETA_HOST_RE.test(u)) {
+    const req = trailingDigitRunFromLeaf(leaf);
+    if (req) return `req:eta.ch:${req}`;
   }
 
   // Rule C — legacy leftmost whole-URL scan (unchanged).

@@ -443,13 +443,16 @@ export function parseCsbDetailPage(html) {
  *   the healthcare fallback otherwise mislabels any title that doesn't match
  *   a healthcare keyword (e.g. "Chemist", "Automation Technician") as
  *   healthcare.
- * @param {(title: string, companyName: string, city: string) => string}
+ * @param {(title: string, companyName: string, city: string, canton?: string) => string}
  *   [config.boilerplateFallback] Thin-description fallback text builder,
  *   invoked when the detail page's real description has fewer than
  *   `MIN_DESCRIPTION_UNIQUE_WORDS` unique words. Defaults to the shared
  *   German "etablierter Schweizer Gesundheitsdienstleister" (healthcare)
  *   summary. Override for non-healthcare / non-German-primary tenants so the
- *   fallback text isn't wrong-industry and/or wrong-language.
+ *   fallback text isn't wrong-industry and/or wrong-language, or for tenants
+ *   whose thin fallback fires on (almost) every job (e.g. Helsana — see
+ *   helsana-job-parser.mjs) so the fallback carries real per-job structure
+ *   (bulleted, title/location-first) instead of a near-identical paragraph.
  * @returns {{
  *   fetchAllJobs: () => Promise<ParsedJob[]>,
  *   isCompanyJob: (job: any) => boolean,
@@ -626,7 +629,7 @@ export function createSuccessFactorsParser(config) {
       // fall back to a brand summary.
       if (countUniqueWords(description) < MIN_DESCRIPTION_UNIQUE_WORDS) {
         description = typeof boilerplateFallback === 'function'
-          ? boilerplateFallback(title, companyName, city || defaultCity)
+          ? boilerplateFallback(title, companyName, city || defaultCity, canton)
           : `${title} bei ${companyName} in ${city || defaultCity}.\n\n${companyName} ${descriptionFallbackTagline}. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
       }
 
