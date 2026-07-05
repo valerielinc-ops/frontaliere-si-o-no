@@ -1,16 +1,16 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-07-04T21:59:59.080Z",
+  "generatedAt": "2026-07-05T11:43:11.222Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 1261,
-  "avgDurationMs": 1261,
+  "durationMs": 1449,
+  "avgDurationMs": 1449,
   "durationHistory": [
-    1261
+    1449
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,15 +50,15 @@
       "salaryMin": 82500,
       "salaryMax": 127000,
       "currency": "CHF",
-      "streetAddress": "Via Industria 5",
-      "postalCode": "6814",
+      "streetAddress": "",
+      "postalCode": "6934",
       "firstSeenAt": "2026-04-21T21:44:42.454Z",
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -94,15 +94,15 @@
       "salaryMin": 82500,
       "salaryMax": 127000,
       "currency": "CHF",
-      "streetAddress": "Via Industria 5",
-      "postalCode": "6814",
+      "streetAddress": "",
+      "postalCode": "6934",
       "firstSeenAt": "2026-06-18T22:50:20.858Z",
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -138,16 +138,16 @@
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "streetAddress": "Via Industria 5",
-      "postalCode": "6814",
+      "streetAddress": "",
+      "postalCode": "6934",
       "id": "guess-europe-8e36bea1353f",
       "firstSeenAt": "2026-04-13T21:47:24.688Z",
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -258,15 +258,15 @@
       "salaryMin": 82500,
       "salaryMax": 127000,
       "currency": "CHF",
-      "streetAddress": "Via Industria 5",
-      "postalCode": "6814",
+      "streetAddress": "",
+      "postalCode": "6934",
       "firstSeenAt": "2026-06-25T22:28:51.166Z",
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     }
   ]
