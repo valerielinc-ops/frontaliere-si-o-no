@@ -1,6 +1,6 @@
 {
   "crawlerKey": "planzer",
-  "assembledAt": "2026-07-04T22:48:49.599Z",
+  "assembledAt": "2026-07-05T12:51:54.229Z",
   "jobs": [
     {
       "id": "planzer-abc3f9bd4633",
@@ -9,7 +9,7 @@
         "it": "gatto-di-chauffeur-ce-m-f-d-planzer-emmen",
         "en": "chauffeur-cat-ce-m-f-d-planzer-emmen",
         "de": "chauffeur-kat-ce-m-w-d-planzer-emmen",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-emmen"
+        "fr": "chauffeur-cat-ce-m-f-d-planzer-emmen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029964",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:47.085Z",
+      "crawledAt": "2026-07-05T12:51:52.122Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Feldmattstrasse 31",
@@ -53,6 +53,21 @@
       "externalId": "4029964",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-emmen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-emmen",
+          "gatto-di-chauffeur-ce-m-f-d-planzer-emmen"
+        ],
+        "en": [
+          "chauffeur-kat-ce-m-w-d-planzer-emmen"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-emmen"
+        ]
+      },
       "firstSeenAt": "2026-07-04T12:15:57.105Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -65,18 +80,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-kat-ce-m-w-d-planzer-emmen"
-        ],
-        "en": [
-          "chauffeur-kat-ce-m-w-d-planzer-emmen"
-        ]
-      },
-      "previousSlugs": [
-        "chauffeur-kat-ce-m-w-d-planzer-emmen"
-      ]
+      }
     },
     {
       "id": "planzer-def680875ae8",
@@ -110,7 +114,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030257",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:46.402Z",
+      "crawledAt": "2026-07-05T12:51:51.518Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -129,6 +133,21 @@
       "externalId": "4030257",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen",
+          "amministrazione-logistica-del-personale-m-f-d-planzer-villmergen"
+        ],
+        "en": [
+          "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
+          "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
+        ]
+      },
       "firstSeenAt": "2026-07-04T12:15:56.387Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -141,21 +160,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
-        ],
-        "en": [
-          "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
-        ],
-        "fr": [
-          "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
-      ]
+      }
     },
     {
       "id": "planzer-126cfb0f2252",
@@ -189,7 +194,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030322",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:45.717Z",
+      "crawledAt": "2026-07-05T12:51:50.917Z",
       "addressLocality": "Kölliken",
       "addressRegion": "AG",
       "streetAddress": "Hardfeld 3",
@@ -213,7 +218,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-paketsortierung-m-w-d-planzer-kolliken"
+          "mitarbeiter-paketsortierung-m-w-d-planzer-kolliken",
+          "collaboratore-trice-paketsortierung-m-w-d-planzer-kolliken"
         ],
         "en": [
           "mitarbeiter-paketsortierung-m-w-d-planzer-kolliken"
@@ -268,7 +274,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030254",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:45.030Z",
+      "crawledAt": "2026-07-05T12:51:50.308Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -287,6 +293,21 @@
       "externalId": "4030254",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "disponent-stuckgut-m-w-d-planzer-villmergen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-stuckgut-m-w-d-planzer-villmergen",
+          "distribuzione-del-carico-generale-m-f-d-planzer-villmergen"
+        ],
+        "en": [
+          "disponent-stuckgut-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
+          "disponent-stuckgut-m-w-d-planzer-villmergen"
+        ]
+      },
       "firstSeenAt": "2026-07-04T12:15:54.997Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -299,21 +320,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "disponent-stuckgut-m-w-d-planzer-villmergen"
-        ],
-        "en": [
-          "disponent-stuckgut-m-w-d-planzer-villmergen"
-        ],
-        "fr": [
-          "disponent-stuckgut-m-w-d-planzer-villmergen"
-        ]
-      },
-      "previousSlugs": [
-        "disponent-stuckgut-m-w-d-planzer-villmergen"
-      ]
+      }
     },
     {
       "id": "planzer-76b6ac3e3021",
@@ -330,7 +337,7 @@
       "title": "Cobol Developer (m/w/d)",
       "titleByLocale": {
         "it": "Cobol Sviluppatore (m/w/d)",
-        "en": "Cobol Developer (m/f/d)",
+        "en": "Cobol Developer (m/w/d)",
         "de": "Cobol Entwickler (m/w/d)",
         "fr": "Cobol Développeur (m/w/d)"
       },
@@ -347,7 +354,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029495",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:44.354Z",
+      "crawledAt": "2026-07-05T12:51:49.657Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -371,7 +378,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cobol-developer-m-w-d-planzer-dietikon"
+          "cobol-developer-m-w-d-planzer-dietikon",
+          "cobol-sviluppatore-m-w-d-planzer-dietikon"
         ],
         "fr": [
           "cobol-developer-m-w-d-planzer-dietikon"
@@ -393,12 +401,12 @@
     },
     {
       "id": "planzer-3e719c82cf43",
-      "slug": "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach",
+      "slug": "chauffeur-cat-ce-pharmatransporte-m-f-d-planzer-kallnach",
       "slugByLocale": {
-        "it": "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach",
-        "en": "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach",
+        "it": "chauffeur-cat-ce-pharmatransporte-m-f-d-planzer-kallnach",
+        "en": "chauffeur-cat-ce-pharmatransporte-m-f-d-planzer-kallnach",
         "de": "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach",
-        "fr": "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach"
+        "fr": "chauffeur-cat-ce-pharmatransporte-m-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -423,7 +431,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030751",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:43.680Z",
+      "crawledAt": "2026-07-05T12:51:49.042Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -443,6 +451,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:15:53.732Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -461,9 +483,9 @@
       "slug": "chauffeur-cat-c-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "it": "chauffeur-cat-c-m-f-d-planzer-dietikon",
-        "en": "chauffeur-kat-c-m-w-d-planzer-dietikon",
+        "en": "chauffeur-cat-c-m-f-d-planzer-dietikon",
         "de": "chauffeur-kat-c-m-w-d-planzer-dietikon",
-        "fr": "chauffeur-kat-c-m-w-d-planzer-dietikon"
+        "fr": "chauffeur-cat-c-m-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -488,7 +510,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029961",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:42.992Z",
+      "crawledAt": "2026-07-05T12:51:48.428Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -507,6 +529,21 @@
       "externalId": "4029961",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-kat-c-m-w-d-planzer-dietikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-m-w-d-planzer-dietikon",
+          "chauffeur-cat-c-m-f-d-planzer-dietikon"
+        ],
+        "en": [
+          "chauffeur-kat-c-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "chauffeur-kat-c-m-w-d-planzer-dietikon"
+        ]
+      },
       "firstSeenAt": "2026-07-04T12:15:53.045Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -519,15 +556,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-kat-c-m-w-d-planzer-dietikon"
-        ]
-      },
-      "previousSlugs": [
-        "chauffeur-kat-c-m-w-d-planzer-dietikon"
-      ]
+      }
     },
     {
       "id": "planzer-3ca9fa1a2f63",
@@ -536,7 +565,7 @@
         "it": "gatto-di-chauffeur-ce-m-f-d-planzer-marstetten",
         "en": "chauffeur-cat-ce-m-f-d-planzer-marstetten",
         "de": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+        "fr": "chauffeur-cat-ce-m-f-d-planzer-marstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -561,7 +590,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4026943",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:42.309Z",
+      "crawledAt": "2026-07-05T12:51:47.787Z",
       "addressLocality": "Märstetten",
       "addressRegion": "TG",
       "streetAddress": "Weinfelderstrasse 6",
@@ -580,6 +609,21 @@
       "externalId": "4026943",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-marstetten",
+          "gatto-di-chauffeur-ce-m-f-d-planzer-marstetten"
+        ],
+        "en": [
+          "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+        ]
+      },
       "firstSeenAt": "2026-07-04T12:15:52.326Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -592,18 +636,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-kat-ce-m-w-d-planzer-marstetten"
-        ],
-        "en": [
-          "chauffeur-kat-ce-m-w-d-planzer-marstetten"
-        ]
-      },
-      "previousSlugs": [
-        "chauffeur-kat-ce-m-w-d-planzer-marstetten"
-      ]
+      }
     },
     {
       "id": "planzer-70ec77fb3e0a",
@@ -637,7 +670,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029958",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:41.621Z",
+      "crawledAt": "2026-07-05T12:51:47.156Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "streetAddress": "Pfannenstiel 12",
@@ -656,6 +689,21 @@
       "externalId": "4029958",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen",
+          "tecnico-operativo-in-2-turni-m-f-d-planzer-harkingen"
+        ],
+        "en": [
+          "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
+        ],
+        "fr": [
+          "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
+        ]
+      },
       "firstSeenAt": "2026-07-04T12:15:51.357Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -668,29 +716,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
-        ],
-        "en": [
-          "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
-        ],
-        "fr": [
-          "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
-        ]
-      },
-      "previousSlugs": [
-        "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
-      ]
+      }
     },
     {
       "id": "planzer-695b007bc1fd",
       "slug": "chauffeur-cat-c-ce-nel-settore-dei-veicoli-a-gru-jumpers-m-f-d-planzer-schmerikon",
       "slugByLocale": {
-        "de": "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon",
         "it": "chauffeur-cat-c-ce-nel-settore-dei-veicoli-a-gru-jumpers-m-f-d-planzer-schmerikon",
         "en": "chauffeur-cat-c-ce-in-the-field-of-crane-vehicles-jumpers-m-f-d-planzer-schmerikon",
+        "de": "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon",
         "fr": "chauffeur-cat-c-ce-dans-le-domaine-des-vehicules-a-grue-jumpers-m-f-d-planzer-schmerikon"
       },
       "company": "Planzer",
@@ -698,24 +732,25 @@
       "companyDomain": "planzer.ch",
       "title": "Chauffeur Kat. C/CE im Bereich Kranfahrzeuge (Springer) (m/w/d)",
       "titleByLocale": {
-        "de": "Chauffeur Kat. C/CE im Bereich Kranfahrzeuge (Springer) (m/w/d)",
         "it": "Chauffeur Cat C/CE nel settore dei veicoli a gru (jumpers) (m/f/d)",
         "en": "Chauffeur Cat C/CE in the field of crane vehicles (jumpers) (m/f/d)",
+        "de": "Chauffeur Kat. C/CE im Bereich Kranfahrzeuge (Springer) (m/w/d)",
         "fr": "Chauffeur Cat C/CE dans le domaine des véhicules à grue (jumpers) (m/f/d)"
       },
       "description": "Marke der Planzer-Gruppe: Wespe.\n\nFür Logistik-Wünsche von XXS bis XXL stehen wir unseren Kunden zur Seite. Mit Herz, Verstand, Engagement und Teamgeist bewältigen wir mit modernster Technologie und Infrastruktur die tagtäglichen, anspornenden Herausforderungen. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nAufgaben:\n• Anhand der Einsatzplanung der Disposition führst du die Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Auch transportierst du Spezial-, Maschinen- und Volumentransporte mit Kranfahrzeugen sicher und zuverlässig ans Ziel\n• Be- und Entladung? Kein Problem für dich - du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du stellst sicher, dass das Ladegut perfekt gesichert ist – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nProfil:\n• Du hast den Führerausweis Kat. C/CE in der Tasche und die Fahrerbewilligungen auf dem neusten Stand\n• Mit langer Erfahrung auf Anhängerzug und Sattelschlepper manövrierst du selbst die schwersten Lasten und besitzt vorzugsweise den Kranausweis Kat. A sowie den ADR-Ausweis\n• Mit deinem fundierten Wissen im Spezial- und Maschinentransport sowie souveräner Beherrschung des Fahrzeugkrans bewegst du nicht nur tonnenschwere Lasten, sondern auch anspruchsvolle Projekte sicher und präzise ans Ziel\n• In der Schweiz kennst du dich gut aus und fühlst dich auf der Strasse zuhause\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und durch deine Belastbarkeit bereit, auch in stressigen Momenten Vollgas zu geben\n• Schlafend, wo die Strasse endet – mit 3-4 Übernachtungen pro Woche im Fahrzeug beginnt jeder neue Tag direkt am Ziel\n\nBenefits:\n• Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualität wird bei uns grossgeschrieben und belohnt\n• Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Marke der Planzer-Gruppe: Wespe.\n\nFür Logistik-Wünsche von XXS bis XXL stehen wir unseren Kunden zur Seite. Mit Herz, Verstand, Engagement und Teamgeist bewältigen wir mit modernster Technologie und Infrastruktur die tagtäglichen, anspornenden Herausforderungen. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nAufgaben:\n• Anhand der Einsatzplanung der Disposition führst du die Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Auch transportierst du Spezial-, Maschinen- und Volumentransporte mit Kranfahrzeugen sicher und zuverlässig ans Ziel\n• Be- und Entladung? Kein Problem für dich - du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du stellst sicher, dass das Ladegut perfekt gesichert ist – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nProfil:\n• Du hast den Führerausweis Kat. C/CE in der Tasche und die Fahrerbewilligungen auf dem neusten Stand\n• Mit langer Erfahrung auf Anhängerzug und Sattelschlepper manövrierst du selbst die schwersten Lasten und besitzt vorzugsweise den Kranausweis Kat. A sowie den ADR-Ausweis\n• Mit deinem fundierten Wissen im Spezial- und Maschinentransport sowie souveräner Beherrschung des Fahrzeugkrans bewegst du nicht nur tonnenschwere Lasten, sondern auch anspruchsvolle Projekte sicher und präzise ans Ziel\n• In der Schweiz kennst du dich gut aus und fühlst dich auf der Strasse zuhause\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und durch deine Belastbarkeit bereit, auch in stressigen Momenten Vollgas zu geben\n• Schlafend, wo die Strasse endet – mit 3-4 Übernachtungen pro Woche im Fahrzeug beginnt jeder neue Tag direkt am Ziel\n\nBenefits:\n• Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualität wird bei uns grossgeschrieben und belohnt\n• Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "it": "Marchio del Gruppo Planzer: Wespe.\n\nPer i desideri logistici da XXS a XXL, siamo in piedi dai nostri clienti. Con cuore, mente, impegno e spirito di squadra, padroneggiamo le sfide quotidiane con le più recenti tecnologie e infrastrutture. Diventa parte del nostro team e modella il futuro della logistica!\n\nCompiti:\n• Sulla base della pianificazione della pianificazione, si effettuano gli ordini di trasporto nel traffico nazionale e consegnare le merci in tempo e professionalmente ai nostri clienti\n• Trasporti anche trasporti speciali, macchine e volumi in modo sicuro e affidabile alla tua destinazione con veicoli a gru.\n• Caricamento e scarico? Nessun problema per voi - si ottiene coinvolto e assicurarsi che tutto è sicuro memorizzato\n• Assicurarsi che il carico sia perfettamente protetto – Nulla è lasciato al caso\n• Insieme a voi, il vostro veicolo è il più importante e sempre visibile biglietto da visita della nostra azienda – in modo da prendersi cura della sua cura e manutenzione\n\nProfilo:\n• Hai la patente di guida Cat. C/CE in tasca e il conducente permette al più tardi\n• Con una lunga esperienza sui trattori rimorchio e semirimorchio, si manovrano anche i carichi più pesanti e preferibilmente hanno la gru ID Cat. A e l'ID ADR\n• Con la vostra conoscenza approfondita del trasporto speciale e della macchina e la padronanza della gru del veicolo, non solo si muoverà carichi pesanti, ma anche progetti esigenti in modo sicuro e preciso alla vostra destinazione.\n• In Svizzera ti conosci bene e ti senti a casa per strada\n• Orale e scritto si può tranquillamente esprimere se stessi in tedesco\n• Sei affidabile, flessibile e, grazie alla tua resilienza, pronto ad andare a piena velocità anche in momenti stressanti\n• Dormire dove termina la strada – con 3-4 notti a settimana nel veicolo, ogni nuovo giorno inizia a destra alla destinazione\n\nVantaggi:\n• Con noi si inizia con 5 settimane di vacanza e beneficiare del 5 ° anno di servizio anche da 6 settimane!\n• La qualità è importante per noi e premiata\n• Trascorrerete i vostri primi giorni lavorativi nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Preparatevi al parcheggio - con noi potete parcheggiare gratuitamente\n\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Brand of the Planzer Group: Wespe.\n\nFor logistics wishes from XXS to XXL, we stand by our customers. With heart, mind, commitment and team spirit, we master the day-to-day challenges with the latest technology and infrastructure. Become part of our team and shape the future of logistics!\n\nTasks:\n• Based on the planning of the scheduling, you carry out the transport orders in national traffic and deliver the goods on time and professionally to our customers\n• You also transport special, machine and volume transports safely and reliably to your destination with crane vehicles.\n• Loading and unloading? No problem for you - you get involved and make sure that everything is safely stored\n• You make sure the cargo is perfectly secured – Nothing is left to chance\n• Together with you, your vehicle is the most important and always visible business card of our company – so you take care of its care and maintenance\n\nProfile:\n• You have the driving license Cat. C/CE in your pocket and the driver permits at the latest\n• With long experience on trailer and semi-trailer tractors, you maneuver even the heaviest loads and preferably have the crane ID Cat. A and the ADR ID\n• With your in-depth knowledge in special and machine transport as well as mastery of the vehicle crane, you will not only move heavy loads, but also demanding projects safely and precisely to your destination.\n• In Switzerland you know yourself well and feel at home on the street\n• Oral and written you can safely express yourself in German\n• You are reliable, flexible and, thanks to your resilience, ready to go full speed even in stressful moments\n• Sleeping where the road ends – with 3-4 nights per week in the vehicle, each new day starts right at the destination\n\nBenefits:\n• With us you start with 5 weeks vacation and benefit from the 5th year of service even from 6 weeks!\n• Quality is important to us and rewarded\n• You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Get ready for parking - with us you can park for free\n\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "fr": "Marque du groupe Planzer: Wespe.\n\nPour les souhaits logistiques de XXS à XXL, nous sommes à la disposition de nos clients. Avec cœur, esprit, engagement et esprit d'équipe, nous maîtrisons les défis quotidiens avec les dernières technologies et infrastructures. Faites partie de notre équipe et façonnez l'avenir de la logistique!\n\nTâches :\n• Sur la base de la planification de la programmation, vous effectuez les commandes de transport dans le trafic national et livrez les marchandises à temps et professionnellement à nos clients\n• Vous transportez également des véhicules spéciaux, des machines et des volumes en toute sécurité et fiabilité vers votre destination avec des véhicules à grue.\n• Chargement et déchargement ? Aucun problème pour vous - vous vous engagez et assurez-vous que tout est stocké en toute sécurité\n• Vous assurez-vous que la cargaison est parfaitement sécurisée – Rien n'est laissé au hasard\n• Avec vous, votre véhicule est la carte de visite la plus importante et la plus visible de notre entreprise.\n\nProfil :\n• Vous avez le permis de conduire Cat. C/CE dans votre poche et les permis de conduire au plus tard\n• Avec une longue expérience sur les tracteurs remorque et semi-remorque, vous manœuvrez même les charges les plus lourdes et avez de préférence la grue ID Cat. A et ID ADR\n• Grâce à votre connaissance approfondie du transport spécial et de la machine ainsi que de la maîtrise de la grue de véhicule, vous déplacerez non seulement des charges lourdes, mais aussi des projets exigeants en toute sécurité et précisément vers votre destination.\n• En Suisse, vous vous connaissez bien et vous sentez chez vous dans la rue\n• Oral et écrit vous pouvez vous exprimer en allemand en toute sécurité\n• Vous êtes fiable, flexible et, grâce à votre résilience, prêt à aller à pleine vitesse même dans des moments stressants\n• Dormir là où la route se termine – avec 3-4 nuits par semaine dans le véhicule, chaque nouveau jour commence directement à la destination\n\nAvantages:\n• Avec nous vous commencez par 5 semaines de vacances et profitez de la 5ème année de service même à partir de 6 semaines!\n• La qualité est importante pour nous et récompensée\n• Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Préparez-vous pour le parking - avec nous vous pouvez vous garer gratuitement\n\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération de soutien et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
+        "it": "Marchio del Gruppo Planzer: Wespe. Per i desideri logistici da XXS a XXL, siamo in piedi dai nostri clienti. Con cuore, mente, impegno e spirito di squadra, padroneggiamo le sfide quotidiane con le più recenti tecnologie e infrastrutture. Diventa parte del nostro team e modella il futuro della logistica! Compiti:\n• Sulla base della pianificazione della pianificazione, si effettuano gli ordini di trasporto nel traffico nazionale e consegnare le merci in tempo e professionalmente ai nostri clienti\n• Trasporti anche trasporti speciali, macchine e volumi in modo sicuro e affidabile alla tua destinazione con veicoli a gru.\n• Caricamento e scarico? Nessun problema per voi - si ottiene coinvolto e assicurarsi che tutto è sicuro memorizzato\n• Assicurarsi che il carico sia perfettamente protetto – Nulla è lasciato al caso\n• Insieme a voi, il vostro veicolo è il più importante e sempre visibile biglietto da visita della nostra azienda – in modo da prendersi cura della sua cura e manutenzione Profilo:\n• Hai la patente di guida Cat. C/CE in tasca e il conducente permette al più tardi\n• Con una lunga esperienza sui trattori rimorchio e semirimorchio, si manovrano anche i carichi più pesanti e preferibilmente hanno la gru ID Cat. A e l'ID ADR\n• Con la vostra conoscenza approfondita del trasporto speciale e della macchina e la padronanza della gru del veicolo, non solo si muoverà carichi pesanti, ma anche progetti esigenti in modo sicuro e preciso alla vostra destinazione.\n• In Svizzera ti conosci bene e ti senti a casa per strada\n• Orale e scritto si può tranquillamente esprimere se stessi in tedesco\n• Sei affidabile, flessibile e, grazie alla tua resilienza, pronto ad andare a piena velocità anche in momenti stressanti\n• Dormire dove termina la strada – con 3-4 notti a settimana nel veicolo, ogni nuovo giorno inizia a destra alla destinazione Vantaggi:\n• Con noi si inizia con 5 settimane di vacanza e beneficiare del 5 ° anno di servizio anche da 6 settimane!\n• La qualità è importante per noi e premiata\n• Trascorrerete i vostri primi giorni lavorativi nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Preparatevi al parcheggio - con noi potete parcheggiare gratuitamente Per noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
+        "en": "Brand of the Planzer Group: Wespe. For logistics wishes from XXS to XXL, we stand by our customers. With heart, mind, commitment and team spirit, we master the day-to-day challenges with the latest technology and infrastructure. Become part of our team and shape the future of logistics! Tasks:\n• Based on the planning of the scheduling, you carry out the transport orders in national traffic and deliver the goods on time and professionally to our customers\n• You also transport special, machine and volume transports safely and reliably to your destination with crane vehicles.\n• Loading and unloading? No problem for you - you get involved and make sure that everything is safely stored\n• You make sure the cargo is perfectly secured – Nothing is left to chance\n• Together with you, your vehicle is the most important and always visible business card of our company – so you take care of its care and maintenance Profile:\n• You have the driving license Cat. C/CE in your pocket and the driver permits at the latest\n• With long experience on trailer and semi-trailer tractors, you maneuver even the heaviest loads and preferably have the crane ID Cat. A and the ADR ID\n• With your in-depth knowledge in special and machine transport as well as mastery of the vehicle crane, you will not only move heavy loads, but also demanding projects safely and precisely to your destination.\n• In Switzerland you know yourself well and feel at home on the street\n• Oral and written you can safely express yourself in German\n• You are reliable, flexible and, thanks to your resilience, ready to go full speed even in stressful moments\n• Sleeping where the road ends – with 3-4 nights per week in the vehicle, each new day starts right at the destination Benefits:\n• With us you start with 5 weeks vacation and benefit from the 5th year of service even from 6 weeks!\n• Quality is important to us and rewarded\n• You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Get ready for parking - with us you can park for free For us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
+        "de": "Marke der Planzer-Gruppe: Wespe. Für Logistik-Wünsche von XXS bis XXL stehen wir unseren Kunden zur Seite. Mit Herz, Verstand, Engagement und Teamgeist bewältigen wir mit modernster Technologie und Infrastruktur die tagtäglichen, anspornenden Herausforderungen. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit! Aufgaben:\n• Anhand der Einsatzplanung der Disposition führst du die Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Auch transportierst du Spezial-, Maschinen- und Volumentransporte mit Kranfahrzeugen sicher und zuverlässig ans Ziel\n• Be- und Entladung? Kein Problem für dich - du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du stellst sicher, dass das Ladegut perfekt gesichert ist – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt Profil:\n• Du hast den Führerausweis Kat. C/CE in der Tasche und die Fahrerbewilligungen auf dem neusten Stand\n• Mit langer Erfahrung auf Anhängerzug und Sattelschlepper manövrierst du selbst die schwersten Lasten und besitzt vorzugsweise den Kranausweis Kat. A sowie den ADR-Ausweis\n• Mit deinem fundierten Wissen im Spezial- und Maschinentransport sowie souveräner Beherrschung des Fahrzeugkrans bewegst du nicht nur tonnenschwere Lasten, sondern auch anspruchsvolle Projekte sicher und präzise ans Ziel\n• In der Schweiz kennst du dich gut aus und fühlst dich auf der Strasse zuhause\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und durch deine Belastbarkeit bereit, auch in stressigen Momenten Vollgas zu geben\n• Schlafend, wo die Strasse endet – mit 3-4 Übernachtungen pro Woche im Fahrzeug beginnt jeder neue Tag direkt am Ziel Benefits:\n• Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualität wird bei uns grossgeschrieben und belohnt\n• Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren Für uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+        "fr": "Marque du groupe Planzer: Wespe. Pour les souhaits logistiques de XXS à XXL, nous sommes à la disposition de nos clients. Avec cœur, esprit, engagement et esprit d'équipe, nous maîtrisons les défis quotidiens avec les dernières technologies et infrastructures. Faites partie de notre équipe et façonnez l'avenir de la logistique! Tâches :\n• Sur la base de la planification de la programmation, vous effectuez les commandes de transport dans le trafic national et livrez les marchandises à temps et professionnellement à nos clients\n• Vous transportez également des véhicules spéciaux, des machines et des volumes en toute sécurité et fiabilité vers votre destination avec des véhicules à grue.\n• Chargement et déchargement ? Aucun problème pour vous - vous vous engagez et assurez-vous que tout est stocké en toute sécurité\n• Vous assurez-vous que la cargaison est parfaitement sécurisée – Rien n'est laissé au hasard\n• Avec vous, votre véhicule est la carte de visite la plus importante et la plus visible de notre entreprise. Profil :\n• Vous avez le permis de conduire Cat. C/CE dans votre poche et les permis de conduire au plus tard\n• Avec une longue expérience sur les tracteurs remorque et semi-remorque, vous manœuvrez même les charges les plus lourdes et avez de préférence la grue ID Cat. A et ID ADR\n• Grâce à votre connaissance approfondie du transport spécial et de la machine ainsi que de la maîtrise de la grue de véhicule, vous déplacerez non seulement des charges lourdes, mais aussi des projets exigeants en toute sécurité et précisément vers votre destination.\n• En Suisse, vous vous connaissez bien et vous sentez chez vous dans la rue\n• Oral et écrit vous pouvez vous exprimer en allemand en toute sécurité\n• Vous êtes fiable, flexible et, grâce à votre résilience, prêt à aller à pleine vitesse même dans des moments stressants\n• Dormir là où la route se termine – avec 3-4 nuits par semaine dans le véhicule, chaque nouveau jour commence directement à la destination Avantages:\n• Avec nous vous commencez par 5 semaines de vacances et profitez de la 5ème année de service même à partir de 6 semaines!\n• La qualité est importante pour nous et récompensée\n• Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Préparez-vous pour le parking - avec nous vous pouvez vous garer gratuitement Pour nous en tant qu'entreprise, l'accent est mis sur une coopération de soutien et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
+      "needsRetranslation": false,
       "location": "Schmerikon",
       "canton": "SG",
       "url": "https://live.solique.ch/planzer/job/details/4029974",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:40.794Z",
+      "crawledAt": "2026-07-05T12:51:46.435Z",
       "addressLocality": "Schmerikon",
       "addressRegion": "SG",
       "streetAddress": "Allmeindstrasse 23",
@@ -733,9 +768,23 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4029974",
       "externalId": "4029974",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon",
+          "chauffeur-cat-c-ce-nel-settore-dei-veicoli-a-gru-jumpers-m-f-d-planzer-schmerikon"
+        ],
+        "en": [
+          "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
+          "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
+        ]
       },
+      "firstSeenAt": "2026-07-04T22:48:40.794Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -747,22 +796,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-04T22:48:40.794Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
-        ],
-        "en": [
-          "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
-        ],
-        "fr": [
-          "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
-        ]
-      },
-      "previousSlugs": [
-        "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
-      ]
+      }
     },
     {
       "id": "planzer-b6fce477bcbd",
@@ -829,7 +863,7 @@
         }
       },
       "firstSeenAt": "2026-07-04T12:15:57.696Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs"

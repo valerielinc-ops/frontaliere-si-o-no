@@ -49,6 +49,7 @@ const FALLBACK_FILES = [
   'sitemap-glossario.xml',
   'sitemap-jobs.xml',
   'sitemap-news.xml',
+  'sitemap-seo-hubs.xml',
 ];
 
 function parseSitemapBody(xml) {

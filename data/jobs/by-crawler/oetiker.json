@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oetiker",
-  "assembledAt": "2026-07-04T22:27:18.111Z",
+  "assembledAt": "2026-07-05T12:06:42.454Z",
   "jobs": [
     {
       "id": "oetiker-a9477d03bf4c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000129430049-teamleiter-cnc-frasen-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:27:15.727Z",
+      "crawledAt": "2026-07-05T12:06:40.088Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -112,7 +112,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135449649-team-leader-procurement-planning-logistics-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:27:15.707Z",
+      "crawledAt": "2026-07-05T12:06:40.067Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -144,6 +144,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:28:43.862Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {

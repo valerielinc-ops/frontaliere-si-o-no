@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jysk",
-  "assembledAt": "2026-07-04T22:32:29.869Z",
+  "assembledAt": "2026-07-05T12:23:11.816Z",
   "jobs": [
     {
       "id": "company-6h1xzk",
@@ -74,7 +74,8 @@
       "country": "CH",
       "addressRegion": "SG",
       "salaryMin": 34500,
-      "salaryMax": 52200
+      "salaryMax": 52200,
+      "needsRetranslation": true
     },
     {
       "id": "company-aq2y7r",
@@ -290,7 +291,8 @@
       "addressLocality": "Muri bei Bern",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "id": "company-fw0m7t",
@@ -442,7 +444,8 @@
       "addressLocality": "Solothurn",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     },
     {
       "id": "company-p3h768",
@@ -540,7 +543,7 @@
       "crawledAt": "2026-07-01T22:30:38.680Z",
       "firstSeenAt": "2026-07-01T22:30:38.680Z",
       "titleByLocale": {
-        "en": "Store Manager Trainee (a) 80-100% for the Emmental region",
+        "en": "Store Manager Trainee (a) 80-100% für die Region Emmental",
         "it": "Store Manager Apprendista (a) 80-100% per la Region Emmental",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Emmental",
         "fr": "Store Manager Apprenti (a) 80-100% für die Region Emmental"
@@ -584,7 +587,8 @@
       "addressLocality": "Langnau im Emmental",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "id": "company-tjd19g",
@@ -1761,7 +1765,8 @@
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "id": "company-a454t1",

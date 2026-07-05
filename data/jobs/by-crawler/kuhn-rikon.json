@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kuhn-rikon",
-  "assembledAt": "2026-07-04T22:13:56.809Z",
+  "assembledAt": "2026-07-05T11:40:03.327Z",
   "jobs": [
     {
       "id": "kuhn-rikon-4edc9ba1b5a5",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:13:54.881Z",
+      "crawledAt": "2026-07-05T11:40:01.172Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -56,6 +56,21 @@
       "hiringOrganizationName": "Kuhn Rikon",
       "contractDuration": "permanent",
       "firstSeenAt": "2026-07-04T11:54:15.071Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
+          "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
+        ],
+        "de": [
+          "controllerin-controller-80-100-michel-gruppe-ag-meiringen"
+        ],
+        "en": [
+          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
+      ],
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -67,18 +82,7 @@
           "maxValue": 69600,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
-        ],
-        "en": [
-          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
-      ]
+      }
     },
     {
       "id": "kuhn-rikon-a57d53d6f98a",
@@ -112,7 +116,7 @@
       "url": "https://my.jobalino.ch/job/9a9d4a02165c3c3421fd36852f401c9f/consultante-vente-globus-gen-ve-100-h-f",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T22:13:54.476Z",
+      "crawledAt": "2026-07-05T11:40:00.702Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204",
@@ -134,10 +138,12 @@
       "hiringOrganizationName": "Kuhn Rikon",
       "previousSlugsByLocale": {
         "fr": [
-          "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve"
+          "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve",
+          "stage-d-ete-2026-apprenti-e-cuisinier-e-efz-100-michel-gruppe-ag-meiringen"
         ],
         "it": [
-          "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve"
+          "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve",
+          "stage-estivo-2026-apprendista-cuoco-a-efz-100-michel-gruppe-ag-meiringen"
         ]
       },
       "previousSlugs": [

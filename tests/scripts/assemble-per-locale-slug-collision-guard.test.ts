@@ -124,6 +124,39 @@ describe('applyPerLocaleSlugCollisionGuard', () => {
     expect(JSON.stringify(jobs)).toBe(before);
   });
 
+  it('preserves the dropped locale slug in previousSlugs/previousSlugsByLocale (issues #3546/#3534)', () => {
+    const jobA: JobFixture = {
+      id: 'job-a',
+      url: 'https://employer.example/jobs/a',
+      canton: 'AG',
+      slug: 'ingegnere-di-calcolo-meccanica-strutturale-m-f-d-acme-corp-leibstadt',
+      slugByLocale: {
+        it: 'ingegnere-di-calcolo-meccanica-strutturale-m-f-d-acme-corp-leibstadt',
+        en: 'projektmanager-m-w-d-acme-corp-leibstadt',
+      },
+      titleByLocale: {
+        it: 'Ingegnere di calcolo',
+        en: 'Projektmanager (m/w/d)',
+      },
+    };
+    const jobB: JobFixture = {
+      id: 'job-b',
+      url: 'https://employer.example/jobs/b',
+      canton: 'AG',
+      slug: 'projektmanager-m-w-d-acme-corp-leibstadt',
+      slugByLocale: { it: 'projektmanager-m-w-d-acme-corp-leibstadt' },
+      titleByLocale: { it: 'Projektmanager (m/w/d)' },
+    };
+
+    applyPerLocaleSlugCollisionGuard([jobA, jobB]);
+
+    expect(jobA.slugByLocale.en).toBeUndefined();
+    // The dropped EN slug must not be lost — it's captured as history so the
+    // bridge/redirect keeps resolving the old indexed URL.
+    expect((jobA as any).previousSlugsByLocale?.en).toContain('projektmanager-m-w-d-acme-corp-leibstadt');
+    expect((jobA as any).previousSlugs).toContain('projektmanager-m-w-d-acme-corp-leibstadt');
+  });
+
   it('caps the details list at 10 to keep build logs short', () => {
     const owner = {
       url: 'owner', canton: 'AG', slug: 'shared-slug-acme-corp-aarau',
