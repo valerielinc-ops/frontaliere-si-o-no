@@ -144,6 +144,70 @@ describe('sanitizeSitemapHreflangReciprocity — fixtures', () => {
     expect(out.size).toBe(0);
   });
 
+  it('drops both sides of a cross-file <loc> collision (same URL, conflicting hreflang sets) instead of letting either survive (issue #3579)', () => {
+    // Two unrelated hub-type generators both happen to emit the identical
+    // <loc> (slug collision). Each forms its OWN internally-consistent
+    // reciprocal pair — fileA's pair (collidedLoc <-> sectorEnLoc) and
+    // fileB's pair (collidedLoc <-> otherHubFrLoc) would each pass the
+    // reciprocity fixpoint independently. Because `locSet`/backRefs key
+    // purely on the <loc> string, the two pairs are indistinguishable once
+    // merged — the guard must recognize the conflicting hreflang signatures
+    // sharing `collidedLoc` and drop every block tied to it, rather than let
+    // two semantically unrelated pages both claim it.
+    const collidedLoc = `${BASE}/settore/edilizia/`;
+    const sectorEnLoc = `${BASE}/en/construction-sector/`;
+    const otherHubFrLoc = `${BASE}/fr/autre-hub/exemple/`;
+    const fileA: SitemapXmlFile = {
+      file: 'sitemap-sector.xml',
+      xml: urlset(
+        urlBlock(collidedLoc, [ann('it', collidedLoc), ann('en', sectorEnLoc)]),
+        urlBlock(sectorEnLoc, [ann('it', collidedLoc), ann('en', sectorEnLoc)]),
+      ),
+    };
+    const fileB: SitemapXmlFile = {
+      file: 'sitemap-other-hub.xml',
+      xml: urlset(
+        urlBlock(collidedLoc, [ann('fr', otherHubFrLoc)]),
+        urlBlock(otherHubFrLoc, [ann('it', collidedLoc)]),
+      ),
+    };
+    const out = sanitizeSitemapHreflangReciprocity([fileA, fileB]);
+
+    // Both files lose every annotation — the colliding <loc> can't be
+    // trusted from either side, and stripping it orphans each pair's return
+    // tag, cascading to a fully stripped result. <loc> entries survive.
+    const sanitizedA = out.get('sitemap-sector.xml')!;
+    expect(sanitizedA).toBeDefined();
+    expect(countAnnotations(sanitizedA)).toBe(0);
+    expect(countLocs(sanitizedA)).toBe(2);
+    expect(sanitizedA).toContain(`<loc>${collidedLoc}</loc>`);
+    expect(sanitizedA).toContain(`<loc>${sectorEnLoc}</loc>`);
+
+    const sanitizedB = out.get('sitemap-other-hub.xml')!;
+    expect(sanitizedB).toBeDefined();
+    expect(countAnnotations(sanitizedB)).toBe(0);
+    expect(countLocs(sanitizedB)).toBe(2);
+  });
+
+  it('keeps annotations untouched when the same <loc> is re-listed by multiple files with an IDENTICAL hreflang set (intentional cross-shard dual-emit)', () => {
+    // sitemapUrlsetDedupe.ts documents this as a legitimate pattern (e.g. a
+    // BS/BL half-canton merge resolving to the same URL in two shard
+    // files) — the collision guard must only fire on DISAGREEING signatures,
+    // never on a plain duplicate.
+    const dualLoc = `${BASE}/eventi/basilea/`;
+    const group = [ann('it', dualLoc), ann('en', enLoc)];
+    const fileA: SitemapXmlFile = {
+      file: 'sitemap-eventi-a.xml',
+      xml: urlset(urlBlock(dualLoc, group), urlBlock(enLoc, [ann('it', dualLoc), ann('en', enLoc)])),
+    };
+    const fileB: SitemapXmlFile = {
+      file: 'sitemap-eventi-b.xml',
+      xml: urlset(urlBlock(dualLoc, group)),
+    };
+    const out = sanitizeSitemapHreflangReciprocity([fileA, fileB]);
+    expect(out.size).toBe(0);
+  });
+
   it('parses the compact single-line emit shape used by plugin-emitted sitemaps', () => {
     // salaryHubPlugin emits `<xhtml:link rel="alternate" hreflang=".." href=".."/>`
     // (no space before `/>`), blocks joined without pretty-print guarantees.
