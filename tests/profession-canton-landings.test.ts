@@ -8,11 +8,13 @@ import * as np from 'node:path';
 
 import {
   PROFESSION_CANTON_ROUTES,
+  PROFESSION_CANTON_KEYS,
   listAllProfessionCantonPaths,
   parseProfessionCantonPath,
   isProfessionCantonPath,
   buildProfessionCantonPath,
 } from '../build-plugins/professionCantonData';
+import { PROFESSION_IDS, PROFESSION_LOCALES } from '../build-plugins/professionLandingsData';
 import {
   renderProfessionCantonPage,
   emitProfessionCantonPages,
@@ -127,6 +129,74 @@ describe('emitProfessionCantonPages — zero-emit sitemap index hygiene (#2107 i
       expect(idx).toContain('sitemap-salary-stats.xml');
       // The family .xml itself is removed by cleanSitemapFiles.
       expect(fs.existsSync(np.join(distDir, 'sitemap-profession-cantons.xml'))).toBe(false);
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+      _resetProfessionJobsAggregateCache();
+    }
+  });
+});
+
+describe('emitProfessionCantonPages — below-floor bridge (structural 404 fix)', () => {
+  // GSC Coverage Drilldown flagged /de/arbeit-aargau-kellner/ as a hard 404:
+  // a (canton, profession) pair that was live on a prior build fell below
+  // MIN_JOBS on a later one and was silently `continue`d — no bridge, no
+  // redirect, straight to GitHub Pages 404. This locks in the fix: every
+  // below-floor pair (including a canton with zero matched jobs at all) now
+  // gets a noindex,follow bridge to its always-live salary-stats hub instead.
+  it('bridges every below-floor pair to the canton salary-stats hub instead of dropping it (empty corpus)', async () => {
+    _resetProfessionJobsAggregateCache();
+    const tmp = fs.mkdtempSync(np.join(os.tmpdir(), 'profcanton-bridge-'));
+    try {
+      fs.mkdirSync(np.join(tmp, 'data'), { recursive: true });
+      fs.writeFileSync(np.join(tmp, 'data', 'jobs.json'), '[]', 'utf-8');
+      const distDir = np.join(tmp, 'dist');
+      fs.mkdirSync(distDir, { recursive: true });
+
+      const res = await emitProfessionCantonPages({ rootDir: tmp, distDir });
+
+      expect(res.pagesWritten).toBe(0);
+      // Every (canton × profession × locale) combo is below floor with an
+      // empty corpus — each gets its own bridge, none silently dropped.
+      expect(res.bridgesWritten).toBe(PROFESSION_CANTON_KEYS.length * PROFESSION_IDS.length * PROFESSION_LOCALES.length);
+      // Bridges are deliberately kept out of the sitemap / internal-links feed.
+      expect(res.emittedPaths.length).toBe(0);
+
+      const canonicalPath = buildProfessionCantonPath('de', 'ZH', 'infermiere');
+      const bridgeFile = np.join(distDir, canonicalPath.replace(/^\/+/, ''), 'index.html');
+      expect(fs.existsSync(bridgeFile)).toBe(true);
+      const html = fs.readFileSync(bridgeFile, 'utf-8');
+
+      // noindex,follow — never indexed itself, but crawlable to the real target.
+      expect(html).toContain('<meta name="robots" content="noindex,follow">');
+      // Canonical + immediate meta-refresh both point at the same live target.
+      expect(html).toContain('<link rel="canonical" href="https://frontaliereticino.ch/de/gehaelter-zurich/">');
+      expect(html).toContain('<meta http-equiv="refresh" content="0; url=https://frontaliereticino.ch/de/gehaelter-zurich/">');
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+      _resetProfessionJobsAggregateCache();
+    }
+  });
+
+  it('bridge HTML is well-formed across all 4 locales for the same pair', async () => {
+    _resetProfessionJobsAggregateCache();
+    const tmp = fs.mkdtempSync(np.join(os.tmpdir(), 'profcanton-bridge-locales-'));
+    try {
+      fs.mkdirSync(np.join(tmp, 'data'), { recursive: true });
+      fs.writeFileSync(np.join(tmp, 'data', 'jobs.json'), '[]', 'utf-8');
+      const distDir = np.join(tmp, 'dist');
+      fs.mkdirSync(distDir, { recursive: true });
+
+      await emitProfessionCantonPages({ rootDir: tmp, distDir });
+
+      for (const locale of PROFESSION_LOCALES) {
+        const canonicalPath = buildProfessionCantonPath(locale, 'GE', 'ingegnere');
+        const bridgeFile = np.join(distDir, canonicalPath.replace(/^\/+/, ''), 'index.html');
+        expect(fs.existsSync(bridgeFile)).toBe(true);
+        const html = fs.readFileSync(bridgeFile, 'utf-8');
+        expect(html).toContain(`<html lang="${locale}">`);
+        expect(html).toContain('<meta name="robots" content="noindex,follow">');
+        expect(html).toMatch(/<meta http-equiv="refresh" content="0; url=https:\/\/frontaliereticino\.ch\//);
+      }
     } finally {
       fs.rmSync(tmp, { recursive: true, force: true });
       _resetProfessionJobsAggregateCache();

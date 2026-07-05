@@ -364,7 +364,7 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
-  it('routes expired company-hub week leaves to the hub root', () => {
+  it('routes expired company-hub week leaves to the hub root, all 4 locales', () => {
     expect(
       resolveSearchConsoleCompatTarget('/aziende-che-assumono/locarno/amministrazione-cantonale-ticino/settimana-corrente'),
     ).toEqual({
@@ -379,6 +379,45 @@ describe('Search Console 404 compatibility resolver', () => {
       kind: 'legacy',
       locale: 'en',
     });
+    // DE/FR hub roots ARE emitted (weeklyEmployersPlugin's renderTopHubPage loop
+    // runs over all WEEKLY_EMPLOYERS_LOCALES) — the fallback previously covered
+    // only IT/EN, leaving these two unresolvable despite a live target existing.
+    expect(
+      resolveSearchConsoleCompatTarget('/de/unternehmen-einstellen/bellinzona/swiss-armed-forces-vtg/aktuelle-woche'),
+    ).toEqual({
+      canonicalPath: '/de/unternehmen-einstellen/',
+      kind: 'legacy',
+      locale: 'de',
+    });
+    expect(
+      resolveSearchConsoleCompatTarget('/fr/entreprises-recrutent/geneve/some-employer/semaine-en-cours'),
+    ).toEqual({
+      canonicalPath: '/fr/entreprises-recrutent/',
+      kind: 'legacy',
+      locale: 'fr',
+    });
+  });
+
+  it('self-maps a profession-canton URL to its own live page (below-floor bridge or full page)', () => {
+    // professionCantonLandings.ts emits every (canton × profession) combo
+    // unconditionally — a URL matching the exact enumerated shape always has
+    // a live target at the SAME path today, even if GSC captured it as 404
+    // from before that guarantee existed. No trailing slash in the GSC-
+    // reported URL (as exported) must still resolve.
+    expect(resolveSearchConsoleCompatTarget('/de/arbeit-aargau-kellner')).toEqual({
+      canonicalPath: '/de/arbeit-aargau-kellner/',
+      kind: 'legacy',
+      locale: 'de',
+    });
+    expect(resolveSearchConsoleCompatTarget('/lavoro-zurigo-infermiere/')).toEqual({
+      canonicalPath: '/lavoro-zurigo-infermiere/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    // A profession/canton slug NOT in the enumeration must not false-positive.
+    expect(resolveSearchConsoleCompatTarget('/de/arbeit-aargau-not-a-real-profession')).not.toEqual(
+      expect.objectContaining({ canonicalPath: '/de/arbeit-aargau-not-a-real-profession/' }),
+    );
   });
 
   it('routes legacy flat /lavoro/ job URLs to the localized listing', () => {

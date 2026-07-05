@@ -4744,8 +4744,51 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  editorialCantonJobCounts.set(c, (editorialCantonJobCounts.get(c) ?? 0) + 1);
  }
 
+ // Structural 404 fix (GSC Coverage Drilldown sweep, same sibling bug class as
+ // professionCantonLandings.ts / weeklyEmployersChCantonPages.ts /
+ // jobMarketSnapshotChCantonPages.ts): the 4 editorial-canton loops below
+ // (today / nurses-hub / part-time / care-variant) used to silently `continue`
+ // past a canton once it fell under MIN_JOBS_FOR_CANTON_PAGE (or, for
+ // care-variant, once the cluster had zero matching IT jobs) -- dropping a URL
+ // Google may already have indexed from a prior build straight to a GH Pages
+ // hard 404, no bridge/redirect. The canton-root job-board hub
+ // (buildCantonAwareSection(locale, canton)) is emitted unconditionally for
+ // every canton at every locale regardless of job count -- see the P2.S2
+ // canton-index loop below, which ships `noindex,follow` under-threshold but
+ // never skips the emit -- so it is always a live target to bridge to.
+ let editorialBelowFloorBridges = 0;
+ const emitEditorialBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, slug: string): void => {
+ const section = buildCantonAwareSection(locale, canton);
+ const targetPath = withSlash(`${localePrefix[locale]}/${section}`.replace(/\/+/g, '/'));
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${section}/${slug}`.replace(/\/+/g, '/'));
+ const html = buildCanonicalBridgePage({
+ canonicalUrl: `${BASE_URL}${targetPath}`,
+ pathLabel: targetPath,
+ lang: locale,
+ noindex: true,
+ });
+ const relPath = canonicalPath.slice(1).replace(/\/$/, '');
+ const dir = np.join(distDir, relPath);
+ if (!fs.existsSync(np.join(dir, 'index.html'))) {
+ _md(dir);
+ _qw(np.join(dir, 'index.html'), html);
+ }
+ const flatFile = np.join(distDir, relPath + '.html');
+ if (!fs.existsSync(flatFile)) {
+ _md(np.dirname(flatFile));
+ _qwFlat(flatFile, html);
+ }
+ editorialBelowFloorBridges++;
+ };
+
  for (const editorialCanton of EDITORIAL_CANTONS) {
- if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
+ if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitEditorialBelowFloorBridge(locale, editorialCanton, getJobTodayLandingSlug(locale, editorialCanton));
+ }
+ continue;
+ }
  // Phase 8 sub-PR (d): for non-TI editorial cantons the URL section
  // becomes the canton-aware form (e.g. `cerca-lavoro-zurigo`) and the
  // model emits a short slug (`oggi` / `today` / `heute` / `aujourdhui`).
@@ -5061,7 +5104,13 @@ ${staticAnalyticsHtml}
  }), '0.78');
 
  for (const editorialCanton of EDITORIAL_CANTONS) {
- if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
+ if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitEditorialBelowFloorBridge(locale, editorialCanton, getJobNursesHubSlug(locale, editorialCanton));
+ }
+ continue;
+ }
  // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
@@ -5244,7 +5293,13 @@ ${staticAnalyticsHtml}
 
  /* ── Editorial landing: global part-time ───────────────────── */
  for (const editorialCanton of EDITORIAL_CANTONS) {
- if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
+ if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitEditorialBelowFloorBridge(locale, editorialCanton, getJobPartTimeLandingSlug(locale, editorialCanton));
+ }
+ continue;
+ }
  // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
@@ -5422,7 +5477,13 @@ ${staticAnalyticsHtml}
  };
  for (const clusterKey of editorialCareKeys) {
  for (const editorialCanton of EDITORIAL_CANTONS) {
- if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
+ if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitEditorialBelowFloorBridge(locale, editorialCanton, careClusterSlug(clusterKey, editorialCanton, locale));
+ }
+ continue;
+ }
  // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  const italianCareModel = buildJobCareVariantLandingModel({
@@ -5437,7 +5498,13 @@ ${staticAnalyticsHtml}
  canton: editorialCanton,
  partition: careClusterPartition,
  });
- if (italianCareModel.totalJobs === 0) continue;
+ if (italianCareModel.totalJobs === 0) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitEditorialBelowFloorBridge(locale, editorialCanton, careClusterSlug(clusterKey, editorialCanton, locale));
+ }
+ continue;
+ }
 
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
@@ -5596,8 +5663,90 @@ ${staticAnalyticsHtml}
  partition: careClusterPartition,
  }), '0.71', sectionByLocaleCanton);
  }
+ if (editorialBelowFloorBridges > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P8 editorial-canton below-floor bridges: ${editorialBelowFloorBridges} (today/nurses/part-time/care-variant combined)`);
+ }
  }
 
+ let locationFamilyBelowFloorBridges = 0;
+ const writeLocationFamilyBridge = (canonicalPath: string, targetPath: string, locale: 'it' | 'en' | 'de' | 'fr'): void => {
+ const html = buildCanonicalBridgePage({
+ canonicalUrl: `${BASE_URL}${targetPath}`,
+ pathLabel: targetPath,
+ lang: locale,
+ noindex: true,
+ });
+ const relPath = canonicalPath.slice(1).replace(/\/$/, '');
+ const dir = np.join(distDir, relPath);
+ if (!fs.existsSync(np.join(dir, 'index.html'))) {
+ _md(dir);
+ _qw(np.join(dir, 'index.html'), html);
+ }
+ const flatFile = np.join(distDir, relPath + '.html');
+ if (!fs.existsSync(flatFile)) {
+ _md(np.dirname(flatFile));
+ _qwFlat(flatFile, html);
+ }
+ locationFamilyBelowFloorBridges++;
+ };
+ const emitLocationBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', loc: string): void => {
+ const targetPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'));
+ const cityHubKey = CITY_HUB_KEYS.find((k) => k.toLowerCase() === loc.toLowerCase());
+ if (cityHubKey) writeLocationFamilyBridge(buildCityHubPath(locale, cityHubKey), targetPath, locale);
+ const legacyModel = buildJobLocationLandingModel({
+ jobs: validJobs,
+ locale,
+ location: loc,
+ now: new Date().toISOString(),
+ localizedSlug,
+ baseUrl: BASE_URL,
+ sectionSlug: sectionByLocale[locale],
+ localePrefix: localePrefix[locale],
+ partition: locationPartition,
+ });
+ const legacyPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${legacyModel.slug}`.replace(/\/+/g, '/'));
+ if (!cityHubKey || legacyPath !== buildCityHubPath(locale, cityHubKey)) writeLocationFamilyBridge(legacyPath, targetPath, locale);
+ };
+ const emitLocationTypeBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', loc: string, typeKeyArg: (typeof editorialTypeKeys)[number]): void => {
+ const cityHubKey = CITY_HUB_KEYS.find((k) => k.toLowerCase() === loc.toLowerCase());
+ const targetPath = cityHubKey
+ ? buildCityHubPath(locale, cityHubKey)
+ : withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'));
+ const model = buildJobLocationTypeLandingModel({
+ jobs: validJobs,
+ locale,
+ location: loc,
+ typeKey: typeKeyArg,
+ now: new Date().toISOString(),
+ localizedSlug,
+ baseUrl: BASE_URL,
+ sectionSlug: sectionByLocale[locale],
+ localePrefix: localePrefix[locale],
+ partition: locationPartition,
+ });
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
+ writeLocationFamilyBridge(canonicalPath, targetPath, locale);
+ };
+ const emitLocationSectorBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', loc: string, sectorKeyArg: (typeof editorialSectorKeys)[number]): void => {
+ const cityHubKey = CITY_HUB_KEYS.find((k) => k.toLowerCase() === loc.toLowerCase());
+ const targetPath = cityHubKey
+ ? buildCityHubPath(locale, cityHubKey)
+ : withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'));
+ const model = buildJobLocationSectorLandingModel({
+ jobs: validJobs,
+ locale,
+ location: loc,
+ sectorKey: sectorKeyArg,
+ now: new Date().toISOString(),
+ localizedSlug,
+ baseUrl: BASE_URL,
+ sectionSlug: sectionByLocale[locale],
+ localePrefix: localePrefix[locale],
+ partition: locationPartition,
+ });
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
+ writeLocationFamilyBridge(canonicalPath, targetPath, locale);
+ };
  for (const location of editorialLocations) {
  const italianLocationModel = buildJobLocationLandingModel({
  jobs: validJobs,
@@ -5610,7 +5759,13 @@ ${staticAnalyticsHtml}
  localePrefix: localePrefix.it,
  partition: locationPartition,
  });
- if (italianLocationModel.totalJobs === 0) continue;
+ if (italianLocationModel.totalJobs === 0) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitLocationBelowFloorBridge(locale, location);
+ }
+ continue;
+ }
 
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
@@ -5857,7 +6012,13 @@ ${staticAnalyticsHtml}
  localePrefix: localePrefix.it,
  partition: locationPartition,
  });
- if (italianTypeModel.totalJobs === 0) continue;
+ if (italianTypeModel.totalJobs === 0) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitLocationTypeBelowFloorBridge(locale, location, typeKey);
+ }
+ continue;
+ }
 
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
@@ -6019,7 +6180,13 @@ ${staticAnalyticsHtml}
  localePrefix: localePrefix.it,
  partition: locationPartition,
  });
- if (italianSectorModel.totalJobs === 0) continue;
+ if (italianSectorModel.totalJobs === 0) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitLocationSectorBelowFloorBridge(locale, location, sectorKey);
+ }
+ continue;
+ }
 
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
@@ -6167,6 +6334,9 @@ ${staticAnalyticsHtml}
  partition: locationPartition,
  }), '0.67');
  }
+ }
+ if (locationFamilyBelowFloorBridges > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P8 location/type/sector below-floor bridges: ${locationFamilyBelowFloorBridges} (TI city location/type/sector combos)`);
  }
 
  editorialEntries = editorialSitemapEntries.join('\n');
@@ -7180,10 +7350,42 @@ ${staticAnalyticsHtml}
  };
  const sectorHubSitemapEntries: string[] = [];
  let sectorHubPagesCount = 0;
+ let sectorHubBelowFloorBridges = 0;
+ const emitSectorHubBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, slug: string): void => {
+ const section = buildCantonAwareSection(locale, canton);
+ const targetPath = withSlash(`${localePrefix[locale]}/${section}`.replace(/\/+/g, '/'));
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${section}/${slug}`.replace(/\/+/g, '/'));
+ const html = buildCanonicalBridgePage({
+ canonicalUrl: `${BASE_URL}${targetPath}`,
+ pathLabel: targetPath,
+ lang: locale,
+ noindex: true,
+ });
+ const relPath = canonicalPath.slice(1).replace(/\/$/, '');
+ const dir = np.join(distDir, relPath);
+ if (!fs.existsSync(np.join(dir, 'index.html'))) {
+ _md(dir);
+ _qw(np.join(dir, 'index.html'), html);
+ }
+ const flatFile = np.join(distDir, relPath + '.html');
+ if (!fs.existsSync(flatFile)) {
+ _md(np.dirname(flatFile));
+ _qwFlat(flatFile, html);
+ }
+ sectorHubBelowFloorBridges++;
+ };
  for (const canton of SHARED_ALL_CANTON_CODES) {
  if (canton === 'TI') continue;
  const cantonTotal = cantonTotalSec.get(canton) ?? 0;
- if (cantonTotal < MIN_JOBS_FOR_CANTON_PAGE) continue;
+ if (cantonTotal < MIN_JOBS_FOR_CANTON_PAGE) {
+ for (const sector of SECTOR_HUB_KEYS) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitSectorHubBelowFloorBridge(locale, canton, SECTOR_HUB_SLUG[locale][sector]);
+ }
+ }
+ continue;
+ }
  const bySector = cantonSectorBuckets.get(canton);
  if (!bySector) continue;
  for (const sector of SECTOR_HUB_KEYS) {
@@ -7369,6 +7571,9 @@ ${staticAnalyticsHtml}
  sectorHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.8</priority>\n </url>`);
  }
  }
+ }
+ if (sectorHubBelowFloorBridges > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P8 sector-hub below-floor bridges: ${sectorHubBelowFloorBridges} (per-canton sector hubs)`);
  }
  if (sectorHubPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${sectorHubPagesCount} per-canton sector hub pages`);

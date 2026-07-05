@@ -48,6 +48,8 @@ import {
   type SwissCantonCode,
   type WeeklyEmployersLocale,
 } from './weeklyEmployersData';
+import { PROFESSION_CANTON_KEYS } from './professionCantonData';
+import { renderSalaryStatsBridge } from './shared/salaryStatsBridge';
 
 type Locale = WeeklyEmployersLocale;
 
@@ -440,6 +442,54 @@ export interface ChCantonEmployersEmitResult {
   cantonsEmitted: Array<{ code: SwissCantonCode | string; jobsCount: number; employersCount: number }>;
   cantonsSkipped: Array<{ code: SwissCantonCode | string; jobsCount: number }>;
   pagesSkippedForWordCount: number;
+  /** Below-floor cantons bridged to the salary-stats hub instead of left to 404. */
+  bridgesWritten: number;
+}
+
+interface BridgeCopy {
+  title: (canton: string) => string;
+  body: (canton: string) => string;
+  cta: (canton: string) => string;
+}
+
+const BRIDGE_COPY: Record<Locale, BridgeCopy> = {
+  it: {
+    title: (c) => `Aziende che assumono — Canton ${c}`,
+    body: (c) => `Al momento non ci sono abbastanza aziende attive nel Canton ${c} da mostrare una pagina dedicata. Consulta stipendi e mercato del lavoro nel Canton ${c}.`,
+    cta: (c) => `Vai ai dati del Canton ${c}`,
+  },
+  en: {
+    title: (c) => `Companies hiring — Canton ${c}`,
+    body: (c) => `There aren't enough active companies in Canton ${c} right now for a dedicated page. See salary and job-market data for Canton ${c}.`,
+    cta: (c) => `Go to Canton ${c} data`,
+  },
+  de: {
+    title: (c) => `Firmen, die einstellen — Kanton ${c}`,
+    body: (c) => `Im Kanton ${c} gibt es derzeit nicht genug aktive Firmen fur eine eigene Seite. Lohn- und Arbeitsmarktdaten fur den Kanton ${c} ansehen.`,
+    cta: (c) => `Zu den Daten fur Kanton ${c}`,
+  },
+  fr: {
+    title: (c) => `Entreprises qui recrutent — canton ${c}`,
+    body: (c) => `Il n'y a pas assez d'entreprises actives dans le canton ${c} pour une page dediee actuellement. Consultez les donnees salariales et du marche du travail du canton ${c}.`,
+    cta: (c) => `Voir les donnees du canton ${c}`,
+  },
+};
+
+/**
+ * Below-floor bridge: a canton that doesn't meet MERGE_THRESHOLD this build
+ * gets a noindex,follow canonical bridge instead of a hard 404. Job counts
+ * fluctuate build to build, and this exact path may have been indexed on a
+ * prior build when the canton did meet the floor (same orphaned-static-page
+ * class fixed for profession-canton landings — professionCantonLandings.ts).
+ */
+function renderBelowFloorBridge(locale: Locale, cantonCode: string): string {
+  const cantonName = getCantonDisplayName(cantonCode, locale);
+  const copy = BRIDGE_COPY[locale];
+  return renderSalaryStatsBridge(locale, cantonCode, {
+    title: copy.title(cantonName),
+    description: copy.body(cantonName),
+    ctaLabel: copy.cta(cantonName),
+  });
 }
 
 /**
@@ -455,6 +505,7 @@ export async function emitChCantonEmployersPages(
     cantonsEmitted: [],
     cantonsSkipped: [],
     pagesSkippedForWordCount: 0,
+    bridgesWritten: 0,
   };
 
   const slugFile = loadCantonSlugFile(opts.rootDir);
@@ -501,6 +552,14 @@ export async function emitChCantonEmployersPages(
       eligibleCantons.push(code);
     } else {
       result.cantonsSkipped.push({ code, jobsCount: bucket.activeJobsCount });
+    }
+  }
+  // A canton with zero matched jobs this build never enters mergedByCanton at
+  // all; without this it would silently vanish from cantonsSkipped too, and a
+  // canton whose active count later hit zero would get no bridge either.
+  for (const code of PROFESSION_CANTON_KEYS) {
+    if (!mergedByCanton.has(code)) {
+      result.cantonsSkipped.push({ code, jobsCount: 0 });
     }
   }
 
@@ -568,6 +627,20 @@ export async function emitChCantonEmployersPages(
       const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
       collector.add(np.join(outDir, 'index.html'), html);
       result.pagesWritten++;
+    }
+  }
+
+  // Below-floor cantons (recorded above) still get a noindex bridge to their
+  // salary-stats hub — never a silent drop of a page a prior build may have
+  // emitted and Google indexed.
+  for (const skipped of result.cantonsSkipped) {
+    for (const locale of LOCALES) {
+      const cantonSlug = getCantonUrlSlugLocal(slugFile, skipped.code, locale);
+      if (!cantonSlug) continue;
+      const canonicalPath = buildCantonEmployersPath(locale, cantonSlug);
+      const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
+      collector.add(np.join(outDir, 'index.html'), renderBelowFloorBridge(locale, skipped.code));
+      result.bridgesWritten++;
     }
   }
 
