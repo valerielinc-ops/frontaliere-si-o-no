@@ -617,7 +617,7 @@
         "it": "senior-consultant-asset-management-systems-m-f-d-zurich-basel-100-afry-basel",
         "en": "senior-consultant-asset-management-systems-m-f-d-zurich-basel-100-afry-basel",
         "de": "senior-consultant-asset-management-systems-m-f-d-zurich-basel-100-afry-basel",
-        "fr": "consultant-principal-systemes-de-gestion-d-actifs-m-f-d-zurich-basel-100-afry-basel"
+        "fr": "senior-consultant-asset-management-systems-m-f-d-zurich-basel-100-afry-basel"
       },
       "id": "afry-67b6742abe3f",
       "salaryMin": 85500,
@@ -634,7 +634,15 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-07-01T21:43:04.412Z"
+      "firstSeenAt": "2026-07-01T21:43:04.412Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "consultant-principal-systemes-de-gestion-d-actifs-m-f-d-zurich-basel-100-afry-basel"
+        ]
+      },
+      "previousSlugs": [
+        "consultant-principal-systemes-de-gestion-d-actifs-m-f-d-zurich-basel-100-afry-basel"
+      ]
     },
     {
       "title": "Elektroplaner:in 60-100% - Chur",
@@ -3846,7 +3854,7 @@
       },
       "slugByLocale": {
         "it": "candidatura-spontanea-svizzera-afry-zurich",
-        "en": "spontaneous-application-switzerland-afry-zurich",
+        "en": "candidatura-spontanea-svizzera-afry-zurich",
         "de": "spontane-anwendung-schweiz-afry-zurich",
         "fr": "demande-spontanee-suisse-afry-zurich"
       },
@@ -3865,7 +3873,15 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-01T21:43:04.412Z"
+      "firstSeenAt": "2026-07-01T21:43:04.412Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "spontaneous-application-switzerland-afry-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "spontaneous-application-switzerland-afry-zurich"
+      ]
     },
     {
       "title": "Candidature spontanée - Suisse",

@@ -11398,5 +11398,119 @@
         "pending": 3
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-05T14:02:47.355Z",
+    "label": "before",
+    "total": 23060,
+    "needsRetranslation": 6832,
+    "suppressed": 266,
+    "incomplete": 419,
+    "complete": 22641,
+    "missingByLocale": {
+      "it": 296,
+      "en": 282,
+      "de": 77,
+      "fr": 311
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 252
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 61
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 6
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Roche",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-05T14:37:58.699Z",
+    "label": "after",
+    "total": 23060,
+    "needsRetranslation": 3254,
+    "suppressed": 266,
+    "incomplete": 419,
+    "complete": 22641,
+    "missingByLocale": {
+      "it": 296,
+      "en": 282,
+      "de": 77,
+      "fr": 311
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 252
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 61
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 6
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Roche",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      }
+    ]
   }
 ]
