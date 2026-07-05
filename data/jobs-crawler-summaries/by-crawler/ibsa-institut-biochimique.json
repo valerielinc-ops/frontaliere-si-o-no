@@ -1,16 +1,16 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-07-04T22:02:32.121Z",
-  "total": 9,
-  "newCount": 9,
+  "generatedAt": "2026-07-05T11:45:07.579Z",
+  "total": 7,
+  "newCount": 7,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 20676,
-  "avgDurationMs": 20676,
+  "durationMs": 15411,
+  "avgDurationMs": 15411,
   "durationHistory": [
-    20676
+    15411
   ],
   "newJobs": [
     {
@@ -66,7 +66,7 @@
       "contract": "internship",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "postedDate": "2026-07-05",
       "url": "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -223,48 +223,6 @@
       }
     },
     {
-      "id": "company-toyw1a",
-      "slug": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
-      "company": "IBSA Institut Biochimique",
-      "title": "Accounting Officer (sost. maternità)",
-      "location": "All Area All Clear Apply now » Accounting Officer (sost",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-17",
-      "url": "https://career.ibsagroup.com/job/Collina-d'Oro-Accounting-Officer-%28sost_-maternit%C3%A0%29-TI-6926/1343827855/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "ibsa-institut-biochimique",
-      "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-05-17T10:27:37.985Z",
-      "firstSeenAt": "2026-05-17T10:27:37.985Z",
-      "sourceLang": "it",
-      "country": "CH",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "",
-      "postalCode": "6500",
-      "addressLocality": "All Area All Clear Apply now » Accounting Officer (sost",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "id": "company-um2f7f",
       "slug": "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area",
       "company": "IBSA Institut Biochimique",
@@ -344,47 +302,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "company-cohd02",
-      "slug": "contractors-audits-specialista-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02",
-      "company": "IBSA Institut Biochimique",
-      "title": "Contractors & Audits Specialist",
-      "location": "Collina",
-      "canton": "TI",
-      "category": "health",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-17",
-      "url": "https://career.ibsagroup.com/job/Collina-d'Oro-Contractors-&-Audits-Specialist-TI-6926/1342349855/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "ibsa-institut-biochimique",
-      "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-05-17T10:27:37.985Z",
-      "firstSeenAt": "2026-05-17T10:27:37.985Z",
-      "sourceLang": "it",
-      "country": "CH",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "streetAddress": "",
-      "postalCode": "6500",
-      "addressLocality": "Collina",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
