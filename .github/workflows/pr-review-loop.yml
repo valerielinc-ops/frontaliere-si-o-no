@@ -457,6 +457,20 @@ jobs:
         # transient Anthropic API error WITHOUT posting a review. The job then
         # looks green but no `## LGTM`/finding was written → the PR silently
         # stalls (observed PR #2340, API 500 mid-run). Classify from the exec log:
+        #  - max_turns (terminal_reason) → FAIL LOUDLY + PR comment: MUST be
+        #    checked BEFORE the 429 heuristic below. Root cause (PR #3555/#3556,
+        #    2026-07-05): the bare `rate[ _-]?limit` alternative in the 429 regex
+        #    matches ANY occurrence of that substring in the exec file — which
+        #    includes benign per-request rate-limit-headroom metadata present on
+        #    EVERY call, success or not. Combined with `is_error:true` (also set
+        #    generically on a max_turns abort), a review that simply ran out of
+        #    turns (tier high, 40, turns=41 observed) was silently misclassified
+        #    as a 429 and downgraded to a warning — job stayed green, zero review
+        #    posted, no signal anything was wrong. max_turns is a different
+        #    failure mode (this PR's diff was too large/complex for the turn
+        #    budget, not a global-quota event) — failing loud here carries no
+        #    quota-storm risk, and posting a PR comment surfaces it even to
+        #    someone only watching the PR (not the Actions log).
         #  - 5xx / overloaded / server_error → FAIL LOUDLY (red + re-runnable):
         #    the server recovers fast, an immediate re-run is useful.
         #  - 429 (quota / rate_limit) → do NOT fail (Tier-2 token-lever): a red
@@ -468,11 +482,22 @@ jobs:
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
         if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           REVIEW_OUTCOME: ${{ steps.claude_review.outcome }}
           EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -uo pipefail
-          # 429 / rate-limit FIRST: even if outcome=failure, a 429 must NOT fail the
+          # max_turns FIRST — see rationale above. Must win over the 429 regex.
+          if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ] \
+             && grep -qE '"terminal_reason"[[:space:]]*:[[:space:]]*"max_turns"' "${EXEC_FILE}"; then
+            BODY=$(printf '⚠️ **Review automatica fallita** (`terminal_reason=max_turns`): Claude ha esaurito il budget di turni prima di poter postare un verdetto (`## LGTM` / 🔴). Nessuna review è stata pubblicata su questa PR — auto-merge non può scattare finché non ce n’è una.\n\nLog del run: %s\n\nPer sbloccare:\n- rilancia il job (rerun del run `tests` più recente di questa PR fa ripartire anche `pr-review-loop`), oppure\n- esegui la review in locale: checkout del branch, poi lancia la review con lo stesso contratto di `REVIEW.md` sul diff verso `main` (es. skill `/code-review` a effort alto) prima di mergiare a mano.' "$RUN_URL")
+            gh pr comment "$PR_NUMBER" --body "$BODY" || echo "::warning::gh pr comment fallito (non bloccante)."
+            echo "::error::Claude review hit max-turns without posting a review — re-run this job, or raise max_turns for this tier if it recurs."
+            exit 1
+          fi
+          # 429 / rate-limit: even if outcome=failure, a 429 must NOT fail the
           # job (Tier-2 lever: avoids re-run amplification of the shared Max quota).
           if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ] \
              && grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
