@@ -199,8 +199,8 @@ export function evaluateWebcamResult(result, minBytes = MIN_WEBCAM_BYTES) {
 /**
  * Collect the unique webcam image URLs (with the crossings each serves) from the
  * borderCrossings registry. Pure: takes the array, returns a dedup map.
- * @param {Array<{name?: string, webcams?: Array<{imageUrl?: string, label?: string}>}>} crossings
- * @returns {Map<string, {url: string, crossings: string[], label: string|null}>}
+ * @param {Array<{name?: string, webcams?: Array<{imageUrl?: string, label?: string, minBytes?: number}>}>} crossings
+ * @returns {Map<string, {url: string, crossings: string[], label: string|null, minBytes: number|undefined}>}
  */
 export function collectWebcamUrls(crossings) {
   const map = new Map();
@@ -208,7 +208,7 @@ export function collectWebcamUrls(crossings) {
     for (const w of c?.webcams || []) {
       const url = w?.imageUrl;
       if (!url) continue;
-      if (!map.has(url)) map.set(url, { url, crossings: [], label: w?.label ?? null });
+      if (!map.has(url)) map.set(url, { url, crossings: [], label: w?.label ?? null, minBytes: w?.minBytes });
       map.get(url).crossings.push(c?.name ?? '(unnamed)');
     }
   }
@@ -331,9 +331,9 @@ async function main() {
   }
   const brokenWebcams = [];
   let indeterminateWebcams = 0;
-  for (const { url, crossings: served, label } of webcamUrls.values()) {
+  for (const { url, crossings: served, label, minBytes } of webcamUrls.values()) {
     const result = await fetchWebcam(url);
-    const verdict = evaluateWebcamResult(result);
+    const verdict = evaluateWebcamResult(result, minBytes ?? MIN_WEBCAM_BYTES);
     if (verdict.broken) {
       brokenWebcams.push({ url, served, label, reason: verdict.reason });
       lines.push(`❌ WEBCAM BROKEN: ${url} (${verdict.reason}) — serves: ${served.join(', ')}`);
