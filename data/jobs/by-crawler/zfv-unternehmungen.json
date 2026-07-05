@@ -3202,12 +3202,12 @@
     },
     {
       "id": "zfv-unternehmungen-71c3b194582b",
-      "slug": "kuchenchef-in-zfv-unternehmungen-zurich",
+      "slug": "chef-in-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "kuchenchef-in-zfv-unternehmungen-zurich",
+        "it": "chef-in-zfv-unternehmungen-zurich",
         "en": "kuchenchef-in-zfv-unternehmungen-zurich",
         "de": "kuchenchef-in-zfv-unternehmungen-zurich",
-        "fr": "kuchenchef-in-zfv-unternehmungen-zurich"
+        "fr": "chef-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3260,16 +3260,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kuchenchef-in-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "kuchenchef-in-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "kuchenchef-in-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-96b5d4f753ea",
-      "slug": "kuchenchef-in-zfv-unternehmungen-opfikon",
+      "slug": "chef-in-zfv-unternehmungen-opfikon",
       "slugByLocale": {
-        "it": "kuchenchef-in-zfv-unternehmungen-opfikon",
+        "it": "chef-in-zfv-unternehmungen-opfikon",
         "en": "kuchenchef-in-zfv-unternehmungen-opfikon",
         "de": "kuchenchef-in-zfv-unternehmungen-opfikon",
-        "fr": "kuchenchef-in-zfv-unternehmungen-opfikon"
+        "fr": "chef-zfv-unternehmungen-opfikon"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3322,16 +3333,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kuchenchef-in-zfv-unternehmungen-opfikon"
+        ],
+        "fr": [
+          "kuchenchef-in-zfv-unternehmungen-opfikon"
+        ]
+      },
+      "previousSlugs": [
+        "kuchenchef-in-zfv-unternehmungen-opfikon"
+      ]
     },
     {
       "id": "zfv-unternehmungen-4621b94c8729",
-      "slug": "legal-counsel-60-80-zfv-unternehmungen-zurich",
+      "slug": "avvocato-legale-60-80-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "legal-counsel-60-80-zfv-unternehmungen-zurich",
+        "it": "avvocato-legale-60-80-zfv-unternehmungen-zurich",
         "en": "legal-counsel-60-80-zfv-unternehmungen-zurich",
         "de": "legal-counsel-60-80-zfv-unternehmungen-zurich",
-        "fr": "legal-counsel-60-80-zfv-unternehmungen-zurich"
+        "fr": "conseiller-juridique-60-80-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3384,14 +3406,25 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-60-80-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "legal-counsel-60-80-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-60-80-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-9e7e7d512533",
       "slug": "responsabile-gastronomie-zfv-unternehmungen-murten",
       "slugByLocale": {
         "it": "responsabile-gastronomie-zfv-unternehmungen-murten",
-        "en": "leiter-in-gastronomie-zfv-unternehmungen-murten",
+        "en": "head-in-gastronomy-zfv-unternehmungen-murten",
         "de": "leiter-in-gastronomie-zfv-unternehmungen-murten",
         "fr": "leiter-in-gastronomie-zfv-unternehmungen-murten"
       },
@@ -3440,6 +3473,9 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-gastronomie-zfv-unternehmungen-murten"
+        ],
+        "en": [
+          "leiter-in-gastronomie-zfv-unternehmungen-murten"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:55.309Z",
@@ -3458,12 +3494,12 @@
     },
     {
       "id": "zfv-unternehmungen-70d22501086b",
-      "slug": "management-praktikant-in-zfv-unternehmungen-zurich",
+      "slug": "interno-di-gestione-in-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "management-praktikant-in-zfv-unternehmungen-zurich",
-        "en": "management-praktikant-in-zfv-unternehmungen-zurich",
+        "it": "interno-di-gestione-in-zfv-unternehmungen-zurich",
+        "en": "management-intern-in-zfv-unternehmungen-zurich",
         "de": "management-praktikant-in-zfv-unternehmungen-zurich",
-        "fr": "management-praktikant-in-zfv-unternehmungen-zurich"
+        "fr": "stagiaire-de-gestion-in-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3516,7 +3552,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "management-praktikant-in-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "management-praktikant-in-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "management-praktikant-in-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "management-praktikant-in-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-05c87f600d6d",
@@ -4043,12 +4093,12 @@
     },
     {
       "id": "zfv-unternehmungen-4a38a9f4f629",
-      "slug": "praktikant-in-kader-zfv-unternehmungen-winterthur",
+      "slug": "interno-in-cadre-zfv-unternehmungen-winterthur",
       "slugByLocale": {
-        "it": "praktikant-in-kader-zfv-unternehmungen-winterthur",
-        "en": "praktikant-in-kader-zfv-unternehmungen-winterthur",
+        "it": "interno-in-cadre-zfv-unternehmungen-winterthur",
+        "en": "intern-in-cadre-zfv-unternehmungen-winterthur",
         "de": "praktikant-in-kader-zfv-unternehmungen-winterthur",
-        "fr": "praktikant-in-kader-zfv-unternehmungen-winterthur"
+        "fr": "stagiaire-en-cadre-zfv-unternehmungen-winterthur"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4101,16 +4151,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-kader-zfv-unternehmungen-winterthur"
+        ],
+        "en": [
+          "praktikant-in-kader-zfv-unternehmungen-winterthur"
+        ],
+        "fr": [
+          "praktikant-in-kader-zfv-unternehmungen-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-kader-zfv-unternehmungen-winterthur"
+      ]
     },
     {
       "id": "zfv-unternehmungen-96ed06c35da4",
-      "slug": "receptionist-in-zfv-unternehmungen-bad-ragaz",
+      "slug": "ricevitore-in-zfv-unternehmungen-bad-ragaz",
       "slugByLocale": {
-        "it": "receptionist-in-zfv-unternehmungen-bad-ragaz",
+        "it": "ricevitore-in-zfv-unternehmungen-bad-ragaz",
         "en": "receptionist-in-zfv-unternehmungen-bad-ragaz",
         "de": "receptionist-in-zfv-unternehmungen-bad-ragaz",
-        "fr": "receptionist-in-zfv-unternehmungen-bad-ragaz"
+        "fr": "receptionniste-in-zfv-unternehmungen-bad-ragaz"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4163,7 +4227,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "receptionist-in-zfv-unternehmungen-bad-ragaz"
+        ],
+        "fr": [
+          "receptionist-in-zfv-unternehmungen-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "receptionist-in-zfv-unternehmungen-bad-ragaz"
+      ]
     },
     {
       "id": "zfv-unternehmungen-b466d3489ef9",
@@ -4172,7 +4247,7 @@
         "it": "receptionist-in-60-80-zfv-unternehmungen-winterthur",
         "en": "receptionist-in-60-80-zfv-unternehmungen-winterthur",
         "de": "receptionist-in-60-80-zfv-unternehmungen-winterthur",
-        "fr": "receptionist-in-60-80-zfv-unternehmungen-winterthur"
+        "fr": "receptionniste-en-60-80-zfv-unternehmungen-winterthur"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4229,12 +4304,12 @@
     },
     {
       "id": "zfv-unternehmungen-2fccb09080b4",
-      "slug": "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich",
+      "slug": "specialista-di-restauro-uomo-circa-50-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich",
-        "en": "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich",
+        "it": "specialista-di-restauro-uomo-circa-50-zfv-unternehmungen-zurich",
+        "en": "restoration-specialist-man-about-50-zfv-unternehmungen-zurich",
         "de": "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich",
-        "fr": "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich"
+        "fr": "specialiste-de-la-restauration-homme-environ-50-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4287,7 +4362,21 @@
           "maxValue": 55800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-e0ba977ecac4",
@@ -4668,10 +4757,10 @@
     },
     {
       "id": "zfv-unternehmungen-47b85b279608",
-      "slug": "sous-chef-in-zfv-unternehmungen-zurich",
+      "slug": "capo-di-sous-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "sous-chef-in-zfv-unternehmungen-zurich",
-        "en": "sous-chef-in-zfv-unternehmungen-zurich",
+        "it": "capo-di-sous-zfv-unternehmungen-zurich",
+        "en": "head-of-sous-zfv-unternehmungen-zurich",
         "de": "sous-chef-in-zfv-unternehmungen-zurich",
         "fr": "sous-chef-in-zfv-unternehmungen-zurich"
       },
@@ -4726,14 +4815,25 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sous-chef-in-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "sous-chef-in-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sous-chef-in-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-82c39d460090",
-      "slug": "sous-chef-in-zfv-unternehmungen-basel",
+      "slug": "capo-di-sous-zfv-unternehmungen-basel",
       "slugByLocale": {
-        "it": "sous-chef-in-zfv-unternehmungen-basel",
-        "en": "sous-chef-in-zfv-unternehmungen-basel",
+        "it": "capo-di-sous-zfv-unternehmungen-basel",
+        "en": "head-of-sous-zfv-unternehmungen-basel",
         "de": "sous-chef-in-zfv-unternehmungen-basel",
         "fr": "sous-chef-in-zfv-unternehmungen-basel"
       },
@@ -4788,14 +4888,25 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sous-chef-in-zfv-unternehmungen-basel"
+        ],
+        "en": [
+          "sous-chef-in-zfv-unternehmungen-basel"
+        ]
+      },
+      "previousSlugs": [
+        "sous-chef-in-zfv-unternehmungen-basel"
+      ]
     },
     {
       "id": "zfv-unternehmungen-a07511a23a4e",
-      "slug": "sous-chef-in-zfv-unternehmungen-bern",
+      "slug": "capo-di-sous-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "sous-chef-in-zfv-unternehmungen-bern",
-        "en": "sous-chef-in-zfv-unternehmungen-bern",
+        "it": "capo-di-sous-zfv-unternehmungen-bern",
+        "en": "head-of-sous-zfv-unternehmungen-bern",
         "de": "sous-chef-in-zfv-unternehmungen-bern",
         "fr": "sous-chef-in-zfv-unternehmungen-bern"
       },
@@ -4850,14 +4961,25 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sous-chef-in-zfv-unternehmungen-bern"
+        ],
+        "en": [
+          "sous-chef-in-zfv-unternehmungen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sous-chef-in-zfv-unternehmungen-bern"
+      ]
     },
     {
       "id": "zfv-unternehmungen-3a5bd70a4b0f",
-      "slug": "sous-chef-in-zfv-unternehmungen-luzern",
+      "slug": "capo-di-sous-zfv-unternehmungen-luzern",
       "slugByLocale": {
-        "it": "sous-chef-in-zfv-unternehmungen-luzern",
-        "en": "sous-chef-in-zfv-unternehmungen-luzern",
+        "it": "capo-di-sous-zfv-unternehmungen-luzern",
+        "en": "head-of-sous-zfv-unternehmungen-luzern",
         "de": "sous-chef-in-zfv-unternehmungen-luzern",
         "fr": "sous-chef-in-zfv-unternehmungen-luzern"
       },
@@ -4912,16 +5034,27 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sous-chef-in-zfv-unternehmungen-luzern"
+        ],
+        "en": [
+          "sous-chef-in-zfv-unternehmungen-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "sous-chef-in-zfv-unternehmungen-luzern"
+      ]
     },
     {
       "id": "zfv-unternehmungen-04c88c4bd416",
-      "slug": "sous-chef-in-80-zfv-unternehmungen-bern",
+      "slug": "sous-boss-in-80-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "sous-chef-in-80-zfv-unternehmungen-bern",
+        "it": "sous-boss-in-80-zfv-unternehmungen-bern",
         "en": "sous-chef-in-80-zfv-unternehmungen-bern",
         "de": "sous-chef-in-80-zfv-unternehmungen-bern",
-        "fr": "sous-chef-in-80-zfv-unternehmungen-bern"
+        "fr": "sous-patron-en-80-zfv-unternehmungen-bern"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4974,7 +5107,18 @@
           "maxValue": 83200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sous-chef-in-80-zfv-unternehmungen-bern"
+        ],
+        "fr": [
+          "sous-chef-in-80-zfv-unternehmungen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sous-chef-in-80-zfv-unternehmungen-bern"
+      ]
     },
     {
       "id": "zfv-unternehmungen-79b91738a74a",
@@ -4983,7 +5127,7 @@
         "it": "stv-responsabile-catering-events-zfv-unternehmungen-winterthur",
         "en": "stv-leiter-in-catering-events-zfv-unternehmungen-winterthur",
         "de": "stv-leiter-in-catering-events-zfv-unternehmungen-winterthur",
-        "fr": "stv-leiter-in-catering-events-zfv-unternehmungen-winterthur"
+        "fr": "directeur-de-stv-dans-la-restauration-et-les-evenements-zfv-unternehmungen-winterthur"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -5029,6 +5173,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiter-in-catering-events-zfv-unternehmungen-winterthur"
+        ],
+        "fr": [
           "stv-leiter-in-catering-events-zfv-unternehmungen-winterthur"
         ]
       },
