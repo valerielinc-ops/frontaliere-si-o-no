@@ -495,6 +495,17 @@ async function getFirestoreAdmin() {
 
 // ── Load jobs from data/jobs.json ────────────────────────────
 
+// Static floor for the 4 cities the subscriber-preference flags hardcode
+// (jobAlertMatching.mjs preferenceCities). Without it, a subscriber whose
+// home city has zero live jobs in today's crawl snapshot would fail to
+// resolve to "ti" via the dataset-derived cityToCanton index below and fall
+// through to CH-wide, even though same-canton jobs from nearby TI cities
+// exist (review nit on PR #3146, issue #3155). Exported for direct unit
+// testing — see tests/job-alert-geo-preference-pipeline.test.ts.
+export const STATIC_CITY_CANTON_FLOOR = {
+  lugano: 'ti', bellinzona: 'ti', mendrisio: 'ti', chiasso: 'ti',
+};
+
 // Returns the recent-job match pool AND a lightweight slug/id → geography index
 // over the FULL dataset. The index lets us recover the location of the job a
 // one-tap subscriber engaged with (`sourceJobSlug`) even when that job is older
@@ -511,7 +522,9 @@ function loadJobs() {
   // City → canton index over the FULL dataset, so the graduated geo preference
   // (#2993) can resolve a subscriber's preferred city (e.g. "bellinzona") to its
   // canton ("ti") and treat every TI job as in-area — not just exact-city hits.
-  const cityToCanton = new Map();
+  // Seeded with STATIC_CITY_CANTON_FLOOR; dataset entries below never override
+  // these (`!has` guard) since all four are unambiguously Ticino.
+  const cityToCanton = new Map(Object.entries(STATIC_CITY_CANTON_FLOOR));
   for (const j of jobs) {
     const geo = [j.location || j.addressLocality || '', j.canton || ''].filter(Boolean);
     const company = j.company || '';
