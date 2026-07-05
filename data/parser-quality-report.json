@@ -1,38 +1,71 @@
 {
-  "timestamp": "2026-05-18T06:41:20.513Z",
-  "crawlersChecked": 193,
+  "timestamp": "2026-07-05T09:30:36.459Z",
+  "crawlersChecked": 537,
   "urlChecksEnabled": false,
   "crawlers": {
     "a-group": {
-      "total": 1,
+      "total": 0,
       "issues": [],
       "severity": "OK"
     },
-    "abb-svizzera-sede-ticino": {
+    "aarreha-schinznach": {
       "total": 9,
       "issues": [],
       "severity": "OK"
     },
+    "abb-svizzera-sede-ticino": {
+      "total": 44,
+      "issues": [],
+      "severity": "OK"
+    },
+    "abbott": {
+      "total": 18,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 18,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "abraxas": {
+      "total": 23,
+      "issues": [],
+      "severity": "OK"
+    },
+    "adullam": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "adus-klinik": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
     "afry": {
-      "total": 30,
+      "total": 63,
       "issues": [],
       "severity": "OK"
     },
     "agie-charmilles": {
-      "total": 45,
+      "total": 40,
       "issues": [
         {
           "type": "missing-locales",
           "count": 1,
-          "total": 45,
+          "total": 40,
           "avgMissing": 0,
-          "message": "1/45 missing 0+ locales"
+          "message": "1/40 missing 0+ locales"
         }
       ],
       "severity": "WARNING"
     },
     "agroscope": {
-      "total": 22,
+      "total": 11,
       "issues": [],
       "severity": "OK"
     },
@@ -42,27 +75,56 @@
       "severity": "OK"
     },
     "air-zermatt": {
-      "total": 2,
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "alcon": {
+      "total": 4,
       "issues": [],
       "severity": "OK"
     },
     "aldi-suisse": {
-      "total": 1,
+      "total": 7,
       "issues": [],
       "severity": "OK"
     },
     "allianz-suisse": {
-      "total": 6,
-      "issues": [],
-      "severity": "OK"
+      "total": 87,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 39,
+          "total": 87,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
     },
     "alpiq": {
-      "total": 2,
-      "issues": [],
-      "severity": "OK"
+      "total": 8,
+      "issues": [
+        {
+          "type": "thin-description",
+          "count": 1,
+          "total": 8,
+          "reasons": {
+            "too-short": 1
+          },
+          "message": "1/8 thin descriptions (1 too-short)"
+        },
+        {
+          "type": "no-structured-content",
+          "count": 6,
+          "total": 7,
+          "message": "6/7 no structured content (no bullets/lists)"
+        }
+      ],
+      "severity": "WARNING"
     },
     "alten-switzerland": {
-      "total": 4,
+      "total": 3,
       "issues": [],
       "severity": "OK"
     },
@@ -71,21 +133,68 @@
       "issues": [],
       "severity": "OK"
     },
+    "ameos-ch": {
+      "total": 15,
+      "issues": [],
+      "severity": "OK"
+    },
+    "amina-bank": {
+      "total": 5,
+      "issues": [],
+      "severity": "OK"
+    },
     "amministrazione-cantonale-ti": {
       "total": 17,
+      "issues": [],
+      "severity": "OK"
+    },
+    "amstein-walthert": {
+      "total": 57,
+      "issues": [],
+      "severity": "OK"
+    },
+    "anybotics": {
+      "total": 7,
+      "issues": [],
+      "severity": "OK"
+    },
+    "apple-retail-switzerland": {
+      "total": 16,
       "issues": [
         {
-          "type": "missing-locales",
-          "count": 1,
-          "total": 17,
-          "avgMissing": 0,
-          "message": "1/17 missing 0+ locales"
+          "type": "no-structured-content",
+          "count": 13,
+          "total": 16,
+          "message": "13/16 no structured content (no bullets/lists)"
         }
       ],
       "severity": "WARNING"
     },
+    "ardentis": {
+      "total": 38,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 38,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "ardian": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
     "ariston-group": {
-      "total": 28,
+      "total": 24,
+      "issues": [],
+      "severity": "OK"
+    },
+    "arsante-clinique-de-carouge": {
+      "total": 24,
       "issues": [],
       "severity": "OK"
     },
@@ -95,36 +204,38 @@
       "severity": "OK"
     },
     "arxada": {
-      "total": 19,
-      "issues": [
-        {
-          "type": "duplicate-descriptions",
-          "count": 2,
-          "total": 19,
-          "message": "2/19 duplicate descriptions"
-        },
-        {
-          "type": "duplicate-descriptions-desc-only",
-          "count": 2,
-          "total": 19,
-          "message": "",
-          "hidden": true
-        }
-      ],
-      "severity": "WARNING"
+      "total": 13,
+      "issues": [],
+      "severity": "OK"
+    },
+    "asana-spital": {
+      "total": 21,
+      "issues": [],
+      "severity": "OK"
+    },
+    "audemars-piguet": {
+      "total": 27,
+      "issues": [],
+      "severity": "OK"
     },
     "avaloq": {
-      "total": 17,
+      "total": 18,
       "issues": [],
       "severity": "OK"
     },
     "axa-svizzera": {
-      "total": 36,
+      "total": 5,
       "issues": [
         {
-          "type": "duplicate-descriptions-desc-only",
+          "type": "no-structured-content",
           "count": 4,
-          "total": 36,
+          "total": 5,
+          "message": "4/5 no structured content (no bullets/lists)"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 5,
           "message": "",
           "hidden": true
         }
@@ -132,57 +243,113 @@
       "severity": "WARNING"
     },
     "axpo-group": {
-      "total": 49,
+      "total": 42,
       "issues": [
         {
-          "type": "missing-locales",
-          "count": 1,
-          "total": 49,
-          "avgMissing": 0,
-          "message": "1/49 missing 0+ locales"
+          "type": "no-structured-content",
+          "count": 37,
+          "total": 42,
+          "message": "37/42 no structured content (no bullets/lists)"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 8,
-          "total": 49,
+          "count": 4,
+          "total": 42,
           "message": "",
           "hidden": true
         }
       ],
       "severity": "WARNING"
     },
+    "bachem": {
+      "total": 89,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 89,
+          "message": "2/89 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 89,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "bachtelen": {
+      "total": 11,
+      "issues": [],
+      "severity": "OK"
+    },
     "badrutts-palace": {
-      "total": 7,
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "balgrist": {
+      "total": 46,
+      "issues": [],
+      "severity": "OK"
+    },
+    "baloise": {
+      "total": 13,
       "issues": [],
       "severity": "OK"
     },
     "banca-cler": {
-      "total": 4,
+      "total": 7,
       "issues": [],
       "severity": "OK"
     },
     "banca-raiffeisen-vedeggio-cassarate": {
-      "total": 3,
+      "total": 0,
       "issues": [],
       "severity": "OK"
     },
     "banca-sempione": {
-      "total": 3,
+      "total": 4,
       "issues": [],
       "severity": "OK"
     },
-    "bancastato": {
-      "total": 0,
+    "barry-callebaut": {
+      "total": 8,
       "issues": [],
       "severity": "OK"
     },
-    "baronie": {
-      "total": 0,
-      "issues": [],
-      "severity": "OK"
+    "bcv": {
+      "total": 46,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 46,
+          "avgMissing": 0,
+          "message": "1/46 missing 0+ locales"
+        }
+      ],
+      "severity": "WARNING"
     },
     "bcvs": {
-      "total": 13,
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "beekeeper": {
+      "total": 5,
+      "issues": [],
+      "severity": "OK"
+    },
+    "berit-klinik": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "berner-klinik-montana": {
+      "total": 4,
       "issues": [],
       "severity": "OK"
     },
@@ -191,7 +358,7 @@
       "issues": [
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 7,
+          "count": 3,
           "total": 13,
           "message": "",
           "hidden": true
@@ -199,13 +366,37 @@
       ],
       "severity": "WARNING"
     },
+    "bethesda-spital": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
     "bitfinex": {
-      "total": 8,
+      "total": 6,
       "issues": [
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 4,
-          "total": 8,
+          "count": 2,
+          "total": 6,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "bkw": {
+      "total": 295,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 8,
+          "total": 295,
+          "message": "8/295 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 37,
+          "total": 295,
           "message": "",
           "hidden": true
         }
@@ -213,27 +404,62 @@
       "severity": "WARNING"
     },
     "bls": {
-      "total": 1,
-      "issues": [],
-      "severity": "OK"
+      "total": 14,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 14,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
     },
     "bms-building": {
-      "total": 4,
+      "total": 30,
       "issues": [],
       "severity": "OK"
     },
     "board-international": {
-      "total": 9,
+      "total": 11,
       "issues": [],
       "severity": "OK"
     },
-    "boggi-milano": {
-      "total": 0,
-      "issues": [],
-      "severity": "OK"
+    "bobst": {
+      "total": 27,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 27,
+          "message": "2/27 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 27,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
     },
     "bosch-thermotechnik-ag": {
       "total": 8,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 8,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "bossard": {
+      "total": 5,
       "issues": [],
       "severity": "OK"
     },
@@ -243,23 +469,106 @@
       "severity": "OK"
     },
     "bracco": {
-      "total": 1,
+      "total": 2,
       "issues": [],
       "severity": "OK"
     },
-    "burkhalter-group": {
-      "total": 246,
+    "brack-alltron": {
+      "total": 28,
+      "issues": [],
+      "severity": "OK"
+    },
+    "breitling": {
+      "total": 18,
+      "issues": [],
+      "severity": "OK"
+    },
+    "bucher-suter": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "bucherer": {
+      "total": 0,
+      "issues": [],
+      "severity": "OK"
+    },
+    "buehler": {
+      "total": 159,
       "issues": [
         {
           "type": "duplicate-descriptions",
-          "count": 34,
-          "total": 246,
-          "message": "34/246 duplicate descriptions"
+          "count": 2,
+          "total": 159,
+          "message": "2/159 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 12,
-          "total": 246,
+          "count": 4,
+          "total": 159,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "buergenstock-hotels": {
+      "total": 35,
+      "issues": [
+        {
+          "type": "thin-description",
+          "count": 2,
+          "total": 35,
+          "reasons": {
+            "too-short": 2
+          },
+          "message": "2/35 thin descriptions (2 too-short)"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "burkhalter-group": {
+      "total": 243,
+      "issues": [
+        {
+          "type": "thin-description",
+          "count": 1,
+          "total": 243,
+          "reasons": {
+            "too-short": 1
+          },
+          "message": "1/243 thin descriptions (1 too-short)"
+        },
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 243,
+          "avgMissing": 0,
+          "message": "1/243 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 10,
+          "total": 243,
+          "message": "10/243 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 243,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "c-and-a-schweiz": {
+      "total": 53,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 50,
+          "total": 53,
           "message": "",
           "hidden": true
         }
@@ -267,24 +576,34 @@
       "severity": "WARNING"
     },
     "cambiavalute": {
-      "total": 2,
-      "issues": [],
-      "severity": "OK"
-    },
-    "capri-holdings": {
       "total": 4,
       "issues": [],
       "severity": "OK"
     },
+    "canton-ticino-osc": {
+      "total": 12,
+      "issues": [],
+      "severity": "OK"
+    },
+    "capri-holdings": {
+      "total": 5,
+      "issues": [],
+      "severity": "OK"
+    },
+    "caritas-schweiz": {
+      "total": 12,
+      "issues": [],
+      "severity": "OK"
+    },
     "casale": {
-      "total": 7,
+      "total": 4,
       "issues": [
         {
           "type": "missing-locales",
           "count": 1,
-          "total": 7,
+          "total": 4,
           "avgMissing": 0,
-          "message": "1/7 missing 0+ locales"
+          "message": "1/4 missing 0+ locales"
         }
       ],
       "severity": "WARNING"
@@ -294,23 +613,43 @@
       "issues": [],
       "severity": "OK"
     },
-    "cedes": {
-      "total": 3,
-      "issues": [],
-      "severity": "OK"
-    },
-    "centiel": {
+    "cds-savognin": {
       "total": 5,
       "issues": [],
       "severity": "OK"
     },
-    "citta-di-bellinzona": {
+    "cedes": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "centiel": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "cereneo": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "cern": {
+      "total": 61,
+      "issues": [],
+      "severity": "OK"
+    },
+    "chopard": {
       "total": 1,
       "issues": [],
       "severity": "OK"
     },
+    "citta-di-bellinzona": {
+      "total": 3,
+      "issues": [],
+      "severity": "OK"
+    },
     "citta-di-locarno": {
-      "total": 2,
+      "total": 0,
       "issues": [],
       "severity": "OK"
     },
@@ -320,7 +659,100 @@
       "severity": "OK"
     },
     "citta-di-mendrisio": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "claraspital": {
+      "total": 25,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clariant": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clienia-ag": {
+      "total": 93,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 93,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "climeworks": {
+      "total": 12,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clinica-hildebrand": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clinica-holistica-engiadina": {
       "total": 3,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clinica-varini": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clinique-cic": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clinique-de-genolier": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clinique-de-la-plaine": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clinique-de-montchoisi": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clinique-de-valere": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clinique-generale-beaulieu": {
+      "total": 3,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clinique-generale-ste-anne": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clinique-la-source": {
+      "total": 6,
+      "issues": [],
+      "severity": "OK"
+    },
+    "clinique-le-noirmont": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "cnp": {
+      "total": 21,
       "issues": [],
       "severity": "OK"
     },
@@ -337,36 +769,75 @@
       ],
       "severity": "WARNING"
     },
-    "confederazione-ticino": {
-      "total": 7,
+    "concara": {
+      "total": 49,
       "issues": [],
       "severity": "OK"
     },
-    "convit-holding": {
-      "total": 60,
-      "issues": [],
-      "severity": "OK"
-    },
-    "coop-ticino-locale-cache": {
-      "total": 154,
+    "concordia": {
+      "total": 48,
       "issues": [
         {
-          "type": "missing-locales",
-          "count": 67,
-          "total": 154,
-          "avgMissing": 2,
-          "message": "67/154 missing 2+ locales"
-        },
-        {
           "type": "duplicate-descriptions",
-          "count": 107,
-          "total": 154,
-          "message": "107/154 duplicate descriptions"
+          "count": 2,
+          "total": 48,
+          "message": "2/48 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
           "count": 11,
-          "total": 154,
+          "total": 48,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "confederazione-ticino": {
+      "total": 302,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 302,
+          "avgMissing": 0,
+          "message": "1/302 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 302,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "convit-holding": {
+      "total": 91,
+      "issues": [],
+      "severity": "OK"
+    },
+    "coop-ticino-locale-cache": {
+      "total": 1858,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1710,
+          "total": 1858,
+          "avgMissing": 1,
+          "message": "1710/1858 missing 1+ locales"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 727,
+          "total": 1858,
+          "message": "727/1858 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 117,
+          "total": 1858,
           "message": "",
           "hidden": true
         }
@@ -374,25 +845,25 @@
       "severity": "WARNING"
     },
     "coop-ticino": {
-      "total": 154,
+      "total": 1858,
       "issues": [
         {
           "type": "missing-locales",
-          "count": 67,
-          "total": 154,
-          "avgMissing": 2,
-          "message": "67/154 missing 2+ locales"
+          "count": 7,
+          "total": 1858,
+          "avgMissing": 0,
+          "message": "7/1858 missing 0+ locales"
         },
         {
           "type": "duplicate-descriptions",
-          "count": 107,
-          "total": 154,
-          "message": "107/154 duplicate descriptions"
+          "count": 732,
+          "total": 1858,
+          "message": "732/1858 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 11,
-          "total": 154,
+          "count": 122,
+          "total": 1858,
           "message": "",
           "hidden": true
         }
@@ -400,58 +871,196 @@
       "severity": "WARNING"
     },
     "coopers": {
-      "total": 2,
+      "total": 51,
+      "issues": [],
+      "severity": "OK"
+    },
+    "cordenpharma": {
+      "total": 6,
       "issues": [],
       "severity": "OK"
     },
     "corner-banca": {
-      "total": 10,
+      "total": 17,
       "issues": [
         {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 17,
+          "avgMissing": 0,
+          "message": "1/17 missing 0+ locales"
+        },
+        {
           "type": "duplicate-descriptions-desc-only",
-          "count": 2,
-          "total": 10,
+          "count": 3,
+          "total": 17,
           "message": "",
           "hidden": true
         }
       ],
       "severity": "WARNING"
     },
-    "csd-engineers": {
-      "total": 2,
+    "croix-rouge-fribourgeoise": {
+      "total": 3,
       "issues": [],
       "severity": "OK"
     },
+    "crr-suva-sion": {
+      "total": 3,
+      "issues": [],
+      "severity": "OK"
+    },
+    "cs-bregaglia": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "csd-engineers": {
+      "total": 44,
+      "issues": [
+        {
+          "type": "thin-description",
+          "count": 10,
+          "total": 44,
+          "reasons": {
+            "too-short": 10
+          },
+          "message": "10/44 thin descriptions (10 too-short)"
+        }
+      ],
+      "severity": "WARNING"
+    },
     "cseb": {
+      "total": 19,
+      "issues": [],
+      "severity": "OK"
+    },
+    "csl-behring": {
+      "total": 36,
+      "issues": [],
+      "severity": "OK"
+    },
+    "css-versicherung": {
+      "total": 69,
+      "issues": [],
+      "severity": "OK"
+    },
+    "csvm-mustair": {
+      "total": 5,
+      "issues": [
+        {
+          "type": "no-structured-content",
+          "count": 5,
+          "total": 5,
+          "message": "5/5 no structured content (no bullets/lists)"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "csvp-poschiavo": {
+      "total": 0,
+      "issues": [],
+      "severity": "OK"
+    },
+    "daler-hopital": {
       "total": 1,
       "issues": [],
       "severity": "OK"
     },
     "damiani-group": {
-      "total": 4,
+      "total": 5,
       "issues": [],
       "severity": "OK"
     },
     "davos-klosters-bergbahnen": {
-      "total": 8,
+      "total": 9,
       "issues": [],
       "severity": "OK"
     },
-    "denner": {
-      "total": 13,
+    "debiopharm": {
+      "total": 6,
+      "issues": [],
+      "severity": "OK"
+    },
+    "decathlon": {
+      "total": 60,
       "issues": [
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 4,
-          "total": 13,
+          "count": 12,
+          "total": 60,
           "message": "",
           "hidden": true
         }
       ],
       "severity": "WARNING"
     },
-    "dot-life": {
-      "total": 0,
+    "deloitte": {
+      "total": 71,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 71,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "denner": {
+      "total": 54,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 20,
+          "total": 54,
+          "avgMissing": 0,
+          "message": "20/54 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 4,
+          "total": 54,
+          "message": "4/54 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 12,
+          "total": 54,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "diakoniewerk-neumuenster": {
+      "total": 6,
+      "issues": [
+        {
+          "type": "no-structured-content",
+          "count": 6,
+          "total": 6,
+          "message": "6/6 no structured content (no bullets/lists)"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "dormakaba": {
+      "total": 11,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 3,
+          "total": 11,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "duferco": {
+      "total": 6,
       "issues": [],
       "severity": "OK"
     },
@@ -460,67 +1069,112 @@
       "issues": [],
       "severity": "OK"
     },
+    "edmond-de-rothschild": {
+      "total": 11,
+      "issues": [],
+      "severity": "OK"
+    },
     "efg-international": {
-      "total": 32,
+      "total": 38,
       "issues": [],
       "severity": "OK"
     },
-    "ems-chemie": {
-      "total": 10,
+    "ehc-vd": {
+      "total": 52,
       "issues": [
         {
-          "type": "no-structured-content",
-          "count": 10,
-          "total": 10,
-          "message": "10/10 no structured content (no bullets/lists)"
-        }
-      ],
-      "severity": "WARNING"
-    },
-    "engadin-tourismus": {
-      "total": 1,
-      "issues": [],
-      "severity": "OK"
-    },
-    "engel-voelkers": {
-      "total": 9,
-      "issues": [
-        {
-          "type": "duplicate-descriptions",
-          "count": 2,
-          "total": 9,
-          "message": "2/9 duplicate descriptions"
+          "type": "missing-locales",
+          "count": 1,
+          "total": 52,
+          "avgMissing": 0,
+          "message": "1/52 missing 0+ locales"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 4,
-          "total": 9,
+          "count": 2,
+          "total": 52,
           "message": "",
           "hidden": true
         }
       ],
       "severity": "WARNING"
     },
+    "emil-frey": {
+      "total": 69,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 69,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "emmi": {
+      "total": 55,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 55,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "empa": {
+      "total": 25,
+      "issues": [],
+      "severity": "OK"
+    },
+    "ems-chemie": {
+      "total": 9,
+      "issues": [],
+      "severity": "OK"
+    },
+    "endress-hauser": {
+      "total": 36,
+      "issues": [],
+      "severity": "OK"
+    },
+    "engadin-tourismus": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "engel-voelkers": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "entero": {
+      "total": 7,
+      "issues": [],
+      "severity": "OK"
+    },
     "eoc-ente-ospedaliero-cantonale": {
-      "total": 196,
+      "total": 204,
       "issues": [
         {
           "type": "missing-locales",
-          "count": 3,
-          "total": 196,
+          "count": 2,
+          "total": 204,
           "avgMissing": 0,
-          "message": "3/196 missing 0+ locales"
+          "message": "2/204 missing 0+ locales"
         },
         {
           "type": "duplicate-descriptions",
           "count": 6,
-          "total": 196,
-          "message": "6/196 duplicate descriptions"
+          "total": 204,
+          "message": "6/204 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
           "count": 6,
-          "total": 196,
+          "total": 204,
           "message": "",
           "hidden": true
         }
@@ -528,7 +1182,54 @@
       "severity": "WARNING"
     },
     "epfl": {
-      "total": 64,
+      "total": 78,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 78,
+          "avgMissing": 0,
+          "message": "1/78 missing 0+ locales"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "epi-geneve": {
+      "total": 11,
+      "issues": [],
+      "severity": "OK"
+    },
+    "epi-stiftung": {
+      "total": 16,
+      "issues": [],
+      "severity": "OK"
+    },
+    "equans": {
+      "total": 88,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 4,
+          "total": 88,
+          "message": "4/88 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 88,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "eraneos": {
+      "total": 51,
+      "issues": [],
+      "severity": "OK"
+    },
+    "ergolz-klinik": {
+      "total": 1,
       "issues": [],
       "severity": "OK"
     },
@@ -537,67 +1238,146 @@
       "issues": [],
       "severity": "OK"
     },
-    "eth-zurich": {
-      "total": 114,
+    "eta-sa-swatch-group": {
+      "total": 3,
       "issues": [],
       "severity": "OK"
     },
-    "fart": {
-      "total": 1,
-      "issues": [],
-      "severity": "OK"
-    },
-    "ferrovia-retica": {
-      "total": 10,
+    "etat-de-fribourg": {
+      "total": 118,
       "issues": [
+        {
+          "type": "missing-locales",
+          "count": 2,
+          "total": 118,
+          "avgMissing": 0,
+          "message": "2/118 missing 0+ locales"
+        },
         {
           "type": "duplicate-descriptions",
           "count": 2,
-          "total": 10,
-          "message": "2/10 duplicate descriptions"
+          "total": 118,
+          "message": "2/118 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 4,
-          "total": 10,
+          "count": 2,
+          "total": 118,
           "message": "",
           "hidden": true
         }
       ],
       "severity": "WARNING"
     },
-    "ffs-officine-ferrovie-federali": {
-      "total": 5,
+    "etavis": {
+      "total": 86,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 86,
+          "message": "2/86 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 86,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "eth-zurich": {
+      "total": 100,
       "issues": [],
       "severity": "OK"
     },
+    "evam-vaud": {
+      "total": 30,
+      "issues": [
+        {
+          "type": "no-structured-content",
+          "count": 26,
+          "total": 30,
+          "message": "26/30 no structured content (no bullets/lists)"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "everest-re": {
+      "total": 3,
+      "issues": [],
+      "severity": "OK"
+    },
+    "fart": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "felfel": {
+      "total": 11,
+      "issues": [],
+      "severity": "OK"
+    },
+    "ferrovia-retica": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "ffs-officine-ferrovie-federali": {
+      "total": 137,
+      "issues": [
+        {
+          "type": "no-structured-content",
+          "count": 114,
+          "total": 137,
+          "message": "114/137 no structured content (no bullets/lists)"
+        },
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 137,
+          "avgMissing": 0,
+          "message": "1/137 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 137,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
     "fhgr": {
-      "total": 4,
+      "total": 3,
       "issues": [],
       "severity": "OK"
     },
     "fielmann": {
-      "total": 39,
+      "total": 125,
       "issues": [
         {
           "type": "thin-description",
           "count": 1,
-          "total": 39,
+          "total": 125,
           "reasons": {
             "too-short": 1
           },
-          "message": "1/39 thin descriptions (1 too-short)"
+          "message": "1/125 thin descriptions (1 too-short)"
         },
         {
           "type": "duplicate-descriptions",
-          "count": 27,
-          "total": 39,
-          "message": "27/39 duplicate descriptions"
+          "count": 2,
+          "total": 125,
+          "message": "2/125 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 27,
-          "total": 39,
+          "count": 106,
+          "total": 125,
           "message": "",
           "hidden": true
         }
@@ -610,53 +1390,110 @@
       "severity": "OK"
     },
     "flury-stiftung": {
-      "total": 21,
+      "total": 27,
+      "issues": [],
+      "severity": "OK"
+    },
+    "fmi": {
+      "total": 58,
       "issues": [],
       "severity": "OK"
     },
     "fnz": {
-      "total": 3,
+      "total": 1,
       "issues": [],
       "severity": "OK"
     },
     "fondation-domus": {
-      "total": 3,
-      "issues": [],
-      "severity": "OK"
-    },
-    "fusalp": {
-      "total": 3,
-      "issues": [],
-      "severity": "OK"
-    },
-    "fust": {
       "total": 2,
       "issues": [],
       "severity": "OK"
     },
-    "galenica": {
-      "total": 11,
+    "forel-klinik": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "fusalp": {
+      "total": 0,
+      "issues": [],
+      "severity": "OK"
+    },
+    "fust": {
+      "total": 237,
       "issues": [
         {
-          "type": "no-structured-content",
-          "count": 10,
-          "total": 11,
-          "message": "10/11 no structured content (no bullets/lists)"
+          "type": "duplicate-descriptions",
+          "count": 8,
+          "total": 237,
+          "message": "8/237 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 85,
+          "total": 237,
+          "message": "",
+          "hidden": true
         }
       ],
       "severity": "WARNING"
     },
+    "galderma": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "galenica": {
+      "total": 293,
+      "issues": [
+        {
+          "type": "no-structured-content",
+          "count": 292,
+          "total": 293,
+          "message": "292/293 no structured content (no bullets/lists)"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 10,
+          "total": 293,
+          "message": "10/293 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 10,
+          "total": 293,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "galliker": {
+      "total": 48,
+      "issues": [],
+      "severity": "OK"
+    },
+    "geberit": {
+      "total": 20,
+      "issues": [],
+      "severity": "OK"
+    },
     "gemeinde-st-moritz": {
-      "total": 1,
+      "total": 2,
       "issues": [],
       "severity": "OK"
     },
-    "giardino": {
-      "total": 1,
+    "georg-fischer": {
+      "total": 18,
       "issues": [],
       "severity": "OK"
     },
-    "gkb": {
+    "gesundheitsnetz-kuesnacht": {
+      "total": 21,
+      "issues": [],
+      "severity": "OK"
+    },
+    "gesundheitszentrum-fricktal": {
       "total": 10,
       "issues": [
         {
@@ -669,33 +1506,128 @@
       ],
       "severity": "WARNING"
     },
+    "ghol": {
+      "total": 10,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 10,
+          "avgMissing": 0,
+          "message": "1/10 missing 0+ locales"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "giardino": {
+      "total": 3,
+      "issues": [],
+      "severity": "OK"
+    },
+    "gim-architekten": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "giorgio-armani": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "givaudan": {
+      "total": 27,
+      "issues": [
+        {
+          "type": "no-structured-content",
+          "count": 23,
+          "total": 27,
+          "message": "23/27 no structured content (no bullets/lists)"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "gkb": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "globus": {
+      "total": 33,
+      "issues": [],
+      "severity": "OK"
+    },
     "goline": {
       "total": 1,
       "issues": [],
       "severity": "OK"
     },
+    "google-switzerland": {
+      "total": 51,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 51,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
     "grace-la-margna": {
-      "total": 1,
-      "issues": [],
-      "severity": "OK"
+      "total": 15,
+      "issues": [
+        {
+          "type": "no-structured-content",
+          "count": 12,
+          "total": 15,
+          "message": "12/15 no structured content (no bullets/lists)"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 15,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
     },
     "grand-hotel-des-bains-kempinski": {
-      "total": 7,
-      "issues": [],
-      "severity": "OK"
-    },
-    "grand-hotel-kronenhof": {
       "total": 12,
       "issues": [],
       "severity": "OK"
     },
-    "groupe-mutuel": {
-      "total": 19,
+    "grand-hotel-kronenhof": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "grand-resort-bad-ragaz": {
+      "total": 26,
+      "issues": [],
+      "severity": "OK"
+    },
+    "groupe-e": {
+      "total": 41,
       "issues": [
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 5,
-          "total": 19,
+          "count": 2,
+          "total": 41,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "groupe-mutuel": {
+      "total": 33,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 15,
+          "total": 33,
           "message": "",
           "hidden": true
         }
@@ -707,21 +1639,29 @@
       "issues": [],
       "severity": "OK"
     },
-    "hamilton-bonaduz-ag": {
+    "gz-dielsdorf": {
+      "total": 12,
+      "issues": [],
+      "severity": "OK"
+    },
+    "gzo-wetzikon": {
       "total": 24,
+      "issues": [],
+      "severity": "OK"
+    },
+    "h-ju-hopital-du-jura": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hamilton-bonaduz-ag": {
+      "total": 22,
       "issues": [
         {
-          "type": "duplicate-descriptions",
-          "count": 2,
-          "total": 24,
-          "message": "2/24 duplicate descriptions"
-        },
-        {
-          "type": "duplicate-descriptions-desc-only",
-          "count": 4,
-          "total": 24,
-          "message": "",
-          "hidden": true
+          "type": "no-structured-content",
+          "count": 18,
+          "total": 22,
+          "message": "18/22 no structured content (no bullets/lists)"
         }
       ],
       "severity": "WARNING"
@@ -733,75 +1673,304 @@
     },
     "heineken-ch": {
       "total": 10,
-      "issues": [],
-      "severity": "OK"
-    },
-    "hes-so-valais": {
-      "total": 1,
-      "issues": [],
-      "severity": "OK"
-    },
-    "hilcona": {
-      "total": 122,
       "issues": [
         {
           "type": "missing-locales",
           "count": 1,
-          "total": 122,
+          "total": 10,
           "avgMissing": 0,
-          "message": "1/122 missing 0+ locales"
+          "message": "1/10 missing 0+ locales"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "helsana": {
+      "total": 64,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 64,
+          "message": "2/64 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 64,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "helvetia": {
+      "total": 115,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 38,
+          "total": 115,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "hermes": {
+      "total": 15,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hes-so-valais": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hess-carrosserie": {
+      "total": 32,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hfr-hopital-fribourgeois": {
+      "total": 37,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hib-broye": {
+      "total": 38,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hilcona": {
+      "total": 116,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hilti": {
+      "total": 12,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hirslanden": {
+      "total": 416,
+      "issues": [
+        {
+          "type": "thin-description",
+          "count": 1,
+          "total": 416,
+          "reasons": {
+            "boilerplate": 1
+          },
+          "message": "1/416 thin descriptions (1 boilerplate)"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 14,
+          "total": 416,
+          "message": "14/416 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 19,
+          "total": 416,
+          "message": "",
+          "hidden": true
         }
       ],
       "severity": "WARNING"
     },
     "hitachi-energy": {
-      "total": 76,
+      "total": 97,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 5,
+          "total": 97,
+          "message": "5/97 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 7,
+          "total": 97,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "hoch-health": {
+      "total": 199,
       "issues": [],
       "severity": "OK"
     },
     "hochgebirgsklinik-davos": {
+      "total": 19,
+      "issues": [],
+      "severity": "OK"
+    },
+    "holmes-place": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "honegger": {
       "total": 16,
+      "issues": [
+        {
+          "type": "no-structured-content",
+          "count": 15,
+          "total": 16,
+          "message": "15/16 no structured content (no bullets/lists)"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "hopital-de-lavaux": {
+      "total": 5,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hopital-de-moutier": {
+      "total": 1,
       "issues": [],
       "severity": "OK"
     },
     "hopital-du-valais": {
-      "total": 50,
+      "total": 65,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hopital-la-tour": {
+      "total": 11,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hornbach": {
+      "total": 32,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hospice-general": {
+      "total": 4,
       "issues": [],
       "severity": "OK"
     },
     "hoval": {
-      "total": 7,
+      "total": 16,
       "issues": [],
       "severity": "OK"
     },
+    "hrc": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "huber-suhner": {
+      "total": 12,
+      "issues": [],
+      "severity": "OK"
+    },
+    "hug": {
+      "total": 50,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 50,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
     "huntsman": {
-      "total": 8,
+      "total": 5,
       "issues": [],
       "severity": "OK"
     },
     "ibsa-institut-biochimique": {
-      "total": 10,
+      "total": 9,
       "issues": [],
       "severity": "OK"
+    },
+    "idorsia": {
+      "total": 7,
+      "issues": [],
+      "severity": "OK"
+    },
+    "igroove": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "igs-bern": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "ikea": {
+      "total": 33,
+      "issues": [
+        {
+          "type": "thin-description",
+          "count": 3,
+          "total": 33,
+          "reasons": {
+            "too-short": 3
+          },
+          "message": "3/33 thin descriptions (3 too-short)"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 33,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "imad": {
+      "total": 16,
+      "issues": [],
+      "severity": "OK"
+    },
+    "implenia": {
+      "total": 77,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 3,
+          "total": 77,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
     },
     "impresa-pizzarotti": {
       "total": 1,
       "issues": [],
       "severity": "OK"
     },
+    "institution-lavigny": {
+      "total": 13,
+      "issues": [],
+      "severity": "OK"
+    },
     "interdiscount": {
-      "total": 5,
+      "total": 27,
       "issues": [
         {
           "type": "duplicate-descriptions",
-          "count": 2,
-          "total": 5,
-          "message": "2/5 duplicate descriptions"
+          "count": 4,
+          "total": 27,
+          "message": "4/27 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 2,
-          "total": 5,
+          "count": 17,
+          "total": 27,
           "message": "",
           "hidden": true
         }
@@ -809,36 +1978,38 @@
       "severity": "WARNING"
     },
     "international-school-of-ticino": {
-      "total": 2,
-      "issues": [
-        {
-          "type": "duplicate-descriptions-desc-only",
-          "count": 2,
-          "total": 2,
-          "message": "",
-          "hidden": true
-        }
-      ],
-      "severity": "WARNING"
-    },
-    "julius-baer": {
       "total": 1,
       "issues": [],
       "severity": "OK"
     },
+    "ipw": {
+      "total": 16,
+      "issues": [],
+      "severity": "OK"
+    },
+    "josef-mueller": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "julius-baer": {
+      "total": 84,
+      "issues": [],
+      "severity": "OK"
+    },
     "jumbo": {
-      "total": 7,
+      "total": 110,
       "issues": [
         {
           "type": "duplicate-descriptions",
-          "count": 2,
-          "total": 7,
-          "message": "2/7 duplicate descriptions"
+          "count": 10,
+          "total": 110,
+          "message": "10/110 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 2,
-          "total": 7,
+          "count": 22,
+          "total": 110,
           "message": "",
           "hidden": true
         }
@@ -846,11 +2017,219 @@
       "severity": "WARNING"
     },
     "jysk": {
+      "total": 50,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 39,
+          "total": 50,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "kanton-aargau": {
+      "total": 430,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 430,
+          "avgMissing": 0,
+          "message": "1/430 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 31,
+          "total": 430,
+          "message": "31/430 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 180,
+          "total": 430,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "kanton-basel-landschaft": {
+      "total": 50,
+      "issues": [],
+      "severity": "OK"
+    },
+    "kanton-gr": {
+      "total": 35,
+      "issues": [],
+      "severity": "OK"
+    },
+    "kanton-solothurn": {
+      "total": 29,
+      "issues": [],
+      "severity": "OK"
+    },
+    "kanton-st-gallen": {
+      "total": 71,
+      "issues": [],
+      "severity": "OK"
+    },
+    "kanton-zuerich": {
+      "total": 140,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 140,
+          "message": "2/140 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 140,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "kantonsspital-graubuenden-ksgr": {
+      "total": 111,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 111,
+          "message": "2/111 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 9,
+          "total": 111,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "kantonsspital-uri": {
+      "total": 24,
+      "issues": [
+        {
+          "type": "thin-description",
+          "count": 3,
+          "total": 24,
+          "reasons": {
+            "too-short": 3
+          },
+          "message": "3/24 thin descriptions (3 too-short)"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "kellerhals-carrard": {
+      "total": 14,
+      "issues": [],
+      "severity": "OK"
+    },
+    "kiabi": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "kispi-sg": {
+      "total": 23,
+      "issues": [],
+      "severity": "OK"
+    },
+    "kispi-zurich": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "kispi": {
+      "total": 58,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 58,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "klinik-aadorf": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "klinik-adelheid": {
+      "total": 9,
+      "issues": [],
+      "severity": "OK"
+    },
+    "klinik-arlesheim": {
+      "total": 5,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 5,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "klinik-barmelweid": {
+      "total": 42,
+      "issues": [],
+      "severity": "OK"
+    },
+    "klinik-gut": {
+      "total": 9,
+      "issues": [],
+      "severity": "OK"
+    },
+    "klinik-im-hasel": {
+      "total": 5,
+      "issues": [],
+      "severity": "OK"
+    },
+    "klinik-lengg": {
+      "total": 19,
+      "issues": [],
+      "severity": "OK"
+    },
+    "klinik-schloss-mammern": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "klinik-schoenberg": {
+      "total": 11,
+      "issues": [],
+      "severity": "OK"
+    },
+    "klinik-schuetzen": {
+      "total": 9,
+      "issues": [],
+      "severity": "OK"
+    },
+    "klinik-seeschau": {
+      "total": 6,
+      "issues": [],
+      "severity": "OK"
+    },
+    "klinik-sgm": {
       "total": 14,
       "issues": [
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 11,
+          "count": 4,
           "total": 14,
           "message": "",
           "hidden": true
@@ -858,24 +2237,33 @@
       ],
       "severity": "WARNING"
     },
-    "kanton-gr": {
+    "klinik-siloah": {
       "total": 1,
       "issues": [],
       "severity": "OK"
     },
-    "kantonsspital-graubuenden-ksgr": {
-      "total": 118,
+    "klinik-sonnenhalde": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "klinik-susenberg": {
+      "total": 5,
+      "issues": [],
+      "severity": "OK"
+    },
+    "klinik-wyssholzli": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "kliniken-valens": {
+      "total": 93,
       "issues": [
         {
-          "type": "duplicate-descriptions",
-          "count": 7,
-          "total": 118,
-          "message": "7/118 duplicate descriptions"
-        },
-        {
           "type": "duplicate-descriptions-desc-only",
-          "count": 9,
-          "total": 118,
+          "count": 6,
+          "total": 93,
           "message": "",
           "hidden": true
         }
@@ -883,57 +2271,199 @@
       "severity": "WARNING"
     },
     "knowledge-lab": {
-      "total": 4,
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "komax": {
+      "total": 15,
+      "issues": [],
+      "severity": "OK"
+    },
+    "ksb": {
+      "total": 99,
+      "issues": [],
+      "severity": "OK"
+    },
+    "ksbl": {
+      "total": 84,
+      "issues": [],
+      "severity": "OK"
+    },
+    "ksgl": {
+      "total": 21,
+      "issues": [],
+      "severity": "OK"
+    },
+    "ksml": {
+      "total": 146,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 146,
+          "avgMissing": 0,
+          "message": "1/146 missing 0+ locales"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "ksow": {
+      "total": 10,
       "issues": [],
       "severity": "OK"
     },
     "kssg": {
-      "total": 23,
+      "total": 121,
       "issues": [],
       "severity": "OK"
     },
     "ksw": {
-      "total": 47,
-      "issues": [],
-      "severity": "OK"
-    },
-    "kulm-hotel": {
-      "total": 12,
-      "issues": [],
-      "severity": "OK"
-    },
-    "la-fonte": {
-      "total": 4,
-      "issues": [],
-      "severity": "OK"
-    },
-    "laderach": {
-      "total": 25,
-      "issues": [],
-      "severity": "OK"
-    },
-    "lastminute-com": {
-      "total": 4,
-      "issues": [],
-      "severity": "OK"
-    },
-    "lidl-svizzera": {
-      "total": 9,
+      "total": 67,
       "issues": [
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 7,
-          "total": 9,
+          "count": 2,
+          "total": 67,
           "message": "",
           "hidden": true
         }
       ],
       "severity": "WARNING"
     },
-    "lindenhofgruppe": {
-      "total": 32,
+    "kuehne-nagel": {
+      "total": 7,
       "issues": [],
       "severity": "OK"
+    },
+    "kuhn-rikon": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "kulm-hotel": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "kzu": {
+      "total": 9,
+      "issues": [],
+      "severity": "OK"
+    },
+    "la-fonte": {
+      "total": 5,
+      "issues": [
+        {
+          "type": "no-structured-content",
+          "count": 4,
+          "total": 5,
+          "message": "4/5 no structured content (no bullets/lists)"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "laderach": {
+      "total": 30,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 6,
+          "total": 30,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "lalive": {
+      "total": 7,
+      "issues": [],
+      "severity": "OK"
+    },
+    "lastminute-com": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "leukerbad-clinic": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "lhm-luzerner-hohenklinik-montana": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "lidl-svizzera": {
+      "total": 385,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 36,
+          "total": 385,
+          "message": "36/385 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 156,
+          "total": 385,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "liebherr": {
+      "total": 84,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 84,
+          "message": "2/84 duplicate descriptions"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "lindenhofgruppe": {
+      "total": 47,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 3,
+          "total": 47,
+          "message": "3/47 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 3,
+          "total": 47,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "lindt-spruengli": {
+      "total": 26,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 26,
+          "message": "2/26 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 26,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
     },
     "linnea": {
       "total": 1,
@@ -953,19 +2483,26 @@
       ],
       "severity": "WARNING"
     },
-    "localsearch": {
-      "total": 35,
+    "livit": {
+      "total": 17,
       "issues": [
         {
-          "type": "duplicate-descriptions",
-          "count": 9,
-          "total": 35,
-          "message": "9/35 duplicate descriptions"
-        },
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 17,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "localsearch": {
+      "total": 26,
+      "issues": [
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 5,
-          "total": 35,
+          "count": 9,
+          "total": 26,
           "message": "",
           "hidden": true
         }
@@ -973,22 +2510,65 @@
       "severity": "WARNING"
     },
     "logitech": {
-      "total": 2,
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "lombard-odier": {
+      "total": 39,
       "issues": [],
       "severity": "OK"
     },
     "lombardi-group": {
-      "total": 11,
+      "total": 8,
       "issues": [],
       "severity": "OK"
     },
     "lonza": {
-      "total": 40,
+      "total": 166,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 10,
+          "total": 166,
+          "message": "10/166 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 16,
+          "total": 166,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "luks": {
+      "total": 202,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 202,
+          "message": "2/202 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 8,
+          "total": 202,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "lups": {
+      "total": 81,
       "issues": [
         {
           "type": "duplicate-descriptions-desc-only",
           "count": 2,
-          "total": 40,
+          "total": 81,
           "message": "",
           "hidden": true
         }
@@ -996,9 +2576,17 @@
       "severity": "WARNING"
     },
     "lwphr": {
-      "total": 10,
-      "issues": [],
-      "severity": "OK"
+      "total": 16,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 16,
+          "avgMissing": 0,
+          "message": "1/16 missing 0+ locales"
+        }
+      ],
+      "severity": "WARNING"
     },
     "mabetex": {
       "total": 1,
@@ -1006,17 +2594,32 @@
       "severity": "OK"
     },
     "manor": {
-      "total": 2,
-      "issues": [],
-      "severity": "OK"
-    },
-    "marriott": {
-      "total": 49,
+      "total": 144,
       "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 144,
+          "avgMissing": 0,
+          "message": "1/144 missing 0+ locales"
+        },
         {
           "type": "duplicate-descriptions-desc-only",
           "count": 6,
-          "total": 49,
+          "total": 144,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "marriott": {
+      "total": 34,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 34,
           "message": "",
           "hidden": true
         }
@@ -1024,59 +2627,237 @@
       "severity": "WARNING"
     },
     "matterhorn-gotthard-bahn": {
-      "total": 11,
-      "issues": [],
-      "severity": "OK"
-    },
-    "mcdonald-s-switzerland": {
-      "total": 0,
+      "total": 9,
       "issues": [],
       "severity": "OK"
     },
     "medacta-international": {
-      "total": 0,
-      "issues": [],
-      "severity": "OK"
-    },
-    "migros-ticino": {
-      "total": 24,
-      "issues": [],
-      "severity": "OK"
-    },
-    "mikron": {
-      "total": 10,
-      "issues": [],
-      "severity": "OK"
-    },
-    "mks-pamp": {
-      "total": 5,
+      "total": 17,
       "issues": [
         {
-          "type": "no-structured-content",
-          "count": 5,
-          "total": 5,
-          "message": "5/5 no structured content (no bullets/lists)"
+          "type": "missing-locales",
+          "count": 2,
+          "total": 17,
+          "avgMissing": 0,
+          "message": "2/17 missing 0+ locales"
         }
       ],
       "severity": "WARNING"
     },
-    "mobiliar": {
-      "total": 83,
+    "medartis": {
+      "total": 17,
       "issues": [],
       "severity": "OK"
     },
-    "moncucco": {
+    "medbase": {
+      "total": 130,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 10,
+          "total": 130,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "medics-labor": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "medtronic": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "merian-iselin": {
+      "total": 17,
+      "issues": [],
+      "severity": "OK"
+    },
+    "michel-gruppe-ag": {
+      "total": 7,
+      "issues": [],
+      "severity": "OK"
+    },
+    "microsoft": {
+      "total": 5,
+      "issues": [],
+      "severity": "OK"
+    },
+    "migrolino": {
+      "total": 30,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 4,
+          "total": 30,
+          "message": "4/30 duplicate descriptions"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "migros-ticino": {
+      "total": 1131,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 75,
+          "total": 1131,
+          "avgMissing": 0,
+          "message": "75/1131 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 82,
+          "total": 1131,
+          "message": "82/1131 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 89,
+          "total": 1131,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "mikron": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "mistral-ai": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "mks-pamp": {
       "total": 3,
       "issues": [],
       "severity": "OK"
     },
+    "mobiliar": {
+      "total": 86,
+      "issues": [],
+      "severity": "OK"
+    },
+    "modellstation-somosa": {
+      "total": 5,
+      "issues": [],
+      "severity": "OK"
+    },
+    "molecular-partners": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "moncucco": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
     "msc-cargo": {
-      "total": 16,
+      "total": 14,
       "issues": [],
       "severity": "OK"
     },
     "mtic-group": {
       "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "nant": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "nestle": {
+      "total": 56,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 56,
+          "avgMissing": 0,
+          "message": "1/56 missing 0+ locales"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "new-yorker": {
+      "total": 38,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 36,
+          "total": 38,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "nord-anglia": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "novartis": {
+      "total": 63,
+      "issues": [],
+      "severity": "OK"
+    },
+    "nsn-medical": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "nvidia-zurich": {
+      "total": 36,
+      "issues": [],
+      "severity": "OK"
+    },
+    "octapharma": {
+      "total": 7,
+      "issues": [],
+      "severity": "OK"
+    },
+    "oetiker": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "on-running": {
+      "total": 43,
+      "issues": [
+        {
+          "type": "thin-description",
+          "count": 1,
+          "total": 43,
+          "reasons": {
+            "too-short": 1
+          },
+          "message": "1/43 thin descriptions (1 too-short)"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "ophtalmique": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "orell-fuessli-thalia": {
+      "total": 18,
+      "issues": [],
+      "severity": "OK"
+    },
+    "oscam-castelrotto": {
+      "total": 2,
       "issues": [],
       "severity": "OK"
     },
@@ -1086,86 +2867,253 @@
       "severity": "OK"
     },
     "otis": {
-      "total": 27,
+      "total": 21,
       "issues": [],
       "severity": "OK"
     },
-    "pdgr": {
-      "total": 37,
-      "issues": [],
-      "severity": "OK"
-    },
-    "pemsa": {
-      "total": 65,
+    "ottos": {
+      "total": 163,
       "issues": [
         {
           "type": "missing-locales",
-          "count": 17,
-          "total": 65,
+          "count": 3,
+          "total": 163,
           "avgMissing": 0,
-          "message": "17/65 missing 0+ locales"
+          "message": "3/163 missing 0+ locales"
         },
         {
           "type": "duplicate-descriptions",
           "count": 2,
-          "total": 65,
-          "message": "2/65 duplicate descriptions"
+          "total": 163,
+          "message": "2/163 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 2,
-          "total": 65,
+          "count": 122,
+          "total": 163,
           "message": "",
           "hidden": true
         }
       ],
       "severity": "WARNING"
     },
+    "pallas-kliniken": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "palliativklinik": {
+      "total": 5,
+      "issues": [],
+      "severity": "OK"
+    },
+    "paraplegie": {
+      "total": 44,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 44,
+          "avgMissing": 0,
+          "message": "1/44 missing 0+ locales"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "patek-philippe": {
+      "total": 13,
+      "issues": [
+        {
+          "type": "thin-description",
+          "count": 1,
+          "total": 13,
+          "reasons": {
+            "too-short": 1
+          },
+          "message": "1/13 thin descriptions (1 too-short)"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "pbl": {
+      "total": 43,
+      "issues": [],
+      "severity": "OK"
+    },
+    "pdag": {
+      "total": 68,
+      "issues": [],
+      "severity": "OK"
+    },
+    "pdgr": {
+      "total": 34,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 2,
+          "total": 34,
+          "avgMissing": 0,
+          "message": "2/34 missing 0+ locales"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "pemsa": {
+      "total": 215,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 10,
+          "total": 215,
+          "avgMissing": 0,
+          "message": "10/215 missing 0+ locales"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "pfister": {
+      "total": 37,
+      "issues": [],
+      "severity": "OK"
+    },
     "pictet": {
       "total": 10,
       "issues": [],
       "severity": "OK"
     },
-    "pkb-private-bank": {
-      "total": 0,
+    "pigna": {
+      "total": 7,
+      "issues": [],
+      "severity": "OK"
+    },
+    "planzer": {
+      "total": 11,
+      "issues": [],
+      "severity": "OK"
+    },
+    "pole-sante-pays-enhaut": {
+      "total": 4,
       "issues": [],
       "severity": "OK"
     },
     "posta-svizzera-centro-regionale": {
-      "total": 10,
-      "issues": [],
-      "severity": "OK"
-    },
-    "postfinance": {
-      "total": 6,
+      "total": 81,
       "issues": [
         {
-          "type": "no-structured-content",
-          "count": 6,
-          "total": 6,
-          "message": "6/6 no structured content (no bullets/lists)"
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 81,
+          "message": "2/81 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 11,
+          "total": 81,
+          "message": "",
+          "hidden": true
         }
       ],
       "severity": "WARNING"
     },
-    "prada": {
+    "postauto": {
+      "total": 11,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 11,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "postfinance": {
       "total": 3,
       "issues": [],
       "severity": "OK"
     },
+    "prada": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "privatklinik-bethanien": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "privatklinik-hohenegg": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "privatklinik-meiringen": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "privatklinik-obach": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "privatklinik-wyss": {
+      "total": 11,
+      "issues": [],
+      "severity": "OK"
+    },
+    "prosenectute-ti": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "proton": {
+      "total": 30,
+      "issues": [],
+      "severity": "OK"
+    },
+    "psgn": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "publisher-submitted": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "puk-zuerich": {
+      "total": 62,
+      "issues": [],
+      "severity": "OK"
+    },
     "pwc": {
-      "total": 119,
+      "total": 116,
       "issues": [
         {
           "type": "duplicate-descriptions",
-          "count": 13,
-          "total": 119,
-          "message": "13/119 duplicate descriptions"
+          "count": 2,
+          "total": 116,
+          "message": "2/116 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 14,
-          "total": 119,
+          "count": 19,
+          "total": 116,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "pzm-muensingen": {
+      "total": 21,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 21,
           "message": "",
           "hidden": true
         }
@@ -1173,28 +3121,69 @@
       "severity": "WARNING"
     },
     "rado": {
-      "total": 8,
+      "total": 26,
       "issues": [],
       "severity": "OK"
     },
+    "raiffeisen": {
+      "total": 206,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 20,
+          "total": 206,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
     "rapelli": {
-      "total": 9,
+      "total": 3,
       "issues": [],
       "severity": "OK"
     },
     "reboot-monkey": {
-      "total": 128,
+      "total": 107,
       "issues": [
         {
           "type": "duplicate-descriptions",
-          "count": 42,
-          "total": 128,
-          "message": "42/128 duplicate descriptions"
+          "count": 28,
+          "total": 107,
+          "message": "28/107 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 114,
-          "total": 128,
+          "count": 92,
+          "total": 107,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "reha-andeer": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "reha-bellikon": {
+      "total": 21,
+      "issues": [],
+      "severity": "OK"
+    },
+    "rehab-basel": {
+      "total": 14,
+      "issues": [],
+      "severity": "OK"
+    },
+    "rehaklinik-hasliberg": {
+      "total": 6,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 6,
           "message": "",
           "hidden": true
         }
@@ -1206,97 +3195,583 @@
       "issues": [],
       "severity": "OK"
     },
+    "rennbahnklinik": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "rfsm-fribourg": {
+      "total": 7,
+      "issues": [],
+      "severity": "OK"
+    },
+    "rheinmetall-air-defence": {
+      "total": 79,
+      "issues": [],
+      "severity": "OK"
+    },
+    "rhne-reseau-hospitalier-neuchatelois": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
     "richemont": {
-      "total": 180,
+      "total": 178,
       "issues": [
         {
           "type": "missing-locales",
-          "count": 5,
-          "total": 180,
+          "count": 3,
+          "total": 178,
           "avgMissing": 0,
-          "message": "5/180 missing 0+ locales"
+          "message": "3/178 missing 0+ locales"
         }
       ],
       "severity": "WARNING"
     },
-    "rittmeyer-ag": {
-      "total": 2,
+    "ricola": {
+      "total": 1,
       "issues": [],
       "severity": "OK"
     },
-    "rivopharm": {
-      "total": 0,
+    "rieter": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "rittmeyer-ag": {
+      "total": 9,
+      "issues": [
+        {
+          "type": "no-structured-content",
+          "count": 8,
+          "total": 9,
+          "message": "8/9 no structured content (no bullets/lists)"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 9,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "rituals-cosmetics": {
+      "total": 410,
+      "issues": [],
+      "severity": "OK"
+    },
+    "riveneuve": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "roche": {
+      "total": 1213,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 14,
+          "total": 1213,
+          "avgMissing": 0,
+          "message": "14/1213 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 38,
+          "total": 1213,
+          "message": "38/1213 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 67,
+          "total": 1213,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "rolex": {
+      "total": 133,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 133,
+          "avgMissing": 0,
+          "message": "1/133 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 133,
+          "message": "2/133 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 133,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "rsbj": {
+      "total": 6,
       "issues": [],
       "severity": "OK"
     },
     "rss-surselva": {
-      "total": 15,
+      "total": 19,
       "issues": [
         {
           "type": "no-structured-content",
-          "count": 15,
-          "total": 15,
-          "message": "15/15 no structured content (no bullets/lists)"
+          "count": 19,
+          "total": 19,
+          "message": "19/19 no structured content (no bullets/lists)"
         }
       ],
       "severity": "WARNING"
     },
     "ruag-ag": {
-      "total": 5,
+      "total": 25,
       "issues": [],
       "severity": "OK"
     },
-    "schindler": {
-      "total": 0,
-      "issues": [],
-      "severity": "OK"
-    },
-    "siegfried": {
-      "total": 21,
-      "issues": [],
-      "severity": "OK"
-    },
-    "sintetica": {
-      "total": 12,
-      "issues": [
-        {
-          "type": "no-structured-content",
-          "count": 11,
-          "total": 12,
-          "message": "11/12 no structured content (no bullets/lists)"
-        }
-      ],
-      "severity": "WARNING"
-    },
-    "skyguide-sa": {
+    "saint-gobain-weber-isover": {
       "total": 2,
       "issues": [],
       "severity": "OK"
     },
-    "solothurner-spitaeler": {
-      "total": 116,
+    "salina-reha": {
+      "total": 3,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sanatorium-kilchberg": {
+      "total": 14,
       "issues": [
         {
           "type": "missing-locales",
           "count": 1,
-          "total": 116,
+          "total": 14,
           "avgMissing": 0,
-          "message": "1/116 missing 0+ locales"
+          "message": "1/14 missing 0+ locales"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "scandit": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "schindler": {
+      "total": 77,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 77,
+          "message": "2/77 duplicate descriptions"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "schulthess-klinik": {
+      "total": 6,
+      "issues": [],
+      "severity": "OK"
+    },
+    "see-spital": {
+      "total": 40,
+      "issues": [],
+      "severity": "OK"
+    },
+    "selecta": {
+      "total": 19,
+      "issues": [],
+      "severity": "OK"
+    },
+    "senevita": {
+      "total": 99,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sfs-group": {
+      "total": 15,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sicpa": {
+      "total": 13,
+      "issues": [],
+      "severity": "OK"
+    },
+    "siegfried": {
+      "total": 20,
+      "issues": [],
+      "severity": "OK"
+    },
+    "siemens": {
+      "total": 66,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sika": {
+      "total": 38,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sintetica": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "six-group": {
+      "total": 101,
+      "issues": [],
+      "severity": "OK"
+    },
+    "skyguide-sa": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "smg-swiss-marketplace-group": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sobi": {
+      "total": 11,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sodexo": {
+      "total": 15,
+      "issues": [],
+      "severity": "OK"
+    },
+    "soh-solothurner-spitaeler": {
+      "total": 159,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 7,
+          "total": 159,
+          "message": "7/159 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 159,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "solina": {
+      "total": 23,
+      "issues": [],
+      "severity": "OK"
+    },
+    "solothurner-spitaeler": {
+      "total": 158,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 4,
+          "total": 158,
+          "message": "4/158 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 158,
+          "message": "",
+          "hidden": true
         }
       ],
       "severity": "WARNING"
     },
     "somedia": {
-      "total": 7,
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sonarsource": {
+      "total": 24,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sonnweid": {
+      "total": 5,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sonova": {
+      "total": 13,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sophia-genetics": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spitaeler-schaffhausen": {
+      "total": 52,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 6,
+          "total": 52,
+          "message": "6/52 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 6,
+          "total": 52,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "spital-affoltern": {
+      "total": 25,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spital-buelach": {
+      "total": 40,
       "issues": [],
       "severity": "OK"
     },
     "spital-davos": {
-      "total": 25,
+      "total": 27,
       "issues": [
         {
           "type": "duplicate-descriptions-desc-only",
           "count": 2,
+          "total": 27,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "spital-emmental": {
+      "total": 50,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spital-lachen": {
+      "total": 22,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spital-limmattal": {
+      "total": 51,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spital-maennedorf": {
+      "total": 41,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spital-muri": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spital-nidwalden": {
+      "total": 3,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spital-oberengadin": {
+      "total": 9,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spital-schwyz": {
+      "total": 27,
+      "issues": [
+        {
+          "type": "thin-description",
+          "count": 1,
+          "total": 27,
+          "reasons": {
+            "too-short": 1
+          },
+          "message": "1/27 thin descriptions (1 too-short)"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "spital-sts": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spital-thurgau": {
+      "total": 149,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 149,
+          "message": "2/149 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 8,
+          "total": 149,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "spital-uster": {
+      "total": 46,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spital-zofingen": {
+      "total": 35,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spital-zollikerberg": {
+      "total": 6,
+      "issues": [
+        {
+          "type": "no-structured-content",
+          "count": 6,
+          "total": 6,
+          "message": "6/6 no structured content (no bullets/lists)"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "spitex-basel": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spitex-ch": {
+      "total": 26,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spitex-zuerich": {
+      "total": 9,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spruengli": {
+      "total": 26,
+      "issues": [],
+      "severity": "OK"
+    },
+    "spz": {
+      "total": 44,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 44,
+          "avgMissing": 0,
+          "message": "1/44 missing 0+ locales"
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "srg-ssr": {
+      "total": 23,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 23,
+          "message": "2/23 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 23,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "sro": {
+      "total": 51,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 51,
+          "message": "2/51 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 51,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "stadler-rail": {
+      "total": 187,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 2,
+          "total": 187,
+          "avgMissing": 0,
+          "message": "2/187 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 187,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "stadt-bern": {
+      "total": 25,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 25,
+          "avgMissing": 0,
+          "message": "1/25 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 2,
+          "total": 25,
+          "message": "2/25 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
           "total": 25,
           "message": "",
           "hidden": true
@@ -1304,44 +3779,163 @@
       ],
       "severity": "WARNING"
     },
-    "spital-limmattal": {
-      "total": 1,
+    "stadt-luzern": {
+      "total": 32,
       "issues": [],
       "severity": "OK"
     },
-    "spital-thurgau": {
-      "total": 157,
+    "stadt-zuerich": {
+      "total": 382,
       "issues": [
         {
-          "type": "duplicate-descriptions",
+          "type": "missing-locales",
           "count": 2,
-          "total": 157,
-          "message": "2/157 duplicate descriptions"
+          "total": 382,
+          "avgMissing": 0,
+          "message": "2/382 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 14,
+          "total": 382,
+          "message": "14/382 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 6,
-          "total": 157,
+          "count": 54,
+          "total": 382,
           "message": "",
           "hidden": true
         }
       ],
       "severity": "WARNING"
     },
-    "sunrise-sede-ticino": {
-      "total": 1,
+    "staubli": {
+      "total": 6,
       "issues": [],
       "severity": "OK"
     },
+    "stgag": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "stiftung-diaconis": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "stiftung-kind-autismus": {
+      "total": 2,
+      "issues": [],
+      "severity": "OK"
+    },
+    "strabag": {
+      "total": 13,
+      "issues": [],
+      "severity": "OK"
+    },
+    "straumann": {
+      "total": 6,
+      "issues": [],
+      "severity": "OK"
+    },
+    "stryker": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "suchtfachstelle-zuerich": {
+      "total": 0,
+      "issues": [],
+      "severity": "OK"
+    },
+    "suchthilfe-region-basel": {
+      "total": 6,
+      "issues": [],
+      "severity": "OK"
+    },
+    "suedhang": {
+      "total": 5,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sulzer": {
+      "total": 293,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 2,
+          "total": 293,
+          "avgMissing": 0,
+          "message": "2/293 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 6,
+          "total": 293,
+          "message": "6/293 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 12,
+          "total": 293,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "sune-egge": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sunrise-sede-ticino": {
+      "total": 27,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 16,
+          "total": 27,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
     "supsi-dti": {
+      "total": 20,
+      "issues": [],
+      "severity": "OK"
+    },
+    "suva": {
+      "total": 23,
+      "issues": [],
+      "severity": "OK"
+    },
+    "svar-spitalverbund-ar": {
       "total": 12,
       "issues": [],
       "severity": "OK"
     },
     "swatch-group-assembly": {
-      "total": 12,
+      "total": 16,
       "issues": [],
       "severity": "OK"
+    },
+    "swica": {
+      "total": 34,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 34,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
     },
     "swiss-life": {
       "total": 8,
@@ -1349,28 +3943,62 @@
       "severity": "OK"
     },
     "swiss-medical-network": {
-      "total": 4,
+      "total": 61,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 2,
+          "total": 61,
+          "avgMissing": 1,
+          "message": "2/61 missing 1+ locales"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 61,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "swisscom-sede-ticino": {
+      "total": 27,
       "issues": [],
       "severity": "OK"
     },
-    "swisscom-sede-ticino": {
-      "total": 52,
+    "swisslog": {
+      "total": 5,
+      "issues": [],
+      "severity": "OK"
+    },
+    "swissquote": {
+      "total": 22,
+      "issues": [],
+      "severity": "OK"
+    },
+    "sygnum": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "szb-chb": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "talan": {
+      "total": 8,
       "issues": [],
       "severity": "OK"
     },
     "tally-weijl": {
-      "total": 31,
+      "total": 27,
       "issues": [
         {
-          "type": "duplicate-descriptions",
-          "count": 13,
-          "total": 31,
-          "message": "13/31 duplicate descriptions"
-        },
-        {
           "type": "duplicate-descriptions-desc-only",
-          "count": 19,
-          "total": 31,
+          "count": 13,
+          "total": 27,
           "message": "",
           "hidden": true
         }
@@ -1378,32 +4006,126 @@
       "severity": "WARNING"
     },
     "tarchini-group": {
-      "total": 5,
+      "total": 4,
       "issues": [],
       "severity": "OK"
     },
-    "tether": {
-      "total": 62,
+    "tecan": {
+      "total": 14,
+      "issues": [],
+      "severity": "OK"
+    },
+    "temenos": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "tertianum": {
+      "total": 219,
       "issues": [
         {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 219,
+          "avgMissing": 0,
+          "message": "1/219 missing 0+ locales"
+        },
+        {
           "type": "duplicate-descriptions-desc-only",
-          "count": 21,
-          "total": 62,
+          "count": 4,
+          "total": 219,
           "message": "",
           "hidden": true
         }
       ],
       "severity": "WARNING"
     },
-    "tinext": {
+    "tether": {
+      "total": 66,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 25,
+          "total": 66,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "the-living-circle": {
+      "total": 0,
+      "issues": [],
+      "severity": "OK"
+    },
+    "therapiezentrum-meggen": {
       "total": 1,
       "issues": [],
       "severity": "OK"
     },
-    "transgourmet": {
+    "thermo-fisher-scientific": {
+      "total": 34,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 34,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "thurklinik": {
+      "total": 9,
+      "issues": [],
+      "severity": "OK"
+    },
+    "tinext": {
       "total": 2,
       "issues": [],
       "severity": "OK"
+    },
+    "tl-lausanne": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "totalenergies": {
+      "total": 12,
+      "issues": [],
+      "severity": "OK"
+    },
+    "trafigura": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "transgourmet": {
+      "total": 22,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 7,
+          "total": 22,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "triaplus": {
+      "total": 35,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 6,
+          "total": 35,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
     },
     "trumpf-schweiz": {
       "total": 19,
@@ -1411,30 +4133,17 @@
       "severity": "OK"
     },
     "tschuggen": {
-      "total": 10,
-      "issues": [
-        {
-          "type": "no-structured-content",
-          "count": 9,
-          "total": 10,
-          "message": "9/10 no structured content (no bullets/lists)"
-        }
-      ],
-      "severity": "WARNING"
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
     },
     "tsmg": {
-      "total": 33,
+      "total": 39,
       "issues": [
-        {
-          "type": "duplicate-descriptions",
-          "count": 2,
-          "total": 33,
-          "message": "2/33 duplicate descriptions"
-        },
         {
           "type": "duplicate-descriptions-desc-only",
           "count": 6,
-          "total": 33,
+          "total": 39,
           "message": "",
           "hidden": true
         }
@@ -1442,75 +4151,243 @@
       "severity": "WARNING"
     },
     "ubp": {
-      "total": 52,
+      "total": 41,
       "issues": [],
       "severity": "OK"
     },
     "ubs": {
-      "total": 49,
-      "issues": [],
-      "severity": "OK"
-    },
-    "unispital-basel": {
-      "total": 96,
-      "issues": [],
-      "severity": "OK"
-    },
-    "usi-universita-della-svizzera-italiana": {
-      "total": 22,
-      "issues": [],
-      "severity": "OK"
-    },
-    "usz": {
-      "total": 191,
+      "total": 105,
       "issues": [
         {
-          "type": "duplicate-descriptions",
-          "count": 4,
-          "total": 191,
-          "message": "4/191 duplicate descriptions"
-        },
-        {
           "type": "duplicate-descriptions-desc-only",
-          "count": 4,
-          "total": 191,
+          "count": 44,
+          "total": 105,
           "message": "",
           "hidden": true
         }
       ],
       "severity": "WARNING"
     },
+    "ukbb": {
+      "total": 24,
+      "issues": [],
+      "severity": "OK"
+    },
+    "unibe": {
+      "total": 54,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 4,
+          "total": 54,
+          "message": "4/54 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 54,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "unispital-basel": {
+      "total": 108,
+      "issues": [],
+      "severity": "OK"
+    },
+    "upd": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "uroviva": {
+      "total": 8,
+      "issues": [],
+      "severity": "OK"
+    },
+    "usi-universita-della-svizzera-italiana": {
+      "total": 20,
+      "issues": [],
+      "severity": "OK"
+    },
+    "usz": {
+      "total": 210,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 210,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "uzh": {
+      "total": 132,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 1,
+          "total": 132,
+          "avgMissing": 0,
+          "message": "1/132 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 4,
+          "total": 132,
+          "message": "4/132 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 132,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "valiant-bank": {
+      "total": 28,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 4,
+          "total": 28,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "valora": {
+      "total": 53,
+      "issues": [
+        {
+          "type": "duplicate-descriptions",
+          "count": 8,
+          "total": 53,
+          "message": "8/53 duplicate descriptions"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 26,
+          "total": 53,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "vaudoise": {
+      "total": 38,
+      "issues": [],
+      "severity": "OK"
+    },
     "vaxcyte": {
+      "total": 4,
+      "issues": [],
+      "severity": "OK"
+    },
+    "veeam": {
       "total": 2,
       "issues": [],
       "severity": "OK"
     },
     "vf-international-the-north-face-timberland": {
-      "total": 19,
+      "total": 35,
+      "issues": [],
+      "severity": "OK"
+    },
+    "victorinox": {
+      "total": 13,
+      "issues": [],
+      "severity": "OK"
+    },
+    "villa-im-park": {
+      "total": 3,
+      "issues": [],
+      "severity": "OK"
+    },
+    "visionapartments": {
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "vista": {
+      "total": 11,
+      "issues": [],
+      "severity": "OK"
+    },
+    "vitrea-gesundheit": {
+      "total": 10,
+      "issues": [],
+      "severity": "OK"
+    },
+    "viva-luzern": {
+      "total": 13,
       "issues": [],
       "severity": "OK"
     },
     "volg-fenaco": {
-      "total": 49,
+      "total": 462,
       "issues": [
         {
+          "type": "no-structured-content",
+          "count": 420,
+          "total": 462,
+          "message": "420/462 no structured content (no bullets/lists)"
+        },
+        {
           "type": "duplicate-descriptions",
-          "count": 24,
-          "total": 49,
-          "message": "24/49 duplicate descriptions"
+          "count": 21,
+          "total": 462,
+          "message": "21/462 duplicate descriptions"
         },
         {
           "type": "duplicate-descriptions-desc-only",
-          "count": 29,
-          "total": 49,
+          "count": 279,
+          "total": 462,
           "message": "",
           "hidden": true
         }
       ],
       "severity": "WARNING"
     },
+    "volksschule-luzern": {
+      "total": 39,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 8,
+          "total": 39,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "vontobel": {
+      "total": 25,
+      "issues": [],
+      "severity": "OK"
+    },
     "vtg": {
-      "total": 29,
+      "total": 40,
+      "issues": [],
+      "severity": "OK"
+    },
+    "vz-vermoegenszentrum": {
+      "total": 49,
+      "issues": [],
+      "severity": "OK"
+    },
+    "wagerenhof": {
+      "total": 5,
       "issues": [],
       "severity": "OK"
     },
@@ -1520,7 +4397,12 @@
       "severity": "OK"
     },
     "wuerth-international": {
-      "total": 4,
+      "total": 1,
+      "issues": [],
+      "severity": "OK"
+    },
+    "yapeal": {
+      "total": 1,
       "issues": [],
       "severity": "OK"
     },
@@ -1529,8 +4411,33 @@
       "issues": [],
       "severity": "OK"
     },
-    "zucchetti-switzerland": {
-      "total": 0,
+    "zfv-unternehmungen": {
+      "total": 69,
+      "issues": [
+        {
+          "type": "missing-locales",
+          "count": 2,
+          "total": 69,
+          "avgMissing": 0,
+          "message": "2/69 missing 0+ locales"
+        },
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 2,
+          "total": 69,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
+    },
+    "zkb": {
+      "total": 53,
+      "issues": [],
+      "severity": "OK"
+    },
+    "zuger-kantonsspital": {
+      "total": 14,
       "issues": [],
       "severity": "OK"
     },
@@ -1538,11 +4445,24 @@
       "total": 0,
       "issues": [],
       "severity": "OK"
+    },
+    "zurzach-care": {
+      "total": 73,
+      "issues": [
+        {
+          "type": "duplicate-descriptions-desc-only",
+          "count": 11,
+          "total": 73,
+          "message": "",
+          "hidden": true
+        }
+      ],
+      "severity": "WARNING"
     }
   },
   "summary": {
     "critical": 0,
-    "warning": 51,
-    "ok": 142
+    "warning": 153,
+    "ok": 384
   }
 }

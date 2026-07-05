@@ -153,10 +153,20 @@ function buildJobFromApi(posting, detailDescription = '', applyUrl = '', posting
   const canton = posting.canton || inferAnyCanton(city) || '';
 
   let descEn = detailDescription;
+  const hasRealDescription = Boolean(detailDescription) && detailDescription.split(/\s+/).length >= 50;
   if (!descEn || descEn.split(/\s+/).length < 50) {
     descEn = buildFallbackDescription(posting.title, city, 'en');
   }
-  const descIt = buildFallbackDescription(posting.title, city, 'it');
+  // Reuse the real scraped description (which may contain genuine bullet/list
+  // markup from the SmartRecruiters posting) as the interim 'it' value too.
+  // Previously this always called buildFallbackDescription(..., 'it') even
+  // when a real, structured detailDescription was available — that synthetic
+  // paragraph has zero list markup and, because effectiveDescription() checks
+  // the 'it' locale before 'en', it masked the real content for both the
+  // parser-quality audit and real Italian-locale site visitors. Only fall
+  // back to synthetic boilerplate when no real detail description was
+  // scraped at all.
+  const descIt = hasRealDescription ? descEn : buildFallbackDescription(posting.title, city, 'it');
 
   return {
     url: postingUrl || applyUrl || `https://www.swissmedical.net/en/career/job-offers`,

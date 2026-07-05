@@ -1,0 +1,58 @@
+name: job-timeout-monitor
+# Zero-workflow-file-touch reconciler: scans ALL recent cancelled runs across every
+# workflow in this repo and opens a `CI Failure: <workflow>` issue when the cancellation
+# was actually caused by `timeout-minutes` (proven via the check-run's "exceeded ...
+# maximum execution time" annotation — plain `cancelled` also covers benign
+# concurrency-group supersession, which must NOT open an issue).
+# See scripts/ci/scan-job-timeouts.mjs for the full rationale.
+
+on:
+  schedule:
+    - cron: '10 * * * *' # hourly; script's 75m lookback covers cron jitter/downtime
+  workflow_dispatch:
+
+concurrency:
+  group: job-timeout-monitor
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  actions: read
+  checks: read
+  issues: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          # No `npm ci` — script only uses Node stdlib + local modules.
+
+      - name: Scan for job timeouts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/scan-job-timeouts.mjs
+
+      - name: Report unexpected scan failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure: ${{ github.workflow }}" \
+            --description "## job-timeout-monitor crashato
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 3 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

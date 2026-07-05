@@ -90,6 +90,43 @@ describe('mergeUrlKey Workday requisition rule (Rule W — slug-drift class)', (
   });
 });
 
+describe('mergeUrlKey Bank Cler requisition rule (Rule K — slug-drift class)', () => {
+  // Cler's requisition id is only 3-4 digits — below Rule B's ≥6-digit
+  // threshold — so without a host-specific rule the leaf carries no
+  // extractable token and every key falls back to the whole URL. Cler
+  // relaunched its career section mid-day on 2026-07-04 (`jobs-und-karriere`
+  // → `jobs-und-karriere-2026`, an ancestor segment unrelated to job
+  // identity) which changed the whole-URL key for every open position and
+  // duplicated all of them (#3497).
+  it('extracts the requisition id and survives an ancestor-path rename', () => {
+    const before = 'https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-basis-thun-w-m-2589';
+    const after = 'https://www.cler.ch/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/kundenberaterin-basis-thun-w-m-2589';
+    expect(mergeUrlKey(before)).toBe('req:cler.ch:2589');
+    expect(mergeUrlKey(before)).toBe(mergeUrlKey(after));
+  });
+  it('does NOT change keys for non-Cler hosts (host-gated, no re-key)', () => {
+    expect(mergeUrlKey('https://example.com/careers/title-2589')).toBe('url:https://example.com/careers/title-2589');
+  });
+});
+
+describe('mergeUrlKey ETA SA requisition rule (Rule L — slug-drift class)', () => {
+  // ETA SA's requisition id is only 4 digits — below Rule B's ≥6-digit
+  // threshold — so without a host-specific rule the leaf carries no
+  // extractable token and every key falls back to the whole URL. eta.ch
+  // toggles an ancestor `index.php/` path segment (unrelated to job
+  // identity) which changed the whole-URL key for every open position and
+  // duplicated all of them (#3497).
+  it('extracts the requisition id and survives an ancestor-path rename', () => {
+    const before = 'https://www.eta.ch/en/jobs-careers/vacancies/detail/3719';
+    const after = 'https://www.eta.ch/index.php/en/jobs-careers/vacancies/detail/3719';
+    expect(mergeUrlKey(before)).toBe('req:eta.ch:3719');
+    expect(mergeUrlKey(before)).toBe(mergeUrlKey(after));
+  });
+  it('does NOT change keys for non-ETA hosts (host-gated, no re-key)', () => {
+    expect(mergeUrlKey('https://example.com/careers/title-3719')).toBe('url:https://example.com/careers/title-3719');
+  });
+});
+
 describe('workdayReqFromLeaf', () => {
   it('returns the after-first-underscore token when it carries a digit', () => {
     expect(workdayReqFromLeaf('Cloud-Architect_31138417')).toBe('31138417');
