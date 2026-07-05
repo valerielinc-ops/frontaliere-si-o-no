@@ -59,12 +59,14 @@ permissions:
 jobs:
   seed:
     runs-on: ubuntu-latest
-    # Was 15 — the locale/Ticino shard rehydrate below can fall back to
-    # sequential git clones (~14min/locale, ~12min combined for the 4 Ticino
-    # legs per post-deploy-validate-dist.yml's own measured worst case) when
-    # the same-run tar artifacts are missing, so give it the same headroom
-    # (mirrors seed-text-html-ratio-baseline.yml's fix for issue #3104).
-    timeout-minutes: 60
+    # Was 60 — measured too low once this workflow grew to scan 3 baselines
+    # sequentially (run 28751237762 cancelled by this exact timeout at
+    # 60m13s, mid title-no-disambig-hash scan). Real measured cost at
+    # current corpus size (~2.8M pages): ~14min setup+rehydrate (or up to
+    # ~26min on the sequential git-clone fallback path) + ~28min per audit
+    # scan × 3 audits ≈ 98min. 150 gives headroom for the slow-path
+    # rehydrate plus scan-time growth before the next bump is needed.
+    timeout-minutes: 150
     steps:
       - name: Checkout
         uses: actions/checkout@v5
