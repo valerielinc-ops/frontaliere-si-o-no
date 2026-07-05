@@ -35,7 +35,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { fetchViaJinaWithRetry } from './jina-proxy.mjs';
+import { fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -174,14 +174,21 @@ function resolveAddress(cityText = '') {
  * fetchViaJinaWithRetry() (timeout/IP-rotation-retry/circuit-breaker all live
  * there). Requests `format: 'markdown'` — Jina's default response format,
  * which is what the regex-based extraction below is written against — and
- * throws on exhausted retries so callers' existing try/catch still fires.
+ * throws on exhausted retries (both a hard non-2xx and a 200-but-challenge
+ * body per `detectJinaErrorBody()`) so callers' existing try/catch still
+ * fires instead of silently publishing a WAF/error page as job content.
  */
 async function fetchJinaMarkdown(targetUrl) {
   const res = await fetchViaJinaWithRetry(targetUrl, { format: 'markdown' });
   if (!res.ok) {
     throw new Error(`Jina fetch failed for ${targetUrl}: HTTP ${res.status}`);
   }
-  return res.text();
+  const text = await res.text();
+  const reason = detectJinaErrorBody(text);
+  if (reason) {
+    throw new Error(`Jina fetch for ${targetUrl} returned a non-target page (${reason})`);
+  }
+  return text;
 }
 
 /**
