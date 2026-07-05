@@ -1,6 +1,6 @@
 {
   "crawlerKey": "matterhorn-gotthard-bahn",
-  "assembledAt": "2026-07-04T22:19:56.920Z",
+  "assembledAt": "2026-07-05T11:36:20.284Z",
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-7644459024cb",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bvzholding.ch/Zusatzlehre-Automatiker-oder-Automatikmonteur-mwd-de-j680.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:19:54.382Z",
+      "crawledAt": "2026-07-05T11:36:17.638Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,7 +78,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch"
+          "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch",
+          "formazione-complementare-automatiker-o-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig"
         ],
         "en": [
           "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig"
@@ -88,6 +89,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:19:32.137Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -133,7 +135,7 @@
       "url": "https://jobs.bvzholding.ch/Werkstattmitarbeiter-Instandhaltung-GGB-mwd-de-j713.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:19:53.460Z",
+      "crawledAt": "2026-07-05T11:36:16.638Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -174,7 +176,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
+          "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch",
+          "manutenzione-dei-dipendenti-dell-officina-ggb-m-f-d-matterhorn-gotthard-bahn-zermatt"
         ],
         "en": [
           "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -184,6 +187,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T11:47:25.555Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -229,7 +233,7 @@
       "url": "https://jobs.bvzholding.ch/Sales-Manager-mwd-80-de-j711.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:19:52.634Z",
+      "crawledAt": "2026-07-05T11:36:15.765Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -278,13 +282,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-m-w-d-80-matterhorn-gotthard-bahn-ch"
+          "sales-manager-m-w-d-80-matterhorn-gotthard-bahn-ch",
+          "responsabile-vendite-m-f-d-80-matterhorn-gotthard-bahn-brig"
         ],
         "fr": [
           "sales-manager-m-w-d-80-matterhorn-gotthard-bahn-ch"
         ]
       },
       "firstSeenAt": "2026-06-29T13:32:55.662Z",
+      "needsRetranslation": true,
       "salaryMin": 66800,
       "salaryMax": 101200,
       "baseSalary": {
@@ -303,9 +309,9 @@
       "id": "matterhorn-gotthard-bahn-1457cacc11d2",
       "slug": "collaboratore-trice-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-herbriggen",
       "slugByLocale": {
-        "de": "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
         "it": "collaboratore-trice-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-herbriggen",
         "en": "employees-track-construction-maintenance-m-f-d-matterhorn-gotthard-bahn-herbriggen",
+        "de": "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "les-employes-suivent-la-construction-et-l-entretien-m-f-d-matterhorn-gotthard-bahn-herbriggen"
       },
       "company": "Matterhorn Gotthard Bahn",
@@ -313,24 +319,24 @@
       "companyDomain": "bvzholding.ch",
       "title": "Mitarbeiter Gleisbau & Instandhaltung (m/w/d)",
       "titleByLocale": {
-        "de": "Mitarbeiter Gleisbau & Instandhaltung (m/w/d)",
         "it": "Collaboratore/trice Gleisbau & Instandhaltung (m/w/d)",
         "en": "Employees Track Construction & Maintenance (m/f/d)",
+        "de": "Mitarbeiter Gleisbau & Instandhaltung (m/w/d)",
         "fr": "Les employés suivent la construction et l'entretien (m/f/d)"
       },
       "description": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Dein Wirkungsfeld\n\n• Ausführung von Unterhaltsarbeiten an der Fahrbahn\n\n• Umgebungsarbeiten, z.B. Böschungspflege oder Schneeräumung\n\n• Behebung von Störungen im zugeteilten Bahnnetz (inkl. Pikettdienst)\n\n• Einsätze als Transportbegleiter und Sicherheitswärter/-chef (Baustellensicherung)\n Dein Profil\n\n• Handwerkliche oder technische Berufsausbildung. Ausbildung oder Erfahrung als Gleisbauer von Vorteil\n\n• Weiterbildungsbereitschaft in bahnspezifischen Themen\n\n• Freude an Aussenarbeit zu jeder Tages- und Nachtzeit (ca. 30-40% Nachtschicht) und an einzelnen Wochenenden\n\n• Führerausweis Kat. B\n\n• Hohes Sicherheitsbewusstsein\n Deine Vorteile\n\n• Gestaltungsspielraum bei deinen Aufgaben\n\n• Gut eingespieltes Team\n\n• Unregelmässige Arbeitszeiten als Chance für eine flexible Freizeitgestaltung\n\n• GA und weitere attraktive Benefits für dich und deine Familie\n\n• Den schönsten Arbeitsplatz im Oberwallis",
       "descriptionByLocale": {
-        "de": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Dein Wirkungsfeld\n\n• Ausführung von Unterhaltsarbeiten an der Fahrbahn\n\n• Umgebungsarbeiten, z.B. Böschungspflege oder Schneeräumung\n\n• Behebung von Störungen im zugeteilten Bahnnetz (inkl. Pikettdienst)\n\n• Einsätze als Transportbegleiter und Sicherheitswärter/-chef (Baustellensicherung)\n Dein Profil\n\n• Handwerkliche oder technische Berufsausbildung. Ausbildung oder Erfahrung als Gleisbauer von Vorteil\n\n• Weiterbildungsbereitschaft in bahnspezifischen Themen\n\n• Freude an Aussenarbeit zu jeder Tages- und Nachtzeit (ca. 30-40% Nachtschicht) und an einzelnen Wochenenden\n\n• Führerausweis Kat. B\n\n• Hohes Sicherheitsbewusstsein\n Deine Vorteile\n\n• Gestaltungsspielraum bei deinen Aufgaben\n\n• Gut eingespieltes Team\n\n• Unregelmässige Arbeitszeiten als Chance für eine flexible Freizeitgestaltung\n\n• GA und weitere attraktive Benefits für dich und deine Familie\n\n• Den schönsten Arbeitsplatz im Oberwallis",
-        "it": "La tua auto\nIl cuore di BVZ Holding è la compagnia ferroviaria Matterhorn Gotthard Bahn e i migliori marchi internazionali Gornergrat Bahn e Glacier Express. Dipendenti appassionati e qualificati costituiscono la base del nostro successo. Ogni giorno circa 700 dipendenti si impegnano a offrire ai nostri ospiti un'esperienza di prima classe. Viviamo la diversità e abbiamo una cosa in comune: le emozioni sono la nostra unità. Qual è la tua macchina? Il tuo campo di attività\n\n• Trasporto di lavori di manutenzione stradale\n\n• Lavoro ambientale, ad esempio cura dell'argine o clearance della neve\n\n• Risolvere le perturbazioni nella rete ferroviaria assegnata (incl. servizio piket)\n\n• Assegnazioni come assistenti di trasporto e guardie di sicurezza/manager (sicurezza cantiere costruzione)\n Il tuo profilo\n\n• artigianato o formazione tecnica. Formazione o esperienza come costruttore di piste\n\n• Prontezza per un'ulteriore formazione in materia ferroviaria\n\n• Godetevi il lavoro all'aperto in qualsiasi momento del giorno e della notte (circa 30-40% turno notturno) e nei singoli fine settimana\n\n• Patente di guida Cat. B\n\n• Alta consapevolezza della sicurezza\n I vantaggi\n\n• Leeway per i tuoi compiti\n\n• Squadra ben addestrata\n\n• Ore lavorative irregolari come opportunità per il tempo libero flessibile\n\n• GA e altri benefici interessanti per voi e la vostra famiglia\n\n• Il posto di lavoro più bello di Oberwallis",
-        "en": "Your drive\nThe heart of BVZ Holding is the railway company Matterhorn Gotthard Bahn and the international top brands Gornergrat Bahn and Glacier Express. Passionate and qualified employees form the basis of our success. Every day, around 700 employees are committed to offering our guests a first-class experience. We live diversity and have one thing in common: emotions are our drive. What is your drive? Your field of activity\n\n• Carriage of road maintenance work\n\n• Environmental work, e.g. embankment care or snow clearance\n\n• Resolving disturbances in the allocated railway network (incl. piket service)\n\n• Assignments as transport attendants and security guards/manager (construction site security)\n Your profile\n\n• craft or technical training. Training or experience as a track builder\n\n• Readiness for further training in railway-specific topics\n\n• Enjoy outdoor work at any time of day and night (about 30-40% night shift) and on individual weekends\n\n• Driving licence Cat. B\n\n• High security awareness\n Your advantages\n\n• Leeway for your tasks\n\n• Well-trained team\n\n• Irregular working hours as an opportunity for flexible leisure\n\n• GA and other attractive benefits for you and your family\n\n• The most beautiful workplace in Oberwallis",
-        "fr": "Votre disque\nLe cœur de BVZ Holding est la compagnie ferroviaire Matterhorn Gotthard Bahn et les grandes marques internationales Gornergrat Bahn et Glacier Express. Des employés passionnés et qualifiés constituent la base de notre succès. Chaque jour, environ 700 employés s'engagent à offrir à leurs clients une expérience de première classe. Nous vivons la diversité et avons une chose en commun : les émotions sont notre moteur. Quelle est votre conduite ? Votre domaine d'activité\n\n• Transport des travaux d ' entretien routier\n\n• Travaux environnementaux, p.ex. soins de remblai ou déneigement\n\n• Résoudre les perturbations dans le réseau ferroviaire alloué (y compris le service piket)\n\n• Affectations en tant qu ' agents de transport et gardes/gestionnaires de sécurité (sécurité du chantier de construction)\n Votre profil\n\n• formation technique ou artisanale. Formation ou expérience en tant que constructeur de pistes\n\n• Préparation à une formation continue sur des sujets spécifiques au secteur ferroviaire\n\n• Profitez du travail en plein air à n'importe quel moment de la journée et de la nuit (environ 30 à 40 % de la nuit) et le week-end individuel\n\n• Permis de conduire Cat. B\n\n• Sensibilisation élevée à la sécurité\n Vos avantages\n\n• Leeway pour vos tâches\n\n• Équipe bien formée\n\n• Des horaires de travail irréguliers pour des loisirs flexibles\n\n• GA et autres avantages intéressants pour vous et votre famille\n\n• Le plus beau lieu de travail à Oberwallis"
+        "it": "La tua auto Il cuore di BVZ Holding è la compagnia ferroviaria Matterhorn Gotthard Bahn e i migliori marchi internazionali Gornergrat Bahn e Glacier Express. Dipendenti appassionati e qualificati costituiscono la base del nostro successo. Ogni giorno circa 700 dipendenti si impegnano a offrire ai nostri ospiti un'esperienza di prima classe. Viviamo la diversità e abbiamo una cosa in comune: le emozioni sono la nostra unità. Qual è la tua macchina? Il tuo campo di attività\n• Trasporto di lavori di manutenzione stradale\n• Lavoro ambientale, ad esempio cura dell'argine o clearance della neve\n• Risolvere le perturbazioni nella rete ferroviaria assegnata (incl. servizio piket)\n• Assegnazioni come assistenti di trasporto e guardie di sicurezza/manager (sicurezza cantiere costruzione) Il tuo profilo\n• artigianato o formazione tecnica. Formazione o esperienza come costruttore di piste\n• Prontezza per un'ulteriore formazione in materia ferroviaria\n• Godetevi il lavoro all'aperto in qualsiasi momento del giorno e della notte (circa 30-40% turno notturno) e nei singoli fine settimana\n• Patente di guida Cat. B\n• Alta consapevolezza della sicurezza I vantaggi\n• Leeway per i tuoi compiti\n• Squadra ben addestrata\n• Ore lavorative irregolari come opportunità per il tempo libero flessibile\n• GA e altri benefici interessanti per voi e la vostra famiglia\n• Il posto di lavoro più bello di Oberwallis",
+        "en": "Your drive The heart of BVZ Holding is the railway company Matterhorn Gotthard Bahn and the international top brands Gornergrat Bahn and Glacier Express. Passionate and qualified employees form the basis of our success. Every day, around 700 employees are committed to offering our guests a first-class experience. We live diversity and have one thing in common: emotions are our drive. What is your drive? Your field of activity\n• Carriage of road maintenance work\n• Environmental work, e.g. embankment care or snow clearance\n• Resolving disturbances in the allocated railway network (incl. piket service)\n• Assignments as transport attendants and security guards/manager (construction site security) Your profile\n• craft or technical training. Training or experience as a track builder\n• Readiness for further training in railway-specific topics\n• Enjoy outdoor work at any time of day and night (about 30-40% night shift) and on individual weekends\n• Driving licence Cat. B\n• High security awareness Your advantages\n• Leeway for your tasks\n• Well-trained team\n• Irregular working hours as an opportunity for flexible leisure\n• GA and other attractive benefits for you and your family\n• The most beautiful workplace in Oberwallis",
+        "de": "Dein Antrieb Das Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Dein Wirkungsfeld\n• Ausführung von Unterhaltsarbeiten an der Fahrbahn\n• Umgebungsarbeiten, z.B. Böschungspflege oder Schneeräumung\n• Behebung von Störungen im zugeteilten Bahnnetz (inkl. Pikettdienst)\n• Einsätze als Transportbegleiter und Sicherheitswärter/-chef (Baustellensicherung) Dein Profil\n• Handwerkliche oder technische Berufsausbildung. Ausbildung oder Erfahrung als Gleisbauer von Vorteil\n• Weiterbildungsbereitschaft in bahnspezifischen Themen\n• Freude an Aussenarbeit zu jeder Tages- und Nachtzeit (ca. 30-40% Nachtschicht) und an einzelnen Wochenenden\n• Führerausweis Kat. B\n• Hohes Sicherheitsbewusstsein Deine Vorteile\n• Gestaltungsspielraum bei deinen Aufgaben\n• Gut eingespieltes Team\n• Unregelmässige Arbeitszeiten als Chance für eine flexible Freizeitgestaltung\n• GA und weitere attraktive Benefits für dich und deine Familie\n• Den schönsten Arbeitsplatz im Oberwallis",
+        "fr": "Votre disque Le cœur de BVZ Holding est la compagnie ferroviaire Matterhorn Gotthard Bahn et les grandes marques internationales Gornergrat Bahn et Glacier Express. Des employés passionnés et qualifiés constituent la base de notre succès. Chaque jour, environ 700 employés s'engagent à offrir à leurs clients une expérience de première classe. Nous vivons la diversité et avons une chose en commun : les émotions sont notre moteur. Quelle est votre conduite ? Votre domaine d'activité\n• Transport des travaux d ' entretien routier\n• Travaux environnementaux, p.ex. soins de remblai ou déneigement\n• Résoudre les perturbations dans le réseau ferroviaire alloué (y compris le service piket)\n• Affectations en tant qu ' agents de transport et gardes/gestionnaires de sécurité (sécurité du chantier de construction) Votre profil\n• formation technique ou artisanale. Formation ou expérience en tant que constructeur de pistes\n• Préparation à une formation continue sur des sujets spécifiques au secteur ferroviaire\n• Profitez du travail en plein air à n'importe quel moment de la journée et de la nuit (environ 30 à 40 % de la nuit) et le week-end individuel\n• Permis de conduire Cat. B\n• Sensibilisation élevée à la sécurité Vos avantages\n• Leeway pour vos tâches\n• Équipe bien formée\n• Des horaires de travail irréguliers pour des loisirs flexibles\n• GA et autres avantages intéressants pour vous et votre famille\n• Le plus beau lieu de travail à Oberwallis"
       },
       "location": "Herbriggen",
       "canton": "VS",
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Gleisbau-Instandhaltung-mwd-de-j664.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:19:51.816Z",
+      "crawledAt": "2026-07-05T11:36:14.895Z",
       "addressLocality": "Herbriggen",
       "addressCountry": "CH",
       "country": "CH",
@@ -359,7 +365,8 @@
           "Weiterbildungsbereitschaft in bahnspezifischen Themen",
           "Freude an Aussenarbeit zu jeder Tages- und Nachtzeit (ca. 30-40% Nachtschicht) und an einzelnen Wochenenden",
           "Führerausweis Kat. B",
-          "Hohes Sicherheitsbewusstsein"
+          "Hohes Sicherheitsbewusstsein",
+          "F hrerausweis Kat. B"
         ]
       },
       "_mgbMeta": {
@@ -367,9 +374,13 @@
         "identifier": "PERS-589/687",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
+      "previousSlugs": [
+        "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
+          "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
+          "collaboratore-trice-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-herbriggen"
         ],
         "en": [
           "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -378,9 +389,8 @@
           "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
-      ],
+      "firstSeenAt": "2026-07-04T22:19:51.816Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -393,8 +403,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-07-04T22:19:51.816Z"
+      "addressRegion": "VS"
     },
     {
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
@@ -427,7 +436,7 @@
       "url": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-j689.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:19:50.894Z",
+      "crawledAt": "2026-07-05T11:36:13.894Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -471,7 +480,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
+          "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
         ],
         "en": [
           "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -481,6 +491,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:59:54.848Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -526,7 +537,7 @@
       "url": "https://jobs.bvzholding.ch/Fachspezialist-Fahrbahn-mwd-de-j623.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:19:50.060Z",
+      "crawledAt": "2026-07-05T11:36:13.013Z",
       "addressLocality": "Ulrichen, Fiesch",
       "addressCountry": "CH",
       "country": "CH",
@@ -571,7 +582,8 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-          "superficie-stradale-specialistica-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
+          "superficie-stradale-specialistica-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+          "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
         ],
         "en": [
           "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -581,6 +593,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:38:46.882Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -626,7 +639,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j624.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:19:49.223Z",
+      "crawledAt": "2026-07-05T11:36:12.101Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -672,7 +685,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard"
+          "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
+          "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt"
         ],
         "en": [
           "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard"
@@ -682,6 +696,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:40:14.439Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -727,7 +742,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-mwd-de-j707.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:19:48.300Z",
+      "crawledAt": "2026-07-05T11:36:11.086Z",
       "addressLocality": "Andermatt, Sedrun",
       "addressCountry": "CH",
       "country": "CH",
@@ -773,7 +788,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
+          "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch",
+          "installatore-trice-elettrico-a-m-w-d-matterhorn-gotthard-bahn-andermatt-sedrun"
         ],
         "en": [
           "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -783,6 +799,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:38:45.109Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -828,7 +845,7 @@
       "url": "https://jobs.bvzholding.ch/Carrosserielackierer-fachmann-mwd-de-j697.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:19:47.349Z",
+      "crawledAt": "2026-07-05T11:36:10.051Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -869,7 +886,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch"
+          "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch",
+          "verniciatore-specialista-carrozziere-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund"
         ],
         "en": [
           "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch"
