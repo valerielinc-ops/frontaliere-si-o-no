@@ -1,21 +1,19 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-07-04T22:51:16.703Z",
+  "generatedAt": "2026-07-05T11:55:51.695Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 14531,
-  "avgDurationMs": 14531,
+  "unchangedCount": 0,
+  "durationMs": 13095,
+  "avgDurationMs": 13095,
   "durationHistory": [
-    14531
+    13095
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
@@ -50,7 +48,6 @@
       "addressCountry": "CH",
       "addressRegion": "AG",
       "firstSeenAt": "2026-07-01T22:55:00.641Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -93,7 +90,6 @@
       "addressCountry": "CH",
       "addressRegion": "VD",
       "firstSeenAt": "2026-06-16T14:08:25.964Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -136,7 +132,6 @@
       "addressCountry": "CH",
       "addressRegion": "VD",
       "firstSeenAt": "2026-06-16T14:08:25.964Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -145,5 +140,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
