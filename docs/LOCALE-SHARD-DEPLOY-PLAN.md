@@ -117,7 +117,7 @@ Note:
 1. **Sposta i nameserver** del dominio su Cloudflare (free plan). Oggi il dominio punta **diretto** a GitHub Pages (apex A `185.199.108–111.153`, `www → valerielinc-ops.github.io`, header `server: GitHub.com` / Fastly interno di GitHub — nessun proxy tuo davanti).
 2. **Apex `frontaliereticino.ch`**: orange-cloud (proxied) → il Worker gira qui.
 3. **3 subdomain origin** `origin-en/de/fr.frontaliereticino.ch`: CNAME → `valerielinc-ops.github.io` (o il GH Pages user dello shard), **gray-cloud (DNS-only)**. Sono i custom-domain dei 3 repo shard.
-4. **`cdn.frontaliereticino.ch`**: lasciare **DNS-only**, invariato (resta su Fastly del CDN repo). Il Worker non lo tocca.
+4. **`cdn.frontaliereticino.ch`**: **già orange-cloud (proxied)** oggi (verificato 2026-07-05, non DNS-only come assunto qui in origine — vedi `scripts/ensure-cdn-fonts-redirect.mjs`); il Worker comunque non lo tocca (match solo su path `/en|de|fr`, §4), quindi il piano resta valido invariato.
 5. **`www`**: invariato (redirect a apex come oggi).
 
 > Vincolo GitHub: un custom-domain vive su **1 solo repo**. Per questo l'apex resta sul repo principale e ogni shard prende il suo `origin-*` subdomain. Il Worker riscrive l'`Host` verso gli origin nascosti.
