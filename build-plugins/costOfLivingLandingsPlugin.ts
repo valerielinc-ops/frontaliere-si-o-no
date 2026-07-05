@@ -730,6 +730,8 @@ export function costOfLivingLandingsPlugin(rootDir: string): Plugin {
         );
         altLinks.push(`x-default|${BASE_URL}${buildCostOfLivingLandingPath('it', city)}`);
 
+        let itWasWritten = false;
+
         for (const locale of COL_LOCALES) {
           const rendered = renderPage({
             locale,
@@ -755,7 +757,16 @@ export function costOfLivingLandingsPlugin(rootDir: string): Plugin {
           // Every locale gets its own reciprocal <loc> entry (all 4 carry the
           // same altLinks set) — an IT-only push here would leave en/de/fr
           // as one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
-          sitemapEntries.push({ canonical: rendered.urlPath, alternates: altLinks });
+          // Non-IT pushes require the IT anchor itself to have been written
+          // this run (COL_LOCALES starts with 'it', so itWasWritten is
+          // settled before en/de/fr) — an unconditional push would leave a
+          // dangling IT alternate when the IT render is itself thin-skipped.
+          if (locale === 'it') {
+            itWasWritten = true;
+            sitemapEntries.push({ canonical: rendered.urlPath, alternates: altLinks });
+          } else if (itWasWritten) {
+            sitemapEntries.push({ canonical: rendered.urlPath, alternates: altLinks });
+          }
 
           pagesWritten++;
         }
