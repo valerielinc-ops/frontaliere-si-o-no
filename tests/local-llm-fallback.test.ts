@@ -221,6 +221,55 @@ describe('local LLM fallback provider', () => {
     }
   }, 8000);
 
+  // Regression guard (run 28744325535, 2026-07-05): create-article.mjs's body2
+  // JSON-repair loop re-invokes local/fallback up to 5 times, each carrying
+  // opts.deadlineMs = the run's overall wall-clock budget. Before this fix,
+  // _callLocal only used LOCAL_LLM_TIMEOUT_MS (a flat ~10min CPU-inference
+  // floor) and ignored how much of that budget was already spent, so a single
+  // in-flight local call could run 6-10min past the deadline undetected — 5
+  // such retries burned an entire 30min run budget on one unreliable model,
+  // leaving zero time for any other fallback attempt. _callLocal must cap its
+  // effective timeout to the remaining time until opts.deadlineMs.
+  it('caps the local call timeout to the remaining opts.deadlineMs budget, not the flat LOCAL_LLM_TIMEOUT_MS floor', async () => {
+    const prevUrl = process.env.LOCAL_LLM_URL;
+    const prevModel = process.env.LOCAL_LLM_MODEL;
+    const prevTimeout = process.env.LOCAL_LLM_TIMEOUT_MS;
+    process.env.LOCAL_LLM_ENABLED = '1';
+    process.env.LOCAL_LLM_MODEL = 'qwen2.5:7b';
+    // Deliberately huge — if the deadline cap did not apply, the call would
+    // hang for anywhere near this long instead of aborting quickly below.
+    process.env.LOCAL_LLM_TIMEOUT_MS = '900000';
+
+    const server = http.createServer((_req, _res) => {
+      // Never write a response — simulates a still-running CPU inference.
+    });
+    await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
+    const address = server.address();
+    const port = typeof address === 'object' && address ? address.port : 0;
+    process.env.LOCAL_LLM_URL = `http://127.0.0.1:${port}/v1/chat/completions`;
+
+    const start = Date.now();
+    try {
+      await expect(
+        callSingleModel([{ role: 'user', content: 'hi' }], {
+          model: AI_MODELS.LOCAL_FALLBACK,
+          maxRetriesPerModel: 1,
+          // Budget effectively already exhausted — the call must abort near
+          // immediately (floored at 15s in the implementation), never ride
+          // the 900_000ms LOCAL_LLM_TIMEOUT_MS floor above.
+          deadlineMs: Date.now() + 300,
+        }),
+      ).rejects.toThrow();
+      const elapsedMs = Date.now() - start;
+      expect(elapsedMs).toBeLessThan(20_000);
+    } finally {
+      server.close();
+      if (prevUrl === undefined) delete process.env.LOCAL_LLM_URL; else process.env.LOCAL_LLM_URL = prevUrl;
+      if (prevModel === undefined) delete process.env.LOCAL_LLM_MODEL; else process.env.LOCAL_LLM_MODEL = prevModel;
+      if (prevTimeout === undefined) delete process.env.LOCAL_LLM_TIMEOUT_MS; else process.env.LOCAL_LLM_TIMEOUT_MS = prevTimeout;
+    }
+  }, 25_000);
+
   // AI_MODELS_FORCE_CHAIN pins the cascade to an explicit list so ops can
   // validate/measure a specific provider (e.g. the local fallback) on demand
   // without waiting for the remote pool to exhaust naturally.

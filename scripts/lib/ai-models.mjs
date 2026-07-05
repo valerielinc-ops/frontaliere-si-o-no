@@ -2934,7 +2934,22 @@ async function _getLocalDispatcher(timeoutMs) {
 async function _callLocal(model, messages, opts) {
   const apiModel = getApiModelId(model); // = getLocalLlmModelId()
   // Raise the timeout floor for slow CPU inference (caller's timeout may be ~60s).
-  const timeout = Math.max(opts.timeout || 0, getLocalLlmTimeoutMs());
+  let timeout = Math.max(opts.timeout || 0, getLocalLlmTimeoutMs());
+  // Cap to the caller's remaining wall-clock budget (opts.deadlineMs, e.g.
+  // create-article.mjs's RUN_WALL_BUDGET_MS). Without this, a single
+  // local/fallback call can outlive the overall run deadline by its whole
+  // ~10min CPU-inference floor — the per-chain-walk deadline check (see
+  // ai-models.mjs's "wall-clock deadline exceeded" branch) only gates
+  // whether a NEW cascade walk starts, not how long an already-dispatched
+  // local call is allowed to run. Observed run 28744325535: 5 body2-repair
+  // retries each re-invoked local/fallback (~6-10min each) past the 30min
+  // svizzera budget, leaving zero time for any later fallback attempt.
+  // Floor at 15s so a near-expired deadline still gets one honest last try
+  // instead of silently degrading to a 0ms request.
+  if (opts.deadlineMs) {
+    const remaining = opts.deadlineMs - Date.now();
+    timeout = Math.max(15_000, Math.min(timeout, remaining));
+  }
   const dispatcher = await _getLocalDispatcher(timeout);
   return _callOpenAICompatible(apiModel, messages, { ...opts, timeout }, {
     endpoint: getLocalLlmUrl(),
