@@ -388,6 +388,23 @@ function minutesSince(iso) {
   return (Date.now() - then) / 60000;
 }
 
+/**
+ * Vero se un `agent:fix` senza PR va contato come "settling" (promozione
+ * fresca, run non ancora registrata in `gh run list`) e deve quindi rinviare
+ * il drain di un tick invece di procedere al rescue/orphan. Un commento
+ * FIX_OUTCOME bumpa `updatedAt` esattamente come l'edit di promozione, quindi
+ * l'età da sola non distingue "appena promosso" da "appena CONCLUSO (fallito)
+ * con verdetto già postato" — serve `outcome === null` nel guard, altrimenti
+ * un fix appena fallito viene scambiato per settling e il drain dell'intera
+ * coda si ferma per un tick a vuoto (bug osservato 2026-07-05: #3578 max-turns
+ * commentato a 16:35:59 → il tick di drain successivo lo conta come settling).
+ * Pura → testabile.
+ * @param {{outcome: string|null, ageMin: number, settleMin: number}} args
+ */
+export function isSettlingPromotion({ outcome, ageMin, settleMin }) {
+  return outcome === null && ageMin < settleMin;
+}
+
 /** Ultimo verdetto FIX_OUTCOME sulla issue, o null. Best-effort: null su errore
  * gh/parse → fail-open al rescue normale (mai park per un glitch API). */
 function latestFixOutcome(num) {
@@ -524,7 +541,16 @@ function main() {
     // assestamento, blocca il drain di 1 tick), o è un fix già COMPLETATO senza
     // PR (fallito/skip). Quest'ultimo NON deve bloccare il drain (era il bug del
     // settling a 30min): lo lasciamo all'orphan-rescue quando supera i 30min.
-    if (ageMin < SETTLE_MIN) { settlingPromotions++; continue; } // registrazione run
+    // `outcome` va calcolato PRIMA del check settling: un commento FIX_OUTCOME
+    // bumpa `updatedAt` esattamente come una promozione fresca, quindi age da
+    // solo non distingue "appena promosso, run non ancora visibile" da "appena
+    // CONCLUSO (fallito) con verdetto già postato". Senza `outcome === null` nel
+    // guard, un fix appena fallito veniva riclassificato come settling e
+    // rinviava l'intero drain di un tick a vuoto (bug osservato 2026-07-05:
+    // #3578 max-turns con commento a 16:35:59 → il drain di 16:36 lo conta come
+    // settling e rinvia la promozione del prossimo candidato in coda).
+    const outcome = latestFixOutcome(iss.number);
+    if (isSettlingPromotion({ outcome, ageMin, settleMin: SETTLE_MIN })) { settlingPromotions++; continue; } // registrazione run
     if (ageMin < ORPHAN_MIN_AGE_MIN) continue; // fix finito senza PR ma non ancora orfano → non bloccare il drain
     // vecchio + nessuna PR → orfano. Ma «nessuna PR» ha due cause diverse:
     // (a) run morta/crashata (nessun verdetto) → ri-tentabile; (b) ABORT pulita
@@ -533,7 +559,6 @@ function main() {
     // quota (root cause #1478). Distingui via l'ultimo marker FIX_OUTCOME: se è
     // NON_RETRYABLE → park SUBITO senza consumare i tentativi residui (nessuna
     // perdita: resta aperto, ri-triabile a mano se il contesto cambia).
-    const outcome = latestFixOutcome(iss.number);
     if (outcome && NON_RETRYABLE.has(outcome)) {
       console.log(`PARK #${iss.number} (esito non-ri-tentabile: ${outcome}) → no re-queue, evito run identica`);
       edit(iss.number, { add: [LBL_PARKED], remove: [LBL_FIX, LBL_QUEUED] });
