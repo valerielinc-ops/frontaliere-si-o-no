@@ -304,7 +304,13 @@ describe('Swiss article sitemap slug integrity', () => {
   // the sitemap-drop fix so a future re-add (e.g. a careless create-article
   // sync) regresses the hard self-canonical CI gate instead of failing
   // silently.
-  describe('every shadowed (canonical-overridden) article is ABSENT from sitemap-blog-ch.xml', () => {
+  //
+  // Issue #3368 item 2: the IT-<loc>-only check below was blind to a
+  // partial-removal regression (IT loc dropped, EN/DE/FR hreflang alternates
+  // left stray) — it would pass even if a shadowed article's hreflang hrefs
+  // stayed in the sitemap. Mirrors the locale-specific branch already used by
+  // `registerHreflangIntegrityChecks` to check EN/DE/FR too.
+  describe('every shadowed (canonical-overridden) article is ABSENT from sitemap-blog-ch.xml (IT loc + EN/DE/FR hreflang)', () => {
     for (const id of shadowedSwissArticleIds) {
       it(`article "${id}" → IT slug is NOT in sitemap-blog-ch.xml`, () => {
         const itSlug = SWISS_SLUGS[id]?.it;
@@ -314,6 +320,18 @@ describe('Swiss article sitemap slug integrity', () => {
           `Article "${id}" (slug: ${itSlug}) is canonical-overridden but still listed in sitemap-blog-ch.xml — violates "Sitemap <loc> URLs MUST self-canonicalize"`
         ).toBe(false);
       });
+
+      for (const locale of ALT_LOCALES) {
+        it(`article "${id}" → ${locale} slug has NO hreflang alternate in sitemap-blog-ch.xml`, () => {
+          const slug = SWISS_SLUGS[id]?.[locale];
+          expect(slug, `Article "${id}" has no ${locale} slug in SWISS_SLUGS`).toBeTruthy();
+          const hreflangSlugs = extractHreflangSlugs(swissSitemap, 'svizzera', locale);
+          expect(
+            hreflangSlugs.includes(slug!),
+            `Article "${id}" (${locale} slug: ${slug}) is canonical-overridden but still has a hreflang alternate in sitemap-blog-ch.xml — violates self-canonical gate`
+          ).toBe(false);
+        });
+      }
     }
   });
 

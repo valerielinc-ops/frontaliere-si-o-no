@@ -20,7 +20,7 @@ import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
-import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl } from './shared/swissArticleCanonicalOverrides';
+import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
  return {
@@ -303,8 +303,14 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  // reference that the regex can't capture, so we need these external sources.
  const seoDateMod = b.match(/"dateModified":\s*"([^"]+)"/)?.[1] ?? '';
  const articleSlug = cp.replace(SECTION.canonicalPrefix, '').replace(/\/$/, '');
+ // Issue #3368 item 1: a shadowed svizzera article's own slug was dropped
+ // from sitemap-blog-ch.xml (PR #3360), so sitemapLastmodBySlug misses it —
+ // fall back to the authoritative winner's still-present <lastmod> (same
+ // near-duplicate content) before the static SEO literal.
+ const winnerSlug = resolveShadowedArticleWinnerSlug(articleSlug, swissArticleCanonicalOverrides);
  const dateMod = articleUpdatedAtById[articleId]
  || sitemapLastmodBySlug[articleSlug]
+ || (winnerSlug ? sitemapLastmodBySlug[winnerSlug] : '')
  || seoDateMod;
 
  // Extract source structuredData @type and author format
