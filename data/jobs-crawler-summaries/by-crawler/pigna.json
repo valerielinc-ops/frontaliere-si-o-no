@@ -1,16 +1,16 @@
 {
   "key": "pigna",
   "label": "Stiftung Pigna",
-  "generatedAt": "2026-07-05T12:32:39.222Z",
-  "total": 7,
+  "generatedAt": "2026-07-05T23:44:14.636Z",
+  "total": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7061,
-  "avgDurationMs": 7061,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 8159,
+  "avgDurationMs": 8159,
   "durationHistory": [
-    7061
+    8159
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://app.reflinejobs.io/1531/0264/pub/437/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:32:36.560Z",
+      "crawledAt": "2026-07-05T23:44:12.335Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://app.reflinejobs.io/1531/0156/pub/425/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:32:34.190Z",
+      "crawledAt": "2026-07-05T23:44:09.634Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://app.reflinejobs.io/1531/0216/pub/428/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:32:34.799Z",
+      "crawledAt": "2026-07-05T23:44:10.472Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://app.reflinejobs.io/1531/0132/pub/434/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:32:33.535Z",
+      "crawledAt": "2026-07-05T23:44:08.806Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://app.reflinejobs.io/1531/0252/pub/413/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:32:35.968Z",
+      "crawledAt": "2026-07-05T23:44:11.521Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://app.reflinejobs.io/1531/0243/pub/408/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:32:35.380Z",
+      "crawledAt": "2026-07-05T23:44:10.998Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -237,8 +237,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "pigna-b58fe9367a9a",
       "slug": "combi-talent-per-pflegerisch-agogische-betreuung-60-90-stiftung-pigna-kloten",
@@ -278,5 +277,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
