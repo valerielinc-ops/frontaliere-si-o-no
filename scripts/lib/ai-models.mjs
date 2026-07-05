@@ -1540,6 +1540,7 @@ export async function initScoreStore() {
     let loaded = 0;
     let decayed = 0;
     let exhaustedRestored = 0;
+    let learnedLimitsRestored = 0;
     let source = 'aggregate';
 
     const aggregateRef = _firestoreDb
@@ -1608,9 +1609,18 @@ export async function initScoreStore() {
           console.warn(`🚫 [ScoreStore] ${modelId} still exhausted until ${resetTime.toISOString().slice(0, 16)}`);
         }
       }
+
+      // Runtime-learned request-token ceiling (see _learnRequestTokenLimit) —
+      // unlike exhaustedUntil this isn't a daily quota, it's a static size
+      // limit, so it restores unconditionally for every provider including
+      // local/fallback.
+      if (typeof data.maxRequestTokens === 'number' && data.maxRequestTokens > 0) {
+        _learnedRequestTokenLimits.set(modelId, data.maxRequestTokens);
+        learnedLimitsRestored++;
+      }
     }
 
-    console.log(`☁️  [ScoreStore] Loaded ${loaded} model scores from Firestore [${source}] (${decayed} decayed, ${exhaustedRestored} still exhausted)`);
+    console.log(`☁️  [ScoreStore] Loaded ${loaded} model scores from Firestore [${source}] (${decayed} decayed, ${exhaustedRestored} still exhausted, ${learnedLimitsRestored} learned token limits)`);
 
     // Register exit hooks for final flush
     _registerExitHooks();
@@ -1671,6 +1681,12 @@ async function _persistScoresToFirestore() {
       entry.exhaustedUntil = tomorrow.toISOString();
     } else {
       entry.exhaustedUntil = null;
+    }
+
+    // Runtime-learned request-token ceiling (see _learnRequestTokenLimit).
+    // Not a daily quota — no local/fallback exemption needed.
+    if (_learnedRequestTokenLimits.has(modelId)) {
+      entry.maxRequestTokens = _learnedRequestTokenLimits.get(modelId);
     }
 
     modelsDelta[_encodeModelId(modelId)] = entry;
@@ -2235,6 +2251,14 @@ const MODEL_MAX_REQUEST_TOKENS = {
   'Llama-3.2-90B-Vision-Instruct':      8000,
   // cerebras/* models — apiModelId is stripped of the provider prefix
   'llama3.1-8b':                        8000,
+  // NVIDIA small-context models overrun by this codebase's ~8000-token
+  // completion budget (run 28732970228, 2026-07-05): both threw HTTP 400
+  // "maximum context length is N tokens" against a ~9000-token generation
+  // prompt. llama-3.1-nemotron-nano-vl-8b-v1 (context 16384) still has room
+  // for a smaller prompt; nemotron-mini-4b-instruct (context 4096) cannot
+  // fit any of this codebase's generation prompts regardless of trimming.
+  'nvidia/llama-3.1-nemotron-nano-vl-8b-v1': 8000,
+  'nvidia/nemotron-mini-4b-instruct':        3000,
 };
 
 /**
@@ -2261,7 +2285,86 @@ const MODEL_MAX_REQUEST_TOKENS = {
  */
 const DEFAULT_REQUEST_TOKENS_BY_PROVIDER = {
   [PROVIDER.GITHUB]: 8000,
+  // Groq free tier enforces a tokens-per-minute (TPM) cap, not a per-model
+  // context limit: run 28732970228 (2026-07-05) shows 4 unrelated Groq
+  // models — openai/gpt-oss-120b, qwen/qwen3.6-27b, llama-3.1-8b-instant,
+  // openai/gpt-oss-20b — all fail identically with HTTP 413 "Request too
+  // large ... on tokens per minute (TPM)" at the same ~8300-token estimate.
+  // Same account-wide-cap shape as GitHub Models above.
+  [PROVIDER.GROQ]: 8000,
 };
+
+/**
+ * Runtime-learned per-model request-token ceilings, parsed directly out of a
+ * 413/400 error body the first time a model hits one (see
+ * _learnRequestTokenLimit below), instead of waiting for a human to notice
+ * the pattern in logs and hardcode it into MODEL_MAX_REQUEST_TOKENS /
+ * DEFAULT_REQUEST_TOKENS_BY_PROVIDER above. Both of those maps are
+ * whack-a-mole: they only cover providers someone already got burned by.
+ * This map makes the skip-guard self-correcting for every OTHER provider —
+ * Cerebras, Mistral, HuggingFace, Cloudflare, Together, Fireworks,
+ * OpenRouter, Gemini, whatever comes next — after its very first failure,
+ * in-run immediately and cross-run via the same Firestore aggregate doc
+ * already used for scores/exhaustion (see initScoreStore /
+ * _persistScoresToFirestore). Keyed by the full chain model id (e.g.
+ * 'groq/openai/gpt-oss-120b'), matching _modelScores' keyspace — not by the
+ * bare apiModelId, so two providers serving the same bare model id under
+ * different tiers don't clobber each other's learned limit.
+ */
+const _learnedRequestTokenLimits = new Map();
+
+/**
+ * Pull a concrete numeric token ceiling out of a 413/400 error body, when the
+ * provider states one explicitly. Two known shapes so far:
+ *   - Context-length caps (NVIDIA, OpenAI-style):
+ *       "maximum context length is 16384 tokens. However, you requested
+ *        17397 tokens (9397 in the messages, 8000 in the completion)."
+ *     Converted to an input-only ceiling (context − completion) because
+ *     estimateRequestTokens() below only estimates input, never completion.
+ *   - Request-size / TPM caps (Groq, GitHub Models):
+ *       "... Limit 6000, Used 0, Requested 8264 ..." (Groq TPM)
+ *       "... Max size: 8000 tokens ..." (GitHub Models)
+ *
+ * Returns null when the body doesn't match a known shape — the model simply
+ * isn't auto-learned this time; static maps / provider defaults still apply.
+ */
+function _parseRequestTokenLimit(bodyText = '') {
+  const b = String(bodyText);
+
+  const ctxMatch = b.match(/maximum context length is (\d+) tokens/i);
+  if (ctxMatch) {
+    const maxContext = Number(ctxMatch[1]);
+    const completionMatch = b.match(/(\d+)\s*in the completion/i);
+    const completionTokens = completionMatch ? Number(completionMatch[1]) : 0;
+    const inputCeiling = maxContext - completionTokens;
+    if (inputCeiling > 0) return inputCeiling;
+  }
+
+  const limitMatch = b.match(/\bLimit\s+(\d+)\b/i);
+  if (limitMatch) return Number(limitMatch[1]);
+
+  const maxSizeMatch = b.match(/Max size:\s*(\d+)\s*tokens?/i);
+  if (maxSizeMatch) return Number(maxSizeMatch[1]);
+
+  return null;
+}
+
+/**
+ * Cache a freshly-parsed request-token ceiling for `modelForTracking` and
+ * mark it dirty for the next Firestore flush (same debounce path as
+ * recordModelSuccess/recordModelFailure/markModelExhausted), so future
+ * processes start with the limit already known instead of re-discovering it
+ * via a wasted 413/400. No-op when the body doesn't match a known shape or
+ * the parsed value doesn't change anything already known.
+ */
+function _learnRequestTokenLimit(modelForTracking, bodyText) {
+  const limit = _parseRequestTokenLimit(bodyText);
+  if (!limit || limit <= 0) return;
+  if (_learnedRequestTokenLimits.get(modelForTracking) === limit) return;
+  _learnedRequestTokenLimits.set(modelForTracking, limit);
+  _dirtyModels.add(modelForTracking);
+  _schedulePersist();
+}
 
 /**
  * Estimate token count for a list of OpenAI-format messages. Uses the standard
@@ -2404,6 +2507,11 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         // Non-retryable client errors (unknown model, context too small)
         const nrc = classifyNonRetryableError(res.status, raw);
         if (nrc.nonRetryable) {
+          // Learn the real size cap from `raw` while it's still untruncated —
+          // the Error message below slices it to 300 chars (and callers slice
+          // further to 200 for logging), which is why this can't be recovered
+          // after the fact from logs.
+          _learnRequestTokenLimit(modelForTracking, raw);
           if (nrc.markExhausted) {
             markModelExhausted(modelForTracking, 'nonretryable');
             _stats.exhausted++;
@@ -2865,6 +2973,9 @@ async function _callGeminiRaw(model, messages, opts) {
         // Non-retryable client errors (unknown model, context too small)
         const nrc = classifyNonRetryableError(res.status, raw);
         if (nrc.nonRetryable) {
+          // Learn the real size cap from `raw` while it's still untruncated —
+          // see the matching call in _callOpenAICompatible for why.
+          _learnRequestTokenLimit(model, raw);
           if (nrc.markExhausted) {
             markModelExhausted(model);
             _stats.exhausted++;
@@ -3152,11 +3263,18 @@ export async function callLLM(messages, opts = {}) {
     // Skip models whose REQUEST (input) token cap is below the estimated prompt
     // size. Without this, models like o1 / gpt-5-mini / Phi-4 get tried with a
     // payload they cannot fit and return HTTP 413, burning a retry slot for
-    // every fallback. Per-model overrides in MODEL_MAX_REQUEST_TOKENS win;
-    // otherwise fall back to the provider-wide default (see
-    // DEFAULT_REQUEST_TOKENS_BY_PROVIDER) so untracked models on the same
-    // account-wide tier are caught too, not just the handful hardcoded so far.
-    const reqLimit = MODEL_MAX_REQUEST_TOKENS[apiModelId] ?? DEFAULT_REQUEST_TOKENS_BY_PROVIDER[provider];
+    // every fallback. Three sources, tightest known bound wins: hand-curated
+    // MODEL_MAX_REQUEST_TOKENS, runtime-learned _learnedRequestTokenLimits
+    // (parsed straight out of a prior 413/400 body — see
+    // _learnRequestTokenLimit — and persisted across runs via Firestore, so
+    // providers nobody has hardcoded yet still get caught after their first
+    // failure), and the provider-wide DEFAULT_REQUEST_TOKENS_BY_PROVIDER.
+    const knownLimits = [
+      MODEL_MAX_REQUEST_TOKENS[apiModelId],
+      _learnedRequestTokenLimits.get(model),
+      DEFAULT_REQUEST_TOKENS_BY_PROVIDER[provider],
+    ].filter((v) => typeof v === 'number' && v > 0);
+    const reqLimit = knownLimits.length ? Math.min(...knownLimits) : undefined;
     if (reqLimit) {
       const estTokens = estimateRequestTokens(messages, o);
       if (estTokens > reqLimit) {
