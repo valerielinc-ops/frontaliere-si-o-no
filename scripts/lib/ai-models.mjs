@@ -2526,9 +2526,15 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         // another credential to try (GitHub multi-PAT: _suppressExhaustionMark),
         // do NOT mark the model globally exhausted — it's only out on THIS
         // account; the error still propagates so the caller can rotate.
+        // Same PROVIDER.LOCAL exemption as the 429/timeout/content-failure
+        // circuit breakers elsewhere in this file — _callLocal routes through
+        // here (trackAs: model), so an HTTP-shaped failure (daily-limit-looking
+        // response, stale local auth 401) must never hard-ban local/fallback.
         if (isDailyLimitError(res.status, raw)) {
-          if (!_suppressExhaustionMark) markModelExhausted(modelForTracking);
-          _stats.exhausted++;
+          if (!_suppressExhaustionMark && getProvider(modelForTracking) !== PROVIDER.LOCAL) {
+            markModelExhausted(modelForTracking);
+            _stats.exhausted++;
+          }
           throw new Error(`[${displayModel}] Daily request limit reached`);
         }
         // Non-retryable client errors (unknown model, context too small)
@@ -2539,7 +2545,7 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
           // further to 200 for logging), which is why this can't be recovered
           // after the fact from logs.
           _learnRequestTokenLimit(modelForTracking, raw);
-          if (nrc.markExhausted) {
+          if (nrc.markExhausted && getProvider(modelForTracking) !== PROVIDER.LOCAL) {
             markModelExhausted(modelForTracking, 'nonretryable');
             _stats.exhausted++;
           }
