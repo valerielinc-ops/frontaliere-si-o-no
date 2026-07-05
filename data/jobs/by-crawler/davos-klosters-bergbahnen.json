@@ -1,6 +1,6 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-07-04T21:47:16.400Z",
+  "assembledAt": "2026-07-05T12:00:55.590Z",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-6c0712c734c8",
@@ -43,7 +43,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Bar-Rotliechtli_j_3890499",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:47:14.348Z",
+      "crawledAt": "2026-07-05T12:00:53.654Z",
       "previousSlugs": [
         "mitarbeiter-in-bar-rotliechtli-davos-klosters-bergbahnen-davos"
       ],
@@ -114,7 +114,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Bar-Restaurant-Bolgen-Plaza_j_3308568",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:47:14.097Z",
+      "crawledAt": "2026-07-05T12:00:53.388Z",
       "previousSlugs": [
         "mitarbeiter-in-bar-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
       ],
@@ -182,7 +182,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Masseur-in_j_3887486",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:47:13.847Z",
+      "crawledAt": "2026-07-05T12:00:53.166Z",
       "previousSlugs": [
         "masseur-in-davos-klosters-bergbahnen-davos"
       ],
@@ -253,7 +253,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Koch-in-Restaurant-Bolgen-Plaza_j_2532814",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:47:13.606Z",
+      "crawledAt": "2026-07-05T12:00:52.933Z",
       "previousSlugs": [
         "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
         "cuoco-al-ristorante-bolgen-plaza-davos-klosters-bergbahnen-ag-davos"
@@ -323,7 +323,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Kabinenfuehrer-in-Jakobshorn_j_3891467",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:47:13.359Z",
+      "crawledAt": "2026-07-05T12:00:52.687Z",
       "previousSlugs": [
         "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos"
       ],
@@ -397,7 +397,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie_j_2973772",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:47:13.101Z",
+      "crawledAt": "2026-07-05T12:00:52.443Z",
       "previousSlugs": [
         "chef-de-partie-davos-klosters-bergbahnen-davos",
         "capo-del-partito-davos-klosters-bergbahnen-ag-davos",
@@ -418,6 +418,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T11:11:18.941Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -475,7 +476,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:47:12.860Z",
+      "crawledAt": "2026-07-05T12:00:52.194Z",
       "previousSlugs": [
         "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
       ],
@@ -549,7 +550,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:47:12.616Z",
+      "crawledAt": "2026-07-05T12:00:51.945Z",
       "previousSlugs": [
         "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos"
       ],
@@ -597,7 +598,7 @@
       "title": "Allrounder:in Restaurant Bolgen Plaza",
       "titleByLocale": {
         "it": "Tuttofare: nel ristorante Bolgen Plaza",
-        "en": "All-rounder: in restaurant Bolgen Plaza",
+        "en": "Allrounder:in Restaurant Bolgen Plaza",
         "de": "Allrounder:in Restaurant Bolgen Plaza",
         "fr": "All-rounder: au restaurant Bolgen Plaza"
       },
@@ -623,7 +624,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Restaurant-Bolgen-Plaza_j_3007454",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:47:12.370Z",
+      "crawledAt": "2026-07-05T12:00:51.700Z",
       "previousSlugs": [
         "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
       ],
@@ -637,6 +638,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T14:37:18.881Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
