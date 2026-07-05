@@ -2,10 +2,11 @@ name: Orchestrate Job Crawlers
 
 on:
   schedule:
-    # Run twice daily: morning + afternoon (UTC).
+    # Run twice daily: morning + afternoon (UTC). Shifted +1h (2026-07-05) vs
+    # original 08:00/20:00 — actual runs were landing 08:00 late anyway.
     # All crawlers (including Coop) are dispatched here; no standalone crons.
-    - cron: '0 8 * * *'
-    - cron: '0 20 * * *'
+    - cron: '0 9 * * *'
+    - cron: '0 21 * * *'
   workflow_dispatch:
     inputs:
       group:
