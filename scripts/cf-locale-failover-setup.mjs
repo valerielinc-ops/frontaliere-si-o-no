@@ -52,8 +52,11 @@
  *    dynamic-redirect phase runs BEFORE the cache and BEFORE Workers routes,
  *    so the 301 also short-circuits Worker invocations and stale edge-cached
  *    200s for no-slash variants. Excluded: paths with a "." (real files:
- *    .xml/.txt/.html/…) and /disiscrivi-* (RFC 8058 one-click unsubscribe —
- *    a 301 would not be re-issued as a POST by mail clients).
+ *    .xml/.txt/.html/…), /cdn-cgi/* (Cloudflare-internal endpoints — the Web
+ *    Analytics beacon POSTs to /cdn-cgi/rum; a 301 is not followed by beacon
+ *    senders, which silently killed RUM ingest, #3503) and /disiscrivi-*
+ *    (RFC 8058 one-click unsubscribe — a 301 would not be re-issued as a
+ *    POST by mail clients).
  *
  * Auth: CF_API_TOKEN — needs Zone→Workers Routes:Edit (already required by
  * deploy-worker.yml) + Zone→Zone Settings/Cache Rules:Edit + Zone→Firewall
@@ -214,6 +217,7 @@ const MANAGED_REDIRECT_RULES = [
       '(http.host eq "frontaliereticino.ch" ' +
       'and not ends_with(http.request.uri.path, "/") ' +
       'and not http.request.uri.path contains "." ' +
+      'and not starts_with(http.request.uri.path, "/cdn-cgi/") ' +
       'and not starts_with(http.request.uri.path, "/disiscrivi-"))',
     action_parameters: {
       from_value: {
