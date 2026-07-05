@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-06-18T18:43:15.931Z",
-    "label": "before",
-    "total": 17318,
-    "needsRetranslation": 9208,
-    "suppressed": 690,
-    "incomplete": 1899,
-    "complete": 15419,
-    "missingByLocale": {
-      "it": 1023,
-      "en": 777,
-      "de": 958,
-      "fr": 736
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1112
-      },
-      {
-        "company": "Cartier",
-        "pending": 88
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Roche",
-        "pending": 43
-      },
-      {
-        "company": "Genossenschaft Migros Luzern",
-        "pending": 34
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 27
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Sulzer",
-        "pending": 24
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 23
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-18T21:10:05.713Z",
-    "label": "after",
-    "total": 17318,
-    "needsRetranslation": 3595,
-    "suppressed": 688,
-    "incomplete": 1619,
-    "complete": 15699,
-    "missingByLocale": {
-      "it": 800,
-      "en": 594,
-      "de": 962,
-      "fr": 532
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1029
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Roche",
-        "pending": 43
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 27
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Sulzer",
-        "pending": 24
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 23
-      },
-      {
-        "company": "Denner",
-        "pending": 19
-      },
-      {
-        "company": "Manor AG",
-        "pending": 18
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-18T23:57:20.705Z",
-    "label": "before",
-    "total": 17358,
-    "needsRetranslation": 4628,
-    "suppressed": 688,
-    "incomplete": 1688,
-    "complete": 15670,
-    "missingByLocale": {
-      "it": 767,
-      "en": 507,
-      "de": 894,
-      "fr": 459
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 956
-      },
-      {
-        "company": "Manor AG",
-        "pending": 116
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 90
-      },
-      {
-        "company": "Roche",
-        "pending": 56
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 31
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 27
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 24
-      },
-      {
-        "company": "Richemont",
-        "pending": 23
-      },
-      {
-        "company": "Sulzer",
-        "pending": 22
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-19T01:09:50.275Z",
-    "label": "after",
-    "total": 17358,
-    "needsRetranslation": 3328,
-    "suppressed": 688,
-    "incomplete": 1554,
-    "complete": 15804,
-    "missingByLocale": {
-      "it": 655,
-      "en": 417,
-      "de": 857,
-      "fr": 355
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 956
-      },
-      {
-        "company": "Manor AG",
-        "pending": 116
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 90
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Roche",
-        "pending": 41
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 31
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 27
-      },
-      {
-        "company": "Sulzer",
-        "pending": 22
-      },
-      {
-        "company": "Implenia",
-        "pending": 16
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-19T05:13:43.731Z",
     "label": "before",
     "total": 17405,
@@ -11510,6 +11282,120 @@
       {
         "company": "Manor AG",
         "pending": 104
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-05T02:12:51.453Z",
+    "label": "before",
+    "total": 23295,
+    "needsRetranslation": 5224,
+    "suppressed": 290,
+    "incomplete": 1363,
+    "complete": 21932,
+    "missingByLocale": {
+      "it": 1226,
+      "en": 1143,
+      "de": 170,
+      "fr": 1186
+    },
+    "topPending": [
+      {
+        "company": "Stadt Zürich",
+        "pending": 382
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 271
+      },
+      {
+        "company": "ZFV-Unternehmungen",
+        "pending": 69
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 61
+      },
+      {
+        "company": "Valora Group",
+        "pending": 53
+      },
+      {
+        "company": "Zürcher Kantonalbank",
+        "pending": 53
+      },
+      {
+        "company": "VZ VermögensZentrum",
+        "pending": 49
+      },
+      {
+        "company": "Volksschule Stadt Luzern",
+        "pending": 39
+      },
+      {
+        "company": "SWICA Gesundheitsorganisation",
+        "pending": 34
+      },
+      {
+        "company": "Stadt Luzern",
+        "pending": 31
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-05T02:15:18.311Z",
+    "label": "after",
+    "total": 23295,
+    "needsRetranslation": 4217,
+    "suppressed": 289,
+    "incomplete": 1363,
+    "complete": 21932,
+    "missingByLocale": {
+      "it": 1226,
+      "en": 1143,
+      "de": 170,
+      "fr": 1186
+    },
+    "topPending": [
+      {
+        "company": "Stadt Zürich",
+        "pending": 382
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 271
+      },
+      {
+        "company": "ZFV-Unternehmungen",
+        "pending": 69
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 61
+      },
+      {
+        "company": "Valora Group",
+        "pending": 53
+      },
+      {
+        "company": "Zürcher Kantonalbank",
+        "pending": 53
+      },
+      {
+        "company": "VZ VermögensZentrum",
+        "pending": 49
+      },
+      {
+        "company": "Volksschule Stadt Luzern",
+        "pending": 39
+      },
+      {
+        "company": "SWICA Gesundheitsorganisation",
+        "pending": 34
+      },
+      {
+        "company": "Stadt Luzern",
+        "pending": 31
       }
     ]
   }
