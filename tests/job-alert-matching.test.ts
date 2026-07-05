@@ -312,6 +312,24 @@ describe('jobAlertMatching — profile geo preference (issue #2993)', () => {
     expect(profile.preferredCantons).toEqual(['ti']);
   });
 
+  it('drops the bare canton code from a clicked/source job\'s geography out of preferredLocations (review nit, PR #3146)', () => {
+    // loadJobs()'s locationIndex stores geo as [location, canton] (e.g.
+    // ['Lugano', 'TI']), so a raw 2-letter canton code legitimately reaches
+    // strongLocations. It must not survive into preferredLocations — the
+    // canton signal is already captured via preferredCantons, and keeping the
+    // bare code as a "location" would let partitionByGeoPreference's
+    // locTokenHit() match it against an unrelated 2-letter token in some
+    // other job's address text.
+    const profile = buildAlertProfile(
+      { keywords: ['infermiere'] },
+      {},
+      { strongLocations: ['lugano', 'ti'], cityToCanton },
+    );
+    expect(profile.preferredLocations).toEqual(['lugano']);
+    expect(profile.preferredLocations).not.toContain('ti');
+    expect(profile.preferredCantons).toEqual(['ti']);
+  });
+
   it('excludes passive viewed-job cities from the preference (only strong signals)', () => {
     // The send loop passes filter/clicked/source locations as strongLocations and
     // keeps passive viewed cities in behaviorLocations — only the former drive the split.
