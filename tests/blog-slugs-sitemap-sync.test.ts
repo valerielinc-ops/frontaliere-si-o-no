@@ -196,19 +196,24 @@ describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: pre
     ).toHaveLength(0);
   });
 
-  it('every shadowed (canonical-overridden) SWISS_SLUG is ABSENT from sitemap-blog-ch.xml', async () => {
+  it('every shadowed (canonical-overridden) SWISS_SLUG is ABSENT from sitemap-blog-ch.xml (IT: <loc>, others: hreflang href)', async () => {
     const { SWISS_SLUGS } = await import('../services/routerSwissData');
     const { loadSwissArticleCanonicalOverrides } = await import('../build-plugins/shared/swissArticleCanonicalOverrides');
     const xml = readFileSync(path.resolve(__dirname, '..', 'public', 'sitemap-blog-ch.xml'), 'utf-8');
-    const { locUrls } = extractSitemapUrls(xml);
+    const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
     const overrides = loadSwissArticleCanonicalOverrides({ readFileSync }, path.resolve(__dirname, '..', 'data', 'swiss-article-canonical-overrides.json'));
 
     const stillPresent: string[] = [];
     for (const [articleId, slugMap] of Object.entries(SWISS_SLUGS as Record<string, Record<string, string>>)) {
       const itSlug = (slugMap as Record<string, string>).it;
       if (!itSlug || !Object.prototype.hasOwnProperty.call(overrides, itSlug)) continue;
-      const url = `${SWISS_URL_BASE.it}${itSlug}/`;
-      if (locUrls.has(url)) stillPresent.push(`${articleId} [it]: ${url}`);
+      for (const [locale, slug] of Object.entries(slugMap)) {
+        const base = SWISS_URL_BASE[locale];
+        if (!base) continue;
+        const url = `${base}${slug}/`;
+        const present = locale === 'it' ? locUrls.has(url) : hreflangUrls.get(locale)?.has(url);
+        if (present) stillPresent.push(`${articleId} [${locale}]: ${url}`);
+      }
     }
 
     expect(

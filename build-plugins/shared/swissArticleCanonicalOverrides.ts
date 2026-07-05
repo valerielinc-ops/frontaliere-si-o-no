@@ -74,3 +74,25 @@ export function resolveSwissArticleCanonicalUrl(
 ): string {
   return overrides[slug] || defaultUrl;
 }
+
+/**
+ * Issue #3368 item 1: a shadowed article's own slug is deliberately absent
+ * from `sitemap-blog-ch.xml` (see the CORRECTION note above), so a
+ * `<lastmod>`-derived JSON-LD `dateModified` fallback keyed on the page's
+ * own slug always misses for shadowed pages. Since the shadowed and
+ * authoritative pages are a near-duplicate pair about the same content,
+ * the authoritative winner's still-present sitemap `<lastmod>` is a valid
+ * freshness proxy — this resolves the winner's own slug (last URL path
+ * segment) from the same override map already loaded for canonical/og:url,
+ * so callers can look it up in `sitemapLastmodBySlug` instead of falling
+ * straight through to a static SEO-literal date. Returns `undefined` for a
+ * non-shadowed slug (no override entry).
+ */
+export function resolveShadowedArticleWinnerSlug(
+  slug: string,
+  overrides: Readonly<Record<string, string>>,
+): string | undefined {
+  const winnerUrl = overrides[slug];
+  if (!winnerUrl) return undefined;
+  return winnerUrl.replace(/\/$/, '').split('/').pop() || undefined;
+}

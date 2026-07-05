@@ -18,6 +18,10 @@ Repo setting `delete_branch_on_merge: true` attivo dal 2026-05-29. Prima di allo
 
 GitHub chiude SOLO la prima issue dopo una keyword di chiusura (`Closes`/`Fixes`/`Resolves`). Osservato su PR #1320: 9 issue elencate su una riga → solo 1 chiusa, 8 rimaste aperte.
 
+## closes-must-be-in-pr-body
+
+PR #3562 (fix per issue #3485): il commit message conteneva `Closes #3485` ma il body della PR no — l'agent l'aveva messo solo nel commit. `gh pr view --json closingIssuesReferences` tornava `[]` finché il body non è stato editato per includere `Closes #3485` su una riga propria; solo dopo l'edit `closingIssuesReferences` ha mostrato `[3485]`. Root cause: per un repo che mergia via squash, GitHub calcola le issue-da-chiudere dal **body della PR**, non dai singoli commit del branch (che vengono riscritti/collassati dallo squash) — la keyword solo nel commit message non è sufficiente. Fix: verificare sempre `gh pr view <N> --json closingIssuesReferences` prima di dichiarare il task risolto, non fidarsi della sola presenza della keyword in un commit.
+
 ## lgtm-automerge
 
 L'unico file che fa driftare il reviewer è `.github/workflows/pr-review-loop.yml`: la GitHub App esige il workflow byte-identico a `main` → 401 → niente `## LGTM`. Le PR che lo modificano ora auto-mergiano via il drift-fallback deterministico in `scripts/ci/auto-merge-eval.mjs`. Gli altri file storicamente citati come a rischio drift (`auto-merge-on-lgtm.yml`, `post-merge-followup.yml`, `REVIEW.md`, `FOLLOWUP.md`) NON driftano — review + `## LGTM` normali per quelli.

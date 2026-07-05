@@ -5,6 +5,7 @@ import { resolve } from 'node:path';
 import {
   loadSwissArticleCanonicalOverrides,
   resolveSwissArticleCanonicalUrl,
+  resolveShadowedArticleWinnerSlug,
 } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
 
 // Issue #3010 item 1 (follow-up to PR #3000 "de-collide duplicate svizzera
@@ -146,5 +147,23 @@ describe('resolveSwissArticleCanonicalUrl', () => {
   it('falls back to defaultUrl (self-canonical) for any slug with no override entry', () => {
     expect(resolveSwissArticleCanonicalUrl('winner-slug', overrides, 'https://frontaliereticino.ch/articoli-svizzera/winner-slug/'))
       .toBe('https://frontaliereticino.ch/articoli-svizzera/winner-slug/');
+  });
+});
+
+// Issue #3368 item 1: sitemapLastmodBySlug (build-plugins/ogPagesPlugin.ts
+// JSON-LD dateModified fallback 2) is keyed by a page's own slug, which is
+// deliberately absent from the sitemap for shadowed articles (see the
+// CORRECTION note above) — so it always misses for them. This resolver lets
+// the plugin fall back to the authoritative winner's own slug instead, whose
+// sitemap <lastmod> is still present.
+describe('resolveShadowedArticleWinnerSlug', () => {
+  const overrides = { 'shadowed-slug': 'https://frontaliereticino.ch/articoli-svizzera/winner-slug/' };
+
+  it('returns the winner slug (last URL path segment) for a shadowed slug', () => {
+    expect(resolveShadowedArticleWinnerSlug('shadowed-slug', overrides)).toBe('winner-slug');
+  });
+
+  it('returns undefined for any slug with no override entry (not shadowed)', () => {
+    expect(resolveShadowedArticleWinnerSlug('winner-slug', overrides)).toBeUndefined();
   });
 });
