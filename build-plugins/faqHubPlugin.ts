@@ -513,6 +513,7 @@ export function faqHubPlugin(rootDir: string): Plugin {
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
       let pagesWritten = 0;
       let thinSkipped = 0;
+      let itWasWritten = false;
 
       for (const locale of FAQ_HUB_LOCALES) {
         const rendered = renderPage(locale, dateStamp, distDir);
@@ -530,7 +531,17 @@ export function faqHubPlugin(rootDir: string): Plugin {
         collector.add(indexPath, rendered.html);
         collector.add(flatPath, rendered.html);
 
+        // Every locale gets its own reciprocal <loc> entry (all 4 carry the
+        // same alternates set) — an IT-only push here would leave en/de/fr
+        // as one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
+        // Non-IT pushes require the IT anchor itself to have been written
+        // this run (FAQ_HUB_LOCALES starts with 'it', so itWasWritten is
+        // settled before en/de/fr) — an unconditional push would leave a
+        // dangling IT alternate when the IT render is itself thin-skipped.
         if (locale === 'it') {
+          itWasWritten = true;
+          sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+        } else if (itWasWritten) {
           sitemapEntries.push({ canonical: rendered.urlPath, alternates });
         }
         pagesWritten++;
