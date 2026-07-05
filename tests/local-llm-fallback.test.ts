@@ -300,6 +300,42 @@ describe('local LLM fallback provider', () => {
   });
 });
 
+// In-memory Firestore stub matching the single-aggregate-doc layout
+// initScoreStore/_persistScoresToFirestore use:
+//   collection('ai_model_scores').doc('_all').get() / .set({models}, {merge:true})
+// Hoisted to module scope so both the local-fallback-exhaustion suite and the
+// learned-request-token-limit suite below share one implementation.
+function mockFirestore(store: Record<string, { models?: Record<string, unknown> }>) {
+  vi.doMock('firebase-admin', () => {
+    const admin: Record<string, unknown> = {
+      apps: [] as unknown[],
+      credential: { applicationDefault: () => ({}) },
+      initializeApp: () => { (admin.apps as unknown[]).push({}); },
+      firestore: () => ({
+        collection: () => ({
+          doc: (id: string) => ({
+            get: async () => ({
+              exists: store[id] != null,
+              data: () => store[id],
+            }),
+            set: async (data: { models?: Record<string, unknown> }, opts?: { merge?: boolean }) => {
+              if (opts?.merge && store[id]) {
+                store[id] = { ...store[id], ...data, models: { ...(store[id].models || {}), ...(data.models || {}) } };
+              } else {
+                store[id] = data;
+              }
+            },
+          }),
+          // Legacy per-model collection scan (one-time migration path in
+          // initScoreStore, used only when the aggregate doc has no models yet).
+          get: async () => ({ docs: [] }),
+        }),
+      }),
+    };
+    return { default: admin };
+  });
+}
+
 // Regression guard for the outage where `local/fallback` sat wrongly banned
 // for up to 24h, across every workflow run, after just 2 bad structured-JSON
 // outputs from the small quantized model. The daily-quota "exhausted until
@@ -328,40 +364,6 @@ describe('local LLM fallback exhaustion never persists past the run (Firestore)'
     if (prevCreds === undefined) delete process.env.GOOGLE_APPLICATION_CREDENTIALS; else process.env.GOOGLE_APPLICATION_CREDENTIALS = prevCreds;
     vi.doUnmock('firebase-admin');
   });
-
-  // In-memory Firestore stub matching the single-aggregate-doc layout
-  // initScoreStore/_persistScoresToFirestore use:
-  //   collection('ai_model_scores').doc('_all').get() / .set({models}, {merge:true})
-  function mockFirestore(store: Record<string, { models?: Record<string, unknown> }>) {
-    vi.doMock('firebase-admin', () => {
-      const admin: Record<string, unknown> = {
-        apps: [] as unknown[],
-        credential: { applicationDefault: () => ({}) },
-        initializeApp: () => { (admin.apps as unknown[]).push({}); },
-        firestore: () => ({
-          collection: () => ({
-            doc: (id: string) => ({
-              get: async () => ({
-                exists: store[id] != null,
-                data: () => store[id],
-              }),
-              set: async (data: { models?: Record<string, unknown> }, opts?: { merge?: boolean }) => {
-                if (opts?.merge && store[id]) {
-                  store[id] = { ...store[id], ...data, models: { ...(store[id].models || {}), ...(data.models || {}) } };
-                } else {
-                  store[id] = data;
-                }
-              },
-            }),
-            // Legacy per-model collection scan (one-time migration path in
-            // initScoreStore, used only when the aggregate doc has no models yet).
-            get: async () => ({ docs: [] }),
-          }),
-        }),
-      };
-      return { default: admin };
-    });
-  }
 
   it('write path: exhausting local/fallback never sets exhaustedUntil; exhausting a remote model still does', async () => {
     const store: Record<string, { models?: Record<string, unknown> }> = {};
@@ -398,9 +400,119 @@ describe('local LLM fallback exhaustion never persists past the run (Firestore)'
       const loadLine = logSpy.mock.calls.map((c) => String(c[0])).find((l) => l.includes('[ScoreStore] Loaded'));
       expect(loadLine).toBeDefined();
       // Only gpt-4o's ban should survive the restore — local/fallback's must not.
-      expect(loadLine).toMatch(/\(0 decayed, 1 still exhausted\)/);
+      expect(loadLine).toMatch(/\(0 decayed, 1 still exhausted, \d+ learned token limits\)/);
     } finally {
       logSpy.mockRestore();
     }
+  });
+});
+
+// Regression guard for the structural fix (run 28732970228, 2026-07-05): Groq's
+// TPM cap and two NVIDIA models' context-length caps were hit live in
+// production with no hardcoded entry to catch them, wasting a retry slot on
+// every fallback attempt. Instead of only hardcoding those two, the skip-guard
+// now learns any provider's numeric limit straight out of its first 413/400
+// body and remembers it — in-run immediately, cross-run via the same
+// Firestore aggregate doc already used for scores/exhaustion.
+describe('self-learning request-token-limit discovery (generalizes beyond hardcoded providers)', () => {
+  const prevCreds = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  const prevGroqKey = process.env.GROQ_API_KEY;
+  const prevNvidiaKey = process.env.NVIDIA_API_KEY;
+  const prevForceChain = process.env.AI_MODELS_FORCE_CHAIN;
+  const prevFetch = globalThis.fetch;
+
+  beforeEach(() => {
+    vi.resetModules();
+    process.env.GOOGLE_APPLICATION_CREDENTIALS = '/dev/null';
+    process.env.GROQ_API_KEY = 'test-key';
+    process.env.NVIDIA_API_KEY = 'test-key';
+    globalThis.fetch = (async () => { throw new Error('network disabled in test'); }) as typeof fetch;
+  });
+
+  afterEach(() => {
+    globalThis.fetch = prevFetch;
+    if (prevCreds === undefined) delete process.env.GOOGLE_APPLICATION_CREDENTIALS; else process.env.GOOGLE_APPLICATION_CREDENTIALS = prevCreds;
+    if (prevGroqKey === undefined) delete process.env.GROQ_API_KEY; else process.env.GROQ_API_KEY = prevGroqKey;
+    if (prevNvidiaKey === undefined) delete process.env.NVIDIA_API_KEY; else process.env.NVIDIA_API_KEY = prevNvidiaKey;
+    if (prevForceChain === undefined) delete process.env.AI_MODELS_FORCE_CHAIN; else process.env.AI_MODELS_FORCE_CHAIN = prevForceChain;
+    vi.doUnmock('firebase-admin');
+  });
+
+  it('write path: a Groq TPM 413 (production shape) persists the parsed Limit as maxRequestTokens for that model only', async () => {
+    const store: Record<string, { models?: Record<string, unknown> }> = {};
+    mockFirestore(store);
+    process.env.AI_MODELS_FORCE_CHAIN = 'groq/openai/gpt-oss-120b';
+    globalThis.fetch = (async () => ({
+      ok: false,
+      status: 413,
+      text: async () => JSON.stringify({
+        error: {
+          message: 'Request too large for model `openai/gpt-oss-120b` in organization `org_01kjsfybv9epwv9jvhb9jz5yk5` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 0, Requested 8277, Please try again in 2.077s.',
+          type: 'tokens',
+          code: 'rate_limit_exceeded',
+        },
+      }),
+    })) as unknown as typeof fetch;
+
+    const mod = await import('../scripts/lib/ai-models.mjs');
+    await mod.initScoreStore();
+    await expect(mod.callLLM([{ role: 'user', content: 'hi' }], { maxRetriesPerModel: 1 })).rejects.toThrow('All AI models failed');
+
+    const persisted = store._all.models as Record<string, { maxRequestTokens?: number }>;
+    expect(persisted['groq__openai__gpt-oss-120b'].maxRequestTokens).toBe(8000);
+  });
+
+  it('write path: an NVIDIA context-length 400 persists (context − completion) as maxRequestTokens', async () => {
+    const store: Record<string, { models?: Record<string, unknown> }> = {};
+    mockFirestore(store);
+    process.env.AI_MODELS_FORCE_CHAIN = 'nvidia/nvidia/some-other-model';
+    globalThis.fetch = (async () => ({
+      ok: false,
+      status: 400,
+      text: async () => JSON.stringify({
+        error: {
+          message: "This model's maximum context length is 16384 tokens. However, you requested 17397 tokens (9397 in the messages, 8000 in the completion). Please reduce the length of the messages or completion.",
+        },
+      }),
+    })) as unknown as typeof fetch;
+
+    const mod = await import('../scripts/lib/ai-models.mjs');
+    await mod.initScoreStore();
+    await expect(mod.callLLM([{ role: 'user', content: 'hi' }], { maxRetriesPerModel: 1 })).rejects.toThrow('All AI models failed');
+
+    const persisted = store._all.models as Record<string, { maxRequestTokens?: number }>;
+    expect(persisted['nvidia__nvidia__some-other-model'].maxRequestTokens).toBe(16384 - 8000);
+  });
+
+  it('restore path: a pre-existing learned limit is loaded on init and pre-flight-skips the model without ever calling fetch', async () => {
+    const store: Record<string, { models?: Record<string, unknown> }> = {
+      _all: {
+        models: {
+          'groq__openai__gpt-oss-120b': { modelId: 'groq/openai/gpt-oss-120b', score: 0, maxRequestTokens: 500 },
+        },
+      },
+    };
+    mockFirestore(store);
+    process.env.AI_MODELS_FORCE_CHAIN = 'groq/openai/gpt-oss-120b';
+
+    const mod = await import('../scripts/lib/ai-models.mjs');
+    // initScoreStore() itself opportunistically probes free-model discovery
+    // endpoints (unrelated to the skip-guard under test here) — let that
+    // settle against the network-disabled default fetch from beforeEach
+    // before swapping in the call-tracking fetch below, so a discovery probe
+    // can't be mistaken for the model-invocation call this test forbids.
+    await mod.initScoreStore();
+
+    let fetchCalled = false;
+    globalThis.fetch = (async () => {
+      fetchCalled = true;
+      throw new Error('fetch should never be called — pre-flight skip-guard should have short-circuited');
+    }) as unknown as typeof fetch;
+
+    // ~2500 estimated tokens (chars/4 + safety margin) — comfortably over the
+    // learned 500-token cap restored from the store above.
+    const bigPrompt = 'x'.repeat(10_000);
+    await expect(mod.callLLM([{ role: 'user', content: bigPrompt }], { maxRetriesPerModel: 1 })).rejects.toThrow('All AI models failed');
+    expect(fetchCalled).toBe(false);
   });
 });
