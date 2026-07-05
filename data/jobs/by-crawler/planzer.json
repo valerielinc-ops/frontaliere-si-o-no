@@ -1,6 +1,6 @@
 {
   "crawlerKey": "planzer",
-  "assembledAt": "2026-07-05T12:51:54.229Z",
+  "assembledAt": "2026-07-05T23:37:50.282Z",
   "jobs": [
     {
       "id": "planzer-abc3f9bd4633",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029964",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:52.122Z",
+      "crawledAt": "2026-07-05T23:37:47.787Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Feldmattstrasse 31",
@@ -54,7 +54,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-ce-m-w-d-planzer-emmen"
+        "chauffeur-kat-ce-m-w-d-planzer-emmen",
+        "gatto-di-chauffeur-ce-m-f-d-planzer-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -114,7 +115,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030257",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:51.518Z",
+      "crawledAt": "2026-07-05T23:37:47.064Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -134,7 +135,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen"
+        "sachbearbeiter-logistikadministration-m-w-d-planzer-villmergen",
+        "amministrazione-logistica-del-personale-m-f-d-planzer-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -194,7 +196,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030322",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:50.917Z",
+      "crawledAt": "2026-07-05T23:37:46.340Z",
       "addressLocality": "Kölliken",
       "addressRegion": "AG",
       "streetAddress": "Hardfeld 3",
@@ -214,7 +216,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-paketsortierung-m-w-d-planzer-kolliken"
+        "mitarbeiter-paketsortierung-m-w-d-planzer-kolliken",
+        "collaboratore-trice-paketsortierung-m-w-d-planzer-kolliken"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -274,7 +277,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030254",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:50.308Z",
+      "crawledAt": "2026-07-05T23:37:45.617Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -294,7 +297,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-stuckgut-m-w-d-planzer-villmergen"
+        "disponent-stuckgut-m-w-d-planzer-villmergen",
+        "distribuzione-del-carico-generale-m-f-d-planzer-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -337,7 +341,7 @@
       "title": "Cobol Developer (m/w/d)",
       "titleByLocale": {
         "it": "Cobol Sviluppatore (m/w/d)",
-        "en": "Cobol Developer (m/f/d)",
+        "en": "Cobol Developer (m/w/d)",
         "de": "Cobol Entwickler (m/w/d)",
         "fr": "Cobol Développeur (m/w/d)"
       },
@@ -354,7 +358,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029495",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:49.657Z",
+      "crawledAt": "2026-07-05T23:37:44.883Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -374,7 +378,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cobol-developer-m-w-d-planzer-dietikon"
+        "cobol-developer-m-w-d-planzer-dietikon",
+        "cobol-sviluppatore-m-w-d-planzer-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -431,7 +436,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030751",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:49.042Z",
+      "crawledAt": "2026-07-05T23:37:44.159Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -450,10 +455,14 @@
       "externalId": "4030751",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T12:15:53.732Z",
+      "previousSlugs": [
+        "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach",
+        "chauffeur-cat-ce-pharmatransporte-m-f-d-planzer-kallnach"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach"
+          "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach",
+          "chauffeur-cat-ce-pharmatransporte-m-f-d-planzer-kallnach"
         ],
         "en": [
           "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach"
@@ -462,9 +471,7 @@
           "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach"
-      ],
+      "firstSeenAt": "2026-07-04T12:15:53.732Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -510,7 +517,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029961",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:48.428Z",
+      "crawledAt": "2026-07-05T23:37:43.417Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -530,7 +537,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-c-m-w-d-planzer-dietikon"
+        "chauffeur-kat-c-m-w-d-planzer-dietikon",
+        "chauffeur-cat-c-m-f-d-planzer-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -590,7 +598,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4026943",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:47.787Z",
+      "crawledAt": "2026-07-05T23:37:42.699Z",
       "addressLocality": "Märstetten",
       "addressRegion": "TG",
       "streetAddress": "Weinfelderstrasse 6",
@@ -610,7 +618,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+        "chauffeur-kat-ce-m-w-d-planzer-marstetten",
+        "gatto-di-chauffeur-ce-m-f-d-planzer-marstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -670,7 +679,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029958",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:47.156Z",
+      "crawledAt": "2026-07-05T23:37:41.901Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "streetAddress": "Pfannenstiel 12",
@@ -690,7 +699,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
+        "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen",
+        "tecnico-operativo-in-2-turni-m-f-d-planzer-harkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -750,7 +760,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029974",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:46.435Z",
+      "crawledAt": "2026-07-05T23:37:41.008Z",
       "addressLocality": "Schmerikon",
       "addressRegion": "SG",
       "streetAddress": "Allmeindstrasse 23",
@@ -770,7 +780,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon"
+        "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon",
+        "chauffeur-cat-c-ce-nel-settore-dei-veicoli-a-gru-jumpers-m-f-d-planzer-schmerikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -797,81 +808,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "planzer-b6fce477bcbd",
-      "slug": "chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs",
-      "slugByLocale": {
-        "de": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
-        "it": "chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs",
-        "en": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
-        "fr": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "Chauffeur Kat. CE - Region Zürich (m/w/d)",
-      "titleByLocale": {
-        "de": "Chauffeur Kat. CE - Region Zürich (m/w/d)",
-        "it": "Chauffeur Cat. CE - Regione di Zurigo (m/f/d)",
-        "en": "Chauffeur Cat. CE - Region of Zurich (m/f/d)",
-        "fr": "Chauffeur Cat. CE - Région de Zurich (m/f/d)"
-      },
-      "description": "Marke der Planzer-Gruppe: Tz.\n\nDas Blau-Silber unserer Lastzüge gehört zum Ostschweizer Strassenbild. Und doch fahren wir Stückgüter und Komplettladungen quer durch die ganze Schweiz und sogar über die Grenzen hinaus – auf der Strasse, Tag und Nacht, mit Herz und Köpfchen. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nAufgaben:\n• Anhand der Einsatzplanung der Disposition führst du die Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Be- und Entladung? Kein Problem für dich - du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du stellst sicher, dass das Ladegut perfekt gesichert ist – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nProfil:\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzug fahren wie ein Profi\n• Von Vorteil bringst du bereits Erfahrungen im Stückguttransport mit und besitzt den Staplerausweis sowie den ADR-Ausweis\n• Deine Fahrerbewilligungen sind alle auf dem neusten Stand\n• Deine Bereitschaft zur Übernachtung in der Fahrerkabine 2–3 Mal pro Woche macht dich zum flexiblen Teil unseres Teams\n• In der Schweiz kennst du dich gut aus und fühlst dich auf der Strasse zuhause\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und durch deine Belastbarkeit bereit, auch in stressigen Momenten Vollgas zu geben\n\nBenefits:\n• Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualität wird bei uns grossgeschrieben und belohnt\n• Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Mit unserem Spesenreglement bist du gut versorgt\n\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "de": "Marke der Planzer-Gruppe: Tz.\n\nDas Blau-Silber unserer Lastzüge gehört zum Ostschweizer Strassenbild. Und doch fahren wir Stückgüter und Komplettladungen quer durch die ganze Schweiz und sogar über die Grenzen hinaus – auf der Strasse, Tag und Nacht, mit Herz und Köpfchen. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nAufgaben:\n• Anhand der Einsatzplanung der Disposition führst du die Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Be- und Entladung? Kein Problem für dich - du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du stellst sicher, dass das Ladegut perfekt gesichert ist – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nProfil:\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzug fahren wie ein Profi\n• Von Vorteil bringst du bereits Erfahrungen im Stückguttransport mit und besitzt den Staplerausweis sowie den ADR-Ausweis\n• Deine Fahrerbewilligungen sind alle auf dem neusten Stand\n• Deine Bereitschaft zur Übernachtung in der Fahrerkabine 2–3 Mal pro Woche macht dich zum flexiblen Teil unseres Teams\n• In der Schweiz kennst du dich gut aus und fühlst dich auf der Strasse zuhause\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und durch deine Belastbarkeit bereit, auch in stressigen Momenten Vollgas zu geben\n\nBenefits:\n• Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualität wird bei uns grossgeschrieben und belohnt\n• Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Mit unserem Spesenreglement bist du gut versorgt\n\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "it": "Marchio del Gruppo Planzer: Tz.\n\nIl blu-argento dei nostri treni merci appartiene al paesaggio urbano della Svizzera orientale. Eppure guidiamo merci e carichi completi attraverso tutta la Svizzera e anche oltre i confini – sulla strada, giorno e notte, con cuore e cervello. Diventa parte del nostro team e modella il futuro della logistica!\n\nCompiti:\n• Sulla base della pianificazione della pianificazione, si effettuano gli ordini di trasporto nel traffico nazionale e consegnare le merci in tempo e professionalmente ai nostri clienti\n• Caricamento e scarico? Nessun problema per voi - si ottiene coinvolto e assicurarsi che tutto è sicuro memorizzato\n• Assicurarsi che il carico sia perfettamente protetto – Nulla è lasciato al caso\n• Insieme a voi, il vostro veicolo è il più importante e sempre visibile biglietto da visita della nostra azienda – in modo da prendersi cura della sua cura e manutenzione\n\nProfilo:\n• Hai la patente di guida Kat. CE nella borsa e può guidare rimorchio treno come un professionista\n• Vantaggiosamente, avete già esperienza nel trasporto di carico generale e hanno l'ID camion e l'ID ADR.\n• I permessi del conducente sono tutti aggiornati\n• La vostra disponibilità a trascorrere la notte nella cabina del conducente 2-3 volte alla settimana vi rende una parte flessibile del nostro team\n• In Svizzera ti conosci bene e ti senti a casa per strada\n• Orale e scritto si può tranquillamente esprimere se stessi in tedesco\n• Sei affidabile, flessibile e, grazie alla tua resilienza, pronto ad andare a piena velocità anche in momenti stressanti\n\nVantaggi:\n• Con noi si inizia con 5 settimane di vacanza e beneficiare del 5 ° anno di servizio anche da 6 settimane!\n• La qualità è importante per noi e premiata\n• Trascorrerete i vostri primi giorni lavorativi nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Con i nostri regolamenti di spesa siete ben curati\n\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Brand of the Planzer Group: Tz.\n\nThe blue-silver of our freight trains belongs to the East Switzerland streetscape. And yet we drive piece goods and complete loads across the whole of Switzerland and even beyond the borders – on the road, day and night, with heart and brain. Become part of our team and shape the future of logistics!\n\nTasks:\n• Based on the planning of the scheduling, you carry out the transport orders in national traffic and deliver the goods on time and professionally to our customers\n• Loading and unloading? No problem for you - you get involved and make sure that everything is safely stored\n• You make sure the cargo is perfectly secured – Nothing is left to chance\n• Together with you, your vehicle is the most important and always visible business card of our company – so you take care of its care and maintenance\n\nProfile:\n• You have the driver's license Kat. CE in the bag and can drive trailer train like a professional\n• Advantageously, you already have experience in general cargo transport and have the truck ID and the ADR ID.\n• Your driver permits are all up to date\n• Your willingness to spend the night in the driver’s cab 2–3 times a week makes you a flexible part of our team\n• In Switzerland you know yourself well and feel at home on the street\n• Oral and written you can safely express yourself in German\n• You are reliable, flexible and, thanks to your resilience, ready to go full speed even in stressful moments\n\nBenefits:\n• With us you start with 5 weeks vacation and benefit from the 5th year of service even from 6 weeks!\n• Quality is important to us and rewarded\n• You will spend your first working days in the central introduction, where you will be taught the most important basics\n• With our expense regulations you are well taken care of\n\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "fr": "Marque du groupe Planzer: Tz.\n\nL'argent bleu de nos trains de marchandises appartient au paysage urbain de la Suisse orientale. Et pourtant nous conduisons des pièces et des charges complètes à travers toute la Suisse et même au-delà des frontières – sur la route, jour et nuit, avec cœur et cerveau. Faites partie de notre équipe et façonnez l'avenir de la logistique!\n\nTâches :\n• Sur la base de la planification de la programmation, vous effectuez les commandes de transport dans le trafic national et livrez les marchandises à temps et professionnellement à nos clients\n• Chargement et déchargement ? Aucun problème pour vous - vous vous engagez et assurez-vous que tout est stocké en toute sécurité\n• Vous assurez-vous que la cargaison est parfaitement sécurisée – Rien n'est laissé au hasard\n• Avec vous, votre véhicule est la carte de visite la plus importante et la plus visible de notre entreprise.\n\nProfil :\n• Vous avez le permis de conduire Kat. CE dans le sac et peut conduire train remorque comme un professionnel\n• Avantageusement, vous avez déjà de l'expérience dans le transport général de marchandises et avez l'ID du camion et l'ID ADR.\n• Vos permis de conduire sont à jour\n• Votre volonté de passer la nuit dans le taxi de chauffeur 2-3 fois par semaine vous fait une partie flexible de notre équipe\n• En Suisse, vous vous connaissez bien et vous sentez chez vous dans la rue\n• Oral et écrit vous pouvez vous exprimer en allemand en toute sécurité\n• Vous êtes fiable, flexible et, grâce à votre résilience, prêt à aller à pleine vitesse même dans des moments stressants\n\nAvantages:\n• Avec nous vous commencez par 5 semaines de vacances et profitez de la 5ème année de service même à partir de 6 semaines!\n• La qualité est importante pour nous et récompensée\n• Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Avec nos règlements de dépenses, vous êtes bien pris en charge\n\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération de soutien et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "location": "Buchs",
-      "canton": "SG",
-      "url": "https://live.solique.ch/planzer/job/details/4031560",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:15:57.696Z",
-      "addressLocality": "Buchs",
-      "addressRegion": "SG",
-      "streetAddress": "Mühleäulistrasse 6",
-      "postalCode": "9470",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Trasporti / Autisti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4031560",
-      "externalId": "4031560",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-04T12:15:57.696Z",
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs"
-        ]
-      },
-      "previousSlugs": [
-        "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs"
-      ]
     }
   ]
 }

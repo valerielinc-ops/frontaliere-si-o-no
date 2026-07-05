@@ -1,16 +1,16 @@
 {
   "key": "planzer",
   "label": "Planzer",
-  "generatedAt": "2026-07-05T12:51:54.230Z",
-  "total": 11,
+  "generatedAt": "2026-07-05T23:37:50.283Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8935,
-  "avgDurationMs": 8935,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 10699,
+  "avgDurationMs": 10699,
   "durationHistory": [
-    8935
+    10699
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029974",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:46.435Z",
+      "crawledAt": "2026-07-05T23:37:41.008Z",
       "addressLocality": "Schmerikon",
       "addressRegion": "SG",
       "streetAddress": "Allmeindstrasse 23",
@@ -66,7 +66,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029958",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:47.156Z",
+      "crawledAt": "2026-07-05T23:37:41.901Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "streetAddress": "Pfannenstiel 12",
@@ -105,7 +105,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4026943",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:47.787Z",
+      "crawledAt": "2026-07-05T23:37:42.699Z",
       "addressLocality": "Märstetten",
       "addressRegion": "TG",
       "streetAddress": "Weinfelderstrasse 6",
@@ -144,7 +144,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029961",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:48.428Z",
+      "crawledAt": "2026-07-05T23:37:43.417Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -183,7 +183,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030751",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:49.042Z",
+      "crawledAt": "2026-07-05T23:37:44.159Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -222,7 +222,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029495",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:49.657Z",
+      "crawledAt": "2026-07-05T23:37:44.883Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -261,7 +261,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030254",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:50.308Z",
+      "crawledAt": "2026-07-05T23:37:45.617Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -300,7 +300,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030322",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:50.917Z",
+      "crawledAt": "2026-07-05T23:37:46.340Z",
       "addressLocality": "Kölliken",
       "addressRegion": "AG",
       "streetAddress": "Hardfeld 3",
@@ -339,7 +339,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030257",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:51.518Z",
+      "crawledAt": "2026-07-05T23:37:47.064Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -378,7 +378,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029964",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:51:52.122Z",
+      "crawledAt": "2026-07-05T23:37:47.787Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Feldmattstrasse 31",
@@ -405,8 +405,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "planzer-b6fce477bcbd",
       "slug": "chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs",
@@ -448,5 +447,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
