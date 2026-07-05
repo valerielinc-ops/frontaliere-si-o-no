@@ -783,7 +783,7 @@
         "it": "stv-fachlehrperson-textiles-gestalten-zyklen-1-e-2-6-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wimmis",
         "en": "stv-specialist-teacher-textiles-designing-cycles-1-and-2-6-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-39859",
         "de": "stv-fachlehrperson-textiles-gestalten-zyklen-1-und-2-6-lektionen-schule-wimmis-schulhaus-39859",
-        "fr": "stv-professeur-specialise-textiles-designing-cycles-1-et-2-6-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-39859"
+        "fr": "stv-textiles-specialises-cycles-de-conception-1-et-2-6-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39859"
       },
       "slugDisambiguator": "39859",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -828,7 +828,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-fachlehrperson-textiles-gestalten-zyklen-1-und-2-6-lektionen-schule-wimmis-schulhaus-39859",
-        "stv-fachlehrperson-textiles-gestalten-zyklen-1-und-2-6-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39859"
+        "stv-fachlehrperson-textiles-gestalten-zyklen-1-und-2-6-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39859",
+        "stv-professeur-specialise-textiles-designing-cycles-1-et-2-6-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-39859"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -838,7 +839,8 @@
           "stv-fachlehrperson-textiles-gestalten-zyklen-1-und-2-6-lektionen-schule-wimmis-schulhaus-39859"
         ],
         "fr": [
-          "stv-fachlehrperson-textiles-gestalten-zyklen-1-und-2-6-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39859"
+          "stv-fachlehrperson-textiles-gestalten-zyklen-1-und-2-6-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39859",
+          "stv-professeur-specialise-textiles-designing-cycles-1-et-2-6-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-39859"
         ]
       },
       "needsRetranslation": true,
@@ -7086,8 +7088,8 @@
       "slugByLocale": {
         "de": "fachperson-neurodiversitat-80-divergenta-grunaustrass-15-wabern-39879",
         "it": "specialista-in-neurodiversita-80-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wabern-39879",
-        "en": "fachperson-neurodiversitat-80-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wabern-39879",
-        "fr": "fachperson-neurodiversitat-80-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wabern-39879"
+        "en": "neurodiversity-specialist-80-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wabern-39879",
+        "fr": "specialiste-en-neurodiversite-80-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wabern-39879"
       },
       "slugDisambiguator": "39879",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -7136,11 +7138,18 @@
         "it": [
           "fachperson-neurodiversitat-80-divergenta-grunaustrass-15-wabern-39879",
           "fachperson-neurodiversitat-80-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wabern"
+        ],
+        "en": [
+          "fachperson-neurodiversitat-80-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wabern-39879"
+        ],
+        "fr": [
+          "fachperson-neurodiversitat-80-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wabern-39879"
         ]
       },
       "previousSlugs": [
         "fachperson-neurodiversitat-80-divergenta-grunaustrass-15-wabern-39879",
-        "fachperson-neurodiversitat-80-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wabern"
+        "fachperson-neurodiversitat-80-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wabern",
+        "fachperson-neurodiversitat-80-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wabern-39879"
       ],
       "salaryMin": 54800,
       "salaryMax": 83200,

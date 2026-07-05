@@ -56,8 +56,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-actuarial-analyst-everest-re-ch",
-          "senior-actuarial-analista-everest-re-zurich-switzerland"
+          "senior-actuarial-analyst-everest-re-ch"
         ],
         "de": [
           "senior-actuarial-analyst-everest-re-ch"
@@ -83,9 +82,9 @@
     },
     {
       "id": "everest-re-f1d13b3c25ab",
-      "slug": "senior-underwriting-assistant-everest-re-ch",
+      "slug": "assistente-di-sottoscrizione-senior-everest-re-zurich",
       "slugByLocale": {
-        "it": "senior-underwriting-assistant-everest-re-ch",
+        "it": "assistente-di-sottoscrizione-senior-everest-re-zurich",
         "en": "senior-underwriting-assistant-everest-re-ch",
         "de": "senior-underwriting-assistant-everest-re-ch",
         "fr": "assistant-principal-de-souscription-everest-re-zurich"
@@ -142,7 +141,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-underwriting-assistant-everest-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-underwriting-assistant-everest-re-ch"
+      ]
     },
     {
       "id": "everest-re-c78959051657",
@@ -198,8 +205,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "underwriter-i-reinsurance-everest-re-ch",
-          "sottoscrittore-i-reinsurance-everest-re-zurich"
+          "underwriter-i-reinsurance-everest-re-ch"
         ],
         "de": [
           "underwriter-i-reinsurance-everest-re-zurich"

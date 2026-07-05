@@ -3504,7 +3504,7 @@
         "it": "partner-del-viaggio-paziente-ophthalmology-roche-almaty",
         "en": "patient-journey-partner-ophthalmology-roche-ch",
         "de": "patient-journey-partner-ophthalmology-roche-ch",
-        "fr": "partenaire-de-voyage-ophtalmologique-roche-almaty"
+        "fr": "ophtalmologie-du-partenaire-voyage-patient-roche-almaty"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -3546,7 +3546,7 @@
       "previousSlugs": [
         "patient-journey-partner-ophthalmology-roche-ch",
         "partenaire-de-voyage-des-patients-ophtalmologie-roche-almaty",
-        "ophtalmologie-du-partenaire-voyage-patient-roche-almaty"
+        "partenaire-de-voyage-ophtalmologique-roche-almaty"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3555,7 +3555,7 @@
         "fr": [
           "patient-journey-partner-ophthalmology-roche-ch",
           "partenaire-de-voyage-des-patients-ophtalmologie-roche-almaty",
-          "ophtalmologie-du-partenaire-voyage-patient-roche-almaty"
+          "partenaire-de-voyage-ophtalmologique-roche-almaty"
         ]
       },
       "needsRetranslation": true,
@@ -15051,9 +15051,9 @@
     },
     {
       "id": "roche-353c8b53b221",
-      "slug": "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore",
+      "slug": "buyer-trainee-attacca-e-programma-treno-roche-central-singapore",
       "slugByLocale": {
-        "it": "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore",
+        "it": "buyer-trainee-attacca-e-programma-treno-roche-central-singapore",
         "en": "buyer-trainee-attach-train-program-roche-ch",
         "de": "buyer-auszubildender-attach-train-program-roche-central-singapore",
         "fr": "buyer-apprenti-attach-train-program-roche-central-singapore"
@@ -15097,12 +15097,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "buyer-trainee-attach-train-program-roche-ch",
-        "buyer-trainee-attacca-e-programma-treno-roche-central-singapore"
+        "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
           "buyer-trainee-attach-train-program-roche-ch",
-          "buyer-trainee-attacca-e-programma-treno-roche-central-singapore"
+          "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore"
         ]
       },
       "needsRetranslation": true,
@@ -76085,7 +76085,7 @@
         "it": "tirocinante-a-supporto-del-reparto-vendite-roche-warsaw",
         "en": "stazysta-do-wsparcia-dzia-u-sprzedazy-roche-ch",
         "de": "stazysta-do-wsparcia-dzia-u-sprzedazy-roche-ch",
-        "fr": "stysta-do-wsparcia-dzia-u-sprzeda-roche-warsaw"
+        "fr": "l-objectif-de-l-evaluation-est-de-determiner-si-les-resultats-de-l-evaluation-sont-positifs-roche-warsaw"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -76125,11 +76125,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stazysta-do-wsparcia-dzia-u-sprzedazy-roche-ch"
+        "stazysta-do-wsparcia-dzia-u-sprzedazy-roche-ch",
+        "stysta-do-wsparcia-dzia-u-sprzeda-roche-warsaw"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stazysta-do-wsparcia-dzia-u-sprzedazy-roche-ch"
+        ],
+        "fr": [
+          "stysta-do-wsparcia-dzia-u-sprzeda-roche-warsaw"
         ]
       },
       "firstSeenAt": "2026-06-30T23:09:43.283Z",
@@ -78446,9 +78450,9 @@
     },
     {
       "id": "roche-5c24fc038732",
-      "slug": "global-product-planner-roche-ch",
+      "slug": "pianificatore-di-prodotto-globale-roche-singapore",
       "slugByLocale": {
-        "it": "global-product-planner-roche-ch",
+        "it": "pianificatore-di-prodotto-globale-roche-singapore",
         "en": "global-product-planner-roche-ch",
         "de": "globaler-produktplaner-roche-singapore",
         "fr": "planificateur-mondial-de-produits-roche-singapore"
@@ -78504,7 +78508,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-product-planner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-product-planner-roche-ch"
+      ]
     },
     {
       "id": "roche-77628694df44",
@@ -79598,9 +79610,9 @@
     },
     {
       "id": "roche-65ead38861c9",
-      "slug": "clinical-pharmacology-lead-principal-scientist-roche-ch",
+      "slug": "piombo-di-farmacologia-clinica-principale-scienziato-roche-basel",
       "slugByLocale": {
-        "it": "clinical-pharmacology-lead-principal-scientist-roche-ch",
+        "it": "piombo-di-farmacologia-clinica-principale-scienziato-roche-basel",
         "en": "clinical-pharmacology-lead-principal-scientist-roche-ch",
         "de": "klinische-pharmakologie-lead-hauptwissenschaftler-roche-basel",
         "fr": "responsable-de-la-pharmacologie-clinique-chercheur-principal-roche-basel"
@@ -79656,14 +79668,22 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-pharmacology-lead-principal-scientist-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-pharmacology-lead-principal-scientist-roche-ch"
+      ]
     },
     {
       "id": "roche-621373e5a6ef",
       "slug": "alternate-marketing-access-regional-f-m-d-roche-paris",
       "slugByLocale": {
         "it": "alternate-marketing-access-regional-f-m-d-roche-paris",
-        "en": "alternant-marketing-acces-regional-f-m-d-roche-ch",
+        "en": "alternate-marketing-regional-access-f-m-d-roche-paris",
         "de": "alternative-marketing-access-regional-w-m-d-roche-paris",
         "fr": "alternant-marketing-acces-regional-f-m-d-roche-ch"
       },
@@ -79712,6 +79732,9 @@
           "alternant-marketing-acces-regional-f-m-d-roche-ch"
         ],
         "de": [
+          "alternant-marketing-acces-regional-f-m-d-roche-ch"
+        ],
+        "en": [
           "alternant-marketing-acces-regional-f-m-d-roche-ch"
         ]
       },
@@ -81619,7 +81642,7 @@
       "slug": "marketing-tirocinante-roche-mexico-city",
       "slugByLocale": {
         "it": "marketing-tirocinante-roche-mexico-city",
-        "en": "marketing-intern-roche-mexico-city",
+        "en": "internal-marketing-roche-mexico-city",
         "de": "marketing-praktikant-roche-mexico-city",
         "fr": "marketing-intern-roche-ch"
       },
@@ -81662,14 +81685,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "marketing-intern-roche-ch-2",
-        "internal-marketing-roche-mexico-city"
+        "marketing-intern-roche-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "marketing-intern-roche-ch-2"
         ],
         "en": [
-          "internal-marketing-roche-mexico-city"
+          "marketing-intern-roche-mexico-city"
         ],
         "de": [
           "marketing-intern-roche-ch-2"
@@ -91924,8 +91947,8 @@
       "slugByLocale": {
         "en": "it-project-manager-rdt-epie-roche-ch",
         "it": "it-project-manager-rdt-epie-roche-ch",
-        "de": "it-project-manager-rdt-epie-roche-ch",
-        "fr": "it-project-manager-rdt-epie-roche-ch"
+        "de": "it-projektmanager-rdt-epie-roche-pune",
+        "fr": "gestionnaire-de-projet-it-rdt-epie-roche-pune"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91984,12 +92007,12 @@
     },
     {
       "id": "roche-20380e7bd027",
-      "slug": "infrastructure-management-and-provisioning-ace-ai-factory-roche-ch",
+      "slug": "gestione-e-provisioning-delle-infrastrutture-ace-ai-factory-roche-madrid",
       "slugByLocale": {
         "en": "infrastructure-management-and-provisioning-ace-ai-factory-roche-ch",
-        "it": "infrastructure-management-and-provisioning-ace-ai-factory-roche-ch",
-        "de": "infrastructure-management-and-provisioning-ace-ai-factory-roche-ch",
-        "fr": "infrastructure-management-and-provisioning-ace-ai-factory-roche-ch"
+        "it": "gestione-e-provisioning-delle-infrastrutture-ace-ai-factory-roche-madrid",
+        "de": "infrastrukturmanagement-und-bereitstellung-ace-ai-factory-roche-madrid",
+        "fr": "gestion-de-l-infrastructure-et-fourniture-ace-ai-factory-roche-madrid"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -92044,7 +92067,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-05T12:28:08.591Z"
+      "firstSeenAt": "2026-07-05T12:28:08.591Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infrastructure-management-and-provisioning-ace-ai-factory-roche-ch"
+        ],
+        "de": [
+          "infrastructure-management-and-provisioning-ace-ai-factory-roche-ch"
+        ],
+        "fr": [
+          "infrastructure-management-and-provisioning-ace-ai-factory-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "infrastructure-management-and-provisioning-ace-ai-factory-roche-ch"
+      ]
     },
     {
       "id": "roche-7bf89e6873e7",

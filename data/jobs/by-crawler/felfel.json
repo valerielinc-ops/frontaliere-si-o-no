@@ -763,7 +763,7 @@
         "en": "account-manager-felfel-zurich",
         "it": "gestione-account-felfel-zurich",
         "de": "account-manager-felfel-zurich",
-        "fr": "account-manager-felfel-zurich"
+        "fr": "gestionnaire-de-comptes-felfel-zurich"
       },
       "company": "FELFEL",
       "companyKey": "felfel",
@@ -823,6 +823,9 @@
       "firstSeenAt": "2026-07-05T10:51:07.062Z",
       "previousSlugsByLocale": {
         "it": [
+          "account-manager-felfel-zurich"
+        ],
+        "fr": [
           "account-manager-felfel-zurich"
         ]
       },

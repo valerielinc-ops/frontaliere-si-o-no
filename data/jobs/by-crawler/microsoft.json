@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "microsoft-200042292",
-      "slug": "data-center-project-manager-microsoft-geneva",
+      "slug": "responsabile-del-progetto-data-center-microsoft-geneva",
       "slugByLocale": {
-        "it": "data-center-project-manager-microsoft-geneva",
+        "it": "responsabile-del-progetto-data-center-microsoft-geneva",
         "en": "data-center-project-manager-microsoft-geneva",
         "de": "projektmanager-data-center-microsoft-geneva",
         "fr": "gestionnaire-de-projet-data-center-microsoft-geneva"
@@ -62,7 +62,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-center-project-manager-microsoft-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "data-center-project-manager-microsoft-geneva"
+      ]
     },
     {
       "id": "microsoft-200040836",
@@ -116,8 +124,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-microsoft-zurich",
-          "senior-software-ingegnere-microsoft-zurich"
+          "senior-software-engineer-microsoft-zurich"
         ],
         "de": [
           "senior-software-engineer-microsoft-zurich"
@@ -257,8 +264,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-sciences-internship-microsoft-zurich",
-          "tirocinio-in-scienze-applicate-microsoft-zurich"
+          "applied-sciences-internship-microsoft-zurich"
         ],
         "de": [
           "applied-sciences-internship-microsoft-zurich"
