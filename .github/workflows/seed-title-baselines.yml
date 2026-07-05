@@ -1,23 +1,25 @@
-name: Seed title-length + title-no-disambig-hash baselines
+name: Seed title-length + title-no-disambig-hash + h1-title-duplicates baselines
 
-# One-shot helper workflow: regenerates the two new title-related
-# audit baselines against the latest deployed dist/ (downloaded from the
+# One-shot helper workflow: regenerates the three title-related audit
+# baselines against the latest deployed dist/ (downloaded from the
 # most recent `github-pages` artifact) and uploads the small JSON outputs
 # as artifacts.
 #
 # Why this exists
 # ---------------
-# `audit-title-length` and `audit-title-no-disambig-hash` ship with
-# conservative ceiling baselines (16 000 / 70 000) so the deploy gate
-# passes on the first CI run after the cap=66 + drop-brand fix landed.
-# Once a real production deploy produces a fresh dist/ with the new
-# code, we need a one-shot run to compute actual per-feature counts and
-# tighten the ratchets. After this initial seed, baselines are updated
-# manually via `npm run audit:title-length:rebaseline` and
-# `npm run audit:title-no-disambig-hash:rebaseline` whenever a deploy
-# deliberately lowers an offender count.
+# `audit-title-length`, `audit-title-no-disambig-hash` and
+# `audit-h1-title-duplicates` all migrated to the mix-adjusted rate
+# ratchet (per-feature offender RATE vs a `mode:'rate'` baseline, not a
+# flat count) — see `scripts/lib/mixAdjustedRateGate.mjs`. Their
+# committed baselines are still the legacy flat-count shape (supported
+# for backward compat but inert re: the new rate logic) until reseeded
+# once against a real production dist/. After this seed, baselines are
+# updated manually via `npm run audit:title-length:rebaseline`,
+# `npm run audit:title-no-disambig-hash:rebaseline` and
+# `npm run audit:h1-title-duplicates:rebaseline` whenever a deploy
+# deliberately lowers an offender rate.
 #
-# Mirrors `seed-bfs-depth-baseline.yml` exactly — same flow, two
+# Mirrors `seed-bfs-depth-baseline.yml` exactly — same flow, three
 # baselines instead of one.
 #
 # Full-dist rehydrate (sibling fix for issue #3104, mirrors
@@ -39,10 +41,11 @@ name: Seed title-length + title-no-disambig-hash baselines
 # -----
 # 1. Trigger via "Run workflow" in the GitHub UI (workflow_dispatch).
 # 2. Download the `title-baselines-${{ github.run_id }}` artifact.
-# 3. Replace the two baselines, commit, push:
+# 3. Replace the three baselines, commit, push:
 #       cp /tmp/title-length-baseline.json data/
 #       cp /tmp/title-no-disambig-hash-baseline.json data/
-#       git add data/title-length-baseline.json data/title-no-disambig-hash-baseline.json
+#       cp /tmp/h1-title-duplicates-baseline.json data/
+#       git add data/title-length-baseline.json data/title-no-disambig-hash-baseline.json data/h1-title-duplicates-baseline.json
 #       git commit -m "chore(seo-gate): tighten title baselines from prod dist"
 #       git push
 
@@ -248,6 +251,14 @@ jobs:
           echo "==== title-no-disambig-hash baseline preview ===="
           head -30 data/title-no-disambig-hash-baseline.json
 
+      - name: Generate h1-title-duplicates baseline
+        run: |
+          node scripts/audit-h1-title-duplicates.mjs \
+            --write-baseline=data/h1-title-duplicates-baseline.json
+          echo ""
+          echo "==== h1-title-duplicates baseline preview ===="
+          head -30 data/h1-title-duplicates-baseline.json
+
       - name: Upload baselines
         uses: actions/upload-artifact@v7
         with:
@@ -255,6 +266,7 @@ jobs:
           path: |
             data/title-length-baseline.json
             data/title-no-disambig-hash-baseline.json
+            data/h1-title-duplicates-baseline.json
           retention-days: 14
           if-no-files-found: error
 
@@ -273,7 +285,8 @@ jobs:
           echo "2. Replace and commit:"
           echo "   cp /tmp/title-length-baseline.json data/"
           echo "   cp /tmp/title-no-disambig-hash-baseline.json data/"
-          echo "   git add data/title-length-baseline.json data/title-no-disambig-hash-baseline.json"
+          echo "   cp /tmp/h1-title-duplicates-baseline.json data/"
+          echo "   git add data/title-length-baseline.json data/title-no-disambig-hash-baseline.json data/h1-title-duplicates-baseline.json"
           echo "   git commit -m \"chore(seo-gate): tighten title baselines from prod dist\""
           echo "   git push"
           echo ""
