@@ -23,6 +23,7 @@ import {
   WEEKLY_EMPLOYERS_LOCALES,
   buildCompanyCityArchivePath,
   buildCompanyCityCurrentPath,
+  buildCurrentWeekPath,
   canonicalCompanySlug,
   isCompanyCityPath,
   listCompanyCityCurrentPaths,
@@ -33,9 +34,11 @@ import {
 import {
   buildCompanyCityStats,
   enumerateCompanyCityPairs,
+  findOrphanedCompanyCityPairs,
   generateWeeklyEmployerPages,
   injectSiblingLinks,
   renderCompanyCityPage,
+  renderOrphanCompanyCityBridge,
   type JobsSnapshot,
   type WeeklyCountableJob,
 } from '../build-plugins/weeklyEmployersPlugin';
@@ -832,6 +835,131 @@ describe('generateWeeklyEmployerPages — company-city integration', () => {
     expect(luganoIt).toBeTruthy();
     // With delta=3, the IT hero block says "+3" (5 this week - 2 previous).
     expect(luganoIt?.html).toMatch(/\+3/);
+  });
+});
+
+// ── Orphaned-pair redirect bridge (never-404 guarantee) ─────────
+
+describe('findOrphanedCompanyCityPairs', () => {
+  const snapshotWith = (week: string, employer: string, employerKey: string, city: string, count: number): JobsSnapshot => ({
+    week,
+    jobs: Array.from({ length: count }, (_, i) => ({
+      slug: `${employerKey}-${city}-${i}`,
+      employer,
+      employerKey,
+      city,
+    })),
+  });
+
+  it('returns empty when no snapshot history exists', () => {
+    expect(findOrphanedCompanyCityPairs([], [])).toEqual([]);
+  });
+
+  it('flags a pair that qualified in a past snapshot but is absent this build', () => {
+    const snapshots = [snapshotWith('2026-20', 'Gamma SA', 'gamma-sa', 'Chiasso', 4)];
+    const orphans = findOrphanedCompanyCityPairs(snapshots, []);
+    expect(orphans).toEqual([
+      { city: 'chiasso', companySlug: 'gamma-sa', employer: 'Gamma SA' },
+    ]);
+  });
+
+  it('does NOT flag a pair that is still in the current qualifying set', () => {
+    const snapshots = [snapshotWith('2026-20', 'Gamma SA', 'gamma-sa', 'Chiasso', 4)];
+    const orphans = findOrphanedCompanyCityPairs(snapshots, [
+      { city: 'chiasso' as WeeklyEmployersCompanyCity, companySlug: 'gamma-sa' },
+    ]);
+    expect(orphans).toEqual([]);
+  });
+
+  it('does NOT flag a snapshot pair that never met the 3-job gate', () => {
+    const snapshots = [snapshotWith('2026-20', 'Gamma SA', 'gamma-sa', 'Chiasso', 2)];
+    expect(findOrphanedCompanyCityPairs(snapshots, [])).toEqual([]);
+  });
+
+  it('dedupes the same orphaned pair across multiple past snapshots', () => {
+    const snapshots = [
+      snapshotWith('2026-19', 'Gamma SA', 'gamma-sa', 'Chiasso', 3),
+      snapshotWith('2026-20', 'Gamma SA', 'gamma-sa', 'Chiasso', 5),
+    ];
+    expect(findOrphanedCompanyCityPairs(snapshots, [])).toHaveLength(1);
+  });
+
+  it('ignores snapshot jobs whose city does not match any company-city hub', () => {
+    const snapshots = [snapshotWith('2026-20', 'Gamma SA', 'gamma-sa', 'Lausanne', 6)];
+    expect(findOrphanedCompanyCityPairs(snapshots, [])).toEqual([]);
+  });
+});
+
+describe('renderOrphanCompanyCityBridge', () => {
+  it('is noindex,follow and canonicalises to the city hub', () => {
+    for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+      const html = renderOrphanCompanyCityBridge(locale, 'chiasso', 'Gamma SA');
+      expect(html).toContain('name="robots" content="noindex,follow"');
+      const hubPath = buildCurrentWeekPath(locale, 'chiasso');
+      expect(html).toContain(hubPath);
+      expect(html).toContain('location.replace(');
+    }
+  });
+});
+
+describe('generateWeeklyEmployerPages — orphaned company-city bridges', () => {
+  it('emits a noindex bridge (not a 404) when a company drops below the gate', () => {
+    // Snapshot history remembers Gamma SA qualifying in Chiasso; current jobs
+    // don't include Gamma SA at all — this is the "company dropped out" case
+    // that used to leave cleanNamespaces() wipe the page into a 404.
+    const snapshots: JobsSnapshot[] = [
+      {
+        week: '2026-20',
+        jobs: Array.from({ length: 4 }, (_, i) => ({
+          slug: `gamma-chiasso-${i}`,
+          employer: 'Gamma SA',
+          employerKey: 'gamma-sa',
+          city: 'Chiasso',
+        })),
+      },
+    ];
+    const pages = generateWeeklyEmployerPages({
+      rootDir: process.cwd(),
+      jobs: makeEocJobs(4, 'Lugano'), // unrelated qualifying pair, no Gamma jobs at all
+      snapshots,
+      today: new Date('2026-04-20T12:00:00Z'),
+    });
+
+    const bridgePages = pages.filter((p) => p.path.includes('/chiasso/gamma-sa/'));
+    expect(bridgePages).toHaveLength(WEEKLY_EMPLOYERS_LOCALES.length);
+    for (const page of bridgePages) {
+      expect(page.indexable).toBe(false);
+      expect(page.bridge).toBe(true);
+      expect(page.html).toContain('noindex,follow');
+      // Word count is deliberately tiny — must not be gate-able as thin content
+      // since it's a redirect stub, not indexed content.
+    }
+
+    // Sitemap-eligible paths (via `indexable`) must exclude the bridge.
+    expect(pages.filter((p) => p.path.includes('gamma-sa')).every((p) => !p.indexable)).toBe(true);
+  });
+
+  it('does not emit a bridge for a pair that still qualifies this build', () => {
+    const jobs = makeEocJobs(4, 'Lugano');
+    const snapshots: JobsSnapshot[] = [
+      {
+        week: '2026-20',
+        jobs: jobs.map((j) => ({
+          slug: j.slug!,
+          employer: j.company!,
+          employerKey: j.companyKey,
+          city: 'Lugano',
+        })),
+      },
+    ];
+    const pages = generateWeeklyEmployerPages({
+      rootDir: process.cwd(),
+      jobs,
+      snapshots,
+      today: new Date('2026-04-20T12:00:00Z'),
+    });
+    const bridgePages = pages.filter((p) => p.bridge);
+    expect(bridgePages).toHaveLength(0);
   });
 });
 

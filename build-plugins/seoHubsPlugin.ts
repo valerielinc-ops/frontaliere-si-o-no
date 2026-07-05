@@ -21,7 +21,7 @@ import type fsT from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
 import type npT from 'node:path';
-import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT } from './constants';
+import { ADSENSE_SNIPPET, BASE_URL, buildCanonicalBridgePage, CDN_PRECONNECT_HINT } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import {
   ARTICLES_PAGE_SIZE,
@@ -1921,10 +1921,43 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
           companyUrlToKey, crawledLogos,
           jobPerLocale, entryJs, entryCss, hasSpaBundle, onPageEmitted } = args;
 
+
+  // Below-floor / noindex-parent bridge: when a canton's `tutti`/`settori`/
+  // `aziende` sub-hubs are skipped (job-count floor drop, or the canton
+  // landing itself went noindex — see cantonNoindexRegistry.ts), a URL that
+  // may already be indexed (via a prior build's sitemap) would otherwise
+  // hard-404 on GitHub Pages. Emit a noindex canonical-bridge page instead,
+  // pointing at the always-live canton section root
+  // (`resolveCantonSection` — same target jobsSeoPagesPlugin's own
+  // below-floor bridges use). Never added to the sitemap: this is a soft
+  // landing spot for stale inbound/crawled links, not new indexable content.
+  let thinCantonHubBelowFloorBridges = 0;
+  const emitCantonHubBelowFloorBridge = (canton: string): void => {
+    for (const locale of HUB_LOCALES) {
+      const section = resolveCantonSection(locale, canton);
+      const localePrefix = locale === 'it' ? '' : `/${locale}`;
+      const targetPath = `${localePrefix}/${section}/`;
+      for (const hub of ['tutti', 'settori', 'aziende'] as const) {
+        const canonicalPath = hubSlugFor(canton, locale, hub);
+        const html = buildCanonicalBridgePage({
+          canonicalUrl: `${BASE_URL}${targetPath}`,
+          pathLabel: canonicalPath,
+          lang: locale,
+          noindex: true,
+        });
+        qw(np.join(distDir, canonicalPath.slice(1), 'index.html'), html);
+        thinCantonHubBelowFloorBridges++;
+      }
+    }
+  };
+
   for (const canton of ALL_CANTON_CODES) {
     if (canton === 'TI') continue; // TI already emitted with full body above
     const total = cantonJobCounts.get(canton) ?? 0;
-    if (total < MIN_JOBS_FOR_CANTON_PAGE) continue;
+    if (total < MIN_JOBS_FOR_CANTON_PAGE) {
+      emitCantonHubBelowFloorBridge(canton);
+      continue;
+    }
 
     const jobs = cantonJobs.get(canton) ?? [];
     // Tighter gate: cantonJobCounts increments on every job (line 212), but
@@ -1936,7 +1969,10 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
     // gate to require ≥ MIN actual slug-bearing jobs to avoid that. Audit:
     // `sitemap-seo-hubs.xml` BFS regression 2026-05-18 (cerca-lavoro-
     // appenzello/{tutti,settori,aziende}/ +3 unreachable).
-    if (jobs.length < MIN_JOBS_FOR_CANTON_PAGE) continue;
+    if (jobs.length < MIN_JOBS_FOR_CANTON_PAGE) {
+      emitCantonHubBelowFloorBridge(canton);
+      continue;
+    }
 
     // Authoritative noindex check (2026-05-21 follow-up): the local dedup
     // heuristic below could not access `job.id` (snapshot-history rows carry
@@ -1950,7 +1986,10 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
     // jobsSeoPagesPlugin earlier in the same closeBundle pass) is the source
     // of truth. Audit: sitemap-seo-hubs.xml BFS regression 2026-05-21
     // (appenzello/sciaffusa/uri × 3 facets = 9 orphans).
-    if (isCantonNoindex(canton)) continue;
+    if (isCantonNoindex(canton)) {
+      emitCantonHubBelowFloorBridge(canton);
+      continue;
+    }
 
     // Local dedup fallback gate kept as a defense-in-depth check: covers the
     // case where the registry was never populated (e.g. jobsSeoPagesPlugin
@@ -1963,7 +2002,10 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
         const empKey = String(j.employerKey || j.employer || '').toLowerCase().replace(/\s+/g, ' ').trim();
         dedupKeys.add(`tc|${role}|${empKey}`);
       }
-      if (dedupKeys.size < MIN_JOBS_FOR_CANTON_PAGE) continue;
+      if (dedupKeys.size < MIN_JOBS_FOR_CANTON_PAGE) {
+        emitCantonHubBelowFloorBridge(canton);
+        continue;
+      }
     }
 
     const empCounts = cantonEmployerCounts.get(canton) ?? new Map<string, number>();
@@ -2155,6 +2197,9 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
         }
       }
     }
+  }
+  if (thinCantonHubBelowFloorBridges > 0) {
+    console.log(`\x1b[36m[seo-hubs]\x1b[0m below-floor/noindex canton hub bridges: ${thinCantonHubBelowFloorBridges}`);
   }
 }
 

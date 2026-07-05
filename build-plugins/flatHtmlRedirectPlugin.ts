@@ -75,7 +75,10 @@ function extractOgTags(indexHtml: string): string {
   return tags.join('\n');
 }
 
-const NOINDEX_BRIDGE = (slashUrl: string, title: string, ogTags: string): string =>
+/** Shared noindex redirect-bridge template — reused by any plugin that needs to
+ * point a stale-but-still-crawled URL at its live replacement (see
+ * `findOrphanedCompanyCityPairs` in weeklyEmployersPlugin.ts). */
+export const NOINDEX_BRIDGE = (slashUrl: string, title: string, ogTags: string): string =>
   `<!DOCTYPE html>
 <html lang="it">
 <head>

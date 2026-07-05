@@ -14,6 +14,7 @@ import fs from 'node:fs';
 import np from 'node:path';
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { renderSalaryStatsBridge } from './shared/salaryStatsBridge';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
@@ -45,6 +46,7 @@ import {
 import {
   SALARY_STATS_CANTON_SLUGS,
   SALARY_STATS_FACTOR_CODE,
+  buildSalaryStatsPath,
 } from './salaryStatsData';
 import { buildProfessionCantonPath, PROFESSION_CANTON_KEYS } from './professionCantonData';
 import { resolveProfessionCantonsFlushed } from './shared/buildSignals';
@@ -171,6 +173,57 @@ function cantonAnnualMedian(cantonKey: string): number {
   return monthly * 12;
 }
 
+interface BridgeCopy {
+  title: (role: string, canton: string) => string;
+  body: (role: string, canton: string) => string;
+  cta: (canton: string) => string;
+}
+
+const BRIDGE_COPY: Record<ProfessionLocale, BridgeCopy> = {
+  it: {
+    title: (r, c) => `Lavoro ${r} Canton ${c}`,
+    body: (r, c) => `Al momento non ci sono abbastanza offerte attive per ${r} nel Canton ${c} da mostrare una pagina dedicata. Consulta stipendi e mercato del lavoro nel Canton ${c}.`,
+    cta: (c) => `Vai ai dati del Canton ${c}`,
+  },
+  en: {
+    title: (r, c) => `${r} jobs in Canton ${c}`,
+    body: (r, c) => `There aren't enough active ${r} openings in Canton ${c} right now for a dedicated page. See salary and job-market data for Canton ${c}.`,
+    cta: (c) => `Go to Canton ${c} data`,
+  },
+  de: {
+    title: (r, c) => `${r}-Stellen im Kanton ${c}`,
+    body: (r, c) => `Im Kanton ${c} gibt es derzeit nicht genug aktive ${r}-Stellen fur eine eigene Seite. Lohn- und Arbeitsmarktdaten fur den Kanton ${c} ansehen.`,
+    cta: (c) => `Zu den Daten fur Kanton ${c}`,
+  },
+  fr: {
+    title: (r, c) => `Emplois ${r} dans le canton ${c}`,
+    body: (r, c) => `Il n'y a pas assez d'offres actives pour ${r} dans le canton ${c} pour une page dediee actuellement. Consultez les donnees salariales et du marche du travail du canton ${c}.`,
+    cta: (c) => `Voir les donnees du canton ${c}`,
+  },
+};
+
+/**
+ * Below-floor bridge: a (canton, profession) pair that doesn't meet MIN_JOBS
+ * this build gets a noindex,follow canonical bridge instead of a hard 404.
+ * Job counts fluctuate build to build, and this exact path may have been
+ * indexed on a prior build when it did meet the floor (same orphaned-static-
+ * page class fixed for weekly-employers company-city hubs via
+ * findOrphanedCompanyCityPairs in weeklyEmployersPlugin.ts). The bridge
+ * targets the same per-canton salary-stats hub the live page's own CTA links
+ * to (buildSalaryStatsPath) — that family is emitted unconditionally for
+ * every canton regardless of job counts, so it's always a safe target.
+ */
+function renderBelowFloorBridge(locale: ProfessionLocale, cantonKey: string, id: ProfessionId): string {
+  const cantonName = getCantonDisplayName(cantonKey, locale as CantonDisplayLocale);
+  const role = professionLabel(locale, id);
+  const copy = BRIDGE_COPY[locale];
+  return renderSalaryStatsBridge(locale, cantonKey, {
+    title: copy.title(role, cantonName),
+    description: copy.body(role, cantonName),
+    ctaLabel: copy.cta(cantonName),
+  });
+}
+
 export function renderProfessionCantonPage(opts: {
   locale: ProfessionLocale;
   cantonKey: string;
@@ -220,7 +273,7 @@ export function renderProfessionCantonPage(opts: {
   const cantonSlug = SALARY_STATS_CANTON_SLUGS[cantonKey][locale];
   // Link to the per-canton salary stats landing (shipped in PR #2085) + the
   // job board filtered by this role.
-  const ctaHref = `${PROFESSION_LOCALE_PREFIX[locale]}/${locale === 'it' ? 'stipendi' : locale === 'en' ? 'salaries' : locale === 'de' ? 'gehaelter' : 'salaires'}-${cantonSlug}/`.replace(/\/{2,}/g, '/');
+  const ctaHref = buildSalaryStatsPath(locale, cantonSlug);
 
   const prose = renderCantonSeoProse({
     locale: locale as CantonSeoLocale,
@@ -285,6 +338,8 @@ export interface ProfessionCantonEmitResult {
   pagesWritten: number;
   pagesSkippedForJobs: number;
   pagesSkippedForWordCount: number;
+  /** Below-floor pairs bridged to the salary-stats hub instead of left to 404. */
+  bridgesWritten: number;
   emittedPaths: string[];
 }
 
@@ -332,17 +387,26 @@ function removeSitemapFromIndex(distDir: string): void {
 }
 
 export async function emitProfessionCantonPages(opts: { rootDir: string; distDir: string }): Promise<ProfessionCantonEmitResult> {
-  const result: ProfessionCantonEmitResult = { pagesWritten: 0, pagesSkippedForJobs: 0, pagesSkippedForWordCount: 0, emittedPaths: [] };
+  const result: ProfessionCantonEmitResult = { pagesWritten: 0, pagesSkippedForJobs: 0, pagesSkippedForWordCount: 0, bridgesWritten: 0, emittedPaths: [] };
   const byCanton = aggregateProfessionJobsByCanton(opts.rootDir);
   const collector = new WriteCollector({ distDir: opts.distDir, pluginName: 'professionCantonLandings' });
 
   for (const cantonKey of PROFESSION_CANTON_KEYS) {
+    // No early `continue` on a missing canton bucket: a canton with zero
+    // matched jobs this build (data gap, not just one profession dipping
+    // below floor) must still get bridges for every profession, or a
+    // previously-live page in that canton would 404 with no recovery path.
     const perProfession = byCanton[cantonKey];
-    if (!perProfession) continue;
     for (const id of PROFESSION_IDS) {
-      const snapshot = perProfession[id];
+      const snapshot = perProfession?.[id];
       if (!snapshot || snapshot.liveCount < MIN_JOBS) {
         result.pagesSkippedForJobs++;
+        for (const locale of PROFESSION_LOCALES) {
+          const canonicalPath = buildProfessionCantonPath(locale, cantonKey, id);
+          const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderBelowFloorBridge(locale, cantonKey, id));
+          result.bridgesWritten++;
+        }
         continue;
       }
       // Render all 4 locales first and emit ALL-OR-NOTHING: every emitted page
@@ -397,7 +461,7 @@ export function professionCantonLandings(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       const res = await emitProfessionCantonPages({ rootDir, distDir });
       // eslint-disable-next-line no-console
-      console.log(`[profession-cantons] emitted ${res.pagesWritten} pages (${res.pagesSkippedForJobs} pairs below job floor, ${res.pagesSkippedForWordCount} below word gate)`);
+      console.log(`[profession-cantons] emitted ${res.pagesWritten} pages, ${res.bridgesWritten} below-floor bridges (${res.pagesSkippedForJobs} pairs below job floor, ${res.pagesSkippedForWordCount} below word gate)`);
       // Hand the emitted canonical paths to professionCantonLandingsLinksPlugin
       // so it can de-orphan exactly the pages that shipped (CLAUDE.md regola #5:
       // close orphans with real internal links, not by relaxing the gate).

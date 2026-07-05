@@ -107,6 +107,7 @@ import { LOGO_IMG_ONERROR } from './shared/companyLogoResolver';
 import { type JobInput } from './shared/jobPostingSchema';
 import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import { NOINDEX_BRIDGE } from './flatHtmlRedirectPlugin';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
 import {
   renderEmployerCardListHtml,
@@ -1200,6 +1201,78 @@ export function enumerateCompanyCityPairs(
     MAX_COMPANY_CITY_PAGES_PER_BUILD / WEEKLY_EMPLOYERS_LOCALES.length,
   );
   return pages.slice(0, maxPairs);
+}
+
+/**
+ * (city, companySlug) pairs that met {@link companyCityMeetsThreshold} in some
+ * past weekly snapshot but are absent from `currentPairs` this build.
+ *
+ * `closeBundle` wipes the whole company×city namespace before regenerating
+ * (see "Ext3 task 3" in `weeklyEmployersPlugin`'s closeBundle) so a page that
+ * qualified last week and got indexed, then dropped below
+ * `MIN_JOBS_PER_COMPANY_IN_CITY` this week, would otherwise hard-404 instead
+ * of redirecting — this is what backfills the gap so the closeBundle handler
+ * can emit a noindex bridge to the city hub for each one instead.
+ */
+export function findOrphanedCompanyCityPairs(
+  snapshots: readonly JobsSnapshot[],
+  currentPairs: readonly CompanyCityPair[],
+): Array<CompanyCityPair & { employer: string }> {
+  const currentKeys = new Set(currentPairs.map((p) => `${p.city}::${p.companySlug}`));
+  const seen = new Map<string, CompanyCityPair & { employer: string }>();
+
+  for (const snapshot of snapshots) {
+    const counts = new Map<
+      WeeklyEmployersCompanyCity,
+      Map<string, { employer: string; active: number }>
+    >();
+    for (const job of snapshot.jobs) {
+      const employer = String(job.employer || '').trim();
+      if (!employer) continue;
+      const employerKey = normEmployerKey(employer, job.employerKey);
+      if (!employerKey) continue;
+      const cityLower = String(job.city || '').toLowerCase();
+      if (!cityLower) continue;
+      for (const city of WEEKLY_EMPLOYERS_COMPANY_CITY_LIST) {
+        if (!cityLower.includes(WEEKLY_EMPLOYERS_CITY_DISPLAY[city].toLowerCase())) continue;
+        let cityCounts = counts.get(city);
+        if (!cityCounts) {
+          cityCounts = new Map();
+          counts.set(city, cityCounts);
+        }
+        const rec = cityCounts.get(employerKey);
+        if (rec) rec.active++;
+        else cityCounts.set(employerKey, { employer, active: 1 });
+      }
+    }
+    for (const [city, cityCounts] of counts.entries()) {
+      for (const [employerKey, rec] of cityCounts.entries()) {
+        if (!companyCityMeetsThreshold(rec)) continue;
+        const companySlug = canonicalCompanySlug(rec.employer, employerKey);
+        if (!companySlug || !/^[a-z0-9][a-z0-9-]*$/.test(companySlug)) continue;
+        const key = `${city}::${companySlug}`;
+        if (currentKeys.has(key) || seen.has(key)) continue;
+        seen.set(key, { city, companySlug, employer: rec.employer });
+      }
+    }
+  }
+
+  return Array.from(seen.values());
+}
+
+/**
+ * noindex,follow redirect bridge for an orphaned company-city pair, pointing
+ * crawlers at the still-live city hub instead of a 404.
+ */
+export function renderOrphanCompanyCityBridge(
+  locale: WeeklyEmployersLocale,
+  city: WeeklyEmployersCompanyCity,
+  employer: string,
+): string {
+  const hubPath = buildCurrentWeekPath(locale, city);
+  const hubUrl = `${BASE_URL}${hubPath}`;
+  const title = `${employer} — ${WEEKLY_EMPLOYERS_CITY_DISPLAY[city]}`;
+  return NOINDEX_BRIDGE(hubUrl, title, '');
 }
 
 /**
@@ -3730,6 +3803,9 @@ export interface GeneratedPage {
   path: string;
   html: string;
   indexable: boolean;
+  /** True for orphaned-pair redirect bridges — exempt from the MIN_INDEXABLE_WORDS
+   * gate (they're deliberately noindex, so thin-content rules don't apply). */
+  bridge?: boolean;
 }
 
 export interface GenerationOptions {
@@ -3799,6 +3875,9 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
   const __tPairs = __weProfStart();
   const qualifyingPairs = enumerateCompanyCityPairs(opts.jobs, jobPartition);
   __weProfRecord('gen-pairs', __tPairs);
+  const __tOrphans = __weProfStart();
+  const orphanedPairs = findOrphanedCompanyCityPairs(opts.snapshots, qualifyingPairs);
+  __weProfRecord('gen-orphans', __tOrphans);
   const leavesByCity = new Map<
     WeeklyEmployersCompanyCity,
     Array<{ companySlug: string; employer: string }>
@@ -4041,6 +4120,17 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
     }
   }
 
+  // Orphaned pairs: qualified in a past snapshot, don't qualify this build.
+  // Bridge every locale's canonical path to the still-live city hub instead
+  // of letting cleanNamespaces() turn the URL into a 404.
+  for (const orphan of orphanedPairs) {
+    for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+      const canonicalPath = buildCompanyCityCurrentPath(locale, orphan.city, orphan.companySlug);
+      const html = renderOrphanCompanyCityBridge(locale, orphan.city, orphan.employer);
+      pages.push({ path: canonicalPath, html, indexable: false, bridge: true });
+    }
+  }
+
   return pages;
 }
 
@@ -4051,6 +4141,7 @@ interface PluginResult {
   currentWeekPages: number;
   archivePages: number;
   companyCityPages: number;
+  orphanBridgePages: number;
   skippedForWordCount: number;
   degradedMode: boolean;
 }
@@ -4121,6 +4212,7 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
       let currentWeekCount = 0;
       let archiveCount = 0;
       let companyCityCount = 0;
+      let orphanBridgeCount = 0;
       let skipped = 0;
       // Paths that should land in sitemap-weekly-employers.xml. Only indexable
       // pages (current-week + last-12-weeks archives) are listed — noindex
@@ -4133,14 +4225,19 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
 
       for (const page of pages) {
         const __tPage = __weProfStart();
-        const words = countHtmlBodyWords(page.html);
-        if (words < MIN_INDEXABLE_WORDS) {
-          skipped++;
-          console.warn(
-            `[weekly-employers] thin content (${words} words) for ${page.path} — skipping`,
-          );
-          __weProfRecord('process-page', __tPage);
-          continue;
+        // Orphaned-pair redirect bridges are deliberately noindex and tiny —
+        // the thin-content gate exists to keep indexed pages substantial, not
+        // to block a redirect stub from reaching crawlers still hitting it.
+        if (!page.bridge) {
+          const words = countHtmlBodyWords(page.html);
+          if (words < MIN_INDEXABLE_WORDS) {
+            skipped++;
+            console.warn(
+              `[weekly-employers] thin content (${words} words) for ${page.path} — skipping`,
+            );
+            __weProfRecord('process-page', __tPage);
+            continue;
+          }
         }
         const outDir = np.join(distDir, page.path.replace(/^\/+/, ''));
         collector.add(np.join(outDir, 'index.html'), page.html);
@@ -4148,7 +4245,8 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
         // city, companySlug, when) vs. 3 segments for city-only pages. Use the
         // parse helper so we don't re-derive the rule.
         const companyCityMatch = parseCompanyCityPath(page.path);
-        if (companyCityMatch) companyCityCount++;
+        if (page.bridge) orphanBridgeCount++;
+        else if (companyCityMatch) companyCityCount++;
         else if (archiveRe.test(page.path)) archiveCount++;
         else currentWeekCount++;
         if (page.indexable) indexableSitemapPaths.push(page.path);
@@ -4197,12 +4295,13 @@ ${urlEntries}
         currentWeekPages: currentWeekCount,
         archivePages: archiveCount,
         companyCityPages: companyCityCount,
+        orphanBridgePages: orphanBridgeCount,
         skippedForWordCount: skipped,
         degradedMode: degraded,
       };
 
       console.log(
-        `\x1b[36m[weekly-employers]\x1b[0m Generated ${result.currentWeekPages} current-week + ${result.archivePages} archive + ${result.companyCityPages} company×city pages (skipped ${result.skippedForWordCount}) — degraded=${result.degradedMode}`,
+        `\x1b[36m[weekly-employers]\x1b[0m Generated ${result.currentWeekPages} current-week + ${result.archivePages} archive + ${result.companyCityPages} company×city + ${result.orphanBridgePages} orphan-bridge pages (skipped ${result.skippedForWordCount}) — degraded=${result.degradedMode}`,
       );
 
       // ── P2.S1: per-canton CH-wide "companies hiring" pages ────────
@@ -4218,7 +4317,7 @@ ${urlEntries}
         });
         const localesCount = WEEKLY_EMPLOYERS_LOCALES.length;
         console.log(
-          `\x1b[36m[weekly-employers]\x1b[0m P2.S1 emitted ${r.cantonsEmitted.length} per-canton employer pages × ${localesCount} locales`,
+          `\x1b[36m[weekly-employers]\x1b[0m P2.S1 emitted ${r.cantonsEmitted.length} per-canton employer pages × ${localesCount} locales (+${r.bridgesWritten} below-floor bridges)`,
         );
         if (r.cantonsSkipped.length > 0) {
           const skipped = r.cantonsSkipped
@@ -4226,7 +4325,7 @@ ${urlEntries}
             .map((s) => `${s.code}:${s.jobsCount}`)
             .join(', ');
           if (skipped) {
-            console.log(`[weekly-employers] P2.S1 skipped (below 5 jobs): ${skipped}`);
+            console.log(`[weekly-employers] P2.S1 skipped (below 5 jobs, bridged): ${skipped}`);
           }
         }
       } catch (err) {
