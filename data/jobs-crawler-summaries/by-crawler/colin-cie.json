@@ -1,16 +1,16 @@
 {
   "key": "colin-cie",
   "label": "colin-cie",
-  "generatedAt": "2026-07-04T21:44:38.639Z",
+  "generatedAt": "2026-07-05T10:31:31.372Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6853,
-  "avgDurationMs": 6853,
+  "durationMs": 7510,
+  "avgDurationMs": 7510,
   "durationHistory": [
-    6853
+    7510
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -225,15 +225,15 @@
       "salaryMin": 61000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "streetAddress": "Via Nassa 15",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "",
       "firstSeenAt": "2026-05-17T09:57:04.753Z",
-      "_qualityScore": 97,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 19
       }
     },
     {
@@ -262,15 +262,15 @@
       "salaryMin": 61000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "streetAddress": "Via Nassa 15",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "",
       "firstSeenAt": "2026-05-17T09:57:04.753Z",
-      "_qualityScore": 95,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
+        "completeness": 19
       }
     },
     {
@@ -299,15 +299,15 @@
       "salaryMin": 61000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "streetAddress": "Via Nassa 15",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "",
       "firstSeenAt": "2026-05-17T09:57:04.753Z",
-      "_qualityScore": 95,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
+        "completeness": 19
       }
     },
     {
