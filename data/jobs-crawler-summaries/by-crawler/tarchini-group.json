@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-07-04T23:35:29.657Z",
+  "generatedAt": "2026-07-05T12:41:42.521Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5656,
-  "avgDurationMs": 5656,
+  "durationMs": 4980,
+  "avgDurationMs": 4980,
   "durationHistory": [
-    5656
+    4980
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-04",
+      "postedDate": "2026-07-05",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -40,15 +40,15 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "streetAddress": "Via Cantonale 12",
-      "postalCode": "6533",
+      "streetAddress": "",
+      "postalCode": "6928",
       "firstSeenAt": "2026-04-13T22:32:13.614Z",
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -69,23 +69,23 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-04",
+      "postedDate": "2026-07-05",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
-      "streetAddress": "Via Cantonale 12",
-      "postalCode": "6533",
+      "streetAddress": "",
+      "postalCode": "6850",
       "id": "tarchini-group-12e715eba42b",
       "firstSeenAt": "2026-04-13T22:32:13.614Z",
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -106,23 +106,23 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-04",
+      "postedDate": "2026-07-05",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "streetAddress": "Via Cantonale 12",
-      "postalCode": "6533",
+      "streetAddress": "",
+      "postalCode": "6900",
       "id": "tarchini-group-b286e34534eb",
       "firstSeenAt": "2026-04-13T22:32:13.614Z",
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -143,7 +143,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-04",
+      "postedDate": "2026-07-05",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -151,15 +151,15 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Cantonale 12",
-      "postalCode": "6533",
+      "streetAddress": "",
+      "postalCode": "6928",
       "firstSeenAt": "2026-05-06T11:46:53.803Z",
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     }
   ],
