@@ -3137,7 +3137,17 @@ function repairLlmJson(raw) {
 // ── LLM call with body2 validation (model fallback via centralized ai-models.mjs) ──
 async function callLLM(messages, opts = {}) {
   const maxBody2Retries = 5;
-  const isBody2Check = opts.jsonMode && messages.some(m => m.content?.includes('body2'));
+  // Require ALL body/title/excerpt field names present (not just 'body2') so this
+  // only fires for the actual full-article generation prompt (which lists every
+  // REQUIRED_IT_BODY_FIELDS name together, see the "content.${primaryLocale}
+  // (title, excerpt, body1, body2, body3, faq)" instruction). A bare 'body2'
+  // substring also matches translateBodyField's single-field translation calls
+  // (prompt/schema `{"body2": "..."}`), where `missing` is guaranteed non-empty
+  // (title/excerpt/body1/body3 are never in that payload) regardless of
+  // translation quality — the retry-exhaustion path now throws instead of
+  // falling through, which used to ship the (valid) translated JSON anyway but
+  // would now discard it and ship IT-language content under /en /de /fr.
+  const isBody2Check = opts.jsonMode && REQUIRED_IT_BODY_FIELDS.every(f => messages.some(m => m.content?.includes(f)));
   for (let attempt = 1; attempt <= maxBody2Retries; attempt++) {
     const modelUsedRef = { model: null };
     // Default per-call ceiling 90s (was 120s, 2026-06-15). 90s still comfortably
@@ -3156,16 +3166,26 @@ async function callLLM(messages, opts = {}) {
     const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 90_000, deadlineMs: RUN_START_MS + RUN_WALL_BUDGET_MS, ...opts, modelUsedRef });
     if (isBody2Check) {
       let itContent = null;
+      let parseErr = null;
       try {
         const parsed = JSON.parse(repairLlmJson(result));
         itContent = normalizeItalianContentFromPayload(parsed);
-      } catch {
+      } catch (e) {
+        parseErr = e;
         itContent = null;
       }
 
       const missing = [];
       if (!itContent) {
         missing.push('content.it non normalizzabile');
+        // Previously swallowed silently — every "non normalizzabile" failure
+        // was unreproducible (no evidence of what the model actually sent).
+        // Log the parse error + a raw snippet so a recurring malformed-JSON
+        // pattern from a specific model can actually be root-caused.
+        if (parseErr) {
+          const snippet = String(result).slice(0, 300).replace(/\n/g, '\\n');
+          console.error(`  🔎 JSON parse fallito (${modelUsedRef.model || 'unknown'}): ${parseErr.message} — raw[0:300]: ${snippet}`);
+        }
       } else {
         for (const field of REQUIRED_IT_BODY_FIELDS) {
           if (!itContent?.[field] || itContent[field].length < 1) {
@@ -3193,7 +3213,23 @@ async function callLLM(messages, opts = {}) {
         // rest of this run after MAX_CONSECUTIVE_CONTENT_FAILURES; local/fallback
         // never is — it's the last resort when the whole remote chain is dead).
         recordModelContentFailure(modelUsedRef.model);
-        if (attempt < maxBody2Retries) continue;
+        // Bail out of this retry budget the moment the run-wide wall-clock
+        // deadline is gone, instead of blindly looping to maxBody2Retries.
+        // When every remote model is already exhausted, each retry here
+        // re-invokes local/fallback's ~6-10min CPU inference — 5 blind
+        // retries can burn the entire run budget on one unreliable model,
+        // leaving the outer model-rotation loop (callGemini's
+        // CREATE_ARTICLE_MIN_WORDS_RETRIES) zero real chance to try anything.
+        // Failing fast here instead preserves whatever budget is left for it.
+        if (attempt < maxBody2Retries && !wallBudgetExceeded()) continue;
+        // Do NOT fall through to `return result` below — that would ship the
+        // still-invalid payload (e.g. CJK/Cyrillic-drifted content.it, see
+        // isNonItalianScript above) straight to the indexed blog on the very
+        // first attempt whenever the budget is already gone, instead of only
+        // after maxBody2Retries genuinely-exhausted tries. Throw so the caller
+        // falls back to the next model in the chain (or the outer safety net)
+        // instead of publishing malformed/wrong-language content.
+        throw new Error(`Output JSON incompleto (tentativo ${attempt}/${maxBody2Retries}${wallBudgetExceeded() ? ', budget esaurito' : ''}): ${missing.join(', ')}`);
       } else {
         recordModelContentSuccess(modelUsedRef.model);
       }
