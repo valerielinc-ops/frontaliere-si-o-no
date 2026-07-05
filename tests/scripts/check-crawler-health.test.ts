@@ -230,6 +230,41 @@ describe('nextCrawlerState', () => {
     expect(state.consecutiveEmptyRuns).toBe(0);
   });
 
+  it('clears broken status for axa-svizzera (national insurer, empty-ok hiring lull) on a fresh zero-job run (#3564)', () => {
+    // Reproduces the #3564 state: the AXA Svizzera dedicated crawler's
+    // national listing (Prospective.ch Career Center 2193) currently renders
+    // its own "no-results" template with zero job anchors — verified via a
+    // direct fetch and the production crawl log, not a selector/parser break
+    // (detail pages still 410 normally, proving the ATS backend is live).
+    // It must not stay flagged broken once added to EMPTY_OK_CRAWLERS.
+    const prev = {
+      lastSuccessfulRunAt: '2026-07-01T21:46:57.421Z',
+      lastNonZeroJobs: 5,
+      consecutiveEmptyRuns: 3,
+      lastFailureReason: '3 consecutive runs returned 0 jobs',
+      status: 'broken',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+      _lastObservedAssembledAt: new Date(NOW_MS - DAY_MS).toISOString(),
+    };
+    const { status, state, reason } = nextCrawlerState(
+      prev,
+      {
+        slug: 'axa-svizzera',
+        jobCount: 0,
+        freshnessAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        freshnessSource: 'summary',
+        generatedAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        assembledAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state.consecutiveEmptyRuns).toBe(0);
+  });
+
   it('flags stale when slice assembledAt is older than 7 days (regardless of empty streak)', () => {
     // heineken-ch fixture: slice from 8d ago.
     const { status, state, reason } = nextCrawlerState(
