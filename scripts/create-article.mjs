@@ -3212,6 +3212,14 @@ async function callLLM(messages, opts = {}) {
         // CREATE_ARTICLE_MIN_WORDS_RETRIES) zero real chance to try anything.
         // Failing fast here instead preserves whatever budget is left for it.
         if (attempt < maxBody2Retries && !wallBudgetExceeded()) continue;
+        // Do NOT fall through to `return result` below — that would ship the
+        // still-invalid payload (e.g. CJK/Cyrillic-drifted content.it, see
+        // isNonItalianScript above) straight to the indexed blog on the very
+        // first attempt whenever the budget is already gone, instead of only
+        // after maxBody2Retries genuinely-exhausted tries. Throw so the caller
+        // falls back to the next model in the chain (or the outer safety net)
+        // instead of publishing malformed/wrong-language content.
+        throw new Error(`Output JSON incompleto (tentativo ${attempt}/${maxBody2Retries}${wallBudgetExceeded() ? ', budget esaurito' : ''}): ${missing.join(', ')}`);
       } else {
         recordModelContentSuccess(modelUsedRef.model);
       }
