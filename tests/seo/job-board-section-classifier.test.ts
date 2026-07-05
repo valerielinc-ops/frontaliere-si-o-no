@@ -71,8 +71,14 @@ describe('job-board section matcher', () => {
     expect(JOB_BOARD_SECTION_RX.test('/blog/how-to-find-jobs-in-switzerland/')).toBe(false);
   });
 
-  it('TI weekly-employer company hubs still win over job-board', () => {
-    expect(classifyFeature(rel('/cerca-lavoro-ticino/azienda-eoc/'))).toBe('weekly-employers');
+  it('TI company-landing hubs still win over job-board', () => {
+    // Was asserted as 'weekly-employers' — that label was itself the
+    // audit-title-length/career-landings classifier-drift bug (see
+    // tests/seo/employer-landing-section-classifier.test.ts); the page this
+    // matches is the evergreen per-company career-landing hub, correctly
+    // 'career-landings' (matching audit-text-html-ratio's classifier). What
+    // this test actually guards — precedence over job-board — is unchanged.
+    expect(classifyFeature(rel('/cerca-lavoro-ticino/azienda-eoc/'))).toBe('career-landings');
   });
 
   // The funnel validators (validate-content-quality / validate-sitemap-pages

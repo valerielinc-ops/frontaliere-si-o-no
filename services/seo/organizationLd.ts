@@ -16,6 +16,8 @@
  * Keep `name`/`url`/`logo` in sync with the index.html Organization block.
  */
 
+import { imageObjectLd } from './imageObjectLd';
+
 export const ORGANIZATION_ID = 'https://frontaliereticino.ch/#organization';
 
 /** Compact Organization node — embeddable as publisher/author value. */
@@ -24,12 +26,16 @@ export const ORGANIZATION_LD = {
   '@id': ORGANIZATION_ID,
   name: 'Frontaliere Ticino',
   url: 'https://frontaliereticino.ch/',
-  logo: {
-    '@type': 'ImageObject',
-    url: 'https://frontaliereticino.ch/icons/icon-512x512.png',
+  // GSC licensable-image quintet (acquireLicensePage/copyrightNotice/license/
+  // creator/creditText) via the shared builder — a hand-rolled ImageObject
+  // here was missing all five, and every consumer (SCHEMA_PUBLISHER,
+  // staticPagesPlugin's #organization fallback, seo-correzioni, Correzioni.tsx,
+  // Metodologia.tsx) inherited the gap (audit:image-object-license, 336 pages).
+  logo: imageObjectLd({
+    contentUrl: 'https://frontaliereticino.ch/icons/icon-512x512.png',
     width: 512,
     height: 512,
-  },
+  }),
 } as const;
 
 /** Standalone top-level node (with `@context`) for a page's JSON-LD graph. */

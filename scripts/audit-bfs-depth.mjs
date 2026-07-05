@@ -268,9 +268,17 @@ async function bfsWithDepth() {
   /** @type {Array<{ path: string; depth: number }>} */
   const frontier = [{ path: '/', depth: 0 }];
   depthOf.set('/', 0);
+  // Index cursor instead of `frontier.shift()`: shift() is O(n) per call (it
+  // copies down the whole remaining backing array), so draining a frontier of
+  // N reachable paths costs O(n²) total — at dist/'s scale (millions of
+  // pages) that's the dominant cost behind this audit's ~900s runtime and
+  // eventual heap OOM (repeated large-array reallocation under GC pressure).
+  // The frontier only ever grows (nothing is spliced out), so an
+  // append-and-advance cursor is behaviorally identical, O(1) per dequeue.
+  let cursor = 0;
 
-  while (frontier.length > 0) {
-    const { path: cur, depth } = frontier.shift();
+  while (cursor < frontier.length) {
+    const { path: cur, depth } = frontier[cursor++];
     const file = await resolvePathToDistFile(cur);
     if (!file) continue;
     let html;
