@@ -8693,7 +8693,16 @@ ${staticAnalyticsHtml}
  const p = `${localePrefix[l]}/${sectionByLocale[l]}`.replace(/\/+/g, '/');
  return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
  }).join('\n');
- const landingEntry = ` <url>\n <loc>${BASE_URL}/cerca-lavoro-ticino/</loc>\n${landingAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/cerca-lavoro-ticino/" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.9</priority>\n </url>`;
+ const landingXDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/cerca-lavoro-ticino/" />`;
+ // Per-locale push (#3499): each locale's own TI-legacy section root gets its
+ // own <url> entry (confirmed live: /en/find-jobs-ticino/, /de/jobs-im-tessin/,
+ // /fr/trouver-emploi-tessin/ all return 200 with real content) instead of
+ // only IT, so non-IT alternates survive sanitizeSitemapHreflangReciprocity()
+ // instead of being stripped as referenced-but-never-listed.
+ const landingEntry = localeList.map((l) => {
+ const p = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}`.replace(/\/+/g, '/'));
+ return ` <url>\n <loc>${BASE_URL}${p}</loc>\n${landingAlternates}\n${landingXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.9</priority>\n </url>`;
+ }).join('\n');
 
  // Filter out thin content jobs (<50 words IT description) from sitemap (FRO-278).
  // Also exclude jobs flagged `needsRetranslation` — per-locale alternates would

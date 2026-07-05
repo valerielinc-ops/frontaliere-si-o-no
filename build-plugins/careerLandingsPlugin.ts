@@ -645,6 +645,8 @@ export function careerLandingsPlugin(rootDir: string): Plugin {
           `x-default|${BASE_URL}${buildCareerLandingPath('it', id)}`,
         );
 
+        let itWasWritten = false;
+
         for (const locale of CAREER_LOCALES) {
           const rendered = renderPage({
             locale,
@@ -672,7 +674,17 @@ export function careerLandingsPlugin(rootDir: string): Plugin {
           collector.add(indexPath, rendered.html);
           collector.add(flatPath, rendered.html);
 
+          // Per-locale push (#3499): each locale that was actually written
+          // gets its own <url> entry, sharing the group's IT-anchored
+          // alternates, so non-IT pages survive
+          // sanitizeSitemapHreflangReciprocity instead of being
+          // referenced-but-never-listed. Non-IT pushes require the IT
+          // anchor itself to have been written this run (CAREER_LOCALES
+          // starts with 'it', so itWasWritten is settled before en/de/fr).
           if (locale === 'it') {
+            itWasWritten = true;
+            sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+          } else if (itWasWritten) {
             sitemapEntries.push({ canonical: rendered.urlPath, alternates });
           }
 

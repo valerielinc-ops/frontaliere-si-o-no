@@ -24,6 +24,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import type { Plugin } from 'vite';
+import { careerLandingsPlugin } from '../../build-plugins/careerLandingsPlugin';
 import { costOfLivingLandingsPlugin } from '../../build-plugins/costOfLivingLandingsPlugin';
 import { faqHubPlugin } from '../../build-plugins/faqHubPlugin';
 import { jobRecencyPagesPlugin } from '../../build-plugins/jobRecencyPagesPlugin';
@@ -148,5 +149,12 @@ describe('sibling build-plugins — EN/DE/FR sitemap entries reciprocal, x-defau
     await runCloseBundle(professionLandingsPlugin(tempRoot));
     const xml = fs.readFileSync(path.join(tempRoot, 'dist', 'sitemap-professions.xml'), 'utf-8');
     assertFullyReciprocalFourLocaleSitemap('sitemap-professions.xml', xml);
+  });
+
+  it('careerLandingsPlugin: sitemap-career-landings.xml (no data/jobs.json — empty-state pages, #3499 sibling)', async () => {
+    const tempRoot = makeTempRoot(false);
+    await runCloseBundle(careerLandingsPlugin(tempRoot));
+    const xml = fs.readFileSync(path.join(tempRoot, 'dist', 'sitemap-career-landings.xml'), 'utf-8');
+    assertFullyReciprocalFourLocaleSitemap('sitemap-career-landings.xml', xml);
   });
 });

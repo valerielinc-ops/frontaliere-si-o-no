@@ -197,6 +197,16 @@ const FIXED_ARRAY_CASES: FixedArrayCase[] = [
       fr: '/fr/trouver-emploi-tessin/test-orphan-cluster-3499/',
     },
   },
+  {
+    name: 'landingEntry (TI-legacy section root, live at all 4 locales — confirmed via prod curl, not a false positive)',
+    sourceRef: 'jobsSeoPagesPlugin.ts landingEntry',
+    paths: {
+      it: '/cerca-lavoro-ticino/',
+      en: '/en/find-jobs-ticino/',
+      de: '/de/jobs-im-tessin/',
+      fr: '/fr/trouver-emploi-tessin/',
+    },
+  },
 ];
 
 describe('jobsSeoPagesPlugin sitemap arrays — EN/DE/FR reciprocity survives sanitizeSitemapHreflangReciprocity (#3499)', () => {
