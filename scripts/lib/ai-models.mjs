@@ -91,7 +91,7 @@ export const AI_MODELS = Object.freeze({
   GPT_4_1:          'gpt-4.1',
   GPT_4_1_MINI:     'gpt-4.1-mini',
   GPT_4_1_NANO:     'gpt-4.1-nano',
-  COHERE_CMD_R:     'Cohere-command-r-08-2024',
+  // COHERE_CMD_R removed — GitHub Models HTTP 400 "unknown_model: Cohere-command-r-08-2024" (2026-07-05, confirmed retired live against the real inference endpoint)
   COHERE_CMD_A:     'Cohere-command-a',
   LLAMA_3_2_90B:    'Llama-3.2-90B-Vision-Instruct',
   DEEPSEEK_V3:      'DeepSeek-V3-0324',
@@ -424,7 +424,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.OR_GEMMA_3_27B,     // 39. Gemma 3 27B instruct   (OpenRouter free)
   // CB_LLAMA_3_1_70B removed — Cerebras 404 (model deprecated 2026-03)
   AI_MODELS.COH_CMD_A_TRANSLATE,// 40. Cohere translate       (Cohere direct)
-  AI_MODELS.COHERE_CMD_R,       // 41. Cohere Command R       (GitHub Models)
+  // AI_MODELS.COHERE_CMD_R removed — GitHub Models HTTP 400 "unknown_model: Cohere-command-r-08-2024" (2026-07-05, confirmed retired live)
   AI_MODELS.COH_CMD_R,          // 41b. Cohere Command R      (Cohere direct - 1000/month)
   // GROQ_LLAMA_3_1_70B removed — decommissioned 2026-03 (HTTP 422 from Groq)
   AI_MODELS.CF_MISTRAL_SM_31,   // 42. Mistral Small 3.1      (Cloudflare Workers AI)
@@ -831,8 +831,18 @@ const DEFAULT_OPTS = {
  *   (Cohere uses `{ type: 'json_object', schema }`, Gemini uses Proto), or
  *   they 400 on `response_format` entirely. Gemini's native schema path is
  *   wired separately in _callGeminiRaw via `generationConfig.responseSchema`.
+ * - Local (ollama, _callLocal → _callOpenAICompatible with providerName:
+ *   'Local'): ollama's OpenAI-compat endpoint honors the same strict
+ *   json_schema contract (verified 2026-07-05 against a local ollama
+ *   v0.31.1 + qwen2.5:0.5b using the exact production article schema from
+ *   buildArticleJsonSchema() — HTTP 200, valid JSON, all required keys
+ *   present). Without this, local/fallback only got generic `json_object`
+ *   mode (valid JSON syntax, no shape guarantee), which is the direct cause
+ *   of the recurring "content.it non normalizzabile" / JSON parse failures
+ *   logged whenever the cascade reached local/fallback (e.g. run
+ *   28744325535's `imageAlt` object left dangling mid-payload).
  */
-const PROVIDERS_WITH_STRICT_JSON_SCHEMA = new Set(['GitHub', 'OpenRouter', 'Mistral']);
+const PROVIDERS_WITH_STRICT_JSON_SCHEMA = new Set(['GitHub', 'OpenRouter', 'Mistral', 'Local']);
 
 /**
  * Global schema-mode toggle for ops control. Driven by AI_MODELS_SCHEMA_MODE env
@@ -856,15 +866,23 @@ function getSchemaMode() {
  *  - mode=force  → always (probe-only; most providers will 400)
  *  - mode=auto   → OpenAI-compat providers in PROVIDERS_WITH_STRICT_JSON_SCHEMA,
  *                  plus Gemini (which uses its own native responseSchema path,
- *                  not the OpenAI response_format shape — handled in _callGeminiRaw)
+ *                  not the OpenAI response_format shape — handled in _callGeminiRaw),
+ *                  minus any model in _learnedSchemaIncompatible (runtime-learned
+ *                  per-model 400 on schema mode — see _learnSchemaIncompatible)
+ *
+ * `modelForTracking`, when given, is checked against _learnedSchemaIncompatible
+ * so a single model within a provider that 400s on schema mode (e.g. a
+ * GitHub-hosted Ministral/Codestral/Phi-4 variant) stops being offered it,
+ * without punishing the rest of that provider's models.
  *
  * Exported for tests / smoke probes.
  */
-export function shouldUseSchemaMode(providerName, hasSchema = true) {
+export function shouldUseSchemaMode(providerName, hasSchema = true, modelForTracking = undefined) {
   if (!hasSchema) return false;
   const mode = getSchemaMode();
   if (mode === 'off') return false;
   if (mode === 'force') return true;
+  if (modelForTracking && _learnedSchemaIncompatible.has(modelForTracking)) return false;
   if (providerName === 'Gemini') return true;
   return PROVIDERS_WITH_STRICT_JSON_SCHEMA.has(providerName);
 }
@@ -1541,6 +1559,7 @@ export async function initScoreStore() {
     let decayed = 0;
     let exhaustedRestored = 0;
     let learnedLimitsRestored = 0;
+    let schemaIncompatibleRestored = 0;
     let source = 'aggregate';
 
     const aggregateRef = _firestoreDb
@@ -1618,9 +1637,16 @@ export async function initScoreStore() {
         _learnedRequestTokenLimits.set(modelId, data.maxRequestTokens);
         learnedLimitsRestored++;
       }
+
+      // Runtime-learned schema-mode incompatibility (see _learnSchemaIncompatible)
+      // — same unconditional-restore reasoning as maxRequestTokens above.
+      if (data.schemaIncompatible === true) {
+        _learnedSchemaIncompatible.add(modelId);
+        schemaIncompatibleRestored++;
+      }
     }
 
-    console.log(`☁️  [ScoreStore] Loaded ${loaded} model scores from Firestore [${source}] (${decayed} decayed, ${exhaustedRestored} still exhausted, ${learnedLimitsRestored} learned token limits)`);
+    console.log(`☁️  [ScoreStore] Loaded ${loaded} model scores from Firestore [${source}] (${decayed} decayed, ${exhaustedRestored} still exhausted, ${learnedLimitsRestored} learned token limits, ${schemaIncompatibleRestored} schema-incompatible)`);
 
     // Register exit hooks for final flush
     _registerExitHooks();
@@ -1687,6 +1713,11 @@ async function _persistScoresToFirestore() {
     // Not a daily quota — no local/fallback exemption needed.
     if (_learnedRequestTokenLimits.has(modelId)) {
       entry.maxRequestTokens = _learnedRequestTokenLimits.get(modelId);
+    }
+
+    // Runtime-learned schema-mode incompatibility (see _learnSchemaIncompatible).
+    if (_learnedSchemaIncompatible.has(modelId)) {
+      entry.schemaIncompatible = true;
     }
 
     modelsDelta[_encodeModelId(modelId)] = entry;
@@ -1996,6 +2027,7 @@ export function resetState() {
   _consecutive429.clear();
   _consecutiveContentFailures.clear();
   _learnedRequestTokenLimits.clear();
+  _learnedSchemaIncompatible.clear();
   _mutationCount = 0;
   if (_persistTimer) { clearTimeout(_persistTimer); _persistTimer = null; }
   _stats.calls = 0;
@@ -2170,14 +2202,23 @@ function classifyNonRetryableError(status, bodyText = '') {
   // refuses *this* request shape — skip without exhausting so it can still be
   // used by other callers without jsonSchema. The schema-mode allowlist in
   // shouldUseSchemaMode() prevents most of these at send-time.
-  if (
-    b.includes('unsupported parameter') ||
+  //
+  // 'unsupported parameter' alone (bare, no response_format/schema mention) is
+  // the unrelated max_tokens-vs-max_completion_tokens rejection (see
+  // MAX_COMPLETION_TOKENS_MODELS) — do NOT tag it schema_unsupported, or
+  // _learnSchemaIncompatible would permanently stop offering schema mode to a
+  // model whose only real problem is the token-param name.
+  const isSchemaFormatRejection =
     b.includes('does not support response format') ||
-    b.includes('response_format') && b.includes('not support') ||
+    (b.includes('response_format') && b.includes('not support')) ||
     b.includes("unknown name 'type' at 'generation_config.response_schema") ||
-    b.includes('response_schema.properties')
-  ) {
-    return { nonRetryable: true, markExhausted: false };
+    b.includes('response_schema.properties');
+  if (b.includes('unsupported parameter') || isSchemaFormatRejection) {
+    return {
+      nonRetryable: true,
+      markExhausted: false,
+      ...(isSchemaFormatRejection ? { reason: 'schema_unsupported' } : {}),
+    };
   }
   return { nonRetryable: false, markExhausted: false };
 }
@@ -2394,6 +2435,31 @@ function _learnRequestTokenLimit(modelForTracking, bodyText) {
 }
 
 /**
+ * Runtime-learned set of models that 400 on strict JSON-schema mode despite
+ * being in PROVIDERS_WITH_STRICT_JSON_SCHEMA / the Gemini native path —
+ * GitHub Models proxies several sub-model families (Ministral-3B,
+ * Codestral-2501, the Phi-4 family) with inconsistent schema support, so a
+ * per-provider allowlist alone forces schema mode onto them on every cascade
+ * pass, forever, wasting a network round-trip each time
+ * (classifyNonRetryableError's 'schema_unsupported' branch). Same
+ * self-correcting pattern as _learnedRequestTokenLimits above, keyed the same
+ * way (full chain model id, matching _modelScores' keyspace).
+ */
+const _learnedSchemaIncompatible = new Set();
+
+/**
+ * Remember that `modelForTracking` rejected strict JSON-schema mode, so
+ * shouldUseSchemaMode() stops requesting it for this model going forward
+ * (in-run immediately, cross-run via Firestore). No-op if already known.
+ */
+function _learnSchemaIncompatible(modelForTracking) {
+  if (_learnedSchemaIncompatible.has(modelForTracking)) return;
+  _learnedSchemaIncompatible.add(modelForTracking);
+  _dirtyModels.add(modelForTracking);
+  _schedulePersist();
+}
+
+/**
  * Estimate token count for a list of OpenAI-format messages. Uses the standard
  * chars/4 ≈ tokens heuristic — accurate enough for "is this prompt going to
  * blow past 4000?" decisions. Adds a 500-token safety margin to account for
@@ -2480,7 +2546,7 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
   // AI_MODELS_SCHEMA_MODE=force opts in every OpenAI-compat provider (probe
   // mode only — most providers 400 on unsupported response_format types).
   let responseFormat;
-  if (shouldUseSchemaMode(providerName, !!opts.jsonSchema)) {
+  if (shouldUseSchemaMode(providerName, !!opts.jsonSchema, modelForTracking)) {
     responseFormat = {
       type: 'json_schema',
       json_schema: {
@@ -2545,6 +2611,13 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
           // further to 200 for logging), which is why this can't be recovered
           // after the fact from logs.
           _learnRequestTokenLimit(modelForTracking, raw);
+          // Same reasoning: a 400 with this exact shape only happens when we
+          // requested schema mode (responseFormat.type === 'json_schema') and
+          // the model rejected it — remember it so future cascade passes stop
+          // paying the round-trip for a request shape this model never accepts.
+          if (nrc.reason === 'schema_unsupported' && responseFormat?.type === 'json_schema') {
+            _learnSchemaIncompatible(modelForTracking);
+          }
           if (nrc.markExhausted && getProvider(modelForTracking) !== PROVIDER.LOCAL) {
             markModelExhausted(modelForTracking, 'nonretryable');
             _stats.exhausted++;
@@ -2983,7 +3056,7 @@ async function _callGeminiRaw(model, messages, opts) {
   // Gemini has its own response_schema syntax (Proto-style), so it uses a
   // dedicated allowlist entry below — but it still honors the AI_MODELS_SCHEMA_MODE
   // ops kill-switch via the same `shouldUseSchemaMode('Gemini', …)` check.
-  const useGeminiSchema = !!opts.jsonSchema && shouldUseSchemaMode('Gemini', true);
+  const useGeminiSchema = !!opts.jsonSchema && shouldUseSchemaMode('Gemini', true, model);
   const geminiSchema = useGeminiSchema ? sanitizeSchemaForGemini(opts.jsonSchema.schema) : null;
 
   const body = {
@@ -3024,6 +3097,9 @@ async function _callGeminiRaw(model, messages, opts) {
           // Learn the real size cap from `raw` while it's still untruncated —
           // see the matching call in _callOpenAICompatible for why.
           _learnRequestTokenLimit(model, raw);
+          if (nrc.reason === 'schema_unsupported' && useGeminiSchema) {
+            _learnSchemaIncompatible(model);
+          }
           if (nrc.markExhausted) {
             markModelExhausted(model);
             _stats.exhausted++;
