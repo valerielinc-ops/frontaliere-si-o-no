@@ -168,6 +168,14 @@ describe('fixJsonStringBody', () => {
     expect(repaired).toBe(valid);
     expect(JSON.parse(repaired)).toEqual(JSON.parse(valid));
   });
+
+  it('still escapes a genuine embedded quote in a string value immediately followed by a nested-object sibling key', () => {
+    const broken = '{"imagePrompt":"Scena con la "tassa sulla salute" citata.","imageAlt":{"it":"Vista panoramica","en":"Panoramic view"}}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.imagePrompt).toBe('Scena con la "tassa sulla salute" citata.');
+    expect(parsed.imageAlt).toEqual({ it: 'Vista panoramica', en: 'Panoramic view' });
+  });
 });
 
 describe('stripCodeFences', () => {

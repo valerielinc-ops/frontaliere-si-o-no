@@ -158,7 +158,18 @@ function decideQuoteCloses(str, quoteIdx, fixAsterisks) {
  * `fixAsterisks` must match the caller's setting — this lookahead has to
  * agree with the real main-loop pass on whether a bare `*` run is a
  * structural comma-stand-in or literal content, or it can mis-scan across
- * an asterisk boundary the main loop would have converted. */
+ * an asterisk boundary the main loop would have converted.
+ *
+ * A `{`/`[` value must scan all the way to its real matching close (via
+ * findMatchingClose), not just past the opening bracket — an early `i + 1`
+ * return left `looksLikeJsonContinuation` checking the character right
+ * after the bracket (the nested value's own first key/element, never a
+ * valid top-level continuation), so it always rejected. That falsely
+ * rejected any string value immediately followed by a nested-object/array
+ * sibling — exactly `"imagePrompt": "...", "imageAlt": {"it": ...}`, used
+ * in every article-generation prompt — cascading into "Expected ',' or
+ * '}'" on the article's *own* well-formed imagePrompt string (run
+ * 28751915972, confirmed post-#3597, 2026-07-05). */
 function scanValueEnd(str, i, fixAsterisks) {
   if (i >= str.length) return -1;
   const ch = str[i];
