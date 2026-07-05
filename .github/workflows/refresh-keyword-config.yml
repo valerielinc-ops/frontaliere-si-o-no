@@ -11,7 +11,7 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
         with:
@@ -20,6 +20,15 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        # Needed by "Load RC secrets" below (scripts/load-rc-env.mjs dynamically
+        # imports firebase-admin, an npm package, not a builtin). Without this,
+        # the import throws, is caught silently, and GITHUB_PAT never gets
+        # hydrated from Remote Config — leaving the deploy trigger dependent on
+        # the App-token mint succeeding, with no visible failure otherwise.
+        run: npm ci --no-audit --no-fund
 
       - name: Generate keyword pages config
         run: node scripts/generate-keyword-pages-config.mjs
