@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-07-05T10:38:41.581Z",
+  "assembledAt": "2026-07-05T22:17:05.710Z",
   "jobs": [
     {
       "id": "bls-7c039c3d71c3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-flottenmanagement/eaa6dfbf-e56d-4dc8-9c91-1d7a0b5c1736",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:38.836Z",
+      "crawledAt": "2026-07-05T22:17:03.098Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -69,7 +69,8 @@
         ]
       },
       "previousSlugs": [
-        "leiter-in-flottenmanagement-bls-ch"
+        "leiter-in-flottenmanagement-bls-ch",
+        "responsabile-flottenmanagement-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -78,6 +79,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:15:54.694Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -123,7 +125,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/expert-in-flottenmanagement/543ebd37-5d31-43f4-9610-f564e7a54c75",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:38.054Z",
+      "crawledAt": "2026-07-05T22:17:02.327Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -160,7 +162,8 @@
       "previousSlugs": [
         "expert-in-flottenmanagement-bls-ch",
         "expert-in-flottenmanagement-bls-ag-bern",
-        "esperto-nella-gestione-della-flotta-bls-ag-bern"
+        "esperto-nella-gestione-della-flotta-bls-ag-bern",
+        "gestione-esperta-della-flotta-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -177,6 +180,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:16:23.691Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -222,7 +226,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/sachbearbeiter-in-avor-fahrzeuge/b5914380-f9b2-4ed1-a2e6-8b2e582bf103",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:37.040Z",
+      "crawledAt": "2026-07-05T22:17:01.572Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -254,7 +258,8 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-avor-fahrzeuge-bls-ch"
+        "sachbearbeiter-in-avor-fahrzeuge-bls-ch",
+        "incaricato-in-veicoli-avor-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -269,6 +274,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:34:16.156Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -314,7 +320,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-immobilienentwicklung/877f2218-456f-42eb-949f-8c7acbeb3544",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:36.098Z",
+      "crawledAt": "2026-07-05T22:17:00.769Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -351,7 +357,8 @@
         "responsabile-operations-bls-ag-bern",
         "head-in-operations-bls-ag-bern",
         "leiter-in-operations-bls-ch",
-        "chef-en-operations-bls-ag-bern"
+        "chef-en-operations-bls-ag-bern",
+        "responsabile-immobilienentwicklung-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -360,6 +367,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T12:57:20.047Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -405,7 +413,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-wartung-lokomotiven/da2e6d50-dcd7-433c-9f30-f9661964fad8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:35.191Z",
+      "crawledAt": "2026-07-05T22:17:00.062Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -440,7 +448,8 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-wartung-lokomotiven-bls-ch"
+        "teamleiter-in-wartung-lokomotiven-bls-ch",
+        "leader-in-locomotive-di-manutenzione-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -455,6 +464,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.999Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -500,7 +510,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:34.376Z",
+      "crawledAt": "2026-07-05T22:16:59.382Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -535,7 +545,8 @@
         ]
       },
       "previousSlugs": [
-        "gleisbauer-in-bls-ch"
+        "gleisbauer-in-bls-ch",
+        "tracciatore-in-bls-ag-hasle-bei-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -550,6 +561,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -595,7 +607,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/03bb9b0a-c98f-45e9-a0f0-ecd6aef3ec53",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:33.610Z",
+      "crawledAt": "2026-07-05T22:16:58.662Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -627,7 +639,8 @@
         ]
       },
       "previousSlugs": [
-        "instandhalter-in-schienenfahrzeuge-bls-ch"
+        "instandhalter-in-schienenfahrzeuge-bls-ch",
+        "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -636,6 +649,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:43.024Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -681,7 +695,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/48785895-2971-4c93-b40a-c433dc99a34a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:32.923Z",
+      "crawledAt": "2026-07-05T22:16:57.992Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -713,7 +727,8 @@
         ]
       },
       "previousSlugs": [
-        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+        "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -728,6 +743,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:42.288Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -773,7 +789,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/bc80ac8b-54e4-4703-8c22-df0dae662c39",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:32.149Z",
+      "crawledAt": "2026-07-05T22:16:57.261Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -825,6 +841,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T22:14:02.185Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -870,7 +887,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/3519fa54-3e07-4f66-8a1a-80329d4a5b4c",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:31.368Z",
+      "crawledAt": "2026-07-05T22:16:56.526Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -904,6 +921,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:46:27.174Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -949,7 +967,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-beschriftung-und-grafik/b2005728-e8ef-4493-9545-57ddfb0dcb8a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:30.575Z",
+      "crawledAt": "2026-07-05T22:16:55.802Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -997,6 +1015,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:16:16.079Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1042,7 +1061,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/systemingenieur-in-plattformentwicklung/26107236-837f-4c94-8876-f62f2920f44d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:29.885Z",
+      "crawledAt": "2026-07-05T22:16:55.145Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1075,7 +1094,8 @@
         ]
       },
       "previousSlugs": [
-        "systemingenieur-in-plattformentwicklung-bls-ch"
+        "systemingenieur-in-plattformentwicklung-bls-ch",
+        "systemingenieur-in-plattformentwicklung-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1084,6 +1104,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:46:25.700Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1113,7 +1134,7 @@
       "title": "Senior SAP Applikations-Manager:in BW",
       "titleByLocale": {
         "it": "Senior SAP Application Manager: in BW",
-        "en": "Senior SAP Application Manager: in BW",
+        "en": "Senior SAP Applikations-Manager:in BW",
         "de": "Senior SAP Applikations-Manager:in BW",
         "fr": "Gestionnaire principal des applications SAP : en BW"
       },
@@ -1129,7 +1150,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-applikations-manager-in-bw/ae3debbe-b632-4a7a-be55-cb3ee8ce5dd4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:29.207Z",
+      "crawledAt": "2026-07-05T22:16:54.456Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1161,7 +1182,8 @@
         ]
       },
       "previousSlugs": [
-        "senior-sap-applikations-manager-in-bw-bls-ch"
+        "senior-sap-applikations-manager-in-bw-bls-ch",
+        "senior-sap-application-manager-in-bw-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1170,6 +1192,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T21:56:35.717Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1215,7 +1238,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/marketing-manager-in-experience/b3f3e48e-c03e-41f9-be66-ff6d42d597b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:38:28.367Z",
+      "crawledAt": "2026-07-05T22:16:53.729Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1249,7 +1272,8 @@
         ]
       },
       "previousSlugs": [
-        "marketing-manager-in-experience-bls-ch"
+        "marketing-manager-in-experience-bls-ch",
+        "marketing-manager-nell-esperienza-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1261,6 +1285,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:34:06.426Z",
+      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "baseSalary": {
