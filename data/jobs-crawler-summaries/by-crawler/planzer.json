@@ -1,18 +1,19 @@
 {
   "key": "planzer",
   "label": "Planzer",
-  "generatedAt": "2026-07-04T22:48:49.712Z",
+  "generatedAt": "2026-07-05T12:51:54.230Z",
   "total": 11,
-  "newCount": 1,
-  "updatedCount": 9,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 10271,
-  "avgDurationMs": 10271,
+  "durationMs": 8935,
+  "avgDurationMs": 8935,
   "durationHistory": [
-    10271
+    8935
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "planzer-695b007bc1fd",
       "slug": "chauffeur-kat-c-ce-im-bereich-kranfahrzeuge-springer-m-w-d-planzer-schmerikon",
@@ -20,13 +21,13 @@
       "companyKey": "planzer",
       "companyDomain": "planzer.ch",
       "title": "Chauffeur Kat. C/CE im Bereich Kranfahrzeuge (Springer) (m/w/d)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Schmerikon",
       "canton": "SG",
       "url": "https://live.solique.ch/planzer/job/details/4029974",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:40.794Z",
+      "crawledAt": "2026-07-05T12:51:46.435Z",
       "addressLocality": "Schmerikon",
       "addressRegion": "SG",
       "streetAddress": "Allmeindstrasse 23",
@@ -43,16 +44,15 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://live.solique.ch/planzer/job/details/4029974",
       "externalId": "4029974",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T22:48:40.794Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "planzer-70ec77fb3e0a",
       "slug": "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen",
@@ -66,7 +66,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029958",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:41.621Z",
+      "crawledAt": "2026-07-05T12:51:47.156Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "streetAddress": "Pfannenstiel 12",
@@ -84,11 +84,11 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4029958",
       "externalId": "4029958",
       "firstSeenAt": "2026-07-04T12:15:51.357Z",
-      "_qualityScore": 79,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -105,7 +105,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4026943",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:42.309Z",
+      "crawledAt": "2026-07-05T12:51:47.787Z",
       "addressLocality": "Märstetten",
       "addressRegion": "TG",
       "streetAddress": "Weinfelderstrasse 6",
@@ -123,11 +123,11 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4026943",
       "externalId": "4026943",
       "firstSeenAt": "2026-07-04T12:15:52.326Z",
-      "_qualityScore": 79,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -144,7 +144,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029961",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:42.992Z",
+      "crawledAt": "2026-07-05T12:51:48.428Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -162,11 +162,11 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4029961",
       "externalId": "4029961",
       "firstSeenAt": "2026-07-04T12:15:53.045Z",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -183,7 +183,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030751",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:43.680Z",
+      "crawledAt": "2026-07-05T12:51:49.042Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -201,11 +201,11 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4030751",
       "externalId": "4030751",
       "firstSeenAt": "2026-07-04T12:15:53.732Z",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -222,7 +222,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029495",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:44.354Z",
+      "crawledAt": "2026-07-05T12:51:49.657Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -261,7 +261,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030254",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:45.030Z",
+      "crawledAt": "2026-07-05T12:51:50.308Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -279,11 +279,11 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4030254",
       "externalId": "4030254",
       "firstSeenAt": "2026-07-04T12:15:54.997Z",
-      "_qualityScore": 79,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -300,7 +300,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030322",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:45.717Z",
+      "crawledAt": "2026-07-05T12:51:50.917Z",
       "addressLocality": "Kölliken",
       "addressRegion": "AG",
       "streetAddress": "Hardfeld 3",
@@ -318,11 +318,11 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4030322",
       "externalId": "4030322",
       "firstSeenAt": "2026-07-04T12:15:55.594Z",
-      "_qualityScore": 82,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -339,7 +339,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4030257",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:46.402Z",
+      "crawledAt": "2026-07-05T12:51:51.518Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -357,11 +357,11 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4030257",
       "externalId": "4030257",
       "firstSeenAt": "2026-07-04T12:15:56.387Z",
-      "_qualityScore": 79,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -378,7 +378,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4029964",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:48:47.085Z",
+      "crawledAt": "2026-07-05T12:51:52.122Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Feldmattstrasse 31",
@@ -396,11 +396,11 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4029964",
       "externalId": "4029964",
       "firstSeenAt": "2026-07-04T12:15:57.105Z",
-      "_qualityScore": 79,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     }
@@ -409,12 +409,11 @@
   "unchangedJobs": [
     {
       "id": "planzer-b6fce477bcbd",
-      "slug": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
+      "slug": "chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs",
       "company": "Planzer",
       "companyKey": "planzer",
       "companyDomain": "planzer.ch",
       "title": "Chauffeur Kat. CE - Region Zürich (m/w/d)",
-      "needsRetranslation": true,
       "location": "Buchs",
       "canton": "SG",
       "url": "https://live.solique.ch/planzer/job/details/4031560",
@@ -440,12 +439,12 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "firstSeenAt": "2026-07-04T12:15:57.696Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 84,
+      "crawlerMissStreak": 2,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }

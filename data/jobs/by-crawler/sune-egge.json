@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sune-egge",
-  "assembledAt": "2026-07-04T23:26:36.156Z",
+  "assembledAt": "2026-07-05T12:51:26.666Z",
   "jobs": [
     {
       "id": "sune-egge-6cdad7d7ac86",
@@ -33,7 +33,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2675698",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:26:34.201Z",
+      "crawledAt": "2026-07-05T12:51:24.616Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,7 +52,8 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-60-100-fokus-langzeitpflege-sune-egge-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-hf-60-100-fokus-langzeitpflege-sune-egge-zurich",
+        "dipl-infermieristica-professionale-hf-60-100-concentrarsi-sulla-cura-a-lungo-termine-fachspital-sune-egge-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -111,7 +112,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2645745",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:26:34.200Z",
+      "crawledAt": "2026-07-05T12:51:24.615Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -128,8 +129,10 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2645745",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
-        "psychotherapeutin-psychotherapeuten-60-80-sune-egge-zurich"
+        "psychotherapeutin-psychotherapeuten-60-80-sune-egge-zurich",
+        "psicoterapeuta-psicoterapisti-60-80-fachspital-sune-egge-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -188,7 +191,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610155",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:26:34.199Z",
+      "crawledAt": "2026-07-05T12:51:24.614Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -205,9 +208,11 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2610155",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-60-100-tagdienst-sune-egge-zurich",
-        "dipl-pflegefachfrau-mann-hf-80-100-sune-egge-zurich"
+        "dipl-pflegefachfrau-mann-hf-80-100-sune-egge-zurich",
+        "infermiere-a-dipl-hf-60-100-turno-diurno-fachspital-sune-egge-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -260,7 +265,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2595649",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:26:34.198Z",
+      "crawledAt": "2026-07-05T12:51:24.612Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -302,6 +307,7 @@
           "Excellentes compétences en allemand à l’oral et à l’écrit"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tagdienst-sune-egge-zurich",
@@ -309,12 +315,14 @@
           "infermiere-infermiera-professionale-efz-60-100-per-servizio-diurno-fachspital-sune-egge-zurich"
         ],
         "de": [
+          "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tag-und-nachtdienst-sune-egge-zurich",
           "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tagdienst-sune-egge-zurich"
         ]
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tagdienst-sune-egge-zurich",
-        "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tag-und-nachtdienst-sune-egge-zurich"
+        "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tag-und-nachtdienst-sune-egge-zurich",
+        "infermiere-infermiera-professionale-efz-60-100-per-servizio-diurno-fachspital-sune-egge-zurich"
       ],
       "firstSeenAt": "2026-05-20T06:03:29.942Z",
       "salaryMin": 73500,

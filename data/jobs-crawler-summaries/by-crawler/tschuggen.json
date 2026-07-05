@@ -1,16 +1,16 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-07-04T23:14:37.129Z",
+  "generatedAt": "2026-07-05T12:33:42.246Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11424,
-  "avgDurationMs": 11424,
+  "durationMs": 11423,
+  "avgDurationMs": 11423,
   "durationHistory": [
-    11424
+    11423
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:14:32.758Z",
+      "crawledAt": "2026-07-05T12:33:37.876Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -42,7 +42,6 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "department": "Spa",
       "hotelName": "Carlton Hotel St. Moritz",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-29T14:24:18.552Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -64,7 +63,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1336/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:14:33.660Z",
+      "crawledAt": "2026-07-05T12:33:38.763Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -81,11 +80,11 @@
       "department": "Front Office",
       "hotelName": "Carlton Hotel St. Moritz",
       "firstSeenAt": "2026-06-29T14:24:19.463Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -101,7 +100,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:14:34.630Z",
+      "crawledAt": "2026-07-05T12:33:39.659Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -117,7 +116,6 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-29T14:24:20.394Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -139,7 +137,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:14:31.873Z",
+      "crawledAt": "2026-07-05T12:33:36.985Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -155,7 +153,6 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "department": "Küche",
       "hotelName": "Carlton Hotel St. Moritz",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-18T23:49:23.372Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -177,7 +174,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1367/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:14:27.747Z",
+      "crawledAt": "2026-07-05T12:33:33.000Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -195,11 +192,11 @@
       "hotelName": "Tschuggen Grand Hotel",
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-11T23:42:44.909Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -215,7 +212,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1351/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:14:29.143Z",
+      "crawledAt": "2026-07-05T12:33:34.469Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -231,7 +228,6 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1351/Description/1",
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T15:58:20.628Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -253,7 +249,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:14:30.056Z",
+      "crawledAt": "2026-07-05T12:33:35.175Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -269,7 +265,6 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -291,7 +286,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1347/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:14:30.968Z",
+      "crawledAt": "2026-07-05T12:33:36.107Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -307,7 +302,6 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1347/Description/1",
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T14:17:01.753Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {

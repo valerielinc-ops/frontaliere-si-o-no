@@ -1,16 +1,16 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-07-04T23:12:42.591Z",
+  "generatedAt": "2026-07-05T12:58:39.276Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 976,
-  "avgDurationMs": 976,
+  "durationMs": 940,
+  "avgDurationMs": 940,
   "durationHistory": [
-    976
+    940
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-04",
+      "postedDate": "2026-07-05",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -40,15 +40,15 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6500",
       "firstSeenAt": "2026-04-28T11:44:39.710Z",
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -69,7 +69,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-04",
+      "postedDate": "2026-07-05",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -77,15 +77,15 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928",
+      "streetAddress": "",
+      "postalCode": "6500",
       "firstSeenAt": "2026-07-01T13:10:04.732Z",
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     }
   ],
