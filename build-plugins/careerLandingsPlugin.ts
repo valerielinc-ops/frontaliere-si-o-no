@@ -672,9 +672,11 @@ export function careerLandingsPlugin(rootDir: string): Plugin {
           collector.add(indexPath, rendered.html);
           collector.add(flatPath, rendered.html);
 
-          if (locale === 'it') {
-            sitemapEntries.push({ canonical: rendered.urlPath, alternates });
-          }
+          // Every locale gets its own reciprocal <loc> entry (all 4 share
+          // the same IT-anchored alternates/x-default) — an IT-only push
+          // here would leave en/de/fr as one-sided alternates, stripped by
+          // sanitizeSitemapHreflangReciprocity (#3499).
+          sitemapEntries.push({ canonical: rendered.urlPath, alternates });
 
           pagesWritten++;
         }
