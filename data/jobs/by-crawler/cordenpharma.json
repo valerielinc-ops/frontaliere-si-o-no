@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cordenpharma",
-  "assembledAt": "2026-07-05T11:06:51.467Z",
+  "assembledAt": "2026-07-05T22:33:13.245Z",
   "jobs": [
     {
       "id": "cordenpharma-5c70bbadea4d",
@@ -33,7 +33,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20885/mitarbeiter-logistik-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:06:49.327Z",
+      "crawledAt": "2026-07-05T22:33:11.174Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -54,7 +54,8 @@
       "previousSlugs": [
         "mitarbeiter-logistik-m-w-d-cordenpharma-ettingen",
         "employee-logistics-m-f-d-cordenpharma-ettingen",
-        "logistique-des-employes-m-f-d-cordenpharma-ettingen"
+        "logistique-des-employes-m-f-d-cordenpharma-ettingen",
+        "addetto-a-alla-logistica-m-w-d-cordenpharma-ettingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -115,7 +116,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20851/betriebsmechaniker-produktions-und-gebaudetechnik-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:06:48.869Z",
+      "crawledAt": "2026-07-05T22:33:10.664Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -150,6 +151,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:47:50.294Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -194,7 +196,7 @@
       "url": "https://career.cordenpharma.com/en/p/liestal/jobs/20921/it-site-lead-europe-multi-site-mfd-switzerland-france-portugal",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T11:06:48.315Z",
+      "crawledAt": "2026-07-05T22:33:10.200Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -213,6 +215,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:47:49.833Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -257,7 +260,7 @@
       "url": "https://career.cordenpharma.com/en/p/liestal/jobs/20846/head-of-development-mfd-innovative-synthesis-dual-role",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T11:06:47.832Z",
+      "crawledAt": "2026-07-05T22:33:09.734Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -304,7 +307,7 @@
       "title": "Analytical Scientist, 100% (m/w/d)",
       "titleByLocale": {
         "it": "Scienziato Analitico, 100% (m/f/d)",
-        "en": "Analytical Scientist, 100% (m/f/d)",
+        "en": "Analytical Scientist, 100% (m/w/d)",
         "de": "Analytical Scientist, 100% (m/w/d)",
         "fr": "Scientifique analytique, 100 % (m/f/d)"
       },
@@ -320,7 +323,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20861/analytical-scientist-100-mwd-abteilung-qc-analytics",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:06:47.241Z",
+      "crawledAt": "2026-07-05T22:33:09.247Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -339,7 +342,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "analytical-scientist-100-m-w-d-cordenpharma-liestal"
+        "analytical-scientist-100-m-w-d-cordenpharma-liestal",
+        "scienziato-analitico-100-m-f-d-cordenpharma-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -351,6 +355,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:47:48.722Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -379,7 +384,7 @@
       "title": "Analytical Project Leader (APL), 100% (m/w/d)",
       "titleByLocale": {
         "it": "Capo Progetto Analitico (APL), 100% (lunedì/f/g)",
-        "en": "Analytical Project Leader (APL), 100% (m/f/d)",
+        "en": "Analytical Project Leader (APL), 100% (m/w/d)",
         "de": "Analytical Project Leader (APL), 100% (m/w/d)",
         "fr": "Chef de projet analytique (APL), 100 % (m/f/d)"
       },
@@ -395,7 +400,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T11:06:46.749Z",
+      "crawledAt": "2026-07-05T22:33:08.737Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -414,7 +419,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
+        "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal",
+        "capo-progetto-analitico-apl-100-lunedi-f-g-cordenpharma-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -426,6 +432,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:47:48.276Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
