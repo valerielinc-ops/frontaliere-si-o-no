@@ -24,8 +24,16 @@
  *
  * Uso:  node scripts/ci/followup-drainer.mjs [--dry-run]
  * Env:  GH_TOKEN (PAT), GITHUB_REPOSITORY (owner/repo). Richiede `gh` in PATH.
+ *
+ * Estensione 2026-07-05 (owner decision, guardrail category-based rimosse):
+ * `classify-issue.mjs` ora assegna `route='queue'` a OGNI categoria tranne
+ * `crawler` (che resta `route='fix'` immediato). Questo drainer, nato per i
+ * follow-up, gestisce quindi la STESSA coda anche per revenue/tracker/
+ * validation-failure/other — vedi `isQueueManaged` sotto, che sostituisce i
+ * check hardcoded su `has(iss,'follow-up')`.
  */
 import { execFileSync } from 'node:child_process';
+import { classifyIssue } from '../lib/classify-issue.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -206,18 +214,34 @@ export function detectExplicitNetworkAudit(title, body) {
 }
 
 /**
- * Un follow-up è eleggibile all'age-out close? Puro (niente gh) → testabile.
- * Vero se: è un `follow-up`, NON in lavorazione (né `agent:fix` né
- * `agent:fix-queued`), creato da ≥ageOutDays E inattivo da ≥inactiveDays. I
- * `fu-parked` ricadono qui (sono follow-up non in coda). Il chiamante aggiunge
- * la guardia "nessuna PR aperta" (impura).
- * @param {{labels?: Array<{name:string}>, createdAt?: string, updatedAt?: string}} iss
+ * Un'issue è "queue-managed" (passata dalla coda `agent:fix-queued` drenata da
+ * questo file)? Prima del 2026-07-05 SOLO i `follow-up` la attraversavano;
+ * l'auto-fix è stato esteso a TUTTE le categorie (owner decision) — usa
+ * `classifyIssue` come single source of truth (stessa regola di
+ * `issue-triage.yml`/`triage-sweep.mjs`, no drift): `route==='queue'` copre
+ * ogni categoria tranne `crawler` (che resta `route='fix'` immediato,
+ * production-critical, gestione separata). Pura → testabile.
+ * @param {{title?: string, labels?: Array<{name:string}>}} iss
+ */
+export function isQueueManaged(iss) {
+  const ls = (iss?.labels || []).map((l) => l.name);
+  return classifyIssue(iss?.title, ls).route === 'queue';
+}
+
+/**
+ * Un'issue è eleggibile all'age-out close? Puro (niente gh) → testabile.
+ * Vero se: è queue-managed (qualunque categoria autofix ≠ crawler, non più
+ * solo follow-up), NON in lavorazione (né `agent:fix` né `agent:fix-queued`),
+ * creata da ≥ageOutDays E inattiva da ≥inactiveDays. I `fu-parked` ricadono
+ * qui (non sono in coda). Il chiamante aggiunge la guardia "nessuna PR aperta"
+ * (impura).
+ * @param {{title?: string, labels?: Array<{name:string}>, createdAt?: string, updatedAt?: string}} iss
  * @param {{now:number, ageOutDays:number, inactiveDays:number}} opts
  */
 export function isAgeOutEligible(iss, { now, ageOutDays, inactiveDays }) {
   if (!ageOutDays || ageOutDays <= 0) return false;
+  if (!isQueueManaged(iss)) return false;
   const ls = (iss?.labels || []).map((l) => l.name);
-  if (!ls.includes('follow-up')) return false;
   if (ls.includes(LBL_FIX) || ls.includes(LBL_QUEUED)) return false; // in lavorazione/coda
   const created = Date.parse(iss?.createdAt);
   const updated = Date.parse(iss?.updatedAt);
@@ -255,6 +279,22 @@ function listIssues(label) {
     return gh([
       'issue', 'list', '--repo', REPO, '--state', 'open', '--label', label,
       '--json', 'number,title,labels,createdAt,updatedAt', '--limit', '100',
+    ]);
+  } catch {
+    return [];
+  }
+}
+
+// Age-out scorre TUTTE le categorie queue-managed (non solo `follow-up`, dal
+// 2026-07-05), quindi non può più filtrare lato-API su una singola label:
+// serve l'elenco open completo, poi isAgeOutEligible/isQueueManaged filtrano
+// in-process. Limit bound (no scan illimitato); eccesso oltre il cap non è un
+// problema qui perché age-out ha già il suo AGEOUT_MAX_PER_RUN sulle azioni.
+function listAllOpenIssues() {
+  try {
+    return gh([
+      'issue', 'list', '--repo', REPO, '--state', 'open',
+      '--json', 'number,title,labels,createdAt,updatedAt', '--limit', '300',
     ]);
   } catch {
     return [];
@@ -363,11 +403,11 @@ function main() {
   if (!REPO) { console.error('GITHUB_REPOSITORY mancante'); process.exit(1); }
   console.log(`followup-drainer${DRY ? ' [DRY-RUN]' : ''} repo=${REPO}`);
 
-  // --- AGE-OUT CLOSE: drena il ratchet dei follow-up mai chiusi --------------
+  // --- AGE-OUT CLOSE: drena il ratchet delle issue queue-managed mai chiuse ---
   // Ortogonale allo slot issue-fix (chiudere non tocca il fixer) → gira sempre.
   if (AGEOUT_DAYS > 0) {
     const now = Date.now();
-    const candidates = listIssues('follow-up')
+    const candidates = listAllOpenIssues()
       .filter((iss) => isAgeOutEligible(iss, { now, ageOutDays: AGEOUT_DAYS, inactiveDays: AGEOUT_INACTIVE_DAYS }))
       .filter((iss) => !hasFixPR(iss.number)) // mai chiudere una issue con PR aperta
       .sort((a, b) => Date.parse(a.updatedAt) - Date.parse(b.updatedAt)); // più stantii prima
@@ -400,7 +440,7 @@ function main() {
   // needs-human li toglie dal reparkable → mai più ri-bruciati. WF-scope esclusi.
   {
     const tooLarge = listIssues(LBL_PARKED)
-      .filter((iss) => has(iss, 'follow-up'))
+      .filter((iss) => isQueueManaged(iss))
       .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED) && !has(iss, 'needs-human'))
       .filter((iss) => reparkGenOf(iss) >= 1)
       .filter((iss) => !isWorkflowScoped(iss.number))
@@ -418,7 +458,7 @@ function main() {
   if (RETRY_COOLDOWN_DAYS > 0) {
     const now = Date.now();
     const reparkable = listIssues(LBL_PARKED)
-      .filter((iss) => has(iss, 'follow-up'))
+      .filter((iss) => isQueueManaged(iss))
       .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED)) // non già in lavoro/coda
       .filter((iss) => !has(iss, 'needs-human'))                    // già escalato (too-large) → fuori dal retry
       .filter((iss) => reparkGenOf(iss) < MAX_REPARK_GEN)            // generation-cap
@@ -461,12 +501,13 @@ function main() {
   }
 
   // --- RESCUE + PARK: agent:fix orfani (nessuna PR, nessuna run, vecchi) -------
-  // Un follow-up promosso la cui run è morta (cancel/error_max_turns) resta
-  // agent:fix senza PR e senza nuovo trigger → stuck. Ri-accoda (bump attempt),
-  // park a MAX_ATTEMPTS. Solo su follow-up (label `follow-up`) per non toccare i
-  // crawler agent:fix (production-critical, gestione separata).
+  // Una issue queue-managed promossa la cui run è morta (cancel/error_max_turns)
+  // resta agent:fix senza PR e senza nuovo trigger → stuck. Ri-accoda (bump
+  // attempt), park a MAX_ATTEMPTS. Solo su categorie queue-managed (route
+  // 'queue': ogni categoria tranne crawler, dal 2026-07-05) per non toccare i
+  // crawler agent:fix (production-critical, route diretto, gestione separata).
   const stuckFix = listIssues(LBL_FIX).filter(
-    (i) => has(i, 'follow-up') && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED)
+    (i) => isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED)
   );
   // Promozioni "in assestamento": un agent:fix follow-up giovane e senza PR ha
   // la run viva OPPURE non ancora registrata in `gh run list` (latenza

@@ -90,8 +90,9 @@ describe('isAgeOutEligible (drain del ratchet follow-up)', () => {
     expect(isAgeOutEligible(iss(['follow-up'], 30, 3), opts)).toBe(false); // attività recente
   });
 
-  it('NON chiude non-follow-up, date illeggibili, o ageOutDays=0 (disabilitato)', () => {
-    expect(isAgeOutEligible(iss(['bug'], 60, 60), opts)).toBe(false);
+  it('NON chiude categorie non queue-managed (crawler), date illeggibili, o ageOutDays=0 (disabilitato)', () => {
+    // 'parser-broken' → category='crawler' → route='fix' (non queue-managed)
+    expect(isAgeOutEligible(iss(['parser-broken'], 60, 60), opts)).toBe(false);
     expect(isAgeOutEligible({ labels: [{ name: 'follow-up' }], createdAt: 'x', updatedAt: 'y' }, opts)).toBe(false);
     expect(isAgeOutEligible(iss(['follow-up'], 60, 60), { ...opts, ageOutDays: 0 })).toBe(false);
   });

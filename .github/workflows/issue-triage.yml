@@ -140,25 +140,21 @@ jobs:
           # --- Label anti-loop sempre (GITHUB_TOKEN: non deve triggerare nulla) ---
           gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "agent:triaged" || true
 
-          # --- Commento solo per categorie che restano umane (no rumore sul resto) ---
-          case "$cat" in
-            revenue|tracker)
-              gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body "🤖 Triage automatico: categoria \`$cat\` — richiede giudizio strategico umano (no auto-fix). Usa \`/fix-issue\` locale o applica \`agent:fix\` a mano per un tentativo." || true ;;
-            validation-failure)
-              gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body "🤖 Triage automatico: categoria \`validation-failure\`. Spesso transiente — verifica se ricorre (commenti 🔁) prima di applicare \`agent:fix\` a mano. Nessun auto-fix automatico." || true ;;
-            other)
-              gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body "🤖 Triage automatico: categoria non riconosciuta (\`other\`) — needs manual triage." || true ;;
-          esac
+          # Nessuna categoria resta human-only dal 2026-07-05 (owner decision
+          # "Rimuovi tutte le guardie": ogni categoria autofix, crawler→fix
+          # immediato, resto→coda) → niente più commento per-categoria "umano".
+          # Label + route (sotto) restano il segnale, no rumore issue-comment.
 
-          # --- Routing via PAT (crawler→fix immediato, follow-up→queue) ----------
+          # --- Routing via PAT (crawler→fix immediato, resto→queue) --------------
           # Le label di routing DEVONO essere via PAT, non GITHUB_TOKEN:
           # (1) anti-ricorsione GitHub — un `labeled` da GITHUB_TOKEN non triggera
           # issue-fix/drainer; (2) il gate issue-fix `sender == valerielinc-ops`
           # non matcha github-actions[bot]. Col PAT (owner) trigger + gate OK.
           #
           # route='fix'   → agent:fix subito (crawler, production-critical).
-          # route='queue' → agent:fix-queued + fu-prio:<prio> (follow-up): NON parte
-          #   subito; `followup-drainer.yml` lo promuove a agent:fix uno alla volta
+          # route='queue' → agent:fix-queued + fu-prio:<prio> (ogni altra
+          #   categoria, dal 2026-07-05): NON parte subito; `followup-drainer.yml`
+          #   lo promuove a agent:fix uno alla volta
           #   solo a slot issue-fix libero → mai cancellato-in-coda (fix starvation
           #   osservata 2026-06-04). high (funnel/priority) drenato prima di low.
           if [ "$route" = "none" ] || [ "$autofix" != "true" ]; then
@@ -188,9 +184,9 @@ jobs:
   # Self-healing del tagging: recupera le issue orfane (no agent:triaged) che il
   # path event-driven non triagia mai (run cancellato da burst, o issue creata da
   # GITHUB_TOKEN → anti-ricorsione). Zero-Claude (riusa il classifier). Gentle
-  # by-construction: follow-up → coda (drainer 1-alla-volta), crawler → fix
-  # capped/run, crawler-transient → solo triaged (auto-close), resto → solo
-  # triaged. Vedi scripts/ci/triage-sweep.mjs.
+  # by-construction: crawler → fix capped/run, crawler-transient → solo triaged
+  # (auto-close, label esplicita), ogni altra categoria (dal 2026-07-05) → coda
+  # (drainer 1-alla-volta). Vedi scripts/ci/triage-sweep.mjs.
   sweep:
     if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest

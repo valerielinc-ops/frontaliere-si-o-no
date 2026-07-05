@@ -13,13 +13,15 @@ name: Crawler Data Quality Audit (weekly, Claude)
 # (cross-job slug contamination, silent-drop-instead-of-redirect) and needed code
 # reading + git-history reasoning, not a fixed regex/threshold check.
 #
-# Deliberately NOT auto-routed to agent:fix (ISSUES.md category `other` — no
-# label/title pattern here matches issue-triage's `crawler`/`parser-broken`/
-# `priority:high`+crawler regex, see scripts/lib/classify-issue.mjs): an LLM
-# audit's findings are judgment calls like `validation-failure` ("transiente-vs-
-# persistente non decidibile deterministicamente" — ISSUES.md), so a human
-# triages before any fix lands, same caution already applied there. Read-only
-# except `gh issue create/list/comment` — no self-fix.
+# Deliberately NOT auto-routed to the IMMEDIATE crawler route (ISSUES.md
+# category `other` — no label/title pattern here matches issue-triage's
+# `crawler`/`parser-broken`/`priority:high`+crawler regex, see
+# scripts/lib/classify-issue.mjs): an LLM audit's findings are judgment calls,
+# not the production-critical/high-volume-proven case that justifies bypassing
+# the anti-starvation queue. They still enter the `agent:fix-queued` pipeline
+# like any other category (autofix, 2026-07-05 owner decision) and get a fix
+# attempt via followup-drainer — this workflow itself stays read-only except
+# `gh issue create/list/comment` — no self-fix.
 #
 # Zero-issue runs are silent (mirrors evergreen-refresh-audit.yml /
 # dmarc-monitor.yml): the agent creates an issue ONLY when it has real evidence.
@@ -146,7 +148,7 @@ jobs:
 
             **Se trovi evidenza NUOVA (nessun match dedup):**
             - `gh issue create --title "[data-quality] <categoria>: <sintesi breve>" --label crawler-data-quality --body "<evidenza + comando/output + file interessati + prossimo passo suggerito + link a questo run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>"`.
-            - **NON** usare i label `crawler`, `parser-broken`, o `priority:high` insieme a un titolo che contiene "crawler"/"parser" — instraderebbero l'issue nell'auto-fix pipeline (`issue-triage.yml` → `agent:fix` immediato), che qui è deliberatamente escluso: è un giudizio LLM, va triagiato da un umano prima di un fix automatico (stessa cautela di `validation-failure` in ISSUES.md).
+            - **NON** usare i label `crawler`, `parser-broken`, o `priority:high` insieme a un titolo che contiene "crawler"/"parser" — instraderebbero l'issue nella route `agent:fix` IMMEDIATA (`issue-triage.yml`), riservata al caso production-critical/alto-volume già provato sicuro. Un giudizio LLM come questo entra comunque in auto-fix, ma dalla coda anti-starvation (`agent:fix-queued` → `other`, drenata da `followup-drainer`), non dal bypass diretto.
             - Massimo 5 issue per run (se trovi più pattern, aggrega i correlati in una singola issue invece di aprirne 5+).
 
             **Se non trovi nulla:** non fare nulla, log pulito, nessuna issue. Non e' un errore.

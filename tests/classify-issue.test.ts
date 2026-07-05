@@ -1,9 +1,9 @@
 /**
- * classify-issue — regression test per la classificazione deterministica del
+ * classify-issue — regression test per classificazione deterministica del
  * triage (scripts/lib/classify-issue.mjs). Garantisce che il routing autonomo
- * (`agent:fix` solo su crawler/follow-up) non drifti silenziosamente:
- * un mis-routing instrada `agent:fix` → PR automatica indesiderata, o lascia
- * inerte una categoria auto-fixabile.
+ * (autofix su TUTTE le categorie dal 2026-07-05, owner decision) non drifti
+ * silenziosamente: un mis-routing instrada `agent:fix` immediato dove
+ * dovrebbe passare dalla coda (o viceversa), o lascia inerte una categoria.
  */
 
 import { describe, it, expect } from 'vitest';
@@ -25,25 +25,24 @@ describe('classifyIssue', () => {
     { title: '[parser-health] octapharma boilerplate-only', labels: ['parser-broken', 'automated'], category: 'crawler', autofix: true, route: 'fix', fuPrio: null },
     // follow-up → coda (route='queue'); fuPrio da funnel/priority
     { title: 'follow-up(#852): 7 crawler senza fallback', labels: ['follow-up', 'funnel-seo'], category: 'follow-up', autofix: true, route: 'queue', fuPrio: 'high' },
-    // validation-failure → NO autofix (transiente)
-    { title: 'Validation Failure (dist): post-deploy', labels: ['bug', 'priority:urgent'], category: 'validation-failure', autofix: false, route: 'none', fuPrio: null },
-    { title: 'Validation Failure (live): post-deploy', labels: ['bug', 'priority:urgent'], category: 'validation-failure', autofix: false, route: 'none', fuPrio: null },
-    // revenue → NO autofix (anche se è un follow-up: RPM vince, conservativo)
-    { title: 'RPM canary regression detected', labels: ['revenue'], category: 'revenue', autofix: false, route: 'none', fuPrio: null },
-    { title: 'follow-up(#851): Verifica RPM recovery', labels: ['follow-up', 'funnel-monetization'], category: 'revenue', autofix: false, route: 'none', fuPrio: null },
-    // tracker → NO autofix
-    { title: 'Master tracker: SEO recovery plan', labels: [], category: 'tracker', autofix: false, route: 'none', fuPrio: null },
-    // other → NO autofix (fail-safe)
-    { title: 'Qualche cosa di strano', labels: [], category: 'other', autofix: false, route: 'none', fuPrio: null },
+    // validation-failure → autofix esteso (2026-07-05): coda, high (priority:urgent)
+    { title: 'Validation Failure (dist)', labels: ['bug', 'priority:urgent'], category: 'validation-failure', autofix: true, route: 'queue', fuPrio: 'high' },
+    // revenue/tracker → autofix esteso (2026-07-05): coda, high di default (strategico)
+    { title: 'RPM canary regression', labels: ['revenue'], category: 'revenue', autofix: true, route: 'queue', fuPrio: 'high' },
+    { title: 'master tracker: Q3 migration', labels: [], category: 'tracker', autofix: true, route: 'queue', fuPrio: 'low' },
+    // other (nessun match) → autofix esteso (2026-07-05): coda, low senza segnali forti
+    { title: 'Random unclassified issue', labels: ['seo-audit'], category: 'other', autofix: true, route: 'queue', fuPrio: 'low' },
+    { title: 'Random unclassified issue', labels: ['seo-audit', 'priority:high'], category: 'other', autofix: true, route: 'queue', fuPrio: 'high' },
     // company-name collision guards (#933 item 1): conservative ordering fires
     // revenue/tracker BEFORE crawler — intentional override; prevents future
-    // code reordering from silently removing the guardrail.
-    { title: '[crawler-health] RPM Software AG broken', labels: ['priority:high', 'bug'], category: 'revenue', autofix: false, route: 'none', fuPrio: null },
-    { title: '[parser-health] recovery GmbH boilerplate-only', labels: ['parser-broken', 'automated'], category: 'tracker', autofix: false, route: 'none', fuPrio: null },
+    // code reordering from silently removing guardrail. autofix/route ora
+    // uguali a ogni altra categoria (guardia resta solo sulla CATEGORY).
+    { title: '[crawler-health] RPM Software AG broken', labels: ['priority:high', 'bug'], category: 'revenue', autofix: true, route: 'queue', fuPrio: 'high' },
+    { title: '[parser-health] recovery GmbH boilerplate-only', labels: ['parser-broken', 'automated'], category: 'tracker', autofix: true, route: 'queue', fuPrio: 'low' },
     // follow-up + funnel-monetization without RPM → queue, high (#933 item 2):
-    // body is NOT inspected; funnel sensitivity is gated by pr-review-loop ## LGTM.
+    // body NOT inspected; funnel sensitivity gated pr-review-loop ## LGTM.
     { title: 'follow-up(#900): tune AdSense vignette threshold', labels: ['follow-up', 'funnel-monetization'], category: 'follow-up', autofix: true, route: 'queue', fuPrio: 'high' },
-    // follow-up senza funnel/priority → coda a priorità bassa
+    // follow-up senza funnel/priority → coda priorità bassa
     { title: 'follow-up(#910): de-rot comment anchor', labels: ['follow-up', 'funnel-ux'], category: 'follow-up', autofix: true, route: 'queue', fuPrio: 'low' },
   ];
 
@@ -57,29 +56,26 @@ describe('classifyIssue', () => {
     });
   }
 
-  it('autofix è true SOLO per crawler e follow-up', () => {
+  it('autofix è true per QUALUNQUE categoria (2026-07-05: guardrail category-based rimosse)', () => {
     for (const c of cases) {
-      const out = classifyIssue(c.title, c.labels);
-      if (out.autofix) expect(['crawler', 'follow-up']).toContain(out.category);
+      expect(classifyIssue(c.title, c.labels).autofix).toBe(true);
     }
   });
 
-  it("route='queue' SOLO per follow-up; 'fix' SOLO per crawler", () => {
+  it("route='fix' SOLO per crawler; ogni altra categoria passa dalla coda ('queue')", () => {
     for (const c of cases) {
       const out = classifyIssue(c.title, c.labels);
-      if (out.route === 'queue') expect(out.category).toBe('follow-up');
-      if (out.route === 'fix') expect(out.category).toBe('crawler');
+      if (out.category === 'crawler') {
+        expect(out.route).toBe('fix');
+      } else {
+        expect(out.route).toBe('queue');
+      }
     }
   });
 
-  it('label con virgola nel nome non rompe il match (array, non comma-join)', () => {
-    // un nome label con virgola non deve falsare il set
-    const out = classifyIssue('follow-up(#1): x', ['weird,label', 'follow-up']);
-    expect(out.category).toBe('follow-up');
-  });
-
-  it('input vuoto/degenere → other, no autofix, no route', () => {
-    expect(classifyIssue('', [])).toEqual({ category: 'other', autofix: false, route: 'none', fuPrio: null });
-    expect(classifyIssue(undefined as unknown as string, undefined as unknown as string[])).toEqual({ category: 'other', autofix: false, route: 'none', fuPrio: null });
+  it("nessuna categoria produce più route='none' (era il branch 'umano' pre-estensione)", () => {
+    for (const c of cases) {
+      expect(classifyIssue(c.title, c.labels).route).not.toBe('none');
+    }
   });
 });

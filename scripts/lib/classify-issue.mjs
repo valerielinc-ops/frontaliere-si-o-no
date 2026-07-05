@@ -6,23 +6,29 @@
  * niente bug se un nome label contiene una virgola).
  *
  * Categorie (vedi ISSUES.md → "Categorie"). Ordine = priorità conservativa:
- * revenue/tracker per primi (non devono MAI ricevere agent:fix).
+ * revenue/tracker per primi (guardia anti-collisione nomi azienda: es. "RPM
+ * Software AG" deve restare `revenue`, non `crawler`, pur matchando la regex
+ * crawler — vedi tests/classify-issue.test.ts).
  *
- * autofix = true SOLO per `crawler` e `follow-up` (fix-path deterministico /
- * micro-task). validation-failure NO (transiente non decidibile); revenue/
- * tracker/other NO (giudizio umano / non riconosciuta).
+ * autofix = true per OGNI categoria (2026-07-05, owner decision: guardrail
+ * category-based rimosse — vedi AGENTS.md → "Issue automation"). Il fixer ha
+ * comunque le sue safety-valve generiche (root-cause non determinabile,
+ * capability-guard workflows/secrets, ecc. — ISSUES.md → "Abort senza PR"):
+ * quelle restano, non sono guardrail di categoria.
  *
  * route — COME applicare il fix (2026-06-04, anti-starvation):
- *   'fix'   → agent:fix immediato (crawler: production-critical, non è il
- *             treadmill source).
- *   'queue' → agent:fix-queued (follow-up): NON parte subito. `followup-drainer`
- *             lo promuove a agent:fix UNO alla volta, solo quando lo slot
- *             issue-fix è libero → mai cancellato-in-coda. Fix della starvation
- *             osservata 2026-06-04 (slot concurrency globale + cancel:false →
- *             60% fix-run follow-up cancellate-in-coda, ~20 issue stuck).
- *   'none'  → nessun routing (umano).
- * fuPrio — ordine di drenaggio per i follow-up: 'high' (funnel monetization/seo
- *   o priority:high) drenato prima di 'low'. null per i non-follow-up.
+ *   'fix'   → agent:fix immediato (crawler: production-critical, basso volume,
+ *             route diretto provato sicuro da mesi — resta l'UNICA eccezione).
+ *   'queue' → agent:fix-queued (ogni altra categoria): NON parte subito.
+ *             `followup-drainer` lo promuove a agent:fix UNO alla volta, solo
+ *             quando lo slot issue-fix è libero → mai cancellato-in-coda. Fix
+ *             della starvation osservata 2026-06-04 (slot concurrency globale
+ *             + cancel:false → 60% fix-run cancellate-in-coda, ~20 issue
+ *             stuck) — estendere l'auto-fix a tutte le categorie senza tenere
+ *             questo meccanismo reintrodurrebbe la stessa starvation.
+ * fuPrio — ordine di drenaggio della coda: 'high' (funnel monetization/seo,
+ *   priority:high/urgent, o categoria revenue) drenato prima di 'low'. Sempre
+ *   calcolato per qualunque categoria in coda (non solo follow-up).
  *
  * Uso modulo:
  *   import { classifyIssue } from './classify-issue.mjs';
@@ -39,9 +45,6 @@ export function classifyIssue(title = '', labels = []) {
   const t = (re) => re.test(title || '');
 
   let category = 'other';
-  let autofix = false;
-  let route = 'none';
-  let fuPrio = null;
 
   if (has('revenue') || has('rpm-canary') || t(/RPM canary|\bRPM\b/i)) {
     category = 'revenue';
@@ -55,20 +58,24 @@ export function classifyIssue(title = '', labels = []) {
     // parser-broken: issue `[parser-health]` (assemble-jobs-dataset.mjs) =
     // parser-regen, natura crawler, funnel-rilevante (boilerplate → thin).
     category = 'crawler';
-    autofix = true;
-    route = 'fix'; // immediato: production-critical, non è il treadmill source
   } else if (t(/^follow-up\(#/i) || has('follow-up')) {
     category = 'follow-up';
-    autofix = true;
-    route = 'queue'; // drenato 1-alla-volta dal followup-drainer (anti-starvation)
-    fuPrio =
-      has('funnel-monetization') || has('funnel-seo') || has('priority:high')
-        ? 'high'
-        : 'low';
   } else if (t(/Validation Failure/i) || (has('bug') && has('priority:urgent'))) {
-    // NO autofix: transiente-vs-persistente non decidibile deterministicamente.
     category = 'validation-failure';
   }
+
+  const autofix = true;
+  const route = category === 'crawler' ? 'fix' : 'queue'; // crawler: immediato; resto: coda anti-starvation
+  const fuPrio =
+    route === 'queue'
+      ? has('funnel-monetization') ||
+        has('funnel-seo') ||
+        has('priority:high') ||
+        has('priority:urgent') ||
+        category === 'revenue'
+        ? 'high'
+        : 'low'
+      : null;
 
   return { category, autofix, route, fuPrio };
 }
