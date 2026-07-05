@@ -1,18 +1,19 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-07-04T22:10:18.748Z",
+  "generatedAt": "2026-07-05T11:30:24.698Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6063,
-  "avgDurationMs": 6063,
+  "durationMs": 5599,
+  "avgDurationMs": 5599,
   "durationHistory": [
-    6063
+    5599
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "giardino-ce15b53b765a",
       "slug": "marketing-pr-manager-giardino-group-ascona",
@@ -25,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/marketing-pr-manager/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:10:16.816Z",
+      "crawledAt": "2026-07-05T11:30:22.365Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -40,16 +41,15 @@
       "featured": false,
       "postedDate": "2026-07-04",
       "applyUrl": "https://giardinohotels.ch/en/jobs/marketing-pr-manager/",
-      "_qualityScore": 71,
+      "firstSeenAt": "2026-07-04T22:10:16.816Z",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "giardino-fa048f90699b",
       "slug": "reservations-front-office-specialist-m-w-giardino-group-champfer",
@@ -62,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:10:16.815Z",
+      "crawledAt": "2026-07-05T11:30:22.363Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -98,7 +98,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T22:10:16.817Z",
+      "crawledAt": "2026-07-05T11:30:22.366Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
