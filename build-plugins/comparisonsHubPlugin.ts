@@ -501,10 +501,6 @@ function renderPage(opts: {
     ],
   });
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   const wordCount = countHtmlBodyWords(body);
 
   const html = buildSeoPageHtml({
@@ -516,7 +512,6 @@ function renderPage(opts: {
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: alternates,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, faqLd, articleLd, datasetLd],
     bodyHtml,
     distDir,
