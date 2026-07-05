@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-07-05T10:48:52.035Z",
+  "generatedAt": "2026-07-05T22:21:07.671Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2787,
-  "avgDurationMs": 2787,
+  "durationMs": 3354,
+  "avgDurationMs": 3354,
   "durationHistory": [
-    2787
+    3354
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,15 +40,15 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "streetAddress": "Via Luserte 11",
-      "postalCode": "6572",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -188,15 +188,15 @@
       "salaryMin": 79500,
       "salaryMax": 120500,
       "currency": "CHF",
-      "streetAddress": "Via Luserte 11",
-      "postalCode": "6572",
+      "streetAddress": "",
+      "postalCode": "6900",
       "firstSeenAt": "2026-06-19T12:14:25.157Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
