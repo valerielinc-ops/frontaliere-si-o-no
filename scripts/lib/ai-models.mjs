@@ -1979,6 +1979,7 @@ export function resetState() {
   _dirtyModels.clear();
   _consecutive429.clear();
   _consecutiveContentFailures.clear();
+  _learnedRequestTokenLimits.clear();
   _mutationCount = 0;
   if (_persistTimer) { clearTimeout(_persistTimer); _persistTimer = null; }
   _stats.calls = 0;
@@ -2356,10 +2357,20 @@ function _parseRequestTokenLimit(bodyText = '') {
  * processes start with the limit already known instead of re-discovering it
  * via a wasted 413/400. No-op when the body doesn't match a known shape or
  * the parsed value doesn't change anything already known.
+ *
+ * This is called for every nonRetryable classification, not just size-related
+ * ones (401/402/404 bodies pass through the same call site) — the regexes
+ * above are narrow enough that an unrelated error is unlikely to match, but a
+ * false-positive match would otherwise persist forever and permanently
+ * skip-guard the model out of every future run (the pre-flight guard means it
+ * never gets a chance to hit a different, correct error and self-correct).
+ * The floor below caps that blast radius: no real provider cap is low enough
+ * to reject every prompt this codebase generates (~8-9k tokens), so a parsed
+ * value this small is almost certainly a misparse, not a real limit.
  */
 function _learnRequestTokenLimit(modelForTracking, bodyText) {
   const limit = _parseRequestTokenLimit(bodyText);
-  if (!limit || limit <= 0) return;
+  if (!limit || limit < 500) return;
   if (_learnedRequestTokenLimits.get(modelForTracking) === limit) return;
   _learnedRequestTokenLimits.set(modelForTracking, limit);
   _dirtyModels.add(modelForTracking);
