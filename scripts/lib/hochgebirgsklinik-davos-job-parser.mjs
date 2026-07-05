@@ -24,7 +24,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, warnIfListingAtCap } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -36,6 +36,7 @@ export const HOCHGEBIRGSKLINIK_DAVOS_COMPANY_DOMAIN = 'hochgebirgsklinik.ch';
 const CAREER_URL = 'https://karriere.hochgebirgsklinik.ch/';
 const TYPESENSE_PROXY_URL = 'https://api.my-job-shop.com/api/typesense/multi_search';
 const JOB_SHOP_ID = '9c3b04cb-7265-5acb-a208-199c8a9d547a';
+const TYPESENSE_PAGE_CAP = 250;
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -288,7 +289,7 @@ async function fetchJobListings(apiKey) {
           collection: 'offers',
           q: '*',
           query_by: 'title',
-          per_page: 250,
+          per_page: TYPESENSE_PAGE_CAP,
         }],
       }),
     });
@@ -302,6 +303,7 @@ async function fetchJobListings(apiKey) {
 
     const hits = assertJsonListShape(results, { key: 'hits', source: HOCHGEBIRGSKLINIK_DAVOS_KEY });
     console.log(`  📊 Typesense found: ${results.found} jobs, returned: ${hits.length}`);
+    warnIfListingAtCap({ label: 'Hochgebirgsklinik Davos listing', count: hits.length, cap: TYPESENSE_PAGE_CAP, total: results.found });
     return hits.map((h) => h.document);
   } catch (err) {
     clearTimeout(timer);
