@@ -66,7 +66,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:43:02.477Z"
+      "firstSeenAt": "2026-07-04T12:43:02.477Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-corporate-clients-sygnum-bank-zurich"
+        ],
+        "de": [
+          "leiter-corporate-clients-sygnum-bank-zurich"
+        ],
+        "fr": [
+          "responsable-corporate-clients-sygnum-bank-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-corporate-clients-sygnum-bank-zurich",
+        "leiter-corporate-clients-sygnum-bank-zurich",
+        "responsable-corporate-clients-sygnum-bank-zurich"
+      ]
     },
     {
       "id": "sygnum-d9d5b434b7a9",
@@ -732,7 +748,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:42:56.468Z"
+      "firstSeenAt": "2026-07-04T12:42:56.468Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-application-security-ingegnere-sygnum-bank-zurich"
+        ],
+        "de": [
+          "senior-application-security-ingenieur-sygnum-bank-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-application-security-ingegnere-sygnum-bank-zurich",
+        "senior-application-security-ingenieur-sygnum-bank-zurich"
+      ]
     }
   ]
 }

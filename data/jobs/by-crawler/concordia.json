@@ -74,11 +74,13 @@
           "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern"
         ],
         "fr": [
-          "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern"
+          "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern",
+          "specialiste-en-recouvrement-de-creances-d-f-80-100-concordia-luzern"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern"
+        "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern",
+        "specialiste-en-recouvrement-de-creances-d-f-80-100-concordia-luzern"
       ]
     },
     {
@@ -153,11 +155,13 @@
           "kundenberater-in-80-100-in-chur-concordia-chur"
         ],
         "fr": [
-          "kundenberater-in-80-100-in-chur-concordia-chur"
+          "kundenberater-in-80-100-in-chur-concordia-chur",
+          "conseiller-client-dans-80-100-a-chur-concordia-chur"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-80-100-in-chur-concordia-chur"
+        "kundenberater-in-80-100-in-chur-concordia-chur",
+        "conseiller-client-dans-80-100-a-chur-concordia-chur"
       ]
     },
     {
@@ -992,14 +996,18 @@
           "assistent-in-dialogmarketing-100-befristet-fur-ein-jahr-ab-september-2026-concordia-luzern"
         ],
         "en": [
-          "assistent-in-dialogmarketing-100-befristet-fur-ein-jahr-ab-september-2026-concordia-luzern"
+          "assistent-in-dialogmarketing-100-befristet-fur-ein-jahr-ab-september-2026-concordia-luzern",
+          "assistant-in-dialogue-marketing-100-temporary-for-one-year-from-september-2026-concordia-luzern"
         ],
         "fr": [
-          "assistent-in-dialogmarketing-100-befristet-fur-ein-jahr-ab-september-2026-concordia-luzern"
+          "assistent-in-dialogmarketing-100-befristet-fur-ein-jahr-ab-september-2026-concordia-luzern",
+          "assistant-en-marketing-de-dialogue-100-temporaire-pour-un-an-a-partir-de-septembre-2026-concordia-luzern"
         ]
       },
       "previousSlugs": [
-        "assistent-in-dialogmarketing-100-befristet-fur-ein-jahr-ab-september-2026-concordia-luzern"
+        "assistent-in-dialogmarketing-100-befristet-fur-ein-jahr-ab-september-2026-concordia-luzern",
+        "assistant-in-dialogue-marketing-100-temporary-for-one-year-from-september-2026-concordia-luzern",
+        "assistant-en-marketing-de-dialogue-100-temporaire-pour-un-an-a-partir-de-septembre-2026-concordia-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -1315,7 +1323,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:33.240Z"
+      "firstSeenAt": "2026-07-04T10:29:33.240Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "noyau-de-plomb-du-flux-de-valeur-m-j-70-100-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "noyau-de-plomb-du-flux-de-valeur-m-j-70-100-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-2edf7da98275",
@@ -1533,11 +1549,13 @@
           "kundenberater-in-60-in-olten-concordia-olten"
         ],
         "fr": [
-          "kundenberater-in-60-in-olten-concordia-olten"
+          "kundenberater-in-60-in-olten-concordia-olten",
+          "service-a-la-clientele-en-60-a-olten-concordia-olten"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-60-in-olten-concordia-olten"
+        "kundenberater-in-60-in-olten-concordia-olten",
+        "service-a-la-clientele-en-60-a-olten-concordia-olten"
       ]
     },
     {
@@ -2472,7 +2490,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:29:25.444Z"
+      "firstSeenAt": "2026-07-04T10:29:25.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-security-ingegnere-w-m-d-80-100-concordia-luzern"
+        ],
+        "fr": [
+          "it-security-ingenieur-w-m-d-80-100-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "it-security-ingegnere-w-m-d-80-100-concordia-luzern",
+        "it-security-ingenieur-w-m-d-80-100-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-498b2c305d02",
@@ -2546,11 +2576,13 @@
           "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss"
         ],
         "fr": [
-          "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss"
+          "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss",
+          "service-a-la-clientele-en-bureau-60-en-lyss-concordia-lyss"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss"
+        "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss",
+        "service-a-la-clientele-en-bureau-60-en-lyss-concordia-lyss"
       ]
     },
     {
@@ -3331,10 +3363,14 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-ai-engineer-architect-m-w-d-80-100-concordia-luzern"
+        ],
+        "fr": [
+          "senior-ai-ingenieur-architecte-m-w-d-80-100-concordia-luzern"
         ]
       },
       "previousSlugs": [
-        "senior-ai-engineer-architect-m-w-d-80-100-concordia-luzern"
+        "senior-ai-engineer-architect-m-w-d-80-100-concordia-luzern",
+        "senior-ai-ingenieur-architecte-m-w-d-80-100-concordia-luzern"
       ]
     },
     {
