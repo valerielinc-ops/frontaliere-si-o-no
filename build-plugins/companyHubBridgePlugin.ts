@@ -37,6 +37,9 @@ import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale
 import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { COMPANY_ROUTE_PREFIX } from './shared/cantonSection';
+import { buildCanonicalBridgePage } from './constants';
+import { isBrandAlias, resolveBrandCanonical } from './shared/brandCanonicalMap';
+import { buildTitleWithBrand } from './shared/titleSuffix';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -495,6 +498,34 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
   });
 }
 
+// autoDiscoverCompanyHubs() seeds candidates straight from the crawler
+// universe (data/jobs/by-crawler/*.json), independent of BRAND_CANONICAL_MAP,
+// so a declared alias slug (e.g. `migros-ticino`) can be discovered here too.
+// jobsSeoPagesPlugin owns the correct noindex→primary bridge for that slug,
+// but its emission is data-dependent (BRAND_UMBRELLAS aggregation must find
+// a qualifying entry); when it doesn't fire for a given build, this plugin's
+// `fs.existsSync` skip-guard sees no file and falls through to
+// `renderUnmatchedPage`, wrongly canonicalizing the alias to the
+// Switzerland-wide aggregator instead of the brand primary (issue #3232
+// recurrence, tests/seo/brand-dedup.test.ts). Bridging to the SAME primary
+// here — via the same `buildCanonicalBridgePage` helper jobsSeoPagesPlugin
+// uses for its own alias pages — makes the two emitters agree regardless of
+// write order, closing the race structurally instead of one build at a time.
+function renderBrandAliasBridge(entry: HubEntry, canonicalSlug: string): string {
+  const primaryHubPath = buildHubPath(entry.locale, canonicalSlug);
+  const companyName = entry.displayName;
+  return buildCanonicalBridgePage({
+    canonicalUrl: `${BASE_URL}${primaryHubPath}`,
+    pathLabel: primaryHubPath,
+    title: buildTitleWithBrand(esc(companyName)),
+    description: `Pagina alternativa per ${companyName}. Apri la pagina canonica per gli annunci aggiornati.`,
+    body: `Questa URL azienda non e la variante canonica. Apri la pagina principale dell'azienda per gli annunci aggiornati.`,
+    ctaLabel: String(companyName || 'Apri azienda'),
+    lang: entry.locale,
+    noindex: true,
+  });
+}
+
 export function companyHubBridgePlugin(rootDir: string): Plugin {
   return {
     name: 'company-hub-bridge',
@@ -539,9 +570,12 @@ export function companyHubBridgePlugin(rootDir: string): Plugin {
         const flatTarget = path.join(distDir, hubPath.replace(/\/+$/, '') + '.html');
         if (fs.existsSync(indexTarget)) { skipped++; continue; }
 
-        const html = entry.kind === 'matched'
-          ? renderMatchedPage(entry, distDir)
-          : renderUnmatchedPage(entry, distDir);
+        const brandCanonicalSlug = resolveBrandCanonical(entry.companySlug);
+        const html = (brandCanonicalSlug && isBrandAlias(entry.companySlug))
+          ? renderBrandAliasBridge(entry, brandCanonicalSlug)
+          : entry.kind === 'matched'
+            ? renderMatchedPage(entry, distDir)
+            : renderUnmatchedPage(entry, distDir);
 
         try {
           fs.mkdirSync(path.dirname(indexTarget), { recursive: true });
