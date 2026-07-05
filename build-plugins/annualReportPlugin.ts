@@ -908,10 +908,6 @@ function renderReport(opts: {
 
   const bodyHtml = `<main class="s-xzWvwM">${body}</main>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   const wordCount = countHtmlBodyWords(body);
 
   const html = buildSeoPageHtml({
@@ -923,7 +919,6 @@ function renderReport(opts: {
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: buildHreflang(),
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, articleLd, datasetLd],
     bodyHtml,
     distDir,

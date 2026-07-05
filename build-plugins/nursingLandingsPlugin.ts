@@ -467,10 +467,6 @@ function renderPage(opts: {
 
   const bodyHtml = `<main class="s-it71Rt">${body}</main>`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   const wordCount = countHtmlBodyWords(body);
 
   const jsonLdScripts = [breadcrumbLd, faqLd, articleLd];
@@ -485,7 +481,6 @@ function renderPage(opts: {
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: alternates,
-    extraHeadHtml: extraHead,
     jsonLdScripts,
     bodyHtml,
     distDir,

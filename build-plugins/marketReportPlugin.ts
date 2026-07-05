@@ -686,10 +686,6 @@ function renderReport(opts: {
   const adSection = `<section class="s-U5Q4dL" aria-label="advertisement">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</section>`;
   const bodyHtml = `<main class="s-xzWvwM">${body}</main>${adSection}`;
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
   const wordCount = countHtmlBodyWords(body);
 
   const html = buildSeoPageHtml({
@@ -701,7 +697,6 @@ function renderReport(opts: {
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: alternates,
-    extraHeadHtml: extraHead,
     jsonLdScripts: [breadcrumbLd, articleLd, datasetLd],
     bodyHtml,
     distDir,
