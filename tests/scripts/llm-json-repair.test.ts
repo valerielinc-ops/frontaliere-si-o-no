@@ -176,6 +176,29 @@ describe('fixJsonStringBody', () => {
     expect(parsed.imagePrompt).toBe('Scena con la "tassa sulla salute" citata.');
     expect(parsed.imageAlt).toEqual({ it: 'Vista panoramica', en: 'Panoramic view' });
   });
+
+  // Regression: findMatchingClose() walked strings with a naive unescaped-
+  // quote toggle. A nested value with an ODD count of stray embedded quotes
+  // before its real closer (e.g. a quoted term missing its closing mark)
+  // flips the toggle's parity, so the brace-depth counter never reaches (or
+  // reaches too early) the true matching '}' — returning -1 and making the
+  // '{'/'[' branch of scanValueEnd wrongly reject the *preceding* sibling
+  // field's real closing quote, corrupting it (PR #3601 round-1 review).
+  it('does not corrupt the preceding sibling field when a nested object value has an odd stray-quote count', () => {
+    const broken = '{"imagePrompt":"Scena con la torre.","imageAlt":{"it":"La chiamano torre "di Lugano, simbolo della citta.","en":"Panoramic view"}}';
+    const repaired = fixJsonStringBody(broken, { fixAsterisks: true });
+    const parsed = JSON.parse(repaired);
+    expect(parsed.imagePrompt).toBe('Scena con la torre.');
+    expect(parsed.imageAlt.en).toBe('Panoramic view');
+  });
+
+  it('does not corrupt the preceding sibling field when a faq array item has an odd stray-quote count', () => {
+    const broken = '{"body3":"Testo introduttivo.","faq":[{"q":"Cosa significa "frontaliere nel senso ampio?","a":"Risposta."}]}';
+    const repaired = fixJsonStringBody(broken, { fixAsterisks: true });
+    const parsed = JSON.parse(repaired);
+    expect(parsed.body3).toBe('Testo introduttivo.');
+    expect(parsed.faq).toHaveLength(1);
+  });
 });
 
 describe('stripCodeFences', () => {
