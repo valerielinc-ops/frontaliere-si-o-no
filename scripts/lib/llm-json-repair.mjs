@@ -26,7 +26,17 @@ export function stripCodeFences(raw) {
  */
 export const JSON_QUOTE_SAFETY_RULE_IT = '⚠️ VIRGOLETTE NEI VALORI JSON: se riporti un termine o una frase citata tra virgolette (es. la cosiddetta "tassa sulla salute"), NON usare mai il carattere " dentro un valore stringa JSON — usa virgolette singole (\'tassa sulla salute\') o guillemet («tassa sulla salute»). Se devi proprio usare virgolette doppie interne, escapale sempre con \\" (es. "la cosiddetta \\"tassa sulla salute\\""). Una virgoletta doppia non escapata dentro una stringa rende l\'intero JSON non valido e scarta l\'intero articolo.';
 
-/** Index of the bracket/brace matching the opener at openIdx, quote/escape aware. */
+/**
+ * Index of the bracket/brace matching the opener at openIdx, quote/escape aware.
+ *
+ * Known gap (issue #3604): the quote toggle below is a raw "" flip with no
+ * decideQuoteCloses-style disambiguation. If the nested value itself contains
+ * an unescaped embedded quote (the same corruption class this module exists
+ * to fix, one level deeper — e.g. a quoted term inside imageAlt.it), the
+ * toggle desyncs and this can return the wrong close index, which then makes
+ * scanValueEnd() wrongly reject the *preceding* field's real closing quote.
+ * Pre-existing, not introduced by the scanValueEnd fix that calls this.
+ */
 export function findMatchingClose(src, openIdx) {
   const open = src[openIdx];
   const close = open === '[' ? ']' : open === '{' ? '}' : null;
