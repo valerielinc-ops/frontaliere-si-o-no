@@ -1778,12 +1778,28 @@ export function recordModelContentSuccess(modelId) {
  * after `MAX_CONSECUTIVE_CONTENT_FAILURES` consecutive content failures for the
  * same model, marks it exhausted for the rest of this process so subsequent
  * callLLM invocations skip it and try the next-best model in the chain.
+ *
+ * Local CPU fallback is exempt from the ban itself (still penalized via
+ * recordModelFailure, just never hard-excluded) — same rationale as its
+ * Firestore-persistence exemption above (initScoreStore /
+ * _persistScoresToFirestore): it has no external quota, so when the remote
+ * chain is ALSO exhausted it's the only resource left this run. Banning it
+ * after 2 failures doesn't save anything (there's nothing else to fall back
+ * to) — it just guarantees the run produces zero output for its remaining
+ * wall-clock budget instead of getting more real attempts at the only model
+ * still willing to answer. See run 28737038015: local/fallback banned at
+ * ~22min into a 30min budget, wasting the remaining ~8min on 5 further
+ * outer-retries + additional ranker candidates that were 100% certain to
+ * fail (every model already exhausted). deadlineMs (RUN_WALL_BUDGET_MS)
+ * already bounds total retry time, so removing the ban here doesn't risk an
+ * unbounded loop.
  */
 export function recordModelContentFailure(modelId) {
   if (!modelId) return;
   recordModelFailure(modelId);
   const count = (_consecutiveContentFailures.get(modelId) || 0) + 1;
   _consecutiveContentFailures.set(modelId, count);
+  if (getProvider(modelId) === PROVIDER.LOCAL) return;
   if (count >= MAX_CONSECUTIVE_CONTENT_FAILURES) {
     markModelExhausted(modelId, 'content');
     _stats.exhausted++;
@@ -2510,9 +2526,15 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         // another credential to try (GitHub multi-PAT: _suppressExhaustionMark),
         // do NOT mark the model globally exhausted — it's only out on THIS
         // account; the error still propagates so the caller can rotate.
+        // Same PROVIDER.LOCAL exemption as the 429/timeout/content-failure
+        // circuit breakers elsewhere in this file — _callLocal routes through
+        // here (trackAs: model), so an HTTP-shaped failure (daily-limit-looking
+        // response, stale local auth 401) must never hard-ban local/fallback.
         if (isDailyLimitError(res.status, raw)) {
-          if (!_suppressExhaustionMark) markModelExhausted(modelForTracking);
-          _stats.exhausted++;
+          if (!_suppressExhaustionMark && getProvider(modelForTracking) !== PROVIDER.LOCAL) {
+            markModelExhausted(modelForTracking);
+            _stats.exhausted++;
+          }
           throw new Error(`[${displayModel}] Daily request limit reached`);
         }
         // Non-retryable client errors (unknown model, context too small)
@@ -2523,7 +2545,7 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
           // further to 200 for logging), which is why this can't be recovered
           // after the fact from logs.
           _learnRequestTokenLimit(modelForTracking, raw);
-          if (nrc.markExhausted) {
+          if (nrc.markExhausted && getProvider(modelForTracking) !== PROVIDER.LOCAL) {
             markModelExhausted(modelForTracking, 'nonretryable');
             _stats.exhausted++;
           }
@@ -3350,7 +3372,11 @@ export async function callLLM(messages, opts = {}) {
       if (is429Failure) {
         const count = (_consecutive429.get(model) || 0) + 1;
         _consecutive429.set(model, count);
-        if (count >= MAX_CONSECUTIVE_429) {
+        // local/fallback is exempt from the hard ban — see the matching
+        // PROVIDER.LOCAL carve-out on recordModelContentFailure above: no
+        // external quota, so exhausting it mid-run just guarantees zero
+        // output for the rest of the wall-clock budget.
+        if (count >= MAX_CONSECUTIVE_429 && getProvider(model) !== PROVIDER.LOCAL) {
           markModelExhausted(model);
           _stats.exhausted++;
           console.warn(`🚫 [${model}] Exhausted after ${count} consecutive 429s`);
@@ -3361,8 +3387,11 @@ export async function callLLM(messages, opts = {}) {
       }
       // Timeout circuit breaker: if a model timed out after retries, mark it
       // exhausted so subsequent callLLM invocations skip it entirely.
+      // Same PROVIDER.LOCAL exemption as the 429 branch above — _callLocal
+      // intentionally raises the timeout floor for slow CPU inference, so a
+      // timeout there is expected load, not a dead provider.
       const isTimeoutFailure = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(msg);
-      if (isTimeoutFailure) {
+      if (isTimeoutFailure && getProvider(model) !== PROVIDER.LOCAL) {
         markModelExhausted(model, 'timeout');
         _stats.exhausted++;
       }

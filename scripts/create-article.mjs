@@ -3189,8 +3189,9 @@ async function callLLM(messages, opts = {}) {
       if (missing.length > 0) {
         console.error(`  ⚠️  output JSON incompleto: ${missing.join(', ')} (tentativo ${attempt}/${maxBody2Retries}) — rigenero...`);
         // Penalize the model that produced the unusable payload so the next
-        // attempt picks a different one (and the chain self-heals after
-        // MAX_CONSECUTIVE_CONTENT_FAILURES → model exhausted for this run).
+        // attempt picks a different one (remote models get excluded for the
+        // rest of this run after MAX_CONSECUTIVE_CONTENT_FAILURES; local/fallback
+        // never is — it's the last resort when the whole remote chain is dead).
         recordModelContentFailure(modelUsedRef.model);
         if (attempt < maxBody2Retries) continue;
       } else {
