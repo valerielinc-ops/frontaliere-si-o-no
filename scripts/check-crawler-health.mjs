@@ -274,6 +274,21 @@ const EMPTY_OK_CRAWLERS = new Set([
   // Same legitimately-empty small-employer case as linnea and
   // wuerth-international (#3344).
   'medics-labor',
+  // AXA Svizzera (Prospective.ch Career Center 2193, national CH-wide
+  // crawler): the listing (https://jobs.axa.ch/?lang=it&offset=0&limit=500)
+  // returns HTTP 200 with the unchanged filter form and `#jobs-list`
+  // structure (same ids/classes the parser targets), but the server now
+  // renders `<p id="no-results">Attualmente non sono disponibili posti
+  // vacanti con questi criteri.</p>` and zero `<a id="job-*">` anchors — same
+  // across it/de/fr/en and confirmed in the production crawl log (issue
+  // #3564, 2026-07-05). Individual detail pages return HTTP 410 ("La
+  // pubblicazione di questo posto di lavoro è terminata"), proving the ATS
+  // backend is live and simply has no current national openings, not a
+  // template/markup change. Job count declined gradually (153 → 0) over
+  // ~3 weeks as postings expired without replacements, consistent with a
+  // real hiring lull, not a selector break. Parser is healthy and re-arms
+  // automatically when AXA republishes openings.
+  'axa-svizzera',
 ]);
 
 /** Read JSON file, return null on any error. */
