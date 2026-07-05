@@ -20,7 +20,16 @@ GitHub chiude SOLO la prima issue dopo una keyword di chiusura (`Closes`/`Fixes`
 
 ## closes-must-be-in-pr-body
 
-PR #3562 (fix per issue #3485): il commit message conteneva `Closes #3485` ma il body della PR no — l'agent l'aveva messo solo nel commit. `gh pr view --json closingIssuesReferences` tornava `[]` finché il body non è stato editato per includere `Closes #3485` su una riga propria; solo dopo l'edit `closingIssuesReferences` ha mostrato `[3485]`. Root cause: per un repo che mergia via squash, GitHub calcola le issue-da-chiudere dal **body della PR**, non dai singoli commit del branch (che vengono riscritti/collassati dallo squash) — la keyword solo nel commit message non è sufficiente. Fix: verificare sempre `gh pr view <N> --json closingIssuesReferences` prima di dichiarare il task risolto, non fidarsi della sola presenza della keyword in un commit.
+Due meccanismi distinti, scoperti su due incidenti consecutivi sulla stessa issue (#3485) nello stesso pomeriggio (2026-07-05).
+
+**Incidente 1 (#3485 → PR #3562):** il commit message conteneva `Closes #3485` ma il body della PR no. `gh pr view --json closingIssuesReferences` tornava `[]` finché il body non è stato editato per includere `Closes #3485` su una riga propria; solo dopo l'edit `closingIssuesReferences` ha mostrato `[3485]`. Interpretazione iniziale — poi corretta dall'incidente 2 — "GitHub calcola le issue-da-chiudere dal body della PR, non dai commit": vera SOLO per il campo preview `closingIssuesReferences`, non per la chiusura reale a merge.
+
+**Incidente 2 (#3568, PR docs-only che documentava l'incidente 1):** dopo aver corretto il body di #3562 e aperto #3568 per codificare la lezione, #3568 è stata mergiata (squash) alle 09:57:04 UTC — e issue #3485 si è chiusa alle 09:57:06, **due secondi dopo**, mentre #3562 (il fix vero) era ancora OPEN. Root cause reale: `gh api repos/<owner>/<repo> --jq '.squash_merge_commit_message'` → `COMMIT_MESSAGES` — il commit di squash che atterra su `main` è la CONCATENAZIONE dei commit message del branch, non il body della PR. Il commit di #3568 conteneva, in una frase narrativa che descriveva l'incidente 1 (tipo: "...dopo che PR #3562 ha spedito `Closes #3485` solo nel commit message..."), lo stesso pattern testuale `Closes #3485` — GitHub l'ha letto alla lettera nel commit di merge di #3568 e ha chiuso issue #3485 per davvero, sebbene la frase narrasse un fatto storico su un'ALTRA PR. Riaperta manualmente (`gh issue reopen 3485`) con commento esplicativo non appena scoperto.
+
+**Lezione corretta:**
+1. `closingIssuesReferences` è solo un preview basato sul body della PR corrente (rispetta gli span backtick) — NON è la fonte di verità per la chiusura reale a merge.
+2. La chiusura reale legge il commit-di-merge che atterra su `main`; in questo repo è costruito dai commit message del branch (`squash_merge_commit_message: COMMIT_MESSAGES`) — la keyword deve esistere in almeno un commit REALE per garantire la chiusura, un body-only-edit via `gh pr edit` non basta da solo.
+3. Corollario pericoloso: una menzione testuale `<keyword-chiusura> #<N>` in QUALSIASI commit message di QUALSIASI PR — anche solo narrativa/storica su un incidente passato — diventa un trigger reale quando quel commit atterra su `main`. Mai scriverla se non si intende chiudere DAVVERO quell'issue con QUELLA PR. Per riferimenti storici a un'issue in un commit message, usa il numero senza `#` (es. "issue 3485") o comunque non adiacente a una keyword di chiusura.
 
 ## lgtm-automerge
 
