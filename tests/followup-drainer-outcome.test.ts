@@ -8,7 +8,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { latestFixOutcomeFromComments, NON_RETRYABLE, isAgeOutEligible } from '../scripts/ci/followup-drainer.mjs';
+import { latestFixOutcomeFromComments, NON_RETRYABLE, isAgeOutEligible, isSettlingPromotion } from '../scripts/ci/followup-drainer.mjs';
 
 type Comment = { body?: string; createdAt?: string };
 const at = (n: number) => new Date(2026, 0, n).toISOString();
@@ -62,6 +62,23 @@ describe('NON_RETRYABLE (quali esiti → park immediato)', () => {
     for (const code of ['overlap-skip', 'pr-already-open', 'pr-created']) {
       expect(NON_RETRYABLE.has(code)).toBe(false);
     }
+  });
+});
+
+describe('isSettlingPromotion (regressione 2026-07-05: esito ≠ promozione fresca)', () => {
+  it('vero SOLO su promozione fresca senza verdetto ancora entro la finestra settle', () => {
+    expect(isSettlingPromotion({ outcome: null, ageMin: 1, settleMin: 3 })).toBe(true);
+  });
+
+  it('falso se un FIX_OUTCOME esiste già, anche se age è sotto settleMin (run CONCLUSA, non fresca)', () => {
+    // #3578: max-turns commentato a 16:35:59 bumpa updatedAt → age~0min, ma la
+    // run è già finita — non deve contare come settling (bloccava il drain).
+    expect(isSettlingPromotion({ outcome: 'max-turns', ageMin: 0.5, settleMin: 3 })).toBe(false);
+    expect(isSettlingPromotion({ outcome: 'no-root-cause', ageMin: 0, settleMin: 3 })).toBe(false);
+  });
+
+  it('falso oltre la finestra settle anche senza verdetto (passa al ramo orphan)', () => {
+    expect(isSettlingPromotion({ outcome: null, ageMin: 5, settleMin: 3 })).toBe(false);
   });
 });
 
