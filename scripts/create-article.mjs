@@ -3232,14 +3232,25 @@ async function callLLM(messages, opts = {}) {
         // after maxBody2Retries genuinely-exhausted tries. Throw so the caller
         // falls back to the next model in the chain (or the outer safety net)
         // instead of publishing malformed/wrong-language content.
-        throw new Error(`Output JSON incompleto (tentativo ${attempt}/${maxBody2Retries}${wallBudgetExceeded() ? ', budget esaurito' : ''}): ${missing.join(', ')}`);
+        // qualityReject=true: this is a content-quality failure (malformed JSON,
+        // CJK/Cyrillic drift, missing fields), not an infrastructure error.
+        // Without the flag the outer ranker loop (isQualityRejectError check) treats
+        // it as infrastructure and crashes the whole run instead of gracefully
+        // skipping to the next headline.
+        const _bodyErr = new Error(`Output JSON incompleto (tentativo ${attempt}/${maxBody2Retries}${wallBudgetExceeded() ? ', budget esaurito' : ''}): ${missing.join(', ')}`);
+        _bodyErr.qualityReject = true;
+        throw _bodyErr;
       } else {
         recordModelContentSuccess(modelUsedRef.model);
       }
     }
     return result;
   }
-  throw new Error(`Output JSON non valido dopo ${maxBody2Retries} tentativi con validazione jsonMode`);
+  // qualityReject=true: same class as above — exhausted retries without a valid
+  // body2 payload is a per-headline quality failure, not an infrastructure crash.
+  const _exhaustedErr = new Error(`Output JSON non valido dopo ${maxBody2Retries} tentativi con validazione jsonMode`);
+  _exhaustedErr.qualityReject = true;
+  throw _exhaustedErr;
 }
 
 /** Convert article id like "tassa-salute-ticino" to camelCase slug key "blogTassaSaluteTicino" */
