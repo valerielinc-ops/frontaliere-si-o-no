@@ -4906,6 +4906,14 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     if (hashRaw.length > 3 && /^[\w-]+$/.test(hashRaw)) {
       return `${registrableDomain(host)}|#${hashRaw.toLowerCase()}`;
     }
+    // SPA hash-router URLs nest the real per-job path INSIDE the fragment
+    // (Oracle Recruiting Cloud: `#fr/sites/CX_1/job/12345`) — the flat-token
+    // rule above requires no slashes, so this shape fell through to '' and
+    // every job on the same career site collapsed onto one identity via the
+    // hash-stripped canonicalizeJobUrl fallback (état de vaud 28→1, #3468).
+    // Mirror the `inPath` trailing-id heuristic above, applied to the hash.
+    const hashJobMatch = hashRaw.match(/\/jobs?\/([^/?#]+)\/?$/i);
+    if (hashJobMatch?.[1]) return `${registrableDomain(host)}|#${hashJobMatch[1].toLowerCase()}`;
   }
   return '';
 }

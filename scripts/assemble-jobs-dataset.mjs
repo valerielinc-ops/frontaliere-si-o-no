@@ -35,7 +35,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { Worker } from 'node:worker_threads';
 import {
@@ -736,9 +736,12 @@ export function quarantineBoilerplateJobs(jobs, boilerplateJobs) {
  */
 function _createBoilerplateGuardIssue(crawlerKey, report) {
   try {
-    // Check for existing open issue
-    const searchResult = execSync(
-      `gh issue list --label parser-broken --state open --search "${crawlerKey}" --json number,title --limit 5`,
+    // Check for existing open issue. execFileSync passes argv directly to gh
+    // (no shell), so job titles/slugs embedded in the body below can't be
+    // interpreted as shell syntax (backticks, $(), etc. — see shrink-guard sibling).
+    const searchResult = execFileSync(
+      'gh',
+      ['issue', 'list', '--label', 'parser-broken', '--state', 'open', '--search', crawlerKey, '--json', 'number,title', '--limit', '5'],
       { encoding: 'utf8', timeout: 15000 },
     ).trim();
 
@@ -750,8 +753,15 @@ function _createBoilerplateGuardIssue(crawlerKey, report) {
 
     if (existingIssue) {
       // Add comment to existing issue
-      execSync(
-        `gh issue comment ${existingIssue.number} --body "Updated: ${dateStr} — still detecting ${report.boilerplateCount}/${report.totalJobs} boilerplate jobs."`,
+      execFileSync(
+        'gh',
+        [
+          'issue',
+          'comment',
+          String(existingIssue.number),
+          '--body',
+          `Updated: ${dateStr} — still detecting ${report.boilerplateCount}/${report.totalJobs} boilerplate jobs.`,
+        ],
         { encoding: 'utf8', timeout: 15000 },
       );
       console.log(`📋 Updated existing issue #${existingIssue.number}`);
@@ -782,8 +792,20 @@ ${jobsTable}
 - [ ] Compare parser selectors with current page structure
 - [ ] Fix the parser and re-run: \`node scripts/update-${crawlerKey}-jobs.mjs\``;
 
-      execSync(
-        `gh issue create --title "[parser-health] ${crawlerKey}: ${report.boilerplateCount}/${report.totalJobs} jobs have boilerplate-only descriptions" --label parser-broken --label automated --body ${JSON.stringify(body)}`,
+      execFileSync(
+        'gh',
+        [
+          'issue',
+          'create',
+          '--title',
+          `[parser-health] ${crawlerKey}: ${report.boilerplateCount}/${report.totalJobs} jobs have boilerplate-only descriptions`,
+          '--label',
+          'parser-broken',
+          '--label',
+          'automated',
+          '--body',
+          body,
+        ],
         { encoding: 'utf8', timeout: 15000 },
       );
       console.log(`📋 Created new GitHub Issue for ${crawlerKey}`);
@@ -795,8 +817,13 @@ ${jobsTable}
 
 function _createShrinkGuardIssue(crawlerKey, report) {
   try {
-    const searchResult = execSync(
-      `gh issue list --label parser-broken --state open --search "${crawlerKey}" --json number,title --limit 5`,
+    // execFileSync passes argv directly to gh (no shell), so a job title or
+    // slug containing backticks/$() can't be executed as a shell command
+    // (this is what previously caused "Permission denied" on a script path
+    // embedded in the markdown body, see issues #3544/#3468).
+    const searchResult = execFileSync(
+      'gh',
+      ['issue', 'list', '--label', 'parser-broken', '--state', 'open', '--search', crawlerKey, '--json', 'number,title', '--limit', '5'],
       { encoding: 'utf8', timeout: 15000 },
     ).trim();
 
@@ -807,8 +834,15 @@ function _createShrinkGuardIssue(crawlerKey, report) {
     const ratioPercent = Math.round(report.ratio * 100);
 
     if (existingIssue) {
-      execSync(
-        `gh issue comment ${existingIssue.number} --body "Updated: ${dateStr} — slice shrunk again: ${report.newCount}/${report.priorCount} jobs (${ratioPercent}% of prior)."`,
+      execFileSync(
+        'gh',
+        [
+          'issue',
+          'comment',
+          String(existingIssue.number),
+          '--body',
+          `Updated: ${dateStr} — slice shrunk again: ${report.newCount}/${report.priorCount} jobs (${ratioPercent}% of prior).`,
+        ],
         { encoding: 'utf8', timeout: 15000 },
       );
       console.log(`📋 Updated existing issue #${existingIssue.number}`);
@@ -829,8 +863,20 @@ The write was refused — the prior slice on disk was kept, no data was lost.
 - [ ] Compare parser selectors with current page structure
 - [ ] If the shrink is legitimate (real listing count drop), re-run with \`SKIP_SHRINK_GUARD=1 node scripts/update-${crawlerKey}-jobs.mjs\``;
 
-      execSync(
-        `gh issue create --title "[parser-health] ${crawlerKey}: slice would shrink to ${ratioPercent}% of prior (${report.newCount}/${report.priorCount})" --label parser-broken --label automated --body ${JSON.stringify(body)}`,
+      execFileSync(
+        'gh',
+        [
+          'issue',
+          'create',
+          '--title',
+          `[parser-health] ${crawlerKey}: slice would shrink to ${ratioPercent}% of prior (${report.newCount}/${report.priorCount})`,
+          '--label',
+          'parser-broken',
+          '--label',
+          'automated',
+          '--body',
+          body,
+        ],
         { encoding: 'utf8', timeout: 15000 },
       );
       console.log(`📋 Created new GitHub Issue for ${crawlerKey}`);
