@@ -52,14 +52,11 @@ import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
   JOB_MARKET_HUB_NAME,
-  JOB_MARKET_LOCALE_PREFIX,
   JOB_MARKET_MONTH_NAMES,
   JOB_MARKET_OG_LOCALE,
-  JOB_MARKET_SECTION_SLUG,
   JOB_MARKET_SECTOR_DISPLAY,
   JOB_MARKET_SECTOR_KEYS,
   JOB_MARKET_SECTOR_MATCHERS,
-  JOB_MARKET_SECTOR_SEGMENT,
   JOB_MARKET_SECTOR_SLUG,
   JOB_MARKET_SNAPSHOT_LOCALES,
   buildHubPath,
@@ -2105,6 +2102,15 @@ export interface GeneratorOutput {
   /** Weekly buckets in the normal mode, or synthesised ones in degraded mode. */
   completedWeeks: WeekBucket[];
   completedMonths: MonthBucket[];
+  /**
+   * Every locale's canonical path keyed by ITS OWN canonical path — the exact
+   * same alternates record already computed for the page's own hreflang HTML,
+   * reused verbatim by the `closeBundle` sitemap writer so it never has to
+   * reverse-engineer a page's identity (week/month/sector) from an arbitrary
+   * locale's URL slug. Anchors x-default via `alt.it` regardless of which
+   * locale's path is currently being written.
+   */
+  pathAlternates: Map<string, Record<JobMarketSnapshotLocale, string>>;
 }
 
 function alternatesForHub(): Record<JobMarketSnapshotLocale, string> {
@@ -2159,6 +2165,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
 
   const pages: Record<string, string> = {};
   const noindexPaths = new Set<string>();
+  const pathAlternates = new Map<string, Record<JobMarketSnapshotLocale, string>>();
   const trendSeries = buildWeeklyTrendSeries(completedWeeks);
   const degraded = completedWeeks.length < MIN_HISTORY_WEEKS_FOR_NORMAL_MODE;
 
@@ -2209,8 +2216,10 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
     return { bucket: b, summary };
   });
 
+  const hubAlternates = alternatesForHub();
   for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
     const canonicalPath = buildHubPath(locale);
+    pathAlternates.set(canonicalPath, hubAlternates);
     const latestWeeks = latestWeeksSummary.map(({ bucket, summary }) => ({
       week: bucket.isoWeek,
       year: bucket.isoYear,
@@ -2235,7 +2244,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
     pages[canonicalPath] = renderHubPage({
       locale,
       canonicalPath,
-      alternates: alternatesForHub(),
+      alternates: hubAlternates,
       todayIso,
       degraded,
       latestWeeks,
@@ -2264,8 +2273,10 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
 
   for (const { bucket, noindex } of weeksToEmit) {
     const stats = buildWeeklyAggregates(bucket, trendSeries, medianSalary);
+    const weekAlternates = alternatesForWeek(bucket.isoYear, bucket.isoWeek);
     for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
       const canonicalPath = buildWeeklyPath(locale, bucket.isoYear, bucket.isoWeek);
+      pathAlternates.set(canonicalPath, weekAlternates);
       // Source of truth for sitemap exclusion. The closeBundle sitemap writer
       // must NOT re-sniff the emitted HTML for a noindex meta: buildSeoPageHtml
       // minifies (removeAttributeQuotes), so a quoted-string `includes()` match
@@ -2279,7 +2290,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
         stats,
         weekLabel: { week: bucket.isoWeek, year: bucket.isoYear },
         canonicalPath,
-        alternates: alternatesForWeek(bucket.isoYear, bucket.isoWeek),
+        alternates: weekAlternates,
         todayIso,
         degraded,
         noindex,
@@ -2293,8 +2304,10 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
   // ── Monthly pages (completed months, all 4 locales)
   for (const bucket of completedMonths) {
     const stats = buildMonthlyAggregates(bucket, trendSeries, medianSalary);
+    const monthAlternates = alternatesForMonth(bucket.year, bucket.month);
     for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
       const canonicalPath = buildMonthlyPath(locale, bucket.year, bucket.month);
+      pathAlternates.set(canonicalPath, monthAlternates);
       const monthName =
         JOB_MARKET_MONTH_NAMES[locale][bucket.month].charAt(0).toUpperCase() +
         JOB_MARKET_MONTH_NAMES[locale][bucket.month].slice(1);
@@ -2304,7 +2317,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
         stats,
         monthLabel: { monthName, year: bucket.year },
         canonicalPath,
-        alternates: alternatesForMonth(bucket.year, bucket.month),
+        alternates: monthAlternates,
         todayIso,
         degraded: false,
         noindex: false,
@@ -2315,7 +2328,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
     }
   }
 
-  return { pages, noindexPaths, degraded, completedWeeks, completedMonths };
+  return { pages, noindexPaths, degraded, completedWeeks, completedMonths, pathAlternates };
 }
 
 // ── Per-sector snapshot generation (D-3A) ──────────────────────
@@ -3077,6 +3090,7 @@ export interface SectorGeneratorInputs {
 export interface SectorGeneratorOutput {
   pages: Record<string, string>;
   sectorStats: Record<JobMarketSectorKey, SectorStats>;
+  pathAlternates: Map<string, Record<JobMarketSnapshotLocale, string>>;
 }
 
 /**
@@ -3120,6 +3134,7 @@ export function generateSectorSnapshotPages(
 
   const pages: Record<string, string> = {};
   const sectorStats = {} as Record<JobMarketSectorKey, SectorStats>;
+  const pathAlternates = new Map<string, Record<JobMarketSnapshotLocale, string>>();
 
   // Pre-filter active jobs ONCE before the sector loop. Was O(sectors × jobs)
   // = ~14 × ~5_000 = 70k `jobIsActiveForSector` checks per build; now O(jobs)
@@ -3129,15 +3144,17 @@ export function generateSectorSnapshotPages(
   for (const sector of JOB_MARKET_SECTOR_KEYS) {
     const stats = aggregateSectorStats(sector, activeJobs, entries, completedWeeks, completedMonths);
     sectorStats[sector] = stats;
+    const sectorAlternates = alternatesForSector(sector);
     for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
       const canonicalPath = buildSectorSnapshotPath(locale, sector);
+      pathAlternates.set(canonicalPath, sectorAlternates);
       const sectorLabel = JOB_MARKET_SECTOR_DISPLAY[locale][sector];
       pages[canonicalPath] = renderSectorPage({
         locale,
         sector,
         sectorLabel,
         canonicalPath,
-        alternates: alternatesForSector(sector),
+        alternates: sectorAlternates,
         todayIso,
         stats,
         distDir: opts.distDir,
@@ -3147,7 +3164,7 @@ export function generateSectorSnapshotPages(
     }
   }
 
-  return { pages, sectorStats };
+  return { pages, sectorStats, pathAlternates };
 }
 
 // ── Sitemap writer ─────────────────────────────────────────────
@@ -3230,7 +3247,14 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       }
 
       const knownSlugs = loadKnownCompanySlugs(rootDir);
-      const { pages, noindexPaths, degraded } = generateJobMarketSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
+      const { pages, noindexPaths, degraded, pathAlternates } = generateJobMarketSnapshotPages({
+        history,
+        jobs,
+        today,
+        distDir,
+        knownSlugs,
+        rootDir,
+      });
 
       // D-3A: per-sector snapshot pages (~14 sectors × 4 locali = ~56 pages)
       // (#3060 item 2) sectorOutput has no `noindexPaths` to merge into the
@@ -3241,6 +3265,9 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       const sectorOutput = generateSectorSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
       for (const [path, html] of Object.entries(sectorOutput.pages)) {
         pages[path] = html;
+      }
+      for (const [path, alt] of sectorOutput.pathAlternates) {
+        pathAlternates.set(path, alt);
       }
 
       const collector = new WriteCollector({
@@ -3264,57 +3291,29 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
         collector.add(np.join(outDir, 'index.html'), html);
         pagesWritten++;
 
-        // Sitemap: only emit IT canonical for each page (hub/weekly/monthly), with hreflang alternates.
-        // Exclude noindex pages by PATH lookup against the generator's source-of-truth set — never by
-        // re-sniffing the emitted HTML: buildSeoPageHtml minifies (removeAttributeQuotes) so a quoted
-        // `includes('name="robots" content="noindex')` match silently misses `name=robots content=noindex`
-        // and leaked archived weeks into the sitemap (validate:content-quality BLOCKING, recurring weekly).
-        // The quote-flexible HTML regex is a defensive backstop so any future noindex page type that
-        // forgets to register in noindexPaths still cannot leak into the sitemap.
-        const isItalian = !path.startsWith('/en/') && !path.startsWith('/de/') && !path.startsWith('/fr/');
-        if (isItalian && !noindexPaths.has(path) && !htmlHasNoindexMeta(html)) {
-          // Extract the IT sub-slug after the section, then re-localise it
-          // per alternate so the alternate link lands on the correct
-          // locale-specific URL (woche-16-2026, week-16-2026, etc.).
-          const stripped = path.replace(/^\/mercato-lavoro-ticino\/?/, '');
-          const subSlug = stripped.replace(/\/+$/, '');
-          const localisedSubSlug = (alt: JobMarketSnapshotLocale): string => {
-            if (!subSlug) return '';
-            // Weekly slug form: settimana-NN-YYYY
-            const weekMatch = /^settimana-(\d{1,2})-(\d{4})$/.exec(subSlug);
-            if (weekMatch) {
-              const week = weekMatch[1];
-              const year = weekMatch[2];
-              const prefix = alt === 'it' ? 'settimana' : alt === 'en' ? 'week' : alt === 'de' ? 'woche' : 'semaine';
-              return `${prefix}-${week}-${year}`;
-            }
-            // Monthly slug form: <monthName>-YYYY (IT)
-            const monthMatch = /^([a-z]+)-(\d{4})$/.exec(subSlug);
-            if (monthMatch) {
-              const itMonthName = monthMatch[1];
-              const year = Number(monthMatch[2]);
-              const itIdx = JOB_MARKET_MONTH_NAMES.it.indexOf(itMonthName);
-              if (itIdx >= 1) {
-                const altName = JOB_MARKET_MONTH_NAMES[alt][itIdx];
-                return `${altName}-${year}`;
-              }
-            }
-            // Sector slug form: settore/<sectorSlug> (IT) → branche/<slug> (DE) etc.
-            const sectorMatch = /^settore\/([a-z0-9-]+)$/.exec(subSlug);
-            if (sectorMatch) {
-              const leaf = sectorMatch[1];
-              return `${JOB_MARKET_SECTOR_SEGMENT[alt]}/${leaf}`;
-            }
-            return subSlug;
-          };
-          const alternates = JOB_MARKET_SNAPSHOT_LOCALES.map((alt) => {
-            const altSub = localisedSubSlug(alt);
-            const basePath = `${JOB_MARKET_LOCALE_PREFIX[alt]}/${JOB_MARKET_SECTION_SLUG[alt]}/`;
-            const altPath = (altSub ? `${basePath}${altSub}/` : basePath).replace(/\/+/g, '/');
-            return `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}" />`;
-          }).join('\n');
+        // Every locale gets its own reciprocal <loc> entry (all 4 share the
+        // same alternates record — precomputed once per page identity in
+        // generateJobMarketSnapshotPages/generateSectorSnapshotPages and
+        // reused verbatim here via `pathAlternates`, never reverse-engineered
+        // from an arbitrary locale's URL slug). An IT-only push would leave
+        // en/de/fr as one-sided alternates, stripped by
+        // sanitizeSitemapHreflangReciprocity. Exclude noindex pages by PATH
+        // lookup against the generator's source-of-truth set — never by
+        // re-sniffing the emitted HTML: buildSeoPageHtml minifies
+        // (removeAttributeQuotes) so a quoted `includes('name="robots"
+        // content="noindex')` match silently misses `name=robots
+        // content=noindex` and leaked archived weeks into the sitemap
+        // (validate:content-quality BLOCKING, recurring weekly). The
+        // quote-flexible HTML regex is a defensive backstop so any future
+        // noindex page type that forgets to register in noindexPaths still
+        // cannot leak into the sitemap.
+        const alt = pathAlternates.get(path);
+        if (alt && !noindexPaths.has(path) && !htmlHasNoindexMeta(html)) {
+          const alternates = JOB_MARKET_SNAPSHOT_LOCALES.map(
+            (loc) => `    <xhtml:link rel="alternate" hreflang="${loc}" href="${BASE_URL}${alt[loc]}" />`,
+          ).join('\n');
           sitemapEntries.push(
-            `  <url>\n    <loc>${BASE_URL}${path}</loc>\n${alternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${path}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
+            `  <url>\n    <loc>${BASE_URL}${path}</loc>\n${alternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${alt.it}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
           );
         }
       }

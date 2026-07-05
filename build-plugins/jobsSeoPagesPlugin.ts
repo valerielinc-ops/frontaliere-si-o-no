@@ -4697,18 +4697,38 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // HTML wasn't actually emitted to dist/. The same plugin emits both the
  // page HTML and the sitemap entry; if an earlier step skipped emission
  // (e.g. zero jobs for that location/sector), the sitemap entry must
- // follow. Probes the canonical Italian path the page would live at —
- // alternates would all be dead too if the IT canonical isn't.
+ // follow. IT gates the whole group (it's the x-default/canonical
+ // fallback) -- alternates would all be dead too if the IT canonical isn't.
  const itDirIndex = np.join(distDir, itPath.slice(1).replace(/\/$/, ''), 'index.html');
  const itFlatHtml = np.join(distDir, itPath.replace(/\/+$/, '').slice(1) + '.html');
  const itEmitted = _writtenPaths.has(itDirIndex) || _writtenPaths.has(itFlatHtml) || fs.existsSync(itDirIndex) || fs.existsSync(itFlatHtml);
  if (!itEmitted) return;
- const alternateLinks = localeList.map((locale) => {
+ const localePaths = new Map<typeof localeList[number], string>();
+ localePaths.set('it', itPath);
+ for (const locale of localeList) {
+ if (locale === 'it') continue;
  const localeModel = buildModel(locale);
- const path = `${localePrefix[locale]}/${sectionFor(locale)}/${localeModel.slug}`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${withSlash(path)}" />`;
- }).join('\n');
- editorialSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>${priority}</priority>\n </url>`);
+ const path = withSlash(`${localePrefix[locale]}/${sectionFor(locale)}/${localeModel.slug}`.replace(/\/+/g, '/'));
+ localePaths.set(locale, path);
+ }
+ const alternateLinks = localeList.map((locale) =>
+ `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${localePaths.get(locale)}" />`,
+ ).join('\n');
+ // Every locale gets its own reciprocal <loc> entry (all share the same
+ // alternates set) -- an IT-only push here would leave en/de/fr as
+ // one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity
+ // (#3499). Still only push a non-IT locale whose HTML was actually
+ // emitted, preserving the Issue-18 dead-link guarantee per-locale.
+ for (const locale of localeList) {
+ const path = localePaths.get(locale)!;
+ if (locale !== 'it') {
+ const dirIndex = np.join(distDir, path.slice(1).replace(/\/$/, ''), 'index.html');
+ const flatHtml = np.join(distDir, path.replace(/\/+$/, '').slice(1) + '.html');
+ const emitted = _writtenPaths.has(dirIndex) || _writtenPaths.has(flatHtml) || fs.existsSync(dirIndex) || fs.existsSync(flatHtml);
+ if (!emitted) continue;
+ }
+ editorialSitemapEntries.push(` <url>\n <loc>${BASE_URL}${path}</loc>\n${alternateLinks}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>${priority}</priority>\n </url>`);
+ }
  };
 
  // Phase 5 (Cathedral P1-A): EDITORIAL_CANTONS now spans all 24 canton URL
@@ -6483,23 +6503,42 @@ ${staticAnalyticsHtml}
  cityHubCantonPagesCount++;
  }
  // Sitemap entry (priority 0.85 mirroring TI city hubs). Only emit
- // for cities with ≥1 active job — 0-job city pages are noindex,follow
+ // for cities with >=1 active job -- 0-job city pages are noindex,follow
  // 404-rescue fallbacks (above) and would land as orphans in
  // sitemap-jobs.xml because the canton hub's "Esplora" navigator only
  // links the top 8 city hubs. Adding all canon-city URLs to the sitemap
  // without inbound links violated audit:orphan-sitemap-pages and
  // audit:max-bfs-depth gates (PR #463 follow-up). Sub-threshold canton
  // hubs (#2348) are noindex,follow 404-rescue pages with no inbound link
- // (their noindex canton hub doesn't run the navigator) → keep them out.
+ // (their noindex canton hub doesn't run the navigator) -- keep them out.
  if (!isCityEmpty && meetsCantonThreshold) {
  const itSection = sharedResolveCantonSection('it', canton);
  const itPath = `/${itSection}/${citySlug}/`.replace(/\/+/g, '/');
- const smAlternates = localeList.map((l) => {
+ const localePaths = new Map<typeof localeList[number], string>();
+ localePaths.set('it', itPath);
+ for (const l of localeList) {
+ if (l === 'it') continue;
  const lSection = sharedResolveCantonSection(l, canton);
  const lp = `${localePrefix[l]}/${lSection}/${citySlug}/`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${lp}" />`;
- }).join('\n');
- cityHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
+ localePaths.set(l, lp);
+ }
+ const smAlternates = localeList.map((l) =>
+ `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${localePaths.get(l)}" />`,
+ ).join('\n');
+ // Every locale gets its own reciprocal <loc> entry (#3499) -- an IT-only
+ // push here left en/de/fr city-hub pages (written above in the locale
+ // loop) as one-sided alternates, stripped by
+ // sanitizeSitemapHreflangReciprocity. Only push a non-IT locale whose
+ // HTML was actually written (dead-link guard, same intent as
+ // pushEditorialSitemapEntry above).
+ for (const l of localeList) {
+ const p = localePaths.get(l)!;
+ if (l !== 'it') {
+ const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ cityHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
+ }
  }
  }
  }
@@ -6614,8 +6653,24 @@ ${staticAnalyticsHtml}
  }
  const pgItSlug = `${paginationSlugs.it}-${pageNum}`;
  const pgItPath = withSlash(`/${sectionByLocale.it}/${pgItSlug}`.replace(/\/+/g, '/'));
- const pgSmAlternates = localeList.map((l) => { const ls = `${paginationSlugs[l]}-${pageNum}`; const lp = `${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'); return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(lp)}" />`; }).join('\n');
- paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${pgItPath}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ const pgLocalePaths = new Map<typeof localeList[number], string>();
+ for (const l of localeList) {
+ const ls = `${paginationSlugs[l]}-${pageNum}`;
+ const lp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'));
+ pgLocalePaths.set(l, lp);
+ }
+ const pgSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${pgLocalePaths.get(l)}" />`).join('\n');
+ // Every locale gets its own reciprocal <loc> entry (#3499) -- pushing only
+ // IT here left en/de/fr paginated-listing pages (written above) as
+ // one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
+ for (const l of localeList) {
+ const p = pgLocalePaths.get(l)!;
+ if (l !== 'it') {
+ const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ }
  }
  if (paginationPageCount > 0) console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${paginationPageCount} paginated listing pages (${totalListingPages - 1} pages \u00d7 4 locales)`);
 
@@ -6740,13 +6795,24 @@ ${staticAnalyticsHtml}
  const pgItSectionCanton = sharedResolveCantonSection('it', canton);
  const pgItSlugCanton = `${paginationSlugs.it}-${pageNum}`;
  const pgItPathCanton = withSlash(`/${pgItSectionCanton}/${pgItSlugCanton}`.replace(/\/+/g, '/'));
- const pgSmAlternates = localeList.map((l) => {
+ const pgLocalePathsCanton = new Map<typeof localeList[number], string>();
+ for (const l of localeList) {
  const lSection = sharedResolveCantonSection(l, canton);
  const ls = `${paginationSlugs[l]}-${pageNum}`;
- const lp = `${localePrefix[l]}/${lSection}/${ls}`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(lp)}" />`;
- }).join('\n');
- paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${pgItPathCanton}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ const lp = withSlash(`${localePrefix[l]}/${lSection}/${ls}`.replace(/\/+/g, '/'));
+ pgLocalePathsCanton.set(l, lp);
+ }
+ const pgSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${pgLocalePathsCanton.get(l)}" />`).join('\n');
+ // Every locale gets its own reciprocal <loc> entry (#3499) -- see legacy
+ // TI block above for rationale.
+ for (const l of localeList) {
+ const p = pgLocalePathsCanton.get(l)!;
+ if (l !== 'it') {
+ const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ }
  }
  }
  }
@@ -6883,8 +6949,23 @@ ${staticAnalyticsHtml}
  if (catPage === 1) {
  const catItSlug = `${catPrefix.it}-${catSlugsMap[catKey].it}`;
  const catItPath = withSlash(`/${sectionByLocale.it}/${catItSlug}`.replace(/\/+/g, '/'));
- const catSmAlternates = localeList.map((l) => { const ls = `${catPrefix[l]}-${catSlugsMap[catKey][l]}`; const lp = `${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'); return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(lp)}" />`; }).join('\n');
- categorySitemapEntries.push(` <url>\n <loc>${BASE_URL}${catItPath}</loc>\n${catSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`);
+ const catLocalePaths = new Map<typeof localeList[number], string>();
+ for (const l of localeList) {
+ const ls = `${catPrefix[l]}-${catSlugsMap[catKey][l]}`;
+ const lp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'));
+ catLocalePaths.set(l, lp);
+ }
+ const catSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${catLocalePaths.get(l)}" />`).join('\n');
+ // Every locale gets its own reciprocal <loc> entry (#3499) -- see
+ // pushEditorialSitemapEntry above for rationale.
+ for (const l of localeList) {
+ const p = catLocalePaths.get(l)!;
+ if (l !== 'it') {
+ const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ categorySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${catSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`);
+ }
  }
  }
  }
@@ -7033,13 +7114,24 @@ ${staticAnalyticsHtml}
  const itSection = sharedResolveCantonSection('it', canton);
  const catItSlug = `${catPrefix.it}-${catSlugsMap[catKey].it}`;
  const catItPath = withSlash(`/${itSection}/${catItSlug}`.replace(/\/+/g, '/'));
- const catSmAlternates = localeList.map((l) => {
+ const catLocalePathsCanton = new Map<typeof localeList[number], string>();
+ for (const l of localeList) {
  const lSection = sharedResolveCantonSection(l, canton);
  const ls = `${catPrefix[l]}-${catSlugsMap[catKey][l]}`;
- const lp = `${localePrefix[l]}/${lSection}/${ls}`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(lp)}" />`;
- }).join('\n');
- categorySitemapEntries.push(` <url>\n <loc>${BASE_URL}${catItPath}</loc>\n${catSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`);
+ const lp = withSlash(`${localePrefix[l]}/${lSection}/${ls}`.replace(/\/+/g, '/'));
+ catLocalePathsCanton.set(l, lp);
+ }
+ const catSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${catLocalePathsCanton.get(l)}" />`).join('\n');
+ // Every locale gets its own reciprocal <loc> entry (#3499) -- see legacy
+ // TI block above for rationale.
+ for (const l of localeList) {
+ const p = catLocalePathsCanton.get(l)!;
+ if (l !== 'it') {
+ const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ categorySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${catSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`);
+ }
  }
  }
  }
@@ -7258,13 +7350,24 @@ ${staticAnalyticsHtml}
  const itSection = sharedResolveCantonSection('it', canton);
  const itSectorSlug = SECTOR_HUB_SLUG.it[sector];
  const itPath = `/${itSection}/${itSectorSlug}/`.replace(/\/+/g, '/');
- const smAlternates = localeList.map((l) => {
+ const localePaths = new Map<typeof localeList[number], string>();
+ for (const l of localeList) {
  const lSection = sharedResolveCantonSection(l, canton);
  const lSectorSlug = SECTOR_HUB_SLUG[l][sector];
  const lp = `${localePrefix[l]}/${lSection}/${lSectorSlug}/`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${lp}" />`;
- }).join('\n');
- sectorHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.8</priority>\n </url>`);
+ localePaths.set(l, lp);
+ }
+ const smAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${localePaths.get(l)}" />`).join('\n');
+ // Every locale gets its own reciprocal <loc> entry (#3499) -- see
+ // pushEditorialSitemapEntry above for rationale.
+ for (const l of localeList) {
+ const p = localePaths.get(l)!;
+ if (l !== 'it') {
+ const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ sectorHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.8</priority>\n </url>`);
+ }
  }
  }
  if (sectorHubPagesCount > 0) {
@@ -7481,13 +7584,24 @@ ${staticAnalyticsHtml}
  const itSection = sharedResolveCantonSection('it', canton);
  const itFullSlug = `${companyRoutePrefix.it}-${cSlug}`;
  const itPath = `/${itSection}/${itFullSlug}/`.replace(/\/+/g, '/');
- const smAlternates = localeList.map((l) => {
+ const localePaths = new Map<typeof localeList[number], string>();
+ for (const l of localeList) {
  const lSection = sharedResolveCantonSection(l, canton);
  const lFullSlug = `${companyRoutePrefix[l]}-${cSlug}`;
  const lp = `${localePrefix[l]}/${lSection}/${lFullSlug}/`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${lp}" />`;
- }).join('\n');
- companyCantonSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.75</priority>\n </url>`);
+ localePaths.set(l, lp);
+ }
+ const smAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${localePaths.get(l)}" />`).join('\n');
+ // Every locale gets its own reciprocal <loc> entry (#3499) -- see
+ // pushEditorialSitemapEntry above for rationale.
+ for (const l of localeList) {
+ const p = localePaths.get(l)!;
+ if (l !== 'it') {
+ const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ companyCantonSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.75</priority>\n </url>`);
+ }
  }
  }
  if (companyCantonPagesCount > 0) {
@@ -7686,17 +7800,28 @@ ${staticAnalyticsHtml}
  companyCityPagesCount++;
  recordEmit('company-city-canton-hub', __tCompanyCity);
  }
- // Sitemap entry (priority 0.65 — deeper in the funnel than company hub).
+ // Sitemap entry (priority 0.65 -- deeper in the funnel than company hub).
  const itSection = sharedResolveCantonSection('it', canton);
  const itFullSlug = `${companyRoutePrefix.it}-${cSlug}-${citySlug}`;
  const itPath = `/${itSection}/${itFullSlug}/`.replace(/\/+/g, '/');
- const smAlternates = localeList.map((l) => {
+ const localePaths = new Map<typeof localeList[number], string>();
+ for (const l of localeList) {
  const lSection = sharedResolveCantonSection(l, canton);
  const lFullSlug = `${companyRoutePrefix[l]}-${cSlug}-${citySlug}`;
  const lp = `${localePrefix[l]}/${lSection}/${lFullSlug}/`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${lp}" />`;
- }).join('\n');
- companyCitySitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.65</priority>\n </url>`);
+ localePaths.set(l, lp);
+ }
+ const smAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${localePaths.get(l)}" />`).join('\n');
+ // Every locale gets its own reciprocal <loc> entry (#3499) -- see
+ // pushEditorialSitemapEntry above for rationale.
+ for (const l of localeList) {
+ const p = localePaths.get(l)!;
+ if (l !== 'it') {
+ const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ companyCitySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.65</priority>\n </url>`);
+ }
  }
  }
  }
@@ -7898,8 +8023,23 @@ ${staticAnalyticsHtml}
  // Sitemap entry (Italian canonical)
  const kwItSlug = `${searchRoutePrefix.it}-${kwSlug}`;
  const kwItPath = withSlash(`/${sectionByLocale.it}/${kwItSlug}`.replace(/\/+/g, '/'));
- const kwSmAlternates = localeList.map((l) => { const ls = `${searchRoutePrefix[l]}-${kwSlug}`; const lp = `${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'); return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(lp)}" />`; }).join('\n');
- keywordSitemapEntries.push(` <url>\n <loc>${BASE_URL}${kwItPath}</loc>\n${kwSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${kwItPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
+ const kwLocalePaths = new Map<typeof localeList[number], string>();
+ for (const l of localeList) {
+ const ls = `${searchRoutePrefix[l]}-${kwSlug}`;
+ const lp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'));
+ kwLocalePaths.set(l, lp);
+ }
+ const kwSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${kwLocalePaths.get(l)}" />`).join('\n');
+ // Every locale gets its own reciprocal <loc> entry (#3499) -- see
+ // pushEditorialSitemapEntry above for rationale.
+ for (const l of localeList) {
+ const p = kwLocalePaths.get(l)!;
+ if (l !== 'it') {
+ const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ keywordSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${kwSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${kwItPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
+ }
  }
  } catch (e) {
  console.warn(`\x1b[33m[jobs-seo-pages]\x1b[0m Failed to load keyword pages config: ${e}`);
@@ -8111,28 +8251,42 @@ ${staticAnalyticsHtml}
  recordEmit('search-stats-landing', __tSearchStats);
  }
 
- // Add indexable search pages (≥3 jobs) to sitemap
+ // Add indexable search pages (>=3 jobs) to sitemap
  if (fallbackMatchingJobs.length >= 3) {
  const sItSlug = `${searchRoutePrefix.it}-${key}`;
  const sItPath = withSlash(`/${sectionByLocale.it}/${sItSlug}`.replace(/\/+/g, '/'));
  const sItUrl = `${BASE_URL}${sItPath}`;
- // SEO: skip — page self-canonicalizes elsewhere (Semrush gate).
+ const sLocaleSlugs = new Map<typeof localeList[number], string>();
+ const sLocalePaths = new Map<typeof localeList[number], string>();
+ for (const l of localeList) {
+ const lSlug = `${searchRoutePrefix[l]}-${key}`;
+ sLocaleSlugs.set(l, lSlug);
+ const lp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/'));
+ sLocalePaths.set(l, lp);
+ }
+ const sAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${sLocalePaths.get(l)}" />`).join('\n');
+ const sXDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${sItUrl}" />`;
+ // SEO: skip -- page self-canonicalizes elsewhere (Semrush gate).
  // (a) Editorial geo-hub cities (Lugano/Bellinzona/Mendrisio/Locarno/Chiasso)
  // canonicalize their `ricerca-<city>` page to the clean `/{city}/` hub,
  // so emitting the legacy slug here would duplicate the editorial entry
  // already added with a non-canonical loc. (b) Any search-leader slug
  // present in canonicalOverrides has its rendered <link rel="canonical">
- // pointing elsewhere — never advertise it as a sitemap loc.
- const isEditorialDuplicate = editorialSearchSlugsByLocale.get('it')?.has(sItSlug) === true;
- const overrideUrl = resolveCanonicalUrl(sItSlug, sItUrl);
- if (!isEditorialDuplicate && overrideUrl === sItUrl) {
- const sAlternates = localeList.map((l) => {
- const lSlug = `${searchRoutePrefix[l]}-${key}`;
- const sp = `${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(sp)}" />`;
- }).join('\n');
- const sXDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${sItUrl}" />`;
- searchSitemapEntries.push(` <url>\n <loc>${sItUrl}</loc>\n${sAlternates}\n${sXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
+ // pointing elsewhere -- never advertise it as a sitemap loc. Checked
+ // per-locale (#3499) -- en/de/fr can independently self-canonicalize even
+ // when the IT slug doesn't.
+ for (const l of localeList) {
+ const lSlug = sLocaleSlugs.get(l)!;
+ const lp = sLocalePaths.get(l)!;
+ const lUrl = `${BASE_URL}${lp}`;
+ const isEditorialDuplicate = editorialSearchSlugsByLocale.get(l)?.has(lSlug) === true;
+ const overrideUrl = resolveCanonicalUrl(lSlug, lUrl);
+ if (isEditorialDuplicate || overrideUrl !== lUrl) continue;
+ if (l !== 'it') {
+ const dirIndex = np.join(distDir, lp.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ searchSitemapEntries.push(` <url>\n <loc>${lUrl}</loc>\n${sAlternates}\n${sXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
  }
  }
  }
@@ -8294,20 +8448,32 @@ ${staticAnalyticsHtml}
  const cItSlug = `${searchRoutePrefix.it}-${comboKey}`;
  const cItPath = withSlash(`/${sectionByLocale.it}/${cItSlug}`.replace(/\/+/g, '/'));
  const cItUrl = `${BASE_URL}${cItPath}`;
- // SEO: skip — page self-canonicalizes elsewhere (Semrush gate).
+ const cLocaleSlugs = new Map<typeof localeList[number], string>();
+ const cLocalePaths = new Map<typeof localeList[number], string>();
+ for (const l of localeList) {
+ const lSlug = `${searchRoutePrefix[l]}-${comboKey}`;
+ cLocaleSlugs.set(l, lSlug);
+ const cp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/'));
+ cLocalePaths.set(l, cp);
+ }
+ const cAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${cLocalePaths.get(l)}" />`).join('\n');
+ const cXDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${cItUrl}" />`;
+ // SEO: skip -- page self-canonicalizes elsewhere (Semrush gate).
  // Same rationale as the search-leader block above: editorial duplicates
  // and canonical-override slugs must never be advertised under their
- // own URL.
- const isEditorialDuplicate = editorialSearchSlugsByLocale.get('it')?.has(cItSlug) === true;
- const overrideUrl = resolveCanonicalUrl(cItSlug, cItUrl);
- if (!isEditorialDuplicate && overrideUrl === cItUrl) {
- const cAlternates = localeList.map((l) => {
- const lSlug = `${searchRoutePrefix[l]}-${comboKey}`;
- const cp = `${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(cp)}" />`;
- }).join('\n');
- const cXDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${cItUrl}" />`;
- searchSitemapEntries.push(` <url>\n <loc>${cItUrl}</loc>\n${cAlternates}\n${cXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
+ // own URL. Checked per-locale (#3499).
+ for (const l of localeList) {
+ const lSlug = cLocaleSlugs.get(l)!;
+ const cp = cLocalePaths.get(l)!;
+ const lUrl = `${BASE_URL}${cp}`;
+ const isEditorialDuplicate = editorialSearchSlugsByLocale.get(l)?.has(lSlug) === true;
+ const overrideUrl = resolveCanonicalUrl(lSlug, lUrl);
+ if (isEditorialDuplicate || overrideUrl !== lUrl) continue;
+ if (l !== 'it') {
+ const dirIndex = np.join(distDir, cp.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ searchSitemapEntries.push(` <url>\n <loc>${lUrl}</loc>\n${cAlternates}\n${cXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
  }
  }
  };
@@ -8638,16 +8804,34 @@ ${staticAnalyticsHtml}
 
  // Company sitemap entries — skip known brand aliases so the primary
  // canonical is the only company-hub URL advertised for dedup (P5).
- const companyEntries = [...companyMap.keys()].filter((cSlug) => !isBrandAlias(cSlug)).map((cSlug) => {
- const itSlug = `${companyRoutePrefix.it}-${cSlug}`;
- const itPath = withSlash(`/${sectionByLocale.it}/${itSlug}`.replace(/\/+/g, '/'));
- const alternateLinks = localeList.map((l) => {
+ const companyEntries = [...companyMap.keys()].filter((cSlug) => !isBrandAlias(cSlug)).flatMap((cSlug) => {
+ const localePaths = new Map<typeof localeList[number], string>();
+ for (const l of localeList) {
  const lSlug = `${companyRoutePrefix[l]}-${cSlug}`;
- const p = `${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
- }).join('\n');
+ const p = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/'));
+ localePaths.set(l, p);
+ }
+ const itPath = localePaths.get('it')!;
+ const alternateLinks = localeList.map((l) =>
+ ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${localePaths.get(l)}" />`,
+ ).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
- return ` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n${xDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.7</priority>\n </url>`;
+ // Every locale gets its own reciprocal <loc> entry (#3499 sibling) -- this
+ // top-level company hub renders real en/de/fr HTML (write loop above,
+ // ~L3789) same as the IT page, so an IT-only push here left en/de/fr as
+ // one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
+ // Only push a non-IT locale whose HTML was actually written (dead-link
+ // guard, same intent as pushEditorialSitemapEntry above).
+ const entries: string[] = [];
+ for (const l of localeList) {
+ const p = localePaths.get(l)!;
+ if (l !== 'it') {
+ const dirIndex = np.join(distDir, p.slice(1), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ entries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${alternateLinks}\n${xDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.7</priority>\n </url>`);
+ }
+ return entries;
  }).join('\n');
 
  const paginationSitemap = paginationSitemapEntries.length > 0 ? '\n' + paginationSitemapEntries.join('\n') : '';
@@ -11635,8 +11819,13 @@ ${staticAnalyticsHtml}
  }
 
  // Only add expired slugs to sitemap when:
- // 1. The IT page has enough content (>= MIN_INDEXABLE_WORDS) — thin content wastes crawl budget
+ // 1. The IT page has enough content (>= MIN_INDEXABLE_WORDS) -- thin content wastes crawl budget
  // 2. The IT page was actually written (not overwritten by an active page)
+ // Group-inclusion gate stays IT-anchored (unchanged) -- see shard-invariance
+ // comment below for why per-locale word-count isn't available here. Once the
+ // group qualifies, each locale gets its OWN <url> entry (#3499) instead of an
+ // IT-only entry with one-sided alternates, so non-reciprocal en/de/fr hreflang
+ // survives sanitizeSitemapHreflangReciprocity().
  const itPath = paths.it ? withSlash(paths.it) : '';
  const itPageFile = itPath ? np.join(distDir, itPath.slice(1), 'index.html') : '';
  const itPageOverwritten = itPageFile && _writtenPaths.has(itPageFile);
@@ -11644,14 +11833,14 @@ ${staticAnalyticsHtml}
  // Shard-invariance of the expired-sitemap hreflang (verify #2491, follow-up
  // to the render-skip lever #2484): `paths` is `tracking[slug]`, which is
  // populated UPSTREAM (L~9572/9681/9697/9744/10067) with NO `shouldEmitLocale`/
- // `BUILD_LOCALE` gating — the active-jobs/implicit-prev branches iterate the
+ // `BUILD_LOCALE` gating -- the active-jobs/implicit-prev branches iterate the
  // full `localeList`, the orphan/compat branches add the locale inherent to
  // the source record. The only `shouldEmitLocale` skips in this plugin
  // (L2331/L2508/L10691) gate render/emit, never `paths` population. So in the
  // `it`/main shard (the only shard that builds this sitemap) every locale's
  // alternate is present regardless of `BUILD_LOCALE`. A `!p` here therefore
  // reflects a genuinely partial cluster (orphan/compat slug with no localized
- // path), NOT a shard skip — do NOT force-populate the 4 locales to "fix" it,
+ // path), NOT a shard skip -- do NOT force-populate the 4 locales to "fix" it,
  // that would fabricate hreflang to non-existent pages. Same guarantee the
  // localeEmitFilter docblock gives for the active-job sitemap alternates.
  const altLinks = localeList.map((l) => {
@@ -11661,7 +11850,22 @@ ${staticAnalyticsHtml}
  }).filter(Boolean).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
  const lastmod = (safeIsoDate(ejData?.expiredAt) || '').slice(0, 10) || dateStamp;
- expiredSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${altLinks}\n${xDefault}\n <lastmod>${lastmod}</lastmod>\n <changefreq>monthly</changefreq>\n <priority>0.3</priority>\n </url>`);
+ // Per-locale push (#3499): non-IT locales additionally require their own
+ // soft-landing page to actually exist on disk -- `paths` is shard-invariant
+ // (see above) but render/emit is shard-gated (`shouldEmitLocale`, L~11223),
+ // so a non-owning shard never wrote non-IT HTML this run; fall back to
+ // `fs.existsSync` for HTML already emitted by an earlier shard/run.
+ for (const l of localeList) {
+ const lPath = paths[l];
+ if (!lPath) continue;
+ if (bridgeClaimedPaths.has(lPath)) continue;
+ const lFullPath = withSlash(lPath);
+ if (l !== 'it') {
+ const lPageFile = np.join(distDir, lFullPath.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(lPageFile) && !fs.existsSync(lPageFile)) continue;
+ }
+ expiredSitemapEntries.push(` <url>\n <loc>${BASE_URL}${lFullPath}</loc>\n${altLinks}\n${xDefault}\n <lastmod>${lastmod}</lastmod>\n <changefreq>monthly</changefreq>\n <priority>0.3</priority>\n </url>`);
+ }
  }
  // Bound the WriteCollector background-flush backlog INSIDE this
  // ~150k-page expired-soft-landing loop. Previously the only

@@ -583,9 +583,10 @@ export function nursingLandingsPlugin(rootDir: string): Plugin {
           collector.add(indexPath, rendered.html);
           collector.add(flatPath, rendered.html);
 
-          if (locale === 'it') {
-            sitemapEntries.push({ canonical: rendered.urlPath, alternates });
-          }
+          // Every locale gets its own reciprocal <loc> entry (all 4 carry the
+          // same alternates set) — an IT-only push here would leave en/de/fr
+          // as one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
+          sitemapEntries.push({ canonical: rendered.urlPath, alternates });
 
           pagesWritten++;
         }

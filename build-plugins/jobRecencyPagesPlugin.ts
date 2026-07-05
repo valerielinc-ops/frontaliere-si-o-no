@@ -381,20 +381,26 @@ ${alternates}
             fs.writeFileSync(flatFile, html, 'utf-8');
           }
 
-          // Build sitemap entry once per (locale, variant) pair — keyed on IT canonical
-          if (locale === 'it') {
-            const altLinks = LOCALES.map((altLocale) => {
-              const altSlug = JOB_RECENCY_LANDING_SLUGS[variant][altLocale];
-              const altPath = withSlash(
-                `${LOCALE_PREFIX[altLocale]}/${SECTION_BY_LOCALE[altLocale]}/${altSlug}`.replace(/\/+/g, '/'),
-              );
-              return `    <xhtml:link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${altPath}" />`;
-            }).join('\n');
-            const priority = variant === 'last-3-days' ? '0.9' : '0.8';
-            sitemapEntries.push(
-              `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${canonicalUrl}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>hourly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+          // Every locale gets its own reciprocal <loc> entry (all 4 carry the
+          // same alternate set) — an IT-only push here would leave en/de/fr
+          // as one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
+          const altLinks = LOCALES.map((altLocale) => {
+            const altSlug = JOB_RECENCY_LANDING_SLUGS[variant][altLocale];
+            const altPath = withSlash(
+              `${LOCALE_PREFIX[altLocale]}/${SECTION_BY_LOCALE[altLocale]}/${altSlug}`.replace(/\/+/g, '/'),
             );
-          }
+            return `    <xhtml:link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${altPath}" />`;
+          }).join('\n');
+          // x-default always anchors to the IT canonical, regardless of which
+          // locale this <url> block itself represents.
+          const itSlug = JOB_RECENCY_LANDING_SLUGS[variant].it;
+          const itUrl = `${BASE_URL}${withSlash(
+            `${LOCALE_PREFIX.it}/${SECTION_BY_LOCALE.it}/${itSlug}`.replace(/\/+/g, '/'),
+          )}`;
+          const priority = variant === 'last-3-days' ? '0.9' : '0.8';
+          sitemapEntries.push(
+            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>hourly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+          );
         }
       }
 
