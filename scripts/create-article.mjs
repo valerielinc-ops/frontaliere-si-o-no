@@ -3137,7 +3137,17 @@ function repairLlmJson(raw) {
 // ── LLM call with body2 validation (model fallback via centralized ai-models.mjs) ──
 async function callLLM(messages, opts = {}) {
   const maxBody2Retries = 5;
-  const isBody2Check = opts.jsonMode && messages.some(m => m.content?.includes('body2'));
+  // Require ALL body/title/excerpt field names present (not just 'body2') so this
+  // only fires for the actual full-article generation prompt (which lists every
+  // REQUIRED_IT_BODY_FIELDS name together, see the "content.${primaryLocale}
+  // (title, excerpt, body1, body2, body3, faq)" instruction). A bare 'body2'
+  // substring also matches translateBodyField's single-field translation calls
+  // (prompt/schema `{"body2": "..."}`), where `missing` is guaranteed non-empty
+  // (title/excerpt/body1/body3 are never in that payload) regardless of
+  // translation quality — the retry-exhaustion path now throws instead of
+  // falling through, which used to ship the (valid) translated JSON anyway but
+  // would now discard it and ship IT-language content under /en /de /fr.
+  const isBody2Check = opts.jsonMode && REQUIRED_IT_BODY_FIELDS.every(f => messages.some(m => m.content?.includes(f)));
   for (let attempt = 1; attempt <= maxBody2Retries; attempt++) {
     const modelUsedRef = { model: null };
     // Default per-call ceiling 90s (was 120s, 2026-06-15). 90s still comfortably
