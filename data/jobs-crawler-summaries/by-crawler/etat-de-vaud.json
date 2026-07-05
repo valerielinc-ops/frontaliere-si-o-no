@@ -1,16 +1,17 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-07-05T11:22:34.978Z",
+  "generatedAt": "2026-07-05T11:49:11.019Z",
   "total": 28,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16311,
-  "avgDurationMs": 16311,
+  "durationMs": 357758,
+  "avgDurationMs": 357758,
   "durationHistory": [
-    16311
+    16311,
+    357758
   ],
   "newJobs": [
     {
@@ -25,7 +26,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5319",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T11:22:32.267Z",
+      "crawledAt": "2026-07-05T11:43:26.280Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
