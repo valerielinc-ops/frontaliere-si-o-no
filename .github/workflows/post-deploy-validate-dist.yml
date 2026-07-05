@@ -618,10 +618,24 @@ jobs:
           # faqpage-validity). The "chain" is now one step. We keep the
           # subshell wrapper + timing dump so the workflow summary still
           # has a structured row per logical audit.
+          #
+          # audit:max-bfs-depth + audit:orphan-sitemap-pages moved here from
+          # the LIGHT POOL below (see removal comment there) — both are full
+          # dist-tree link-graph BFS walkers, which the light pool's own
+          # criterion explicitly excludes. At real production scale
+          # (~2.8M pages) both crashed at rc=134 "Reached heap limit" right at
+          # the light pool's shared 4096 MB cap, contended 4-way. They run
+          # sequentially (not parallel with each other) in this chain, each
+          # with its own bumped heap ceiling — headroom precedent: `build:ci`
+          # already runs `--max-old-space-size=13312` on this same
+          # `ubuntu-latest` runner (package.json), well above the 4096 MB this
+          # step's light pool assumed was the ceiling.
           (
             set +e
             for chain_step in \
               "audit:all|/tmp/g10.log|npm run audit:all" \
+              "audit:max-bfs-depth|/tmp/g19.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:max-bfs-depth -- --json" \
+              "audit:orphan-sitemap-pages|/tmp/g9.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:orphan-sitemap-pages -- --gate=baseline" \
             ; do
               IFS='|' read -r step_name step_log step_cmd <<<"$chain_step"
               start=$(date +%s.%N)
@@ -639,8 +653,12 @@ jobs:
 
           # LIGHT POOL — only audits that DON'T walk the full dist HTML
           # tree (or walk it cheaply via streaming). Safe to parallelise.
-          spawn_capped audit:orphan-sitemap-pages    /tmp/g9.log \
-            npm run audit:orphan-sitemap-pages -- --gate=baseline
+          # audit:orphan-sitemap-pages moved OUT — it's a full dist-tree BFS
+          # walker, contradicting this pool's own criterion above. It now
+          # runs in the sequential DIST_MULTI_PID chain (see that comment)
+          # with its own bumped heap ceiling instead of contending 4-way
+          # for this pool's shared 4096 MB cap, which is what caused it to
+          # OOM (rc=134) at real production scale.
           spawn_capped validate:sitemap-pages        /tmp/spm.log \
             npm run validate:sitemap-pages
           spawn_capped validate:jobs-quality         /tmp/v2.log \
@@ -670,13 +688,17 @@ jobs:
           # (see scripts/audit-all.mjs REGISTRY). Single dist walk, in-process
           # JSON-LD parse — removes 34 s of standalone wall time from the
           # parallel pool. Removed from spawn pool.
-          # `-- --json` makes the gate ALSO emit the baseline-candidate JSON
-          # into g19.log (printed by audit-bfs-depth.mjs MODE_JSON branch BEFORE
+          # audit:max-bfs-depth moved OUT — it's a full dist-tree BFS walker,
+          # contradicting this pool's own criterion above. It now runs in the
+          # sequential DIST_MULTI_PID chain (see that comment) with its own
+          # bumped heap ceiling instead of contending 4-way for this pool's
+          # shared 4096 MB cap, which is what caused it to OOM (rc=134) at
+          # real production scale. `-- --json` (still passed in the chain
+          # entry) makes the gate ALSO emit the baseline-candidate JSON into
+          # g19.log (printed by audit-bfs-depth.mjs MODE_JSON branch BEFORE
           # the baseline gate's exit, so the gate semantics are unchanged). The
           # informational dump step below reuses that JSON instead of paying a
           # second full dist BFS walk (~4min). The gate still ratchets identically.
-          spawn_capped audit:max-bfs-depth           /tmp/g19.log \
-            npm run audit:max-bfs-depth -- --json
           # audit:footer-root-presence + audit:jsonld-no-nested-scripts +
           # audit:salary-landing-template all migrated into `npm run audit:all`
           # above (single Node process, single dist walk). Removed from the

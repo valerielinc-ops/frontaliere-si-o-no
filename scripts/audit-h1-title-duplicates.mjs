@@ -20,6 +20,7 @@ import { join, relative, isAbsolute } from 'node:path';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { classifyFeature, inferLocale } from './audit-title-length.mjs';
+import { evaluateMixAdjustedTotalRegression } from './lib/mixAdjustedRateGate.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
@@ -54,6 +55,7 @@ export function createAuditor(opts = {}) {
   const writeBaselinePath = opts.writeBaselinePath ?? null;
 
   let scanned = 0;
+  const scannedByFeature = {};
   let skippedNoindex = 0;
   let missingTitle = 0;
   let missingH1 = 0;
@@ -67,7 +69,10 @@ export function createAuditor(opts = {}) {
         skippedNoindex++;
         return;
       }
+      const rel = relative(ROOT, file);
+      const feature = classifyFeature(rel);
       scanned++;
+      scannedByFeature[feature] = (scannedByFeature[feature] ?? 0) + 1;
       const titleMatch = html.match(TITLE_RE);
       const h1Match = html.match(H1_RE);
       const title = normalizeText(titleMatch?.[1] ?? '');
@@ -75,8 +80,6 @@ export function createAuditor(opts = {}) {
       if (!title) { missingTitle++; return; }
       if (!h1) { missingH1++; return; }
       if (title.toLowerCase() !== h1.toLowerCase()) return;
-      const rel = relative(ROOT, file);
-      const feature = classifyFeature(rel);
       if (featureFilter && feature !== featureFilter) return;
       const locale = inferLocale(rel);
       offenders.push({ path: rel, file: rel, feature, locale, title, h1, metric: 1 });
@@ -88,19 +91,43 @@ export function createAuditor(opts = {}) {
         byFeature[o.feature] = (byFeature[o.feature] ?? 0) + 1;
         byLocale[o.locale] = (byLocale[o.locale] ?? 0) + 1;
       }
+      // Rate ratchet (mirrors audit-title-length.mjs / mixAdjustedRateGate.mjs)
+      // so organic page-count growth at a flat per-template duplicate rate
+      // does not trip the gate — only a genuine per-template quality
+      // regression (rising rate) does.
+      const rateByFeature = {};
+      for (const f of Object.keys(scannedByFeature)) {
+        rateByFeature[f] = (byFeature[f] ?? 0) / scannedByFeature[f] * 100;
+      }
+      const totalRatePct = scanned ? (offenders.length / scanned) * 100 : 0;
+      const DEFAULT_TOL = { relPct: 20, absPp: 1.0, minAbsDelta: 5, maxDeltaPp: 3 };
 
       if (writeBaselinePath) {
+        const byFeatureRate = {};
+        for (const f of Object.keys(scannedByFeature)) {
+          byFeatureRate[f] = {
+            scanned: scannedByFeature[f],
+            offenders: byFeature[f] ?? 0,
+            ratePct: Number(rateByFeature[f].toFixed(4)),
+          };
+        }
         const baseline = {
           generated: new Date().toISOString(),
-          total: offenders.length,
-          byFeature,
+          mode: 'rate',
+          tolerance: DEFAULT_TOL,
+          scanned,
+          totalOffenders: offenders.length,
+          totalRatePct: Number(totalRatePct.toFixed(4)),
+          byFeature: byFeatureRate,
           byLocale,
+          _comment: 'Rate-based baseline for audit-h1-title-duplicates (title === h1). Tracks the offender RATE (offenders/scanned) per feature so organic page growth does not regress the build. A feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its absolute offender count grows by more than minAbsDelta. Rates must only DECREASE going forward (modulo tolerance).',
         };
         await writeFile(resolvePath(writeBaselinePath), JSON.stringify(baseline, null, 2) + '\n', 'utf8');
       }
 
       let passed = !(failOnOffenders && offenders.length > 0);
       let baselineDelta = null;
+      let totalCapInfo = null;
       const regressedFeatures = [];
 
       if (baselinePath) {
@@ -116,25 +143,62 @@ export function createAuditor(opts = {}) {
             humanSummary: `cannot read baseline ${baselinePath}: ${err.message}`,
           };
         }
-        let regression = false;
-        const baseTotal = Number(baseline.total ?? 0);
-        if (typeof baseline.total === 'number' && offenders.length > baseline.total) regression = true;
-        if (baseline.byFeature && typeof baseline.byFeature === 'object') {
-          for (const [feat, count] of Object.entries(byFeature)) {
-            const cap = baseline.byFeature[feat] ?? 0;
-            if (count > cap) {
-              regressedFeatures.push({ feat, cap, count });
-              regression = true;
+        if (baseline.mode === 'rate') {
+          const tol = { ...DEFAULT_TOL, ...(baseline.tolerance ?? {}) };
+          const baseByFeature = baseline.byFeature ?? {};
+          for (const f of Object.keys(scannedByFeature)) {
+            const curOff = byFeature[f] ?? 0;
+            const curRate = rateByFeature[f];
+            const base = baseByFeature[f];
+            const baseRate = base ? Number(base.ratePct ?? 0) : 0;
+            const baseOff = base ? Number(base.offenders ?? 0) : 0;
+            const rateCap = baseRate + Math.min(baseRate * tol.relPct / 100, tol.maxDeltaPp) + tol.absPp;
+            if (curRate > rateCap && curOff > baseOff + tol.minAbsDelta) {
+              regressedFeatures.push({ feature: f, feat: f, count: curOff, max: baseOff, cap: baseOff, rate: Number(curRate.toFixed(3)), maxRate: Number(rateCap.toFixed(3)), scanned: scannedByFeature[f] });
             }
           }
+          const baseTotalRate = Number(baseline.totalRatePct ?? 0);
+          const baseTotalOff = Number(baseline.totalOffenders ?? 0);
+          const {
+            expectedOffenders, expectedTotalRate, totalCap, regression: totalRegression,
+          } = evaluateMixAdjustedTotalRegression({
+            scannedByFeature, baseByFeature, tol,
+            actualOffenders: offenders.length, actualScanned: scanned,
+          });
+          baselineDelta = {
+            before: baseTotalOff, after: offenders.length,
+            beforeRate: baseTotalRate, afterRate: Number(totalRatePct.toFixed(3)),
+            expectedRate: Number(expectedTotalRate.toFixed(3)), expectedOffenders: Number(expectedOffenders.toFixed(2)),
+            regression: Math.max(0, offenders.length - Math.round(expectedOffenders)),
+          };
+          totalCapInfo = { actual: Number(totalRatePct.toFixed(3)), expected: Number(expectedTotalRate.toFixed(3)), cap: Number(totalCap.toFixed(3)) };
+          if (totalRegression || regressedFeatures.length > 0) passed = false;
+        } else {
+          // Legacy absolute-count baseline (pre rate-ratchet). Kept so the
+          // script still runs against an un-migrated baseline file.
+          const baseTotal = Number(baseline.total ?? 0);
+          let totalRegression = typeof baseline.total === 'number' && offenders.length > baseTotal;
+          if (baseline.byFeature && typeof baseline.byFeature === 'object') {
+            for (const [feat, count] of Object.entries(byFeature)) {
+              const cap = baseline.byFeature[feat] ?? 0;
+              if (count > cap) {
+                regressedFeatures.push({ feat, feature: feat, cap, max: cap, count });
+                totalRegression = true;
+              }
+            }
+          }
+          baselineDelta = {
+            before: baseTotal,
+            after: offenders.length,
+            regression: Math.max(0, offenders.length - baseTotal),
+          };
+          if (totalRegression) passed = false;
         }
-        baselineDelta = { before: baseTotal, after: offenders.length, regression: Math.max(0, offenders.length - baseTotal) };
-        if (regression) passed = false;
       }
 
       const humanSummary = passed
         ? `${offenders.length} duplicate(s) within baseline`
-        : `${offenders.length} title=h1 duplicate(s) — regressed features: ${regressedFeatures.map(r => `${r.feat}(${r.count}>${r.cap})`).join(', ') || 'total cap exceeded'}`;
+        : `${offenders.length} title=h1 duplicate(s)${regressedFeatures.length > 0 ? ` — regressed features: ${regressedFeatures.map(r => r.rate != null ? `${r.feat}(${r.rate}% > ${r.maxRate}% allowed, ${r.count} vs ${r.max})` : `${r.feat}(${r.count}>${r.cap})`).join(', ')}` : (totalCapInfo ? ` — total rate cap exceeded (actual ${totalCapInfo.actual}% > mix-adjusted expected ${totalCapInfo.expected}% + tolerance = ${totalCapInfo.cap}%)` : '')}`;
 
       return {
         passed,
@@ -144,7 +208,7 @@ export function createAuditor(opts = {}) {
         baselineFile: relBaseline(baselinePath),
         baselineDelta,
         byFeature,
-        extra: { scanned, skippedNoindex, missingTitle, missingH1, byLocale, regressedFeatures, limit },
+        extra: { scanned, skippedNoindex, missingTitle, missingH1, byLocale, regressedFeatures, scannedByFeature, rateByFeature, totalRatePct: Number(totalRatePct.toFixed(4)), limit },
         humanSummary,
       };
     },
@@ -259,18 +323,24 @@ async function standalone() {
   if (opts.writeBaselinePath) console.log(`\nWrote baseline → ${opts.writeBaselinePath}`);
 
   if (!result.passed && result.extra.regressedFeatures?.length > 0) {
-    for (const { feat, cap, count } of result.extra.regressedFeatures) {
+    for (const { feat, cap, count, rate, maxRate, scanned: featScanned } of result.extra.regressedFeatures) {
       const featOffenders = result.offenders
         .filter((o) => o.feature === feat)
         .sort((a, b) => a.file.localeCompare(b.file));
-      console.error(`\nFull offender list for feature "${feat}" (${count} pages, baseline ${cap}, +${count - cap}):`);
+      if (rate != null) {
+        console.error(`\nFeature "${feat}": rate ${rate}% (allowed ≤ ${maxRate}%) — ${count} offenders / ${featScanned} scanned vs baseline ${cap}`);
+      } else {
+        console.error(`\nFull offender list for feature "${feat}" (${count} pages, baseline ${cap}, +${count - cap}):`);
+      }
       for (const o of featOffenders) {
         console.error(`  [${o.locale}]  ${o.file}`);
         console.error(`        title: ${o.title}`);
         console.error(`        h1:    ${o.h1}`);
       }
     }
-    console.error('\nThe duplicate-h1 baseline ratchet only allows the count to go DOWN.');
+    console.error('\nThe rate ratchet trips only when the offender RATE rises beyond tolerance');
+    console.error('AND the offender count grows meaningfully — i.e. a real per-template');
+    console.error('quality regression, not organic content growth.');
     console.error('Fix the new offenders, then regenerate with --write-baseline=<path>.');
   } else if (opts.baselinePath && result.passed) {
     console.log(`\nBaseline ratchet: OK (no regressions vs ${opts.baselinePath})`);

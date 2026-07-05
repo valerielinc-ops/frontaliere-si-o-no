@@ -265,8 +265,16 @@ async function bfsWithDepth() {
   }
   /** @type {Map<string, number>} */
   const depthOf = new Map();
-  /** @type {Array<{ path: string; depth: number }>} */
-  const frontier = [{ path: '/', depth: 0 }];
+  // Frontier holds bare path strings, not {path, depth} wrapper objects —
+  // depth is looked up from `depthOf` (which already stores it) when a node
+  // is dequeued. At dist/'s real scale (millions of pages) the wrapper
+  // objects were an extra allocation per discovered path on top of the Map
+  // entry already holding the same data, contributing to the heap OOM this
+  // audit hit in the CI light pool (see workflow comment for the pool-
+  // placement fix — that's the primary OOM cause; this is a secondary,
+  // zero-behavior-change memory reduction).
+  /** @type {string[]} */
+  const frontier = ['/'];
   depthOf.set('/', 0);
   // Index cursor instead of `frontier.shift()`: shift() is O(n) per call (it
   // copies down the whole remaining backing array), so draining a frontier of
@@ -278,7 +286,8 @@ async function bfsWithDepth() {
   let cursor = 0;
 
   while (cursor < frontier.length) {
-    const { path: cur, depth } = frontier[cursor++];
+    const cur = frontier[cursor++];
+    const depth = depthOf.get(cur);
     const file = await resolvePathToDistFile(cur);
     if (!file) continue;
     let html;
@@ -290,7 +299,7 @@ async function bfsWithDepth() {
       if (!p) continue;
       if (depthOf.has(p)) continue; // already visited at lower-or-equal depth (BFS)
       depthOf.set(p, depth + 1);
-      frontier.push({ path: p, depth: depth + 1 });
+      frontier.push(p);
     }
   }
   return depthOf;

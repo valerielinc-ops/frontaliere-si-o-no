@@ -134,6 +134,78 @@ describe('audit-text-html-ratio — rate-mode ratchet (#1085)', () => {
     expect(r.passed).toBe(true);
   });
 
+  it('(d) mix-shift: thin feature grows SHARE of total, own rate flat/improved → PASS (#3232)', async () => {
+    // Recurrence of #3232: a second feature ("blog", baselined at 50 %
+    // offender rate) grows from a small slice of the corpus to a much
+    // larger one. Its OWN rate holds exactly at baseline (50 %, no
+    // per-feature regression) but the corpus-wide blended rate mechanically
+    // rises because "blog" now makes up more of the total. A static
+    // baseline-blended total-rate comparison would false-fail this; the
+    // mix-adjusted comparison must not.
+    const dir2 = mkdtempSync(join(tmpdir(), 'audit-text-ratio-mix-'));
+    const baselinePath2 = join(dir2, 'baseline.json');
+    const baseline2 = {
+      generated: new Date().toISOString(),
+      mode: 'rate',
+      threshold: 10,
+      tolerance: { relPct: 20, absPp: 1.0, minAbsDelta: 5, maxDeltaPp: 3 },
+      scanned: 200,
+      totalOffenders: 55,
+      totalRatePct: 27.5, // blended: (5/100 job-board + 50/100 blog) / 200
+      byFeature: {
+        [FEATURE]: { scanned: 100, offenders: 5, ratePct: 5 },
+        blog: { scanned: 100, offenders: 50, ratePct: 50 },
+      },
+    };
+    writeFileSync(baselinePath2, JSON.stringify(baseline2, null, 2));
+    const auditor = createAuditor({ threshold: 10, baselinePath: baselinePath2 }) as unknown as Auditor;
+    // job-board: 100 pages, same 5 % rate as baseline (flat, no growth).
+    for (let i = 0; i < 100; i++) auditor.collect(jobPath('/dist', i), i < 5 ? THIN : FAT);
+    // blog: grows 4x (100 → 400 pages), rate held exactly at baseline 50 %.
+    for (let i = 0; i < 400; i++) auditor.collect(blogPath('/dist', i), i < 200 ? THIN : FAT);
+    const r = await auditor.report();
+    expect(r.extra.rateByFeature[FEATURE]).toBeCloseTo(5, 5);
+    expect(r.extra.rateByFeature.blog).toBeCloseTo(50, 5);
+    expect(r.extra.regressedFeatures).toHaveLength(0);
+    // Blended total rate DID rise vs the static baseline blend (27.5 % →
+    // ~41 %) purely from blog's growing share — but nothing regressed.
+    expect(r.passed).toBe(true);
+    rmSync(dir2, { recursive: true, force: true });
+  });
+
+  it('(e) genuine across-the-board drift still fails the mix-adjusted total cap', async () => {
+    // Every feature's rate rises just enough to stay under each one's OWN
+    // per-feature cap (rate + tol), but the aggregate creep across all
+    // features is real — the mix-adjusted total must still catch it since
+    // it's anchored to baseline PER-FEATURE rates, not a flat blend.
+    const dir3 = mkdtempSync(join(tmpdir(), 'audit-text-ratio-drift-'));
+    const baselinePath3 = join(dir3, 'baseline.json');
+    const baseline3 = {
+      generated: new Date().toISOString(),
+      mode: 'rate',
+      threshold: 10,
+      tolerance: { relPct: 20, absPp: 1.0, minAbsDelta: 5, maxDeltaPp: 3 },
+      scanned: 200,
+      totalOffenders: 10,
+      totalRatePct: 5,
+      byFeature: {
+        [FEATURE]: { scanned: 100, offenders: 5, ratePct: 5 },
+        blog: { scanned: 100, offenders: 5, ratePct: 5 },
+      },
+    };
+    writeFileSync(baselinePath3, JSON.stringify(baseline3, null, 2));
+    const auditor = createAuditor({ threshold: 10, baselinePath: baselinePath3 }) as unknown as Auditor;
+    // Both features: rate roughly triples (5 % → ~15 %), each individually
+    // over its own per-feature cap (5 + min(1,3) + 1 = 7 %) with enough
+    // absolute growth to clear minAbsDelta too.
+    for (let i = 0; i < 100; i++) auditor.collect(jobPath('/dist', i), i < 15 ? THIN : FAT);
+    for (let i = 0; i < 100; i++) auditor.collect(blogPath('/dist', i), i < 15 ? THIN : FAT);
+    const r = await auditor.report();
+    expect(r.extra.regressedFeatures.length).toBeGreaterThan(0);
+    expect(r.passed).toBe(false);
+    rmSync(dir3, { recursive: true, force: true });
+  });
+
   it('rate denominator is PER-FEATURE scanned, not global samples (#1143 item 1)', async () => {
     // Adversarial concern from #1138 review: if `scanned` (the rate denominator)
     // counted ALL collected pages instead of only same-feature pages, the
