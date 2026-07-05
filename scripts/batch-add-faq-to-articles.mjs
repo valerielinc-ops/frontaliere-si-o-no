@@ -28,7 +28,7 @@ const __dirname = dirname(__filename);
 const ROOT = resolve(__dirname, '..');
 import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, resetExhaustedModel, printRunSummary } from './lib/ai-models.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
-import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT } from './lib/llm-json-repair.mjs';
+import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError } from './lib/llm-json-repair.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 
 // ── CLI argument parsing ─────────────────────────────────────
@@ -489,7 +489,7 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
     // Try extracting Q&A pairs via regex as last resort
     const regexFaq = extractFaqFromText(raw);
     if (regexFaq && regexFaq.length >= 2) return regexFaq;
-    console.error(`  [JSON parse failed] ${parseErr.message} — raw[0:300]: ${raw.slice(0, 300).replace(/\n/g, '\\n')}`);
+    console.error(`  [JSON parse failed] ${parseErr.message} — ${describeJsonParseError(repaired, parseErr)}`);
     throw new Error(`JSON non valido dalla generazione FAQ: ${parseErr.message}`);
   }
   const faq = extractFaqArray(parsed);
