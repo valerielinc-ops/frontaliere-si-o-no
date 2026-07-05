@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bms-building",
-  "assembledAt": "2026-07-05T10:34:13.703Z",
+  "assembledAt": "2026-07-05T22:16:36.342Z",
   "jobs": [
     {
       "id": "bms-building-4e86ad40c7c0",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/186-technicien-cuisines-a-100-f/m/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T10:34:05.959Z",
+      "crawledAt": "2026-07-05T22:16:28.912Z",
       "addressLocality": "Etoy",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,12 +78,14 @@
       },
       "previousSlugs": [
         "technicien-cuisines-a-100-f-m-d-bms-building-ch",
-        "100-cucina-tecnico-f-m-d-bms-building-materials-etoy"
+        "100-cucina-tecnico-f-m-d-bms-building-materials-etoy",
+        "tecnico-cucina-al-100-f-m-d-bms-building-materials-etoy"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technicien-cuisines-a-100-f-m-d-bms-building-ch",
-          "100-cucina-tecnico-f-m-d-bms-building-materials-etoy"
+          "100-cucina-tecnico-f-m-d-bms-building-materials-etoy",
+          "tecnico-cucina-al-100-f-m-d-bms-building-materials-etoy"
         ],
         "en": [
           "technicien-cuisines-a-100-f-m-d-bms-building-ch"
@@ -93,6 +95,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:27:12.549Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -138,7 +141,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/185-technicien-cuisines-a-100-f/m/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T10:34:04.896Z",
+      "crawledAt": "2026-07-05T22:16:27.898Z",
       "addressLocality": "Carouge",
       "addressCountry": "CH",
       "country": "CH",
@@ -183,12 +186,16 @@
       },
       "previousSlugs": [
         "technicien-cuisines-a-100-f-m-d-bms-building-ch-2",
-        "100-cucina-tecnico-f-m-d-bms-building-materials-carouge"
+        "100-cucina-tecnico-f-m-d-bms-building-materials-carouge",
+        "technicien-cuisines-a-100-f-m-d-bms-building-ch",
+        "tecnico-cucina-al-100-f-m-d-bms-building-materials-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technicien-cuisines-a-100-f-m-d-bms-building-ch-2",
-          "100-cucina-tecnico-f-m-d-bms-building-materials-carouge"
+          "100-cucina-tecnico-f-m-d-bms-building-materials-carouge",
+          "technicien-cuisines-a-100-f-m-d-bms-building-ch",
+          "tecnico-cucina-al-100-f-m-d-bms-building-materials-carouge"
         ],
         "en": [
           "technicien-cuisines-a-100-f-m-d-bms-building-ch-2"
@@ -198,6 +205,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:27:11.242Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -243,7 +251,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/184-kundenberatung-shop-sanitaer-mit-springerfunktion-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:34:03.895Z",
+      "crawledAt": "2026-07-05T22:16:26.896Z",
       "addressLocality": "Cham",
       "addressCountry": "CH",
       "country": "CH",
@@ -290,6 +298,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T21:35:02.564Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -335,7 +344,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/183-fachberatung-ausstellung-sanitaer-und-platten-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:34:02.739Z",
+      "crawledAt": "2026-07-05T22:16:25.712Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -397,6 +406,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T10:55:33.359Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -442,7 +452,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/182-standortleitung-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:34:01.557Z",
+      "crawledAt": "2026-07-05T22:16:24.525Z",
       "addressLocality": "Schmerikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -493,11 +503,13 @@
         ]
       },
       "previousSlugs": [
-        "standortleitung-w-m-d-100-bms-building-ch"
+        "standortleitung-w-m-d-100-bms-building-ch",
+        "gestione-del-sito-f-m-d-100-bms-building-materials-schmerikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "standortleitung-w-m-d-100-bms-building-ch"
+          "standortleitung-w-m-d-100-bms-building-ch",
+          "gestione-del-sito-f-m-d-100-bms-building-materials-schmerikon"
         ],
         "en": [
           "standortleitung-w-m-d-100-bms-building-ch"
@@ -507,6 +519,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T10:55:32.149Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -552,7 +565,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/181-sachbearbeitung-innendienst-sanitaer-offerten-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:34:00.363Z",
+      "crawledAt": "2026-07-05T22:16:23.358Z",
       "addressLocality": "Buchs",
       "addressCountry": "CH",
       "country": "CH",
@@ -594,11 +607,13 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-innendienst-sanitar-offerten-w-m-d-100-bms-building-ch"
+        "sachbearbeitung-innendienst-sanitar-offerten-w-m-d-100-bms-building-ch",
+        "sachbearbeitung-servizio-interno-sanitar-offerten-m-w-d-100-bms-building-materials-buchs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-innendienst-sanitar-offerten-w-m-d-100-bms-building-ch"
+          "sachbearbeitung-innendienst-sanitar-offerten-w-m-d-100-bms-building-ch",
+          "sachbearbeitung-servizio-interno-sanitar-offerten-m-w-d-100-bms-building-materials-buchs"
         ],
         "en": [
           "sachbearbeitung-innendienst-sanitar-offerten-w-m-d-100-bms-building-ch"
@@ -608,6 +623,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T10:55:30.839Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -637,7 +653,7 @@
       "title": "Project Manager Digitalisation (w/m/d) 80 – 100%",
       "titleByLocale": {
         "it": "Project Manager Digitalizzazione (f/m/d) 80 – 100%",
-        "en": "Project Manager Digitalisation (f/m/d) 80 – 100%",
+        "en": "Project Manager Digitalisation (w/m/d) 80 – 100%",
         "de": "Project Manager Digitalisation (w/m/d) 80 – 100%",
         "fr": "Gestionnaire de projet Digitalisation (f/m/d) 80 – 100%"
       },
@@ -653,7 +669,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/180-project-manager-digitalisation-w/m/d-80-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:59.184Z",
+      "crawledAt": "2026-07-05T22:16:22.165Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -709,14 +725,17 @@
         ]
       },
       "previousSlugs": [
-        "project-manager-digitalisation-w-m-d-80-100-bms-building-ch"
+        "project-manager-digitalisation-w-m-d-80-100-bms-building-ch",
+        "project-manager-digitalizzazione-f-m-d-80-100-bms-building-materials-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-digitalisation-w-m-d-80-100-bms-building-ch"
+          "project-manager-digitalisation-w-m-d-80-100-bms-building-ch",
+          "project-manager-digitalizzazione-f-m-d-80-100-bms-building-materials-bern"
         ]
       },
       "firstSeenAt": "2026-06-26T10:55:29.668Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -762,7 +781,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/179-sachbearbeiterin-produktstammdaten-w/m/d-80-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:57.979Z",
+      "crawledAt": "2026-07-05T22:16:21.026Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -805,11 +824,13 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch"
+        "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch",
+        "dati-master-del-prodotto-f-m-d-80-100-bms-building-materials-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch"
+          "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch",
+          "dati-master-del-prodotto-f-m-d-80-100-bms-building-materials-bern"
         ],
         "en": [
           "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch"
@@ -819,6 +840,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T11:01:05.213Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -864,7 +886,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/178-logistik-mit-springerfunktion-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:56.977Z",
+      "crawledAt": "2026-07-05T22:16:20.050Z",
       "addressLocality": "Cham",
       "addressCountry": "CH",
       "country": "CH",
@@ -909,6 +931,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T10:55:27.348Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -954,7 +977,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/177-logistik-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:55.982Z",
+      "crawledAt": "2026-07-05T22:16:19.022Z",
       "addressLocality": "Sargans",
       "addressCountry": "CH",
       "country": "CH",
@@ -997,11 +1020,13 @@
         ]
       },
       "previousSlugs": [
-        "logistik-w-m-d-100-bms-building-ch"
+        "logistik-w-m-d-100-bms-building-ch",
+        "logistica-f-m-d-100-bms-building-materials-sargans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistik-w-m-d-100-bms-building-ch"
+          "logistik-w-m-d-100-bms-building-ch",
+          "logistica-f-m-d-100-bms-building-materials-sargans"
         ],
         "en": [
           "logistik-w-m-d-100-bms-building-ch"
@@ -1011,6 +1036,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T10:55:26.180Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1056,7 +1082,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/176-logistik-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:54.968Z",
+      "crawledAt": "2026-07-05T22:16:18.007Z",
       "addressLocality": "Sevelen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1099,6 +1125,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T10:55:25.002Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1144,7 +1171,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/175-kundenberatung-im-baubedarf-shop-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:53.973Z",
+      "crawledAt": "2026-07-05T22:16:17.018Z",
       "addressLocality": "Schluein",
       "addressCountry": "CH",
       "country": "CH",
@@ -1191,11 +1218,13 @@
         ]
       },
       "previousSlugs": [
-        "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+        "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
+        "servizio-clienti-nel-negozio-di-costruzioni-f-m-d-100-bms-building-materials-schluein"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+          "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
+          "servizio-clienti-nel-negozio-di-costruzioni-f-m-d-100-bms-building-materials-schluein"
         ],
         "en": [
           "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
@@ -1205,6 +1234,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T10:55:23.825Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1250,7 +1280,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/174-kundenberatung-im-baubedarf-shop-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:52.954Z",
+      "crawledAt": "2026-07-05T22:16:16.032Z",
       "addressLocality": "Reinach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1309,6 +1339,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T10:55:22.575Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1338,7 +1369,7 @@
       "title": "Functional Application Manager AI (w/m/d) 100%",
       "titleByLocale": {
         "it": "Funzionale Application Manager AI (f/m/d) 100%",
-        "en": "Functional Application Manager AI (f/m/d) 100%",
+        "en": "Functional Application Manager AI (w/m/d) 100%",
         "de": "Functional Application Manager AI (w/m/d) 100%",
         "fr": "Gestionnaire d'application fonctionnelle AI (f/m/d) 100%"
       },
@@ -1354,7 +1385,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/173-functional-application-manager-ai-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:51.929Z",
+      "crawledAt": "2026-07-05T22:16:15.015Z",
       "addressLocality": "Buchs",
       "addressCountry": "CH",
       "country": "CH",
@@ -1397,14 +1428,17 @@
         ]
       },
       "previousSlugs": [
-        "functional-application-manager-ai-w-m-d-100-bms-building-ch"
+        "functional-application-manager-ai-w-m-d-100-bms-building-ch",
+        "funzionale-application-manager-ai-f-m-d-100-bms-building-materials-buchs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "functional-application-manager-ai-w-m-d-100-bms-building-ch"
+          "functional-application-manager-ai-w-m-d-100-bms-building-ch",
+          "funzionale-application-manager-ai-f-m-d-100-bms-building-materials-buchs"
         ]
       },
       "firstSeenAt": "2026-06-26T10:55:21.377Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1423,34 +1457,34 @@
       "id": "bms-building-7c2278d2fa2d",
       "slug": "consulente-vendite-interno-100-cucine-f-m-d-bms-building-materials-villeneuve",
       "slugByLocale": {
-        "fr": "conseiller-de-vente-interne-cuisines-a-100-f-m-d-bms-building-ch",
         "it": "consulente-vendite-interno-100-cucine-f-m-d-bms-building-materials-villeneuve",
         "en": "internal-sales-advisor-100-kitchens-f-m-d-bms-building-materials-villeneuve",
-        "de": "internal-sales-advisor-100-kuchen-w-m-d-bms-building-materials-villeneuve"
+        "de": "internal-sales-advisor-100-kuchen-w-m-d-bms-building-materials-villeneuve",
+        "fr": "conseiller-de-vente-interne-cuisines-a-100-f-m-d-bms-building-ch"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
       "companyDomain": "bmsuisse.ch",
       "title": "Conseiller de Vente Interne Cuisines à 100% (f/m/d)",
       "titleByLocale": {
-        "fr": "Conseiller de Vente Interne Cuisines à 100% (f/m/d)",
         "it": "Consulente vendite interno 100% cucine (f/m/d)",
         "en": "Internal Sales Advisor 100% Kitchens (f/m/d)",
-        "de": "Internal Sales Advisor 100% Küchen (w/m/d)"
+        "de": "Internal Sales Advisor 100% Küchen (w/m/d)",
+        "fr": "Conseiller de Vente Interne Cuisines à 100% (f/m/d)"
       },
       "description": "•\n\nX\n\nArbeiten bei BMS\n\nArbeiten bei BMS\nUnsere Werte\nDeine Benefits\nHealth & Safety\nJobs\n\nJobs\nOffene Stellen\nLehrstellen\nDE\n\nFR\n\nIT\n\nDE\n\nBMS Building Materials Suisse est un grossiste en matériaux de construction pour le gros oeuvre et le second oeuvre.\nNotre groupe d’entreprises comprend les spécialistes de renom que sont Baubedarf, Richner, Gétaz, Miauton et\nRegusciReco . Nos spécialistes expérimentés conseillent, soutiennent et inspirent avec beaucoup d’engagement les\nclients du secteur de la construction et les clients privés sur 114 sites dans toute la Suisse. Proches du quotidien de\nla construction, nous sommes le partenaire local et fiable pour chaque projet de construction. Rapides, simples et\ncompétents.\n\nPour renforcer notre équipe basée à Villeneuve, nous recherchons une personne passionnée et organisée\nVos tâches principales au sein de notre équipe Customer Care comprennent la réception, l'établissement / le traitement d'offres et de soumissions\nAvant commande, la faisabilité de ces projets est vérifiée.\nPour cela, il est nécessaire de savoir réaliser les plans techniques des différents projets.\nVous êtes également chargé(e) d'effectuer les commandes de meubles, électroménagers et de plans de travail (saisie, montage des dossiers etc.).\nVous contrôlez et finalisez les confirmations de commande\nL'exécution de commandes de SAV complète ce profil passionnant.\nVotre Profil\nSi votre c&oelig;ur bat plus fort pour le domaine d'activité décrit ci-dessus et que vous possédez les compétences suivantes, vous êtes notre* candidat(e) idéal(e) :\nVous aimez le contact avec les gens et êtes motivé(e) pour fournir le meilleur service possible à nos clients.\nVous avez suivi une formation complète dans le domaine des cuisines (vente et/ou technique).\nVous disposez d'au moins trois ans d'expérience réussie dans le domaine des cuisines ou dans une branche similaire.\nDans l'idéal, vous connaissez déjà le programme « Winner » ou vous êtes motivé(e) pour vous familiariser avec ce logiciel.\nPour ce métier, il est important d'avoir un sens de la créativité et d'aimer la décoration.\nDe même, vous maîtrisez les outils informatiques courants et savez les utiliser.\nUne activité stimulante, variée et intéressante dans un bon environnement de travail, où l'accent est mis sur une collaboration active et en même temps sur l'autonomie\nUne formation intensive est au programme, nos nouveaux collègues pouvant bénéficier de formations sur les produits et les systèmes au sein de l'entreprise\nUn soutien de nos collaborateurs dans leur développement professionnel et personnel\nUne rémunération liée au développement des compétences\n5 semaines de vacances (6 semaines à partir de 50 ans) et rachat de vacances jusqu'à 10 jours maximum\nDes prestations supplémentaires telles qu'une caisse de pension autonome parfaitement financée et des réductions sur notre gamme complète de produits ainsi que des avantages externes en matière de primes\nNous nous réjouissons de recevoir vos documents de candidature (lettre de motivation, CV, dossier complet) en cliquant sur le lien de postulation ci-dessous.\nVous souhaitez en savoir plus sur nous ? Visitez dès maintenant notre page carrières sur https://jobs.bmsuisse.ch/\nGétaz-Miauton SA\nCaroline Göhring - Responsable Recrutement Suisse romande\nNous répondrons volontiers à tes questions concernant le poste à l’adresse jobs@bmsuisse.ch .\nPour des raisons de protection des données, les candidatures spontanées ainsi que les candidatures électroniques par e-mail et/ou envoi postal ne seront pas prises en compte.\nArbeitnehmer*in kannst du überall werden. Wir suchen Einflussnehmer*innen.\nDatenschutz\nDas Element kann nicht angezeigt werden. Um das Element zu sehen, akzeptieren Sie die Marketing-Cookies.\nAuf unserer Webseite werden Cookies verwendet. Einige davon werden zwingend benötigt, während es uns andere ermöglichen, Ihre Nutzererfahrung auf unserer Webseite zu verbessern.\nEssentielle Cookies werden für grundlegende Funktionen der Webseite benötigt. Dadurch ist gewährleistet, dass die Webseite einwandfrei funktioniert.\nSpeichert die vom Benutzer gewählten Cookie-Einstellungen.\nMarketingcookies umfassen Tracking und Statistikcookies\nDiese Cookies werden von Google Analytics verwendet, um verschiedene Arten von Nutzungsinformationen zu sammeln, einschließlich persönlicher und nicht-personenbezogener Informationen. Weitere Informationen finden Sie in den Datenschutzbestimmungen von Google Analytics unter https://policies.google.com/privacy . Gesammelte nicht personenbezogene Daten werden verwendet, um Berichte über die Nutzung der Website zu erstellen, die uns helfen, unsere Websites / Apps zu verbessern. Diese Informationen werden auch an unsere Kunden / Partner weitergegeben.",
       "descriptionByLocale": {
-        "fr": "•\n\nX\n\nArbeiten bei BMS\n\nArbeiten bei BMS\nUnsere Werte\nDeine Benefits\nHealth & Safety\nJobs\n\nJobs\nOffene Stellen\nLehrstellen\nDE\n\nFR\n\nIT\n\nDE\n\nBMS Building Materials Suisse est un grossiste en matériaux de construction pour le gros oeuvre et le second oeuvre.\nNotre groupe d’entreprises comprend les spécialistes de renom que sont Baubedarf, Richner, Gétaz, Miauton et\nRegusciReco . Nos spécialistes expérimentés conseillent, soutiennent et inspirent avec beaucoup d’engagement les\nclients du secteur de la construction et les clients privés sur 114 sites dans toute la Suisse. Proches du quotidien de\nla construction, nous sommes le partenaire local et fiable pour chaque projet de construction. Rapides, simples et\ncompétents.\n\nPour renforcer notre équipe basée à Villeneuve, nous recherchons une personne passionnée et organisée\nVos tâches principales au sein de notre équipe Customer Care comprennent la réception, l'établissement / le traitement d'offres et de soumissions\nAvant commande, la faisabilité de ces projets est vérifiée.\nPour cela, il est nécessaire de savoir réaliser les plans techniques des différents projets.\nVous êtes également chargé(e) d'effectuer les commandes de meubles, électroménagers et de plans de travail (saisie, montage des dossiers etc.).\nVous contrôlez et finalisez les confirmations de commande\nL'exécution de commandes de SAV complète ce profil passionnant.\nVotre Profil\nSi votre c&oelig;ur bat plus fort pour le domaine d'activité décrit ci-dessus et que vous possédez les compétences suivantes, vous êtes notre* candidat(e) idéal(e) :\nVous aimez le contact avec les gens et êtes motivé(e) pour fournir le meilleur service possible à nos clients.\nVous avez suivi une formation complète dans le domaine des cuisines (vente et/ou technique).\nVous disposez d'au moins trois ans d'expérience réussie dans le domaine des cuisines ou dans une branche similaire.\nDans l'idéal, vous connaissez déjà le programme « Winner » ou vous êtes motivé(e) pour vous familiariser avec ce logiciel.\nPour ce métier, il est important d'avoir un sens de la créativité et d'aimer la décoration.\nDe même, vous maîtrisez les outils informatiques courants et savez les utiliser.\nUne activité stimulante, variée et intéressante dans un bon environnement de travail, où l'accent est mis sur une collaboration active et en même temps sur l'autonomie\nUne formation intensive est au programme, nos nouveaux collègues pouvant bénéficier de formations sur les produits et les systèmes au sein de l'entreprise\nUn soutien de nos collaborateurs dans leur développement professionnel et personnel\nUne rémunération liée au développement des compétences\n5 semaines de vacances (6 semaines à partir de 50 ans) et rachat de vacances jusqu'à 10 jours maximum\nDes prestations supplémentaires telles qu'une caisse de pension autonome parfaitement financée et des réductions sur notre gamme complète de produits ainsi que des avantages externes en matière de primes\nNous nous réjouissons de recevoir vos documents de candidature (lettre de motivation, CV, dossier complet) en cliquant sur le lien de postulation ci-dessous.\nVous souhaitez en savoir plus sur nous ? Visitez dès maintenant notre page carrières sur https://jobs.bmsuisse.ch/\nGétaz-Miauton SA\nCaroline Göhring - Responsable Recrutement Suisse romande\nNous répondrons volontiers à tes questions concernant le poste à l’adresse jobs@bmsuisse.ch .\nPour des raisons de protection des données, les candidatures spontanées ainsi que les candidatures électroniques par e-mail et/ou envoi postal ne seront pas prises en compte.\nArbeitnehmer*in kannst du überall werden. Wir suchen Einflussnehmer*innen.\nDatenschutz\nDas Element kann nicht angezeigt werden. Um das Element zu sehen, akzeptieren Sie die Marketing-Cookies.\nAuf unserer Webseite werden Cookies verwendet. Einige davon werden zwingend benötigt, während es uns andere ermöglichen, Ihre Nutzererfahrung auf unserer Webseite zu verbessern.\nEssentielle Cookies werden für grundlegende Funktionen der Webseite benötigt. Dadurch ist gewährleistet, dass die Webseite einwandfrei funktioniert.\nSpeichert die vom Benutzer gewählten Cookie-Einstellungen.\nMarketingcookies umfassen Tracking und Statistikcookies\nDiese Cookies werden von Google Analytics verwendet, um verschiedene Arten von Nutzungsinformationen zu sammeln, einschließlich persönlicher und nicht-personenbezogener Informationen. Weitere Informationen finden Sie in den Datenschutzbestimmungen von Google Analytics unter https://policies.google.com/privacy . Gesammelte nicht personenbezogene Daten werden verwendet, um Berichte über die Nutzung der Website zu erstellen, die uns helfen, unsere Websites / Apps zu verbessern. Diese Informationen werden auch an unsere Kunden / Partner weitergegeben.",
-        "it": "•\n\nX\n\nArbeiten bei BMS\n\nArbeiten bei BMS\nUnsere Werte\nVantaggi della deina\nSalute e sicurezza\nLavoro\n\nLavoro\nOffene Stellen\nLehrstellen\nDE\n\nEN\n\nIT\n\nDE\n\nBMS Building Materials Svizzera è un grossista di materiali da costruzione per il grande e il secondo lavoro.\nIl nostro gruppo di aziende comprende noti specialisti come Baubedarf, Richner, Gétaz, Miauton e\nRegusciReco . I nostri esperti specialisti consigliano, sostengono e ispirano con grande impegno\nclienti edili e clienti privati a 114 siti in tutta la Svizzera. Vicino al giorno\ncostruzione, siamo il partner locale e affidabile per ogni progetto di costruzione. Veloce, semplice e\ncompetente.\n\nPer rafforzare il nostro team con sede a Villeneuve, stiamo cercando una persona appassionata e organizzata\nI vostri compiti principali all'interno del nostro team di assistenza clienti includono la ricezione, la creazione / elaborazione di offerte e offerte\nPrima dell'ordine, la fattibilità di questi progetti è verificata.\nPer raggiungere questo obiettivo, è necessario sapere come realizzare i piani tecnici dei vari progetti.\nSei anche responsabile per l'ordinazione di mobili, elettrodomestici e piani di lavoro (seizure, assemblaggio di cartelle, ecc.).\nControllare e confermare l'ordine completo\nL'esecuzione dei comandi VAS completa questo profilo emozionante.\nIl tuo profilo\nSe il tuo cuore batte più forte per l'area di attività sopra descritta e hai le seguenti abilità, sei il nostro candidato ideale:\nTi piace il contatto con le persone e sono motivati a fornire il miglior servizio possibile ai nostri clienti.\nHai completato la formazione completa nel campo delle cucine (vendita e/o tecnica).\nHai almeno tre anni di esperienza nel settore della cucina o in un ramo simile.\nIdealmente, conosci già il programma \"Winner\" o sei motivato a familiarizzare con questo software.\nPer questa professione, è importante avere un senso di creatività e di amare la decorazione.\nAllo stesso modo, si padroneggia e sapere come utilizzare strumenti informatici comuni.\nUn'attività stimolante, varia e interessante in un buon ambiente di lavoro, dove l'accento è sulla collaborazione attiva e allo stesso tempo sull'autonomia\nLa formazione intensiva è all'ordine del giorno, in quanto i nostri nuovi colleghi possono beneficiare della formazione su prodotti e sistemi all'interno dell'azienda\nSupporto dei nostri dipendenti nel loro sviluppo professionale e personale\nRemunerazione legata allo sviluppo delle competenze\n5 settimane di vacanza (6 settimane da 50 anni) e vacanza buy-back fino a 10 giorni massimo\nPrestazioni aggiuntive come un fondo pensione indipendente completamente finanziato e riduzioni nella nostra gamma completa di prodotti e benefici premium esterni\nNon vediamo l'ora di ricevere i tuoi documenti di applicazione (lettera di motivazione, CV, file completo) cliccando sul link di applicazione qui sotto.\nVuoi saperne di più su di noi? Visita ora la nostra pagina di carriera all'indirizzo https://jobs.bmsuisse.ch/\nGeraz-Miauton SA\nCaroline Göhring - Responsabile del reclutamento in Svizzera occidentale\nSaremo lieti di rispondere alle vostre domande sulla posizione a job@bmsuisse.ch .\nPer motivi di protezione dei dati, le applicazioni non richieste e le applicazioni elettroniche via e-mail e/o posta non saranno prese in considerazione.\nArbeitnehmer*in kannst di überall werden. Wir taleen Einflussnehmer*innen.\nDatanschutz\nDas Element kann nicht angezeigt werden. Um das Element zu sehen, akzeptieren Sie die Marketing-Cookies.\nAuf unserer Webseite werden Cookies verwendet. Einige davon werden zwingend benötigt, während es uns andere ermöglichen, Ihre Nutzererfahrung auf unserer Webseite zu verbessern.\nCookies essenziali werden für grundledgende Funktionen der Webseite benötigt. Dadurch ist gewährleistet, dass die Webseite einwandfrei funktioniert.\nSpeichert die vom Benutzer gewählten Cookie-Einstellungen.\nMarketingcookies umfassen Tracking und Statistikcookies\nDiese Cookies werden von Google Analytics verwendet, um verschiedene Arten von Nutzungsinformationen zu sammeln, einschließlich persönlicher und nicht-personenbezogener Informationen. Weitere Informationen finden Sie in den Datenschutzbestimmungen von Google Analytics unter https://policies.google.com/privacy . Gesammelte nicht personenbezogene Datan werden verwendet, um Berichte über die Nutzung der Website zu erstellen, die uns helfen, unsere Websites / Apps zu verbessern. Diese Informationen werden auch unsere Kunden / Partner weitergegeben.",
-        "en": "•\n\nX\n\nArbeiten bei BMS\n\nArbeiten bei BMS\nUnsere Werte\nDeine Benefits\nHealth & Safety\nJobs\n\nJobs\nOffene Stellen\nLehrstellen\nDE\n\nEN\n\nIT\n\nDE\n\nBMS Building Materials Switzerland is a wholesaler of construction materials for the large and second work.\nOur group of companies includes renowned specialists such as Baubedarf, Richner, Gétaz, Miauton and\nRegusciReco . Our experienced specialists advise, support and inspire with great commitment the\nconstruction customers and private customers at 114 sites throughout Switzerland. Close to daily\nconstruction, we are the local and reliable partner for each construction project. Fast, simple and\ncompetent.\n\nTo strengthen our team based in Villeneuve, we are looking for a passionate and organized person\nYour main tasks within our Customer Care team include reception, establishment/processing of offers and bids\nBefore ordering, the feasibility of these projects is verified.\nTo achieve this, it is necessary to know how to carry out the technical plans of the various projects.\nYou are also responsible for ordering furniture, appliances and worktops (seizure, folder assembly, etc.).\nYou control and complete order confirmations\nThe execution of VAS commands completes this exciting profile.\nYour Profile\nIf your heart beats harder for the area of activity described above and you have the following skills, you are our ideal candidate:\nYou like contact with people and are motivated to provide the best possible service to our customers.\nYou have completed full training in the field of kitchens (sale and/or technical).\nYou have at least three years of successful experience in the kitchen sector or in a similar branch.\nIdeally, you already know the \"Winner\" program or you are motivated to become familiar with this software.\nFor this profession, it is important to have a sense of creativity and to love decoration.\nSimilarly, you master and know how to use common computer tools.\nA stimulating, varied and interesting activity in a good working environment, where the emphasis is on active collaboration and at the same time on autonomy\nIntensive training is on the agenda, as our new colleagues can benefit from training on products and systems within the company\nSupport from our employees in their professional and personal development\nRemuneration linked to skills development\n5 weeks of vacation (6 weeks from 50 years) and vacation buy-back up to 10 days maximum\nAdditional benefits such as a fully funded independent pension fund and reductions in our full range of products as well as external premium benefits\nWe look forward to receiving your application documents (motivation letter, CV, full file) by clicking on the application link below.\nWant to know more about us? Visit now our careers page at https://jobs.bmsuisse.ch/\nGeraz-Miauton SA\nCaroline Göhring - Head of recruitment in Western Switzerland\nWe will gladly answer your questions about the position at jobs@bmsuisse.ch .\nFor data protection reasons, unsolicited applications and electronic applications by e-mail and/or mail will not be taken into account.\nArbeitnehmer*in kannst of überall werden. Wir suchen Einflussnehmer*innen.\nDatenschutz\nDas Element kann nicht angezeigt werden. Um das Element zu sehen, akzeptieren Sie die Marketing-Cookies.\nAuf unserer Webseite werden Cookies verwendet. Einige davon werden zwingend benötigt, während es uns andere ermöglichen, Ihre Nutzererfahrung auf unserer Webseite zu verbessern.\nEssential Cookies werden für grundledgende Funktionen der Webseite benötigt. Dadurch ist gewährleistet, dass die Webseite einwandfrei funktioniert.\nSpeichert die vom Benutzer gewählten Cookie-Einstellungen.\nMarketingcookies umfassen Tracking und Statistikcookies\nDiese Cookies werden von Google Analytics verwendet, um verschiedene Arten von Nutzungsinformationen zu sammeln, einschließlich persönlicher und nicht-personenbezogener Informationen. Weitere Informationen finden Sie in den Datenschutzbestimmungen von Google Analytics unter https://policies.google.com/privacy . Gesammelte nicht personenbezogene Daten werden verwendet, um Berichte über die Nutzung der Website zu erstellen, die uns helfen, unsere Websites / Apps zu verbessern. Diese Informationen werden auch an unsere Kunden / Partner weitergegeben.",
-        "de": "•\n\nX\n\nArbeiten bei BMS\n\nArbeiten bei BMS\nUnsere Werte\nDeine Vorteile\nGesundheit & Sicherheit\nArbeitsplätze\n\nArbeitsplätze\nOffene Stellen\nLehrkörper\nDE\n\nEN\n\nIT\n\nDE\n\nBMS Building Materials Switzerland ist ein Großhändler von Baumaterialien für die große und zweite Arbeit.\nUnsere Unternehmensgruppe umfasst renommierte Spezialisten wie Baubedarf, Richner, Gétaz, Miauton und\nRegusciReco. Unsere erfahrenen Spezialisten beraten, unterstützen und inspirieren mit großem Engagement die\nBaukunden und Privatkunden an 114 Standorten in der ganzen Schweiz. Nahezu täglich\nBauen, sind wir der lokale und zuverlässige Partner für jedes Bauprojekt. Schnell, einfach und\nkompetent.\n\nUm unser Team mit Sitz in Villeneuve zu stärken, suchen wir eine leidenschaftliche und organisierte Person\nIhre Hauptaufgaben in unserem Customer Care Team umfassen die Entgegennahme, Erstellung/Verarbeitung von Angeboten und Angeboten.\nVor der Bestellung wird die Machbarkeit dieser Projekte überprüft.\nUm dies zu erreichen, ist es notwendig zu wissen, wie man die technischen Pläne der verschiedenen Projekte durchführt.\nSie sind auch für die Bestellung von Möbeln, Geräten und Arbeitsplatten (Beschlagnahme, Ordnermontage usw.) verantwortlich.\nSie kontrollieren und vervollständigen Bestellbestätigungen\nDie Ausführung von VAS-Befehlen vervollständigt dieses spannende Profil.\nIhr Profil\nWenn Ihr Herz für den oben beschriebenen Tätigkeitsbereich härter schlägt und Sie die folgenden Fähigkeiten haben, sind Sie unser idealer Kandidat:\nSie mögen den Kontakt zu Menschen und sind motiviert, unseren Kunden den bestmöglichen Service zu bieten.\nSie haben eine vollständige Ausbildung im Bereich der Küchen (Verkauf und / oder technische) abgeschlossen.\nSie haben mindestens drei Jahre erfolgreiche Erfahrung im Küchenbereich oder in einer ähnlichen Branche.\nIdealerweise kennen Sie bereits das \"Winner\"-Programm oder Sie sind motiviert, sich mit dieser Software vertraut zu machen.\nFür diesen Beruf ist es wichtig, ein Gefühl der Kreativität zu haben und Dekoration zu lieben.\nIn ähnlicher Weise beherrschen und wissen Sie, wie Sie gängige Computerwerkzeuge verwenden.\nEine anregende, abwechslungsreiche und interessante Tätigkeit in einem guten Arbeitsumfeld, in dem der Schwerpunkt auf aktiver Zusammenarbeit und gleichzeitig auf Autonomie liegt\nIntensive Schulungen stehen auf dem Programm, da unsere neuen Kollegen von Schulungen zu Produkten und Systemen im Unternehmen profitieren können\nUnterstützung unserer Mitarbeiter in ihrer beruflichen und persönlichen Entwicklung\nVergütung im Zusammenhang mit der Qualifizierung\n5 Wochen Urlaub (6 Wochen ab 50 Jahren) und Urlaubsrückkauf bis zu maximal 10 Tagen\nZusätzliche Leistungen wie eine vollständig finanzierte, unabhängige Pensionskasse und Reduzierungen unserer gesamten Produktpalette sowie externe Prämienleistungen\nWir freuen uns auf Ihre Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, vollständige Datei), indem Sie auf den unten stehenden Bewerbungslink klicken.\nMöchten Sie mehr über uns erfahren? Besuchen Sie jetzt unsere Karriereseite unter https://jobs.bmsuisse.ch/\nGeraz-Miauton SA\nCaroline Göhring - Rekrutierungsleiterin Westschweiz\nGerne beantworten wir Ihre Fragen zur Stelle unter jobs@bmsuisse.ch.\nAus datenschutzrechtlichen Gründen werden unerwünschte Bewerbungen und elektronische Bewerbungen per E-Mail und/oder Post nicht berücksichtigt.\nArbeitnehmer*in kann von allem werden. Wir suchen Einflussnehmer*innen.\nDatenschutz\nDas Element kann nicht angezeigt werden. Um das Element zu sehen, akzeptieren Sie die Marketing-Cookies.\nAuf unserer Website werden Cookies verwendet. Einige werden auch zwingend benötigt, während es uns anderen ermöglichen, Ihre Nutzererfahrung auf unserer Website zu verbessern.\nEssential Cookies werden für grundledgende Funktionen der Website benötigt. Dadurch ist gewährleistet, dass die Website einwandfrei funktioniert.\nSpeichert die vom Nutzer gewählte Cookie-Einstellungen.\nMarketingcookies umfassen Tracking und Statistikcookies\nDiese Cookies werden von Google Analytics verwendet, um verschiedene Arten von Nutzungsinformationen zu sammeln, einschließlich persönlicher und nicht-personenbezogener Informationen. Weitere Informationen finden Sie in den Datenschutzbestimmungen von Google Analytics unter https://policies.google.com/privacy . Gesammelte nicht personenbezogene Daten werden verwendet, um Berichte über die Nutzung der Website zu erstellen, die uns helfen, unsere Websites / Apps zu verbessern. Diese Informationen werden auch an unseren Kunden / Partner weitergegeben."
+        "it": "• X Arbeiten bei BMS Arbeiten bei BMS Unsere Werte Vantaggi della deina Salute e sicurezza Lavoro Lavoro Offene Stellen Lehrstellen DE EN IT DE BMS Building Materials Svizzera è un grossista di materiali da costruzione per il grande e il secondo lavoro. Il nostro gruppo di aziende comprende noti specialisti come Baubedarf, Richner, Gétaz, Miauton e RegusciReco . I nostri esperti specialisti consigliano, sostengono e ispirano con grande impegno clienti edili e clienti privati a 114 siti in tutta la Svizzera. Vicino al giorno costruzione, siamo il partner locale e affidabile per ogni progetto di costruzione. Veloce, semplice e competente. Per rafforzare il nostro team con sede a Villeneuve, stiamo cercando una persona appassionata e organizzata I vostri compiti principali all'interno del nostro team di assistenza clienti includono la ricezione, la creazione / elaborazione di offerte e offerte Prima dell'ordine, la fattibilità di questi progetti è verificata. Per raggiungere questo obiettivo, è necessario sapere come realizzare i piani tecnici dei vari progetti. Sei anche responsabile per l'ordinazione di mobili, elettrodomestici e piani di lavoro (seizure, assemblaggio di cartelle, ecc.). Controllare e confermare l'ordine completo L'esecuzione dei comandi VAS completa questo profilo emozionante. Il tuo profilo Se il tuo cuore batte più forte per l'area di attività sopra descritta e hai le seguenti abilità, sei il nostro candidato ideale: Ti piace il contatto con le persone e sono motivati a fornire il miglior servizio possibile ai nostri clienti. Hai completato la formazione completa nel campo delle cucine (vendita e/o tecnica). Hai almeno tre anni di esperienza nel settore della cucina o in un ramo simile. Idealmente, conosci già il programma \"Winner\" o sei motivato a familiarizzare con questo software. Per questa professione, è importante avere un senso di creatività e di amare la decorazione. Allo stesso modo, si padroneggia e sapere come utilizzare strumenti informatici comuni. Un'attività stimolante, varia e interessante in un buon ambiente di lavoro, dove l'accento è sulla collaborazione attiva e allo stesso tempo sull'autonomia La formazione intensiva è all'ordine del giorno, in quanto i nostri nuovi colleghi possono beneficiare della formazione su prodotti e sistemi all'interno dell'azienda Supporto dei nostri dipendenti nel loro sviluppo professionale e personale Remunerazione legata allo sviluppo delle competenze 5 settimane di vacanza (6 settimane da 50 anni) e vacanza buy-back fino a 10 giorni massimo Prestazioni aggiuntive come un fondo pensione indipendente completamente finanziato e riduzioni nella nostra gamma completa di prodotti e benefici premium esterni Non vediamo l'ora di ricevere i tuoi documenti di applicazione (lettera di motivazione, CV, file completo) cliccando sul link di applicazione qui sotto. Vuoi saperne di più su di noi? Visita ora la nostra pagina di carriera all'indirizzo https://jobs.bmsuisse.ch/ Geraz-Miauton SA Caroline Göhring - Responsabile del reclutamento in Svizzera occidentale Saremo lieti di rispondere alle vostre domande sulla posizione a job@bmsuisse.ch . Per motivi di protezione dei dati, le applicazioni non richieste e le applicazioni elettroniche via e-mail e/o posta non saranno prese in considerazione. Arbeitnehmer*in kannst di überall werden. Wir taleen Einflussnehmer*innen. Datanschutz Das Element kann nicht angezeigt werden. Um das Element zu sehen, akzeptieren Sie die Marketing-Cookies. Auf unserer Webseite werden Cookies verwendet. Einige davon werden zwingend benötigt, während es uns andere ermöglichen, Ihre Nutzererfahrung auf unserer Webseite zu verbessern. Cookies essenziali werden für grundledgende Funktionen der Webseite benötigt. Dadurch ist gewährleistet, dass die Webseite einwandfrei funktioniert. Speichert die vom Benutzer gewählten Cookie-Einstellungen. Marketingcookies umfassen Tracking und Statistikcookies Diese Cookies werden von Google Analytics verwendet, um verschiedene Arten von Nutzungsinformationen zu sammeln, einschließlich persönlicher und nicht-personenbezogener Informationen. Weitere Informationen finden Sie in den Datenschutzbestimmungen von Google Analytics unter https://policies.google.com/privacy . Gesammelte nicht personenbezogene Datan werden verwendet, um Berichte über die Nutzung der Website zu erstellen, die uns helfen, unsere Websites / Apps zu verbessern. Diese Informationen werden auch unsere Kunden / Partner weitergegeben.",
+        "en": "• X Arbeiten bei BMS Arbeiten bei BMS Unsere Werte Deine Benefits Health & Safety Jobs Jobs Offene Stellen Lehrstellen DE EN IT DE BMS Building Materials Switzerland is a wholesaler of construction materials for the large and second work. Our group of companies includes renowned specialists such as Baubedarf, Richner, Gétaz, Miauton and RegusciReco . Our experienced specialists advise, support and inspire with great commitment the construction customers and private customers at 114 sites throughout Switzerland. Close to daily construction, we are the local and reliable partner for each construction project. Fast, simple and competent. To strengthen our team based in Villeneuve, we are looking for a passionate and organized person Your main tasks within our Customer Care team include reception, establishment/processing of offers and bids Before ordering, the feasibility of these projects is verified. To achieve this, it is necessary to know how to carry out the technical plans of the various projects. You are also responsible for ordering furniture, appliances and worktops (seizure, folder assembly, etc.). You control and complete order confirmations The execution of VAS commands completes this exciting profile. Your Profile If your heart beats harder for the area of activity described above and you have the following skills, you are our ideal candidate: You like contact with people and are motivated to provide the best possible service to our customers. You have completed full training in the field of kitchens (sale and/or technical). You have at least three years of successful experience in the kitchen sector or in a similar branch. Ideally, you already know the \"Winner\" program or you are motivated to become familiar with this software. For this profession, it is important to have a sense of creativity and to love decoration. Similarly, you master and know how to use common computer tools. A stimulating, varied and interesting activity in a good working environment, where the emphasis is on active collaboration and at the same time on autonomy Intensive training is on the agenda, as our new colleagues can benefit from training on products and systems within the company Support from our employees in their professional and personal development Remuneration linked to skills development 5 weeks of vacation (6 weeks from 50 years) and vacation buy-back up to 10 days maximum Additional benefits such as a fully funded independent pension fund and reductions in our full range of products as well as external premium benefits We look forward to receiving your application documents (motivation letter, CV, full file) by clicking on the application link below. Want to know more about us? Visit now our careers page at https://jobs.bmsuisse.ch/ Geraz-Miauton SA Caroline Göhring - Head of recruitment in Western Switzerland We will gladly answer your questions about the position at jobs@bmsuisse.ch . For data protection reasons, unsolicited applications and electronic applications by e-mail and/or mail will not be taken into account. Arbeitnehmer*in kannst of überall werden. Wir suchen Einflussnehmer*innen. Datenschutz Das Element kann nicht angezeigt werden. Um das Element zu sehen, akzeptieren Sie die Marketing-Cookies. Auf unserer Webseite werden Cookies verwendet. Einige davon werden zwingend benötigt, während es uns andere ermöglichen, Ihre Nutzererfahrung auf unserer Webseite zu verbessern. Essential Cookies werden für grundledgende Funktionen der Webseite benötigt. Dadurch ist gewährleistet, dass die Webseite einwandfrei funktioniert. Speichert die vom Benutzer gewählten Cookie-Einstellungen. Marketingcookies umfassen Tracking und Statistikcookies Diese Cookies werden von Google Analytics verwendet, um verschiedene Arten von Nutzungsinformationen zu sammeln, einschließlich persönlicher und nicht-personenbezogener Informationen. Weitere Informationen finden Sie in den Datenschutzbestimmungen von Google Analytics unter https://policies.google.com/privacy . Gesammelte nicht personenbezogene Daten werden verwendet, um Berichte über die Nutzung der Website zu erstellen, die uns helfen, unsere Websites / Apps zu verbessern. Diese Informationen werden auch an unsere Kunden / Partner weitergegeben.",
+        "de": "• X Arbeiten bei BMS Arbeiten bei BMS Unsere Werte Deine Vorteile Gesundheit & Sicherheit Arbeitsplätze Arbeitsplätze Offene Stellen Lehrkörper DE EN IT DE BMS Building Materials Switzerland ist ein Großhändler von Baumaterialien für die große und zweite Arbeit. Unsere Unternehmensgruppe umfasst renommierte Spezialisten wie Baubedarf, Richner, Gétaz, Miauton und RegusciReco. Unsere erfahrenen Spezialisten beraten, unterstützen und inspirieren mit großem Engagement die Baukunden und Privatkunden an 114 Standorten in der ganzen Schweiz. Nahezu täglich Bauen, sind wir der lokale und zuverlässige Partner für jedes Bauprojekt. Schnell, einfach und kompetent. Um unser Team mit Sitz in Villeneuve zu stärken, suchen wir eine leidenschaftliche und organisierte Person Ihre Hauptaufgaben in unserem Customer Care Team umfassen die Entgegennahme, Erstellung/Verarbeitung von Angeboten und Angeboten. Vor der Bestellung wird die Machbarkeit dieser Projekte überprüft. Um dies zu erreichen, ist es notwendig zu wissen, wie man die technischen Pläne der verschiedenen Projekte durchführt. Sie sind auch für die Bestellung von Möbeln, Geräten und Arbeitsplatten (Beschlagnahme, Ordnermontage usw.) verantwortlich. Sie kontrollieren und vervollständigen Bestellbestätigungen Die Ausführung von VAS-Befehlen vervollständigt dieses spannende Profil. Ihr Profil Wenn Ihr Herz für den oben beschriebenen Tätigkeitsbereich härter schlägt und Sie die folgenden Fähigkeiten haben, sind Sie unser idealer Kandidat: Sie mögen den Kontakt zu Menschen und sind motiviert, unseren Kunden den bestmöglichen Service zu bieten. Sie haben eine vollständige Ausbildung im Bereich der Küchen (Verkauf und / oder technische) abgeschlossen. Sie haben mindestens drei Jahre erfolgreiche Erfahrung im Küchenbereich oder in einer ähnlichen Branche. Idealerweise kennen Sie bereits das \"Winner\"-Programm oder Sie sind motiviert, sich mit dieser Software vertraut zu machen. Für diesen Beruf ist es wichtig, ein Gefühl der Kreativität zu haben und Dekoration zu lieben. In ähnlicher Weise beherrschen und wissen Sie, wie Sie gängige Computerwerkzeuge verwenden. Eine anregende, abwechslungsreiche und interessante Tätigkeit in einem guten Arbeitsumfeld, in dem der Schwerpunkt auf aktiver Zusammenarbeit und gleichzeitig auf Autonomie liegt Intensive Schulungen stehen auf dem Programm, da unsere neuen Kollegen von Schulungen zu Produkten und Systemen im Unternehmen profitieren können Unterstützung unserer Mitarbeiter in ihrer beruflichen und persönlichen Entwicklung Vergütung im Zusammenhang mit der Qualifizierung 5 Wochen Urlaub (6 Wochen ab 50 Jahren) und Urlaubsrückkauf bis zu maximal 10 Tagen Zusätzliche Leistungen wie eine vollständig finanzierte, unabhängige Pensionskasse und Reduzierungen unserer gesamten Produktpalette sowie externe Prämienleistungen Wir freuen uns auf Ihre Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, vollständige Datei), indem Sie auf den unten stehenden Bewerbungslink klicken. Möchten Sie mehr über uns erfahren? Besuchen Sie jetzt unsere Karriereseite unter https://jobs.bmsuisse.ch/ Geraz-Miauton SA Caroline Göhring - Rekrutierungsleiterin Westschweiz Gerne beantworten wir Ihre Fragen zur Stelle unter jobs@bmsuisse.ch. Aus datenschutzrechtlichen Gründen werden unerwünschte Bewerbungen und elektronische Bewerbungen per E-Mail und/oder Post nicht berücksichtigt. Arbeitnehmer*in kann von allem werden. Wir suchen Einflussnehmer*innen. Datenschutz Das Element kann nicht angezeigt werden. Um das Element zu sehen, akzeptieren Sie die Marketing-Cookies. Auf unserer Website werden Cookies verwendet. Einige werden auch zwingend benötigt, während es uns anderen ermöglichen, Ihre Nutzererfahrung auf unserer Website zu verbessern. Essential Cookies werden für grundledgende Funktionen der Website benötigt. Dadurch ist gewährleistet, dass die Website einwandfrei funktioniert. Speichert die vom Nutzer gewählte Cookie-Einstellungen. Marketingcookies umfassen Tracking und Statistikcookies Diese Cookies werden von Google Analytics verwendet, um verschiedene Arten von Nutzungsinformationen zu sammeln, einschließlich persönlicher und nicht-personenbezogener Informationen. Weitere Informationen finden Sie in den Datenschutzbestimmungen von Google Analytics unter https://policies.google.com/privacy . Gesammelte nicht personenbezogene Daten werden verwendet, um Berichte über die Nutzung der Website zu erstellen, die uns helfen, unsere Websites / Apps zu verbessern. Diese Informationen werden auch an unseren Kunden / Partner weitergegeben.",
+        "fr": "•\n• •\n• •\n• •\n• •\n• X\n• Arbeiten bei BMS\n• Arbeiten bei BMS Unsere Werte Deine Benefits Health & Safety Jobs\n• Jobs Offene Stellen Lehrstellen DE FR IT DE FR IT BMS Building Materials Suisse est un grossiste en matériaux de construction pour le gros oeuvre et le second oeuvre. Notre groupe d’entreprises comprend les spécialistes de renom que sont Baubedarf, Richner, Gétaz, Miauton et RegusciReco . Nos spécialistes expérimentés conseillent, soutiennent et inspirent avec beaucoup d’engagement les clients du secteur de la construction et les clients privés sur 114 sites dans toute la Suisse. Proches du quotidien de la construction, nous sommes le partenaire local et fiable pour chaque projet de construction. Rapides, simples et compétents. Pour renforcer notre équipe basée à Villeneuve, nous recherchons une personne passionnée et organisée Vos tâches principales au sein de notre équipe Customer Care comprennent la réception, l'établissement / le traitement d'offres et de soumissions Avant commande, la faisabilité de ces projets est vérifiée. Pour cela, il est nécessaire de savoir réaliser les plans techniques des différents projets. Vous êtes également chargé(e) d'effectuer les commandes de meubles, électroménagers et de plans de travail (saisie, montage des dossiers etc.). Vous contrôlez et finalisez les confirmations de commande L'exécution de commandes de SAV complète ce profil passionnant. Votre Profil Si votre c&oelig;ur bat plus fort pour le domaine d'activité décrit ci-dessus et que vous possédez les compétences suivantes, vous êtes notre* candidat(e) idéal(e) : Vous aimez le contact avec les gens et êtes motivé(e) pour fournir le meilleur service possible à nos clients. Vous avez suivi une formation complète dans le domaine des cuisines (vente et/ou technique). Vous disposez d'au moins trois ans d'expérience réussie dans le domaine des cuisines ou dans une branche similaire. Dans l'idéal, vous connaissez déjà le programme « Winner » ou vous êtes motivé(e) pour vous familiariser avec ce logiciel. Pour ce métier, il est important d'avoir un sens de la créativité et d'aimer la décoration. De même, vous maîtrisez les outils informatiques courants et savez les utiliser. Une activité stimulante, variée et intéressante dans un bon environnement de travail, où l'accent est mis sur une collaboration active et en même temps sur l'autonomie Une formation intensive est au programme, nos nouveaux collègues pouvant bénéficier de formations sur les produits et les systèmes au sein de l'entreprise Un soutien de nos collaborateurs dans leur développement professionnel et personnel Une rémunération liée au développement des compétences 5 semaines de vacances (6 semaines à partir de 50 ans) et rachat de vacances jusqu'à 10 jours maximum Des prestations supplémentaires telles qu'une caisse de pension autonome parfaitement financée et des réductions sur notre gamme complète de produits ainsi que des avantages externes en matière de primes Nous nous réjouissons de recevoir vos documents de candidature (lettre de motivation, CV, dossier complet) en cliquant sur le lien de postulation ci-dessous. Vous souhaitez en savoir plus sur nous ? Visitez dès maintenant notre page carrières sur https://jobs.bmsuisse.ch/ Gétaz-Miauton SA Caroline Göhring - Responsable Recrutement Suisse romande Nous répondrons volontiers à tes questions concernant le poste à l’adresse jobs@bmsuisse.ch . Pour des raisons de protection des données, les candidatures spontanées ainsi que les candidatures électroniques par e-mail et/ou envoi postal ne seront pas prises en compte. Arbeitnehmer*in kannst du überall werden. Wir suchen Einflussnehmer*innen. Datenschutz Das Element kann nicht angezeigt werden. Um das Element zu sehen, akzeptieren Sie die Marketing-Cookies. Auf unserer Webseite werden Cookies verwendet. Einige davon werden zwingend benötigt, während es uns andere ermöglichen, Ihre Nutzererfahrung auf unserer Webseite zu verbessern. Essentielle Cookies werden für grundlegende Funktionen der Webseite benötigt. Dadurch ist gewährleistet, dass die Webseite einwandfrei funktioniert. Speichert die vom Benutzer gewählten Cookie-Einstellungen. Marketingcookies umfassen Tracking und Statistikcookies Diese Cookies werden von Google Analytics verwendet, um verschiedene Arten von Nutzungsinformationen zu sammeln, einschließlich persönlicher und nicht-personenbezogener Informationen. Weitere Informationen finden Sie in den Datenschutzbestimmungen von Google Analytics unter https://policies.google.com/privacy . Gesammelte nicht personenbezogene Daten werden verwendet, um Berichte über die Nutzung der Website zu erstellen, die uns helfen, unsere Websites / Apps zu verbessern. Diese Informationen werden auch an unsere Kunden / Partner weitergegeben."
       },
       "location": "Villeneuve",
       "canton": "VD",
       "url": "https://jobs.bmsuisse.ch/jobs/detail/171-conseiller-de-vente-interne-cuisines-a-100-f/m/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T10:33:50.755Z",
+      "crawledAt": "2026-07-05T22:16:13.843Z",
       "addressLocality": "Villeneuve",
       "addressCountry": "CH",
       "country": "CH",
@@ -1486,20 +1520,31 @@
           "Vous aimez le contact avec les gens et êtes motivé(e) pour fournir le meilleur service possible à nos clients.",
           "Vous avez suivi une formation complète dans le domaine des cuisines (vente et/ou technique).",
           "Vous disposez d'au moins trois ans d'expérience réussie dans le domaine des cuisines ou dans une branche similaire.",
-          "Dans l'idéal, vous connaissez déjà le programme « Winner » ou vous êtes motivé(e) pour vous familiariser avec ce logiciel.",
           "Pour ce métier, il est important d'avoir un sens de la créativité et d'aimer la décoration.",
           "De même, vous maîtrisez les outils informatiques courants et savez les utiliser.",
-          "Une activité stimulante, variée et intéressante dans un bon environnement de travail, où l'accent est mis sur une collaboration active et en même temps sur l'autonomie",
-          "Une formation intensive est au programme, nos nouveaux collègues pouvant bénéficier de formations sur les produits et les systèmes au sein de l'entreprise",
           "Un soutien de nos collaborateurs dans leur développement professionnel et personnel",
           "Une rémunération liée au développement des compétences",
-          "5 semaines de vacances (6 semaines à partir de 50 ans) et rachat de vacances jusqu'à 10 jours maximum",
-          "Des prestations supplémentaires telles qu'une caisse de pension autonome parfaitement financée et des réductions sur notre gamme complète de produits ainsi que des avantages externes en matière de primes",
-          "Kontakt",
-          "Impressum",
-          "Datenschutz"
+          "5 semaines de vacances (6 semaines à partir de 50 ans) et rachat de vacances jusqu'à 10 jours maximum"
         ]
       },
+      "previousSlugs": [
+        "conseiller-de-vente-interne-cuisines-a-100-f-m-d-bms-building-ch",
+        "consulente-vendite-interno-100-cucine-f-m-d-bms-building-materials-villeneuve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-de-vente-interne-cuisines-a-100-f-m-d-bms-building-ch",
+          "consulente-vendite-interno-100-cucine-f-m-d-bms-building-materials-villeneuve"
+        ],
+        "en": [
+          "conseiller-de-vente-interne-cuisines-a-100-f-m-d-bms-building-ch"
+        ],
+        "de": [
+          "conseiller-de-vente-interne-cuisines-a-100-f-m-d-bms-building-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-05T10:33:50.755Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1512,22 +1557,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "firstSeenAt": "2026-07-05T10:33:50.755Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-de-vente-interne-cuisines-a-100-f-m-d-bms-building-ch"
-        ],
-        "en": [
-          "conseiller-de-vente-interne-cuisines-a-100-f-m-d-bms-building-ch"
-        ],
-        "de": [
-          "conseiller-de-vente-interne-cuisines-a-100-f-m-d-bms-building-ch"
-        ]
-      },
-      "previousSlugs": [
-        "conseiller-de-vente-interne-cuisines-a-100-f-m-d-bms-building-ch"
-      ]
+      "addressRegion": "VD"
     },
     {
       "id": "bms-building-3f9df3f1271b",
@@ -1560,7 +1590,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/163-logistik-w/m/d-80-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:49.744Z",
+      "crawledAt": "2026-07-05T22:16:12.824Z",
       "addressLocality": "Grenchen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1603,11 +1633,13 @@
         ]
       },
       "previousSlugs": [
-        "logistik-w-m-d-80-100-bms-building-ch"
+        "logistik-w-m-d-80-100-bms-building-ch",
+        "logistica-m-d-80-100-bms-building-materials-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistik-w-m-d-80-100-bms-building-ch"
+          "logistik-w-m-d-80-100-bms-building-ch",
+          "logistica-m-d-80-100-bms-building-materials-grenchen"
         ],
         "en": [
           "logistik-w-m-d-80-100-bms-building-ch"
@@ -1617,6 +1649,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:34.692Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1662,7 +1695,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/162-kundenberatung-im-baubedarf-shop-w/m/d-80/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:48.764Z",
+      "crawledAt": "2026-07-05T22:16:11.807Z",
       "addressLocality": "Fideris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1711,11 +1744,13 @@
         ]
       },
       "previousSlugs": [
-        "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch"
+        "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch",
+        "consulenza-clienti-in-baubedarf-shop-w-m-d-80-bms-building-materials-fideris"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch"
+          "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch",
+          "consulenza-clienti-in-baubedarf-shop-w-m-d-80-bms-building-materials-fideris"
         ],
         "en": [
           "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch"
@@ -1725,6 +1760,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:33.730Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -1770,7 +1806,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/160-kundenberatung-aussendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:47.757Z",
+      "crawledAt": "2026-07-05T22:16:10.819Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1818,12 +1854,14 @@
       },
       "previousSlugs": [
         "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch",
-        "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch-2"
+        "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch-2",
+        "projektleiter-m-d-bms-building-materials-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch",
-          "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch-2"
+          "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch-2",
+          "projektleiter-m-d-bms-building-materials-zurich"
         ],
         "en": [
           "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch"
@@ -1833,6 +1871,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:31.749Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1878,7 +1917,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/157-fachberatung-ausstellung-sanitaer-und-platten-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:46.569Z",
+      "crawledAt": "2026-07-05T22:16:09.678Z",
       "addressLocality": "Buchs",
       "addressCountry": "CH",
       "country": "CH",
@@ -1937,6 +1976,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:28.641Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1982,7 +2022,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/153-conseiller-de-vente-shop-sanitaire-technique-du-batiment-outillage-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T10:33:45.546Z",
+      "crawledAt": "2026-07-05T22:16:08.632Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2029,6 +2069,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:24.756Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2074,7 +2115,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/150-assistant-mecanique-avec-permis-pl-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T10:33:44.553Z",
+      "crawledAt": "2026-07-05T22:16:07.581Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -2120,6 +2161,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:22.800Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2165,7 +2207,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/142-kundenberatung-aussendienst-baustoffe-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:43.544Z",
+      "crawledAt": "2026-07-05T22:16:06.569Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -2222,6 +2264,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:19.648Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2267,7 +2310,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/136-koordinator-interner-verkaufsberater-holz-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:42.325Z",
+      "crawledAt": "2026-07-05T22:16:05.366Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -2314,11 +2357,13 @@
         "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch",
         "koordinator-interner-verkaufsberater-holz-f-h-d-100-bms-building-ch",
         "coordinator-internal-sales-consultant-wood-f-h-d-100-bms-building-materials-kerzers",
-        "coordinateur-consultant-en-ventes-internes-bois-f-h-j-100-bms-building-materials-kerzers"
+        "coordinateur-consultant-en-ventes-internes-bois-f-h-j-100-bms-building-materials-kerzers",
+        "coordinatore-consulente-di-vendita-interna-legno-w-m-d-100-bms-building-materials-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch"
+          "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch",
+          "coordinatore-consulente-di-vendita-interna-legno-w-m-d-100-bms-building-materials-chur"
         ],
         "en": [
           "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch"
@@ -2328,6 +2373,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:17.416Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2373,7 +2419,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/123-sachbearbeitung-innendienst-rohbau-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:40.136Z",
+      "crawledAt": "2026-07-05T22:16:03.092Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -2417,11 +2463,13 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
+        "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch",
+        "sachbearbeitung-servizio-interno-rohbau-m-w-d-100-bms-building-materials-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
+          "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch",
+          "sachbearbeitung-servizio-interno-rohbau-m-w-d-100-bms-building-materials-wil"
         ],
         "en": [
           "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
@@ -2431,6 +2479,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:15.287Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2476,7 +2525,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/118-conseiller-de-vente-interne-bois-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T10:33:38.913Z",
+      "crawledAt": "2026-07-05T22:16:01.887Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -2525,6 +2574,7 @@
         "koordinator-innenverteidiger-holz-f-h-d-100-bms-building-materials-kerzers"
       ],
       "firstSeenAt": "2026-06-02T22:47:14.143Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2570,7 +2620,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/116-sachbearbeitung-innendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:37.871Z",
+      "crawledAt": "2026-07-05T22:16:00.838Z",
       "addressLocality": "Kriens",
       "addressCountry": "CH",
       "country": "CH",
@@ -2616,11 +2666,13 @@
         "sachbearbeitung-servizio-interno-platten-m-w-d-100-bms-building-materials-kriens",
         "keyboards-w-m-d-100-bms-building-materials-kriens",
         "sachbearbeitung-innendienst-platten-w-m-d-100-bms-building-ch",
-        "claviers-m-j-100-bms-building-materials-kriens"
+        "claviers-m-j-100-bms-building-materials-kriens",
+        "sachbearbeitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch"
+          "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch",
+          "sachbearbeitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-kriens"
         ],
         "en": [
           "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch"
@@ -2630,6 +2682,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:13.165Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2675,7 +2728,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/106-teamleitung-innendienst-rohbau-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:36.877Z",
+      "crawledAt": "2026-07-05T22:15:59.696Z",
       "addressLocality": "Hunzenschwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -2720,11 +2773,13 @@
         ]
       },
       "previousSlugs": [
-        "teamleitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
+        "teamleitung-innendienst-rohbau-w-m-d-100-bms-building-ch",
+        "teamleitung-servizio-interno-rohbau-m-w-d-100-bms-building-materials-hunzenschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
+          "teamleitung-innendienst-rohbau-w-m-d-100-bms-building-ch",
+          "teamleitung-servizio-interno-rohbau-m-w-d-100-bms-building-materials-hunzenschwil"
         ],
         "en": [
           "teamleitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
@@ -2734,6 +2789,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:11.173Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2779,7 +2835,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/96-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:35.715Z",
+      "crawledAt": "2026-07-05T22:15:58.551Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2824,11 +2880,13 @@
         ]
       },
       "previousSlugs": [
-        "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
+        "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
+        "consulenza-clienti-richner-shop-sanitari-w-m-d-100-bms-building-materials-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
+          "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
+          "consulenza-clienti-richner-shop-sanitari-w-m-d-100-bms-building-materials-bern"
         ],
         "en": [
           "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
@@ -2838,6 +2896,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:07.660Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2883,7 +2942,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/81-sachbearbeitung-innendienst-rohbau-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:34.705Z",
+      "crawledAt": "2026-07-05T22:15:57.558Z",
       "addressLocality": "Schmerikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -2928,15 +2987,18 @@
       },
       "previousSlugs": [
         "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch-2",
-        "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
+        "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch",
+        "sachbearbeitung-servizio-interno-rohbau-m-w-d-100-bms-building-materials-schmerikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch-2",
-          "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
+          "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch",
+          "sachbearbeitung-servizio-interno-rohbau-m-w-d-100-bms-building-materials-schmerikon"
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:04.634Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2982,7 +3044,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/36-sachbearbeitung-innendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:33.548Z",
+      "crawledAt": "2026-07-05T22:15:56.405Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -3025,15 +3087,18 @@
       },
       "previousSlugs": [
         "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch-2",
-        "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch"
+        "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch",
+        "sachbearbeitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch-2",
-          "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch"
+          "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch",
+          "sachbearbeitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:03.506Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3079,7 +3144,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/18-fachberatung-ausstellung-sanitaer-und-platten-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:33:32.555Z",
+      "crawledAt": "2026-07-05T22:15:55.405Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -3132,6 +3197,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:02.527Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
