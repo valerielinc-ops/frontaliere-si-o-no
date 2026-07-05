@@ -950,7 +950,7 @@
       "description": "• Konzept und Umsetzung der Revision der Schweizerischen Operationsklassifikation CHOP\n\n• Planung und Umsetzung der Revision CHOP, inkl. Projektmanagement\n\n• Aktives Stakeholdermanagement mit den Interessensvertretern resp. Kommunikation nach extern\n\n• Sicherstellung der Nachvollziehbarkeit der Arbeiten (Protokollführung und Dokumentation)\n\n• Vertretung im Programm DigiSanté und den assoziierten Gremien\n\n• Mitwirkung bei Entwicklungsprojekten im Zusammenhang mit nationalen und internationalen Klassifikationen sowie im Programm DigiSanté\n\n• Hochschulabschluss in Informationswissenschaften mit Weiterbildung im medizinischen Bereich oder Hochschulabschluss im Gesundheitswesen (Arzt/Ärztin, Pflegefachfrau/mann FH, Therapeut/in oder ähnliche Ausbildung) mit Weiterbildung in den Informationswissenschaften (Bibliotheks- oder Dokumentationswesen) (HES-ID oder Inhaber einer ähnlichen Ausbildung) oder Grundausbildung als medizinischer Dokumentar/in. Alternativ einen Hochschulabschluss in Medizininformatik\n\n• Kenntnisse und Interesse für medizinische Dokumentationssprachen und Begriffssysteme (Klassifikationen, Nomenklaturen, Terminologien, Thesauri, usw.)\n\n• Gute Kommunikationskompetenzen (schriftlich und mündlich)\n\n• Erfahrung im Projektmanagement",
       "titleByLocale": {
         "it": "Project Manager/in Revisione della classificazione operativa svizzera CHOP",
-        "en": "Project Manager/in Revision of Swiss Operational Classification CHOP",
+        "en": "Project Manager /-in Revision of Swiss Operational Classification CHOP",
         "de": "Projektleiter/-in Revision Schweizer Operationsklassifikation CHOP",
         "fr": "Chef de projet/en révision de la classification opérationnelle suisse CHOP"
       },
@@ -1170,7 +1170,7 @@
       "description": "• Die Einhaltung von Qualitätsvorgaben fördern und eine effiziente Ticketbearbeitung unterstützen\n\n• Incident- und Problem-Management-Prozesse nach ITIL überwachen, optimieren und kontinuierlich weiterentwickeln\n\n• Ursachenanalyse sicherstellen, führen von Problem Meetings, kontinuierlich informiert sein und sicherstellen, dass Massnahmen umgesetzt werden\n\n• Als zentrale Ansprechperson eine transparente Kommunikation mit Fachbereichen, Management sowie Kund/-innen gewährleisten\n\n• Datenanalysen zur proaktiven Identifikation von Störungsursachen und Verbesserungspotenzialen durchführen\n\n• Höhere Ausbildung (FH/HF) in Wirtschaftsinformatik oder eine vergleichbare Qualifikation mit entsprechender Berufserfahrung\n\n• Mehrjährige Erfahrung im Incident- und Problem-Management sowie fundierte Kenntnisse von ITIL V4 und BMC ITSM Remedy\n\n• Analytisches Denkvermögen und die Fähigkeit, nachhaltige Lösungen zu entwickeln und adressatengerecht zu kommunizieren\n\n• Ausgeprägte Kunden- und Serviceorientierung, gepaart mit einer selbstständigen, belastbaren und flexiblen Arbeitsweise\n\n• Sehr gute Kenntnisse zweier Amtssprachen und gute Englischkenntnisse",
       "titleByLocale": {
         "it": "Incident- e Problem Manager/-in",
-        "en": "Incident and problem manager",
+        "en": "Incident and Problem Manager",
         "de": "Incident- und Problem Manager/-in",
         "fr": "Gestionnaire des incidents et des problèmes"
       },
@@ -4076,32 +4076,36 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern",
-        "en": "logistics-specialist-confederazione-svizzera-schattdorf",
+        "en": "logistics-specialist-swiss-armed-forces-vtg-bern",
         "de": "logistiker-in-swiss-armed-forces-vtg-bern-qjueiz",
-        "fr": "logisticien-ne-confederazione-svizzera-schattdorf"
+        "fr": "logisticien-ne-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-cbc901308131",
       "previousSlugsByLocale": {
-        "en": [
-          "logistiker-in-confederazione-svizzera-schattdorf",
-          "logistics-specialist-swiss-armed-forces-vtg-bern"
-        ],
-        "fr": [
-          "logistiker-in-confederazione-svizzera-schattdorf",
-          "logisticien-ne-swiss-armed-forces-vtg-bern"
-        ],
         "it": [
           "logistiker-in-confederazione-schattdorf"
         ],
         "de": [
           "logistiker-in-confederazione-schattdorf"
+        ],
+        "en": [
+          "logistiker-in-confederazione-svizzera-schattdorf",
+          "logistics-specialist-swiss-armed-forces-vtg-bern",
+          "logistics-specialist-confederazione-svizzera-schattdorf"
+        ],
+        "fr": [
+          "logistiker-in-confederazione-svizzera-schattdorf",
+          "logisticien-ne-swiss-armed-forces-vtg-bern",
+          "logisticien-ne-confederazione-svizzera-schattdorf"
         ]
       },
       "previousSlugs": [
+        "logistiker-in-confederazione-schattdorf",
         "logistiker-in-confederazione-svizzera-schattdorf",
         "logistics-specialist-swiss-armed-forces-vtg-bern",
         "logisticien-ne-swiss-armed-forces-vtg-bern",
-        "logistiker-in-confederazione-schattdorf"
+        "logistics-specialist-confederazione-svizzera-schattdorf",
+        "logisticien-ne-confederazione-svizzera-schattdorf"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -7692,32 +7696,36 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-bern",
-        "en": "logistician-on-site-warehouse-confederazione-svizzera-chur",
+        "en": "logistician-on-site-warehouse-swiss-armed-forces-vtg-bern",
         "de": "logistiker-in-vorortlager-swiss-armed-forces-vtg-bern-tvrgfb",
-        "fr": "logistique-entrepot-sur-place-confederazione-svizzera-chur"
+        "fr": "logistique-entrepot-sur-place-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-f9c0d0e43d80",
       "previousSlugsByLocale": {
-        "en": [
-          "logistician-on-site-warehouse-swiss-armed-forces-vtg-bern",
-          "logistiker-in-vorortlager-confederazione-chur"
-        ],
-        "fr": [
-          "logistique-entrepot-sur-place-swiss-armed-forces-vtg-bern",
-          "logistiker-in-vorortlager-confederazione-chur"
-        ],
         "it": [
           "logistiker-in-vorortlager-confederazione-chur"
+        ],
+        "en": [
+          "logistiker-in-vorortlager-confederazione-chur",
+          "logistician-on-site-warehouse-swiss-armed-forces-vtg-bern",
+          "logistician-on-site-warehouse-confederazione-svizzera-chur"
+        ],
+        "fr": [
+          "logistiker-in-vorortlager-confederazione-chur",
+          "logistique-entrepot-sur-place-swiss-armed-forces-vtg-bern",
+          "logistique-entrepot-sur-place-confederazione-svizzera-chur"
         ],
         "de": [
           "logistiker-in-vorortlager-confederazione-chur"
         ]
       },
       "previousSlugs": [
+        "logistiker-in-vorortlager-confederazione-chur",
         "logistician-on-site-warehouse-swiss-armed-forces-vtg-bern",
         "logistique-entrepot-sur-place-swiss-armed-forces-vtg-bern",
         "impiegato-a-in-logistica-vorortlager-confederazione-svizzera-chur",
-        "logistiker-in-vorortlager-confederazione-chur"
+        "logistician-on-site-warehouse-confederazione-svizzera-chur",
+        "logistique-entrepot-sur-place-confederazione-svizzera-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -9925,7 +9933,7 @@
         "en": "• Project responsibility for the re-recording of area and building data, including data quality and accuracy\n• Develop and examine technical foundations, processes and organizational structures for digital transformation\n• Develop and communicate basics and guidelines for data management, in particular BIM\n• Responsibility for the coordination and implementation of BIM projects in close cooperation with project teams\n• Graduate in architecture, civil engineering, building technology or related fields; experience or Skills in the field of digitalisation in construction\n• Inter-phase thinking and professional practice as coordinator and mediator for digital modelling of buildings; well-founded knowledge of Swiss building standards and guidelines and know-how in the field of change management\n• A winning performance; consulting, negotiation, communication and relationship competence\n• A good knowledge of two official languages and English is an advantage",
         "de": "• Projektverantwortung für die Nacherfassung von Flächen- und Gebäudedaten, einschliesslich der Sicherstellung der Datenqualität und -genauigkeit\n• Technische Grundlagen, Prozesse und organisatorische Strukturen für die digitale Transformation entwickeln und prüfen\n• Grundlagen und Richtlinien für das Datenmanagement, insbesondere BIM erarbeiten und vermitteln\n• Verantwortung für die Koordination und Umsetzung von BIM-Projekten in enger Zusammenarbeit mit den Projektteams\n• Hochschulabschluss in Architektur, Bauingenieurwesen, Haustechnik oder einem verwandten Fachbereich; Erfahrungen oder Qualifikationen im Bereich der Digitalisierung im Bauwesen\n• Bauphasenübergreifendes Denken und Berufspraxis als Koordinator/-in sowie Vermittler/-in für digitale Modellierung von Bauten; Fundierte Kenntnisse der schweizerischen Baunormen und Richtlinien sowie Know-how im Bereich Change Management\n• Gewinnendes Auftreten; beratungs-, verhandlungs-, kommunikations- und beziehungskompetent\n• Gute Kenntnisse zweier Amtssprachen und Englisch von Vorteil",
         "fr": "• la responsabilité du projet pour la réenregistrement des données de zone et de construction, y compris la qualité et l'exactitude des données\n• la mise au point et l'examen des fondations techniques, des processus et des structures organisationnelles pour la transformation numérique\n• la conception et la communication des bases et des lignes directrices pour la gestion des données, en particulier BIM\n• la responsabilité de la coordination et de la mise en œuvre des projets BIM en étroite coopération avec les équipes de projet\n• la licence en architecture, en génie civil, en technologie du bâtiment ou dans des domaines connexes; Compétences dans le domaine de la numérisation dans la construction\n• La pensée inter-phase et la pratique professionnelle en tant que coordinateur et médiateur pour la modélisation numérique des bâtiments; une connaissance solide des normes et des lignes directrices suisses en matière de construction et du savoir-faire dans le domaine de la gestion du changement\n• Une performance gagnante; la compétence en matière de consultation, de négociation, de communication et de relation\n• Une bonne connaissance de deux langues officielles et de l'anglais est un avantage",
-        "it": "• Responsabilità del progetto per la post-collezione dei dati di area e costruzione, compresa la garanzia della qualità e precisione dei dati\n\n• Sviluppare e testare fondazioni tecniche, processi e strutture organizzative per la trasformazione digitale\n\n• Elaborare e comunicare principi e linee guida di base per la gestione dei dati, in particolare BIM\n\n• Responsabilità per il coordinamento e l'attuazione dei progetti BIM in stretta collaborazione con i team di progetto\n\n• laurea in architettura, ingegneria civile, ingegneria dell'edilizia o un campo correlato; esperienza o qualifiche nel campo della digitalizzazione in costruzione\n\n• pensiero trasversale e pratica professionale come coordinatore e facilitatore per la modellazione digitale degli edifici; Conoscenza approfondita degli standard e delle linee guida degli edifici svizzeri e del know-how nel campo della gestione dei cambiamenti\n\n• Aspetto vincente; Competenza Consulenza, Negoziazione, Comunicazione e Relazioni\n\n• Buona conoscenza di due lingue ufficiali e l'inglese è vantaggioso"
+        "it": "• Responsabilità del progetto per la post-collezione dei dati di area e costruzione, compresa la garanzia della qualità e precisione dei dati\n\n• Sviluppare e testare fondazioni tecniche, processi e strutture organizzative per la trasformazione digitale\n\n• Elaborare e comunicare principi e linee guida di base per la gestione dei dati, in particolare BIM\n\n• Responsabilità per il coordinamento e l'attuazione dei progetti BIM in stretta collaborazione con i team di progetto\n\n• laurea in architettura, ingegneria civile, ingegneria dell'edilizia o un campo correlato; esperienza o qualifiche nel campo della digitalizzazione in costruzione\n\n• pensiero di costruzione trasversale e pratica professionale come coordinatore e facilitatore per la modellazione digitale di edifici; Conoscenza approfondita degli standard e delle linee guida degli edifici svizzeri e del know-how nel campo della gestione dei cambiamenti\n\n• Aspetto vincente; Consulenza, Negoziazione, Comunicazione e Relazioni Competenza\n\n• Buona conoscenza di due lingue ufficiali e l'inglese è vantaggioso"
       },
       "slugByLocale": {
         "en": "bim-manager-bauherr-und-projektleiter-in-data-management-confederazione-bern",
@@ -11623,7 +11631,7 @@
       },
       "slugByLocale": {
         "it": "ingegnere-di-controllo-del-traffico-aereo-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-flugplatz",
-        "en": "air-traffic-control-engineer-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-flugplatz-locarno-6595",
+        "en": "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-b3kpbb",
         "de": "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-flugplatz-locarno-6595-riazzino",
         "fr": "ingenieur-du-controle-de-la-circulation-aerienne-in-support-systemes-de-controle-de-la-circulation-aerienne-sufs"
       },
@@ -11646,8 +11654,8 @@
       "firstSeenAt": "2026-06-16T22:36:29.909Z",
       "previousSlugsByLocale": {
         "en": [
-          "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-flugplatz-locarno-6595-riazzino",
-          "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-b3kpbb"
+          "air-traffic-control-engineer-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-flugplatz-locarno-6595",
+          "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-flugplatz-locarno-6595-riazzino"
         ],
         "it": [
           "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-flugplatz-locarno-6595-riazzino"
@@ -11658,7 +11666,7 @@
       },
       "previousSlugs": [
         "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-flugplatz-locarno-6595-riazzino",
-        "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-b3kpbb"
+        "air-traffic-control-engineer-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-flugplatz-locarno-6595"
       ]
     },
     {
@@ -14125,31 +14133,35 @@
       },
       "slugByLocale": {
         "it": "offizier-in-rustung-e-weiterentwicklung-confederazione-svizzera-rivera",
-        "en": "officer-in-armor-and-development-confederazione-svizzera-rivera",
+        "en": "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
         "de": "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
-        "fr": "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
+        "fr": "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-6d52f47f3206",
       "previousSlugsByLocale": {
-        "en": [
-          "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
-          "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
-          "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera"
-        ],
-        "fr": [
-          "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
-          "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern",
-          "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera"
-        ],
         "it": [
           "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera"
+        ],
+        "en": [
+          "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
+          "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
+          "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
+          "officer-in-armor-and-development-confederazione-svizzera-rivera"
+        ],
+        "fr": [
+          "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
+          "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
+          "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern",
+          "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
         ]
       },
       "previousSlugs": [
+        "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
         "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
         "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
         "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern",
-        "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera"
+        "officer-in-armor-and-development-confederazione-svizzera-rivera",
+        "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -14164,8 +14176,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "",
-      "postalCode": "6802",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
       "firstSeenAt": "2026-06-03T23:12:27.216Z"
     },
     {
@@ -15379,7 +15391,7 @@
       },
       "slugByLocale": {
         "it": "tecnico-di-controllo-del-traffico-aereo-in-supporto-sistemi-di-controllo-del-traffico-aereo-sufs-confederazione-svizzera",
-        "en": "air-traffic-control-technician-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-emmen",
+        "en": "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q",
         "de": "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-emmen",
         "fr": "technicien-en-controle-de-la-circulation-aerienne-soutien-aux-systemes-de-controle-de-la-circulation-aerienne-sufs"
       },
@@ -15401,7 +15413,7 @@
       "firstSeenAt": "2026-06-10T22:26:55.170Z",
       "previousSlugsByLocale": {
         "en": [
-          "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q"
+          "air-traffic-control-technician-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-emmen"
         ],
         "fr": [
           "technicien-du-controle-de-la-circulation-aerienne-appui-aux-systemes-de-controle-de-la-circulation-aerienne-sufs",
@@ -15414,7 +15426,7 @@
       "previousSlugs": [
         "technicien-du-controle-de-la-circulation-aerienne-appui-aux-systemes-de-controle-de-la-circulation-aerienne-sufs",
         "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-emmen",
-        "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q"
+        "air-traffic-control-technician-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-emmen"
       ],
       "needsRetranslation": true
     },
@@ -16998,7 +17010,7 @@
       "contractType": "full-time",
       "description": "• Betrieb und Wartung von MS-SQL-Datenbanken, Sicherstellung der Verfügbarkeit, Performance und Sicherheit der bestehenden MS-SQL-Instanzen verantworten\n\n• Durchführung von Wartungsarbeiten, Backups und Wiederherstellungen sicherstellen\n\n• Pikettdienst für Datenbankbetrieb, Teilnahme am Bereitschaftsdienst zur Sicherstellung der Betriebsstabilität und schnellen Störungsbehebung\n\n• Aufbau von MS-SQL auf Red Hat OpenShift (RHOS), Unterstützung bei der Konzeption, Implementierung und Migration von MS-SQL-Datenbanken in die Container-Plattform RHOS\n\n• Betrieb von PostgreSQL auf RHOS, Übernahme des Betriebs und der Weiterentwicklung von PostgreSQL-Datenbanken auf RHOS sicherstellen\n\n• Monitoring, Performance-Tuning und Fehleranalyse im Container-Umfeld übernehmen\n\n• Dokumentation und Know-how-Transfer gewährleisten\n\n• Abschluss einer Fachhochschule (FH oder HF) im Bereich Informatik, Wirtschaftsinformatik oder Systemtechnik\n\n• Mehrjährige Erfahrung als MS-SQL Datenbank Engineer; Erfahrung mit Container-Technologien (z. B. Docker, Kubernetes) und Cloud-Plattformen (insbesondere RHOS)\n\n• Idealerweise Zertifizierungen wie Microsoft Certified: Azure Database Administrator Associate, Red Hat Certified Specialist in OpenShift Administration oder PostgreSQL Professional Certification\n\n• Erfahrung im Scripting und Automatisierung, PowerShell, Bash, ggf. Python, Automatisierung von Betriebsabläufen und Monitoring, CI/CD-Tools (z. B. GitLab CI, Jenkins), Integration von Datenbank-Deployments in DevOps-Prozesse und Kenntnisse der Agilen Methode \"Safe\" (z. B. Scrum, Kanban)\n\n• Gute Kenntnisse einer Amtssprache sowie Kenntnisse einer zweiten Amtssprache erforderlich",
       "titleByLocale": {
-        "it": "Database Administrator/Senior (1025)",
+        "it": "Amministratore del database/Senior (1025)",
         "en": "Database Administrator Senior (1025)",
         "de": "Datenbank-Administrator/-in Senior (1025)",
         "fr": "Administrateur de base de données Senior (1025)"
@@ -17627,7 +17639,7 @@
         "en": "Build the medical staff within the National Alarm Centre NAZ. Helping to establish a strategic patient distribution that allows political, operational and technical assignment, transport and delivery of a very large number of patients over a longer period of time.\n• Elaborate the processes of leadership in the National Association of Catastrophic Medicine KATAMED between the Confederation, cantons, third parties and international bodies.\n• Plan and conduct exercises with a focus on leadership, emergency and disaster management.\n• Work on strategic-political issues in the realignment of KATAMED and in the protection of the population in war.\n• Ensure controlling and reporting for the Faculty of Disaster Medicine KATAMED.\n• Completed studies at master level or equivalent education with several years of functionally relevant experience.\n• Training in the staff work of larger organizations / formations and / or degree in emergency and crisis management or equivalent training with several years of functionally relevant experience.\n• Proven experience with leadership responsibility in the staff work of larger organizations. Very good knowledge of health and security policy structures and instruments in Switzerland and many years of experience in cooperation with civil protection partners (police, fire brigade, military, civil protection and health care). Polyvalent, pragmatic, resilient, socially competent and willing to perform. Active knowledge of two official languages, passive knowledge of a third official language and English.",
         "de": "Den Fachstab Sanität innerhalb der Nationalen Alarmzentrale NAZ aufbauen. Mithilfe beim Aufbau einer strategischen Patientenverteilung, die politisch, operativ und technisch die Zuweisung, den Transport und die Übernahme einer sehr grossen Anzahl von Patienten über eine längere Zeitdauer ermöglicht.\n• Die Prozesse der Führung im Nationalen Verbund Katstrophenmedizin KATAMED zwischen Bund, Kantonen, Dritten und internationalen Stellen erarbeiten.\n• Übungen mit dem Fokus auf Führung, Notfall- und Katastrophenmangement planen und durchführen.\n• Strategisch-politische Themen in der Neuausrichtung KATAMED und im Bevölkerungsschutz im Krieg bearbeiten.\n• Das Controlling und Reporting für den Fachbereich Katastrophenmedizin KATAMED sicherstellen.\n• Abgeschlossenes Studium auf Stufe Master oder gleichwertige Ausbildung mit mehrjähriger funktionsrelevanter Erfahrung.\n• Ausbildung in der Stabsarbeit grösserer Organisationen/Formationen und/oder Abschluss im Notfall- und Krisenmanagement oder gleichwertige Ausbildung mit mehrjähriger funktionsrelevanter Erfahrung.\n• Ausgewiesene Erfahrung mit Führungsverantwortung in der Stabsarbeit grösserer Organisationen. Sehr gute Kenntnisse der gesundheits- und sicherheitspolitischen Strukturen und Instrumente der Schweiz und langjährige Erfahrung in der Zusammenarbeit mit den Partnern des Bevölkerungsschutzes (Polizei, Feuerwehr, Militär, Zivilschutz und Gesundheitswesen). Polyvalent einsetzbar, pragmatisch, belastbar, sozial kompetent und leistungsbereit. Aktive Kenntnisse zweier Amtssprachen, passive Kenntnisse einer dritten Amtssprache sowie des Englischen.",
         "fr": "Construisez le personnel médical au sein du Centre national d'alarme NAZ. Aider à établir une répartition stratégique des patients qui permet l'affectation politique, opérationnelle et technique, le transport et la livraison d'un très grand nombre de patients sur une plus longue période.\n• Elaborer les processus de leadership au sein de l'Association Nationale de Médecine Catastrophique KATAMED entre la Confédération, les cantons, les tiers et les organismes internationaux.\n• Planifier et organiser des exercices axés sur le leadership, les urgences et la gestion des catastrophes.\n• Travail sur les questions stratégiques et politiques dans le cadre du réalignement de KATAMED et de la protection de la population en guerre.\n• Assurer le contrôle et l'établissement de rapports pour la Faculté de médecine des catastrophes KATAMED.\n• Études terminées au niveau de la maîtrise ou études équivalentes avec plusieurs années d'expérience fonctionnellement pertinente.\n• Formation au travail du personnel des grandes organisations / formations et / ou diplôme en gestion des urgences et des crises ou formation équivalente avec plusieurs années d'expérience fonctionnellement pertinente.\n• Expérience éprouvée de la responsabilité du leadership dans le travail du personnel des grandes organisations. Très bonne connaissance des structures et des instruments de la politique de santé et de sécurité en Suisse et de nombreuses années d'expérience en coopération avec les partenaires de la protection civile (police, pompiers, militaires, protection civile et soins de santé). Polyvalent, pragmatique, résilient, socialement compétent et prêt à effectuer. Connaissance active de deux langues officielles, connaissance passive d'une troisième langue officielle et de l'anglais.",
-        "it": "• Costruisci il personale medico all'interno del National Alarm Centre NAZ.\n\n• Aiutare a stabilire una distribuzione strategica del paziente che consente l'assegnazione politica, operativa e tecnica, il trasporto e la consegna di un numero molto elevato di pazienti per un periodo di tempo più lungo.\n\n• Elaborare i processi di leadership nell'Associazione Nazionale di Medicina Catastrofica KATAMED tra Confederazione, Cantoni, Terzi e Organismi Internazionali.\n\n• Pianificare e condurre esercizi con un focus sulla leadership, l'emergenza e la gestione dei disastri.\n\n• Argomenti strategici e politici nel riallineamento di KATAMED e nella protezione della popolazione in guerra.\n\n• Assicurare il controllo e la segnalazione per la Facoltà di Medicina Disaster KATAMED.\n\n• Studi completi a livello master o istruzione equivalente con diversi anni di esperienza funzionale.\n\n• Formazione nel lavoro del personale di organizzazioni / formazioni più grandi e / o grado in gestione di emergenza e crisi o formazione equivalente con diversi anni di esperienza funzionale rilevanti.\n\n• Esperienza comprovata con responsabilità di leadership nel lavoro del personale di organizzazioni più grandi.\n\n• Molto buona conoscenza delle strutture e degli strumenti di politica sanitaria e di sicurezza in Svizzera e molti anni di esperienza in collaborazione con i partner di protezione civile (polizia, vigili del fuoco, militari, protezione civile e assistenza sanitaria).\n\n• Polivalente, pragmatico, resiliente, socialmente competente e disposto a eseguire.\n\n• Conoscenza attiva di due lingue ufficiali, conoscenza passiva di una terza lingua ufficiale e inglese."
+        "it": "• Costruisci il personale medico all'interno del National Alarm Centre NAZ.\n\n• Assistere nella creazione di una distribuzione strategica di pazienti che consente l'assegnazione politica, operativa e tecnica, il trasporto e la consegna di un numero molto elevato di pazienti per un periodo di tempo più lungo.\n\n• Elaborare i processi di leadership nell'Associazione Nazionale di Medicina Disaster KATAMED tra Confederazione, Cantoni, Terzi e Organismi Internazionali.\n\n• Pianificare e condurre esercizi con un focus sulla leadership, l'emergenza e la gestione dei disastri.\n\n• Argomenti strategici e politici nel riallineamento di KATAMED e nella protezione della popolazione in guerra.\n\n• Assicurare il controllo e la segnalazione per la Facoltà di Medicina Disaster KATAMED.\n\n• Studi completi a livello master o istruzione equivalente con diversi anni di esperienza funzionale.\n\n• Formazione nel lavoro del personale di organizzazioni/formazioni più grandi e/o laurea in gestione delle emergenze e delle crisi o formazione equivalente con diversi anni di esperienza funzionale.\n\n• Esperienza comprovata con responsabilità di leadership nel lavoro del personale di organizzazioni più grandi.\n\n• Molto buona conoscenza delle strutture e degli strumenti di politica sanitaria e di sicurezza in Svizzera e molti anni di esperienza in collaborazione con i partner di protezione civile (polizia, vigili del fuoco, militari, protezione civile e assistenza sanitaria).\n\n• Polivalente, pragmatico, resiliente, socialmente competente e disposto a eseguire.\n\n• Conoscenza attiva di due lingue ufficiali, conoscenza passiva di una terza lingua ufficiale e inglese."
       },
       "slugByLocale": {
         "en": "scientific-staff-member-in-disaster-medicine-katamed-the-position-is-limited-to-3-years-confederazione-svizzera-bern",
@@ -20529,7 +20541,7 @@
       "description": "• In die Welt der Bits und Bytes eintauchen\n\n• Die Informatikberufe (ICT-Fachfrau/-mann, Informatiker/-in Plattform- und Applikatiosentwicklung) hautnah erleben\n\n• Rundgang durch die Arbeitswelten des BIT\n\n• Neugierige Schüler/-innen der 7. und 8. Klasse\n\n• Freude am kreativen und logischen Denken\n\n• Spass, in der Gruppe etwas Cooles zu kreieren\n\n• Begeistert für die Zusammenarbeit mit Lernenden des BIT",
       "titleByLocale": {
         "it": "Esperienza informatica",
-        "en": "Computer Science Experience",
+        "en": "Computer Science Experience Day",
         "de": "Erlebnistag Informatik",
         "fr": "Expérience en informatique"
       },
@@ -20541,7 +20553,7 @@
       },
       "slugByLocale": {
         "it": "esperienza-informatica-confederazione-svizzera-zollikofen-suisse",
-        "en": "computer-science-experience-confederazione-svizzera-zollikofen-suisse",
+        "en": "erlebnistag-informatik-confederazione-svizzera-zollikofen-suisse",
         "de": "erlebnistag-informatik-confederazione-zollikofen-suisse",
         "fr": "experience-en-informatique-confederazione-svizzera-zollikofen-suisse"
       },
@@ -20564,8 +20576,8 @@
       "previousSlugsByLocale": {
         "en": [
           "computer-science-experience-day-confederazione-svizzera-zollikofen-suisse",
-          "erlebnistag-informatik-confederazione-zollikofen-suisse",
-          "erlebnistag-informatik-confederazione-svizzera-zollikofen-suisse"
+          "computer-science-experience-confederazione-svizzera-zollikofen-suisse",
+          "erlebnistag-informatik-confederazione-zollikofen-suisse"
         ],
         "fr": [
           "journee-de-l-experience-en-informatique-confederazione-svizzera-zollikofen-suisse",
@@ -20579,7 +20591,7 @@
         "computer-science-experience-day-confederazione-svizzera-zollikofen-suisse",
         "journee-de-l-experience-en-informatique-confederazione-svizzera-zollikofen-suisse",
         "erlebnistag-informatik-confederazione-zollikofen-suisse",
-        "erlebnistag-informatik-confederazione-svizzera-zollikofen-suisse"
+        "computer-science-experience-confederazione-svizzera-zollikofen-suisse"
       ],
       "needsRetranslation": true
     },
@@ -21075,7 +21087,7 @@
         "en": "• Acquire competence in accordance with the training ordinance and plan for the apprenticeship\n• Clean and maintain buildings, areas, facilities and facilities, store goods and check stocks\n• Take responsibility for the periodic maintenance, intermediate, basic and special cleanings of the various buildings\n• Clean and maintain equipment, machines and tools\n• Independently select the quantity and concentration of cleaning agents and provide any aids\n• Completed compulsory schooling with good grades\n• Logical thinking skills and precise way of working\n• Motivated and ready for action\n• Enjoyment of practical work\n• Reliable and responsible\n• Team-oriented and good manners\n• No allergies (cleaning products) and free from giddiness",
         "de": "• Handlungskompetenz gemäss Bildungsverordnung und -plan zum Lehrberuf erwerben\n• Gebäude, Flächen, Einrichtungen und Anlagen reinigen und pflegen, Güter lagern und Lagerbestände kontrollieren\n• Verantwortung für die periodischen Unterhalts-, Zwischen-, Grund-, und Spezialreinigungen der unterschiedlichen Gebäude übernehmen\n• Geräte, Maschinen und Werkzeuge reinigen und pflegen\n• Menge und Konzentration der Reinigungsmittel selbstständig wählen und allfällige Hilfsmittel bereitstellen\n• Abgeschlossene obligatorische Schulzeit mit guten Noten\n• Logisches Denkvermögen und exakte Arbeitsweise\n• Motiviert und einsatzbereit\n• Freude an praktischer Tätigkeit\n• Zuverlässig und verantwortungsbewusst\n• Teamorientiert und gute Umgangsformen\n• Keine Allergien (Reinigungsprodukte) und schwindelfrei",
         "fr": "• Acquérir des compétences conformément à l'ordonnance de formation et au plan d'apprentissage\n• Nettoyer et entretenir les bâtiments, zones, installations et installations, stocker les biens et vérifier les stocks\n• Prendre la responsabilité de l'entretien périodique, des nettoyages intermédiaires, de base et spéciaux des différents bâtiments\n• Nettoyer et entretenir les équipements, machines et outils\n• Sélectionner de manière indépendante la quantité et la concentration des agents de nettoyage et fournir toute aide\n• Avoir terminé la scolarité obligatoire avec de bonnes notes\n• Capacités de pensée logique et mode de travail précis\n• Motivation et prêt à agir\n• Plaisir du travail pratique\n• Fiable et responsable\n• Esprit d'équipe et de bonnes manières\n• Aucune allergie (produits de nettoyage) et sans toute euphorie",
-        "it": "• Acquisire competenze per agire in conformità con il Regolamento e il Piano per la Professione Insegnante\n\n• Pulire e mantenere edifici, aree, strutture e installazioni, immagazzinare beni e azioni di controllo\n\n• Assumere la responsabilità per la manutenzione periodica, la pulizia intermedia, di base e speciale dei diversi edifici\n\n• Pulizia e manutenzione di attrezzature, macchinari e strumenti\n\n• Selezionare la quantità e la concentrazione di agenti di pulizia in modo indipendente e fornire qualsiasi mezzo ausiliario\n\n• Scuola obbligatoria con buoni voti\n\n• pensiero logico e metodi di lavoro precisi\n\n• Motivato e operativo\n\n• Divertimento dell'attività pratica\n\n• Affidabile e responsabile\n\n• Buone maniere orientate al team\n\n• Nessuna allergie (prodotti di pulizia) e senza vertigini"
+        "it": "• Acquisire competenze per agire in conformità con l'Ordinanza dell'Istruzione e -piano per la professione di insegnamento\n\n• Pulire e mantenere edifici, aree, strutture e installazioni, immagazzinare beni e azioni di controllo\n\n• Assumere la responsabilità per la manutenzione periodica, la pulizia intermedia, di base e speciale dei diversi edifici\n\n• Pulizia e manutenzione di attrezzature, macchinari e strumenti\n\n• Selezionare la quantità e la concentrazione di agenti di pulizia in modo indipendente e fornire qualsiasi mezzo ausiliario\n\n• Scuola obbligatoria con buoni voti\n\n• pensiero logico e metodi di lavoro precisi\n\n• Motivato e operativo\n\n• Divertimento dell'attività pratica\n\n• Affidabile e responsabile\n\n• Buone maniere orientate al team\n\n• Nessuna allergie (prodotti di pulizia) e senza vertigini"
       },
       "slugByLocale": {
         "en": "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
@@ -21501,31 +21513,35 @@
       },
       "slugByLocale": {
         "it": "offiziere-per-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
-        "en": "senior-consultant-m-w-confederazione-svizzera-stans-oberdorf-ausland",
+        "en": "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
         "de": "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
-        "fr": "consultant-principal-m-m-confederazione-svizzera-stans-oberdorf-ausland"
+        "fr": "consultant-principal-m-m-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-8823a8430d20",
       "previousSlugsByLocale": {
-        "en": [
-          "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
-          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland"
-        ],
-        "fr": [
-          "consultant-principal-m-m-swiss-armed-forces-vtg-bern",
-          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland"
-        ],
         "it": [
           "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland"
         ],
         "de": [
           "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland"
+        ],
+        "en": [
+          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland",
+          "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
+          "senior-consultant-m-w-confederazione-svizzera-stans-oberdorf-ausland"
+        ],
+        "fr": [
+          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland",
+          "consultant-principal-m-m-swiss-armed-forces-vtg-bern",
+          "consultant-principal-m-m-confederazione-svizzera-stans-oberdorf-ausland"
         ]
       },
       "previousSlugs": [
+        "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland",
         "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
         "consultant-principal-m-m-swiss-armed-forces-vtg-bern",
-        "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland"
+        "senior-consultant-m-w-confederazione-svizzera-stans-oberdorf-ausland",
+        "consultant-principal-m-m-confederazione-svizzera-stans-oberdorf-ausland"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
