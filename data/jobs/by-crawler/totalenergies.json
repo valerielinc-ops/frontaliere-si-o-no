@@ -123,8 +123,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tax-advisor-totalenergies-geneve",
-          "tax-consulente-totalenergies-geneve"
+          "tax-advisor-totalenergies-geneve"
         ],
         "de": [
           "tax-advisor-totalenergies-geneve"
@@ -203,8 +202,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "procurement-analyst-intern-totalenergies-geneve",
-          "procurement-analista-tirocinante-totalenergies-geneve"
+          "procurement-analyst-intern-totalenergies-geneve"
         ],
         "fr": [
           "procurement-analyst-intern-totalenergies-geneve"
@@ -348,8 +346,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trade-support-analyst-intern-totalenergies-geneve",
-          "trade-support-analista-tirocinante-totalenergies-geneve"
+          "trade-support-analyst-intern-totalenergies-geneve"
         ],
         "fr": [
           "trade-support-analyst-intern-totalenergies-geneve"
@@ -631,8 +628,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-finance-shared-services-totalenergies-geneve",
-          "business-analista-finanza-shared-services-totalenergies-geneve"
+          "business-analyst-finance-shared-services-totalenergies-geneve"
         ]
       },
       "firstSeenAt": "2026-07-04T12:38:28.341Z",
@@ -651,12 +647,12 @@
     },
     {
       "id": "totalenergies-64cb68c2103f",
-      "slug": "vie-digital-projects-leader-m-f-switzerland-totalenergies-geneve",
+      "slug": "vie-leader-dei-progetti-digitali-m-f-svizzera-totalenergies-geneve",
       "slugByLocale": {
-        "it": "vie-digital-projects-leader-m-f-switzerland-totalenergies-geneve",
+        "it": "vie-leader-dei-progetti-digitali-m-f-svizzera-totalenergies-geneve",
         "en": "vie-digital-projects-leader-m-f-switzerland-totalenergies-geneve",
         "de": "vie-digital-projects-leader-m-f-switzerland-totalenergies-geneve",
-        "fr": "vie-digital-projects-leader-m-f-switzerland-totalenergies-geneve"
+        "fr": "vie-responsable-des-projets-numeriques-m-f-suisse-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -712,7 +708,18 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "vie-digital-projects-leader-m-f-switzerland-totalenergies-geneve"
+        ],
+        "fr": [
+          "vie-digital-projects-leader-m-f-switzerland-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "vie-digital-projects-leader-m-f-switzerland-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-577928fa49a3",
@@ -770,8 +777,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "credit-analyst-intern-totalenergies-geneve",
-          "credit-analista-tirocinante-totalenergies-geneve"
+          "credit-analyst-intern-totalenergies-geneve"
         ],
         "fr": [
           "credit-analyst-intern-totalenergies-geneve"
@@ -800,7 +806,7 @@
       "slugByLocale": {
         "it": "shipping-operatore-totalenergies-geneve",
         "en": "shipping-operator-totalenergies-geneve",
-        "de": "shipping-operator-totalenergies-geneve",
+        "de": "schiffsbetreiber-totalenergies-geneve",
         "fr": "shipping-operateur-totalenergies-geneve"
       },
       "company": "TotalEnergies",
@@ -850,10 +856,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "shipping-operator-totalenergies-geneve",
-          "shipping-operatore-totalenergies-geneve"
+          "shipping-operator-totalenergies-geneve"
         ],
         "fr": [
+          "shipping-operator-totalenergies-geneve"
+        ],
+        "de": [
           "shipping-operator-totalenergies-geneve"
         ]
       },

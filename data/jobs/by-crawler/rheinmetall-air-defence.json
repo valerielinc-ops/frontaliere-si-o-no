@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "rheinmetall-air-defence-4c8a58f10e13",
-      "slug": "elektroniker-baugruppenverdrahtung-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "cablaggi-elettronici-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "elektroniker-baugruppenverdrahtung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "elektroniker-baugruppenverdrahtung-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "cablaggi-elettronici-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "electronic-assemblies-wiring-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "elektroniker-baugruppenverdrahtung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "elektroniker-baugruppenverdrahtung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "cables-d-assemblages-electroniques-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -66,16 +66,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroniker-baugruppenverdrahtung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "elektroniker-baugruppenverdrahtung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "elektroniker-baugruppenverdrahtung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "elektroniker-baugruppenverdrahtung-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-308c37c7d3c2",
       "slug": "produktionssteuerer-baugruppen-e-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "produktionssteuerer-baugruppen-e-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "produktionssteuerer-baugruppen-und-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "production-control-of-assembly-and-final-assembly-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "produktionssteuerer-baugruppen-und-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "produktionssteuerer-baugruppen-und-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "controle-de-la-production-du-montage-et-du-montage-final-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -126,6 +140,12 @@
       "previousSlugsByLocale": {
         "it": [
           "produktionssteuerer-baugruppen-und-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "produktionssteuerer-baugruppen-und-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "produktionssteuerer-baugruppen-und-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:09.786Z",
@@ -144,12 +164,12 @@
     },
     {
       "id": "rheinmetall-air-defence-50df47a23493",
-      "slug": "senior-it-systemtechniker-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "tecnico-del-sistema-informatico-senior-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "senior-it-systemtechniker-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "senior-it-systemtechniker-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "tecnico-del-sistema-informatico-senior-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "senior-it-system-technician-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "senior-it-systemtechniker-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "senior-it-systemtechniker-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "technicien-principal-du-systeme-informatique-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -206,16 +226,30 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-it-systemtechniker-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "senior-it-systemtechniker-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "senior-it-systemtechniker-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-it-systemtechniker-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-e55b11f548ab",
-      "slug": "leiter-operations-excellence-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "capo-di-eccellenza-operativa-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "leiter-operations-excellence-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "capo-di-eccellenza-operativa-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "leiter-operations-excellence-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "leiter-operations-excellence-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "leiter-operations-excellence-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "chef-de-l-excellence-operationnelle-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -272,16 +306,27 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-operations-excellence-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "leiter-operations-excellence-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-operations-excellence-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-0a68bbc6f578",
       "slug": "collaboratore-trice-lackiererei-im-2-schichtbetrieb-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-lackiererei-im-2-schichtbetrieb-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "mitarbeiter-lackiererei-im-2-schichtbetrieb-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "employee-paint-shop-in-2-shift-operation-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "mitarbeiter-lackiererei-im-2-schichtbetrieb-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "mitarbeiter-lackiererei-im-2-schichtbetrieb-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "atelier-de-peinture-en-2-equipes-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -331,8 +376,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-lackiererei-im-2-schichtbetrieb-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "collaboratore-trice-lackiererei-im-2-schichtbetrieb-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "mitarbeiter-lackiererei-im-2-schichtbetrieb-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "mitarbeiter-lackiererei-im-2-schichtbetrieb-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-lackiererei-im-2-schichtbetrieb-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:04.455Z",
@@ -354,9 +404,9 @@
       "slug": "elektroingenieur-control-nodes-e-sensor-systeme-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "elektroingenieur-control-nodes-e-sensor-systeme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "elektroingenieur-control-nodes-und-sensor-systeme-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "electrical-engineer-control-nodes-and-sensor-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "elektroingenieur-control-nodes-und-sensor-systeme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "elektroingenieur-control-nodes-und-sensor-systeme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "systemes-de-commande-et-de-capteurs-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -407,6 +457,12 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroingenieur-control-nodes-und-sensor-systeme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "elektroingenieur-control-nodes-und-sensor-systeme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "elektroingenieur-control-nodes-und-sensor-systeme-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:27.676Z",
@@ -425,12 +481,12 @@
     },
     {
       "id": "rheinmetall-air-defence-3653b5323221",
-      "slug": "leiter-fertigung-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "capo-della-produzione-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "leiter-fertigung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "leiter-fertigung-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "capo-della-produzione-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "head-of-production-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "leiter-fertigung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "leiter-fertigung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "chef-de-la-production-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -487,16 +543,30 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-fertigung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "leiter-fertigung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "leiter-fertigung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-fertigung-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-bf8aee2f0d3b",
-      "slug": "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "sviluppatore-di-software-incorporato-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "sviluppatore-di-software-incorporato-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "developpeur-de-logiciels-embarques-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -553,7 +623,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-0acf13d763b8",
@@ -634,12 +715,12 @@
     },
     {
       "id": "rheinmetall-air-defence-7d3cca04e5d8",
-      "slug": "integrated-product-support-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "gestione-integrata-del-supporto-prodotto-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "integrated-product-support-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "gestione-integrata-del-supporto-prodotto-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "integrated-product-support-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "integrated-product-support-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "integrated-product-support-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "gestionnaire-du-soutien-aux-produits-integres-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -696,16 +777,27 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "integrated-product-support-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "integrated-product-support-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "integrated-product-support-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-c82ea33408a5",
-      "slug": "werkstoffspezialist-im-bereich-warmebehandlung-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "specialista-dei-materiali-nel-campo-del-trattamento-termico-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "werkstoffspezialist-im-bereich-warmebehandlung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "werkstoffspezialist-im-bereich-warmebehandlung-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "specialista-dei-materiali-nel-campo-del-trattamento-termico-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "materials-specialist-in-the-field-of-heat-treatment-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "werkstoffspezialist-im-bereich-warmebehandlung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "werkstoffspezialist-im-bereich-warmebehandlung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "specialiste-des-materiaux-dans-le-domaine-du-traitement-thermique-m-w-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -762,16 +854,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstoffspezialist-im-bereich-warmebehandlung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "werkstoffspezialist-im-bereich-warmebehandlung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "werkstoffspezialist-im-bereich-warmebehandlung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "werkstoffspezialist-im-bereich-warmebehandlung-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-f28e0c431369",
-      "slug": "leiter-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "responsabile-della-logistica-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "leiter-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "leiter-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "responsabile-della-logistica-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "head-of-logistics-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "leiter-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "leiter-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "chef-de-la-logistique-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -828,16 +934,30 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "leiter-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "leiter-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-00166c61abb5",
-      "slug": "teamleitung-interne-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "gestione-del-team-logistica-interna-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "teamleitung-interne-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "teamleitung-interne-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "gestione-del-team-logistica-interna-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "team-management-internal-logistics-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "teamleitung-interne-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "teamleitung-interne-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "logistique-interne-de-la-gestion-de-l-equipe-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -894,7 +1014,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-interne-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "teamleitung-interne-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "teamleitung-interne-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-interne-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-8abce3cf7d32",
@@ -903,7 +1037,7 @@
         "it": "erprobungsingenieur-test-integration-e-demonstration-m-w-d-rheinmetall-air-defence-ag-zurich",
         "en": "erprobungsingenieur-test-integration-und-demonstration-m-w-d-rheinmetall-air-defence-ag",
         "de": "erprobungsingenieur-test-integration-und-demonstration-m-w-d-rheinmetall-air-defence-ag",
-        "fr": "erprobungsingenieur-test-integration-und-demonstration-m-w-d-rheinmetall-air-defence-ag"
+        "fr": "essai-integration-et-demonstration-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -954,6 +1088,9 @@
       "previousSlugsByLocale": {
         "it": [
           "erprobungsingenieur-test-integration-und-demonstration-m-w-d-rheinmetall-air-defence-ag"
+        ],
+        "fr": [
+          "erprobungsingenieur-test-integration-und-demonstration-m-w-d-rheinmetall-air-defence-ag"
         ]
       },
       "firstSeenAt": "2026-07-04T11:45:58.402Z",
@@ -972,12 +1109,12 @@
     },
     {
       "id": "rheinmetall-air-defence-2125004b9c6c",
-      "slug": "teamleiter-inbetriebnahme-feuerleitungen-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "team-leader-che-commissiona-tubi-antincendio-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "teamleiter-inbetriebnahme-feuerleitungen-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "teamleiter-inbetriebnahme-feuerleitungen-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "team-leader-che-commissiona-tubi-antincendio-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "team-leader-commissioning-fire-pipes-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "teamleiter-inbetriebnahme-feuerleitungen-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "teamleiter-inbetriebnahme-feuerleitungen-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "chef-d-equipe-charge-de-la-mise-en-service-des-conduites-d-incendie-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1034,16 +1171,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-inbetriebnahme-feuerleitungen-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "teamleiter-inbetriebnahme-feuerleitungen-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "teamleiter-inbetriebnahme-feuerleitungen-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-inbetriebnahme-feuerleitungen-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-49102edcaecf",
-      "slug": "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag",
+      "slug": "sistemi-di-avviamento-dell-orologio-dell-ingegnere-elettrico-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag",
-        "en": "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag",
+        "it": "sistemi-di-avviamento-dell-orologio-dell-ingegnere-elettrico-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "electrical-engineer-clock-start-up-anti-aircraft-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag",
-        "fr": "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag"
+        "fr": "systemes-antiaeriens-de-demarrage-d-horloges-electriques-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1100,16 +1251,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag"
+        ],
+        "en": [
+          "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag"
+        ],
+        "fr": [
+          "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag"
+        ]
+      },
+      "previousSlugs": [
+        "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-80f25af1fb19",
-      "slug": "schlosser-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "fabbro-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "schlosser-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "schlosser-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "fabbro-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "locksmith-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "schlosser-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "schlosser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "serrurier-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1166,16 +1331,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schlosser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "schlosser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "schlosser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "schlosser-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-a7c89a5c5e74",
-      "slug": "teamleiter-smd-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "team-leader-smd-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "teamleiter-smd-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "team-leader-smd-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "teamleiter-smd-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "teamleiter-smd-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "teamleiter-smd-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "chef-d-equipe-smd-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1232,16 +1411,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-smd-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "teamleiter-smd-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-smd-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-b4565adf0b54",
-      "slug": "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "metallurgista-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "metallurgista-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "laboratory-metallurgist-materials-specialist-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "metallurgiste-de-laboratoire-specialiste-des-materiaux-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1298,16 +1488,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-65a127d66b2e",
-      "slug": "geschutzmechaniker-m-w-d-rheinmetall-air-defence-ag-studen",
+      "slug": "meccanico-a-pistola-m-f-d-rheinmetall-air-defence-ag-studen",
       "slugByLocale": {
-        "it": "geschutzmechaniker-m-w-d-rheinmetall-air-defence-ag-studen",
-        "en": "geschutzmechaniker-m-w-d-rheinmetall-air-defence-ag-studen",
+        "it": "meccanico-a-pistola-m-f-d-rheinmetall-air-defence-ag-studen",
+        "en": "gun-mechanic-m-f-d-rheinmetall-air-defence-ag-studen",
         "de": "geschutzmechaniker-m-w-d-rheinmetall-air-defence-ag-studen",
-        "fr": "geschutzmechaniker-m-w-d-rheinmetall-air-defence-ag-studen"
+        "fr": "mecanicien-des-armes-a-feu-m-f-d-rheinmetall-air-defence-ag-studen"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1364,16 +1568,30 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "geschutzmechaniker-m-w-d-rheinmetall-air-defence-ag-studen"
+        ],
+        "en": [
+          "geschutzmechaniker-m-w-d-rheinmetall-air-defence-ag-studen"
+        ],
+        "fr": [
+          "geschutzmechaniker-m-w-d-rheinmetall-air-defence-ag-studen"
+        ]
+      },
+      "previousSlugs": [
+        "geschutzmechaniker-m-w-d-rheinmetall-air-defence-ag-studen"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-e188a9c15770",
-      "slug": "teamleiter-montage-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "gruppo-leader-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "teamleiter-montage-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "teamleiter-montage-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "gruppo-leader-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "team-leader-assembly-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "teamleiter-montage-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "teamleiter-montage-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "assemblee-des-chefs-d-equipe-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1430,13 +1648,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-montage-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "teamleiter-montage-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "teamleiter-montage-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-montage-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-5c650551ad3c",
-      "slug": "project-quality-assurance-backoffice-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "backoffice-di-assicurazione-della-qualita-del-progetto-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "project-quality-assurance-backoffice-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "backoffice-di-assicurazione-della-qualita-del-progetto-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "project-quality-assurance-backoffice-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "project-quality-assurance-backoffice-m-w-d-rheinmetall-air-defence-ag-zurich",
         "fr": "project-quality-assurance-backoffice-m-w-d-rheinmetall-air-defence-ag-zurich"
@@ -1496,16 +1728,24 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "project-quality-assurance-backoffice-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "project-quality-assurance-backoffice-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-c8e7e266cac3",
-      "slug": "aoi-supporter-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "supporto-aoi-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "aoi-supporter-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "supporto-aoi-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "aoi-supporter-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "aoi-supporter-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "aoi-supporter-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "supporteur-aoi-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1562,16 +1802,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aoi-supporter-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "aoi-supporter-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "aoi-supporter-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-9fc36b25ec13",
-      "slug": "elektroniker-automatiker-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "ingegnere-elettronico-ingegnere-automatico-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "elektroniker-automatiker-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "elektroniker-automatiker-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "ingegnere-elettronico-ingegnere-automatico-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "electronic-engineer-automatic-engineer-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "elektroniker-automatiker-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "elektroniker-automatiker-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "ingenieur-electronique-ingenieur-automatique-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1628,16 +1879,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroniker-automatiker-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "elektroniker-automatiker-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "elektroniker-automatiker-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "elektroniker-automatiker-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-545a1cd45e76",
-      "slug": "qualitatsprufer-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "ispettore-di-qualita-in-entrata-merci-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "qualitatsprufer-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "qualitatsprufer-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "ispettore-di-qualita-in-entrata-merci-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "quality-inspector-incoming-goods-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "qualitatsprufer-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "qualitatsprufer-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "inspection-de-la-qualite-des-marchandises-entrantes-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1694,16 +1959,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "qualitatsprufer-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "qualitatsprufer-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "qualitatsprufer-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "qualitatsprufer-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-7dd030479089",
-      "slug": "prozessingenieur-im-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "ingegnere-di-processo-nella-gestione-della-qualita-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "prozessingenieur-im-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "prozessingenieur-im-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "ingegnere-di-processo-nella-gestione-della-qualita-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "process-engineer-in-quality-management-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "prozessingenieur-im-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "prozessingenieur-im-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "ingenieur-en-gestion-de-la-qualite-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1760,7 +2039,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "prozessingenieur-im-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "prozessingenieur-im-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "prozessingenieur-im-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "prozessingenieur-im-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-513a3db7e45d",
@@ -1769,7 +2062,7 @@
         "it": "rams-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "en": "rams-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "rams-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "rams-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "gestionnaire-rams-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1830,12 +2123,12 @@
     },
     {
       "id": "rheinmetall-air-defence-a501df028c86",
-      "slug": "auditmanager-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "audit-manager-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "auditmanager-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "audit-manager-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "auditmanager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "auditmanager-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "auditmanager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "gestionnaire-de-l-audit-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1892,16 +2185,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "auditmanager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "auditmanager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "auditmanager-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-370c2fbf12cd",
       "slug": "collaboratore-trice-qualitatssicherung-elektronik-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-qualitatssicherung-elektronik-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "mitarbeiter-qualitatssicherung-elektronik-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "employee-quality-assurance-electronics-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "mitarbeiter-qualitatssicherung-elektronik-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "mitarbeiter-qualitatssicherung-elektronik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "electronique-d-assurance-de-la-qualite-des-employes-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1951,8 +2255,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-qualitatssicherung-elektronik-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "collaboratore-trice-qualitatssicherung-elektronik-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "mitarbeiter-qualitatssicherung-elektronik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "mitarbeiter-qualitatssicherung-elektronik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-qualitatssicherung-elektronik-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:45:49.852Z",
@@ -1971,12 +2280,12 @@
     },
     {
       "id": "rheinmetall-air-defence-cdc57cd2bd68",
-      "slug": "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "ingegneria-interna-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "ingegneria-interna-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "intern-engineering-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "ingenieur-stagiaire-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2033,16 +2342,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-319d247d45d0",
       "slug": "collaboratore-trice-qualitatssicherung-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-qualitatssicherung-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "mitarbeiter-qualitatssicherung-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "employee-quality-assurance-incoming-goods-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "mitarbeiter-qualitatssicherung-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "mitarbeiter-qualitatssicherung-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "assurance-de-la-qualite-des-employes-marchandises-entrantes-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2092,8 +2415,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-qualitatssicherung-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "collaboratore-trice-qualitatssicherung-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "mitarbeiter-qualitatssicherung-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "mitarbeiter-qualitatssicherung-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-qualitatssicherung-wareneingang-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:14.685Z",
@@ -2112,12 +2440,12 @@
     },
     {
       "id": "rheinmetall-air-defence-c0ad083769f5",
-      "slug": "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "ingegnere-di-produzione-industrializzazione-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "ingegnere-di-produzione-industrializzazione-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "production-engineer-industrialization-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "ingenieur-de-production-industrialisation-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2174,16 +2502,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-b60202a66137",
       "slug": "messtechniker-come-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "messtechniker-come-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "measuring-technician-as-test-planner-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "technicien-de-mesure-comme-planificateur-d-essai-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2234,6 +2576,12 @@
       "previousSlugsByLocale": {
         "it": [
           "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:12.320Z",
@@ -2252,9 +2600,9 @@
     },
     {
       "id": "rheinmetall-air-defence-7e68d76f7f43",
-      "slug": "quality-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "gestione-della-qualita-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "quality-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "gestione-della-qualita-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "quality-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "quality-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "fr": "qualite-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
@@ -2314,7 +2662,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "quality-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-77078b0dcb51",
@@ -2384,12 +2740,12 @@
     },
     {
       "id": "rheinmetall-air-defence-30e318f45755",
-      "slug": "sap-q-modul-key-user-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "utente-chiave-del-modulo-sap-q-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "sap-q-modul-key-user-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "utente-chiave-del-modulo-sap-q-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "sap-q-modul-key-user-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "sap-q-modul-key-user-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "sap-q-modul-key-user-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "utilisateur-cle-du-module-q-sap-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2446,16 +2802,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-q-modul-key-user-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "sap-q-modul-key-user-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sap-q-modul-key-user-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-91d522adf73e",
-      "slug": "systemingenieur-radarsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "sistemi-di-ingegnere-radar-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "systemingenieur-radarsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "systemingenieur-radarsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "sistemi-di-ingegnere-radar-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "systems-engineer-radar-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "systemingenieur-radarsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "systemingenieur-radarsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "systemes-radar-de-l-ingenieur-des-systemes-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2512,7 +2879,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "systemingenieur-radarsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "systemingenieur-radarsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "systemingenieur-radarsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "systemingenieur-radarsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-b4de31e03a84",
@@ -2521,7 +2902,7 @@
         "it": "project-procurement-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "en": "project-procurement-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "project-procurement-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "project-procurement-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "gestionnaire-de-projet-des-achats-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2582,12 +2963,12 @@
     },
     {
       "id": "rheinmetall-air-defence-88250db0f3a9",
-      "slug": "atlassian-expert-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "esperto-atlante-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "atlassian-expert-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "esperto-atlante-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "atlassian-expert-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "atlassian-expert-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "atlassian-expert-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "expert-atlasien-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2644,16 +3025,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "atlassian-expert-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "atlassian-expert-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "atlassian-expert-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-51dbacc57402",
-      "slug": "elektrokonstrukteur-ecad-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "progettista-elettrico-ecad-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "elektrokonstrukteur-ecad-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "elektrokonstrukteur-ecad-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "progettista-elettrico-ecad-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "electrical-designer-ecad-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "elektrokonstrukteur-ecad-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "elektrokonstrukteur-ecad-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "conception-electrique-ecad-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2710,7 +3102,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "elektrokonstrukteur-ecad-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "elektrokonstrukteur-ecad-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "elektrokonstrukteur-ecad-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "elektrokonstrukteur-ecad-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-c9464fe2270f",
@@ -2785,7 +3191,7 @@
         "it": "senior-project-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "en": "senior-project-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "senior-project-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "senior-project-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "gestionnaire-principal-de-projet-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2912,12 +3318,12 @@
     },
     {
       "id": "rheinmetall-air-defence-06c2e6dcb594",
-      "slug": "elektroniker-pruffeldtechniker-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "ingegnere-elettronico-tecnico-del-campo-di-prova-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "elektroniker-pruffeldtechniker-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "elektroniker-pruffeldtechniker-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "ingegnere-elettronico-tecnico-del-campo-di-prova-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "electronic-engineer-test-field-technician-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "elektroniker-pruffeldtechniker-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "elektroniker-pruffeldtechniker-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "ingenieur-electronique-technicien-de-terrain-d-essai-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2974,16 +3380,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroniker-pruffeldtechniker-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "elektroniker-pruffeldtechniker-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "elektroniker-pruffeldtechniker-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "elektroniker-pruffeldtechniker-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-53ca0103fb4f",
-      "slug": "systemtechniker-erprobungszentrum-m-w-d-rheinmetall-air-defence-ag-studen",
+      "slug": "centro-di-prova-tecnico-di-sistema-m-f-d-rheinmetall-air-defence-ag-studen",
       "slugByLocale": {
-        "it": "systemtechniker-erprobungszentrum-m-w-d-rheinmetall-air-defence-ag-studen",
-        "en": "systemtechniker-erprobungszentrum-m-w-d-rheinmetall-air-defence-ag-studen",
+        "it": "centro-di-prova-tecnico-di-sistema-m-f-d-rheinmetall-air-defence-ag-studen",
+        "en": "system-technician-test-centre-m-f-d-rheinmetall-air-defence-ag-studen",
         "de": "systemtechniker-erprobungszentrum-m-w-d-rheinmetall-air-defence-ag-studen",
-        "fr": "systemtechniker-erprobungszentrum-m-w-d-rheinmetall-air-defence-ag-studen"
+        "fr": "centre-d-essai-du-technicien-du-systeme-m-f-d-rheinmetall-air-defence-ag-studen"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3040,16 +3460,30 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "systemtechniker-erprobungszentrum-m-w-d-rheinmetall-air-defence-ag-studen"
+        ],
+        "en": [
+          "systemtechniker-erprobungszentrum-m-w-d-rheinmetall-air-defence-ag-studen"
+        ],
+        "fr": [
+          "systemtechniker-erprobungszentrum-m-w-d-rheinmetall-air-defence-ag-studen"
+        ]
+      },
+      "previousSlugs": [
+        "systemtechniker-erprobungszentrum-m-w-d-rheinmetall-air-defence-ag-studen"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-0979ace0ccdf",
-      "slug": "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "operazioni-di-project-manager-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "operazioni-di-project-manager-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "project-manager-operations-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "gestionnaire-des-operations-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3106,16 +3540,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-3101896724c1",
-      "slug": "fachlicher-teamleiter-messraum-zerspanung-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "leader-tecnico-del-team-lavorazione-dello-spazio-di-misura-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "fachlicher-teamleiter-messraum-zerspanung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "fachlicher-teamleiter-messraum-zerspanung-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "leader-tecnico-del-team-lavorazione-dello-spazio-di-misura-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "technical-team-leader-measuring-space-machining-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "fachlicher-teamleiter-messraum-zerspanung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "fachlicher-teamleiter-messraum-zerspanung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "chef-d-equipe-technique-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3172,16 +3620,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachlicher-teamleiter-messraum-zerspanung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "fachlicher-teamleiter-messraum-zerspanung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "fachlicher-teamleiter-messraum-zerspanung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachlicher-teamleiter-messraum-zerspanung-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-28d8b3d4340f",
-      "slug": "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "fresatrici-cnc-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "fresatrici-cnc-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "cnc-milling-cutter-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "decoupe-cnc-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3238,16 +3700,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-1e3a80106807",
       "slug": "prozessplaner-avor-elektronische-baugruppen-e-systeme-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "prozessplaner-avor-elektronische-baugruppen-e-systeme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "prozessplaner-avor-elektronische-baugruppen-und-systeme-m-w-d-rheinmetall-air-defence-ag",
+        "en": "process-planner-avor-electronic-assemblies-and-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "prozessplaner-avor-elektronische-baugruppen-und-systeme-m-w-d-rheinmetall-air-defence-ag",
-        "fr": "prozessplaner-avor-elektronische-baugruppen-und-systeme-m-w-d-rheinmetall-air-defence-ag"
+        "fr": "planificateur-de-processus-systemes-et-ensembles-electroniques-avor-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3298,6 +3774,12 @@
       "previousSlugsByLocale": {
         "it": [
           "prozessplaner-avor-elektronische-baugruppen-und-systeme-m-w-d-rheinmetall-air-defence-ag"
+        ],
+        "en": [
+          "prozessplaner-avor-elektronische-baugruppen-und-systeme-m-w-d-rheinmetall-air-defence-ag"
+        ],
+        "fr": [
+          "prozessplaner-avor-elektronische-baugruppen-und-systeme-m-w-d-rheinmetall-air-defence-ag"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:21.479Z",
@@ -3316,12 +3798,12 @@
     },
     {
       "id": "rheinmetall-air-defence-f30c3d5dc94d",
-      "slug": "elektronik-wareneingangsprufer-leiterplattenprufer-pcb-pcba-m-w-d-rheinmetall-air-defence",
+      "slug": "ispettore-ispettore-di-circuiti-elettronici-pcb-pcba-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "elektronik-wareneingangsprufer-leiterplattenprufer-pcb-pcba-m-w-d-rheinmetall-air-defence",
-        "en": "elektronik-wareneingangsprufer-leiterplattenprufer-pcb-pcba-m-w-d-rheinmetall-air-defence",
+        "it": "ispettore-ispettore-di-circuiti-elettronici-pcb-pcba-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "electronic-goods-incoming-inspector-circuit-board-inspector-pcb-pcba-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "elektronik-wareneingangsprufer-leiterplattenprufer-pcb-pcba-m-w-d-rheinmetall-air-defence",
-        "fr": "elektronik-wareneingangsprufer-leiterplattenprufer-pcb-pcba-m-w-d-rheinmetall-air-defence"
+        "fr": "inspecteur-des-marchandises-electroniques-inspecteur-des-commissions-de-circuit-pcb-pcba-m-f-d-rheinmetall-air-defence"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3378,16 +3860,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "elektronik-wareneingangsprufer-leiterplattenprufer-pcb-pcba-m-w-d-rheinmetall-air-defence"
+        ],
+        "en": [
+          "elektronik-wareneingangsprufer-leiterplattenprufer-pcb-pcba-m-w-d-rheinmetall-air-defence"
+        ],
+        "fr": [
+          "elektronik-wareneingangsprufer-leiterplattenprufer-pcb-pcba-m-w-d-rheinmetall-air-defence"
+        ]
+      },
+      "previousSlugs": [
+        "elektronik-wareneingangsprufer-leiterplattenprufer-pcb-pcba-m-w-d-rheinmetall-air-defence"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-589cc0bd75ee",
-      "slug": "produktionsplaner-projektgeschaft-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "pianificatore-di-produzione-project-business-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "produktionsplaner-projektgeschaft-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "produktionsplaner-projektgeschaft-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "pianificatore-di-produzione-project-business-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "production-planner-project-business-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "produktionsplaner-projektgeschaft-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "produktionsplaner-projektgeschaft-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "planificateur-de-production-activite-du-projet-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3444,16 +3940,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsplaner-projektgeschaft-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "produktionsplaner-projektgeschaft-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "produktionsplaner-projektgeschaft-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsplaner-projektgeschaft-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-769c110672d7",
-      "slug": "monteur-serienbaugruppen-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "assiemi-di-serie-di-installatori-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "monteur-serienbaugruppen-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "monteur-serienbaugruppen-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "assiemi-di-serie-di-installatori-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "installer-series-assemblies-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "monteur-serienbaugruppen-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "monteur-serienbaugruppen-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "assemblages-de-series-d-installateurs-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3510,7 +4020,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "monteur-serienbaugruppen-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "monteur-serienbaugruppen-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "monteur-serienbaugruppen-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "monteur-serienbaugruppen-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-4cd8873e4dc3",
@@ -3519,7 +4043,7 @@
         "it": "commodity-buyer-m-w-d-rheinmetall-air-defence-ag-zurich",
         "en": "commodity-buyer-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "commodity-buyer-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "commodity-buyer-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "acheteur-de-marchandises-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3580,12 +4104,12 @@
     },
     {
       "id": "rheinmetall-air-defence-2df4ee5323f7",
-      "slug": "technischer-projektleiter-gesamtsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "technical-project-manager-sistemi-completi-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "technischer-projektleiter-gesamtsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "technischer-projektleiter-gesamtsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "technical-project-manager-sistemi-completi-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "technical-project-manager-complete-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "technischer-projektleiter-gesamtsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "technischer-projektleiter-gesamtsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "gestionnaire-de-projet-technique-systemes-complets-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3642,16 +4166,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-projektleiter-gesamtsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "technischer-projektleiter-gesamtsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "technischer-projektleiter-gesamtsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-projektleiter-gesamtsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-8c4d54fcafd6",
-      "slug": "technischer-projektleiter-gesamtsysteme-missile-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "responsabile-del-progetto-tecnico-sistemi-completi-missile-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "technischer-projektleiter-gesamtsysteme-missile-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "technischer-projektleiter-gesamtsysteme-missile-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "responsabile-del-progetto-tecnico-sistemi-completi-missile-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "technical-project-manager-complete-systems-missile-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "technischer-projektleiter-gesamtsysteme-missile-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "technischer-projektleiter-gesamtsysteme-missile-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "gestionnaire-de-projet-technique-missile-de-systemes-complets-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3708,16 +4246,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-projektleiter-gesamtsysteme-missile-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "technischer-projektleiter-gesamtsysteme-missile-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "technischer-projektleiter-gesamtsysteme-missile-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-projektleiter-gesamtsysteme-missile-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-7c9e1bda597a",
-      "slug": "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "importazione-esportazione-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "importazione-esportazione-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "import-exportation-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3774,16 +4326,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-0ac8ca76ef7b",
-      "slug": "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "supporto-professionale-in-loco-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "supporto-professionale-in-loco-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "soutien-professionnel-sur-place-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3840,16 +4403,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-7af53fcc5f32",
-      "slug": "softwareentwickler-trainingssysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "sistemi-di-formazione-per-sviluppatori-software-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "softwareentwickler-trainingssysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "softwareentwickler-trainingssysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "sistemi-di-formazione-per-sviluppatori-software-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "software-developer-training-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "softwareentwickler-trainingssysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "softwareentwickler-trainingssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "systemes-de-formation-des-developpeurs-de-logiciels-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3906,7 +4480,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "softwareentwickler-trainingssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "softwareentwickler-trainingssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "softwareentwickler-trainingssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "softwareentwickler-trainingssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-8be1bbc5de68",
@@ -3976,12 +4564,12 @@
     },
     {
       "id": "rheinmetall-air-defence-6a19f6b04a7a",
-      "slug": "schweisser-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "saldi-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "schweisser-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "schweisser-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "saldi-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "welders-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "schweisser-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "schweisser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "soudeurs-m-w-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4038,7 +4626,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schweisser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "schweisser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "schweisser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "schweisser-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-3068183e93e7",
@@ -4097,8 +4699,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "electrical-engineer-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "electrical-ingegnere-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "electrical-engineer-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:20.932Z",
@@ -4117,12 +4718,12 @@
     },
     {
       "id": "rheinmetall-air-defence-efeebcf31a54",
-      "slug": "sql-spezialist-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "specialista-sql-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "sql-spezialist-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "sql-spezialist-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "specialista-sql-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "sql-specialist-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "sql-spezialist-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "sql-spezialist-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "specialiste-sql-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4179,16 +4780,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sql-spezialist-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "sql-spezialist-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "sql-spezialist-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sql-spezialist-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-a96ce8d5744d",
       "slug": "applikationsingenieur-per-bildverarbeitungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "applikationsingenieur-per-bildverarbeitungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "applikationsingenieur-fur-bildverarbeitungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "application-engineer-for-image-processing-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "applikationsingenieur-fur-bildverarbeitungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "applikationsingenieur-fur-bildverarbeitungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "ingenieur-d-application-pour-systemes-de-traitement-d-images-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4239,6 +4854,12 @@
       "previousSlugsByLocale": {
         "it": [
           "applikationsingenieur-fur-bildverarbeitungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "applikationsingenieur-fur-bildverarbeitungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "applikationsingenieur-fur-bildverarbeitungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:45:55.534Z",
@@ -4257,12 +4878,12 @@
     },
     {
       "id": "rheinmetall-air-defence-1856373fe7af",
-      "slug": "technischer-datenmanager-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "responsabile-dati-tecnici-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "technischer-datenmanager-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "technischer-datenmanager-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "responsabile-dati-tecnici-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "technical-data-manager-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "technischer-datenmanager-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "technischer-datenmanager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "gestionnaire-des-donnees-techniques-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4319,16 +4940,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-datenmanager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "technischer-datenmanager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "technischer-datenmanager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-datenmanager-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-eaa75ed65320",
-      "slug": "systemtechniker-flugabwehr-im-aussendienst-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "sistema-di-difesa-aerea-ingegnere-nel-campo-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "systemtechniker-flugabwehr-im-aussendienst-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "systemtechniker-flugabwehr-im-aussendienst-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "sistema-di-difesa-aerea-ingegnere-nel-campo-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "system-engineer-air-defense-in-the-field-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "systemtechniker-flugabwehr-im-aussendienst-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "systemtechniker-flugabwehr-im-aussendienst-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "systeme-de-defense-antiaerienne-sur-le-terrain-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4385,16 +5020,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "systemtechniker-flugabwehr-im-aussendienst-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "systemtechniker-flugabwehr-im-aussendienst-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "systemtechniker-flugabwehr-im-aussendienst-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "systemtechniker-flugabwehr-im-aussendienst-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-7ec516603bbb",
-      "slug": "praktikant-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "gestione-della-qualita-interna-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "praktikant-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "praktikant-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "gestione-della-qualita-interna-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "intern-quality-management-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "praktikant-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "praktikant-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "gestion-de-la-qualite-des-stagiaires-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4451,16 +5100,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "praktikant-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "praktikant-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-9098fbc9f0d4",
-      "slug": "praktikant-betriebsmittelverwaltung-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "gestione-dei-corsi-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "praktikant-betriebsmittelverwaltung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "praktikant-betriebsmittelverwaltung-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "gestione-dei-corsi-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "trainee-management-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "praktikant-betriebsmittelverwaltung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "praktikant-betriebsmittelverwaltung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "gestion-des-stagiaires-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4517,16 +5180,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-betriebsmittelverwaltung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "praktikant-betriebsmittelverwaltung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "praktikant-betriebsmittelverwaltung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-betriebsmittelverwaltung-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-ef5aa361345e",
       "slug": "produktionsingenieur-montage-integration-e-test-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "produktionsingenieur-montage-integration-e-test-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "produktionsingenieur-montage-integration-und-test-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "production-engineer-assembly-integration-and-test-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "produktionsingenieur-montage-integration-und-test-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "produktionsingenieur-montage-integration-und-test-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "ingenieur-de-production-assemblage-integration-et-essai-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4577,6 +5254,12 @@
       "previousSlugsByLocale": {
         "it": [
           "produktionsingenieur-montage-integration-und-test-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "produktionsingenieur-montage-integration-und-test-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "produktionsingenieur-montage-integration-und-test-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:16.421Z",
@@ -4595,12 +5278,12 @@
     },
     {
       "id": "rheinmetall-air-defence-f416a05f4f65",
-      "slug": "monteur-waffen-waffenrohre-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "armi-di-installazione-arma-barrels-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "monteur-waffen-waffenrohre-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "monteur-waffen-waffenrohre-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "armi-di-installazione-arma-barrels-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "installer-weapons-weapon-barrels-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "monteur-waffen-waffenrohre-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "monteur-waffen-waffenrohre-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "armes-d-installation-et-barres-d-armes-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4657,16 +5340,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "monteur-waffen-waffenrohre-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "monteur-waffen-waffenrohre-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "monteur-waffen-waffenrohre-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "monteur-waffen-waffenrohre-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-3e94cef8a4c6",
-      "slug": "baugruppenmonteur-vormontage-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "preassembly-di-montaggio-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "baugruppenmonteur-vormontage-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "baugruppenmonteur-vormontage-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "preassembly-di-montaggio-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "assembly-preassembly-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "baugruppenmonteur-vormontage-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "baugruppenmonteur-vormontage-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "preassemblage-de-l-assemblage-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4723,16 +5420,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "baugruppenmonteur-vormontage-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "baugruppenmonteur-vormontage-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "baugruppenmonteur-vormontage-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "baugruppenmonteur-vormontage-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-f1abd3107ade",
       "slug": "qualitatsprufer-warme-e-oberflachenbehandlung-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "qualitatsprufer-warme-e-oberflachenbehandlung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "qualitatsprufer-warme-und-oberflachenbehandlung-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "quality-inspector-heat-and-surface-treatment-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "qualitatsprufer-warme-und-oberflachenbehandlung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "qualitatsprufer-warme-und-oberflachenbehandlung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "inspecteur-de-la-qualite-traitement-de-la-chaleur-et-de-la-surface-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4783,6 +5494,12 @@
       "previousSlugsByLocale": {
         "it": [
           "qualitatsprufer-warme-und-oberflachenbehandlung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "qualitatsprufer-warme-und-oberflachenbehandlung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "qualitatsprufer-warme-und-oberflachenbehandlung-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:45:53.723Z",
@@ -4801,12 +5518,12 @@
     },
     {
       "id": "rheinmetall-air-defence-b2b1073af0b7",
-      "slug": "teamleitung-spedition-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "team-leader-per-l-inoltro-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "teamleitung-spedition-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "teamleitung-spedition-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "team-leader-per-l-inoltro-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "team-leader-for-forwarding-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "teamleitung-spedition-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "teamleitung-spedition-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "chef-d-equipe-charge-de-la-transmission-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4863,16 +5580,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-spedition-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "teamleitung-spedition-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "teamleitung-spedition-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-spedition-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-59178ef0a95b",
-      "slug": "senior-softwareentwickler-fuhrungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "sistemi-di-guida-per-sviluppatori-di-software-senior-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "senior-softwareentwickler-fuhrungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "senior-softwareentwickler-fuhrungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "sistemi-di-guida-per-sviluppatori-di-software-senior-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "senior-software-developer-guidance-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "senior-softwareentwickler-fuhrungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "senior-softwareentwickler-fuhrungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "systemes-d-orientation-des-concepteurs-de-logiciels-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4929,16 +5660,30 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-softwareentwickler-fuhrungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "senior-softwareentwickler-fuhrungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "senior-softwareentwickler-fuhrungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-softwareentwickler-fuhrungssysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-c29903a80a0f",
-      "slug": "elektrotechniker-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "ingegnere-elettrico-che-commissiona-sistemi-antiaerei-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "elektrotechniker-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "elektrotechniker-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "ingegnere-elettrico-che-commissiona-sistemi-antiaerei-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "electrical-engineer-commissioning-anti-aircraft-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "elektrotechniker-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "elektrotechniker-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "genie-electrique-mettant-en-service-des-systemes-antiaeriens-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4995,7 +5740,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "elektrotechniker-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "elektrotechniker-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "elektrotechniker-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "elektrotechniker-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-4175f8081e6c",
@@ -5068,9 +5827,9 @@
       "slug": "collaboratore-trice-unternehmenssicherheit-koordination-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-unternehmenssicherheit-koordination-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "mitarbeiter-unternehmenssicherheit-koordination-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "corporate-security-coordination-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "mitarbeiter-unternehmenssicherheit-koordination-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "mitarbeiter-unternehmenssicherheit-koordination-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "securite-des-entreprises-coordination-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -5120,8 +5879,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-unternehmenssicherheit-koordination-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "collaboratore-trice-unternehmenssicherheit-koordination-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "mitarbeiter-unternehmenssicherheit-koordination-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "mitarbeiter-unternehmenssicherheit-koordination-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-unternehmenssicherheit-koordination-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:13.820Z",
@@ -5143,9 +5907,9 @@
       "slug": "collaboratore-trice-qualitatssicherung-con-schwerpunkt-mechanik-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-qualitatssicherung-con-schwerpunkt-mechanik-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "mitarbeiter-qualitatssicherung-mit-schwerpunkt-mechanik-m-w-d-rheinmetall-air-defence-ag",
+        "en": "employee-quality-assurance-with-a-focus-on-mechanics-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "mitarbeiter-qualitatssicherung-mit-schwerpunkt-mechanik-m-w-d-rheinmetall-air-defence-ag",
-        "fr": "mitarbeiter-qualitatssicherung-mit-schwerpunkt-mechanik-m-w-d-rheinmetall-air-defence-ag"
+        "fr": "assurance-de-la-qualite-des-employes-axee-sur-la-mecanique-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -5195,8 +5959,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-qualitatssicherung-mit-schwerpunkt-mechanik-m-w-d-rheinmetall-air-defence-ag",
-          "collaboratore-trice-qualitatssicherung-con-schwerpunkt-mechanik-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "mitarbeiter-qualitatssicherung-mit-schwerpunkt-mechanik-m-w-d-rheinmetall-air-defence-ag"
+        ],
+        "en": [
+          "mitarbeiter-qualitatssicherung-mit-schwerpunkt-mechanik-m-w-d-rheinmetall-air-defence-ag"
+        ],
+        "fr": [
+          "mitarbeiter-qualitatssicherung-mit-schwerpunkt-mechanik-m-w-d-rheinmetall-air-defence-ag"
         ]
       },
       "firstSeenAt": "2026-07-04T11:45:48.659Z",
@@ -5215,12 +5984,12 @@
     },
     {
       "id": "rheinmetall-air-defence-6d03bae93c9e",
-      "slug": "softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "sviluppatori-di-software-in-tempo-reale-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "sviluppatori-di-software-in-tempo-reale-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "real-time-software-developers-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "developpeurs-de-logiciels-en-temps-reel-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -5277,16 +6046,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-2435b25aada0",
-      "slug": "senior-softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "sistemi-di-sviluppo-software-senior-in-tempo-reale-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "senior-softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "senior-softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "sistemi-di-sviluppo-software-senior-in-tempo-reale-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "senior-software-developer-real-time-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "senior-softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "senior-softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "systemes-de-developpement-logiciel-senior-en-temps-reel-m-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -5343,7 +6126,21 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "senior-softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "senior-softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-softwareentwickler-echtzeitsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     }
   ]
 }

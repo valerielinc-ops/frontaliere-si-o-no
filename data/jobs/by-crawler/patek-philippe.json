@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "patek-philippe-799d1bdc6805",
-      "slug": "dessinateur-h-f-patek-philippe-plan-les-ouates",
+      "slug": "abbozzo-h-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
-        "it": "dessinateur-h-f-patek-philippe-plan-les-ouates",
-        "en": "dessinateur-h-f-patek-philippe-plan-les-ouates",
-        "de": "dessinateur-h-f-patek-philippe-plan-les-ouates",
+        "it": "abbozzo-h-f-patek-philippe-plan-les-ouates",
+        "en": "drafter-h-f-patek-philippe-plan-les-ouates",
+        "de": "zeichner-h-f-patek-philippe-plan-les-ouates",
         "fr": "dessinateur-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -65,15 +65,29 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dessinateur-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "en": [
+          "dessinateur-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "dessinateur-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "dessinateur-h-f-patek-philippe-plan-les-ouates"
+      ]
     },
     {
       "id": "patek-philippe-2de8af724621",
-      "slug": "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates",
+      "slug": "movimento-del-produttore-h-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
-        "it": "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates",
-        "en": "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates",
-        "de": "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates",
+        "it": "movimento-del-produttore-h-f-patek-philippe-plan-les-ouates",
+        "en": "manufacturer-movement-h-f-patek-philippe-plan-les-ouates",
+        "de": "herstellerbewegung-h-f-patek-philippe-plan-les-ouates",
         "fr": "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -130,15 +144,29 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "en": [
+          "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates"
+      ]
     },
     {
       "id": "patek-philippe-39e490920670",
-      "slug": "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates",
+      "slug": "aggiustatore-restauratore-h-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
-        "it": "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates",
-        "en": "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates",
-        "de": "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates",
+        "it": "aggiustatore-restauratore-h-f-patek-philippe-plan-les-ouates",
+        "en": "watchmaker-restaurateur-adjuster-h-f-patek-philippe-plan-les-ouates",
+        "de": "uhrmacher-restaurateur-adjuster-h-f-patek-philippe-plan-les-ouates",
         "fr": "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -195,15 +223,29 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "en": [
+          "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates"
+      ]
     },
     {
       "id": "patek-philippe-8cb8db2b40a7",
-      "slug": "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates",
+      "slug": "orologio-industrialista-h-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
-        "it": "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates",
-        "en": "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates",
-        "de": "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates",
+        "it": "orologio-industrialista-h-f-patek-philippe-plan-les-ouates",
+        "en": "industrialist-watch-h-f-patek-philippe-plan-les-ouates",
+        "de": "industrielle-uhr-h-f-patek-philippe-plan-les-ouates",
         "fr": "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -257,13 +299,27 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "en": [
+          "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates"
+      ]
     },
     {
       "id": "patek-philippe-2e1fa088d89b",
-      "slug": "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
+      "slug": "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier",
       "slugByLocale": {
-        "it": "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
+        "it": "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier",
         "en": "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
         "de": "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
         "fr": "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier"
@@ -321,14 +377,22 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier"
+      ]
     },
     {
       "id": "patek-philippe-bac9183079e3",
-      "slug": "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve",
+      "slug": "evento-e-assistente-amministrativo-h-f-patek-philippe-geneve",
       "slugByLocale": {
-        "it": "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve",
-        "en": "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve",
+        "it": "evento-e-assistente-amministrativo-h-f-patek-philippe-geneve",
+        "en": "event-and-administrative-assistant-h-f-patek-philippe-geneve",
         "de": "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve",
         "fr": "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve"
       },
@@ -385,15 +449,26 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve"
+        ],
+        "en": [
+          "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve"
+      ]
     },
     {
       "id": "patek-philippe-642f8b224feb",
-      "slug": "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates",
+      "slug": "serie-di-vita-di-processo-h-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
-        "it": "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates",
-        "en": "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates",
-        "de": "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates",
+        "it": "serie-di-vita-di-processo-h-f-patek-philippe-plan-les-ouates",
+        "en": "process-life-series-h-f-patek-philippe-plan-les-ouates",
+        "de": "prozesslebensdauer-h-f-patek-philippe-plan-les-ouates",
         "fr": "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -450,15 +525,29 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "en": [
+          "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates"
+      ]
     },
     {
       "id": "patek-philippe-f6a05088a487",
-      "slug": "gestionnaire-systemes-d-informations-m-w-d-patek-philippe-saint-imier",
+      "slug": "gestione-sistemi-informativi-h-f-patek-philippe-saint-imier",
       "slugByLocale": {
-        "it": "gestionnaire-systemes-d-informations-m-w-d-patek-philippe-saint-imier",
-        "en": "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier",
-        "de": "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier",
+        "it": "gestione-sistemi-informativi-h-f-patek-philippe-saint-imier",
+        "en": "information-systems-manager-h-f-patek-philippe-saint-imier",
+        "de": "informationssystemmanager-h-f-patek-philippe-saint-imier",
         "fr": "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier"
       },
       "company": "Patek Philippe",
@@ -501,10 +590,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier"
+        "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier",
+        "gestionnaire-systemes-d-informations-m-w-d-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier",
+          "gestionnaire-systemes-d-informations-m-w-d-patek-philippe-saint-imier"
+        ],
+        "en": [
+          "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier"
+        ],
+        "de": [
           "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier"
         ]
       },
@@ -526,11 +623,11 @@
     },
     {
       "id": "patek-philippe-2a0bd98225e5",
-      "slug": "conseiller-de-ventes-h-f-patek-philippe-geneve",
+      "slug": "consulente-commerciale-h-f-patek-philippe-geneve",
       "slugByLocale": {
-        "it": "conseiller-de-ventes-h-f-patek-philippe-geneve",
-        "en": "conseiller-de-ventes-h-f-patek-philippe-geneve",
-        "de": "conseiller-de-ventes-h-f-patek-philippe-geneve",
+        "it": "consulente-commerciale-h-f-patek-philippe-geneve",
+        "en": "sales-counsellor-h-f-patek-philippe-geneve",
+        "de": "verkaufsberater-h-f-patek-philippe-geneve",
         "fr": "conseiller-de-ventes-h-f-patek-philippe-geneve"
       },
       "company": "Patek Philippe",
@@ -586,13 +683,27 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-de-ventes-h-f-patek-philippe-geneve"
+        ],
+        "en": [
+          "conseiller-de-ventes-h-f-patek-philippe-geneve"
+        ],
+        "de": [
+          "conseiller-de-ventes-h-f-patek-philippe-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-de-ventes-h-f-patek-philippe-geneve"
+      ]
     },
     {
       "id": "patek-philippe-3922ff0216d7",
-      "slug": "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
+      "slug": "nautilus-line-manager-h-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
-        "it": "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
+        "it": "nautilus-line-manager-h-f-patek-philippe-plan-les-ouates",
         "en": "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
         "de": "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
         "fr": "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates"
@@ -651,15 +762,23 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates"
+      ]
     },
     {
       "id": "patek-philippe-ad428225a801",
-      "slug": "micromecanicien-h-f-patek-philippe-saint-imier",
+      "slug": "micromeccanica-h-f-patek-philippe-saint-imier",
       "slugByLocale": {
-        "it": "micromecanicien-h-f-patek-philippe-saint-imier",
-        "en": "micromecanicien-h-f-patek-philippe-saint-imier",
-        "de": "micromecanicien-h-f-patek-philippe-saint-imier",
+        "it": "micromeccanica-h-f-patek-philippe-saint-imier",
+        "en": "micromechanic-h-f-patek-philippe-saint-imier",
+        "de": "mikromechanisch-h-f-patek-philippe-saint-imier",
         "fr": "micromecanicien-h-f-patek-philippe-saint-imier"
       },
       "company": "Patek Philippe",
@@ -715,15 +834,29 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "micromecanicien-h-f-patek-philippe-saint-imier"
+        ],
+        "en": [
+          "micromecanicien-h-f-patek-philippe-saint-imier"
+        ],
+        "de": [
+          "micromecanicien-h-f-patek-philippe-saint-imier"
+        ]
+      },
+      "previousSlugs": [
+        "micromecanicien-h-f-patek-philippe-saint-imier"
+      ]
     },
     {
       "id": "patek-philippe-225f7d3d0959",
-      "slug": "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier",
+      "slug": "prototipi-industriali-h-f-patek-philippe-saint-imier",
       "slugByLocale": {
-        "it": "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier",
-        "en": "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier",
-        "de": "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier",
+        "it": "prototipi-industriali-h-f-patek-philippe-saint-imier",
+        "en": "industrialist-prototypes-h-f-patek-philippe-saint-imier",
+        "de": "industrielle-prototypen-h-f-patek-philippe-saint-imier",
         "fr": "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier"
       },
       "company": "Patek Philippe",
@@ -779,13 +912,27 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier"
+        ],
+        "en": [
+          "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier"
+        ],
+        "de": [
+          "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier"
+        ]
+      },
+      "previousSlugs": [
+        "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier"
+      ]
     },
     {
       "id": "patek-philippe-15f6ed9a1583",
-      "slug": "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
+      "slug": "wand-h-f-patek-philippe-la-chaux-de-fonds",
       "slugByLocale": {
-        "it": "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
+        "it": "wand-h-f-patek-philippe-la-chaux-de-fonds",
         "en": "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
         "de": "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
         "fr": "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
@@ -843,7 +990,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "2300"
+      "postalCode": "2300",
+      "previousSlugsByLocale": {
+        "it": [
+          "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
+        ]
+      },
+      "previousSlugs": [
+        "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
+      ]
     }
   ]
 }

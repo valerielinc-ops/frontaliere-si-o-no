@@ -82,12 +82,12 @@
     },
     {
       "id": "sicpa-3fdbfe3608f5",
-      "slug": "operateur-de-logistique-confirme-sicpa-chavornay",
+      "slug": "operatore-logistico-confermato-sicpa-sa-chavornay",
       "slugByLocale": {
         "fr": "operateur-de-logistique-confirme-sicpa-chavornay",
-        "it": "operateur-de-logistique-confirme-sicpa-chavornay",
-        "en": "operateur-de-logistique-confirme-sicpa-chavornay",
-        "de": "operateur-de-logistique-confirme-sicpa-chavornay"
+        "it": "operatore-logistico-confermato-sicpa-sa-chavornay",
+        "en": "logistics-operator-confirmed-sicpa-sa-chavornay",
+        "de": "logistikbetreiber-bestatigt-sicpa-sa-chavornay"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -142,16 +142,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:00:39.507Z"
+      "firstSeenAt": "2026-07-04T12:00:39.507Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-de-logistique-confirme-sicpa-chavornay"
+        ],
+        "en": [
+          "operateur-de-logistique-confirme-sicpa-chavornay"
+        ],
+        "de": [
+          "operateur-de-logistique-confirme-sicpa-chavornay"
+        ]
+      },
+      "previousSlugs": [
+        "operateur-de-logistique-confirme-sicpa-chavornay"
+      ]
     },
     {
       "id": "sicpa-253dbcaab864",
-      "slug": "ingenieur-industriel-automation-sicpa-chavornay",
+      "slug": "automazione-degli-ingegneri-industriali-sicpa-sa-chavornay",
       "slugByLocale": {
         "fr": "ingenieur-industriel-automation-sicpa-chavornay",
-        "it": "ingenieur-industriel-automation-sicpa-chavornay",
-        "en": "ingenieur-industriel-automation-sicpa-chavornay",
-        "de": "ingenieur-industriel-automation-sicpa-chavornay"
+        "it": "automazione-degli-ingegneri-industriali-sicpa-sa-chavornay",
+        "en": "industrial-engineer-automation-sicpa-sa-chavornay",
+        "de": "automatisierung-von-industrieingenieuren-sicpa-sa-chavornay"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -206,16 +220,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:00:38.760Z"
+      "firstSeenAt": "2026-07-04T12:00:38.760Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-industriel-automation-sicpa-chavornay"
+        ],
+        "en": [
+          "ingenieur-industriel-automation-sicpa-chavornay"
+        ],
+        "de": [
+          "ingenieur-industriel-automation-sicpa-chavornay"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-industriel-automation-sicpa-chavornay"
+      ]
     },
     {
       "id": "sicpa-5ca0aa0a8133",
-      "slug": "technicien-ne-de-laboratoire-sicpa-prilly",
+      "slug": "tecnico-di-laboratorio-sicpa-sa-prilly",
       "slugByLocale": {
         "fr": "technicien-ne-de-laboratoire-sicpa-prilly",
-        "it": "technicien-ne-de-laboratoire-sicpa-prilly",
-        "en": "technicien-ne-de-laboratoire-sicpa-prilly",
-        "de": "technicien-ne-de-laboratoire-sicpa-prilly"
+        "it": "tecnico-di-laboratorio-sicpa-sa-prilly",
+        "en": "laboratory-technician-sicpa-sa-prilly",
+        "de": "labortechniker-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -270,15 +298,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:00:37.864Z"
+      "firstSeenAt": "2026-07-04T12:00:37.864Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-de-laboratoire-sicpa-prilly"
+        ],
+        "en": [
+          "technicien-ne-de-laboratoire-sicpa-prilly"
+        ],
+        "de": [
+          "technicien-ne-de-laboratoire-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-de-laboratoire-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-10adc91991c9",
-      "slug": "archiviste-cdd-6-mois-sicpa-prilly",
+      "slug": "archivista-csd-6-mesi-sicpa-sa-prilly",
       "slugByLocale": {
-        "en": "archiviste-cdd-6-mois-sicpa-prilly",
-        "it": "archiviste-cdd-6-mois-sicpa-prilly",
-        "de": "archiviste-cdd-6-mois-sicpa-prilly",
+        "en": "archivist-csd-6-months-sicpa-sa-prilly",
+        "it": "archivista-csd-6-mesi-sicpa-sa-prilly",
+        "de": "archivar-csd-6-monate-sicpa-sa-prilly",
         "fr": "archiviste-cdd-6-mois-sicpa-prilly"
       },
       "company": "SICPA SA",
@@ -334,7 +376,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:00:36.958Z"
+      "firstSeenAt": "2026-07-04T12:00:36.958Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "archiviste-cdd-6-mois-sicpa-prilly"
+        ],
+        "en": [
+          "archiviste-cdd-6-mois-sicpa-prilly"
+        ],
+        "de": [
+          "archiviste-cdd-6-mois-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "archiviste-cdd-6-mois-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-02670024a5f7",
@@ -402,12 +458,12 @@
     },
     {
       "id": "sicpa-83b163de8760",
-      "slug": "automaticien-sicpa-chavornay",
+      "slug": "automatico-sicpa-sa-chavornay",
       "slugByLocale": {
         "fr": "automaticien-sicpa-chavornay",
-        "it": "automaticien-sicpa-chavornay",
-        "en": "automaticien-sicpa-chavornay",
-        "de": "automaticien-sicpa-chavornay"
+        "it": "automatico-sicpa-sa-chavornay",
+        "en": "automatician-sicpa-sa-chavornay",
+        "de": "automatik-sicpa-sa-chavornay"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -462,16 +518,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:00:35.162Z"
+      "firstSeenAt": "2026-07-04T12:00:35.162Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automaticien-sicpa-chavornay"
+        ],
+        "en": [
+          "automaticien-sicpa-chavornay"
+        ],
+        "de": [
+          "automaticien-sicpa-chavornay"
+        ]
+      },
+      "previousSlugs": [
+        "automaticien-sicpa-chavornay"
+      ]
     },
     {
       "id": "sicpa-f4577a88fcc7",
-      "slug": "chemist-machine-readable-features-laboratory-sicpa-prilly",
+      "slug": "chemist-machine-readable-caratteristiche-laboratorio-sicpa-sa-prilly",
       "slugByLocale": {
         "en": "chemist-machine-readable-features-laboratory-sicpa-prilly",
-        "it": "chemist-machine-readable-features-laboratory-sicpa-prilly",
+        "it": "chemist-machine-readable-caratteristiche-laboratorio-sicpa-sa-prilly",
         "de": "chemist-machine-readable-features-laboratory-sicpa-prilly",
-        "fr": "chemist-machine-readable-features-laboratory-sicpa-prilly"
+        "fr": "chimiste-laboratoire-de-fonctions-lisibles-par-machine-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -526,7 +596,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:00:34.411Z"
+      "firstSeenAt": "2026-07-04T12:00:34.411Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chemist-machine-readable-features-laboratory-sicpa-prilly"
+        ],
+        "fr": [
+          "chemist-machine-readable-features-laboratory-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "chemist-machine-readable-features-laboratory-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-ee4544be3e45",
@@ -594,10 +675,10 @@
     },
     {
       "id": "sicpa-42d2c25d60f8",
-      "slug": "automation-technician-sicpa-prilly",
+      "slug": "automazione-tecnico-sicpa-sa-prilly",
       "slugByLocale": {
         "fr": "automation-technician-sicpa-prilly",
-        "it": "automation-technician-sicpa-prilly",
+        "it": "automazione-tecnico-sicpa-sa-prilly",
         "en": "automation-technician-sicpa-prilly",
         "de": "automation-techniker-sicpa-sa-prilly"
       },
@@ -654,16 +735,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:00:32.708Z"
+      "firstSeenAt": "2026-07-04T12:00:32.708Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-technician-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "automation-technician-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-348fafb71e34",
-      "slug": "solution-manager-fuel-integrity-programs-sicpa-prilly",
+      "slug": "solution-manager-programmi-di-integrita-del-carburante-sicpa-sa-prilly",
       "slugByLocale": {
         "en": "solution-manager-fuel-integrity-programs-sicpa-prilly",
-        "it": "solution-manager-fuel-integrity-programs-sicpa-prilly",
+        "it": "solution-manager-programmi-di-integrita-del-carburante-sicpa-sa-prilly",
         "de": "solution-manager-fuel-integrity-programs-sicpa-prilly",
-        "fr": "solution-manager-fuel-integrity-programs-sicpa-prilly"
+        "fr": "gestionnaire-des-solutions-programmes-d-integrite-des-carburants-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -718,16 +807,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:00:31.974Z"
+      "firstSeenAt": "2026-07-04T12:00:31.974Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-manager-fuel-integrity-programs-sicpa-prilly"
+        ],
+        "fr": [
+          "solution-manager-fuel-integrity-programs-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "solution-manager-fuel-integrity-programs-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-7c461f0bb787",
-      "slug": "chef-d-equipe-paysagiste-sicpa-prilly",
+      "slug": "capo-della-squadra-del-paesaggio-sicpa-sa-prilly",
       "slugByLocale": {
         "fr": "chef-d-equipe-paysagiste-sicpa-prilly",
-        "it": "chef-d-equipe-paysagiste-sicpa-prilly",
-        "en": "chef-d-equipe-paysagiste-sicpa-prilly",
-        "de": "chef-d-equipe-paysagiste-sicpa-prilly"
+        "it": "capo-della-squadra-del-paesaggio-sicpa-sa-prilly",
+        "en": "head-of-landscape-team-sicpa-sa-prilly",
+        "de": "leiter-des-landschaftsteams-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -782,7 +882,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:00:31.173Z"
+      "firstSeenAt": "2026-07-04T12:00:31.173Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-d-equipe-paysagiste-sicpa-prilly"
+        ],
+        "en": [
+          "chef-d-equipe-paysagiste-sicpa-prilly"
+        ],
+        "de": [
+          "chef-d-equipe-paysagiste-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "chef-d-equipe-paysagiste-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-eb14c9c9b4c6",

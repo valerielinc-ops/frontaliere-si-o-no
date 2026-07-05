@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "suva-36471dc778f7",
-      "slug": "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau",
+      "slug": "psichiatria-specialistica-tutti-i-sessi-80-100-suva-ticino",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau",
-        "it": "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau",
-        "en": "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau",
-        "fr": "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
+        "it": "psichiatria-specialistica-tutti-i-sessi-80-100-suva-ticino",
+        "en": "specialist-psychiatry-all-genders-80-100-suva-ticino",
+        "fr": "psychiatrie-specialisee-tous-les-sexes-80-100-suva-ticino"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -63,7 +63,21 @@
         }
       },
       "addressRegion": "SG",
-      "firstSeenAt": "2026-07-04T12:22:53.909Z"
+      "firstSeenAt": "2026-07-04T12:22:53.909Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
+        ],
+        "fr": [
+          "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
+      ]
     },
     {
       "id": "suva-d491f352b002",
@@ -130,12 +144,12 @@
     },
     {
       "id": "suva-796935886ea8",
-      "slug": "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau",
+      "slug": "personale-in-spese-mediche-agguato-80-100-suva-aarau",
       "slugByLocale": {
         "de": "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau",
-        "it": "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau",
-        "en": "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau",
-        "fr": "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau"
+        "it": "personale-in-spese-mediche-agguato-80-100-suva-aarau",
+        "en": "personnel-in-medical-costs-ambulant-80-100-suva-aarau",
+        "fr": "personnel-en-frais-medicaux-ambulant-80-100-suva-aarau"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -189,16 +203,30 @@
         }
       },
       "addressRegion": "AG",
-      "firstSeenAt": "2026-07-04T12:22:51.926Z"
+      "firstSeenAt": "2026-07-04T12:22:51.926Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau"
+        ],
+        "en": [
+          "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau"
+        ],
+        "fr": [
+          "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau"
+      ]
     },
     {
       "id": "suva-df3a0aa13973",
-      "slug": "gestionnaire-centre-de-competence-80-100-suva-delemont-fribourg-la-chaux-de-fonds",
+      "slug": "centre-manager-80-100-suva-delemont-fribourg-la-chaux-de-fonds",
       "slugByLocale": {
         "fr": "gestionnaire-centre-de-competence-80-100-suva-delemont",
-        "it": "gestionnaire-centre-de-competence-80-100-suva-delemont-fribourg-la-chaux-de-fonds",
+        "it": "centre-manager-80-100-suva-delemont-fribourg-la-chaux-de-fonds",
         "en": "gestionnaire-centre-de-competence-80-100-suva-delemont",
-        "de": "gestionnaire-centre-de-competence-80-100-suva-delemont"
+        "de": "center-manager-80-100-suva-delemont-fribourg-la-chaux-de-fonds"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -241,11 +269,16 @@
       "sfJobId": "1387007233",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-centre-de-competence-80-100-suva-delemont",
+          "gestionnaire-centre-de-competence-80-100-suva-delemont-fribourg-la-chaux-de-fonds"
+        ],
+        "de": [
           "gestionnaire-centre-de-competence-80-100-suva-delemont"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-centre-de-competence-80-100-suva-delemont"
+        "gestionnaire-centre-de-competence-80-100-suva-delemont",
+        "gestionnaire-centre-de-competence-80-100-suva-delemont-fribourg-la-chaux-de-fonds"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -264,12 +297,12 @@
     },
     {
       "id": "suva-362ca261dbd2",
-      "slug": "specialiste-conduite-des-cas-80-100-suva-delemont",
+      "slug": "specialista-della-gestione-dei-casi-80-100-per-cento-suva-ticino",
       "slugByLocale": {
         "fr": "specialiste-conduite-des-cas-80-100-suva-delemont",
-        "it": "specialiste-conduite-des-cas-80-100-suva-delemont",
-        "en": "specialiste-conduite-des-cas-80-100-suva-delemont",
-        "de": "specialiste-conduite-des-cas-80-100-suva-delemont"
+        "it": "specialista-della-gestione-dei-casi-80-100-per-cento-suva-ticino",
+        "en": "case-management-specialist-80-100-per-cent-suva-ticino",
+        "de": "case-management-spezialist-80-100-prozent-suva-ticino"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -323,7 +356,21 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-07-04T12:22:50.060Z"
+      "firstSeenAt": "2026-07-04T12:22:50.060Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-conduite-des-cas-80-100-suva-delemont"
+        ],
+        "en": [
+          "specialiste-conduite-des-cas-80-100-suva-delemont"
+        ],
+        "de": [
+          "specialiste-conduite-des-cas-80-100-suva-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-conduite-des-cas-80-100-suva-delemont"
+      ]
     },
     {
       "id": "suva-267ec1c556a2",
@@ -390,10 +437,10 @@
     },
     {
       "id": "suva-c2828dfccd9e",
-      "slug": "secretaire-medical-e-60-100-suva-fribourg",
+      "slug": "segretario-medico-60-100-suva-fribourg-geneve-la-chaux-de-fonds-lausanne-sion",
       "slugByLocale": {
         "fr": "secretaire-medical-e-60-100-suva-fribourg",
-        "it": "secretaire-medical-e-60-100-suva-fribourg",
+        "it": "segretario-medico-60-100-suva-fribourg-geneve-la-chaux-de-fonds-lausanne-sion",
         "en": "secretaire-medical-e-60-100-suva-fribourg",
         "de": "secretaire-medical-e-60-100-suva-fribourg"
       },
@@ -449,16 +496,24 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-07-04T12:22:48.181Z"
+      "firstSeenAt": "2026-07-04T12:22:48.181Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-60-100-suva-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-60-100-suva-fribourg"
+      ]
     },
     {
       "id": "suva-2f91704666f2",
-      "slug": "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau",
+      "slug": "assistente-medico-assicurazione-medicina-tutti-i-sessi-80-100-suva-ticino",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau",
-        "it": "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau",
-        "en": "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau",
-        "fr": "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
+        "it": "assistente-medico-assicurazione-medicina-tutti-i-sessi-80-100-suva-ticino",
+        "en": "assistant-doctor-insurance-medicine-all-genders-80-100-suva-ticino",
+        "fr": "medecin-adjoint-en-assurance-tous-les-sexes-80-100-suva-ticino"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -512,7 +567,21 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-07-04T12:22:47.258Z"
+      "firstSeenAt": "2026-07-04T12:22:47.258Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
+      ]
     },
     {
       "id": "suva-1b374b54618d",
@@ -650,12 +719,12 @@
     },
     {
       "id": "suva-8cfeb210d5bd",
-      "slug": "bauingenieur-in-baumeister-in-80-100-suva-luzern",
+      "slug": "ingegnere-civile-in-baumeister-in-80-100-suva-luzern",
       "slugByLocale": {
         "de": "bauingenieur-in-baumeister-in-80-100-suva-luzern",
-        "it": "bauingenieur-in-baumeister-in-80-100-suva-luzern",
-        "en": "bauingenieur-in-baumeister-in-80-100-suva-luzern",
-        "fr": "bauingenieur-in-baumeister-in-80-100-suva-luzern"
+        "it": "ingegnere-civile-in-baumeister-in-80-100-suva-luzern",
+        "en": "civil-engineer-in-baumeister-in-80-100-suva-luzern",
+        "fr": "ingenieur-civil-in-baumeister-in-80-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -709,16 +778,30 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-07-04T12:22:44.466Z"
+      "firstSeenAt": "2026-07-04T12:22:44.466Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bauingenieur-in-baumeister-in-80-100-suva-luzern"
+        ],
+        "en": [
+          "bauingenieur-in-baumeister-in-80-100-suva-luzern"
+        ],
+        "fr": [
+          "bauingenieur-in-baumeister-in-80-100-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "bauingenieur-in-baumeister-in-80-100-suva-luzern"
+      ]
     },
     {
       "id": "suva-f3ae3c775bc7",
-      "slug": "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
+      "slug": "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern",
       "slugByLocale": {
         "de": "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
-        "it": "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
-        "en": "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
-        "fr": "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
+        "it": "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern",
+        "en": "project-manager-in-construction-management-client-representation-80-100-suva-luzern",
+        "fr": "gestionnaire-de-projet-en-gestion-de-la-construction-representation-des-clients-80-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -772,7 +855,21 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-07-04T12:22:43.533Z"
+      "firstSeenAt": "2026-07-04T12:22:43.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
+        ],
+        "en": [
+          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
+        ],
+        "fr": [
+          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
+      ]
     },
     {
       "id": "suva-468e4c98f9fc",
@@ -780,8 +877,8 @@
       "slugByLocale": {
         "de": "teamleiter-in-redaktion-und-sprachenmanagement-80-100-suva-luzern",
         "it": "teamleiter-in-redaktion-e-sprachenmanagement-80-100-suva-luzern",
-        "en": "teamleiter-in-redaktion-und-sprachenmanagement-80-100-suva-luzern",
-        "fr": "teamleiter-in-redaktion-und-sprachenmanagement-80-100-suva-luzern"
+        "en": "team-leader-in-editing-and-language-management-80-100-suva-luzern",
+        "fr": "chef-d-equipe-en-edition-et-gestion-linguistique-80-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -825,6 +922,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-redaktion-und-sprachenmanagement-80-100-suva-luzern"
+        ],
+        "en": [
+          "teamleiter-in-redaktion-und-sprachenmanagement-80-100-suva-luzern"
+        ],
+        "fr": [
+          "teamleiter-in-redaktion-und-sprachenmanagement-80-100-suva-luzern"
         ]
       },
       "previousSlugs": [
@@ -847,12 +950,12 @@
     },
     {
       "id": "suva-17f7c06fde00",
-      "slug": "projekt-manager-in-stab-80-100-suva-luzern",
+      "slug": "project-manager-nel-personale-80-100-suva-luzern",
       "slugByLocale": {
         "de": "projekt-manager-in-stab-80-100-suva-luzern",
-        "it": "projekt-manager-in-stab-80-100-suva-luzern",
-        "en": "projekt-manager-in-stab-80-100-suva-luzern",
-        "fr": "projekt-manager-in-stab-80-100-suva-luzern"
+        "it": "project-manager-nel-personale-80-100-suva-luzern",
+        "en": "project-manager-in-staff-80-100-suva-luzern",
+        "fr": "gestionnaire-de-projet-en-personnel-80-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -906,16 +1009,30 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-07-04T12:22:41.494Z"
+      "firstSeenAt": "2026-07-04T12:22:41.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projekt-manager-in-stab-80-100-suva-luzern"
+        ],
+        "en": [
+          "projekt-manager-in-stab-80-100-suva-luzern"
+        ],
+        "fr": [
+          "projekt-manager-in-stab-80-100-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "projekt-manager-in-stab-80-100-suva-luzern"
+      ]
     },
     {
       "id": "suva-495df737d8b1",
-      "slug": "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont",
+      "slug": "medico-con-vasta-conoscenza-in-traumatologia-80-100-suva-ticino",
       "slugByLocale": {
         "fr": "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont",
-        "it": "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont",
-        "en": "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont",
-        "de": "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont"
+        "it": "medico-con-vasta-conoscenza-in-traumatologia-80-100-suva-ticino",
+        "en": "physician-with-extensive-knowledge-in-traumatology-80-100-suva-ticino",
+        "de": "arzt-mit-umfangreichen-kenntnissen-in-der-traumatologie-80-100-suva-ticino"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -969,16 +1086,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-07-04T12:22:40.562Z"
+      "firstSeenAt": "2026-07-04T12:22:40.562Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont"
+        ],
+        "en": [
+          "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont"
+        ],
+        "de": [
+          "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont"
+      ]
     },
     {
       "id": "suva-1829ce7ff7bd",
-      "slug": "teamleiter-in-versicherungsmedizin-80-100-suva-genf",
+      "slug": "team-leader-in-medicina-assicurativa-80-100-suva-genf-lausanne",
       "slugByLocale": {
         "de": "teamleiter-in-versicherungsmedizin-80-100-suva-genf",
-        "it": "teamleiter-in-versicherungsmedizin-80-100-suva-genf",
-        "en": "teamleiter-in-versicherungsmedizin-80-100-suva-genf",
-        "fr": "teamleiter-in-versicherungsmedizin-80-100-suva-genf"
+        "it": "team-leader-in-medicina-assicurativa-80-100-suva-genf-lausanne",
+        "en": "team-leader-in-insurance-medicine-80-100-suva-genf-lausanne",
+        "fr": "chef-d-equipe-en-medecine-d-assurance-80-100-suva-genf-lausanne"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -1032,16 +1163,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-07-04T12:22:39.620Z"
+      "firstSeenAt": "2026-07-04T12:22:39.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-versicherungsmedizin-80-100-suva-genf"
+        ],
+        "en": [
+          "teamleiter-in-versicherungsmedizin-80-100-suva-genf"
+        ],
+        "fr": [
+          "teamleiter-in-versicherungsmedizin-80-100-suva-genf"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-versicherungsmedizin-80-100-suva-genf"
+      ]
     },
     {
       "id": "suva-d1357882641b",
-      "slug": "chef-fe-de-team-medecine-d-assurance-80-100-suva-geneve",
+      "slug": "assicurazione-medicina-team-leader-80-100-suva-geneve-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-de-team-medecine-d-assurance-80-100-suva-geneve",
-        "it": "chef-fe-de-team-medecine-d-assurance-80-100-suva-geneve",
-        "en": "chef-fe-de-team-medecine-d-assurance-80-100-suva-geneve",
-        "de": "chef-fe-de-team-medecine-d-assurance-80-100-suva-geneve"
+        "it": "assicurazione-medicina-team-leader-80-100-suva-geneve-lausanne",
+        "en": "insurance-medicine-team-leader-80-100-suva-geneve-lausanne",
+        "de": "versicherungsmedizin-teamleiter-80-100-suva-geneve-lausanne"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -1095,16 +1240,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-07-04T12:22:38.695Z"
+      "firstSeenAt": "2026-07-04T12:22:38.695Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-team-medecine-d-assurance-80-100-suva-geneve"
+        ],
+        "en": [
+          "chef-fe-de-team-medecine-d-assurance-80-100-suva-geneve"
+        ],
+        "de": [
+          "chef-fe-de-team-medecine-d-assurance-80-100-suva-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-team-medecine-d-assurance-80-100-suva-geneve"
+      ]
     },
     {
       "id": "suva-7fcc4c225885",
-      "slug": "specialiste-en-securite-integree-80-100-suva-fribourg",
+      "slug": "ufficiale-di-sicurezza-integrato-80-100-suva-fribourg",
       "slugByLocale": {
         "fr": "specialiste-en-securite-integree-80-100-suva-fribourg",
-        "it": "specialiste-en-securite-integree-80-100-suva-fribourg",
-        "en": "specialiste-en-securite-integree-80-100-suva-fribourg",
-        "de": "specialiste-en-securite-integree-80-100-suva-fribourg"
+        "it": "ufficiale-di-sicurezza-integrato-80-100-suva-fribourg",
+        "en": "integrated-security-officer-80-100-suva-fribourg",
+        "de": "integrierter-sicherheitsbeauftragter-80-100-suva-fribourg"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -1158,16 +1317,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-07-04T12:22:37.715Z"
+      "firstSeenAt": "2026-07-04T12:22:37.715Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-en-securite-integree-80-100-suva-fribourg"
+        ],
+        "en": [
+          "specialiste-en-securite-integree-80-100-suva-fribourg"
+        ],
+        "de": [
+          "specialiste-en-securite-integree-80-100-suva-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-en-securite-integree-80-100-suva-fribourg"
+      ]
     },
     {
       "id": "suva-0cd4dc7e78fa",
-      "slug": "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de",
+      "slug": "apprendista-di-scoperta-di-stage-e-dipendente-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de-fonds",
       "slugByLocale": {
         "fr": "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de",
-        "it": "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de",
-        "en": "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de",
-        "de": "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de"
+        "it": "apprendista-di-scoperta-di-stage-e-dipendente-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de-fonds",
+        "en": "internship-discovery-apprentice-e-employee-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de-fonds",
+        "de": "praktikant-entdeckung-lehrling-e-mitarbeiter-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de-fonds"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -1220,16 +1393,30 @@
         }
       },
       "addressRegion": "NE",
-      "firstSeenAt": "2026-07-04T12:22:36.782Z"
+      "firstSeenAt": "2026-07-04T12:22:36.782Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de"
+        ],
+        "en": [
+          "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de"
+        ],
+        "de": [
+          "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de"
+        ]
+      },
+      "previousSlugs": [
+        "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de"
+      ]
     },
     {
       "id": "suva-fd84adec25af",
-      "slug": "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur",
+      "slug": "personale-nel-centro-di-competenza-damage-80-100-suva-chur-ziegelbrucke",
       "slugByLocale": {
         "de": "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur",
-        "it": "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur",
-        "en": "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur",
-        "fr": "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur"
+        "it": "personale-nel-centro-di-competenza-damage-80-100-suva-chur-ziegelbrucke",
+        "en": "personnel-in-competence-center-damage-80-100-suva-chur-ziegelbrucke",
+        "fr": "personnel-dans-le-centre-de-competences-dommages-80-100-suva-chur-ziegelbrucke"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -1283,16 +1470,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-04T12:22:35.838Z"
+      "firstSeenAt": "2026-07-04T12:22:35.838Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur"
+        ],
+        "en": [
+          "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur"
+        ],
+        "fr": [
+          "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur"
+      ]
     },
     {
       "id": "suva-408d245c5dfb",
-      "slug": "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen",
+      "slug": "specialista-in-sostiene-l-assicurazione-militare-squadra-60-100-temporaneo-suva-st-gallen",
       "slugByLocale": {
         "de": "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen",
-        "it": "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen",
-        "en": "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen",
-        "fr": "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen"
+        "it": "specialista-in-sostiene-l-assicurazione-militare-squadra-60-100-temporaneo-suva-st-gallen",
+        "en": "specialist-in-claims-team-military-insurance-60-100-temporary-suva-st-gallen",
+        "fr": "specialiste-dans-l-equipe-des-reclamations-assurance-militaire-60-100-temporaire-suva-st-gallen"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -1346,16 +1547,30 @@
         }
       },
       "addressRegion": "SG",
-      "firstSeenAt": "2026-07-04T12:22:34.897Z"
+      "firstSeenAt": "2026-07-04T12:22:34.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen"
+        ],
+        "en": [
+          "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen"
+        ],
+        "fr": [
+          "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen"
+      ]
     },
     {
       "id": "suva-71031051be93",
-      "slug": "facharztin-facharzt-neurologie-80-100-suva-winterthur",
+      "slug": "neurologia-specialistica-80-100-suva-winterthur-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-neurologie-80-100-suva-winterthur",
-        "it": "facharztin-facharzt-neurologie-80-100-suva-winterthur",
-        "en": "facharztin-facharzt-neurologie-80-100-suva-winterthur",
-        "fr": "facharztin-facharzt-neurologie-80-100-suva-winterthur"
+        "it": "neurologia-specialistica-80-100-suva-winterthur-zurich",
+        "en": "specialist-neurology-80-100-suva-winterthur-zurich",
+        "fr": "neurologie-specialisee-80-100-suva-winterthur-zurich"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -1409,7 +1624,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-04T12:22:33.979Z"
+      "firstSeenAt": "2026-07-04T12:22:33.979Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-neurologie-80-100-suva-winterthur"
+        ],
+        "en": [
+          "facharztin-facharzt-neurologie-80-100-suva-winterthur"
+        ],
+        "fr": [
+          "facharztin-facharzt-neurologie-80-100-suva-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-neurologie-80-100-suva-winterthur"
+      ]
     },
     {
       "id": "suva-3aa09c4481c7",
@@ -1418,7 +1647,7 @@
         "de": "assistent-in-leitung-technopark-conferencing-business-village-100-suva-root",
         "it": "assistent-in-leitung-technopark-conferencing-business-village-100-suva-root",
         "en": "assistent-in-leitung-technopark-conferencing-business-village-100-suva-root",
-        "fr": "assistent-in-leitung-technopark-conferencing-business-village-100-suva-root"
+        "fr": "assistant-chef-de-technopark-conference-village-d-affaires-100-suva-root"
       },
       "company": "Suva",
       "companyKey": "suva",

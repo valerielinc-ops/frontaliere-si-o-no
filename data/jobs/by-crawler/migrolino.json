@@ -440,9 +440,9 @@
       "slug": "rappresentante-vendite-migrolino-worblaufen-ittigen",
       "slugByLocale": {
         "it": "rappresentante-vendite-migrolino-worblaufen-ittigen",
-        "en": "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
+        "en": "sales-staff-migrolino-worblaufen-ittigen-007f71",
         "de": "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
-        "fr": "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen"
+        "fr": "personnel-de-vente-migrolino-worblaufen-ittigen-007f71"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -488,8 +488,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
-          "rappresentante-vendite-migrolino-worblaufen-ittigen"
+          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen"
         ]
       },
       "needsRetranslation": true,
@@ -587,9 +592,9 @@
       "slug": "rappresentante-vendite-migrolino-gumligen",
       "slugByLocale": {
         "it": "rappresentante-vendite-migrolino-gumligen",
-        "en": "verkaufsmitarbeiter-in-migrolino-gumligen",
+        "en": "sales-staff-migrolino-gumligen",
         "de": "verkaufsmitarbeiter-in-migrolino-gumligen",
-        "fr": "verkaufsmitarbeiter-in-migrolino-gumligen"
+        "fr": "personnel-de-vente-migrolino-gumligen"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -635,8 +640,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-migrolino-gumligen",
-          "rappresentante-vendite-migrolino-gumligen"
+          "verkaufsmitarbeiter-in-migrolino-gumligen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-migrolino-gumligen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-migrolino-gumligen"
         ]
       },
       "needsRetranslation": true,
@@ -1361,12 +1371,10 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "verkaufsstellenplaner-in-cad-migrolino-suhr",
-          "cad-planer-in-zeichner-in-migrolino-suhr-p5fkjr"
+          "verkaufsstellenplaner-in-cad-migrolino-suhr"
         ],
         "it": [
-          "verkaufsstellenplaner-in-cad-migrolino-suhr",
-          "cad-planer-in-zeichner-in-migrolino-suhr"
+          "verkaufsstellenplaner-in-cad-migrolino-suhr"
         ]
       },
       "previousSlugs": [
@@ -1944,8 +1952,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schichtleiter-in-migrolino-siebnen",
-          "capo-turno-in-migrolino-siebnen"
+          "schichtleiter-in-migrolino-siebnen"
         ],
         "en": [
           "schichtleiter-in-migrolino-siebnen"

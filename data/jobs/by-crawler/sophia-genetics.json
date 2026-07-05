@@ -9,7 +9,7 @@
         "en": "senior-platform-product-designer-sophia-genetics-rolle",
         "it": "senior-platform-product-designer-sophia-genetics-rolle",
         "de": "senior-platform-product-designer-sophia-genetics-rolle",
-        "fr": "senior-platform-product-designer-sophia-genetics-rolle"
+        "fr": "conception-de-produits-de-la-plate-forme-senior-sophia-genetics-rolle"
       },
       "company": "SOPHiA GENETICS",
       "companyKey": "sophia-genetics",
@@ -136,12 +136,12 @@
     },
     {
       "id": "sophia-genetics-d5a52be1c447",
-      "slug": "senior-manager-accounting-contract-november-april-sophia-genetics-rolle",
+      "slug": "senior-manager-contabilita-contratto-novembre-aprile-sophia-genetics-rolle",
       "slugByLocale": {
         "en": "senior-manager-accounting-contract-november-april-sophia-genetics-rolle",
-        "it": "senior-manager-accounting-contract-november-april-sophia-genetics-rolle",
+        "it": "senior-manager-contabilita-contratto-novembre-aprile-sophia-genetics-rolle",
         "de": "senior-manager-accounting-contract-november-april-sophia-genetics-rolle",
-        "fr": "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
+        "fr": "gestionnaire-principal-comptabilite-contract-novembre-avril-sophia-genetics-rolle"
       },
       "company": "SOPHiA GENETICS",
       "companyKey": "sophia-genetics",
@@ -198,7 +198,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:25:48.183Z"
+      "firstSeenAt": "2026-07-04T12:25:48.183Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
+        ],
+        "fr": [
+          "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
+      ]
     },
     {
       "id": "sophia-genetics-f7fc98d12035",
@@ -339,7 +350,7 @@
         "en": "ivd-development-validation-lead-sophia-genetics-rolle",
         "it": "ivd-development-validation-lead-sophia-genetics-rolle",
         "de": "ivd-development-validation-lead-sophia-genetics-rolle",
-        "fr": "ivd-development-validation-lead-sophia-genetics-rolle"
+        "fr": "direction-du-developpement-et-de-la-validation-de-la-div-sophia-genetics-rolle"
       },
       "company": "SOPHiA GENETICS",
       "companyKey": "sophia-genetics",

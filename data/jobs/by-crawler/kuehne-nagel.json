@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "supporto-it-lunedi-mercoledi-d-kuehne-nagel-schindellegi",
         "en": "it-supporter-m-w-d-kuehne-nagel-schindellegi",
-        "de": "it-supporter-m-w-d-kuehne-nagel-schindellegi",
-        "fr": "it-supporter-m-w-d-kuehne-nagel-schindellegi"
+        "de": "it-unterstutzer-m-w-d-kuehne-nagel-schindellegi",
+        "fr": "support-informatique-m-w-d-kuehne-nagel-schindellegi"
       },
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
@@ -57,8 +57,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-supporter-m-w-d-kuehne-nagel-schindellegi",
-          "supporto-it-lunedi-mercoledi-d-kuehne-nagel-schindellegi"
+          "it-supporter-m-w-d-kuehne-nagel-schindellegi"
+        ],
+        "de": [
+          "it-supporter-m-w-d-kuehne-nagel-schindellegi"
+        ],
+        "fr": [
+          "it-supporter-m-w-d-kuehne-nagel-schindellegi"
         ]
       },
       "needsRetranslation": true,
@@ -81,9 +86,9 @@
       "slug": "tecnico-di-servizio-logistica-lun-f-d-kuehne-nagel-embrach",
       "slugByLocale": {
         "it": "tecnico-di-servizio-logistica-lun-f-d-kuehne-nagel-embrach",
-        "en": "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach",
+        "en": "service-technician-logistics-m-f-d-kuehne-nagel-embrach",
         "de": "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach",
-        "fr": "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
+        "fr": "technicien-des-services-logistique-m-f-d-kuehne-nagel-embrach"
       },
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
@@ -131,8 +136,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach",
-          "tecnico-di-servizio-logistica-lun-f-d-kuehne-nagel-embrach"
+          "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
+        ],
+        "en": [
+          "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
+        ],
+        "fr": [
+          "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
         ]
       },
       "needsRetranslation": true,
@@ -157,7 +167,7 @@
         "it": "capo-squadra-customer-care-m-w-d-seefracht-kuehne-nagel-opfikon",
         "en": "team-leader-customer-care-m-w-d-seefracht-kuehne-nagel-opfikon",
         "de": "team-leader-customer-care-m-w-d-seefracht-kuehne-nagel-opfikon",
-        "fr": "team-leader-customer-care-m-w-d-seefracht-kuehne-nagel-opfikon"
+        "fr": "chef-d-equipe-service-a-la-clientele-m-f-d-fret-maritime-kuehne-nagel-opfikon"
       },
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
@@ -205,8 +215,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "team-leader-customer-care-m-w-d-seefracht-kuehne-nagel-opfikon",
-          "capo-squadra-customer-care-m-w-d-seefracht-kuehne-nagel-opfikon"
+          "team-leader-customer-care-m-w-d-seefracht-kuehne-nagel-opfikon"
+        ],
+        "fr": [
+          "team-leader-customer-care-m-w-d-seefracht-kuehne-nagel-opfikon"
         ]
       },
       "needsRetranslation": true,
@@ -229,9 +241,9 @@
       "slug": "dispatcher-trasporto-a-lunga-distanza-sanita-lund-fedi-kuehne-nagel-moehlin",
       "slugByLocale": {
         "it": "dispatcher-trasporto-a-lunga-distanza-sanita-lund-fedi-kuehne-nagel-moehlin",
-        "en": "disponent-in-fernverkehr-healthcare-m-w-d-kuehne-nagel-moehlin",
+        "en": "disponent-in-long-distance-healthcare-m-f-d-kuehne-nagel-moehlin",
         "de": "disponent-in-fernverkehr-healthcare-m-w-d-kuehne-nagel-moehlin",
-        "fr": "disponent-in-fernverkehr-healthcare-m-w-d-kuehne-nagel-moehlin"
+        "fr": "deposant-dans-les-soins-de-longue-distance-m-f-d-kuehne-nagel-moehlin"
       },
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
@@ -279,8 +291,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-in-fernverkehr-healthcare-m-w-d-kuehne-nagel-moehlin",
-          "dispatcher-trasporto-a-lunga-distanza-sanita-lund-fedi-kuehne-nagel-moehlin"
+          "disponent-in-fernverkehr-healthcare-m-w-d-kuehne-nagel-moehlin"
+        ],
+        "en": [
+          "disponent-in-fernverkehr-healthcare-m-w-d-kuehne-nagel-moehlin"
+        ],
+        "fr": [
+          "disponent-in-fernverkehr-healthcare-m-w-d-kuehne-nagel-moehlin"
         ]
       },
       "needsRetranslation": true,
@@ -353,8 +370,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-specialist-m-w-d-kuehne-nagel-opfikon",
-          "risorse-umane-specialista-m-w-d-kuehne-nagel-opfikon"
+          "hr-specialist-m-w-d-kuehne-nagel-opfikon"
         ],
         "fr": [
           "hr-specialist-m-w-d-kuehne-nagel-opfikon"
@@ -382,7 +398,7 @@
         "it": "global-insurance-program-manager-m-f-d-benefit-per-i-dipendenti-kuehne-nagel-schindellegi",
         "en": "global-insurance-program-manager-m-f-d-employee-benefits-kuehne-nagel-schindellegi",
         "de": "global-insurance-program-manager-m-f-d-employee-benefits-kuehne-nagel-schindellegi",
-        "fr": "global-insurance-program-manager-m-f-d-employee-benefits-kuehne-nagel-schindellegi"
+        "fr": "gestionnaire-du-programme-mondial-d-assurance-m-f-d-avantages-sociaux-des-employes-kuehne-nagel-schindellegi"
       },
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
@@ -429,6 +445,9 @@
       "firstSeenAt": "2026-07-04T11:08:07.048Z",
       "previousSlugsByLocale": {
         "it": [
+          "global-insurance-program-manager-m-f-d-employee-benefits-kuehne-nagel-schindellegi"
+        ],
+        "fr": [
           "global-insurance-program-manager-m-f-d-employee-benefits-kuehne-nagel-schindellegi"
         ]
       },
