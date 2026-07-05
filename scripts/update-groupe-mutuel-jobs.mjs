@@ -47,6 +47,7 @@ import {
   validateDedicatedLocaleCoverage,
   mergeLocaleTextMap,
   detectLang,
+  addPreviousSlugForLocale,
 } from './lib/dedicated-crawler-common.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ } from './lib/crawler-location-config.mjs';
@@ -690,10 +691,7 @@ async function mergeGroupeMutuelJobs(discoveredJobs) {
           updatedJob.slug = existingJob.slug;
         } else {
           updatedJob.slug = discovered.slug;
-          updatedJob.previousSlugs = [...new Set([
-            ...(existingJob.previousSlugs || []),
-            existingJob.slug,
-          ])];
+          addPreviousSlugForLocale(updatedJob, 'it', existingJob.slug, 20, 'update-groupe-mutuel-jobs/master-rename');
         }
       }
 
@@ -710,11 +708,7 @@ async function mergeGroupeMutuelJobs(discoveredJobs) {
             if (isSlugStable(oldSlug, newSlug, locHints)) {
               updatedJob.slugByLocale[locale] = oldSlug;
             } else {
-              updatedJob.previousSlugs = [...new Set([
-                ...(updatedJob.previousSlugs || []),
-                ...(existingJob.previousSlugs || []),
-                oldSlug,
-              ])];
+              addPreviousSlugForLocale(updatedJob, locale, oldSlug, 20, 'update-groupe-mutuel-jobs/locale-rename');
             }
           }
         }

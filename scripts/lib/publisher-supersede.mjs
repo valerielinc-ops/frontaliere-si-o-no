@@ -16,6 +16,7 @@
 // (publisher-submitted) record is always kept; only crawled duplicates removed.
 
 import { slugifyPublisher, PUBLISHER_SOURCE_KEY } from './publisherJobProjection.mjs';
+import { addPreviousSlugForLocale } from './dedicated-crawler-common.mjs';
 
 /** Stable match key for "same employer + same role + same location". */
 export function supersedeKey(job) {
@@ -68,29 +69,21 @@ export function supersedeCrawledByPublisher(jobs) {
 export function bridgeSlugHistory(pubRec, crawled) {
   if (!pubRec || !crawled) return;
 
-  // Flat previousSlugs: crawled.slug + its own prior previousSlugs.
-  const flat = new Set((pubRec.previousSlugs || []).map(String));
-  for (const s of [crawled.slug, ...(crawled.previousSlugs || [])]) {
-    if (s && String(s) !== String(pubRec.slug)) flat.add(String(s));
-  }
-  if (flat.size) pubRec.previousSlugs = [...flat];
-
-  // Per-locale: crawled.slugByLocale[loc] + crawled.previousSlugsByLocale[loc].
-  const byLoc = {};
-  for (const [loc, arr] of Object.entries(pubRec.previousSlugsByLocale || {})) {
-    byLoc[loc] = new Set((Array.isArray(arr) ? arr : []).map(String));
-  }
-  const addLoc = (loc, val) => {
+  const addBridged = (loc, val) => {
     if (!loc || !val) return;
     const pubLocSlug = (pubRec.slugByLocale && pubRec.slugByLocale[loc]) || pubRec.slug;
     if (String(val) === String(pubLocSlug)) return; // don't self-bridge
-    (byLoc[loc] ||= new Set()).add(String(val));
+    addPreviousSlugForLocale(pubRec, loc, String(val), 20, 'publisher-supersede.bridgeSlugHistory');
   };
-  for (const [loc, s] of Object.entries(crawled.slugByLocale || {})) addLoc(loc, s);
+
+  // Flat: crawled.slug + its own prior previousSlugs bridge onto the IT locale
+  // (this codebase's convention: job.slug mirrors slugByLocale.it).
+  addBridged('it', crawled.slug);
+  for (const s of (crawled.previousSlugs || [])) addBridged('it', s);
+
+  // Per-locale: crawled.slugByLocale[loc] + crawled.previousSlugsByLocale[loc].
+  for (const [loc, s] of Object.entries(crawled.slugByLocale || {})) addBridged(loc, s);
   for (const [loc, arr] of Object.entries(crawled.previousSlugsByLocale || {})) {
-    for (const s of (Array.isArray(arr) ? arr : [])) addLoc(loc, s);
+    for (const s of (Array.isArray(arr) ? arr : [])) addBridged(loc, s);
   }
-  const merged = {};
-  for (const [loc, set] of Object.entries(byLoc)) if (set.size) merged[loc] = [...set];
-  if (Object.keys(merged).length) pubRec.previousSlugsByLocale = merged;
 }

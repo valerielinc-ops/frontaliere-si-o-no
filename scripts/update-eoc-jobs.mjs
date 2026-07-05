@@ -25,7 +25,9 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   stableSlugHash,
+  addPreviousSlugForLocale,
 } from './lib/dedicated-crawler-common.mjs';
+import { capSlugArray } from './lib/slug-history-journal.mjs';
 import { normalizeDescriptionBullets, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -543,10 +545,7 @@ export function postProcessEocJobsInMemory(jobs) {
       const newSlug = buildEocRegeneratedSlug(job, loc);
       if (newSlug && newSlug !== job.slug) {
         // Preserve the previous slug for SEO bridge pages.
-        if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
-        if (!job.previousSlugs.includes(job.slug)) {
-          job.previousSlugs.push(job.slug);
-        }
+        addPreviousSlugForLocale(job, 'it', job.slug, MAX_PREVIOUS_SLUGS, 'update-eoc-jobs/slug-regen');
         job.slug = newSlug;
         fixedSlug++;
         changed = true;
@@ -568,9 +567,9 @@ export function postProcessEocJobsInMemory(jobs) {
       const before = job.previousSlugs.length;
       job.previousSlugs = job.previousSlugs.filter(s => !currentSlugs.has(s));
       // Then: keep only the most recent MAX_PREVIOUS_SLUGS entries.
-      if (job.previousSlugs.length > MAX_PREVIOUS_SLUGS) {
-        job.previousSlugs = job.previousSlugs.slice(-MAX_PREVIOUS_SLUGS);
-      }
+      job.previousSlugs = capSlugArray(job.previousSlugs, MAX_PREVIOUS_SLUGS, {
+        jobId: job.id, source: 'update-eoc-jobs.cleanup-trim',
+      });
       if (job.previousSlugs.length < before) {
         changed = true;
       }
