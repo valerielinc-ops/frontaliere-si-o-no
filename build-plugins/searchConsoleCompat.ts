@@ -9,6 +9,7 @@ import {
  type FuelDailyLocale,
  type FuelType,
 } from './fuelDailyData';
+import { isProfessionCantonPath } from './professionCantonData';
 
 type SupportedLocale = CantonLocale;
 
@@ -168,10 +169,12 @@ const SECTION_FALLBACKS: Array<{ pattern: RegExp; canonical: string; locale: Sup
  // FUEL_SECTION_FALLBACKS below.
  ...FUEL_SECTION_FALLBACKS,
  // Company-hub section. Per-company×city×week leaves (e.g. .../locarno/{company}/settimana-corrente/)
- // 404 once that company has no current-week openings; route to the hub root (IT + EN only —
- // the DE/FR hub roots are not emitted, so no fallback target exists for them).
+ // 404 once that company has no current-week openings; route to the hub root, all 4 locales
+ // (weeklyEmployersPlugin's renderTopHubPage loop emits a hub root for every WEEKLY_EMPLOYERS_LOCALE).
  { pattern: /^\/aziende-che-assumono\//, canonical: '/aziende-che-assumono/', locale: 'it' },
  { pattern: /^\/en\/companies-hiring\//, canonical: '/en/companies-hiring/', locale: 'en' },
+ { pattern: /^\/de\/unternehmen-einstellen\//, canonical: '/de/unternehmen-einstellen/', locale: 'de' },
+ { pattern: /^\/fr\/entreprises-recrutent\//, canonical: '/fr/entreprises-recrutent/', locale: 'fr' },
  // Legacy flat `/lavoro/` job-detail prefix (pre per-canton structure). Route to the
  // localized job-board listing root.
  { pattern: /^\/lavoro\//, canonical: '/cerca-lavoro-ticino/', locale: 'it' },
@@ -307,6 +310,22 @@ export function resolveSearchConsoleCompatTarget(
  }
 
  const locale = inferLocale(path);
+
+ // Profession-canton landings (professionCantonLandings.ts) emit every
+ // (canton × profession) combo unconditionally — either the full page or a
+ // below-floor bridge — so a URL matching this family's exact enumerated
+ // shape always has a live target at the SAME path today, even if GSC's
+ // Coverage export captured it as 404 from before that page existed / was
+ // below floor on an earlier build. Self-map so the compat layer (which
+ // never sees the plugin's own route table otherwise) stops reporting it
+ // unresolvable.
+ if (isProfessionCantonPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
 
  if (/\/(ricerca|search|suche|recherche)-/.test(path)) {
  // Legacy per-canton cluster URL with a KNOWN live target: recover the

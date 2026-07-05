@@ -3349,11 +3349,11 @@ ${sitemapEntries.join('\n')}
         });
         const localesCount = JOB_MARKET_SNAPSHOT_LOCALES.length;
         console.log(
-          `\x1b[36m[job-market-snapshot]\x1b[0m P2.S1 emitted ${r.cantonsEmitted.length} per-canton snapshot pages × ${localesCount} locales`,
+          `\x1b[36m[job-market-snapshot]\x1b[0m P2.S1 emitted ${r.cantonsEmitted.length} per-canton snapshot pages × ${localesCount} locales (+${r.bridgesWritten} below-floor bridges)`,
         );
         if (r.cantonsSkipped.length > 0) {
           const skipped = r.cantonsSkipped.map((s) => `${s.code}:${s.jobsCount}`).join(', ');
-          console.log(`[job-market-snapshot] P2.S1 skipped (below 5 jobs): ${skipped}`);
+          console.log(`[job-market-snapshot] P2.S1 skipped (below 5 jobs, bridged): ${skipped}`);
         }
       } catch (err) {
         console.warn('[job-market-snapshot] P2.S1 per-canton emit failed:', err);

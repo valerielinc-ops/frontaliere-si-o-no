@@ -51,6 +51,8 @@ import {
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import { buildSnapshotProseBlock } from './shared/cantonSnapshotProse';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { PROFESSION_CANTON_KEYS } from './professionCantonData';
+import { renderSalaryStatsBridge } from './shared/salaryStatsBridge';
 
 // ── Local types — kept loose; the TI-side JobRecord is already compatible. ──
 interface JobLike {
@@ -544,6 +546,55 @@ export interface ChCantonSnapshotEmitResult {
   cantonsEmitted: Array<{ code: string; jobsCount: number }>;
   cantonsSkipped: Array<{ code: string; jobsCount: number }>;
   pagesSkippedForWordCount: number;
+  /** Below-floor cantons bridged to the salary-stats hub instead of left to 404. */
+  bridgesWritten: number;
+}
+
+interface BridgeCopy {
+  title: (canton: string) => string;
+  body: (canton: string) => string;
+  cta: (canton: string) => string;
+}
+
+const BRIDGE_COPY: Record<Locale, BridgeCopy> = {
+  it: {
+    title: (c) => `Snapshot mercato lavoro — Canton ${c}`,
+    body: (c) => `Al momento non ci sono abbastanza offerte attive nel Canton ${c} da mostrare uno snapshot dedicato. Consulta stipendi e mercato del lavoro nel Canton ${c}.`,
+    cta: (c) => `Vai ai dati del Canton ${c}`,
+  },
+  en: {
+    title: (c) => `Job market snapshot — Canton ${c}`,
+    body: (c) => `There aren't enough active openings in Canton ${c} right now for a dedicated snapshot. See salary and job-market data for Canton ${c}.`,
+    cta: (c) => `Go to Canton ${c} data`,
+  },
+  de: {
+    title: (c) => `Arbeitsmarkt-Snapshot — Kanton ${c}`,
+    body: (c) => `Im Kanton ${c} gibt es derzeit nicht genug aktive Stellen fur einen eigenen Snapshot. Lohn- und Arbeitsmarktdaten fur den Kanton ${c} ansehen.`,
+    cta: (c) => `Zu den Daten fur Kanton ${c}`,
+  },
+  fr: {
+    title: (c) => `Aperçu marché de l'emploi — canton ${c}`,
+    body: (c) => `Il n'y a pas assez d'offres actives dans le canton ${c} pour un aperçu dédié actuellement. Consultez les données salariales et du marché du travail du canton ${c}.`,
+    cta: (c) => `Voir les données du canton ${c}`,
+  },
+};
+
+/**
+ * Below-floor bridge: a canton that doesn't meet the jobs floor this build
+ * gets a noindex,follow canonical bridge instead of a hard 404. Job counts
+ * fluctuate build to build, and this exact path may have been indexed on a
+ * prior build when the canton did meet the floor (same orphaned-static-page
+ * class fixed for profession-canton landings and weekly-employers cantons —
+ * professionCantonLandings.ts / weeklyEmployersChCantonPages.ts).
+ */
+function renderBelowFloorBridge(locale: Locale, cantonCode: string): string {
+  const cantonName = getCantonDisplayName(cantonCode, locale);
+  const copy = BRIDGE_COPY[locale];
+  return renderSalaryStatsBridge(locale, cantonCode, {
+    title: copy.title(cantonName),
+    description: copy.body(cantonName),
+    ctaLabel: copy.cta(cantonName),
+  });
 }
 
 /**
@@ -562,6 +613,7 @@ export async function emitChCantonSnapshotPages(
     cantonsEmitted: [],
     cantonsSkipped: [],
     pagesSkippedForWordCount: 0,
+    bridgesWritten: 0,
   };
 
   const slugFile = loadCantonSlugFile(opts.rootDir);
@@ -599,6 +651,15 @@ export async function emitChCantonSnapshotPages(
   // and BL+BS jobs accumulate in the merged bucket directly.
   const jobsByCanton = new Map<string, JobLike[]>();
   for (const code of citiesByCanton.keys()) jobsByCanton.set(code, []);
+  // citiesByCanton is derived from the BFS municipalities dataset — if a
+  // canton group key is ever entirely absent there (stale/incomplete data),
+  // it would never enter jobsByCanton and vanish silently from both
+  // cantonsEmitted AND cantonsSkipped below, so it would get no bridge
+  // either. PROFESSION_CANTON_KEYS is the canonical universe of all 23
+  // non-TI canton group keys — seed any missing one with an empty bucket.
+  for (const code of PROFESSION_CANTON_KEYS) {
+    if (!jobsByCanton.has(code)) jobsByCanton.set(code, []);
+  }
   for (const job of activePool as readonly JobLike[]) {
     const directCanton = (job as { canton?: unknown }).canton;
     if (typeof directCanton === 'string' && directCanton.length === 2) {
@@ -711,6 +772,20 @@ export async function emitChCantonSnapshotPages(
       const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
       collector.add(np.join(outDir, 'index.html'), html);
       result.pagesWritten++;
+    }
+  }
+
+  // Below-floor cantons (recorded above) still get a noindex bridge to their
+  // salary-stats hub — never a silent drop of a page a prior build may have
+  // emitted and Google indexed.
+  for (const skipped of result.cantonsSkipped) {
+    for (const locale of LOCALES) {
+      const cantonSlug = getCantonUrlSlugLocal(slugFile, skipped.code, locale);
+      if (!cantonSlug) continue;
+      const canonicalPath = buildCantonSnapshotPath(locale, cantonSlug);
+      const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
+      collector.add(np.join(outDir, 'index.html'), renderBelowFloorBridge(locale, skipped.code));
+      result.bridgesWritten++;
     }
   }
 
