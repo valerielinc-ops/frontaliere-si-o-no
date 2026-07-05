@@ -680,7 +680,9 @@ export function careerLandingsPlugin(rootDir: string): Plugin {
           // sanitizeSitemapHreflangReciprocity instead of being
           // referenced-but-never-listed. Non-IT pushes require the IT
           // anchor itself to have been written this run (CAREER_LOCALES
-          // starts with 'it', so itWasWritten is settled before en/de/fr).
+          // starts with 'it', so itWasWritten is settled before en/de/fr) —
+          // an unconditional push would leave a dangling IT alternate when
+          // the IT render is itself thin-skipped above.
           if (locale === 'it') {
             itWasWritten = true;
             sitemapEntries.push({ canonical: rendered.urlPath, alternates });
