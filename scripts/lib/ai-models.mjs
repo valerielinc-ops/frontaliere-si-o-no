@@ -1778,12 +1778,28 @@ export function recordModelContentSuccess(modelId) {
  * after `MAX_CONSECUTIVE_CONTENT_FAILURES` consecutive content failures for the
  * same model, marks it exhausted for the rest of this process so subsequent
  * callLLM invocations skip it and try the next-best model in the chain.
+ *
+ * Local CPU fallback is exempt from the ban itself (still penalized via
+ * recordModelFailure, just never hard-excluded) — same rationale as its
+ * Firestore-persistence exemption above (initScoreStore /
+ * _persistScoresToFirestore): it has no external quota, so when the remote
+ * chain is ALSO exhausted it's the only resource left this run. Banning it
+ * after 2 failures doesn't save anything (there's nothing else to fall back
+ * to) — it just guarantees the run produces zero output for its remaining
+ * wall-clock budget instead of getting more real attempts at the only model
+ * still willing to answer. See run 28737038015: local/fallback banned at
+ * ~22min into a 30min budget, wasting the remaining ~8min on 5 further
+ * outer-retries + additional ranker candidates that were 100% certain to
+ * fail (every model already exhausted). deadlineMs (RUN_WALL_BUDGET_MS)
+ * already bounds total retry time, so removing the ban here doesn't risk an
+ * unbounded loop.
  */
 export function recordModelContentFailure(modelId) {
   if (!modelId) return;
   recordModelFailure(modelId);
   const count = (_consecutiveContentFailures.get(modelId) || 0) + 1;
   _consecutiveContentFailures.set(modelId, count);
+  if (getProvider(modelId) === PROVIDER.LOCAL) return;
   if (count >= MAX_CONSECUTIVE_CONTENT_FAILURES) {
     markModelExhausted(modelId, 'content');
     _stats.exhausted++;

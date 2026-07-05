@@ -22,4 +22,13 @@ describe('ai-models content-quality failure tracking', () => {
 
     expect(aiModels.getStats().exhaustedModels).not.toContain('mistral/ministral-8b-latest');
   });
+
+  it('never bans local/fallback on repeated content failures — last resort when remote chain is exhausted', () => {
+    aiModels.recordModelContentFailure('local/fallback');
+    aiModels.recordModelContentFailure('local/fallback');
+    aiModels.recordModelContentFailure('local/fallback');
+    aiModels.recordModelContentFailure('local/fallback');
+
+    expect(aiModels.getStats().exhaustedModels).not.toContain('local/fallback');
+  });
 });
