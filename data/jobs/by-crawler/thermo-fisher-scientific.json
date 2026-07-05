@@ -1,6 +1,6 @@
 {
   "crawlerKey": "thermo-fisher-scientific",
-  "assembledAt": "2026-07-04T23:31:54.715Z",
+  "assembledAt": "2026-07-05T12:45:56.946Z",
   "jobs": [
     {
       "id": "thermo-fisher-scientific-7592f96076cd",
@@ -33,7 +33,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01358177/usp-manufacturing-professional",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:50.495Z",
+      "crawledAt": "2026-07-05T12:45:54.549Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -51,7 +51,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "usp-manufacturing-professional-thermo-fisher-scientific-ch"
+        "usp-manufacturing-professional-thermo-fisher-scientific-ch",
+        "professionale-per-la-produzione-di-usp-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63,6 +64,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:33.926Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -107,7 +109,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01358136/mitarbeiter-in-der-qualitatskontrolle",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:31:51.801Z",
+      "crawledAt": "2026-07-05T12:45:53.837Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -125,7 +127,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-der-qualitatskontrolle-thermo-fisher-scientific-ch"
+        "mitarbeiter-in-der-qualitatskontrolle-thermo-fisher-scientific-ch",
+        "collaboratore-trice-in-der-qualitatskontrolle-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -184,7 +187,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356760/senior-scientist-qa-operations",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:51.171Z",
+      "crawledAt": "2026-07-05T12:45:53.169Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -202,6 +205,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:19:34.807Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -246,7 +250,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01351632/field-service-engineer",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:49.877Z",
+      "crawledAt": "2026-07-05T12:45:52.449Z",
       "addressLocality": "Reinach",
       "postalCode": "CH-4153",
       "addressRegion": "BL",
@@ -264,7 +268,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "field-service-engineer-thermo-fisher-scientific-ch"
+        "field-service-engineer-thermo-fisher-scientific-ch",
+        "field-service-ingegnere-thermo-fisher-scientific-schweiz-ag-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -307,7 +312,7 @@
       "title": "Goods Receipt Specialist",
       "titleByLocale": {
         "it": "Goods Receipt Specialista",
-        "en": "Good Receipt Specialist",
+        "en": "Goods Receipt Specialist",
         "de": "Goods Receipt Spezialist",
         "fr": "Goods Receipt Spécialiste"
       },
@@ -323,7 +328,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01358126/goods-receipt-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T23:31:52.488Z",
+      "crawledAt": "2026-07-05T12:45:51.760Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -341,7 +346,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "goods-receipt-specialist-thermo-fisher-scientific-ch"
+        "goods-receipt-specialist-thermo-fisher-scientific-ch",
+        "goods-receipt-specialista-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -353,6 +359,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:37.670Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -397,7 +404,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01357758/senior-technical-sales-specialist-single-use-technologies",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:49.109Z",
+      "crawledAt": "2026-07-05T12:45:50.809Z",
       "addressLocality": "Reinach",
       "postalCode": "CH-4153",
       "addressRegion": "BL",
@@ -415,7 +422,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-technical-sales-specialist-single-use-technologies-thermo-fisher-scientific-ch"
+        "senior-technical-sales-specialist-single-use-technologies-thermo-fisher-scientific-ch",
+        "senior-technical-sales-specialista-single-use-technologies-thermo-fisher-scientific-schweiz-ag-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -441,7 +449,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "thermo-fisher-scientific-14dbed50cf4f",
@@ -474,7 +483,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01349188/senior-scientist-microbiological-quality-control",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:48.348Z",
+      "crawledAt": "2026-07-05T12:45:49.501Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -492,6 +501,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:19:31.714Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -536,7 +546,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01354201/r-d-engineer",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:47.389Z",
+      "crawledAt": "2026-07-05T12:45:48.200Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "postalCode": "1033",
       "addressRegion": "VD",
@@ -554,7 +564,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "r-d-engineer-thermo-fisher-scientific-ch"
+        "r-d-engineer-thermo-fisher-scientific-ch",
+        "r-d-ingegnere-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne-vaud-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -613,7 +624,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01351336/dsp-manufacturing-team-leader",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:45.241Z",
+      "crawledAt": "2026-07-05T12:45:47.228Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -631,7 +642,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dsp-manufacturing-team-leader-thermo-fisher-scientific-ch"
+        "dsp-manufacturing-team-leader-thermo-fisher-scientific-ch",
+        "dsp-manufacturing-capo-squadra-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -690,7 +702,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01352354/laboratory-specialist-sample-management",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:46.228Z",
+      "crawledAt": "2026-07-05T12:45:46.492Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -708,7 +720,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laboratory-specialist-sample-management-thermo-fisher-scientific-ch"
+        "laboratory-specialist-sample-management-thermo-fisher-scientific-ch",
+        "laboratory-specialista-sample-management-thermo-fisher-scientific-schweiz-ag-lengnau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -767,7 +780,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01350963/on-site-service-engineer-chromatography-f-m-d",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:44.433Z",
+      "crawledAt": "2026-07-05T12:45:45.779Z",
       "addressLocality": "Reinach",
       "postalCode": "CH-4153",
       "addressRegion": "BL",
@@ -785,7 +798,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "on-site-service-engineer-chromatography-f-m-d-thermo-fisher-scientific-ch"
+        "on-site-service-engineer-chromatography-f-m-d-thermo-fisher-scientific-ch",
+        "on-site-service-ingegnere-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -844,7 +858,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01347516/project-support-associate-distribution",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:43.512Z",
+      "crawledAt": "2026-07-05T12:45:45.023Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -862,7 +876,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-support-associate-distribution-thermo-fisher-scientific-ch"
+        "project-support-associate-distribution-thermo-fisher-scientific-ch",
+        "supporto-per-il-progetto-associate-distribuzione-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -921,7 +936,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344554/scientist-microbiological-quality-control",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:42.832Z",
+      "crawledAt": "2026-07-05T12:45:44.158Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -939,7 +954,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "scientist-microbiological-quality-control-thermo-fisher-scientific-ch"
+        "scientist-microbiological-quality-control-thermo-fisher-scientific-ch",
+        "controllo-di-qualita-microbiologica-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -998,7 +1014,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344516/mbp-manufacturing-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:42.022Z",
+      "crawledAt": "2026-07-05T12:45:43.172Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1016,7 +1032,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mbp-manufacturing-specialist-thermo-fisher-scientific-ch"
+        "mbp-manufacturing-specialist-thermo-fisher-scientific-ch",
+        "mbp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1075,7 +1092,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356720/laboratory-specialist-microbiological-quality-control",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:40.962Z",
+      "crawledAt": "2026-07-05T12:45:41.800Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1093,7 +1110,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laboratory-specialist-microbiological-quality-control-thermo-fisher-scientific-ch"
+        "laboratory-specialist-microbiological-quality-control-thermo-fisher-scientific-ch",
+        "laboratory-specialista-microbiological-quality-control-thermo-fisher-scientific-schweiz-ag-lengnau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1102,6 +1120,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:22.727Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1146,7 +1165,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356746/black-utilities-sme",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:39.291Z",
+      "crawledAt": "2026-07-05T12:45:40.129Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1164,7 +1183,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "black-utilities-sme-thermo-fisher-scientific-ch"
+        "black-utilities-sme-thermo-fisher-scientific-ch",
+        "black-utility-pmi-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1223,7 +1243,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356730/senior-scientist-electronic-laboratory-systems",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:40.005Z",
+      "crawledAt": "2026-07-05T12:45:38.482Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1241,7 +1261,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-scientist-electronic-laboratory-systems-thermo-fisher-scientific-ch"
+        "senior-scientist-electronic-laboratory-systems-thermo-fisher-scientific-ch",
+        "sistemi-di-laboratorio-elettronici-degli-scienziati-senior-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1300,7 +1321,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344213/project-support-associate-client-services-distribution",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:38.472Z",
+      "crawledAt": "2026-07-05T12:45:36.795Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1318,7 +1339,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-support-associate-client-services-distribution-thermo-fisher-scientific-ch"
+        "project-support-associate-client-services-distribution-thermo-fisher-scientific-ch",
+        "supporto-del-progetto-associate-distribuzione-dei-servizi-client-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1330,6 +1352,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:18.664Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1374,7 +1397,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356723/process-and-cleaning-validation-lead-msat",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:37.197Z",
+      "crawledAt": "2026-07-05T12:45:34.931Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1392,7 +1415,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "process-and-cleaning-validation-lead-msat-thermo-fisher-scientific-ch"
+        "process-and-cleaning-validation-lead-msat-thermo-fisher-scientific-ch",
+        "piombo-di-convalida-di-processo-e-pulizia-msat-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1451,7 +1475,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356103/demand-and-supply-management-coordinator",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:36.200Z",
+      "crawledAt": "2026-07-05T12:45:33.271Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1469,7 +1493,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "demand-and-supply-management-coordinator-thermo-fisher-scientific-ch"
+        "demand-and-supply-management-coordinator-thermo-fisher-scientific-ch",
+        "demand-and-supply-management-coordinatore-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1528,7 +1553,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356104/demand-and-supply-manager",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:35.059Z",
+      "crawledAt": "2026-07-05T12:45:31.882Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1546,7 +1571,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "demand-and-supply-manager-thermo-fisher-scientific-ch"
+        "demand-and-supply-manager-thermo-fisher-scientific-ch",
+        "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1602,7 +1628,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01349179/senior-scientist-material-management-qualification-quality-control",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:34.001Z",
+      "crawledAt": "2026-07-05T12:45:31.004Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1620,7 +1646,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-scientist-material-management-qualification-quality-control-thermo-fisher"
+        "senior-scientist-material-management-qualification-quality-control-thermo-fisher",
+        "senior-scientist-material-management-qualification-controllo-qualita-thermo-fisher-scientific-schweiz-ag-lengnau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1646,7 +1673,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "thermo-fisher-scientific-662212db4ff8",
@@ -1679,7 +1707,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01351330/mbp-manufacturing-team-leader",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:32.828Z",
+      "crawledAt": "2026-07-05T12:45:29.994Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1697,7 +1725,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mbp-manufacturing-team-leader-thermo-fisher-scientific-ch"
+        "mbp-manufacturing-team-leader-thermo-fisher-scientific-ch",
+        "mbp-manufacturing-capo-squadra-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1709,6 +1738,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:13.291Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1753,7 +1783,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344621/senior-project-manager-client-services-distribution",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:31.475Z",
+      "crawledAt": "2026-07-05T12:45:29.012Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1771,7 +1801,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-project-manager-client-services-distribution-thermo-fisher-scientific-ch"
+        "senior-project-manager-client-services-distribution-thermo-fisher-scientific-ch",
+        "senior-project-manager-distribuzione-dei-servizi-client-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1827,7 +1858,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344518/mbp-manufacturing-specialist-fixed-term",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:29.831Z",
+      "crawledAt": "2026-07-05T12:45:27.772Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1845,7 +1876,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mbp-manufacturing-specialist-fixed-term-thermo-fisher-scientific-ch"
+        "mbp-manufacturing-specialist-fixed-term-thermo-fisher-scientific-ch",
+        "mbp-manufacturing-specialista-fixed-term-thermo-fisher-scientific-schweiz-ag-lengnau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1904,7 +1936,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356713/clean-utilities-and-package-units-process-automation",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:28.818Z",
+      "crawledAt": "2026-07-05T12:45:26.786Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1933,7 +1965,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "thermo-fisher-scientific-7c1971d49613",
@@ -1966,7 +1999,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01358176/usp-manufacturing-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:28.108Z",
+      "crawledAt": "2026-07-05T12:45:25.853Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1984,7 +2017,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "usp-manufacturing-specialist-thermo-fisher-scientific-ch"
+        "usp-manufacturing-specialist-thermo-fisher-scientific-ch",
+        "usp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2043,7 +2077,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356488/team-leader-customer-site",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:27.476Z",
+      "crawledAt": "2026-07-05T12:45:25.167Z",
       "addressLocality": "Solothurn",
       "postalCode": "99999",
       "addressRegion": "SO",
@@ -2061,7 +2095,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "team-leader-customer-site-thermo-fisher-scientific-ch"
+        "team-leader-customer-site-thermo-fisher-scientific-ch",
+        "capo-squadra-customer-site-thermo-fisher-scientific-schweiz-ag-solothurn-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2120,7 +2155,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01355076/team-leader-ipi-quality-operations",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:26.840Z",
+      "crawledAt": "2026-07-05T12:45:24.424Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -2138,7 +2173,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "team-leader-ipi-quality-operations-thermo-fisher-scientific-ch"
+        "team-leader-ipi-quality-operations-thermo-fisher-scientific-ch",
+        "capo-squadra-ipi-quality-operations-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2197,7 +2233,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356120/project-support-associate-document-writer",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:26.036Z",
+      "crawledAt": "2026-07-05T12:45:23.745Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -2215,7 +2251,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-support-associate-document-writer-thermo-fisher-scientific-ch"
+        "project-support-associate-document-writer-thermo-fisher-scientific-ch",
+        "project-support-associate-scrittore-di-documenti-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2274,7 +2311,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01334973/senior-cqv-engineer",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:25.092Z",
+      "crawledAt": "2026-07-05T12:45:23.060Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -2292,7 +2329,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-cqv-engineer-thermo-fisher-scientific-ch"
+        "senior-cqv-engineer-thermo-fisher-scientific-ch",
+        "senior-cqv-ingegnere-thermo-fisher-scientific-schweiz-ag-lengnau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2351,7 +2389,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01351334/dsp-manufacturing-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:24.274Z",
+      "crawledAt": "2026-07-05T12:45:22.396Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -2369,7 +2407,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dsp-manufacturing-specialist-thermo-fisher-scientific-ch"
+        "dsp-manufacturing-specialist-thermo-fisher-scientific-ch",
+        "dsp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2428,7 +2467,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01345023/procurement-specialist-12-month-ftc",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T23:31:23.520Z",
+      "crawledAt": "2026-07-05T12:45:21.654Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -2446,7 +2485,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "procurement-specialist-12-month-ftc-thermo-fisher-scientific-ch"
+        "procurement-specialist-12-month-ftc-thermo-fisher-scientific-ch",
+        "procurement-specialista-12-month-ftc-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2473,85 +2513,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "thermo-fisher-scientific-0ab33c75a69c",
-      "slug": "field-service-ingegnere-chromatography-thermo-fisher-scientific-schweiz-ag-remote",
-      "slugByLocale": {
-        "en": "field-service-engineer-chromatography-thermo-fisher-scientific-ch",
-        "it": "field-service-ingegnere-chromatography-thermo-fisher-scientific-schweiz-ag-remote",
-        "de": "field-service-ingenieur-chromatography-thermo-fisher-scientific-schweiz-ag-remote",
-        "fr": "field-service-ingenieur-chromatography-thermo-fisher-scientific-schweiz-ag-remote"
-      },
-      "company": "Thermo Fisher Scientific (Schweiz) AG",
-      "companyKey": "thermo-fisher-scientific",
-      "companyDomain": "thermofisher.com",
-      "title": "Field Service Engineer (Chromatography)",
-      "titleByLocale": {
-        "en": "Field Service Engineer (Chromatography)",
-        "it": "Field Service Ingegnere (Chromatography)",
-        "de": "Field Service Ingenieur (Chromatography)",
-        "fr": "Field Service Ingénieur (Chromatography)"
-      },
-      "description": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards, Laboratory Setting, Loud Noises (Equipment/Machinery), Office, Some degree of PPE (Personal Protective Equipment) required (safety glasses, gowning, gloves, lab coat, ear plugs etc.), Will work with hazardous/toxic materials\n\n## Job Description\n\nAs part of the Thermo Fisher Scientific team, you’ll discover meaningful work that makes a positive impact on a global scale. Join our colleagues in bringing our Mission to life every single day to enable our customers to make the world healthier, cleaner and safer. We provide our global teams with the resources needed to achieve individual career goals while helping to take science a step beyond by developing solutions for some of the world’s toughest challenges, like protecting the environment, making sure our food is safe or helping find cures for cancer.\n\nCMD; Unity Lab Services, part of Thermo Fisher Scientific, provides critical on-site instrument services at customer locations. Our colleagues are passionate about improving customer experience and service operations efficiency.\n\n**Location:** Switzerland\n\n**Discover Impactful Work** This is an excellent opportunity to start your career in our growing Field Service team and make a difference. You will receive comprehensive training from our colleagues to support your development within Thermo Fisher Scientific. The focus of this role is the installation, preventive maintenance, instrument qualification, and troubleshooting of chromatographic (HPLC / IC) devices.\n\n**A Day in the Life:** Collaborate with colleagues in the customer care center to efficiently schedule service visits and exceed customer expectations. Install chromatography products, demonstrate instrument specifications, and provide customer familiarization training. Perform preventive maintenance, qualifications, troubleshooting, and failure analysis while ensuring compliance with regulatory requirements and internal procedures. Maintain strong customer relationships and contribute to service performance targets.\n\n## What to expect:\n\n- Collaborate with customer care teams to plan and schedule service visits\n- Install chromatography instruments and provide customer familiarization training\n- Perform preventive maintenance and instrument qualification activities\n- Troubleshoot and analyze instrument failures\n- Prepare detailed service documentation in compliance with regulatory requirements\n- Contribute to service targets including bookings, revenue, profitability, and cost management\n- Follow all internal service procedures and customer regulations\n- Build and maintain strong professional customer relationships\n- Manage company assets including inventory, tools, software, and company vehicle\n- Coordinate service planning with dispatchers, team leaders, and other stakeholders\n- Travel extensively within Switzerland and occasionally internationally across EMEA and the United States\n\n## Keys to Success:\n\n## Education\n\n- Technical education or chemical background\n- Valid driving license\n\n## Experience\n\n- Experience with chromatography systems (HPLC / IC) preferred\n- 2–3 years of experience servicing chromatography products or working as a user is advantageous\n- Experience in customer-facing technical support environments is beneficial\n\n## Knowledge, Skills, Abilities\n\n- Curiosity about analytical instruments, systems, applications, new products, and technologies\n- Proficient in German with good English language skills\n- Strong hardware and software knowledge, particularly Windows operating systems and Microsoft Office applications\n- Strong problem-solving abilities\n- Proven organizational skills with the ability to manage multiple priorities simultaneously\n- Excellent interpersonal, self-motivation, and negotiation skills\n- Willingness and passion for frequent travel\n\n## Competencies\n\n- Customer focus\n- Team collaboration\n- Accountability\n- Adaptability\n- Planning and organization\n- Communication skills\n- Continuous learning mindset\n- Ethical and professional conduct\n\n**Benefits:** We offer competitive remuneration, annual incentive plan bonus, healthcare, and a range of employee benefits. Thermo Fisher Scientific offers employment with an innovative, forward-thinking organization, and outstanding career and development prospects. We offer an exciting company culture that stands for integrity, intensity, involvement, and innovation!\n\nOur Mission is to enable our customers to make the world healthier, cleaner and safer. Watch as our colleagues explain 5 reasons to work with us. As one team of 100,000+ colleagues, we share a common set of values - Integrity, Intensity, Innovation and Involvement - working together to accelerate research, solve complex scientific challenges, drive technological innovation and support patients in need.\n\n#StartYourStory at Thermo Fisher Scientific, where diverse experiences, backgrounds and perspectives are valued.\n\n**Apply today**! [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific is an EEO/Affirmative Action Employer and does not discriminate on the basis of race, color, religion, sex, sexual orientation, gender identity, national origin, protected veteran status, disability",
-      "descriptionByLocale": {
-        "en": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards, Laboratory Setting, Loud Noises (Equipment/Machinery), Office, Some degree of PPE (Personal Protective Equipment) required (safety glasses, gowning, gloves, lab coat, ear plugs etc.), Will work with hazardous/toxic materials\n\n## Job Description\n\nAs part of the Thermo Fisher Scientific team, you’ll discover meaningful work that makes a positive impact on a global scale. Join our colleagues in bringing our Mission to life every single day to enable our customers to make the world healthier, cleaner and safer. We provide our global teams with the resources needed to achieve individual career goals while helping to take science a step beyond by developing solutions for some of the world’s toughest challenges, like protecting the environment, making sure our food is safe or helping find cures for cancer.\n\nCMD; Unity Lab Services, part of Thermo Fisher Scientific, provides critical on-site instrument services at customer locations. Our colleagues are passionate about improving customer experience and service operations efficiency.\n\n**Location:** Switzerland\n\n**Discover Impactful Work** This is an excellent opportunity to start your career in our growing Field Service team and make a difference. You will receive comprehensive training from our colleagues to support your development within Thermo Fisher Scientific. The focus of this role is the installation, preventive maintenance, instrument qualification, and troubleshooting of chromatographic (HPLC / IC) devices.\n\n**A Day in the Life:** Collaborate with colleagues in the customer care center to efficiently schedule service visits and exceed customer expectations. Install chromatography products, demonstrate instrument specifications, and provide customer familiarization training. Perform preventive maintenance, qualifications, troubleshooting, and failure analysis while ensuring compliance with regulatory requirements and internal procedures. Maintain strong customer relationships and contribute to service performance targets.\n\n## What to expect:\n\n- Collaborate with customer care teams to plan and schedule service visits\n- Install chromatography instruments and provide customer familiarization training\n- Perform preventive maintenance and instrument qualification activities\n- Troubleshoot and analyze instrument failures\n- Prepare detailed service documentation in compliance with regulatory requirements\n- Contribute to service targets including bookings, revenue, profitability, and cost management\n- Follow all internal service procedures and customer regulations\n- Build and maintain strong professional customer relationships\n- Manage company assets including inventory, tools, software, and company vehicle\n- Coordinate service planning with dispatchers, team leaders, and other stakeholders\n- Travel extensively within Switzerland and occasionally internationally across EMEA and the United States\n\n## Keys to Success:\n\n## Education\n\n- Technical education or chemical background\n- Valid driving license\n\n## Experience\n\n- Experience with chromatography systems (HPLC / IC) preferred\n- 2–3 years of experience servicing chromatography products or working as a user is advantageous\n- Experience in customer-facing technical support environments is beneficial\n\n## Knowledge, Skills, Abilities\n\n- Curiosity about analytical instruments, systems, applications, new products, and technologies\n- Proficient in German with good English language skills\n- Strong hardware and software knowledge, particularly Windows operating systems and Microsoft Office applications\n- Strong problem-solving abilities\n- Proven organizational skills with the ability to manage multiple priorities simultaneously\n- Excellent interpersonal, self-motivation, and negotiation skills\n- Willingness and passion for frequent travel\n\n## Competencies\n\n- Customer focus\n- Team collaboration\n- Accountability\n- Adaptability\n- Planning and organization\n- Communication skills\n- Continuous learning mindset\n- Ethical and professional conduct\n\n**Benefits:** We offer competitive remuneration, annual incentive plan bonus, healthcare, and a range of employee benefits. Thermo Fisher Scientific offers employment with an innovative, forward-thinking organization, and outstanding career and development prospects. We offer an exciting company culture that stands for integrity, intensity, involvement, and innovation!\n\nOur Mission is to enable our customers to make the world healthier, cleaner and safer. Watch as our colleagues explain 5 reasons to work with us. As one team of 100,000+ colleagues, we share a common set of values - Integrity, Intensity, Innovation and Involvement - working together to accelerate research, solve complex scientific challenges, drive technological innovation and support patients in need.\n\n#StartYourStory at Thermo Fisher Scientific, where diverse experiences, backgrounds and perspectives are valued.\n\n**Apply today**! [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific is an EEO/Affirmative Action Employer and does not discriminate on the basis of race, color, religion, sex, sexual orientation, gender identity, national origin, protected veteran status, disability",
-        "it": "## Programma di lavoro\n\nStandard (Mon-Fri)\n\n## Condizioni ambientali\n\nAderenza a tutte le buone pratiche di fabbricazione (GMP) standard di sicurezza, installazione di laboratorio, rumori loud (attrezzatura / macchina), ufficio, un certo grado di PPE (attrezzatura di protezione personale) richiesto (vetri di sicurezza, abiti, guanti, camice da laboratorio, tappi auricolari ecc.), Funzionerà con materiali tossici/tossici\n\n## Descrizione del lavoro\n\nCome parte del team Thermo Fisher Scientific, scoprirete un lavoro significativo che fa un impatto positivo su scala globale. Unisciti ai nostri colleghi nel portare la nostra missione in vita ogni giorno per consentire ai nostri clienti di rendere il mondo più sano, più pulito e sicuro. Forniamo ai nostri team globali le risorse necessarie per raggiungere i singoli obiettivi di carriera, aiutando a superare la scienza, sviluppando soluzioni per alcune delle sfide più difficili del mondo, come proteggere l’ambiente, assicurarsi che il nostro cibo sia sicuro o aiutando a trovare cure per il cancro.\n\nCMD; Unity Lab Services, parte di Thermo Fisher Scientific, fornisce servizi di strumenti in loco critici nelle sedi dei clienti. I nostri colleghi sono appassionati di migliorare l'esperienza del cliente e l'efficienza delle operazioni di servizio.\n\n**Posizione:** Svizzera\n\n**Scopri il lavoro d'impatto ** Questa è un'ottima opportunità per iniziare la tua carriera nel nostro team di Field Service in crescita e fare la differenza. Riceverai una formazione completa dai nostri colleghi per sostenere il tuo sviluppo all'interno di Thermo Fisher Scientific. Il focus di questo ruolo è l'installazione, la manutenzione preventiva, la qualificazione degli strumenti e la risoluzione dei problemi dei dispositivi cromatografici (HPLC / IC).\n\n**A Day in the Life:** Collabora con i colleghi del centro assistenza clienti per pianificare in modo efficiente le visite di assistenza e superare le aspettative dei clienti. Installare prodotti di cromatografia, dimostrare le specifiche dello strumento e fornire formazione di familiarizzazione del cliente. Eseguire la manutenzione preventiva, le qualifiche, la risoluzione dei problemi e l'analisi dei guasti, garantendo nel contempo la conformità ai requisiti normativi e alle procedure interne. Mantenere forti relazioni con i clienti e contribuire a obiettivi di prestazioni di servizio.\n\n## Cosa aspettarsi:\n\n- Collabora con i team di assistenza clienti per pianificare e programmare visite di assistenza\n- Installare strumenti di cromatografia e fornire la formazione di familiarizzazione del cliente\n- Eseguire attività di manutenzione preventiva e qualificazione degli strumenti\n- Risoluzione dei problemi e analisi dei guasti degli strumenti\n- Preparare la documentazione dettagliata dei servizi in conformità ai requisiti normativi\n- Contribuisci agli obiettivi di servizio tra cui prenotazioni, ricavi, redditività e gestione dei costi\n- Seguire tutte le procedure di servizio interno e le normative dei clienti\n- Costruire e mantenere forti relazioni professionali con i clienti\n- Gestire le attività aziendali tra cui inventario, strumenti, software e veicoli aziendali\n- Coordinate la pianificazione dei servizi con i dispacci, i leader del team e altri stakeholder\n- Viaggia in Svizzera e occasionalmente a livello internazionale in EMEA e negli Stati Uniti\n\n## Le chiavi di successo:\n\n## Istruzione\n\n- Istruzione tecnica o background chimico\n- Licenza di guida valida\n\n## Esperienza\n\n- Esperienza con i sistemi di cromatografia (HPLC / IC) preferiti\n- 2–3 anni di esperienza di manutenzione dei prodotti di cromatografia o di lavoro come utente è vantaggioso\n- L'esperienza negli ambienti di supporto tecnico orientati al cliente è utile\n\n## Conoscenza, abilità, abilità\n\n- Curiosità su strumenti analitici, sistemi, applicazioni, nuovi prodotti e tecnologie\n- Competenza in tedesco con buone competenze linguistiche in inglese\n- Forte conoscenza hardware e software, in particolare sistemi operativi Windows e applicazioni Microsoft Office\n- Forte capacità di problem solving\n- Prove capacità organizzative con la capacità di gestire più priorità contemporaneamente\n- Eccellente capacità interpersonali, di auto-motivazione e di negoziazione\n- Volontà e passione per i viaggi frequenti\n\n## Competenze\n\n- Obiettivo del cliente\n- Collaborazione team\n- Responsabilità\n- Adaptability\n- Pianificazione e organizzazione\n- Capacità di comunicazione\n- Mente di apprendimento continuo\n- Etica e professionale\n\n# Benefici. # Offriamo remunerazione competitiva, bonus annuale di incentivazione, assistenza sanitaria e una serie di benefici per i dipendenti. Thermo Fisher Scientific offre un'occupazione con un'organizzazione innovativa e intenzionale, e prospettive di carriera e sviluppo eccezionali. Offriamo un'emozionante cultura aziendale che è sinonimo di integrità, intensità, coinvolgimento e innovazione!\n\nLa nostra missione è quella di consentire ai nostri clienti di rendere il mondo più sano, più pulito e sicuro. Guarda come i nostri colleghi spiegano 5 motivi per lavorare con noi. In qualità di team di 100.000 colleghi, condividiamo un insieme comune di valori - Integrità, Intensità, Innovazione e Coinvolgimento - lavorando insieme per accelerare la ricerca, risolvere complesse sfide scientifiche, guidare l'innovazione tecnologica e sostenere i pazienti bisognosi.\n\n#StartYourStory at Thermo Fisher Scientific, dove vengono valutate esperienze, sfondi e prospettive diverse.\n\n# Apply today # [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific è un EEO/Affirmative Action Employer e non discrimina sulla base di razza, colore, religione, sesso, orientamento sessuale, identità di genere, origine nazionale, stato veterano protetto, disabilità",
-        "de": "## Arbeitsplan\n\nStandard (Mon-Fri)\n\n## Umweltbedingungen\n\nEinhaltung aller Good Manufacturing Practices (GMP) Sicherheitsstandards, Laboreinstellungen, laute Geräusche (Ausrüstung/Maschine), Büro, ein gewisses Maß an PSA (persönliche Schutzausrüstung) erforderlich (Sicherheitsbrille, Kleidung, Handschuhe, Laborkittel, Ohrstöpsel usw.), Wird mit gefährlichen / giftigen Materialien arbeiten\n\n## Stellenbeschreibung\n\nAls Teil des Teams von Thermo Fisher Scientific entdecken Sie sinnvolle Arbeiten, die sich weltweit positiv auswirken. Gemeinsam mit unseren Kollegen erwecken wir unsere Mission jeden Tag zum Leben, damit unsere Kunden die Welt gesünder, sauberer und sicherer machen können. Wir stellen unseren globalen Teams die Ressourcen zur Verfügung, die sie benötigen, um individuelle Karriereziele zu erreichen, und helfen gleichzeitig, die Wissenschaft einen Schritt weiter zu bringen, indem wir Lösungen für einige der schwierigsten Herausforderungen der Welt entwickeln, wie den Schutz der Umwelt, die Gewährleistung der Sicherheit unserer Lebensmittel oder die Suche nach Heilmitteln für Krebs.\n\nCMD; Unity Lab Services, Teil von Thermo Fisher Scientific, bietet wichtige Vor-Ort-Instrumentendienste an Kundenstandorten an. Unsere Kollegen arbeiten leidenschaftlich daran, die Kundenerfahrung und die Effizienz des Servicebetriebs zu verbessern.\n\n**Standort:** Schweiz\n\n**Entdecken Sie wirkungsvolle Arbeit ** Dies ist eine hervorragende Gelegenheit, Ihre Karriere in unserem wachsenden Field Service-Team zu beginnen und einen Unterschied zu machen. Sie werden von unseren Kollegen umfassend geschult, um Ihre Entwicklung bei Thermo Fisher Scientific zu unterstützen. Der Schwerpunkt dieser Rolle liegt in der Installation, vorbeugenden Wartung, Instrumentenqualifikation und Fehlersuche bei chromatographischen (HPLC / IC) Geräten.\n\n**Ein Tag im Leben:** Arbeiten Sie mit Kollegen im Customer Care Center zusammen, um Servicebesuche effizient zu planen und die Erwartungen der Kunden zu übertreffen. Installieren Sie Chromatographieprodukte, demonstrieren Sie Gerätespezifikationen und bieten Sie Kundenschulungen zur Einarbeitung an. Führen Sie präventive Wartung, Qualifikationen, Fehlerbehebung und Fehleranalyse durch und stellen Sie gleichzeitig die Einhaltung der regulatorischen Anforderungen und internen Verfahren sicher. Pflegen Sie starke Kundenbeziehungen und tragen Sie zu den Service-Leistungszielen bei.\n\n## Was zu erwarten ist:\n\n- Zusammenarbeit mit Kundenbetreuungsteams, um Servicebesuche zu planen und zu planen\n- Installieren Sie Chromatographieinstrumente und bieten Sie Kundenschulungen an\n- Durchführung von Tätigkeiten zur präventiven Instandhaltung und Instrumentenqualifizierung\n- Fehlerbehebung und Analyse von Instrumentenfehlern\n- Bereiten Sie eine detaillierte Servicedokumentation in Übereinstimmung mit den regulatorischen Anforderungen vor\n- Beitrag zu Servicezielen einschließlich Buchungen, Umsatz, Rentabilität und Kostenmanagement\n- Befolgen Sie alle internen Serviceverfahren und Kundenvorschriften\n- Aufbau und Pflege starker professioneller Kundenbeziehungen\n- Verwalten von Unternehmensvermögen einschließlich Inventar, Tools, Software und Firmenfahrzeug\n- Koordination der Serviceplanung mit Dispatchern, Teamleitern und anderen Stakeholdern\n- Reisen ausgiebig innerhalb der Schweiz und gelegentlich international in EMEA und den Vereinigten Staaten\n\n## Schlüssel zum Erfolg:\n\n## Bildung\n\n- Technische Ausbildung oder chemischer Hintergrund\n- Gültiger Führerschein\n\n## Erfahrung\n\n- Erfahrung mit Chromatographiesystemen (HPLC / IC) bevorzugt\n- 2-3 Jahre Erfahrung in der Wartung von Chromatographieprodukten oder in der Arbeit als Benutzer ist von Vorteil\n- Erfahrung in kundenorientierten technischen Support-Umgebungen ist von Vorteil\n\n## Wissen, Fähigkeiten, Fähigkeiten\n\n- Neugier auf analytische Instrumente, Systeme, Anwendungen, neue Produkte und Technologien\n- Deutschkenntnisse mit guten Englischkenntnissen\n- Starke Hardware- und Softwarekenntnisse, insbesondere Windows-Betriebssysteme und Microsoft Office-Anwendungen\n- Starke Problemlösungsfähigkeiten\n- Bewährte organisatorische Fähigkeiten mit der Fähigkeit, mehrere Prioritäten gleichzeitig zu verwalten\n- Hervorragende zwischenmenschliche, Selbstmotivation und Verhandlungsfähigkeiten\n- Bereitschaft und Leidenschaft für häufige Reisen\n\n## Kompetenzen\n\n- Kundenfokus\n- Teamzusammenarbeit\n- Rechenschaftspflicht\n- Anpassungsfähigkeit\n- Planung und Organisation\n- Kommunikationsfähigkeit\n- Continuous Learning Mindset\n- Ethisches und berufliches Verhalten\n\n**Vorteile:** Wir bieten eine wettbewerbsfähige Vergütung, einen jährlichen Incentive-Plan-Bonus, eine Gesundheitsversorgung und eine Reihe von Arbeitnehmerleistungen. Thermo Fisher Scientific bietet eine Beschäftigung mit einer innovativen, zukunftsweisenden Organisation und hervorragenden Karriere- und Entwicklungsperspektiven. Wir bieten eine spannende Unternehmenskultur, die für Integrität, Intensität, Engagement und Innovation steht!\n\nUnsere Mission ist es, unseren Kunden zu ermöglichen, die Welt gesünder, sauberer und sicherer zu machen. Sehen Sie, wie unsere Kollegen 5 Gründe erklären, mit uns zu arbeiten. Als ein Team von mehr als 100.000 Kollegen teilen wir eine Reihe gemeinsamer Werte - Integrität, Intensität, Innovation und Beteiligung - und arbeiten zusammen, um die Forschung zu beschleunigen, komplexe wissenschaftliche Herausforderungen zu lösen, technologische Innovationen voranzutreiben und bedürftige Patienten zu unterstützen.\n\n#StartYourStory bei Thermo Fisher Scientific, wo verschiedene Erfahrungen, Hintergründe und Perspektiven geschätzt werden.\n\n** Heute bewerben**! [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific ist ein EEO / Affirmative Action Arbeitgeber und diskriminiert nicht auf der Grundlage von Rasse, Hautfarbe, Religion, Geschlecht, sexueller Orientierung, Geschlechtsidentität, nationaler Herkunft, geschütztem Veteranenstatus, Behinderung",
-        "fr": "## Calendrier des travaux\n\nNorme (Mon-Fri)\n\n## Conditions environnementales\n\nRespect de toutes les normes de sécurité relatives aux bonnes pratiques de fabrication (BPF), établissement de laboratoire, bourdonnements (équipement/machinerie), bureau, certain degré d'EPI (équipement de protection individuelle) requis (verre de sécurité, robe, gants, manteau de laboratoire, bouchons d'oreille, etc.), Travaillera avec des matières dangereuses/toxiques\n\n## Description de l'emploi\n\nDans le cadre de l'équipe Thermo Fisher Scientific, vous découvrirez un travail significatif qui a un impact positif à l'échelle mondiale. Rejoignez nos collègues pour donner vie à notre mission tous les jours afin de permettre à nos clients de rendre le monde plus sain, plus propre et plus sûr. Nous fournissons à nos équipes mondiales les ressources nécessaires pour atteindre des objectifs de carrière individuels tout en aidant à faire avancer la science en développant des solutions pour certains des défis les plus difficiles du monde, comme protéger l'environnement, s'assurer que nos aliments sont sûrs ou aider à trouver des remèdes pour le cancer.\n\nCMD; Unity Lab Services, qui fait partie de Thermo Fisher Scientific, fournit des services d'instruments essentiels sur place aux clients. Nos collègues sont passionnés par l'amélioration de l'expérience client et de l'efficacité des opérations de service.\n\n**Lieu:** Suisse\n\n**Découvrez le travail utile** C'est une excellente occasion de commencer votre carrière dans notre équipe croissante du Service mobile et de faire une différence. Vous recevrez une formation complète de nos collègues pour soutenir votre développement au sein de Thermo Fisher Scientific. Ce rôle est axé sur l'installation, la maintenance préventive, la qualification des instruments et le dépannage des appareils chromatographiques (HPLC / IC).\n\n**Une journée dans la vie :** Collaborer avec des collègues du centre de soins à la clientèle pour planifier efficacement les visites de service et dépasser les attentes des clients. Installer des produits de chromatographie, démontrer les spécifications des instruments et fournir une formation de familiarisation avec les clients. Effectuer l'entretien préventif, les qualifications, le dépannage et l'analyse des défaillances tout en veillant au respect des exigences réglementaires et des procédures internes. Maintenir de solides relations avec la clientèle et contribuer aux objectifs de rendement du service.\n\n## À quoi s'attendre :\n\n- Collaborer avec les équipes de soins à la clientèle pour planifier et planifier les visites de service\n- Installer des instruments de chromatographie et fournir une formation de familiarisation avec les clients\n- Effectuer des activités de maintenance préventive et de qualification des instruments\n- Dépannage et analyse des défaillances des instruments\n- Préparer une documentation de service détaillée conformément aux exigences réglementaires\n- Contribuer aux objectifs de service, y compris les réservations, les revenus, la rentabilité et la gestion des coûts\n- Suivre toutes les procédures de service interne et la réglementation des clients\n- Établir et maintenir de solides relations avec les clients professionnels\n- Gérer les actifs de l'entreprise, y compris l'inventaire, les outils, les logiciels et le véhicule de l'entreprise\n- Coordonner la planification des services avec les répartiteurs, les chefs d'équipe et d'autres intervenants\n- Voyagez beaucoup en Suisse et parfois à l'étranger à travers l'EMEA et les États-Unis\n\n## Les clés du succès :\n\n## Éducation\n\n- Enseignement technique ou formation chimique\n- Permis de conduire valide\n\n## Expérience\n\n- Expérience des systèmes de chromatographie (HPLC / IC) préférés\n- 2–3 ans d'expérience dans le service de produits de chromatographie ou dans le travail en tant qu'utilisateur est avantageux\n- L'expérience dans les environnements d'assistance technique orientés vers le client est bénéfique\n\n## Connaissances, compétences, capacités\n\n- Curiosité des instruments, systèmes, applications, nouveaux produits et technologies d'analyse\n- Maîtrise de l'allemand avec de bonnes compétences en anglais\n- Forte connaissance du matériel et des logiciels, en particulier les systèmes d'exploitation Windows et les applications Microsoft Office\n- Fortes capacités de résolution de problèmes\n- Compétences organisationnelles éprouvées avec la capacité de gérer simultanément plusieurs priorités\n- Excellentes aptitudes interpersonnelles, automotivation et négociation\n- Volonté et passion pour les voyages fréquents\n\n## Compétences\n\n- Orientation client\n- Collaboration entre les équipes\n- Responsabilité\n- Capacité d'adaptation\n- Planification et organisation\n- Compétences en communication\n- Un état d'esprit d'apprentissage continu\n- Déontologie et comportement professionnel\n\n**Avantages:** Nous offrons une rémunération compétitive, une prime annuelle de régime incitatif, des soins de santé et une gamme d'avantages sociaux. Thermo Fisher Scientific offre un emploi avec une organisation innovante et tournée vers l'avenir, et des perspectives de carrière et de développement exceptionnelles. Nous offrons une culture d'entreprise passionnante qui représente l'intégrité, l'intensité, la participation et l'innovation!\n\nNotre mission est de permettre à nos clients de rendre le monde plus sain, plus propre et plus sûr. Regardez comme nos collègues expliquent 5 raisons de travailler avec nous. En tant qu'équipe de plus de 100 000 collègues, nous partageons un ensemble commun de valeurs - intégrité, intensité, innovation et participation - qui travaillent ensemble pour accélérer la recherche, résoudre des défis scientifiques complexes, stimuler l'innovation technologique et aider les patients dans le besoin.\n\n#StartYourStory chez Thermo Fisher Scientific, où les expériences, les antécédents et les perspectives sont appréciés.\n\n**Appliquer aujourd'hui**! [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific est un employeur d'EEO/Affirmative Action et ne fait aucune discrimination fondée sur la race, la couleur, la religion, le sexe, l'orientation sexuelle, l'identité de genre, l'origine nationale, le statut d'ancien combattant protégé, le handicap"
-      },
-      "location": "Remote, Switzerland",
-      "canton": "BL",
-      "url": "https://jobs.thermofisher.com/global/en/job/R-01355046/field-service-engineer-chromatography",
-      "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-03T23:19:21.735Z",
-      "addressLocality": "Remote",
-      "postalCode": "9999",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Life Sciences — Pharma Manufacturing & Quality",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-09T00:00:00.000+0000",
-      "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Remote-Switzerland/Field-Service-Engineer--Chromatography-_R-01355046/apply",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-03T23:19:21.735Z",
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "field-service-engineer-chromatography-thermo-fisher-scientific-ch"
-        ],
-        "de": [
-          "field-service-engineer-chromatography-thermo-fisher-scientific-ch"
-        ],
-        "fr": [
-          "field-service-engineer-chromatography-thermo-fisher-scientific-ch"
-        ]
-      },
-      "previousSlugs": [
-        "field-service-engineer-chromatography-thermo-fisher-scientific-ch"
-      ]
     }
   ]
 }
