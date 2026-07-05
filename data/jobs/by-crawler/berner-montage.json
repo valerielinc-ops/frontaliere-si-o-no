@@ -1,6 +1,6 @@
 {
   "crawlerKey": "berner-montage",
-  "assembledAt": "2026-07-05T10:27:06.885Z",
+  "assembledAt": "2026-07-05T22:15:35.006Z",
   "jobs": [
     {
       "id": "berner-montage-03f6b9937af1",
@@ -17,7 +17,7 @@
       "title": "Merchandiser (m/w/d) im Kfz-Handwerk - Region Bern/Fribourg/Solothurn",
       "titleByLocale": {
         "it": "Merchandiser (m/w/d) nel settore dell'auto - Regione Berna/Friburgo/Solothurn",
-        "en": "Merchandiser (m/f/d) in the automotive sector - Bern/Fribourg/Solothurn region",
+        "en": "Merchandiser (m/w/d) im Kfz-Handwerk - Region Bern/Fribourg/Solothurn",
         "de": "Merchandiser (m/w/d) im Kfz-Handwerk - Region Bern/Fribourg/Solothurn",
         "fr": "Merchandiser (m/w/d) dans le secteur automobile - Région Berne/Fribourg/Soleure"
       },
@@ -33,7 +33,7 @@
       "url": "https://shop.berner.eu/ch-de/Merchandiser-BE-FR-SO",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:27:04.536Z",
+      "crawledAt": "2026-07-05T22:15:32.827Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -51,7 +51,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "merchandiser-m-w-d-im-kfz-handwerk-region-bern-fribourg-solothurn-berner-montage-ch",
-        "merchandiser-m-w-d-im-kfz-handwerk-region-bern-freiburg-solothurn-montagetechnik-berner-ag-visp"
+        "merchandiser-m-w-d-im-kfz-handwerk-region-bern-freiburg-solothurn-montagetechnik-berner-ag-visp",
+        "merchandiser-m-w-d-nel-settore-dell-auto-regione-berna-friburgo-solothurn-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63,6 +64,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -108,7 +110,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Aargau",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:27:03.640Z",
+      "crawledAt": "2026-07-05T22:15:31.930Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -126,7 +128,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-berner-montage-ch",
-        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-montagetechnik-berner-ag-visp"
+        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-montagetechnik-berner-ag-visp",
+        "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-argovia-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -138,6 +141,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -183,7 +187,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Basel",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:27:02.655Z",
+      "crawledAt": "2026-07-05T22:15:30.999Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -205,7 +209,8 @@
         "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-basel-montagetechnik-berner-ag-visp",
         "aussendienstmitarbeiter-m-w-im-bau-handwerk-per-la-region-basel-montagetechnik-berner-ag-visp",
         "aussendienstmitarbeiter-m-w-im-bau-handwerk-per-la-region-emmental-montagetechnik-berner-ag-visp",
-        "aussendienstmitarbeiter-m-w-im-bau-handwerk-per-la-region-solothurn-montagetechnik-berner-ag-visp"
+        "aussendienstmitarbeiter-m-w-im-bau-handwerk-per-la-region-solothurn-montagetechnik-berner-ag-visp",
+        "rappresentante-commerciale-nel-settore-edile-per-la-regione-di-basilea-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -218,6 +223,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -263,7 +269,7 @@
       "url": "https://shop.berner.eu/ch-de/Mit-Shop",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:27:01.768Z",
+      "crawledAt": "2026-07-05T22:15:30.044Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -281,7 +287,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-verkaufsshop-berner-montage-ch",
-        "mitarbeiter-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp"
+        "mitarbeiter-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp",
+        "collaboratore-trice-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -341,7 +348,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-RH/STG",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:27:00.876Z",
+      "crawledAt": "2026-07-05T22:15:29.165Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -359,7 +366,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-rheintal-st-gallen-berner-montage-ch",
-        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-rheintal-st-gallen-montagetechnik-berner-ag-visp"
+        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-rheintal-st-gallen-montagetechnik-berner-ag-visp",
+        "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-rheintal-st-gallen-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -371,6 +379,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -416,7 +425,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-TG/SH",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:26:59.955Z",
+      "crawledAt": "2026-07-05T22:15:28.275Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -435,7 +444,8 @@
       "previousSlugs": [
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage-c",
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage",
-        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-montagetechnik-berner-ag-visp"
+        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-montagetechnik-berner-ag-visp",
+        "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-thurgau-schaffhausen-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -449,6 +459,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -494,7 +505,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-BE",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:26:59.062Z",
+      "crawledAt": "2026-07-05T22:15:27.340Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -512,7 +523,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-bern-berner-montage-ch",
-        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-bern-montagetechnik-berner-ag-visp"
+        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-bern-montagetechnik-berner-ag-visp",
+        "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-berna-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -524,6 +536,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -569,7 +582,7 @@
       "url": "https://shop.berner.eu/ch-de/Innen-VK",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:26:58.125Z",
+      "crawledAt": "2026-07-05T22:15:26.453Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -586,7 +599,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-innendienst-m-w-d-bauhandwerk-80-100-berner-montage-ch"
+        "mitarbeiter-im-verkauf-innendienst-m-w-d-bauhandwerk-80-100-berner-montage-ch",
+        "collaboratore-trice-im-vendita-servizio-interno-m-w-d-bauhandwerk-80-100-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -640,7 +654,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Mobil-Vaud-Fribourg",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T10:26:57.228Z",
+      "crawledAt": "2026-07-05T22:15:25.560Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -658,7 +672,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "commercial-itinerant-h-f-d-pour-la-division-automobile-region-vaud-fribourg-berner-montage",
-        "commercial-itinerant-h-f-d-for-the-automotive-division-region-vaud-fribourg-montagetechnik-berner-ag-visp"
+        "commercial-itinerant-h-f-d-for-the-automotive-division-region-vaud-fribourg-montagetechnik-berner-ag-visp",
+        "commercial-itinerant-f-m-d-pour-la-division-automobile-region-vaud-fribourg-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -685,7 +700,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "berner-montage-ff0962713571",
@@ -718,7 +734,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-SR",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T10:26:56.345Z",
+      "crawledAt": "2026-07-05T22:15:24.692Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -737,7 +753,8 @@
       "previousSlugs": [
         "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-berner-mont",
         "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-berner",
-        "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-montagetechnik-berner-ag-visp"
+        "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-montagetechnik-berner-ag-visp",
+        "responsabile-regionale-h-f-d-per-la-division-costruzioni-regione-svizzera-romanda-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -750,6 +767,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -795,7 +813,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-CH-Romande",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T10:26:55.277Z",
+      "crawledAt": "2026-07-05T22:15:23.771Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -814,7 +832,8 @@
       "previousSlugs": [
         "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-berner-montage-",
         "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-berner-montage",
-        "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-montagetechnik-berner-ag-visp"
+        "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-montagetechnik-berner-ag-visp",
+        "responsabile-regionale-h-f-d-per-la-division-mobilita-regione-svizzera-romanda-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -828,6 +847,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -873,7 +893,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Innch",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T10:26:54.367Z",
+      "crawledAt": "2026-07-05T22:15:22.783Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -891,7 +911,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-innerschweiz-berner-montage-ch",
-        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-innerschweiz-montagetechnik-berner-ag-visp"
+        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-innerschweiz-montagetechnik-berner-ag-visp",
+        "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-innerschweiz-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -903,6 +924,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -948,7 +970,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Sui-Romande",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T10:26:53.479Z",
+      "crawledAt": "2026-07-05T22:15:21.877Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -966,7 +988,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "commercial-itinerant-h-f-d-pour-la-division-batiment-region-suisse-romande-berner-montage",
-        "commercial-itinerant-h-f-d-for-the-building-division-region-of-switzerland-romande-montagetechnik-berner-ag-visp"
+        "commercial-itinerant-h-f-d-for-the-building-division-region-of-switzerland-romande-montagetechnik-berner-ag-visp",
+        "commercial-itinerant-f-m-d-pour-la-division-batiment-region-suisse-romande-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
