@@ -3156,16 +3156,26 @@ async function callLLM(messages, opts = {}) {
     const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 90_000, deadlineMs: RUN_START_MS + RUN_WALL_BUDGET_MS, ...opts, modelUsedRef });
     if (isBody2Check) {
       let itContent = null;
+      let parseErr = null;
       try {
         const parsed = JSON.parse(repairLlmJson(result));
         itContent = normalizeItalianContentFromPayload(parsed);
-      } catch {
+      } catch (e) {
+        parseErr = e;
         itContent = null;
       }
 
       const missing = [];
       if (!itContent) {
         missing.push('content.it non normalizzabile');
+        // Previously swallowed silently — every "non normalizzabile" failure
+        // was unreproducible (no evidence of what the model actually sent).
+        // Log the parse error + a raw snippet so a recurring malformed-JSON
+        // pattern from a specific model can actually be root-caused.
+        if (parseErr) {
+          const snippet = String(result).slice(0, 300).replace(/\n/g, '\\n');
+          console.error(`  🔎 JSON parse fallito (${modelUsedRef.model || 'unknown'}): ${parseErr.message} — raw[0:300]: ${snippet}`);
+        }
       } else {
         for (const field of REQUIRED_IT_BODY_FIELDS) {
           if (!itContent?.[field] || itContent[field].length < 1) {
@@ -3193,7 +3203,15 @@ async function callLLM(messages, opts = {}) {
         // rest of this run after MAX_CONSECUTIVE_CONTENT_FAILURES; local/fallback
         // never is — it's the last resort when the whole remote chain is dead).
         recordModelContentFailure(modelUsedRef.model);
-        if (attempt < maxBody2Retries) continue;
+        // Bail out of this retry budget the moment the run-wide wall-clock
+        // deadline is gone, instead of blindly looping to maxBody2Retries.
+        // When every remote model is already exhausted, each retry here
+        // re-invokes local/fallback's ~6-10min CPU inference — 5 blind
+        // retries can burn the entire run budget on one unreliable model,
+        // leaving the outer model-rotation loop (callGemini's
+        // CREATE_ARTICLE_MIN_WORDS_RETRIES) zero real chance to try anything.
+        // Failing fast here instead preserves whatever budget is left for it.
+        if (attempt < maxBody2Retries && !wallBudgetExceeded()) continue;
       } else {
         recordModelContentSuccess(modelUsedRef.model);
       }
