@@ -1,6 +1,6 @@
 {
   "crawlerKey": "givaudan",
-  "assembledAt": "2026-07-04T21:58:59.720Z",
+  "assembledAt": "2026-07-05T11:04:26.197Z",
   "jobs": [
     {
       "id": "givaudan-c30ff071d6ed",
@@ -33,7 +33,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119178EXTERNALENGLOBAL/global-head-of-strategic-supply",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T21:58:57.727Z",
+      "crawledAt": "2026-07-05T11:04:23.879Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -110,7 +110,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119281EXTERNALENGLOBAL/ingenieur-methodes-maintenance-stage-6-mois-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T21:58:57.484Z",
+      "crawledAt": "2026-07-05T11:04:23.541Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -139,7 +139,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "givaudan-dc49024d2d45",
@@ -172,7 +173,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117704EXTERNALENGLOBAL/automation-engineer-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T10:52:36.881Z",
+      "crawledAt": "2026-07-05T11:04:23.229Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -204,6 +205,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.831Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -248,7 +250,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118688EXTERNALENGLOBAL/ehs-specialist-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T21:58:56.724Z",
+      "crawledAt": "2026-07-05T11:04:22.518Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -319,7 +321,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118363EXTERNALENGLOBAL/head-of-procurement-ingredients",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T10:52:35.649Z",
+      "crawledAt": "2026-07-05T11:04:22.212Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -377,6 +379,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.815Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -421,7 +424,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118947EXTERNALENGLOBAL/operativer-einkaufer-60-80-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T21:58:56.024Z",
+      "crawledAt": "2026-07-05T11:04:21.533Z",
       "addressLocality": "Volketswil",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -498,7 +501,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117850EXTERNALENGLOBAL/ingenieur-process-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T21:58:55.572Z",
+      "crawledAt": "2026-07-05T11:04:20.850Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -569,7 +572,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118226EXTERNALENGLOBAL/quality-control-analyst-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T10:52:34.125Z",
+      "crawledAt": "2026-07-05T11:04:20.510Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -602,6 +605,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.838Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -646,7 +650,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118713EXTERNALENGLOBAL/quality-control-technician-microbiology-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:52:33.630Z",
+      "crawledAt": "2026-07-05T11:04:20.210Z",
       "addressLocality": "Bischofszell",
       "postalCode": "8500",
       "addressRegion": "TG",
@@ -673,6 +677,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.821Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -717,7 +722,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117951EXTERNALENGLOBAL/ingenieur-fiabilisation-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T10:52:33.059Z",
+      "crawledAt": "2026-07-05T11:04:19.904Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -748,6 +753,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.832Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -792,7 +798,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118088EXTERNALENGLOBAL/chef-d-equipe-en-production-chimique-2x8-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T21:58:54.161Z",
+      "crawledAt": "2026-07-05T11:04:19.196Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -863,7 +869,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118971EXTERNALENGLOBAL/betriebsmechaniker-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:52:32.352Z",
+      "crawledAt": "2026-07-05T11:04:18.890Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "addressRegion": "BE",
@@ -890,6 +896,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.839Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -934,7 +941,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118780EXTERNALENGLOBAL/environmental-lab-manager-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T21:58:53.411Z",
+      "crawledAt": "2026-07-05T11:04:18.613Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1005,7 +1012,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119042EXTERNALENGLOBAL/patent-attorney-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T21:58:52.980Z",
+      "crawledAt": "2026-07-05T11:04:18.210Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "ZG",
@@ -1082,7 +1089,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119129EXTERNALENGLOBAL/head-of-fragrance-ingredients-business-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T21:58:52.766Z",
+      "crawledAt": "2026-07-05T11:04:17.517Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1159,7 +1166,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118987EXTERNALENGLOBAL/quality-assurance-sample-technician-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:52:30.782Z",
+      "crawledAt": "2026-07-05T11:04:17.207Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "addressRegion": "BE",
@@ -1197,6 +1204,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:40:09.062Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1241,7 +1249,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118901EXTERNALENGLOBAL/specialiste-en-equipement-sous-pression-et-en-conformite-reglementaire-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T21:58:52.066Z",
+      "crawledAt": "2026-07-05T11:04:16.913Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1279,7 +1287,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "givaudan-92075c4b111c",
@@ -1312,7 +1321,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118946EXTERNALENGLOBAL/head-of-quality-f-b-eame",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T21:58:51.595Z",
+      "crawledAt": "2026-07-05T11:04:16.533Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1385,7 +1394,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119102EXTERNALENGLOBAL/agent-prevention-et-intervention-h-f-d-3x8-cdd-jusqu-au-31-12-2027",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T21:58:51.146Z",
+      "crawledAt": "2026-07-05T11:04:16.209Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1414,7 +1423,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "givaudan-f1b195e7309b",
@@ -1474,9 +1484,9 @@
       "previousSlugsByLocale": {
         "it": [
           "head-of-procurement-im-s-givaudan-ch",
-          "responsabile-procurement-im-s-givaudan-kemptthal-switzerland",
           "global-head-of-im-s-givaudan-ch",
-          "global-responsabile-im-s-givaudan-kemptthal-switzerland"
+          "global-responsabile-im-s-givaudan-kemptthal-switzerland",
+          "responsabile-procurement-im-s-givaudan-kemptthal-switzerland"
         ],
         "de": [
           "head-of-procurement-im-s-givaudan-ch",
@@ -1500,7 +1510,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "givaudan-4f122171feec",
@@ -1578,7 +1588,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "givaudan-6da9f38f9eaa",
@@ -1651,7 +1661,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "givaudan-2ea1b051ad43",
@@ -1724,7 +1734,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "givaudan-6ac69795be6d",
@@ -1800,7 +1812,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "givaudan-e37754094fed",
@@ -1878,7 +1890,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "givaudan-2ac810e96167",
@@ -1903,7 +1915,7 @@
       "descriptionByLocale": {
         "it": "Unisciti a noi nel celebrare la bellezza dell'esperienza umana. Progettare con amore per la natura per una vita più felice e più sana per le persone. Insieme, con passione e creatività, forniamo innovazioni alimentari, creiamo profumi stimolanti e sviluppiamo soluzioni per la bellezza e il benessere delle persone. Con oltre 17.000 dipendenti in tutto il mondo che esplorano insieme idee e obiettivi, c'è molto da imparare e molti da cui imparare. Il tuo talento, il tuo spirito innovativo e la tua determinazione plasmano ogni giorno il nostro futuro e influenzano positivamente miliardi di persone. Ogni parte di te arricchisce il nostro mondo. Siamo Givaudan. Umano per natura. Sei interessato al cibo, ai sapori e all'analisi sensoriale? Nell'entusiasmante posizione di panelist al 25% (m/f/d), lavorerai in un team specializzato presso la sede di Kemptthal e supporterai la valutazione professionale e la descrizione dei sapori in un'ampia varietà di cibi. Con il tuo raffinato senso del gusto e dell'olfatto aiuti a identificare, confrontare e valutare con precisione le proprietà del prodotto.\n• I tuoi compiti - Testare e confrontare i sapori di diversi alimenti - Imparare e applicare riferimenti interni (Sense It®) - Sviluppare le proprietà caratteristiche del prodotto nel gruppo - Determinare individualmente l'intensità delle proprietà del prodotto - Riconoscere e descrivere somiglianze e differenze tra i prodotti - Giorni lavorativi lunedì, martedì, giovedì e venerdì dalle 08:45 alle 11:15 (obbligatorio) Il tuo profilo - L'esperienza professionale nel settore alimentare è un vantaggio - Ottima conoscenza della lingua tedesca e della scrittura - Uso dimestichezza del computer - Personalità flessibile, resiliente e comunicativa con un elevato orientamento al servizio - Modo di lavorare strutturato, nonché pensiero e azione imprenditoriale e coordinato - Nessuna allergia alimentare - Non fumatore Cosa ci distingue a Kemptthal? - Pasti ridotti nel ristorante del personale - Attività sportive e per il tempo libero nel club sportivo Givaudan (docce sul posto) - Sconto nel negozio per i dipendenti di Kemptthal - Parcheggio aziendale e badge per biciclette gratuiti - Assegni REKA e partecipazione alla carta metà-prezzo FFS - Indennità familiari e formative aggiuntive facoltative A Givaudan contribuite a creare deliziose esperienze di gusto e odore che arricchiscono la vita delle persone. Apprezziamo le diverse prospettive che nascono da culture, background ed esperienze diverse. Tutti, indipendentemente dalla razza, dall’identità di genere, dall’orientamento sessuale, dall’età, dalla disabilità, dalla cultura, dalla religione o dalle circostanze personali, sono i benvenuti a Givaudan, un luogo dove tutti amano essere e crescere. Ogni parte di te arricchisce il nostro mondo. Unisciti a noi e costruisci insieme a noi un futuro migliore.",
         "en": "Celebrate with us the beauty of human experiences. Create with love for nature for a happier, healthier life of people. Together, with passion and creativity, we deliver food innovations, create inspiring fragrances and develop solutions for the beauty and well-being of people. With more than 17,000 employees worldwide exploring ideas and goals together, there is much to learn and many to learn from. Your talent, innovation and determination shape our future every day and positively impact billions of people. Every part of you is an enrichment to our world. We are Givaudan. Human by nature. Are you interested in food, aromas and sensory analyses? In the exciting position as a panelist 25% (m/f/d) you work in a specialized team at the Kemptthal site and supports the professional assessment and description of aromas in a wide variety of foods. With your fine sense of taste and smell, you contribute to the precise recognition, comparison and evaluation of product characteristics.\n• Your tasks - Testing and comparing flavors in different foods - Learning and applying internal references (Sense It®) - Development of characteristic product characteristics in the group - Individual determination of intensities of the product characteristics - Recognizing and describing product similarities and differences - Working days each Monday, Tuesday, Thursday and Friday from 0845 - 1115 o'clock (mandatory)\n• Your profile - Professional experience in the food industry of advantage - Flowing knowledge of German in words and writing - Safe handling of the computer - Flexible, resilient and communicative personality with a high degree of service orientation - Structured working methods as well as entrepreneurial and coordinative thinking and acting - No allergies to food - Non-smoker / in What distinguishes us in Kemptthal? - Reduced meals in the staff restaurant - Sports and leisure activities in the Givaudan Sports Club (on-site showers) - Discount in the employee shop in Kemptthal - Free company parking and bike badge - REKA checks and SBB half-tax participation - Additional volunteer family and training allowances At Givaudan, you help create delicious taste and fragrance experiences that enrich people’s lives. We value the different perspectives that emerge from diverse cultures, backgrounds and experiences. Every person – regardless of ethnicity, gender identity, sexual orientation, age, disability, culture, religion or personal circumstances – is welcome at Givaudan, a place where we all enjoy being and growing. Every part of you is an enrichment to our world. Join us and build a better future together with us.",
-        "de": "Feiere gemeinsam mit uns die Schönheit menschlicher Erfahrungen. Gestalte mit Liebe zur Natur für ein glücklicheres, gesünderes Leben von Menschen. Gemeinsam, mit Leidenschaft und Kreativität, liefern wir Lebensmittelinnovationen, kreieren inspirierende Düfte und entwickeln Lösungen für die Schönheit und das Wohlbefinden von Menschen. Bei mehr als 17.000 Beschäftigten weltweit, die gemeinsam Ideen und Ziele erkunden, gibt es viel zu lernen und viele, von denen wir lernen können. Dein Talent, dein Innovationsgeist und deine Entschlossenheit prägen tagtäglich unsere Zukunft und beeinflussen Milliarden von Menschen positiv. Jeder Teil von dir ist eine Bereicherung für unsere Welt. Wir sind Givaudan. Human by nature. Du interessierst dich für Lebensmittel, Aromen und sensorische Analysen? In der spannenden Position als **Panelistin 25 %** (m/w/d) arbeitest du in einem spezialisierten Team am **Standort Kemptthal** und unterstützt bei der professionellen Beurteilung sowie Beschreibung von Aromen in unterschiedlichsten Lebensmitteln. Mit deinem feinen Geschmacks- und Geruchssinn trägst du dazu bei, Produkteigenschaften präzise zu erkennen, zu vergleichen und zu bewerten. ## Deine \n• Aufgaben - Prüfen und Vergleichen von Aromen in verschiedenen Lebensmitteln - Lernen und Anwenden von internen Referenzen (Sense It®) - Erarbeitung charakteristischer Produkteigenschaften in der Gruppe - Individuelles Bestimmen von Intensitäten der Produkteigenschaften - Erkennen und Beschreiben von Produktähnlichkeiten und -unterschieden - Arbeitstage jeweils Montag, Dienstag, Donnerstag und Freitag von 0845 – 1115 Uhr (zwingend) ## Dein Profil - Berufserfahrung in der Lebensmittelbranche von Vorteil - Fliessende Deutschkenntnisse in Wort und Schrift - Sicherer Umgang mit dem Computer - Flexible, belastbare und kommunikative Persönlichkeit mit hoher Dienstleistungsorientierung - Strukturierte Arbeitsweise sowie unternehmerisches und koordinatives Denken und Handeln - Keine Allergien auf Lebensmittel - Nichtraucher/in ## Was zeichnet uns in Kemptthal aus? - Ermässigte Verpflegung im Personalrestaurant - Sport- und Freizeitaktivitäten im Givaudan Sportclub (Duschen vor Ort) - Rabatt im Mitarbeitershop in Kemptthal - Gratis Firmenparkplatz und Bike Badge - REKA Checks und SBB Halbtax Beteiligung - Zusätzliche Freiwillige Familien- und Ausbildungszulagen Bei Givaudan trägst du dazu bei, köstliche Geschmacks- und Dufterlebnisse zu schaffen, die das Leben der Menschen bereichern. Wir schätzen die unterschiedlichen Perspektiven, die aus vielfältigen Kulturen, Hintergründen und Erfahrungen entstehen. Jede Person – unabhängig von ethnischer Herkunft, Geschlechtsidentität, sexueller Orientierung, Alter, Behinderung, Kultur, Religion oder persönlichen Lebensumständen – ist bei Givaudan herzlich willkommen, einem Ort, an dem wir alle gerne sind und wachsen. Jeder Teil von dir ist eine Bereicherung für unsere Welt. Mach mit und gestalte gemeinsam mit uns eine bessere Zukunft.",
+        "de": "Feiere gemeinsam mit uns die Schönheit menschlicher Erfahrungen. Gestalte mit Liebe zur Natur für ein glücklicheres, gesünderes Leben von Menschen. Gemeinsam, mit Leidenschaft und Kreativität, liefern wir Lebensmittelinnovationen, kreieren inspirierende Düfte und entwickeln Lösungen für die Schönheit und das Wohlbefinden von Menschen. Bei mehr als 17.000 Beschäftigten weltweit, die gemeinsam Ideen und Ziele erkunden, gibt es viel zu lernen und viele, von denen wir lernen können. Dein Talent, dein Innovationsgeist und deine Entschlossenheit prägen tagtäglich unsere Zukunft und beeinflussen Milliarden von Menschen positiv. Jeder Teil von dir ist eine Bereicherung für unsere Welt. Wir sind Givaudan. Human by nature. Du interessierst dich für Lebensmittel, Aromen und sensorische Analysen? In der spannenden Position als **Panelistin 25 %** (m/w/d) arbeitest du in einem spezialisierten Team am **Standort Kemptthal** und unterstützt bei der professionellen Beurteilung sowie Beschreibung von Aromen in unterschiedlichsten Lebensmitteln. Mit deinem feinen Geschmacks- und Geruchssinn trägst du dazu bei, Produkteigenschaften präzise zu erkennen, zu vergleichen und zu bewerten. ## Deine\n• Aufgaben - Prüfen und Vergleichen von Aromen in verschiedenen Lebensmitteln - Lernen und Anwenden von internen Referenzen (Sense It®) - Erarbeitung charakteristischer Produkteigenschaften in der Gruppe - Individuelles Bestimmen von Intensitäten der Produkteigenschaften - Erkennen und Beschreiben von Produktähnlichkeiten und -unterschieden - Arbeitstage jeweils Montag, Dienstag, Donnerstag und Freitag von 0845 – 1115 Uhr (zwingend) ## Dein Profil - Berufserfahrung in der Lebensmittelbranche von Vorteil - Fliessende Deutschkenntnisse in Wort und Schrift - Sicherer Umgang mit dem Computer - Flexible, belastbare und kommunikative Persönlichkeit mit hoher Dienstleistungsorientierung - Strukturierte Arbeitsweise sowie unternehmerisches und koordinatives Denken und Handeln - Keine Allergien auf Lebensmittel - Nichtraucher/in ## Was zeichnet uns in Kemptthal aus? - Ermässigte Verpflegung im Personalrestaurant - Sport- und Freizeitaktivitäten im Givaudan Sportclub (Duschen vor Ort) - Rabatt im Mitarbeitershop in Kemptthal - Gratis Firmenparkplatz und Bike Badge - REKA Checks und SBB Halbtax Beteiligung - Zusätzliche Freiwillige Familien- und Ausbildungszulagen Bei Givaudan trägst du dazu bei, köstliche Geschmacks- und Dufterlebnisse zu schaffen, die das Leben der Menschen bereichern. Wir schätzen die unterschiedlichen Perspektiven, die aus vielfältigen Kulturen, Hintergründen und Erfahrungen entstehen. Jede Person – unabhängig von ethnischer Herkunft, Geschlechtsidentität, sexueller Orientierung, Alter, Behinderung, Kultur, Religion oder persönlichen Lebensumständen – ist bei Givaudan herzlich willkommen, einem Ort, an dem wir alle gerne sind und wachsen. Jeder Teil von dir ist eine Bereicherung für unsere Welt. Mach mit und gestalte gemeinsam mit uns eine bessere Zukunft.",
         "fr": "Rejoignez-nous pour célébrer la beauté de l’expérience humaine. Concevoir avec amour pour la nature pour une vie plus heureuse et plus saine pour les gens. Ensemble, avec passion et créativité, nous créons des innovations alimentaires, créons des parfums inspirants et développons des solutions pour la beauté et le bien-être des gens. Avec plus de 17 000 employés dans le monde qui explorent ensemble des idées et des objectifs, il y a beaucoup à apprendre et beaucoup à apprendre. Votre talent, votre esprit d’innovation et votre détermination façonnent chaque jour notre avenir et influencent positivement des milliards de personnes. Chaque partie de vous enrichit notre monde. Nous sommes Givaudan. Humain par nature. Vous êtes intéressé par l'alimentation, les saveurs et l'analyse sensorielle ? Dans le poste passionnant de panéliste à 25 % (h/f/d), vous travaillerez dans une équipe spécialisée sur le site de Kemptthal et soutiendrez l'évaluation professionnelle et la description des saveurs d'une grande variété d'aliments. Grâce à votre sens aigu du goût et de l’odorat, vous contribuez à identifier, comparer et évaluer avec précision les propriétés des produits.\n• Vos tâches - Tester et comparer les saveurs de différents aliments - Apprendre et appliquer des références internes (Sense It®) - Développer les propriétés caractéristiques des produits dans le groupe - Déterminer individuellement les intensités des propriétés des produits - Reconnaître et décrire les similitudes et les différences des produits - Jours de travail lundi, mardi, jeudi et vendredi de 08h45 à 11h15 (obligatoire)\n• Votre profil - Une expérience professionnelle dans l'industrie agroalimentaire est un avantage - Maîtrise de l'allemand et de l'écrit - Utilisation confiante de l'ordinateur - Personnalité flexible, résiliente et communicative avec une forte orientation vers le service - Mode de travail structuré ainsi qu'une pensée et une action entrepreneuriales et coordonnées - Aucune allergie alimentaire - Non-fumeur Qu'est-ce qui nous distingue à Kemptthal ? - Repas à prix réduit au restaurant du personnel - Activités sportives et de loisirs au club sportif de Givaudan (douches sur place) - Réductions au magasin des employés de Kemptthal - Parking d'entreprise et badge vélo gratuits - Chèques REKA et participation à la carte demi-tarif CFF - Allocations familiales et de formation supplémentaires volontaires Chez Givaudan, vous contribuez à créer de délicieuses expériences gustatives et olfactives qui enrichissent la vie des gens. Nous valorisons les différentes perspectives qui découlent de diverses cultures, origines et expériences. Tout le monde – quels que soient sa race, son identité de genre, son orientation sexuelle, son âge, son handicap, sa culture, sa religion ou sa situation personnelle – est le bienvenu chez Givaudan, un endroit où nous aimons tous être et grandir. Chaque partie de vous enrichit notre monde. Rejoignez-nous et façonnez un avenir meilleur avec nous."
       },
       "location": "Kemptthal, Switzerland",
@@ -1953,7 +1965,9 @@
           "maxValue": 22900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "givaudan-c8dcbbd7d911",
@@ -1978,7 +1992,7 @@
       "descriptionByLocale": {
         "it": "Festeggia con noi la bellezza delle esperienze umane. Crea con amore per la natura per una vita più felice e più sana delle persone. Insieme, con calore e modestia, forniamo innovazioni alimentari, creiamo profumi ispiranti e sviluppiamo soluzioni che fanno sembrare le persone e si sentono bene. Con più di 17.000 dipendenti in tutto il mondo che esplorano insieme idee e obiettivi, c'è molto da imparare e molti da imparare. Immergetevi in un ambiente vario, flessibile e stimolante. Incontra professionisti con poteri reali che è possibile partner con, fare amici, e espandere le vostre abilità. Ogni giorno, la vostra energia, creatività e determinazione plasmano il nostro futuro e influiscono positivamente miliardi di persone. Ogni parte di voi è un arricchimento per il nostro mondo. Siamo Givaudan. Umano per natura. Per il nostro team locale di HR Services a Kemptthal, stiamo cercando un nuovo membro del team come **HR Coordinator (m/f/d)- 60%**. Questa posizione ti offre l'opportunità di essere parte attiva di un team impegnato e di lavorare insieme a noi su interessanti temi HR. Se vuoi sostenere un team appassionato e consolidato di manager HR, sei nel posto giusto! ## In questa posizione emozionante, sei responsabile - Attuazione dei regimi di assicurazione sociale (KTG, UVG, assegni familiari e figli, EO, processo di maternità e di paternità) nonché sostegno di assenze a lungo termine e casi IV - Persona di contatto e interfaccia alla nostra assicurazione sociale e personale - Manutenzione e supporto del nostro sistema di gestione e registrazione del tempo di assenza - Supporto per vari compiti amministrativi del personale in stretta collaborazione con il nostro HR Shared Service Center di Budapest, il nostro team di Payroll a Vernier e i responsabili delle risorse umane - Creazione indipendente di certificati di lavoro e intermedi con il nostro strumento e gestione attiva di e-dossier personali - Punto di contatto per i supervisori e i dipendenti in varie questioni del personale amministrativo - Supporto per l'ottimizzazione dei processi HR locali e dei progetti HR ## Il tuo profilo professionale - Formazione commerciale di base con almeno 2 anni di esperienza professionale in una funzione HR comparabile con una buona conoscenza della sicurezza sociale ed esperienza nella gestione di absenz - L'istruzione superiore, specifica per le risorse umane o per i soggetti (ad es. come assistente per le risorse umane, specialista della sicurezza sociale, ecc.) - Utilizzo esperto dei sistemi IT comuni (MS Office) e buona capacità di apprendimento nel trattare nuovi sistemi e strumenti - Molto buone capacità di comunicazione scritta e orale in tedesco e inglese - Lavoro indipendente, preciso ed efficiente con la capacità di fissare correttamente le priorità - Personalità attiva e impegnata con un alto grado di orientamento del servizio e consapevolezza della qualità ## Cosa ci distingue in Kemptthal? - Opportunità di sviluppo e formazione interessanti - Ulteriori giorni di riposo - Condizioni di fondo pensione vantaggiose - Cibo ridotto nel ristorante del personale - Attività sportive e ricreative presso il Givaudan Sports Club (docce in loco) - Sconto nel negozio di dipendenti a Kemptthal - Gratis Azienda Parcheggio e Bike Badge - REKA Controllo e partecipazione delle FFS Halbtax - Bevande gratuite (acqua, caffè, tè) - Copertura degli incidenti privati in tutto il mondo e scelta gratuita dell'ospedale - Prestazioni complementari per la famiglia e l'istruzione Sembra eccitante? Allora applichiamo - non vediamo l'ora della vostra applicazione! A Givaudan, aiuta a creare deliziosi sapori e fragranze esperienze che arricchiscono la vita delle persone. Apprezziamo le diverse prospettive che emergono da diverse culture, sfondi ed esperienze. Ogni persona – indipendentemente dall'etnia, dall'identità di genere, dall'orientamento sessuale, dall'età, dalla disabilità, dalla cultura, dalla religione o dalle circostanze personali – è il benvenuto a Givaudan, un luogo dove tutti noi apprezziamo essere e crescere. Ogni parte di voi è un arricchimento per il nostro mondo. Unisciti a noi e costruisci un futuro migliore insieme a noi.",
         "en": "Celebrate with us the beauty of human experiences. Create with love for nature for a happier, healthier life of people. Together, with warmth and modesty, we deliver food innovations, create inspiring fragrances and develop solutions that make people look and feel good. With more than 17,000 employees worldwide exploring ideas and goals together, there is much to learn and many to learn from. Immerse yourself in a varied, flexible and stimulating environment. Meet professionals with real powers that you can partner with, make friends, and expand your skills. Every day, your energy, creativity and determination shape our future and positively impact billions of people. Every part of you is an enrichment to our world. We are Givaudan. Human by nature. For our local HR Services team in Kemptthal, we are now looking for a new team member as **HR Coordinator (m/f/d)- 60%**. This position offers you the opportunity to be an active part of a committed team and to work together with us on interesting HR topics. If you want to support a passionate and well-established team of HR managers, you are in the right place! ## In this exciting position, you are responsible for - Implementation of social insurance schemes (KTG, UVG, family and child allowances, EO, maternity and paternity process) as well as long-term absence support and IV cases - Contact person and interface to our social and personal insurance - Maintenance and support of our absence management and time recording system - Support for various personnel administrative tasks in close cooperation with our HR Shared Service Center in Budapest, our Payroll team in Vernier and the HR managers - Independent creation of employment and intermediate certificates with our tool and active management of personal e-dossiers - Contact point for supervisors and employees in various administrative personnel issues - Support for the optimization of local HR processes and HR projects ## Your professional profile - Basic commercial training with at least 2 years of professional experience in a comparable HR function with good social security knowledge and experience in absenzmanagement - HR-relevant or subject-specific further education (e.g. degree as HR assistant, social security specialist, etc.) - Experienced use of the common IT systems (MS Office) and good learning ability in dealing with new systems and tools - Very good written and oral communication skills in German and English - Independent, precise and efficient work with the ability to set priorities correctly - Proactive and committed personality with a high degree of service orientation and quality awareness ## What sets us apart in Kemptthal? - Interesting development and training opportunities - Additional paid days off - Advantageous Pension Fund Conditions - Reduced food in the staff restaurant - Sports and leisure activities at the Givaudan Sports Club (on-site showers) - Discount in the employee shop in Kemptthal - Free Company Parking and Bike Badge - REKA Checks and SBB Halbtax participation - Free drinks (water, coffee, tea) - Worldwide private accident coverage and free hospital choice - Additional voluntary family and education allowances Sounds exciting? Then apply - we look forward to your application! At Givaudan, you help create delicious taste and fragrance experiences that enrich people’s lives. We value the different perspectives that emerge from diverse cultures, backgrounds and experiences. Every person – regardless of ethnicity, gender identity, sexual orientation, age, disability, culture, religion or personal circumstances – is welcome at Givaudan, a place where we all enjoy being and growing. Every part of you is an enrichment to our world. Join us and build a better future together with us.",
-        "de": "Bei Givaudan arbeitest du in einem Umfeld, das Innovation, Kreativität und Menschlichkeit verbindet. Gemeinsam entwickeln wir innovative Lebensmittelprodukte, Düfte und Lösungen für Schönheit und Wohlbefinden, die das Leben von Milliarden von Menschen bereichern - im Einklang mit der Natur. Du möchtest Neues entdecken, dich weiterentwickeln und Teil eines starken Teams werden? Bei uns findest du 17.000 engagierte Mitarbeitende weltweit, die ihre Ideen teilen, voneinander lernen und gemeinsam etwas bewegen. Ob du erste Schritte im Berufsleben machst oder bereits Erfahrung mitbringst - hier kannst du deine Kreativität, Energie und Leidenschaft einbringen. Jeder Teil von dir ist wichtig. Jeder Beitrag zählt. Werde Teil von Givaudan - Human by nature. Für unser lokales HR Services Teams in Kemptthal suchen wir ab sofort ein neues Teammitglied als **HR Coordinator (m/w/d)- 60%**. Diese Stelle bietet dir die Möglichkeit, aktiver Teil eines engagierten Teams zu sein und gemeinsam mit uns an interessanten HR-Themen zu arbeiten. Wenn du ein passioniertes und gut eingespieltes Team von HR Managern unterstützen möchtest, bist du bei uns genau richtig! ## In dieser spannenden Position bist du verantwortlich für - Abwicklung der Sozialversicherungen (KTG, UVG, Familien- und Kinderzulagen, EO , Mutterschafts- und Vaterschaftsprozess) sowie Unterstützung bei Langzeitabwesenheiten und IV-Fällen - Ansprechpartner und Schnittstelle zu unseren Sozial- und Personalversicherungen - Pflege und Betreuung unseres Absenzmanagements- und Zeiterfassungssystems - Unterstützung bei diversen personaladministrativen \n• Aufgaben in enger Zusammenarbeit mit unserem HR Shared Service Center in Budapest, unserem Payroll-Team in Vernier sowie den HR Managern - Selbstständige Erstellung von Arbeits- und Zwischenzeugnissen mit unserem Tool und aktive Verwaltung der Personal-E-Dossiers - Anlaufstelle für Vorgesetzte und Mitarbeitende bei diversen administrativen Personalfragen - Unterstützung bei der Optimierung der lokalen HR Prozesse und bei HR Projekten ## Dein fachliches Profil Kaufmännische Grundausbildung mit mindestens 2 Jahren Berufserfahrung in einer vergleichbaren HR-Funktion mit guten Sozialversicherungskenntnissen und Erfahrung im Absenzmanagement HR-relevante oder fachspezifische Weiterbildung (bspw. Abschluss als HR-Assistent/-in, Sozialversicherungsfachfrau, u.ä.) Versierter Umgang mit den gängigen IT-Systemen (MS-Office) und gute Lernfähigkeit im Umgang mit neuen Systemen und Tools Sehr gute schriftliche und mündliche Kommunikationsfähigkeit in Deutsch und Englisch selbstständige, präzise und effiziente Arbeitsweise mit der Fähigkeit, Prioritäten richtig zu setzen Proaktive und engagierte Persönlichkeit mit einem hohem Mass an Dienstleistungsorientierung sowie Qualitätsbewusstsein ## Was zeichnet uns in Kemptthal aus? - Interessante Entwicklungs- und Weiterbildungsmöglichkeiten - Zusätzlich bezahlte freie Tage - Vorteilhafte Pensionskassen Konditionen - Ermässigte Verpflegung im Personalrestaurant - Sport- und Freizeitaktivitäten im Givaudan Sportclub (Duschen vor Ort) - Rabatt im Mitarbeitershop in Kemptthal - Gratis Firmenparkplatz - REKA Checks und SBB Halbtax Beteiligung - Kostenlose Getränke (Wasser, Kaffee,Tee) - Weltweite private Unfalldeckung und freie Spitalwahl - Zusätzliche Freiwillige Familien- und Ausbildungszulagen Klingt spannend? Dann bewirb dich- wir freuen uns auf deine Bewerbung! Bei Givaudan trägst du dazu bei, köstliche Geschmacks- und Dufterlebnisse zu schaffen, die das Leben der Menschen bereichern. Wir schätzen die unterschiedlichen Perspektiven, die aus vielfältigen Kulturen, Hintergründen und Erfahrungen entstehen. Jede Person – unabhängig von ethnischer Herkunft, Geschlechtsidentität, sexueller Orientierung, Alter, Behinderung, Kultur, Religion oder persönlichen Lebensumständen – ist bei Givaudan herzlich willkommen, einem Ort, an dem wir alle gerne sind und wachsen. Jeder Teil von dir ist eine Bereicherung für unsere Welt. Mach mit und gestalte gemeinsam mit uns eine bessere Zukunft.",
+        "de": "Bei Givaudan arbeitest du in einem Umfeld, das Innovation, Kreativität und Menschlichkeit verbindet. Gemeinsam entwickeln wir innovative Lebensmittelprodukte, Düfte und Lösungen für Schönheit und Wohlbefinden, die das Leben von Milliarden von Menschen bereichern - im Einklang mit der Natur. Du möchtest Neues entdecken, dich weiterentwickeln und Teil eines starken Teams werden? Bei uns findest du 17.000 engagierte Mitarbeitende weltweit, die ihre Ideen teilen, voneinander lernen und gemeinsam etwas bewegen. Ob du erste Schritte im Berufsleben machst oder bereits Erfahrung mitbringst - hier kannst du deine Kreativität, Energie und Leidenschaft einbringen. Jeder Teil von dir ist wichtig. Jeder Beitrag zählt. Werde Teil von Givaudan - Human by nature. Für unser lokales HR Services Teams in Kemptthal suchen wir ab sofort ein neues Teammitglied als **HR Coordinator (m/w/d)- 60%**. Diese Stelle bietet dir die Möglichkeit, aktiver Teil eines engagierten Teams zu sein und gemeinsam mit uns an interessanten HR-Themen zu arbeiten. Wenn du ein passioniertes und gut eingespieltes Team von HR Managern unterstützen möchtest, bist du bei uns genau richtig! ## In dieser spannenden Position bist du verantwortlich für - Abwicklung der Sozialversicherungen (KTG, UVG, Familien- und Kinderzulagen, EO , Mutterschafts- und Vaterschaftsprozess) sowie Unterstützung bei Langzeitabwesenheiten und IV-Fällen - Ansprechpartner und Schnittstelle zu unseren Sozial- und Personalversicherungen - Pflege und Betreuung unseres Absenzmanagements- und Zeiterfassungssystems - Unterstützung bei diversen personaladministrativen\n• Aufgaben in enger Zusammenarbeit mit unserem HR Shared Service Center in Budapest, unserem Payroll-Team in Vernier sowie den HR Managern - Selbstständige Erstellung von Arbeits- und Zwischenzeugnissen mit unserem Tool und aktive Verwaltung der Personal-E-Dossiers - Anlaufstelle für Vorgesetzte und Mitarbeitende bei diversen administrativen Personalfragen - Unterstützung bei der Optimierung der lokalen HR Prozesse und bei HR Projekten ## Dein fachliches Profil Kaufmännische Grundausbildung mit mindestens 2 Jahren Berufserfahrung in einer vergleichbaren HR-Funktion mit guten Sozialversicherungskenntnissen und Erfahrung im Absenzmanagement HR-relevante oder fachspezifische Weiterbildung (bspw. Abschluss als HR-Assistent/-in, Sozialversicherungsfachfrau, u.ä.) Versierter Umgang mit den gängigen IT-Systemen (MS-Office) und gute Lernfähigkeit im Umgang mit neuen Systemen und Tools Sehr gute schriftliche und mündliche Kommunikationsfähigkeit in Deutsch und Englisch selbstständige, präzise und effiziente Arbeitsweise mit der Fähigkeit, Prioritäten richtig zu setzen Proaktive und engagierte Persönlichkeit mit einem hohem Mass an Dienstleistungsorientierung sowie Qualitätsbewusstsein ## Was zeichnet uns in Kemptthal aus? - Interessante Entwicklungs- und Weiterbildungsmöglichkeiten - Zusätzlich bezahlte freie Tage - Vorteilhafte Pensionskassen Konditionen - Ermässigte Verpflegung im Personalrestaurant - Sport- und Freizeitaktivitäten im Givaudan Sportclub (Duschen vor Ort) - Rabatt im Mitarbeitershop in Kemptthal - Gratis Firmenparkplatz - REKA Checks und SBB Halbtax Beteiligung - Kostenlose Getränke (Wasser, Kaffee,Tee) - Weltweite private Unfalldeckung und freie Spitalwahl - Zusätzliche Freiwillige Familien- und Ausbildungszulagen Klingt spannend? Dann bewirb dich- wir freuen uns auf deine Bewerbung! Bei Givaudan trägst du dazu bei, köstliche Geschmacks- und Dufterlebnisse zu schaffen, die das Leben der Menschen bereichern. Wir schätzen die unterschiedlichen Perspektiven, die aus vielfältigen Kulturen, Hintergründen und Erfahrungen entstehen. Jede Person – unabhängig von ethnischer Herkunft, Geschlechtsidentität, sexueller Orientierung, Alter, Behinderung, Kultur, Religion oder persönlichen Lebensumständen – ist bei Givaudan herzlich willkommen, einem Ort, an dem wir alle gerne sind und wachsen. Jeder Teil von dir ist eine Bereicherung für unsere Welt. Mach mit und gestalte gemeinsam mit uns eine bessere Zukunft.",
         "fr": "Célébrez avec nous la beauté des expériences humaines. Créer avec amour pour la nature pour une vie plus heureuse et plus saine des gens. Ensemble, avec chaleur et modestie, nous livrons des innovations alimentaires, créons des parfums inspirants et développons des solutions qui font que les gens regardent et se sentent bien. Avec plus de 17 000 employés dans le monde qui explorent ensemble des idées et des objectifs, il y a beaucoup à apprendre et beaucoup à apprendre. Plongez-vous dans un environnement varié, flexible et stimulant. Rencontrez des professionnels avec de vrais pouvoirs avec lesquels vous pouvez vous associer, vous faire des amis et développer vos compétences. Chaque jour, votre énergie, votre créativité et votre détermination façonnent notre avenir et affectent positivement des milliards de personnes. Chaque partie de vous est un enrichissement pour notre monde. Nous sommes Givaudan. De nature humaine. Pour notre équipe locale des services RH à Kemptthal, nous cherchons maintenant un nouveau membre de l'équipe en tant que coordonnateur des RH (m/f/j)- 60%. Ce poste vous offre l'occasion de participer activement à une équipe engagée et de travailler avec nous sur des sujets de RH intéressants. Si vous voulez soutenir une équipe passionnée et bien établie de gestionnaires des RH, vous êtes au bon endroit! ## Dans cette position passionnante, vous êtes responsable de - Mise en œuvre de régimes d'assurance sociale (KTG, UVG, allocations familiales et pour enfants, EO, processus de maternité et de paternité) ainsi que soutien à l'absence de longue durée et cas IV - Personne de contact et interface avec notre assurance sociale et personnelle - Maintenance et support de notre système de gestion des absences et d'enregistrement du temps - Soutien à diverses tâches administratives du personnel en étroite collaboration avec notre centre de services partagés RH à Budapest, notre équipe de paye à Vernier et les gestionnaires RH - Création indépendante d'emplois et de certificats intermédiaires avec notre outil et gestion active des dossiers électroniques personnels - Point de contact pour les superviseurs et les employés dans divers dossiers relatifs au personnel administratif - Appui à l'optimisation des processus locaux et des projets RH ##\n• Votre profil professionnel - Formation commerciale de base d'au moins 2 ans d'expérience professionnelle dans une fonction RH comparable avec une bonne connaissance et une bonne expérience de la sécurité sociale en gestion absenz - Enseignement complémentaire pertinent pour les ressources humaines ou spécifique à une matière donnée (par exemple diplôme d ' assistant aux ressources humaines, spécialiste de la sécurité sociale, etc.) - Utilisation expérimentée des systèmes informatiques communs (MS Office) et bonne capacité d'apprentissage dans le traitement des nouveaux systèmes et outils - Très bonnes compétences en communication écrite et orale en allemand et en anglais - Travail indépendant, précis et efficace avec la capacité de fixer correctement les priorités - Personnalité proactive et engagée avec un degré élevé d'orientation et de sensibilisation à la qualité ## Qu'est-ce qui nous sépare de Kemptthal ? - Possibilités de perfectionnement et de formation intéressantes - Jours supplémentaires payés - Conditions avantageuses pour la Caisse de retraite - Restauration réduite dans le restaurant du personnel - Activités sportives et de loisirs au Givaudan Sports Club (douches sur place) - Réduction dans la boutique des employés à Kemptthal - Stationnement de l'entreprise gratuit et insigne de vélo - REKA Checks et participation CFF Halbtax - Boissons gratuites (eau, café, thé) - Couverture mondiale des accidents privés et libre choix des hôpitaux - Allocations familiales et éducatives supplémentaires volontaires Ça semble excitant ? Puis postuler - nous attendons avec impatience votre candidature! Chez Givaudan, vous aidez à créer de délicieuses expériences de goût et de parfum qui enrichissent la vie des gens. Nous apprécions les différentes perspectives qui émergent de diverses cultures, milieux et expériences. Toute personne – indépendamment de son appartenance ethnique, de son identité de genre, de son orientation sexuelle, de son âge, de son handicap, de sa culture, de sa religion ou de sa situation personnelle – est la bienvenue à Givaudan, un endroit où nous aimons tous être et grandir. Chaque partie de vous est un enrichissement pour notre monde. Rejoignez-nous et construisez un avenir meilleur avec nous."
       },
       "location": "Kemptthal, Switzerland",
@@ -2027,7 +2041,8 @@
           "maxValue": 54900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
