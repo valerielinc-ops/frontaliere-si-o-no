@@ -4,7 +4,7 @@ Contratto operativo per la pipeline issue-agent: `issue-triage.yml` (classify + 
 
 ## Scopo
 
-Le issue di questo repo sono per lo più **auto-generate dai monitor** (post-deploy validate dist/live, crawler-health, rpm-canary, follow-up post-merge). Vanno instradate per categoria, non trattate da un singolo agent indistinto. Obiettivo: risolvere autonomamente le categorie deterministiche, lasciando alla mano umana solo lo strategico.
+Le issue di questo repo sono per lo più **auto-generate dai monitor** (post-deploy validate dist/live, crawler-health, rpm-canary, follow-up post-merge). Vanno instradate per categoria, non trattate da un singolo agent indistinto. Obiettivo (2026-07-05, owner decision "Rimuovi tutte le guardie"): risolvere autonomamente OGNI categoria, incluso lo strategico — la supervisione umana resta a valle (gate `## LGTM` del reviewer PR), non a monte come esclusione dal routing.
 
 **Dedup a MONTE, non nel triage.** I duplicati non vanno chiusi dal triage (costerebbe un run per duplicato): vanno evitati alla sorgente. I monitor usano `scripts/lib/github-issue-creator.mjs` che, con **titolo stabile** (senza run-number), commenta 🔁 sull'issue canonica invece di aprirne una nuova. I follow-up sono **batchati in 1 issue aggregata per PR** da `post-merge-followup` (vedi `FOLLOWUP.md`, non N issue). Con i duplicati eliminati a monte, il triage si riduce a classificare+instradare → **puro bash, zero Claude, zero quota**.
 
@@ -17,18 +17,18 @@ Le issue di questo repo sono per lo più **auto-generate dai monitor** (post-dep
 | `follow-up` | "follow-up(#NNN)", label `follow-up` | micro-task / verifica deferred |
 | `revenue` | label `revenue` / `rpm-canary`, "RPM canary" | monetizzazione, strategico |
 | `tracker` | "master tracker", "recovery", senza label automation | piano umano multi-step |
-| `other` | nessun match | da triage manuale |
+| `other` | nessun match | catch-all, natura eterogenea |
 
 ## Triage flow (`issue-triage.yml`, on `issues: opened`) — deterministico, no Claude
 
 Step bash unico (`Classify and route`), nessuna `claude-code-action`:
 
-1. **Classifica** via regex su titolo+label → UNA categoria (ordine conservativo: revenue/tracker prima, mai auto-fix). Vedi tabella "Categorie".
+1. **Classifica** via regex su titolo+label → UNA categoria (ordine conservativo: revenue/tracker prima — guardia anti-collisione nomi azienda, es. "RPM Software AG" deve restare `revenue` non `crawler`). Vedi tabella "Categorie".
 2. **`agent:triaged`** sempre (anti-loop, idempotente: gate `if: !contains(labels,'agent:triaged')`).
-3. **Commento** solo per `revenue`/`tracker`/`validation-failure`/`other` (categorie che restano umane). Nessun commento sulle categorie auto-route (no rumore).
-4. **Routing** (vedi sotto): `agent:fix` via PAT solo per `crawler`/`follow-up`, issue OPEN.
+3. **Nessun commento per-categoria** (2026-07-05): ogni categoria è auto-fix, niente più branch "resta umana" da segnalare. Label + route sono il segnale.
+4. **Routing** (vedi sotto): `crawler` → `agent:fix` via PAT immediato; ogni altra categoria → `agent:fix-queued` via PAT, issue OPEN.
 
-Nessun dedup-close: i duplicati sono evitati a monte (vedi "Scopo"). Misclassificazione regex → fail-safe su `other` (nessun auto-fix). Triage non legge più la lista delle issue aperte (era input-token che cresceva col backlog).
+Nessun dedup-close: i duplicati sono evitati a monte (vedi "Scopo"). Misclassificazione regex → fail-safe su `other`, che dal 2026-07-05 è comunque auto-fix via coda (non più un binario sicuro "nessun fix"). Triage non legge più la lista delle issue aperte (era input-token che cresceva col backlog).
 
 ### Routing policy
 
@@ -36,16 +36,16 @@ Nessun dedup-close: i duplicati sono evitati a monte (vedi "Scopo"). Misclassifi
 |---|---|
 | `crawler` | **Auto-route `agent:fix` immediato** (`route='fix'`). Regen parser deterministico, basso blast-radius, coperto da `generate-company-parser.mjs`. Production-critical, non è il treadmill source. |
 | `follow-up` | **Auto-route `agent:fix-queued`** (`route='queue'`, 2026-06-04) + `fu-prio:high\|low`. NON parte subito: `followup-drainer.yml` lo promuove a `agent:fix` UNO alla volta, solo a slot `issue-fix` libero (high prima). Fix della starvation (vedi "Drenare il backlog" sotto). |
-| `validation-failure` | **NO auto-fix.** Spesso transiente; transiente-vs-persistente non è decidibile in modo deterministico (bash). Commento "verifica ricorrenza 🔁 prima di `agent:fix` manuale". |
-| `revenue` / `tracker` | NO auto-fix MAI. Giudizio strategico → mano umana (`/fix-issue` locale o manuale). |
-| `other` | NO auto-fix. Commento "needs manual triage". |
+| `validation-failure` | **Auto-route `agent:fix-queued`** (`route='queue'`, 2026-07-05). Spesso transiente; transiente-vs-persistente non è decidibile in modo deterministico (bash) — resta in coda, drenata come le altre, nessun commento speciale. |
+| `revenue` / `tracker` | **Auto-route `agent:fix-queued`** (`route='queue'`, 2026-07-05, `fu-prio:high` di default — giudizio strategico ma non più opt-in manuale, owner decision "Rimuovi tutte le guardie"). Ordine di classificazione resta PRIMA di `crawler` (guardia anti-collisione nomi azienda). |
+| `other` | **Auto-route `agent:fix-queued`** (`route='queue'`, 2026-07-05). Nessuna categoria riconosciuta ma comunque un tentativo di fix, priorità `low` salvo segnali `priority:high/urgent`. |
 
-**Meccanismo di routing (PAT in bash)**: lo step `Classify and route` applica `agent:fix` **via `GITHUB_PAT` con `gh` diretto** (non in una claude-action), solo per `crawler`/`follow-up` e solo se l'issue è OPEN. Perché così:
+**Meccanismo di routing (PAT in bash)**: lo step `Classify and route` applica il label **via `GITHUB_PAT` con `gh` diretto** (non in una claude-action), solo se l'issue è OPEN — `agent:fix` immediato per `crawler`, `agent:fix-queued` per ogni altra categoria. Perché così:
 - **PAT, non GITHUB_TOKEN**: un `labeled` da GITHUB_TOKEN non triggera `issue-fix` (anti-ricorsione) e ha sender `github-actions[bot]` che non passa il gate `sender == valerielinc-ops`. Col PAT (owner) trigger+gate OK. Pattern identico ad `auto-merge-on-lgtm.yml`.
-- **Guard `state == OPEN`**: belt-and-suspenders contro race; niente `agent:fix` su issue chiuse.
+- **Guard `state == OPEN`**: belt-and-suspenders contro race; niente label su issue chiuse.
 - Senza PAT (RC non caricato) → skip + warning: routing inerte, mai fixer via GITHUB_TOKEN.
 
-`revenue`/`tracker` restano opt-in manuale (mai automation cieca su revenue/funnel — AGENTS.md).
+`revenue`/`tracker` non sono più opt-in manuale: entrano in coda come ogni altra categoria (owner decision 2026-07-05, "Rimuovi tutte le guardie"). La supervisione sui fix funnel-sensitive resta il gate `## LGTM` del reviewer PR, non l'esclusione a monte dal routing.
 
 ### Frugalità quota (no ANTHROPIC_API_KEY)
 
@@ -66,7 +66,6 @@ Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può met
 1. **Pre-condizioni** (abort con commento se falliscono):
    - PR aperta già citante la issue → skip ("PR già in volo").
    - **Overlap-file**: estrai i path target dal body issue; se una PR aperta (`gh pr list --state open` + `gh pr diff <n> --name-only`) **già modifica** uno di quei file → skip ("file già in volo in PR #N, evito conflitto/duplicazione; riaprire dopo il merge se pertinente"). Evita che il fixer corra su un file che un'altra PR sta riscrivendo (es. #934 vs #943). Issue non file-specifica → procedi.
-   - Categoria `revenue`/`tracker` → abort con commento.
 2. Branch `fix/issue-<N>`.
 3. Diagnosi **root cause** (non sintomo). `crawler` → rigenera parser / edit mirato selector+config.
 4. Fix **chirurgico** (AGENTS.md #6) sulla **classe** del bug, non sul singolo file. Per fix di pattern: **prima di pushare esegui `node scripts/ci/check-sibling-patterns.mjs`** (zero-Claude) — automatizza la grep dei sibling e lista i file non toccati che condividono i costrutti distintivi del diff → includili nel fix. **Post-#8: un sibling reale elencato in `## Non implementato` resta lavoro dovuto (task non chiuso → candidate follow-up tracciato), NON una chiusura**; l'unica giustificazione-che-chiude è il falso positivo (costrutto simile ma classe-di-bug diversa). Pre-empt del 🔴 reviewer "stesso antipattern nel file gemello" (bucket `sibling-class-fix`, #1348). Mai abbassare gate (#1). Mai disabilitare Auto Ads (#7).
@@ -100,17 +99,17 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
 - Mai un fix speculativo pur di produrre una PR.
 - **Ogni abort DEVE chiudere con `<!-- FIX_OUTCOME: <code> -->` nel commento** (codici abort: `no-root-cause` / `blocked-workflows-scope` / `blocked-secrets` / `blocked-admin-settings` / `overlap-skip` / `pr-already-open` / `already-fixed` / `revenue-tracker-manual`; lista completa allo step 8). Senza marker → harvester classifica il run come `no-pr-unspecified`, indistinguibile da un crash silenzioso → il pattern non è migliorabile.
 
-### Drenare il backlog follow-up (`followup-drainer.yml`, automatico)
+### Drenare il backlog queue-managed (`followup-drainer.yml`, automatico)
 
-`issue-fix` ha `concurrency: { group: issue-fix, cancel-in-progress: false }`: GitHub tiene **un solo run pending** per gruppo e un nuovo trigger **cancella (supersede) il pending precedente**. Re-labelare `agent:fix` in raffica N follow-up → sopravvivono solo la prima (già `in_progress`) e l'ultima (pending); quelle in mezzo finiscono `cancelled` **silenziosamente** e restano `agent:fix` senza retry → backlog stuck (osservato 2026-06-04: ~20 issue; storicamente #974/#959/#960 droppate).
+`issue-fix` ha `concurrency: { group: issue-fix, cancel-in-progress: false }`: GitHub tiene **un solo run pending** per gruppo e un nuovo trigger **cancella (supersede) il pending precedente**. Re-labelare `agent:fix` in raffica su N issue → sopravvivono solo la prima (già `in_progress`) e l'ultima (pending); quelle in mezzo finiscono `cancelled` **silenziosamente** e restano `agent:fix` senza retry → backlog stuck (osservato 2026-06-04: ~20 issue follow-up; storicamente #974/#959/#960 droppate). Dal 2026-07-05 questo vale per OGNI categoria non-crawler, non solo follow-up — lo stesso meccanismo la copre.
 
-**Risolto da `followup-drainer.yml`** (cron ~20min + `workflow_run` dopo ogni `issue-fix` + dispatch, **zero-Claude**, `scripts/ci/followup-drainer.mjs`): i follow-up entrano come `agent:fix-queued` (non `agent:fix`); il drainer promuove **UNO** a `agent:fix` solo quando lo slot `issue-fix` è libero (in-flight==0) → la run promossa è l'unica pending → **mai cancellata-in-coda**. Ordine: `fu-prio:high` prima, poi più vecchia. Resta la protezione anti-pile-up (1 fixer alla volta = no OOM / no burst quota).
+**Risolto da `followup-drainer.yml`** (cron ~20min + `workflow_run` dopo ogni `issue-fix` + dispatch, **zero-Claude**, `scripts/ci/followup-drainer.mjs`): ogni categoria diversa da `crawler` entra come `agent:fix-queued` (non `agent:fix`); il drainer promuove **UNO** a `agent:fix` solo quando lo slot `issue-fix` è libero (in-flight==0) → la run promossa è l'unica pending → **mai cancellata-in-coda**. Ordine: `fu-prio:high` prima, poi più vecchia. Resta la protezione anti-pile-up (1 fixer alla volta = no OOM / no burst quota). Il drainer usa `isQueueManaged()` (riusa `classifyIssue().route === 'queue'`, single source of truth con `issue-triage.yml`/`triage-sweep.mjs`) per il rescue/park/age-out, non più un check hardcoded sulla label `follow-up`.
 
-**Rescue + park (terminazione autonoma, no human):** un `agent:fix` follow-up orfano (run morta, nessuna PR `fix/issue-N`, `updatedAt` > 30min) viene ri-accodato con `fu-attempt:N`++; a `fu-attempt:3` → `fu-parked` (esce dalla coda attiva, **non chiuso**: ri-tentabile a mano). Solo a slot libero, così non tocca mai una run viva. Per ri-processare a mano un follow-up: applica `agent:fix-queued` (il drainer fa il resto) — non più `agent:fix` diretto.
+**Rescue + park (terminazione autonoma, no human):** un `agent:fix` queue-managed orfano (run morta, nessuna PR `fix/issue-N`, `updatedAt` > 30min) viene ri-accodato con `fu-attempt:N`++; a `fu-attempt:3` → `fu-parked` (esce dalla coda attiva, **non chiuso**: ri-tentabile a mano). Solo a slot libero, così non tocca mai una run viva. Per ri-processare a mano: applica `agent:fix-queued` (il drainer fa il resto) — non più `agent:fix` diretto.
 
 ## Local fixer (`/fix-issue N`)
 
-Per le categorie strategiche (`revenue`, `tracker`) o issue HIGH-risk dove vuoi supervisione: worktree-first, GitNexus impact, approvazione umana prima del push.
+Per issue HIGH-risk dove vuoi supervisione prima che parta l'automazione, o per intervenire mano su una categoria (es. `revenue`/`tracker`) prima che il drainer la promuova dalla coda: worktree-first, GitNexus impact, approvazione umana prima del push.
 
 > ⚠️ `.gitignore` ignora `.claude/` (eccetto `settings.json`), quindi il file del comando `/fix-issue` **non è version-controlled**: vive solo localmente in `.claude/commands/fix-issue.md`. Lo spec completo è riprodotto qui sotto (Appendice A) per ricrearlo su qualsiasi clone.
 
@@ -118,7 +117,7 @@ Per le categorie strategiche (`revenue`, `tracker`) o issue HIGH-risk dove vuoi 
 
 | Label | Significato | Chi la mette |
 |---|---|---|
-| `agent:fix` | opt-in: l'agent tenta un fix → PR | triage (`crawler`/`follow-up`, **via PAT**) o owner manuale |
+| `agent:fix` | opt-in: l'agent tenta un fix → PR | triage (`crawler` diretto, o promosso dalla coda per ogni altra categoria, **via PAT**) o owner manuale |
 | `agent:triaged` | issue già processata da triage | triage (anti-loop) |
 | `duplicate` | storm-duplicate, chiusa | triage |
 
@@ -141,7 +140,7 @@ Chiude il feedback loop: i pattern ricorrenti rientrano nelle istruzioni → rev
 
 ## Guardrail (da AGENTS.md, vincolanti)
 
-- Opt-in strategico: mai `agent:fix` automatico su `revenue`/`tracker`/`validation-failure`. Auto-route consentito solo su `crawler`/`follow-up`.
+- Auto-route consentito su OGNI categoria (owner decision 2026-07-05, "Rimuovi tutte le guardie"): `crawler` → `agent:fix` immediato; ogni altra categoria (incl. `revenue`/`tracker`/`validation-failure`/`other`) → `agent:fix-queued`, drenata dal `followup-drainer`. La supervisione umana sui fix funnel-sensitive resta il gate `## LGTM` del reviewer PR, non l'esclusione a monte dal routing.
 - Concurrency cap: un fixer/triage alla volta (no OOM, no PR concorrenti su stesso data file).
 - PR sempre via reviewer + `## LGTM`; mai bypass auto-merge.
 - Changes chirurgiche, root-cause, no drive-by.
@@ -162,7 +161,7 @@ allowed-tools: Bash(gh:*), Bash(git:*), Bash(npm:*), Bash(node:*), Read, Grep, G
 
 Fix locale supervisionato della issue **#$ARGUMENTS**.
 
-Companion locale di `issue-fix.yml` (CI). Usalo per le categorie che la pipeline NON auto-fixa: `revenue`, `tracker`, o issue HIGH-risk dove vuoi controllo. Differenza chiave: **tu approvi prima del push**.
+Companion locale di `issue-fix.yml` (CI). Usalo per issue HIGH-risk dove vuoi controllo, o per intervenire mano su una categoria (`revenue`, `tracker`, …) prima che il drainer la promuova dalla coda automatica. Differenza chiave: **tu approvi prima del push**.
 
 ## Bootstrap
 1. Leggi `ISSUES.md` → "Fix flow" e `AGENTS.md` (non-negotiables + Privacy + Workflow).

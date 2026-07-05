@@ -32,10 +32,18 @@ name: GH_PAT Expiry Monitor
 # Zero-Claude by design (pure bash + the existing node issue-creator) per the
 # frugality rules in AGENTS.md — no claude-code-action, no extra Max-quota burn.
 #
-# NB labels (2026-06-04): gli alert NON portano `follow-up` (lo instraderebbe il
-# classifier come categoria follow-up → agent:fix-queued, assurdo per un PAT-down).
-# Solo `automation` + il priority label da --priority. Titoli non-crawler/non-
-# follow-up → classify-issue.mjs li lascia `other`/route:none (nessun auto-fix).
+# NB labels (2026-06-04, aggiornato 2026-07-05): gli alert NON portano
+# `follow-up`/`crawler` (eviterebbe comunque la route IMMEDIATA crawler, ma qui
+# è soprattutto per chiarezza di categoria). Solo `automation` + il priority
+# label da --priority. Dal 2026-07-05 classify-issue.mjs NON produce più
+# route:none/autofix:false per nessuna categoria: un titolo non-crawler/non-
+# follow-up cade in `other` → `agent:fix-queued` come ogni altra categoria, e
+# il drainer lo promuove come tutti gli altri. Un run di fix su un PAT-down/
+# expiry-near non ha comunque nulla da fixare in codice (richiede rotazione
+# credenziali) → il capability-guard generico di `issue-fix.yml` lo aborta al
+# turno ~1 con `blocked-secrets` (NON_RETRYABLE → park immediato, no retry
+# sprecati). Nessuna azione richiesta qui: è il comportamento atteso, non un
+# bug — vedi `ISSUES.md` → "Abort senza PR".
 
 on:
   schedule:
