@@ -18,8 +18,10 @@ import {
   JOB_MARKET_SNAPSHOT_LOCALES,
   JOB_MARKET_SNAPSHOT_ROUTES,
   JOB_MARKET_SECTION_SLUG,
+  JOB_MARKET_SECTOR_KEYS,
   buildHubPath,
   buildMonthlyPath,
+  buildSectorSnapshotPath,
   buildWeeklyPath,
   getIsoWeek,
   isJobMarketSnapshotPath,
@@ -33,6 +35,7 @@ import {
   bucketHistoryByWeek,
   buildWeeklyTrendSeries,
   generateJobMarketSnapshotPages,
+  generateSectorSnapshotPages,
 } from '../build-plugins/jobMarketSnapshotPlugin';
 import { htmlAttr, htmlTagWithAttrs, htmlTagWithClass } from './utils/htmlAttr';
 
@@ -361,6 +364,23 @@ describe('generateJobMarketSnapshotPages — normal mode (rich history)', () => 
     }
   });
 
+  it('pathAlternates: every emitted page has a matching sitemap alternates record anchored to IT (regression #3499 sibling)', () => {
+    // The sitemap writer in closeBundle used to gate <url><loc> emission to
+    // locale==='it' only, leaving en/de/fr hreflang alternates one-sided and
+    // stripped by sanitizeSitemapHreflangReciprocity (issue #3499). This locks
+    // the fix: every page's own path resolves to a pathAlternates record that
+    // covers all 4 locales and is anchored to the IT path (x-default target).
+    for (const path of Object.keys(out.pages)) {
+      const alt = out.pathAlternates.get(path);
+      expect(alt, `missing pathAlternates entry for ${path}`).toBeTruthy();
+      for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
+        expect(alt![locale], `${path} pathAlternates missing ${locale}`).toBeTruthy();
+      }
+      const itPath = alt!.it;
+      expect(out.pathAlternates.get(itPath)).toEqual(alt);
+    }
+  });
+
   it('every page embeds parseable BreadcrumbList + FAQPage JSON-LD', () => {
     for (const [path, html] of Object.entries(out.pages)) {
       const ldBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
@@ -456,6 +476,45 @@ describe('generateJobMarketSnapshotPages — normal mode (rich history)', () => 
       const bodyMatch = html.match(new RegExp(`${htmlTagWithClass('main', 'seo-static-content').source}([\\s\\S]*?)<\\/main>`));
       const body = bodyMatch?.[1] ?? '';
       expect(body.length, `empty seo-static-content body on ${path}`).toBeGreaterThan(0);
+    }
+  });
+});
+
+describe('generateSectorSnapshotPages — pathAlternates (regression #3499 sibling)', () => {
+  const today = new Date('2026-04-27T06:00:00.000Z');
+  const entries = buildMultiWeekHistory();
+  const sectorOut = generateSectorSnapshotPages({
+    history: { version: 1, generatedAt: today.toISOString(), entries },
+    jobs: [
+      { title: 'Infermiere', company: 'EOC', location: 'Bellinzona', baseSalary: { value: { minValue: 70000, maxValue: 90000 } } },
+      { title: 'Cassiere', company: 'Coop', location: 'Lugano', baseSalary: { value: { minValue: 48000, maxValue: 55000 } } },
+      { title: 'Tecnico', company: 'Lonza', location: 'Visp', baseSalary: { value: { minValue: 85000, maxValue: 110000 } } },
+    ] as any,
+    today,
+  });
+
+  it('emits a sector page per locale for every sector', () => {
+    for (const sector of JOB_MARKET_SECTOR_KEYS) {
+      for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
+        const path = buildSectorSnapshotPath(locale, sector);
+        expect(sectorOut.pages[path], `missing sector page at ${path}`).toBeTruthy();
+      }
+    }
+  });
+
+  it('every emitted page has a matching sitemap alternates record anchored to IT', () => {
+    // Same reciprocity bug as the hub/weekly/monthly generator (#3499): the
+    // sitemap writer used to only push a <url><loc> entry for locale==='it',
+    // leaving en/de/fr sector-page hreflang alternates one-sided. Locks the
+    // fix for the sector generator's own pathAlternates map.
+    for (const path of Object.keys(sectorOut.pages)) {
+      const alt = sectorOut.pathAlternates.get(path);
+      expect(alt, `missing pathAlternates entry for ${path}`).toBeTruthy();
+      for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
+        expect(alt![locale], `${path} pathAlternates missing ${locale}`).toBeTruthy();
+      }
+      const itPath = alt!.it;
+      expect(sectorOut.pathAlternates.get(itPath)).toEqual(alt);
     }
   });
 });

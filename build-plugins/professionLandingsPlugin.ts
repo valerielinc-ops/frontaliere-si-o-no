@@ -694,6 +694,8 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
         );
         alternates.push(`x-default|${BASE_URL}${buildProfessionLandingPath('it', id)}`);
 
+        let itWasWritten = false;
+
         for (const locale of PROFESSION_LOCALES) {
           const rendered = renderPage({
             locale,
@@ -716,7 +718,17 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
           collector.add(indexPath, rendered.html);
           collector.add(flatPath, rendered.html);
 
+          // Every locale gets its own reciprocal <loc> entry (all 4 carry the
+          // same alternates set) — an IT-only push here would leave en/de/fr
+          // as one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
+          // Non-IT pushes require the IT anchor itself to have been written
+          // this run (PROFESSION_LOCALES starts with 'it', so itWasWritten is
+          // settled before en/de/fr) — an unconditional push would leave a
+          // dangling IT alternate when the IT render is itself thin-skipped.
           if (locale === 'it') {
+            itWasWritten = true;
+            sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+          } else if (itWasWritten) {
             sitemapEntries.push({ canonical: rendered.urlPath, alternates });
           }
 

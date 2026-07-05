@@ -2259,18 +2259,19 @@ function emitSvizzeraArticlesHub(args: EmitSvizzeraArgs): void {
       qw(np.join(distDir, canonicalPath.slice(1), 'index.html'), html);
       onPageEmitted();
 
-      if (locale === 'it') {
-        const altLinks = page === 1
-          ? HUB_LOCALES.map((alt) =>
-              `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${archiveBases[alt]}" />`,
-            ).join('\n')
-          : `    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}${canonicalPath}" />`;
-        const url = `${BASE_URL}${canonicalPath}`;
-        const priority = page === 1 ? '0.7' : '0.5';
-        sitemapEntries.push(
-          `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
-        );
-      }
+      // One sitemap entry per locale at page 1 (non-IT locales only ever
+      // reach page 1 here — see the `continue` above); each carries the
+      // same 4-locale alternate set so the group stays fully reciprocal.
+      const altLinks = page === 1
+        ? HUB_LOCALES.map((alt) =>
+            `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${archiveBases[alt]}" />`,
+          ).join('\n')
+        : `    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}${canonicalPath}" />`;
+      const url = `${BASE_URL}${canonicalPath}`;
+      const priority = page === 1 ? '0.7' : '0.5';
+      sitemapEntries.push(
+        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+      );
     }
   }
 }
@@ -2445,27 +2446,30 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const canonicalPath = paginatedPath(basePath, page);
       writeFile(canonicalPath, html);
 
-      // Sitemap: only emit IT entries (one per (hub, page) tuple), matches existing pattern
-      if (locale === 'it') {
-        // Hreflang alternates: page-1 ships the full 4-locale set; page-N>1
-        // ships IT-only (non-IT page-N HTML is no longer emitted, so listing
-        // those URLs as alternates would advertise 404s).
-        const altLinks = page === 1
-          ? HUB_LOCALES.map((alt) => {
-              const altBase = alt === 'it' ? HUB_SLUGS.it[
-                hubKey === 'jobs' ? 'jobsAll' : hubKey === 'sectors' ? 'sectorsAll' : hubKey === 'companies' ? 'companiesAll' : 'articlesAll'
-              ] : HUB_SLUGS[alt][
-                hubKey === 'jobs' ? 'jobsAll' : hubKey === 'sectors' ? 'sectorsAll' : hubKey === 'companies' ? 'companiesAll' : 'articlesAll'
-              ];
-              return `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altBase}" />`;
-            }).join('\n')
-          : `    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}${canonicalPath}" />`;
-        const url = `${BASE_URL}${canonicalPath}`;
-        const priority = page === 1 ? '0.7' : '0.5';
-        sitemapEntries.push(
-          `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
-        );
-      }
+      // Sitemap: one entry per (hub, locale, page) tuple. Non-IT locales only
+      // ever reach page 1 (the `continue` above skips page>1 for them), so
+      // each locale gets its own reciprocal <loc> here — required for the
+      // 4-locale alternate group below to pass sanitizeSitemapHreflangReciprocity
+      // (every href must resolve to a real <loc> elsewhere in the sitemap).
+      //
+      // Hreflang alternates: page-1 ships the full 4-locale set; page-N>1
+      // ships IT-only (non-IT page-N HTML is no longer emitted, so listing
+      // those URLs as alternates would advertise 404s).
+      const altLinks = page === 1
+        ? HUB_LOCALES.map((alt) => {
+            const altBase = alt === 'it' ? HUB_SLUGS.it[
+              hubKey === 'jobs' ? 'jobsAll' : hubKey === 'sectors' ? 'sectorsAll' : hubKey === 'companies' ? 'companiesAll' : 'articlesAll'
+            ] : HUB_SLUGS[alt][
+              hubKey === 'jobs' ? 'jobsAll' : hubKey === 'sectors' ? 'sectorsAll' : hubKey === 'companies' ? 'companiesAll' : 'articlesAll'
+            ];
+            return `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altBase}" />`;
+          }).join('\n')
+        : `    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}${canonicalPath}" />`;
+      const url = `${BASE_URL}${canonicalPath}`;
+      const priority = page === 1 ? '0.7' : '0.5';
+      sitemapEntries.push(
+        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+      );
     }
   }
 

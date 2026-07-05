@@ -216,7 +216,7 @@ function getUrlsFromSitemap() {
     : resolve(rootDir, 'public');
 
   // sitemap.xml is now a sitemap index — read all sub-sitemaps
-  const subSitemaps = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml'];
+  const subSitemaps = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml', 'sitemap-seo-hubs.xml'];
   for (const file of subSitemaps) {
     try {
       const xml = readFileSync(resolve(sitemapDir, file), 'utf-8');
@@ -244,6 +244,7 @@ async function pingSitemaps(accessToken) {
     `${SITE_URL}/sitemap-glossario.xml`,
     `${SITE_URL}/sitemap-jobs.xml`,
     `${SITE_URL}/sitemap-news.xml`,
+    `${SITE_URL}/sitemap-seo-hubs.xml`,
   ];
 
   const headers = { Authorization: `Bearer ${accessToken}` };

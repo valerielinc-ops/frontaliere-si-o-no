@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { extractAlternateUrls, extractUrls, getUrlsFromSitemaps } from '../scripts/submit-indexnow-batch.mjs';
 
 // A fresh Response per call: a Response body is single-use, so reusing one
-// object across the 6 sub-sitemap fetches would throw on the 2nd read and
+// object across the 7 sub-sitemap fetches would throw on the 2nd read and
 // trip fetchSitemapXml's retry/sleep path (slow test, wrong branch).
 const xmlResponder = (body: string) =>
   vi.fn().mockImplementation(() =>

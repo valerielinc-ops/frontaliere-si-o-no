@@ -63,6 +63,7 @@ const SUB_SITEMAPS = [
   'sitemap-jobs.xml',
   'sitemap-news.xml',
   'sitemap-guides.xml',
+  'sitemap-seo-hubs.xml',
 ];
 
 // Key pages that may not appear in sitemaps but should always be submitted
@@ -218,7 +219,7 @@ export async function getUrlsFromSitemaps() {
       console.log(`  ${file}: ${count} raw entries (${urls.size} unique so far)`);
     }
     console.log(`  Source: live ${SITEMAP_BASE}`);
-    // Abort on ANY expected sub-sitemap failure, not only when all six fail.
+    // Abort on ANY expected sub-sitemap failure, not only when all seven fail.
     // A partial fetch would silently drop a whole content type — e.g. if
     // sitemap-jobs.xml (the job funnel) 5xx/404s after a deploy while the
     // other five succeed — and still exit 0, masking the gap as a clean run.

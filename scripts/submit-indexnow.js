@@ -81,7 +81,7 @@ function getUrlsFromSitemaps() {
     : resolve(rootDir, 'public');
 
   // sitemap.xml is now a sitemap index — read all sub-sitemaps
-  const subSitemaps = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml'];
+  const subSitemaps = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml', 'sitemap-seo-hubs.xml'];
   for (const file of subSitemaps) {
     try {
       const xml = readFileSync(resolve(sitemapDir, file), 'utf-8');
@@ -238,7 +238,7 @@ async function getDeployedUrls() {
 
   // 2. Fallback: fetch from live site (unreliable after deploy)
   console.log('⚠️  No pre-deploy snapshot found — fetching live sitemaps (may be already updated)');
-  const sitemapFiles = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml', 'sitemap-news.xml'];
+  const sitemapFiles = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml', 'sitemap-news.xml', 'sitemap-seo-hubs.xml'];
   const urls = new Set();
 
   for (const file of sitemapFiles) {
