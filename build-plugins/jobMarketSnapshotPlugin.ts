@@ -3251,6 +3251,39 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       for (const [path, html] of Object.entries(sectorOutput.pages)) {
         pages[path] = html;
       }
+      // (#3579 item 2 — adversarial review of #3560) Structural guarantee:
+      // this merge can never silently let one bucket type's alternates
+      // clobber another's. `pathAlternates` is keyed by `canonicalPath`
+      // strings from 4 builders in jobMarketSnapshotData.ts (buildHubPath /
+      // buildWeeklyPath / buildMonthlyPath feed the map above; buildSector-
+      // SnapshotPath feeds `sectorOutput` here) — none of them can degenerate
+      // to an empty/overlapping segment that would make two bucket types
+      // produce the same key:
+      //   - `joinPath` drops empty array elements, so a path only collapses
+      //     to a shorter shape if a variable segment (weekSlug/monthSlug/
+      //     sector slug) reduces to ''. That can't happen: `JOB_MARKET_WEEK_
+      //     PREFIX` is a fixed non-empty word per locale, `buildMonthlyPath`
+      //     throws `RangeError` for month outside 1-12 (so `monthName` is
+      //     always a real word, never the empty index-0 placeholder), and
+      //     `buildSectorSnapshotPath` throws for any key missing from
+      //     `JOB_MARKET_SECTOR_SLUG` (every valid key maps to a non-empty
+      //     slug). So hub paths always have exactly 1 fewer path segment than
+      //     weekly/monthly, which always have exactly 1 fewer than sector —
+      //     no bucket type's canonicalPath shape can collapse into another's.
+      //   - Weekly vs. monthly share the same segment count (`sectionSlug` +
+      //     one variable segment), so segment count alone doesn't separate
+      //     them — but their content still can't collide: `weekSlug` is
+      //     `${WEEK_PREFIX}-{2-digit week}-{year}` (always exactly 2 hyphens,
+      //     since the prefix/week/year never contain one), while `monthSlug`
+      //     is `${monthName}-{year}` (always exactly 1 hyphen, since none of
+      //     the 48 localised month names — it/en/de/fr × 12 — contain a
+      //     hyphen). A 2-hyphen string can never equal a 1-hyphen string.
+      // Locked by the "pathAlternates key collision-proof" describe block in
+      // tests/job-market-snapshot.test.ts, which enumerates every hub/weekly/
+      // monthly/sector path across boundary weeks/months/sectors/locales and
+      // asserts zero duplicates. If a future change ever lets one of these
+      // slugs (or the locale prefix) go empty or gain/lose a hyphen, that
+      // test — and the guard clauses cited above — must be revisited.
       for (const [path, alt] of sectorOutput.pathAlternates) {
         pathAlternates.set(path, alt);
       }
