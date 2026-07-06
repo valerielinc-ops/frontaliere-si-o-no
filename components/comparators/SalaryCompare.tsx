@@ -2,7 +2,7 @@ import React, { useState, useMemo, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import {
  TrendingUp, AlertTriangle, Download, BarChart3, Users,
- Briefcase, ChevronDown, ChevronUp, Search, BookOpen, Info,
+ Briefcase, ChevronDown, ChevronUp, Search, BookOpen, Info, Landmark,
 } from 'lucide-react';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { SegmentControl } from '@/components/shared/SegmentControl';
@@ -14,6 +14,7 @@ import {
 import { lazyRetry } from '@/services/lazyRetry';
 import { cantonGrossScale, SALARY_CANTON_CODES, NATIONAL_CANTON } from '@/services/cantonSalary';
 import { getCantonLabel, type CantonLocale } from '@/services/cantonList';
+import { buildPath } from '@/services/router';
 
 const SalarySurvey = lazyRetry(() => import('@/components/community/SalarySurvey'));
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
@@ -87,7 +88,8 @@ export default function SalaryCompare() {
  ? SALARY_DATA.filter((s) => s.id === selectedSector)
  : SALARY_DATA;
  return sectors.map((s) => {
- const chGross = scaleCh(getSectorMedian(s, selectedLevel, 'ch'));
+ const chGrossNational = getSectorMedian(s, selectedLevel, 'ch');
+ const chGross = scaleCh(chGrossNational);
  const itGross = getSectorMedian(s, selectedLevel, 'it');
  const chNet = calcNetCH(chGross);
  const itNet = calcNetIT(itGross);
@@ -97,11 +99,36 @@ export default function SalaryCompare() {
  const deltaPercent = itNet > 0 ? Math.round((delta / itNet) * 100) : 0;
  return {
  id: s.id, name: sectorName(s.id),
- chGross, itGross, chNet, itNet, chNetEUR, ppp, delta, deltaPercent,
+ chGrossNational, chGross, itGross, chNet, itNet, chNetEUR, ppp, delta, deltaPercent,
  professions: s.professions,
  };
  });
  }, [selectedSector, selectedLevel, t, exchangeRate, cantonScale]);
+
+ // ── Per-canton net comparison ──
+ // Reuses the same national gross baseline (currently filtered sector/level)
+ // and the official BFS per-canton wage-level scaling from cantonGrossScale
+ // (PR #2068), applied through the existing calcNetCH curve. This is an
+ // ESTIMATE: only the gross wage level varies by canton here — the
+ // withholding-tax curve itself is the same generic curve for every canton
+ // (see disclaimer below), since no official per-canton withholding table is
+ // available for the 26 cantons.
+ const cantonNetRows = useMemo(() => {
+ if (sectorTableData.length === 0) return [];
+ const avgNationalGrossCh = Math.round(
+ sectorTableData.reduce((sum, r) => sum + r.chGrossNational, 0) / sectorTableData.length,
+ );
+ return SALARY_CANTON_CODES.map((code) => {
+ const scale = cantonGrossScale(code);
+ const gross = Math.round(avgNationalGrossCh * scale);
+ return {
+ code,
+ label: getCantonLabel(code, locale as CantonLocale),
+ gross,
+ net: calcNetCH(gross),
+ };
+ }).sort((a, b) => b.net - a.net);
+ }, [sectorTableData, locale]);
 
  // ── All professions flat for search tab ──
  const allProfessions = useMemo(() => {
@@ -865,6 +892,76 @@ export default function SalaryCompare() {
  )}
  </>
  )}
+
+ {/* ── Per-canton net comparison (always visible, reuses BFS #2068 wage data) ── */}
+ <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
+ <div className="flex items-center gap-2 mb-1">
+ <Landmark className="text-warning" size={20} />
+ <h3 className="text-lg font-bold font-display text-heading">
+ {t('salaryCompare.cantonNetTitle')}
+ </h3>
+ </div>
+ <p className="text-sm text-subtle mb-4">
+ {t('salaryCompare.cantonNetDesc')}
+ </p>
+ <div className="overflow-x-auto">
+ <table className="w-full text-sm">
+ <thead className="bg-surface-alt">
+ <tr>
+ <th className="py-2 px-3 text-left text-subtle">
+ {t('salaryCompare.canton')}
+ </th>
+ <th className="py-2 px-3 text-right text-subtle">
+ {t('salaryCompare.cantonNetColGross')}
+ </th>
+ <th className="py-2 px-3 text-right text-subtle">
+ {t('salaryCompare.cantonNetColNet')}
+ </th>
+ </tr>
+ </thead>
+ <tbody>
+ {cantonNetRows.map((row) => (
+ <tr
+ key={row.code}
+ className={
+ 'border-b border-edge/50 ' +
+ (row.code === selectedCanton ? 'bg-warning-subtle/40' : '')
+ }
+ >
+ <td className="py-2 px-3 font-medium text-heading">
+ {row.label}
+ </td>
+ <td className="py-2 px-3 text-right font-mono text-body">
+ CHF {row.gross.toLocaleString()}
+ </td>
+ <td className="py-2 px-3 text-right font-mono font-bold text-heading">
+ CHF {row.net.toLocaleString()}
+ </td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ <p className="text-sm text-subtle mt-4">
+ {t('salaryCompare.cantonNetComuneNote')}{' '}
+ <a
+ href={buildPath({ activeTab: 'guida', guidaSubTab: 'border-map' }, locale)}
+ onClick={(e) => {
+ e.preventDefault();
+ window.dispatchEvent(new CustomEvent('navigate-tab', {
+ detail: { tab: 'guida', subTab: 'border-map' },
+ }));
+ }}
+ className="text-link font-medium hover:underline"
+ >
+ {t('salaryCompare.cantonNetComuneLink')}
+ </a>
+ </p>
+ <div className="flex items-start gap-2 text-xs text-muted mt-4">
+ <AlertTriangle size={14} className="flex-shrink-0 mt-0.5" />
+ <p>{t('salaryCompare.cantonNetDisclaimer')}</p>
+ </div>
+ </div>
 
  {/* ── Methodology section (always visible, SEO content) ── */}
  <div className="bg-surface rounded-xl shadow p-4 sm:p-6">
