@@ -73,14 +73,24 @@ export async function sendRenewalReminders(nowMs = Date.now()) {
   // (AGENTS.md #6 sibling pattern). byPublisher is bounded by distinct
   // publishers with ads renewing in the 3-day window, so one unchunked call
   // (no chunk-loop) is proportionate here.
+  // Own try/catch: a batch-level failure (transient network blip) degrades
+  // to "0 sent this run" (unstamped publishers retry next daily run) instead
+  // of throwing past the per-publisher loop below and losing every OTHER
+  // publisher's reminder too — the batched call has no equivalent to the old
+  // per-publisher catch that isolated one failure from the rest.
   const uids = [...byPublisher.keys()];
-  const pubSnaps = await db().getAll(...uids.map((uid) => db().collection('publishers').doc(String(uid))));
-  const pubSnapByUid = new Map(uids.map((uid, i) => [uid, pubSnaps[i]]));
+  let pubSnapByUid = new Map();
+  try {
+    const pubSnaps = await db().getAll(...uids.map((uid) => db().collection('publishers').doc(String(uid))));
+    pubSnapByUid = new Map(uids.map((uid, i) => [uid, pubSnaps[i]]));
+  } catch (err) {
+    console.warn(`⚠️  batched publisher lookup failed for ${uids.length} publisher(s): ${err?.message || err}`);
+  }
 
   for (const [uid, entry] of byPublisher) {
     try {
       const pubSnap = pubSnapByUid.get(uid);
-      const to = pubSnap.exists ? pubSnap.data().email : null;
+      const to = pubSnap && pubSnap.exists ? pubSnap.data().email : null;
       if (!to) continue;
 
       const days = entry.renewsAt != null

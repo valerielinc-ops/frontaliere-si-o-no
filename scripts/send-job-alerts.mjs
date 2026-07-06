@@ -1250,20 +1250,26 @@ async function main() {
   const LOOKUP_CHUNK_SIZE = 200; // emails per db.getAll() call (3 refs/email → ≤600 refs/call)
   for (let i = 0; i < alertEmails.length; i += LOOKUP_CHUNK_SIZE) {
     const chunk = alertEmails.slice(i, i + LOOKUP_CHUNK_SIZE);
-    const refs = chunk.flatMap((email) => [
-      db.collection('newsletter_subscribers').doc(email),
-      // A bounce/complaint reported on the alert channel lands on the
-      // job_alert_subscribers doc, not newsletter_subscribers — check both.
-      // isJobAlertExcluded also covers this channel's OWN inactivity-sunset
-      // 'inactive' state (scripts/lib/jobAlertSunset.mjs, issue #2852 item 1) —
-      // soft and reversible, unlike the hard cross-channel signals above.
-      db.collection('job_alert_subscribers').doc(email),
-      // Personalization subdoc (browsing-derived location + intent). Read here
-      // so the matcher can fold it into ranking; absent for users who never
-      // browsed while identified — the matcher tolerates an empty profile.
-      db.collection('newsletter_subscribers').doc(email).collection('private').doc('personalization'),
-    ]);
     try {
+      // refs built INSIDE the try: `.doc(email)` throws synchronously on a
+      // malformed id (e.g. an email containing `/`), and this loop has no
+      // caller-level catch of its own — an escaped throw here propagates to
+      // the top-level `main().catch()`, aborting the WHOLE script (every
+      // remaining chunk + the downstream matching/send step), not just this
+      // chunk's email(s).
+      const refs = chunk.flatMap((email) => [
+        db.collection('newsletter_subscribers').doc(email),
+        // A bounce/complaint reported on the alert channel lands on the
+        // job_alert_subscribers doc, not newsletter_subscribers — check both.
+        // isJobAlertExcluded also covers this channel's OWN inactivity-sunset
+        // 'inactive' state (scripts/lib/jobAlertSunset.mjs, issue #2852 item 1) —
+        // soft and reversible, unlike the hard cross-channel signals above.
+        db.collection('job_alert_subscribers').doc(email),
+        // Personalization subdoc (browsing-derived location + intent). Read here
+        // so the matcher can fold it into ranking; absent for users who never
+        // browsed while identified — the matcher tolerates an empty profile.
+        db.collection('newsletter_subscribers').doc(email).collection('private').doc('personalization'),
+      ]);
       const snaps = await db.getAll(...refs);
       chunk.forEach((email, idx) => {
         const [subDoc, alertSubDoc, personDoc] = snaps.slice(idx * 3, idx * 3 + 3);
