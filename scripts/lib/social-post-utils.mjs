@@ -21,6 +21,24 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 export const SITE_URL = 'https://frontaliereticino.ch';
 export const JOB_BOARD_PREFIX_IT = '/cerca-lavoro-ticino/';
 
+// ── Canton naming ───────────────────────────────────────────
+// Canton ISO 2-letter code → Italian display name. Used both as prose (FB
+// event/article captions, the events-digest blog article's per-canton
+// sections) and, via a hashtag sanitizer downstream, as the tag fallback for
+// job/event posts with no dedicated sector/category. Single source (was
+// previously duplicated as a spaceless hashtag-only map inside
+// schedule-fb-jobs-daily.mjs) — merged here per project rule (a regex/
+// constant duplicated literally in ≥2 files MUST live in ONE shared module).
+export const CANTON_NAME_BY_CODE = {
+  AG: 'Argovia', AI: 'Appenzello Interno', AR: 'Appenzello Esterno',
+  BE: 'Berna', BL: 'Basilea Campagna', BS: 'Basilea Città',
+  FR: 'Friburgo', GE: 'Ginevra', GL: 'Glarona', GR: 'Grigioni',
+  JU: 'Giura', LU: 'Lucerna', NE: 'Neuchâtel', NW: 'Nidvaldo',
+  OW: 'Obvaldo', SG: 'San Gallo', SH: 'Sciaffusa', SO: 'Soletta',
+  SZ: 'Svitto', TG: 'Turgovia', TI: 'Ticino', UR: 'Uri',
+  VD: 'Vaud', VS: 'Vallese', ZG: 'Zugo', ZH: 'Zurigo',
+};
+
 // ── Sanitization helpers ────────────────────────────────────
 
 export function stripHtml(s) {

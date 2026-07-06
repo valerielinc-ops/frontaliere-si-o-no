@@ -9,7 +9,7 @@ import {
   DIGEST_ARTICLE_ID,
   DIGEST_ARTICLE_SLUGS,
 } from '../scripts/lib/events-digest-content.mjs';
-import { EVENTS_BASE_PATH } from '../scripts/lib/events-utils.mjs';
+import { EVENTS_BASE_PATH, eventsBasePathForCanton } from '../scripts/lib/events-utils.mjs';
 
 const TODAY = '2027-01-01'; // Friday → weekend window = 2027-01-02 (Sat) .. 2027-01-03 (Sun)
 const EVENTS = [
@@ -93,5 +93,49 @@ describe('buildWeekendDigestArticle', () => {
     expect(art.content.it.excerpt).not.toMatch(/\d/);
     // …while the body carries the live weekend range
     expect(art.content.it.body1).toContain('gennaio');
+  });
+});
+
+// #3647 (F5/5 of #3125): 1 national article, TI-anchored headline + a
+// segmented "other cantons" section, instead of 1 evergreen file per canton
+// (that would flood the repo with a weekly-refreshed file per canton).
+describe('buildWeekendDigestArticle — multi-canton (other cantons section)', () => {
+  const EVENTS_MULTI = [
+    { id: 'ti1', title: 'Concerto al LAC', comune: 'Lugano', startDate: '2027-01-02', category: 'musica', canton: 'TI' },
+    { id: 'zh1', title: 'Streetfood Festival', comune: 'Zurigo', startDate: '2027-01-02', category: 'mercato', canton: 'ZH' },
+    { id: 'zh2', title: 'Jazz Night', comune: 'Winterthur', startDate: '2027-01-03', category: 'musica', canton: 'ZH' },
+    { id: 'be1', title: 'Mercatino di Natale', comune: 'Berna', startDate: '2027-01-02', category: 'mercato', canton: 'BE' },
+  ];
+  const art = buildWeekendDigestArticle({ events: EVENTS_MULTI, todayIso: TODAY });
+
+  it('keeps eventCount scoped to Ticino only (the evergreen headline stays TI-anchored)', () => {
+    expect(art.eventCount).toBe(1); // only the TI event counts toward the headline/intro
+  });
+
+  it('adds an "other cantons" section, busiest canton first', () => {
+    const body = art.content.it.body2;
+    expect(body).toContain('Eventi anche in altri cantoni');
+    const zhIdx = body.indexOf('Zurigo');
+    const beIdx = body.indexOf('Berna');
+    expect(zhIdx).toBeGreaterThan(-1);
+    expect(beIdx).toBeGreaterThan(-1);
+    expect(zhIdx).toBeLessThan(beIdx); // ZH has 2 events, BE has 1
+  });
+
+  it("links other-canton comuni with that canton's own locale base path, never Ticino's", () => {
+    const zhBase = eventsBasePathForCanton('ZH');
+    const beBase = eventsBasePathForCanton('BE');
+    for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+      const body = art.content[loc].body2;
+      expect(body).toContain(`](${zhBase[loc]}/`);
+      expect(body).toContain(`](${beBase[loc]}/`);
+      expect(body).not.toContain(`](${EVENTS_BASE_PATH[loc]}/zurigo/`);
+      expect(body).not.toContain(`](${EVENTS_BASE_PATH[loc]}/berna/`);
+    }
+  });
+
+  it('omits the section entirely when every weekend event is Ticino (no regression)', () => {
+    const tiOnly = buildWeekendDigestArticle({ events: [EVENTS_MULTI[0]], todayIso: TODAY });
+    expect(tiOnly.content.it.body2).not.toContain('Eventi anche in altri cantoni');
   });
 });

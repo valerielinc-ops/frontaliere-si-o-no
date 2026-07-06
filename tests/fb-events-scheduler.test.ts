@@ -12,7 +12,8 @@ import {
   buildEventUrl,
   selectUnpostedEvents,
   buildWeekendDigestCaption,
-  selectWeekendDigest,
+  selectWeekendDigests,
+  buildWeekendDigestUrl,
   WEEKEND_DIGEST_URL,
   isLandingPageLive,
   run,
@@ -155,23 +156,50 @@ describe('buildWeekendDigestCaption', () => {
   });
 });
 
-describe('selectWeekendDigest', () => {
+describe('selectWeekendDigests', () => {
   const events = [
     { id: 'w', title: 'Festa', comune: 'Lugano', startDate: '2027-01-02' },
     { id: 'far', title: 'Altro', comune: 'Lugano', startDate: '2027-02-10' },
   ];
-  it('returns a single payload ledgered by the weekend start date', () => {
-    const p = selectWeekendDigest(events, '2027-01-01', new Set());
-    expect(p).not.toBeNull();
+  it('returns one payload ledgered by the weekend start date', () => {
+    const [p] = selectWeekendDigests(events, '2027-01-01', new Set());
+    expect(p).toBeTruthy();
     expect(p?.id).toBe('weekend-digest-2027-01-02');
     expect(p?.url).toBe(WEEKEND_DIGEST_URL);
     expect(p?.placeId).toBeNull(); // multi-comune roundup → no geo-anchor
+    expect(p?.canton).toBe('TI'); // canton-less events default to TI (legacy MVP scope)
   });
-  it('returns null when this weekend was already posted', () => {
-    expect(selectWeekendDigest(events, '2027-01-01', new Set(['weekend-digest-2027-01-02']))).toBeNull();
+  it('returns [] when this weekend was already posted', () => {
+    expect(selectWeekendDigests(events, '2027-01-01', new Set(['weekend-digest-2027-01-02']))).toEqual([]);
   });
-  it('returns null when no events fall in the weekend window', () => {
-    expect(selectWeekendDigest([events[1]], '2027-01-01', new Set())).toBeNull();
+  it('returns [] when no events fall in the weekend window', () => {
+    expect(selectWeekendDigests([events[1]], '2027-01-01', new Set())).toEqual([]);
+  });
+  it('groups multiple cantons into separate payloads, Ticino first, capped by maxCantons', () => {
+    const multi = [
+      { id: 'ti1', comune: 'Lugano', startDate: '2027-01-02', canton: 'TI' },
+      { id: 'zh1', comune: 'Zurigo', startDate: '2027-01-02', canton: 'ZH' },
+      { id: 'zh2', comune: 'Winterthur', startDate: '2027-01-02', canton: 'ZH' },
+      { id: 'be1', comune: 'Berna', startDate: '2027-01-02', canton: 'BE' },
+    ];
+    const out = selectWeekendDigests(multi, '2027-01-01', new Set(), 2);
+    expect(out).toHaveLength(2);
+    expect(out[0].canton).toBe('TI');
+    expect(out[0].id).toBe('weekend-digest-2027-01-02');
+    expect(out[1].canton).toBe('ZH'); // 2 events > BE's 1 → ZH wins the second slot
+    expect(out[1].id).toBe('weekend-digest-ZH-2027-01-02');
+    expect(out[1].url).toBe(buildWeekendDigestUrl('ZH'));
+    expect(out[1].url).toContain('/eventi/zurigo/questo-weekend/');
+    expect(out[1].coveredIds).toEqual(['zh1', 'zh2']);
+  });
+  it('skips cantons already ledgered for this weekend while keeping others', () => {
+    const multi = [
+      { id: 'ti1', comune: 'Lugano', startDate: '2027-01-02', canton: 'TI' },
+      { id: 'zh1', comune: 'Zurigo', startDate: '2027-01-02', canton: 'ZH' },
+    ];
+    const out = selectWeekendDigests(multi, '2027-01-01', new Set(['weekend-digest-2027-01-02']));
+    expect(out).toHaveLength(1);
+    expect(out[0].canton).toBe('ZH');
   });
 });
 

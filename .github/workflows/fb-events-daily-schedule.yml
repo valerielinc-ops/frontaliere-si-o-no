@@ -1,8 +1,12 @@
 name: FB Events Schedule
 
-# Posts the soonest upcoming Ticino events to the Facebook Page, geo-anchored
-# per comune (chained feature on #2963). Posts immediately (low volume), linking
-# to our /eventi/ticino/<comune>/ landing pages to drive the SEO funnel.
+# Posts the soonest upcoming events (all cantons with live event data) to the
+# Facebook Page, geo-anchored per comune (chained feature on #2963, generalized
+# to every canton in #3647 — F5/5 of #3125). Posts immediately (low volume),
+# linking to our /eventi/<cantone>/<comune>/ landing pages (TI kept at its
+# original /eventi/ticino/<comune>/) to drive the SEO funnel. On the Friday
+# weekend-digest run, posts one roundup per canton that has weekend events
+# (Ticino first), instead of one per event.
 
 on:
   schedule:
