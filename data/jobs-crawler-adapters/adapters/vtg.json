@@ -33,11 +33,11 @@
     "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau/7e8f2980-6964-4068-9057-847ac35f084c",
     "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-im-bereich-infrastruktur-m-w/83909ec7-a0fd-48f6-abe8-b1792c29d9ba",
     "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-im-gastgewerblichen-bereich-m-w/ab0b76d1-ab5e-4f37-af11-a430a36f17eb",
+    "https://jobs.admin.ch/offene-stellen/observer-lmt-lot-m-w/057ac591-65fa-4a62-b0d8-099cc6d69783",
     "https://jobs.admin.ch/offene-stellen/lkw-automobil-mechatroniker-in/678344cb-36cb-4e4c-bf18-3a8cfd3b3d0f",
     "https://jobs.admin.ch/offene-stellen/fahrer-in-transporthelfer-in/0ea29eec-472f-4f91-a867-40b6a7ba79fd",
     "https://jobs.admin.ch/offene-stellen/militaerisches-kaderspersonal-m-w/6c59bb4d-6148-460e-a982-6d5eaab3d2d8",
     "https://jobs.admin.ch/offene-stellen/offiziere-fuer-friedensfoerdernde-auslandseinsaetze-m-w/448aa333-1f38-4a1a-b25b-4f1008707480",
-    "https://jobs.admin.ch/offene-stellen/observer-lmt-lot-m-w/057ac591-65fa-4a62-b0d8-099cc6d69783",
     "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db",
     "https://jobs.admin.ch/offene-stellen/motorgeraetemechaniker-in-bronschhofen/7eb83c67-8c70-4b77-ac39-23eaed0662dc",
     "https://jobs.admin.ch/offene-stellen/motorgeraetemechaniker-in-hinwil/32c4735a-151f-4caa-adb1-9a57d02d434c",
@@ -170,6 +170,11 @@
       "company": "Swiss Armed Forces (VTG)",
       "postedDate": "2021-07-20"
     },
+    "https://jobs.admin.ch/offene-stellen/observer-lmt-lot-m-w/057ac591-65fa-4a62-b0d8-099cc6d69783": {
+      "location": "STANS-OBERDORF / Kosovo",
+      "company": "Swiss Armed Forces (VTG)",
+      "postedDate": "2017-09-25"
+    },
     "https://jobs.admin.ch/offene-stellen/lkw-automobil-mechatroniker-in/678344cb-36cb-4e4c-bf18-3a8cfd3b3d0f": {
       "location": "Ausland / Kosovo",
       "company": "Swiss Armed Forces (VTG)",
@@ -189,11 +194,6 @@
       "location": "STANS-OBERDORF / AUSLAND",
       "company": "Swiss Armed Forces (VTG)",
       "postedDate": "2017-10-19"
-    },
-    "https://jobs.admin.ch/offene-stellen/observer-lmt-lot-m-w/057ac591-65fa-4a62-b0d8-099cc6d69783": {
-      "location": "STANS-OBERDORF / Kosovo",
-      "company": "Swiss Armed Forces (VTG)",
-      "postedDate": "2017-09-25"
     },
     "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db": {
       "location": "STANS-OBERDORF / AUSLAND",
@@ -252,5 +252,5 @@
     }
   },
   "notes": "Swiss Armed Forces (VTG) — Prospective.ch JobBooster (Career Center 1000624, jobs.admin.ch). VTG verwaltungseinheit IDs: 1083433,1132413,1526654,1132414,1083406. Regions: TI (1083341), Ostschweiz (1083334,1083319). Seed URLs auto-discovered from API.",
-  "updatedAt": "2026-07-05T12:51:14.856Z"
+  "updatedAt": "2026-07-06T00:24:38.344Z"
 }
