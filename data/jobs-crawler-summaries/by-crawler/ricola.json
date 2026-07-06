@@ -1,18 +1,56 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-07-05T23:41:36.144Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-07-06T15:13:15.149Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5068,
-  "avgDurationMs": 5068,
+  "durationMs": 5445,
+  "avgDurationMs": 5445,
   "durationHistory": [
-    5068
+    5445
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "ricola-7fb8ab2c71cb",
+      "slug": "area-sales-manager-region-zurich-ricola-ch",
+      "company": "Ricola",
+      "companyKey": "ricola",
+      "companyDomain": "ricola.com",
+      "title": "Area Sales Manager (Region Zürich)",
+      "needsRetranslation": true,
+      "location": "Laufen",
+      "canton": "BL",
+      "url": "https://career.ricola.com/Vacancies/1057/Description/2",
+      "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-06T15:13:12.770Z",
+      "addressLocality": "Laufen",
+      "addressRegion": "BL",
+      "streetAddress": "Baselstrasse 31",
+      "postalCode": "4242",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria alimentare / Dolciumi",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "applyUrl": "https://career.ricola.com/Vacancies/1057/Description/2",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "ricola-2c30adc9413a",
@@ -27,7 +65,7 @@
       "url": "https://career.ricola.com/Vacancies/1048/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T23:41:34.181Z",
+      "crawledAt": "2026-07-06T15:13:13.168Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
