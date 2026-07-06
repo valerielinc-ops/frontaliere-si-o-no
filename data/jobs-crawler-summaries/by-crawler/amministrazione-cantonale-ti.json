@@ -1,18 +1,79 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-07-05T12:59:22.610Z",
-  "total": 17,
-  "newCount": 0,
+  "generatedAt": "2026-07-06T00:31:58.627Z",
+  "total": 19,
+  "newCount": 2,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 15,
-  "durationMs": 23222,
-  "avgDurationMs": 23222,
+  "durationMs": 20257,
+  "avgDurationMs": 20257,
   "durationHistory": [
-    23222
+    20257
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-213hp8",
+      "slug": "cancelliere-a-i-oppure-cancelliere-a-ii-a-tempo-pieno-100-presso-la-corte-di-appello-e-di-revisione-penale-locarno-orario-di-lavoro-42-ore-s",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Tribunale d'appello",
+      "location": "Locarno",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4224",
+      "source": "Company Careers Crawler",
+      "salaryMin": 93625,
+      "salaryMax": 150736,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-07-06T00:31:52.385Z",
+      "firstSeenAt": "2026-07-06T00:31:52.385Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-213hp7",
+      "slug": "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-men",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Concorso generale 2026 Infermieri/e con specialità (salute mentale) e infermieri/e presso l’Organizzazione sociopsichiatrica cantonale (OSC), Mendrisio",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "category": "health",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4225",
+      "source": "Company Careers Crawler",
+      "salaryMin": 63297,
+      "salaryMax": 99178,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-07-06T00:31:52.385Z",
+      "firstSeenAt": "2026-07-06T00:31:52.385Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 2,
+        "completeness": 19
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-213hpc",
