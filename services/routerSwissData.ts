@@ -315,6 +315,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'vivere-come-lavorare-ticino': { it: 'vivere-come-lavorare-ticino', en: 'live-como-work-ticino', de: 'leben-como-arbeiten-tessin', fr: 'vivre-a-come-travailler-tessin' },
  'vivere-varese-lavorare-ticino': { it: 'vivere-varese-lavorare-ticino', en: 'living-varese-working-ticino', de: 'leben-varese-arbeiten-tessin', fr: 'vivre-varese-travailler-tessin' },
  'lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni': { it: 'lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni', en: '300-000-new-jobs-in-switzerland-in-five-years', de: '300-000-neue-arbeitsplatze-in-die-schweiz-in-fuenf-jahren', fr: '300-000-nouveaux-postes-de-travail-en-suisse-en-cinq-annees' },
+ 'il-caldo-modifica-il-valore-degli-immobili': { it: 'il-caldo-modifica-il-valore-degli-immobili', en: 'the-heat-affects-property-values', de: 'die-wohnungswerte-sind-im-merkmal-bei-der-erwaermung-im-merkmal-angekommen', fr: 'le-changement-climatique-affecte-la-valeur-immobiliere' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

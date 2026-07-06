@@ -877,6 +877,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.title': 'Lavoro in Svizzera: 300\'000 nuovi posti in cinque anni',
     'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.excerpt': 'Il mercato del lavoro svizzero ha vissuto cinque anni di crescita dopo lo shock della pandemia, con circa 300\'000 nuovi posti di lavoro creati.',
     'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.imageAlt': 'Immagine di un edificio uffici a Lugano',
+    'blog.article.il-caldo-modifica-il-valore-degli-immobili.title': 'Il caldo modifica il valore degli immobili',
+    'blog.article.il-caldo-modifica-il-valore-degli-immobili.excerpt': 'Il cambiamento climatico influenza il valore degli immobili in Svizzera, con gli attici moderni perdendo valore a causa della canicola.',
+    'blog.article.il-caldo-modifica-il-valore-degli-immobili.imageAlt': 'Vista panoramica di Lugano con un attico moderno in primo piano',
 };
 
 export default blogMetaChIt;

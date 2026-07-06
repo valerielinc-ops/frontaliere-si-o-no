@@ -11289,6 +11289,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-il-caldo-modifica-il-valore-degli-immobili': {
+    title: 'Il caldo modifica il valore degli immobili | Frontaliere Ticino',
+    description: 'Il cambiamento climatico influenza il valore degli immobili in Svizzera, con gli attici moderni perdendo valore a causa della canicola. Leggi come.',
+    keywords: 'frontalieri, ticino, svizzera, italia, caldo, modifica, valore, immobili',
+    ogTitle: 'Il caldo modifica il valore degli immobili | Frontaliere Ticino',
+    ogDescription: 'Il cambiamento climatico influenza il valore degli immobili in Svizzera, con gli attici moderni perdendo valore a causa della canicola.',
+    canonicalPath: '/articoli-svizzera/il-caldo-modifica-il-valore-degli-immobili/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il caldo modifica il valore degli immobili",
+      "description": "Il cambiamento climatico influenza il valore degli immobili in Svizzera, con gli attici moderni perdendo valore a causa della canicola. Leggi come.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/il-caldo-modifica-il-valore-degli-immobili.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con un attico moderno in primo piano"
+      },
+      "datePublished": "2026-07-06T01:21:58+00:00",
+      "dateModified": "2026-07-06T01:21:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/il-caldo-modifica-il-valore-degli-immobili/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

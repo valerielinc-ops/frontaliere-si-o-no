@@ -877,6 +877,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.title': 'Emploi en Suisse : 300\'000 nouveaux postes en cinq ans',
     'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.excerpt': 'Le marché du travail suisse a connu cinq années de croissance après le choc de la pandémie, avec environ 300\'000 nouveaux emplois créés.',
     'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.imageAlt': 'Image d\'un immeuble de bureaux à Lugano',
+    'blog.article.il-caldo-modifica-il-valore-degli-immobili.title': 'La chaleur modifie la valeur des biens immobiliers',
+    'blog.article.il-caldo-modifica-il-valore-degli-immobili.excerpt': 'Le changement climatique affecte la valeur de l\'immobilier en Suisse, les penthouses modernes perdant de la valeur à cause de la canicule.',
+    'blog.article.il-caldo-modifica-il-valore-degli-immobili.imageAlt': 'Panorama de Lugano avec un penthouse moderne en arrière-plan',
 };
 
 export default blogMetaChFr;
