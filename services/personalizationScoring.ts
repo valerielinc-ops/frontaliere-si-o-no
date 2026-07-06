@@ -1,17 +1,22 @@
 /**
  * Personalization Scoring Engine — pure functions, no side effects.
  *
- * Computes a personal relevance score (0-28) for each job based on:
+ * Computes a personal relevance score (0-31) for each job based on:
  * - Behavior signals (viewed jobs, search queries, filter usage)
  * - Profile signals (municipality, workPosition)
+ * - Job-match profile signals (sector, canton, experience level — from
+ *   SalarySurvey and/or the newsletter_subscribers profile for logged-in
+ *   subscribers, merged via services/jobMatchProfile.ts#mergeNewsletterSignals)
  * - Trending signals (job popularity in user's location)
  *
  * Sort order: personalScore DESC → cantonRank ASC → date DESC → qualityScore DESC
  * When all scores are 0 (cold start), existing sort is preserved.
+ * Users without an inferred job-match profile (null) get unchanged ordering.
  */
 
 import type { BehaviorData } from '@/services/behaviorTracker';
 import type { UserProfileData } from '@/components/pages/UserProfile';
+import type { JobMatchProfileData } from '@/services/jobMatchProfile';
 import {
  normalizeSearchText,
  extractKeywords,
@@ -34,11 +39,56 @@ interface ScoredJob {
  postedDate: string;
  crawledAt?: string;
  firstSeenAt?: string;
+ canton?: string;
+ sector?: string;
 }
 
 export interface PersonalScore {
  score: number;
  topSignal: string;
+}
+
+// ─── Job-match profile lookup tables ─────────────────────────────
+
+// Maps SalarySurvey's broader sector taxonomy onto job listing categories
+// (JobCategory in JobBoard.tsx) so isCategoryMatch can compare them.
+const SURVEY_SECTOR_TO_CATEGORY: Record<string, string> = {
+ it_software: 'tech',
+ pharma_biotech: 'health',
+ finance_banking: 'finance',
+ engineering: 'engineering',
+ consulting: 'other',
+ healthcare: 'health',
+ education: 'other',
+ hospitality: 'hospitality',
+ construction: 'engineering',
+ retail: 'sales',
+ logistics: 'other',
+ other: 'other',
+};
+
+// Title keywords for experience-level matching (tokenized via extractKeywords,
+// exact-token match — not substring — to avoid false hits like "leadership").
+// "mid_3_5" has no reliable keyword signal (titles rarely say "mid-level"),
+// so it intentionally contributes no boost.
+const JUNIOR_EXPERIENCE_KEYWORDS = new Set([
+ 'junior', 'stage', 'stagista', 'apprendista', 'apprendistato', 'praticante', 'tirocinante', 'entry',
+]);
+const SENIOR_EXPERIENCE_KEYWORDS = new Set([
+ 'senior', 'esperto', 'expert', 'lead', 'responsabile', 'direttore', 'director', 'chief', 'capo',
+]);
+
+function jobTitleMatchesExperience(title: string, experienceLevel: string): boolean {
+ const targetSet = experienceLevel === 'junior_0_2'
+ ? JUNIOR_EXPERIENCE_KEYWORDS
+ : experienceLevel === 'senior_6_10' || experienceLevel === 'expert_10_plus'
+ ? SENIOR_EXPERIENCE_KEYWORDS
+ : null;
+ if (!targetSet) return false;
+ for (const kw of extractKeywords(title)) {
+ if (targetSet.has(kw)) return true;
+ }
+ return false;
 }
 
 // ─── Scoring ────────────────────────────────────────────────────
@@ -51,6 +101,7 @@ export function computePersonalScore(
  job: ScoredJob,
  behavior: BehaviorData,
  profile: UserProfileData | null,
+ jobMatchProfile: JobMatchProfileData | null = null,
 ): PersonalScore {
  let score = 0;
  let topSignal = '';
@@ -133,6 +184,39 @@ export function computePersonalScore(
  // Salary overlap: Phase 2
  }
 
+ // ── Job-match profile boost (0-7): sector/canton/experience from
+ // SalarySurvey, or sector_interest/location_interest merged in from the
+ // newsletter_subscribers profile (mergeNewsletterSignals) — see #3648 ──
+ if (jobMatchProfile) {
+ // Sector → category match: +3. jobMatchProfile.sector is either a
+ // SalarySurvey key (mapped via SURVEY_SECTOR_TO_CATEGORY) or an
+ // already-category-shaped string from the newsletter profile — fall
+ // back to the raw value when it isn't a known SalarySurvey key.
+ if (jobMatchProfile.sector) {
+ const mappedCategory = SURVEY_SECTOR_TO_CATEGORY[jobMatchProfile.sector] ?? jobMatchProfile.sector;
+ if (isCategoryMatch(job.category, mappedCategory)) {
+ addSignal(3, 'profile_sector');
+ }
+ }
+
+ // Canton match: +2. jobMatchProfile.canton is either a 2-letter canton
+ // code (SalarySurvey, compared exactly against job.canton) or a city
+ // name from the newsletter profile (location_interest/geo_city — no
+ // canton code, so fall back to a location-text match).
+ if (jobMatchProfile.canton) {
+ if (job.canton && jobMatchProfile.canton === job.canton) {
+ addSignal(2, 'profile_canton');
+ } else if (jobLoc && isLocationMatch(jobMatchProfile.canton, jobLoc)) {
+ addSignal(2, 'profile_canton');
+ }
+ }
+
+ // Experience level → title keyword match: +2
+ if (jobMatchProfile.experienceLevel && jobTitleMatchesExperience(job.title, jobMatchProfile.experienceLevel)) {
+ addSignal(2, 'profile_experience');
+ }
+ }
+
  return { score, topSignal };
 }
 
@@ -146,6 +230,7 @@ export function computeNewJobsCount(
  lastVisit: number | null,
  behavior: BehaviorData,
  profile: UserProfileData | null,
+ jobMatchProfile: JobMatchProfileData | null = null,
 ): { total: number; matching: number } {
  if (!lastVisit) return { total: 0, matching: 0 };
 
@@ -155,7 +240,7 @@ export function computeNewJobsCount(
  });
 
  const matching = newJobs.filter((j) => {
- const { score } = computePersonalScore(j, behavior, profile);
+ const { score } = computePersonalScore(j, behavior, profile, jobMatchProfile);
  return score > 0;
  }).length;
 

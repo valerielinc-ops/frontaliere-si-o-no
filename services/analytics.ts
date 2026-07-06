@@ -1913,6 +1913,22 @@ export const Analytics = {
  skip_reason: reason,
  });
  },
+
+ /**
+ * Job-match ranking block (job board, profile-derived sector/canton/
+ * experience signals) became visible with at least one matched job.
+ */
+ trackJobMatchImpression: (matchedCount: number) => {
+ log('job_match_impression', { matched_count: matchedCount });
+ },
+
+ /** User opened a job whose personal score included a job-match signal. */
+ trackJobMatchClick: (topSignal: string, score: number) => {
+ log('job_match_click', {
+ match_top_signal: topSignal || '(none)',
+ match_score: score,
+ });
+ },
 };
 
 // ─── Protect Analytics methods from external modification ──────

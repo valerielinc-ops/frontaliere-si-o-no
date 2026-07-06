@@ -48,6 +48,7 @@ import {
  getTrendingByLocation,
  computeTrendingBoost,
 } from '@/services/personalizationScoring';
+import { type JobMatchProfileData, loadJobMatchProfile, mergeNewsletterSignals } from '@/services/jobMatchProfile';
 import NewJobsCounter from '@/components/community/NewJobsCounter';
 import TrendingSection from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
@@ -2091,6 +2092,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // ── Personalization: behavior data + derived state ──
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
  const [newJobsDismissed, setNewJobsDismissed] = useState(false);
+ const [jobMatchProfile, setJobMatchProfile] = useState<JobMatchProfileData | null>(null);
  const popularity = popularityData as Record<string, number>;
 
  // Load behavior data on mount and update last visit
@@ -2099,6 +2101,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const data = getBehaviorData();
  setBehaviorData(data);
  updateLastVisit();
+ }, [enablePersonalization]);
+
+ // Load survey-derived job-match profile (sector/canton/experience level).
+ // Independent of behaviorData: a user who only completed SalarySurvey (no
+ // browsing history yet) still gets ranked/filtered results.
+ useEffect(() => {
+ if (!enablePersonalization) return;
+ setJobMatchProfile(loadJobMatchProfile());
  }, [enablePersonalization]);
 
  // Track filter usage changes
@@ -2126,8 +2136,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const newJobsInfo = useMemo(() => {
  if (!enablePersonalization || !behaviorData) return { total: 0, matching: 0 };
  const lastVisit = getLastVisitTimestamp();
- return computeNewJobsCount(jobs, lastVisit, behaviorData, userProfile ?? null);
- }, [enablePersonalization, behaviorData, jobs, userProfile]);
+ return computeNewJobsCount(jobs, lastVisit, behaviorData, userProfile ?? null, jobMatchProfile);
+ }, [enablePersonalization, behaviorData, jobs, userProfile, jobMatchProfile]);
 
  // Trending jobs for user's location
  const userLocation = userProfile?.municipality ?? null;
@@ -2136,21 +2146,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return getTrendingByLocation(jobs, popularity, userLocation);
  }, [enablePersonalization, jobs, popularity, userLocation]);
 
+ // Count of jobs whose personal score is boosted by any signal (behavior,
+ // tax/onboarding profile, or job-match survey profile). Feeds both the
+ // "Personalizzato per te" pill and the job_match_impression analytics event.
+ const matchedJobCount = useMemo(() => {
+ if (!enablePersonalization || !behaviorData) return 0;
+ return jobs.filter((j) => computePersonalScore(j, behaviorData, userProfile ?? null, jobMatchProfile).score > 0).length;
+ }, [enablePersonalization, behaviorData, jobs, userProfile, jobMatchProfile]);
+
  // Whether personalization is actively changing sort order (any job scored > 0)
- const isPersonalizationActive = useMemo(() => {
- if (!enablePersonalization || !behaviorData) return false;
- return jobs.some((j) => computePersonalScore(j, behaviorData, userProfile ?? null).score > 0);
- }, [enablePersonalization, behaviorData, jobs, userProfile]);
+ const isPersonalizationActive = matchedJobCount > 0;
 
  // Analytics: track personalization state
  useEffect(() => {
  if (!enablePersonalization || !behaviorData) return;
  if (isPersonalizationActive) {
  Analytics.trackSelectContent('personalization_active', 'job_board');
+ Analytics.trackJobMatchImpression(matchedJobCount);
  } else if (behaviorData.viewedJobs.length === 0 && behaviorData.searches.length === 0) {
  Analytics.trackSelectContent('personalization_cold_start', 'job_board');
  }
- }, [enablePersonalization, isPersonalizationActive, behaviorData]);
+ }, [enablePersonalization, isPersonalizationActive, behaviorData, matchedJobCount]);
 
  // Analytics: track new jobs banner shown
  useEffect(() => {
@@ -2739,6 +2755,38 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isJobDetailView = selectedJob !== null;
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
+
+ // Job-match profile, part 2: merge in the newsletter_subscribers doc's
+ // sector_interest/location_interest for logged-in subscribers (issue #3648
+ // asks for "SalarySurvey / preferenze newsletter" as combined profile
+ // sources — public Firestore read per firestore.rules, no new auth needed).
+ // Fills gaps only: an explicit SalarySurvey answer always wins.
+ useEffect(() => {
+ if (!enablePersonalization || !authResolved || !userEmail) return;
+ let cancelled = false;
+ (async () => {
+ try {
+ const [{ getFirestore, doc, getDoc }, { app }] = await Promise.all([
+ import('firebase/firestore'),
+ import('@/services/firebase'),
+ ]);
+ const snap = await getDoc(doc(getFirestore(app), 'newsletter_subscribers', userEmail.toLowerCase()));
+ if (cancelled || !snap.exists()) return;
+ const data = snap.data() as Record<string, unknown>;
+ const newsletterSignals = {
+ sector_interest: typeof data.sector_interest === 'string' ? data.sector_interest : null,
+ job_category: typeof data.job_category === 'string' ? data.job_category : null,
+ location_interest: typeof data.location_interest === 'string' ? data.location_interest : null,
+ geo_city: typeof data.geo_city === 'string' ? data.geo_city : null,
+ };
+ setJobMatchProfile((prev) => mergeNewsletterSignals(prev, newsletterSignals));
+ } catch {
+ // best-effort — ranking falls back to the SalarySurvey-only profile (or none)
+ }
+ })();
+ return () => { cancelled = true; };
+ }, [enablePersonalization, authResolved, userEmail]);
+
  useEffect(() => {
  try { console.log('[AlertDebug] enter', { detail: isJobDetailView, flag: enableJobAlerts, uid: !!userId, email: !!userEmail, inFlight: newsletterAutologinInFlight, jobId: selectedJob?.id }); } catch { /* noop */ }
  if (!isJobDetailView || !selectedJob) return;
@@ -3024,7 +3072,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  day: dayTs(j.crawledAt || j.postedDate),
  qs: j.qualityScore ?? 0,
  personal: shouldPersonalize
- ? computePersonalScore(j, behaviorData, userProfile ?? null)
+ ? computePersonalScore(j, behaviorData, userProfile ?? null, jobMatchProfile)
  : { score: 0, topSignal: '' },
  }));
  withMeta.sort((a, b) =>
@@ -3035,7 +3083,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || (b.qs - a.qs)
  );
  return withMeta.map(({ job }) => job);
- }, [jobs, enablePersonalization, behaviorData, userProfile]);
+ }, [jobs, enablePersonalization, behaviorData, userProfile, jobMatchProfile]);
 
  // Pre-built search index: caches normalised haystack per job so
  // queryMatchesJob doesn't recompute expensive string normalisation on every keystroke.
@@ -4813,6 +4861,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(deriveLocalizedJobSlug(job, locale), resolveJobCanton(job));
  window.scrollTo({ top: 0, behavior: 'instant' });
  Analytics.trackSelectContent('job_board_open_detail', `${job.company}_${job.title}`);
+ if (enablePersonalization && behaviorData) {
+ const { score, topSignal } = computePersonalScore(job, behaviorData, userProfile ?? null, jobMatchProfile);
+ if (score > 0) {
+ Analytics.trackJobMatchClick(topSignal, score);
+ }
+ }
  };
 
  const renderJobCard = (job: JobListing) => (

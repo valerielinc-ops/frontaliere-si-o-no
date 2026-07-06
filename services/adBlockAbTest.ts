@@ -17,22 +17,12 @@
  */
 
 import { isLikelyBot } from './botPatterns';
+import { isStorageAvailable } from '@/services/storageAvailability';
 
 export type AdBlockAbBucket = 'test' | 'control';
 
 const STORAGE_KEY = 'ft_adblock_anon_id';
 const TEST_BUCKET_SHARE = 0.30;
-
-function isStorageAvailable(): boolean {
- try {
- const key = '__ft_ab_test__';
- localStorage.setItem(key, '1');
- localStorage.removeItem(key);
- return true;
- } catch {
- return false;
- }
-}
 
 function randomId(): string {
  try {
@@ -58,7 +48,7 @@ function djb2Hash(input: string): number {
 }
 
 function getOrCreateAnonId(): string | null {
- if (!isStorageAvailable()) return null;
+ if (!isStorageAvailable('__ft_ab_test__')) return null;
  try {
  const existing = localStorage.getItem(STORAGE_KEY);
  if (existing) return existing;
