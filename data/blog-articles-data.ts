@@ -24785,6 +24785,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'centrodestra-como-elezioni-gazebo',
+ category: 'novita',
+ date: '2026-07-06T02:07:07.713Z',
+ image: '/images/blog/centrodestra-como-elezioni-gazebo.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

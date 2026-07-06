@@ -8248,6 +8248,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sicurezza-alimentare-aziende-ticino.title': 'Food safety Ticino: 90% of the companies promoted',
     'blog.article.sicurezza-alimentare-aziende-ticino.excerpt': 'The 2025 Business Report of the Cantonal Laboratory photographs the state of food safety: 9 out of 10 companies are in good standing, but controls are growing.',
     'blog.article.sicurezza-alimentare-aziende-ticino.imageAlt': 'Food safety inspection in a company in Canton Ticino',
+    'blog.article.centrodestra-como-elezioni-gazebo.title': 'Como: the centre-right in the street for the next elections',
+    'blog.article.centrodestra-como-elezioni-gazebo.excerpt': 'Public meeting in Via Boldoni between the centre-right parties to listen to citizens\' demands in view of the future local elections.',
+    'blog.article.centrodestra-como-elezioni-gazebo.imageAlt': 'Political gazebos in via Boldoni, Como',
 };
 
 export default blogMetaEn;

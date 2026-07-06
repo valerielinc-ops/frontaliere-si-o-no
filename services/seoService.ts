@@ -4370,6 +4370,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-unions-launch-referendum-minimum-wage-reform': { name: 'La riforma salari minimi', path: '/articoli-svizzera/unions-launch-referendum-minimum-wage-reform/', parent: 'blog' },
     'blog-sicurezza-alimentare-aziende-ticino': { name: 'Sicurezza alimentare Ticino', path: '/articoli-frontaliere/sicurezza-alimentare-aziende-ticino', parent: 'blog' },
     'blog-sciopero-aereo-malpensa-linate-2024': { name: 'Sciopero Aereo', path: '/articoli-svizzera/sciopero-aereo-malpensa-linate-2024/', parent: 'blog' },
+    'blog-centrodestra-como-elezioni-gazebo': { name: 'Elezioni Como', path: '/articoli-frontaliere/centrodestra-como-elezioni-gazebo', parent: 'blog' },
  };
 
  const info = sectionNames[section];
