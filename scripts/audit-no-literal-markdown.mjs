@@ -13,9 +13,11 @@
  * `build-plugins/shared/jobDescription/parser.ts` now strips them; this
  * audit pins that down as a deploy-blocking 0-tolerance gate.
  *
- * Scope: only `<main class="seo-static-content">` content inside
- * `dist/cerca-lavoro-ticino/**` is scanned. Outside the main and non-job
- * pages can legitimately contain `**` (e.g. legal text, code samples).
+ * Scope: only `<main class="seo-static-content">` content inside any
+ * canton-aware job-board section (`dist/cerca-lavoro-ticino/**`, and its
+ * per-canton/per-locale equivalents, see lib/jobBoardSections.mjs) is
+ * scanned. Outside the main and non-job pages can legitimately contain
+ * `**` (e.g. legal text, code samples).
  *
  * Two execution modes:
  *   1. Standalone:  `node scripts/audit-no-literal-markdown.mjs`
@@ -26,6 +28,7 @@ import { readFile, stat } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
+import { isJobBoardSectionPath } from './lib/jobBoardSections.mjs';
 
 // Quote-flexible: minified pages may ship single-token classes without
 // quotes, e.g. `<main class=seo-static-content>`.
@@ -64,7 +67,7 @@ function extractMainBody(html) {
 
 function isJobDetailPage(absPath) {
   const rel = relative(ROOT, absPath).replace(/^dist\//, '');
-  return rel.startsWith('cerca-lavoro-ticino/') && rel.endsWith('.html');
+  return isJobBoardSectionPath(`/${rel}`) && rel.endsWith('.html');
 }
 
 export function createAuditor(opts = {}) {

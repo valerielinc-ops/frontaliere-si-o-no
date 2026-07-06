@@ -15,11 +15,19 @@
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createCantonResolvers } from '../../build-plugins/shared/cantonResolvers.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..', '..');
+const cantonSlugFile = JSON.parse(readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
+const municipalitiesFile = JSON.parse(readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
+const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
 
 // ── Constants ───────────────────────────────────────────────
 
 export const SITE_URL = 'https://frontaliereticino.ch';
-export const JOB_BOARD_PREFIX_IT = '/cerca-lavoro-ticino/';
 
 // ── Canton naming ───────────────────────────────────────────
 // Canton ISO 2-letter code → Italian display name. Used both as prose (FB
@@ -172,14 +180,17 @@ export function selectUnpostedJobs(jobs, postedSet, limit) {
 // ── URL building ────────────────────────────────────────────
 
 /**
- * Build the canonical IT-locale job-board URL for a job. The site's
- * Italian-language job pages live under `JOB_BOARD_PREFIX_IT`. Slug source
- * order: slugByLocale.it → slug. Returns null when the job has no slug.
+ * Build the canonical IT-locale job-board URL for a job. Job-board section
+ * is canton-aware (resolved from the job's canton/location) — a TI-only
+ * literal here meant every non-TI canton job posted to Facebook/Reddit
+ * linked back to the wrong (TI) job board. Slug source order:
+ * slugByLocale.it → slug. Returns null when the job has no slug.
  */
 export function buildJobUrl(job) {
   const slug = job?.slugByLocale?.it || job?.slug;
   if (!slug) return null;
-  return `${SITE_URL}${JOB_BOARD_PREFIX_IT}${slug}/`;
+  const section = resolveCantonSection('it', resolveJobCanton(job || {}));
+  return `${SITE_URL}/${section}/${slug}/`;
 }
 
 // ── Posted-jobs ledger I/O ──────────────────────────────────

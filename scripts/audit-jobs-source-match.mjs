@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { launchChromium } from './lib/ensure-chromium.mjs';
 import { JSDOM, VirtualConsole } from 'jsdom';
 import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
+import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -17,12 +18,14 @@ const USER_AGENT =
   'Mozilla/5.0 (compatible; FrontaliereTicinoAudit/1.0; +https://frontaliereticino.ch/)';
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
-const SITE_ROOTS = {
-  it: 'https://frontaliereticino.ch/cerca-lavoro-ticino',
-  en: 'https://frontaliereticino.ch/en/find-jobs-ticino',
-  de: 'https://frontaliereticino.ch/de/jobs-im-tessin',
-  fr: 'https://frontaliereticino.ch/fr/trouver-emploi-tessin',
-};
+const BASE_URL = 'https://frontaliereticino.ch';
+// IT is canonical (no prefix); other locales get /{locale}/ prefix — mirrors
+// send-job-alerts.mjs's localePathPrefix/jobPageUrl.
+const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
+
+const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
+const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
+const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
 
 const STOPWORDS = new Set([
   'a', 'about', 'after', 'agli', 'alla', 'alle', 'allo', 'also', 'an', 'and', 'auf', 'au',
@@ -437,7 +440,9 @@ async function extractSource(job, opts, state) {
 function buildSiteUrl(job, locale) {
   const slug = normalizeSpace(job.slugByLocale?.[locale] || '');
   if (!slug) return '';
-  return `${SITE_ROOTS[locale]}/${slug}/`;
+  const cantonCode = resolveJobCanton({ canton: job.canton, location: job.location });
+  const jobBoardPath = resolveCantonSection(locale, cantonCode);
+  return `${BASE_URL}${localePathPrefix(locale)}/${jobBoardPath}/${slug}/`;
 }
 
 async function checkLocalePage(job, locale, opts) {

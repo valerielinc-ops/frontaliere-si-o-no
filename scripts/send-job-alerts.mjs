@@ -24,7 +24,9 @@ import path from 'node:path';
 import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { normalizeContract } from '../services/newsletter-content.mjs';
+import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { buildAlertProfile, scoreJobForAlert, partitionByGeoPreference } from '../services/jobAlertMatching.mjs';
+import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { isAddressSuppressed, isJobAlertExcluded } from '../services/emailSuppression.mjs';
@@ -72,14 +74,6 @@ if (TARGET_EMAIL_RAW) {
 // slash is canonical (site convention) and dodges a no-slash→slash 301 on POST.
 const UNSUB_URL = `${BASE_URL}/disiscrivi-alert/`;
 
-// Locale-aware job board URL paths (must match router.ts slug tables)
-const JOB_BOARD_PATHS = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
-};
-
 // Locale-aware newsletter preferences slugs (must match router.ts slug tables)
 const PREFERENCES_SLUGS = {
   it: 'preferenze-newsletter',
@@ -90,6 +84,15 @@ const PREFERENCES_SLUGS = {
 
 // IT is canonical (no prefix); other locales get /{locale}/ prefix.
 const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
+
+// Canton-aware job-board section resolver (mirrors
+// migrate-all-known-job-slugs-canton-aware.mjs). Every canton has its own
+// board section (cerca-lavoro-vaud, jobs-in-aargau, …); the generic
+// Switzerland-wide allJobsUrl CTA (no single canton to resolve) uses the
+// AGGREGATE_KEY section instead.
+const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
+const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
+const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
 
 // ── Pre-send live-link preflight (issue #3172) ──────────────────────
 // data/jobs.json is a periodic crawl snapshot; a job listed as "recent" at
@@ -117,7 +120,8 @@ const JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO = 0.34;
 // buildAlertEmail, minus the alert-specific utm query string — irrelevant to
 // liveness and would otherwise fragment the cache key per alertId).
 function jobPageUrl(job, locale) {
-  const jobBoardPath = JOB_BOARD_PATHS[locale] || JOB_BOARD_PATHS.it;
+  const cantonCode = resolveJobCanton({ canton: job.canton, location: job.location });
+  const jobBoardPath = resolveCantonSection(locale, cantonCode);
   const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
   const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
   return slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}` : null;
@@ -620,9 +624,9 @@ function behaviorSignals(personalization) {
 // ── Email template ───────────────────────────────────────────
 
 function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
-  const locale = alert.locale || 'it';
+  const locale = nlNormLocale(alert.locale);
   const s = getStrings(locale);
-  const jobBoardPath = JOB_BOARD_PATHS[locale] || JOB_BOARD_PATHS.it;
+  const jobBoardPath = resolveCantonSection(locale, AGGREGATE_KEY);
   const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
   const autologinCode = autologinEnabled ? generateAutologinCode(alert.email) : null;
   const preferencesUrl = makePreferencesUrl(alert.email, locale);
@@ -759,8 +763,8 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const company = job.company || '';
     const rawLocation = job.location || job.addressLocality || '';
     const location = rawLocation.replace(/^[-\u2013\u2014\s]+/, '').trim();
-    const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
-    const rawJobUrl = slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}?${utmBase}` : BASE_URL;
+    const jobUrl = jobPageUrl(job, locale);
+    const rawJobUrl = jobUrl ? `${jobUrl}?${utmBase}` : BASE_URL;
     const url = wrapUrl(rawJobUrl);
     const initial = (company || '?')[0].toUpperCase();
     const avatar = resolveAvatarSrc(job);
@@ -914,8 +918,8 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const title = cleanTitle(job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle);
     const company = job.company || '';
     const rawLocation = (job.location || job.addressLocality || '').replace(/^[-\u2013\u2014\s]+/, '').trim();
-    const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
-    const rawJobUrl = slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}?${utmBase}` : BASE_URL;
+    const jobUrl = jobPageUrl(job, locale);
+    const rawJobUrl = jobUrl ? `${jobUrl}?${utmBase}` : BASE_URL;
     const url = wrapUrl(rawJobUrl);
     const meta = [company, rawLocation].filter(Boolean).join(' \u00b7 ');
     return `${title}\n${meta}\n${url}`;
@@ -1413,7 +1417,7 @@ async function main() {
     // it gets baked into the email — data/jobs.json is a crawl snapshot and
     // can lag the job actually being pulled/expired, or the deploy of its
     // per-locale SSG page.
-    const liveMatched = await filterLiveJobs(matched, alert.locale || 'it', jobLiveCheckCache);
+    const liveMatched = await filterLiveJobs(matched, nlNormLocale(alert.locale), jobLiveCheckCache);
     if (liveMatched.length === 0) {
       console.log(`   ⏭️  Alert ${alert.id}: ${matched.length} matches, all failed the live-link check → skip`);
       continue;

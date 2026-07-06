@@ -8,13 +8,21 @@
  *   3. <link rel="canonical"> matches the URL
  *   4. <h1> exists, length >= 10
  *   5. No "Annuncio non trovato" / "non è stato trovato" / title placeholder
- *   6. All /cerca-lavoro-ticino/?q= links vs /azienda-SLUG canonical links
+ *   6. All /cerca-lavoro-{canton}/?q= links vs /azienda-SLUG canonical links (any canton)
  *   7. og:url matches URL
  *
  * Output: .orchestration/audit/structural.json + structural-summary.md
  */
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { URL as NodeURL } from 'node:url';
+import { JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
+
+// Canton-aware: job-board query-fallback/azienda-canonical links live under
+// every canton's section (`cerca-lavoro-{slug}`, `find-jobs-{slug}`, …), not
+// just the legacy TI board — a TI-only literal here under-reported (always 0)
+// this metric on every non-TI canton page.
+const Q_FALLBACK_RX = new RegExp(`href="/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/\\?q=`, 'g');
+const AZIENDA_CANONICAL_RX = new RegExp(`href="/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/azienda-`, 'g');
 
 const BASE = 'https://frontaliereticino.ch';
 const OUT_DIR = '.orchestration/audit';
@@ -126,8 +134,8 @@ function checkStructure(url, html) {
   }
 
   // 5. Query-fallback vs canonical links inside main content
-  const qFallbacks = (html.match(/href="\/cerca-lavoro-ticino\/\?q=/g) || []).length;
-  const aziendaCanonicals = (html.match(/href="\/cerca-lavoro-ticino\/azienda-/g) || []).length;
+  const qFallbacks = (html.match(Q_FALLBACK_RX) || []).length;
+  const aziendaCanonicals = (html.match(AZIENDA_CANONICAL_RX) || []).length;
 
   // 6. og:url
   const ogMatch = html.match(/<meta\s+property="og:url"\s+content="([^"]+)"/);

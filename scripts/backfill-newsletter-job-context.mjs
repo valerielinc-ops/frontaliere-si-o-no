@@ -13,6 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,13 +28,6 @@ const JOB_CONTEXT_FIELDS = [
   'location_interest',
   'sector_interest',
 ];
-
-const JOB_BOARD_SEGMENTS = new Set([
-  'cerca-lavoro-ticino',
-  'find-jobs-ticino',
-  'jobs-im-tessin',
-  'trouver-emploi-tessin',
-]);
 
 const NON_JOB_SLUG_PREFIXES = [
   'azienda-',
@@ -101,9 +95,9 @@ export function extractSlugFromSourcePage(sourcePage) {
   }
   const parts = pathname.split('/').map((p) => decodeURIComponent(p).trim()).filter(Boolean);
   if (parts.length === 0) return '';
-  if (!parts.some((part) => JOB_BOARD_SEGMENTS.has(part))) return '';
+  if (!parts.some((part) => JOB_BOARD_SEGMENT_RX.test(part))) return '';
   const last = parts[parts.length - 1];
-  if (!last || JOB_BOARD_SEGMENTS.has(last)) return '';
+  if (!last || JOB_BOARD_SEGMENT_RX.test(last)) return '';
   const slug = slugify(last);
   if (NON_JOB_SLUG_PREFIXES.some((prefix) => slug.startsWith(prefix))) return '';
   return slug;

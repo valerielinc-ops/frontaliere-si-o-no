@@ -83,6 +83,12 @@ describe('buildNewsletter links are localized', () => {
     unsubscribeUrl: 'https://frontaliereticino.ch/u/x',
   };
 
+  const LOCALIZED_AGGREGATE_PATH = {
+    en: '/en/find-jobs-switzerland',
+    de: '/de/jobs-in-schweiz',
+    fr: '/fr/trouver-emploi-suisse',
+  };
+
   for (const loc of ['en', 'de', 'fr'] as const) {
     it(`${loc} email uses localized paths only`, () => {
       const html = buildNewsletter({ ...baseArgs, locale: loc });
@@ -90,16 +96,23 @@ describe('buildNewsletter links are localized', () => {
       expect(html).not.toContain('/compara-servizi/cambio-franco-euro');
       expect(html).not.toContain('/compara-servizi/confronta-casse-malati');
       expect(html).not.toMatch(/href="[^"]*\/cerca-lavoro-ticino[^"]*"/);
+      expect(html).not.toMatch(/href="[^"]*\/cerca-lavoro-svizzera[^"]*"/);
       expect(html).not.toMatch(/href="[^"]*\/statistiche[^"]*"/);
       expect(html).not.toMatch(/href="[^"]*\/tasse-e-pensione[^"]*"/);
       expect(html).not.toMatch(/href="[^"]*\/calcola-stipendio[^"]*"/);
+      // The "browse all jobs" CTA still resolves, localized, to the
+      // Switzerland-wide aggregate board.
+      expect(html).toContain(LOCALIZED_AGGREGATE_PATH[loc]);
     });
   }
 
   it('IT email still uses canonical IT paths', () => {
     const html = buildNewsletter({ ...baseArgs, locale: 'it' });
     expect(html).toContain('/compara-servizi/cambio-franco-euro');
-    expect(html).toContain('/cerca-lavoro-ticino');
+    // The "browse all jobs" metric/CTA has no per-subscriber canton context
+    // (totalJobs counts every canton), so it resolves to the Switzerland-wide
+    // aggregate board, not the TI-only one.
+    expect(html).toContain('/cerca-lavoro-svizzera');
   });
 });
 

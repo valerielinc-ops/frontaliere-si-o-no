@@ -31,6 +31,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -129,7 +130,12 @@ function classifyChannel(uriPattern) {
   const pathPrefix = parts.slice(1).join('/');
   if (!pathPrefix) return { state: 'ok', kind: 'origin' };
   const firstSeg = pathPrefix.split('/')[0] || '';
-  if (KNOWN_PATH_PREFIXES.includes(firstSeg)) {
+  // cerca-lavoro-ticino above is the IT-locale legacy TI slug; the job-board
+  // section exists per-canton (cerca-lavoro-vaud, cerca-lavoro-svizzera
+  // aggregator, …) and the EN/DE/FR variants are already covered by the
+  // blanket locale-prefix entries below — this regex closes the IT-locale gap
+  // so a real per-canton AdSense channel doesn't get flagged as a ghost entry.
+  if (KNOWN_PATH_PREFIXES.includes(firstSeg) || JOB_BOARD_SEGMENT_RX.test(firstSeg)) {
     return { state: 'ok', kind: 'known_prefix' };
   }
   return { state: 'ghost', kind: 'unknown_prefix', firstSeg };

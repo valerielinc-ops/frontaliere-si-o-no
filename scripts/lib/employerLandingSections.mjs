@@ -45,15 +45,22 @@
  * `audit-text-html-ratio`, and `audit-dist-multi`.
  */
 
+import { JOB_BOARD_SECTION_PREFIX_SOURCE } from './jobBoardSections.mjs';
+
 /**
- * One page per company, evergreen job-search landing
- * (`/cerca-lavoro-ticino/azienda-{slug}/`, + en/de/fr). Checked BEFORE
+ * One page per company, evergreen job-search landing (canton-aware —
+ * `/cerca-lavoro-ticino/azienda-{slug}/` is the TI legacy instance, but every
+ * canton has its own job-board section, e.g. `/cerca-lavoro-zurigo/azienda-{slug}/`).
+ * A TI-only literal here meant non-TI canton career-landing pages fell through
+ * to the weekly-employers bucket, misclassifying/undercounting them in
+ * `audit-title-length`/`audit-text-html-ratio`/`audit-dist-multi`. Checked BEFORE
  * {@link WEEKLY_EMPLOYERS_LEAF_RX}/{@link WEEKLY_EMPLOYERS_HUB_RX} in every
  * classifier — different slug family, but ordering doesn't actually matter
  * since the alternations never overlap.
  */
-export const CAREER_LANDINGS_RX =
-  /(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-[^/]+\/?$/;
+export const CAREER_LANDINGS_RX = new RegExp(
+  `(?:^|/)(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/(?:azienda|company|unternehmen|entreprise)-[^/]+/?$`,
+);
 
 /** Per-city×company weekly snapshot leaf (`/aziende-che-assumono/{city}/{company}/{when}/`). */
 export const WEEKLY_EMPLOYERS_LEAF_RX =
