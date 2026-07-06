@@ -1,7 +1,8 @@
 /**
- * Types for the 100-Q&A FAQ hub (AE-5).
+ * Types for the FAQ hub (AE-5).
  *
- * 10 categories × 10 entries × 4 locales = 400 unique Q&A pairs.
+ * 10 categories, ~10 entries each, translated into 4 locales. Per-category
+ * counts may grow past 10 as content is added — see data/faq-hub/index.ts.
  * Each entry lives in data/faq-hub/category-<name>.ts and is aggregated
  * by data/faq-hub/index.ts into ALL_FAQ_HUB.
  */
@@ -23,7 +24,15 @@ export type FaqHubLocale = 'it' | 'en' | 'de' | 'fr';
 export type FaqHubLocalizedString = Readonly<Record<FaqHubLocale, string>>;
 
 export type FaqHubRelatedLink = Readonly<{
-  href: string;
+  /**
+   * Target path. Plain `string` when the destination route is identical
+   * across locales (e.g. a tool page with no localized slug). Use the
+   * `Record<locale, path>` form whenever the target has a locale-specific
+   * slug (e.g. evergreen articles under `/guida-frontaliere/<slug>/` vs
+   * `/en/cross-border-guide/<slug>/`) — never hardcode a single locale's
+   * path and reuse it verbatim across all 4 locale renders.
+   */
+  href: string | FaqHubLocalizedString;
   label: FaqHubLocalizedString;
 }>;
 

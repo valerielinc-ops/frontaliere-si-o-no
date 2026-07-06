@@ -1,11 +1,13 @@
 import type { FaqHubEntry } from './types';
 
 /**
- * FAQ hub — category "fisco" (AE-5, 10/100).
+ * FAQ hub — category "fisco" (AE-5).
  *
  * Scope: imposta alla fonte, nuova legge fiscale 2026 (Accordo CH-IT
  * 17/07/2023 + LF 13 giugno 2023 n. 83), dichiarazione in Italia,
- * ritenute, deduzioni, ristorni ai comuni di confine.
+ * ritenute, deduzioni, ristorni ai comuni di confine. Entries 11-13
+ * (added for issue #3653) internal-link to the tax-guide pillar pages
+ * and to the evergreen salary-hub tax articles (build-plugins/salaryHubArticles.ts).
  */
 export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
   {
@@ -307,6 +309,183 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     },
     sources: [
       'https://www.agenziaentrate.gov.it/portale/web/guest/schede/dichiarazioni/redditi-pf-2026',
+    ],
+  },
+  {
+    id: 'fisco-guida-completa-tassazione-2026',
+    category: 'fisco',
+    question: {
+      it: 'Dove trovo una guida completa e aggiornata alla tassazione dei frontalieri per il 2026?',
+      en: 'Where can I find a complete, up-to-date guide to cross-border worker taxation for 2026?',
+      de: 'Wo finde ich einen vollständigen, aktuellen Leitfaden zur Besteuerung von Grenzgängern für 2026?',
+      fr: 'Où trouver un guide complet et à jour sur la fiscalité des frontaliers pour 2026 ?',
+    },
+    answer: {
+      it: "L'Accordo Italia-Svizzera del 23/12/2020, in vigore dal 1° gennaio 2024 e ratificato dalla Legge 83/2023, distingue due regimi: i «vecchi frontalieri» (residenti in Italia già attivi in Svizzera prima del 17/07/2023) restano tassati solo alla fonte in Svizzera, con ristorno ai Comuni italiani di confine; i «nuovi frontalieri» sono tassati sia in Svizzera sia in Italia, con franchigia di 10.000 € e credito d'imposta per evitare la doppia imposizione. Per il quadro normativo completo, le tabelle di calcolo e gli scenari pratici aggiornati al 2026 consulta la guida di riferimento e la panoramica pratica qui sotto, oltre alle tabelle ufficiali di imposta alla fonte del Cantone Ticino.",
+      en: "The Italy-Switzerland Agreement of 23/12/2020, in force since 1 January 2024 and ratified by Italian Law 83/2023, sets out two regimes: 'old' cross-border workers (Italian residents already working in Switzerland before 17/07/2023) remain taxed only at source in Switzerland, with a rebate to Italian border municipalities; 'new' cross-border workers are taxed in both Switzerland and Italy, with a €10,000 exemption and a foreign-tax credit to avoid double taxation. For the full legal framework, calculation tables and practical 2026 scenarios, see the reference guide and practical overview below, plus the official Canton Ticino withholding-tax tables.",
+      de: "Das Abkommen Italien-Schweiz vom 23.12.2020, in Kraft seit dem 1. Januar 2024 und ratifiziert durch das italienische Gesetz 83/2023, unterscheidet zwei Regelungen: 'alte' Grenzgänger (italienische Wohnsitzer, die bereits vor dem 17.07.2023 in der Schweiz arbeiteten) werden weiterhin ausschliesslich an der Quelle in der Schweiz besteuert, mit Rückvergütung an die italienischen Grenzgemeinden; 'neue' Grenzgänger werden sowohl in der Schweiz als auch in Italien besteuert, mit einer Freigrenze von 10'000 € und einer Steueranrechnung zur Vermeidung der Doppelbesteuerung. Den vollständigen rechtlichen Rahmen, Berechnungstabellen und praxisnahe Szenarien für 2026 findest du im Referenzleitfaden und in der praktischen Übersicht unten sowie in den offiziellen Quellensteuertabellen des Kantons Tessin.",
+      fr: "L'Accord Italie-Suisse du 23/12/2020, en vigueur depuis le 1er janvier 2024 et ratifié par la loi italienne 83/2023, distingue deux régimes : les « anciens » frontaliers (résidents italiens déjà actifs en Suisse avant le 17/07/2023) restent imposés uniquement à la source en Suisse, avec une ristourne aux communes italiennes frontalières ; les « nouveaux » frontaliers sont imposés à la fois en Suisse et en Italie, avec une franchise de 10 000 € et un crédit d'impôt pour éviter la double imposition. Pour le cadre juridique complet, les tableaux de calcul et des scénarios pratiques à jour pour 2026, consultez le guide de référence et l'aperçu pratique ci-dessous, ainsi que les barèmes officiels d'impôt à la source du canton du Tessin.",
+    },
+    relatedLinks: [
+      {
+        href: {
+          it: '/guida-tassazione-frontalieri-2026/',
+          en: '/en/cross-border-taxation-guide-2026/',
+          de: '/de/grenzgaenger-besteuerung-leitfaden-2026/',
+          fr: '/fr/guide-imposition-frontaliers-2026/',
+        },
+        label: {
+          it: 'Guida di riferimento alla tassazione 2026',
+          en: '2026 taxation reference guide',
+          de: 'Referenzleitfaden Besteuerung 2026',
+          fr: 'Guide de référence fiscalité 2026',
+        },
+      },
+      {
+        href: {
+          it: '/guida-frontaliere/fiscalita/',
+          en: '/en/cross-border-guide/taxation/',
+          de: '/de/grenzgaenger-ratgeber/besteuerung/',
+          fr: '/fr/guide-frontalier/fiscalite/',
+        },
+        label: {
+          it: 'Panoramica pratica della fiscalità frontaliera',
+          en: 'Practical cross-border tax overview',
+          de: 'Praktische Übersicht Grenzgänger-Besteuerung',
+          fr: 'Aperçu pratique de la fiscalité frontalière',
+        },
+      },
+      {
+        href: {
+          it: '/guida-frontaliere/imposta-alla-fonte-ticino-tabelle-a-b-c-h/',
+          en: '/en/cross-border-guide/withholding-tax-ticino-tables-a-b-c-h/',
+          de: '/de/grenzgaenger-ratgeber/quellensteuer-tessin-tabellen-a-b-c-h/',
+          fr: '/fr/guide-frontalier/impot-source-tessin-baremes-a-b-c-h/',
+        },
+        label: {
+          it: 'Tabelle imposta alla fonte Ticino 2026',
+          en: 'Ticino withholding-tax tables 2026',
+          de: 'Quellensteuertabellen Tessin 2026',
+          fr: 'Barèmes impôt à la source Tessin 2026',
+        },
+      },
+    ],
+    sources: [
+      'https://www.fedlex.admin.ch/eli/cc/2023/694/it',
+      'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2023-06-13;83',
+    ],
+  },
+  {
+    id: 'fisco-impatto-coniuge-figli-netto',
+    category: 'fisco',
+    question: {
+      it: 'Sposarsi o avere figli cambia le tasse che pago come frontaliere?',
+      en: 'Does getting married or having children change the taxes I pay as a cross-border worker?',
+      de: 'Ändert eine Heirat oder Kinder die Steuern, die ich als Grenzgänger zahle?',
+      fr: 'Le mariage ou les enfants changent-ils les impôts que je paie en tant que frontalier ?',
+    },
+    answer: {
+      it: "Sì, ma l'effetto dipende dal tuo regime. Per i «vecchi frontalieri» (tassati solo in Svizzera) stato civile e figli incidono sulla tabella di imposta alla fonte applicata dal datore di lavoro (coniugato monoreddito, coniugato doppio reddito, con figli a carico). Per i «nuovi frontalieri» (tassati anche in Italia) contano inoltre le detrazioni per carichi di famiglia previste dal TUIR nella dichiarazione dei redditi italiana, oltre alla franchigia di 10.000 € valida indipendentemente dallo stato civile. L'impatto esatto sullo stipendio netto varia molto in base a reddito, cantone e numero di figli: per una stima puntuale con i tuoi dati consulta gli approfondimenti dedicati qui sotto.",
+      en: "Yes, but the effect depends on your regime. For 'old' cross-border workers (taxed only in Switzerland), marital status and children affect which withholding-tax table the employer applies (single-earner married, dual-earner married, with dependent children). For 'new' cross-border workers (also taxed in Italy), family-dependant deductions under the Italian TUIR also apply in the Italian tax return, on top of the €10,000 exemption that applies regardless of marital status. The exact impact on net salary varies a lot by income, canton and number of children: see the dedicated deep-dives below for a precise estimate with your own figures.",
+      de: "Ja, aber die Wirkung hängt vom jeweiligen Regime ab. Für 'alte' Grenzgänger (nur in der Schweiz besteuert) beeinflussen Zivilstand und Kinder, welche Quellensteuertabelle der Arbeitgeber anwendet (verheiratet Einverdiener, verheiratet Zweiverdiener, mit unterhaltsberechtigten Kindern). Für 'neue' Grenzgänger (auch in Italien besteuert) gelten zusätzlich die Familienabzüge nach italienischem TUIR in der italienischen Steuererklärung, zusätzlich zur Freigrenze von 10'000 €, die unabhängig vom Zivilstand gilt. Die genaue Auswirkung auf den Nettolohn hängt stark von Einkommen, Kanton und Kinderzahl ab: Für eine präzise Schätzung mit deinen eigenen Zahlen findest du unten weiterführende Analysen.",
+      fr: "Oui, mais l'effet dépend de votre régime. Pour les « anciens » frontaliers (imposés uniquement en Suisse), l'état civil et les enfants déterminent le barème d'impôt à la source appliqué par l'employeur (marié un revenu, marié deux revenus, avec enfants à charge). Pour les « nouveaux » frontaliers (imposés aussi en Italie), les déductions pour charges de famille prévues par le TUIR italien s'appliquent en plus dans la déclaration italienne, en plus de la franchise de 10 000 € valable quel que soit l'état civil. L'impact exact sur le salaire net varie beaucoup selon le revenu, le canton et le nombre d'enfants : consultez les analyses détaillées ci-dessous pour une estimation précise avec vos propres chiffres.",
+    },
+    relatedLinks: [
+      {
+        href: {
+          it: '/guida-frontaliere/quanto-incidono-figli-stipendio-netto-frontaliere/',
+          en: '/en/cross-border-guide/how-children-affect-crossborder-worker-net-salary/',
+          de: '/de/grenzgaenger-ratgeber/wie-kinder-nettogehalt-grenzgaenger-beeinflussen/',
+          fr: '/fr/guide-frontalier/impact-enfants-salaire-net-frontalier/',
+        },
+        label: {
+          it: 'Impatto dei figli sullo stipendio netto',
+          en: 'Impact of children on net salary',
+          de: 'Einfluss von Kindern auf den Nettolohn',
+          fr: 'Impact des enfants sur le salaire net',
+        },
+      },
+      {
+        href: {
+          it: '/guida-frontaliere/sposato-o-single-impatto-tasse-frontaliere/',
+          en: '/en/cross-border-guide/married-or-single-impact-on-crossborder-taxes/',
+          de: '/de/grenzgaenger-ratgeber/verheiratet-oder-ledig-auswirkung-steuern-grenzgaenger/',
+          fr: '/fr/guide-frontalier/marie-ou-celibataire-impact-impots-frontalier/',
+        },
+        label: {
+          it: 'Sposato o single: impatto sulle tasse',
+          en: 'Married or single: impact on taxes',
+          de: 'Verheiratet oder ledig: Einfluss auf die Steuern',
+          fr: 'Marié ou célibataire : impact sur les impôts',
+        },
+      },
+      {
+        href: {
+          it: '/guida-frontaliere/nuovo-vs-vecchio-frontaliere-differenze-fiscali/',
+          en: '/en/cross-border-guide/new-vs-old-crossborder-worker-tax-differences/',
+          de: '/de/grenzgaenger-ratgeber/neuer-vs-alter-grenzgaenger-steuerliche-unterschiede/',
+          fr: '/fr/guide-frontalier/nouveau-vs-ancien-frontalier-differences-fiscales/',
+        },
+        label: {
+          it: 'Vecchio vs nuovo frontaliere: differenze fiscali',
+          en: 'Old vs new cross-border worker: tax differences',
+          de: 'Alter vs neuer Grenzgänger: steuerliche Unterschiede',
+          fr: 'Ancien vs nouveau frontalier : différences fiscales',
+        },
+      },
+    ],
+    sources: [
+      'https://www.fedlex.admin.ch/eli/cc/2023/694/it',
+      'https://www4.ti.ch/dfe/dc/imposta-alla-fonte',
+    ],
+  },
+  {
+    id: 'fisco-zona-frontaliera-20km-fiscalita',
+    category: 'fisco',
+    question: {
+      it: 'La distanza dal confine (20 km) incide sul mio status fiscale di frontaliere?',
+      en: 'Does the 20 km distance from the border affect my cross-border tax status?',
+      de: 'Wirkt sich die 20-km-Grenzdistanz auf meinen steuerlichen Grenzgängerstatus aus?',
+      fr: 'La distance de 20 km à la frontière a-t-elle un impact sur mon statut fiscal de frontalier ?',
+    },
+    answer: {
+      it: "La qualifica di «frontaliere» ai fini fiscali richiede di risiedere in un Comune italiano il cui territorio ricade, anche solo parzialmente, entro 20 km in linea d'aria dal confine svizzero, oltre a rientrare quotidianamente (o comunque con regolarità) alla propria residenza. Chi risiede oltre questa fascia perde l'accesso al regime frontaliere (vecchio o nuovo) e viene tassato secondo le regole ordinarie previste per i residenti italiani con reddito estero, senza franchigia né ristorno ai Comuni. La distanza si misura dal confine, non dal luogo di lavoro in Svizzera. Per i dettagli su Comuni ammessi e casi limite consulta l'approfondimento dedicato qui sotto.",
+      en: "The tax status of 'cross-border worker' requires residing in an Italian municipality whose territory falls, even partly, within 20 km as the crow flies from the Swiss border, plus returning to one's residence daily (or at least regularly). Anyone living beyond that zone loses access to the cross-border regime (old or new) and is taxed under the ordinary rules for Italian residents with foreign income, with no exemption and no municipal rebate. The distance is measured from the border, not from the Swiss workplace. For details on eligible municipalities and edge cases, see the dedicated deep-dive below.",
+      de: "Der steuerliche Grenzgängerstatus setzt voraus, dass man in einer italienischen Gemeinde wohnt, deren Gebiet zumindest teilweise innerhalb von 20 km Luftlinie von der Schweizer Grenze liegt, und täglich (oder zumindest regelmässig) an den Wohnort zurückkehrt. Wer ausserhalb dieser Zone wohnt, verliert den Zugang zum Grenzgängerregime (alt oder neu) und wird nach den ordentlichen Regeln für italienische Ansässige mit ausländischem Einkommen besteuert, ohne Freigrenze und ohne Rückvergütung an die Gemeinde. Die Distanz wird ab der Grenze gemessen, nicht ab dem Schweizer Arbeitsort. Details zu zulässigen Gemeinden und Grenzfällen findest du in der Vertiefung unten.",
+      fr: "Le statut fiscal de « frontalier » exige de résider dans une commune italienne dont le territoire se situe, même partiellement, à moins de 20 km à vol d'oiseau de la frontière suisse, et de rentrer quotidiennement (ou du moins régulièrement) à son domicile. Toute personne résidant au-delà de cette zone perd l'accès au régime frontalier (ancien ou nouveau) et est imposée selon les règles ordinaires applicables aux résidents italiens percevant un revenu étranger, sans franchise ni ristourne communale. La distance se mesure depuis la frontière, et non depuis le lieu de travail en Suisse. Pour le détail des communes éligibles et des cas limites, consultez l'analyse dédiée ci-dessous.",
+    },
+    relatedLinks: [
+      {
+        href: {
+          it: '/guida-frontaliere/frontaliere-entro-o-oltre-20km-cosa-cambia/',
+          en: '/en/cross-border-guide/crossborder-within-or-over-20km-what-changes/',
+          de: '/de/grenzgaenger-ratgeber/grenzgaenger-innerhalb-oder-ueber-20km-was-aendert-sich/',
+          fr: '/fr/guide-frontalier/frontalier-moins-ou-plus-20km-ce-qui-change/',
+        },
+        label: {
+          it: 'Entro o oltre i 20 km: cosa cambia',
+          en: 'Within or beyond 20 km: what changes',
+          de: 'Innerhalb oder ausserhalb 20 km: was sich ändert',
+          fr: 'À moins ou plus de 20 km : ce qui change',
+        },
+      },
+      {
+        href: {
+          it: '/guida-tassazione-frontalieri-2026/',
+          en: '/en/cross-border-taxation-guide-2026/',
+          de: '/de/grenzgaenger-besteuerung-leitfaden-2026/',
+          fr: '/fr/guide-imposition-frontaliers-2026/',
+        },
+        label: {
+          it: 'Guida di riferimento alla tassazione 2026',
+          en: '2026 taxation reference guide',
+          de: 'Referenzleitfaden Besteuerung 2026',
+          fr: 'Guide de référence fiscalité 2026',
+        },
+      },
+    ],
+    sources: [
+      'https://www.fedlex.admin.ch/eli/cc/2023/694/it',
     ],
   },
 ];
