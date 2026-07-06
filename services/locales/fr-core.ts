@@ -3443,6 +3443,10 @@ Règles :
   'survey.feature.thanks.title': 'Merci !',
   'survey.feature.thanks.body': 'Votre avis nous aide à nous améliorer.',
 
+  'whatsNew.v3580.title': 'Nouveau guide fiscal frontaliers',
+  'whatsNew.v3580.taxHub.title': 'Guide fiscal complet pour frontaliers',
+  'whatsNew.v3580.taxHub.desc': 'Nouvelle page /fr/guide-frontalier/fiscalite/ sur l\'impôt à la source, le nouvel accord fiscal Italie-Suisse, les différences entre anciens et nouveaux frontaliers, la double imposition et les déductions fiscales.',
+
   'whatsNew.v3570.title': 'Guide frontalier complet et nouveaux guides par profession',
   'whatsNew.v3570.frontalierePillar.title': 'Pillar frontalier + 14 guides emploi',
   'whatsNew.v3570.frontalierePillar.desc': 'Nouvelle page /fr/frontalier/ avec tout le parcours (permis G, salaire, impôts, caisse maladie) et 14 nouveaux guides emploi par profession : psychologue, physiothérapeute, pharmacien, sage-femme, ASSC, comptable et plus.',

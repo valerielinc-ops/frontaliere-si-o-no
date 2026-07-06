@@ -3443,6 +3443,10 @@ Regeln:
   'survey.feature.thanks.title': 'Danke!',
   'survey.feature.thanks.body': 'Dein Feedback hilft uns, besser zu werden.',
 
+  'whatsNew.v3580.title': 'Neuer Grenzgänger-Steuerratgeber',
+  'whatsNew.v3580.taxHub.title': 'Vollständiger Steuerratgeber für Grenzgänger',
+  'whatsNew.v3580.taxHub.desc': 'Neue Seite /de/grenzgaenger-ratgeber/besteuerung/ zu Quellensteuer, dem neuen Steuerabkommen Italien-Schweiz, Unterschieden zwischen alten und neuen Grenzgängern, Doppelbesteuerung und abzugsfähigen Abzügen.',
+
   'whatsNew.v3570.title': 'Kompletter Grenzgänger-Ratgeber und neue Berufs-Guides',
   'whatsNew.v3570.frontalierePillar.title': 'Grenzgänger-Pillar + 14 Stellen-Guides',
   'whatsNew.v3570.frontalierePillar.desc': 'Neue Seite /de/grenzgaenger/ mit dem ganzen Weg (G-Bewilligung, Lohn, Steuern, Krankenkasse) und 14 neuen Berufs-Guides: Psychologe, Physiotherapeut, Apotheker, Hebamme, FaGe, Buchhalter und mehr.',
