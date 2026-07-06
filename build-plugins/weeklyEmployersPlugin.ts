@@ -65,7 +65,6 @@ import {
   canonicalCompanySlug,
   cantonMeetsThreshold,
   companyCityMeetsThreshold,
-  MIN_JOBS_PER_COMPANY_IN_CITY,
   getIsoWeekAndYear,
   isoWeekKey,
   parseCompanyCityPath,

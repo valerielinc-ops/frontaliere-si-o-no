@@ -187,3 +187,159 @@ describe('resolve_append_conflicts — chained rebase-retry idempotency (issue #
     expect(readJson(local, TARGET)).toEqual({ u0: 's0', uZ1: 'sZ1', uLocal: 'sLocal' });
   });
 });
+
+// Regression coverage for PR #3622's reviewer follow-up: the #3617 fix above
+// only repaired the duplicated-root-closer shape for JSON. The reviewer asked
+// whether the SAME shape hits non-JSON append-only siblings whose insertion
+// regex anchors on the container's own closing token.
+//
+// Empirical finding (real git rebase, not hand-rolled, for both shapes
+// below): it does NOT reproduce the same way as JSON. Two concurrent
+// single-*line*-entry insertions (sitemap*.xml `<url>` blocks, blog-meta-
+// *.ts `Record<string, string>` keys, seo-pages.ts's ItemList) resolve
+// cleanly across chained cycles with a single closer, verified below for
+// dist/sitemap-blog.xml. Two concurrent single-*object*-entry insertions
+// into an array (blog-articles-data.ts, swiss-articles-data.ts) instead
+// produce an ALIGNED inner-field conflict — git's diff3 treats both sides as
+// editing the SAME new entry slot rather than two adjacent slots — which
+// "keep both" would fuse into one object with duplicate `id`/`category`
+// keys. That is a DIFFERENT failure mode than a duplicated closer, and it
+// was already caught (not silently merged) by the pre-existing
+// article-registry validation further down in resolve_append_conflicts
+// (`entryStarts !== ids.length`), which predates this PR — verified below.
+//
+// scripts/lib/dedupe-growing-container-closer.mjs is kept as defense-in-depth
+// for the literal duplicated-closer shape (it's a no-op on already-correct
+// input — see the "clean/no-op" cases in
+// tests/scripts/dedupe-growing-container-closer.test.ts) but nothing here
+// claims that shape is reachable via natural concurrent-writer git mechanics
+// for these targets.
+describe('resolve_append_conflicts — non-JSON growing-container siblings (issue #3617-class follow-up, PR #3622)', () => {
+  const TS_TARGET = 'data/blog-articles-data.ts';
+
+  function appendEntry(dir: string, id: string): void {
+    const file = path.join(dir, TS_TARGET);
+    const src = readFileSync(file, 'utf-8');
+    const newEntry = `  {\n    id: '${id}',\n    category: 'guide',\n  },`;
+    const next = src.replace(
+      /([ \t]*},\n)(\](?:[ \t]+satisfies[ \t]+Article\[\])?;)/,
+      `$1${newEntry}\n$2`,
+    );
+    expect(next).not.toBe(src); // sanity: the anchor regex must actually match
+    writeFileSync(file, next);
+  }
+
+  it('safely rejects (does not corrupt) a same-anchor array-entry collision on blog-articles-data.ts', () => {
+    const local = path.join(work, 'local');
+    const writer = path.join(work, 'writer');
+
+    const base = [
+      'const RAW_ARTICLES = [',
+      '  {',
+      "    id: 'base',",
+      "    category: 'guide',",
+      '  },',
+      '] satisfies Article[];',
+      '',
+      'export const ARTICLES = RAW_ARTICLES;',
+      '',
+    ].join('\n');
+    writeFileSync(path.join(local, TS_TARGET), base);
+    sh('git add -A && git commit -q -m "ts base"', local);
+    sh('git push -q origin main', local);
+    sh('git pull -q origin main', writer);
+
+    appendEntry(local, 'local');
+    sh('git add -A && git commit -q -m "local: add entry"', local);
+
+    appendEntry(writer, 'z1');
+    sh('git add -A && git commit -q -m "writer: add z1"', writer);
+    sh('git push -q origin main', writer);
+
+    const push1 = spawnSync('git', ['push', 'origin', 'HEAD:main'], { cwd: local, env: shimEnv() });
+    expect(push1.status).not.toBe(0);
+
+    sh('git fetch -q origin main', local);
+    const rebase = spawnSync('git', ['rebase', 'origin/main'], { cwd: local, env: shimEnv() });
+    expect(rebase.status).not.toBe(0);
+
+    // The resolver must refuse to "keep both" here — that would silently
+    // fuse z1's and local's entries into one malformed object — and instead
+    // fail the cycle, leaving the rebase in progress for the caller to abort.
+    const resolve = spawnSync(
+      'bash',
+      ['-c', `source "${RESOLVER}" && resolve_append_conflicts && git add -A`],
+      { cwd: local, env: shimEnv() },
+    );
+    expect(resolve.status).not.toBe(0);
+
+    spawnSync('git', ['rebase', '--abort'], { cwd: local, env: shimEnv() });
+    const final = readFileSync(path.join(local, TS_TARGET), 'utf-8');
+    const ids = [...final.matchAll(/id:\s*'([^']+)'/g)].map((m) => m[1]);
+    expect(ids).toEqual(['base', 'local']); // rebase aborted, local's own pre-conflict state restored
+    expect(new Set(ids).size).toBe(ids.length); // no duplicate/merged keys anywhere
+  });
+
+  const XML_TARGET = 'dist/sitemap-blog.xml';
+
+  function appendUrl(dir: string, id: string): void {
+    const file = path.join(dir, XML_TARGET);
+    const src = readFileSync(file, 'utf-8');
+    const next = src.replace(
+      /(<\/urlset>)/,
+      `<url><loc>https://frontaliereticino.ch/blog/${id}/</loc></url>\n$1`,
+    );
+    expect(next).not.toBe(src);
+    writeFileSync(file, next);
+  }
+
+  it('resolves a single-line-entry sitemap target cleanly across two chained rebase cycles', () => {
+    const local = path.join(work, 'local');
+    const writer = path.join(work, 'writer');
+
+    mkdirSync(path.join(local, 'dist'), { recursive: true });
+    const base = [
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      '<url><loc>https://frontaliereticino.ch/blog/base/</loc></url>',
+      '</urlset>',
+      '',
+    ].join('\n');
+    writeFileSync(path.join(local, XML_TARGET), base);
+    sh('git add -A && git commit -q -m "xml base"', local);
+    sh('git push -q origin main', local);
+    sh('git pull -q origin main', writer);
+
+    // Cycle 1.
+    appendUrl(local, 'local');
+    sh('git add -A && git commit -q -m "local: add url"', local);
+
+    appendUrl(writer, 'z1');
+    sh('git add -A && git commit -q -m "writer: add z1"', writer);
+    sh('git push -q origin main', writer);
+
+    const push1 = spawnSync('git', ['push', 'origin', 'HEAD:main'], { cwd: local, env: shimEnv() });
+    expect(push1.status).not.toBe(0);
+    expect(runRebaseCycle(local)).toBe(0);
+
+    // Cycle 2 (chained): another writer append lands before local's second
+    // push attempt settles.
+    appendUrl(writer, 'z2');
+    sh('git add -A && git commit -q -m "writer: add z2"', writer);
+    sh('git push -q origin main', writer);
+
+    const push2 = spawnSync('git', ['push', 'origin', 'HEAD:main'], { cwd: local, env: shimEnv() });
+    expect(push2.status).not.toBe(0);
+    expect(runRebaseCycle(local)).toBe(0);
+
+    const push3 = spawnSync('git', ['push', 'origin', 'HEAD:main'], { cwd: local, env: shimEnv() });
+    expect(push3.status).toBe(0);
+
+    const final = readFileSync(path.join(local, XML_TARGET), 'utf-8');
+    const closers = [...final.matchAll(/<\/urlset>/g)];
+    expect(closers.length).toBe(1);
+    for (const id of ['base', 'local', 'z1', 'z2']) {
+      expect(final).toContain(`/blog/${id}/`);
+    }
+  });
+});
