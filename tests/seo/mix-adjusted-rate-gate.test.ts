@@ -33,6 +33,38 @@ describe('computeMixAdjustedTotalCap', () => {
     expect(expectedOffenders).toBeCloseTo(10, 5); // 100*10/100 + 50*0
     expect(expectedTotalRate).toBeCloseTo(10 / 150 * 100, 5);
   });
+
+  // #3607: the inverse case — a baseline feature bucket absent from the
+  // CURRENT scan (e.g. a partial BFS walk that never reached that template
+  // category). Previously this silently contributed 0 to both
+  // expectedOffenders and totalScanned, quietly lowering the expected total
+  // instead of flagging that the scan itself is incomplete.
+  it('flags a baseline feature missing from the current scan as an incomplete-scan signal', () => {
+    const { missingFeatures } = computeMixAdjustedTotalCap({
+      scannedByFeature: { a: 100 },
+      baseByFeature: { a: { ratePct: 10, scanned: 100 }, b: { ratePct: 20, scanned: 500 } },
+      tol: TOL,
+    });
+    expect(missingFeatures).toEqual(['b']);
+  });
+
+  it('does NOT flag a baseline feature that legitimately had zero scanned pages historically', () => {
+    const { missingFeatures } = computeMixAdjustedTotalCap({
+      scannedByFeature: { a: 100 },
+      baseByFeature: { a: { ratePct: 10, scanned: 100 }, retired: { ratePct: 0, scanned: 0 } },
+      tol: TOL,
+    });
+    expect(missingFeatures).toEqual([]);
+  });
+
+  it('does not flag when every baseline feature is present in the current scan', () => {
+    const { missingFeatures } = computeMixAdjustedTotalCap({
+      scannedByFeature: { a: 100, b: 400 },
+      baseByFeature: { a: { ratePct: 5, scanned: 90 }, b: { ratePct: 50, scanned: 380 } },
+      tol: TOL,
+    });
+    expect(missingFeatures).toEqual([]);
+  });
 });
 
 describe('evaluateMixAdjustedTotalRegression', () => {
@@ -67,5 +99,34 @@ describe('evaluateMixAdjustedTotalRegression', () => {
       actualScanned: 100,
     });
     expect(r.regression).toBe(false);
+  });
+
+  // #3607: an incomplete scan (baseline feature bucket entirely missing from
+  // the current scan) must fail the gate unconditionally — it must NOT be
+  // masked by the same AND-condition noise floor that protects legitimate
+  // denominator shrinks (class #1604), since the whole point is that a
+  // missing bucket could be hiding a real regression the scan never saw.
+  it('FAIL: baseline feature missing from current scan fails the gate even when the visible rate is perfectly within cap', () => {
+    const r = evaluateMixAdjustedTotalRegression({
+      scannedByFeature: { a: 100 },
+      baseByFeature: { a: { ratePct: 5, scanned: 100 }, b: { ratePct: 20, scanned: 500 } },
+      tol: TOL,
+      actualOffenders: 5, // exactly at baseline rate for the features that WERE scanned
+      actualScanned: 100,
+    });
+    expect(r.regression).toBe(true);
+    expect(r.missingFeatures).toEqual(['b']);
+  });
+
+  it('PASS: no missing baseline features and rate within cap', () => {
+    const r = evaluateMixAdjustedTotalRegression({
+      scannedByFeature: { a: 100, b: 400 },
+      baseByFeature: { a: { ratePct: 5, scanned: 90 }, b: { ratePct: 50, scanned: 380 } },
+      tol: TOL,
+      actualOffenders: 205,
+      actualScanned: 500,
+    });
+    expect(r.regression).toBe(false);
+    expect(r.missingFeatures).toEqual([]);
   });
 });
