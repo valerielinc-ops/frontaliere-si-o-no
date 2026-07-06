@@ -3443,6 +3443,10 @@ Rules:
   'survey.feature.thanks.title': 'Thank you!',
   'survey.feature.thanks.body': 'Your feedback helps us improve.',
 
+  'whatsNew.v3580.title': 'New cross-border tax guide',
+  'whatsNew.v3580.taxHub.title': 'Complete tax guide for cross-border workers',
+  'whatsNew.v3580.taxHub.desc': 'New /en/cross-border-guide/taxation/ page covering withholding tax, the new Italy-Switzerland tax agreement, old vs new cross-border worker differences, double taxation and deductible allowances.',
+
   'whatsNew.v3570.title': 'Complete cross-border guide and new per-profession job guides',
   'whatsNew.v3570.frontalierePillar.title': 'Cross-border pillar + 14 job guides',
   'whatsNew.v3570.frontalierePillar.desc': 'New /en/cross-border-worker/ page with the full path (G permit, salary, taxes, health insurance) and 14 new per-profession job guides: psychologist, physiotherapist, pharmacist, midwife, healthcare assistant, accountant and more.',

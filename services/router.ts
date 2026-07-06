@@ -142,6 +142,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
   '/guida-frontaliere/da-50000-a-150000-chf-come-cambia-netto-frontaliere/',
   '/guida-frontaliere/sposato-o-single-impatto-tasse-frontaliere/',
   '/guida-frontaliere/costo-nascosto-cambio-chf-eur-stipendio-netto/',
+  '/guida-frontaliere/fiscalita/',
   // EN — /en/cross-border-guide/{slug}/
   '/en/cross-border-guide/complete-guide-crossborder-salary-calculation-2026/',
   '/en/cross-border-guide/new-vs-old-crossborder-worker-tax-differences/',
@@ -151,6 +152,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
   '/en/cross-border-guide/from-50000-to-150000-chf-how-net-changes-crossborder/',
   '/en/cross-border-guide/married-or-single-impact-on-crossborder-taxes/',
   '/en/cross-border-guide/hidden-cost-chf-eur-exchange-net-salary/',
+  '/en/cross-border-guide/taxation/',
   // DE — /de/grenzgaenger-ratgeber/{slug}/
   '/de/grenzgaenger-ratgeber/kompletter-leitfaden-gehaltsberechnung-grenzgaenger-2026/',
   '/de/grenzgaenger-ratgeber/neuer-vs-alter-grenzgaenger-steuerliche-unterschiede/',
@@ -160,6 +162,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
   '/de/grenzgaenger-ratgeber/von-50000-bis-150000-chf-wie-sich-netto-aendert-grenzgaenger/',
   '/de/grenzgaenger-ratgeber/verheiratet-oder-ledig-auswirkung-steuern-grenzgaenger/',
   '/de/grenzgaenger-ratgeber/versteckte-kosten-chf-eur-wechselkurs-nettogehalt/',
+  '/de/grenzgaenger-ratgeber/besteuerung/',
   // FR — /fr/guide-frontalier/{slug}/
   '/fr/guide-frontalier/guide-complet-calcul-salaire-frontalier-2026/',
   '/fr/guide-frontalier/nouveau-vs-ancien-frontalier-differences-fiscales/',
@@ -169,6 +172,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
   '/fr/guide-frontalier/de-50000-a-150000-chf-comment-le-net-change-frontalier/',
   '/fr/guide-frontalier/marie-ou-celibataire-impact-impots-frontalier/',
   '/fr/guide-frontalier/cout-cache-change-chf-eur-salaire-net/',
+  '/fr/guide-frontalier/fiscalite/',
 ]);
 
 // ── Route types ──────────────────────────────────────────────
