@@ -901,6 +901,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.divorzio-frontaliere-mantenimento-svizzera.title': 'Grenzüberschreitende Scheidung: Unterhaltszulage in der Schweiz',
     'blog.article.divorzio-frontaliere-mantenimento-svizzera.excerpt': 'Praktischer Leitfaden zur Gerichtsbarkeit und Berechnung der Unterhaltszulage für Grenzgänger zwischen der Schweiz und Italien unter Einhaltung der geltenden Vorschriften.',
     'blog.article.divorzio-frontaliere-mantenimento-svizzera.imageAlt': 'Panoramablick auf ein Büro in Lugano mit dem See im Hintergrund',
+    'blog.article.frontaliere-infermiere-ticino-requisiti.title': 'Grenzgängerin Krankenschwester im Tessin: Anforderungen und Gehalt',
+    'blog.article.frontaliere-infermiere-ticino-requisiti.excerpt': 'Praktischer Leitfaden für Grenzkrankenschwestern: von der Anerkennung des Bildungsabschlusses über die neue Vereinbarung bis hin zur Berechnung des Nettogehalts.',
+    'blog.article.frontaliere-infermiere-ticino-requisiti.imageAlt': 'Krankenhaus mit Blick auf den Luganersee',
 };
 
 export default blogMetaChDe;

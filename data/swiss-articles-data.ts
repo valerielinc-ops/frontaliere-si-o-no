@@ -2699,6 +2699,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'frontaliere-infermiere-ticino-requisiti',
+    category: 'pratico',
+    date: '2026-07-06T03:42:50.858Z',
+    image: '/images/blog/frontaliere-infermiere-ticino-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4381,6 +4381,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-iniziativa-10-milioni-voto-giugno': { name: 'Votazioni federali', path: '/articoli-frontaliere/iniziativa-10-milioni-voto-giugno', parent: 'blog' },
     'blog-divorzio-frontaliere-mantenimento-svizzera': { name: 'Divorzio frontaliere', path: '/articoli-svizzera/divorzio-frontaliere-mantenimento-svizzera/', parent: 'blog' },
     'blog-accordo-sociale-lastminute-chiasso': { name: 'Accordo Lastminute Chiasso', path: '/articoli-frontaliere/accordo-sociale-lastminute-chiasso', parent: 'blog' },
+    'blog-frontaliere-infermiere-ticino-requisiti': { name: 'Frontaliere infermiere Ticino', path: '/articoli-svizzera/frontaliere-infermiere-ticino-requisiti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
