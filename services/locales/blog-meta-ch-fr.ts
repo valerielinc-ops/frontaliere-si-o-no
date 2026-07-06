@@ -916,6 +916,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.analisi-busta-paga-svizzera-2026.title': 'Frontaliers : bulletin de paie suisse 2026 et retenues',
     'blog.article.analisi-busta-paga-svizzera-2026.excerpt': 'Guide pratique de la fiche de paie 2026 : cotisations, impôts à la source et différences fiscales pour les frontaliers travaillant au-delà de 20 km.',
     'blog.article.analisi-busta-paga-svizzera-2026.imageAlt': 'Vue moderne d\'un bureau à Lugano, Suisse',
+    'blog.article.credito-imposta-frontalieri-2026.title': 'Crédit d\'impôt frontaliers 2026 : calcul et limites 20km',
+    'blog.article.credito-imposta-frontalieri-2026.excerpt': 'Découvrez comment le crédit d\'impôt 2026 s\'applique aux frontaliers dans un rayon de 20 km, avec des exemples pratiques, des tableaux explicatifs et la procédure étape par étape pour la déclaration italienne.',
+    'blog.article.credito-imposta-frontalieri-2026.imageAlt': 'Frontière Suisse‑Italie avec un train de banlieue, symbole des frontaliers.',
 };
 
 export default blogMetaChFr;
