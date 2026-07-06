@@ -910,6 +910,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-autista-frontaliere-ticino.title': 'Conducteur frontalier au Tessin : guide complet 2026',
     'blog.article.guida-autista-frontaliere-ticino.excerpt': 'Tout sur les permis, les permis de conduire, les salaires et la taxation des chauffeurs frontaliers en Suisse selon les règles en vigueur depuis 2024.',
     'blog.article.guida-autista-frontaliere-ticino.imageAlt': 'Chauffeur de camion dans un centre logistique en Suisse',
+    'blog.article.analisi-busta-paga-frontalieri-2026.title': 'Frontaliers : analyse paie Suisse 2026',
+    'blog.article.analisi-busta-paga-frontalieri-2026.excerpt': 'Guide pratique des retenues, des cotisations sociales et du calcul du net réel pour les frontaliers en Suisse en 2026 selon l\'accord en vigueur.',
+    'blog.article.analisi-busta-paga-frontalieri-2026.imageAlt': 'Documents financiers et calculatrice sur un bureau avec vue sur Lugano',
 };
 
 export default blogMetaChFr;

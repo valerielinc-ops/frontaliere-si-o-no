@@ -910,6 +910,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-autista-frontaliere-ticino.title': 'Driver frontier in Ticino: complete guide 2026',
     'blog.article.guida-autista-frontaliere-ticino.excerpt': 'All about permits, licenses, salaries and taxation for border drivers in Switzerland according to the rules in force since 2024.',
     'blog.article.guida-autista-frontaliere-ticino.imageAlt': 'Truck driver at a logistics hub in Switzerland',
+    'blog.article.analisi-busta-paga-frontalieri-2026.title': 'Frontier workers: payroll analysis Switzerland 2026',
+    'blog.article.analisi-busta-paga-frontalieri-2026.excerpt': 'Practical guide to deductions, social contributions and the calculation of the real net for border workers in Switzerland in 2026 according to the current agreement.',
+    'blog.article.analisi-busta-paga-frontalieri-2026.imageAlt': 'Financial documents and calculator on a desk with a view of Lugano',
 };
 
 export default blogMetaChEn;
