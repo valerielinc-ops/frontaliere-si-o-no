@@ -24,6 +24,7 @@ import path from 'node:path';
 import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { normalizeContract } from '../services/newsletter-content.mjs';
+import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { buildAlertProfile, scoreJobForAlert, partitionByGeoPreference } from '../services/jobAlertMatching.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
@@ -631,7 +632,7 @@ function behaviorSignals(personalization) {
 // ── Email template ───────────────────────────────────────────
 
 function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
-  const locale = alert.locale || 'it';
+  const locale = nlNormLocale(alert.locale);
   const s = getStrings(locale);
   const jobBoardPath = JOB_BOARD_PATHS[locale] || JOB_BOARD_PATHS.it;
   const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
@@ -1424,7 +1425,7 @@ async function main() {
     // it gets baked into the email — data/jobs.json is a crawl snapshot and
     // can lag the job actually being pulled/expired, or the deploy of its
     // per-locale SSG page.
-    const liveMatched = await filterLiveJobs(matched, alert.locale || 'it', jobLiveCheckCache);
+    const liveMatched = await filterLiveJobs(matched, nlNormLocale(alert.locale), jobLiveCheckCache);
     if (liveMatched.length === 0) {
       console.log(`   ⏭️  Alert ${alert.id}: ${matched.length} matches, all failed the live-link check → skip`);
       continue;

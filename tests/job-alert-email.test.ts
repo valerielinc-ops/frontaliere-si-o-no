@@ -763,3 +763,18 @@ describe('job alert email — unsubscribe links match the sending domain (anti-s
     expect(wrangler).toContain('frontaliereticino.ch/disiscrivi-alert*');
   });
 });
+
+describe('job alert email — dirty locale normalization', () => {
+  it('normalizes a regional locale (de-CH) to the German job board, not a broken /de-CH/ prefix', () => {
+    const alert = { ...fixtureAlert('it'), locale: 'de-CH' };
+    const result = buildAlertEmail(alert, [fixtureJob()], true);
+    expect(result.html).not.toContain('/de-CH');
+    expect(result.html).toContain('jobs-im-tessin');
+  });
+
+  it('normalizes an uppercase locale (FR) to the French job board', () => {
+    const alert = { ...fixtureAlert('it'), locale: 'FR' };
+    const result = buildAlertEmail(alert, [fixtureJob()], true);
+    expect(result.html).toContain('trouver-emploi-tessin');
+  });
+});
