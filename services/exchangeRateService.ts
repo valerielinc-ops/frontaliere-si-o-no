@@ -172,11 +172,12 @@ async function fetchFromTwelveData(): Promise<number | null> {
  * Fetch the latest CHF→EUR exchange rate.
  *
  * Resolution order:
- * 1. In-memory cache (if < 5 min old)
- * 2. Firestore cache (if < 5 min old) — shared across all clients
- * 3. TwelveData API → save to Firestore + localStorage
- * 4. Expired Firestore / localStorage cache
- * 5. Hardcoded default (0.94)
+ * 1. In-memory cache (if < 10 min old)
+ * 2. localStorage cache (if < 10 min old) — avoids a Firestore read on every fresh page load
+ * 3. Firestore cache (if < 10 min old) — shared across all clients
+ * 4. TwelveData API → save to Firestore + localStorage
+ * 5. Expired Firestore / localStorage cache
+ * 6. Hardcoded default (0.94)
  */
 export async function fetchExchangeRate(): Promise<number> {
  const now = Date.now();
@@ -187,7 +188,20 @@ export async function fetchExchangeRate(): Promise<number> {
  return memoryRate;
  }
 
- // 2. Firestore cache (shared across all users/tabs)
+ // 2. localStorage cache — same freshness window as Firestore, but free.
+ // Every fresh page load resets the in-memory cache above, so without this
+ // check every visitor to a calculator page pays a Firestore read even when
+ // a perfectly fresh rate was already fetched a few seconds earlier in the
+ // same browser (e.g. navigating between TFR/salary/tax calculators).
+ const localEntryFresh = getLocalCache();
+ if (localEntryFresh && (now - localEntryFresh.timestamp) < CACHE_DURATION) {
+ lastSource = 'cache';
+ memoryRate = localEntryFresh.rate;
+ memoryTimestamp = localEntryFresh.timestamp;
+ return localEntryFresh.rate;
+ }
+
+ // 3. Firestore cache (shared across all users/tabs)
  const firestoreEntry = await getFirestoreRate();
  if (firestoreEntry && (now - firestoreEntry.timestamp) < CACHE_DURATION) {
  lastSource = 'firestore';
@@ -197,7 +211,7 @@ export async function fetchExchangeRate(): Promise<number> {
  return firestoreEntry.rate;
  }
 
- // 3. Fetch live from TwelveData
+ // 4. Fetch live from TwelveData
  const liveRate = await fetchFromTwelveData();
  if (liveRate !== null) {
  lastSource = 'twelvedata';
@@ -209,7 +223,7 @@ export async function fetchExchangeRate(): Promise<number> {
  return liveRate;
  }
 
- // 4. Expired Firestore cache (better than nothing)
+ // 5. Expired Firestore cache (better than nothing)
  if (firestoreEntry) {
  lastSource = 'firestore';
  memoryRate = firestoreEntry.rate;
@@ -217,8 +231,8 @@ export async function fetchExchangeRate(): Promise<number> {
  return firestoreEntry.rate;
  }
 
- // 5. Expired localStorage cache (offline fallback)
- const localEntry = getLocalCache();
+ // 6. Expired localStorage cache (offline fallback)
+ const localEntry = localEntryFresh ?? getLocalCache();
  if (localEntry) {
  lastSource = 'cache';
  memoryRate = localEntry.rate;
@@ -226,7 +240,7 @@ export async function fetchExchangeRate(): Promise<number> {
  return localEntry.rate;
  }
 
- // 6. Hardcoded fallback
+ // 7. Hardcoded fallback
  lastSource = 'fallback';
  return DEFAULT_RATE;
 }
@@ -289,6 +303,10 @@ export type HistoryPoint = { date: string; rate: number };
 export type HistoryPeriod = '1m' | '3m' | '6m' | '1y' | '5y';
 
 const HISTORY_LOCAL_KEY = 'ft_exchange_history_';
+// History is refreshed once/day by update-exchange-history.mjs, so a same-day
+// local copy is never more than a few hours stale — comfortably fresh enough
+// to skip a Firestore read on repeat chart views within the same day.
+const HISTORY_CACHE_DURATION = 6 * 60 * 60 * 1000; // 6 hours
 
 function getHistoryDateRange(period: HistoryPeriod): { startStr: string; endStr: string } {
  const end = new Date();
@@ -307,7 +325,7 @@ function getHistoryDateRange(period: HistoryPeriod): { startStr: string; endStr:
 }
 
 /** Read history from localStorage (instant offline fallback) */
-function getLocalHistory(period: HistoryPeriod): { points: HistoryPoint[]; lastDate: string } | null {
+function getLocalHistory(period: HistoryPeriod): { points: HistoryPoint[]; lastDate: string; fetchedAt?: number } | null {
  try {
  const raw = localStorage.getItem(HISTORY_LOCAL_KEY + period);
  if (!raw) return null;
@@ -322,7 +340,7 @@ function getLocalHistory(period: HistoryPeriod): { points: HistoryPoint[]; lastD
 function setLocalHistory(period: HistoryPeriod, points: HistoryPoint[]): void {
  try {
  const lastDate = points[points.length - 1]?.date || '';
- localStorage.setItem(HISTORY_LOCAL_KEY + period, JSON.stringify({ points, lastDate }));
+ localStorage.setItem(HISTORY_LOCAL_KEY + period, JSON.stringify({ points, lastDate, fetchedAt: Date.now() }));
  } catch { /* ignore */ }
 }
 
@@ -408,9 +426,11 @@ async function fetchEcbHistory(startStr: string, endStr: string): Promise<Histor
  * Fetch historical CHF→EUR exchange rate data for a given period.
  *
  * Resolution order (client is read-only — a daily cron job keeps Firestore fresh):
- * 1. Firestore (authoritative, updated daily by update-exchange-history.mjs)
- * 2. localStorage cache (offline / instant fallback)
- * 3. Frankfurter API (emergency fallback if Firestore is empty) → save to localStorage only
+ * 1. localStorage cache, if fetched within the last 6h (data only changes once/day,
+ *    so a same-day local copy is as good as Firestore but free)
+ * 2. Firestore (authoritative, updated daily by update-exchange-history.mjs)
+ * 3. localStorage cache regardless of age (offline / instant fallback)
+ * 4. Frankfurter API (emergency fallback if Firestore is empty) → save to localStorage only
  *
  * @param period - Time period: '1m', '3m', '6m', '1y', '5y'
  * @param liveRate - Current live rate to append as today's data point
@@ -420,20 +440,30 @@ export async function fetchExchangeHistory(
  period: HistoryPeriod,
  liveRate?: number | null,
 ): Promise<HistoryPoint[]> {
- // 1. Firestore (authoritative source, updated by daily cron)
+ // 1. Fresh localStorage cache — skips a Firestore read on repeat chart views
+ const localCacheFresh = getLocalHistory(period);
+ if (
+ localCacheFresh && localCacheFresh.points.length > 0 &&
+ typeof localCacheFresh.fetchedAt === 'number' &&
+ (Date.now() - localCacheFresh.fetchedAt) < HISTORY_CACHE_DURATION
+ ) {
+ return appendLiveRate(localCacheFresh.points, liveRate);
+ }
+
+ // 2. Firestore (authoritative source, updated by daily cron)
  const firestoreCache = await getHistoryFromFirestore(period);
  if (firestoreCache && firestoreCache.points.length > 0) {
  setLocalHistory(period, firestoreCache.points);
  return appendLiveRate(firestoreCache.points, liveRate);
  }
 
- // 2. localStorage (offline fallback — even if stale, better than nothing)
- const localCache = getLocalHistory(period);
+ // 3. localStorage (offline fallback — even if stale, better than nothing)
+ const localCache = localCacheFresh ?? getLocalHistory(period);
  if (localCache && localCache.points.length > 0) {
  return appendLiveRate(localCache.points, liveRate);
  }
 
- // 3. Emergency fallback: fetch from Frankfurter API directly
+ // 4. Emergency fallback: fetch from Frankfurter API directly
  const { startStr, endStr } = getHistoryDateRange(period);
  let points: HistoryPoint[] = [];
 
