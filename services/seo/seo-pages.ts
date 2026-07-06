@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3076,
+ "numberOfItems": 3077,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7751,7 +7751,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3073, "name": "Divorzio frontaliere: assegno mantenimento in S...", "url": `${BASE_URL}/articoli-frontaliere/divorzio-frontaliere-mantenimento-svizzera` },
           { "@type": "ListItem", "position": 3074, "name": "Lastminute.com Chiasso: intesa raggiunta per i ...", "url": `${BASE_URL}/articoli-frontaliere/accordo-sociale-lastminute-chiasso` },
           { "@type": "ListItem", "position": 3075, "name": "Frontaliere infermiere in Ticino: requisiti e s...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-infermiere-ticino-requisiti` },
-          { "@type": "ListItem", "position": 3076, "name": "A8 Milano-Varese: chiusure notturne per lavori ...", "url": `${BASE_URL}/articoli-frontaliere/lavori-autostrada-a8-luglio-2026` }
+          { "@type": "ListItem", "position": 3076, "name": "A8 Milano-Varese: chiusure notturne per lavori ...", "url": `${BASE_URL}/articoli-frontaliere/lavori-autostrada-a8-luglio-2026` },
+          { "@type": "ListItem", "position": 3077, "name": "Frontaliere operaio edile in Ticino: guida al CCL", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-operaio-edile-ticino-ccl` }
  ]
  },
  {

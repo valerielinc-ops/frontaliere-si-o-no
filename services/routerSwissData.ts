@@ -324,6 +324,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'successione-eredita-frontaliere-conto-svizzero': { it: 'successione-eredita-frontaliere-conto-svizzero', en: 'inheritance-cross-border-switzerland-italy', de: 'erbschaft-grenzgaenger-schweizer-konto', fr: 'succession-heritage-frontalier-compte-suisse' },
  'divorzio-frontaliere-mantenimento-svizzera': { it: 'divorzio-frontaliere-mantenimento-svizzera', en: 'divorce-cross-border-worker-maintenance-switzerland', de: 'scheidung-grenzgaenger-unterhalt-schweiz', fr: 'divorce-frontalier-pension-alimentaire-suisse' },
  'frontaliere-infermiere-ticino-requisiti': { it: 'frontaliere-infermiere-ticino-requisiti', en: 'frontier-nurse-ticino-requirements', de: 'grenzganger-pfleger-tessin-voraussetzungen', fr: 'frontalier-infirmier-ticino-exigences' },
+ 'frontaliere-operaio-edile-ticino-ccl': { it: 'frontaliere-operaio-edile-ticino-ccl', en: 'cross-border-construction-worker-ticino-ccl', de: 'grenzgaenger-bauarbeiter-tessin-ccl', fr: 'frontalier-ouvrier-construction-tessin-ccl' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

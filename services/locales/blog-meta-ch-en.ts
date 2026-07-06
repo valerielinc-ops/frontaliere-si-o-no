@@ -904,6 +904,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-infermiere-ticino-requisiti.title': 'Border nurse in Ticino: requirements and salary',
     'blog.article.frontaliere-infermiere-ticino-requisiti.excerpt': 'Practical guide for border nurses: from the recognition of the qualification to the new Agreement, up to the calculation of the net salary.',
     'blog.article.frontaliere-infermiere-ticino-requisiti.imageAlt': 'Hospital with view of Lake Lugano',
+    'blog.article.frontaliere-operaio-edile-ticino-ccl.title': 'Construction worker frontier worker in Ticino: guide to the CCL',
+    'blog.article.frontaliere-operaio-edile-ticino-ccl.excerpt': 'All about the collective agreement, minimum wages, job security and tax obligations for border construction workers in Ticino.',
+    'blog.article.frontaliere-operaio-edile-ticino-ccl.imageAlt': 'Construction site in Ticino with workers following Swiss safety standards.',
 };
 
 export default blogMetaChEn;
