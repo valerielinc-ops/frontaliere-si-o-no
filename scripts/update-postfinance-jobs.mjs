@@ -653,7 +653,7 @@ async function mergePostFinanceJobs(discoveredJobs) {
         source: 'postfinance-careers-crawler',
         workload: discovered.workload || existingJob.workload,
         titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30),
+        descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
       };
       // Preserve needsRetranslation only if still needed

@@ -237,6 +237,58 @@ describe('renderEventDetailPage', () => {
     // Never a naive hard cut mid-word or a dangling separator before the ellipsis.
     expect(titleTag).not.toMatch(/[\s—–\-·|,;:&(]…/);
   });
+
+  it('budgets/truncates the crawled title on the ESCAPED length so an `&`/`<`/`>`/`"` in the title cannot push <title> past the 66-char cap post-escape (#3589 item 1: audit:title-length false-green)', () => {
+    // 39 raw chars (fits the pre-fix raw-length budget untruncated) + the
+    // 27-char it-locale "Lugano" suffix = 66 raw chars — but the one `&`
+    // expands to `&amp;` on escape, which is what both `htmlTemplate.ts`
+    // (`<title>${esc(title)}</title>`) and `audit-title-length.mjs` (raw
+    // HTML source) actually measure. Pre-fix this produced a 70-char
+    // escaped <title>, re-tripping the very gate PR #3581 fixed.
+    const ampTitle = 'Rock & Blues Night Festival Estivo 2026';
+    expect(ampTitle.length).toBe(39);
+    const ampEvent = { ...EVENT, id: 'tio-agenda:100', title: ampTitle };
+    const ampPage = renderEventDetailPage({
+      locale: 'it',
+      event: ampEvent as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(ampEvent),
+      sameComuneEvents: [ampEvent] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const titleTag = /<title>([^<]*)<\/title>/.exec(ampPage.html)?.[1] ?? '';
+    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag).toContain('Lugano (Ticino) | Eventi');
+    expect(titleTag).not.toMatch(/[\s—–\-·|,;:&(]…/);
+  });
+
+  it('clamps the truncation budget to a positive floor so a comune suffix long enough to overflow the cap alone cannot make the headline collapse to an empty/blank <title> (#3589 item 2)', () => {
+    // Synthetic long comune name pushes `suffix.length` well past
+    // TITLE_MAX_CHARS on its own — no headline truncation can bring the
+    // *total* back under 66 (the comune suffix is intentionally always
+    // preserved as the local-SEO signal), but the headline truncation must
+    // still degrade gracefully to a bounded "…" rather than an unguarded
+    // negative budget silently skipping truncation and leaving the full,
+    // untruncated headline in front of an already-oversized suffix.
+    const longComune = 'Castel San Pietro Sopra La Montagna Bellissima Ticinese';
+    const longComunePage = renderEventDetailPage({
+      locale: 'it',
+      event: EVENT as never,
+      comune: longComune,
+      eventSlug: slugifyEvent(EVENT),
+      sameComuneEvents: [EVENT] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const titleTag = /<title>([^<]*)<\/title>/.exec(longComunePage.html)?.[1] ?? '';
+    expect(titleTag.length).toBeGreaterThan(0);
+    expect(titleTag).toContain('…');
+    expect(titleTag).not.toContain(EVENT.title);
+    expect(titleTag).toContain(`${longComune} (Ticino) | Eventi`);
+  });
 });
 
 describe('router recognises per-event detail URLs (staticOverlay)', () => {

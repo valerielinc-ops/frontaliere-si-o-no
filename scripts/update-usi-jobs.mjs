@@ -826,7 +826,7 @@ async function mergeUsiJobs(discoveredJobs) {
         source: 'usi-drupal-crawler',
         // Merge locale data (keep AI-localized content, update source locales)
         titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30),
+        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
       };
 

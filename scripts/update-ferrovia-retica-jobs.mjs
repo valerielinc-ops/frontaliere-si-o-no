@@ -172,7 +172,7 @@ function mergeJobs(discoveredJobs) {
       // Keep existing postedDate if discovered one is missing
       postedDate: job.postedDate || prev.postedDate,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
       // Preserve salary data, sourceLang, etc. from previous runs
       salaryMin: prev.salaryMin || job.salaryMin,

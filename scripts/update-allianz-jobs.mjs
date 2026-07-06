@@ -345,7 +345,7 @@ function mergeJobs(discoveredJobs) {
       postedDate: job.postedDate || prev.postedDate,
       contractType: job.contractType || prev.contractType,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
       source: job.source,
     };

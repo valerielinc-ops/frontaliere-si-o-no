@@ -429,18 +429,15 @@ function mergeJobs(discoveredJobs) {
     }
     updated++;
 
-    const prevDesc = (prev.description || '').trim();
-    const newDesc = (discovered.description || '').trim();
-    const descChanged = newDesc.length > 0 && prevDesc.length > 0 &&
-      Math.abs(newDesc.length - prevDesc.length) > 100;
-
-    const prevLocaleDescs = descChanged ? {} : (prev.descriptionByLocale || {});
-
     const mergedJob = {
       ...prev,
       ...discovered,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, discovered.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(prevLocaleDescs, discovered.descriptionByLocale, 30),
+      // Issue #3453-class: never reset descriptionByLocale to a source-only
+      // map on a large content delta — mergeLocaleTextMap's sourceLocale-aware
+      // merge already refreshes the source locale while preserving translated
+      // ones, no destructive wipe needed (mirrors update-coop-jobs.mjs).
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, discovered.descriptionByLocale, 30, discovered.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, discovered.slugByLocale, 3),
     };
     captureLostSlugs(mergedJob, prev.slugByLocale, prev.slug, 20);
