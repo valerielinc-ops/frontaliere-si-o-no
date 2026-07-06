@@ -412,8 +412,15 @@ jobs:
           # the article generator touches can conflict with concurrent main
           # writers; --in-place-resolver-cmd keeps the local commit and runs
           # resolve_append_conflicts inside the rebase, then `rebase --continue`.
+          # No --max-attempts override: inherit the helper's default (5), same
+          # as every other caller. This step used to hardcode 3 — the weakest
+          # budget of any of the 16 callers of this helper — despite being the
+          # LATEST-in-job push against `main` (after a 15-30min LLM step during
+          # which crawler workflows keep landing commits every 15-40s). Run
+          # 28757866877 hit exactly this: a fully-generated svizzera article
+          # exhausted 3 attempts and was discarded ("Article is LOST"),
+          # forcing a full from-scratch regeneration on the next self-trigger.
           if bash scripts/lib/git-push-with-retry.sh \
-            --max-attempts 3 \
             --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"; then
             echo "✅ Article committed and pushed to main"
             echo "committed=true" >> "$GITHUB_OUTPUT"
