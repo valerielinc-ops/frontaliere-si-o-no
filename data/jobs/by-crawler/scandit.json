@@ -1,6 +1,6 @@
 {
   "crawlerKey": "scandit",
-  "assembledAt": "2026-07-06T15:36:07.862Z",
+  "assembledAt": "2026-07-06T22:27:54.924Z",
   "jobs": [
     {
       "id": "scandit-11d5976f7463",
@@ -33,7 +33,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T15:36:05.107Z",
+      "crawledAt": "2026-07-06T22:27:50.512Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -111,7 +111,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8043068",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T15:36:04.804Z",
+      "crawledAt": "2026-07-06T22:27:50.205Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -126,8 +126,8 @@
       "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8043068",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:25:08.146Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:25:08.146Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -174,7 +174,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7552618",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T15:36:04.501Z",
+      "crawledAt": "2026-07-06T22:27:49.893Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -249,7 +249,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7434825",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T15:36:04.194Z",
+      "crawledAt": "2026-07-06T22:27:49.573Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -280,6 +280,7 @@
           "computer-vision-research-internship-image-to-sequence-modeling-e-g-transformers-scandit-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:25:07.537Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -294,8 +295,7 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     }
   ]
 }

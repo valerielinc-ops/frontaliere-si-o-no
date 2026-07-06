@@ -1,19 +1,21 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-07-06T14:23:11.785Z",
+  "generatedAt": "2026-07-06T22:27:56.108Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6593,
-  "avgDurationMs": 6593,
+  "unchangedCount": 3,
+  "durationMs": 6169,
+  "avgDurationMs": 6169,
   "durationHistory": [
-    6593
+    6169
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Operatore Trattamenti Reflui",
       "slug": "operatore-trattamenti-reflui-mks-pamp-castel-san-pietro",
@@ -125,7 +127,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
