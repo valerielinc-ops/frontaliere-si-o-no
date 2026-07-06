@@ -4393,6 +4393,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-traffico-a2-luglio-frontalieri': { name: 'Traffico A2', path: '/articoli-frontaliere/traffico-a2-luglio-frontalieri', parent: 'blog' },
     'blog-credito-imposta-frontalieri-2026': { name: 'Crediti fiscali', path: '/articoli-svizzera/credito-imposta-frontalieri-2026/', parent: 'blog' },
     'blog-modelli-cu-2026-frontalieri': { name: 'Certificazione Unica 2026', path: '/articoli-frontaliere/modelli-cu-2026-frontalieri', parent: 'blog' },
+    'blog-credito-imposta-frontaliere-2026': { name: 'Credito Imposta 2026', path: '/articoli-svizzera/credito-imposta-frontaliere-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
