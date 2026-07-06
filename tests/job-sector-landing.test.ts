@@ -23,6 +23,9 @@ import {
   parseSectorHubPath,
   SECTOR_HUB_FIRE_THRESHOLD,
   isSectorHubSlug,
+  assertSectorHubTablesComplete,
+  findMissingSectorHubEntries,
+  type SectorHubKey,
 } from '../build-plugins/jobSectorLanding';
 
 const YEAR = 2026;
@@ -578,5 +581,61 @@ describe('router — sector hub URLs', () => {
         expect(r.route.jobSlug).toBeUndefined();
       });
     }
+  });
+});
+
+describe('assertSectorHubTablesComplete / findMissingSectorHubEntries — follow-up #3608 item 2', () => {
+  // `Record<JobBoardLocale, Record<SectorHubKey, string>>` is not enforced at
+  // build time (`vite build` transpiles via esbuild, no `tsc` pass) — these
+  // tests exercise the runtime completeness guard directly rather than
+  // relying on the type annotation alone.
+  type Table = Record<'it' | 'en' | 'de' | 'fr', Record<SectorHubKey, string>>;
+
+  it('does not throw against the real production tables', () => {
+    expect(() => assertSectorHubTablesComplete()).not.toThrow();
+  });
+
+  it('reports zero missing entries for a fully-populated synthetic table', () => {
+    const complete = {
+      it: { infermieri: 'infermieri' },
+      en: { infermieri: 'nurses' },
+    } as unknown as Table;
+    const missing = findMissingSectorHubEntries(
+      [['TEST_TABLE', complete]],
+      ['it', 'en'],
+      ['infermieri'] as SectorHubKey[],
+    );
+    expect(missing).toEqual([]);
+  });
+
+  it('flags a missing key, an undefined value, and an empty-string value by table.locale.sector label', () => {
+    const incomplete = {
+      it: { infermieri: 'infermieri', autisti: '' }, // empty string
+      en: { infermieri: 'nurses' }, // 'autisti' key missing entirely
+    } as unknown as Table;
+    const missing = findMissingSectorHubEntries(
+      [['TEST_TABLE', incomplete]],
+      ['it', 'en'],
+      ['infermieri', 'autisti'] as SectorHubKey[],
+    );
+    expect(missing.sort()).toEqual(
+      ['TEST_TABLE.en.autisti', 'TEST_TABLE.it.autisti'].sort(),
+    );
+  });
+
+  it('checks both SECTOR_HUB_SLUG and SECTOR_HUB_DISPLAY when a table is entirely absent for a locale', () => {
+    const slugTable = { it: { infermieri: 'infermieri' } } as unknown as Table;
+    const displayTable = { it: { infermieri: 'Infermieri' } } as unknown as Table;
+    const missing = findMissingSectorHubEntries(
+      [
+        ['SECTOR_HUB_SLUG', slugTable],
+        ['SECTOR_HUB_DISPLAY', displayTable],
+      ],
+      ['it', 'de'],
+      ['infermieri'] as SectorHubKey[],
+    );
+    expect(missing.sort()).toEqual(
+      ['SECTOR_HUB_DISPLAY.de.infermieri', 'SECTOR_HUB_SLUG.de.infermieri'].sort(),
+    );
   });
 });

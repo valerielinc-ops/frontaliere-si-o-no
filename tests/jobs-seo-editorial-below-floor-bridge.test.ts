@@ -102,4 +102,57 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
     const body = source.slice(startIdx, startIdx + 700);
     expect(body).toContain('noindex: true');
   });
+
+  // #3608 item 3 (adversarial follow-up on #3594): does BUILD_LOCALE shard
+  // filtering leave a silent gap for any of these below-floor bridges? The
+  // real safety net is path-based (_qw → collector.add → shouldEmitPath on
+  // the computed dist path, see tests/below-floor-bridge-locale-shard.test.ts
+  // for an end-to-end proof against the three emitters that ARE invocable
+  // outside a full build), but every one of these 9 in-plugin call sites
+  // also carries its own explicit `shouldEmitLocale` gate. These two tests
+  // lock in that (a) the gate is never dropped and (b) it always gates the
+  // SAME `locale` identifier that is passed to the bridge call — a
+  // regression here (e.g. a copy-paste that gates `locale` but emits for a
+  // different loop variable) would silently render/write a bridge the
+  // shard doesn't own, wasted work today and a latent bug if the path-based
+  // backstop were ever weakened.
+  it('every below-floor bridge call site is immediately gated by shouldEmitLocale on the SAME locale identifier', () => {
+    const callPatterns = [
+      'emitEditorialBelowFloorBridge(locale, editorialCanton,',
+      'emitLocationBelowFloorBridge(locale, location);',
+      'emitLocationTypeBelowFloorBridge(locale, location, typeKey);',
+      'emitLocationSectorBelowFloorBridge(locale, location, sectorKey);',
+      'emitSectorHubBelowFloorBridge(locale, canton,',
+    ];
+    const expectedCallSiteCounts: Record<string, number> = {
+      'emitEditorialBelowFloorBridge(locale, editorialCanton,': 5,
+      'emitLocationBelowFloorBridge(locale, location);': 1,
+      'emitLocationTypeBelowFloorBridge(locale, location, typeKey);': 1,
+      'emitLocationSectorBelowFloorBridge(locale, location, sectorKey);': 1,
+      'emitSectorHubBelowFloorBridge(locale, canton,': 1,
+    };
+    for (const pattern of callPatterns) {
+      let idx = source.indexOf(pattern);
+      let found = 0;
+      while (idx !== -1) {
+        found++;
+        const windowStart = Math.max(0, idx - 300);
+        const before = source.slice(windowStart, idx);
+        expect(
+          before,
+          `call site at offset ${idx} for "${pattern}" must be immediately preceded by "if (!shouldEmitLocale(locale)) continue;"`,
+        ).toContain('if (!shouldEmitLocale(locale)) continue;');
+        idx = source.indexOf(pattern, idx + pattern.length);
+      }
+      expect(found, `expected call-site count for "${pattern}"`).toBe(expectedCallSiteCounts[pattern]);
+    }
+  });
+
+  it('the shared _qw writer funnels every below-floor bridge write through collector.add (the real shard-locale chokepoint), never a raw fs write', () => {
+    const startIdx = source.indexOf('function _qw(filePath: string, content: string) {');
+    expect(startIdx).toBeGreaterThan(-1);
+    const body = source.slice(startIdx, startIdx + 300);
+    expect(body).toContain('collector.add(');
+    expect(body).not.toContain('fs.writeFileSync(');
+  });
 });

@@ -40,6 +40,7 @@ import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitel
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-html-ratio.mjs';
 import { classifyFeature as classifyFeatureTitleOriginal } from './audit-title-length.mjs';
+import { evaluateMixAdjustedTotalRegression } from './lib/mixAdjustedRateGate.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -59,6 +60,10 @@ const H1_BASELINE_PATH = join(ROOT, 'data', 'h1-title-duplicates-baseline.json')
 const RATIO_LIMIT = 30; // matches default --limit in audit-text-html-ratio
 const TITLE_LIMIT = 30;
 const H1_LIMIT = 30;
+// Default rate-ratchet tolerance, must match audit-text-html-ratio.mjs's and
+// audit-title-length.mjs's own DEFAULT_TOL — used as the fallback when a
+// mode:'rate' baseline doesn't carry its own `tolerance` block (issue #3596).
+const RATE_TOL_DEFAULT = { relPct: 20, absPp: 1.0, minAbsDelta: 5, maxDeltaPp: 3 };
 
 // audit-content-duplicates constants.
 const DUP_CLUSTER_THRESHOLD = 5;
@@ -316,7 +321,7 @@ const classifyFeatureH1 = classifyFeatureTitleOriginal;
 
 // ───── per-audit accumulators ────────────────────────────────────────────────
 
-class RatioAudit {
+export class RatioAudit {
   constructor() {
     this.report = []; // { file, feature, htmlBytes, textBytes, ratio }
     this.skippedNoindex = 0;
@@ -336,9 +341,13 @@ class RatioAudit {
   }
 }
 
-class TitleAudit {
+export class TitleAudit {
   constructor() {
     this.scanned = 0;
+    // Per-feature SCANNED denominators (all pages, not just offenders) —
+    // required by the mode:'rate' baseline ratchet in runTitle(), mirroring
+    // audit-title-length.mjs's own scannedByFeature (issue #3596).
+    this.scannedByFeature = {};
     this.skippedNoindex = 0;
     this.missingTitle = 0;
     this.offenders = []; // { file, feature, locale, title, length }
@@ -351,19 +360,25 @@ class TitleAudit {
       return;
     }
     this.scanned++;
+    const feature = classifyFeatureTitle(relFromRoot);
+    this.scannedByFeature[feature] = (this.scannedByFeature[feature] ?? 0) + 1;
     const titleMatch = html.match(TITLE_RE);
     const title = normalizeText(titleMatch?.[1] ?? '');
     if (!title) { this.missingTitle++; return; }
     if (title.length <= TITLE_THRESHOLD) return;
-    const feature = classifyFeatureTitle(relFromRoot);
     const locale = inferRootLocale(relFromRoot);
     this.offenders.push({ file: relFromRoot, feature, locale, title, length: title.length });
   }
 }
 
-class H1Audit {
+export class H1Audit {
   constructor() {
     this.scanned = 0;
+    // Per-feature SCANNED denominators (all pages, not just offenders) —
+    // required by the mode:'rate' baseline ratchet in runH1(), mirroring
+    // audit-h1-title-duplicates.mjs's own scannedByFeature (same class of
+    // bug as issue #3596's ratio/title-length reimplementations).
+    this.scannedByFeature = {};
     this.skippedNoindex = 0;
     this.missingTitle = 0;
     this.missingH1 = 0;
@@ -377,6 +392,8 @@ class H1Audit {
       return;
     }
     this.scanned++;
+    const feature = classifyFeatureH1(relFromRoot);
+    this.scannedByFeature[feature] = (this.scannedByFeature[feature] ?? 0) + 1;
     const titleMatch = html.match(TITLE_RE);
     const h1Match = html.match(H1_RE);
     const title = normalizeText(titleMatch?.[1] ?? '');
@@ -384,7 +401,6 @@ class H1Audit {
     if (!title) { this.missingTitle++; return; }
     if (!h1) { this.missingH1++; return; }
     if (title.toLowerCase() !== h1.toLowerCase()) return;
-    const feature = classifyFeatureH1(relFromRoot);
     const locale = inferRootLocale(relFromRoot);
     this.offenders.push({ file: relFromRoot, feature, locale, title, h1 });
   }
@@ -1330,7 +1346,7 @@ class DupAudit {
 
 // ───── reporters (preserve original output formats) ──────────────────────────
 
-async function runRatio(audit) {
+export async function runRatio(audit, baselinePath = RATIO_BASELINE_PATH) {
   const offenders = audit.report.filter(r => r.ratio <= RATIO_THRESHOLD).sort((a, b) => a.ratio - b.ratio);
 
   console.log(`\n──── audit:text-html-ratio ────`);
@@ -1365,24 +1381,63 @@ async function runRatio(audit) {
   for (const r of offenders) {
     byFeatureCount[r.feature] = (byFeatureCount[r.feature] ?? 0) + 1;
   }
+  // Per-feature SCANNED denominators (all scanned pages, not just
+  // offenders) — required by the mode:'rate' ratchet below, mirroring
+  // audit-text-html-ratio.mjs's own scannedByFeature (issue #3596).
+  /** @type {Record<string, number>} */
+  const scannedByFeature = {};
+  for (const r of audit.report) {
+    scannedByFeature[r.feature] = (scannedByFeature[r.feature] ?? 0) + 1;
+  }
 
   let baseline;
   try {
-    baseline = JSON.parse(await readFile(RATIO_BASELINE_PATH, 'utf8'));
+    baseline = JSON.parse(await readFile(baselinePath, 'utf8'));
   } catch (err) {
-    console.error(`\nFAIL: baseline file ${relative(ROOT, RATIO_BASELINE_PATH)} could not be read: ${err.message}`);
+    console.error(`\nFAIL: baseline file ${relative(ROOT, baselinePath)} could not be read: ${err.message}`);
     return { passed: false, fatal: true };
   }
 
-  const baseTotal = Number(baseline.total ?? 0);
-  /** @type {Record<string, number>} */
-  const baseByFeature = baseline.byFeature ?? {};
   const featureRegressions = [];
-  for (const [feature, count] of Object.entries(byFeatureCount)) {
-    const max = baseByFeature[feature] ?? 0;
-    if (count > max) featureRegressions.push({ feature, count, max });
+  let totalRegression;
+  let baseTotal;
+  if (baseline.mode === 'rate') {
+    // Rate-mode baseline (data/text-html-ratio-baseline.json since the
+    // #3232 rebaseline) — dual-branch mirroring audit-text-html-ratio.mjs's
+    // createAuditor().report() so this reimplementation stops silently
+    // treating `baseline.total`/`baseline.byFeature[feat]` (both absent or
+    // object-shaped in rate mode) as 0/NaN, which made totalRegression fire
+    // almost unconditionally and neutered the per-feature check (#3596).
+    const tol = { ...RATE_TOL_DEFAULT, ...(baseline.tolerance ?? {}) };
+    const baseByFeature = baseline.byFeature ?? {};
+    for (const f of Object.keys(scannedByFeature)) {
+      const curOff = byFeatureCount[f] ?? 0;
+      const curRate = scannedByFeature[f] ? (curOff / scannedByFeature[f]) * 100 : 0;
+      const base = baseByFeature[f];
+      const baseRate = base ? Number(base.ratePct ?? 0) : 0;
+      const baseOff = base ? Number(base.offenders ?? 0) : 0;
+      const rateCap = baseRate + Math.min((baseRate * tol.relPct) / 100, tol.maxDeltaPp) + tol.absPp;
+      if (curRate > rateCap && curOff > baseOff + tol.minAbsDelta) {
+        featureRegressions.push({ feature: f, count: curOff, max: baseOff, rate: Number(curRate.toFixed(3)), maxRate: Number(rateCap.toFixed(3)) });
+      }
+    }
+    const { expectedOffenders, regression } = evaluateMixAdjustedTotalRegression({
+      scannedByFeature, baseByFeature, tol,
+      actualOffenders: offenders.length, actualScanned: audit.report.length,
+    });
+    baseTotal = Math.round(expectedOffenders);
+    totalRegression = regression;
+  } else {
+    // Legacy absolute-count baseline (pre rate-ratchet).
+    baseTotal = Number(baseline.total ?? 0);
+    /** @type {Record<string, number>} */
+    const baseByFeature = baseline.byFeature ?? {};
+    for (const [feature, count] of Object.entries(byFeatureCount)) {
+      const max = baseByFeature[feature] ?? 0;
+      if (count > max) featureRegressions.push({ feature, count, max });
+    }
+    totalRegression = offenders.length > baseTotal;
   }
-  const totalRegression = offenders.length > baseTotal;
   if (totalRegression || featureRegressions.length > 0) {
     console.error('\n══════════════════════════════════════════════════════════════════════');
     console.error('FAIL: Semrush "low text-to-HTML ratio" gate REGRESSED');
@@ -1441,7 +1496,7 @@ async function runRatio(audit) {
   return { passed: true };
 }
 
-async function runTitle(audit) {
+export async function runTitle(audit, baselinePath = TITLE_BASELINE_PATH) {
   const offenders = audit.offenders.slice().sort((a, b) => b.length - a.length);
   /** @type {Record<string, number>} */
   const byFeatureCount = {};
@@ -1479,22 +1534,58 @@ async function runTitle(audit) {
 
   let baseline;
   try {
-    baseline = JSON.parse(await readFile(TITLE_BASELINE_PATH, 'utf8'));
+    baseline = JSON.parse(await readFile(baselinePath, 'utf8'));
   } catch (err) {
-    console.error(`audit-title-length: cannot read baseline ${TITLE_BASELINE_PATH}: ${err.message}`);
+    console.error(`audit-title-length: cannot read baseline ${baselinePath}: ${err.message}`);
     return { passed: false, fatal: true };
   }
   let regression = false;
-  if (typeof baseline.total === 'number' && offenders.length > baseline.total) {
-    console.error(`\nREGRESSION: total offenders ${offenders.length} > baseline ${baseline.total}`);
-    regression = true;
-  }
-  if (baseline.byFeature && typeof baseline.byFeature === 'object') {
-    for (const [feat, count] of Object.entries(byFeatureCount)) {
-      const cap = baseline.byFeature[feat] ?? 0;
-      if (count > cap) {
-        console.error(`REGRESSION: feature "${feat}" offenders ${count} > baseline ${cap}`);
-        regression = true;
+  if (baseline.mode === 'rate') {
+    // Rate-mode baseline (data/title-length-baseline.json, reseeded as a
+    // fast-follow of #3595) — dual-branch mirroring
+    // audit-title-length.mjs's createAuditor().report() so this
+    // reimplementation stops comparing offender counts against
+    // baseline.byFeature[feat] object values (coerces to NaN, count > NaN
+    // is always false → the per-feature check silently stopped firing;
+    // same root cause as the text-html-ratio side of #3596).
+    const tol = { ...RATE_TOL_DEFAULT, ...(baseline.tolerance ?? {}) };
+    const baseByFeature = baseline.byFeature ?? {};
+    const regressedFeatures = [];
+    for (const f of Object.keys(audit.scannedByFeature)) {
+      const curOff = byFeatureCount[f] ?? 0;
+      const curRate = audit.scannedByFeature[f] ? (curOff / audit.scannedByFeature[f]) * 100 : 0;
+      const base = baseByFeature[f];
+      const baseRate = base ? Number(base.ratePct ?? 0) : 0;
+      const baseOff = base ? Number(base.offenders ?? 0) : 0;
+      const rateCap = baseRate + Math.min((baseRate * tol.relPct) / 100, tol.maxDeltaPp) + tol.absPp;
+      if (curRate > rateCap && curOff > baseOff + tol.minAbsDelta) {
+        regressedFeatures.push({ feature: f, count: curOff, max: baseOff, rate: curRate, maxRate: rateCap });
+      }
+    }
+    const { regression: totalRegression } = evaluateMixAdjustedTotalRegression({
+      scannedByFeature: audit.scannedByFeature, baseByFeature, tol,
+      actualOffenders: offenders.length, actualScanned: audit.scanned,
+    });
+    if (totalRegression) {
+      console.error(`\nREGRESSION: total offenders ${offenders.length} exceeds mix-adjusted expected rate`);
+    }
+    for (const f of regressedFeatures) {
+      console.error(`REGRESSION: feature "${f.feature}" rate ${f.rate.toFixed(3)}% (allowed ≤ ${f.maxRate.toFixed(3)}%) — ${f.count} offenders (baseline ${f.max})`);
+    }
+    regression = totalRegression || regressedFeatures.length > 0;
+  } else {
+    // Legacy absolute-count baseline (pre rate-ratchet).
+    if (typeof baseline.total === 'number' && offenders.length > baseline.total) {
+      console.error(`\nREGRESSION: total offenders ${offenders.length} > baseline ${baseline.total}`);
+      regression = true;
+    }
+    if (baseline.byFeature && typeof baseline.byFeature === 'object') {
+      for (const [feat, count] of Object.entries(byFeatureCount)) {
+        const cap = baseline.byFeature[feat] ?? 0;
+        if (count > cap) {
+          console.error(`REGRESSION: feature "${feat}" offenders ${count} > baseline ${cap}`);
+          regression = true;
+        }
       }
     }
   }
@@ -1503,11 +1594,11 @@ async function runTitle(audit) {
     console.error('Shorten the offending titleBases, then regenerate with --write-baseline=<path>.');
     return { passed: false };
   }
-  console.log('\nBaseline ratchet: OK (no regressions vs ' + relative(ROOT, TITLE_BASELINE_PATH) + ')');
+  console.log('\nBaseline ratchet: OK (no regressions vs ' + relative(ROOT, baselinePath) + ')');
   return { passed: true };
 }
 
-async function runH1(audit) {
+export async function runH1(audit, baselinePath = H1_BASELINE_PATH) {
   const offenders = audit.offenders;
   /** @type {Record<string, number>} */
   const byFeatureCount = {};
@@ -1544,22 +1635,57 @@ async function runH1(audit) {
 
   let baseline;
   try {
-    baseline = JSON.parse(await readFile(H1_BASELINE_PATH, 'utf8'));
+    baseline = JSON.parse(await readFile(baselinePath, 'utf8'));
   } catch (err) {
-    console.error(`audit-h1-title-duplicates: cannot read baseline ${H1_BASELINE_PATH}: ${err.message}`);
+    console.error(`audit-h1-title-duplicates: cannot read baseline ${baselinePath}: ${err.message}`);
     return { passed: false, fatal: true };
   }
   let regression = false;
-  if (typeof baseline.total === 'number' && offenders.length > baseline.total) {
-    console.error(`\nREGRESSION: total offenders ${offenders.length} > baseline ${baseline.total}`);
-    regression = true;
-  }
-  if (baseline.byFeature && typeof baseline.byFeature === 'object') {
-    for (const [feat, count] of Object.entries(byFeatureCount)) {
-      const cap = baseline.byFeature[feat] ?? 0;
-      if (count > cap) {
-        console.error(`REGRESSION: feature "${feat}" offenders ${count} > baseline ${cap}`);
-        regression = true;
+  if (baseline.mode === 'rate') {
+    // Rate-mode baseline (data/h1-title-duplicates-baseline.json) — dual-
+    // branch mirroring audit-h1-title-duplicates.mjs's createAuditor()
+    // .report() so this reimplementation stops comparing offender counts
+    // against baseline.byFeature[feat] object values (coerces to NaN,
+    // count > NaN is always false → the per-feature check silently stopped
+    // firing; same root cause as issue #3596's ratio/title-length halves).
+    const tol = { ...RATE_TOL_DEFAULT, ...(baseline.tolerance ?? {}) };
+    const baseByFeature = baseline.byFeature ?? {};
+    const regressedFeatures = [];
+    for (const f of Object.keys(audit.scannedByFeature)) {
+      const curOff = byFeatureCount[f] ?? 0;
+      const curRate = audit.scannedByFeature[f] ? (curOff / audit.scannedByFeature[f]) * 100 : 0;
+      const base = baseByFeature[f];
+      const baseRate = base ? Number(base.ratePct ?? 0) : 0;
+      const baseOff = base ? Number(base.offenders ?? 0) : 0;
+      const rateCap = baseRate + Math.min((baseRate * tol.relPct) / 100, tol.maxDeltaPp) + tol.absPp;
+      if (curRate > rateCap && curOff > baseOff + tol.minAbsDelta) {
+        regressedFeatures.push({ feature: f, count: curOff, max: baseOff, rate: curRate, maxRate: rateCap });
+      }
+    }
+    const { regression: totalRegression } = evaluateMixAdjustedTotalRegression({
+      scannedByFeature: audit.scannedByFeature, baseByFeature, tol,
+      actualOffenders: offenders.length, actualScanned: audit.scanned,
+    });
+    if (totalRegression) {
+      console.error(`\nREGRESSION: total offenders ${offenders.length} exceeds mix-adjusted expected rate`);
+    }
+    for (const f of regressedFeatures) {
+      console.error(`REGRESSION: feature "${f.feature}" rate ${f.rate.toFixed(3)}% (allowed ≤ ${f.maxRate.toFixed(3)}%) — ${f.count} offenders (baseline ${f.max})`);
+    }
+    regression = totalRegression || regressedFeatures.length > 0;
+  } else {
+    // Legacy absolute-count baseline (pre rate-ratchet).
+    if (typeof baseline.total === 'number' && offenders.length > baseline.total) {
+      console.error(`\nREGRESSION: total offenders ${offenders.length} > baseline ${baseline.total}`);
+      regression = true;
+    }
+    if (baseline.byFeature && typeof baseline.byFeature === 'object') {
+      for (const [feat, count] of Object.entries(byFeatureCount)) {
+        const cap = baseline.byFeature[feat] ?? 0;
+        if (count > cap) {
+          console.error(`REGRESSION: feature "${feat}" offenders ${count} > baseline ${cap}`);
+          regression = true;
+        }
       }
     }
   }
@@ -1568,7 +1694,7 @@ async function runH1(audit) {
     console.error('Fix the new offenders, then regenerate with --write-baseline=<path>.');
     return { passed: false };
   }
-  console.log('\nBaseline ratchet: OK (no regressions vs ' + relative(ROOT, H1_BASELINE_PATH) + ')');
+  console.log('\nBaseline ratchet: OK (no regressions vs ' + relative(ROOT, baselinePath) + ')');
   return { passed: true };
 }
 

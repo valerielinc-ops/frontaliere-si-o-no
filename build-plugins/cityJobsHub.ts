@@ -106,6 +106,9 @@ export const CITY_HUB_SLUG: Record<JobBoardLocale, Record<string, string>> = {
   fr: { lugano: 'lugano', mendrisio: 'mendrisio', bellinzona: 'bellinzona', locarno: 'locarno', chiasso: 'chiasso' },
 };
 
+/** Locales `CITY_HUB_SLUG` covers — for the shared build-time completeness gate. */
+export const CITY_HUB_LOCALES: readonly JobBoardLocale[] = ['it', 'en', 'de', 'fr'] as const;
+
 /** Section root slug per locale (same as job-board landing). */
 export const CITY_HUB_SECTION: Record<JobBoardLocale, string> = {
   it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)

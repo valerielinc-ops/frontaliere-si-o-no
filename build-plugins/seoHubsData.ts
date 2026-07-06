@@ -25,8 +25,14 @@ export type HubKind = 'tutti' | 'settori' | 'aziende';
 /**
  * Per-locale hub-name slug (the trailing path component after the canton section).
  * Mirrors the locale slugs already used in the legacy TI `HUB_SLUGS` table.
+ *
+ * Exported (rather than module-private) so `localeTableCompletenessPlugin.ts`
+ * can assert its completeness at build time — see
+ * `build-plugins/shared/localeTableCompleteness.ts` (#3608 item 2 sibling
+ * fix). Purely additive visibility change: the table's values and every
+ * existing consumer are unchanged.
  */
-const HUB_SLUG_BY_LOCALE: Record<CantonLocale, Record<HubKind, string>> = {
+export const HUB_SLUG_BY_LOCALE: Record<CantonLocale, Record<HubKind, string>> = {
   it: { tutti: 'tutti',  settori: 'settori',  aziende: 'aziende' },
   en: { tutti: 'all',    settori: 'sectors',  aziende: 'companies' },
   de: { tutti: 'alle',   settori: 'branchen', aziende: 'unternehmen' },
