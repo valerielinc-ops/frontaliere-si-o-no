@@ -524,7 +524,7 @@ async function _generateFaqITAttempt(bodyText, maxTokens) {
     if (regexFaq && regexFaq.length >= 2) return regexFaq;
     // A cut-off array (maxTokens hit mid-generation) still has complete
     // leading pairs worth salvaging instead of discarding the whole response.
-    const salvaged = _extractCompleteJsonFaqPairs(raw);
+    const salvaged = _extractCompleteJsonFaqPairs(repaired);
     if (salvaged.length >= 2) return salvaged;
     console.error(`  [JSON parse failed] ${parseErr.message} — ${describeJsonParseError(repaired, parseErr)}`);
     console.error(`  ${describeRawForDiagnostics(raw)}`);
@@ -595,7 +595,7 @@ async function _generateTopUpFaqITAttempt(bodyText, existingFaq, maxTokens) {
   } catch (parseErr) {
     const regexFaq = extractFaqFromText(raw);
     if (regexFaq && regexFaq.length >= 1) return regexFaq;
-    const salvaged = _extractCompleteJsonFaqPairs(raw);
+    const salvaged = _extractCompleteJsonFaqPairs(repaired);
     if (salvaged.length >= 1) return salvaged;
     console.error(`  [JSON parse failed] ${parseErr.message} — ${describeJsonParseError(repaired, parseErr)}`);
     console.error(`  ${describeRawForDiagnostics(raw)}`);
