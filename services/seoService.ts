@@ -4366,6 +4366,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni': { name: 'Lavoro in Svizzera', path: '/articoli-svizzera/lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni/', parent: 'blog' },
     'blog-block-ristorni-federalismo': { name: 'Blocco dei ristorni', path: '/articoli-frontaliere/block-ristorni-federalismo', parent: 'blog' },
     'blog-il-caldo-modifica-il-valore-degli-immobili': { name: 'Il caldo modifica il valore degli immobili', path: '/articoli-svizzera/il-caldo-modifica-il-valore-degli-immobili/', parent: 'blog' },
+    'blog-riapertura-treni-ticino-2024': { name: 'Riapertura dei treni tra Varese, il Ticino', path: '/articoli-frontaliere/riapertura-treni-ticino-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];
