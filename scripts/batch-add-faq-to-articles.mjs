@@ -498,7 +498,7 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
     // Try extracting from raw text as last resort
     const regexFaq = extractFaqFromText(raw);
     if (regexFaq && regexFaq.length >= 2) return regexFaq;
-    console.error(`  [extractFaqArray null] type=${typeof parsed} keys=${parsed ? Object.keys(parsed).join(',') : 'N/A'} raw[0:300]: ${raw.slice(0, 300).replace(/\n/g, '\\n')}`);
+    console.error(`  [extractFaqArray null] type=${typeof parsed} keys=${parsed ? Object.keys(parsed).join(',') : 'N/A'} ${describeRawForDiagnostics(raw)}`);
     throw new Error('FAQ response is not an array');
   }
   return faq;
