@@ -24,6 +24,7 @@ import {
   isoFromCompactDate,
   eventStableId,
   upcomingEvents,
+  recentlyEndedEvents,
   groupByComune,
   loadCantonComuni,
 } from '../scripts/lib/events-utils.mjs';
@@ -212,6 +213,36 @@ describe('events-utils helpers', () => {
     expect(upcomingEvents([evA, evB], '2026-07-01').map((e: { id: string }) => e.id)).toEqual(['tio-agenda:100', 'tio-agenda:200']);
     // Dataset order B,A (future crawl inserts B before A) → still A first (id sort wins)
     expect(upcomingEvents([evB, evA], '2026-07-01').map((e: { id: string }) => e.id)).toEqual(['tio-agenda:100', 'tio-agenda:200']);
+  });
+
+  it('recentlyEndedEvents keeps only events ended within the grace window, excludes still-ongoing/future/too-old', () => {
+    // F4 (#3646): short noindex,follow bridge window for events that already
+    // ended — must never overlap `upcomingEvents`'s set (mutually exclusive
+    // by construction: `end < today` vs `end >= today`).
+    const events = [
+      { id: 'a', startDate: '2026-06-30', endDate: '2026-06-30', title: 'Ended yesterday', comune: 'Lugano' },
+      { id: 'b', startDate: '2026-06-20', endDate: '2026-06-20', title: 'Ended 11 days ago', comune: 'Lugano' },
+      { id: 'c', startDate: '2026-06-01', endDate: '2026-06-01', title: 'Ended way outside grace window', comune: 'Lugano' },
+      { id: 'd', startDate: '2026-07-01', title: 'Still today/ongoing (no endDate)', comune: 'Lugano' },
+      { id: 'e', startDate: '2026-06-29', endDate: '2026-07-02', title: 'Multi-day, still ongoing', comune: 'Lugano' },
+      { id: 'f', startDate: '2026-07-10', title: 'Future', comune: 'Lugano' },
+    ];
+    const today = '2026-07-01';
+    const past = recentlyEndedEvents(events, today, 14);
+    expect(past.map((e: { id: string }) => e.id)).toEqual(['a', 'b']);
+    // Complementary partition: no id appears in both sets.
+    const upcoming = upcomingEvents(events, today).map((e: { id: string }) => e.id);
+    for (const id of past.map((e: { id: string }) => e.id)) {
+      expect(upcoming).not.toContain(id);
+    }
+  });
+
+  it('recentlyEndedEvents sorts most-recently-ended first', () => {
+    const events = [
+      { id: 'older', startDate: '2026-06-20', endDate: '2026-06-20', title: 'Older', comune: 'Lugano' },
+      { id: 'newer', startDate: '2026-06-30', endDate: '2026-06-30', title: 'Newer', comune: 'Lugano' },
+    ];
+    expect(recentlyEndedEvents(events, '2026-07-01').map((e: { id: string }) => e.id)).toEqual(['newer', 'older']);
   });
 
   it('groupByComune drops events without a comune', () => {
