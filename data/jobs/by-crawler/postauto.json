@@ -55,13 +55,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-engelburg",
-        "autista-postbus-postauto-ag-engelburg"
+        "postauto-fahrer-in-postauto-engelburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-engelburg",
-          "autista-postbus-postauto-ag-engelburg"
+          "postauto-fahrer-in-postauto-engelburg"
         ],
         "en": [
           "postauto-fahrer-in-postauto-engelburg"
@@ -138,18 +136,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "postauto-fahrer-in-postauto-hausen-am-albis",
-          "postauto-fahrer-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-hausen-am-albis"
         ],
         "it": [
-          "postauto-fahrer-in-postauto-hausen-am-albis",
-          "postbus-driver-in-postauto-hausen-am-albis"
+          "postauto-fahrer-in-postauto-hausen-am-albis"
         ]
       },
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-hausen-am-albis",
-        "postauto-fahrer-in-postauto-wilderswil",
-        "postbus-driver-in-postauto-hausen-am-albis"
+        "postauto-fahrer-in-postauto-hausen-am-albis"
       ],
       "firstSeenAt": "2026-07-04T11:33:39.026Z",
       "salaryMin": 73500,
@@ -218,13 +212,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-wilderswil",
-        "postbus-driver-in-postauto-wilderswil"
+        "postauto-fahrer-in-postauto-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-wilderswil",
-          "postbus-driver-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-wilderswil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:37.505Z",
@@ -322,10 +314,10 @@
       "id": "postauto-318dbdb3c660",
       "slug": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
       "slugByLocale": {
-        "it": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-        "en": "ticket-controller-in-and-customer-advice-postauto-ag-chur",
+        "it": "ticketkontrolleur-in-und-kundenberatung-post",
+        "en": "ticket-controller-in-and-customer-advice-postauto-chur",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-ag-chur"
+        "fr": "controleur-de-billetterie-en-et-conseil-client-postauto-chur"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -371,17 +363,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+        "ticket-controller-in-and-customer-advice-postauto-ag-chur",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
         ],
         "en": [
-          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+          "ticket-controller-in-and-customer-advice-postauto-ag-chur"
         ],
         "fr": [
-          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+          "controleur-de-billetterie-in-et-conseil-client-postauto-ag-chur"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:34.678Z",
@@ -482,10 +478,10 @@
       "id": "postauto-0ab88a59e4c8",
       "slug": "autista-postbus-postauto-ag-chur",
       "slugByLocale": {
-        "it": "autista-postbus-postauto-ag-chur",
-        "en": "postbus-driver-in-postauto-ag-chur",
+        "it": "postbus-driver-in-postauto-chur",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-chur",
-        "fr": "pilote-postbus-in-postauto-ag-chur"
+        "fr": "pilote-postbus-in-postauto-chur"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -532,18 +528,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-chur",
-        "autista-postbus-postauto-ag-chur"
+        "postbus-driver-in-postauto-ag-chur",
+        "pilote-postbus-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-chur",
-          "autista-postbus-postauto-ag-chur"
+          "postauto-fahrer-in-postauto-chur"
         ],
         "en": [
-          "postauto-fahrer-in-postauto-chur"
+          "postauto-fahrer-in-postauto-chur",
+          "postbus-driver-in-postauto-ag-chur"
         ],
         "fr": [
-          "postauto-fahrer-in-postauto-chur"
+          "postauto-fahrer-in-postauto-chur",
+          "pilote-postbus-in-postauto-ag-chur"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:31.889Z",
@@ -564,10 +562,10 @@
       "id": "postauto-6b05723c6af8",
       "slug": "autista-postbus-postauto-ag-sarnen",
       "slugByLocale": {
-        "it": "autista-postbus-postauto-ag-sarnen",
-        "en": "postbus-driver-in-postauto-ag-sarnen",
+        "it": "autista-postbus-postauto-sarnen",
+        "en": "postbus-driver-in-postauto-sarnen",
         "de": "postauto-fahrer-in-postauto-sarnen",
-        "fr": "pilote-postbus-in-postauto-ag-sarnen"
+        "fr": "pilote-postbus-in-postauto-sarnen"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -614,18 +612,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-sarnen",
-        "autista-postbus-postauto-ag-sarnen"
+        "postbus-driver-in-postauto-ag-sarnen",
+        "pilote-postbus-in-postauto-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-sarnen",
-          "autista-postbus-postauto-ag-sarnen"
+          "postauto-fahrer-in-postauto-sarnen"
         ],
         "en": [
-          "postauto-fahrer-in-postauto-sarnen"
+          "postauto-fahrer-in-postauto-sarnen",
+          "postbus-driver-in-postauto-ag-sarnen"
         ],
         "fr": [
-          "postauto-fahrer-in-postauto-sarnen"
+          "postauto-fahrer-in-postauto-sarnen",
+          "pilote-postbus-in-postauto-ag-sarnen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:30.476Z",
@@ -695,13 +695,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-stans",
-        "postbus-driver-in-postauto-stans"
+        "postauto-fahrer-in-postauto-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-stans",
-          "postbus-driver-in-postauto-stans"
+          "postauto-fahrer-in-postauto-stans"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:29.067Z",
@@ -722,10 +720,10 @@
       "id": "postauto-124b2cdbddf7",
       "slug": "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
       "slugByLocale": {
-        "it": "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
-        "en": "security-specialist-in-public-transport-postauto-ag-wallisellen",
+        "it": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen",
+        "en": "security-specialist-in-public-transport-postauto-wallisellen",
         "de": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-        "fr": "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen"
+        "fr": "specialiste-de-la-securite-dans-les-transports-publics-postauto-wallisellen"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -772,18 +770,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+        "security-specialist-in-public-transport-postauto-ag-wallisellen",
+        "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ],
         "en": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+          "security-specialist-in-public-transport-postauto-ag-wallisellen"
         ],
         "fr": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+          "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:27.667Z",
@@ -804,10 +804,10 @@
       "id": "postauto-ae32ed6b82d9",
       "slug": "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
       "slugByLocale": {
-        "it": "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
-        "en": "security-specialist-in-public-transport-postauto-ag-winterthur",
+        "it": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur",
+        "en": "security-specialist-in-public-transport-postauto-winterthur",
         "de": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-        "fr": "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur"
+        "fr": "specialiste-de-la-securite-dans-les-transports-publics-postauto-winterthur"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -854,18 +854,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+        "security-specialist-in-public-transport-postauto-ag-winterthur",
+        "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
         ],
         "en": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "security-specialist-in-public-transport-postauto-ag-winterthur"
         ],
         "fr": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:25.279Z",

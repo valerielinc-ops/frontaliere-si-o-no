@@ -1421,7 +1421,6 @@
       "previousSlugsByLocale": {
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-          "ticket-controller-in-and-customer-advice-postauto-chur",
           "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
           "ticket-controller-in-and-customer-advice-postauto-brugg-ag"
         ],
@@ -1429,7 +1428,6 @@
           "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag"
         ],
         "fr": [
-          "controleur-de-billetterie-en-et-conseil-client-postauto-chur",
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
           "controleur-de-billetterie-in-et-conseil-client-postauto-chur",
           "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
@@ -1440,8 +1438,6 @@
       "previousSlugs": [
         "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
         "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-        "controleur-de-billetterie-en-et-conseil-client-postauto-chur",
-        "ticket-controller-in-and-customer-advice-postauto-chur",
         "controleur-de-billetterie-in-et-conseil-client-postauto-chur",
         "controleur-de-billetterie-in-et-conseil-client-postauto-brugg-ag",
         "ticket-controller-in-and-customer-advice-postauto-brugg-ag",
@@ -1556,7 +1552,7 @@
         "it": "responsabile-dell-account-chiave-post-azienda-cars-ag-die-schweizerische-post-bern",
         "en": "key-account-manager-post-company-cars-ag-post",
         "de": "key-account-manager-post-company-cars-ag-post",
-        "fr": "key-account-manager-post-company-cars-ag-post"
+        "fr": "directeur-de-compte-principal-post-company-cars-ag-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -1594,6 +1590,9 @@
       "firstSeenAt": "2026-06-29T23:38:06.494Z",
       "previousSlugsByLocale": {
         "it": [
+          "key-account-manager-post-company-cars-ag-post"
+        ],
+        "fr": [
           "key-account-manager-post-company-cars-ag-post"
         ]
       },
