@@ -895,6 +895,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.matrimonio-frontaliere-regime-fiscale.title': 'Matrimonio frontaliere: impatti fiscali e residenza',
     'blog.article.matrimonio-frontaliere-regime-fiscale.excerpt': 'Cosa cambia per un frontaliere che sposa un cittadino svizzero? Analisi del regime fiscale, obblighi e procedure tra Italia e Svizzera.',
     'blog.article.matrimonio-frontaliere-regime-fiscale.imageAlt': 'Panorama del lago di Lugano con edifici moderni sullo sfondo',
+    'blog.article.successione-eredita-frontaliere-conto-svizzero.title': 'Successione eredità: conto svizzero e frontaliere in Italia',
+    'blog.article.successione-eredita-frontaliere-conto-svizzero.excerpt': 'Come gestire l\'eredità di conti o immobili in Svizzera per residenti in Italia. Regole sulla doppia imposizione e quadro fiscale tra i due Paesi.',
+    'blog.article.successione-eredita-frontaliere-conto-svizzero.imageAlt': 'Edificio bancario a Lugano riflettente il paesaggio circostante',
 };
 
 export default blogMetaChIt;

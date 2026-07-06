@@ -895,6 +895,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.matrimonio-frontaliere-regime-fiscale.title': 'Grenzüberschreitende Eheschließung: steuerliche Auswirkungen und Wohnsitz',
     'blog.article.matrimonio-frontaliere-regime-fiscale.excerpt': 'Was ändert sich für einen Grenzgänger, der einen Schweizer heiratet? Analyse des Steuersystems, der Verpflichtungen und Verfahren zwischen Italien und der Schweiz.',
     'blog.article.matrimonio-frontaliere-regime-fiscale.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden im Hintergrund',
+    'blog.article.successione-eredita-frontaliere-conto-svizzero.title': 'Erbfolge: Schweizer und Grenzgängerkonto in Italien',
+    'blog.article.successione-eredita-frontaliere-conto-svizzero.excerpt': 'Wie man das Erbe von Konten oder Immobilien in der Schweiz für in Italien ansässige Personen verwaltet. Doppelbesteuerungsregeln und steuerlicher Rahmen zwischen den beiden Ländern.',
+    'blog.article.successione-eredita-frontaliere-conto-svizzero.imageAlt': 'Schweizer Bankgebäude in Lugano mit Spiegelung der Landschaft',
 };
 
 export default blogMetaChDe;
