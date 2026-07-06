@@ -8240,6 +8240,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.classifica-dogane-ticino.title': 'Classifica delle dogane in Ticino: le migliori e le peggiori per tempo di attesa',
     'blog.article.classifica-dogane-ticino.excerpt': 'Ogni dogana del Ticino, classificata per tempo medio di attesa: qual è la più veloce, qual è la più lenta, e quanti minuti di vita si guadagnano (o si perdono) a sceglierne una piuttosto che un’altra.',
     'blog.article.classifica-dogane-ticino.imageAlt': 'Traffico in coda a una dogana del Canton Ticino',
+    'blog.article.block-ristorni-federalismo.title': 'Blocco dei ristorni: "La Confederazione non può dar la colpa al Cantone"',
+    'blog.article.block-ristorni-federalismo.excerpt': 'Il Consiglio di Stato ha deciso di congelare i ristorni dei frontalieri destinati all\'Italia.',
+    'blog.article.block-ristorni-federalismo.imageAlt': 'Un frontaliere in fila per il valico di Chiasso, con un sorriso amaro sulla faccia.',
 };
 
 export default blogMetaIt;

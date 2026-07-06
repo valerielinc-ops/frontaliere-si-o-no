@@ -8238,6 +8238,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.classifica-dogane-ticino.title': 'Rangliste der Grenzübergänge im Tessin: die schnellsten und langsamsten Wartezeiten',
     'blog.article.classifica-dogane-ticino.excerpt': 'Jeder Grenzübergang im Tessin, nach durchschnittlicher Wartezeit sortiert: welcher ist am schnellsten, welcher am langsamsten — und wie viele Minuten Lebenszeit man gewinnt (oder verliert), wenn man den einen statt den anderen wählt.',
     'blog.article.classifica-dogane-ticino.imageAlt': 'Stau an einem Grenzübergang im Kanton Tessin',
+    'blog.article.block-ristorni-federalismo.title': 'Erstattungssperre: "Der Bund kann dem Kanton keine Schuld geben"',
+    'blog.article.block-ristorni-federalismo.excerpt': 'Der Staatsrat hat beschlossen, die Rückzahlungen von Grenzgängern nach Italien einzufrieren.',
+    'blog.article.block-ristorni-federalismo.imageAlt': 'Ein Grenzgänger in der Schlange am Chiasso-Borderübergang, mit einem traurigen Gesichtsausdruck.',
 };
 
 export default blogMetaDe;
