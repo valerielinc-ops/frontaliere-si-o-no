@@ -8260,6 +8260,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sviluppo-droni-ticino-mobilita.title': 'Air mobility in Ticino: the drone test in Ambrì',
     'blog.article.sviluppo-droni-ticino-mobilita.excerpt': 'The EH216-S, a vertical take-off electric drone, debuts in Ambrì. An innovative project to connect the Alpine valleys and overcome road limits.',
     'blog.article.sviluppo-droni-ticino-mobilita.imageAlt': 'Electric drone EH216-S flying over the Alpine landscape of Ticino',
+    'blog.article.iniziativa-10-milioni-voto-giugno.title': 'Vote 14 June: 10 million initiative survey',
+    'blog.article.iniziativa-10-milioni-voto-giugno.excerpt': 'The \'no\' front rises to 52% ahead of the vote on 14 June. Analysis of SRH data on the UDC initiative and civil service law.',
+    'blog.article.iniziativa-10-milioni-voto-giugno.imageAlt': 'Information board in a Swiss square in Ticino before a federal vote.',
 };
 
 export default blogMetaEn;
