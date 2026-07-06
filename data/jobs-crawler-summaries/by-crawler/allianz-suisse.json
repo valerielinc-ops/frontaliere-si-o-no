@@ -1,16 +1,16 @@
 {
   "key": "allianz-suisse",
   "label": "Allianz Suisse",
-  "generatedAt": "2026-07-06T13:01:41.603Z",
+  "generatedAt": "2026-07-06T22:24:57.551Z",
   "total": 86,
   "newCount": 0,
   "updatedCount": 86,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 286242,
-  "avgDurationMs": 286242,
+  "durationMs": 289843,
+  "avgDurationMs": 289843,
   "durationHistory": [
-    286242
+    289843
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1110,44 +1110,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Mitarbeiter:in Innendienst / Personal Assistant Generalagentur (w/m/d), 60-100%",
-      "slug": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-      "url": "https://recruitingapp-2872.umantis.com/Vacancies/898/Description/4",
-      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/898/Application/CheckLogin/4",
-      "company": "Allianz Suisse",
-      "companyKey": "allianz-suisse",
-      "companyDomain": "umantis.com",
-      "location": "Triesen",
-      "addressLocality": "Triesen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "insurance",
-      "sector": "Assicurazioni",
-      "source": "allianz-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "Unbefristet",
-      "validThrough": "",
-      "id": "allianz-suisse-a9e4f5a388ec",
-      "salaryMin": 53500,
-      "salaryMax": 89000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "9000",
-      "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
