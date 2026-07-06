@@ -19,6 +19,8 @@ import {
   groupByComune,
   EVENTS_BASE_PATH,
   EVENTS_DIGEST_SLUGS,
+  eventsBasePathForCanton,
+  resolveCantonUrlKey,
 } from './events-utils.mjs';
 
 /** Stable, evergreen identity — never changes (no date in id/slug → no flooding). */
@@ -32,6 +34,8 @@ export const DIGEST_ARTICLE_SLUGS = {
 /** Caps keep the body reasonable regardless of how busy a weekend is. */
 const MAX_COMUNI = 15;
 const MAX_EVENTS_PER_COMUNE = 6;
+/** Cap on how many OTHER cantons (non-TI) get their own section (#3647, F5/5). */
+const MAX_OTHER_CANTONS = 8;
 
 const MONTHS = {
   it: ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'],
@@ -78,6 +82,26 @@ function eventTime(ev) {
   return ev?.startTime ? ` · ${ev.startTime}` : '';
 }
 
+// Title-case a URL slug ("san-gallo" → "San Gallo"). Mirrors
+// services/cantonList.ts's private `slugToLabel` — that module can't be
+// imported here: its top-level `import ... from '../data/canton-url-slugs.json'`
+// (no `with { type: 'json' }` assertion) only resolves under Vite/bundler
+// semantics, not plain-Node ESM (this file runs as a bare `.mjs` script in CI,
+// no bundler, no tree-shaking of an unused named export at runtime).
+function slugToLabel(slug) {
+  return String(slug || '')
+    .split('-')
+    .map((part) => (part.length === 0 ? part : part[0].toUpperCase() + part.slice(1)))
+    .join(' ');
+}
+
+/** Locale-correct display label for a canton, derived from its URL slug (§6 — one source, `eventsBasePathForCanton`, no second canton-name table here). */
+function cantonLabelForLocale(canton, locale) {
+  const path = eventsBasePathForCanton(canton)[locale] || '';
+  const slug = path.split('/').filter(Boolean).pop() || '';
+  return slugToLabel(slug);
+}
+
 const T = {
   it: {
     title: (range) => `Eventi del weekend in Ticino: cosa fare ${range ? `(${range})` : 'sabato e domenica'}`,
@@ -87,7 +111,7 @@ const T = {
     intro: (n, range) => `Questo weekend${range ? ` (${range})` : ''} in Ticino ci ${n === 1 ? "è un evento" : `sono ${n} eventi`} tra concerti, mostre, feste di paese e mercati. Qui sotto trovi l'agenda completa, comune per comune, con data e orario. La pagina viva e sempre aggiornata è [Eventi questo weekend in Ticino](${BASE_PATH.it}/${WEEKEND_SLUG.it}/).`,
     none: `Questo weekend non risultano eventi pubblicati nelle agende che monitoriamo. Riprova tra qualche giorno: l'[agenda del weekend](${BASE_PATH.it}/${WEEKEND_SLUG.it}/) e quella [della settimana](${BASE_PATH.it}/${WEEK_SLUG.it}/) si aggiornano ogni giorno.`,
     byComuneH: 'Gli eventi, comune per comune',
-    inComune: (c, slug) => `[${c}](${BASE_PATH.it}/${slug}/)`,
+    otherCantonsH: 'Eventi anche in altri cantoni',
     howH: 'Come usare questa agenda',
     how: `Questa agenda raccoglie gli eventi dalle agende ufficiali del territorio e si aggiorna ogni giorno. Per il quadro completo consulta [gli eventi di questo weekend](${BASE_PATH.it}/${WEEKEND_SLUG.it}/) o [tutta la settimana](${BASE_PATH.it}/${WEEK_SLUG.it}/). Se sei un frontaliere, dai un'occhiata anche ai [comuni di frontiera](/vivere-in-ticino/comuni-di-frontiera/) e alle [offerte di lavoro in Ticino](/cerca-lavoro-ticino/).`,
     faq: (n, range) => [
@@ -103,7 +127,7 @@ const T = {
     intro: (n, range) => `This weekend${range ? ` (${range})` : ''} there ${n === 1 ? 'is one event' : `are ${n} events`} across Ticino — concerts, exhibitions, village festivals and markets. The full agenda, municipality by municipality with date and time, is below. The always-current page is [Events this weekend in Ticino](${BASE_PATH.en}/${WEEKEND_SLUG.en}/).`,
     none: `No events are currently published for this weekend in the agendas we track. Check back in a few days: the [weekend agenda](${BASE_PATH.en}/${WEEKEND_SLUG.en}/) and the [week agenda](${BASE_PATH.en}/${WEEK_SLUG.en}/) refresh daily.`,
     byComuneH: 'Events, municipality by municipality',
-    inComune: (c, slug) => `[${c}](${BASE_PATH.en}/${slug}/)`,
+    otherCantonsH: 'Events in other cantons too',
     howH: 'How to use this agenda',
     how: `This agenda gathers events from the territory's official agendas and refreshes daily. For the full picture see [this weekend's events](${BASE_PATH.en}/${WEEKEND_SLUG.en}/) or [the whole week](${BASE_PATH.en}/${WEEK_SLUG.en}/). If you are a cross-border worker, also check the [border municipalities](/en/living-in-ticino/border-municipalities/) and [jobs in Ticino](/en/find-jobs-ticino/).`,
     faq: (n, range) => [
@@ -119,7 +143,7 @@ const T = {
     intro: (n, range) => `An diesem Wochenende${range ? ` (${range})` : ''} ${n === 1 ? 'gibt es eine Veranstaltung' : `gibt es ${n} Veranstaltungen`} im ganzen Tessin — Konzerte, Ausstellungen, Dorffeste und Märkte. Die vollständige Agenda, Gemeinde für Gemeinde mit Datum und Uhrzeit, steht unten. Die stets aktuelle Seite ist [Veranstaltungen am Wochenende im Tessin](${BASE_PATH.de}/${WEEKEND_SLUG.de}/).`,
     none: `Für dieses Wochenende sind in den von uns beobachteten Agenden derzeit keine Veranstaltungen veröffentlicht. Schauen Sie in ein paar Tagen wieder vorbei: Die [Wochenend-Agenda](${BASE_PATH.de}/${WEEKEND_SLUG.de}/) und die [Wochen-Agenda](${BASE_PATH.de}/${WEEK_SLUG.de}/) werden täglich aktualisiert.`,
     byComuneH: 'Veranstaltungen, Gemeinde für Gemeinde',
-    inComune: (c, slug) => `[${c}](${BASE_PATH.de}/${slug}/)`,
+    otherCantonsH: 'Veranstaltungen auch in anderen Kantonen',
     howH: 'So nutzen Sie diese Agenda',
     how: `Diese Agenda sammelt Veranstaltungen aus den offiziellen Agenden der Region und wird täglich aktualisiert. Für den vollen Überblick siehe [die Veranstaltungen dieses Wochenendes](${BASE_PATH.de}/${WEEKEND_SLUG.de}/) oder [die ganze Woche](${BASE_PATH.de}/${WEEK_SLUG.de}/). Als Grenzgänger lohnt sich auch ein Blick auf die [Grenzgemeinden](/de/leben-im-tessin/grenzgemeinden/) und die [Stellen im Tessin](/de/jobs-im-tessin/).`,
     faq: (n, range) => [
@@ -135,7 +159,7 @@ const T = {
     intro: (n, range) => `Ce week-end${range ? ` (${range})` : ''}, il y a ${n === 1 ? 'un événement' : `${n} événements`} dans tout le Tessin — concerts, expositions, fêtes de village et marchés. L'agenda complet, commune par commune avec date et heure, est ci-dessous. La page toujours à jour est [Événements ce week-end au Tessin](${BASE_PATH.fr}/${WEEKEND_SLUG.fr}/).`,
     none: `Aucun événement n'est actuellement publié pour ce week-end dans les agendas que nous suivons. Revenez dans quelques jours : l'[agenda du week-end](${BASE_PATH.fr}/${WEEKEND_SLUG.fr}/) et celui [de la semaine](${BASE_PATH.fr}/${WEEK_SLUG.fr}/) sont mis à jour chaque jour.`,
     byComuneH: 'Les événements, commune par commune',
-    inComune: (c, slug) => `[${c}](${BASE_PATH.fr}/${slug}/)`,
+    otherCantonsH: 'Événements aussi dans d’autres cantons',
     howH: 'Comment utiliser cet agenda',
     how: `Cet agenda rassemble les événements depuis les agendas officiels du territoire et se met à jour chaque jour. Pour le panorama complet, voir [les événements de ce week-end](${BASE_PATH.fr}/${WEEKEND_SLUG.fr}/) ou [toute la semaine](${BASE_PATH.fr}/${WEEK_SLUG.fr}/). Si vous êtes frontalier, jetez aussi un œil aux [communes frontalières](/fr/vivre-au-tessin/communes-frontiere/) et aux [emplois au Tessin](/fr/trouver-emploi-tessin/).`,
     faq: (n, range) => [
@@ -145,9 +169,14 @@ const T = {
   },
 };
 
-/** Render the per-comune section body (markdown) for one locale. */
-function renderByComune(byComune, locale) {
-  const t = T[locale];
+/**
+ * Render the per-comune section body (markdown) for one locale, deep-linking
+ * each comune heading under `basePath` (the caller's canton, e.g. Ticino's
+ * `BASE_PATH.it` or another canton's `eventsBasePathForCanton(canton)[locale]`
+ * — parametrized so this renderer serves both the Ticino section and the
+ * per-canton "other cantons" section below, §6, one loop, no copy-paste).
+ */
+function renderComuneBlocks(byComune, locale, basePath) {
   const comuni = [...byComune.entries()]
     .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
     .slice(0, MAX_COMUNI);
@@ -157,7 +186,42 @@ function renderByComune(byComune, locale) {
       .slice(0, MAX_EVENTS_PER_COMUNE)
       .map((ev) => `- **${humanDay(ev.startDate, locale)}${eventTime(ev)}** — ${String(ev.title || '').trim()}`)
       .join('\n');
-    return `### ${t.inComune(comune, slug)}\n${lines}`;
+    return `### [${comune}](${basePath}/${slug}/)\n${lines}`;
+  });
+  return blocks.join('\n\n');
+}
+
+/**
+ * Render one section per non-TI canton that has weekend events, each grouped
+ * by comune via `renderComuneBlocks` and deep-linked under that canton's own
+ * base path (never Ticino's — a Zürich event must not link under /eventi/ticino/).
+ * Capped at `MAX_OTHER_CANTONS`, busiest canton first.
+ */
+function renderOtherCantons(otherWeekend, locale) {
+  const byCanton = new Map();
+  for (const e of otherWeekend) {
+    const canton = String(e?.canton || '').toUpperCase().trim();
+    if (!canton) continue;
+    // Collapse half-cantons (AI/AR, BL/BS) onto their shared URL group key —
+    // eventsBasePathForCanton('BL') and ('BS') resolve to the SAME landing
+    // page, so grouping by the raw code would render two duplicate sections
+    // linking to that one page. Same resolver eventsBasePathForCanton uses
+    // internally, so the grouping key always matches the link it renders.
+    const groupKey = resolveCantonUrlKey(canton);
+    if (!byCanton.has(groupKey)) byCanton.set(groupKey, []);
+    byCanton.get(groupKey).push(e);
+  }
+  const cantons = [...byCanton.entries()]
+    .map(([groupKey, evs]) => [groupKey, evs, groupByComune(evs)])
+    // An event with no comune contributes nothing renderable — drop the
+    // canton entirely rather than emit an empty "### Canton" heading.
+    .filter(([, , byComune]) => byComune.size > 0)
+    .sort((a, b) => b[1].length - a[1].length)
+    .slice(0, MAX_OTHER_CANTONS);
+  const blocks = cantons.map(([groupKey, , byComune]) => {
+    const label = cantonLabelForLocale(groupKey, locale);
+    const basePath = eventsBasePathForCanton(groupKey)[locale];
+    return `### ${label}\n\n${renderComuneBlocks(byComune, locale, basePath)}`;
   });
   return blocks.join('\n\n');
 }
@@ -169,8 +233,16 @@ function renderByComune(byComune, locale) {
 export function buildWeekendDigestArticle({ events, todayIso }) {
   const { start, end } = weekendWindow(todayIso);
   const weekend = weekendEvents(events, todayIso);
-  const byComune = groupByComune(weekend);
-  const n = weekend.length;
+  // The article's headline/FAQ/count stay Ticino-scoped (its original, still
+  // primary, audience) — only Ticino events feed `n`/`byComune`. Non-TI
+  // weekend events (nationwide sourcing, #3644/#3645) get their own "other
+  // cantons" section below instead of silently inflating the Ticino count or
+  // leaking non-TI comuni into the Ticino by-comune grouping (both were bugs
+  // in the pre-#3647 nationwide-unfiltered version).
+  const tiWeekend = weekend.filter((e) => !e?.canton || String(e.canton).toUpperCase() === 'TI');
+  const otherWeekend = weekend.filter((e) => e?.canton && String(e.canton).toUpperCase() !== 'TI');
+  const byComune = groupByComune(tiWeekend);
+  const n = tiWeekend.length;
 
   // Shaped to match create-article.mjs's registration `data` contract:
   //   content[locale] = { title, excerpt, body1, body2, body3, faq: Array<{q,a}> }
@@ -183,7 +255,10 @@ export function buildWeekendDigestArticle({ events, todayIso }) {
   for (const locale of LOCALES) {
     const t = T[locale];
     const range = humanRange(start, end, locale);
-    const body2 = n > 0 ? `## ${t.byComuneH}\n\n${renderByComune(byComune, locale)}` : '';
+    const parts2 = [];
+    if (n > 0) parts2.push(`## ${t.byComuneH}\n\n${renderComuneBlocks(byComune, locale, BASE_PATH[locale])}`);
+    if (otherWeekend.length > 0) parts2.push(`## ${t.otherCantonsH}\n\n${renderOtherCantons(otherWeekend, locale)}`);
+    const body2 = parts2.join('\n\n');
     content[locale] = {
       title: t.title(''),
       excerpt: t.excerpt(0, ''),

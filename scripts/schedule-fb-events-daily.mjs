@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 /**
- * Daily Facebook poster for Ticino events (chained feature on issue #2963).
+ * Daily Facebook poster for Swiss events, nationwide (chained feature on
+ * issue #2963, generalized to all cantons in #3647 — F5/5 of #3125).
  *
  * Picks the few SOONEST upcoming events from data/events.json that haven't been
  * posted yet, and posts each to the Facebook Page linking to OUR per-comune
- * events landing page (`/eventi/ticino/<comune>/`) so the post drives traffic
+ * events landing page for the event's own canton (`/eventi/<cantone>/<comune>/`,
+ * TI kept at its original `/eventi/ticino/<comune>/`) so the post drives traffic
  * into the SEO funnel. Each post is geo-anchored with the event comune's FB
  * Place ID (data/fb-place-ids.json) for local-discovery reach — the same
  * mechanism the jobs poster uses, reusing its `loadPlaceIds`/`lookupPlaceId`.
  *
- * Channel-agnostic primitives (ledger, sanitization) come from
+ * Channel-agnostic primitives (ledger, sanitization, canton naming) come from
  * scripts/lib/social-post-utils.mjs — no logic is duplicated (AGENTS.md §6).
  *
  * Posts immediately (like the articles poster), low-volume, time-relevant.
@@ -27,8 +29,8 @@
 
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow, weekendEvents } from './lib/events-utils.mjs';
-import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive } from './lib/social-post-utils.mjs';
+import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow, weekendEvents, eventsBasePathForCanton, resolveCantonUrlKey } from './lib/events-utils.mjs';
+import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive, CANTON_NAME_BY_CODE } from './lib/social-post-utils.mjs';
 import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-jobs-daily.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -60,10 +62,16 @@ function tagWord(s) {
   return stripDiacritics(String(s || '')).replace(/[^A-Za-z0-9]/g, '');
 }
 
-/** Canonical IT events URL for an event: comune page when known, else hub. */
+/** Italian display name for a canton code, defaulting to Ticino (legacy MVP scope). */
+function cantonDisplayName(canton) {
+  return CANTON_NAME_BY_CODE[String(canton || '').toUpperCase()] || '';
+}
+
+/** Canonical IT events URL for an event: comune page when known, else the canton hub. */
 export function buildEventUrl(event) {
-  if (event?.comune) return `${SITE_URL}/eventi/ticino/${slugifyComune(event.comune)}/`;
-  return `${SITE_URL}/eventi/ticino/`;
+  const base = eventsBasePathForCanton(event?.canton).it;
+  if (event?.comune) return `${SITE_URL}${base}/${slugifyComune(event.comune)}/`;
+  return `${SITE_URL}${base}/`;
 }
 
 /**
@@ -79,22 +87,24 @@ export function buildEventUrl(event) {
 export function buildEventCaption(event) {
   const emoji = CATEGORY_EMOJI[event?.category] || '📅';
   const title = String(event?.title || '').trim();
-  const comune = String(event?.comune || 'Ticino').trim();
+  const cantonName = cantonDisplayName(event?.canton) || 'Ticino';
+  const comune = String(event?.comune || cantonName).trim();
   const when = humanDateIt(event?.startDate);
   const time = event?.startTime ? ` · ${event.startTime}` : '';
 
   const metaChunks = [`📍 ${comune}`];
   if (when) metaChunks.push(`📅 ${when}${time}`);
 
-  const tags = ['#eventiticino'];
+  const cantonTag = tagWord(cantonName);
+  const tags = [`#eventi${cantonTag}`];
   const comuneTag = tagWord(comune);
-  if (comuneTag && comuneTag.toLowerCase() !== 'ticino') tags.push(`#${comuneTag}`);
+  if (comuneTag && comuneTag.toLowerCase() !== cantonTag.toLowerCase()) tags.push(`#${comuneTag}`);
   const catTag = event?.category ? tagWord(event.category) : '';
   if (catTag) tags.push(`#${catTag}`);
-  tags.push('#ticino', '#frontalieri');
+  tags.push(`#${cantonTag}`, '#frontalieri');
   const hashtags = [...new Set(tags.map((t) => t.toLowerCase()))].slice(0, 5).join(' ');
 
-  const cta = event?.comune ? `👉 Scopri gli eventi a ${comune}:` : '👉 Scopri gli eventi in Ticino:';
+  const cta = event?.comune ? `👉 Scopri gli eventi a ${comune}:` : `👉 Scopri gli eventi in ${cantonName}:`;
   const parts = [`${emoji} ${truncateBody(title, 150)}`, metaChunks.join('  '), '', cta, '', hashtags];
   let out = parts.join('\n').trim();
   if (out.length > FB_MESSAGE_HARD_LIMIT) out = out.slice(0, FB_MESSAGE_HARD_LIMIT);
@@ -113,19 +123,28 @@ export function selectUnpostedEvents(events, postedSet, limit) {
   return events.filter((e) => e && e.id && !postedSet.has(e.id)).slice(0, Math.max(0, limit | 0));
 }
 
-/** Canonical URL of the weekend digest landing page (matches the SSG plugin). */
-export const WEEKEND_DIGEST_URL = `${SITE_URL}/eventi/ticino/questo-weekend/`;
+/** Canonical URL of a canton's weekend digest landing page (matches the SSG plugin). */
+export function buildWeekendDigestUrl(canton) {
+  const base = eventsBasePathForCanton(canton).it;
+  return `${SITE_URL}${base}/questo-weekend/`;
+}
+
+/** Canonical URL of the Ticino weekend digest landing page (legacy default, unchanged). */
+export const WEEKEND_DIGEST_URL = buildWeekendDigestUrl('TI');
 
 /**
- * Roundup caption for the weekend digest post. Mirrors `buildEventCaption`'s
- * style (the bare URL is NOT inlined — FB renders the link card from the POST's
- * `link` field). Lists how many events and a few comuni/highlights.
+ * Roundup caption for one canton's weekend digest post. Mirrors
+ * `buildEventCaption`'s style (the bare URL is NOT inlined — FB renders the
+ * link card from the POST's `link` field). Lists how many events and a few
+ * comuni/highlights. `canton` defaults to 'TI' (legacy MVP scope).
  */
-export function buildWeekendDigestCaption(events, todayIso) {
+export function buildWeekendDigestCaption(events, todayIso, canton = 'TI') {
   const list = Array.isArray(events) ? events : [];
   const comuni = [...new Set(list.map((e) => e?.comune).filter(Boolean))];
   const n = list.length;
-  const headline = '🎉 Cosa fare questo weekend in Ticino';
+  const cantonName = cantonDisplayName(canton) || 'Ticino';
+  const cantonTag = tagWord(cantonName);
+  const headline = `🎉 Cosa fare questo weekend in ${cantonName}`;
   const comuneTail = comuni.length ? ` — ${comuni.slice(0, 4).join(', ')}${comuni.length > 4 ? '…' : ''}` : '';
   const count = `📅 ${n} ${n === 1 ? 'evento' : 'eventi'} tra sabato e domenica${comuneTail}.`;
   const highlights = list.slice(0, 3).map((e) => {
@@ -134,10 +153,10 @@ export function buildWeekendDigestCaption(events, todayIso) {
     return `${emoji} ${t}${e?.comune ? ` (${e.comune})` : ''}`;
   });
 
-  const tags = ['#eventiticino', '#weekend', '#ticino', '#frontalieri'];
+  const tags = [`#eventi${cantonTag}`, '#weekend', `#${cantonTag}`, '#frontalieri'];
   for (const c of comuni.slice(0, 2)) {
     const tag = tagWord(c);
-    if (tag && tag.toLowerCase() !== 'ticino') tags.push(`#${tag}`);
+    if (tag && tag.toLowerCase() !== cantonTag.toLowerCase()) tags.push(`#${tag}`);
   }
   const hashtags = [...new Set(tags.map((t) => t.toLowerCase()))].slice(0, 6).join(' ');
 
@@ -150,26 +169,67 @@ export function buildWeekendDigestCaption(events, todayIso) {
 }
 
 /**
- * Build the single weekend-digest payload, or `null` when there is nothing to
- * post (no weekend events, or this weekend already posted). Ledgered by the
- * weekend's start date so a Friday re-run never double-posts.
+ * Build one weekend-digest payload PER canton that has weekend events,
+ * generalizing the original Ticino-only roundup (issue #3647, F5/5 of #3125)
+ * now that events span multiple cantons (#3644/#3645). Ticino always sorts
+ * first (legacy/highest-volume canton), the rest by event count descending.
+ *
+ * Cantons already posted for this weekend are filtered out BEFORE capping at
+ * `maxCantons` — capping first would starve a canton pushed past the cap: the
+ * same top-N slice would be recomputed and re-filtered to the same
+ * already-posted set on every later run, never reaching the next candidates.
+ * Filtering first lets a twice-daily cron drain further down the sorted
+ * canton list across multiple runs.
+ *
+ * Returns `[]` when there is nothing left to post (no weekend events at all,
+ * or every canton with weekend events already posted this weekend).
  */
-export function selectWeekendDigest(events, todayIso, postedSet) {
+export function selectWeekendDigests(events, todayIso, postedSet, maxCantons = MAX_VOLUME) {
   const { start } = weekendWindow(todayIso);
-  const id = `weekend-digest-${start}`;
-  if (postedSet && postedSet.has(id)) return null;
   const weekend = weekendEvents(events, todayIso);
-  if (weekend.length === 0) return null;
-  return {
-    id,
-    url: WEEKEND_DIGEST_URL,
-    message: buildWeekendDigestCaption(weekend, todayIso),
-    placeId: null,
-    // Mark the events the roundup covers so they are ledgered too — the Sat/Sun
-    // per-event poster then skips them instead of re-posting what the digest
-    // already covered (keeps the "no flooding" guarantee across the weekend).
-    coveredIds: weekend.map((e) => e?.id).filter(Boolean),
-  };
+  if (weekend.length === 0) return [];
+
+  const byCanton = new Map();
+  for (const e of weekend) {
+    const raw = String(e?.canton || 'TI').toUpperCase().trim() || 'TI';
+    // Collapse half-cantons (AI/AR, BL/BS) onto their shared URL group key —
+    // buildWeekendDigestUrl('BL') and ('BS') resolve to the SAME landing
+    // page, so grouping by the raw code would post two duplicate roundups
+    // to that one page in the same run. Same resolver buildWeekendDigestUrl
+    // (via eventsBasePathForCanton) uses internally, so the grouping key
+    // always matches the page it links to.
+    const canton = resolveCantonUrlKey(raw);
+    if (!byCanton.has(canton)) byCanton.set(canton, []);
+    byCanton.get(canton).push(e);
+  }
+
+  const cantons = [...byCanton.keys()]
+    .filter((canton) => {
+      const id = canton === 'TI' ? `weekend-digest-${start}` : `weekend-digest-${canton}-${start}`;
+      return !(postedSet && postedSet.has(id));
+    })
+    .sort((a, b) => {
+      if (a === 'TI') return -1;
+      if (b === 'TI') return 1;
+      return byCanton.get(b).length - byCanton.get(a).length;
+    })
+    .slice(0, Math.max(0, maxCantons | 0));
+
+  return cantons.map((canton) => {
+    const cantonEvents = byCanton.get(canton);
+    const id = canton === 'TI' ? `weekend-digest-${start}` : `weekend-digest-${canton}-${start}`;
+    return {
+      id,
+      url: buildWeekendDigestUrl(canton),
+      message: buildWeekendDigestCaption(cantonEvents, todayIso, canton),
+      placeId: null,
+      canton,
+      // Mark the events the roundup covers so they are ledgered too — the Sat/Sun
+      // per-event poster then skips them instead of re-posting what the digest
+      // already covered (keeps the "no flooding" guarantee across the weekend).
+      coveredIds: cantonEvents.map((e) => e?.id).filter(Boolean),
+    };
+  });
 }
 
 /**
@@ -224,25 +284,30 @@ export async function run(opts = {}) {
   const isDigestDay =
     Number.isInteger(digestDow) && digestDow >= 0 && digestDow <= 6 && new Date(`${todayIso}T00:00:00Z`).getUTCDay() === digestDow;
   const weekendStart = weekendWindow(todayIso).start;
-  const digestAlreadyPosted = postedSet.has(`weekend-digest-${weekendStart}`);
-  const digestPayload = isDigestDay ? selectWeekendDigest(dataset.events, todayIso, postedSet) : null;
 
-  // The schedule cron fires twice a day: once the weekend roundup is posted and
-  // ledgered, a later digest-day run MUST stay silent — NOT fall through to
-  // per-event posting, which would re-post the same weekend events the roundup
-  // already covers (the very flooding this digest avoids). Only a digest day with
-  // NO weekend events at all falls back to per-event posts (so a quiet Friday
-  // isn't mute).
-  if (isDigestDay && digestAlreadyPosted) {
-    log('ℹ️', `weekend digest already posted (weekend-digest-${weekendStart}) — staying silent`);
-    return { ok: true, posted: 0, dryRun, payloads: [] };
+  // The schedule cron fires twice a day: once a canton's roundup is posted and
+  // ledgered, a later digest-day run MUST stay silent for it — NOT fall through
+  // to per-event posting, which would re-post the same weekend events the
+  // roundup already covers (the very flooding this digest avoids). Only a
+  // digest day with NO weekend events at all (nationwide) falls back to
+  // per-event posts (so a quiet Friday isn't mute).
+  let digestsThisRun = [];
+  if (isDigestDay) {
+    const weekend = weekendEvents(dataset.events, todayIso);
+    if (weekend.length > 0) {
+      digestsThisRun = selectWeekendDigests(dataset.events, todayIso, postedSet, volume);
+      if (digestsThisRun.length === 0) {
+        log('ℹ️', `weekend digest(s) already posted for weekend-${weekendStart} — staying silent`);
+        return { ok: true, posted: 0, dryRun, payloads: [] };
+      }
+    }
   }
 
   const placeIds = loadPlaceIds(repoRoot);
   let payloads;
-  if (digestPayload) {
-    log('🎉', `weekend digest day — posting roundup ${digestPayload.id}`);
-    payloads = [digestPayload];
+  if (digestsThisRun.length > 0) {
+    log('🎉', `weekend digest day — posting roundup for ${digestsThisRun.length} canton(s): ${digestsThisRun.map((d) => d.canton).join(', ')}`);
+    payloads = digestsThisRun;
   } else {
     const candidates = selectUnpostedEvents(upcoming, postedSet, volume);
     payloads = candidates.map((event) => ({
@@ -289,7 +354,7 @@ export async function run(opts = {}) {
     if (live) {
       liveSet.add(p);
     } else {
-      warn('🚧', `landing page not live yet for "${p.comune || 'weekend digest'}" (${p.url}) — skipping post ${p.id}`);
+      warn('🚧', `landing page not live yet for "${p.comune || (p.canton ? `weekend digest (${p.canton})` : 'weekend digest')}" (${p.url}) — skipping post ${p.id}`);
     }
   });
   payloads = payloads.filter((p) => liveSet.has(p));
