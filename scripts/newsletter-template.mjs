@@ -454,18 +454,6 @@ const JOB_CTA = {
   fr: 'Voir toutes les offres →',
 };
 
-// j.url is always canton-aware (set by matchJobsForSubscriber in
-// newsletter-content.mjs) — this is only a last-resort fallback for a job
-// missing its url. Since the job's canton isn't known here, fall back to the
-// Switzerland-wide aggregator hub (never TI-only — guessing a per-canton
-// slug path without knowing the canton would 404 for non-TI jobs).
-const JOB_BOARD_AGGREGATOR_PATH = {
-  it: 'cerca-lavoro-svizzera',
-  en: 'en/find-jobs-switzerland',
-  de: 'de/jobs-in-schweiz',
-  fr: 'fr/trouver-emploi-suisse',
-};
-
 function renderJobSection({ jobs, campaign, locale }) {
   if (!jobs || jobs.length === 0) return '';
   const rows = jobs.slice(0, 5).map((j) => {
@@ -473,7 +461,7 @@ function renderJobSection({ jobs, campaign, locale }) {
     const title = esc(rawTitle.length > 55 ? rawTitle.slice(0, 55).trimEnd() + '…' : rawTitle);
     const company = esc(String(j.company || ''));
     const location = esc(String(j.location || ''));
-    const jobUrl = utmUrl(j.url || `/${JOB_BOARD_AGGREGATOR_PATH[locale] || JOB_BOARD_AGGREGATOR_PATH.it}/`, campaign);
+    const jobUrl = utmUrl(j.url || `/cerca-lavoro-ticino/${j.slug}/`, campaign);
     return `
       <tr>
         <td style="padding:10px 0;border-bottom:1px solid ${BORDER_COLOR};">
