@@ -1834,7 +1834,7 @@ export const Analytics = {
  keywords?: string;
  location?: string;
  frequency?: string;
- surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto';
+ surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill';
  } = {}) => {
  // Defensive: collapse undefined/empty to clear sentinels rather than null
  // so PostHog HogQL queries never see mixed null/empty values for the same
@@ -1864,7 +1864,7 @@ export const Analytics = {
   * counts during funnel analysis.
   */
  trackJobAlertCtaClick: (
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill',
  action: 'open' | 'dismiss' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {
@@ -1882,7 +1882,7 @@ export const Analytics = {
   * intent-only.
   */
  trackJobAlertCtaShown: (
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill',
  keyword?: string,
  ) => {
  log('job_alert_cta_shown', {
@@ -1927,6 +1927,21 @@ export const Analytics = {
  log('job_match_click', {
  match_top_signal: topSignal || '(none)',
  match_score: score,
+ });
+ },
+
+ /**
+ * The one-tap "Avvisami per ruoli come questo" CTA (job-match personalization
+ * pill, profile from `services/jobMatchProfile.ts`) successfully created a
+ * job alert — issue #3650. Fired only on success, alongside the generic
+ * `trackJobAlertCreated({ surface: 'job_match_pill' })` call (kept separate
+ * so this specific funnel's conversion can be queried in isolation from the
+ * aggregate alert-creation event).
+ */
+ trackJobMatchAlertSignup: (category: string, cantonCode: string | null) => {
+ log('job_match_alert_signup', {
+ match_category: (category || '(none)').slice(0, 80),
+ match_canton: cantonCode || '(none)',
  });
  },
 };

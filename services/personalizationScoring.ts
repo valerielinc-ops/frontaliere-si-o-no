@@ -51,8 +51,11 @@ export interface PersonalScore {
 // ─── Job-match profile lookup tables ─────────────────────────────
 
 // Maps SalarySurvey's broader sector taxonomy onto job listing categories
-// (JobCategory in JobBoard.tsx) so isCategoryMatch can compare them.
-const SURVEY_SECTOR_TO_CATEGORY: Record<string, string> = {
+// (JobCategory in JobBoard.tsx) so isCategoryMatch can compare them. Exported
+// so JobBoard.tsx's job-match alert CTA (issue #3650) can reuse the same
+// mapping instead of duplicating it when it needs a JobCategory label to
+// pre-fill the alert form.
+export const SURVEY_SECTOR_TO_CATEGORY: Record<string, string> = {
  it_software: 'tech',
  pharma_biotech: 'health',
  finance_banking: 'finance',
