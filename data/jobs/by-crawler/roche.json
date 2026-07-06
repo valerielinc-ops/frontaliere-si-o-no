@@ -3512,7 +3512,7 @@
         "it": "partner-del-viaggio-paziente-ophthalmology-roche-almaty",
         "en": "patient-journey-partner-ophthalmology-roche-ch",
         "de": "patient-journey-partner-ophthalmology-roche-ch",
-        "fr": "ophtalmologie-du-partenaire-voyage-patient-roche-almaty"
+        "fr": "partenaire-de-voyage-ophtalmologique-roche-almaty"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -3554,7 +3554,7 @@
       "previousSlugs": [
         "patient-journey-partner-ophthalmology-roche-ch",
         "partenaire-de-voyage-des-patients-ophtalmologie-roche-almaty",
-        "partenaire-de-voyage-ophtalmologique-roche-almaty"
+        "ophtalmologie-du-partenaire-voyage-patient-roche-almaty"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3563,7 +3563,7 @@
         "fr": [
           "patient-journey-partner-ophthalmology-roche-ch",
           "partenaire-de-voyage-des-patients-ophtalmologie-roche-almaty",
-          "partenaire-de-voyage-ophtalmologique-roche-almaty"
+          "ophtalmologie-du-partenaire-voyage-patient-roche-almaty"
         ]
       },
       "needsRetranslation": true,
@@ -15081,9 +15081,9 @@
     },
     {
       "id": "roche-353c8b53b221",
-      "slug": "buyer-trainee-attacca-e-programma-treno-roche-central-singapore",
+      "slug": "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore",
       "slugByLocale": {
-        "it": "buyer-trainee-attacca-e-programma-treno-roche-central-singapore",
+        "it": "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore",
         "en": "buyer-trainee-attach-train-program-roche-ch",
         "de": "buyer-auszubildender-attach-train-program-roche-central-singapore",
         "fr": "buyer-apprenti-attach-train-program-roche-central-singapore"
@@ -15127,12 +15127,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "buyer-trainee-attach-train-program-roche-ch",
-        "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore"
+        "buyer-trainee-attacca-e-programma-treno-roche-central-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
           "buyer-trainee-attach-train-program-roche-ch",
-          "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore"
+          "buyer-trainee-attacca-e-programma-treno-roche-central-singapore"
         ]
       },
       "needsRetranslation": true,
@@ -75437,7 +75437,7 @@
         "it": "tirocinante-a-supporto-del-reparto-vendite-roche-warsaw",
         "en": "stazysta-do-wsparcia-dzia-u-sprzedazy-roche-ch",
         "de": "stazysta-do-wsparcia-dzia-u-sprzedazy-roche-ch",
-        "fr": "l-objectif-de-l-evaluation-est-de-determiner-si-les-resultats-de-l-evaluation-sont-positifs-roche-warsaw"
+        "fr": "stysta-do-wsparcia-dzia-u-sprzeda-roche-warsaw"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -75478,14 +75478,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stazysta-do-wsparcia-dzia-u-sprzedazy-roche-ch",
-        "stysta-do-wsparcia-dzia-u-sprzeda-roche-warsaw"
+        "l-objectif-de-l-evaluation-est-de-determiner-si-les-resultats-de-l-evaluation-sont-positifs-roche-warsaw"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stazysta-do-wsparcia-dzia-u-sprzedazy-roche-ch"
         ],
         "fr": [
-          "stysta-do-wsparcia-dzia-u-sprzeda-roche-warsaw"
+          "l-objectif-de-l-evaluation-est-de-determiner-si-les-resultats-de-l-evaluation-sont-positifs-roche-warsaw"
         ]
       },
       "firstSeenAt": "2026-06-30T23:09:43.283Z",
@@ -81016,7 +81016,7 @@
       "slug": "marketing-tirocinante-roche-mexico-city",
       "slugByLocale": {
         "it": "marketing-tirocinante-roche-mexico-city",
-        "en": "marketing-intern-roche-mexico-city",
+        "en": "internal-marketing-roche-mexico-city",
         "de": "marketing-praktikant-roche-mexico-city",
         "fr": "marketing-intern-roche-ch"
       },
@@ -81060,7 +81060,7 @@
       "previousSlugs": [
         "marketing-intern-roche-ch-2",
         "marketing-intern-roche-ch",
-        "internal-marketing-roche-mexico-city"
+        "marketing-intern-roche-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -81068,7 +81068,7 @@
           "marketing-intern-roche-ch"
         ],
         "en": [
-          "internal-marketing-roche-mexico-city"
+          "marketing-intern-roche-mexico-city"
         ],
         "de": [
           "marketing-intern-roche-ch-2"
@@ -91411,10 +91411,10 @@
     },
     {
       "id": "roche-a649a160eea8",
-      "slug": "bc-roche-nanjing",
+      "slug": "traduzione-roche-nanjing-01bcb8",
       "slugByLocale": {
         "en": "bc-roche-ch",
-        "it": "bc-roche-nanjing",
+        "it": "traduzione-roche-nanjing-01bcb8",
         "de": "bc-roche-nanjing",
         "fr": "bc-roche-nanjing"
       },
@@ -91460,12 +91460,14 @@
       "previousSlugsByLocale": {
         "it": [
           "bc-roche-ch-2",
-          "bc-roche-ch"
+          "bc-roche-ch",
+          "bc-roche-nanjing"
         ]
       },
       "previousSlugs": [
         "bc-roche-ch-2",
-        "bc-roche-ch"
+        "bc-roche-ch",
+        "bc-roche-nanjing"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -91485,12 +91487,12 @@
     },
     {
       "id": "roche-f24117883c29",
-      "slug": "roche-nanjing",
+      "slug": "terreno-della-pesca-roche-nanjing",
       "slugByLocale": {
         "en": "roche-ch",
-        "it": "roche-nanjing",
+        "it": "terreno-della-pesca-roche-nanjing",
         "de": "roche-nanjing",
-        "fr": "roche-nanjing"
+        "fr": "oui-roche-nanjing"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91534,12 +91536,17 @@
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-163",
-          "roche-ch"
+          "roche-ch",
+          "roche-nanjing"
+        ],
+        "fr": [
+          "roche-nanjing"
         ]
       },
       "previousSlugs": [
         "roche-ch-163",
-        "roche-ch"
+        "roche-ch",
+        "roche-nanjing"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -91559,10 +91566,10 @@
     },
     {
       "id": "roche-672353120ac8",
-      "slug": "roche-liuzhou",
+      "slug": "regiona-locali-alcuni-regionali-locali-roche-liuzhou",
       "slugByLocale": {
         "en": "roche-ch",
-        "it": "roche-liuzhou",
+        "it": "regiona-locali-alcuni-regionali-locali-roche-liuzhou",
         "de": "roche-liuzhou",
         "fr": "roche-liuzhou"
       },
@@ -91608,12 +91615,14 @@
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-164",
-          "roche-ch"
+          "roche-ch",
+          "roche-liuzhou"
         ]
       },
       "previousSlugs": [
         "roche-ch-164",
-        "roche-ch"
+        "roche-ch",
+        "roche-liuzhou"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
