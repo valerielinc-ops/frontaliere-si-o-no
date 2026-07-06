@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-07-06T14:58:56.072Z",
+  "assembledAt": "2026-07-06T22:15:34.914Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-9be0377bcb5a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.534Z",
+      "crawledAt": "2026-07-06T22:15:31.450Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -90,18 +90,21 @@
       "previousSlugs": [
         "oberarzt-kinder-und-jugendpsychiatrie-m-w-d-50-100-hochgebirgsklinik-davos-ch",
         "leitender-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
-        "senior-consultant-m-w-d-50-100-hochgebirgsklinik-davos-davos"
+        "senior-consultant-m-w-d-50-100-hochgebirgsklinik-davos-davos",
+        "medico-capo-di-psichiatria-infantile-e-dell-adolescenza-m-f-d-50-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-kinder-und-jugendpsychiatrie-m-w-d-50-100-hochgebirgsklinik-davos-ch",
-          "leitender-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+          "leitender-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+          "medico-capo-di-psichiatria-infantile-e-dell-adolescenza-m-f-d-50-100-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "senior-consultant-m-w-d-50-100-hochgebirgsklinik-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.483Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -147,7 +150,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTk1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.533Z",
+      "crawledAt": "2026-07-06T22:15:31.449Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -202,11 +205,13 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "medico-cardiologo-senior-m-w-d-80-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+          "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+          "medico-cardiologo-senior-m-w-d-80-100-hochgebirgsklinik-davos-davos"
         ]
       },
       "needsRetranslation": true,
@@ -256,7 +261,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.532Z",
+      "crawledAt": "2026-07-06T22:15:31.447Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -299,11 +304,13 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch"
+        "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch",
+        "stage-di-ricerca-in-cardiologia-100-m-f-d-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch"
+          "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch",
+          "stage-di-ricerca-in-cardiologia-100-m-f-d-hochgebirgsklinik-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.482Z",
@@ -319,6 +326,7 @@
           "unitText": "YEAR"
         }
       },
+      "needsRetranslation": true,
       "addressRegion": "GR"
     },
     {
@@ -352,7 +360,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.531Z",
+      "crawledAt": "2026-07-06T22:15:31.445Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -397,12 +405,14 @@
       "previousSlugs": [
         "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini",
         "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100",
-        "assistente-medico-m-f-d-80-100-hochgebirgsklinik-davos-davos"
+        "assistente-medico-m-f-d-80-100-hochgebirgsklinik-davos-davos",
+        "medico-cardiovascolare-e-angiologia-60-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini",
-          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100"
+          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100",
+          "medico-cardiovascolare-e-angiologia-60-100-hochgebirgsklinik-davos-davos"
         ],
         "de": [
           "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini"
@@ -421,6 +431,7 @@
           "unitText": "YEAR"
         }
       },
+      "needsRetranslation": true,
       "addressRegion": "GR"
     },
     {
@@ -454,7 +465,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.530Z",
+      "crawledAt": "2026-07-06T22:15:31.443Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -478,11 +489,13 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
+        "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
+          "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
@@ -492,6 +505,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:45:59.207Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -511,7 +525,7 @@
       "slug": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "it": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
-        "en": "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos",
+        "en": "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
         "de": "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
         "fr": "physiotherapie-m-p-p-70-80-hochgebirgsklinik-davos-davos"
       },
@@ -521,7 +535,7 @@
       "title": "Physiotherapeut (m/w/d) 60%",
       "titleByLocale": {
         "it": "Fisioterapia (m/w/d) 70-80 %",
-        "en": "Physiotherapist (m/f/d) 60%",
+        "en": "Physiotherapeut (m/w/d) 60%",
         "de": "Physiotherapeut (m/w/d) 60%",
         "fr": "Physiothérapie (m/p/p) 70-80 %"
       },
@@ -537,7 +551,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.529Z",
+      "crawledAt": "2026-07-06T22:15:31.442Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -565,14 +579,18 @@
         "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch",
         "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
         "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
-        "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos"
+        "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos",
+        "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos",
+        "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
-          "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch"
+          "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch",
+          "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos"
         ],
         "en": [
+          "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos",
           "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch"
         ],
         "fr": [
@@ -592,6 +610,7 @@
           "unitText": "YEAR"
         }
       },
+      "needsRetranslation": true,
       "addressRegion": "GR"
     },
     {
@@ -599,7 +618,7 @@
       "slug": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
       "slugByLocale": {
         "it": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
-        "en": "psychologist-parent-child-and-youth-unit-m-f-d-80-100-hochgebirgsklinik-davos-davos",
+        "en": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
         "de": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
         "fr": "psychologue-parent-enfant-et-jeune-station-m-f-j-80-100-hochgebirgsklinik-davos-davos"
       },
@@ -609,7 +628,7 @@
       "title": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "Psicologo genitori-figlio e stazione giovanile (m/f/d) 80 - 100 %",
-        "en": "Psychologist parent-child and youth unit (m/f/d) 80 - 100%",
+        "en": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "de": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "fr": "Psychologue parent-enfant et jeune station (m/f/j) 80 - 100 %"
       },
@@ -625,7 +644,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ5&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.527Z",
+      "crawledAt": "2026-07-06T22:15:31.440Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -649,13 +668,15 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "psychologist-parent-child-and-youth-unit-m-f-d-80-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
         ],
         "en": [
+          "psychologist-parent-child-and-youth-unit-m-f-d-80-100-hochgebirgsklinik-davos-davos",
           "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
         ],
         "fr": [
@@ -675,6 +696,7 @@
           "unitText": "YEAR"
         }
       },
+      "needsRetranslation": true,
       "addressRegion": "GR"
     },
     {
@@ -708,7 +730,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.526Z",
+      "crawledAt": "2026-07-06T22:15:31.439Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -732,11 +754,13 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
+        "pianificazione-della-riabilitazione-del-personale-m-f-d-50-70-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
+          "pianificazione-della-riabilitazione-del-personale-m-f-d-50-70-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
@@ -765,7 +789,7 @@
       "slug": "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "it": "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
-        "en": "spa-therapist-m-f-50-60-hochgebirgsklinik-davos-davos",
+        "en": "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
         "de": "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
         "fr": "therapeute-de-spa-m-f-50-60-hochgebirgsklinik-davos-davos"
       },
@@ -775,7 +799,7 @@
       "title": "Spa Therapeut (m/w) 50 - 60%",
       "titleByLocale": {
         "it": "Terapista Spa (m/f) 50 - 60%",
-        "en": "Spa Therapist (m/f) 50 - 60 %",
+        "en": "Spa Therapeut (m/w) 50 - 60%",
         "de": "Spa Therapeut (m/w) 50 - 60%",
         "fr": "Thérapeute de spa (m/f) 50 - 60 %"
       },
@@ -791,7 +815,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUz&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.524Z",
+      "crawledAt": "2026-07-06T22:15:31.438Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -815,13 +839,17 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
+        "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
+        "spa-therapist-m-f-50-60-hochgebirgsklinik-davos-davos",
+        "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
+          "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
+          "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos"
         ],
         "en": [
+          "spa-therapist-m-f-50-60-hochgebirgsklinik-davos-davos",
           "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
         ],
         "fr": [
@@ -829,6 +857,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T22:57:32.542Z",
+      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -874,7 +903,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMz&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.523Z",
+      "crawledAt": "2026-07-06T22:15:31.437Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -895,17 +924,20 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik"
+        "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
+        "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik"
+          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
+          "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos"
         ],
         "de": [
           "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik"
         ]
       },
       "firstSeenAt": "2026-07-02T11:08:52.327Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -924,9 +956,9 @@
       "id": "hochgebirgsklinik-davos-c634b3960b3a",
       "slug": "infermiera-f-m-d-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
-        "de": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
         "it": "infermiera-f-m-d-hochgebirgsklinik-davos-davos",
-        "en": "nurse-f-m-d-hochgebirgsklinik-davos-davos",
+        "en": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-davos",
+        "de": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
         "fr": "infirmiere-f-m-j-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
@@ -934,16 +966,16 @@
       "companyDomain": "hochgebirgsklinik.ch",
       "title": "Pflegefachperson (w/m/d)",
       "titleByLocale": {
-        "de": "Pflegefachperson (w/m/d)",
-        "en": "Nurse (f/m/d)",
         "it": "Infermiera (f/m/d)",
+        "en": "Pflegefachperson (w/m/d)",
+        "de": "Pflegefachperson (w/m/d)",
         "fr": "Infirmière (f/m/j)"
       },
       "description": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben:\n• Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten.\n• Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital.\n• Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen:\n• Diplom als Pflegefachperson HF/FH oder gleichwertig\n• Freude an Akut- und Reha-Pflege\n• Selbstständiges, verantwortungsbewusstes Arbeiten\n• Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten:\n• Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben.\n• Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste\n• Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung.\n• Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung.\n• Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
       "descriptionByLocale": {
-        "de": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben:\n• Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten.\n• Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital.\n• Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen:\n• Diplom als Pflegefachperson HF/FH oder gleichwertig\n• Freude an Akut- und Reha-Pflege\n• Selbstständiges, verantwortungsbewusstes Arbeiten\n• Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten:\n• Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben.\n• Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste\n• Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung.\n• Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung.\n• Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
         "it": "Vuoi fare attenzione che funzioni? Nella nostra clinica di riabilitazione, accompagnerete i pazienti nel loro ritorno alla vita quotidiana – con un mix di medicina di riabilitazione e cura acuta. | Compiti:\n• Cura olistica: Lei lavora in modo medico, sociale, emotivo e funzionale.\n• Azione interdisciplinare: Physio, ergo, sport, psicologia, medici, servizio sociale e altri – insieme per il successo del trattamento.\n• Promuovi il lavoro autonomo: accompagni i pazienti nella vita quotidiana e rafforzi la fiducia del paziente nelle loro capacità.\n• Vivere vicino alla cura acuta: compiti versatili con casi emozionanti dall'ospedale acuto.\n• Co-create: Porti idee e processi di progettazione attivamente – a livello degli occhi nel team. | Requisiti:\n• Diploma come infermiera HF/FH o equivalente\n• Gioia della cura acuta e rehab\n• Lavoro indipendente, responsabile\n• Interessi di qualità, sviluppo e cooperazione interdisciplinare | Offriamo:\n• Più tempo per la cura del rapporto: piscina di accompagnamento e farmacia alleviare compiti di routine.\n• Equilibrio della vita lavorativa: Difficilmente in qualsiasi momento, servizi programmati, poco o nessun servizio notturno\n• Cultura familiare: cooperazione a livello degli occhi, cura nella gestione.\n• Energia anche dopo servizio: Più attenzione alla relazione che alla tensione fisica.\n• Divertimento: cucina mediterranea a prezzi ridotti.",
         "en": "Do you want to live care that works? In our rehabilitation clinic, you will accompany patients on their way back to everyday life – with a mix of rehabilitation medicine and acute care. | Tasks:\n• Holistic care: You work medically, socially, emotionally and functionally.\n• Interdisciplinary action: Physio, ergo, sport, psychology, doctors, social service and others – together for the success of treatment.\n• Promote self-employment: You accompany the patients back into everyday life and strengthen the patient’s confidence in their abilities.\n• Living close to acute care: versatile tasks with exciting cases from the acute hospital.\n• Co-create: You bring in ideas and actively design processes – at eye level in the team. | Requirements:\n• Diploma as nurse HF/FH or equivalent\n• Joy of acute and rehab care\n• Independent, responsible work\n• Interest in quality, development and interdisciplinary cooperation | We offer:\n• More time for relationship care: Accompanying pool and pharmacy relieve routine tasks.\n• Work-life balance: Hardly any overtime, scheduled services, little to no night services\n• Family culture: cooperation at eye level, care in the management.\n• Energy even after service: More focus on relationship than physical strain.\n• Healthily enjoy: Mediterranean cuisine at small prices.",
+        "de": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben:\n• Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten.\n• Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital.\n• Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen:\n• Diplom als Pflegefachperson HF/FH oder gleichwertig\n• Freude an Akut- und Reha-Pflege\n• Selbstständiges, verantwortungsbewusstes Arbeiten\n• Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten:\n• Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben.\n• Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste\n• Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung.\n• Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung.\n• Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
         "fr": "Tu veux vivre des soins qui marchent ? Dans notre clinique de réadaptation, vous accompagnerez les patients sur le chemin du retour à la vie quotidienne – avec un mélange de médecine de réadaptation et de soins actifs. Tâches :\n• Soins holistiques : Vous travaillez médicalement, socialement, émotionnellement et fonctionnellement.\n• Action interdisciplinaire : Physio, ergo, sport, psychologie, médecins, services sociaux et autres – ensemble pour le succès du traitement.\n• Promouvoir le travail indépendant : Vous accompagnez les patients dans la vie quotidienne et renforcez leur confiance en leurs capacités.\n• Vivre près des soins actifs : des tâches polyvalentes avec des cas passionnants de l'hôpital aigu.\n• Co-créer: Vous apportez des idées et des processus de conception active – au niveau des yeux dans l'équipe. Prescriptions:\n• Diplôme d'infirmière HF/FH ou équivalent\n• Joy de soins aigus et de rééducation\n• Travail indépendant et responsable\n• Intérêt pour la qualité, le développement et la coopération interdisciplinaire\n• Plus de temps pour les soins relationnels: Accompagner piscine et pharmacie soulage les tâches de routine.\n• Équilibre entre le travail et la vie personnelle : pratiquement toutes les heures supplémentaires, les services réguliers, peu ou pas de services de nuit\n• Culture familiale: coopération au niveau des yeux, soins dans la gestion.\n• L'énergie même après le service: Plus de concentration sur la relation que la tension physique.\n• Profitez bien : Cuisine méditerranéenne à petits prix."
       },
       "location": "Davos",
@@ -951,7 +983,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegefachperson-w-m-d/52da1727-a83d-4832-96b0-36f5a4f523dd",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.521Z",
+      "crawledAt": "2026-07-06T22:15:31.436Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -966,13 +998,30 @@
       "postedDate": "2025-11-17",
       "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/610/Application/CheckLogin/1?lang=ger",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Pflege",
       "streetAddress": "Promenade 117",
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
+      "previousSlugs": [
+        "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
+        "nurse-f-m-d-hochgebirgsklinik-davos-davos",
+        "infermiera-f-m-d-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
+          "infermiera-f-m-d-hochgebirgsklinik-davos-davos"
+        ],
+        "en": [
+          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
+          "nurse-f-m-d-hochgebirgsklinik-davos-davos"
+        ],
+        "fr": [
+          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T14:58:53.521Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -985,30 +1034,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-06T14:58:53.521Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
-        ],
-        "en": [
-          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "previousSlugs": [
-        "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
-      ]
+      "needsRetranslation": true,
+      "addressRegion": "GR"
     },
     {
       "id": "hochgebirgsklinik-davos-03c64fa60f34",
       "slug": "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
-        "de": "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
         "it": "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos",
         "en": "nursing-assistant-f-m-d-hochgebirgsklinik-davos-davos",
+        "de": "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
         "fr": "assistant-infirmier-f-m-d-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
@@ -1016,16 +1051,16 @@
       "companyDomain": "hochgebirgsklinik.ch",
       "title": "Pflegehelfer (w/m/d)",
       "titleByLocale": {
-        "de": "Pflegehelfer (w/m/d)",
         "it": "Assistente infermieristico (f/m/d)",
         "en": "Nursing assistant (f/m/d)",
+        "de": "Pflegehelfer (w/m/d)",
         "fr": "Assistant infirmier (f/m/d)"
       },
       "description": "Du arbeitest gerne in der Pflege oder möchtest in der Pflege einsteigen, da du eine Aufgabe suchst, die Sinn stiftet? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – unterstützt von einem Team, das Zusammenhalt und Wertschätzung lebt. | Aufgaben:\n• Unterstützen: Du hilfst Patientinnen und Patienten bei der Grundpflege und im Alltag.\n• Beobachten & Weitergeben: Du erkennst Veränderungen und informierst die Pflegefachpersonen.\n• Begleiten: Du bist Ansprechperson im Stationsalltag und sorgst für eine positive Atmosphäre.\n• Mitwirken: Du arbeitest eng mit Pflegefachpersonen und Therapeut:innen zusammen | Anforderungen:\n• Du hast eine abgeschlossene Ausbildung als Pflegehelfer/-in SRK oder bist bereit, diese zu absolvieren.\n• Das Wohl deiner Patient:innen ist dir am wichtigsten.\n• Du arbeitest gerne im Team und trägst viel zu einem angenehmen Arbeitsklima bei.\n• Du bist flexibel und bereit, in Schichten und an Wochenenden sowie Feiertagen zu arbeiten.\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift.\n• Du arbeitest gerne am Computer.",
       "descriptionByLocale": {
-        "de": "Du arbeitest gerne in der Pflege oder möchtest in der Pflege einsteigen, da du eine Aufgabe suchst, die Sinn stiftet? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – unterstützt von einem Team, das Zusammenhalt und Wertschätzung lebt. | Aufgaben:\n• Unterstützen: Du hilfst Patientinnen und Patienten bei der Grundpflege und im Alltag.\n• Beobachten & Weitergeben: Du erkennst Veränderungen und informierst die Pflegefachpersonen.\n• Begleiten: Du bist Ansprechperson im Stationsalltag und sorgst für eine positive Atmosphäre.\n• Mitwirken: Du arbeitest eng mit Pflegefachpersonen und Therapeut:innen zusammen | Anforderungen:\n• Du hast eine abgeschlossene Ausbildung als Pflegehelfer/-in SRK oder bist bereit, diese zu absolvieren.\n• Das Wohl deiner Patient:innen ist dir am wichtigsten.\n• Du arbeitest gerne im Team und trägst viel zu einem angenehmen Arbeitsklima bei.\n• Du bist flexibel und bereit, in Schichten und an Wochenenden sowie Feiertagen zu arbeiten.\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift.\n• Du arbeitest gerne am Computer.",
         "it": "Ti piace lavorare in allattamento o vuoi iniziare in allattamento perché stai cercando un compito che ha senso? Nella nostra clinica di riabilitazione accompagni i pazienti nel loro ritorno alla vita quotidiana – sostenuta da un team che vive coesione e apprezzamento. # Compiti:\n• Supporto: Aiuta i pazienti con cura di base e nella vita quotidiana.\n• Observe & Pass: Riconosce i cambiamenti e informa i professionisti della cura.\n• Accompagnia: Lei è la persona di contatto nella vita quotidiana della stazione e fornisce un'atmosfera positiva.\n• Lavori a stretto contatto con infermieri e terapeuti: dentro | Requisiti:\n• Avete completato l'allenamento come assistente di cura / SRK o siete pronti a completarlo.\n• Il benessere dei vostri pazienti è più importante per voi.\n• Ti piace lavorare in una squadra e contribuire molto a una piacevole atmosfera di lavoro.\n• Sei flessibile e pronto a lavorare in turni e nei fine settimana e nelle vacanze.\n• Avete una buona conoscenza del tedesco nelle parole e nella scrittura.\n• Ti piace lavorare sul computer.",
         "en": "You like to work in nursing or want to start in nursing because you are looking for a task that makes sense? In our rehabilitation clinic you accompany patients on their way back to everyday life – supported by a team that lives cohesion and appreciation. | Tasks:\n• Support: You help patients with basic care and in everyday life.\n• Observe & Pass: You recognize changes and inform the care professionals.\n• Accompany: You are the contact person in everyday station life and provide a positive atmosphere.\n• You work closely with nurses and therapists: inside | Requirements:\n• You have completed training as a nursing assistant / SRK or are ready to complete it.\n• The well-being of your patients is most important to you.\n• You enjoy working in a team and contribute a lot to a pleasant working atmosphere.\n• You are flexible and ready to work in shifts and on weekends and holidays.\n• You have good knowledge of German in words and writing.\n• You like working on the computer.",
+        "de": "Du arbeitest gerne in der Pflege oder möchtest in der Pflege einsteigen, da du eine Aufgabe suchst, die Sinn stiftet? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – unterstützt von einem Team, das Zusammenhalt und Wertschätzung lebt. | Aufgaben:\n• Unterstützen: Du hilfst Patientinnen und Patienten bei der Grundpflege und im Alltag.\n• Beobachten & Weitergeben: Du erkennst Veränderungen und informierst die Pflegefachpersonen.\n• Begleiten: Du bist Ansprechperson im Stationsalltag und sorgst für eine positive Atmosphäre.\n• Mitwirken: Du arbeitest eng mit Pflegefachpersonen und Therapeut:innen zusammen | Anforderungen:\n• Du hast eine abgeschlossene Ausbildung als Pflegehelfer/-in SRK oder bist bereit, diese zu absolvieren.\n• Das Wohl deiner Patient:innen ist dir am wichtigsten.\n• Du arbeitest gerne im Team und trägst viel zu einem angenehmen Arbeitsklima bei.\n• Du bist flexibel und bereit, in Schichten und an Wochenenden sowie Feiertagen zu arbeiten.\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift.\n• Du arbeitest gerne am Computer.",
         "fr": "Vous aimez travailler en soins infirmiers ou vous voulez commencer en soins infirmiers parce que vous cherchez une tâche qui a du sens? Dans notre clinique de réadaptation, vous accompagnez les patients sur le chemin du retour à la vie quotidienne – soutenue par une équipe qui vit la cohésion et l'appréciation. Autres Tâches :\n• Soutien: Vous aidez les patients avec des soins de base et dans la vie quotidienne.\n• Observez et passez : Vous reconnaissez les changements et informez les professionnels de soins.\n• Accompagner: Vous êtes la personne-ressource dans la vie quotidienne des stations et fournir une atmosphère positive.\n• Vous travaillez en étroite collaboration avec les infirmières et les thérapeutes : inside-\n• Vous avez terminé la formation en tant qu'assistante infirmière / SRK ou êtes prêt à la terminer.\n• Le bien-être de vos patients est très important pour vous.\n• Vous aimez travailler en équipe et contribuer beaucoup à une atmosphère de travail agréable.\n• Vous êtes flexible et prêt à travailler par équipes et les week-ends et jours fériés.\n• Vous avez une bonne connaissance de l'allemand en paroles et en écriture.\n• Tu aimes travailler sur l'ordinateur."
       },
       "location": "Davos",
@@ -1033,7 +1068,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegehelfer-w-m-d/ce60703d-7f74-4a5b-8e90-9bcd926d7f05",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.520Z",
+      "crawledAt": "2026-07-06T22:15:31.431Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1048,13 +1083,28 @@
       "postedDate": "2025-12-16",
       "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/616/Application/CheckLogin/1?lang=ger",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Pflege",
       "streetAddress": "Promenade 117",
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
+      "previousSlugs": [
+        "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
+        "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
+          "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos"
+        ],
+        "en": [
+          "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T14:58:53.520Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1067,30 +1117,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-06T14:58:53.520Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch"
-        ],
-        "en": [
-          "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "previousSlugs": [
-        "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "hochgebirgsklinik-davos-5ff7d3c95a56",
       "slug": "professionista-della-salute-f-m-d-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
-        "de": "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
         "it": "professionista-della-salute-f-m-d-hochgebirgsklinik-davos-davos",
         "en": "health-professional-f-m-d-hochgebirgsklinik-davos-davos",
+        "de": "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
         "fr": "professionnels-de-la-sante-f-m-d-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
@@ -1098,16 +1133,16 @@
       "companyDomain": "hochgebirgsklinik.ch",
       "title": "Fachperson Gesundheit (w/m/d)",
       "titleByLocale": {
-        "de": "Fachperson Gesundheit (w/m/d)",
         "it": "Professionista della Salute (f/m/d)",
         "en": "Health professional (f/m/d)",
+        "de": "Fachperson Gesundheit (w/m/d)",
         "fr": "Professionnels de la santé (f/m/d)"
       },
       "description": "Du suchst eine Tätigkeit, in der du Verantwortung übernimmst und deine Patient:innen aktiv auf ihrem Genesungsweg begleitest? In unserer Reha-Klinik arbeitest du interdisziplinär, medizinisch anspruchsvoll und mit spürbarem Erfolg. | Aufgaben:\n• Pflegen & Fördern: Du übernimmst die Pflege, Beratung und Unterstützung deiner Patient:innen.\n• Ganzheitlich handeln: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär zusammenarbeiten: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit stärken: Du begleitest die Patient:innen zurück in den Alltag. | Anforderungen:\n• Ausbildung als Fachperson Gesundheit EFZ\n• Freude an verantwortungsvoller Pflegearbeit\n• Empathie, Kommunikationsstärke und Teamgeist\n• Interesse an interdisziplinärem Austausch | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Kurze Wege, offene Kommunikation, Pflege in der Geschäftsleitung\n• Beziehungsorientiert: Zeit für Gespräche und Fortschritt\n• Gesund geniessen: Mediterrane Mahlzeiten & günstige Verpflegung\n• Freizeit: Gratis Bergbahn-Jahreskarte und Sport-/Wellnessangebote",
       "descriptionByLocale": {
-        "de": "Du suchst eine Tätigkeit, in der du Verantwortung übernimmst und deine Patient:innen aktiv auf ihrem Genesungsweg begleitest? In unserer Reha-Klinik arbeitest du interdisziplinär, medizinisch anspruchsvoll und mit spürbarem Erfolg. | Aufgaben:\n• Pflegen & Fördern: Du übernimmst die Pflege, Beratung und Unterstützung deiner Patient:innen.\n• Ganzheitlich handeln: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär zusammenarbeiten: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit stärken: Du begleitest die Patient:innen zurück in den Alltag. | Anforderungen:\n• Ausbildung als Fachperson Gesundheit EFZ\n• Freude an verantwortungsvoller Pflegearbeit\n• Empathie, Kommunikationsstärke und Teamgeist\n• Interesse an interdisziplinärem Austausch | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Kurze Wege, offene Kommunikation, Pflege in der Geschäftsleitung\n• Beziehungsorientiert: Zeit für Gespräche und Fortschritt\n• Gesund geniessen: Mediterrane Mahlzeiten & günstige Verpflegung\n• Freizeit: Gratis Bergbahn-Jahreskarte und Sport-/Wellnessangebote",
         "it": "Stai cercando un'attività in cui ti assume responsabilità e accompagni attivamente i tuoi pazienti sul loro percorso di recupero? Nella nostra clinica di riabilitazione si lavora interdisciplinare, medicalmente esigente e con notevole successo. | Compiti:\n• Infermieristica & Promuovere: Lei assume la cura, il consiglio e il sostegno dei suoi pazienti: dentro.\n• Atto olistico: Lei lavora in modo medico, sociale, emotivo e funzionale.\n• Cooperazione interdisciplinare: Physio, ergo, sport, psicologia, medici, servizio sociale e altri – insieme per il successo del trattamento.\n• Rafforzare l'autooccupazione: accompagni il paziente: all'interno della vita quotidiana. | Requisiti:\n• Salute EFZ formazione\n• Divertimento del lavoro di cura responsabile\n• Empathy, forza di comunicazione e spirito di squadra\n• Interessi in scambio interdisciplinare | Offriamo:\n• Bilancio della vita lavorativa: servizi programmati, difficilmente straordinari, poco o niente servizi notturni\n• Cultura del team: brevi distanze, comunicazione aperta, gestione\n• Rapporto orientato: tempo di conversazione e progresso\n• Godere di sano: pasti mediterranei e cibo economico\n• Tempo libero: biglietto annuale gratuito della ferrovia di montagna e offerte di benessere",
         "en": "Are you looking for an activity in which you take responsibility and actively accompany your patients on their recovery path? In our rehab clinic you work interdisciplinary, medically demanding and with noticeable success. | Tasks:\n• Nursing & Promoting: You take over the care, advice and support of your patients: inside.\n• Act holistically: You work medically, socially, emotionally and functionally.\n• Interdisciplinary cooperation: Physio, ergo, sport, psychology, doctors, social service and others – together for the success of treatment.\n• Strengthen self-employment: You accompany the patient: inside back into everyday life. | Requirements:\n• Health EFZ training\n• Enjoying responsible care work\n• Empathy, communication strength and team spirit\n• Interest in interdisciplinary exchange | We offer:\n• Work-life balance: scheduled services, hardly any overtime, little to no night services\n• Team culture: Short distances, open communication, management care\n• Relationship-oriented: Time for conversation and progress\n• Enjoying Healthy: Mediterranean Meals & Cheap Food\n• Leisure time: Free mountain railway annual ticket and sports/wellness offers",
+        "de": "Du suchst eine Tätigkeit, in der du Verantwortung übernimmst und deine Patient:innen aktiv auf ihrem Genesungsweg begleitest? In unserer Reha-Klinik arbeitest du interdisziplinär, medizinisch anspruchsvoll und mit spürbarem Erfolg. | Aufgaben:\n• Pflegen & Fördern: Du übernimmst die Pflege, Beratung und Unterstützung deiner Patient:innen.\n• Ganzheitlich handeln: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär zusammenarbeiten: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit stärken: Du begleitest die Patient:innen zurück in den Alltag. | Anforderungen:\n• Ausbildung als Fachperson Gesundheit EFZ\n• Freude an verantwortungsvoller Pflegearbeit\n• Empathie, Kommunikationsstärke und Teamgeist\n• Interesse an interdisziplinärem Austausch | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Kurze Wege, offene Kommunikation, Pflege in der Geschäftsleitung\n• Beziehungsorientiert: Zeit für Gespräche und Fortschritt\n• Gesund geniessen: Mediterrane Mahlzeiten & günstige Verpflegung\n• Freizeit: Gratis Bergbahn-Jahreskarte und Sport-/Wellnessangebote",
         "fr": "Cherchez-vous une activité dans laquelle vous prenez vos responsabilités et accompagnez activement vos patients sur leur chemin de récupération? Dans notre clinique de désintox, vous travaillez interdisciplinaire, médicalement exigeant et avec un succès remarquable. Tâches :\n• Soins infirmiers et promotion : vous prenez en charge les soins, les conseils et le soutien de vos patients : à l'intérieur.\n• Agir de façon holistique : Vous travaillez de façon médicale, sociale, émotionnelle et fonctionnelle.\n• Coopération interdisciplinaire : Physio, ergo, sport, psychologie, médecins, services sociaux et autres – ensemble pour le succès du traitement.\n• Renforcer le travail indépendant: Vous accompagnez le patient: à l'intérieur dans la vie quotidienne. Prescriptions:\n• Formation dans le domaine de la santé\n• Profitez d'un travail de soins responsable\n• Empathie, force de communication et esprit d'équipe\n• Intérêt pour les échanges interdisciplinaires\n• Équilibre entre vie professionnelle et vie privée : services réguliers, pratiquement pas d'heures supplémentaires, peu ou pas de services de nuit\n• Culture d'équipe: De courtes distances, communication ouverte, soins de gestion\n• Relations : Temps de conversation et de progrès\n• Profitez de la santé: repas méditerranéens et des aliments bon marché\n• Loisirs: billet annuel gratuit et offres de sports/bien-être"
       },
       "location": "Davos",
@@ -1115,7 +1150,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachperson-gesundheit-w-m-d/14775039-62be-49b3-bf6f-6bfc07902e8d",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.519Z",
+      "crawledAt": "2026-07-06T22:15:31.428Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1130,13 +1165,96 @@
       "postedDate": "2025-11-17",
       "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/609/Application/CheckLogin/1?lang=ger",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Pflege",
       "streetAddress": "Promenade 117",
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
+      "previousSlugs": [
+        "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
+        "professionista-della-salute-f-m-d-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
+          "professionista-della-salute-f-m-d-hochgebirgsklinik-davos-davos"
+        ],
+        "en": [
+          "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T14:58:53.519Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-57aa243b3de1",
+      "slug": "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+      "slugByLocale": {
+        "de": "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+        "it": "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+        "en": "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+        "fr": "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Service-Aushilfe auf Stundenbasis",
+      "titleByLocale": {
+        "de": "Service-Aushilfe auf Stundenbasis",
+        "it": "Service-Aushilfe auf Stundenbasis",
+        "en": "Service-Aushilfe auf Stundenbasis",
+        "fr": "Service-Aushilfe auf Stundenbasis"
+      },
+      "description": "Zur Verstärkung unseres Serviceteams suchen wir per sofort oder nach Vereinbarung eine motivierte Service-Aushilfe auf Stundenbasis | Aufgaben:\n• Mitarbeit im Frühstücks-, Mittags- und Abendservice\n• Herzliche Betreuung unserer Patientinnen und Patienten sowie Gäste\n• Unterstützung bei internen und externen Anlässen\n• Unterstützung des Serviceteams im täglichen Betrieb | Anforderungen:\n• Freude an der Arbeit im Service (Berufserfahrung von Vorteil)\n• Freude am Umgang mit Patientinnen und Patienten sowie Gästen\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Belastbarkeit, Flexibilität und Teamfähigkeit\n• Gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Flexible Einsätze auf Stundenbasis\n• Abwechslungsreiche und sinnstiftende Tätigkeit\n• Moderne Arbeitsmittel und ein kollegiales Team\n• Attraktive Anstellungsbedingungen und gute Sozialleistungen",
+      "descriptionByLocale": {
+        "de": "Zur Verstärkung unseres Serviceteams suchen wir per sofort oder nach Vereinbarung eine motivierte Service-Aushilfe auf Stundenbasis | Aufgaben:\n• Mitarbeit im Frühstücks-, Mittags- und Abendservice\n• Herzliche Betreuung unserer Patientinnen und Patienten sowie Gäste\n• Unterstützung bei internen und externen Anlässen\n• Unterstützung des Serviceteams im täglichen Betrieb | Anforderungen:\n• Freude an der Arbeit im Service (Berufserfahrung von Vorteil)\n• Freude am Umgang mit Patientinnen und Patienten sowie Gästen\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Belastbarkeit, Flexibilität und Teamfähigkeit\n• Gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Flexible Einsätze auf Stundenbasis\n• Abwechslungsreiche und sinnstiftende Tätigkeit\n• Moderne Arbeitsmittel und ein kollegiales Team\n• Attraktive Anstellungsbedingungen und gute Sozialleistungen",
+        "it": "Zur Verstärkung unseres Serviceteams suchen wir per sofort oder nach Vereinbarung eine motivierte Service-Aushilfe auf Stundenbasis | Aufgaben:\n• Mitarbeit im Frühstücks-, Mittags- und Abendservice\n• Herzliche Betreuung unserer Patientinnen und Patienten sowie Gäste\n• Unterstützung bei internen und externen Anlässen\n• Unterstützung des Serviceteams im täglichen Betrieb | Anforderungen:\n• Freude an der Arbeit im Service (Berufserfahrung von Vorteil)\n• Freude am Umgang mit Patientinnen und Patienten sowie Gästen\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Belastbarkeit, Flexibilität und Teamfähigkeit\n• Gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Flexible Einsätze auf Stundenbasis\n• Abwechslungsreiche und sinnstiftende Tätigkeit\n• Moderne Arbeitsmittel und ein kollegiales Team\n• Attraktive Anstellungsbedingungen und gute Sozialleistungen",
+        "en": "Zur Verstärkung unseres Serviceteams suchen wir per sofort oder nach Vereinbarung eine motivierte Service-Aushilfe auf Stundenbasis | Aufgaben:\n• Mitarbeit im Frühstücks-, Mittags- und Abendservice\n• Herzliche Betreuung unserer Patientinnen und Patienten sowie Gäste\n• Unterstützung bei internen und externen Anlässen\n• Unterstützung des Serviceteams im täglichen Betrieb | Anforderungen:\n• Freude an der Arbeit im Service (Berufserfahrung von Vorteil)\n• Freude am Umgang mit Patientinnen und Patienten sowie Gästen\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Belastbarkeit, Flexibilität und Teamfähigkeit\n• Gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Flexible Einsätze auf Stundenbasis\n• Abwechslungsreiche und sinnstiftende Tätigkeit\n• Moderne Arbeitsmittel und ein kollegiales Team\n• Attraktive Anstellungsbedingungen und gute Sozialleistungen",
+        "fr": "Zur Verstärkung unseres Serviceteams suchen wir per sofort oder nach Vereinbarung eine motivierte Service-Aushilfe auf Stundenbasis | Aufgaben:\n• Mitarbeit im Frühstücks-, Mittags- und Abendservice\n• Herzliche Betreuung unserer Patientinnen und Patienten sowie Gäste\n• Unterstützung bei internen und externen Anlässen\n• Unterstützung des Serviceteams im täglichen Betrieb | Anforderungen:\n• Freude an der Arbeit im Service (Berufserfahrung von Vorteil)\n• Freude am Umgang mit Patientinnen und Patienten sowie Gästen\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Belastbarkeit, Flexibilität und Teamfähigkeit\n• Gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Flexible Einsätze auf Stundenbasis\n• Abwechslungsreiche und sinnstiftende Tätigkeit\n• Moderne Arbeitsmittel und ein kollegiales Team\n• Attraktive Anstellungsbedingungen und gute Sozialleistungen"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/service-aushilfe-auf-stundenbasis/2eae9f26-33fb-4d8b-8173-43c74cb3ff04",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T22:15:31.425Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/655/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Küche/Service",
+      "streetAddress": "Promenade 117",
+      "contactPerson": "Thomas Fischer",
+      "contactPhone": "0814173078",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1150,21 +1268,7 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-06T14:58:53.519Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch"
-        ],
-        "en": [
-          "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch"
-      ]
+      "firstSeenAt": "2026-07-06T22:15:31.425Z"
     },
     {
       "id": "hochgebirgsklinik-davos-1eb1f02ec731",
@@ -1173,7 +1277,7 @@
         "it": "hr-business-partner-m-w-d-50-100-hochgebirgsklinik-davos-ch",
         "en": "hr-business-partner-m-w-d-50-100-hochgebirgsklinik-davos-ch",
         "de": "hr-business-partner-m-w-d-50-100-hochgebirgsklinik-davos-ch",
-        "fr": "partenaire-d-affaires-rh-m-f-j-50-100-hochgebirgsklinik-davos-davos"
+        "fr": "hr-business-partner-m-w-d-50-100-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1183,7 +1287,7 @@
         "it": "Risorse Umane-Business Partner (m/w/d) 50–100 %",
         "en": "HR Business Partner (m/f/d) 50-100%",
         "de": "Personalwesen-Business Partner (m/w/d) 50–100 %",
-        "fr": "Partenaire d'affaires RH (m/f/j) 50-100%"
+        "fr": "HR-Business Partner (m/w/d) 50–100 %"
       },
       "description": "Mensch und Kultur. Die Hochgebirgsklinik Davos wächst – und unser HR wächst mit. Deshalb bauen wir unsere Personalarbeit Schritt für Schritt weiter aus: moderner, digitaler und zukunftsorientierter. Unser HR-Team befindet sich mitten in einer spannenden Entwicklungsphase: Wir bauen Prozesse und digitale Tools auf, schärfen Strukturen und schaffen Standards, die langfristig funktionieren. Das bedeutet: Nicht alles ist bereits perfekt – aber genau darin liegt die Chance. Du kannst mitgestalten, Ideen einbringen und Veränderungen aktiv vorantreiben. Wenn du Freude daran hast, Verantwortung zu übernehmen, pragmatische Lösungen zu finden und gemeinsam mit einem motivierten Team etwas aufzubauen, dann bist du bei uns genau richtig. Bei uns gestaltest du nicht nur HR-Prozesse – sondern die Zukunft unserer Personalarbeit. | Aufgaben:\n• Beraten und begleiten : Du bist kompetente Ansprechperson für Mitarbeitende und Sparringpartner/-in für Führungspersonen. Personalentwicklung von den Lehrlingen bis zu den Führungskräften ist für dich eine Herzenssache.\n• Gestalten statt abarbeiten : Du packst an beim Aufbau eines «Best-Class Human Resources Management» – mit Ideen, Pragmatismus und Herzblut. Employee Self Service und Management Self Service sind dir geläufige Begriffe. Du bringst deine Erfahrung lösungsorientiert ein.\n• Zahlen und Prozesse : Du optimierst gerne Prozesse und bringst dich mit Zahlenflair bei der Lohnbuchhaltung mit ein (ABACUS).\n• Systemaffinitä t: Du betreust und berätst rund um das Zeiterfassungssystem Polypoint und trägst zu reibungslosen Abläufen bei.\n• Teamplayer : Ferienvertretung, Transparenz, Offenheit und gegenseitige Unterstützung sind für dich selbstverständlich. | Anforderungen:\n• Fundiertes Know-how : Du hast eine universitäre Aus- und Weiterbildung im Bereich Human Resources Management oder bist eine ausgewiesene HR-Fachfrau oder ein HR-Fachmann.\n• Praxis im Gesundheitswesen : Wünschenswert ist Erfahrung im Gesundheitswesen (Klinik oder ähnliches Umfeld).\n• Expertise : Mehrjährige Berufserfahrung im HR-Management, eine ausgeprägte dienstleistungsorientierte Haltung.\n• Ruhe und Überblick : Auch in hektischen Momenten bleibst du fokussiert, lösungsorientiert und verlierst nie den Sinn für Humor.",
       "descriptionByLocale": {
@@ -1197,7 +1301,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjU0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.518Z",
+      "crawledAt": "2026-07-06T22:15:31.423Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1221,6 +1325,14 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "firstSeenAt": "2026-07-03T11:26:56.381Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "partenaire-d-affaires-rh-m-f-j-50-100-hochgebirgsklinik-davos-davos"
+        ]
+      },
+      "previousSlugs": [
+        "partenaire-d-affaires-rh-m-f-j-50-100-hochgebirgsklinik-davos-davos"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1239,9 +1351,9 @@
       "id": "hochgebirgsklinik-davos-4ad37e4931fb",
       "slug": "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
-        "de": "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
         "it": "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos",
         "en": "team-management-care-cardiology-f-m-d-80-100-hochgebirgsklinik-davos-davos",
+        "de": "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
         "fr": "gestion-d-equipe-cardiologie-des-soins-f-m-j-80-100-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
@@ -1249,16 +1361,16 @@
       "companyDomain": "hochgebirgsklinik.ch",
       "title": "Teamleitung Pflege Kardiologie (w/m/d) 80-100%",
       "titleByLocale": {
-        "de": "Teamleitung Pflege Kardiologie (w/m/d) 80-100%",
         "it": "Gestione del team Cura cardiologia (f/m/d) 80-100 %",
         "en": "Team management Care cardiology (f/m/d) 80-100 %",
+        "de": "Teamleitung Pflege Kardiologie (w/m/d) 80-100%",
         "fr": "Gestion d'équipe Cardiologie des soins (f/m/j) 80-100 %"
       },
       "description": "Als Teamleitung unseres Pflegeteams der kardialen Rehabilitation führst und unterstützt du dein Team im anspruchsvollen Pflegealltag und sorgst gemeinsam für eine professionelle, empathische Betreuung unserer Patient:innen. Das Team begleitet Menschen ganzheitlich durch den Rehabilitationsprozess, bereitet sie auf einen selbständigen Alltag vor und arbeitet dabei eng mit Ärzt:innen, Therapeut:innen und weiteren Fachpersonen zusammen. Start: ab August 2026 oder nach Vereinbarung. | Aufgaben:\n• Führen und fördern: Fachliche und personelle Führung von ca. 25 Mitarbeitenden (ca. 40% direkte Führungsaufgaben)\n• Zusammenarbeit prägen: Du unterstützt dein Team und arbeitest eng mit der Leitung Pflege und den Ärzt:innen zusammen\n• Pflege leben: Aktive Mitarbeit in der Pflege sowie Ansprechperson für Angehörige und weiterführende Institutionen\n• Selbständigkeit stärken: Du begleitest Patient:innen zurück in den Alltag in Selbständigkeit\n• Mitgestalten: Du integrierst die strategischen und wirtschaftlichen Ziele des Unternehmens in den Arbeitsalltag des Teams | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH\n• Führungsausbildung oder die Bereitschaft, diese zu absolvieren\n• Hohe Sozialkompetenz sowie selbständige und zuverlässige Arbeitsweise\n• Freude an der Übernahme von Verantwortung\n• Führungserfahrung von Vorteil\n• Erfahrung in der Rehabilitation von Vorteil\n• Gute EDV-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Zusammenarbeit auf Augenhöhe, offene Kommunikation, Pflege in der Geschäftsleitung\n• Gesund geniessen: Mediterrane Mahlzeiten zu subventionierten Mitarbeiter-Preisen\n• Freizeit: Gratis Bergbahn-Jahreskarte und günstige Sport-/Wellnessangebote",
       "descriptionByLocale": {
-        "de": "Als Teamleitung unseres Pflegeteams der kardialen Rehabilitation führst und unterstützt du dein Team im anspruchsvollen Pflegealltag und sorgst gemeinsam für eine professionelle, empathische Betreuung unserer Patient:innen. Das Team begleitet Menschen ganzheitlich durch den Rehabilitationsprozess, bereitet sie auf einen selbständigen Alltag vor und arbeitet dabei eng mit Ärzt:innen, Therapeut:innen und weiteren Fachpersonen zusammen. Start: ab August 2026 oder nach Vereinbarung. | Aufgaben:\n• Führen und fördern: Fachliche und personelle Führung von ca. 25 Mitarbeitenden (ca. 40% direkte Führungsaufgaben)\n• Zusammenarbeit prägen: Du unterstützt dein Team und arbeitest eng mit der Leitung Pflege und den Ärzt:innen zusammen\n• Pflege leben: Aktive Mitarbeit in der Pflege sowie Ansprechperson für Angehörige und weiterführende Institutionen\n• Selbständigkeit stärken: Du begleitest Patient:innen zurück in den Alltag in Selbständigkeit\n• Mitgestalten: Du integrierst die strategischen und wirtschaftlichen Ziele des Unternehmens in den Arbeitsalltag des Teams | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH\n• Führungsausbildung oder die Bereitschaft, diese zu absolvieren\n• Hohe Sozialkompetenz sowie selbständige und zuverlässige Arbeitsweise\n• Freude an der Übernahme von Verantwortung\n• Führungserfahrung von Vorteil\n• Erfahrung in der Rehabilitation von Vorteil\n• Gute EDV-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Zusammenarbeit auf Augenhöhe, offene Kommunikation, Pflege in der Geschäftsleitung\n• Gesund geniessen: Mediterrane Mahlzeiten zu subventionierten Mitarbeiter-Preisen\n• Freizeit: Gratis Bergbahn-Jahreskarte und günstige Sport-/Wellnessangebote",
         "it": "Come team leader del nostro team di cura per la riabilitazione cardiaca, guidi e supporti il tuo team nell'assistenza quotidiana impegnativa e insieme fornisci assistenza professionale ed empatica per i nostri pazienti. Il team accompagna le persone in modo olistico attraverso il processo di riabilitazione, li prepara per una vita quotidiana indipendente e lavora a stretto contatto con medici, terapisti e altri specialisti. Inizio: da agosto 2026 o per accordo. | Compiti:\n• Leadership e promozione: gestione professionale e del personale di circa 25 dipendenti (circa il 40% delle attività di gestione diretta)\n• Forma cooperazione: Lei sostiene il vostro team e lavora a stretto contatto con la cura di gestione e i medici:\n• Vita di cura: Partecipazione attiva alla cura e persona di contatto per parenti e ulteriori istituzioni\n• Rafforzamento del lavoro autonomo: accompagni il paziente: torna alla vita di tutti i giorni nell'autooccupazione\n• Co-shape: Integra gli obiettivi strategici ed economici dell'azienda nel lavoro quotidiano del team | Requisiti:\n• Allenamento completato come Dipl. Cura professionale HF/FH\n• Formazione di leadership o volontà di completarlo\n• Alta competenza sociale e metodi di lavoro indipendenti e affidabili\n• Gioia nel prendere la responsabilità\n• L'esperienza di leadership è utile\n• L'esperienza nella riabilitazione è benefica\n• Buona conoscenza dell'utente del computer\n• Molto buona conoscenza del tedesco in parola e scrittura | Offriamo:\n• Bilancio della vita lavorativa: servizi programmati, difficilmente straordinari, poco o niente servizi notturni\n• Cultura di squadra: cooperazione a livello degli occhi, comunicazione aperta, cura nella gestione\n• Divertimento sano: pasti mediterranei ai prezzi dei dipendenti sottosidizzati\n• Tempo libero: biglietto annuale gratuito della ferrovia di montagna e offerte di sport/wellness convenienti",
         "en": "As team leader of our caring team for cardiac rehabilitation, you lead and support your team in demanding day-to-day care and together provide professional, empathetic care for our patients. The team accompanies people holistically through the rehabilitation process, prepares them for an independent everyday life and works closely with doctors, therapists and other specialists. Start: from August 2026 or by arrangement. | Tasks:\n• Leadership and promotion: Professional and personnel management of approximately 25 employees (about 40% direct management tasks)\n• Shape cooperation: You support your team and work closely with the management care and the doctors:\n• Care living: Active participation in care as well as contact person for relatives and further institutions\n• Strengthening self-employment: You accompany the patient: back into everyday life in self-employment\n• Co-shape: You integrate the strategic and economic goals of the company into the daily work of the team | Requirements:\n• Completed training as a Dipl. Care professional HF/FH\n• Leadership training or willingness to complete it\n• High social competence and independent and reliable working methods\n• Joy in Taking Responsibility\n• Leadership experience is beneficial\n• Experience in rehabilitation is beneficial\n• Good computer user knowledge\n• Very good knowledge of German in word and writing | We offer:\n• Work-life balance: scheduled services, hardly any overtime, little to no night services\n• Team culture: cooperation at eye level, open communication, care in the management\n• Healthy Enjoyment: Mediterranean Meals at Subsidized Employee Prices\n• Leisure time: Free mountain railway annual ticket and affordable sports/wellness offers",
+        "de": "Als Teamleitung unseres Pflegeteams der kardialen Rehabilitation führst und unterstützt du dein Team im anspruchsvollen Pflegealltag und sorgst gemeinsam für eine professionelle, empathische Betreuung unserer Patient:innen. Das Team begleitet Menschen ganzheitlich durch den Rehabilitationsprozess, bereitet sie auf einen selbständigen Alltag vor und arbeitet dabei eng mit Ärzt:innen, Therapeut:innen und weiteren Fachpersonen zusammen. Start: ab August 2026 oder nach Vereinbarung. | Aufgaben:\n• Führen und fördern: Fachliche und personelle Führung von ca. 25 Mitarbeitenden (ca. 40% direkte Führungsaufgaben)\n• Zusammenarbeit prägen: Du unterstützt dein Team und arbeitest eng mit der Leitung Pflege und den Ärzt:innen zusammen\n• Pflege leben: Aktive Mitarbeit in der Pflege sowie Ansprechperson für Angehörige und weiterführende Institutionen\n• Selbständigkeit stärken: Du begleitest Patient:innen zurück in den Alltag in Selbständigkeit\n• Mitgestalten: Du integrierst die strategischen und wirtschaftlichen Ziele des Unternehmens in den Arbeitsalltag des Teams | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH\n• Führungsausbildung oder die Bereitschaft, diese zu absolvieren\n• Hohe Sozialkompetenz sowie selbständige und zuverlässige Arbeitsweise\n• Freude an der Übernahme von Verantwortung\n• Führungserfahrung von Vorteil\n• Erfahrung in der Rehabilitation von Vorteil\n• Gute EDV-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Zusammenarbeit auf Augenhöhe, offene Kommunikation, Pflege in der Geschäftsleitung\n• Gesund geniessen: Mediterrane Mahlzeiten zu subventionierten Mitarbeiter-Preisen\n• Freizeit: Gratis Bergbahn-Jahreskarte und günstige Sport-/Wellnessangebote",
         "fr": "En tant que chef d'équipe de notre équipe soignante pour la réadaptation cardiaque, vous dirigez et soutenez votre équipe dans les soins quotidiens exigeants et offrez ensemble des soins professionnels et empathiques à nos patients. L'équipe accompagne les personnes de façon holistique par le processus de réadaptation, les prépare à une vie quotidienne indépendante et travaille en étroite collaboration avec les médecins, les thérapeutes et d'autres spécialistes. Début: à partir d'août 2026 ou par arrangement. Tâches :\n• Leadership et promotion : Gestion professionnelle et du personnel d'environ 25 employés (environ 40 % des tâches de gestion directe)\n• Formez la coopération : Vous soutenez votre équipe et travaillez en étroite collaboration avec les soins de gestion et les médecins :\n• Vie de famille: Participation active aux soins ainsi qu'à la personne-ressource pour les parents et autres institutions\n• Renforcement du travail indépendant: Vous accompagnez le patient: retour dans la vie quotidienne dans le travail indépendant\n• Co-forme: Vous intégrez les objectifs stratégiques et économiques de l'entreprise dans le travail quotidien de l'équipe.\n• Formation terminée en tant que diplômé. Soins professionnels HF/FH\n• Formation en leadership ou volonté de la compléter\n• Haute compétence sociale et méthodes de travail indépendantes et fiables\n• La joie de prendre la responsabilité\n• L'expérience de leadership est bénéfique\n• L'expérience de la réadaptation est bénéfique\n• Bonne connaissance de l'utilisateur d'ordinateur\n• Très bonne connaissance de l'allemand dans la parole et l'écriture.\n• Équilibre entre vie professionnelle et vie privée : services réguliers, pratiquement pas d'heures supplémentaires, peu ou pas de services de nuit\n• Culture d'équipe: coopération au niveau des yeux, communication ouverte, soins dans la gestion\n• Bien-être : repas méditerranéens aux prix subventionnés des employés\n• Loisirs: billet annuel gratuit pour les chemins de fer de montagne et offres de sports/wellness abordables"
       },
       "location": "Davos",
@@ -1266,7 +1378,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/teamleitung-pflege-kardiologie-w-m-d-80-100/7a96b7e9-b155-4c7b-aecf-9cf71bac3290",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.516Z",
+      "crawledAt": "2026-07-06T22:15:31.421Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1281,9 +1393,7 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/645/Application/CheckLogin/1?lang=ger",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Pflege",
       "streetAddress": "Promenade 117",
       "pensumMin": 80,
@@ -1291,6 +1401,23 @@
       "pensum": "80 - 100%",
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
+      "previousSlugs": [
+        "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+        "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+          "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos"
+        ],
+        "en": [
+          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T14:58:53.516Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1303,22 +1430,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-06T14:58:53.516Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch"
-        ],
-        "en": [
-          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "previousSlugs": [
-        "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "hochgebirgsklinik-davos-cc3a79472545",
@@ -1351,7 +1463,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.515Z",
+      "crawledAt": "2026-07-06T22:15:31.419Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1375,11 +1487,13 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
+        "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
+        "assistente-medico-cardiologo-m-f-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
+          "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
+          "assistente-medico-cardiologo-m-f-100-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
@@ -1434,7 +1548,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.512Z",
+      "crawledAt": "2026-07-06T22:15:31.417Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1458,11 +1572,13 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
+        "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "assistente-medico-pneumologia-m-f-d-100-dal-1-gennaio-2027-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
+          "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
+          "assistente-medico-pneumologia-m-f-d-100-dal-1-gennaio-2027-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
@@ -1517,7 +1633,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.510Z",
+      "crawledAt": "2026-07-06T22:15:31.415Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1541,11 +1657,13 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
+        "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "assistente-medico-pneumologia-m-f-d-100-01-gennaio-2027-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
+          "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+          "assistente-medico-pneumologia-m-f-d-100-01-gennaio-2027-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
@@ -1555,6 +1673,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T11:51:46.132Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1600,7 +1719,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T14:58:53.500Z",
+      "crawledAt": "2026-07-06T22:15:31.395Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1619,11 +1738,13 @@
       "department": "Ausbildung",
       "streetAddress": "Promenade 117",
       "previousSlugs": [
-        "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
+        "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
+        "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
+          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
+          "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos"
         ],
         "en": [
           "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
@@ -1645,7 +1766,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "hochgebirgsklinik-davos-c634b3960b3a",
@@ -1662,7 +1784,7 @@
       "title": "Pflegefachperson (w/m/d)",
       "titleByLocale": {
         "it": "Assistente sanitario (m/f/d)",
-        "en": "Nurse (f/m/d)",
+        "en": "Pflegefachperson (w/m/d)",
         "de": "Pflegefachperson (w/m/d)",
         "fr": "Aide-soignant (m/f/d)"
       },
@@ -1742,7 +1864,8 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "hochgebirgsklinik-davos-03c64fa60f34",
@@ -1842,7 +1965,8 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "hochgebirgsklinik-davos-5ff7d3c95a56",
@@ -1944,7 +2068,8 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "hochgebirgsklinik-davos-4ad37e4931fb",
@@ -2028,7 +2153,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
