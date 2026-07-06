@@ -1,20 +1,532 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-07-06T00:36:27.393Z",
-  "total": 61,
-  "newCount": 0,
+  "generatedAt": "2026-07-06T15:37:05.970Z",
+  "total": 59,
+  "newCount": 6,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 61,
-  "durationMs": 40666,
-  "avgDurationMs": 40666,
+  "removedCount": 8,
+  "unchangedCount": 53,
+  "durationMs": 41279,
+  "avgDurationMs": 41279,
   "durationHistory": [
-    40666
+    41279
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136025689-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136025689-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Beromünster",
+      "addressLocality": "Beromünster",
+      "addressRegion": "LU",
+      "canton": "LU",
+      "country": "CH",
+      "postalCode": "6222",
+      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-07-06",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "LU",
+        "location": "Beromünster"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136025409-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136025409-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Egerkingen",
+      "addressLocality": "Egerkingen",
+      "addressRegion": "SO",
+      "canton": "SO",
+      "country": "CH",
+      "postalCode": "4622",
+      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-07-06",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SO",
+        "location": "Egerkingen"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136024674-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136024674-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Reinach",
+      "addressLocality": "Reinach",
+      "addressRegion": "AG",
+      "canton": "AG",
+      "country": "CH",
+      "postalCode": "5734",
+      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-07-06",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Reinach"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136005199-medizinische-praxisassistentinnen-mpa-w-m-d",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136005199-medizinische-praxisassistentinnen-mpa-w-m-d?oga=true",
+      "title": "Medizinische Praxisassistentinnen (MPA) w/m/d",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Biel",
+      "addressLocality": "Biel",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2502",
+      "slug": "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-07-06",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Biel"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135978059-dipl-pflegefachperson-bettenstation-stundenlohn",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135978059-dipl-pflegefachperson-bettenstation-stundenlohn?oga=true",
+      "title": "Dipl. Pflegefachperson Bettenstation Stundenlohn",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Basel",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "canton": "BS",
+      "country": "CH",
+      "postalCode": "4051",
+      "slug": "dipl-pflegefachperson-bettenstation-stundenlohn-swiss-medical-network",
+      "category": "nursing",
+      "datePosted": "2026-07-06",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BS",
+        "location": "Basel"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135954694-teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135954694-teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-?oga=true",
+      "title": "Teamleitung Gastroenterologie Dipl. Pflegefachperson (HF/FH)/Medizinische Praxisassistenz 60-80%",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "3006",
+      "slug": "teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-swiss-medical-network",
+      "category": "nursing",
+      "datePosted": "2026-07-06",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    }
+  ],
   "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000129497007-secretaire-medical-e-en-radiologie",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000129497007-secretaire-medical-e-en-radiologie?oga=true",
+      "title": "Secrétaire médical(e) en radiologie",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Genolier",
+      "addressLocality": "Genolier",
+      "addressRegion": "VD",
+      "canton": "VD",
+      "country": "CH",
+      "postalCode": "1272",
+      "slug": "segretario-medico-in-radiologia-swiss-medical-network-genolier",
+      "category": "healthcare",
+      "datePosted": "2026-07-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Genolier"
+      },
+      "sourceLang": "fr",
+      "addressCountry": "CH",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-02T12:27:49.670Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000127000507-medecin-cadre-en-medecine-interne-h-f-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000127000507-medecin-cadre-en-medecine-interne-h-f-?oga=true",
+      "title": "Médecin cadre en médecine interne (H/F)",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Moutier",
+      "addressLocality": "Moutier",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2740",
+      "slug": "ufficiale-medico-in-medicina-interna-h-f-swiss-medical-network-moutier",
+      "category": "medical",
+      "datePosted": "2026-06-29",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Moutier"
+      },
+      "sourceLang": "fr",
+      "addressCountry": "CH",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000125779039-medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000125779039-medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-?oga=true",
+      "title": "Médecin adjoint(e) en Psychiatrie bilingue (allemand - français)",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Biel",
+      "addressLocality": "Biel",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2502",
+      "slug": "assistente-dottore-in-psichiatria-bilingue-tedesco-francese-swiss-medical-network-biel",
+      "category": "medical",
+      "datePosted": "2026-06-29",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Biel"
+      },
+      "sourceLang": "fr",
+      "addressCountry": "CH",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124902800-medico-radiologo",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124902800-medico-radiologo?oga=true",
+      "title": "Medico Radiologo",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6900",
+      "slug": "medico-radiologo-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-06-29",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "sourceLang": "it",
+      "addressCountry": "CH",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124361305-dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124361305-dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie?oga=true",
+      "title": "Dipl. Pflegefachperson HF/FH 50-100% für eine Interdisziplinäre Bettenstation mit Schwerpunkt Orthopädie und Kardiologie",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "canton": "ZH",
+      "country": "CH",
+      "postalCode": "8044",
+      "slug": "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-swiss-medical-network",
+      "category": "nursing",
+      "datePosted": "2026-06-29",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124360105-hygieneverantwortliche-r-60-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124360105-hygieneverantwortliche-r-60-?oga=true",
+      "title": "Hygieneverantwortliche/r (60%)",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "canton": "ZH",
+      "country": "CH",
+      "postalCode": "8044",
+      "slug": "hygieneverantwortliche-r-60-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-06-29",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "salaryMin": 54900,
+      "salaryMax": 76800,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000121060357-medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000121060357-medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung?oga=true",
+      "title": "Medizintechnik Ingenieur, spezialisiert auf medizinische Bildgebung",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "canton": "ZH",
+      "country": "CH",
+      "postalCode": "8044",
+      "slug": "ingegnere-medico-specializzato-in-imaging-medico-swiss-medical-network-zurich",
+      "category": "technical",
+      "datePosted": "2026-06-29",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000121058674-produkt-owner-informationssysteme-der-ambulanten-zentren",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000121058674-produkt-owner-informationssysteme-der-ambulanten-zentren?oga=true",
+      "title": "Produkt Owner: Informationssysteme der ambulanten Zentren",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Opfikon",
+      "addressLocality": "Opfikon",
+      "addressRegion": "ZH",
+      "canton": "ZH",
+      "country": "CH",
+      "postalCode": "8152",
+      "slug": "proprietario-del-prodotto-sistemi-informativi-dei-centri-ambulatoriali-swiss-medical-network-opfikon",
+      "category": "technology",
+      "datePosted": "2026-06-29",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Opfikon"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135736109-dipl-pflegefachperson-bettenstation-40-50-",
@@ -45,11 +557,13 @@
       "salaryMax": 47000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-03T23:26:06.810Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -82,11 +596,13 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-02T23:06:28.617Z",
-      "_qualityScore": 72,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 17,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -119,11 +635,13 @@
       "salaryMax": 94000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-02T23:06:28.617Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -156,11 +674,13 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-02T12:27:49.670Z",
-      "_qualityScore": 79,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -193,11 +713,13 @@
       "salaryMax": 120500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-01T13:12:06.976Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -230,11 +752,13 @@
       "salaryMax": 73000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-30T12:39:06.160Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -267,11 +791,13 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-30T12:39:06.160Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -304,11 +830,13 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-30T12:39:06.160Z",
-      "_qualityScore": 79,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -341,11 +869,13 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-30T12:39:06.160Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -378,11 +908,13 @@
       "salaryMax": 120500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-30T12:39:06.160Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -415,11 +947,13 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -452,11 +986,13 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -489,11 +1025,13 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -563,11 +1101,13 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -600,11 +1140,13 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -637,11 +1179,13 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -674,11 +1218,13 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -711,11 +1257,13 @@
       "salaryMax": 120500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -748,11 +1296,13 @@
       "salaryMax": 94000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 79,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -785,11 +1335,13 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 79,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -822,11 +1374,13 @@
       "salaryMax": 69600,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -859,11 +1413,13 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -896,11 +1452,13 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -970,11 +1528,13 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1007,11 +1567,13 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1044,11 +1606,13 @@
       "salaryMax": 120500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1118,11 +1682,13 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-30T12:39:06.160Z",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     }
