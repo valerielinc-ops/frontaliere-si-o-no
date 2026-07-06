@@ -1,6 +1,6 @@
 {
   "crawlerKey": "casale",
-  "assembledAt": "2026-07-05T22:21:32.137Z",
+  "assembledAt": "2026-07-06T13:19:27.873Z",
   "jobs": [
     {
       "url": "https://recruit.casale.ch/o/junior-software-engineer-internship-program",
@@ -60,6 +60,8 @@
         }
       },
       "firstSeenAt": "2026-06-29T21:57:33.193Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0,
       "previousSlugsByLocale": {
         "it": [
           "junior-software-engineer-internship-program-casale-lugano"
@@ -67,9 +69,7 @@
       },
       "previousSlugs": [
         "junior-software-engineer-internship-program-casale-lugano"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      ]
     },
     {
       "url": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc",
@@ -139,9 +139,9 @@
         ]
       },
       "previousSlugs": [
-        "apprendistato-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-sa-lugano",
-        "apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-lugano"
-      ]
+        "apprendistato-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-sa-lugano"
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://recruit.casale.ch/o/expediter-1",
@@ -220,10 +220,10 @@
           "spedizione-casale-sa-lugano"
         ],
         "en": [
-          "expediter-casale-sa-lugano-ticino-qj6jpx",
           "expediter-casale-sa-lugano-ticino",
           "search-casale-sa-lugano-ticino",
-          "expediter-casale-sa-lugano"
+          "expediter-casale-sa-lugano",
+          "expediter-casale-sa-lugano-ticino-qj6jpx"
         ],
         "de": [
           "expediter-casale-sa-lugano-ticino-qj6jpx",
@@ -307,8 +307,7 @@
         ]
       },
       "previousSlugs": [
-        "home-office-construction-ingegnere-casale-sa-lugano",
-        "home-office-construction-engineer-casale-lugano"
+        "home-office-construction-ingegnere-casale-sa-lugano"
       ]
     }
   ]
