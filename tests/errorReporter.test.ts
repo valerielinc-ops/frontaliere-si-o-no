@@ -148,6 +148,23 @@ describe('reportCaughtError', () => {
       expect(Analytics.trackAppError).not.toHaveBeenCalled();
     });
 
+    it('drops AbortError caught in try/catch (name-prefixed pattern match)', () => {
+      // Browsers produce DOMException with name='AbortError' when a fetch is aborted
+      // via AbortController. error.message is the bare string without the name prefix,
+      // so isBenignErrorMessage(error.message) alone misses the /AbortError:…/ pattern.
+      // The fix in reportCaughtError builds "AbortError: The user aborted a request."
+      // before checking, so the pattern now matches and the error is suppressed.
+      const abort = Object.assign(new Error('The user aborted a request.'), { name: 'AbortError' });
+      reportCaughtError(abort, 'exchangeRate.frankfurterFallback');
+      expect(Analytics.trackAppError).not.toHaveBeenCalled();
+    });
+
+    it('drops AbortError with "The operation was aborted." message', () => {
+      const abort = Object.assign(new Error('The operation was aborted.'), { name: 'AbortError' });
+      reportCaughtError(abort, 'some.fetch');
+      expect(Analytics.trackAppError).not.toHaveBeenCalled();
+    });
+
     it('still reports messages that do not match noise patterns', () => {
       reportCaughtError(new Error('genuine bug in calculator'), 'real.bug');
       expect(Analytics.trackAppError).toHaveBeenCalledTimes(1);
