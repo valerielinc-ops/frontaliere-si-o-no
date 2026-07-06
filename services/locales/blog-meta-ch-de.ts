@@ -886,6 +886,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sciopero-aereo-malpensa-linate-2024.title': 'Flugstreik: 160 Flüge in Malpensa und Linate gestrichen',
     'blog.article.sciopero-aereo-malpensa-linate-2024.excerpt': '24-stündige Mobilisierung an den Mailänder Flughäfen für die Erneuerung des nationalen Vertrags. Rund 160 Flüge zwischen Malpensa und Linate wurden gestrichen.',
     'blog.article.sciopero-aereo-malpensa-linate-2024.imageAlt': 'Flughafenanzeigetafeln mit Flugannullierungen',
+    'blog.article.totalizzazione-contributi-avs-inps.title': 'AHV- und NISF-Beiträge summieren: wie es funktioniert',
+    'blog.article.totalizzazione-contributi-avs-inps.excerpt': 'Praktischer Leitfaden zur Zusammenrechnung der Beiträge zwischen der Schweiz und Italien: Verfahren, Formulare und Berechnung der Rente für diejenigen, die in beiden Ländern gearbeitet haben.',
+    'blog.article.totalizzazione-contributi-avs-inps.imageAlt': 'Finanzunterlagen und Taschenrechner auf einem Schreibtisch in Lugano',
 };
 
 export default blogMetaChDe;

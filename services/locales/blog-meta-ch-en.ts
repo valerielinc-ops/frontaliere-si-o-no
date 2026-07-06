@@ -886,6 +886,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sciopero-aereo-malpensa-linate-2024.title': 'Plane strike: 160 flights cancelled in Malpensa and Linate',
     'blog.article.sciopero-aereo-malpensa-linate-2024.excerpt': '24-hour mobilisation in Milan airports for the renewal of the national contract. About 160 flights were cancelled between Malpensa and Linate.',
     'blog.article.sciopero-aereo-malpensa-linate-2024.imageAlt': 'Airport flight status screens showing cancellations',
+    'blog.article.totalizzazione-contributi-avs-inps.title': 'Totalisation of AVS and INPS contributions: how it works',
+    'blog.article.totalizzazione-contributi-avs-inps.excerpt': 'Practical guide to the aggregation of contributions between Switzerland and Italy: procedure, forms and calculation of the pension for those who have worked in both countries.',
+    'blog.article.totalizzazione-contributi-avs-inps.imageAlt': 'Financial documents and a calculator on a desk in Lugano',
 };
 
 export default blogMetaChEn;
