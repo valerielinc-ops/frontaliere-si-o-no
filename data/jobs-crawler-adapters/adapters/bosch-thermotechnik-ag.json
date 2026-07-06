@@ -11,37 +11,55 @@
     "https://jobs.bosch.com/en/?country=ch"
   ],
   "notes": "Dedicated Bosch career crawler for Swiss vacancies, filtered with shared Ticino/Grigioni location matching and parsed from the Bosch job portal HTML.",
-  "updatedAt": "2026-04-12T16:55:04.441Z",
+  "updatedAt": "2026-07-06T22:21:31.658Z",
   "seedMetaByUrl": {
-    "https://jobs.bosch.com/en/job/REF282899E-groupleader-production-100-w-m-div-ref282899e": {
+    "https://jobs.bosch.com/en/job/REF290650V-inside-sales-dach-80-100-w-m-d-ref290650v": {
+      "location": "Frauenfeld",
+      "canton": "TG",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.bosch.com/en/job/REF290737G-premaster-programm-global-portfolio-management-w-m-div-ref290737g": {
+      "location": "Solothurn/Zuchwil",
+      "canton": "SO",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.bosch.com/en/job/REF290730T-head-of-the-regional-governance-unit-for-information-security-and-data-protection-bosch-switzerland-100-f-m-div-ref290730t": {
+      "location": "Solothurn/Zuchwil",
+      "canton": "SO",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.bosch.com/en/job/REF285400K-key-account-manager-schweiz-power-tools-zubehoer-fachhandel-100-w-m-div-ref285400k": {
+      "location": "Solothurn/Zuchwil",
+      "canton": "SO",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-07-03"
+    },
+    "https://jobs.bosch.com/en/job/REF290476M-4-oder-5-tage-woche-servicetechniker-waermepumpen-region-ag-lu-bs-bl-be-so-w-m-div-ref290476m": {
+      "location": "Steinhausen",
+      "canton": "ZG",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-07-02"
+    },
+    "https://jobs.bosch.com/en/job/REF290474R-4-oder-5-tage-woche-servicetechniker-oel-gas-region-bern-w-m-div-ref290474r": {
+      "location": "Steinhausen",
+      "canton": "ZG",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-07-02"
+    },
+    "https://jobs.bosch.com/en/job/REF290472U-4-oder-5-tage-woche-servicetechniker-oel-gas-region-basel-w-m-div-ref290472u": {
+      "location": "Steinhausen",
+      "canton": "ZG",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-07-02"
+    },
+    "https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div-ref285547a": {
       "location": "St. Niklaus",
       "canton": "VS",
       "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-04-08"
-    },
-    "https://jobs.bosch.com/en/job/REF282794R-produktionsmitarbeiter-100-m-w-div-ref282794r": {
-      "location": "St. Niklaus",
-      "canton": "VS",
-      "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-04-07"
-    },
-    "https://jobs.bosch.com/en/job/REF282482P-logistiker-100-w-m-div-ref282482p": {
-      "location": "Naters",
-      "canton": "VS",
-      "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-04-01"
-    },
-    "https://jobs.bosch.com/en/job/REF280421X-mechaniker-w-m-div-ref280421x": {
-      "location": "St. Niklaus",
-      "canton": "VS",
-      "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-03-11"
-    },
-    "https://jobs.bosch.com/en/job/REF279222F-lehrstelle-kauffrau-kaufmann-ref279222f": {
-      "location": "St. Niklaus",
-      "canton": "VS",
-      "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-03-11"
+      "postedDate": "2026-07-01"
     }
   }
 }
