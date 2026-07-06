@@ -40,6 +40,7 @@ import {
   Bold,
   Sparkles,
   LayoutGrid,
+  Upload,
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
@@ -73,6 +74,7 @@ import type {
 } from '@/services/journalistTypes';
 import { searchImageCatalog, listAllCatalogImages, type CatalogImageCandidate } from '@/services/journalistImageCatalog';
 import { cdnBlogImage } from '@/services/seo/blogImageCdn';
+import { extractArticleBodyFromFile, DOC_LEGACY_UNSUPPORTED } from '@/services/articleDocumentImport';
 
 type ViewMode = 'list' | 'article';
 
@@ -167,6 +169,8 @@ export default function JournalistDashboardPage(): React.ReactElement {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const bodyRef = useRef<HTMLTextAreaElement | null>(null);
+  const documentInputRef = useRef<HTMLInputElement | null>(null);
+  const [importingDocument, setImportingDocument] = useState(false);
   const [category, setCategory] = useState<JournalistArticleCategory>(JOURNALIST_ARTICLE_CATEGORIES[0]);
   const [image, setImage] = useState('');
   const [imageAlt, setImageAlt] = useState('');
@@ -340,6 +344,29 @@ export default function JournalistDashboardPage(): React.ReactElement {
       setSaveMsg({ ok: false, text: t('journalistDashboard.editor.imageError') });
     } finally {
       setUploadingImage(false);
+    }
+  };
+
+  /** Extracts plain text from an uploaded Word/PDF/Markdown file and fills the body textarea with it. */
+  const handleDocumentImport = async (file: File) => {
+    if (body.trim() && typeof window !== 'undefined' && !window.confirm(t('journalistDashboard.editor.importReplaceConfirm'))) {
+      return;
+    }
+    setImportingDocument(true);
+    setSaveMsg(null);
+    try {
+      const text = await extractArticleBodyFromFile(file);
+      setBody(text);
+      setSaveMsg({ ok: true, text: t('journalistDashboard.editor.importSuccess') });
+    } catch (err) {
+      reportCaughtError(err, 'journalistDashboard.documentImport');
+      const message =
+        err instanceof Error && err.message === DOC_LEGACY_UNSUPPORTED
+          ? t('journalistDashboard.editor.importDocUnsupported')
+          : t('journalistDashboard.editor.importError');
+      setSaveMsg({ ok: false, text: message });
+    } finally {
+      setImportingDocument(false);
     }
   };
 
@@ -631,6 +658,10 @@ export default function JournalistDashboardPage(): React.ReactElement {
         {openArticle && <StatusPill article={openArticle} />}
       </div>
 
+      <p className="text-xs text-muted bg-surface-alt border border-edge rounded-lg p-2.5 mb-6">
+        {t('journalistDashboard.editor.languageNote')}
+      </p>
+
       {/* ── Status banners ─────────────────────────────────── */}
       {openArticle?.status === 'failed' && (
         <div className="flex items-start gap-2.5 p-4 bg-danger-subtle border border-danger-border rounded-xl mb-6">
@@ -834,14 +865,37 @@ export default function JournalistDashboardPage(): React.ReactElement {
               <label className="block text-sm font-medium text-strong" htmlFor="jd-body">
                 {t('journalistDashboard.editor.bodyLabel')}
               </label>
-              <button
-                type="button"
-                onClick={handleBoldToggle}
-                title={t('journalistDashboard.editor.boldTooltip')}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg border border-edge text-subtle hover:bg-surface-alt hover:text-strong transition-colors"
-              >
-                <Bold className="w-3.5 h-3.5" />
-              </button>
+              <div className="flex items-center gap-1.5">
+                <input
+                  ref={documentInputRef}
+                  type="file"
+                  accept=".docx,.doc,.md,.markdown,.txt,.pdf"
+                  className="hidden"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    e.target.value = '';
+                    if (file) void handleDocumentImport(file);
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={() => documentInputRef.current?.click()}
+                  disabled={importingDocument}
+                  title={t('journalistDashboard.editor.importDocumentTooltip')}
+                  className="inline-flex items-center gap-1 px-2.5 h-7 rounded-lg border border-edge text-subtle hover:bg-surface-alt hover:text-strong disabled:opacity-60 transition-colors text-xs font-semibold"
+                >
+                  <Upload className="w-3.5 h-3.5" />
+                  {importingDocument ? t('journalistDashboard.editor.importing') : t('journalistDashboard.editor.importDocument')}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleBoldToggle}
+                  title={t('journalistDashboard.editor.boldTooltip')}
+                  className="inline-flex items-center justify-center w-7 h-7 rounded-lg border border-edge text-subtle hover:bg-surface-alt hover:text-strong transition-colors"
+                >
+                  <Bold className="w-3.5 h-3.5" />
+                </button>
+              </div>
             </div>
             <textarea
               id="jd-body"
