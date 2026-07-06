@@ -77,9 +77,52 @@ resolve_append_conflicts() {
         # - Trailing comma before closing bracket
         # - Missing comma between nested objects (}\n  {)
         # - Duplicate keys (both sides added at same insertion point)
+        # - Duplicated root closer (issue #3617): when THIS SAME file hits a
+        #   second (or later) rebase-conflict cycle inside one push's retry
+        #   loop (git-push-with-retry.sh --in-place-resolver-cmd re-runs this
+        #   resolver once per cycle, up to 4 times), each cycle's conflict
+        #   hunk independently ends at the container's closing token, so
+        #   "keep both sides" can leave the root '}'/']' twice, e.g.:
+        #     { "a": 1, "b": 2 }\n  "c": 3\n }
+        #   stripPrematureRootCloses() below drops every root-depth closer
+        #   except the last one (bracket-depth tracked, so legitimate NESTED
+        #   closers are left untouched) before the comma fixups run.
         node -e "
           const fs = require('fs');
           let s = fs.readFileSync('$file','utf8');
+          function stripPrematureRootCloses(src) {
+            const closerFor = { '{': '}', '[': ']' };
+            const m = src.match(/\S/);
+            if (!m) return src;
+            const rootClose = closerFor[src[m.index]];
+            if (!rootClose) return src;
+            let depth = 0, inString = false, escape = false;
+            const rootCloseIdx = [];
+            for (let i = 0; i < src.length; i++) {
+              const c = src[i];
+              if (inString) {
+                if (escape) escape = false;
+                else if (c === '\\\\') escape = true;
+                else if (c === '\"') inString = false;
+                continue;
+              }
+              if (c === '\"') { inString = true; continue; }
+              if (c === '{' || c === '[') { depth++; continue; }
+              if (c === '}' || c === ']') {
+                if (depth === 0) { rootCloseIdx.push(i); continue; }
+                depth--;
+                if (depth === 0) rootCloseIdx.push(i);
+              }
+            }
+            if (rootCloseIdx.length <= 1) return src;
+            const drop = new Set(rootCloseIdx.slice(0, -1));
+            let out = '';
+            for (let i = 0; i < src.length; i++) {
+              if (!drop.has(i)) out += src[i];
+            }
+            return out;
+          }
+          s = stripPrematureRootCloses(s);
           // Fix double commas
           s = s.replace(/,(\s*),/g, ',\$1');
           // Fix trailing comma before closing bracket/brace
