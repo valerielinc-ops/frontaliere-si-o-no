@@ -548,7 +548,7 @@ async function mergeSwisscomJobs(discoveredJobs) {
           ? discovered.requirements
           : existing.requirements,
         titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30),
+        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         requirementsByLocale: {
           ...(existing.requirementsByLocale || {}),
           ...filterEmptyArraysMap(discovered.requirementsByLocale),

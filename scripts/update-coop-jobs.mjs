@@ -43,7 +43,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, hasFullLocaleCoverage, normalizeSpace } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, hasFullLocaleCoverage, normalizeSpace, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
 import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 import {
   fetchCoopJsonLd,
@@ -621,16 +621,27 @@ async function postProcessCoopJobs() {
           if (locality) lines.push(`**Sede:** ${locality}`);
 
           const fullDesc = lines.join('\n');
-          const prevLen = (job.description || '').length;
           job.description = fullDesc;
           // Detect source language and assign to the correct locale (FRO-309)
           const descLang = detectLang(fullDesc);
-          if (job.descriptionByLocale && Math.abs(fullDesc.length - prevLen) > 100) {
-            // Significant change — reset with correct locale assignment
-            job.descriptionByLocale = { [descLang]: fullDesc };
-          } else if (job.descriptionByLocale) {
-            job.descriptionByLocale[descLang] = fullDesc;
-          }
+          // Issue #3453: this used to reset the WHOLE descriptionByLocale map
+          // to `{ [descLang]: fullDesc }` whenever the rebuilt text differed
+          // from the previously stored description by >100 chars — a bound
+          // easily crossed by incidental reformatting (footer/company/
+          // locality lines shift the assembled length) rather than a genuine
+          // rewrite of the source posting, discarding already-translated
+          // locales outright. Use the same source-locale-aware merge as the
+          // rest of the dedicated crawlers instead: only the freshly fetched
+          // locale's slot is authoritative here, every other locale keeps its
+          // existing (real) translation. `sourceContentChanged` below still
+          // flags genuine drift for retranslation, so no data needs to be
+          // destroyed up front to achieve that.
+          job.descriptionByLocale = mergeLocaleTextMap(
+            job.descriptionByLocale || {},
+            { [descLang]: fullDesc },
+            30,
+            descLang,
+          );
           // Update sourceLang to match detected language (FRO-309)
           if (descLang !== 'it') {
             job.sourceLang = descLang;

@@ -916,6 +916,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.analisi-busta-paga-svizzera-2026.title': 'Frontier workers: Swiss payroll 2026 and withheld',
     'blog.article.analisi-busta-paga-svizzera-2026.excerpt': 'Practical guide to the 2026 payroll: contributions, taxes at source and tax differences for border workers working over 20 km.',
     'blog.article.analisi-busta-paga-svizzera-2026.imageAlt': 'Modern office view in Lugano, Switzerland',
+    'blog.article.credito-imposta-frontalieri-2026.title': '2026 Tax Credit for Border Workers: Limits & Checklist',
+    'blog.article.credito-imposta-frontalieri-2026.excerpt': 'Find out how the 2026 tax credit applies to border crossers within 20 km, with practical examples, explanatory tables and the step-by-step procedure for the Italian declaration.',
+    'blog.article.credito-imposta-frontalieri-2026.imageAlt': 'Swiss‑Italian border with a commuter train, representing cross‑border workers.',
+    'blog.article.credito-imposta-frontaliere-2026.title': '2026 Border Tax Credit: Driving within 20km',
+    'blog.article.credito-imposta-frontaliere-2026.excerpt': 'Calculation of the tax credit for border workers in 2026, distance limits and instructions for the Italian declaration in the EC framework.',
+    'blog.article.credito-imposta-frontaliere-2026.imageAlt': 'Desk with tax documents and view of Lake Lugano',
+    'blog.article.prezzi-immobili-svizzera-giugno.title': 'Swiss Property Prices: June Rise',
+    'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'In June, house prices rose by 3.1% and apartments by 4.5% on an annual basis, with sharp differences between Zurich, Ticino and the other regions.',
+    'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Modern residential buildings in Switzerland with mountains in the background',
 };
 
 export default blogMetaChEn;

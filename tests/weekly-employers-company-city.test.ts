@@ -14,7 +14,7 @@
  *   - Sibling-link injection replaces the placeholder
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
@@ -887,6 +887,48 @@ describe('findOrphanedCompanyCityPairs', () => {
   it('ignores snapshot jobs whose city does not match any company-city hub', () => {
     const snapshots = [snapshotWith('2026-20', 'Gamma SA', 'gamma-sa', 'Lausanne', 6)];
     expect(findOrphanedCompanyCityPairs(snapshots, [])).toEqual([]);
+  });
+
+  it('skips snapshot rows with a missing employer field instead of throwing (schema-drift guard)', () => {
+    const snapshots: JobsSnapshot[] = [
+      {
+        week: '2026-20',
+        jobs: [
+          ...Array.from({ length: 4 }, (_, i) => ({
+            slug: `gamma-chiasso-${i}`,
+            employer: '',
+            employerKey: 'gamma-sa',
+            city: 'Chiasso',
+          })),
+          { slug: 'valid-1', employer: 'Delta SA', employerKey: 'delta-sa', city: 'Chiasso' },
+          { slug: 'valid-2', employer: 'Delta SA', employerKey: 'delta-sa', city: 'Chiasso' },
+          { slug: 'valid-3', employer: 'Delta SA', employerKey: 'delta-sa', city: 'Chiasso' },
+        ],
+      },
+    ];
+    expect(findOrphanedCompanyCityPairs(snapshots, [])).toEqual([
+      { city: 'chiasso', companySlug: 'delta-sa', employer: 'Delta SA' },
+    ]);
+  });
+
+  it('logs orphan-scan debug stats only when DEBUG_WEEKLY_EMPLOYERS_ORPHANS=1', () => {
+    const prevEnv = process.env.DEBUG_WEEKLY_EMPLOYERS_ORPHANS;
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      const snapshots = [snapshotWith('2026-20', 'Gamma SA', 'gamma-sa', 'Chiasso', 4)];
+
+      findOrphanedCompanyCityPairs(snapshots, []);
+      expect(logSpy).not.toHaveBeenCalled();
+
+      process.env.DEBUG_WEEKLY_EMPLOYERS_ORPHANS = '1';
+      findOrphanedCompanyCityPairs(snapshots, []);
+      expect(logSpy).toHaveBeenCalledWith(expect.stringContaining('[weekly-employers] orphan-scan:'));
+      expect(logSpy).toHaveBeenCalledWith(expect.stringContaining('1 distinct orphan(s) bridged'));
+    } finally {
+      logSpy.mockRestore();
+      if (prevEnv === undefined) delete process.env.DEBUG_WEEKLY_EMPLOYERS_ORPHANS;
+      else process.env.DEBUG_WEEKLY_EMPLOYERS_ORPHANS = prevEnv;
+    }
   });
 });
 

@@ -203,7 +203,7 @@ async function mergeJobs(discoveredJobs) {
       ...ex,
       ...d,
       titleByLocale: mergeLocaleTextMap(ex.titleByLocale, d.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, d.descriptionByLocale, 30),
+      descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, d.descriptionByLocale, 30, d.sourceLang),
       slugByLocale: mergeLocaleTextMap(ex.slugByLocale, d.slugByLocale, 3),
       previousSlugs: mergePreviousSlugsCapped(ex.previousSlugs, d.previousSlugs, { jobId: ex.id || d.id, source: 'update-julius-baer-jobs.mjs' }),
     }); updated++; }
