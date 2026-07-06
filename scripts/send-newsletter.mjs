@@ -1454,6 +1454,7 @@ async function persistDelivery(recipient, messageId, meta) {
   const FieldValue = adminSdk?.firestore?.FieldValue;
   try {
     const email = normalizeEmail(recipient.email);
+    const locale = nlNormLocale(recipient.locale);
     const subRef = db.collection('newsletter_subscribers').doc(email);
     const deliveryDocId = buildDeliveryDocId(meta.campaignId, email);
     // Store delivery as a subcollection under the subscriber doc
@@ -1461,7 +1462,7 @@ async function persistDelivery(recipient, messageId, meta) {
       email,
       campaign_id: meta.campaignId,
       message_id: messageId || null,
-      locale: recipient.locale || 'it',
+      locale,
       source_channel: recipient.sourceChannel || null,
       location_interest: recipient.locationInterest || null,
       sector_interest: recipient.sectorInterest || null,
@@ -1513,7 +1514,7 @@ async function persistDelivery(recipient, messageId, meta) {
       variant: meta.variant,
       provider: meta.provider,
       campaignId: meta.campaignId,
-      locale: recipient.locale,
+      locale,
     });
   } catch (e) {
     console.warn('\u26a0\ufe0f Delivery persist failed:', e?.message);
