@@ -179,6 +179,7 @@ import {
 } from '@/services/authService';
 import type { AuthJobContext } from '@/services/authService';
 import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
+import { subscribeReaderEntitlement } from '@/services/readerEntitlement';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import {
  upsertNewsletterSubscriber as upsertNewsletterSubscriberRecord,
@@ -1120,6 +1121,24 @@ const App: React.FC = () => {
  sessionStorage.removeItem('onetap_pending');
  promptOneTap().catch(() => {});
  }, [authLoading, authUser, newsletterAutologinInFlight]);
+
+ // Reader no-ads entitlement (#3655, part 2/2 of #2961): mounted ONCE here,
+ // keyed off the signed-in uid, NOT per ad slot. Keeps the synchronous
+ // localStorage flag (services/readerEntitlement.ts) that both Auto Ads
+ // injection points check in sync with Firestore, including flipping back
+ // off on cancellation.
+ useEffect(() => {
+ let unsubscribe: (() => void) | undefined;
+ let cancelled = false;
+ subscribeReaderEntitlement(authUser?.uid ?? null).then((unsub) => {
+ if (cancelled) unsub();
+ else unsubscribe = unsub;
+ }).catch((e) => reportCaughtError(e, 'app.subscribeReaderEntitlement'));
+ return () => {
+ cancelled = true;
+ unsubscribe?.();
+ };
+ }, [authUser?.uid]);
 
  // Theme init, analytics init, SPA pageview tracking, deferred widgets,
  // and toggleTheme are all managed by useUIState (hooks/useUIState.ts).

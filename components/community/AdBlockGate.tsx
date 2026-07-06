@@ -9,7 +9,7 @@
  *  - In the "test" bucket only: run the dual-signal ad-blocker probe
  *    (services/adBlockDetection.ts). If detected, show a full-screen gate
  *    offering exactly two ways forward — disable the blocker for this site,
- *    or go to the (placeholder) subscription page. No dismiss/X button, no
+ *    or go to the CHF 2.99/month no-ads subscription page. No dismiss/X button, no
  *    click-outside-to-close: this is the one deliberate exception to the
  *    site's "no invasive extra popups" convention, explicitly approved for
  *    this gate only (see AGENTS.md § Non-Negotiables) and does not
@@ -19,12 +19,18 @@
  *    React tree — it is lazy-loaded and never part of any server-rendered
  *    or static HTML; there is no ReactDOMServer usage anywhere in the
  *    build's SSG plugins).
+ *  - Hard-excluded (owner refinement, #3655): a visitor already subscribed
+ *    to the newsletter OR with an active job alert is treated exactly like
+ *    the bot/control arm — no bucket resolution, no detection, no gate,
+ *    ever. Checked via the raw localStorage flags
+ *    (services/newsletterCtaState.ts, services/jobAlertCtaState.ts)
+ *    immediately after the bot check, before any A/B assignment.
  *  - PostHog measurement: bucket-assignment event (fires for every non-bot
  *    visitor, both arms — needed to validate the split ratio) + gate-shown
  *    event + outcome event (disabled / subscribe CTA clicked / abandoned).
  *
- * NOT in this piece: the real Stripe checkout (issue 2/2 of #2961) — the
- * subscribe CTA links to a placeholder page (components/pages/SubscribePage).
+ * The subscribe CTA navigates to the real Stripe checkout flow
+ * (components/pages/SubscribePage, issue 2/2 of #2961 — #3655).
  */
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -37,6 +43,8 @@ import { isLikelyBot } from '@/services/botPatterns';
 import { resolveAdBlockAbBucket } from '@/services/adBlockAbTest';
 import { detectAdBlock } from '@/services/adBlockDetection';
 import { useNavigationOptional } from '@/services/NavigationContext';
+import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
 
 type GateLocale = 'it' | 'en' | 'de' | 'fr';
 type GateOutcome = 'disabled' | 'subscribe_clicked' | 'abandoned';
@@ -124,6 +132,18 @@ const AdBlockGate: React.FC = () => {
   // Detection itself only runs for the "test" arm.
   useEffect(() => {
     if (isLikelyBot()) return;
+    // Retained/engaged visitors (newsletter or job-alert subscribers) never
+    // see this gate, regardless of bucket — same hard exclusion as bots,
+    // checked BEFORE any bucket assignment (owner refinement, #3655).
+    let alreadyEngaged = false;
+    try {
+      alreadyEngaged =
+        localStorage.getItem(NEWSLETTER_SUBSCRIBED_KEY) === 'true' ||
+        localStorage.getItem(JOB_ALERT_SUBSCRIBED_KEY) === 'true';
+    } catch {
+      alreadyEngaged = false; // fail-open: treat as not-subscribed on error.
+    }
+    if (alreadyEngaged) return;
     const bucket = resolveAdBlockAbBucket();
     registerSuperProperty('adblock_ab_bucket', bucket);
     try { Analytics.trackUIInteraction('adblock_gate', 'ab_test', 'bucket_assigned', bucket); } catch { /* no-op */ }

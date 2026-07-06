@@ -11,6 +11,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';
+import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
 
 declare global {
  interface Window {
@@ -213,6 +214,10 @@ export default function AdSenseBanner({
  // never enters view, and defers the ~45KB third-party payload past LCP.
  useEffect(() => {
  if (!IS_PROD || !enabled || !adSlot) return;
+ // Per-visitor entitlement (#3655, part 2/2 of #2961): a reader with an
+ // active CHF 2.99/month no-ads subscription never loads adsbygoogle.js.
+ // NEVER a global/per-route toggle — see AGENTS.md Non-Negotiable #7.
+ if (hasActiveReaderNoAdsEntitlement()) return;
  const wrapper = wrapperRef.current;
  if (!wrapper) return;
 

@@ -42,6 +42,12 @@ const PROVIDER_KEYS = [
     description: 'Stripe recurring Price id for Piano Azienda (CHF 299 / 30 days, ruoli illimitati)',
   },
   {
+    rcParam: 'STRIPE_PRICE_READER_NOADS',
+    envVar: 'STRIPE_PRICE_READER_NOADS',
+    shapeHint: /^price_[A-Za-z0-9]+$/,
+    description: 'CHF 2.99/month recurring Price for the reader ad-free subscription',
+  },
+  {
     rcParam: 'STRIPE_WEBHOOK_SECRET',
     envVar: 'STRIPE_WEBHOOK_SECRET',
     shapeHint: /^whsec_[A-Za-z0-9]+$/,
