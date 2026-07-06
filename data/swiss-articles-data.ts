@@ -2672,6 +2672,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'matrimonio-frontaliere-regime-fiscale',
+    category: 'fiscale',
+    date: '2026-07-06T02:47:02.916Z',
+    image: '/images/blog/matrimonio-frontaliere-regime-fiscale.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

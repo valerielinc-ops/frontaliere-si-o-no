@@ -320,6 +320,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'sciopero-aereo-malpensa-linate-2024': { it: 'sciopero-aereo-malpensa-linate-2024', en: 'air-transport-strike-milan-airports', de: 'flugstreik-mailand-flughaefen', fr: 'greve-aerienne-aeroports-milan' },
  'totalizzazione-contributi-avs-inps': { it: 'totalizzazione-contributi-avs-inps', en: 'avs-inps-contribution-totalization-guide', de: 'avs-inps-beitragszusammenlegung-leitfaden', fr: 'totalisation-contributions-avs-inps-guide' },
  'quadro-rw-conto-svizzero-obblighi': { it: 'quadro-rw-conto-svizzero-obblighi', en: 'switzerland-bank-account-tax-reporting', de: 'schweizer-bankkonto-steuererklaerung', fr: 'declaration-compte-suisse-impots' },
+ 'matrimonio-frontaliere-regime-fiscale': { it: 'matrimonio-frontaliere-regime-fiscale', en: 'cross-border-worker-marriage-tax-regime', de: 'heirat-grenzganger-steuerregime', fr: 'mariage-frontalier-regime-fiscal' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -4375,6 +4375,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-brianza-causa-stato-italiano': { name: 'Frontalieri Brianza causa', path: '/articoli-frontaliere/frontalieri-brianza-causa-stato-italiano', parent: 'blog' },
     'blog-quadro-rw-conto-svizzero-obblighi': { name: 'Quadro RW conto estero', path: '/articoli-svizzera/quadro-rw-conto-svizzero-obblighi/', parent: 'blog' },
     'blog-sicurezza-gallarate-fedi-cons': { name: 'Sicurezza Gallarate', path: '/articoli-frontaliere/sicurezza-gallarate-fedi-cons', parent: 'blog' },
+    'blog-matrimonio-frontaliere-regime-fiscale': { name: 'Matrimonio frontaliere', path: '/articoli-svizzera/matrimonio-frontaliere-regime-fiscale/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

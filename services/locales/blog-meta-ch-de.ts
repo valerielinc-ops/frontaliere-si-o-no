@@ -892,6 +892,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.quadro-rw-conto-svizzero-obblighi.title': 'RW-Tabelle: Kontoauszug Schweiz',
     'blog.article.quadro-rw-conto-svizzero-obblighi.excerpt': 'Praktischer Leitfaden zu den Steuerüberwachungspflichten für Grenzgänger mit Konto in der Schweiz: Was müssen Sie dem Finanzamt melden?',
     'blog.article.quadro-rw-conto-svizzero-obblighi.imageAlt': 'Modernes Bankbüro in Lugano mit Blick auf den See',
+    'blog.article.matrimonio-frontaliere-regime-fiscale.title': 'Grenzüberschreitende Eheschließung: steuerliche Auswirkungen und Wohnsitz',
+    'blog.article.matrimonio-frontaliere-regime-fiscale.excerpt': 'Was ändert sich für einen Grenzgänger, der einen Schweizer heiratet? Analyse des Steuersystems, der Verpflichtungen und Verfahren zwischen Italien und der Schweiz.',
+    'blog.article.matrimonio-frontaliere-regime-fiscale.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden im Hintergrund',
 };
 
 export default blogMetaChDe;

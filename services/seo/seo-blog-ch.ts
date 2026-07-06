@@ -11484,6 +11484,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-matrimonio-frontaliere-regime-fiscale': {
+    title: 'Matrimonio frontaliere: impatti fiscali e residenza',
+    description: 'Scopri come cambia il regime fiscale per un frontaliere che sposa un cittadino svizzero. Guida pratica su imposte, residenza e obblighi tra Italia e Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, matrimonio, impatti, fiscali, residenza',
+    ogTitle: 'Matrimonio frontaliere: regime fiscale e residenza',
+    ogDescription: 'Guida pratica per frontalieri che si sposano: imposte, residenza e obblighi fiscali tra Italia e Svizzera secondo il nuovo accordo.',
+    canonicalPath: '/articoli-svizzera/matrimonio-frontaliere-regime-fiscale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Matrimonio frontaliere: impatti fiscali e residenza",
+      "description": "Scopri come cambia il regime fiscale per un frontaliere che sposa un cittadino svizzero. Guida pratica su imposte, residenza e obblighi tra Italia e Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/matrimonio-frontaliere-regime-fiscale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del lago di Lugano con edifici moderni sullo sfondo"
+      },
+      "datePublished": "2026-07-06T02:47:02+00:00",
+      "dateModified": "2026-07-06T02:47:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/matrimonio-frontaliere-regime-fiscale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

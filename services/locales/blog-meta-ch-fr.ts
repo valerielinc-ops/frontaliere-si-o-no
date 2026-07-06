@@ -892,6 +892,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.quadro-rw-conto-svizzero-obblighi.title': 'Cadre RW : déclaration compte courant suisse',
     'blog.article.quadro-rw-conto-svizzero-obblighi.excerpt': 'Guide pratique des obligations de suivi fiscal pour les frontaliers titulaires d\'un compte en Suisse : que déclarer à l\'Agence du revenu ?',
     'blog.article.quadro-rw-conto-svizzero-obblighi.imageAlt': 'Bureau bancaire moderne à Lugano avec vue sur le lac',
+    'blog.article.matrimonio-frontaliere-regime-fiscale.title': 'Mariage frontalier : Impacts fiscaux et résidence',
+    'blog.article.matrimonio-frontaliere-regime-fiscale.excerpt': 'Qu\'est-ce que cela change pour un frontalier qui épouse un citoyen suisse ? Analyse du régime fiscal, des obligations et des procédures entre l\'Italie et la Suisse.',
+    'blog.article.matrimonio-frontaliere-regime-fiscale.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes en arrière-plan',
 };
 
 export default blogMetaChFr;
