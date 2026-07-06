@@ -73,6 +73,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-roche-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- roche: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -84,11 +85,12 @@ jobs:
           # ---- roche: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Roche jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Roche jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- roche: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- roche: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run roche" \
@@ -101,7 +103,10 @@ jobs:
               --workflow "Run roche"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run privatklinik-wyss
         id: crawler-privatklinik-wyss
         background: true
@@ -118,6 +123,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-privatklinik-wyss-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- privatklinik-wyss: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -129,11 +135,12 @@ jobs:
           # ---- privatklinik-wyss: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update PRIVATKLINIK_WYSS jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update PRIVATKLINIK_WYSS jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- privatklinik-wyss: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- privatklinik-wyss: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run privatklinik-wyss" \
@@ -146,7 +153,10 @@ jobs:
               --workflow "Run privatklinik-wyss"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run sintetica
         id: crawler-sintetica
         background: true
@@ -163,6 +173,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           npm run jobs:update:sintetica
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- sintetica: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -174,11 +185,12 @@ jobs:
           # ---- sintetica: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💉 Auto-update Sintetica SA jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💉 Auto-update Sintetica SA jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- sintetica: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- sintetica: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run sintetica" \
@@ -191,7 +203,10 @@ jobs:
               --workflow "Run sintetica"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run spital-zollikerberg
         id: crawler-spital-zollikerberg
         background: true
@@ -208,6 +223,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-spital-zollikerberg-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- spital-zollikerberg: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -219,11 +235,12 @@ jobs:
           # ---- spital-zollikerberg: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Spital Zollikerberg jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Spital Zollikerberg jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- spital-zollikerberg: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- spital-zollikerberg: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run spital-zollikerberg" \
@@ -236,7 +253,10 @@ jobs:
               --workflow "Run spital-zollikerberg"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run sodexo
         id: crawler-sodexo
         background: true
@@ -253,6 +273,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-sodexo-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- sodexo: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -264,11 +285,12 @@ jobs:
           # ---- sodexo: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Sodexo jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Sodexo jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- sodexo: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- sodexo: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run sodexo" \
@@ -281,7 +303,10 @@ jobs:
               --workflow "Run sodexo"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run raiffeisen-vc
         id: crawler-raiffeisen-vc
         background: true
@@ -298,6 +323,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           npm run jobs:update:raiffeisen-vc
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- raiffeisen-vc: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -309,11 +335,12 @@ jobs:
           # ---- raiffeisen-vc: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏦 Auto-update Raiffeisen VC jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏦 Auto-update Raiffeisen VC jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- raiffeisen-vc: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- raiffeisen-vc: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run raiffeisen-vc" \
@@ -326,7 +353,10 @@ jobs:
               --workflow "Run raiffeisen-vc"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run yapeal
         id: crawler-yapeal
         background: true
@@ -343,6 +373,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-yapeal-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- yapeal: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -354,11 +385,12 @@ jobs:
           # ---- yapeal: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Yapeal jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Yapeal jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- yapeal: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- yapeal: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run yapeal" \
@@ -371,7 +403,10 @@ jobs:
               --workflow "Run yapeal"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run sonova
         id: crawler-sonova
         background: true
@@ -388,6 +423,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-sonova-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- sonova: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -399,11 +435,12 @@ jobs:
           # ---- sonova: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Sonova jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Sonova jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- sonova: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- sonova: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run sonova" \
@@ -416,7 +453,10 @@ jobs:
               --workflow "Run sonova"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run sonnweid
         id: crawler-sonnweid
         background: true
@@ -433,6 +473,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-sonnweid-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- sonnweid: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -444,11 +485,12 @@ jobs:
           # ---- sonnweid: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Sonnweid jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Sonnweid jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- sonnweid: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- sonnweid: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run sonnweid" \
@@ -461,7 +503,10 @@ jobs:
               --workflow "Run sonnweid"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run helvetia
         id: crawler-helvetia
         background: true
@@ -478,6 +523,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-helvetia-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- helvetia: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -489,11 +535,12 @@ jobs:
           # ---- helvetia: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Helvetia Versicherungen jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Helvetia Versicherungen jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- helvetia: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- helvetia: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run helvetia" \
@@ -506,7 +553,10 @@ jobs:
               --workflow "Run helvetia"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run prosenectute-ti
         id: crawler-prosenectute-ti
         background: true
@@ -523,6 +573,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-prosenectute-ti-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- prosenectute-ti: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -534,11 +585,12 @@ jobs:
           # ---- prosenectute-ti: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update PROSENECTUTE_TI jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update PROSENECTUTE_TI jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- prosenectute-ti: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- prosenectute-ti: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run prosenectute-ti" \
@@ -551,7 +603,10 @@ jobs:
               --workflow "Run prosenectute-ti"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run ksw
         id: crawler-ksw
         background: true
@@ -568,6 +623,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-ksw-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- ksw: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -579,11 +635,12 @@ jobs:
           # ---- ksw: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Kantonsspital Winterthur (KSW) jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Kantonsspital Winterthur (KSW) jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- ksw: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- ksw: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run ksw" \
@@ -596,7 +653,10 @@ jobs:
               --workflow "Run ksw"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run stadt-bern
         id: crawler-stadt-bern
         background: true
@@ -613,6 +673,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-stadt-bern-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- stadt-bern: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -624,11 +685,12 @@ jobs:
           # ---- stadt-bern: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Stadt Bern jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Stadt Bern jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- stadt-bern: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- stadt-bern: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run stadt-bern" \
@@ -641,7 +703,10 @@ jobs:
               --workflow "Run stadt-bern"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run pdgr
         id: crawler-pdgr
         background: true
@@ -658,6 +723,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-pdgr-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- pdgr: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -669,11 +735,12 @@ jobs:
           # ---- pdgr: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Psychiatrische Dienste Graubünden jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Psychiatrische Dienste Graubünden jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- pdgr: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- pdgr: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run pdgr" \
@@ -686,7 +753,10 @@ jobs:
               --workflow "Run pdgr"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run imerys
         id: crawler-imerys
         background: true
@@ -703,6 +773,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-imerys-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- imerys: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -714,11 +785,12 @@ jobs:
           # ---- imerys: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Imerys jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Imerys jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- imerys: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- imerys: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run imerys" \
@@ -731,7 +803,10 @@ jobs:
               --workflow "Run imerys"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run elettra-1938
         id: crawler-elettra-1938
         background: true
@@ -748,6 +823,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-elettra-1938-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- elettra-1938: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -759,11 +835,12 @@ jobs:
           # ---- elettra-1938: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Elettra 1938 jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Elettra 1938 jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- elettra-1938: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- elettra-1938: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run elettra-1938" \
@@ -776,7 +853,10 @@ jobs:
               --workflow "Run elettra-1938"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run cerbios-pharma
         id: crawler-cerbios-pharma
         background: true
@@ -793,6 +873,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           npm run jobs:update:cerbios-pharma
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- cerbios-pharma: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -804,11 +885,12 @@ jobs:
           # ---- cerbios-pharma: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💊 Auto-update Cerbios-Pharma jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💊 Auto-update Cerbios-Pharma jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- cerbios-pharma: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- cerbios-pharma: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run cerbios-pharma" \
@@ -821,7 +903,10 @@ jobs:
               --workflow "Run cerbios-pharma"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run clinique-de-montchoisi
         id: crawler-clinique-de-montchoisi
         background: true
@@ -838,6 +923,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-clinique-de-montchoisi-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- clinique-de-montchoisi: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -849,11 +935,12 @@ jobs:
           # ---- clinique-de-montchoisi: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Clinique de Montchoisi jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Clinique de Montchoisi jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- clinique-de-montchoisi: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- clinique-de-montchoisi: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run clinique-de-montchoisi" \
@@ -866,7 +953,10 @@ jobs:
               --workflow "Run clinique-de-montchoisi"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run ophtalmique
         id: crawler-ophtalmique
         background: true
@@ -883,6 +973,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-ophtalmique-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- ophtalmique: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -894,11 +985,12 @@ jobs:
           # ---- ophtalmique: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Hôpital ophtalmique jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Hôpital ophtalmique jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- ophtalmique: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- ophtalmique: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run ophtalmique" \
@@ -911,7 +1003,10 @@ jobs:
               --workflow "Run ophtalmique"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run empa
         id: crawler-empa
         background: true
@@ -928,6 +1023,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-empa-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- empa: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -939,11 +1035,12 @@ jobs:
           # ---- empa: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Empa jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Empa jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- empa: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- empa: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run empa" \
@@ -956,7 +1053,10 @@ jobs:
               --workflow "Run empa"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run kantonsspital-uri
         id: crawler-kantonsspital-uri
         background: true
@@ -973,6 +1073,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-kantonsspital-uri-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- kantonsspital-uri: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -984,11 +1085,12 @@ jobs:
           # ---- kantonsspital-uri: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update KANTONSSPITAL-URI jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update KANTONSSPITAL-URI jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- kantonsspital-uri: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- kantonsspital-uri: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run kantonsspital-uri" \
@@ -1001,7 +1103,10 @@ jobs:
               --workflow "Run kantonsspital-uri"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run bobst
         id: crawler-bobst
         background: true
@@ -1018,6 +1123,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-bobst-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- bobst: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -1029,11 +1135,12 @@ jobs:
           # ---- bobst: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Bobst jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Bobst jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- bobst: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- bobst: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run bobst" \
@@ -1046,7 +1153,10 @@ jobs:
               --workflow "Run bobst"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run bally
         id: crawler-bally
         background: true
@@ -1063,6 +1173,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-bally-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- bally: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -1074,11 +1185,12 @@ jobs:
           # ---- bally: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Bally jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Bally jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- bally: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- bally: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run bally" \
@@ -1091,7 +1203,10 @@ jobs:
               --workflow "Run bally"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run baloise
         id: crawler-baloise
         background: true
@@ -1108,6 +1223,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-baloise-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- baloise: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -1119,11 +1235,12 @@ jobs:
           # ---- baloise: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Baloise jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Baloise jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- baloise: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- baloise: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run baloise" \
@@ -1136,7 +1253,10 @@ jobs:
               --workflow "Run baloise"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run etavis
         id: crawler-etavis
         background: true
@@ -1153,6 +1273,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-etavis-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- etavis: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -1164,11 +1285,12 @@ jobs:
           # ---- etavis: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ETAVIS jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ETAVIS jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- etavis: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- etavis: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run etavis" \
@@ -1181,7 +1303,10 @@ jobs:
               --workflow "Run etavis"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Run amina-bank
         id: crawler-amina-bank
         background: true
@@ -1198,6 +1323,7 @@ jobs:
           export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
           node scripts/update-amina-bank-jobs.mjs
           crawler_exit=$?
+          git_commit_exit=0
 
           # ---- amina-bank: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -1209,11 +1335,12 @@ jobs:
           # ---- amina-bank: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update AMINA Bank jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update AMINA Bank jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            git_commit_exit=$?
           fi
 
-          # ---- amina-bank: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
-          if [ "$crawler_exit" -ne 0 ]; then
+          # ---- amina-bank: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run amina-bank" \
@@ -1226,6 +1353,9 @@ jobs:
               --workflow "Run amina-bank"
           fi
 
-          exit "$crawler_exit"
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0
       - name: Wait for all crawlers in this group
         wait-all: true
