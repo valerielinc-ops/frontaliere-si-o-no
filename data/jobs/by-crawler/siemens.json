@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siemens",
-  "assembledAt": "2026-07-05T12:29:32.039Z",
+  "assembledAt": "2026-07-06T00:10:46.035Z",
   "jobs": [
     {
       "id": "siemens-05eecf023002",
@@ -33,7 +33,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/399122",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:29:29.296Z",
+      "crawledAt": "2026-07-06T00:10:42.834Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -54,7 +54,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diploma-thesis-siemens-schweiz-siemens-zug"
+        "diploma-thesis-siemens-schweiz-siemens-zug",
+        "tesi-di-laurea-siemens-schweiz-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -107,7 +108,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511948",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:29:20.511Z",
+      "crawledAt": "2026-07-06T00:10:33.793Z",
       "addressLocality": "Plan",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -128,7 +129,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-senior-en-controle-d-acces-80-100-f-h-d-siemens-plan"
+        "technicien-senior-en-controle-d-acces-80-100-f-h-d-siemens-plan",
+        "tecnico-senior-di-controllo-accessi-80-100-f-m-d-siemens-plan"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -181,7 +183,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/498638",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:29:18.190Z",
+      "crawledAt": "2026-07-06T00:10:31.309Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -202,7 +204,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-product-marketing-manager-siemens-si-80-100-siemens-zug"
+        "senior-product-marketing-manager-siemens-si-80-100-siemens-zug",
+        "responsabile-marketing-prodotto-senior-siemens-si-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -211,6 +214,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:45.051Z",
+      "needsRetranslation": true,
       "salaryMin": 108500,
       "salaryMax": 192000,
       "baseSalary": {
@@ -255,7 +259,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/501565",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:29:11.705Z",
+      "crawledAt": "2026-07-06T00:10:24.343Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -276,7 +280,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projet-tableau-electrique-dans-la-basse-tension-80-100-f-h-d-siemens-renens"
+        "chef-de-projet-tableau-electrique-dans-la-basse-tension-80-100-f-h-d-siemens-renens",
+        "project-manager-quadro-elettrico-a-bassa-tensione-80-100-f-h-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -296,7 +301,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "siemens-f5aff5ab3357",
@@ -329,7 +335,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/495789",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:29:09.497Z",
+      "crawledAt": "2026-07-06T00:10:21.919Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -358,6 +364,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:36.245Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -402,7 +409,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/501581",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:29:07.428Z",
+      "crawledAt": "2026-07-06T00:10:19.676Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -423,7 +430,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projet-rails-d-energie-basse-tension-80-100-f-h-d-siemens-renens"
+        "chef-de-projet-rails-d-energie-basse-tension-80-100-f-h-d-siemens-renens",
+        "project-manager-rotaie-di-alimentazione-a-bassa-tensione-80-100-f-h-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -443,7 +451,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "siemens-a3eb7b804682",
@@ -476,7 +485,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502608",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:29:05.291Z",
+      "crawledAt": "2026-07-06T00:10:17.279Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -497,7 +506,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "system-test-engineer-in-building-technologies-80-100-siemens-zug"
+        "system-test-engineer-in-building-technologies-80-100-siemens-zug",
+        "ingegnere-di-test-di-sistema-nelle-tecnologie-edilizie-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -506,6 +516,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:31.940Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -550,7 +561,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/496729",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:29:02.968Z",
+      "crawledAt": "2026-07-06T00:10:14.888Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -571,7 +582,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-in-mittelspannung-80-100-siemens-zuerich"
+        "ingenieur-in-mittelspannung-80-100-siemens-zuerich",
+        "ingegnere-medio-tensione-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -580,6 +592,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:29.615Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -624,7 +637,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502611",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:29:00.749Z",
+      "crawledAt": "2026-07-06T00:10:12.582Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -645,7 +658,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineer-for-next-generation-iot-fire-system-80-100-siemens-zug"
+        "software-engineer-for-next-generation-iot-fire-system-80-100-siemens-zug",
+        "ingegnere-del-software-per-il-sistema-antincendio-iot-di-nuova-generazione-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -665,7 +679,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "siemens-d194227e116d",
@@ -698,7 +713,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502805",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:58.545Z",
+      "crawledAt": "2026-07-06T00:10:06.767Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -719,7 +734,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "elektrozeichner-in-mittelspannung-80-100-siemens-zuerich"
+        "elektrozeichner-in-mittelspannung-80-100-siemens-zuerich",
+        "disegnatore-elettrico-media-tensione-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -758,7 +774,7 @@
         "it": "Service Solution Architetto Enterprise Business 80–100%",
         "en": "Service Solution Architect Enterprise Business 80–100%",
         "de": "Service Solution Architect Enterprise Business 80–100 %",
-        "fr": "Solution de service Architecte Entreprise Entreprise 80–100%"
+        "fr": "Service Solution Architect Enterprise Business 80–100%"
       },
       "description": "We transform buildings With technology for smart and sustainable buildings and infrastructure, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and achieve world-class experiences for people Within Siemens Smart Infrastructure, you will be part of our Buildings Business Unit, which brings together the full portfolio of products, software and services for buildings and adjacent infrastructure Join our team as a Service Solution Architect and be at the forefront of revolutionizing the world's infrastructure. Play a key role in driving growth and transformation within Siemens Smart Infrastructure Building’s Business Unit Location: This position will be located in either Zug, Switzerland or within the EU & UK Prerequisite is, in any case, your legal eligibility to work in the respective country and there will not be the need to relocate. An engaged and multinational team will be happy to introduce you in our environment The Role As a Service Solution Architect in the Enterprise Business, you will play a decisive role in shaping profitable, outcome-based service agreements for our largest and most complex customers worldwide. This role sits at the intersection of sales, technology, and digital services and is critical during the bid and presales phase You act as the bridge between Enterprise Sales, Global Enterprise Customers (GEC), countries/LCBs, and the Digital Service Center (DSC)—translating customer challenges into scalable, digitally enabled lifecycle service solutions that are technically sound, commercially compelling, and executable This role is designed for a professional who combines consultative selling, deep building technology expertise, and hands on digital service know how to turn complexity into customer value and designing a winning Digital Service Solutions for Global Enterprise Customers Key responsibilities Customer challenge translation & bid phase leadership\n• Collaborate with Account Managers to understand customer pain points and business goals during bids\n• Translate needs into structured, value-driven service solution concepts End-to-End Service & Lifecycle solution design\n• Design comprehensive service agreements and lifecycle programs tailored to enterprise needs\n• Leverage digital, remote, analytics, and outcome-based service models Technical architecture & installed base expertise\n• Develop scalable, technically sound solutions based on installed systems, data, and compatibility\n• Ensure alignment with cybersecurity, connectivity, and portfolio standards Digital services & outcome-based solutions\n• Promote digital, cloud, and analytics-driven services including diagnostics and optimization\n• Drive adoption of outcome-based, performance-focused service contracts Commercial enablement & pricing\n• Balance scope, value, and cost while leading pricing for digital service offerings\n• Coordinate globally to ensure competitive, profitable, and differentiated proposals Country, DSC & execution alignment\n• Align with countries and Digital Service Center to validate solutions and ensure smooth execution\n• Oversee estimates, delivery handover, and ongoing service ownership and reporting Thought leadership & capability building\n• Engage customers with pre-sales thought leadership and strategic insights\n• Build internal capabilities through trainings, workshops, demos, and webinars Your profile\n• Bachelor’s or Master’s degree in Engineering, Business Economics (or comparable)\n• 5+ years of relevant experience (or 10+ years across diverse roles) in service solution design, presales, digital services, consulting, or enterprise B2B environments\n• Proven experience supporting enterprise bids and translating customer needs into commercial service solutions\n• Strong knowledge of Building Automation, HVAC, Fire Safety, Energy Systems, and lifecycle service models\n• Solid understanding of Digital Services, including remote services, cloud solutions, analytics, and data driven offerings\n• Expertise in OT/IT integration, building data analytics, and Fault Detection & Diagnostics\n• Strong technical and analytical capability to navigate complex systems and develop structured, solution-oriented approaches\n• Commercially astute with consultative skills, able to articulate clear value-driven, outcome-based propositions\n• Effective communicator and influencer across account teams, program managers, and senior stakeholders in global bid environments\n• Self-driven, resilient, and adaptable, with strong ownership and the ability to perform in fast-paced international settings\n• Fluent in English (spoken and written)\n• Role may be home office based within Europe with global customer engagement Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! “ For me, it was one of the most progressive and best application processes I have gone through in my short career so far. The Strengthscope analysis showed me strengths that I wasn’t even aware of. ” (Service Technician Coordinator) News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Olger Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
       "descriptionByLocale": {
@@ -772,7 +788,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/504174",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:28:56.328Z",
+      "crawledAt": "2026-07-06T00:10:04.413Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -793,7 +809,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-solution-architect-enterprise-business-80-100-siemens-zug"
+        "service-solution-architect-enterprise-business-80-100-siemens-zug",
+        "architetto-di-soluzioni-di-servizio-business-aziendale-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -805,6 +822,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:23.006Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -849,7 +867,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502220",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:28:54.206Z",
+      "crawledAt": "2026-07-06T00:10:01.953Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -870,7 +888,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-trainer-fire-safety-systems-80-100-siemens-zug"
+        "technical-trainer-fire-safety-systems-80-100-siemens-zug",
+        "sistemi-di-sicurezza-antincendio-per-trainer-tecnico-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -907,7 +926,7 @@
       "title": "Automation & Robotics Systems Engineer 80-100%",
       "titleByLocale": {
         "it": "Automation & Robotics Systems Ingegnere 80-100%",
-        "en": "Automation & Robotics Systems Engineer 80-100 %",
+        "en": "Automation & Robotics Systems Engineer 80-100%",
         "de": "Automation & Robotics Systems Ingenieur 80-100%",
         "fr": "Automation & Robotics Systems Ingénieur 80-100%"
       },
@@ -923,7 +942,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505172",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:52.179Z",
+      "crawledAt": "2026-07-06T00:09:59.673Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -944,7 +963,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automation-robotics-systems-engineer-80-100-siemens-zug"
+        "automation-robotics-systems-engineer-80-100-siemens-zug",
+        "ingegnere-di-sistemi-di-automazione-e-robotica-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -953,6 +973,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:18.632Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -997,7 +1018,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505367",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:49.862Z",
+      "crawledAt": "2026-07-06T00:09:57.331Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1018,7 +1039,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich"
+        "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich",
+        "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1061,7 +1083,7 @@
       "title": "IT/ OT System Engineer 80-100%",
       "titleByLocale": {
         "it": "IT/ OT System Ingegnere 80-100%",
-        "en": "IT/OT System Engineer 80-100 %",
+        "en": "IT/ OT System Engineer 80-100%",
         "de": "IT/ OT System Ingenieur 80-100%",
         "fr": "IT/ OT System Ingénieur 80-100%"
       },
@@ -1077,7 +1099,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505167",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:47.561Z",
+      "crawledAt": "2026-07-06T00:09:55.144Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1098,7 +1120,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-ot-system-engineer-80-100-siemens-zug"
+        "it-ot-system-engineer-80-100-siemens-zug",
+        "ingegnere-di-sistema-it-ot-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1107,6 +1130,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:14.096Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -1151,7 +1175,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/501861",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:45.361Z",
+      "crawledAt": "2026-07-06T00:09:52.774Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1172,7 +1196,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-multimedia-event-management-80-100-siemens-zug"
+        "praktikant-in-multimedia-event-management-80-100-siemens-zug",
+        "stagista-multimedia-e-gestione-eventi-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1225,7 +1250,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508397",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:43.232Z",
+      "crawledAt": "2026-07-06T00:09:50.326Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1246,7 +1271,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemtechniker-in-gebaudeleitsysteme-80-100-siemens-ostermundigen"
+        "systemtechniker-in-gebaudeleitsysteme-80-100-siemens-ostermundigen",
+        "tecnico-di-sistema-nei-sistemi-di-controllo-degli-edifici-80-100-siemens-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1305,7 +1331,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508395",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:28:41.122Z",
+      "crawledAt": "2026-07-06T00:09:48.084Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1326,7 +1352,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "industry-developer-commercial-real-estate-80-100-siemens-zug"
+        "industry-developer-commercial-real-estate-80-100-siemens-zug",
+        "sviluppatore-di-settore-immobiliare-commerciale-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1379,7 +1406,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508461",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:28:38.820Z",
+      "crawledAt": "2026-07-06T00:09:45.727Z",
       "addressLocality": "Corminboeuf",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -1400,7 +1427,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-de-projet-securite-service-au-ses-80-100-f-h-d-siemens-corminboeuf"
+        "responsable-de-projet-securite-service-au-ses-80-100-f-h-d-siemens-corminboeuf",
+        "ses-80-100-responsabile-di-progetto-sicurezza-dei-servizi-f-m-d-siemens-corminboeuf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1453,7 +1481,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508713",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:36.769Z",
+      "crawledAt": "2026-07-06T00:09:43.438Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1474,7 +1502,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil"
+        "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil",
+        "tecnico-di-sistema-nei-sistemi-di-controllo-80-100-zurich-siemens-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1533,7 +1562,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509175",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:34.662Z",
+      "crawledAt": "2026-07-06T00:09:41.047Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -1612,7 +1641,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509377",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:28:32.334Z",
+      "crawledAt": "2026-07-06T00:09:38.701Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1661,7 +1690,7 @@
       "title": "Technischer Sales Support Niederspannungsprodukte 80-100%",
       "titleByLocale": {
         "it": "Supporto tecnico di vendita Prodotti a bassa tensione 80-100 %",
-        "en": "Technical Sales Support Low Voltage Products 80-100 %",
+        "en": "Technischer Sales Support Niederspannungsprodukte 80-100%",
         "de": "Technischer Sales Support Niederspannungsprodukte 80-100%",
         "fr": "Support technique des ventes Produits basse tension 80-100 %"
       },
@@ -1677,7 +1706,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509387",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:30.018Z",
+      "crawledAt": "2026-07-06T00:09:36.470Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1698,7 +1727,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technischer-sales-support-niederspannungsprodukte-80-100-siemens-zuerich"
+        "technischer-sales-support-niederspannungsprodukte-80-100-siemens-zuerich",
+        "supporto-alle-vendite-technischer-niederspannungsprodukte-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1710,6 +1740,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:55.408Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1754,7 +1785,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509879",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:28:27.873Z",
+      "crawledAt": "2026-07-06T00:09:34.088Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1775,7 +1806,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-commercial-automatisme-du-batiment-mcr-80-100-f-h-d-siemens-renens"
+        "ingenieur-commercial-automatisme-du-batiment-mcr-80-100-f-h-d-siemens-renens",
+        "ingegnere-vendite-automazione-edilizia-mcr-80-100-f-m-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1828,7 +1860,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508112",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:25.655Z",
+      "crawledAt": "2026-07-06T00:09:31.573Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1849,7 +1881,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-lokales-accounting-controlling-siemens-zuerich"
+        "mitarbeiter-in-lokales-accounting-controlling-siemens-zuerich",
+        "contabilita-e-controllo-locale-per-i-dipendenti-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1886,7 +1919,7 @@
       "title": "Teamleiter:in Technical Sales (Portfolio-Gruppe Automation) 80–100%",
       "titleByLocale": {
         "it": "Team leader: nelle vendite tecniche (portfolio group Automation) 80–100 %",
-        "en": "Team leader: in Technical Sales (portfolio group Automation) 80–100 %",
+        "en": "Teamleiter:in Technical Sales (Portfolio-Gruppe Automation) 80–100%",
         "de": "Teamleiter:in Technical Sales (Portfolio-Gruppe Automation) 80–100%",
         "fr": "Chef d'équipe: Ventes techniques (groupe d'automation) 80 à 100 %"
       },
@@ -1902,7 +1935,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509164",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:23.734Z",
+      "crawledAt": "2026-07-06T00:09:29.455Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1923,7 +1956,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-technical-sales-portfolio-gruppe-automation-80-100-siemens-zuerich"
+        "teamleiter-in-technical-sales-portfolio-gruppe-automation-80-100-siemens-zuerich",
+        "teamleiter-nelle-vendite-tecniche-portfolio-gruppe-automation-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1932,6 +1966,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:48.702Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1960,7 +1995,7 @@
       "title": "Solution Engineer Management Systems 80–100%",
       "titleByLocale": {
         "it": "Solution Ingegnere Management Systems 80–100%",
-        "en": "Solution Engineer Management Systems 80–100 %",
+        "en": "Solution Engineer Management Systems 80–100%",
         "de": "Solution Ingenieur Management Systems 80–100%",
         "fr": "Solution Ingénieur Management Systems 80–100%"
       },
@@ -1976,7 +2011,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/501621",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:21.458Z",
+      "crawledAt": "2026-07-06T00:09:27.171Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1997,7 +2032,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solution-engineer-management-systems-80-100-siemens-ostermundigen"
+        "solution-engineer-management-systems-80-100-siemens-ostermundigen",
+        "sistemi-di-gestione-per-ingegneri-di-soluzione-80-100-siemens-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2006,6 +2042,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:46.541Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2050,7 +2087,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/506243",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:19.373Z",
+      "crawledAt": "2026-07-06T00:09:24.892Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2071,7 +2108,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildner-in-informatik-80-100-siemens-zuerich"
+        "ausbildner-in-informatik-80-100-siemens-zuerich",
+        "formatore-in-informatica-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2124,7 +2162,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508738",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:28:16.973Z",
+      "crawledAt": "2026-07-06T00:09:22.561Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2145,7 +2183,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "test-lab-infrastructure-assistant-working-student-40-60-siemens-zug"
+        "test-lab-infrastructure-assistant-working-student-40-60-siemens-zug",
+        "assistente-infrastruttura-del-laboratorio-di-esame-studente-lavoratore-40-60-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2198,7 +2237,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510207",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:28:14.778Z",
+      "crawledAt": "2026-07-06T00:09:20.129Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2219,7 +2258,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-de-vente-detection-incendie-sft-80-100-f-h-d-siemens-renens"
+        "ingenieur-de-vente-detection-incendie-sft-80-100-f-h-d-siemens-renens",
+        "ingegnere-commerciale-sft-80-100-rilevamento-incendi-f-h-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2272,7 +2312,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508669",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:28:12.653Z",
+      "crawledAt": "2026-07-06T00:09:17.785Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2293,7 +2333,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systems-and-core-assets-product-line-architect-80-100-siemens-zug"
+        "systems-and-core-assets-product-line-architect-80-100-siemens-zug",
+        "architetto-di-linea-di-prodotti-di-sistemi-e-asset-core-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2346,7 +2387,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510486",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:28:10.356Z",
+      "crawledAt": "2026-07-06T00:09:14.675Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2367,7 +2408,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-release-manager-iot-field-devices-for-the-building-automation-80-100-siemens-zug"
+        "senior-release-manager-iot-field-devices-for-the-building-automation-80-100-siemens-zug",
+        "senior-release-manager-dispositivi-iot-sul-campo-per-l-automazione-edilizia-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2376,6 +2418,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:35.193Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2420,7 +2463,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510640",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:28:08.175Z",
+      "crawledAt": "2026-07-06T00:09:12.306Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2441,7 +2484,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "working-student-it-projects-40-60-siemens-zug"
+        "working-student-it-projects-40-60-siemens-zug",
+        "progetti-it-per-studenti-lavoratori-40-60-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2494,7 +2538,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/497748",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:28:06.123Z",
+      "crawledAt": "2026-07-06T00:09:09.993Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2515,7 +2559,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-manager-api-strategy-platform-interoperability-80-100-siemens-zug"
+        "product-manager-api-strategy-platform-interoperability-80-100-siemens-zug",
+        "product-manager-strategia-api-e-interoperabilita-della-piattaforma-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2524,6 +2569,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:30.785Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2568,7 +2614,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510769",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:03.998Z",
+      "crawledAt": "2026-07-06T00:09:07.568Z",
       "addressLocality": "Lucerne",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -2589,7 +2635,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-sicherheitssysteme-80-100-siemens-lucerne"
+        "projektleiter-in-sicherheitssysteme-80-100-siemens-lucerne",
+        "project-manager-sistemi-di-sicurezza-80-100-siemens-lucerne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2598,6 +2645,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:28.414Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2642,7 +2690,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510962",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:28:01.896Z",
+      "crawledAt": "2026-07-06T00:09:05.181Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2663,7 +2711,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil"
+        "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil",
+        "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2722,7 +2771,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510856",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:59.700Z",
+      "crawledAt": "2026-07-06T00:09:02.805Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2743,7 +2792,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-oder-werkstudent-in-projektsupport-40-100-siemens-zuerich"
+        "praktikant-in-oder-werkstudent-in-projektsupport-40-100-siemens-zuerich",
+        "supporto-a-progetti-per-tirocinanti-o-studenti-lavoratori-40-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2796,7 +2846,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509065",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:57.565Z",
+      "crawledAt": "2026-07-06T00:09:00.468Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2817,7 +2867,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-projekte-building-security-80-100-siemens-volketswil"
+        "teamleiter-in-projekte-building-security-80-100-siemens-volketswil",
+        "progetti-di-team-leader-building-security-80-100-siemens-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2854,7 +2905,7 @@
       "title": "Solution Engineer Traffic Management Systems 80-100%",
       "titleByLocale": {
         "it": "Solution Ingegnere Traffic Management Systems 80-100%",
-        "en": "Solution Engineer Traffic Management Systems 80-100 %",
+        "en": "Solution Engineer Traffic Management Systems 80-100%",
         "de": "Solution Ingenieur Traffic Management Systems 80-100%",
         "fr": "Solution Ingénieur Traffic Management Systems 80-100%"
       },
@@ -2870,7 +2921,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510807",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:55.446Z",
+      "crawledAt": "2026-07-06T00:08:58.051Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -2891,7 +2942,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solution-engineer-traffic-management-systems-80-100-siemens-bern"
+        "solution-engineer-traffic-management-systems-80-100-siemens-bern",
+        "solution-engineer-sistemi-di-gestione-del-traffico-80-100-siemens-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2900,6 +2952,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:19.284Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2944,7 +2997,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511150",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:27:53.404Z",
+      "crawledAt": "2026-07-06T00:08:55.696Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2965,7 +3018,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-management-excellence-plm-lead-si-buildings-80-100-siemens-zug"
+        "product-management-excellence-plm-lead-si-buildings-80-100-siemens-zug",
+        "eccellenza-nella-gestione-del-prodotto-plm-lead-si-buildings-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3002,7 +3056,7 @@
       "title": "PMC & Project Quality Manager",
       "titleByLocale": {
         "it": "PMC e Project Quality Manager",
-        "en": "PMC and Project Quality Manager",
+        "en": "PMC & Project Quality Manager",
         "de": "PMC & Project Qualität Manager",
         "fr": "PMC & Project Qualité Manager"
       },
@@ -3018,7 +3072,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511115",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:51.320Z",
+      "crawledAt": "2026-07-06T00:08:53.513Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -3039,7 +3093,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pmc-project-quality-manager-siemens-wallisellen"
+        "pmc-project-quality-manager-siemens-wallisellen",
+        "pmc-e-responsabile-della-qualita-del-progetto-siemens-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3048,6 +3103,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:14.756Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3092,7 +3148,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511112",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:27:49.268Z",
+      "crawledAt": "2026-07-06T00:08:51.144Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -3113,7 +3169,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "working-student-product-management-in-grid-modelling-40-60-siemens-zuerich"
+        "working-student-product-management-in-grid-modelling-40-60-siemens-zuerich",
+        "gestione-del-prodotto-per-studenti-lavoratori-nella-modellazione-a-griglia-40-60-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3166,7 +3223,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511101",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:47.094Z",
+      "crawledAt": "2026-07-06T00:08:48.944Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -3187,7 +3244,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamlead-dienststellenleitung-system-engineering-zugsbeeinflussung-70-100-siemens"
+        "teamlead-dienststellenleitung-system-engineering-zugsbeeinflussung-70-100-siemens",
+        "team-lead-capo-dipartimento-ingegneria-di-sistema-controllo-dei-treni-70-100-siemens-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3224,7 +3282,7 @@
       "title": "Projektleitung Software-Entwicklung (80-100%)",
       "titleByLocale": {
         "it": "Sviluppo del software di gestione del progetto (80-100%)",
-        "en": "Project management software development (80-100%)",
+        "en": "Projektleitung Software-Entwicklung (80-100%)",
         "de": "Projektleitung Software-Entwicklung (80-100%)",
         "fr": "Développement de logiciels de gestion de projet (80-100%)"
       },
@@ -3240,7 +3298,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/497618",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:44.984Z",
+      "crawledAt": "2026-07-06T00:08:46.443Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -3261,7 +3319,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleitung-software-entwicklung-80-100-siemens-wallisellen"
+        "projektleitung-software-entwicklung-80-100-siemens-wallisellen",
+        "sviluppo-del-software-di-progettazione-80-100-siemens-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3276,6 +3335,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:07.622Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3320,7 +3380,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/499867",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:42.881Z",
+      "crawledAt": "2026-07-06T00:08:44.124Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -3341,6 +3401,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T11:51:05.174Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3385,7 +3446,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511324",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:27:40.757Z",
+      "crawledAt": "2026-07-06T00:08:40.931Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3406,7 +3467,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-comercial-courant-faible-installation-knx-iot-80-100-f-h-d-siemens-renens"
+        "ingenieur-comercial-courant-faible-installation-knx-iot-80-100-f-h-d-siemens-renens",
+        "ingegnere-vendite-bassa-corrente-installazione-knx-iot-80-100-f-h-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3459,7 +3521,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511345",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:38.676Z",
+      "crawledAt": "2026-07-06T00:08:38.698Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3480,7 +3542,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkstudent-in-procurement-40-60-siemens-zug"
+        "werkstudent-in-procurement-40-60-siemens-zug",
+        "acquisti-per-studenti-lavoratori-40-60-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3533,7 +3596,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511183",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:27:36.376Z",
+      "crawledAt": "2026-07-06T00:08:36.330Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3554,7 +3617,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-data-product-owner-80-100-siemens-zug"
+        "lead-data-product-owner-80-100-siemens-zug",
+        "titolare-del-prodotto-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3566,6 +3630,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:58.507Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3594,7 +3659,7 @@
       "title": "Leitung Process-/Datamanagement & Digitalization",
       "titleByLocale": {
         "it": "Responsabile Gestione dei processi/Data e digitalizzazione",
-        "en": "Head of Process/Data Management & Digitalization",
+        "en": "Leitung Process-/Datamanagement & Digitalization",
         "de": "Leitung Process-/Datamanagement & Digitalization",
         "fr": "Responsable des processus/gestion des données & numérisation"
       },
@@ -3610,7 +3675,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/478812",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:34.194Z",
+      "crawledAt": "2026-07-06T00:08:34.146Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -3631,7 +3696,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitung-process-datamanagement-digitalization-siemens-wallisellen"
+        "leitung-process-datamanagement-digitalization-siemens-wallisellen",
+        "processo-leitung-gestione-dei-dati-e-digitalizzazione-siemens-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3643,6 +3709,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:56.266Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3671,7 +3738,7 @@
       "title": "Solution Engineer OT Infrastruktur (100%)",
       "titleByLocale": {
         "it": "Solution Ingegnere OT Infrastruktur (100%)",
-        "en": "Solution Engineer OT Infrastructure (100%)",
+        "en": "Solution Engineer OT Infrastruktur (100%)",
         "de": "Solution Ingenieur OT Infrastruktur (100%)",
         "fr": "Solution Ingénieur OT Infrastruktur (100%)"
       },
@@ -3687,7 +3754,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/491193",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:32.023Z",
+      "crawledAt": "2026-07-06T00:08:31.768Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -3708,7 +3775,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solution-engineer-ot-infrastruktur-100-siemens-wallisellen"
+        "solution-engineer-ot-infrastruktur-100-siemens-wallisellen",
+        "ingegnere-soluzioni-ot-infrastruktur-100-siemens-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3717,6 +3785,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:53.964Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -3745,7 +3814,7 @@
       "title": "Technical Account Manager pour machines-outils CNC 80–100%",
       "titleByLocale": {
         "it": "Account Manager tecnico per macchine utensili CNC 80-100%",
-        "en": "Technical Account Manager for CNC machine tools 80–100%",
+        "en": "Technical Account Manager pour machines-outils CNC 80–100%",
         "de": "Technischer Account Manager für CNC-Werkzeugmaschinen 80–100%",
         "fr": "Technical Account Manager pour machines-outils CNC 80–100%"
       },
@@ -3761,7 +3830,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510436",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:27:29.851Z",
+      "crawledAt": "2026-07-06T00:08:29.532Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3782,7 +3851,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-account-manager-pour-machines-outils-cnc-80-100-siemens-renens"
+        "technical-account-manager-pour-machines-outils-cnc-80-100-siemens-renens",
+        "technical-account-manager-per-macchine-utensili-cnc-80-100-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3791,6 +3861,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:51.094Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3835,7 +3906,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511958",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:27:27.739Z",
+      "crawledAt": "2026-07-06T00:08:27.486Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -3856,7 +3927,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-sion"
+        "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-sion",
+        "tecnico-del-servizio-di-rilevamento-incendi-80-100-f-m-d-siemens-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3892,7 +3964,7 @@
       "companyDomain": "siemens.com",
       "title": "Chef de projet moyenne tension 80-100% (f/h/d)",
       "titleByLocale": {
-        "it": "Responsabile del progetto a media tensione 80-100% (f/h/d)",
+        "it": "Chef de projet moyenne tension 80-100% (f/h/d)",
         "en": "Medium voltage project manager 80-100% (f/h/d)",
         "de": "Mittelspannungsprojektmanager 80-100% (f/h/d)",
         "fr": "Chef de projet moyenne tension 80-100% (f/h/d)"
@@ -3909,7 +3981,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512016",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:27:25.415Z",
+      "crawledAt": "2026-07-06T00:08:25.045Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3930,7 +4002,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projet-moyenne-tension-80-100-f-h-d-siemens-renens"
+        "chef-de-projet-moyenne-tension-80-100-f-h-d-siemens-renens",
+        "responsabile-del-progetto-a-media-tensione-80-100-f-h-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3939,6 +4012,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:46.662Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3983,7 +4057,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511973",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:27:23.162Z",
+      "crawledAt": "2026-07-06T00:08:22.783Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -4004,7 +4078,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-de-service-securite-specialiste-en-videosurveillance-80-100-f-h-d-siemens"
+        "technicien-de-service-securite-specialiste-en-videosurveillance-80-100-f-h-d-siemens",
+        "tecnico-dei-servizi-di-sicurezza-specializzato-in-videosorveglianza-80-100-f-m-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4013,6 +4088,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:44.455Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4041,7 +4117,7 @@
       "title": "Commercial Project Manager FIN OPS Support 80-100% (f/h/d)",
       "titleByLocale": {
         "it": "Commercial Project Manager FIN OPS Support 80-100% (f/m/d)",
-        "en": "Commercial Project Manager FIN OPS Support 80-100% (e/h/d)",
+        "en": "Commercial Project Manager FIN OPS Support 80-100% (f/h/d)",
         "de": "Kommerzieller Projektmanager FIN OPS Support 80-100% (e/h/d)",
         "fr": "Commercial Project Manager FIN OPS Support 80-100% (f/h/d)"
       },
@@ -4057,7 +4133,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511974",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:27:21.103Z",
+      "crawledAt": "2026-07-06T00:08:20.452Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -4078,7 +4154,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "commercial-project-manager-fin-ops-support-80-100-f-h-d-siemens-renens"
+        "commercial-project-manager-fin-ops-support-80-100-f-h-d-siemens-renens",
+        "responsabile-progetto-commerciale-fin-supporto-ops-80-100-f-h-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4087,6 +4164,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:42.129Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -4131,7 +4209,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511788",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:18.983Z",
+      "crawledAt": "2026-07-06T00:08:17.831Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4152,7 +4230,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkstudent-in-technische-redaktion-gebaudetechnik-rechenzentren-40-60-siemens-zug"
+        "werkstudent-in-technische-redaktion-gebaudetechnik-rechenzentren-40-60-siemens-zug",
+        "studente-lavoratore-scrittura-tecnica-tecnologia-edilizia-data-center-40-60-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4205,7 +4284,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512222",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:27:16.782Z",
+      "crawledAt": "2026-07-06T00:08:15.659Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4226,7 +4305,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-specification-prescription-lead-80-100-siemens-zug"
+        "global-specification-prescription-lead-80-100-siemens-zug",
+        "specifica-globale-e-lead-per-prescrizioni-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4279,7 +4359,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502648",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:14.720Z",
+      "crawledAt": "2026-07-06T00:08:13.457Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -4300,7 +4380,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich"
+        "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich",
+        "tecnica-di-protezione-e-controllo-dell-ingegnere-di-servizio-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4337,7 +4418,7 @@
       "title": "Technical Sales Support Professional 80-100%",
       "titleByLocale": {
         "it": "Supporto tecnico commerciale Professional 80-100 %",
-        "en": "Technical Sales Support Professional 80-100 %",
+        "en": "Technical Sales Support Professional 80-100%",
         "de": "Technical Sales Support Professional 80-100%",
         "fr": "Technical Sales Support Professional 80-100 %"
       },
@@ -4353,7 +4434,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508781",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:12.522Z",
+      "crawledAt": "2026-07-06T00:08:11.081Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -4374,7 +4455,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-sales-support-professional-80-100-siemens-ostermundigen"
+        "technical-sales-support-professional-80-100-siemens-ostermundigen",
+        "professionista-tecnico-del-supporto-alle-vendite-80-100-siemens-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4383,6 +4465,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:33.135Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4427,7 +4510,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508719",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:07.998Z",
+      "crawledAt": "2026-07-06T00:08:06.282Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -4448,7 +4531,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsingenieur-in-hlk-und-gebaudeautomation-80-100-siemens-reinach"
+        "verkaufsingenieur-in-hlk-und-gebaudeautomation-80-100-siemens-reinach",
+        "ingegnere-vendite-hvac-e-automazione-edilizia-80-100-siemens-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4501,7 +4585,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512167",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:05.986Z",
+      "crawledAt": "2026-07-06T00:08:03.945Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -4522,7 +4606,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-verkauf-innendienst-gebaudeautomation-hlk-80-100-siemens-gossau"
+        "sachbearbeiter-in-verkauf-innendienst-gebaudeautomation-hlk-80-100-siemens-gossau",
+        "impiegato-vendite-automazione-edilizia-hvac-80-100-siemens-gossau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4531,6 +4616,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:26.475Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4575,7 +4661,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512480",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:27:03.657Z",
+      "crawledAt": "2026-07-06T00:08:01.570Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -4596,7 +4682,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemtechniker-in-raumautomation-80-100-siemens-reinach"
+        "systemtechniker-in-raumautomation-80-100-siemens-reinach",
+        "tecnico-di-sistema-in-automazione-ambiente-80-100-siemens-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4655,7 +4742,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512464",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:27:01.562Z",
+      "crawledAt": "2026-07-06T00:07:59.207Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -4676,7 +4763,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-de-projet-protection-et-automatisation-ht-mt-80-100-f-h-d-siemens-renens"
+        "ingenieur-de-projet-protection-et-automatisation-ht-mt-80-100-f-h-d-siemens-renens",
+        "ingegnere-di-progetto-hv-mv-protection-automation-80-100-f-m-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4729,7 +4817,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512374",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:26:57.684Z",
+      "crawledAt": "2026-07-06T00:07:55.056Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4750,6 +4838,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T11:50:18.025Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -4794,7 +4883,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512365",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:26:55.295Z",
+      "crawledAt": "2026-07-06T00:07:52.866Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4815,7 +4904,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-product-owner-80-100-siemens-zug"
+        "ai-product-owner-80-100-siemens-zug",
+        "ai-proprietario-del-prodotto-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4827,6 +4917,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:15.855Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4856,7 +4947,7 @@
       "titleByLocale": {
         "it": "GenAI Architetto 80-100%",
         "en": "GenAI Architect 80-100%",
-        "de": "GenAI Architekt 80-100%",
+        "de": "GenAI Architect 80-100%",
         "fr": "GenAI Architecte 80-100%"
       },
       "description": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. The digital transformation of buildings is a fast-changing, dynamic sector, and it needs more than just great technology - it needs great people, too. We know a business only thrives if its people are thriving, so at Siemens we put our people first. Within our buildings business, our diverse global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure. As a GenAI Architect, you will define and lead the Generative AI architecture and adoption journey across SI Buildings Product (SI B PRO). This is a high-impact role for a senior architect who wants to shape how GenAI is applied at scale across products engineering, in a global technology organization. In this role, you will establish the architectural foundations, standards, and governance needed to turn GenAI from isolated experimentation into durable enterprise capability. You will lead the design and rollout of an AI agentic SDLC framework for software and firmware development, helping engineering teams accelerate delivery, improve quality, and adopt GenAI in a secure, responsible, and scalable way. Working at the intersection of architecture, engineering transformation, cybersecurity, and product development, you will help shape the next generation of AI-enabled ways of working. Would you also like to play an active role in influencing current trends and developments and make a positive impact on the lives of millions of people in Switzerland? Then you’ve come to the right place! Apply today for the position of GenAI Architect – your team is looking forward to meeting you! Your new responsibilities\n• GenAI Strategy & Leadership: Define and evolve the GenAI architecture, standards, and adoption roadmap across SI B PRO, aligning AI initiatives with business priorities, product roadmaps, engineering needs, and responsible AI principles\n• AI Architecture: Architect scalable GenAI and agentic AI solutions across product development environments, including orchestration patterns, knowledge integration, tool access, API connectivity, model interaction, and deployment approaches\n• Agentic AI SDLC Framework: Lead the design and implementation of an AI agentic SDLC framework for software and firmware teams, embedding AI-assisted and agent-based capabilities across requirements, architecture, coding, testing, security, deployment, and lifecycle management\n• Engineering Enablement & Adoption: Define reusable reference architectures, guardrails, and best practices, and enable development teams through practical guidance, playbooks, and collaboration models that support broad and effective adoption\n• Governance, Security & Compliance: Establish architecture patterns and controls that embed measurability, security, privacy, responsible AI, auditability, and regulatory alignment into GenAI solutions and operating models\n• Platform & Ecosystem Integration: Drive integration of GenAI capabilities with engineering toolchains, cloud platforms, enterprise systems, and product development environments to enable scalable and interoperable implementation\n• Innovation & Technology Evaluation: Assess emerging GenAI models, frameworks, and vendors, and translate relevant innovation into strategic recommendations, reusable capabilities, and architectural direction for SI B PRO Your talents and experience\n• Bachelor’s or Master’s degree in Computer Science, Artificial Intelligence, Software Engineering, Data Science, or a related field\n• Several years of experience in software architecture, enterprise architecture, AI/ML, or related technology leadership roles, including hands-on experience with Generative AI solutions\n• Experience in designing and implementing enterprise-grade AI or GenAI architectures, including LLM-based applications, agentic workflows, retrieval-augmented generation (RAG), and AI platform integration\n• Strong understanding of software and firmware development lifecycles, DevSecOps practices, and how AI can be embedded across engineering workflows in a scalable and well-governed way\n• Good understanding of AI governance, cybersecurity, privacy, and regulatory landscapes relevant to enterprise AI adoption (e.g., EU AI Act, ISO 42001, ISO 27001, CRA, NIS2, secure AI practices)\n• Strong communication, stakeholder management, and facilitation skills, with the ability to translate complex AI concepts into practical business and engineering outcomes\n• Experience working across cloud platforms, developer toolchains, APIs, and enterprise integration patterns is highly desirable\n• Fluent in English Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Nathalie Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
@@ -4871,7 +4962,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512780",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:26:53.051Z",
+      "crawledAt": "2026-07-06T00:07:50.380Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4892,7 +4983,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "genai-architect-80-100-siemens-zug"
+        "genai-architect-80-100-siemens-zug",
+        "genai-architetto-80-100-siemens-zug",
+        "genai-architecte-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4905,6 +4998,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:13.491Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
