@@ -92,6 +92,16 @@ export const EVENT_SOURCES = {
     homepage: 'https://www.myswitzerland.com',
     canton: null,
   },
+  // Pilot non-TI source-canton crawler (issue #3644, F2 of #3125) — validates
+  // the createAgendaCrawler factory (scripts/lib/agenda-crawler-factory.mjs)
+  // on a second canton. City of Geneva's own official events listing
+  // (Drupal "Views" pager, `?page=N`, no API/key) — see scripts/crawl-ge-agenda.mjs.
+  'ge-agenda': {
+    key: 'ge-agenda',
+    label: 'Ville de Genève Agenda',
+    homepage: 'https://www.geneve.ch/agenda',
+    canton: 'GE',
+  },
 };
 
 // ── Localized URL path config (single source of truth, §6) ───
@@ -240,6 +250,23 @@ export const REGION_TO_COMUNE = {
   blenio: 'Blenio',
   riviera: 'Biasca',
   malcantone: 'Caslano',
+
+  // ── Genève agenda quartiers/region fallback (issue #3644 pilot) ───────
+  // geneve.ch/agenda's card listing doesn't print a quartier name inline
+  // (only a sidebar facet does), so scripts/crawl-ge-agenda.mjs passes the
+  // literal region hint 'Genève' for every event — the whole source is
+  // scoped to the single municipality "Genève", so this always resolves.
+  // The 7 real quartier names are also mapped (same 'Genève' comune, since
+  // canton GE's municipality list has one "Genève" entry) for forward
+  // compatibility if a future pass starts reading the quartier facet.
+  geneve: 'Genève',
+  champel: 'Genève',
+  'eaux-vives cite': 'Genève',
+  'grottes saint-gervais': 'Genève',
+  'paquis secheron': 'Genève',
+  'plainpalais jonction': 'Genève',
+  'saint-jean charmilles': 'Genève',
+  'servette petit-saconnex': 'Genève',
 };
 
 // ── Text normalization ───────────────────────────────────────
