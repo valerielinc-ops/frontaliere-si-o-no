@@ -1,15 +1,19 @@
 /**
- * Static SEO pages for events across the canton of Ticino, grouped by comune.
+ * Static SEO pages for events, nationwide (#3125), grouped by canton then comune.
  *
  * Emits:
- *   - canton hub   →  /eventi/ticino/                         (+ /en|/de|/fr)
- *   - per comune   →  /eventi/ticino/{comune}/                (+ /en|/de|/fr)
+ *   - Swiss-wide index →  /eventi/                            (+ /en|/de|/fr)
+ *   - canton hub       →  /eventi/ticino/                     (+ /en|/de|/fr, one per canton with events)
+ *   - per comune       →  /eventi/ticino/{comune}/             (+ /en|/de|/fr)
+ *   - weekend/week digest, per canton, and per-event detail pages (see below)
  *
  * Data source: data/events.json (assembled from per-source crawler slices by
- * scripts/assemble-events-dataset.mjs; MVP source = scripts/crawl-tio-agenda.mjs
- * which covers the whole canton). Each event carries a comune resolved by
+ * scripts/assemble-events-dataset.mjs; MVP source = scripts/crawl-tio-agenda.mjs,
+ * canton-scoped to TI; nationwide sources — guidle, myswitzerland, ge-agenda —
+ * carry their own resolved canton). Each event carries a comune resolved by
  * scripts/lib/events-utils.mjs; events without a confident comune still appear
- * on the canton hub but never invent a comune page.
+ * on their canton hub but never invent a comune page (see the "other events"
+ * bucket page below).
  *
  * SEO contract (mirrors borderMunicipalityPagesPlugin + docs/SEO-GATES.md):
  *   - buildSeoPageHtml shell, hubKey 'vita' chrome, seoContentOutsideRoot
@@ -18,9 +22,16 @@
  *     image/organizer{name,url}/performer{name}/offers{…}) — deploy-blocking
  *     validate-structured-data-completeness.mjs requires every field
  *   - BreadcrumbList + FAQPage JSON-LD, full hreflang (it/en/de/fr + x-default)
- *   - own sitemap-eventi.xml (picked up automatically by sitemapAliasPlugin)
+ *   - own sitemap-eventi.xml (picked up automatically by sitemapAliasPlugin) —
+ *     single un-sharded file; see the size-evaluation comment on buildSitemap
  *   - BFS reachability: inbound links injected into the /vivere-in-ticino/ and
- *     /vivere-in-ticino/comuni-di-frontiera/ hubs → hub depth 2, comune depth 3
+ *     /vivere-in-ticino/comuni-di-frontiera/ hubs (TI, always present) point
+ *     to the TI canton hub (unchanged, pre-#3645 link) — every OTHER canton
+ *     hub is one further hop from there via the (always-rendered, #3645)
+ *     `cantonSwitcher` pills, so hub depth stays 1, comune depth 2, same as
+ *     before this change. The Swiss-wide index itself is reached the other
+ *     way — every canton hub's `cantonSwitcher` now also links UP to it —
+ *     so it sits at depth 2 (one hop past the TI hub), well inside budget.
  *   - MIN_INDEXABLE_WORDS gate → thin pages get noindex,follow (never dropped)
  *
  * Default-on. Escape hatch: SKIP_EVENTS_PAGES=1.
@@ -45,6 +56,7 @@ import {
   slugifyEvent,
   EVENT_SOURCES,
   eventsBasePathForCanton,
+  EVENTS_INDEX_PATH,
   germanCantonPreposition,
   EVENTS_DIGEST_SLUGS,
   weekendWindow,
@@ -449,6 +461,146 @@ function copyFor(canton: string, locale: Locale): Copy {
   };
   copyCache.set(cacheKey, out);
   return out;
+}
+
+// ── Swiss-wide events index hub (issue #3645, F3) ───────────────────────────
+// Canton-less landing page one level above every canton hub above
+// (`/eventi/` + locale variants, from EVENTS_INDEX_PATH — §6, no second copy
+// of the segment strings). Own copy object (own literal per-locale text, no
+// canton to substitute) — same pattern as OTHER_EVENTS_COPY below rather than
+// COPY/copyFor, since there is no single canton name to plug into it.
+interface NationalCopy {
+  metaTitle: string;
+  metaDesc: string;
+  h1: string;
+  lede: string;
+  breadcrumbLabel: string;
+  statEvents: string;
+  statCantons: string;
+  statComuni: string;
+  statWeekend: string;
+  upcoming: string;
+  byCanton: string;
+  byCantonText: string;
+  faqTitle: string;
+  faqQ1: string;
+  faqA1: string;
+  faqQ2: string;
+  faqA2: string;
+  methodologyTitle: string;
+  methodology: string;
+  // Pill label on every per-canton hub linking back up to this index page.
+  allCantonsLabel: string;
+}
+
+const NATIONAL_COPY: Record<Locale, NationalCopy> = {
+  it: {
+    metaTitle: 'Eventi in Svizzera: agenda per cantone aggiornata',
+    metaDesc:
+      'Tutti gli eventi in Svizzera raccolti dalle agende ufficiali e divisi per cantone: concerti, mostre, feste e appuntamenti, aggiornati ogni giorno.',
+    h1: 'Eventi in Svizzera, cantone per cantone',
+    lede: 'Concerti, mostre, feste e appuntamenti in tutta la Svizzera, raccolti dalle agende ufficiali e raggruppati per cantone.',
+    breadcrumbLabel: 'Eventi Svizzera',
+    statEvents: 'Eventi in arrivo',
+    statCantons: 'Cantoni coperti',
+    statComuni: 'Comuni coperti',
+    statWeekend: 'Questo weekend',
+    upcoming: 'Prossimi eventi in Svizzera',
+    byCanton: 'Eventi per cantone',
+    byCantonText: 'Scegli il tuo cantone per vedere gli eventi più vicini a te.',
+    faqTitle: 'FAQ',
+    faqQ1: "Con che frequenza si aggiorna l'agenda eventi Svizzera?",
+    faqA1: "L'agenda si aggiorna automaticamente ogni giorno, raccogliendo i nuovi appuntamenti pubblicati dalle fonti ufficiali di ogni cantone.",
+    faqQ2: 'Posso vedere gli eventi di un singolo cantone?',
+    faqA2: "Sì. Scegli il cantone dalla lista qui sopra per vedere l'agenda completa di quella regione, comune per comune.",
+    methodologyTitle: 'Come raccogliamo gli eventi',
+    methodology:
+      "Gli eventi sono raccolti automaticamente dalle agende pubbliche di ogni cantone e aggiornati ogni giorno. Ogni evento è attribuito a un cantone e, quando possibile, a un comune preciso. Verifica sempre data, orario e luogo sulla pagina originale dell'organizzatore prima di spostarti: orari e disponibilità possono cambiare.",
+    allCantonsLabel: 'Tutta la Svizzera',
+  },
+  en: {
+    metaTitle: 'Events in Switzerland: agenda by canton',
+    metaDesc:
+      "Every event in Switzerland, collected from official agendas and grouped by canton: concerts, exhibitions, festivals and happenings, refreshed daily.",
+    h1: 'Events in Switzerland, canton by canton',
+    lede: 'Concerts, exhibitions, festivals and happenings across Switzerland, collected from official agendas and grouped by canton.',
+    breadcrumbLabel: 'Switzerland Events',
+    statEvents: 'Upcoming events',
+    statCantons: 'Cantons covered',
+    statComuni: 'Municipalities covered',
+    statWeekend: 'This weekend',
+    upcoming: 'Upcoming events in Switzerland',
+    byCanton: 'Events by canton',
+    byCantonText: 'Choose your canton to see the events closest to you.',
+    faqTitle: 'FAQ',
+    faqQ1: 'How often is the Switzerland events agenda updated?',
+    faqA1: "The agenda refreshes automatically every day, collecting new happenings published by each canton's official sources.",
+    faqQ2: 'Can I see events for a single canton?',
+    faqA2: "Yes. Pick a canton from the list above to see that region's full agenda, municipality by municipality.",
+    methodologyTitle: 'How we collect events',
+    methodology:
+      "Events are collected automatically from each canton's public agendas and refreshed every day. Every event is attributed to a canton and, where possible, to a specific municipality. Always check date, time and venue on the organiser's original page before travelling: times and availability can change.",
+    allCantonsLabel: 'All of Switzerland',
+  },
+  de: {
+    metaTitle: 'Veranstaltungen in der Schweiz: Agenda nach Kanton',
+    metaDesc:
+      'Alle Veranstaltungen in der Schweiz, gesammelt aus offiziellen Agenden und nach Kanton gruppiert: Konzerte, Ausstellungen, Feste und Anlässe, täglich aktualisiert.',
+    h1: 'Veranstaltungen in der Schweiz, Kanton für Kanton',
+    lede: 'Konzerte, Ausstellungen, Feste und Anlässe in der ganzen Schweiz, aus offiziellen Agenden gesammelt und nach Kanton gruppiert.',
+    breadcrumbLabel: 'Veranstaltungen Schweiz',
+    statEvents: 'Kommende Veranstaltungen',
+    statCantons: 'Abgedeckte Kantone',
+    statComuni: 'Abgedeckte Gemeinden',
+    statWeekend: 'Dieses Wochenende',
+    upcoming: 'Kommende Veranstaltungen in der Schweiz',
+    byCanton: 'Veranstaltungen nach Kanton',
+    byCantonText: 'Wähle deinen Kanton, um die Anlässe in deiner Nähe zu sehen.',
+    faqTitle: 'FAQ',
+    faqQ1: 'Wie oft wird die Schweizer Veranstaltungsagenda aktualisiert?',
+    faqA1: 'Die Agenda wird automatisch täglich aktualisiert und sammelt neue Anlässe aus den offiziellen Quellen jedes Kantons.',
+    faqQ2: 'Kann ich die Veranstaltungen eines einzelnen Kantons sehen?',
+    faqA2: 'Ja. Wähle einen Kanton aus der Liste oben, um die vollständige Agenda dieser Region zu sehen, Gemeinde für Gemeinde.',
+    methodologyTitle: 'Wie wir Veranstaltungen sammeln',
+    methodology:
+      'Die Veranstaltungen werden automatisch aus den öffentlichen Agenden jedes Kantons gesammelt und täglich aktualisiert. Jeder Anlass wird einem Kanton und, wenn möglich, einer genauen Gemeinde zugeordnet. Prüfe Datum, Zeit und Ort immer auf der Originalseite des Veranstalters, bevor du losfährst: Zeiten und Verfügbarkeit können sich ändern.',
+    allCantonsLabel: 'Ganze Schweiz',
+  },
+  fr: {
+    metaTitle: 'Événements en Suisse: agenda par canton',
+    metaDesc:
+      'Tous les événements en Suisse, recueillis dans les agendas officiels et regroupés par canton: concerts, expositions, fêtes et rendez-vous, mis à jour chaque jour.',
+    h1: 'Événements en Suisse, canton par canton',
+    lede: 'Concerts, expositions, fêtes et rendez-vous dans toute la Suisse, recueillis dans les agendas officiels et regroupés par canton.',
+    breadcrumbLabel: 'Événements Suisse',
+    statEvents: 'Événements à venir',
+    statCantons: 'Cantons couverts',
+    statComuni: 'Communes couvertes',
+    statWeekend: 'Ce week-end',
+    upcoming: 'Prochains événements en Suisse',
+    byCanton: 'Événements par canton',
+    byCantonText: 'Choisissez votre canton pour voir les événements les plus proches de vous.',
+    faqTitle: 'FAQ',
+    faqQ1: "À quelle fréquence l'agenda des événements Suisse est-il mis à jour?",
+    faqA1: "L'agenda est actualisé automatiquement chaque jour, en recueillant les nouveaux rendez-vous publiés par les sources officielles de chaque canton.",
+    faqQ2: "Puis-je voir les événements d'un seul canton?",
+    faqA2: "Oui. Choisissez un canton dans la liste ci-dessus pour voir l'agenda complet de cette région, commune par commune.",
+    methodologyTitle: 'Comment nous recueillons les événements',
+    methodology:
+      "Les événements sont recueillis automatiquement dans les agendas publics de chaque canton et actualisés chaque jour. Chaque événement est attribué à un canton et, si possible, à une commune précise. Vérifiez toujours la date, l'horaire et le lieu sur la page d'origine de l'organisateur avant de vous déplacer: horaires et disponibilités peuvent changer.",
+    allCantonsLabel: 'Toute la Suisse',
+  },
+};
+
+/** Canonical path for the Swiss-wide index hub (`EVENTS_INDEX_PATH` + trailing slash). */
+function nationalIndexPath(locale: Locale): string {
+  return `${EVENTS_INDEX_PATH[locale]}/`;
+}
+
+function buildNationalAlternates(): string {
+  return LOCALES.map((locale) => `  <link rel="alternate" hreflang="${locale}" href="${BASE_URL}${nationalIndexPath(locale)}">`)
+    .concat(`  <link rel="alternate" hreflang="x-default" href="${BASE_URL}${nationalIndexPath('it')}">`)
+    .join('\n');
 }
 
 type DigestCopy = { title: string; h1: string; lede: string; desc: string; faqQ: string; faqA: string };
@@ -970,17 +1122,20 @@ export function renderHubPage(params: {
         </a>`
       : '');
 
-  const cantonSwitcher =
-    otherCantons.length > 0
-      ? `<section class="mt-6 flex flex-wrap gap-2">
+  // Issue #3645 (F3): always render, with a first pill back up to the
+  // Swiss-wide index hub — previously this section was skipped entirely
+  // when no other canton had hubbed yet, leaving the canton hub with no
+  // upward link. Now it's never empty, since the national index always
+  // exists once this plugin runs at all.
+  const cantonSwitcher = `<section class="mt-6 flex flex-wrap gap-2">
+      <a class="rounded-full border border-accent-border bg-accent-subtle px-3 py-1 text-xs font-semibold text-heading hover:border-accent-border" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].allCantonsLabel)}</a>
       ${otherCantons
         .map(
           (c) =>
             `<a class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-xs font-semibold text-heading hover:border-accent-border" href="${pathFor(locale, c)}">${esc(getCantonLabel(c, locale as CantonLocale))}</a>`,
         )
         .join('')}
-    </section>`
-      : '';
+    </section>`;
 
   const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
@@ -1068,6 +1223,133 @@ export function renderHubPage(params: {
     description: copy.hubDesc,
     canonicalUrl,
     hreflangHtml: buildAlternates(canton),
+    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    ogLocale: LOCALE_OG[locale],
+    bodyHtml: body,
+    jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
+    hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
+    distDir,
+  });
+  return { urlPath: canonicalPath, html, wordCount };
+}
+
+// ── Swiss-wide events index hub (issue #3645, F3) ───────────────────────────
+// Canton-less landing page, one level above every `renderHubPage()` above —
+// same structural template (breadcrumb / header / stat tiles / grid /
+// upcoming list / crosslinks / FAQ / methodology) but the grid links out to
+// cantons instead of comuni, and stats are aggregated across the whole
+// dataset. Kept as its own function (not a `canton: 'CH'` special-case of
+// `renderHubPage`) since the grid tile shape differs (canton label + count,
+// no comune drill-down) and NATIONAL_COPY has no per-canton substitution.
+export function renderEventsIndexPage(params: {
+  locale: Locale;
+  cantonStats: Array<{ canton: string; eventCount: number; comuneCount: number }>;
+  events: SiteEvent[];
+  dateStamp: string;
+  weekendDays: Set<string>;
+  distDir: string;
+  detailHref?: DetailHref;
+}): { urlPath: string; html: string; wordCount: number } {
+  const { locale, cantonStats, events, dateStamp, weekendDays, distDir, detailHref } = params;
+  const copy = NATIONAL_COPY[locale];
+  const canonicalPath = nationalIndexPath(locale);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
+  const totalComuni = cantonStats.reduce((sum, c) => sum + c.comuneCount, 0);
+  const upcoming = events.slice(0, 60);
+
+  const cantonGrid = cantonStats
+    .map(
+      ({ canton, eventCount }) =>
+        `<a class="group flex items-center justify-between gap-2 rounded-lg border border-edge bg-surface p-4 shadow-stripe-sm transition-all hover:-translate-y-0.5 hover:border-accent-border hover:shadow-stripe-md" href="${pathFor(locale, canton)}">
+          <span class="min-w-0">
+            <span class="block truncate text-sm font-semibold text-heading">${esc(getCantonLabel(canton, locale as CantonLocale))}</span>
+            <span class="mt-1 block text-xs text-muted">${eventCount} ${esc(COPY[locale].eventsWord)}</span>
+          </span>
+          <span class="shrink-0 text-lg text-subtle transition-transform group-hover:translate-x-0.5 group-hover:text-accent" aria-hidden="true">→</span>
+        </a>`,
+    )
+    .join('');
+
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+    <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
+      <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
+      <span class="mx-2">/</span>
+      <span>${esc(copy.breadcrumbLabel)}</span>
+    </nav>
+
+    <header class="ev-in relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-info-subtle p-5 shadow-stripe-sm sm:p-8" data-speakable>
+      <div class="pointer-events-none absolute -right-4 -top-4 select-none text-8xl opacity-20 sm:text-9xl" aria-hidden="true">🇨🇭</div>
+      <h1 class="relative max-w-4xl font-display text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(copy.h1)}</h1>
+      <p class="relative mt-3 max-w-3xl text-base leading-7 text-body">${esc(copy.lede)}</p>
+      <p class="relative mt-3 text-sm text-muted">${renderSourceAttribution(events, COPY[locale], dateStamp)}</p>
+    </header>
+
+    <dl class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      ${renderMetric(copy.statEvents, String(events.length))}
+      ${renderMetric(copy.statCantons, String(cantonStats.length))}
+      ${renderMetric(copy.statComuni, String(totalComuni))}
+      ${renderMetric(copy.statWeekend, String(weekendCount))}
+    </dl>
+
+    <section class="mt-8 ev-featured">
+      <h2 class="font-display text-2xl font-bold text-heading">${esc(copy.upcoming)}</h2>
+      <div class="mt-4">${renderEventList(upcoming, locale, detailHref)}</div>
+    </section>
+
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
+      <h2 class="font-display text-2xl font-bold text-heading">${esc(copy.byCanton)}</h2>
+      <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(copy.byCantonText)}</p>
+      <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">${cantonGrid}</div>
+    </section>
+
+    ${renderCrosslinks(locale)}
+
+    ${renderFaq(
+      [
+        { q: copy.faqQ1, a: copy.faqA1 },
+        { q: copy.faqQ2, a: copy.faqA2 },
+      ],
+      copy.faqTitle,
+    )}
+
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
+      <h2 class="font-display text-xl font-bold text-heading">${esc(copy.methodologyTitle)}</h2>
+      <p class="mt-3 max-w-3xl text-sm leading-6 text-body">${esc(copy.methodology)}</p>
+    </section>
+  </div>`;
+
+  const itemListLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: copy.metaTitle,
+    itemListElement: markupEligibleEvents(upcoming, dateStamp).map((event, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: eventLd(event, locale),
+    })),
+  });
+  const breadcrumbLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` }, { '@type': 'ListItem', position: 2, name: copy.breadcrumbLabel, item: canonicalUrl }],
+  });
+  const faqLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: copy.faqQ1, acceptedAnswer: { '@type': 'Answer', text: copy.faqA1 } },
+      { '@type': 'Question', name: copy.faqQ2, acceptedAnswer: { '@type': 'Answer', text: copy.faqA2 } },
+    ],
+  });
+
+  const wordCount = countHtmlBodyWords(body);
+  const html = buildSeoPageHtml({
+    locale,
+    title: copy.metaTitle,
+    description: copy.metaDesc,
+    canonicalUrl,
+    hreflangHtml: buildNationalAlternates(),
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml: body,
@@ -2073,12 +2355,38 @@ export function renderDigestPage(params: {
   return { urlPath: canonicalPath, html, wordCount };
 }
 
+// Issue #3645 (F3) sitemap-sharding evaluation: a single `sitemap-eventi.xml`
+// (this function's return value) holds every hub/comune/digest/detail URL
+// for every hubbed canton, across all 4 locales' hreflang alternates — but
+// alternates are child <xhtml:link> nodes, not separate <url> entries, so
+// the relevant cap is the sitemap protocol's 50,000 <url> ELEMENTS per file
+// (50MB uncompressed), not a locale multiple.
+//
+// Measured against the live `data/events.json` (2026-07-06, all 26 canton
+// groups already crawled post-F1/F2): 1 national index + ~24 distinct hub
+// URLs (AI/AR and BL/BS collapse to one URL each, deduped by
+// `dedupeUrlsetXmlByLoc`) + up to 48 digest entries (2 digests × 24 groups)
+// + ~239 comune entries + ~6 comune-less "other events" bucket pages + 1084
+// event-detail entries ≈ 1,400 <url> elements total — under 3% of the 50k
+// cap. Even a 10x growth in crawled events (same canton count) lands
+// ~14,000; a 30x growth (~42,000) is the point this stops being
+// comfortable. Conclusion: per-canton sharding is NOT needed yet. Revisit
+// once this file's own <url> count approaches ~40,000 (buffer before the
+// hard cap) — at that point shard by canton (one
+// `sitemap-eventi-<canton>.xml` per group, indexed from a sitemap index),
+// mirroring the existing `data/seo-404-compat/part-*.json` sharding pattern
+// used elsewhere in this codebase for the same class of problem.
 function buildSitemap(
   perCanton: Array<{ canton: string; comuni: string[]; digests: DigestDef[]; hasOtherEvents?: boolean }>,
   dateStamp: string,
   detailEntries: Array<{ canton: string; comune: string; slug: string }> = [],
 ): string {
-  const entries: string[] = [];
+  // National index hub (issue #3645, F3) — always included: this function
+  // only runs when the plugin's own `all.length === 0` early-return in
+  // `closeBundle()` already let execution through, at which point the
+  // Swiss-wide index page is always emitted too (see the `renderEventsIndexPage`
+  // loop there), so it always belongs in the sitemap.
+  const entries: string[] = [nationalIndexSitemapUrl(dateStamp)];
   for (const { canton, comuni, digests, hasOtherEvents } of perCanton) {
     // Hub
     entries.push(sitemapUrl(canton, undefined, dateStamp, '0.7'));
@@ -2116,6 +2424,15 @@ function sitemapUrl(canton: string, comune: string | undefined, dateStamp: strin
     .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', canton, comune)}" />`)
     .join('\n');
   return `  <url>\n    <loc>${BASE_URL}${pathFor('it', canton, comune)}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+}
+
+// Priority 0.8: higher than a per-canton hub (0.7) — this is the single
+// entry point one hop above all of them (issue #3645, F3).
+function nationalIndexSitemapUrl(dateStamp: string): string {
+  const alternates = LOCALES.map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${nationalIndexPath(locale)}" />`)
+    .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${nationalIndexPath('it')}" />`)
+    .join('\n');
+  return `  <url>\n    <loc>${BASE_URL}${nationalIndexPath('it')}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.8</priority>\n  </url>`;
 }
 
 // Per-locale hub index files to patch with an inbound link to the events hub,
@@ -2255,6 +2572,11 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       };
 
       const perCantonSitemap: Array<{ canton: string; comuni: string[]; digests: DigestDef[]; hasOtherEvents: boolean }> = [];
+      // Per-canton aggregates for the Swiss-wide index hub (issue #3645, F3)
+      // — filled alongside `perCantonSitemap` in the same loop below so both
+      // stay derived from the identical per-canton data, never a second pass
+      // that could drift.
+      const cantonStats: Array<{ canton: string; eventCount: number; comuneCount: number }> = [];
 
       for (const canton of cantons) {
         const events = byCanton.get(canton)!;
@@ -2330,6 +2652,16 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           digests: DIGESTS.filter((d) => (digestEvents.get(d.key)?.length ?? 0) > 0),
           hasOtherEvents: otherEvents.length > 0,
         });
+        cantonStats.push({ canton, eventCount: events.length, comuneCount: byComune.size });
+      }
+
+      // Swiss-wide index hub (issue #3645, F3) — one per locale, always
+      // emitted alongside the per-canton hubs above: the `all.length === 0`
+      // early return near the top of this function already guards the whole
+      // plugin, so once we're here the national hub always belongs too.
+      for (const locale of LOCALES) {
+        const detailHref = detailHrefFor(locale);
+        emit(renderEventsIndexPage({ locale, cantonStats, events: all, dateStamp, weekendDays, distDir, detailHref }));
       }
 
       const detailEntries = [...detailSlugs.values()];
