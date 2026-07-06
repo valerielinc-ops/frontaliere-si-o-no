@@ -199,4 +199,28 @@ describe('SalaryCompare logic', () => {
     expect(ppp).toBeLessThan(chNet);
     expect(ppp).toBeGreaterThan(30000);
   });
+
+  // ── Per-canton net comparison (issue #3652: cantonNetRows) ──
+  // Mirrors the production formula in SalaryCompare.tsx: gross is scaled by
+  // the BFS-derived per-canton wage-level ratio (cantonGrossScale, #2068),
+  // net reuses the same calcNetCH curve for every canton.
+  function cantonNetRow(nationalGross: number, scale: number) {
+    const gross = Math.round(nationalGross * scale);
+    return { gross, net: calcNetCH(gross) };
+  }
+
+  it('national sentinel scale (1.0) reproduces the unscaled net figure', () => {
+    const nationalGross = 90000;
+    const row = cantonNetRow(nationalGross, 1);
+    expect(row.gross).toBe(nationalGross);
+    expect(row.net).toBe(calcNetCH(nationalGross));
+  });
+
+  it('a higher-wage-level canton yields a higher estimated gross and net', () => {
+    const nationalGross = 90000;
+    const lowCanton = cantonNetRow(nationalGross, 0.85); // e.g. Ticino-like ratio
+    const highCanton = cantonNetRow(nationalGross, 1.15); // e.g. Zug-like ratio
+    expect(highCanton.gross).toBeGreaterThan(lowCanton.gross);
+    expect(highCanton.net).toBeGreaterThan(lowCanton.net);
+  });
 });
