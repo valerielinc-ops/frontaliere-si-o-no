@@ -910,6 +910,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-autista-frontaliere-ticino.title': 'Grenzgänger Chauffeur im Tessin: Komplette Anleitung 2026',
     'blog.article.guida-autista-frontaliere-ticino.excerpt': 'Alles über Genehmigungen, Führerscheine, Löhne und Steuern für Grenzgänger in der Schweiz nach den ab 2024 geltenden Vorschriften.',
     'blog.article.guida-autista-frontaliere-ticino.imageAlt': 'LKW-Fahrer an einem Logistikzentrum in der Schweiz',
+    'blog.article.analisi-busta-paga-frontalieri-2026.title': 'Grenzgänger: Analyse Lohnabrechnung Schweiz 2026',
+    'blog.article.analisi-busta-paga-frontalieri-2026.excerpt': 'Praktischer Leitfaden zu Abzügen, Sozialbeiträgen und zur Berechnung des Realnettos für Grenzgänger in der Schweiz im Jahr 2026 gemäss geltendem Abkommen.',
+    'blog.article.analisi-busta-paga-frontalieri-2026.imageAlt': 'Finanzdokumente und Taschenrechner auf einem Schreibtisch mit Blick auf Lugano',
 };
 
 export default blogMetaChDe;

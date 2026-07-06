@@ -910,6 +910,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-autista-frontaliere-ticino.title': 'Frontaliere autista in Ticino: guida completa 2026',
     'blog.article.guida-autista-frontaliere-ticino.excerpt': 'Tutto su permessi, patenti, stipendi e tassazione per autisti frontalieri in Svizzera secondo le norme vigenti dal 2024.',
     'blog.article.guida-autista-frontaliere-ticino.imageAlt': 'Autista di camion in un polo logistico in Svizzera',
+    'blog.article.analisi-busta-paga-frontalieri-2026.title': 'Frontalieri: analisi busta paga Svizzera 2026',
+    'blog.article.analisi-busta-paga-frontalieri-2026.excerpt': 'Guida pratica alle trattenute, ai contributi sociali e al calcolo del netto reale per i frontalieri in Svizzera nel 2026 secondo l\'accordo vigente.',
+    'blog.article.analisi-busta-paga-frontalieri-2026.imageAlt': 'Documenti finanziari e calcolatrice su una scrivania con vista su Lugano',
 };
 
 export default blogMetaChIt;

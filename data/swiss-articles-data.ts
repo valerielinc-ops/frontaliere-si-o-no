@@ -2726,6 +2726,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'analisi-busta-paga-frontalieri-2026',
+    category: 'fiscale',
+    date: '2026-07-06T04:39:53.509Z',
+    image: '/images/blog/analisi-busta-paga-frontalieri-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

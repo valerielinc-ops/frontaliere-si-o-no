@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3080,
+ "numberOfItems": 3081,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7755,7 +7755,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3077, "name": "Frontaliere operaio edile in Ticino: guida al CCL", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-operaio-edile-ticino-ccl` },
           { "@type": "ListItem", "position": 3078, "name": "Tilo Mendrisio-Gallarate: completato il potenzi...", "url": `${BASE_URL}/articoli-frontaliere/potenziamento-linee-tilo-mendrisio-gallarate` },
           { "@type": "ListItem", "position": 3079, "name": "Frontaliere autista in Ticino: guida completa 2026", "url": `${BASE_URL}/articoli-frontaliere/guida-autista-frontaliere-ticino` },
-          { "@type": "ListItem", "position": 3080, "name": "Post Sanela chiude: cosa cambia per i pazienti ...", "url": `${BASE_URL}/articoli-frontaliere/chiusura-piattaforma-post-sanela` }
+          { "@type": "ListItem", "position": 3080, "name": "Post Sanela chiude: cosa cambia per i pazienti ...", "url": `${BASE_URL}/articoli-frontaliere/chiusura-piattaforma-post-sanela` },
+          { "@type": "ListItem", "position": 3081, "name": "Frontalieri: analisi busta paga Svizzera 2026", "url": `${BASE_URL}/articoli-frontaliere/analisi-busta-paga-frontalieri-2026` }
  ]
  },
  {

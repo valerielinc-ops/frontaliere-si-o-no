@@ -326,6 +326,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-infermiere-ticino-requisiti': { it: 'frontaliere-infermiere-ticino-requisiti', en: 'frontier-nurse-ticino-requirements', de: 'grenzganger-pfleger-tessin-voraussetzungen', fr: 'frontalier-infirmier-ticino-exigences' },
  'frontaliere-operaio-edile-ticino-ccl': { it: 'frontaliere-operaio-edile-ticino-ccl', en: 'cross-border-construction-worker-ticino-ccl', de: 'grenzgaenger-bauarbeiter-tessin-ccl', fr: 'frontalier-ouvrier-construction-tessin-ccl' },
  'guida-autista-frontaliere-ticino': { it: 'guida-autista-frontaliere-ticino', en: 'guide-cross-border-truck-driver-ticino', de: 'leitfaden-grenzgaenger-lkw-fahrer-tessin', fr: 'guide-frontalier-chauffeur-poids-lourds-ticino' },
+ 'analisi-busta-paga-frontalieri-2026': { it: 'analisi-busta-paga-frontalieri-2026', en: 'analysis-swiss-payslip-cross-border-2026', de: 'analyse-schweizer-lohnausweis-grenzgaenger-2026', fr: 'analyse-fiche-de-paie-frontaliers-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

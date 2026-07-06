@@ -4387,6 +4387,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-potenziamento-linee-tilo-mendrisio-gallarate': { name: 'Potenziamento Tilo', path: '/articoli-frontaliere/potenziamento-linee-tilo-mendrisio-gallarate', parent: 'blog' },
     'blog-guida-autista-frontaliere-ticino': { name: 'Frontaliere autista Ticino', path: '/articoli-svizzera/guida-autista-frontaliere-ticino/', parent: 'blog' },
     'blog-chiusura-piattaforma-post-sanela': { name: 'Chiusura Post Sanela', path: '/articoli-frontaliere/chiusura-piattaforma-post-sanela', parent: 'blog' },
+    'blog-analisi-busta-paga-frontalieri-2026': { name: 'Busta paga frontaliere', path: '/articoli-svizzera/analisi-busta-paga-frontalieri-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
