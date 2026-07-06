@@ -8264,6 +8264,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziativa-10-milioni-voto-giugno.title': 'Voto 14 giugno: sondaggio sull\'iniziativa 10 milioni',
     'blog.article.iniziativa-10-milioni-voto-giugno.excerpt': 'Il fronte del \'no\' sale al 52% in vista del voto del 14 giugno. Analisi dei dati SSR sull\'iniziativa UDC e sulla legge per il servizio civile.',
     'blog.article.iniziativa-10-milioni-voto-giugno.imageAlt': 'Cartellone informativo in una piazza del Canton Ticino prima di una votazione.',
+    'blog.article.accordo-sociale-lastminute-chiasso.title': 'Lastminute.com Chiasso: intesa raggiunta per i 56 licenziati',
+    'blog.article.accordo-sociale-lastminute-chiasso.excerpt': 'Raggiunto l\'accordo sul piano sociale per i 56 dipendenti della sede di Chiasso. Ecco i dettagli sulle misure a tutela dei lavoratori coinvolti.',
+    'blog.article.accordo-sociale-lastminute-chiasso.imageAlt': 'Veduta del quartiere direzionale di Chiasso in Ticino',
 };
 
 export default blogMetaIt;

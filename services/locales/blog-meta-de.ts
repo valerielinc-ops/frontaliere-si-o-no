@@ -8262,6 +8262,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iniziativa-10-milioni-voto-giugno.title': 'Abstimmung vom 14. Juni: Umfrage zur 10-Millionen-Initiative',
     'blog.article.iniziativa-10-milioni-voto-giugno.excerpt': 'Die Nein-Front steigt mit Blick auf die Abstimmung am 14. Juni auf 52%. SRG-Datenanalyse zur SVP-Initiative und zum Zivildienstgesetz.',
     'blog.article.iniziativa-10-milioni-voto-giugno.imageAlt': 'Informationstafel auf einem Schweizer Platz im Tessin vor einer Abstimmung.',
+    'blog.article.accordo-sociale-lastminute-chiasso.title': 'Lastminute.com Chiasso: Einigung für die 56 Entlassenen',
+    'blog.article.accordo-sociale-lastminute-chiasso.excerpt': 'Sozialvereinbarung für die 56 Mitarbeiter des Firmensitzes in Chiasso getroffen. Hier finden Sie Details zu den Maßnahmen zum Schutz der betroffenen Arbeitnehmer.',
+    'blog.article.accordo-sociale-lastminute-chiasso.imageAlt': 'Blick auf das Geschäftsviertel in Chiasso, Tessin',
 };
 
 export default blogMetaDe;

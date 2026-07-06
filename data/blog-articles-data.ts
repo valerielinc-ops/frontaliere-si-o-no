@@ -24830,6 +24830,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'accordo-sociale-lastminute-chiasso',
+ category: 'novita',
+ date: '2026-07-06T03:32:16.974Z',
+ image: '/images/blog/accordo-sociale-lastminute-chiasso.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -4380,6 +4380,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-successione-eredita-frontaliere-conto-svizzero': { name: 'Successione eredità', path: '/articoli-svizzera/successione-eredita-frontaliere-conto-svizzero/', parent: 'blog' },
     'blog-iniziativa-10-milioni-voto-giugno': { name: 'Votazioni federali', path: '/articoli-frontaliere/iniziativa-10-milioni-voto-giugno', parent: 'blog' },
     'blog-divorzio-frontaliere-mantenimento-svizzera': { name: 'Divorzio frontaliere', path: '/articoli-svizzera/divorzio-frontaliere-mantenimento-svizzera/', parent: 'blog' },
+    'blog-accordo-sociale-lastminute-chiasso': { name: 'Accordo Lastminute Chiasso', path: '/articoli-frontaliere/accordo-sociale-lastminute-chiasso', parent: 'blog' },
  };
 
  const info = sectionNames[section];
