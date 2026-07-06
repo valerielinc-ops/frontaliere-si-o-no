@@ -8245,6 +8245,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riapertura-treni-ticino-2024.title': 'Reopening of trains between Varese, Ticino and Porto Ceresio',
     'blog.article.riapertura-treni-ticino-2024.excerpt': 'Rail links between Varese, Canton Ticino and Porto Ceresio reopen after four weeks of interruption',
     'blog.article.riapertura-treni-ticino-2024.imageAlt': 'The news of the reopening of the train connections between Varese, the Canton Ticino and Porto Ceresio represents a breath of fresh air for commuters',
+    'blog.article.sicurezza-alimentare-aziende-ticino.title': 'Food safety Ticino: 90% of the companies promoted',
+    'blog.article.sicurezza-alimentare-aziende-ticino.excerpt': 'The 2025 Business Report of the Cantonal Laboratory photographs the state of food safety: 9 out of 10 companies are in good standing, but controls are growing.',
+    'blog.article.sicurezza-alimentare-aziende-ticino.imageAlt': 'Food safety inspection in a company in Canton Ticino',
 };
 
 export default blogMetaEn;

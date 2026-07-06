@@ -8246,6 +8246,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riapertura-treni-ticino-2024.title': 'Réouverture des trains entre Varese, le Tessin et Porto Ceresio',
     'blog.article.riapertura-treni-ticino-2024.excerpt': 'Les liaisons ferroviaires entre Varese, le canton du Tessin et Porto Ceresio rouvrent après quatre semaines d\'interruption',
     'blog.article.riapertura-treni-ticino-2024.imageAlt': 'Les informations sur la réouverture des liaisons ferroviaires entre Varese, le canton du Tessin et Porto Ceresio représentent une bouffée d\'oxygène pour les voyageurs',
+    'blog.article.sicurezza-alimentare-aziende-ticino.title': 'Sécurité alimentaire Tessin : 90 % des exploitations promues',
+    'blog.article.sicurezza-alimentare-aziende-ticino.excerpt': 'Le Rapport d\'exploitation 2025 du Laboratoire cantonal photographie l\'état de la sécurité alimentaire : 9 entreprises sur 10 sont en règle, mais les contrôles augmentent.',
+    'blog.article.sicurezza-alimentare-aziende-ticino.imageAlt': 'Inspection de la sécurité alimentaire dans une entreprise du canton du Tessin',
 };
 
 export default blogMetaFr;
