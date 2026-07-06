@@ -43,8 +43,12 @@ function isIncomplete(job) {
   return false;
 }
 
+// Excludes cleanup-jobs.mjs's own scratch file (`<slice>.cleanup-tmp.json`):
+// a hard-killed cleanup run can leave it orphaned in the same CI job, and its
+// bare jobs-array shape passes straight through the `Array.isArray` check
+// below, double-counting every job in it into the committed stats history.
 const files = fs.existsSync(CRAWLERS_DIR)
-  ? fs.readdirSync(CRAWLERS_DIR).filter(f => f.endsWith('.json') && !f.includes('-locale-cache'))
+  ? fs.readdirSync(CRAWLERS_DIR).filter(f => f.endsWith('.json') && !f.includes('-locale-cache') && !f.includes('.cleanup-tmp'))
   : [];
 
 let total = 0;

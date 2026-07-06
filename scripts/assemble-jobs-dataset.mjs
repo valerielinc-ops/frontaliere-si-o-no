@@ -388,11 +388,19 @@ function readJson(filePath, fallback) {
   }
 }
 
-function listSliceFiles(dir) {
+// Excludes cleanup-jobs.mjs's own scratch file (`<slice>.cleanup-tmp.json`,
+// gitignored). It's written+unlinked in a try/finally, but a hard process
+// kill (e.g. OOM) mid-run can skip the finally and leave it on disk for the
+// rest of the SAME job — the malformed-slice guard below then hard-fails
+// assembly on the assembler's own transient scratch file, not real data
+// (run 28783188549: lidl-svizzera housekeeping died silently, orphaning
+// lidl-svizzera.json.cleanup-tmp.json, which the next "Assemble dataset"
+// step in the same job picked up as a slice and refused to parse).
+export function listSliceFiles(dir) {
   if (!fs.existsSync(dir)) return [];
   return fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith('.json') && f !== '.gitkeep' && !f.includes('-cache'))
+    .filter((f) => f.endsWith('.json') && f !== '.gitkeep' && !f.includes('-cache') && !f.includes('.cleanup-tmp'))
     .map((f) => path.join(dir, f))
     .sort(); // lexicographic — deterministic order
 }
