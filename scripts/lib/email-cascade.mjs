@@ -171,13 +171,42 @@ async function fetchResendDailyUsage() {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return 0;
   try {
-    const res = await fetch('https://api.resend.com/emails', {
-      headers: { Authorization: 'Bearer ' + apiKey }
-    });
-    if (!res.ok) return 0;
-    const data = await res.json();
     const today = getTodayUTC();
-    return (data.data || []).filter(e => e.created_at?.startsWith(today)).length;
+    let count = 0;
+    let after;
+    // /emails is sorted newest-first; page with limit=100 (API max) until an
+    // entry older than today appears or has_more is false. Capped at 20 pages
+    // (2000 entries) — comfortably above the 1666/day cascade cap, so a
+    // legitimate day's volume never gets truncated back into the same
+    // undercount bug this replaces (previously: default limit=20, single
+    // page, silently missed everything sent earlier that day past the 20
+    // most recent — harmless at the old 100/day resend cap, but a real
+    // over-send risk now that resend carries the 1666/day bulk cascade load).
+    for (let page = 0; page < 20; page++) {
+      const url = new URL('https://api.resend.com/emails');
+      url.searchParams.set('limit', '100');
+      if (after) url.searchParams.set('after', after);
+      const res = await fetch(url, { headers: { Authorization: 'Bearer ' + apiKey } });
+      if (!res.ok) break;
+      const data = await res.json();
+      const entries = data.data || [];
+      if (entries.length === 0) break;
+      const todayEntries = [];
+      let hitOlderDay = false;
+      for (const e of entries) {
+        if (e.created_at?.startsWith(today)) {
+          todayEntries.push(e);
+        } else {
+          hitOlderDay = true;
+          break;
+        }
+      }
+      count += todayEntries.length;
+      if (hitOlderDay || !data.has_more) break;
+      after = entries[entries.length - 1]?.id;
+      if (!after) break;
+    }
+    return count;
   } catch { return 0; }
 }
 
@@ -944,4 +973,4 @@ export function getCascadeDailyCapacity() {
   return PROVIDERS.reduce((sum, p) => sum + p.dailyLimit, 0);
 }
 
-export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag };
+export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage };
