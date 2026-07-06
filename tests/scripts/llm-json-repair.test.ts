@@ -9,7 +9,7 @@
 // had this bug inlined — fixed once in shared ./lib/llm-json-repair.mjs.
 
 import { describe, expect, it } from 'vitest';
-import { stripCodeFences, findMatchingClose, fixJsonStringBody, describeJsonParseError } from '../../scripts/lib/llm-json-repair.mjs';
+import { stripCodeFences, findMatchingClose, fixJsonStringBody, describeJsonParseError, describeRawForDiagnostics } from '../../scripts/lib/llm-json-repair.mjs';
 
 describe('fixJsonStringBody', () => {
   it('escapes an unescaped inner quote so the string does not terminate early', () => {
@@ -248,6 +248,44 @@ describe('describeJsonParseError', () => {
     const described = describeJsonParseError(repaired, err);
     // Must not throw/slice out of bounds — position is clamped to string length.
     expect(described).toContain(`position ${repaired.length}`);
+  });
+});
+
+describe('describeRawForDiagnostics', () => {
+  it('returns the full string when it fits within maxChars', () => {
+    const raw = '{"a":"short"}';
+    const result = describeRawForDiagnostics(raw, 4000);
+    expect(result).toBe(`raw[0:${raw.length}]: ${raw}`);
+  });
+
+  it('splits head+tail when string exceeds maxChars', () => {
+    const raw = 'A'.repeat(10000);
+    const result = describeRawForDiagnostics(raw, 100);
+    expect(result).toMatch(/^raw\[0:50\]\.\.\.\[9950:10000\]/);
+    expect(result).toContain('total 10000');
+    expect(result).toContain('omitted');
+    // head + tail each 50 chars
+    expect(result).toContain('A'.repeat(50));
+  });
+
+  it('normalises \\r\\n to \\\\n so it does not break log consumers', () => {
+    const raw = 'line1\r\nline2\r\nline3';
+    const result = describeRawForDiagnostics(raw, 4000);
+    expect(result).not.toContain('\r');
+    expect(result).toContain('\\n');
+    expect(result).toContain('line1\\nline2\\nline3');
+  });
+
+  it('normalises bare \\r to \\\\n', () => {
+    const raw = 'line1\rline2';
+    const result = describeRawForDiagnostics(raw, 4000);
+    expect(result).not.toContain('\r');
+    expect(result).toContain('line1\\nline2');
+  });
+
+  it('handles null/undefined gracefully', () => {
+    expect(() => describeRawForDiagnostics(null)).not.toThrow();
+    expect(() => describeRawForDiagnostics(undefined)).not.toThrow();
   });
 });
 
