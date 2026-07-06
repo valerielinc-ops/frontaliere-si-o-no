@@ -4811,12 +4811,13 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  });
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
- if (!fs.existsSync(np.join(dir, 'index.html'))) {
+ const dirIndex = np.join(dir, 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
- _qw(np.join(dir, 'index.html'), html);
+ _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!fs.existsSync(flatFile)) {
+ if (!_writtenPaths.has(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
@@ -5720,12 +5721,13 @@ ${staticAnalyticsHtml}
  });
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
- if (!fs.existsSync(np.join(dir, 'index.html'))) {
+ const dirIndex = np.join(dir, 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
- _qw(np.join(dir, 'index.html'), html);
+ _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!fs.existsSync(flatFile)) {
+ if (!_writtenPaths.has(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
