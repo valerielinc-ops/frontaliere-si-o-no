@@ -1,0 +1,84 @@
+{
+  "crawlerKey": "apg-sga",
+  "assembledAt": "2026-07-06T13:01:31.109Z",
+  "jobs": [
+    {
+      "id": "apg-sga-ed9af0d4db71",
+      "slug": "jobs-e-karriere-apg-sga-lugano",
+      "slugByLocale": {
+        "de": "jobs-und-karriere-apg-sga-ch",
+        "it": "jobs-e-karriere-apg-sga-lugano",
+        "en": "jobs-und-karriere-apg-sga-ch",
+        "fr": "jobs-und-karriere-apg-sga-ch"
+      },
+      "company": "APG|SGA",
+      "companyKey": "apg-sga",
+      "companyDomain": "apgsga.ch",
+      "title": "Jobs und Karriere",
+      "titleByLocale": {
+        "de": "Jobs und Karriere",
+        "it": "Jobs e Karriere",
+        "en": "Jobs und Karriere",
+        "fr": "Jobs und Karriere"
+      },
+      "description": "Jobs und Karriere — Stelle bei APG|SGA in Lugano, Schweiz. APG|SGA ist der führende Schweizer Aussenwerbevermarkter mit Standorten in der ganzen Schweiz.",
+      "descriptionByLocale": {
+        "de": "Jobs und Karriere — Stelle bei APG|SGA in Lugano, Schweiz. APG|SGA ist der führende Schweizer Aussenwerbevermarkter mit Standorten in der ganzen Schweiz.",
+        "it": "Jobs und Karriere — Stelle bei APG|SGA in Lugano, Schweiz. APG|SGA ist der führende Schweizer Aussenwerbevermarkter mit Standorten in der ganzen Schweiz.",
+        "en": "Jobs und Karriere — Stelle bei APG|SGA in Lugano, Schweiz. APG|SGA ist der führende Schweizer Aussenwerbevermarkter mit Standorten in der ganzen Schweiz.",
+        "fr": "Jobs und Karriere — Stelle bei APG|SGA in Lugano, Schweiz. APG|SGA ist der führende Schweizer Aussenwerbevermarkter mit Standorten in der ganzen Schweiz."
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.apgsga.ch/de/ueber-uns/offene-stellen-karriere/",
+      "source": "APG|SGA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T13:01:28.983Z",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Pubblicità / Media esterni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "applyUrl": "https://www.apgsga.ch/de/ueber-uns/offene-stellen-karriere/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "offene-stellen-und-karriere-apg-sga-ch",
+          "jobs-und-karriere-apg-sga-ch"
+        ],
+        "de": [
+          "offene-stellen-und-karriere-apg-sga-ch"
+        ]
+      },
+      "previousSlugs": [
+        "offene-stellen-und-karriere-apg-sga-ch",
+        "jobs-und-karriere-apg-sga-ch"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-06T13:01:28.983Z"
+    }
+  ]
+}
