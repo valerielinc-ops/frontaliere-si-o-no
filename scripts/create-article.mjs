@@ -2537,7 +2537,15 @@ function normalizeItalianContentFromPayload(payload, locale = 'it') {
 function validateItalianPayload(contentIt, locale = 'it') {
   for (const field of REQUIRED_IT_BODY_FIELDS) {
     if (!contentIt?.[field] || contentIt[field].trim().length < 1) {
-      throw new Error(`Campo ${field} mancante per ${locale}`);
+      // qualityReject=true: missing-field is the same content-quality class as
+      // callLLM's body2-validation throws (malformed/incomplete generation),
+      // not an infrastructure error — isQualityRejectError() didn't match a
+      // bare "mancante" message, so this crashed the run instead of skipping
+      // to the next headline (same catch chain: callGemini -> proven-pool/
+      // evergreen/manual-URL).
+      const err = new Error(`Campo ${field} mancante per ${locale}`);
+      err.qualityReject = true;
+      throw err;
     }
   }
 
@@ -3297,14 +3305,25 @@ async function callLLM(messages, opts = {}) {
         // after maxBody2Retries genuinely-exhausted tries. Throw so the caller
         // falls back to the next model in the chain (or the outer safety net)
         // instead of publishing malformed/wrong-language content.
-        throw new Error(`Output JSON incompleto (tentativo ${attempt}/${maxBody2Retries}${wallBudgetExceeded() ? ', budget esaurito' : ''}): ${missing.join(', ')}`);
+        // qualityReject=true: this is a content-quality failure (malformed JSON,
+        // CJK/Cyrillic drift, missing fields), not an infrastructure error.
+        // Without the flag the outer ranker loop (isQualityRejectError check) treats
+        // it as infrastructure and crashes the whole run instead of gracefully
+        // skipping to the next headline.
+        const _bodyErr = new Error(`Output JSON incompleto (tentativo ${attempt}/${maxBody2Retries}${wallBudgetExceeded() ? ', budget esaurito' : ''}): ${missing.join(', ')}`);
+        _bodyErr.qualityReject = true;
+        throw _bodyErr;
       } else {
         recordModelContentSuccess(modelUsedRef.model);
       }
     }
     return result;
   }
-  throw new Error(`Output JSON non valido dopo ${maxBody2Retries} tentativi con validazione jsonMode`);
+  // qualityReject=true: same class as above — exhausted retries without a valid
+  // body2 payload is a per-headline quality failure, not an infrastructure crash.
+  const _exhaustedErr = new Error(`Output JSON non valido dopo ${maxBody2Retries} tentativi con validazione jsonMode`);
+  _exhaustedErr.qualityReject = true;
+  throw _exhaustedErr;
 }
 
 /** Convert article id like "tassa-salute-ticino" to camelCase slug key "blogTassaSaluteTicino" */
@@ -4541,7 +4560,13 @@ Rispondi SOLO con JSON valido, senza markdown.` },
       console.error(`  ✅ Retry IT riuscito`);
     } catch (retryErr) {
       console.error(`  ❌ Retry IT fallito: ${retryErr.message}`);
-      throw new Error(`JSON non valido dalla generazione IT: ${parseErr.message}`);
+      // qualityReject=true: malformed JSON after the repair-aware retry is a
+      // content-quality failure, same class as callLLM's body2-validation
+      // throws — isQualityRejectError() didn't match this message, so it
+      // crashed the run instead of skipping to the next headline.
+      const err = new Error(`JSON non valido dalla generazione IT: ${parseErr.message}`);
+      err.qualityReject = true;
+      throw err;
     }
   }
 
@@ -4567,7 +4592,11 @@ Rispondi SOLO con JSON valido, senza markdown.` },
 
   const itContent = normalizeItalianContentFromPayload(itData);
   if (!itContent) {
-    throw new Error('Risposta IT non contiene content.it e non può essere normalizzata');
+    // qualityReject=true: same content-quality class as the JSON-parse and
+    // missing-field siblings above/below — see their comments for why.
+    const err = new Error('Risposta IT non contiene content.it e non può essere normalizzata');
+    err.qualityReject = true;
+    throw err;
   }
   validateItalianPayload(itContent, 'it');
 
@@ -4860,7 +4889,15 @@ async function translateArticle(data) {
           return result3;
         } catch (retry2Err) {
           console.error(`  ❌ Retry 2 fallito (${label}): ${retry2Err.message}`);
-          throw new Error(`JSON non valido dalla traduzione ${label}: ${retry2Err.message}`);
+          // qualityReject=true: same content-quality class as the IT-generation
+          // JSON-parse-exhausted throw above — malformed translation output,
+          // not infrastructure. This propagates straight out of
+          // generateAndValidateArticle (no local catch around translateArticle),
+          // so an untagged message here crashes the whole run instead of
+          // skipping to the next headline.
+          const err = new Error(`JSON non valido dalla traduzione ${label}: ${retry2Err.message}`);
+          err.qualityReject = true;
+          throw err;
         }
       }
     }
@@ -5254,22 +5291,37 @@ function validate(data, opts = {}) {
   // synthesized from it. Smaller fallback models (Cerebras llama-3.1-8b, etc.)
   // frequently omit top-level metadata (`id`, `category`, `image`, `slugs`)
   // but still produce usable localized `content`. Fail ONLY if content is missing.
+  // qualityReject=true on every throw below: this whole function only ever
+  // throws for a malformed/incomplete AI response (missing content, title,
+  // slug, or body field) — the same content-quality class that callLLM's and
+  // validateItalianPayload's sibling throws were tagged for. The caller
+  // (generateAndValidateArticle, via the outer isQualityRejectError-gated
+  // catch) needs the tag to skip to the next headline instead of crashing
+  // the whole run on an untagged message the recognition regex can't match.
   if (!data || typeof data !== 'object') {
-    throw new Error(`Campo mancante nella risposta AI: data (non è un oggetto)`);
+    const err = new Error(`Campo mancante nella risposta AI: data (non è un oggetto)`);
+    err.qualityReject = true;
+    throw err;
   }
   if (!data.content || typeof data.content !== 'object') {
-    throw new Error(`Campo mancante nella risposta AI: content`);
+    const err = new Error(`Campo mancante nella risposta AI: content`);
+    err.qualityReject = true;
+    throw err;
   }
   const itContent = data.content.it || data.content;
   if (!itContent || !itContent.title) {
-    throw new Error(`Campo mancante nella risposta AI: content.it.title`);
+    const err = new Error(`Campo mancante nella risposta AI: content.it.title`);
+    err.qualityReject = true;
+    throw err;
   }
 
   // Synthesize id from the Italian title if the model omitted it.
   if (!data.id) {
     const generatedId = slugifySlugPart(itContent.title);
     if (!generatedId) {
-      throw new Error(`Campo mancante nella risposta AI: id (impossibile sintetizzare dal titolo "${itContent.title}")`);
+      const err = new Error(`Campo mancante nella risposta AI: id (impossibile sintetizzare dal titolo "${itContent.title}")`);
+      err.qualityReject = true;
+      throw err;
     }
     console.error(`⚠️  Campo "id" mancante — sintetizzato dal titolo IT: "${generatedId}"`);
     data.id = generatedId;
@@ -5313,7 +5365,11 @@ function validate(data, opts = {}) {
   }
 
   for (const locale of ['it']) {
-    if (!data.content[locale]) throw new Error(`Contenuto mancante per ${locale}`);
+    if (!data.content[locale]) {
+      const err = new Error(`Contenuto mancante per ${locale}`);
+      err.qualityReject = true;
+      throw err;
+    }
     // Auto-generate missing slug from title before failing
     if (!data.slugs[locale]) {
       const title = String(data.content[locale]?.title || '');
@@ -5323,14 +5379,22 @@ function validate(data, opts = {}) {
           data.slugs[locale] = generated;
           console.warn(`  ⚠️  Slug ${locale} mancante, generato dal titolo: "${generated}"`);
         } else {
-          throw new Error(`Slug mancante per ${locale} e titolo non utilizzabile per fallback`);
+          const err = new Error(`Slug mancante per ${locale} e titolo non utilizzabile per fallback`);
+          err.qualityReject = true;
+          throw err;
         }
       } else {
-        throw new Error(`Slug mancante per ${locale}`);
+        const err = new Error(`Slug mancante per ${locale}`);
+        err.qualityReject = true;
+        throw err;
       }
     }
     for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
-      if (!data.content[locale][field]) throw new Error(`Campo ${field} mancante per ${locale}`);
+      if (!data.content[locale][field]) {
+        const err = new Error(`Campo ${field} mancante per ${locale}`);
+        err.qualityReject = true;
+        throw err;
+      }
     }
   }
 
@@ -5381,7 +5445,9 @@ function validate(data, opts = {}) {
         data.slugs[locale] = fallback;
         console.warn(`  ⚠️  Slug ${locale} mancante, generato come fallback: "${fallback}"`);
       } else {
-        throw new Error(`Slug mancante per ${locale}`);
+        const err = new Error(`Slug mancante per ${locale}`);
+        err.qualityReject = true;
+        throw err;
       }
     }
   }
