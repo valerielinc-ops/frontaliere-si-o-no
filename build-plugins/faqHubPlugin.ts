@@ -1,8 +1,8 @@
 /**
  * FAQ Hub (AE-5) — Vite build plugin.
  *
- * Emits one static HTML landing per locale (4 total) with 100 Q&A grouped
- * in 10 categories:
+ * Emits one static HTML landing per locale (4 total) grouped in 10
+ * categories:
  *   IT:  /domande-frequenti-frontalieri/
  *   EN:  /en/frequently-asked-questions/
  *   DE:  /de/haeufige-fragen/
@@ -11,8 +11,11 @@
  * Page body: TL;DR (100w) + table-of-contents + 10 sections (one per
  * category) with anchor IDs, every entry rendered as a semantic
  * <article>/<details> block so the FAQPage JSON-LD aggregates cleanly.
+ * Total Q&A count and per-category counts (`TOTAL_FAQ_COUNT`, TOC labels)
+ * are computed from `ALL_FAQ_HUB`/`getFaqHubByCategory` — never hardcoded —
+ * so adding entries never desyncs the on-page copy.
  *
- * Structured data: FAQPage (100 Q&A), BreadcrumbList, Article,
+ * Structured data: FAQPage (one entry per Q&A), BreadcrumbList, Article,
  * SpeakableSpecification on TL;DR + category headings.
  *
  * Hub chrome: `guida` hub with `permits` sub-tab (most common user need
@@ -45,7 +48,7 @@ import {
   buildFaqHubPath,
   getFaqHubByCategory,
 } from '../data/faq-hub';
-import type { FaqHubCategory, FaqHubEntry, FaqHubLocale } from '../data/faq-hub';
+import type { FaqHubCategory, FaqHubEntry, FaqHubLocale, FaqHubLocalizedString } from '../data/faq-hub';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 
@@ -68,19 +71,24 @@ interface FaqHubCopy {
   readonly relatedLinks: ReadonlyArray<{ href: string; label: string }>;
 }
 
+// Total Q&A count, computed from the live data set — never hardcoded, so
+// adding/removing entries can't desync the on-page copy below (see the
+// hardcoded-"100"/"(10)" class of bug this replaces).
+const TOTAL_FAQ_COUNT = ALL_FAQ_HUB.length;
+
 const COPY: Record<FaqHubLocale, FaqHubCopy> = {
   it: {
     title:
-      '100 domande frequenti dei frontalieri — risposte complete | Frontaliere Ticino',
+      `${TOTAL_FAQ_COUNT} domande frequenti dei frontalieri — risposte complete | Frontaliere Ticino`,
     description:
-      '100 risposte dettagliate per frontalieri italiani in Ticino: fisco 2026, LAMal, permessi G/B, AVS/LPP, stipendi, trasporti, lavoro, famiglia, diritti. Fonti ufficiali AFC, UFAS, SEM, Agenzia Entrate, Fedlex.',
-    h1: '100 domande frequenti dei frontalieri italiani in Ticino',
-    heroTitle: 'Il tuo centro di riferimento: 100 Q&A sul lavoro frontaliere',
+      `${TOTAL_FAQ_COUNT} risposte dettagliate per frontalieri italiani in Ticino: fisco 2026, LAMal, permessi G/B, AVS/LPP, stipendi, trasporti, lavoro, famiglia, diritti. Fonti ufficiali AFC, UFAS, SEM, Agenzia Entrate, Fedlex.`,
+    h1: `${TOTAL_FAQ_COUNT} domande frequenti dei frontalieri italiani in Ticino`,
+    heroTitle: `Il tuo centro di riferimento: ${TOTAL_FAQ_COUNT} Q&A sul lavoro frontaliere`,
     heroSubtitle:
-      '10 categorie, 100 risposte, quattro lingue. Ogni risposta cita la fonte primaria (AFC, Fedlex, UFAS, SEM, Agenzia Entrate, INPS).',
+      `10 categorie, ${TOTAL_FAQ_COUNT} risposte, quattro lingue. Ogni risposta cita la fonte primaria (AFC, Fedlex, UFAS, SEM, Agenzia Entrate, INPS).`,
     tldrTitle: 'In sintesi',
     tldrParagraphs: [
-      "Questo hub raccoglie 100 risposte verificate alle domande più ricorrenti dei frontalieri italiani che lavorano in Ticino, con attenzione alla nuova legge 2024 (Accordo CH-IT del 23/12/2020 ratificato dalla Legge italiana 83/2023) e alle scadenze fiscali 2026.",
+      `Questo hub raccoglie ${TOTAL_FAQ_COUNT} risposte verificate alle domande più ricorrenti dei frontalieri italiani che lavorano in Ticino, con attenzione alla nuova legge 2024 (Accordo CH-IT del 23/12/2020 ratificato dalla Legge italiana 83/2023) e alle scadenze fiscali 2026.`,
       "Ogni risposta è lunga 80-180 parole, cita la norma applicabile (LAMal, LAVS, LPP, CO, LStrI, TUIR, dlgs 230/2021) e rinvia a fonti ufficiali Fedlex, AFC Ticino, UFAS, SEM, Agenzia Entrate, INPS. Il contenuto è aggiornato ai dati 2026 (aliquote, massimali, premi, minimi).",
     ],
     tocTitle: 'Categorie trattate',
@@ -100,16 +108,16 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
   },
   en: {
     title:
-      '100 FAQs for Italian cross-border workers in Ticino — full answers | Frontaliere Ticino',
+      `${TOTAL_FAQ_COUNT} FAQs for Italian cross-border workers in Ticino — full answers | Frontaliere Ticino`,
     description:
-      '100 detailed answers for Italian cross-border workers in Ticino: 2026 tax, LAMal, G/B permits, AVS/LPP, salary, transport, work, family, rights. Primary sources: AFC, UFAS, SEM, Agenzia Entrate, Fedlex.',
-    h1: '100 FAQs for Italian cross-border workers in Ticino',
-    heroTitle: 'Your reference hub: 100 Q&A on cross-border work',
+      `${TOTAL_FAQ_COUNT} detailed answers for Italian cross-border workers in Ticino: 2026 tax, LAMal, G/B permits, AVS/LPP, salary, transport, work, family, rights. Primary sources: AFC, UFAS, SEM, Agenzia Entrate, Fedlex.`,
+    h1: `${TOTAL_FAQ_COUNT} FAQs for Italian cross-border workers in Ticino`,
+    heroTitle: `Your reference hub: ${TOTAL_FAQ_COUNT} Q&A on cross-border work`,
     heroSubtitle:
-      '10 categories, 100 answers, four languages. Every answer cites its primary source (AFC, Fedlex, UFAS, SEM, Agenzia Entrate, INPS).',
+      `10 categories, ${TOTAL_FAQ_COUNT} answers, four languages. Every answer cites its primary source (AFC, Fedlex, UFAS, SEM, Agenzia Entrate, INPS).`,
     tldrTitle: 'In a nutshell',
     tldrParagraphs: [
-      "This hub gathers 100 verified answers to the most recurrent questions of Italian cross-border workers employed in Ticino, with focus on the 2024 new law (CH-IT Agreement of 23/12/2020 ratified by Italian Law 83/2023) and the 2026 tax deadlines.",
+      `This hub gathers ${TOTAL_FAQ_COUNT} verified answers to the most recurrent questions of Italian cross-border workers employed in Ticino, with focus on the 2024 new law (CH-IT Agreement of 23/12/2020 ratified by Italian Law 83/2023) and the 2026 tax deadlines.`,
       "Every answer is 80-180 words long, cites the applicable statute (LAMal, LAVS, LPP, CO, FNA, TUIR, dlgs 230/2021) and links to official sources on Fedlex, AFC Ticino, UFAS, SEM, Agenzia Entrate and INPS. Content is updated to 2026 data (rates, ceilings, premiums, minima).",
     ],
     tocTitle: 'Covered categories',
@@ -127,16 +135,16 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
   },
   de: {
     title:
-      '100 häufige Fragen italienischer Grenzgänger im Tessin — Antworten | Frontaliere Ticino',
+      `${TOTAL_FAQ_COUNT} häufige Fragen italienischer Grenzgänger im Tessin — Antworten | Frontaliere Ticino`,
     description:
-      '100 detaillierte Antworten für italienische Grenzgänger im Tessin: Steuern 2026, KVG, G/B-Bewilligung, AHV/BVG, Lohn, Verkehr, Arbeit, Familie, Rechte. Primärquellen: AFC, BSV, SEM, Agenzia Entrate, Fedlex.',
-    h1: '100 häufige Fragen italienischer Grenzgänger im Tessin',
-    heroTitle: 'Ihre Nachschlagebasis: 100 Q&A zur Grenzgängerarbeit',
+      `${TOTAL_FAQ_COUNT} detaillierte Antworten für italienische Grenzgänger im Tessin: Steuern 2026, KVG, G/B-Bewilligung, AHV/BVG, Lohn, Verkehr, Arbeit, Familie, Rechte. Primärquellen: AFC, BSV, SEM, Agenzia Entrate, Fedlex.`,
+    h1: `${TOTAL_FAQ_COUNT} häufige Fragen italienischer Grenzgänger im Tessin`,
+    heroTitle: `Ihre Nachschlagebasis: ${TOTAL_FAQ_COUNT} Q&A zur Grenzgängerarbeit`,
     heroSubtitle:
-      '10 Kategorien, 100 Antworten, vier Sprachen. Jede Antwort nennt die Primärquelle (AFC, Fedlex, BSV, SEM, Agenzia Entrate, INPS).',
+      `10 Kategorien, ${TOTAL_FAQ_COUNT} Antworten, vier Sprachen. Jede Antwort nennt die Primärquelle (AFC, Fedlex, BSV, SEM, Agenzia Entrate, INPS).`,
     tldrTitle: 'Kurz gefasst',
     tldrParagraphs: [
-      'Dieser Hub sammelt 100 geprüfte Antworten auf die häufigsten Fragen italienischer Grenzgänger im Tessin, mit Schwerpunkt auf dem neuen Gesetz 2024 (CH-IT-Abkommen vom 23.12.2020, ratifiziert durch das italienische Gesetz 83/2023) und den Steuerfristen 2026.',
+      `Dieser Hub sammelt ${TOTAL_FAQ_COUNT} geprüfte Antworten auf die häufigsten Fragen italienischer Grenzgänger im Tessin, mit Schwerpunkt auf dem neuen Gesetz 2024 (CH-IT-Abkommen vom 23.12.2020, ratifiziert durch das italienische Gesetz 83/2023) und den Steuerfristen 2026.`,
       'Jede Antwort umfasst 80-180 Wörter, nennt die anwendbare Norm (KVG, AHVG, BVG, OR, AIG, TUIR, GD 230/2021) und verweist auf offizielle Quellen (Fedlex, AFC Tessin, BSV, SEM, Agenzia Entrate, INPS). Inhalte entsprechen dem Stand 2026 (Sätze, Obergrenzen, Prämien, Mindestlöhne).',
     ],
     tocTitle: 'Behandelte Kategorien',
@@ -154,16 +162,16 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
   },
   fr: {
     title:
-      '100 questions fréquentes des frontaliers au Tessin — réponses | Frontaliere Ticino',
+      `${TOTAL_FAQ_COUNT} questions fréquentes des frontaliers au Tessin — réponses | Frontaliere Ticino`,
     description:
-      '100 réponses détaillées pour les frontaliers italiens au Tessin : impôts 2026, LAMal, permis G/B, AVS/LPP, salaire, transports, travail, famille, droits. Sources officielles : AFC, OFAS, SEM, Agenzia Entrate, Fedlex.',
-    h1: '100 questions fréquentes des frontaliers italiens au Tessin',
-    heroTitle: 'Votre centre de référence : 100 Q&R sur le travail frontalier',
+      `${TOTAL_FAQ_COUNT} réponses détaillées pour les frontaliers italiens au Tessin : impôts 2026, LAMal, permis G/B, AVS/LPP, salaire, transports, travail, famille, droits. Sources officielles : AFC, OFAS, SEM, Agenzia Entrate, Fedlex.`,
+    h1: `${TOTAL_FAQ_COUNT} questions fréquentes des frontaliers italiens au Tessin`,
+    heroTitle: `Votre centre de référence : ${TOTAL_FAQ_COUNT} Q&R sur le travail frontalier`,
     heroSubtitle:
-      '10 catégories, 100 réponses, quatre langues. Chaque réponse cite sa source primaire (AFC, Fedlex, OFAS, SEM, Agenzia Entrate, INPS).',
+      `10 catégories, ${TOTAL_FAQ_COUNT} réponses, quatre langues. Chaque réponse cite sa source primaire (AFC, Fedlex, OFAS, SEM, Agenzia Entrate, INPS).`,
     tldrTitle: 'En bref',
     tldrParagraphs: [
-      "Ce hub rassemble 100 réponses vérifiées aux questions les plus fréquentes des frontaliers italiens employés au Tessin, avec un focus sur la nouvelle loi 2024 (Accord CH-IT du 23/12/2020 ratifié par la loi italienne 83/2023) et les échéances fiscales 2026.",
+      `Ce hub rassemble ${TOTAL_FAQ_COUNT} réponses vérifiées aux questions les plus fréquentes des frontaliers italiens employés au Tessin, avec un focus sur la nouvelle loi 2024 (Accord CH-IT du 23/12/2020 ratifié par la loi italienne 83/2023) et les échéances fiscales 2026.`,
       "Chaque réponse compte 80-180 mots, cite la norme applicable (LAMal, LAVS, LPP, CO, LEI, TUIR, décret 230/2021) et renvoie aux sources officielles Fedlex, AFC Tessin, OFAS, SEM, Agenzia Entrate, INPS. Contenu à jour 2026 (taux, plafonds, primes, minima).",
     ],
     tocTitle: 'Catégories traitées',
@@ -244,6 +252,10 @@ function truncateForSchema(text: string, maxChars = 280): string {
   return `${safe}…`;
 }
 
+function resolveRelatedHref(href: string | FaqHubLocalizedString, locale: FaqHubLocale): string {
+  return typeof href === 'string' ? href : href[locale];
+}
+
 function renderEntry(entry: FaqHubEntry, locale: FaqHubLocale): string {
   const q = entry.question[locale];
   const a = entry.answer[locale];
@@ -253,7 +265,7 @@ function renderEntry(entry: FaqHubEntry, locale: FaqHubLocale): string {
       ? `<ul class="fh-rel">${related
           .map(
             (l) =>
-              `<li><a href="${esc(l.href)}" class="fh-lnk">${esc(
+              `<li><a href="${esc(resolveRelatedHref(l.href, locale))}" class="fh-lnk">${esc(
                 l.label[locale],
               )}</a></li>`,
           )
@@ -283,7 +295,8 @@ function renderCategorySection(
 function renderToc(locale: FaqHubLocale, copy: FaqHubCopy): string {
   const items = FAQ_HUB_CATEGORIES.map((cat) => {
     const label = FAQ_HUB_CATEGORY_LABELS[cat][locale];
-    return `<li class="fh-toci"><a href="#cat-${esc(cat)}" class="fh-lnk">${esc(label)}</a> <span class="fh-tocc">(10)</span></li>`;
+    const count = getFaqHubByCategory(cat).length;
+    return `<li class="fh-toci"><a href="#cat-${esc(cat)}" class="fh-lnk">${esc(label)}</a> <span class="fh-tocc">(${count})</span></li>`;
   }).join('');
   return `<nav aria-label="${esc(copy.tocTitle)}" class="fh-toc">
   <h2 class="fh-toch">${esc(copy.tocTitle)}</h2>

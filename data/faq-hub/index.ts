@@ -1,4 +1,4 @@
-import type { FaqHubEntry, FaqHubCategory, FaqHubLocale } from './types';
+import type { FaqHubEntry, FaqHubCategory, FaqHubLocale, FaqHubLocalizedString } from './types';
 import { FAQ_HUB_CATEGORIES, FAQ_HUB_LOCALES } from './types';
 import { FAQ_avsLpp } from './category-avs-lpp';
 import { FAQ_diritti } from './category-diritti';
@@ -12,7 +12,10 @@ import { FAQ_trasporti } from './category-trasporti';
 import { FAQ_vitaQuotidiana } from './category-vita-quotidiana';
 
 /**
- * AE-5 FAQ hub aggregate — 10 categories × 10 entries = 100 Q&A.
+ * AE-5 FAQ hub aggregate — 10 categories, ~10 entries each. Per-category
+ * counts may exceed 10 as content is added; `ALL_FAQ_HUB.length` and the
+ * per-category counts rendered by `faqHubPlugin.ts` are always computed
+ * dynamically, never hardcoded, so growth here never desyncs the page copy.
  *
  * Order: alphabetical by category, stable by entry id within each.
  * This is the source of truth consumed by `faqHubPlugin.ts` (build-time
@@ -47,7 +50,7 @@ export function getFaqHubByCategory(category: FaqHubCategory): ReadonlyArray<Faq
 }
 
 export { FAQ_HUB_CATEGORIES, FAQ_HUB_LOCALES };
-export type { FaqHubEntry, FaqHubCategory, FaqHubLocale };
+export type { FaqHubEntry, FaqHubCategory, FaqHubLocale, FaqHubLocalizedString };
 
 // Re-export route helpers from the router-safe module. See routes.ts for
 // the rationale (keeps the 340KB category data out of the SPA bundle).
