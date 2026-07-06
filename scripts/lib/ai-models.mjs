@@ -629,9 +629,15 @@ function getLocalLlmModelId() { return (process.env.LOCAL_LLM_MODEL || LOCAL_LLM
 // one; allow an override for servers behind an auth proxy.
 function getLocalLlmApiKey()  { return (process.env.LOCAL_LLM_API_KEY || 'local-no-key').trim(); }
 // CPU inference is slow; give the local call a generous floor (overridable).
+// Fallback-of-fallback only: the generate-article.yml workflow always exports
+// LOCAL_LLM_TIMEOUT_MS explicitly when LOCAL_LLM_ENABLED, so this default only
+// fires for ad-hoc/manual invocations without that env var set. Kept in sync
+// with the workflow's explicit value (1_500_000, sized 2026-07-06 for the
+// qwen2.5:14b upgrade) rather than the old 7b-era 600_000 — a smaller floor
+// here would silently under-time a 14b call in exactly that manual scenario.
 function getLocalLlmTimeoutMs() {
   const v = parseInt((process.env.LOCAL_LLM_TIMEOUT_MS || '').trim(), 10);
-  return Number.isFinite(v) && v > 0 ? v : 600_000; // 10 min default
+  return Number.isFinite(v) && v > 0 ? v : 1_500_000; // 25 min default — see comment above
 }
 
 // ── API keys (lazy-loaded from environment) ──────────────────
