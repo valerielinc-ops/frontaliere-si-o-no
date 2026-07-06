@@ -1,7 +1,115 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-07-05T22:04:16.297Z",
+  "assembledAt": "2026-07-06T12:57:19.448Z",
   "jobs": [
+    {
+      "id": "alpiq-e1fbe0ada2de",
+      "slug": "archivist-in-all-100-alpiq-olten",
+      "slugByLocale": {
+        "it": "archivist-in-all-100-alpiq-olten"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Archivist:in (all) 100%",
+      "titleByLocale": {
+        "it": "Archivist:in (all) 100%"
+      },
+      "description": "Archivist:in (all) 100%\n\nTyp: Permanent | Ort: Olten | Model: Vor Ort, max. 1 Tag HO | Reiset&auml;tigkeit: Selten innerhalb der CH&Uuml;ber unsAlpiq geh&ouml;rt zu den f&uuml;hrenden Stromproduzenten der Schweiz und ist ein bedeutender Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus&hellip;\n\nOlten - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Archivist:in (all) 100%\n\nTyp: Permanent | Ort: Olten | Model: Vor Ort, max. 1 Tag HO | Reiset&auml;tigkeit: Selten innerhalb der CH&Uuml;ber unsAlpiq geh&ouml;rt zu den f&uuml;hrenden Stromproduzenten der Schweiz und ist ein bedeutender Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus&hellip;\n\nOlten - 100%\nPermanent"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9601",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T12:57:17.444Z",
+      "country": "CH",
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-06T12:57:17.444Z"
+    },
+    {
+      "id": "alpiq-6f6e2e4039a0",
+      "slug": "head-internal-audit-all-100-alpiq-olten",
+      "slugByLocale": {
+        "it": "head-internal-audit-all-100-alpiq-olten"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Head Internal Audit (all) 100%",
+      "titleByLocale": {
+        "it": "Head Internal Audit (all) 100%"
+      },
+      "description": "Head Internal Audit (all) 100%\n\nRole type: Permanent | Location: Olten or Lausanne | Model: Hybrid | Level of travels: 10%Our CopanyAlpiq is one of Switzerland&rsquo;s leading electricity producers and a key energy services provider across Europe. Headquartered in Lausanne and powered by a strong portfolio of hydropower, nuclear, and&hellip;\n\nOlten - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Head Internal Audit (all) 100%\n\nRole type: Permanent | Location: Olten or Lausanne | Model: Hybrid | Level of travels: 10%Our CopanyAlpiq is one of Switzerland&rsquo;s leading electricity producers and a key energy services provider across Europe. Headquartered in Lausanne and powered by a strong portfolio of hydropower, nuclear, and&hellip;\n\nOlten - 100%\nPermanent"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9606",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9606&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-06T12:57:17.445Z",
+      "country": "CH",
+      "salaryMin": 96000,
+      "salaryMax": 146500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-06T12:57:17.445Z"
+    },
     {
       "id": "alpiq-beb74dfaeacf",
       "slug": "quantitative-analyst-alpiq-lausanne",
@@ -47,7 +155,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9535&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:04:14.310Z",
+      "crawledAt": "2026-07-06T12:57:17.441Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -108,7 +216,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T22:04:14.311Z",
+      "crawledAt": "2026-07-06T12:57:17.443Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -169,7 +277,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9542&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:04:14.311Z",
+      "crawledAt": "2026-07-06T12:57:17.443Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -230,7 +338,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9547&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T22:04:14.311Z",
+      "crawledAt": "2026-07-06T12:57:17.443Z",
       "previousSlugs": [
         "anlageningenieur-all-100-alpiq-niedergosgen"
       ],
@@ -299,7 +407,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9545&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:04:14.312Z",
+      "crawledAt": "2026-07-06T12:57:17.443Z",
       "firstSeenAt": "2026-06-29T21:34:24.957Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -370,69 +478,8 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9595&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:04:14.312Z",
+      "crawledAt": "2026-07-06T12:57:17.443Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
-      "country": "CH",
-      "salaryMin": 96000,
-      "salaryMax": 146500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "alpiq-c0ef4d9c8b9f",
-      "slug": "product-manager-trading-and-origination-all-100-alpiq-olten",
-      "slugByLocale": {
-        "it": "product-manager-trading-and-origination-all-100-alpiq-olten",
-        "en": "product-manager-trading-and-origination-all-100-alpiq-olten",
-        "de": "produktmanager-handel-und-herkunft-alle-100-alpiq-olten",
-        "fr": "gestionnaire-de-produits-trading-et-origine-tous-100-alpiq-olten"
-      },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Product Manager - Trading and Origination (all) 100%",
-      "titleByLocale": {
-        "it": "Product Manager - Trading and Origination (tutti) 100%",
-        "en": "Product Manager - Trading and Origination (all) 100%",
-        "de": "Produktmanager - Handel und Herkunft (alle) 100%",
-        "fr": "Gestionnaire de produits - Trading et origine (tous) 100%"
-      },
-      "description": "Product Manager - Trading and Origination (all) 100%\n\nAt Alpiq, we are looking for a Product Manager &ndash; Trading and Origination to join the New Product Implementation team. In this role, you will manage product life cycle activities with a strong focus on new product design, accurate deal representation, and implementation. You will ensure a structured&hellip;\n\nOlten - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Product Manager - Trading and Origination (tutti) 100% Descrizione In Alpiq, stiamo cercando un Product Manager – Trading e Origination per aderire al nuovo team di implementazione del prodotto. In questo ruolo, gestirete le attività del ciclo di vita del prodotto con una forte attenzione al nuovo design del prodotto, alla rappresentazione dell'affare accurata e all'implementazione. Garantirai un approccio strutturato allo sviluppo del prodotto, dal concetto iniziale al lancio. Mansioni - Gestione delle attività del ciclo di vita dei prodotti - Focus sul nuovo design del prodotto - Assicurare una rappresentazione accurata dell'affare - Attuazione di un approccio strutturato allo sviluppo del prodotto - Gestire lo sviluppo del prodotto dal concetto iniziale al lancio\n• Requisiti - Olten - Permanente Cosa? - 100% Contatto - Alpiq",
-        "en": "## Product Manager - Trading and Origination (all) 100% ## Descrizione At Alpiq, we are looking for a Product Manager – Trading and Origination to join the New Product Implementation team. In this role, you will manage product life cycle activities with a strong focus on new product design, accurate deal representation, and implementation. You will ensure a structured approach to product development, from initial concept to launch. ## Mansioni - Manage product life cycle activities - Focus on new product design - Ensure accurate deal representation - Implement a structured approach to product development - Manage product development from initial concept to launch ##\n• Requisiti - Olten - Permanent ##\n• Cosa offriamo - 100% ## Contatto - Alpiq",
-        "de": "Produktmanager - Handel und Herkunft (alle) 100% Beschreibung Bei Alpiq suchen wir einen Product Manager – Trading und Origination, um dem Team der Neuen Produkt-Implementierung beizutreten. In dieser Rolle werden Sie Produktlebenszyklus-Aktivitäten mit einem starken Fokus auf neue Produktdesign, genaue Deal-Darstellung und Umsetzung verwalten. Sie sorgen für einen strukturierten Ansatz zur Produktentwicklung, von Anfang an bis zum Start. Mansion - Produktlebenszyklusaktivitäten verwalten - Fokus auf neues Produktdesign - Stellen Sie eine genaue Deal-Darstellung sicher - Umsetzung eines strukturierten Ansatzes zur Produktentwicklung - Produktentwicklung vom Anfangskonzept bis zum Start verwalten Voraussetzungen - Olten - Dauerhaft\n• Cosa offriamo - 100% Contattoo - Alpiq",
-        "fr": "Gestionnaire de produits - Trading et origine (tous) 100% Descrizione Chez Alpiq, nous sommes à la recherche d'un gestionnaire de produits – Trading and Origination pour rejoindre l'équipe de mise en œuvre du nouveau produit. Dans ce rôle, vous gérerez les activités du cycle de vie des produits en mettant fortement l'accent sur la conception de nouveaux produits, la représentation précise des offres et la mise en œuvre. Vous assurerez une approche structurée du développement des produits, du concept initial au lancement. Mansioni - Gérer les activités du cycle de vie des produits - Se concentrer sur la conception de nouveaux produits - Assurer une représentation exacte - Mettre en œuvre une approche structurée du développement des produits - Gérer le développement de produits du concept initial au lancement\n• Requisiti - Olten - Permanent\n• Cosa offriamo - 100% Contatto - Alpiq"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-30",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9515",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:04:14.312Z",
-      "firstSeenAt": "2026-05-30T09:56:14.282Z",
       "country": "CH",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -489,7 +536,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:04:14.313Z",
+      "crawledAt": "2026-07-06T12:57:17.444Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-30T09:56:14.281Z",
       "country": "CH",
@@ -502,6 +549,67 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "alpiq-c0ef4d9c8b9f",
+      "slug": "product-manager-trading-and-origination-all-100-alpiq-olten",
+      "slugByLocale": {
+        "it": "product-manager-trading-and-origination-all-100-alpiq-olten",
+        "en": "product-manager-trading-and-origination-all-100-alpiq-olten",
+        "de": "produktmanager-handel-und-herkunft-alle-100-alpiq-olten",
+        "fr": "gestionnaire-de-produits-trading-et-origine-tous-100-alpiq-olten"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Product Manager - Trading and Origination (all) 100%",
+      "titleByLocale": {
+        "it": "Product Manager - Trading and Origination (tutti) 100%",
+        "en": "Product Manager - Trading and Origination (all) 100%",
+        "de": "Produktmanager - Handel und Herkunft (alle) 100%",
+        "fr": "Gestionnaire de produits - Trading et origine (tous) 100%"
+      },
+      "description": "Product Manager - Trading and Origination (all) 100%\n\nAt Alpiq, we are looking for a Product Manager &ndash; Trading and Origination to join the New Product Implementation team. In this role, you will manage product life cycle activities with a strong focus on new product design, accurate deal representation, and implementation. You will ensure a structured&hellip;\n\nOlten - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Product Manager - Trading and Origination (tutti) 100% Descrizione In Alpiq, stiamo cercando un Product Manager – Trading e Origination per aderire al nuovo team di implementazione del prodotto. In questo ruolo, gestirete le attività del ciclo di vita del prodotto con una forte attenzione al nuovo design del prodotto, alla rappresentazione dell'affare accurata e all'implementazione. Garantirai un approccio strutturato allo sviluppo del prodotto, dal concetto iniziale al lancio. Mansioni - Gestione delle attività del ciclo di vita dei prodotti - Focus sul nuovo design del prodotto - Assicurare una rappresentazione accurata dell'affare - Attuazione di un approccio strutturato allo sviluppo del prodotto - Gestire lo sviluppo del prodotto dal concetto iniziale al lancio\n• Requisiti - Olten - Permanente Cosa? - 100% Contatto - Alpiq",
+        "en": "## Product Manager - Trading and Origination (all) 100% ## Descrizione At Alpiq, we are looking for a Product Manager – Trading and Origination to join the New Product Implementation team. In this role, you will manage product life cycle activities with a strong focus on new product design, accurate deal representation, and implementation. You will ensure a structured approach to product development, from initial concept to launch. ## Mansioni - Manage product life cycle activities - Focus on new product design - Ensure accurate deal representation - Implement a structured approach to product development - Manage product development from initial concept to launch ##\n• Requisiti - Olten - Permanent ##\n• Cosa offriamo - 100% ## Contatto - Alpiq",
+        "de": "Produktmanager - Handel und Herkunft (alle) 100% Beschreibung Bei Alpiq suchen wir einen Product Manager – Trading und Origination, um dem Team der Neuen Produkt-Implementierung beizutreten. In dieser Rolle werden Sie Produktlebenszyklus-Aktivitäten mit einem starken Fokus auf neue Produktdesign, genaue Deal-Darstellung und Umsetzung verwalten. Sie sorgen für einen strukturierten Ansatz zur Produktentwicklung, von Anfang an bis zum Start. Mansion - Produktlebenszyklusaktivitäten verwalten - Fokus auf neues Produktdesign - Stellen Sie eine genaue Deal-Darstellung sicher - Umsetzung eines strukturierten Ansatzes zur Produktentwicklung - Produktentwicklung vom Anfangskonzept bis zum Start verwalten Voraussetzungen - Olten - Dauerhaft\n• Cosa offriamo - 100% Contattoo - Alpiq",
+        "fr": "Gestionnaire de produits - Trading et origine (tous) 100% Descrizione Chez Alpiq, nous sommes à la recherche d'un gestionnaire de produits – Trading and Origination pour rejoindre l'équipe de mise en œuvre du nouveau produit. Dans ce rôle, vous gérerez les activités du cycle de vie des produits en mettant fortement l'accent sur la conception de nouveaux produits, la représentation précise des offres et la mise en œuvre. Vous assurerez une approche structurée du développement des produits, du concept initial au lancement. Mansioni - Gérer les activités du cycle de vie des produits - Se concentrer sur la conception de nouveaux produits - Assurer une représentation exacte - Mettre en œuvre une approche structurée du développement des produits - Gérer le développement de produits du concept initial au lancement\n• Requisiti - Olten - Permanent\n• Cosa offriamo - 100% Contatto - Alpiq"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-30",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9515",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-06T12:57:17.444Z",
+      "firstSeenAt": "2026-05-30T09:56:14.282Z",
+      "country": "CH",
+      "salaryMin": 96000,
+      "salaryMax": 146500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146500,
           "unitText": "YEAR"
         }
       }

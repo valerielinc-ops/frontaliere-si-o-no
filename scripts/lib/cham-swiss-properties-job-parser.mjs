@@ -26,6 +26,24 @@
  *
  * jobs.ch company profile id: 142189.
  *
+ * IMPORTANT — re-verified 2026-07-06 (follow-up #3637, item 2) whether this
+ * numeric id risks going stale the way DIC SA's did (see ./dic-sa-job-parser.mjs:
+ * that company had a duplicate legacy numeric profile with jobCount: 0,
+ * requiring a switch to its separate active UUID profile). Cham Swiss
+ * Properties AG has NO such duplicate:
+ *   - `job-search-api.jobs.ch/search?companyIds=142189` → totalHits: 1
+ *     (confirmed live, same posting as at crawler creation).
+ *   - the profile's own React state carries `"id":"142189"`,
+ *     `"redirectToCompanyId":null`, `"redirectToCompanySlug":null` — i.e.
+ *     jobs.ch itself does not consider 142189 superseded/redirected.
+ *   - a jobs.ch company-name search for "Cham Swiss Properties" returns
+ *     exactly one record (142189, jobCount: 1) — no second/UUID-only entry
+ *     exists to migrate to (unlike DIC SA, which had two distinct company
+ *     records for the same employer).
+ * Conclusion: 142189 is the sole, active, stable id — no UUID migration
+ * applies here. Keep as-is; re-check only if the search API starts
+ * returning 0 hits for it.
+ *
  * HQ fallback address (confirmed via jobs.ch company profile JSON-LD,
  * company website imprint and LinkedIn): Fabrikstrasse 5, 6330 Cham, ZG.
  *

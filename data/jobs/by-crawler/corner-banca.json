@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-07-05T22:31:22.753Z",
+  "assembledAt": "2026-07-06T13:32:14.475Z",
   "jobs": [
     {
       "id": "corner-banca-b69f1f79bbe3",
@@ -64,7 +64,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.444Z",
+      "crawledAt": "2026-07-06T13:32:11.894Z",
       "previousSlugs": [
         "consulente-clienti-40-corner-banca-wallisellen",
         "customer-advisor-60-corner-banca-wallisellen",
@@ -92,6 +92,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
+      "needsRetranslation": true,
       "salaryMin": 33200,
       "salaryMax": 51000,
       "baseSalary": {
@@ -162,7 +163,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-05T22:31:20.444Z",
+      "crawledAt": "2026-07-06T13:32:11.894Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -258,7 +259,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-05T22:31:20.443Z",
+      "crawledAt": "2026-07-06T13:32:11.893Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -292,6 +293,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -375,7 +377,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.443Z",
+      "crawledAt": "2026-07-06T13:32:11.893Z",
       "previousSlugs": [
         "customer-advisor-100-team-lugano-corner-banca-lugano",
         "consulente-clienti-100-team-lugano-corner-banca-lugano"
@@ -393,6 +395,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -409,110 +412,6 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "country": "CH"
-    },
-    {
-      "id": "corner-banca-9a08d15ac96b",
-      "slug": "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
-      "slugByLocale": {
-        "it": "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
-        "en": "employee-collection-team-zurich-corner-banca-wallisellen",
-        "de": "mitarbeitersammlung-team-zurich-corner-banca-wallisellen",
-        "fr": "equipe-de-recouvrement-des-employes-zurich-corner-banca-wallisellen"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Employee Collection Team Zürich",
-      "titleByLocale": {
-        "it": "Team Recupero Dipendenti di Zurigo",
-        "en": "Employee Collection Team Zürich",
-        "de": "Mitarbeitersammlung Team Zürich",
-        "fr": "Équipe de collecte des employés de Zurich"
-      },
-      "description": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
-      "descriptionByLocale": {
-        "it": "Cerchiamo una figura professionale motivata e orientata al cliente da inserire nel nostro team in un ambiente dinamico e in crescita. Il candidato ideale è desideroso di sviluppare le proprie competenze nella gestione delle relazioni con i clienti e nel recupero crediti, combinando forti capacità di comunicazione con empatia e un approccio orientato alla soluzione. Questo ruolo offre l'opportunità di lavorare a stretto contatto con i clienti, negoziare soluzioni di pagamento sostenibili e contribuire a mantenere relazioni positive e professionali anche in situazioni delicate. Responsabilità chiave:\n• Contatto telefonico con i clienti per la gestione del credito e recupero crediti\n• Ascolto attivo delle situazioni dei clienti e individuazione di soluzioni di pagamento sostenibili\n• Negoziazione dei piani di rimborso e monitoraggio degli accordi concordati\n• Gestione e aggiornamento delle pratiche nei sistemi interni\n• Collaborazione con il team per monitorare le posizioni aperte\n• Mantenere un approccio professionale ed empatico anche in situazioni delicate\n• Formazione commerciale (apprendistato commerciale o qualifica equivalente)\n• Madrelingua tedesca e buona conoscenza dell'inglese\n• Ottime capacità di comunicazione e spiccate capacità di ascolto del cliente\n• Attitudine alla gestione del cliente relazioni telefoniche\n• Empatia, capacità di mediazione e mentalità orientata alla soluzione\n• Attenzione ai dettagli e capacità organizzative\n• Spirito di squadra e affidabilità Profilo ideale\n• Persona giovane, motivata e desiderosa di crescere professionalmente\n• Capacità di rimanere calmi e professionali anche in conversazioni difficili\n• Attitudine orientata al team e mentalità collaborativa",
-        "en": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations. Key Responsibilities:\n• Phone contact with clients for credit management and debt recovery\n• Active listening to clients’ situations and identification of sustainable payment solutions\n• Negotiation of repayment plans and monitoring of agreed arrangements\n• Management and updating of cases in internal systems\n• Collaboration with the team to monitor open positions\n• Maintaining a professional and empathetic approach even in sensitive situations\n• Commercial training (commercial apprenticeship or equivalent qualification)\n• Native German and good knowledge of English\n• Excellent communication skills and strong customer listening abilities\n• Aptitude for managing customer relationships over the phone\n• Empathy, mediation skills, and solution-oriented mindset\n• Attention to detail and organizational skills\n• Team spirit and reliability Ideal profile\n• Young, motivated person eager to grow professionally\n• Ability to remain calm and professional even in difficult conversations\n• Team-oriented attitude and collaborative mindset",
-        "de": "Wir suchen eine motivierte und kundenorientierte Fachkraft zur Verstärkung unseres Teams in einem dynamischen und wachsenden Umfeld. Der ideale Kandidat ist bestrebt, seine Fähigkeiten im Kundenbeziehungsmanagement und bei der Krediteintreibung weiterzuentwickeln und dabei starke Kommunikationsfähigkeiten mit Empathie und einem lösungsorientierten Ansatz zu kombinieren. Diese Rolle bietet die Möglichkeit, eng mit Kunden zusammenzuarbeiten, nachhaltige Zahlungslösungen auszuhandeln und dazu beizutragen, auch in sensiblen Situationen positive und professionelle Beziehungen aufrechtzuerhalten. Hauptaufgaben:\n• Telefonkontakt mit Kunden für Kreditmanagement und Schuldeneintreibung\n• Aktives Zuhören der Kundensituation und Identifizierung nachhaltiger Zahlungslösungen\n• Verhandlung von Rückzahlungsplänen und Überwachung vereinbarter Vereinbarungen\n• Verwaltung und Aktualisierung von Fällen in internen Systemen\n• Zusammenarbeit mit dem Team zur Überwachung offener Positionen\n• Aufrechterhaltung eines professionellen und einfühlsamen Ansatzes auch in sensiblen Situationen\n• Kaufmännische Ausbildung (kaufmännische Ausbildung oder gleichwertige Qualifikation)\n• Muttersprachliche Deutschkenntnisse und gute Englischkenntnisse\n• Ausgezeichnete Kommunikationsfähigkeiten und ausgeprägte Fähigkeit, Kunden zuzuhören\n• Führungskompetenz Kundenbeziehungen am Telefon\n• Empathie, Vermittlungsfähigkeiten und lösungsorientierte Denkweise\n• Liebe zum Detail und Organisationstalent\n• Teamgeist und Zuverlässigkeit Ideales Profil\n• Junge, motivierte Person, die sich beruflich weiterentwickeln möchte\n• Fähigkeit, auch in schwierigen Gesprächen ruhig und professionell zu bleiben\n• Teamorientierte Einstellung und kooperative Denkweise",
-        "fr": "Nous recherchons un professionnel motivé et orienté client pour rejoindre notre équipe dans un environnement dynamique et en pleine croissance. Le candidat idéal est désireux de développer ses compétences en gestion de la relation client et en recouvrement de crédit, combinant de solides capacités de communication avec de l'empathie et une approche axée sur les solutions. Ce rôle offre l'opportunité de travailler en étroite collaboration avec les clients, de négocier des solutions de paiement durables et de contribuer à maintenir des relations positives et professionnelles même dans des situations sensibles. Responsabilités clés :\n• Contact téléphonique avec les clients pour la gestion du crédit et le recouvrement des créances\n• Écoute active des situations des clients et identification de solutions de paiement durables\n• Négociation des plans de remboursement et suivi des modalités convenues\n• Gestion et mise à jour des dossiers dans les systèmes internes\n• Collaboration avec l'équipe pour suivre les positions ouvertes\n• Maintenir une approche professionnelle et empathique même dans les situations sensibles\n• Formation commerciale (apprentissage commercial ou qualification équivalente)\n• Langue maternelle allemande et bonne connaissance de l'anglais\n• Excellentes capacités de communication et fortes capacités d'écoute client\n• Aptitude à gérer les relations clients au fil du temps téléphone\n• Empathie, compétences en médiation et état d'esprit orienté vers les solutions\n• Souci du détail et compétences organisationnelles\n• Esprit d'équipe et fiabilité Profil idéal\n• Personne jeune et motivée désireuse d'évoluer professionnellement\n• Capacité à rester calme et professionnel même dans les conversations difficiles\n• Attitude orientée équipe et esprit de collaboration"
-      },
-      "requirements": [
-        "Commercial training (commercial apprenticeship or equivalent qualification)",
-        "Native German and good knowledge of English",
-        "Excellent communication skills and strong customer listening abilities",
-        "Aptitude for managing customer relationships over the phone",
-        "Empathy, mediation skills, and solution-oriented mindset",
-        "Attention to detail and organizational skills",
-        "Team spirit and reliability\n\nIdeal profile",
-        "Young, motivated person eager to grow professionally",
-        "Ability to remain calm and professional even in difficult conversations",
-        "Team-oriented attitude and collaborative mindset"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Commercial training (commercial apprenticeship or equivalent qualification)",
-          "Native German and good knowledge of English",
-          "Excellent communication skills and strong customer listening abilities",
-          "Aptitude for managing customer relationships over the phone",
-          "Empathy, mediation skills, and solution-oriented mindset",
-          "Attention to detail and organizational skills",
-          "Team spirit and reliability Ideal profile",
-          "Young, motivated person eager to grow professionally"
-        ],
-        "en": [
-          "Commercial training (commercial apprenticeship or equivalent qualification)",
-          "Native German and good knowledge of English",
-          "Excellent communication skills and strong customer listening abilities",
-          "Aptitude for managing customer relationships over the phone",
-          "Empathy, mediation skills, and solution-oriented mindset",
-          "Attention to detail and organizational skills",
-          "Team spirit and reliability Ideal profile",
-          "Young, motivated person eager to grow professionally"
-        ]
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.442Z",
-      "previousSlugs": [
-        "employee-collection-team-zurich-corner-banca-wallisellen",
-        "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "employee-collection-team-zurich-corner-banca-wallisellen",
-          "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen"
-        ],
-        "de": [
-          "employee-collection-team-zurich-corner-banca-wallisellen"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T22:29:56.932Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8001",
       "country": "CH"
     },
     {
@@ -574,7 +473,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.442Z",
+      "crawledAt": "2026-07-06T13:32:11.892Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
         "risk-manager-gestione-delle-passivita-attive-alm-e-rischio-di-liquidita-corner-banca-lugano"
@@ -586,6 +485,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T11:54:50.675Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -605,6 +505,111 @@
       "country": "CH"
     },
     {
+      "id": "corner-banca-9a08d15ac96b",
+      "slug": "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
+        "en": "employee-collection-team-zurich-corner-banca-wallisellen",
+        "de": "mitarbeitersammlung-team-zurich-corner-banca-wallisellen",
+        "fr": "equipe-de-recouvrement-des-employes-zurich-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Collection Team Zürich",
+      "titleByLocale": {
+        "it": "Team Recupero Dipendenti di Zurigo",
+        "en": "Employee Collection Team Zürich",
+        "de": "Employee Collection Team Zürich",
+        "fr": "Équipe de collecte des employés de Zurich"
+      },
+      "description": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
+      "descriptionByLocale": {
+        "it": "Cerchiamo una figura professionale motivata e orientata al cliente da inserire nel nostro team in un ambiente dinamico e in crescita. Il candidato ideale è desideroso di sviluppare le proprie competenze nella gestione delle relazioni con i clienti e nel recupero crediti, combinando forti capacità di comunicazione con empatia e un approccio orientato alla soluzione. Questo ruolo offre l'opportunità di lavorare a stretto contatto con i clienti, negoziare soluzioni di pagamento sostenibili e contribuire a mantenere relazioni positive e professionali anche in situazioni delicate. Responsabilità chiave:\n• Contatto telefonico con i clienti per la gestione del credito e recupero crediti\n• Ascolto attivo delle situazioni dei clienti e individuazione di soluzioni di pagamento sostenibili\n• Negoziazione dei piani di rimborso e monitoraggio degli accordi concordati\n• Gestione e aggiornamento delle pratiche nei sistemi interni\n• Collaborazione con il team per monitorare le posizioni aperte\n• Mantenere un approccio professionale ed empatico anche in situazioni delicate\n• Formazione commerciale (apprendistato commerciale o qualifica equivalente)\n• Madrelingua tedesca e buona conoscenza dell'inglese\n• Ottime capacità di comunicazione e spiccate capacità di ascolto del cliente\n• Attitudine alla gestione del cliente relazioni telefoniche\n• Empatia, capacità di mediazione e mentalità orientata alla soluzione\n• Attenzione ai dettagli e capacità organizzative\n• Spirito di squadra e affidabilità Profilo ideale\n• Persona giovane, motivata e desiderosa di crescere professionalmente\n• Capacità di rimanere calmi e professionali anche in conversazioni difficili\n• Attitudine orientata al team e mentalità collaborativa",
+        "en": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations. Key Responsibilities:\n• Phone contact with clients for credit management and debt recovery\n• Active listening to clients’ situations and identification of sustainable payment solutions\n• Negotiation of repayment plans and monitoring of agreed arrangements\n• Management and updating of cases in internal systems\n• Collaboration with the team to monitor open positions\n• Maintaining a professional and empathetic approach even in sensitive situations\n• Commercial training (commercial apprenticeship or equivalent qualification)\n• Native German and good knowledge of English\n• Excellent communication skills and strong customer listening abilities\n• Aptitude for managing customer relationships over the phone\n• Empathy, mediation skills, and solution-oriented mindset\n• Attention to detail and organizational skills\n• Team spirit and reliability Ideal profile\n• Young, motivated person eager to grow professionally\n• Ability to remain calm and professional even in difficult conversations\n• Team-oriented attitude and collaborative mindset",
+        "de": "Wir suchen eine motivierte und kundenorientierte Fachkraft zur Verstärkung unseres Teams in einem dynamischen und wachsenden Umfeld. Der ideale Kandidat ist bestrebt, seine Fähigkeiten im Kundenbeziehungsmanagement und bei der Krediteintreibung weiterzuentwickeln und dabei starke Kommunikationsfähigkeiten mit Empathie und einem lösungsorientierten Ansatz zu kombinieren. Diese Rolle bietet die Möglichkeit, eng mit Kunden zusammenzuarbeiten, nachhaltige Zahlungslösungen auszuhandeln und dazu beizutragen, auch in sensiblen Situationen positive und professionelle Beziehungen aufrechtzuerhalten. Hauptaufgaben:\n• Telefonkontakt mit Kunden für Kreditmanagement und Schuldeneintreibung\n• Aktives Zuhören der Kundensituation und Identifizierung nachhaltiger Zahlungslösungen\n• Verhandlung von Rückzahlungsplänen und Überwachung vereinbarter Vereinbarungen\n• Verwaltung und Aktualisierung von Fällen in internen Systemen\n• Zusammenarbeit mit dem Team zur Überwachung offener Positionen\n• Aufrechterhaltung eines professionellen und einfühlsamen Ansatzes auch in sensiblen Situationen\n• Kaufmännische Ausbildung (kaufmännische Ausbildung oder gleichwertige Qualifikation)\n• Muttersprachliche Deutschkenntnisse und gute Englischkenntnisse\n• Ausgezeichnete Kommunikationsfähigkeiten und ausgeprägte Fähigkeit, Kunden zuzuhören\n• Führungskompetenz Kundenbeziehungen am Telefon\n• Empathie, Vermittlungsfähigkeiten und lösungsorientierte Denkweise\n• Liebe zum Detail und Organisationstalent\n• Teamgeist und Zuverlässigkeit Ideales Profil\n• Junge, motivierte Person, die sich beruflich weiterentwickeln möchte\n• Fähigkeit, auch in schwierigen Gesprächen ruhig und professionell zu bleiben\n• Teamorientierte Einstellung und kooperative Denkweise",
+        "fr": "Nous recherchons un professionnel motivé et orienté client pour rejoindre notre équipe dans un environnement dynamique et en pleine croissance. Le candidat idéal est désireux de développer ses compétences en gestion de la relation client et en recouvrement de crédit, combinant de solides capacités de communication avec de l'empathie et une approche axée sur les solutions. Ce rôle offre l'opportunité de travailler en étroite collaboration avec les clients, de négocier des solutions de paiement durables et de contribuer à maintenir des relations positives et professionnelles même dans des situations sensibles. Responsabilités clés :\n• Contact téléphonique avec les clients pour la gestion du crédit et le recouvrement des créances\n• Écoute active des situations des clients et identification de solutions de paiement durables\n• Négociation des plans de remboursement et suivi des modalités convenues\n• Gestion et mise à jour des dossiers dans les systèmes internes\n• Collaboration avec l'équipe pour suivre les positions ouvertes\n• Maintenir une approche professionnelle et empathique même dans les situations sensibles\n• Formation commerciale (apprentissage commercial ou qualification équivalente)\n• Langue maternelle allemande et bonne connaissance de l'anglais\n• Excellentes capacités de communication et fortes capacités d'écoute client\n• Aptitude à gérer les relations clients au fil du temps téléphone\n• Empathie, compétences en médiation et état d'esprit orienté vers les solutions\n• Souci du détail et compétences organisationnelles\n• Esprit d'équipe et fiabilité Profil idéal\n• Personne jeune et motivée désireuse d'évoluer professionnellement\n• Capacité à rester calme et professionnel même dans les conversations difficiles\n• Attitude orientée équipe et esprit de collaboration"
+      },
+      "requirements": [
+        "Commercial training (commercial apprenticeship or equivalent qualification)",
+        "Native German and good knowledge of English",
+        "Excellent communication skills and strong customer listening abilities",
+        "Aptitude for managing customer relationships over the phone",
+        "Empathy, mediation skills, and solution-oriented mindset",
+        "Attention to detail and organizational skills",
+        "Team spirit and reliability\n\nIdeal profile",
+        "Young, motivated person eager to grow professionally",
+        "Ability to remain calm and professional even in difficult conversations",
+        "Team-oriented attitude and collaborative mindset"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Commercial training (commercial apprenticeship or equivalent qualification)",
+          "Native German and good knowledge of English",
+          "Excellent communication skills and strong customer listening abilities",
+          "Aptitude for managing customer relationships over the phone",
+          "Empathy, mediation skills, and solution-oriented mindset",
+          "Attention to detail and organizational skills",
+          "Team spirit and reliability Ideal profile",
+          "Young, motivated person eager to grow professionally"
+        ],
+        "en": [
+          "Commercial training (commercial apprenticeship or equivalent qualification)",
+          "Native German and good knowledge of English",
+          "Excellent communication skills and strong customer listening abilities",
+          "Aptitude for managing customer relationships over the phone",
+          "Empathy, mediation skills, and solution-oriented mindset",
+          "Attention to detail and organizational skills",
+          "Team spirit and reliability Ideal profile",
+          "Young, motivated person eager to grow professionally"
+        ]
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-06T13:32:11.891Z",
+      "previousSlugs": [
+        "employee-collection-team-zurich-corner-banca-wallisellen",
+        "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-collection-team-zurich-corner-banca-wallisellen",
+          "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen"
+        ],
+        "de": [
+          "employee-collection-team-zurich-corner-banca-wallisellen"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T22:29:56.932Z",
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8001",
+      "country": "CH"
+    },
+    {
       "id": "corner-banca-4b9d1c5b215f",
       "slug": "collezione-dei-dipendenti-corner-banca-wallisellen",
       "slugByLocale": {
@@ -621,7 +626,7 @@
         "it": "Collezione dei dipendenti",
         "en": "Employee Front Office Collection",
         "de": "Mitarbeiter Sammlung Front Office",
-        "fr": "Collecte auprès des employés"
+        "fr": "Employee Front Office Collection"
       },
       "description": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\n• Phone-based client communication for credit management and debt collection\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Coordination with external debt collection partners and management of assigned mandates\n\n• Application of active listening in client interactions, combined with analytical evaluation of information to identify and propose appropriate solutions\n\n• Provide administrative and back-office support\n\n• Close collaboration with internal teams\n\n• Commercial apprenticeship (KV) or equivalent diploma\n\n• 1–2 years of professional experience, preferably in receivables management (dunning and debt collection) or financial services\n\n• Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\n• Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\n• Excellent communication and negotiation skills, combined with active listening, empathy, and a pragmatic, solution-oriented approach\n\n• Proficiency in MS Office\n\n• Strong team orientation, with the ability to collaborate effectively in a dynamic environment",
       "descriptionByLocale": {
@@ -673,7 +678,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.442Z",
+      "crawledAt": "2026-07-06T13:32:11.891Z",
       "previousSlugs": [
         "employee-front-office-collection-corner-banca-wallisellen",
         "employee-front-office-corner-banca-wallisellen",
@@ -693,6 +698,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "baseSalary": {
@@ -772,7 +778,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.439Z",
+      "crawledAt": "2026-07-06T13:32:11.890Z",
       "previousSlugs": [
         "customer-advisor-60-team-zurich-corner-banca-wallisellen",
         "consulente-clienti-60-team-zurigo-corner-banca-wallisellen"
@@ -790,6 +796,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T12:44:36.978Z",
+      "needsRetranslation": true,
       "salaryMin": 49800,
       "salaryMax": 76500,
       "baseSalary": {
@@ -873,8 +880,9 @@
       "url": "https://jobs.corner.ch/o/it-auditor",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.438Z",
+      "crawledAt": "2026-07-06T13:32:11.888Z",
       "firstSeenAt": "2026-05-18T12:11:07.111Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -955,7 +963,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.437Z",
+      "crawledAt": "2026-07-06T13:32:11.886Z",
       "previousSlugs": [
         "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "customer-advisor-60-team-zurich-corner-banca-wallisellen",
@@ -973,6 +981,7 @@
         ]
       },
       "firstSeenAt": "2026-05-15T10:48:38.227Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1054,7 +1063,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.436Z",
+      "crawledAt": "2026-07-06T13:32:11.884Z",
       "previousSlugs": [
         "legal-collection-case-manager-corner-banca-wallisellen",
         "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen"
@@ -1072,6 +1081,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:12:50.719Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1163,7 +1173,7 @@
       "url": "https://jobs.corner.ch/o/customer-analytics-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.434Z",
+      "crawledAt": "2026-07-06T13:32:11.882Z",
       "previousSlugsByLocale": {
         "it": [
           "customer-analytics-officer-corner-banca-lugano",
@@ -1181,6 +1191,7 @@
         "responsabile-customer-analytics-corner-banca-wallisellen"
       ],
       "firstSeenAt": "2026-06-02T23:12:26.649Z",
+      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "baseSalary": {
@@ -1274,7 +1285,7 @@
       "url": "https://jobs.corner.ch/o/marketing-project-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.433Z",
+      "crawledAt": "2026-07-06T13:32:11.881Z",
       "previousSlugs": [
         "marketing-project-manager-corner-banca-lugano",
         "responsabile-del-progetto-di-marketing-corner-banca-lugano"
@@ -1292,6 +1303,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T21:37:06.561Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1301,90 +1313,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH"
-    },
-    {
-      "id": "corner-banca-765f9177286d",
-      "slug": "senior-security-grc-governance-risk-e-compliance-banking-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "senior-security-grc-governance-risk-e-compliance-banking-corner-banca-lugano",
-        "en": "senior-security-grc-governance-risk-e-compliance-banking-corner-banca-lugano",
-        "de": "senior-security-grc-governance-risk-e-compliance-banking-corner-banca-lugano",
-        "fr": "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Senior Security GRC (Governance, Risk & Compliance) – Banking",
-      "titleByLocale": {
-        "it": "Senior Security GRC (Governance, Risk & Compliance) – Banking",
-        "en": "Senior Security GRC (Governance, Risk & Compliance) – Banking",
-        "de": "Senior Security GRC (Governance, Risk & Compliance) – Banking",
-        "fr": "GRC (Gouvernance, Risque et Conformité) – Services bancaires"
-      },
-      "description": "We are looking for a Senior Security GRC professional to join our team and strengthen our cybersecurity, risk, and compliance capabilities in a regulated banking environment.\n\nIn this role, you will act as a liaison between IT, business leadership, and regulators, ensuring that security and compliance are effectively embedded across the organization.\n\nKey responsibilities:\n\n• Execute cyber & ICT risk assessments, BIA, and risk treatment plans\n\n• Ensure compliance with FINMA circulars, ISO 27001, LPD, PCI DSS and relevant regulations\n\n• Oversee third-party / vendor risk management\n\n• Maintain and enhance the ISMS, policies, and controls framework\n\n• Oversee IT & security audits (internal/external)\n\n• Develop GRC dashboards, KPIs and reporting for CISO\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)\n\n• Strong knowledge of ISO 27001, NIST, PCI DSS\n\n• Experience with regulatory environments (FINMA highly valued)\n\n• Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus\n\n• Ability to translate technical risks into business insights\n\n• Fluent English and Italian (mandatory). German (strong advantage)",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un professionista di sicurezza senior GRC per unirsi al nostro team e rafforzare le nostre capacità di sicurezza informatica, rischio e conformità in un ambiente bancario regolamentato. In questo ruolo, si agirà come un collegamento tra IT, leadership aziendale e regolatori, assicurando che la sicurezza e la conformità sono efficacemente incorporati in tutta l'organizzazione. Responsabilità chiave:\n• Esegui valutazioni dei rischi informatici e ICT, BIA e piani di trattamento dei rischi\n• Assicurare il rispetto delle circolari FINMA, ISO 27001, LPD, PCI DSS e normative pertinenti\n• supervisionare la gestione del rischio di terze parti / fornitori\n• Mantenere e migliorare il quadro ISMS, politiche e controlli\n• Superare gli audit IT e sicurezza (internal/esterno)\n• Sviluppa dashboard GRC, KPI e report per CISO Cosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione delle ore di lavoro al fine di garantire un sano equilibrio di vita lavorativa\n• Numerosi vantaggi e incentivi\n• Benessere, attività motivazionali e di team building\n• 5+ anni in Cybersecurity, IT Risk, Audit, o GRC (preferito Banking/fintech)\n• Forte conoscenza di ISO 27001, NIST, PCI DSS\n• Esperienza con ambienti normativi (FINMA altamente apprezzata)\n• Certificazioni professionali (CISSP, CISM, CISA, CRISC, CDPSE) sono un plus\n• Capacità di tradurre rischi tecnici in insight aziendali\n• Inglese fluente e italiano (obbligatorio). tedesco (forte vantaggio)",
-        "en": "We are looking for a Senior Security GRC professional to join our team and strengthen our cybersecurity, risk, and compliance capabilities in a regulated banking environment. In this role, you will act as a liaison between IT, business leadership, and regulators, ensuring that security and compliance are effectively embedded across the organization. Key responsibilities:\n• Execute cyber & ICT risk assessments, BIA, and risk treatment plans\n• Ensure compliance with FINMA circulars, ISO 27001, LPD, PCI DSS and relevant regulations\n• Oversee third-party / vendor risk management\n• Maintain and enhance the ISMS, policies, and controls framework\n• Oversee IT & security audits (internal/external)\n• Develop GRC dashboards, KPIs and reporting for CISO What do we offer?\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n• Numerous benefits and incentives\n• Well-being, motivational and team-building activities\n• 5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)\n• Strong knowledge of ISO 27001, NIST, PCI DSS\n• Experience with regulatory environments (FINMA highly valued)\n• Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus\n• Ability to translate technical risks into business insights\n• Fluent English and Italian (mandatory). German (strong advantage)",
-        "de": "Wir suchen einen Senior Security GRC-Experten, der sich unserem Team anschließt und unsere Cybersicherheits-, Risiko- und Compliance-Fähigkeiten in einem regulierten Bankenumfeld stärkt. In dieser Rolle fungieren Sie als Bindeglied zwischen IT, Unternehmensführung und Aufsichtsbehörden und stellen sicher, dass Sicherheit und Compliance effektiv in der gesamten Organisation verankert sind. Hauptzuständigkeiten:\n• Durchführung von Cyber- und ICT-Risikobewertungen, BIA und Risikobehandlungsplänen\n• Einhaltung der FINMA-Rundschreiben, ISO 27001, LPD, PCI DSS und der einschlägigen Vorschriften\n• Überwachung des Risikomanagements von Drittanbietern / Anbietern\n• Pflege und Verbesserung des ISMS, der Richtlinien und des Kontrollrahmens\n• Aufsicht über IT & Security Audits (intern/extern)\n• GRC Dashboards, KPIs und Reporting für CISO entwickeln Was bieten wir an?\n• Flexibilität bei der Arbeit von zu Hause aus und die Verwaltung der Arbeitszeit, um eine gesunde Work-Life-Balance zu gewährleisten\n• Zahlreiche Vorteile und Anreize\n• Wohlbefinden, Motivation und Teambuilding\n• 5+ Jahre in Cybersecurity, IT Risk, Audit oder GRC (Banking / Fintech bevorzugt)\n• Starkes Wissen über ISO 27001, NIST, PCI DSS\n• Erfahrung mit regulatorischen Umgebungen (FINMA hoch geschätzt)\n• Professionelle Zertifizierungen (CISSP, CISM, CISA, CRISC, CDPSE) sind ein Plus\n• Fähigkeit, technische Risiken in Business Insights umzusetzen\n• Fließend Englisch und Italienisch (obligatorisch). Deutsch (starker Vorteil)",
-        "fr": "Nous cherchons un professionnel senior de la sécurité GRC pour rejoindre notre équipe et renforcer nos capacités de cybersécurité, de risque et de conformité dans un environnement bancaire réglementé. Dans ce rôle, vous assurerez la liaison entre la TI, le leadership des entreprises et les organismes de réglementation, en veillant à ce que la sécurité et la conformité soient intégrées efficacement dans l'ensemble de l'organisation. Principales responsabilités :\n• Exécuter des évaluations des risques cyber & TIC, BIA et des plans de traitement des risques\n• Assurer la conformité avec les circulaires FINMA, ISO 27001, LPD, PCI DSS et les règlements pertinents\n• Superviser la gestion des risques des tiers / fournisseurs\n• Maintenir et améliorer le SGSI, les politiques et le cadre de contrôle\n• Superviser les audits informatiques et de sécurité (internes/externes)\n• Élaborer des tableaux de bord, des ICR et des rapports pour l'ISOC Qu'est-ce qu'on offre ?\n• Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n• De nombreux avantages et incitations\n• Activités de bien-être, de motivation et de renforcement des équipes\n• 5 ans et plus en cybersécurité, risque informatique, audit ou GRC (banque/fintech préférée)\n• Forte connaissance de la norme ISO 27001, NIST, PCI DSS\n• Expérience des environnements réglementaires (la FINMA est très appréciée)\n• Les certifications professionnelles (CISSP, CISM, CISA, CRISC, CDPSE) sont un plus\n• Capacité de traduire les risques techniques en perspectives d'affaires\n• Anglais et italien (obligatoire). Allemand (fort avantage)"
-      },
-      "requirements": [
-        "5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)",
-        "Strong knowledge of ISO 27001, NIST, PCI DSS",
-        "Experience with regulatory environments (FINMA highly valued)",
-        "Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus",
-        "Ability to translate technical risks into business insights",
-        "Fluent English and Italian (mandatory). German (strong advantage)"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)",
-          "Strong knowledge of ISO 27001, NIST, PCI DSS",
-          "Experience with regulatory environments (FINMA highly valued)",
-          "Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus",
-          "Ability to translate technical risks into business insights",
-          "Fluent English and Italian (mandatory). German (strong advantage)"
-        ],
-        "en": [
-          "5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)",
-          "Strong knowledge of ISO 27001, NIST, PCI DSS",
-          "Experience with regulatory environments (FINMA highly valued)",
-          "Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus",
-          "Ability to translate technical risks into business insights",
-          "Fluent English and Italian (mandatory). German (strong advantage)"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-24",
-      "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.431Z",
-      "firstSeenAt": "2026-06-24T21:51:46.196Z",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 142000,
-          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -1458,8 +1386,9 @@
       "url": "https://jobs.corner.ch/o/information-security-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.431Z",
+      "crawledAt": "2026-07-06T13:32:11.879Z",
       "firstSeenAt": "2026-06-24T21:51:46.198Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -1528,7 +1457,7 @@
       "url": "https://jobs.corner.ch/o/sales-solutions-ecash-employee",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.429Z",
+      "crawledAt": "2026-07-06T13:32:11.878Z",
       "previousSlugs": [
         "sales-e-solutions-ecash-employee-corner-banca-lugano",
         "vendite-e-soluzioni-e-dipendente-cash-corner-banca-lugano"
@@ -1543,6 +1472,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T22:09:15.290Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1552,6 +1482,91 @@
           "@type": "QuantitativeValue",
           "minValue": 59000,
           "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH"
+    },
+    {
+      "id": "corner-banca-765f9177286d",
+      "slug": "senior-security-grc-governance-risk-e-compliance-banking-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "senior-security-grc-governance-risk-e-compliance-banking-corner-banca-lugano",
+        "en": "senior-security-grc-governance-risk-e-compliance-banking-corner-banca-lugano",
+        "de": "senior-security-grc-governance-risk-e-compliance-banking-corner-banca-lugano",
+        "fr": "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Senior Security GRC (Governance, Risk & Compliance) – Banking",
+      "titleByLocale": {
+        "it": "Senior Security GRC (Governance, Risk & Compliance) – Banking",
+        "en": "Senior Security GRC (Governance, Risk & Compliance) – Banking",
+        "de": "Senior Security GRC (Governance, Risk & Compliance) – Banking",
+        "fr": "GRC (Gouvernance, Risque et Conformité) – Services bancaires"
+      },
+      "description": "We are looking for a Senior Security GRC professional to join our team and strengthen our cybersecurity, risk, and compliance capabilities in a regulated banking environment.\n\nIn this role, you will act as a liaison between IT, business leadership, and regulators, ensuring that security and compliance are effectively embedded across the organization.\n\nKey responsibilities:\n\n• Execute cyber & ICT risk assessments, BIA, and risk treatment plans\n\n• Ensure compliance with FINMA circulars, ISO 27001, LPD, PCI DSS and relevant regulations\n\n• Oversee third-party / vendor risk management\n\n• Maintain and enhance the ISMS, policies, and controls framework\n\n• Oversee IT & security audits (internal/external)\n\n• Develop GRC dashboards, KPIs and reporting for CISO\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)\n\n• Strong knowledge of ISO 27001, NIST, PCI DSS\n\n• Experience with regulatory environments (FINMA highly valued)\n\n• Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus\n\n• Ability to translate technical risks into business insights\n\n• Fluent English and Italian (mandatory). German (strong advantage)",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un professionista di sicurezza senior GRC per unirsi al nostro team e rafforzare le nostre capacità di sicurezza informatica, rischio e conformità in un ambiente bancario regolamentato. In questo ruolo, si agirà come un collegamento tra IT, leadership aziendale e regolatori, assicurando che la sicurezza e la conformità sono efficacemente incorporati in tutta l'organizzazione. Responsabilità chiave:\n• Esegui valutazioni dei rischi informatici e ICT, BIA e piani di trattamento dei rischi\n• Assicurare il rispetto delle circolari FINMA, ISO 27001, LPD, PCI DSS e normative pertinenti\n• supervisionare la gestione del rischio di terze parti / fornitori\n• Mantenere e migliorare il quadro ISMS, politiche e controlli\n• Superare gli audit IT e sicurezza (internal/esterno)\n• Sviluppa dashboard GRC, KPI e report per CISO Cosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione delle ore di lavoro al fine di garantire un sano equilibrio di vita lavorativa\n• Numerosi vantaggi e incentivi\n• Benessere, attività motivazionali e di team building\n• 5+ anni in Cybersecurity, IT Risk, Audit, o GRC (preferito Banking/fintech)\n• Forte conoscenza di ISO 27001, NIST, PCI DSS\n• Esperienza con ambienti normativi (FINMA altamente apprezzata)\n• Certificazioni professionali (CISSP, CISM, CISA, CRISC, CDPSE) sono un plus\n• Capacità di tradurre rischi tecnici in insight aziendali\n• Inglese fluente e italiano (obbligatorio). tedesco (forte vantaggio)",
+        "en": "We are looking for a Senior Security GRC professional to join our team and strengthen our cybersecurity, risk, and compliance capabilities in a regulated banking environment. In this role, you will act as a liaison between IT, business leadership, and regulators, ensuring that security and compliance are effectively embedded across the organization. Key responsibilities:\n• Execute cyber & ICT risk assessments, BIA, and risk treatment plans\n• Ensure compliance with FINMA circulars, ISO 27001, LPD, PCI DSS and relevant regulations\n• Oversee third-party / vendor risk management\n• Maintain and enhance the ISMS, policies, and controls framework\n• Oversee IT & security audits (internal/external)\n• Develop GRC dashboards, KPIs and reporting for CISO What do we offer?\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n• Numerous benefits and incentives\n• Well-being, motivational and team-building activities\n• 5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)\n• Strong knowledge of ISO 27001, NIST, PCI DSS\n• Experience with regulatory environments (FINMA highly valued)\n• Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus\n• Ability to translate technical risks into business insights\n• Fluent English and Italian (mandatory). German (strong advantage)",
+        "de": "Wir suchen einen Senior Security GRC-Experten, der sich unserem Team anschließt und unsere Cybersicherheits-, Risiko- und Compliance-Fähigkeiten in einem regulierten Bankenumfeld stärkt. In dieser Rolle fungieren Sie als Bindeglied zwischen IT, Unternehmensführung und Aufsichtsbehörden und stellen sicher, dass Sicherheit und Compliance effektiv in der gesamten Organisation verankert sind. Hauptzuständigkeiten:\n• Durchführung von Cyber- und ICT-Risikobewertungen, BIA und Risikobehandlungsplänen\n• Einhaltung der FINMA-Rundschreiben, ISO 27001, LPD, PCI DSS und der einschlägigen Vorschriften\n• Überwachung des Risikomanagements von Drittanbietern / Anbietern\n• Pflege und Verbesserung des ISMS, der Richtlinien und des Kontrollrahmens\n• Aufsicht über IT & Security Audits (intern/extern)\n• GRC Dashboards, KPIs und Reporting für CISO entwickeln Was bieten wir an?\n• Flexibilität bei der Arbeit von zu Hause aus und die Verwaltung der Arbeitszeit, um eine gesunde Work-Life-Balance zu gewährleisten\n• Zahlreiche Vorteile und Anreize\n• Wohlbefinden, Motivation und Teambuilding\n• 5+ Jahre in Cybersecurity, IT Risk, Audit oder GRC (Banking / Fintech bevorzugt)\n• Starkes Wissen über ISO 27001, NIST, PCI DSS\n• Erfahrung mit regulatorischen Umgebungen (FINMA hoch geschätzt)\n• Professionelle Zertifizierungen (CISSP, CISM, CISA, CRISC, CDPSE) sind ein Plus\n• Fähigkeit, technische Risiken in Business Insights umzusetzen\n• Fließend Englisch und Italienisch (obligatorisch). Deutsch (starker Vorteil)",
+        "fr": "Nous cherchons un professionnel senior de la sécurité GRC pour rejoindre notre équipe et renforcer nos capacités de cybersécurité, de risque et de conformité dans un environnement bancaire réglementé. Dans ce rôle, vous assurerez la liaison entre la TI, le leadership des entreprises et les organismes de réglementation, en veillant à ce que la sécurité et la conformité soient intégrées efficacement dans l'ensemble de l'organisation. Principales responsabilités :\n• Exécuter des évaluations des risques cyber & TIC, BIA et des plans de traitement des risques\n• Assurer la conformité avec les circulaires FINMA, ISO 27001, LPD, PCI DSS et les règlements pertinents\n• Superviser la gestion des risques des tiers / fournisseurs\n• Maintenir et améliorer le SGSI, les politiques et le cadre de contrôle\n• Superviser les audits informatiques et de sécurité (internes/externes)\n• Élaborer des tableaux de bord, des ICR et des rapports pour l'ISOC Qu'est-ce qu'on offre ?\n• Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n• De nombreux avantages et incitations\n• Activités de bien-être, de motivation et de renforcement des équipes\n• 5 ans et plus en cybersécurité, risque informatique, audit ou GRC (banque/fintech préférée)\n• Forte connaissance de la norme ISO 27001, NIST, PCI DSS\n• Expérience des environnements réglementaires (la FINMA est très appréciée)\n• Les certifications professionnelles (CISSP, CISM, CISA, CRISC, CDPSE) sont un plus\n• Capacité de traduire les risques techniques en perspectives d'affaires\n• Anglais et italien (obligatoire). Allemand (fort avantage)"
+      },
+      "requirements": [
+        "5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)",
+        "Strong knowledge of ISO 27001, NIST, PCI DSS",
+        "Experience with regulatory environments (FINMA highly valued)",
+        "Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus",
+        "Ability to translate technical risks into business insights",
+        "Fluent English and Italian (mandatory). German (strong advantage)"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)",
+          "Strong knowledge of ISO 27001, NIST, PCI DSS",
+          "Experience with regulatory environments (FINMA highly valued)",
+          "Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus",
+          "Ability to translate technical risks into business insights",
+          "Fluent English and Italian (mandatory). German (strong advantage)"
+        ],
+        "en": [
+          "5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)",
+          "Strong knowledge of ISO 27001, NIST, PCI DSS",
+          "Experience with regulatory environments (FINMA highly valued)",
+          "Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus",
+          "Ability to translate technical risks into business insights",
+          "Fluent English and Italian (mandatory). German (strong advantage)"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-24",
+      "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-06T13:32:11.878Z",
+      "firstSeenAt": "2026-06-24T21:51:46.196Z",
+      "needsRetranslation": true,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 142000,
+          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -1629,7 +1644,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-2",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T22:31:20.428Z",
+      "crawledAt": "2026-07-06T13:32:11.875Z",
       "previousSlugs": [
         "fi-administration-e-business-support-2-corner-banca-lugano",
         "amministrazione-fi-e-supporto-aziendale-2-corner-banca-lugano",
@@ -1646,6 +1661,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T11:34:34.536Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
