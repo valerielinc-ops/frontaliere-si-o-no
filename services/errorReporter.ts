@@ -92,7 +92,15 @@ export function reportCaughtError(
 
  // ── Drop benign environmental noise (adblock, browser quirks, offline) ──
  // Console.warn above still runs so devs can see it locally; GA4 doesn't.
- if (isBenignErrorMessage(message)) return;
+ //
+ // Also check the "Name: message" form so patterns like /AbortError: …/ match
+ // errors caught via try/catch (where extractMessage() returns only error.message
+ // without the name). The unhandledrejection handler uses `${reason.name}: …`
+ // naturally; caught errors must replicate that form here.
+ const prefixedMessage = error instanceof Error && error.name && error.name !== 'Error'
+   ? `${error.name}: ${message}`
+   : message;
+ if (isBenignErrorMessage(message) || isBenignErrorMessage(prefixedMessage)) return;
 
  // ── Per-page-load cap to prevent flood storms ──
  if (reportsThisSession >= MAX_REPORTS_PER_SESSION) return;
