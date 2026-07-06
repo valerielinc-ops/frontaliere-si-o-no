@@ -8265,6 +8265,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accordo-sociale-lastminute-chiasso.title': 'Lastminute.com Chiasso: Einigung für die 56 Entlassenen',
     'blog.article.accordo-sociale-lastminute-chiasso.excerpt': 'Sozialvereinbarung für die 56 Mitarbeiter des Firmensitzes in Chiasso getroffen. Hier finden Sie Details zu den Maßnahmen zum Schutz der betroffenen Arbeitnehmer.',
     'blog.article.accordo-sociale-lastminute-chiasso.imageAlt': 'Blick auf das Geschäftsviertel in Chiasso, Tessin',
+    'blog.article.lavori-autostrada-a8-luglio-2026.title': 'A8 Mailand-Varese: Nachtschließungen für Arbeiten im Juli',
+    'blog.article.lavori-autostrada-a8-luglio-2026.excerpt': 'Baustellen für die Sicherheitsbarrieren auf der A8: gesperrte Strecken und blockierte Ausfahrten vom 6. bis 12. Juli 2026. Hier sind die empfohlenen Alternativrouten.',
+    'blog.article.lavori-autostrada-a8-luglio-2026.imageAlt': 'Autobahnbaustelle auf der A8 Mailand-Varese in der Nähe der Schweizer Grenze',
 };
 
 export default blogMetaDe;

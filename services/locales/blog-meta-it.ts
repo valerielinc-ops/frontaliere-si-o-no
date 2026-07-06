@@ -8267,6 +8267,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.accordo-sociale-lastminute-chiasso.title': 'Lastminute.com Chiasso: intesa raggiunta per i 56 licenziati',
     'blog.article.accordo-sociale-lastminute-chiasso.excerpt': 'Raggiunto l\'accordo sul piano sociale per i 56 dipendenti della sede di Chiasso. Ecco i dettagli sulle misure a tutela dei lavoratori coinvolti.',
     'blog.article.accordo-sociale-lastminute-chiasso.imageAlt': 'Veduta del quartiere direzionale di Chiasso in Ticino',
+    'blog.article.lavori-autostrada-a8-luglio-2026.title': 'A8 Milano-Varese: chiusure notturne per lavori a luglio',
+    'blog.article.lavori-autostrada-a8-luglio-2026.excerpt': 'Cantieri per le barriere di sicurezza sulla A8: tratte chiuse e svincoli bloccati dal 6 al 12 luglio 2026. Ecco i percorsi alternativi consigliati.',
+    'blog.article.lavori-autostrada-a8-luglio-2026.imageAlt': 'Lavori autostradali sulla A8 Milano-Varese verso il confine svizzero',
 };
 
 export default blogMetaIt;
