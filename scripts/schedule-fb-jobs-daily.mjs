@@ -43,6 +43,7 @@ import {
   buildJobUrl,
   loadLedger,
   appendLedger,
+  CANTON_NAME_BY_CODE,
 } from './lib/social-post-utils.mjs';
 
 // Re-export the channel-agnostic helpers so existing importers (e.g. the FB
@@ -85,17 +86,10 @@ const EMPLOYMENT_TYPE_LABEL = {
 
 // Canton ISO 2-letter code → full name (used for the fallback hashtag
 // when a job has no `sector` field). Italian/local form preferred so
-// the hashtag matches how Italian speakers search.
-const CANTON_NAME_BY_CODE = {
-  AG: 'Argovia', AI: 'AppenzelloInterno', AR: 'AppenzelloEsterno',
-  BE: 'Berna', BL: 'BasileaCampagna', BS: 'BasileaCitta',
-  FR: 'Friburgo', GE: 'Ginevra', GL: 'Glarona', GR: 'Grigioni',
-  JU: 'Giura', LU: 'Lucerna', NE: 'Neuchatel', NW: 'Nidvaldo',
-  OW: 'Obvaldo', SG: 'SanGallo', SH: 'Sciaffusa', SO: 'Soletta',
-  SZ: 'Svitto', TG: 'Turgovia', TI: 'Ticino', UR: 'Uri',
-  VD: 'Vaud', VS: 'Vallese', ZG: 'Zugo', ZH: 'Zurigo',
-};
-
+// the hashtag matches how Italian speakers search. Sourced from
+// ./lib/social-post-utils.mjs (shared with the events poster, §6) —
+// `sanitizeHashtagWord` strips spaces/diacritics so the prose-form map
+// there produces the identical spaceless hashtag this used to hardcode.
 // Coarse role-keyword whitelist for hashtag extraction. First match in the
 // title (case-insensitive, word-boundary) wins.
 const ROLE_KEYWORDS = [
