@@ -4382,6 +4382,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-divorzio-frontaliere-mantenimento-svizzera': { name: 'Divorzio frontaliere', path: '/articoli-svizzera/divorzio-frontaliere-mantenimento-svizzera/', parent: 'blog' },
     'blog-accordo-sociale-lastminute-chiasso': { name: 'Accordo Lastminute Chiasso', path: '/articoli-frontaliere/accordo-sociale-lastminute-chiasso', parent: 'blog' },
     'blog-frontaliere-infermiere-ticino-requisiti': { name: 'Frontaliere infermiere Ticino', path: '/articoli-svizzera/frontaliere-infermiere-ticino-requisiti/', parent: 'blog' },
+    'blog-lavori-autostrada-a8-luglio-2026': { name: 'Lavori A8', path: '/articoli-frontaliere/lavori-autostrada-a8-luglio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

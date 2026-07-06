@@ -24839,6 +24839,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavori-autostrada-a8-luglio-2026',
+ category: 'pratico',
+ date: '2026-07-06T03:50:14.755Z',
+ image: '/images/blog/lavori-autostrada-a8-luglio-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
