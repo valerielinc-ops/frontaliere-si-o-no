@@ -4367,6 +4367,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-block-ristorni-federalismo': { name: 'Blocco dei ristorni', path: '/articoli-frontaliere/block-ristorni-federalismo', parent: 'blog' },
     'blog-il-caldo-modifica-il-valore-degli-immobili': { name: 'Il caldo modifica il valore degli immobili', path: '/articoli-svizzera/il-caldo-modifica-il-valore-degli-immobili/', parent: 'blog' },
     'blog-riapertura-treni-ticino-2024': { name: 'Riapertura dei treni tra Varese, il Ticino', path: '/articoli-frontaliere/riapertura-treni-ticino-2024', parent: 'blog' },
+    'blog-unions-launch-referendum-minimum-wage-reform': { name: 'La riforma salari minimi', path: '/articoli-svizzera/unions-launch-referendum-minimum-wage-reform/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -2636,6 +2636,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'unions-launch-referendum-minimum-wage-reform',
+    category: 'fiscale',
+    date: '2026-07-06T01:44:12.779Z',
+    image: '/images/blog/unions-launch-referendum-minimum-wage-reform.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

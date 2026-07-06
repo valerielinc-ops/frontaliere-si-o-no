@@ -880,6 +880,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.il-caldo-modifica-il-valore-degli-immobili.title': 'Die Hitze verändert den Wert der Liegenschaften',
     'blog.article.il-caldo-modifica-il-valore-degli-immobili.excerpt': 'Der Klimawandel beeinflusst den Wert von Immobilien in der Schweiz, wobei moderne Penthäuser aufgrund von Hitzewallungen an Wert verlieren.',
     'blog.article.il-caldo-modifica-il-valore-degli-immobili.imageAlt': 'Panorama von Lugano mit einem modernen Penthouse im Vordergrund',
+    'blog.article.unions-launch-referendum-minimum-wage-reform.title': 'Gewerkschaften starten Referendum gegen Mindestlohnreform',
+    'blog.article.unions-launch-referendum-minimum-wage-reform.excerpt': 'Die vom Parlament verabschiedete Mindestlohnreform würde Geringverdiener und Frauen einem Risiko aussetzen',
+    'blog.article.unions-launch-referendum-minimum-wage-reform.imageAlt': 'Bild eines Gruppen von Menschen, die in einem Konferenzraum in Lugano diskutieren',
 };
 
 export default blogMetaChDe;

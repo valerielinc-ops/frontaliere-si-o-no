@@ -880,6 +880,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.il-caldo-modifica-il-valore-degli-immobili.title': 'Il caldo modifica il valore degli immobili',
     'blog.article.il-caldo-modifica-il-valore-degli-immobili.excerpt': 'Il cambiamento climatico influenza il valore degli immobili in Svizzera, con gli attici moderni perdendo valore a causa della canicola.',
     'blog.article.il-caldo-modifica-il-valore-degli-immobili.imageAlt': 'Vista panoramica di Lugano con un attico moderno in primo piano',
+    'blog.article.unions-launch-referendum-minimum-wage-reform.title': 'Sindacati lanciano referendum contro riforma salari minimi',
+    'blog.article.unions-launch-referendum-minimum-wage-reform.excerpt': 'La riforma salari minimi approvata dal Parlamento esporrebbe i lavoratori a basso reddito e le donne a rischi',
+    'blog.article.unions-launch-referendum-minimum-wage-reform.imageAlt': 'Immagine di un gruppo di persone che discutono in una sala riunioni a Lugano',
 };
 
 export default blogMetaChIt;
