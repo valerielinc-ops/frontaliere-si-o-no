@@ -8249,6 +8249,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sicurezza-alimentare-aziende-ticino.title': 'Sicurezza alimentare Ticino: 90% delle aziende promosse',
     'blog.article.sicurezza-alimentare-aziende-ticino.excerpt': 'Il Rapporto d\'esercizio 2025 del Laboratorio cantonale fotografa lo stato della sicurezza alimentare: 9 aziende su 10 sono in regola, ma crescono i controlli.',
     'blog.article.sicurezza-alimentare-aziende-ticino.imageAlt': 'Ispezione di sicurezza alimentare in un\'azienda del Canton Ticino',
+    'blog.article.centrodestra-como-elezioni-gazebo.title': 'Como: il centrodestra in strada per le prossime elezioni',
+    'blog.article.centrodestra-como-elezioni-gazebo.excerpt': 'Incontro pubblico in via Boldoni tra i partiti del centrodestra per ascoltare le istanze dei cittadini in vista delle future elezioni amministrative.',
+    'blog.article.centrodestra-como-elezioni-gazebo.imageAlt': 'Gazebo politici in via Boldoni a Como',
 };
 
 export default blogMetaIt;

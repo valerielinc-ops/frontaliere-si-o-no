@@ -8247,6 +8247,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sicurezza-alimentare-aziende-ticino.title': 'Lebensmittelsicherheit Tessin: 90% der geförderten Betriebe',
     'blog.article.sicurezza-alimentare-aziende-ticino.excerpt': 'Der Geschäftsbericht 2025 des kantonalen Labors fotografiert den Stand der Lebensmittelsicherheit: 9 von 10 Betrieben sind in Ordnung, aber die Kontrollen nehmen zu.',
     'blog.article.sicurezza-alimentare-aziende-ticino.imageAlt': 'Lebensmittelsicherheitskontrolle in einem Unternehmen im Kanton Tessin',
+    'blog.article.centrodestra-como-elezioni-gazebo.title': 'Como: Mitte-Rechts auf der Straße für die nächsten Wahlen',
+    'blog.article.centrodestra-como-elezioni-gazebo.excerpt': 'Öffentliche Versammlung in der Via Boldoni zwischen den Mitte-Rechts-Parteien, um die Forderungen der Bürger im Hinblick auf die zukünftigen Kommunalwahlen anzuhören.',
+    'blog.article.centrodestra-como-elezioni-gazebo.imageAlt': 'Politische Informationsstände in der Via Boldoni in Como',
 };
 
 export default blogMetaDe;

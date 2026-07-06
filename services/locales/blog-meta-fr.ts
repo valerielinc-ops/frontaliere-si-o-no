@@ -8249,6 +8249,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sicurezza-alimentare-aziende-ticino.title': 'Sécurité alimentaire Tessin : 90 % des exploitations promues',
     'blog.article.sicurezza-alimentare-aziende-ticino.excerpt': 'Le Rapport d\'exploitation 2025 du Laboratoire cantonal photographie l\'état de la sécurité alimentaire : 9 entreprises sur 10 sont en règle, mais les contrôles augmentent.',
     'blog.article.sicurezza-alimentare-aziende-ticino.imageAlt': 'Inspection de la sécurité alimentaire dans une entreprise du canton du Tessin',
+    'blog.article.centrodestra-como-elezioni-gazebo.title': 'Côme : le centre-droit dans la rue pour les prochaines élections',
+    'blog.article.centrodestra-como-elezioni-gazebo.excerpt': 'Rencontre publique via Boldoni entre les partis du centre-droit pour écouter les demandes des citoyens en vue des futures élections municipales.',
+    'blog.article.centrodestra-como-elezioni-gazebo.imageAlt': 'Stands politiques dans la Via Boldoni à Côme',
 };
 
 export default blogMetaFr;

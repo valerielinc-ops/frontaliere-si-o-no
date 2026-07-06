@@ -46092,6 +46092,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-centrodestra-como-elezioni-gazebo': {
+    title: 'Como: il centrodestra in strada per le prossime elezioni',
+    description: 'Il centrodestra comasco in via Boldoni: incontro con i cittadini per ascoltare istanze e definire il programma elettorale. Tutti i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, centrodestra, strada, prossime',
+    ogTitle: 'Como: il centrodestra in strada per le prossime elezioni',
+    ogDescription: 'Incontro pubblico del centrodestra a Como per ascoltare i cittadini e preparare le elezioni.',
+    canonicalPath: '/articoli-frontaliere/centrodestra-como-elezioni-gazebo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como: il centrodestra in strada per le prossime elezioni",
+      "description": "Il centrodestra comasco in via Boldoni: incontro con i cittadini per ascoltare istanze e definire il programma elettorale. Tutti i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/centrodestra-como-elezioni-gazebo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gazebo politici in via Boldoni a Como"
+      },
+      "datePublished": "2026-07-06T02:07:07+00:00",
+      "dateModified": "2026-07-06T02:07:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centrodestra-como-elezioni-gazebo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
