@@ -4372,6 +4372,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sciopero-aereo-malpensa-linate-2024': { name: 'Sciopero Aereo', path: '/articoli-svizzera/sciopero-aereo-malpensa-linate-2024/', parent: 'blog' },
     'blog-centrodestra-como-elezioni-gazebo': { name: 'Elezioni Como', path: '/articoli-frontaliere/centrodestra-como-elezioni-gazebo', parent: 'blog' },
     'blog-totalizzazione-contributi-avs-inps': { name: 'Totalizzazione AVS INPS', path: '/articoli-svizzera/totalizzazione-contributi-avs-inps/', parent: 'blog' },
+    'blog-frontalieri-brianza-causa-stato-italiano': { name: 'Frontalieri Brianza causa', path: '/articoli-frontaliere/frontalieri-brianza-causa-stato-italiano', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -8252,6 +8252,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.centrodestra-como-elezioni-gazebo.title': 'Como: il centrodestra in strada per le prossime elezioni',
     'blog.article.centrodestra-como-elezioni-gazebo.excerpt': 'Incontro pubblico in via Boldoni tra i partiti del centrodestra per ascoltare le istanze dei cittadini in vista delle future elezioni amministrative.',
     'blog.article.centrodestra-como-elezioni-gazebo.imageAlt': 'Gazebo politici in via Boldoni a Como',
+    'blog.article.frontalieri-brianza-causa-stato-italiano.title': 'Frontalieri Brianza pronti a far causa allo Stato italiano',
+    'blog.article.frontalieri-brianza-causa-stato-italiano.excerpt': 'Le ragioni del malcontento dei frontalieri della Brianza in merito al nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024.',
+    'blog.article.frontalieri-brianza-causa-stato-italiano.imageAlt': 'Vista panoramica sul lago di Lugano con lo skyline della città',
 };
 
 export default blogMetaIt;
