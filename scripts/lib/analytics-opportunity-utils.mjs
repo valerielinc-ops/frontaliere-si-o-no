@@ -1,3 +1,5 @@
+import { JOB_BOARD_SEGMENT_RX } from './jobBoardSections.mjs';
+
 function normalizePath(input = '') {
   let path = String(input || '').trim();
   if (!path) return '/';
@@ -25,13 +27,21 @@ function startsWithAny(path, prefixes) {
   return prefixes.some((prefix) => path === prefix || path.startsWith(`${prefix}/`));
 }
 
+// Canton-aware job-board root check (mirrors scripts/lib/jobBoardSections.mjs).
+// A TI-only literal list here meant every non-TI canton job page fell through
+// to the generic content-group buckets below, skewing analytics-opportunity
+// reporting for every canton but Ticino.
+function isJobBoardPath(path) {
+  const firstSegment = path.split('/').filter(Boolean)[0] || '';
+  return JOB_BOARD_SEGMENT_RX.test(firstSegment);
+}
+
 export function classifyAnalyticsPath(inputPath = '') {
   const normalizedPath = normalizePath(inputPath);
   const localeMatch = normalizedPath.match(/^\/(en|de|fr)(?=\/|$)/i);
   const contentLocale = (localeMatch?.[1]?.toLowerCase() || 'it');
   const localPath = normalizedPath.replace(/^\/(en|de|fr)(?=\/|$)/i, '') || '/';
 
-  const jobBoardRoots = ['/cerca-lavoro-ticino', '/find-jobs-ticino', '/jobs-im-tessin', '/trouver-emploi-tessin'];
   const articleRoots = ['/articoli-frontaliere', '/cross-border-articles', '/artikel-grenzgaenger', '/articles-frontaliers'];
   const statsRoots = ['/statistiche', '/statistics', '/statistiken', '/statistiques'];
   const guideRoots = ['/guida-frontaliere', '/cross-border-guide', '/grenzgaenger-guide', '/guide-frontalier'];
@@ -45,7 +55,7 @@ export function classifyAnalyticsPath(inputPath = '') {
     return { contentGroup: 'core', pageTemplate: 'homepage', siteSection: 'home', contentLocale, routeFamily: 'home' };
   }
 
-  if (startsWithAny(localPath, jobBoardRoots)) {
+  if (isJobBoardPath(localPath)) {
     const tail = localPath.split('/').filter(Boolean).slice(1).join('/');
     const firstTail = tail.split('/')[0] || '';
     const isCompany = /^(azienda|company|unternehmen|entreprise)-/i.test(firstTail);

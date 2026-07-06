@@ -20,6 +20,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { readCompatPaths } from './lib/compat-paths-store.mjs';
+import { JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
+import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -30,12 +32,45 @@ const JOBS = path.resolve(ROOT, 'data/jobs.json');
 const CACHE_DIR = path.resolve(ROOT, 'data/translation-cache');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data/jobs-crawler-adapters/adapters');
 
-const JOB_PATTERNS = [
-  { re: /\/cerca-lavoro-ticino\/([^/]+)\/?$/, locale: 'it', prefix: '/cerca-lavoro-ticino/' },
-  { re: /\/en\/find-jobs?-ticino\/([^/]+)\/?$/, locale: 'en', prefix: '/en/find-jobs-ticino/' },
-  { re: /\/de\/jobs-im-tessin\/([^/]+)\/?$/, locale: 'de', prefix: '/de/jobs-im-tessin/' },
-  { re: /\/fr\/trouver-emploi-tessin\/([^/]+)\/?$/, locale: 'fr', prefix: '/fr/trouver-emploi-tessin/' },
-];
+const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
+const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
+const { resolveCantonSection, ALL_CANTON_CODES } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
+
+const LOCALES = ['it', 'en', 'de', 'fr'];
+
+// Canton-aware: GSC/compat paths live under every canton's job-board section
+// (`cerca-lavoro-{slug}`, `find-jobs-{slug}`, …), not just the legacy TI board
+// — see scripts/lib/jobBoardSections.mjs. `find-jobs?` (optional trailing `s`)
+// preserves the singular `/en/find-job-ticino/` historical TI-only alias
+// (see scripts/sync-gsc-orphans.mjs) that the canonical prefix source itself
+// doesn't cover.
+const SECTION_ALT_SOURCE = JOB_BOARD_SECTION_PREFIX_SOURCE.replace('find-jobs', 'find-jobs?');
+const JOB_BOARD_PATH_RX = new RegExp(
+  `^/(?:(en|de|fr)/)?((?:${SECTION_ALT_SOURCE})-[a-z][a-z-]*)/([^/]+)/?$`,
+);
+
+// Job-board section slug (e.g. "cerca-lavoro-zurigo") -> canton code.
+// Precomputed once at module load, never rebuilt per-loop-iteration (same
+// requirement as the below-floor bridge self-map — see CLAUDE.md).
+const SECTION_TO_CANTON = new Map();
+for (const code of [...ALL_CANTON_CODES, 'TI']) {
+  for (const locale of LOCALES) {
+    SECTION_TO_CANTON.set(resolveCantonSection(locale, code), code);
+  }
+}
+SECTION_TO_CANTON.set('find-job-ticino', 'TI'); // legacy singular EN alias
+
+/** Match a normalised compat path against any canton's job-board section. */
+function matchJobBoardPath(raw) {
+  const m = raw.match(JOB_BOARD_PATH_RX);
+  if (!m) return null;
+  const [, localePrefix, section, slug] = m;
+  const canton = SECTION_TO_CANTON.get(section);
+  if (!canton || !slug) return null;
+  const locale = localePrefix || 'it';
+  return { locale, canton, slug, path: `/${localePrefix ? `${localePrefix}/` : ''}${section}/${slug}` };
+}
+
 const SKIP_PREFIX_RE = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
 
 function readJson(p, fallback = null) {
@@ -104,17 +139,18 @@ function extractLocation(slug) {
   return '';
 }
 
-function buildLocalePaths(slug) {
+function buildLocalePaths(slug, cantonCode) {
   const paths = {};
-  for (const { locale, prefix } of JOB_PATTERNS) {
-    paths[locale] = `${prefix}${slug}`;
+  for (const locale of LOCALES) {
+    const section = resolveCantonSection(locale, cantonCode);
+    paths[locale] = locale === 'it' ? `/${section}/${slug}` : `/${locale}/${section}/${slug}`;
   }
   return paths;
 }
 
 function buildSlugByLocale(slug) {
   const out = {};
-  for (const { locale } of JOB_PATTERNS) out[locale] = slug;
+  for (const locale of LOCALES) out[locale] = slug;
   return out;
 }
 
@@ -149,20 +185,17 @@ function main() {
   const orphanSlugsList = readJson(ORPHAN_SLUGS, []);
   const activeJobs = readJson(JOBS, []);
 
-  // Build compat slug -> {locale, path} (prefer IT if multi-locale dupe)
+  // Build compat slug -> {locale, canton, path} (prefer IT if multi-locale dupe)
   const compatPathBySlug = new Map();
   for (const p of compatPaths) {
     const raw = String(p || '');
-    for (const { re, locale, prefix } of JOB_PATTERNS) {
-      const m = raw.match(re);
-      if (!m) continue;
-      const slug = m[1];
-      if (!slug || SKIP_PREFIX_RE.test(slug)) break;
-      const current = compatPathBySlug.get(slug);
-      if (!current || (current.locale !== 'it' && locale === 'it')) {
-        compatPathBySlug.set(slug, { locale, path: `${prefix}${slug}` });
-      }
-      break;
+    const matched = matchJobBoardPath(raw);
+    if (!matched) continue;
+    const { locale, canton, slug, path: matchedPath } = matched;
+    if (!slug || SKIP_PREFIX_RE.test(slug)) continue;
+    const current = compatPathBySlug.get(slug);
+    if (!current || (current.locale !== 'it' && locale === 'it')) {
+      compatPathBySlug.set(slug, { locale, canton, path: matchedPath });
     }
   }
 
@@ -256,7 +289,7 @@ function main() {
       salaryMin: 0,
       salaryCurrency: 'CHF',
       slugByLocale: buildSlugByLocale(slug),
-      localePaths: buildLocalePaths(slug),
+      localePaths: buildLocalePaths(slug, info.canton),
       sourceUrl: '',
       googleStatus: 'unknown',
       googleCanonical: '',

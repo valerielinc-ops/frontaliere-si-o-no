@@ -11,6 +11,8 @@ import path from 'node:path';
 import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
 import { locTokenHit } from './locToken.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
+import { JOB_BOARD_SECTION_RX } from '../scripts/lib/jobBoardSections.mjs';
+import { nlNormLocale } from './newsletter-template.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -746,17 +748,24 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     finalJobs = [...companyDiverse, ...backfill];
   }
 
-  const boardPath = JOB_BOARD_PATH[locale] || JOB_BOARD_PATH.it;
   // Company hubs are emitted only for companies present in the ACTIVE dataset.
   // A matched job sourced from an expired posting can carry a company-name
   // variant absent from active data → its hub is never emitted → 404 (#2530).
   // Gate companyUrl on the emitted-hub allow-set built from `jobs`.
   const emittedCompanyHubs = buildCompanyHubSlugSet(jobs);
+  // Per-job board path — every canton has its own job-board section (see
+  // loadCantonResolvers above); falls back to the flat JOB_BOARD_PATH (TI
+  // legacy) only if the resolver data failed to load.
+  const resolvers = loadCantonResolvers();
+  const fallbackBoardPath = JOB_BOARD_PATH[locale] || JOB_BOARD_PATH.it;
 
   return finalJobs
     .slice(0, limit)
     .map((job) => {
       const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug;
+      const boardPath = resolvers
+        ? resolvers.resolveCantonSection(locale, resolvers.resolveJobCanton(job))
+        : fallbackBoardPath;
       return {
         title: job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title,
         url: `/${boardPath}/${slug}/`,
@@ -815,7 +824,14 @@ export function validateJobUrls(matchedJobs, allJobs) {
   const valid = [];
   const invalid = [];
   for (const job of matchedJobs) {
-    const slug = job.url.replace(/^\/(cerca-lavoro-ticino|en\/find-jobs-ticino|de\/jobs-im-tessin|fr\/trouver-emploi-tessin)\//, '').replace(/\/$/, '');
+    // Strip locale prefix, then the canton-aware board section (shared
+    // JOB_BOARD_SECTION_RX — any canton, not just the TI legacy slugs; see
+    // the matchJobsForSubscriber fix above for why TI-only broke non-TI jobs).
+    const slug = job.url
+      .replace(/^\/(en|de|fr)\//, '/')
+      .replace(JOB_BOARD_SECTION_RX, '')
+      .replace(/^\//, '')
+      .replace(/\/$/, '');
     if (validSlugs.has(slug)) {
       valid.push(job);
     } else {
@@ -848,7 +864,7 @@ const LOCALE_NAMES = { it: 'Italian', en: 'English', de: 'German', fr: 'French' 
  * @returns {{ system: string, user: string }}
  */
 export function buildBriefingPrompt(ctx) {
-  const locale = ctx.subscriber?.locale || 'it';
+  const locale = nlNormLocale(ctx.subscriber?.locale);
   const langName = LOCALE_NAMES[locale] || 'Italian';
   const prefs = ctx.subscriber?.preferences || {};
   const interests = [];
@@ -962,11 +978,11 @@ export function buildBriefingPrompt(ctx) {
  * @param {object} ctx.subscriber — { locale, preferences, locationInterest }
  * @param {object} ctx.exchangeRate — { rate }
  * @param {Array}  ctx.matchedJobs — [{ title }]
- * @param {string} ctx.briefingSummary — First line of the AI briefing
+ * @param {string} [ctx.briefingSummary] — First line of the AI briefing, if available
  * @returns {{ system: string, user: string }}
  */
 export function buildSubjectPrompt(ctx) {
-  const locale = ctx.subscriber?.locale || 'it';
+  const locale = nlNormLocale(ctx.subscriber?.locale);
   const langName = LOCALE_NAMES[locale] || 'Italian';
 
   // Day of week for time-sensitive hooks

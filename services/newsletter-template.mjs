@@ -302,6 +302,16 @@ const LOCALE_PATH_MAP = {
     de: '/de/jobs-im-tessin',
     fr: '/fr/trouver-emploi-tessin',
   },
+  // Switzerland-wide aggregate job board (data/canton-url-slugs.json →
+  // aggregate). This newsletter has no per-subscriber canton context (the
+  // "total jobs" metric/CTA below counts jobs across every canton), so its
+  // "browse all jobs" links must resolve here, not to the TI-only board.
+  '/cerca-lavoro-svizzera': {
+    it: '/cerca-lavoro-svizzera',
+    en: '/en/find-jobs-switzerland',
+    de: '/de/jobs-in-schweiz',
+    fr: '/fr/trouver-emploi-suisse',
+  },
   '/compara-servizi/cambio-franco-euro': {
     it: '/compara-servizi/cambio-franco-euro',
     en: '/en/service-comparison/chf-eur-exchange-rate',
@@ -492,7 +502,7 @@ function renderMetrics(totalJobs, metrics, locale) {
       <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0"><tr><td width="33%" valign="top"><![endif]-->
       <table width="100%" cellpadding="0" cellspacing="0"><tr class="metric-row">
         <td width="33%" style="padding:0 4px 0 0;">
-          <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/cerca-lavoro-ticino', locale)}" style="text-decoration:none;display:block;">
+          <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/cerca-lavoro-svizzera', locale)}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
               <div style="font-size:22px;margin-bottom:4px;">\ud83d\udcbc</div>
               <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${totalJobs || '200+'}</div>
@@ -572,7 +582,7 @@ function renderJobs(matchedJobs, locale, totalJobs) {
       <table width="100%" cellpadding="0" cellspacing="0">
         ${jobCards}
         <tr><td style="text-align:center;padding-top:14px;">
-          <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/cerca-lavoro-ticino', locale)}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${ctaText}</a>
+          <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/cerca-lavoro-svizzera', locale)}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${ctaText}</a>
         </td></tr>
       </table>
     </td></tr>`;

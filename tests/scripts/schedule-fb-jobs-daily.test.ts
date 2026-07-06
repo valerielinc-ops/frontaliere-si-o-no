@@ -22,6 +22,7 @@ interface JobLike {
   company?: string;
   location?: string;
   jobLocation?: { address?: { addressLocality?: string } };
+  canton?: string;
   description?: string;
   descriptionByLocale?: Record<string, string>;
   baseSalary?: {
@@ -442,6 +443,11 @@ describe('buildJobUrl', () => {
 
   it('returns null when no slug at all', () => {
     expect(buildJobUrl({ id: 'x' })).toBeNull();
+  });
+
+  it('resolves the canton-aware job-board section instead of hardcoding TI', () => {
+    const u = buildJobUrl({ id: 'x', slug: 'ingegnere-zurigo-acme', canton: 'ZH' });
+    expect(u).toBe('https://frontaliereticino.ch/cerca-lavoro-zurigo/ingegnere-zurigo-acme/');
   });
 });
 

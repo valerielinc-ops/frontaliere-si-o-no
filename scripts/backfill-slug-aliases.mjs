@@ -18,6 +18,7 @@ import { fileURLToPath } from 'node:url';
 import { fingerprintJob, loadSlugRegistry } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { readCompatPaths } from './lib/compat-paths-store.mjs';
+import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -25,19 +26,20 @@ const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const BY_CRAWLER_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
 
-const JOB_PATH_PREFIX = '/cerca-lavoro-ticino/';
-
 function normalize(s = '') {
   return String(s || '').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
+// Canton-aware: the 404-compat store holds paths under every canton's
+// job-board section (`cerca-lavoro-{slug}`, `find-jobs-{slug}`, \u2026), not just
+// the legacy TI board \u2014 see scripts/lib/jobBoardSections.mjs.
 function extractSlugFromPath(p = '') {
-  let slug = String(p || '').trim();
-  // Remove locale prefixes
-  slug = slug.replace(/^\/(en|de|fr)\/(find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\//, '/cerca-lavoro-ticino/');
-  if (!slug.startsWith(JOB_PATH_PREFIX)) return '';
-  slug = slug.slice(JOB_PATH_PREFIX.length).replace(/\/+$/, '').trim();
-  return slug || '';
+  const pathname = String(p || '').trim().replace(/^\/(en|de|fr)\//, '/');
+  const parts = pathname.split('/').filter(Boolean);
+  const boardIdx = parts.findIndex((part) => JOB_BOARD_SEGMENT_RX.test(part));
+  if (boardIdx === -1) return '';
+  const slug = parts[boardIdx + 1];
+  return slug ? slug.replace(/\/+$/, '').trim() : '';
 }
 
 function allCurrentSlugs(job) {

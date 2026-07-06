@@ -75,6 +75,7 @@ import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { AGGREGATE_KEY, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
 
 const MIN_MATCHING_JOBS = 3;
 const DEFAULT_MAX_LANDINGS = 500;
@@ -460,15 +461,10 @@ async function loadLocaleStrings(rootDir: string, locale: OrphanLandingLocale): 
 }
 
 function jobLocalizedUrl(job: OrphanCountableJob, locale: OrphanLandingLocale): string {
-  const section: Record<OrphanLandingLocale, string> = {
-    it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
-    en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
-    de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
-    fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
-  };
   const prefix = ORPHAN_LANDING_LOCALE_PREFIX[locale];
+  const section = resolveCantonSection(locale, resolveJobCanton(job));
   const slug = job.slugByLocale?.[locale] || job.slug || '';
-  const rel = `${prefix}/${section[locale]}/${slug}/`.replace(/\/+/g, '/');
+  const rel = `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
   return `${BASE_URL}${rel}`;
 }
 
@@ -534,12 +530,10 @@ function renderPage(opts: {
     ].join('\n')
     : '';
 
-  const jobBoardRoot: Record<OrphanLandingLocale, string> = {
-    it: '/cerca-lavoro-ticino/',
-    en: '/en/find-jobs-ticino/',
-    de: '/de/jobs-im-tessin/',
-    fr: '/fr/trouver-emploi-tessin/',
-  };
+  // Generic "all jobs" / "similar queries" link — not scoped to any single
+  // job's canton, so it points at the Switzerland-wide aggregate board
+  // (same pattern as legacyRedirectsPlugin.ts's `_AGGREGATE_` fallback).
+  const jobBoardRootPath = `${ORPHAN_LANDING_LOCALE_PREFIX[locale]}/${resolveCantonSection(locale, AGGREGATE_KEY)}/`.replace(/\/+/g, '/');
 
   const editorialFam = pickEditorialFamily(cluster);
   const editorialBody = t(editorialKey(editorialFam),
@@ -579,7 +573,7 @@ function renderPage(opts: {
   });
   const jobCards = renderJobCardListHtml(cardItems, { locale });
 
-  const similarList = similar.map((q) => `<li class="s-F6hoFh"><a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">${esc(q.query)}</a> <span class="s-7pwP-Z">(${q.impressions})</span></li>`).join('');
+  const similarList = similar.map((q) => `<li class="s-F6hoFh"><a href="${esc(jobBoardRootPath)}" style="${LINK_ACCENT_STYLE}">${esc(q.query)}</a> <span class="s-7pwP-Z">(${q.impressions})</span></li>`).join('');
 
   const employerList = topEmployers.length > 0
     ? topEmployers.map((e) => `<li>${esc(e.name)} (${e.count})</li>`).join('')
@@ -674,7 +668,7 @@ function renderPage(opts: {
       </details>
     </section>
     <section class="s-p1QaOi">
-      <a href="${esc(jobBoardRoot[locale])}" class="s-cta">${esc(t('orphanLanding.ctaAllJobs', 'All jobs'))}</a>
+      <a href="${esc(jobBoardRootPath)}" class="s-cta">${esc(t('orphanLanding.ctaAllJobs', 'All jobs'))}</a>
       <a class="s-bX1C8q" href="${locale === 'it' ? '/' : `/${locale}/`}">${esc(t('orphanLanding.ctaCalculator', 'Calculate net salary'))}</a>
     </section>
     <section class="s-86Shfc">
@@ -700,7 +694,7 @@ function renderPage(opts: {
           <h2 class="s-sOn5-B">Cosa cambia con il Nuovo Accordo 2026</h2>
           <p class="s-zQltsL">Per le offerte in questa pagina la fiscalità dipende dalla data di assunzione e dalla distanza dal confine. Un frontaliere "vecchio" (assunto prima del 17 luglio 2023, o residente entro 20 km dalla frontiera) paga solo l'imposta alla fonte ticinese, con un credito d'imposta per l'eventuale tassazione italiana. Un frontaliere "nuovo" residente oltre i 20 km paga sia l'imposta svizzera sia quella italiana, con franchigia di 10 000 € sul reddito imponibile in Italia. La differenza sul netto annuale può raggiungere il 15-20 %: simulare l'esatto impatto con il <a href="${locale === 'it' ? '/' : `/${locale}/`}" style="${LINK_ACCENT_STYLE}">calcolatore stipendio netto</a> prima di firmare è sempre la mossa giusta.</p>
           <h2 class="s-sOn5-B">Per chi è utile questa selezione</h2>
-          <p class="s-AA8lz_">Questa pagina è pensata per chi sta valutando un trasferimento del proprio carico professionale verso ${city ? esc(city) : 'il Ticino'} oppure cerca attivamente posizioni con questo profilo specifico${employer ? ` (datori di lavoro più frequenti come ${esc(employer)})` : ''}. Aggiorniamo le offerte ogni 24 ore tirando da cinque fonti diverse, filtriamo per ruoli realmente accessibili a un permesso G, e mostriamo solo annunci con stipendio dichiarato o ricavabile dalla mediana di settore. Per affinare la ricerca consigliamo di esplorare anche le query simili elencate sopra e l'<a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">archivio completo del job board</a>.</p>
+          <p class="s-AA8lz_">Questa pagina è pensata per chi sta valutando un trasferimento del proprio carico professionale verso ${city ? esc(city) : 'il Ticino'} oppure cerca attivamente posizioni con questo profilo specifico${employer ? ` (datori di lavoro più frequenti come ${esc(employer)})` : ''}. Aggiorniamo le offerte ogni 24 ore tirando da cinque fonti diverse, filtriamo per ruoli realmente accessibili a un permesso G, e mostriamo solo annunci con stipendio dichiarato o ricavabile dalla mediana di settore. Per affinare la ricerca consigliamo di esplorare anche le query simili elencate sopra e l'<a href="${esc(jobBoardRootPath)}" style="${LINK_ACCENT_STYLE}">archivio completo del job board</a>.</p>
         </section>`;
       }
       if (locale === 'en') {
@@ -710,7 +704,7 @@ function renderPage(opts: {
           <h2 class="s-sOn5-B">What the 2026 New Agreement changes</h2>
           <p class="s-zQltsL">For the openings on this page, taxation depends on hire date and distance from the border. An "old" cross-border worker (hired before 17 July 2023, or resident within 20 km of the border) pays only Swiss withholding tax, with a tax credit on any Italian taxation. A "new" cross-border worker resident beyond 20 km pays both Swiss and Italian tax, with a €10 000 personal allowance on the Italian taxable income. The difference on annual net can reach 15-20 %: simulate the exact impact with the <a href="/${locale}/" style="${LINK_ACCENT_STYLE}">net-salary calculator</a> before signing.</p>
           <h2 class="s-sOn5-B">Who this selection is for</h2>
-          <p class="s-AA8lz_">This page is built for those evaluating a professional move toward ${city ? esc(city) : 'Ticino'} or actively searching for positions matching this specific profile${employer ? ` (most frequent employers like ${esc(employer)})` : ''}. We refresh listings every 24 hours from five sources, filter for roles actually accessible to a G-permit holder, and only show ads with declared salary or industry-median data. To refine the search, also explore the similar queries above and the <a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">full job-board archive</a>.</p>
+          <p class="s-AA8lz_">This page is built for those evaluating a professional move toward ${city ? esc(city) : 'Ticino'} or actively searching for positions matching this specific profile${employer ? ` (most frequent employers like ${esc(employer)})` : ''}. We refresh listings every 24 hours from five sources, filter for roles actually accessible to a G-permit holder, and only show ads with declared salary or industry-median data. To refine the search, also explore the similar queries above and the <a href="${esc(jobBoardRootPath)}" style="${LINK_ACCENT_STYLE}">full job-board archive</a>.</p>
         </section>`;
       }
       if (locale === 'de') {
@@ -720,7 +714,7 @@ function renderPage(opts: {
           <h2 class="s-sOn5-B">Was sich mit dem Neuen Abkommen 2026 ändert</h2>
           <p class="s-zQltsL">Für die Stellen auf dieser Seite hängt die Besteuerung vom Einstellungsdatum und vom Abstand zur Grenze ab. Ein "alter" Grenzgänger (eingestellt vor dem 17. Juli 2023 oder mit Wohnsitz innerhalb von 20 km von der Grenze) zahlt nur die Schweizer Quellensteuer, mit einer Steueranrechnung auf eine allfällige italienische Besteuerung. Ein "neuer" Grenzgänger mit Wohnsitz ausserhalb von 20 km zahlt sowohl Schweizer als auch italienische Steuern, mit einem Freibetrag von 10 000 € auf das italienische steuerpflichtige Einkommen. Der Unterschied beim Jahresnetto kann 15-20 % erreichen: die genaue Wirkung mit dem <a href="/${locale}/" style="${LINK_ACCENT_STYLE}">Nettolohn-Rechner</a> vor Vertragsunterzeichnung simulieren.</p>
           <h2 class="s-sOn5-B">Für wen diese Auswahl ist</h2>
-          <p class="s-AA8lz_">Diese Seite richtet sich an alle, die eine berufliche Verlagerung Richtung ${city ? esc(city) : 'Tessin'} prüfen oder aktiv nach Stellen mit diesem spezifischen Profil suchen${employer ? ` (häufigste Arbeitgeber wie ${esc(employer)})` : ''}. Wir aktualisieren die Inserate alle 24 Stunden aus fünf Quellen, filtern auf Rollen, die für G-Bewilligungs-Inhaber tatsächlich zugänglich sind, und zeigen nur Anzeigen mit deklariertem Lohn oder Branchen-Median-Daten. Zur Verfeinerung der Suche empfehlen wir die ähnlichen Anfragen oben und das <a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">vollständige Stellenarchiv</a>.</p>
+          <p class="s-AA8lz_">Diese Seite richtet sich an alle, die eine berufliche Verlagerung Richtung ${city ? esc(city) : 'Tessin'} prüfen oder aktiv nach Stellen mit diesem spezifischen Profil suchen${employer ? ` (häufigste Arbeitgeber wie ${esc(employer)})` : ''}. Wir aktualisieren die Inserate alle 24 Stunden aus fünf Quellen, filtern auf Rollen, die für G-Bewilligungs-Inhaber tatsächlich zugänglich sind, und zeigen nur Anzeigen mit deklariertem Lohn oder Branchen-Median-Daten. Zur Verfeinerung der Suche empfehlen wir die ähnlichen Anfragen oben und das <a href="${esc(jobBoardRootPath)}" style="${LINK_ACCENT_STYLE}">vollständige Stellenarchiv</a>.</p>
         </section>`;
       }
       return `<section class="s-OQInrb">
@@ -729,7 +723,7 @@ function renderPage(opts: {
         <h2 class="s-sOn5-B">Ce que change le Nouvel Accord 2026</h2>
         <p class="s-zQltsL">Pour les offres de cette page, la fiscalité dépend de la date d'embauche et de la distance à la frontière. Un "ancien" frontalier (embauché avant le 17 juillet 2023, ou résidant à moins de 20 km de la frontière) ne paie que l'impôt à la source suisse, avec un crédit d'impôt sur l'éventuelle imposition italienne. Un "nouveau" frontalier résidant au-delà des 20 km paie l'impôt suisse ET italien, avec une franchise de 10 000 € sur le revenu imposable italien. L'écart sur le net annuel peut atteindre 15-20 % : simulez l'impact exact avec le <a href="/${locale}/" style="${LINK_ACCENT_STYLE}">calculateur de salaire net</a> avant signature.</p>
         <h2 class="s-sOn5-B">À qui s'adresse cette sélection</h2>
-        <p class="s-AA8lz_">Cette page est destinée à ceux qui évaluent un déménagement professionnel vers ${city ? esc(city) : 'le Tessin'} ou recherchent activement des postes correspondant à ce profil spécifique${employer ? ` (employeurs les plus fréquents comme ${esc(employer)})` : ''}. Nous actualisons les offres toutes les 24 heures depuis cinq sources, filtrons les rôles réellement accessibles à un titulaire de permis G, et n'affichons que les annonces avec salaire déclaré ou médiane sectorielle. Pour affiner la recherche, explorez aussi les requêtes similaires ci-dessus et l'<a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">archive complète du job board</a>.</p>
+        <p class="s-AA8lz_">Cette page est destinée à ceux qui évaluent un déménagement professionnel vers ${city ? esc(city) : 'le Tessin'} ou recherchent activement des postes correspondant à ce profil spécifique${employer ? ` (employeurs les plus fréquents comme ${esc(employer)})` : ''}. Nous actualisons les offres toutes les 24 heures depuis cinq sources, filtrons les rôles réellement accessibles à un titulaire de permis G, et n'affichons que les annonces avec salaire déclaré ou médiane sectorielle. Pour affiner la recherche, explorez aussi les requêtes similaires ci-dessus et l'<a href="${esc(jobBoardRootPath)}" style="${LINK_ACCENT_STYLE}">archive complète du job board</a>.</p>
       </section>`;
     })()}
     ${buildExtendedFaqAccordion(locale, {
