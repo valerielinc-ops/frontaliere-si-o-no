@@ -17,8 +17,11 @@ import { describe, expect, it } from 'vitest';
 import {
   JOB_MARKET_SNAPSHOT_LOCALES,
   JOB_MARKET_SNAPSHOT_ROUTES,
+  JOB_MARKET_MONTH_NAMES,
   JOB_MARKET_SECTION_SLUG,
   JOB_MARKET_SECTOR_KEYS,
+  JOB_MARKET_SECTOR_SLUG,
+  JOB_MARKET_WEEK_PREFIX,
   buildHubPath,
   buildMonthlyPath,
   buildSectorSnapshotPath,
@@ -176,6 +179,99 @@ describe('jobMarketSnapshotData — path builders', () => {
   it('rejects invalid months', () => {
     expect(() => buildMonthlyPath('it', 2026, 0)).toThrow(RangeError);
     expect(() => buildMonthlyPath('it', 2026, 13)).toThrow(RangeError);
+  });
+});
+
+// ── pathAlternates key collision-proof (issue #3579 item 2) ─────
+//
+// Adversarial review of #3560 flagged that `jobMarketSnapshotPlugin.ts`
+// merges 4 generators' output (hub / weekly / monthly / sector) into one
+// `pathAlternates` Map keyed by `canonicalPath`, and worried a degenerate
+// ("empty subSlug") case could make two bucket types collide on the same
+// key, silently overwriting one bucket type's hreflang alternates with
+// another's. This suite proves the collision is structurally impossible
+// given the guard clauses in the 4 path builders below (see also the
+// doc-comment at the `pathAlternates` merge site in
+// build-plugins/jobMarketSnapshotPlugin.ts, closeBundle) — not just today's
+// fixtures, but the invariants themselves:
+//   1. None of the variable segments (weekSlug/monthSlug/sector slug) can
+//      ever be empty, so `joinPath` (which drops empty array elements)
+//      never collapses a weekly/monthly/sector path down to a shorter
+//      bucket type's shape.
+//   2. Weekly and monthly paths share the same segment COUNT, but their
+//      content can never collide because weekSlug always has exactly 2
+//      hyphens and monthSlug always has exactly 1 (enforced by the
+//      constants below never containing an embedded hyphen).
+describe('pathAlternates key collision-proof (issue #3579 item 2)', () => {
+  it('JOB_MARKET_WEEK_PREFIX values are non-empty and hyphen-free', () => {
+    // If a future locale prefix went empty or gained a hyphen, weekSlug's
+    // hyphen count (see below) would no longer be a reliable discriminator
+    // against monthSlug — this locks the precondition.
+    for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
+      const prefix = JOB_MARKET_WEEK_PREFIX[locale];
+      expect(prefix.length, `empty week prefix for ${locale}`).toBeGreaterThan(0);
+      expect(prefix, `hyphen in week prefix for ${locale}`).not.toContain('-');
+    }
+  });
+
+  it('every localised month name (index 1-12) is non-empty and hyphen-free', () => {
+    for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
+      for (let month = 1; month <= 12; month++) {
+        const name = JOB_MARKET_MONTH_NAMES[locale][month];
+        expect(name.length, `empty month name ${locale}/${month}`).toBeGreaterThan(0);
+        expect(name, `hyphen in month name ${locale}/${month}`).not.toContain('-');
+      }
+    }
+  });
+
+  it('every sector slug is non-empty (buildSectorSnapshotPath can never emit an empty leaf)', () => {
+    for (const sector of JOB_MARKET_SECTOR_KEYS) {
+      expect(JOB_MARKET_SECTOR_SLUG[sector].length, `empty slug for sector ${sector}`).toBeGreaterThan(0);
+    }
+  });
+
+  it('buildSectorSnapshotPath rejects an unknown sector key instead of emitting an empty leaf', () => {
+    expect(() => buildSectorSnapshotPath('it', 'not-a-real-sector' as any)).toThrow(RangeError);
+  });
+
+  it('weekSlug always has exactly 2 hyphens, monthSlug always exactly 1 — they can never collide', () => {
+    for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
+      for (const isoWeek of [1, 9, 16, 52, 53]) {
+        const weekly = buildWeeklyPath(locale, 2026, isoWeek);
+        const weekSlug = weekly.split('/').filter(Boolean).pop()!;
+        expect((weekSlug.match(/-/g) ?? []).length, `weekSlug ${weekSlug}`).toBe(2);
+      }
+      for (let month = 1; month <= 12; month++) {
+        const monthly = buildMonthlyPath(locale, 2026, month);
+        const monthSlug = monthly.split('/').filter(Boolean).pop()!;
+        expect((monthSlug.match(/-/g) ?? []).length, `monthSlug ${monthSlug}`).toBe(1);
+      }
+    }
+  });
+
+  it('hub/weekly/monthly/sector paths never collide across the full boundary grid, per locale and cross-locale', () => {
+    // Enumerate every path the 4 generators can produce across a boundary
+    // grid (min/max ISO week, every month, every sector, every locale) and
+    // assert global uniqueness — i.e. the exact scenario the merge loop in
+    // closeBundle (`for (const [path, alt] of sectorOutput.pathAlternates)
+    // pathAlternates.set(path, alt)`) would silently mask if two bucket
+    // types ever produced the same key.
+    const allPaths: string[] = [];
+    for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
+      allPaths.push(buildHubPath(locale));
+      for (const isoWeek of [1, 9, 16, 52, 53]) {
+        allPaths.push(buildWeeklyPath(locale, 2026, isoWeek));
+        allPaths.push(buildWeeklyPath(locale, 2000, isoWeek));
+      }
+      for (let month = 1; month <= 12; month++) {
+        allPaths.push(buildMonthlyPath(locale, 2026, month));
+      }
+      for (const sector of JOB_MARKET_SECTOR_KEYS) {
+        allPaths.push(buildSectorSnapshotPath(locale, sector));
+      }
+    }
+    const unique = new Set(allPaths);
+    expect(unique.size, 'a collision would shrink the Set below the enumerated count').toBe(allPaths.length);
   });
 });
 
