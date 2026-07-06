@@ -1,18 +1,19 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-07-06T15:40:56.449Z",
+  "generatedAt": "2026-07-06T22:22:36.210Z",
   "total": 10,
-  "newCount": 2,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 12889,
-  "avgDurationMs": 12889,
+  "durationMs": 13165,
+  "avgDurationMs": 13165,
   "durationHistory": [
-    12889
+    13165
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "tschuggen-1d5e09482f0b",
       "slug": "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch",
@@ -25,7 +26,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1372/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:40:45.660Z",
+      "crawledAt": "2026-07-06T22:22:25.441Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -41,11 +42,13 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1372/Description/1",
       "department": "Küche",
       "hotelName": "Hotel Eden Roc",
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-06T15:40:45.660Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -61,7 +64,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1363/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:40:47.672Z",
+      "crawledAt": "2026-07-06T22:22:27.325Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -80,16 +83,16 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-06T15:40:47.672Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "tschuggen-8d19d792463c",
       "slug": "coiffeur-50-kosmetiker-in-o-masseur-in-50-m-w-d-wintersaison-2026-27-tschuggen-collection-st-moritz",
@@ -102,7 +105,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:40:51.607Z",
+      "crawledAt": "2026-07-06T22:22:31.036Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -118,6 +121,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "department": "Spa",
       "hotelName": "Carlton Hotel St. Moritz",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-29T14:24:18.552Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -139,7 +143,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1336/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:40:52.592Z",
+      "crawledAt": "2026-07-06T22:22:31.957Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -177,7 +181,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:40:53.591Z",
+      "crawledAt": "2026-07-06T22:22:32.898Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -193,6 +197,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-29T14:24:20.394Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -214,7 +219,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:40:50.629Z",
+      "crawledAt": "2026-07-06T22:22:30.122Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -230,6 +235,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "department": "Küche",
       "hotelName": "Carlton Hotel St. Moritz",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-18T23:49:23.372Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -251,7 +257,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1367/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:40:46.662Z",
+      "crawledAt": "2026-07-06T22:22:26.365Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -289,7 +295,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1351/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:40:48.644Z",
+      "crawledAt": "2026-07-06T22:22:28.272Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -305,6 +311,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1351/Description/1",
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T15:58:20.628Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -326,7 +333,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:40:49.637Z",
+      "crawledAt": "2026-07-06T22:22:29.216Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -342,6 +349,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -386,7 +394,8 @@
       "salaryMin": 79000,
       "salaryMax": 120000,
       "addressRegion": "GR",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
