@@ -196,8 +196,32 @@ function indentBlock(text, spaces) {
  * step semantics from the original per-crawler workflows (a failing "Run"
  * step with no `continue-on-error` halts subsequent ungated steps; only the
  * `if: failure()`-gated report step still runs).
+ *
+ * COMMIT-FAILURE VISIBILITY (post-#3701 fix): in every original individual
+ * workflow, "Commit and push" had NO `continue-on-error` / `|| true` — a
+ * failed commit/push (network blip, push-retry exhaustion, prune-abort; see
+ * scripts/lib/git-commit-data.sh's own `exit 1` paths) failed the whole job,
+ * which both surfaced as a visibly-red workflow run AND satisfied the
+ * `if: failure()` guard on "Report failure to GitHub Issues". The flock
+ * wrapper this generator adds (HAZARD FIX 2 below) used `|| true` on the
+ * whole commit invocation, which — combined with `crawler_exit` being
+ * captured only from the CRAWL step, before the commit step ever runs —
+ * silently discarded the commit's exit code entirely: a crawler could scrape
+ * successfully, fail to commit/push, and still report full success with no
+ * failure issue and no data persisted. `set -uo pipefail` (not `set -e`) is
+ * used deliberately for this whole script, so a bare non-zero exit from the
+ * flock command would NOT have aborted the script anyway — the `|| true`
+ * was never load-bearing for that, and has been REMOVED: the commit
+ * invocation's own exit code is now captured directly into
+ * `git_commit_exit` via `$?` on the line immediately after it runs (an
+ * `|| true` on that same line would make `$?` always read as 0 — the exit
+ * code of the `true`, not of `flock` — so removing it is required for the
+ * capture to work, not just cosmetic). Since no `set -e` is in effect, nothing
+ * aborts the script early even without `|| true`. `git_commit_exit` is then
+ * treated as equally significant as `crawler_exit` for both the
+ * failure-report gate and this background step's own final exit code.
  */
-function buildCrawlerShellBody(crawler) {
+export function buildCrawlerShellBody(crawler) {
   const lines = [];
   lines.push('set -uo pipefail');
   lines.push('');
@@ -205,11 +229,25 @@ function buildCrawlerShellBody(crawler) {
   lines.push(renderEnvExports(crawler.runStep.env));
   lines.push(crawler.runStep.run.trimEnd());
   lines.push(`crawler_exit=$?`);
+  // Default to 0 (no commit attempted / not yet run): if the crawl step
+  // fails, the commit step below is skipped entirely (matching original
+  // per-crawler behavior), so there is no commit failure to report in that
+  // case — only the crawl failure. This variable is only ever overwritten
+  // with a real exit code when the commit step actually executes.
+  lines.push('git_commit_exit=0');
   lines.push('');
 
   for (const step of crawler.postSteps) {
     const isFailureReport = step.if === 'failure()';
-    const isCommitStep = step.name === 'Commit and push';
+    // Detect by invocation, not just by the literal step name: across the
+    // real 581-crawler corpus this step is named either "Commit and push"
+    // or "Commit updated data" (e.g. avaloq, livingcircle) — both invoke
+    // scripts/lib/git-commit-data.sh and both need the same exit-code
+    // capture, so match on the actual command rather than one hardcoded
+    // name (a name-only check silently misses the "Commit updated data"
+    // variant and reintroduces the exact same swallowed-failure bug under
+    // a different step label).
+    const isCommitStep = /git-commit-data\.sh/.test(step.run || '');
 
     if (isFailureReport) {
       // HAZARD FIX 3: `${{ github.workflow }}` used to be unique per crawler
@@ -226,12 +264,17 @@ function buildCrawlerShellBody(crawler) {
       // background step name (`Run <slug>`) also used as this step's `name:`
       // in the generated YAML, so close-recovered-failure-issues.mjs can
       // resolve it back to a real, lookup-able step via the Jobs API.
+      //
+      // Gate on EITHER crawler_exit OR git_commit_exit being non-zero: a
+      // crawler that scraped fine but failed to commit/push is just as much
+      // a failure needing a report as one that failed to scrape (see
+      // COMMIT-FAILURE VISIBILITY note above buildCrawlerShellBody).
       const crawlerWorkflowId = `Run ${crawler.slug}`;
       const literalizedRun = step.run
         .split('${{ github.workflow }}')
         .join(crawlerWorkflowId);
-      lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----`);
-      lines.push('if [ "$crawler_exit" -ne 0 ]; then');
+      lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----`);
+      lines.push('if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then');
       lines.push(indentBlock(renderEnvExports(step.env), 2));
       lines.push(indentBlock(literalizedRun.trimEnd(), 2));
       lines.push('fi');
@@ -256,9 +299,19 @@ function buildCrawlerShellBody(crawler) {
       // concurrent background steps sharing this job's working copy.
       // Only the commit+push moment is serialized (seconds), not the
       // crawl itself. See file header for rationale.
+      //
+      // NOTE: no `|| true` here. `$?` must be captured from the `flock`
+      // invocation ITSELF on the very next line — appending `|| true` to
+      // this line would make `$?` always read as 0 (the exit code of the
+      // `true` that just ran), silently re-swallowing the failure one line
+      // later than before. This script only sets `-uo pipefail` (no `-e`),
+      // so a non-zero exit here does not abort the rest of the body; the
+      // `git_commit_exit=$?` capture on the next line is what makes the
+      // failure-report gate and this step's final `exit` (below) see it.
       lines.push(
-        indentBlock(`flock /tmp/crawler-group-git.lock -c ${shellQuote(step.run.trimEnd())} || true`, 2),
+        indentBlock(`flock /tmp/crawler-group-git.lock -c ${shellQuote(step.run.trimEnd())}`, 2),
       );
+      lines.push(indentBlock('git_commit_exit=$?', 2));
     } else {
       // Housekeeping already has continue-on-error semantics in the
       // original workflow (never fails the job) — preserve with `|| true`.
@@ -268,7 +321,16 @@ function buildCrawlerShellBody(crawler) {
     lines.push('');
   }
 
-  lines.push('exit "$crawler_exit"');
+  // Fail this background step (and therefore the job, and therefore make
+  // the `if: failure()` failure-report step's condition true — it already
+  // ran inline above, but a non-zero exit here is also what makes the
+  // overall job/step show red in the Actions UI and what a future consumer
+  // of this step's own exit status, e.g. `wait-all`, observes) if EITHER
+  // the crawl OR the commit/push failed.
+  lines.push('if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then');
+  lines.push('  exit 1');
+  lines.push('fi');
+  lines.push('exit 0');
   return lines.join('\n');
 }
 

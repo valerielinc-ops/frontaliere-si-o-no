@@ -19,8 +19,9 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody } from '../scripts/generate-crawler-group-workflows.mjs';
 
 interface Crawler {
   slug: string;
@@ -255,5 +256,204 @@ describe('generate() — shared install step reflects per-crawler prep requireme
       const installStep = doc.jobs[jobKey].steps.find((s) => s.name === 'Install dependencies');
       expect(installStep.run).toBe('npm ci');
     }
+  });
+});
+
+describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 fix)', () => {
+  // Regression guard: a crawler that scrapes successfully but then fails to
+  // commit/push (network blip, git-commit-data.sh push-retry exhaustion,
+  // prune-abort, etc.) must make the generated background step exit
+  // non-zero — that's what fails the job visibly in the Actions UI and
+  // satisfies the `if: failure()` guard on the "Report failure to GitHub
+  // Issues" step. Pre-fix, the commit step's exit code was captured nowhere
+  // (swallowed by a blanket `|| true` on the flock-wrapped commit
+  // invocation) and the step's final `exit "$crawler_exit"` only ever
+  // reflected the CRAWL step's exit code — so a failed commit silently
+  // reported full success.
+  //
+  // These tests actually EXECUTE the generated shell body with real bash
+  // (not just string-match the generator's output), substituting a fake
+  // "crawler" command and a fake git-commit-data.sh-shaped command that
+  // exits non-zero, to prove the composite step body surfaces the failure
+  // end-to-end exactly as GitHub Actions would evaluate it.
+  //
+  // `flock` (util-linux) is present on the real `ubuntu-latest` runners this
+  // generates workflows for, but is not preinstalled on every dev/CI
+  // sandbox (e.g. macOS). Since these tests are about exit-code propagation
+  // through the composite shell body — not about the locking semantics
+  // itself — provide a minimal `flock` shim on PATH that just runs the
+  // wrapped command (`flock <lockfile> -c '<cmd>'` -> `bash -c '<cmd>'`),
+  // preserving its exit code, so the tests exercise the real generated
+  // `flock ... -c '...'` invocation shape on any platform.
+  let binDir: string;
+  let originalPath: string | undefined;
+  beforeEach(() => {
+    binDir = fs.mkdtempSync(path.join(os.tmpdir(), 'flock-shim-bin-'));
+    const flockShim = path.join(binDir, 'flock');
+    fs.writeFileSync(
+      flockShim,
+      ['#!/usr/bin/env bash', '# Minimal flock(1) shim for tests: ignores the lockfile arg, runs the -c command.', 'lockfile="$1"; shift', 'flag="$1"; shift', 'exec bash -c "$1"', ''].join('\n'),
+      { mode: 0o755 },
+    );
+    originalPath = process.env.PATH;
+    process.env.PATH = `${binDir}:${originalPath}`;
+  });
+  afterEach(() => {
+    process.env.PATH = originalPath;
+    fs.rmSync(binDir, { recursive: true, force: true });
+  });
+
+  function crawlerFixture(overrides: Partial<{ runCommand: string; commitCommand: string }> = {}) {
+    const runCommand = overrides.runCommand ?? 'true'; // crawl succeeds by default
+    const commitCommand = overrides.commitCommand ?? 'true'; // commit succeeds by default
+    return {
+      slug: 'test-crawler',
+      runStep: { env: {}, run: runCommand },
+      postSteps: [
+        { name: 'Housekeeping', env: {}, run: 'true' },
+        {
+          name: 'Commit and push',
+          id: 'changes',
+          env: {},
+          // Mirrors the real generated line's shape: a `bash
+          // scripts/lib/git-commit-data.sh ...` invocation, detected by
+          // buildCrawlerShellBody via the `git-commit-data.sh` substring —
+          // substitute a fixture script standing in for the real one so
+          // the test never touches the real git working copy, but keep the
+          // literal filename so the generator's detection regex matches
+          // the real code path (not a simplified stand-in for it).
+          run: `bash ${commitCommand}/git-commit-data.sh`,
+        },
+        {
+          name: 'Report failure to GitHub Issues',
+          if: 'failure()',
+          env: {},
+          run: 'echo REPORTED_FAILURE',
+        },
+      ],
+    };
+  }
+
+  let tmpDir: string;
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-shell-body-test-'));
+  });
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  // Writes a fixture standing in for scripts/lib/git-commit-data.sh, named
+  // exactly `git-commit-data.sh` so buildCrawlerShellBody's detection regex
+  // (which matches on that literal filename) recognizes it as the commit
+  // step, and returns the CONTAINING DIRECTORY (the fixture's `run:` string
+  // is `bash <dir>/git-commit-data.sh`, mirroring the real
+  // `bash scripts/lib/git-commit-data.sh` shape).
+  function writeFixtureCommitScript(exitCode: number): string {
+    const dir = fs.mkdtempSync(path.join(tmpDir, 'lib-'));
+    const scriptPath = path.join(dir, 'git-commit-data.sh');
+    fs.writeFileSync(scriptPath, `#!/usr/bin/env bash\nexit ${exitCode}\n`, { mode: 0o755 });
+    return dir;
+  }
+
+  function runBody(body: string): { exitCode: number; stdout: string } {
+    try {
+      const stdout = execFileSync('bash', ['-c', body], { encoding: 'utf8' });
+      return { exitCode: 0, stdout };
+    } catch (err: any) {
+      return { exitCode: err.status ?? 1, stdout: err.stdout ?? '' };
+    }
+  }
+
+  it('crawl succeeds, commit/push fails -> background step exits non-zero and the failure-report step fires', () => {
+    const failingCommitDir = writeFixtureCommitScript(1);
+    const crawler = crawlerFixture({ commitCommand: failingCommitDir });
+    const body = buildCrawlerShellBody(crawler);
+
+    // Sanity: this is the actual code path that used to swallow the
+    // failure — assert the generated body really does route the commit
+    // command through the flock wrapper (i.e. we're testing the real
+    // composite construction, not a simplified stand-in for it).
+    expect(body).toMatch(/flock \/tmp\/crawler-group-git\.lock -c/);
+
+    const { exitCode, stdout } = runBody(body);
+
+    expect(exitCode, 'background step must exit non-zero when commit/push fails').not.toBe(0);
+    expect(stdout, 'failure-report step must fire when commit/push fails').toContain('REPORTED_FAILURE');
+  });
+
+  it('crawl succeeds, commit/push succeeds -> background step exits zero and no failure report fires', () => {
+    const okCommitDir = writeFixtureCommitScript(0);
+    const crawler = crawlerFixture({ commitCommand: okCommitDir });
+    const body = buildCrawlerShellBody(crawler);
+
+    const { exitCode, stdout } = runBody(body);
+
+    expect(exitCode).toBe(0);
+    expect(stdout).not.toContain('REPORTED_FAILURE');
+  });
+
+  it('crawl fails -> background step exits non-zero, commit step never runs, failure report fires', () => {
+    const crawler = crawlerFixture({ runCommand: 'false' });
+    const body = buildCrawlerShellBody(crawler);
+
+    const { exitCode, stdout } = runBody(body);
+
+    expect(exitCode).not.toBe(0);
+    expect(stdout).toContain('REPORTED_FAILURE');
+  });
+
+  it('OLD (pre-fix) logic would have swallowed a commit failure — this documents the exact defect the fix closes', () => {
+    // This test does not call production code; it pins down, in isolation,
+    // why the pre-fix generated body was wrong, so a future refactor can't
+    // silently reintroduce the same shape. The old body's tail was
+    // equivalent to:
+    //   if [ "$crawler_exit" -eq 0 ]; then
+    //     flock ... -c '<commit>' || true      # exit code discarded here
+    //   fi
+    //   if [ "$crawler_exit" -ne 0 ]; then ... fi   # never sees commit failure
+    //   exit "$crawler_exit"                         # always 0 if crawl succeeded
+    const failingCommitDir = writeFixtureCommitScript(1);
+    const oldStyleBody = [
+      'set -uo pipefail',
+      'true', // crawl
+      'crawler_exit=$?',
+      'if [ "$crawler_exit" -eq 0 ]; then',
+      `  flock /tmp/crawler-group-git.lock -c 'bash ${failingCommitDir}/git-commit-data.sh' || true`,
+      'fi',
+      'if [ "$crawler_exit" -ne 0 ]; then',
+      '  echo REPORTED_FAILURE',
+      'fi',
+      'exit "$crawler_exit"',
+    ].join('\n');
+
+    const { exitCode, stdout } = runBody(oldStyleBody);
+
+    // This is the bug: despite the commit genuinely failing, the old body
+    // reports success and never fires the failure report.
+    expect(exitCode).toBe(0);
+    expect(stdout).not.toContain('REPORTED_FAILURE');
+  });
+
+  it('handles the real corpus shape where the commit step is named "Commit updated data" (avaloq/livingcircle), not "Commit and push"', () => {
+    // Regression guard for a second defect found while fixing the first:
+    // detecting the commit step by literal step name alone misses the
+    // "Commit updated data" variant used by a couple of real crawlers,
+    // silently reintroducing the same swallowed-failure bug for them.
+    const failingCommitDir = writeFixtureCommitScript(1);
+    const crawler = {
+      slug: 'avaloq-like',
+      runStep: { env: {}, run: 'true' },
+      postSteps: [
+        { name: 'Commit updated data', env: {}, run: `bash ${failingCommitDir}/git-commit-data.sh` },
+        { name: 'Report failure to GitHub Issues', if: 'failure()', env: {}, run: 'echo REPORTED_FAILURE' },
+      ],
+    };
+    const body = buildCrawlerShellBody(crawler);
+
+    expect(body).toContain('git_commit_exit=$?');
+
+    const { exitCode, stdout } = runBody(body);
+    expect(exitCode, 'background step must exit non-zero when the "Commit updated data" step fails').not.toBe(0);
+    expect(stdout).toContain('REPORTED_FAILURE');
   });
 });
