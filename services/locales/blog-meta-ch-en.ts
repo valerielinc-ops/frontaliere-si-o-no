@@ -877,6 +877,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.title': 'Work in Switzerland: 300,000 new jobs in five years',
     'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.excerpt': 'The Swiss labour market experienced five years of growth after the pandemic shock, with around 300,000 new jobs created.',
     'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.imageAlt': 'Image of an office building in Lugano',
+    'blog.article.il-caldo-modifica-il-valore-degli-immobili.title': 'The heat changes the value of the properties',
+    'blog.article.il-caldo-modifica-il-valore-degli-immobili.excerpt': 'Climate change affects the value of real estate in Switzerland, with modern penthouses losing value due to heatwave.',
+    'blog.article.il-caldo-modifica-il-valore-degli-immobili.imageAlt': 'Panorama of Lugano with a modern penthouse in the foreground',
 };
 
 export default blogMetaChEn;
