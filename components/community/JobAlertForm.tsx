@@ -17,6 +17,7 @@ import { savePendingJobAlert, consumePendingJobAlert } from '@/services/pendingJ
 import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
 import { SECTORS } from './jobAlertConstants';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
+import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
 import {
   loadGatingState,
   saveGatingState,
@@ -252,6 +253,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
         // the still-populated form and create a duplicate alert.
         resetForm();
         if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
+        try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
       } catch (err: any) {
         // Surface the failure (e.g. quota full = permanent) instead of swallowing
         // it. Leave pendingConsumedRef set so we don't retry-loop on re-render;
@@ -282,6 +284,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
  resetForm();
       if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
+      try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
  } catch (err: any) {
  showToast(err?.message || 'Errore durante la creazione dell\'alert.');
  } finally {

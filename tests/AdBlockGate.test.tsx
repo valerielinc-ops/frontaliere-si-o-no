@@ -6,6 +6,10 @@
  * detected, the recheck flow closing the gate on "disabled", the subscribe
  * CTA closing the gate + navigating, the suppression on the subscribe page
  * itself, and the "abandoned" outcome firing on tab hide.
+ *
+ * #3655 owner refinement: newsletter subscribers and job-alert subscribers
+ * are hard-excluded from the gate exactly like bots — no bucket resolution,
+ * no detection, ever — verified via the raw localStorage flags.
  */
 
 import React from 'react';
@@ -68,10 +72,12 @@ describe('AdBlockGate', () => {
     detectAdBlockMock.mockResolvedValue(false);
     mockActiveTab = 'calculator';
     navigateToMock.mockClear();
+    localStorage.clear();
   });
 
   afterEach(() => {
     vi.clearAllMocks();
+    localStorage.clear();
   });
 
   it('never resolves a bucket or runs detection for bots', async () => {
@@ -161,5 +167,34 @@ describe('AdBlockGate', () => {
     });
 
     expect(trackUIInteractionMock).toHaveBeenCalledWith('adblock_gate', 'modal', 'outcome', 'abandoned');
+  });
+
+  it('never resolves a bucket or runs detection for newsletter subscribers (#3655)', async () => {
+    localStorage.setItem('newsletter_subscribed', 'true');
+    detectAdBlockMock.mockResolvedValue(true);
+    render(<AdBlockGate />);
+    await act(async () => {});
+    expect(resolveBucketMock).not.toHaveBeenCalled();
+    expect(detectAdBlockMock).not.toHaveBeenCalled();
+    expect(screen.queryByRole('dialog')).toBeNull();
+  });
+
+  it('never resolves a bucket or runs detection for job-alert subscribers (#3655)', async () => {
+    localStorage.setItem('job_alert_subscribed', 'true');
+    detectAdBlockMock.mockResolvedValue(true);
+    render(<AdBlockGate />);
+    await act(async () => {});
+    expect(resolveBucketMock).not.toHaveBeenCalled();
+    expect(detectAdBlockMock).not.toHaveBeenCalled();
+    expect(screen.queryByRole('dialog')).toBeNull();
+  });
+
+  it('still shows the gate for a non-subscribed, non-job-alert visitor in the test bucket (regression guard)', async () => {
+    resolveBucketMock.mockReturnValue('test');
+    detectAdBlockMock.mockResolvedValue(true);
+    render(<AdBlockGate />);
+    const dialog = await screen.findByRole('dialog');
+    expect(dialog).toBeInTheDocument();
+    expect(resolveBucketMock).toHaveBeenCalled();
   });
 });
