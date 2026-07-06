@@ -457,7 +457,7 @@ Scrivi ora il testo:`;
   return text;
 }
 
-export async function generateFaqIT(articleId, bodyText) {
+async function _generateFaqITAttempt(bodyText) {
   const prompt = `Sei un esperto di lavoro transfrontaliero Svizzera-Italia. Leggi questo articolo e genera ESATTAMENTE 5 coppie FAQ (domanda/risposta) in italiano. Il MINIMO ASSOLUTO è 3 coppie.
 
 REGOLE:
@@ -504,11 +504,35 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
   return faq;
 }
 
-/**
- * Generate additional FAQ pairs to reach MIN_FAQ_PAIRS (3-5).
- * Provides existing FAQ so AI avoids duplicates.
- */
-async function generateTopUpFaqIT(articleId, bodyText, existingFaq) {
+// Live incident: a redazione article's FAQ generation died on a single
+// malformed-JSON response ("Unterminated string in JSON") with zero retries
+// — the regex last-resort fallback only recognizes labeled plain-text Q&A
+// ("Domanda: ... Risposta: ..."), not a truncated JSON array, so it couldn't
+// recover either. A malformed/truncated single response from one model roll
+// is exactly the kind of transient glitch a retry fixes (same pattern already
+// used by splitBodyIntoSections/translateArticle elsewhere in this pipeline)
+// — this failed the entire publish over a small, independently-regenerable
+// FAQ field. generateTopUpFaqIT (below) hits the same LLM-JSON-array shape
+// with the same single-attempt fragility, so both share this retry wrapper
+// rather than duplicating the loop.
+async function _withFaqRetry(label, attemptFn) {
+  let lastErr;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      return await attemptFn();
+    } catch (err) {
+      lastErr = err;
+      console.error(`  ⚠️  ${label} tentativo ${attempt} fallito: ${err.message}`);
+    }
+  }
+  throw lastErr;
+}
+
+export async function generateFaqIT(articleId, bodyText) {
+  return _withFaqRetry('generateFaqIT', () => _generateFaqITAttempt(bodyText));
+}
+
+async function _generateTopUpFaqITAttempt(bodyText, existingFaq) {
   const needed = MIN_FAQ_PAIRS - existingFaq.length;
   const existingQs = existingFaq.map(p => p.q).join('\n- ');
 
@@ -560,6 +584,18 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
     const qLower = p.q.toLowerCase();
     return !existingLower.some(eq => eq === qLower || eq.includes(qLower) || qLower.includes(eq));
   });
+}
+
+/**
+ * Generate additional FAQ pairs to reach MIN_FAQ_PAIRS (3-5).
+ * Provides existing FAQ so AI avoids duplicates.
+ *
+ * Shares _withFaqRetry with generateFaqIT (PR #3629 review): same LLM-JSON-
+ * array shape, same single-attempt fragility to a malformed/truncated
+ * response.
+ */
+export async function generateTopUpFaqIT(articleId, bodyText, existingFaq) {
+  return _withFaqRetry('generateTopUpFaqIT', () => _generateTopUpFaqITAttempt(bodyText, existingFaq));
 }
 
 async function translateFaq(faqArray, targetLang) {
@@ -695,19 +731,16 @@ async function processArticle(articleId, file, itBodyContent) {
   }
 
   // 2. Generate Italian FAQ
+  // generateFaqIT() already retries internally (3 attempts, PR #3629) — the
+  // outer retry-once this caller used to add is now redundant (a genuine
+  // failure would cost up to 6 total attempts otherwise).
   console.error(`${label} 🇮🇹 Generating FAQ...`);
   let itFaq;
   try {
     itFaq = await generateFaqIT(articleId, bodyText);
   } catch (err) {
-    // Retry once
-    console.error(`${label} ⚠️  First attempt failed: ${err.message}, retrying...`);
-    try {
-      itFaq = await generateFaqIT(articleId, bodyText);
-    } catch (retryErr) {
-      console.error(`${label} ❌ FAQ generation failed: ${retryErr.message}`);
-      return { success: false, error: retryErr.message };
-    }
+    console.error(`${label} ❌ FAQ generation failed: ${err.message}`);
+    return { success: false, error: err.message };
   }
 
   // 3. Validate — need at least MIN_FAQ_PAIRS. If the first call produced
