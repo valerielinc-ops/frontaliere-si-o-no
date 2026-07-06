@@ -81,18 +81,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "Auto-update PwC jobs (dedicated crawler)"' || true
           fi
 
-          # ---- pwc: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- pwc: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run pwc" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run pwc"
           fi
 
           exit "$crawler_exit"
@@ -126,18 +126,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Union Bancaire Privée jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- ubp: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- ubp: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run ubp" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run ubp"
           fi
 
           exit "$crawler_exit"
@@ -171,18 +171,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update On Running jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- on-running: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- on-running: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run on-running" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run on-running"
           fi
 
           exit "$crawler_exit"
@@ -216,18 +216,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update UROVIVA jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- uroviva: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- uroviva: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run uroviva" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run uroviva"
           fi
 
           exit "$crawler_exit"
@@ -261,18 +261,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Stäubli jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- staubli: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- staubli: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run staubli" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run staubli"
           fi
 
           exit "$crawler_exit"
@@ -306,18 +306,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SPZ jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- spz: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- spz: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run spz" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run spz"
           fi
 
           exit "$crawler_exit"
@@ -351,18 +351,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Reboot Monkey jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- reboot-monkey: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- reboot-monkey: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run reboot-monkey" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run reboot-monkey"
           fi
 
           exit "$crawler_exit"
@@ -396,18 +396,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Novartis jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- novartis: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- novartis: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run novartis" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run novartis"
           fi
 
           exit "$crawler_exit"
@@ -441,18 +441,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ZFV-Unternehmungen jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- zfv-unternehmungen: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- zfv-unternehmungen: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run zfv-unternehmungen" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run zfv-unternehmungen"
           fi
 
           exit "$crawler_exit"
@@ -486,18 +486,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SOPHiA GENETICS jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- sophia-genetics: Report failure to GitHub Issue (verbatim, only on crawler failure) ----
+          # ---- sophia-genetics: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run sophia-genetics" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run sophia-genetics"
           fi
 
           exit "$crawler_exit"
@@ -531,18 +531,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Idorsia Pharmaceuticals jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- idorsia: Report failure to GitHub Issue (verbatim, only on crawler failure) ----
+          # ---- idorsia: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run idorsia" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run idorsia"
           fi
 
           exit "$crawler_exit"
@@ -576,18 +576,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update NSN Medical jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- nsn-medical: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- nsn-medical: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run nsn-medical" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run nsn-medical"
           fi
 
           exit "$crawler_exit"
@@ -621,18 +621,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "👜 Auto-update Prada Group jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- prada: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- prada: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run prada" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run prada"
           fi
 
           exit "$crawler_exit"
@@ -666,18 +666,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Privatklinik Bethanien jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- privatklinik-bethanien: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- privatklinik-bethanien: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run privatklinik-bethanien" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run privatklinik-bethanien"
           fi
 
           exit "$crawler_exit"
@@ -711,18 +711,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Palliativklinik im Park jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- palliativklinik: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- palliativklinik: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run palliativklinik" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run palliativklinik"
           fi
 
           exit "$crawler_exit"
@@ -756,18 +756,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏢 Auto-update Fincons jobs (dedicated crawler)"' || true
           fi
 
-          # ---- fincons: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- fincons: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run fincons" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run fincons"
           fi
 
           exit "$crawler_exit"
@@ -801,18 +801,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏪 Auto-update Denner jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- denner: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- denner: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run denner" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run denner"
           fi
 
           exit "$crawler_exit"
@@ -842,18 +842,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏗️ Auto-update Hoval jobs (dedicated crawler)"' || true
           fi
 
-          # ---- hoval: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- hoval: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run hoval" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run hoval"
           fi
 
           exit "$crawler_exit"
@@ -887,18 +887,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Croix-Rouge fribourgeoise jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- croix-rouge-fribourgeoise: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- croix-rouge-fribourgeoise: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run croix-rouge-fribourgeoise" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run croix-rouge-fribourgeoise"
           fi
 
           exit "$crawler_exit"
@@ -934,18 +934,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update MODELLSTATION_SOMOSA jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- modellstation-somosa: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- modellstation-somosa: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run modellstation-somosa" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run modellstation-somosa"
           fi
 
           exit "$crawler_exit"
@@ -979,18 +979,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Groupe Mutuel jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- groupe-mutuel: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- groupe-mutuel: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run groupe-mutuel" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run groupe-mutuel"
           fi
 
           exit "$crawler_exit"
@@ -1024,18 +1024,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Clinique de Valère jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- clinique-de-valere: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- clinique-de-valere: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run clinique-de-valere" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run clinique-de-valere"
           fi
 
           exit "$crawler_exit"
@@ -1069,18 +1069,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏛️ Auto-update Città di Locarno jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- citta-di-locarno: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- citta-di-locarno: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run citta-di-locarno" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run citta-di-locarno"
           fi
 
           exit "$crawler_exit"
@@ -1114,18 +1114,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Deloitte jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- deloitte: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- deloitte: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run deloitte" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run deloitte"
           fi
 
           exit "$crawler_exit"
@@ -1160,18 +1160,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update CLINICA_VARINI jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- clinica-varini: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- clinica-varini: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run clinica-varini" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run clinica-varini"
           fi
 
           exit "$crawler_exit"
@@ -1205,18 +1205,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏛️ Auto-update Città di Lugano jobs (dedicated crawler)" data/jobs-crawler-adapters/' || true
           fi
 
-          # ---- citta-di-lugano: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- citta-di-lugano: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run citta-di-lugano" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run citta-di-lugano"
           fi
 
           exit "$crawler_exit"

@@ -85,18 +85,18 @@ jobs:
             flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Coop jobs (dedicated crawler)"' || true
           fi
 
-          # ---- coop: Report failure to GitHub Issues (verbatim, only on crawler failure) ----
+          # ---- coop: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----
           if [ "$crawler_exit" -ne 0 ]; then
             export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: ${{ github.workflow }}" \
+              --title "Crawler Failure: Run coop" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "${{ github.workflow }}"
+              --workflow "Run coop"
           fi
 
           exit "$crawler_exit"

@@ -179,10 +179,6 @@ export function packGroups(crawlers, groupCount, medianMs) {
   return groups;
 }
 
-function slugToEnvSafe(slug) {
-  return slug.replace(/[^a-zA-Z0-9]/g, '_').toUpperCase();
-}
-
 /** Render a single YAML `run:` block body with correct indentation. */
 function indentBlock(text, spaces) {
   const pad = ' '.repeat(spaces);
@@ -216,10 +212,28 @@ function buildCrawlerShellBody(crawler) {
     const isCommitStep = step.name === 'Commit and push';
 
     if (isFailureReport) {
-      lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim, only on crawler failure) ----`);
+      // HAZARD FIX 3: `${{ github.workflow }}` used to be unique per crawler
+      // (one crawler = one workflow), and scripts/lib/github-issue-creator.mjs
+      // keys its title-based dedup + consecutive-failure escalation gate on
+      // that value; scripts/ci/close-recovered-failure-issues.mjs later
+      // parses it back out of the issue title to look up the workflow's
+      // recovery status. Post-consolidation `${{ github.workflow }}` resolves
+      // to the shared GROUP's name for every crawler in that group — left
+      // as-is, it would collapse all ~25 crawlers' failure issues/dedup/gate
+      // into one shared bucket per group, and no longer identify which
+      // crawler broke. Substitute the runtime expression with a literal,
+      // per-crawler-unique identifier baked in at generation time: the exact
+      // background step name (`Run <slug>`) also used as this step's `name:`
+      // in the generated YAML, so close-recovered-failure-issues.mjs can
+      // resolve it back to a real, lookup-able step via the Jobs API.
+      const crawlerWorkflowId = `Run ${crawler.slug}`;
+      const literalizedRun = step.run
+        .split('${{ github.workflow }}')
+        .join(crawlerWorkflowId);
+      lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim except github.workflow -> literal per-crawler id, only on crawler failure) ----`);
       lines.push('if [ "$crawler_exit" -ne 0 ]; then');
       lines.push(indentBlock(renderEnvExports(step.env), 2));
-      lines.push(indentBlock(step.run.trimEnd(), 2));
+      lines.push(indentBlock(literalizedRun.trimEnd(), 2));
       lines.push('fi');
       lines.push('');
       continue;
@@ -358,10 +372,8 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
     ].join('\n'),
   });
 
-  const waitIds = [];
   for (const crawler of group.members) {
     const stepId = `crawler-${crawler.slug}`;
-    waitIds.push(stepId);
     const summaryFile = `/tmp/slug-history-summary-${crawler.slug}.txt`;
 
     steps.push({

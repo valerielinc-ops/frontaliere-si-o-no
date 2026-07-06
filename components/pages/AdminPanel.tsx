@@ -1604,10 +1604,23 @@ export default function AdminPanel() {
 
  const getWorkflowTabSummary = (context: WorkflowContext) => {
  const workflows = workflowActions.filter((wf) => wf.context === context && !wf.isUtility);
+ // Post-consolidation (2026-07), many crawler entries share the SAME `wf.id`
+ // (their containing crawler-group-*.yml). `workflowStates` is keyed by
+ // `wf.id`, i.e. ONE status per distinct GitHub Actions run — counting once
+ // per crawler ROW instead of once per distinct `wf.id` would multiply a
+ // single group's status by its member count (e.g. a 26-member group stuck
+ // `in_progress` would add 26 to "pending" instead of 1), wildly overstating
+ // the tab-level health badge. Dedup by `wf.id` before counting.
+ const seenIds = new Set<string>();
+ const distinctWorkflows = workflows.filter((wf) => {
+ if (seenIds.has(wf.id)) return false;
+ seenIds.add(wf.id);
+ return true;
+ });
  let ok = 0;
  let error = 0;
  let pending = 0;
- for (const workflow of workflows) {
+ for (const workflow of distinctWorkflows) {
  const state = workflowStates[workflow.id];
  if (!state) { pending += 1; continue; }
  const status = String(state.status || '').toLowerCase();
@@ -1962,10 +1975,24 @@ export default function AdminPanel() {
 
  const retryAllFailed = async () => {
  if (failedCrawlers.length === 0 || retryFailedProgress?.running) return;
- setRetryFailedProgress({ running: true, current: 0, total: failedCrawlers.length, currentLabel: '' });
- for (let i = 0; i < failedCrawlers.length; i++) {
- const row = failedCrawlers[i];
- setRetryFailedProgress({ running: true, current: i + 1, total: failedCrawlers.length, currentLabel: row.title });
+ // Post-consolidation (2026-07), many crawler rows share the SAME `wf.id`
+ // (their containing crawler-group-*.yml — see the comment on `key: wf.slug
+ // || wf.id` above). Without dedup, "Rilancia N falliti" would dispatch the
+ // same group workflow once per failed crawler row inside it (e.g. 3 failed
+ // groups x ~25 members each = 75 dispatch calls instead of 3) — each
+ // distinct failed workflow should only be re-run ONCE regardless of how
+ // many crawler rows point at it.
+ const seenIds = new Set<string>();
+ const toRetry = failedCrawlers.filter((row) => {
+ const id = row.wf!.id;
+ if (seenIds.has(id)) return false;
+ seenIds.add(id);
+ return true;
+ });
+ setRetryFailedProgress({ running: true, current: 0, total: toRetry.length, currentLabel: '' });
+ for (let i = 0; i < toRetry.length; i++) {
+ const row = toRetry[i];
+ setRetryFailedProgress({ running: true, current: i + 1, total: toRetry.length, currentLabel: row.title });
  await runWorkflowAction(row.wf!.id);
  }
  setRetryFailedProgress(null);
