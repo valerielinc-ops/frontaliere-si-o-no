@@ -23,7 +23,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const DATA_FILE = path.join(PROJECT_ROOT, 'data/blog-articles-data.ts');
 
-// Registry mirror — keep in sync with data/authors.ts.
+// Registry mirror — keep in sync with data/authors.ts's generalist team.
+// Guest specialists (e.g. samuele-valente, a narrow Italia-Svizzera tax-treaty
+// author — see data/authors.ts) are DELIBERATELY excluded from this pool: this
+// script blindly round-robins with no topic scoring, so including a topical
+// guest here would misattribute unrelated legacy articles (pensions, customs,
+// wages, ...) to a specialist whose byline should only ever be assigned via
+// pickAuthorForTopic()'s keyword match (scripts/create-article.mjs), never by
+// rotation (PR #3625 review).
 const AUTHORS = [
   { slug: 'marco-ferrari', name: 'Marco Ferrari' },
   { slug: 'laura-bianchi', name: 'Laura Bianchi' },
