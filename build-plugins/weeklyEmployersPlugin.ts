@@ -94,6 +94,7 @@ import {
   resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
+import { capSearchStatsLandingTitle } from './jobsSeoPagesPlugin';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import { resolveCantonSection as sharedResolveCantonSection } from './shared/cantonSection';
 import { getCityCanton } from './shared/cantonCities';
@@ -3510,7 +3511,12 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
         : `W${weekNum} ${year}`;
     return `${cityDisplay} — ${employer} — ${qualifier}`;
   })();
-  const compactClamped = compactBase.length <= 60 ? compactBase : compactBase.slice(0, 60).replace(/[\s,—-]+$/u, '');
+  // Budget on ESCAPED length (capSearchStatsLandingTitle's default
+  // measureLength) — cityDisplay/employer are interpolated raw and can carry
+  // `&`/`<`/`>`/`"` that expand once htmlTemplate.ts's single-escape shell
+  // renders the title, same class as eventsSeoPagesPlugin.ts's
+  // eventDetailMetaTitle (#3589).
+  const compactClamped = capSearchStatsLandingTitle(compactBase, 60).replace(/[\s,—-]+$/u, '');
   const title = buildTitleWithBrand(compactClamped);
   const description = heroSummary.slice(0, 180);
 

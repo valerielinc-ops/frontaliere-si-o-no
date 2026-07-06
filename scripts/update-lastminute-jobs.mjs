@@ -674,6 +674,7 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
           existing.descriptionByLocale,
           { en: detail.description },
           30,
+          'en',
         );
         // Mark for re-translation so AI refreshes IT/DE/FR from the richer
         // English — either the job wasn't fully localized yet, or the SR

@@ -499,7 +499,7 @@ async function mergeJobs(discoveredJobs) {
         sector: discovered.sector || ex.sector,
         source: 'oscam-crawler',
         titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30),
+        descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(ex.slugByLocale, discovered.slugByLocale, 3),
       };
 

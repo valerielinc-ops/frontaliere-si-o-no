@@ -388,7 +388,7 @@ function mergeGalenicaJobs(discoveredJobs) {
       existing.category = job.category;
       existing.description = job.description;
       existing.descriptionIt = job.descriptionIt;
-      existing.descriptionByLocale = mergeLocaleTextMap(existing.descriptionByLocale, job.descriptionByLocale, 30);
+      existing.descriptionByLocale = mergeLocaleTextMap(existing.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang);
       existing.applyUrl = job.applyUrl || existing.applyUrl;
       existing.postedDate = job.postedDate || existing.postedDate;
       existing.source = job.source;
