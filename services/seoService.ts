@@ -4379,6 +4379,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sviluppo-droni-ticino-mobilita': { name: 'Mobilità aerea Ticino', path: '/articoli-frontaliere/sviluppo-droni-ticino-mobilita', parent: 'blog' },
     'blog-successione-eredita-frontaliere-conto-svizzero': { name: 'Successione eredità', path: '/articoli-svizzera/successione-eredita-frontaliere-conto-svizzero/', parent: 'blog' },
     'blog-iniziativa-10-milioni-voto-giugno': { name: 'Votazioni federali', path: '/articoli-frontaliere/iniziativa-10-milioni-voto-giugno', parent: 'blog' },
+    'blog-divorzio-frontaliere-mantenimento-svizzera': { name: 'Divorzio frontaliere', path: '/articoli-svizzera/divorzio-frontaliere-mantenimento-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

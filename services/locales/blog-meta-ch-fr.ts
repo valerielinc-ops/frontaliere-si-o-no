@@ -898,6 +898,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.successione-eredita-frontaliere-conto-svizzero.title': 'Succession héritage : compte suisse et frontalier en Italie',
     'blog.article.successione-eredita-frontaliere-conto-svizzero.excerpt': 'Comment gérer l\'héritage de comptes ou d\'immeubles en Suisse pour les résidents en Italie. Règles sur la double imposition et cadre fiscal entre les deux pays.',
     'blog.article.successione-eredita-frontaliere-conto-svizzero.imageAlt': 'Bâtiment bancaire suisse à Lugano reflétant le paysage environnant',
+    'blog.article.divorzio-frontaliere-mantenimento-svizzera.title': 'Divorce frontalier : chèque entretien en Suisse',
+    'blog.article.divorzio-frontaliere-mantenimento-svizzera.excerpt': 'Guide pratique sur la juridiction et le calcul de l\'allocation d\'entretien pour frontaliers entre la Suisse et l\'Italie dans le respect des règles en vigueur.',
+    'blog.article.divorzio-frontaliere-mantenimento-svizzera.imageAlt': 'Vue panoramique d\'un bureau à Lugano avec le lac en arrière-plan',
 };
 
 export default blogMetaChFr;

@@ -898,6 +898,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.successione-eredita-frontaliere-conto-svizzero.title': 'Inheritance succession: Swiss and border account in Italy',
     'blog.article.successione-eredita-frontaliere-conto-svizzero.excerpt': 'How to manage the inheritance of accounts or real estate in Switzerland for residents in Italy. Double taxation rules and tax framework between the two countries.',
     'blog.article.successione-eredita-frontaliere-conto-svizzero.imageAlt': 'Swiss bank building in Lugano reflecting the surrounding landscape',
+    'blog.article.divorzio-frontaliere-mantenimento-svizzera.title': 'Border divorce: maintenance allowance in Switzerland',
+    'blog.article.divorzio-frontaliere-mantenimento-svizzera.excerpt': 'Practical guide on jurisdiction and calculation of the maintenance allowance for border workers between Switzerland and Italy in compliance with current regulations.',
+    'blog.article.divorzio-frontaliere-mantenimento-svizzera.imageAlt': 'Panoramic view of an office in Lugano with the lake in the background',
 };
 
 export default blogMetaChEn;
