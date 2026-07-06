@@ -907,6 +907,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-operaio-edile-ticino-ccl.title': 'Travailleur frontalier de la construction au Tessin : guide de la CCT',
     'blog.article.frontaliere-operaio-edile-ticino-ccl.excerpt': 'Tout sur la convention collective, les salaires minimums, la sécurité au travail et les obligations fiscales pour les travailleurs frontaliers de la construction au Tessin.',
     'blog.article.frontaliere-operaio-edile-ticino-ccl.imageAlt': 'Chantier de construction au Tessin avec des ouvriers respectant les normes suisses.',
+    'blog.article.guida-autista-frontaliere-ticino.title': 'Conducteur frontalier au Tessin : guide complet 2026',
+    'blog.article.guida-autista-frontaliere-ticino.excerpt': 'Tout sur les permis, les permis de conduire, les salaires et la taxation des chauffeurs frontaliers en Suisse selon les règles en vigueur depuis 2024.',
+    'blog.article.guida-autista-frontaliere-ticino.imageAlt': 'Chauffeur de camion dans un centre logistique en Suisse',
 };
 
 export default blogMetaChFr;
