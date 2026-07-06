@@ -913,6 +913,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.analisi-busta-paga-frontalieri-2026.title': 'Frontalieri: analisi busta paga Svizzera 2026',
     'blog.article.analisi-busta-paga-frontalieri-2026.excerpt': 'Guida pratica alle trattenute, ai contributi sociali e al calcolo del netto reale per i frontalieri in Svizzera nel 2026 secondo l\'accordo vigente.',
     'blog.article.analisi-busta-paga-frontalieri-2026.imageAlt': 'Documenti finanziari e calcolatrice su una scrivania con vista su Lugano',
+    'blog.article.analisi-busta-paga-svizzera-2026.title': 'Frontalieri: busta paga svizzera 2026 e trattenute',
+    'blog.article.analisi-busta-paga-svizzera-2026.excerpt': 'Guida pratica alla busta paga 2026: contributi, imposte alla fonte e le differenze fiscali per i frontalieri che lavorano oltre i 20 km.',
+    'blog.article.analisi-busta-paga-svizzera-2026.imageAlt': 'Vista moderna di un ufficio a Lugano, Svizzera',
 };
 
 export default blogMetaChIt;

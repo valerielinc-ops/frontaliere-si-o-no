@@ -4389,6 +4389,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chiusura-piattaforma-post-sanela': { name: 'Chiusura Post Sanela', path: '/articoli-frontaliere/chiusura-piattaforma-post-sanela', parent: 'blog' },
     'blog-analisi-busta-paga-frontalieri-2026': { name: 'Busta paga frontaliere', path: '/articoli-svizzera/analisi-busta-paga-frontalieri-2026/', parent: 'blog' },
     'blog-dipendenza-fossili-svizzera-energia': { name: 'Energia Svizzera', path: '/articoli-frontaliere/dipendenza-fossili-svizzera-energia', parent: 'blog' },
+    'blog-analisi-busta-paga-svizzera-2026': { name: 'Busta paga frontalieri', path: '/articoli-svizzera/analisi-busta-paga-svizzera-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
