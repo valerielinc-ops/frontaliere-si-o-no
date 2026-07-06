@@ -193,7 +193,11 @@ const CROSSLINKS: Array<{ href: Record<Locale, string>; label: Record<Locale, st
     label: { it: 'Articoli frontalieri', en: 'Cross-border articles', de: 'Grenzgänger-Artikel', fr: 'Articles frontaliers' },
   },
   {
-    href: { it: '/cerca-lavoro-ticino/', en: '/en/cerca-lavoro-ticino/', de: '/de/cerca-lavoro-ticino/', fr: '/fr/cerca-lavoro-ticino/' },
+    // Per-locale job-board slug — MUST match services/router.ts SLUG_TABLES[locale].jobBoard
+    // (cerca-lavoro-ticino / find-jobs-ticino / jobs-im-tessin / trouver-emploi-tessin).
+    // Naively locale-prefixing the IT slug (e.g. /en/cerca-lavoro-ticino/) 404s — router.ts
+    // only matches the CURRENT locale's own jobBoard slug (see parseRoute() ~line 3191).
+    href: { it: '/cerca-lavoro-ticino/', en: '/en/find-jobs-ticino/', de: '/de/jobs-im-tessin/', fr: '/fr/trouver-emploi-tessin/' },
     label: { it: 'Lavoro in Ticino', en: 'Jobs in Ticino', de: 'Stellen im Tessin', fr: 'Emplois au Tessin' },
   },
   {
