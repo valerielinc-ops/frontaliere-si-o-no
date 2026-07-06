@@ -8258,6 +8258,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sicurezza-gallarate-fedi-cons.title': 'Sécurité à Gallarate : alarme FediCons sur les bâtiments',
     'blog.article.sicurezza-gallarate-fedi-cons.excerpt': 'L\'association FediCons signale une augmentation des épisodes de dégradation dans le centre de Gallarate, nécessitant plus de policiers locaux et plus d\'éclairage.',
     'blog.article.sicurezza-gallarate-fedi-cons.imageAlt': 'Centre-ville avec éclairage public',
+    'blog.article.sviluppo-droni-ticino-mobilita.title': 'Mobilité aérienne au Tessin : le test des drones à Ambrì',
+    'blog.article.sviluppo-droni-ticino-mobilita.excerpt': 'L\'EH216-S, drone électrique à décollage vertical, fait ses débuts à Ambrì. Un projet innovant pour relier les vallées alpines et dépasser les limites routières.',
+    'blog.article.sviluppo-droni-ticino-mobilita.imageAlt': 'Drone électrique EH216-S survolant le paysage alpin du Tessin',
 };
 
 export default blogMetaFr;

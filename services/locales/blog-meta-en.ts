@@ -8257,6 +8257,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sicurezza-gallarate-fedi-cons.title': 'Safety in Gallarate: FediCons alarm on the devices',
     'blog.article.sicurezza-gallarate-fedi-cons.excerpt': 'The association FediCons reports an increase in episodes of degradation in the centre of Gallarate, requiring more local police officers and more lighting.',
     'blog.article.sicurezza-gallarate-fedi-cons.imageAlt': 'Town center with public lighting',
+    'blog.article.sviluppo-droni-ticino-mobilita.title': 'Air mobility in Ticino: the drone test in Ambrì',
+    'blog.article.sviluppo-droni-ticino-mobilita.excerpt': 'The EH216-S, a vertical take-off electric drone, debuts in Ambrì. An innovative project to connect the Alpine valleys and overcome road limits.',
+    'blog.article.sviluppo-droni-ticino-mobilita.imageAlt': 'Electric drone EH216-S flying over the Alpine landscape of Ticino',
 };
 
 export default blogMetaEn;

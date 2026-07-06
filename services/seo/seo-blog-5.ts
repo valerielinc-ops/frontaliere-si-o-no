@@ -46209,6 +46209,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sviluppo-droni-ticino-mobilita': {
+    title: 'Mobilità aerea in Ticino: il test dei droni ad Ambrì',
+    description: 'Il drone elettrico EH216-S vola ad Ambrì: il Ticino sperimenta il trasporto aereo per superare i limiti stradali. Scopri le novità tecnologiche. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, mobilità, aerea, test, droni',
+    ogTitle: 'Mobilità aerea in Ticino: il test dei droni ad Ambrì',
+    ogDescription: 'Il drone elettrico EH216-S vola ad Ambrì: il Ticino sperimenta il trasporto aereo per superare i limiti stradali.',
+    canonicalPath: '/articoli-frontaliere/sviluppo-droni-ticino-mobilita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mobilità aerea in Ticino: il test dei droni ad Ambrì",
+      "description": "Il drone elettrico EH216-S vola ad Ambrì: il Ticino sperimenta il trasporto aereo per superare i limiti stradali. Scopri le novità tecnologiche. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sviluppo-droni-ticino-mobilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Drone elettrico EH216-S in volo sopra il panorama alpino del Ticino"
+      },
+      "datePublished": "2026-07-06T02:56:30+00:00",
+      "dateModified": "2026-07-06T02:56:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sviluppo-droni-ticino-mobilita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
