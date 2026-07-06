@@ -8,16 +8,22 @@
 # same insertion point, git marks the spot as a conflict; both additions are
 # valid and must be kept. This helper:
 #   1. Strips conflict markers, keeping content from BOTH sides.
-#   2. Repairs JSON files that lose commas during marker removal.
-#   3. Dedupes single-declaration conflicts in routerBlogData.ts and router.ts
+#   2. Repairs a duplicated root closer left by a chained rebase-conflict
+#      cycle (issue #3617-class) in the non-JSON growing-container siblings —
+#      blog-articles-data.ts, swiss-articles-data.ts, seo-pages.ts,
+#      blog-meta-*.ts, sitemap*.xml — via
+#      scripts/lib/dedupe-growing-container-closer.mjs.
+#   3. Repairs JSON files that lose commas during marker removal (including
+#      the JSON-shaped version of the same duplicated-root-closer corruption).
+#   4. Dedupes single-declaration conflicts in routerBlogData.ts and router.ts
 #      (`export const ALL_BLOG_ARTICLE_IDS = [...]`, `type _BlogId<N> = …`).
-#   4. Validates BOTH article registries (blog-articles-data.ts AND the SVIZZERA
+#   5. Validates BOTH article registries (blog-articles-data.ts AND the SVIZZERA
 #      sibling swiss-articles-data.ts) for duplicate / merged article entries.
-#   5. Generic backstop: every conflicted .ts/.tsx must still parse and be free
+#   6. Generic backstop: every conflicted .ts/.tsx must still parse and be free
 #      of duplicate object keys (a mid-entry conflict boundary fuses two entries
 #      into one object — e.g. seo-blog-ch.ts dup keys, seo-pages.ts missing
 #      comma — which previously slipped through and broke the deploy build).
-#   6. Final cross-file integrity gate (scripts/ci/validate-article-append-integrity.mjs):
+#   7. Final cross-file integrity gate (scripts/ci/validate-article-append-integrity.mjs):
 #      catches the two corruption shapes that stay syntactically valid and so
 #      slip past step 5 — a duplicate localized slug in SWISS_SLUGS (REVERSE_SWISS
 #      collision) OR BLOG_SLUGS/FRONTALIERE (REVERSE_BLOG collision), and a fused
@@ -65,6 +71,20 @@ resolve_append_conflicts() {
       echo "  ❌ $file: conflict markers still present after resolution"
       ALL_RESOLVED=false
       continue
+    fi
+
+    # Repair duplicated root-closer growing-container corruption (issue
+    # #3617-class). The JSON-only fix above doesn't cover the non-JSON
+    # append-only siblings hit by the SAME chained-rebase-cycle failure mode
+    # (blog-articles-data.ts, swiss-articles-data.ts, seo-pages.ts,
+    # blog-meta-*.ts, sitemap*.xml) — see
+    # scripts/lib/dedupe-growing-container-closer.mjs for the per-target
+    # anchor-bounded repair. No-ops (file untouched) for anything else.
+    # Guarded on file existence like the integrity gate below: this script
+    # is also exercised from throwaway temp repos in tests, whose cwd has
+    # no `scripts/` tree at all.
+    if [ -f scripts/lib/dedupe-growing-container-closer.mjs ]; then
+      node scripts/lib/dedupe-growing-container-closer.mjs "$file"
     fi
 
     # Basic syntax check for JSON files
