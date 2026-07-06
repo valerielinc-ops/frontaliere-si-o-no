@@ -16,6 +16,14 @@
  * own ratchet bucket) and auto-cover every present and future canton — same
  * fix shape as the job-board TI-only leak (2026-06-11,
  * scripts/lib/jobBoardSections.mjs).
+ *
+ * Extended for issue #3645 (F3, 2026-07-06): a real, markup-heavy Swiss-wide
+ * index hub now lives at the bare `/eventi/` root (+ locale variants), one
+ * level above every canton hub. Same regression shape as #3232 — a bare
+ * root previously fell through to spa-other/spa-locale, which was harmless
+ * only because no real page existed there yet. Now that one does, the bare
+ * root must classify as `eventi` too (see `EVENTS_SECTION_RX`'s updated
+ * docblock in scripts/lib/eventsSections.mjs).
  */
 import { describe, it, expect } from 'vitest';
 import { classifyFeature as classifyFeatureTitle } from '../../scripts/audit-title-length.mjs';
@@ -50,6 +58,11 @@ describe('events section matcher', () => {
     // Per-comune leaf page
     '/de/veranstaltungen/zurich/chur/open-training-acroyoga/',
     '/en/events/graubunden/flims/flims-unesco-world-heritage-site/',
+    // Swiss-wide index hub, bare root, every locale (issue #3645, F3)
+    '/eventi/',
+    '/en/events/',
+    '/de/veranstaltungen/',
+    '/fr/evenements/',
   ];
 
   it.each(eventsPaths)('classifies %s as eventi', (p) => {
@@ -78,7 +91,10 @@ describe('events section matcher', () => {
     expect(EVENTS_SECTION_RX.test('/blog/best-events-in-switzerland/')).toBe(false);
   });
 
-  it('does not match a bare events root with no canton/comune segment', () => {
-    expect(EVENTS_SECTION_RX.test('/eventi/')).toBe(false);
+  it('matches the bare events index root (issue #3645, F3 — a real page lives there now)', () => {
+    expect(EVENTS_SECTION_RX.test('/eventi/')).toBe(true);
+    expect(EVENTS_SECTION_RX.test('/en/events/')).toBe(true);
+    expect(EVENTS_SECTION_RX.test('/de/veranstaltungen/')).toBe(true);
+    expect(EVENTS_SECTION_RX.test('/fr/evenements/')).toBe(true);
   });
 });

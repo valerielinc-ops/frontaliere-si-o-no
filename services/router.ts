@@ -977,6 +977,34 @@ function matchEventsCantonLocale(pathname: string): Locale | null {
 }
 
 /**
+ * Swiss-wide events index hub (issue #3645, F3): the canton-less landing
+ * page one level above every `/eventi/<canton>/` hub matched above. Kept as
+ * a SEPARATE, stand-alone pattern rather than folding into
+ * `EVENTS_PATH_PATTERN` so the existing (high-traffic) canton/comune matcher
+ * is untouched. `EVENTS_PATH_PATTERN`'s canton-segment group requires at
+ * least one char (`[a-z0-9-]+`), so a bare `/eventi/` never matches it —
+ * these two patterns are mutually exclusive by construction, no ordering
+ * dependency between them. Literal segments mirror
+ * scripts/lib/events-utils.mjs's `EVENTS_LOCALIZED_SEGMENT`/
+ * `EVENTS_INDEX_PATH` (same duplication trade-off `EVENTS_PATH_PATTERN`
+ * above already accepts: a RegExp needs a literal, can't import the runtime
+ * string) — tests/router.test.ts guards against drift.
+ */
+const EVENTS_INDEX_PATTERN: Record<Locale, RegExp> = {
+ it: /^\/eventi\/?$/,
+ en: /^\/en\/events\/?$/,
+ de: /^\/de\/veranstaltungen\/?$/,
+ fr: /^\/fr\/evenements\/?$/,
+};
+
+function matchEventsIndexLocale(pathname: string): Locale | null {
+ for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+  if (EVENTS_INDEX_PATTERN[locale].test(pathname)) return locale;
+ }
+ return null;
+}
+
+/**
  * Job-board URL prefixes per locale. The DE prefix has TWO accepted
  * forms: the legacy `jobs-im-` (only for `tessin` — the article "im"
  * grammatically attaches to Tessin), and the canonical new-canton form
@@ -2654,6 +2682,17 @@ export function parsePath(pathname: string): ParseResult {
    const eventsLocale = matchEventsCantonLocale(pathname);
    if (eventsLocale) {
      return { route: { activeTab: 'vita', vitaSubTab: 'places', staticOverlay: true }, locale: eventsLocale };
+   }
+ }
+
+ // Swiss-wide events index hub (issue #3645, F3) — bare /eventi/ + locale
+ // variants, one level above every canton hub matched just above. Separate
+ // branch (not folded into the block above) since it's a wholly separate,
+ // mutually-exclusive pattern — see `EVENTS_INDEX_PATTERN`'s docblock.
+ {
+   const eventsIndexLocale = matchEventsIndexLocale(pathname);
+   if (eventsIndexLocale) {
+     return { route: { activeTab: 'vita', vitaSubTab: 'places', staticOverlay: true }, locale: eventsIndexLocale };
    }
  }
 
