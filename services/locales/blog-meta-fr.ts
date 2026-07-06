@@ -8291,6 +8291,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gallarate-rho-lavori-luglio-2026.title': 'Gallarate-Rho : fermeture le week-end du 11 au 13 juillet 2026',
     'blog.article.gallarate-rho-lavori-luglio-2026.excerpt': 'Arrêtez les trains entre Gallarate et Milan pour des travaux de renforcement technologique. Un nouvel arrêt est prévu à Nerviano.',
     'blog.article.gallarate-rho-lavori-luglio-2026.imageAlt': 'Gare de Gallarate-Rho avec travaux en cours',
+    'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.title': 'L\'Accord Italie-Suisse de 2020 sur la taxation des travailleurs frontaliers',
+    'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.excerpt': 'L\'accord Italie-Suisse de 2020 introduit un nouveau régime de taxation pour les travailleurs frontaliers, remplaçant le cadre de 1974. L\'analyse évalue le',
+    'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.imageAlt': 'Image éditoriale relative à: L\'Accordo Italia-Svizzera del 2020 sulla tassazione dei lavoratori frontalieri',
 };
 
 export default blogMetaFr;

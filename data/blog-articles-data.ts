@@ -24911,6 +24911,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri',
+ category: 'fiscale',
+ date: '2026-07-06T07:45:13.441Z',
+ image: '/images/blog/a2-giornico-cantiere-disagi-frontalieri.webp',
+ hasCalculator: false,
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
