@@ -1,59 +1,16 @@
 {
   "key": "yapeal",
   "label": "Yapeal",
-  "generatedAt": "2026-07-06T15:48:32.582Z",
-  "total": 1,
+  "generatedAt": "2026-07-06T22:23:19.046Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4071,
-  "avgDurationMs": 4071,
-  "durationHistory": [
-    4071
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "yapeal-a42b1135bd09",
-      "slug": "aml-compliance-officer-80-100-yapeal-zurich-hybrid",
-      "company": "Yapeal",
-      "companyKey": "yapeal",
-      "companyDomain": "yapeal.ch",
-      "title": "AML Compliance Officer 80-100%",
-      "location": "Zurich - Hybrid",
-      "canton": "ZH",
-      "url": "https://yapeal-ag.jobs.personio.de/job/2680753",
-      "source": "Yapeal Dedicated Parser (Personio)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-06T15:48:30.186Z",
-      "addressLocality": "Zurich - Hybrid",
-      "addressRegion": "ZH",
-      "streetAddress": "Max-Högger-Strasse 6",
-      "postalCode": "8048",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Legale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banche digitali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-21",
-      "applyUrl": "https://yapeal-ag.jobs.personio.de/job/2680753",
-      "jobReqId": "2680753",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-07-03T23:45:02.153Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 1
 }

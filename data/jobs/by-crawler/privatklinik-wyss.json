@@ -1,6 +1,6 @@
 {
   "crawlerKey": "privatklinik-wyss",
-  "assembledAt": "2026-07-06T15:29:46.470Z",
+  "assembledAt": "2026-07-06T22:23:31.417Z",
   "jobs": [
     {
       "id": "privatklinik-wyss-53276e49b5c3",
@@ -34,7 +34,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/ausbildung-praktika/lehrstelle-fachfrau-fachmann-gesundheit-efz-august-2027-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:29:44.362Z",
+      "crawledAt": "2026-07-06T22:23:28.404Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -76,12 +76,20 @@
       "pensum": "100%",
       "previousSlugs": [
         "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-privatklinik-wyss-ch",
+        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-privatklinik-wyss-munchenbuchsee",
         "apprendistato-come-operatore-socio-sanitario-efz-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-privatklinik-wyss-ch",
+          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-privatklinik-wyss-munchenbuchsee",
           "apprendistato-come-operatore-socio-sanitario-efz-privatklinik-wyss-munchenbuchsee"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-privatklinik-wyss-ch"
+        ],
+        "fr": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-privatklinik-wyss-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:12.189Z",
@@ -104,7 +112,7 @@
       "slug": "terapeuta-della-musica-f-m-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "it": "terapeuta-della-musica-f-m-d-privatklinik-wyss-munchenbuchsee",
-        "en": "stv-music-therapist-f-m-d-privatklinik-wyss-munchenbuchsee",
+        "en": "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-munchenbuchsee",
         "de": "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
         "fr": "stv-musicotherapie-f-m-d-privatklinik-wyss-munchenbuchsee"
       },
@@ -131,7 +139,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-spezialtherapie/stv-musiktherapeut-in-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:29:43.640Z",
+      "crawledAt": "2026-07-06T22:23:27.643Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -149,6 +157,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
+        "stv-music-therapist-f-m-d-privatklinik-wyss-munchenbuchsee",
         "terapeuta-della-musica-f-m-d-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
@@ -157,7 +166,8 @@
           "terapeuta-della-musica-f-m-d-privatklinik-wyss-munchenbuchsee"
         ],
         "en": [
-          "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch"
+          "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
+          "stv-music-therapist-f-m-d-privatklinik-wyss-munchenbuchsee"
         ],
         "fr": [
           "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch"
@@ -183,7 +193,7 @@
       "slug": "terapeuta-d-arte-f-m-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "it": "terapeuta-d-arte-f-m-d-privatklinik-wyss-munchenbuchsee",
-        "en": "stv-art-therapist-f-m-d-privatklinik-wyss-munchenbuchsee",
+        "en": "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-munchenbuchsee",
         "de": "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch",
         "fr": "artotherapeute-stv-f-m-d-privatklinik-wyss-munchenbuchsee"
       },
@@ -210,7 +220,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-spezialtherapie/stv-musiktherapeut-in-w-m-d-1",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:29:42.993Z",
+      "crawledAt": "2026-07-06T22:23:26.918Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -228,6 +238,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch",
+        "stv-art-therapist-f-m-d-privatklinik-wyss-munchenbuchsee",
         "terapeuta-d-arte-f-m-d-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
@@ -236,7 +247,8 @@
           "terapeuta-d-arte-f-m-d-privatklinik-wyss-munchenbuchsee"
         ],
         "en": [
-          "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch"
+          "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch",
+          "stv-art-therapist-f-m-d-privatklinik-wyss-munchenbuchsee"
         ],
         "fr": [
           "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch"
@@ -289,7 +301,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-psychologie/psychologin-psychologe-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:29:42.360Z",
+      "crawledAt": "2026-07-06T22:23:26.178Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -371,7 +383,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-medizin/assistenzaerztin-assistenzarzt-80-100-m-w-d-1",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:29:41.723Z",
+      "crawledAt": "2026-07-06T22:23:25.450Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -453,7 +465,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/zusatz-modul-b-zmb-in-der-psychiatrischen-pflege",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:29:41.085Z",
+      "crawledAt": "2026-07-06T22:23:24.740Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -529,7 +541,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:29:40.443Z",
+      "crawledAt": "2026-07-06T22:23:24.005Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -615,7 +627,7 @@
       "slug": "dipl-professionista-della-salute-hf-fh-m-f-d-reparto-acuto-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "it": "dipl-professionista-della-salute-hf-fh-m-f-d-reparto-acuto-privatklinik-wyss-munchenbuchsee",
-        "en": "dipl-nurse-hf-fh-f-m-d-acute-care-department-privatklinik-wyss-munchenbuchsee",
+        "en": "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch",
         "de": "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch",
         "fr": "dipl-professionnel-de-la-sante-hf-fh-h-f-d-departement-aigu-privatklinik-wyss-munchenbuchsee"
       },
@@ -642,7 +654,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/dipl-pflegefachperson-hf-fh-w-m-d-auf-der-akutabteilung-1",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:29:39.781Z",
+      "crawledAt": "2026-07-06T22:23:23.285Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -685,6 +697,7 @@
       "pensum": "70 - 100%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch",
+        "dipl-nurse-hf-fh-f-m-d-acute-care-department-privatklinik-wyss-munchenbuchsee",
         "dipl-professionista-della-salute-hf-fh-m-f-d-reparto-acuto-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
@@ -693,6 +706,7 @@
           "dipl-professionista-della-salute-hf-fh-m-f-d-reparto-acuto-privatklinik-wyss-munchenbuchsee"
         ],
         "en": [
+          "dipl-nurse-hf-fh-f-m-d-acute-care-department-privatklinik-wyss-munchenbuchsee",
           "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch"
         ]
       },
@@ -743,7 +757,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/try-and-hire-deine-flexible-anstellungsloesung",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:29:39.123Z",
+      "crawledAt": "2026-07-06T22:23:22.561Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -819,7 +833,7 @@
         "it": "direttore-infermieristico-lun-f-d-privatklinik-wyss-munchenbuchsee",
         "en": "nursing-director-m-f-d-privatklinik-wyss-munchenbuchsee",
         "de": "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
-        "fr": "directeur-des-soins-infirmiers-m-f-d-privatklinik-wyss-munchenbuchsee"
+        "fr": "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -844,7 +858,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/pflegedirektor-in-m-w-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:29:37.794Z",
+      "crawledAt": "2026-07-06T22:23:21.062Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -865,8 +879,9 @@
       "pensum": "90%",
       "previousSlugs": [
         "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
-        "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee",
-        "direttore-infermieristico-lun-f-d-privatklinik-wyss-munchenbuchsee"
+        "directeur-des-soins-infirmiers-m-f-d-privatklinik-wyss-munchenbuchsee",
+        "direttore-infermieristico-lun-f-d-privatklinik-wyss-munchenbuchsee",
+        "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -877,6 +892,7 @@
           "pflegedirektor-in-m-w-d-privatklinik-wyss-ch"
         ],
         "fr": [
+          "directeur-des-soins-infirmiers-m-f-d-privatklinik-wyss-munchenbuchsee",
           "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee"
         ]
       },
@@ -927,7 +943,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/dipl-pflegefachperson-hf-fh-w-m-d-dauernachtdienst-akutabteilung",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:29:37.248Z",
+      "crawledAt": "2026-07-06T22:23:20.476Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
