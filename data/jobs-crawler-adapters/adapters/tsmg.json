@@ -13,7 +13,7 @@
     "https://api.lever.co/v0/postings/tsmg?mode=json"
   ],
   "notes": "Dedicated TSMG crawler uses Lever API and keeps only jobs in Ticino or Grigioni.",
-  "updatedAt": "2026-07-06T15:21:54.200Z",
+  "updatedAt": "2026-07-06T22:18:10.558Z",
   "seedMetaByUrl": {
     "https://jobs.lever.co/tsmg/dcde88fa-6cf1-4e00-8634-5d4ac062c5c3": {
       "location": "Lausanne",
@@ -69,9 +69,81 @@
       "company": "TSMG",
       "postedDate": "2026-07-06"
     },
+    "https://jobs.lever.co/tsmg/2b755752-75f7-4d2e-8caf-64179fc876dd": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "TSMG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.lever.co/tsmg/4ecf6fa4-920c-4c03-9152-2e55c48b3271": {
+      "location": "St. Gallen",
+      "canton": "SG",
+      "company": "TSMG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.lever.co/tsmg/700215b5-f07f-4316-8cfa-3c3d5e32066e": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "TSMG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.lever.co/tsmg/ad008286-bd6c-4664-83c4-6d63a80039d9": {
+      "location": "Geneva",
+      "canton": "GE",
+      "company": "TSMG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.lever.co/tsmg/1af674c1-d6bd-4594-9e86-1ece0a8c7ac7": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "TSMG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.lever.co/tsmg/b01b92ce-bc44-4b7e-8994-02049f228b0e": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "TSMG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.lever.co/tsmg/d850f303-1d55-42be-b218-d8d1727bd55f": {
+      "location": "St. Gallen",
+      "canton": "SG",
+      "company": "TSMG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.lever.co/tsmg/ecf0515c-0662-4345-b550-813c119a7c9a": {
+      "location": "Geneva",
+      "canton": "GE",
+      "company": "TSMG",
+      "postedDate": "2026-07-06"
+    },
     "https://jobs.lever.co/tsmg/791b8903-bb0c-4dda-9d86-5bd935ab4ea7": {
       "location": "Bern",
       "canton": "BE",
+      "company": "TSMG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.lever.co/tsmg/10cf64cf-3050-4c6a-a89e-ad6940f0a6aa": {
+      "location": "St. Gallen",
+      "canton": "SG",
+      "company": "TSMG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.lever.co/tsmg/37711675-9299-4bc4-9f27-265c6e4618b9": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "TSMG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.lever.co/tsmg/76e71063-9218-42c0-bd49-7b6269f98f81": {
+      "location": "Geneva",
+      "canton": "GE",
+      "company": "TSMG",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.lever.co/tsmg/c356aa1a-949c-4a5f-8d76-78bb7c8701cc": {
+      "location": "Zurich",
+      "canton": "ZH",
       "company": "TSMG",
       "postedDate": "2026-07-06"
     },
