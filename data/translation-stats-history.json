@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-06-19T22:58:17.366Z",
-    "label": "before",
-    "total": 17434,
-    "needsRetranslation": 7266,
-    "suppressed": 658,
-    "incomplete": 1816,
-    "complete": 15618,
-    "missingByLocale": {
-      "it": 954,
-      "en": 605,
-      "de": 840,
-      "fr": 521
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1124
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "Richemont",
-        "pending": 105
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 96
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Lonza",
-        "pending": 41
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 22
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 13
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-20T00:32:53.453Z",
-    "label": "after",
-    "total": 17434,
-    "needsRetranslation": 3215,
-    "suppressed": 657,
-    "incomplete": 1609,
-    "complete": 15825,
-    "missingByLocale": {
-      "it": 796,
-      "en": 454,
-      "de": 892,
-      "fr": 363
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1040
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 96
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Lonza",
-        "pending": 41
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 22
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "Richemont",
-        "pending": 14
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 13
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-20T04:25:47.949Z",
-    "label": "before",
-    "total": 17456,
-    "needsRetranslation": 2953,
-    "suppressed": 657,
-    "incomplete": 1156,
-    "complete": 16300,
-    "missingByLocale": {
-      "it": 462,
-      "en": 348,
-      "de": 755,
-      "fr": 240
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 953
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Roche",
-        "pending": 26
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Manor AG",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 13
-      },
-      {
-        "company": "Sulzer",
-        "pending": 6
-      },
-      {
-        "company": "IKEA",
-        "pending": 4
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 4
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-20T05:25:40.168Z",
-    "label": "after",
-    "total": 17456,
-    "needsRetranslation": 2679,
-    "suppressed": 657,
-    "incomplete": 1108,
-    "complete": 16348,
-    "missingByLocale": {
-      "it": 428,
-      "en": 310,
-      "de": 761,
-      "fr": 196
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 940
-      },
-      {
-        "company": "UBS",
-        "pending": 47
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Roche",
-        "pending": 20
-      },
-      {
-        "company": "Manor AG",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "Sulzer",
-        "pending": 5
-      },
-      {
-        "company": "IKEA",
-        "pending": 4
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-20T06:12:52.415Z",
     "label": "before",
     "total": 17456,
@@ -11510,6 +11282,120 @@
       {
         "company": "Roche",
         "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-06T08:08:47.612Z",
+    "label": "before",
+    "total": 23257,
+    "needsRetranslation": 3230,
+    "suppressed": 270,
+    "incomplete": 434,
+    "complete": 22823,
+    "missingByLocale": {
+      "it": 313,
+      "en": 281,
+      "de": 79,
+      "fr": 309
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 254
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 61
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 6
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Roche",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-06T09:37:01.014Z",
+    "label": "after",
+    "total": 23257,
+    "needsRetranslation": 3266,
+    "suppressed": 270,
+    "incomplete": 415,
+    "complete": 22842,
+    "missingByLocale": {
+      "it": 295,
+      "en": 280,
+      "de": 76,
+      "fr": 307
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 254
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 61
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Roche",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
       }
     ]
   }
