@@ -148,13 +148,26 @@ function precededByFreshOpen(str, idx, fixAsterisks) {
  * reads `..."tassa": "un tributo" imposto...`, where "tassa" is mid-prose,
  * not a key). A genuine key must itself have been freshly opened right
  * after a real `,`/`{`, not reached while another string was already open.
+ *
+ * A `*` run right after the quote isn't trusted unconditionally either —
+ * bold markdown routinely sits INSIDE a still-open string right after an
+ * earlier stray quote (`"testo "citato" **grassetto** fine."`), so what
+ * follows the run must itself look like a fresh continuation, same as the
+ * comma/colon branches below. Blind trust here closed the string early and
+ * corrupted everything after it, including unrelated sibling JSON keys
+ * (issue #3618 item 2).
  */
 function decideQuoteCloses(str, quoteIdx, fixAsterisks) {
   let j = quoteIdx + 1;
   while (j < str.length && /\s/.test(str[j])) j++;
   const next = str[j];
-  if (next === undefined || next === '}' || next === ']' || (fixAsterisks && next === '*')) {
+  if (next === undefined || next === '}' || next === ']') {
     return true;
+  }
+  if (fixAsterisks && next === '*') {
+    let k = j;
+    while (k < str.length && str[k] === '*') k++;
+    return afterSeparatorLooksValid(str, k, false, fixAsterisks);
   }
   if (next === ':') {
     const keyOpen = findPrecedingUnescapedQuote(str, quoteIdx);
@@ -237,11 +250,22 @@ function scanKeyEnd(str, i) {
  * looks like a valid JSON continuation, given `afterSepPos` already points
  * just past that separator. A colon expects a value (lenient: values
  * legitimately contain embedded quotes, e.g. prose). A comma/asterisk-run
- * expects a fresh key: unlike a value, a key can't legitimately contain its
- * own embedded quote, so it's scanned strictly and must be followed by a
- * real colon — this is what rejects `"tassa", "un tributo", e discusso.`
+ * first tries a fresh key: unlike a value, a key can't legitimately contain
+ * its own embedded quote, so it's scanned strictly and must be followed by
+ * a real colon — this is what rejects `"tassa", "un tributo", e discusso.`
  * (no colon after the strictly-scanned "un tributo") while still accepting
  * `"a":"...","b":"..."` (each key strictly closes, colon follows).
+ *
+ * If the key interpretation fails, a comma can still be a genuine
+ * separator between bare VALUES, not just object entries (`["a","b"]`) —
+ * rejecting outright here corrupted every bare string-array element
+ * (issue #3602). But the fallback must reuse the SAME strict, no-retry
+ * close (scanKeyEnd) rather than the permissive scanValueEnd/scanStringEnd
+ * used for real values below: that permissive scanner is designed to skip
+ * past an ambiguous embedded quote and keep looking for a later real
+ * closer, which is exactly wrong for this candidate — it let a deliberate
+ * prose aside (`"tassa", "un tributo", e discusso.`) telescope all the way
+ * to the string's true end and get mistaken for a valid fresh value.
  */
 function afterSeparatorLooksValid(str, afterSepPos, isColon, fixAsterisks) {
   let i = afterSepPos;
@@ -255,8 +279,8 @@ function afterSeparatorLooksValid(str, afterSepPos, isColon, fixAsterisks) {
     if (keyEnd === -1) return false;
     let m = keyEnd;
     while (m < str.length && /\s/.test(str[m])) m++;
-    if (str[m] !== ':') return false;
-    return afterSeparatorLooksValid(str, m + 1, true, fixAsterisks);
+    if (str[m] === ':') return afterSeparatorLooksValid(str, m + 1, true, fixAsterisks);
+    return looksLikeJsonContinuation(str, keyEnd, fixAsterisks);
   }
   const valueEnd = scanValueEnd(str, i, fixAsterisks);
   return valueEnd !== -1 && looksLikeJsonContinuation(str, valueEnd, fixAsterisks);

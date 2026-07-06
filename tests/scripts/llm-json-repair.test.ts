@@ -148,6 +148,49 @@ describe('fixJsonStringBody', () => {
     expect(parsed.b).toBe('Anche "questo" qui.');
   });
 
+  // Regression (issue #3602): afterSeparatorLooksValid's comma-branch only ever
+  // tried interpreting a quoted candidate following a comma as a fresh object
+  // KEY (must be followed by ':'), returning false outright otherwise. A comma
+  // inside an array separates bare VALUES, not key:value pairs, so this
+  // corrupted every plain string-array field (e.g. tags) by merging elements.
+  it('does not merge bare string-array elements at a plain comma separator', () => {
+    const broken = '{"tags":["a","b"],"body":"ok"}';
+    const repaired = fixJsonStringBody(broken, { fixAsterisks: true });
+    const parsed = JSON.parse(repaired);
+    expect(parsed.tags).toEqual(['a', 'b']);
+    expect(parsed.body).toBe('ok');
+  });
+
+  it('still rejects a comma-then-quoted-aside as an array separator when the fallback value never resolves (no regression from the #3602 fix)', () => {
+    const broken = '{"a":"il termine "tassa", "un tributo", e discusso."}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('il termine "tassa", "un tributo", e discusso.');
+  });
+
+  // Regression: decideQuoteCloses() unconditionally trusted any quote
+  // immediately followed by a '*' run (fixAsterisks) as a genuine closer,
+  // without checking that what follows the run looks like a real
+  // continuation — unlike the comma/colon branches, which do. Bold markdown
+  // routinely sits INSIDE a still-open string right after an earlier stray
+  // quote, so this closed the string early and corrupted everything after
+  // it, including unrelated sibling JSON keys (issue #3618 item 2).
+  it('does not close a string early at a stray quote merely because markdown bold follows, when the bold is literal content still inside the string', () => {
+    const broken = '{"a":"testo "citato" **grassetto** fine.","b":"next"}';
+    const repaired = fixJsonStringBody(broken, { fixAsterisks: true });
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('testo "citato" **grassetto** fine.');
+    expect(parsed.b).toBe('next');
+  });
+
+  it('still converts a genuine markdown-bold separator between two bare array string elements', () => {
+    const broken = '{"tags":["value1"**"value2"],"c":1}';
+    const repaired = fixJsonStringBody(broken, { fixAsterisks: true });
+    const parsed = JSON.parse(repaired);
+    expect(parsed.tags).toEqual(['value1', 'value2']);
+    expect(parsed.c).toBe(1);
+  });
+
   // Regression: scanValueEnd() treated '{'/'[' as ending the value immediately
   // after the opening bracket instead of finding the matching close. That made
   // the lookahead wrongly reject a preceding string field's real closing quote
