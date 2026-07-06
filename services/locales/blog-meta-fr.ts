@@ -8255,6 +8255,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-brianza-causa-stato-italiano.title': 'Les frontaliers de Brianza prêts à poursuivre l\'État italien',
     'blog.article.frontalieri-brianza-causa-stato-italiano.excerpt': 'Les raisons du mécontentement des frontaliers de la Brianza concernant le nouvel accord fiscal entre l\'Italie et la Suisse en vigueur depuis le 1er janvier 2024.',
     'blog.article.frontalieri-brianza-causa-stato-italiano.imageAlt': 'Vue panoramique sur le lac de Lugano avec l\'horizon de la ville',
+    'blog.article.sicurezza-gallarate-fedi-cons.title': 'Sécurité à Gallarate : alarme FediCons sur les bâtiments',
+    'blog.article.sicurezza-gallarate-fedi-cons.excerpt': 'L\'association FediCons signale une augmentation des épisodes de dégradation dans le centre de Gallarate, nécessitant plus de policiers locaux et plus d\'éclairage.',
+    'blog.article.sicurezza-gallarate-fedi-cons.imageAlt': 'Centre-ville avec éclairage public',
 };
 
 export default blogMetaFr;

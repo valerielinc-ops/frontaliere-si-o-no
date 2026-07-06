@@ -24803,6 +24803,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'sicurezza-gallarate-fedi-cons',
+ category: 'pratico',
+ date: '2026-07-06T02:40:55.070Z',
+ image: '/images/blog/sicurezza-gallarate-fedi-cons.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

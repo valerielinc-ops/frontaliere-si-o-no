@@ -8255,6 +8255,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-brianza-causa-stato-italiano.title': 'Frontalieri Brianza pronti a far causa allo Stato italiano',
     'blog.article.frontalieri-brianza-causa-stato-italiano.excerpt': 'Le ragioni del malcontento dei frontalieri della Brianza in merito al nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024.',
     'blog.article.frontalieri-brianza-causa-stato-italiano.imageAlt': 'Vista panoramica sul lago di Lugano con lo skyline della città',
+    'blog.article.sicurezza-gallarate-fedi-cons.title': 'Sicurezza a Gallarate: allarme FediCons sui presidi',
+    'blog.article.sicurezza-gallarate-fedi-cons.excerpt': 'L\'associazione FediCons segnala un aumento di episodi di degrado nel centro di Gallarate, richiedendo più agenti di polizia locale e maggiore illuminazione.',
+    'blog.article.sicurezza-gallarate-fedi-cons.imageAlt': 'Centro cittadino con illuminazione pubblica',
 };
 
 export default blogMetaIt;

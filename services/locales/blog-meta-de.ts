@@ -8253,6 +8253,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-brianza-causa-stato-italiano.title': 'Frontalieri Brianza bereit, den italienischen Staat zu verklagen',
     'blog.article.frontalieri-brianza-causa-stato-italiano.excerpt': 'Die Gründe für die Unzufriedenheit der Grenzgänger der Brianza mit dem neuen Steuerabkommen zwischen Italien und der Schweiz, das am 1. Januar 2024 in Kraft getreten ist.',
     'blog.article.frontalieri-brianza-causa-stato-italiano.imageAlt': 'Panoramablick auf den Luganersee mit der Skyline der Stadt',
+    'blog.article.sicurezza-gallarate-fedi-cons.title': 'Sicherheit in Gallarate: FediCons-Alarm an den Standorten',
+    'blog.article.sicurezza-gallarate-fedi-cons.excerpt': 'Der Verein FediCons berichtet von einer Zunahme von Degradationsepisoden im Zentrum von Gallarate, die mehr örtliche Polizeibeamte und mehr Beleuchtung erfordern.',
+    'blog.article.sicurezza-gallarate-fedi-cons.imageAlt': 'Stadtzentrum mit öffentlicher Beleuchtung',
 };
 
 export default blogMetaDe;

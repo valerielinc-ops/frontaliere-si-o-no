@@ -46170,6 +46170,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sicurezza-gallarate-fedi-cons': {
+    title: 'Sicurezza a Gallarate: allarme FediCons sui presidi',
+    description: 'FediCons segnala un aumento di episodi di degrado nel centro di Gallarate, richiedendo più agenti di polizia locale e maggiore illuminazione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, gallarate, allarme, fedicons',
+    ogTitle: 'Sicurezza Gallarate: allarme FediCons su presidi',
+    ogDescription: 'FediCons segnala un aumento di episodi di degrado nel centro di Gallarate, richiedendo più agenti di polizia locale e maggiore illuminazione.',
+    canonicalPath: '/articoli-frontaliere/sicurezza-gallarate-fedi-cons',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sicurezza a Gallarate: allarme FediCons sui presidi",
+      "description": "FediCons segnala un aumento di episodi di degrado nel centro di Gallarate, richiedendo più agenti di polizia locale e maggiore illuminazione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sicurezza-gallarate-fedi-cons.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro cittadino con illuminazione pubblica"
+      },
+      "datePublished": "2026-07-06T02:40:55+00:00",
+      "dateModified": "2026-07-06T02:40:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-gallarate-fedi-cons/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
