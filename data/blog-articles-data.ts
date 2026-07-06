@@ -24794,6 +24794,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-brianza-causa-stato-italiano',
+ category: 'fiscale',
+ date: '2026-07-06T02:26:38.225Z',
+ image: '/images/blog/frontalieri-brianza-causa-stato-italiano.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

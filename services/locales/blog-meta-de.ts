@@ -8250,6 +8250,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.centrodestra-como-elezioni-gazebo.title': 'Como: Mitte-Rechts auf der Straße für die nächsten Wahlen',
     'blog.article.centrodestra-como-elezioni-gazebo.excerpt': 'Öffentliche Versammlung in der Via Boldoni zwischen den Mitte-Rechts-Parteien, um die Forderungen der Bürger im Hinblick auf die zukünftigen Kommunalwahlen anzuhören.',
     'blog.article.centrodestra-como-elezioni-gazebo.imageAlt': 'Politische Informationsstände in der Via Boldoni in Como',
+    'blog.article.frontalieri-brianza-causa-stato-italiano.title': 'Frontalieri Brianza bereit, den italienischen Staat zu verklagen',
+    'blog.article.frontalieri-brianza-causa-stato-italiano.excerpt': 'Die Gründe für die Unzufriedenheit der Grenzgänger der Brianza mit dem neuen Steuerabkommen zwischen Italien und der Schweiz, das am 1. Januar 2024 in Kraft getreten ist.',
+    'blog.article.frontalieri-brianza-causa-stato-italiano.imageAlt': 'Panoramablick auf den Luganersee mit der Skyline der Stadt',
 };
 
 export default blogMetaDe;

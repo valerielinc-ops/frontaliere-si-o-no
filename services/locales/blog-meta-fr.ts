@@ -8252,6 +8252,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.centrodestra-como-elezioni-gazebo.title': 'Côme : le centre-droit dans la rue pour les prochaines élections',
     'blog.article.centrodestra-como-elezioni-gazebo.excerpt': 'Rencontre publique via Boldoni entre les partis du centre-droit pour écouter les demandes des citoyens en vue des futures élections municipales.',
     'blog.article.centrodestra-como-elezioni-gazebo.imageAlt': 'Stands politiques dans la Via Boldoni à Côme',
+    'blog.article.frontalieri-brianza-causa-stato-italiano.title': 'Les frontaliers de Brianza prêts à poursuivre l\'État italien',
+    'blog.article.frontalieri-brianza-causa-stato-italiano.excerpt': 'Les raisons du mécontentement des frontaliers de la Brianza concernant le nouvel accord fiscal entre l\'Italie et la Suisse en vigueur depuis le 1er janvier 2024.',
+    'blog.article.frontalieri-brianza-causa-stato-italiano.imageAlt': 'Vue panoramique sur le lac de Lugano avec l\'horizon de la ville',
 };
 
 export default blogMetaFr;

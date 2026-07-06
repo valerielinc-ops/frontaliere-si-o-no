@@ -8251,6 +8251,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.centrodestra-como-elezioni-gazebo.title': 'Como: the centre-right in the street for the next elections',
     'blog.article.centrodestra-como-elezioni-gazebo.excerpt': 'Public meeting in Via Boldoni between the centre-right parties to listen to citizens\' demands in view of the future local elections.',
     'blog.article.centrodestra-como-elezioni-gazebo.imageAlt': 'Political gazebos in via Boldoni, Como',
+    'blog.article.frontalieri-brianza-causa-stato-italiano.title': 'Brianza Frontiersmen ready to sue the Italian State',
+    'blog.article.frontalieri-brianza-causa-stato-italiano.excerpt': 'The reasons for the dissatisfaction of Brianza border workers regarding the new tax agreement between Italy and Switzerland in force from 1 January 2024.',
+    'blog.article.frontalieri-brianza-causa-stato-italiano.imageAlt': 'Panoramic view of Lake Lugano with the city skyline',
 };
 
 export default blogMetaEn;

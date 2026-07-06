@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3065,
+ "numberOfItems": 3066,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7740,7 +7740,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3062, "name": "Sicurezza alimentare Ticino: 90% delle aziende ...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-alimentare-aziende-ticino` },
           { "@type": "ListItem", "position": 3063, "name": "Sciopero aereo: 160 voli cancellati a Malpensa ...", "url": `${BASE_URL}/articoli-frontaliere/sciopero-aereo-malpensa-linate-2024` },
           { "@type": "ListItem", "position": 3064, "name": "Como: il centrodestra in strada per le prossime...", "url": `${BASE_URL}/articoli-frontaliere/centrodestra-como-elezioni-gazebo` },
-          { "@type": "ListItem", "position": 3065, "name": "Totalizzazione contributi AVS e INPS: come funz...", "url": `${BASE_URL}/articoli-frontaliere/totalizzazione-contributi-avs-inps` }
+          { "@type": "ListItem", "position": 3065, "name": "Totalizzazione contributi AVS e INPS: come funz...", "url": `${BASE_URL}/articoli-frontaliere/totalizzazione-contributi-avs-inps` },
+          { "@type": "ListItem", "position": 3066, "name": "Frontalieri Brianza pronti a far causa allo Sta...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-brianza-causa-stato-italiano` }
  ]
  },
  {
