@@ -1,55 +1,16 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-07-06T13:01:31.109Z",
-  "total": 1,
-  "newCount": 1,
+  "generatedAt": "2026-07-06T22:36:51.125Z",
+  "total": 0,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4688,
-  "avgDurationMs": 4688,
-  "durationHistory": [
-    4688
-  ],
-  "newJobs": [
-    {
-      "id": "apg-sga-ed9af0d4db71",
-      "slug": "jobs-und-karriere-apg-sga-ch",
-      "company": "APG|SGA",
-      "companyKey": "apg-sga",
-      "companyDomain": "apgsga.ch",
-      "title": "Jobs und Karriere",
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.apgsga.ch/de/ueber-uns/offene-stellen-karriere/",
-      "source": "APG|SGA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:01:28.983Z",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Pubblicità / Media esterni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "applyUrl": "https://www.apgsga.ch/de/ueber-uns/offene-stellen-karriere/",
-      "_qualityScore": 49,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 3,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
