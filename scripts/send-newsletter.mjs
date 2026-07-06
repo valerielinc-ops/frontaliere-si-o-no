@@ -49,6 +49,7 @@ import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity, PROVIDERS as EMAIL_PROVIDERS } from './lib/email-cascade.mjs';
 import { normalizeEmailAddress } from './lib/parseEmailField.mjs';
 import { subscriberFromFirestoreRow } from './lib/subscriberFromFirestoreRow.mjs';
+import { JOB_BOARD_SECTION_RX, JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1231,9 +1232,13 @@ function loadLocalJobsData() {
 function sanitizeJobUrls(html, validSlugs) {
   if (!validSlugs || validSlugs.size === 0) return html;
 
-  // Match all locale variants of the job board path
-  const boardSegment = '(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)';
-  const re = new RegExp(`href="([^"]*\\/${boardSegment}\\/([^/"?#]+)\\/?[^"]*)"`, 'g');
+  // Match every canton-aware job board section, any locale (not just TI —
+  // see the matchJobsForSubscriber fix in newsletter-content.mjs). The
+  // alternation MUST stay in its own non-capturing group before the
+  // `-[a-z][a-z-]*` slug suffix — otherwise the suffix binds only to the
+  // LAST alternative and every prefix but one silently stops matching.
+  const boardSegment = `(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*`;
+  const re = new RegExp(`href="([^"]*\\/(${boardSegment})\\/([^/"?#]+)\\/?[^"]*)"`, 'g');
 
   return html.replace(re, (fullMatch, fullUrl, board, slug) => {
     // Strip query params and trailing slash from slug for comparison
@@ -1705,9 +1710,8 @@ function inlineQaCheck(sampleHtml, subject) {
   if (!sampleHtml.includes('CHF') && !sampleHtml.includes('EUR')) fail('exchange_rate', 'Missing exchange rate');
   else pass('exchange_rate');
 
-  // Job links (at least one job board link, any locale)
-  const jobBoardRe = /(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)/;
-  if (!jobBoardRe.test(sampleHtml)) fail('job_links', 'No job links found in HTML');
+  // Job links (at least one job board link, any locale, any canton)
+  if (!JOB_BOARD_SECTION_RX.test(sampleHtml)) fail('job_links', 'No job links found in HTML');
   else pass('job_links');
 
   // No raw template variables
