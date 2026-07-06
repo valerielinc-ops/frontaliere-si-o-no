@@ -95,6 +95,7 @@ const JSDOM_TS_FILES = [
   'tests/index-html-self-heal.test.ts',
   'tests/jina-proxy.test.ts',
   'tests/job-detail-seed.test.ts',
+  'tests/job-match-profile.test.ts',
   'tests/jobboard-related-search-navigation.test.ts',
   'tests/language-switch.test.ts',
   'tests/linkedin-auth-user-profile.test.ts',

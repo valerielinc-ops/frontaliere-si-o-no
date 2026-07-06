@@ -4,6 +4,7 @@ import { unlockAchievement, addXp } from '@/services/gamificationService';
 import { BarChart3, Send, Eye, Users, Lock, ChevronDown, ChevronUp, TrendingUp, AlertCircle } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
+import { saveJobMatchProfile } from '@/services/jobMatchProfile';
 
 // ─── Survey Types ────────────────────────────────────────────
 
@@ -176,6 +177,7 @@ const SalarySurvey: React.FC = () => {
  });
  setSubmitted(true);
  localStorage.setItem(STORAGE_KEY, 'true');
+ saveJobMatchProfile({ sector, experienceLevel: experience, canton });
  addXp(30);
  unlockAchievement('survey_participant');
  Analytics.trackUIInteraction('guida', 'salary_survey', 'submit', 'settore', sector);
