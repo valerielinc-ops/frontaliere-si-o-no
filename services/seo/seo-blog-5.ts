@@ -46443,6 +46443,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dipendenza-fossili-svizzera-energia': {
+    title: 'Svizzera e fossili: quanto pesa la dipendenza energetica',
+    description: 'Scopri i dati sulla dipendenza energetica della Svizzera: il 58% dell\'energia consumata deriva da fonti fossili. Analisi per il frontaliere Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fossili, quanto, pesa, dipendenza',
+    ogTitle: 'Dipendenza energetica Svizzera: i dati aggiornati',
+    ogDescription: 'Analisi sulla dipendenza svizzera dai fossili: il 58% del consumo energetico finale deriva da petrolio e gas. Cosa significa per l\'economia.',
+    canonicalPath: '/articoli-frontaliere/dipendenza-fossili-svizzera-energia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera e fossili: quanto pesa la dipendenza energetica",
+      "description": "Scopri i dati sulla dipendenza energetica della Svizzera: il 58% dell'energia consumata deriva da fonti fossili. Analisi per il frontaliere Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dipendenza-fossili-svizzera-energia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e il suo lago."
+      },
+      "datePublished": "2026-07-06T04:52:31+00:00",
+      "dateModified": "2026-07-06T04:52:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dipendenza-fossili-svizzera-energia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
