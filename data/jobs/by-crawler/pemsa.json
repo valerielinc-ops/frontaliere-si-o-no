@@ -1,7 +1,184 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-07-06T14:41:48.243Z",
+  "assembledAt": "2026-07-06T22:23:04.538Z",
   "jobs": [
+    {
+      "title": "Geomatico",
+      "slug": "geomatico-pemsa-bulle",
+      "url": "https://www.pemsa.ch/it/job/geomatico-2682040/",
+      "applyUrl": "https://www.pemsa.ch/it/job/geomatico-2682040/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Bulle",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-07-06",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-07-30",
+      "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, entra a far parte del nostro team per la posizione di Geomatico\n\n## Il tuo incarico:\n• Effettuare rilievi topografici sul campo\n• Eseguire rilievi, picchettamenti e implanti\n• Elaborare i dati e preparare i disegni CAD\n• Collaborare con ingegneri e tecnici in geomatica\n• Garantire la qualità e la precisione dei rilievi effettuati\n\n## E ora parliamo un po’ di te?\n• Diploma CFC in geomatica, formazione come geometra topografo o esperienza equivalente\n• Dimestichezza con gli strumenti di misurazione (stazione totale, GPS, laser)\n• Conoscenze di CAD (AutoCAD, Covadis o equivalente)\n• Patente di guida obbligatoria\n• Autonomia, precisione, senso di responsabilità\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
+      "titleByLocale": {
+        "it": "Geomatico",
+        "en": "Geomatico",
+        "de": "Geomatico",
+        "fr": "Geomatico"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, entra a far parte del nostro team per la posizione di Geomatico\n\n## Il tuo incarico:\n• Effettuare rilievi topografici sul campo\n• Eseguire rilievi, picchettamenti e implanti\n• Elaborare i dati e preparare i disegni CAD\n• Collaborare con ingegneri e tecnici in geomatica\n• Garantire la qualità e la precisione dei rilievi effettuati\n\n## E ora parliamo un po’ di te?\n• Diploma CFC in geomatica, formazione come geometra topografo o esperienza equivalente\n• Dimestichezza con gli strumenti di misurazione (stazione totale, GPS, laser)\n• Conoscenze di CAD (AutoCAD, Covadis o equivalente)\n• Patente di guida obbligatoria\n• Autonomia, precisione, senso di responsabilità\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Geomatico in Bulle. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Geomatico in Bulle. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Geomatico à Bulle. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "geomatico-pemsa-bulle",
+        "en": "geomatico-pemsa-bulle",
+        "de": "geomatico-pemsa-bulle",
+        "fr": "geomatico-pemsa-bulle"
+      },
+      "id": "pemsa-004126cc99bb",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630",
+      "firstSeenAt": "2026-07-06T22:23:04.536Z"
+    },
+    {
+      "title": "Geomatico",
+      "slug": "geomatico-pemsa-moudon",
+      "url": "https://www.pemsa.ch/it/job/geomatico-2682037/",
+      "applyUrl": "https://www.pemsa.ch/it/job/geomatico-2682037/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Moudon",
+      "addressLocality": "Moudon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-07-06",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-07-30",
+      "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Geomatico\n\n## Il tuo incarico:\n• Effettuare rilievi topografici sul campo\n• Eseguire rilievi, picchettamenti e implanti\n• Elaborare i dati e preparare i disegni CAD\n• Collaborare con ingegneri e tecnici in geomatica\n• Garantire la qualità e la precisione dei rilievi effettuati\n\n## E ora parliamo di te?\n• Diploma CFC in geomatica, formazione come geometra topografo o esperienza equivalente\n• Dimestichezza con gli strumenti di misurazione (stazione totale, GPS, laser)\n• Conoscenze di CAD (AutoCAD, Covadis o equivalente)\n• Patente di guida obbligatoria\n• Autonomia, precisione, senso di responsabilità\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Ti seguirà, ti darà consigli e risponderà a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
+      "titleByLocale": {
+        "it": "Geomatico",
+        "en": "Geomatico",
+        "de": "Geomatico",
+        "fr": "Geomatico"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Geomatico\n\n## Il tuo incarico:\n• Effettuare rilievi topografici sul campo\n• Eseguire rilievi, picchettamenti e implanti\n• Elaborare i dati e preparare i disegni CAD\n• Collaborare con ingegneri e tecnici in geomatica\n• Garantire la qualità e la precisione dei rilievi effettuati\n\n## E ora parliamo di te?\n• Diploma CFC in geomatica, formazione come geometra topografo o esperienza equivalente\n• Dimestichezza con gli strumenti di misurazione (stazione totale, GPS, laser)\n• Conoscenze di CAD (AutoCAD, Covadis o equivalente)\n• Patente di guida obbligatoria\n• Autonomia, precisione, senso di responsabilità\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Ti seguirà, ti darà consigli e risponderà a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Geomatico in Moudon. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Geomatico in Moudon. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Geomatico à Moudon. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "geomatico-pemsa-moudon",
+        "en": "geomatico-pemsa-moudon",
+        "de": "geomatico-pemsa-moudon",
+        "fr": "geomatico-pemsa-moudon"
+      },
+      "id": "pemsa-bf4dcb21556a",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "firstSeenAt": "2026-07-06T22:23:04.536Z"
+    },
+    {
+      "title": "Installatore di impianti di riscaldamento",
+      "slug": "installatore-di-impianti-di-riscaldamento-pemsa-geneve",
+      "url": "https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-2682025/",
+      "applyUrl": "https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-2682025/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "canton": "GE",
+      "country": "CH",
+      "category": "impiantistica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-07-06",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-07-21",
+      "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego fisso? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Installatore di impianti di riscaldamento\n\n## Il tuo incarico:\n• Lavori di saldatura, aggraffatura, installazione di impianti di riscaldamento\n• Installazione di impianti di riscaldamento, caldaie, pompe di calore, tubazioni e monoblocco\n• Allacciamento di pompe di calore e sonde geotermiche\n• Saldatura TIG su acciaio e acciaio inossidabile in posizione\n• Posa di pavimenti riscaldati\n• Messa in funzione dell’impianto, esecuzione delle regolazioni necessarie (pressione, temperatura, tiraggio…)\n\n## E ora parliamo di te?\n• Diploma CFC di installatore di impianti di riscaldamento o formazione equivalente\n• Esperienza minima di 2 anni in Svizzera\n• Padronanza della posa di tubazioni in acciaio e acciaio inossidabile.\n• Capacità di leggere e interpretare i disegni di montaggio.\n• …\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Stéphane. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
+      "titleByLocale": {
+        "it": "Installatore di impianti di riscaldamento",
+        "en": "Installatore di impianti di riscaldamento",
+        "de": "Installatore di impianti di riscaldamento",
+        "fr": "Installatore di impianti di riscaldamento"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego fisso? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Installatore di impianti di riscaldamento\n\n## Il tuo incarico:\n• Lavori di saldatura, aggraffatura, installazione di impianti di riscaldamento\n• Installazione di impianti di riscaldamento, caldaie, pompe di calore, tubazioni e monoblocco\n• Allacciamento di pompe di calore e sonde geotermiche\n• Saldatura TIG su acciaio e acciaio inossidabile in posizione\n• Posa di pavimenti riscaldati\n• Messa in funzione dell’impianto, esecuzione delle regolazioni necessarie (pressione, temperatura, tiraggio…)\n\n## E ora parliamo di te?\n• Diploma CFC di installatore di impianti di riscaldamento o formazione equivalente\n• Esperienza minima di 2 anni in Svizzera\n• Padronanza della posa di tubazioni in acciaio e acciaio inossidabile.\n• Capacità di leggere e interpretare i disegni di montaggio.\n• …\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Stéphane. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Installatore di impianti di riscaldamento in Genève. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Installatore di impianti di riscaldamento in Genève. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Installatore di impianti di riscaldamento à Genève. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "installatore-di-impianti-di-riscaldamento-pemsa-geneve",
+        "en": "installatore-di-impianti-di-riscaldamento-pemsa-geneve",
+        "de": "installatore-di-impianti-di-riscaldamento-pemsa-geneve",
+        "fr": "installatore-di-impianti-di-riscaldamento-pemsa-geneve"
+      },
+      "id": "pemsa-7fdb1ede88a4",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1201",
+      "firstSeenAt": "2026-07-06T22:23:04.536Z"
+    },
     {
       "title": "Responsabile di squadra – Infrastrutture industriali / Linee elettriche ferroviarie",
       "slug": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
@@ -32,7 +209,7 @@
         "fr": "Responsable di squadra – Infrastrutture industriali / Linee elettriche ferroviarie"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Responsabile di squadra – Infrastrutture industriali / Linee elettriche ferroviarie\n\n## Il tuo ruolo:\nIn qualità di Responsabile di squadra nel settore delle infrastrutture industriali e dei sistemi di alimentazione elettrica su rotaia, coordini gli interventi sul campo partecipando attivamente alle installazioni in loco.\nGarantisci il coordinamento dei team, il corretto svolgimento dei cantieri, la qualità dei lavori eseguiti e il rispetto delle scadenze, delle norme tecniche e delle regole di sicurezza.\nLe tue principali responsabilità:\n\n## E ora parliamo di te?\nHai una comprovata esperienza nel settore delle installazioni industriali, dei sistemi elettromeccanici, dell’elettricità industriale o in un ambito tecnico simile.\nHai già guidato un team sul campo oppure possiedi una reale capacità di assumere un ruolo di leadership, organizzare il lavoro e affiancare i tecnici nei loro interventi quotidiani.\nRigoroso, autonomo e orientato alle soluzioni, sai gestire le priorità, rispettare i requisiti di sicurezza e garantire un lavoro accurato, affidabile e conforme alle aspettative del cliente.\nIl tuo profilo:\nSei una persona affidabile, strutturata e orientata al lavoro sul campo, in grado di gestire un team partecipando al contempo attivamente alle installazioni.\nDesideri entrare a far parte di un ambiente tecnico esigente, dinamico e concreto, dove il tuo senso di responsabilità farà la differenza.\n\n## Ti interessa?\nAmi e padroneggi il tuo mestiere e vuoi mettere le tue competenze al servizio di progetti che contano davvero?\nAllora questa offerta è fatta apposta per te.\nDa noi, il tuo know-how fa la differenza e contribuisce direttamente al successo dei cantieri.\n\n## \n• Cosa offriamo:\nIl tuo referente per questa posizione è Nunzio Munafò. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nRisponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
+        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Responsabile di squadra – Infrastrutture industriali / Linee elettriche ferroviarie ## Il tuo ruolo: In qualità di Responsabile di squadra nel settore delle infrastrutture industriali e dei sistemi di alimentazione elettrica su rotaia, coordini gli interventi sul campo partecipando attivamente alle installazioni in loco. Garantisci il coordinamento dei team, il corretto svolgimento dei cantieri, la qualità dei lavori eseguiti e il rispetto delle scadenze, delle norme tecniche e delle regole di sicurezza. Le tue principali responsabilità: ## E ora parliamo di te? Hai una comprovata esperienza nel settore delle installazioni industriali, dei sistemi elettromeccanici, dell’elettricità industriale o in un ambito tecnico simile. Hai già guidato un team sul campo oppure possiedi una reale capacità di assumere un ruolo di leadership, organizzare il lavoro e affiancare i tecnici nei loro interventi quotidiani. Rigoroso, autonomo e orientato alle soluzioni, sai gestire le priorità, rispettare i requisiti di sicurezza e garantire un lavoro accurato, affidabile e conforme alle aspettative del cliente. Il tuo profilo: Sei una persona affidabile, strutturata e orientata al lavoro sul campo, in grado di gestire un team partecipando al contempo attivamente alle installazioni. Desideri entrare a far parte di un ambiente tecnico esigente, dinamico e concreto, dove il tuo senso di responsabilità farà la differenza. ## Ti interessa? Ami e padroneggi il tuo mestiere e vuoi mettere le tue competenze al servizio di progetti che contano davvero? Allora questa offerta è fatta apposta per te. Da noi, il tuo know-how fa la differenza e contribuisce direttamente al successo dei cantieri. ##\n• Cosa offriamo: Il tuo referente per questa posizione è Nunzio Munafò. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Risponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
         "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Responsabile di squadra – Infrastrutture industriali / Linee elettriche ferroviarie in Lausanne. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
         "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Responsabile di squadra – Infrastrutture industriali / Linee elettriche ferroviarie in Lausanne. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Responsabile di squadra – Infrastrutture industriali / Linee elettriche ferroviarie à Lausanne. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
@@ -58,8 +235,8 @@
         }
       },
       "postalCode": "1003",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-06T14:41:48.240Z"
+      "firstSeenAt": "2026-07-06T14:41:48.240Z",
+      "needsRetranslation": true
     },
     {
       "title": "Addetto alla logistica // Magazziniere (M/F)",
@@ -91,7 +268,7 @@
         "fr": "Préposé alla Logistique // Magazziniere (M/F)"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Addetto alla logistica // Magazziniere (M/F)\n\n## Il tuo incarico:\n• Ricezione, controllo e stoccaggio delle merci\n• Preparazione degli ordini.\n• Gestione delle entrate e delle uscite di magazzino\n• Carico e scarico (movimentazione + carrello elevatore)\n• Partecipazione agli inventari e agli aggiornamenti del sistema logistico\n• Rigoroso rispetto delle norme di sicurezza e delle procedure interne\n\n## E ora parliamo di te?\n• Attestato federale di capacità (CFC) come addetto alla logistica / magazziniere o titolo equivalente\n• Da 3 a 4 anni di comprovata esperienza nel settore della logistica\n• Patente per carrelli elevatori SUVA obbligatoria\n• Francese obbligatorio, tedesco: un vantaggio\n• Dimestichezza con gli strumenti informatici\n• Persona affidabile, rigorosa e organizzata\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Ibrahim. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesto lavoro non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano?\nNon esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
+        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Addetto alla logistica // Magazziniere (M/F) ## Il tuo incarico:\n• Ricezione, controllo e stoccaggio delle merci\n• Preparazione degli ordini.\n• Gestione delle entrate e delle uscite di magazzino\n• Carico e scarico (movimentazione + carrello elevatore)\n• Partecipazione agli inventari e agli aggiornamenti del sistema logistico\n• Rigoroso rispetto delle norme di sicurezza e delle procedure interne ## E ora parliamo di te?\n• Attestato federale di capacità (CFC) come addetto alla logistica / magazziniere o titolo equivalente\n• Da 3 a 4 anni di comprovata esperienza nel settore della logistica\n• Patente per carrelli elevatori SUVA obbligatoria\n• Francese obbligatorio, tedesco: un vantaggio\n• Dimestichezza con gli strumenti informatici\n• Persona affidabile, rigorosa e organizzata ## Il tuo referente: Il tuo referente per questa posizione è Ibrahim. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questo lavoro non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
         "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Addetto alla logistica // Magazziniere (M/F) in Pratteln. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
         "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Addetto alla logistica // Magazziniere (M/F) in Pratteln. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Addetto alla logistica // Magazziniere (M/F) à Pratteln. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
@@ -116,7 +293,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T14:41:48.240Z"
     },
     {
@@ -149,7 +325,7 @@
         "fr": "Conducteur de rouleaux compacteur expert – conducteur de rouleaux compacteur"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Operatore esperto di rullo compattatore – conducente di rullo compattatore\n\n## Il tuo incarico:\n• Guidare un rullo compressore nei cantieri di pavimentazione bituminosa\n• Partecipare ai lavori di miscelazione e posa di pavimentazioni bituminose\n• Garantire la compattazione dell’asfalto secondo le istruzioni fornite\n• Lavorare in coordinamento con la squadra addetta alla posa dell’asfalto\n• Garantire la qualità della compattazione e il corretto risultato finale\n• Rispettare le norme di sicurezza in cantiere\n• Effettuare la manutenzione e controllare lo stato della macchina\n• Partecipare ai lavori a terra quando necessario\n\n## E ora parliamo di te?\n• Comprovata esperienza come operatore di rullo compressore / conducente di rullo\n• Ottima conoscenza dei lavori di pavimentazione bituminosa\n• Esperienza nel settore degli asfalti indispensabile\n• Persona autonoma, preciso, affidabile e meticoloso\n• Buona capacità di lavorare in squadra\n• Senso di responsabilità e rispetto delle norme di sicurezza\n• Patente per macchinisti / patente di guida, un vantaggio\n• Conoscenza del francese, un vantaggio\n• Disponibile immediatamente o da concordare\n• Posizione temporanea con possibilità di assunzione a tempo indeterminato\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Ti seguirà, ti darà consigli e risponderà a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
+        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Operatore esperto di rullo compattatore – conducente di rullo compattatore ## Il tuo incarico:\n• Guidare un rullo compressore nei cantieri di pavimentazione bituminosa\n• Partecipare ai lavori di miscelazione e posa di pavimentazioni bituminose\n• Garantire la compattazione dell’asfalto secondo le istruzioni fornite\n• Lavorare in coordinamento con la squadra addetta alla posa dell’asfalto\n• Garantire la qualità della compattazione e il corretto risultato finale\n• Rispettare le norme di sicurezza in cantiere\n• Effettuare la manutenzione e controllare lo stato della macchina\n• Partecipare ai lavori a terra quando necessario ## E ora parliamo di te?\n• Comprovata esperienza come operatore di rullo compressore / conducente di rullo\n• Ottima conoscenza dei lavori di pavimentazione bituminosa\n• Esperienza nel settore degli asfalti indispensabile\n• Persona autonoma, preciso, affidabile e meticoloso\n• Buona capacità di lavorare in squadra\n• Senso di responsabilità e rispetto delle norme di sicurezza\n• Patente per macchinisti / patente di guida, un vantaggio\n• Conoscenza del francese, un vantaggio\n• Disponibile immediatamente o da concordare\n• Posizione temporanea con possibilità di assunzione a tempo indeterminato ## Il tuo referente: Il tuo referente per questa posizione è Laetitia. Ti seguirà, ti darà consigli e risponderà a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
         "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Operatore esperto di rullo compattatore – conducente di rullo compattatore in Fribourg. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
         "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Operatore esperto di rullo compattatore – conducente di rullo compattatore in Fribourg. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Operatore esperto di rullo compattatore – conducente di rullo compattatore à Fribourg. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
@@ -161,7 +337,6 @@
         "fr": "conducteur-de-rouleaux-compacteur-expert-conducteur-de-rouleaux-compacteur-pemsa-fribourg"
       },
       "id": "pemsa-918a7ee9351e",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -208,7 +383,7 @@
         "fr": "Mur AFC"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Muratore AFC\n\n## Il tuo incarico:\n• Lettura dei progetti e preparazione del cantiere\n• Lavori di muratura tradizionale (mattoni, calcestruzzo, casseri)\n• Realizzazione di muri, solai e strutture\n• Lavori di ristrutturazione e trasformazione\n• Rispetto delle norme di sicurezza e di qualità\n\n## E ora parliamo di te?\n• In possesso di un CFC come muratore\n• Comprovata esperienza nel settore (un vantaggio)\n• Buona forma fisica\n• Spirito di squadra e autonomia\n• Patente di guida\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Ti seguirà, ti darà consigli e risponderà a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
+        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Muratore AFC ## Il tuo incarico:\n• Lettura dei progetti e preparazione del cantiere\n• Lavori di muratura tradizionale (mattoni, calcestruzzo, casseri)\n• Realizzazione di muri, solai e strutture\n• Lavori di ristrutturazione e trasformazione\n• Rispetto delle norme di sicurezza e di qualità ## E ora parliamo di te?\n• In possesso di un CFC come muratore\n• Comprovata esperienza nel settore (un vantaggio)\n• Buona forma fisica\n• Spirito di squadra e autonomia\n• Patente di guida ## Il tuo referente: Il tuo referente per questa posizione è Laetitia. Ti seguirà, ti darà consigli e risponderà a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
         "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Muratore AFC in Fribourg. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
         "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Muratore AFC in Fribourg. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Muratore AFC à Fribourg. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
@@ -220,7 +395,6 @@
         "fr": "mur-afc-pemsa-fribourg"
       },
       "id": "pemsa-eee313cba222",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -267,7 +441,7 @@
         "fr": "AFC-entraîneur automatique"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Montatore-automaticista AFC\n\n## Il tuo incarico:\n• Realizzazione del montaggio e del cablaggio dei quadri elettrici (potenza e comando) in conformità con gli schemi tecnici.\n• Assemblaggio e collegamento di componenti elettrici quali interruttori automatici, relè, controllori logici programmabili (PLC) e morsettiere.\n• Lettura e comprensione di schemi elettrici e documentazione tecnica.\n• Controllo di qualità dei lavori eseguiti e verifica del corretto funzionamento delle apparecchiature.\n• Partecipazione alla messa in servizio e alle regolazioni degli impianti.\n• Identificazione e correzione di anomalie nel cablaggio o nel funzionamento.\n• Applicazione delle norme vigenti e rigoroso rispetto delle istruzioni di sicurezza.\n\n## E ora parliamo un po’ di te?\n• Diploma professionale (CFC) in automazione\n• Esperienza nel cablaggio e nel montaggio di quadri elettrici .\n• Buona capacità di lettura degli schemi elettrici.\n• Persona meticolosa, autonoma e organizzata.\n• Spirito di squadra e senso di responsabilità.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
+        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Montatore-automaticista AFC ## Il tuo incarico:\n• Realizzazione del montaggio e del cablaggio dei quadri elettrici (potenza e comando) in conformità con gli schemi tecnici.\n• Assemblaggio e collegamento di componenti elettrici quali interruttori automatici, relè, controllori logici programmabili (PLC) e morsettiere.\n• Lettura e comprensione di schemi elettrici e documentazione tecnica.\n• Controllo di qualità dei lavori eseguiti e verifica del corretto funzionamento delle apparecchiature.\n• Partecipazione alla messa in servizio e alle regolazioni degli impianti.\n• Identificazione e correzione di anomalie nel cablaggio o nel funzionamento.\n• Applicazione delle norme vigenti e rigoroso rispetto delle istruzioni di sicurezza. ## E ora parliamo un po’ di te?\n• Diploma professionale (CFC) in automazione\n• Esperienza nel cablaggio e nel montaggio di quadri elettrici .\n• Buona capacità di lettura degli schemi elettrici.\n• Persona meticolosa, autonoma e organizzata.\n• Spirito di squadra e senso di responsabilità. ## Il tuo referente: Il tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
         "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Montatore-automaticista AFC in Fribourg. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
         "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Montatore-automaticista AFC in Fribourg. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Montatore-automaticista AFC à Fribourg. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
@@ -279,7 +453,6 @@
         "fr": "afc-entraineur-automatique-pemsa-fribourg"
       },
       "id": "pemsa-7e5f5cf7f47f",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -326,7 +499,7 @@
         "fr": "Électricien expert"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Elettricista esperto\n\n## Il tuo incarico:\n• Analizzare e comprendere gli schemi elettrici, i disegni tecnici e la documentazione correlata.\n• Eseguire l’installazione, il cablaggio e la messa in servizio di apparecchiature elettriche (quadri elettrici, prese, impianti di illuminazione, impianti industriali, ecc.).\n• Individuare i guasti, effettuare le diagnosi e garantire gli interventi di riparazione e la manutenzione degli impianti esistenti.\n• Applicare rigorosamente le norme elettriche svizzere (SEV/NIBT) e le direttive di sicurezza in vigore.\n• Verificare la conformità e garantire la qualità degli impianti realizzati.\n• Provvedere alla manutenzione, al corretto utilizzo e alla gestione del materiale e degli strumenti messi a disposizione.\n\n## E ora parliamo di te?\n• Formazione come elettricista con diploma riconosciuto in Svizzera o equivalente.\n• Esperienza comprovata nel settore elettrico (minimo 3-5 anni) in Svizzera.\n• Padronanza nella lettura di progetti e schemi elettrici.\n• Autonomia, rigore e senso di responsabilità.\n• Patente di guida valida per gli spostamenti tra i diversi cantieri.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
+        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Elettricista esperto ## Il tuo incarico:\n• Analizzare e comprendere gli schemi elettrici, i disegni tecnici e la documentazione correlata.\n• Eseguire l’installazione, il cablaggio e la messa in servizio di apparecchiature elettriche (quadri elettrici, prese, impianti di illuminazione, impianti industriali, ecc.).\n• Individuare i guasti, effettuare le diagnosi e garantire gli interventi di riparazione e la manutenzione degli impianti esistenti.\n• Applicare rigorosamente le norme elettriche svizzere (SEV/NIBT) e le direttive di sicurezza in vigore.\n• Verificare la conformità e garantire la qualità degli impianti realizzati.\n• Provvedere alla manutenzione, al corretto utilizzo e alla gestione del materiale e degli strumenti messi a disposizione. ## E ora parliamo di te?\n• Formazione come elettricista con diploma riconosciuto in Svizzera o equivalente.\n• Esperienza comprovata nel settore elettrico (minimo 3-5 anni) in Svizzera.\n• Padronanza nella lettura di progetti e schemi elettrici.\n• Autonomia, rigore e senso di responsabilità.\n• Patente di guida valida per gli spostamenti tra i diversi cantieri. ## Il tuo referente: Il tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
         "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Elettricista esperto in Bulle. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
         "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Elettricista esperto in Bulle. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Elettricista esperto à Bulle. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
@@ -338,7 +511,6 @@
         "fr": "electricien-expert-pemsa-bulle"
       },
       "id": "pemsa-7887d4d1e704",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -385,7 +557,7 @@
         "fr": "AFC Installateur électrique"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Installatore elettricista AFC\n\n## La tua missione:\n• Realizzare impianti elettrici in edifici residenziali, commerciali e industriali\n• Leggere e interpretare progetti e schemi elettrici\n• Installare e collegare le apparecchiature (quadri elettrici, prese, apparecchi di illuminazione, ecc.)\n• Eseguire lavori di manutenzione e riparazione\n• Garantire la conformità degli impianti alle norme vigenti\n• Rispettare le norme di sicurezza nei cantieri\n\n## E ora parliamo di te?\n• Un CFC come installatore elettricista .\n• Un’esperienza professionale di almeno 3 anni .\n• Padronanza degli strumenti e delle tecnologie relative al settore elettrico.\n• Patente di guida.\n• Autonomo, ma apprezza anche il lavoro di squadra.\n• Rigoroso e preciso nel tuo lavoro.\n• Versatile e capace di adattarti a diverse situazioni.\n• Attento al rispetto delle norme di sicurezza e di qualità.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
+        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Installatore elettricista AFC ## La tua missione:\n• Realizzare impianti elettrici in edifici residenziali, commerciali e industriali\n• Leggere e interpretare progetti e schemi elettrici\n• Installare e collegare le apparecchiature (quadri elettrici, prese, apparecchi di illuminazione, ecc.)\n• Eseguire lavori di manutenzione e riparazione\n• Garantire la conformità degli impianti alle norme vigenti\n• Rispettare le norme di sicurezza nei cantieri ## E ora parliamo di te?\n• Un CFC come installatore elettricista .\n• Un’esperienza professionale di almeno 3 anni .\n• Padronanza degli strumenti e delle tecnologie relative al settore elettrico.\n• Patente di guida.\n• Autonomo, ma apprezza anche il lavoro di squadra.\n• Rigoroso e preciso nel tuo lavoro.\n• Versatile e capace di adattarti a diverse situazioni.\n• Attento al rispetto delle norme di sicurezza e di qualità. ## Il tuo referente: Il tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
         "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Installatore elettricista AFC in Fribourg. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
         "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Installatore elettricista AFC in Fribourg. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Installatore elettricista AFC à Fribourg. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
@@ -397,7 +569,6 @@
         "fr": "afc-installateur-electrique-pemsa-fribourg"
       },
       "id": "pemsa-0255cf3731cd",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -444,7 +615,7 @@
         "fr": "Mur A et B"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, entra a far parte del nostro team per la posizione di Muratore A e B\n\n## Il tuo incarico:\n• Eseguire lavori di muratura tradizionale e di struttura grezza.\n• Realizzare muri in mattoni, blocchi e pietre.\n• Gettare il calcestruzzo, realizzare casseforme e armature.\n• Partecipare ai lavori di ristrutturazione, trasformazione e nuova costruzione.\n• Leggere e interpretare i disegni esecutivi.\n• Garantire la qualità dei lavori eseguiti e il rispetto delle norme di sicurezza.\n• Collaborare efficacemente con le altre figure professionali in cantiere.\n\n## E ora parliamo di te?\n• In possesso di un CFC come muratore o con comprovata esperienza pluriennale in Svizzera nel settore della muratura.\n• Buona padronanza delle tecniche di casseratura, armatura e getto di calcestruzzo.\n• Capacità di lavorare in modo autonomo e in squadra.\n• Buona forma fisica e senso di responsabilità.\n• Patente di guida.\n• Conoscenza delle norme di sicurezza nei cantieri.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
+        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, entra a far parte del nostro team per la posizione di Muratore A e B ## Il tuo incarico:\n• Eseguire lavori di muratura tradizionale e di struttura grezza.\n• Realizzare muri in mattoni, blocchi e pietre.\n• Gettare il calcestruzzo, realizzare casseforme e armature.\n• Partecipare ai lavori di ristrutturazione, trasformazione e nuova costruzione.\n• Leggere e interpretare i disegni esecutivi.\n• Garantire la qualità dei lavori eseguiti e il rispetto delle norme di sicurezza.\n• Collaborare efficacemente con le altre figure professionali in cantiere. ## E ora parliamo di te?\n• In possesso di un CFC come muratore o con comprovata esperienza pluriennale in Svizzera nel settore della muratura.\n• Buona padronanza delle tecniche di casseratura, armatura e getto di calcestruzzo.\n• Capacità di lavorare in modo autonomo e in squadra.\n• Buona forma fisica e senso di responsabilità.\n• Patente di guida.\n• Conoscenza delle norme di sicurezza nei cantieri. ## Il tuo referente: Il tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
         "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Muratore A e B in Fribourg. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
         "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Muratore A e B in Fribourg. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Muratore A e B à Fribourg. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
@@ -456,7 +627,6 @@
         "fr": "mur-a-et-b-pemsa-fribourg"
       },
       "id": "pemsa-c0a6e6b45487",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -503,7 +673,7 @@
         "fr": "Installations de santé hydraulique"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Idraulico impianti Sanitari\n\n## Missione :\n• Installazione impianti sanitari in autonomia\n• Installazione accessori bagno\n• posa tubature in soletta\n\n## Profilo :\n• Comprovata esperienza sui cantieri svizzeri di almeno 5 anni\n• Residenza massimo 25 km dal luogo d’incarico\n• Automunito",
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Idraulico impianti Sanitari ## Missione :\n• Installazione impianti sanitari in autonomia\n• Installazione accessori bagno\n• posa tubature in soletta ## Profilo :\n• Comprovata esperienza sui cantieri svizzeri di almeno 5 anni\n• Residenza massimo 25 km dal luogo d’incarico\n• Automunito",
         "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Idraulico impianti Sanitari in Melide. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
         "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Idraulico impianti Sanitari in Melide. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Idraulico impianti Sanitari à Melide. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
@@ -515,7 +685,6 @@
         "fr": "installations-de-sante-hydraulique-pemsa-melide"
       },
       "id": "pemsa-da613eb892d3",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -562,7 +731,7 @@
         "fr": "hydraulique"
       },
       "descriptionByLocale": {
-        "it": "Pemsa è la società leader in Svizzera nel settore del placement specializzato nei cantieri di costruzione, nell’ingegneria civile, nell’elettricità, nella tecnica degli edifici e nell’industria. Con una rete consolidata e una profonda conoscenza del mercato svizzero, Pemsa si distingue per l’approccio professionale e su misura, valorizzando le competenze degli specialisti e creando sinergie di successo fra candidati e committenti. La nostra missione è offrire soluzioni di reclutamento precise e affidabili, basate su una forte expertise tecnica e un’eccellente comprensione delle esigenze del settore, promuovendo continuità e sviluppo professionale. Affidarsi a Pemsa significa collaborare con un partner che valorizza la qualità, l’innovazione e il benessere delle persone impiegate.\n\n## Missione:\n• Installazione professionale di impianti sanitari secondo gli standard Svizzeri, garantendo sistemi idraulici efficienti e conformi alle normative locali.\n• Montaggio e posa di impianti di riscaldamento, includendo sistemi a radiatori, riscaldamento a pavimento e caldaie, con attenzione all’ottimizzazione termica e al risparmio energetico.\n\n## Profilo:\n• Esperienza minima di 5 anni in Svizzera nel settore della posa di impianti sanitari e di riscaldamento, con comprovata capacità tecnica e autonomia operativa (Indispensabile).\n• Residenza entro 20 km dal luogo di lavoro per garantire puntualità e flessibilità nelle attività, in linea con le esigenze logistiche del mercato svizzero (Indispensabile).\n• Padronanza della lingua italiana a livello madrelingua , indispensabile per una comunicazione efficace con il team e i clienti nel contesto regionale svizzero (Indispensabile).\n• Possesso di patente di guida auto valida in Svizzera , permettendo mobilità autonoma e trasferimento rapido tra i cantieri (Indispensabile).\n• Profonda conoscenza delle normative tecniche Svizzere e delle norme di sicurezza sul lavoro previste dal sistema di salute e sicurezza elvetico (Utile).\n• Capacità di leggere e interpretare disegni tecnici e schemi di impianti idraulici e termici (Utile).\n• Esperienza nell’uso di strumenti moderni per l’installazione e la messa in servizio degli impianti (Utile).\n• Attitudine al lavoro di squadra e orientamento al cliente per valorizzare la qualità e il servizio offerto (Bonus).\n\n## Ton interlocuteur/trice :\nIl nostro team di recruitment Pemsa è composto da consulenti esperti con una profonda conoscenza tecnica e una lunga esperienza nel settore edilizio e industriale in Svizzera. Ti accompagneremo personalmente durante tutto il processo di selezione, garantendo trasparenza, professionalità e supporto dedicato per valorizzare al meglio il tuo profilo. La nostra rete consolidata ci permette di proporti posizioni in aziende leader che offrono condizioni lavorative ottimali e opportunità di crescita continua.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
+        "it": "Pemsa è la società leader in Svizzera nel settore del placement specializzato nei cantieri di costruzione, nell’ingegneria civile, nell’elettricità, nella tecnica degli edifici e nell’industria. Con una rete consolidata e una profonda conoscenza del mercato svizzero, Pemsa si distingue per l’approccio professionale e su misura, valorizzando le competenze degli specialisti e creando sinergie di successo fra candidati e committenti. La nostra missione è offrire soluzioni di reclutamento precise e affidabili, basate su una forte expertise tecnica e un’eccellente comprensione delle esigenze del settore, promuovendo continuità e sviluppo professionale. Affidarsi a Pemsa significa collaborare con un partner che valorizza la qualità, l’innovazione e il benessere delle persone impiegate. ## Missione:\n• Installazione professionale di impianti sanitari secondo gli standard Svizzeri, garantendo sistemi idraulici efficienti e conformi alle normative locali.\n• Montaggio e posa di impianti di riscaldamento, includendo sistemi a radiatori, riscaldamento a pavimento e caldaie, con attenzione all’ottimizzazione termica e al risparmio energetico. ## Profilo:\n• Esperienza minima di 5 anni in Svizzera nel settore della posa di impianti sanitari e di riscaldamento, con comprovata capacità tecnica e autonomia operativa (Indispensabile).\n• Residenza entro 20 km dal luogo di lavoro per garantire puntualità e flessibilità nelle attività, in linea con le esigenze logistiche del mercato svizzero (Indispensabile).\n• Padronanza della lingua italiana a livello madrelingua , indispensabile per una comunicazione efficace con il team e i clienti nel contesto regionale svizzero (Indispensabile).\n• Possesso di patente di guida auto valida in Svizzera , permettendo mobilità autonoma e trasferimento rapido tra i cantieri (Indispensabile).\n• Profonda conoscenza delle normative tecniche Svizzere e delle norme di sicurezza sul lavoro previste dal sistema di salute e sicurezza elvetico (Utile).\n• Capacità di leggere e interpretare disegni tecnici e schemi di impianti idraulici e termici (Utile).\n• Esperienza nell’uso di strumenti moderni per l’installazione e la messa in servizio degli impianti (Utile).\n• Attitudine al lavoro di squadra e orientamento al cliente per valorizzare la qualità e il servizio offerto (Bonus). ## Ton interlocuteur/trice : Il nostro team di recruitment Pemsa è composto da consulenti esperti con una profonda conoscenza tecnica e una lunga esperienza nel settore edilizio e industriale in Svizzera. Ti accompagneremo personalmente durante tutto il processo di selezione, garantendo trasparenza, professionalità e supporto dedicato per valorizzare al meglio il tuo profilo. La nostra rete consolidata ci permette di proporti posizioni in aziende leader che offrono condizioni lavorative ottimali e opportunità di crescita continua. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
         "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Idraulico in Sigirino. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
         "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Idraulico in Sigirino. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Idraulico à Sigirino. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
@@ -574,7 +743,6 @@
         "fr": "hydraulique-pemsa-sigirino"
       },
       "id": "pemsa-83eb01c945e2",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -621,7 +789,7 @@
         "fr": "AFC Installateur électrique"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, entra a far parte del nostro team per la posizione di Installatore elettricista AFC\n\n## Il tuo incarico:\n• Eseguire i collegamenti elettrici in cantieri di nuova costruzione e di ristrutturazione;\n• Effettuare modifiche e adeguamenti ai quadri elettrici;\n• Intervenire sugli impianti relativi alle pompe di calore (PAC);\n• Realizzare gli impianti CA dei sistemi fotovoltaici;\n• Partecipare alla messa in servizio degli impianti;\n• Fornire supporto puntuale sulla parte in corrente continua (DC) degli impianti fotovoltaici;\n• Lavorare in modo autonomo, collaborando al contempo efficacemente con le squadre sul campo.\n\n## E ora parliamo di te?\n• In possesso di un AFC (Attestato federale di capacità) come installatore elettricista o di una formazione ritenuta equivalente\n• Patente di guida indispensabile\n• Comprovata esperienza in collegamenti elettrici, quadri elettrici, nelle pompe di calore e negli impianti fotovoltaici in Svizzera\n• Persona autonoma, organizzata e attenta alla qualità del lavoro svolto\n• Buon spirito di squadra, senso di responsabilità e atteggiamento proattivo\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Ti seguirà, ti darà consigli e risponderà a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
+        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, entra a far parte del nostro team per la posizione di Installatore elettricista AFC ## Il tuo incarico:\n• Eseguire i collegamenti elettrici in cantieri di nuova costruzione e di ristrutturazione;\n• Effettuare modifiche e adeguamenti ai quadri elettrici;\n• Intervenire sugli impianti relativi alle pompe di calore (PAC);\n• Realizzare gli impianti CA dei sistemi fotovoltaici;\n• Partecipare alla messa in servizio degli impianti;\n• Fornire supporto puntuale sulla parte in corrente continua (DC) degli impianti fotovoltaici;\n• Lavorare in modo autonomo, collaborando al contempo efficacemente con le squadre sul campo. ## E ora parliamo di te?\n• In possesso di un AFC (Attestato federale di capacità) come installatore elettricista o di una formazione ritenuta equivalente\n• Patente di guida indispensabile\n• Comprovata esperienza in collegamenti elettrici, quadri elettrici, nelle pompe di calore e negli impianti fotovoltaici in Svizzera\n• Persona autonoma, organizzata e attenta alla qualità del lavoro svolto\n• Buon spirito di squadra, senso di responsabilità e atteggiamento proattivo ## Il tuo referente: Il tuo referente per questa posizione è Laetitia. Ti seguirà, ti darà consigli e risponderà a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
         "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Installatore elettricista AFC in Vuarrens. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
         "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Installatore elettricista AFC in Vuarrens. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Installatore elettricista AFC à Vuarrens. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
@@ -633,7 +801,6 @@
         "fr": "afc-installateur-electrique-pemsa-vuarrens"
       },
       "id": "pemsa-99c393bc9ea2",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1131,7 +1298,7 @@
         "it": "Caposquadra edile",
         "en": "Head of construction",
         "de": "Bauleiter",
-        "fr": "Chef de la construction"
+        "fr": "Caposquadra edile"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Caposquadra edile ## Il tuo incarico:\n• Dirigere e coordinare una squadra in diversi cantieri edili\n• Organizzare i lavori in base alle priorità, le scadenze e le istruzioni fornite\n• Partecipare attivamente ai lavori sul campo\n• Leggere e interpretare i progetti\n• Assegnare i compiti all’interno del team\n• Garantire la corretta esecuzione dei lavori e il monitoraggio dello stato di avanzamento\n• Controllare la qualità del lavoro svolto\n• Garantire il rispetto delle norme di sicurezza in cantiere\n• Fare da tramite con il capocantiere o il responsabile dei lavori ## E ora parliamo di te?\n• Esperienza consolidata nel settore edile\n• Esperienza nella gestione e nella supervisione di un team\n• Buone conoscenze in materia di muratura, casseri, getto di calcestruzzo e lavori edili\n• Persona autonoma, organizzata, responsabile e affidabile\n• Capacità di motivare, affiancare e guidare un team\n• Buona capacità di lettura dei progetti\n• Patente di guida, un vantaggio\n• Francese parlato, altre lingue un vantaggio\n• Disponibile da subito o da concordare ## Il tuo referente: Il tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questo lavoro non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -1247,7 +1414,7 @@
       "titleByLocale": {
         "it": "Installatore di tende e tapparelle CFC / AFP (m/f/d)",
         "en": "Installation of EFZ / EBA blinds (m/f/d)",
-        "de": "Installation von EFZ / EBA-Jalousien (m/w/d)",
+        "de": "Installatore di tende e tapparelle EFZ / EBA (m/f/d)",
         "fr": "Installation des stores EFZ/EBA (m/f/d)"
       },
       "descriptionByLocale": {
@@ -1372,7 +1539,7 @@
       "titleByLocale": {
         "it": "Idraulico AFC / AEP (m/f/d)",
         "en": "Hydraulic AFC / AEP (m/f/d)",
-        "de": "Hydraulische AFC/AEP (m/w/d)",
+        "de": "Idraulico AFC / AEP (m/f/d)",
         "fr": "AFC/AEP hydraulique (m/f/d)"
       },
       "descriptionByLocale": {
@@ -1613,7 +1780,7 @@
       "titleByLocale": {
         "it": "Carpentiere AFC / AEP (m/f/d)",
         "en": "AFC / AEP carpenter (m/f/d)",
-        "de": "AFC/AEP Schreiner (m/w/d)",
+        "de": "Carpentiere AFC / AEP (m/f/d)",
         "fr": "Charpentier AFC/AEP (m/f/d)"
       },
       "descriptionByLocale": {
@@ -1804,7 +1971,7 @@
       "titleByLocale": {
         "it": "Stuccatore CFC / AFP (m/f/d)",
         "en": "EFZ / EBA (m/f/d)",
-        "de": "EFZ / EBA (m/w/d)",
+        "de": "Stuccatore EFZ / EBA (m/f/d)",
         "fr": "EFZ / EBA (m/f/d)"
       },
       "descriptionByLocale": {
@@ -1814,7 +1981,7 @@
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Stuccatore EFZ / EBA (m/f/d) à Basel. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
       },
       "slugByLocale": {
-        "it": "stuccatore-efz-eba-m-f-d-pemsa-basel",
+        "it": "stuccatore-cfc-afp-m-f-d-pemsa-basel",
         "en": "stuccatore-efz-eba-m-f-d-pemsa-basel",
         "de": "stuccatore-efz-eba-m-f-d-pemsa-basel",
         "fr": "stuccatore-efz-eba-m-f-d-pemsa-basel"
@@ -1835,7 +2002,15 @@
       },
       "postalCode": "4001",
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "previousSlugsByLocale": {
+        "it": [
+          "stuccatore-efz-eba-m-f-d-pemsa-basel"
+        ]
+      },
+      "previousSlugs": [
+        "stuccatore-efz-eba-m-f-d-pemsa-basel"
+      ]
     },
     {
       "title": "Installatore elettrico AFC / AEC (m/f/d)",
@@ -1980,7 +2155,7 @@
       "titleByLocale": {
         "it": "Posatore di parquet CFC / AFP (m/f/d)",
         "en": "EFZ / EBA parquet dispenser (m/f/d)",
-        "de": "EFZ / EBA Parkettspender (m/w/d)",
+        "de": "Posatore di parquet EFZ / EBA (m/f/d)",
         "fr": "Distributeur de parquet EFZ / EBA (m/f/d)"
       },
       "descriptionByLocale": {
@@ -3863,7 +4038,7 @@
         "it": "Riparazioni, lavori di elettricità fai-da-te",
         "en": "Repairs, DIY Electrical Work",
         "de": "Reparaturen, DIY Elektroarbeiten",
-        "fr": "Réparations, travaux électriques de bricolage"
+        "fr": "Riparazioni, lavori di elettricità fai-da-te"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Riparazioni, lavori di elettricità fai-da-te ## Il tuo incarico: Realizzare gli impianti elettrici Ti occuperai della posa dei cavi, dei collegamenti e dell’installazione delle apparecchiature elettriche nel rispetto delle norme svizzere (NIBT). Garantirai la qualità, l’affidabilità e la sicurezza degli impianti realizzati. Intervenire per riparazioni e manutenzione Diagnosticherai guasti e malfunzionamenti, quindi metterai in atto le soluzioni adeguate per ripristinare rapidamente il corretto funzionamento degli impianti, garantendo al contempo la sicurezza degli utenti. Partecipare ai lavori su impianti nuovi ed esistenti Interviene sia su progetti di costruzione che su impianti già in funzione, applicando rigorosamente le procedure e le norme di sicurezza in vigore. Effettuare i controlli e le messe in servizio Eseguite le prove, le verifiche e i controlli necessari per garantire la conformità, le prestazioni e la messa in servizio degli impianti elettrici. Garantire il monitoraggio degli interventi Compili con precisione la documentazione tecnica e i rapporti di intervento, garantendo così una tracciabilità affidabile e un monitoraggio di qualità delle operazioni eseguite. Il tuo contributo Grazie alla tua competenza tecnica, al tuo rigore e al tuo senso di responsabilità, contribuisci alle prestazioni, alla sicurezza e alla durata nel tempo degli impianti elettrici dei nostri clienti. ## E ora parliamo di te? Una formazione tecnica riconosciuta Sei in possesso di un Attestato Federale di Qualifica (CFC) come installatore elettricista o elettricista di montaggio. Questa formazione ti ha permesso di acquisire solide competenze nell’installazione, nella manutenzione e nella riparazione di impianti elettrici. Esperienza nel mercato svizzero Hai maturato almeno 2 anni di esperienza in una posizione simile in Svizzera. Conosci le norme vigenti, i requisiti del settore e le buone pratiche che garantiscono la qualità e la sicurezza degli interventi. Mobilità essenziale In possesso della patente di guida di categoria B, siete autonomi negli spostamenti e apprezzate la varietà degli ambienti di lavoro, che si tratti di cantieri o di siti operativi. Solide competenze tecniche Padroneggi i lavori di posa, collegamento e collegamento di cavi, nonché l’installazione di apparecchiature elettriche. Interviene con rigore nel rispetto delle norme e delle regole di sicurezza. Un vero e proprio know-how nella risoluzione dei guasti A tuo agio nella diagnosi e nella risoluzione dei guasti, sai analizzare le situazioni, identificare le cause dei malfunzionamenti e mettere in atto soluzioni efficaci, affidabili e durature. Rigore, autonomia e spirito di squadra Organizzato e coscienzioso, sai gestire le tue priorità e lavorare in modo autonomo, collaborando al contempo efficacemente con i tuoi colleghi. La tua professionalità, il tuo senso di responsabilità e il tuo impegno sono punti di forza riconosciuti per il successo dei progetti. Ciò che farà la differenza La vostra competenza tecnica, la vostra capacità di adattamento e il vostro orientamento al servizio vi consentono di apportare un reale valore aggiunto sul campo e di contribuire attivamente alla soddisfazione dei clienti e al successo dei team. ## Il tuo referente: Il tuo referente per questa posizione è Maud. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -3892,7 +4067,8 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-07-01T23:00:09.441Z"
+      "firstSeenAt": "2026-07-01T23:00:09.441Z",
+      "needsRetranslation": true
     },
     {
       "title": "Caposquadra montatore di ponteggi",
@@ -5325,7 +5501,7 @@
         "it": "Progettista di impianti antincendio a sprinkler (M/F/D)",
         "en": "Fire Sprinkler System Designer (M/F/D)",
         "de": "Brandschutz-Sprinkleranlagenplaner (M/W/D)",
-        "fr": "Conception d'une usine d'arrosage d'incendie (M/F/D)"
+        "fr": "Progettista di impianti antincendio a sprinkler (M/F/D)"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Progettista di impianti antincendio a sprinkler (M/F/D) Il tuo incarico:\n• Effettuare rilievi degli impianti esistenti in loco\n• Elaborare progetti esecutivi per impianti antincendio a sprinkler (layout, isometrici, dettagli tecnici)\n• Partecipare alla progettazione degli impianti in conformità alle norme vigenti\n• Effettuare il dimensionamento e i calcoli idraulici\n• Garantire l’aggiornamento dei progetti durante la fase esecutiva e al termine dei lavori\n• Collaborare con i team di progetto per garantire la fattibilità tecnica\n• Rispettare i requisiti di qualità, sicurezza e tempistiche E ora parliamo un po’ di te?\n• Formazione tecnica in disegno, AFC come disegnatore tecnico, progettista o titolo equivalente\n• Esperienza di almeno 3 anni nel settore degli sprinkler / della protezione antincendio (indispensabile)\n• Buona padronanza di AutoCAD; Revit/BIM costituisce un vantaggio)\n• Conoscenze di calcolo idraulico degli impianti sprinkler\n• Capacità di effettuare rilievi in loco in modo autonomo\n• Mentalità rigorosa, metodica e orientata alle soluzioni\n• Buone capacità relazionali e spirito di squadra Il tuo referente: Il tuo referente per questa posizione è Matthieu. Con oltre 15 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -5681,7 +5857,7 @@
       "titleByLocale": {
         "it": "Giardiniere",
         "en": "Gardener",
-        "de": "Gärten",
+        "de": "Giardiniere",
         "fr": "Jardinier"
       },
       "descriptionByLocale": {
@@ -7010,7 +7186,8 @@
       "firstSeenAt": "2026-06-29T23:14:34.632Z",
       "previousSlugs": [
         "prepose-alla-bonifica-dell-amianto-hse-m-f-pemsa-plan-les-ouates"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Muratore esperto in ingegneria civile",
@@ -7629,7 +7806,7 @@
         "it": "Subacqueo esperto",
         "en": "Diver expert",
         "de": "Taucherexperte",
-        "fr": "Expert plongeur"
+        "fr": "Subacqueo esperto"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, entra a far parte del nostro team per la posizione di Subacqueo esperto ## Il tuo incarico: In qualità di sommozzatore professionista, opererai in cantieri tecnici in ambiente subacqueo per eseguire lavori di ingegneria civile, manutenzione, ispezione e riparazione. Opererai nel rigoroso rispetto delle procedure operative, delle norme di sicurezza e dei requisiti di qualità specifici degli interventi iperbarici. ## E ora parliamo di te?\n• Sei in possesso del Certificato di Idoneità all’Iperbaria (CAH) – Menzione A, Classe II , indispensabile per svolgere questa funzione.\n• Sei in possesso di un certificato di idoneità medica all’iperbaria in corso di validità, conformemente alla normativa vigente.\n• Idealmente, hai maturato una prima esperienza in lavori subacquei, in interventi iperbarici o in cantieri di ingegneria civile in ambiente sommerso.\n• Padroneggi le tecniche di saldatura e taglio subacqueo, nonché l’utilizzo di attrezzature idrauliche, pneumatiche e di materiale specifico per gli interventi subacquei.\n• Rigoroso, metodico e organizzato, applichi con rigore le procedure operative e le norme di sicurezza specifiche dei lavori iperbarici.\n• Siete in grado di operare in ambienti tecnici impegnativi, talvolta ristretti o complessi, mantenendo il sangue freddo e la capacità di analisi.\n• Autonomo ma capace di lavorare in squadra, dimostra un forte senso di responsabilità e un reale impegno nel successo degli interventi.\n• Disponibile in tempi rapidi e mobile in tutta l’area del Lago Lemano, in particolare nelle regioni di Losanna e Ginevra, sei pronto a intervenire in base alle esigenze dei diversi cantieri. ## Ti interessa? Ami e padroneggi il tuo mestiere e vuoi mettere le tue competenze al servizio di progetti che contano davvero? Allora questa offerta è fatta apposta per te. Da noi, la tua competenza fa la differenza e contribuisce direttamente al successo dei cantieri. ## Cosa offriamo: Il tuo referente per questa posizione è Valentin COLIN. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Risponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
@@ -7746,7 +7923,7 @@
         "it": "Caposquadra - Muratura (M/F)",
         "en": "Caposquadra - Muratura (M/F)",
         "de": "Caposquadra – Muratura (m/w)",
-        "fr": "Siège – Mur (M/F)"
+        "fr": "Caposquadra – Muratura (M/F)"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Caposquadra – Muratura (M/F) ## Il tuo incarico:\n• Coordinare una squadra di muratori e garantire una corretta organizzazione\n• Pianificare i lavori e assicurarne il rispetto delle scadenze\n• Supervisionare i lavori di muratura\n• Gestire i materiali e le attrezzature per la corretta esecuzione dei lavori\n• Garantire la sicurezza e la qualità secondo le norme SUVA ## E ora parliamo un po’ di te?\n• Diploma professionale di muratore (CFC) con qualifica riconosciuta in Svizzera\n• Solida esperienza come caposquadra\n• Competenze riconosciute nella gestione del personale\n• Rigore e senso di responsabilità\n• Patente di guida\n• Ottima padronanza del francese scritto e parlato ## Il tuo referente: Il tuo referente per questa posizione è Remy. Sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -8442,7 +8619,7 @@
         "it": "IDRAULICO impianti riscaldamento",
         "en": "HYDRAULIC Heating",
         "de": "HYDRAULISCHE ARBEIT",
-        "fr": "Systèmes de chauffage"
+        "fr": "IDRAULICO impianti riscaldamento"
       },
       "descriptionByLocale": {
         "it": "Pemsa si distingue come leader riconosciuto nel settore del collocamento professionale in Svizzera, specializzandosi nei campi della costruzione, del genio civile, dell'elettricità, della tecnica degli edifici e dell’industria. Grazie a una profonda conoscenza del mercato svizzero e a una rete consolidata di collaborazioni con aziende di alto livello, Pemsa offre soluzioni di recruitment mirate e di alta qualità. La nostra marca è sinonimo di affidabilità e competenza tecnica, sostenuta da un approccio orientato alla valorizzazione del capitale umano e allo sviluppo continuo delle competenze. Scegliendo Pemsa, i professionisti accedono a opportunità di carriera stimolanti e coerenti con le loro qualifiche, mentre le aziende trovano candidati qualificati perfettamente allineati con le loro esigenze tecniche e organizzative. Missione:\n• Installazione di serpentine nell’ambito degli impianti termici, garantendo la corretta posa e funzionalità secondo le normative svizzere vigenti.\n• Supporto operativo nell’installazione e messa in servizio di centrali termiche, collaborando con il team tecnico per assicurare l’efficienza e la sicurezza degli impianti.\n• Assicurare il rispetto delle procedure di sicurezza e qualità durante tutte le fasi di lavoro, mantenendo un alto standard tecnico e professionale.\n• Gestione autonoma di attrezzature e mezzi necessari per l’attività quotidiana, mantenendo ordine e cura degli strumenti.\n• Collaborazione efficace con i colleghi e supervisori per garantire il buon avvio e completamento dei progetti secondo i tempi stabiliti. Profilo:\n• Esperienza minima in Svizzera di almeno 3 anni nel settore dell’installazione di impianti termici, con comprovata esperienza pratica nella posa di serpentine.\n• Residenza entro un raggio massimo di 20 km dal luogo di lavoro per garantire puntualità e flessibilità negli orari.\n• Lingua madre italiana, con ottima capacità di comunicazione tecnica in italiano per interagire efficacemente con il team e i clienti.\n• Possesso della patente di guida categoria B valida in Svizzera, requisito obbligatorio per spostamenti e gestione autonome di mezzi aziendali.\n• Conoscenza approfondita della posa serpentine, inclusa la capacità di interpretare schemi tecnici e applicare tecniche di installazione conformi agli standard svizzeri.\n• Esperienza pregressa come aiuto nell’installazione di centrali termiche, con capacità di supportare i tecnici qualificati e apprendere nuove competenze nel campo delle energie termiche. Ton interlocuteur/trice : Il nostro team di consulenti esperti sarà il tuo punto di riferimento durante tutto il processo di selezione, offrendoti supporto personalizzato e informazioni dettagliate sul ruolo e sull’azienda. Con Pemsa, potrai contare su una comunicazione trasparente, un’attenzione costante ai tuoi obiettivi professionali e una rete di contatti che valorizza il tuo profilo. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
@@ -9516,7 +9693,7 @@
       "titleByLocale": {
         "it": "Carpentiere edile",
         "en": "Construction Carpenter",
-        "de": "Bautischler",
+        "de": "Carpentiere edile",
         "fr": "Charpentier de construction"
       },
       "descriptionByLocale": {
@@ -10214,7 +10391,7 @@
       "titleByLocale": {
         "it": "Meccanico di macchina da cantiere e parco macchine (M/F/D)",
         "en": "Meccanico di machine da cantiere e parco machine (M/F/D)",
-        "de": "Baumaschinen und -maschinen (M/F/D)",
+        "de": "Meccanico di macchine da cantiere e parco macchine (M/F/D)",
         "fr": "Meccanico di machines da cantiere e parco machines (M/F/D)"
       },
       "descriptionByLocale": {
@@ -10335,7 +10512,7 @@
         "it": "Idraulico impianti antincendio sprinkler",
         "en": "Hydraulic fire-fighting systems spirnkler",
         "de": "Hydraulische Feuerlöschsysteme spirnkler",
-        "fr": "Systèmes d'arrosage hydraulique"
+        "fr": "Idraulico impianti antincendio sprinkler"
       },
       "descriptionByLocale": {
         "it": "Pemsa è un’agenzia di placement leader in Svizzera, specializzata nei settori della costruzione, del genio civile, dell’elettricità, della tecnica dell’edificio e dell’industria. La nostra missione è fornire professionisti altamente qualificati che contribuiscano ai successi e alla crescita sostenibile dei nostri clienti. Grazie a una profonda conoscenza del mercato del lavoro svizzero e a un network esteso, Pemsa si distingue per l’accuratezza nella selezione e la qualità dei profili proposti, valorizzando sempre la collaborazione e lo sviluppo dei talenti. Missione:\n• Installazione completa di impianti antincendio sprinkler secondo normative svizzere vigenti.\n• Collaborazione con il team tecnico per l’installazione corretta degli impianti Profilo:\n• Esperienza minima di 5 anni in Svizzera nel montaggio di impianti antincendio sprinkler, garantendo una conoscenza approfondita delle normative e procedure locali.\n• Residenza entro 25 km dal luogo di lavoro per assicurare tempestività e presenza costante in cantiere.\n• Ottima padronanza della lingua italiana a livello madrelingua, per una comunicazione efficace con il team e i clienti.\n• Patente di guida valida in Svizzera , indispensabile per gli spostamenti tra cantieri.\n• Capacità comprovata di gestire autonomamente il montaggio a 360° di impianti sprinkler antincendio, dalla fase di preparazione fino al collaudo e consegna finale.\n• Affidabilità, precisione e orientamento al dettaglio, caratteristiche fondamentali per operare nel rispetto degli standard di sicurezza svizzeri. Ton interlocuteur/trice : Per questa posizione, sarai seguito/a da un consulente dedicato di Pemsa, che ti accompagnerà e supporterà durante tutto il processo di inserimento e sviluppo professionale. Offriamo un ambiente dinamico e motivante, in cui il tuo expertise tecnico sarà valorizzato e potrai crescere con progetti di avanguardia nel settore antincendio. Lavorare con Pemsa significa accedere a una rete di clienti affidabili e investire nel tuo sviluppo professionale tramite formazione continua e aggiornamenti specifici del settore. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
@@ -10688,7 +10865,7 @@
         "it": "Impianti idraulici riscaldamento",
         "en": "Hydraulic plants Heating",
         "de": "Sanitär-Heizsysteme",
-        "fr": "Installations hydrauliques Chauffage"
+        "fr": "Idraulico impianti Riscaldamento"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Idraulico impianti Riscaldamento Missione :\n• Comprovata esperienza nell’installazione impianti di riscaldamento: Serpentine/riscaldamento pavimento; Pompe di Calore e Centrali Termiche;\n• Lettura del disegno tecnico;\n• Collaborazione attiva nello svolgimento delle attività delle masioni Profilo :\n• Comprovata esperienza sui cantieri svizzeri costituirà titolo preferenziale\n• Residenza entro 25km dal luogo dell’incarico\n• Lingua italiana\n• Automunito",
@@ -10927,7 +11104,7 @@
       "titleByLocale": {
         "it": "Meccanico di macchine agricole CFC (m/f/d)",
         "en": "Agricultural machinery mechanic EFZ (m/f/d)",
-        "de": "Landwirtschaftliche Maschinen EFZ (m/w/d)",
+        "de": "Meccanico di macchine agricole EFZ (m/f/d)",
         "fr": "Mécanicien de machines agricoles EFZ (m/f/d)"
       },
       "descriptionByLocale": {
@@ -10939,7 +11116,7 @@
       "slugByLocale": {
         "it": "meccanico-di-macchine-agricole-efz-m-f-d-pemsa-basel",
         "en": "agricultural-machinery-mechanic-efz-m-f-d-pemsa-basel",
-        "de": "landwirtschaftliche-maschinen-efz-m-w-d-pemsa-basel",
+        "de": "meccanico-di-macchine-agricole-efz-m-f-d-pemsa-basel",
         "fr": "mecanicien-de-machines-agricoles-efz-m-f-d-pemsa-basel"
       },
       "id": "pemsa-319f21eb49c8",
@@ -10957,7 +11134,15 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z"
+      "firstSeenAt": "2026-06-29T12:00:35.324Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "landwirtschaftliche-maschinen-efz-m-w-d-pemsa-basel"
+        ]
+      },
+      "previousSlugs": [
+        "landwirtschaftliche-maschinen-efz-m-w-d-pemsa-basel"
+      ]
     },
     {
       "title": "Capocantiere elettricista",
@@ -12072,122 +12257,6 @@
       "firstSeenAt": "2026-06-12T12:47:46.667Z"
     },
     {
-      "title": "Assemblatore di quadri elettrici a bassa tensione",
-      "slug": "assemblatore-di-quadri-elettrici-a-bassa-tensione-pemsa-fribourg",
-      "url": "https://www.pemsa.ch/it/job/assemblatore-di-quadri-elettrici-a-bassa-tensione-2678484/",
-      "applyUrl": "https://www.pemsa.ch/it/job/assemblatore-di-quadri-elettrici-a-bassa-tensione-2678484/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Fribourg",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "elettricità",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-11",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-06",
-      "description": "Volete la libertà del temporaneo e la sicurezza del fisso? Da 30 anni sosteniamo centinaia di aziende del settore tecnico, edile e industriale in tutta la Svizzera offrendo loro i migliori talenti. Ma non vi mentiremo: siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, unisciti a noi per il lavoro di Assemblatore di quadri elettrici a bassa tensione\n\n## Il tuo ruolo:\n• Eseguire il montaggio meccanico e l’assemblaggio di quadri elettrici a bassa tensione.\n• Eseguire il cablaggio di potenza e di controllo secondo gli schemi elettrici.\n• Installare e collegare le apparecchiature elettriche (interruttori, contattori, PLC, relè, sbarre, ecc.).\n• Leggere e interpretare disegni, schemi elettrici ed elenchi di parti tecniche.\n• Controllare la conformità degli assemblaggi prodotti.\n• Eseguire test e controlli prima della spedizione.\n• Rispettare le procedure di qualità, le scadenze di produzione e le norme di sicurezza.\n• Partecipare al miglioramento continuo dei processi produttivi\n\n## Ora parliamo di te?\n• Titolare di un CFC come ingegnere dell’automazione, montatore elettrico, elettricista o formazione equivalente.\n• Esperienza comprovata nell’assemblaggio e nel cablaggio di quadri elettrici industriali, idealmente su LVTS.\n• Eccellente padronanza della lettura di schemi elettrici e tecniche di cablaggio.\n• Buona conoscenza dei componenti elettrici a bassa tensione e degli standard attuali.\n• Forte, autonomo, organizzato e forte giocatore di squadra.\n• Capacità di lavorare con precisione rispettando le scadenze e i requisiti di qualità.\n• Patente di guida",
-      "titleByLocale": {
-        "it": "Assemblatore di quadri elettrici a bassa tensione",
-        "en": "Low voltage switchgear assembler",
-        "de": "Niederspannungsschalter-Assembler",
-        "fr": "Assembleur de commutateurs basse tension"
-      },
-      "descriptionByLocale": {
-        "it": "Volete la libertà del temporaneo e la sicurezza del fisso? Da 30 anni sosteniamo centinaia di aziende del settore tecnico, edile e industriale in tutta la Svizzera offrendo loro i migliori talenti. Ma non vi mentiremo: siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, unisciti a noi per il lavoro di Assemblatore di quadri elettrici a bassa tensione ## Il tuo ruolo:\n• Eseguire il montaggio meccanico e l’assemblaggio di quadri elettrici a bassa tensione.\n• Eseguire il cablaggio di potenza e di controllo secondo gli schemi elettrici.\n• Installare e collegare le apparecchiature elettriche (interruttori, contattori, PLC, relè, sbarre, ecc.).\n• Leggere e interpretare disegni, schemi elettrici ed elenchi di parti tecniche.\n• Controllare la conformità degli assemblaggi prodotti.\n• Eseguire test e controlli prima della spedizione.\n• Rispettare le procedure di qualità, le scadenze di produzione e le norme di sicurezza.\n• Partecipare al miglioramento continuo dei processi produttivi ## Ora parliamo di te?\n• Titolare di un CFC come ingegnere dell’automazione, montatore elettrico, elettricista o formazione equivalente.\n• Esperienza comprovata nell’assemblaggio e nel cablaggio di quadri elettrici industriali, idealmente su LVTS.\n• Eccellente padronanza della lettura di schemi elettrici e tecniche di cablaggio.\n• Buona conoscenza dei componenti elettrici a bassa tensione e degli standard attuali.\n• Forte, autonomo, organizzato e forte giocatore di squadra.\n• Capacità di lavorare con precisione rispettando le scadenze e i requisiti di qualità.\n• Patente di guida",
-        "en": "Do you want the freedom of the temporary and the security of the permanent? For 30 years we have supported hundreds of companies in the technical, construction and industrial sectors throughout Switzerland by offering them the best talent. But we won't lie to you: we are demanding. So, if you are a motivated and enthusiastic person, join us for the job of Low Voltage Electrical Panel Assembler ## Your Role:\n• Perform mechanical assembly and assembly of low voltage electrical panel.\n• Carry out the power and control wiring according to the electrical diagrams.\n• Install and connect electrical equipment (switches, contactors, PLCs, relays, busbars, etc.).\n• Read and interpret drawings, electrical schematics, and technical parts lists.\n• Check the conformity of the assemblies produced.\n• Carry out tests and checks before shipping.\n• Respect quality procedures, production deadlines and safety regulations.\n• Participate in the continuous improvement of production processes ## Now let's talk about you?\n• Holder of a CFC as an automation engineer, electrical fitter, electrician or equivalent training.\n• Proven experience in the assembly and wiring of industrial electrical panels, ideally on LVTS.\n• Excellent command of reading electrical diagrams and wiring techniques.\n• Good knowledge of low voltage electrical components and current standards.\n• Strong, self-driven, organized and strong team player.\n• Ability to work accurately while meeting deadlines and quality requirements.\n• Driving license",
-        "de": "Möchten Sie die Freiheit des Vorübergehenden und die Sicherheit des Dauerhaften? Seit 30 Jahren unterstützen wir Hunderte von Unternehmen aus der Technik-, Bau- und Industriebranche in der ganzen Schweiz, indem wir ihnen die besten Talente anbieten. Aber wir werden Sie nicht anlügen: Wir sind anspruchsvoll. Wenn Sie also eine motivierte und enthusiastische Person sind, bewerben Sie sich bei uns für die Stelle als Monteur für Niederspannungs-Schalttafeln. ## Ihre Rolle:\n• Führen Sie die mechanische Montage und Montage von Niederspannungs-Schalttafeln durch.\n• Führen Sie die Leistungs- und Steuerverkabelung gemäß den Elektroplänen durch.\n• Elektrische Geräte installieren und anschließen (Schalter, Schütze, SPS, Relais, Sammelschienen usw.).\n• Lesen und interpretieren Sie Zeichnungen, elektrische Schaltpläne und technische Teilelisten.\n• Überprüfen Sie die Konformität der hergestellten Baugruppen.\n• Führen Sie vor dem Versand Tests und Kontrollen durch.\n• Respektieren Sie Qualitätsverfahren, Produktionsfristen und Sicherheitsvorschriften.\n• Beteiligen Sie sich an der kontinuierlichen Verbesserung der Produktionsprozesse ## Jetzt reden wir über Sie?\n• Inhaber eines CFC als Automatisierungstechniker, Elektroschlosser, Elektriker oder einer gleichwertigen Ausbildung.\n• Nachgewiesene Erfahrung in der Montage und Verkabelung industrieller Schalttafeln, idealerweise auf LVTS.\n• Hervorragende Kenntnisse im Lesen elektrischer Schaltpläne und Verdrahtungstechniken.\n• Gute Kenntnisse über elektrische Niederspannungskomponenten und aktuelle Normen.\n• Starker, eigenverantwortlicher, organisierter und starker Teamplayer.\n• Fähigkeit, präzise zu arbeiten und dabei Fristen und Qualitätsanforderungen einzuhalten.\n• Führerschein",
-        "fr": "Voulez-vous la liberté du temporaire et la sécurité du permanent ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs technique, de la construction et industriel dans toute la Suisse en leur proposant les meilleurs talents. Mais on ne vous mentira pas : nous sommes exigeants. Alors, si vous êtes une personne motivée et enthousiaste, rejoignez-nous pour le poste d'assembleur de panneaux électriques basse tension ## Votre rôle :\n• Effectuer l'assemblage mécanique et l'assemblage de panneau électrique basse tension.\n• Réaliser le câblage de puissance et de commande selon les schémas électriques.\n• Installer et connecter les équipements électriques (interrupteurs, contacteurs, automates, relais, jeux de barres, etc.).\n• Lire et interpréter des dessins, des schémas électriques et des listes de pièces techniques.\n• Vérifier la conformité des assemblages réalisés.\n• Effectuer des tests et des contrôles avant expédition.\n• Respecter les procédures qualité, les délais de production et les règles de sécurité.\n• Participer à l'amélioration continue des processus de production ## Maintenant parlons de vous ?\n• Titulaire d'un CFC d'automaticien, électricien, électricien ou formation équivalente.\n• Expérience avérée dans l'assemblage et le câblage de tableaux électriques industriels, idéalement sur LVTS.\n• Excellente maîtrise de la lecture de schémas électriques et des techniques de câblage.\n• Bonne connaissance des composants électriques basse tension et des normes en vigueur.\n• Fort, autonome, organisé et bon joueur d'équipe.\n• Capacité à travailler avec précision tout en respectant les délais et les exigences de qualité.\n• Permis de conduire"
-      },
-      "slugByLocale": {
-        "it": "assemblatore-di-quadri-elettrici-a-bassa-tensione-pemsa-fribourg",
-        "en": "low-voltage-switchgear-assembler-pemsa-fribourg",
-        "de": "niederspannungsschalter-assembler-pemsa-fribourg",
-        "fr": "assembleur-de-commutateurs-basse-tension-pemsa-fribourg"
-      },
-      "id": "pemsa-56395f3312e1",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1700",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z"
-    },
-    {
-      "title": "Muratore Casseforme",
-      "slug": "muratore-casseforme-pemsa-fribourg",
-      "url": "https://www.pemsa.ch/it/job/muratore-casseforme-2678467/",
-      "applyUrl": "https://www.pemsa.ch/it/job/muratore-casseforme-2678467/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Fribourg",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-11",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-06",
-      "description": "Volete la libertà del temporaneo e la sicurezza del fisso? Da 30 anni sosteniamo centinaia di aziende del settore tecnico, edile e industriale in tutta la Svizzera offrendo loro i migliori talenti. Ma non vi mentiremo: siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, unisciti a noi per il lavoro di Muratore Casseforme\n\n## La tua missione:\n• Realizzazione e messa in opera di casseforme tradizionali e di casseforme metalliche\n• Montaggio, installazione e regolazione di elementi di cassaforma in cantiere\n• Lettura, comprensione e utilizzo di piani tecnici e disegni di lavoro\n• Posizionamento di armature e partecipazione alle operazioni di getto del calcestruzzo\n• Rimozione delle casseforme dopo l’indurimento del calcestruzzo ed esecuzione di lavori di finitura\n• Esecuzione di opere murarie standard: muri, solette, pilastri, scale e altre opere\n• Stretta applicazione delle regole e degli standard di sicurezza in vigore in Svizzera\n• Possibilità di lavorare in autonomia o in collaborazione con il team a seconda delle dimensioni e delle esigenze del cantiere\n\n## Ora parliamo di te?\n• Grande esperienza\n• Eccellente padronanza delle casseforme tradizionali e dei sistemi prefabbricati\n• Capacità di lavorare in completa autonomia\n• Lettura dei piani essenziale\n• Patente di guida\n• Buona condizione fisica\n• Serio, puntuale e con spirito di squadra",
-      "titleByLocale": {
-        "it": "Muratore Casseforme",
-        "en": "Formwork mason",
-        "de": "Schalungsmauerwerk",
-        "fr": "Maçonnerie de coffrage"
-      },
-      "descriptionByLocale": {
-        "it": "Volete la libertà del temporaneo e la sicurezza del fisso? Da 30 anni sosteniamo centinaia di aziende del settore tecnico, edile e industriale in tutta la Svizzera offrendo loro i migliori talenti. Ma non vi mentiremo: siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, unisciti a noi per il lavoro di Muratore Casseforme ## La tua missione:\n• Realizzazione e messa in opera di casseforme tradizionali e di casseforme metalliche\n• Montaggio, installazione e regolazione di elementi di cassaforma in cantiere\n• Lettura, comprensione e utilizzo di piani tecnici e disegni di lavoro\n• Posizionamento di armature e partecipazione alle operazioni di getto del calcestruzzo\n• Rimozione delle casseforme dopo l’indurimento del calcestruzzo ed esecuzione di lavori di finitura\n• Esecuzione di opere murarie standard: muri, solette, pilastri, scale e altre opere\n• Stretta applicazione delle regole e degli standard di sicurezza in vigore in Svizzera\n• Possibilità di lavorare in autonomia o in collaborazione con il team a seconda delle dimensioni e delle esigenze del cantiere ## Ora parliamo di te?\n• Grande esperienza\n• Eccellente padronanza delle casseforme tradizionali e dei sistemi prefabbricati\n• Capacità di lavorare in completa autonomia\n• Lettura dei piani essenziale\n• Patente di guida\n• Buona condizione fisica\n• Serio, puntuale e con spirito di squadra",
-        "en": "Do you want the freedom of the temporary and the security of the permanent? For 30 years we have supported hundreds of companies in the technical, construction and industrial sectors throughout Switzerland by offering them the best talent. But we won't lie to you: we are demanding. So, if you are a motivated and enthusiastic person, join us for the job of Formwork Bricklayer ## Your mission:\n• Making and installing traditional formwork and metal formwork\n• Assembling, installing and adjusting formwork elements on construction site\n• Reading, understanding and using technical plans and work drawings\n• Placing reinforcement and participating in concrete pouring operations\n• Removing formwork after hardening of concrete and carrying out finishing work\n• Execution of standard masonry works: walls, slabs, pillars, stairs and other works\n• Strict application of the rules and safety standards in force in Switzerland\n• Possibility to work independently or in collaboration with the team depending on the size and needs of the construction site ## Now let's talk about you?\n• Great experience\n• Excellent mastery of traditional formwork and prefabricated systems\n• Ability to work in complete autonomy\n• Reading of plans essential\n• Driving license\n• Good physical condition\n• Serious, punctual and with team spirit",
-        "de": "Möchten Sie die Freiheit des Vorübergehenden und die Sicherheit des Dauerhaften? Seit 30 Jahren unterstützen wir Hunderte von Unternehmen aus der Technik-, Bau- und Industriebranche in der ganzen Schweiz, indem wir ihnen die besten Talente anbieten. Aber wir werden Sie nicht anlügen: Wir sind anspruchsvoll. Wenn Sie also eine motivierte und enthusiastische Person sind, bewerben Sie sich bei uns als Schalungsmaurer ## Ihre Aufgabe:\n• Herstellen und Installieren traditioneller Schalungen und Metallschalungen\n• Montieren, Installieren und Anpassen von Schalungselementen auf der Baustelle\n• Lesen, Verstehen und Verwenden von technischen Plänen und Arbeitszeichnungen\n• Anbringen von Bewehrungen und Mitwirken bei Betonierarbeiten\n• Entfernen der Schalung nach dem Aushärten des Betons und Durchführen von Abschlussarbeiten\n• Ausführung von Standard-Mauerwerksarbeiten: Wände, Platten, Pfeiler, Treppen und andere Arbeiten\n• Strikte Einhaltung der in der Schweiz geltenden Regeln und Sicherheitsstandards\n• Möglichkeit, je nach Grösse und Bedarf der Baustelle selbstständig oder in Zusammenarbeit mit dem Team zu arbeiten ## Jetzt reden wir über Sie?\n• Große Erfahrung\n• Hervorragende Beherrschung traditioneller Schalungen und vorgefertigter Systeme\n• Fähigkeit, völlig autonom zu arbeiten\n• Lesen von Plänen unerlässlich\n• Führerschein\n• Gute körperliche Verfassung\n• Ernsthaft, pünktlich und mit Teamgeist",
-        "fr": "Voulez-vous la liberté du temporaire et la sécurité du permanent ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs technique, de la construction et industriel dans toute la Suisse en leur proposant les meilleurs talents. Mais on ne vous mentira pas : nous sommes exigeants. Alors, si vous êtes une personne motivée et enthousiaste, rejoignez-nous pour le métier de Maçon Coffrage ## Votre mission :\n• Réalisation et pose de coffrages traditionnels et de coffrages métalliques\n• Assemblage, pose et réglage des éléments de coffrage sur chantier\n• Lecture, compréhension et utilisation des plans techniques et dessins d'exécution\n• Mise en place des armatures et participation aux opérations de coulage du béton\n• Dépose des coffrages après durcissement du béton et réalisation des travaux de finition\n• Exécution des travaux standards de maçonnerie : murs, dalles, piliers, escaliers et autres ouvrages\n• Application stricte des règles et normes de sécurité en vigueur en Suisse\n• Possibilité de travailler de manière autonome ou en collaboration avec l'équipe selon la taille et les besoins du chantier ## Maintenant parlons de vous ?\n• Grande expérience\n• Excellente maîtrise du coffrage traditionnel et des systèmes préfabriqués\n• Capacité à travailler en toute autonomie\n• Lecture de plans indispensable\n• Permis de conduire\n• Bonne condition physique\n• Sérieux, ponctuel et avec un esprit d'équipe"
-      },
-      "slugByLocale": {
-        "it": "muratore-casseforme-pemsa-fribourg",
-        "en": "formwork-mason-pemsa-fribourg",
-        "de": "schalungsmauerwerk-pemsa-fribourg",
-        "fr": "maconnerie-de-coffrage-pemsa-fribourg"
-      },
-      "id": "pemsa-fcf921a45191",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1700",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z"
-    },
-    {
       "title": "Idraulico installatore impianti riscaldamento/sanitari",
       "slug": "idraulico-installatore-impianti-riscaldamento-sanitari-pemsa-mendrisio",
       "url": "https://www.pemsa.ch/it/job/idraulico-installatore-impianti-riscaldamento-sanitari-2678338/",
@@ -12338,7 +12407,7 @@
         "it": "IMPIANTI IDRAULICI RISCALDAMENTO",
         "en": "IMPLEMENTATIONS",
         "de": "DURCHFÜHRUNGEN",
-        "fr": "MISE EN ŒUVRE"
+        "fr": "IDRAULICO IMPIANTI RISCALDAMENTO"
       },
       "descriptionByLocale": {
         "it": "Pemsa è un’agenzia leader nel settore del reclutamento in Svizzera, specializzata nella fornitura di personale qualificato nei campi della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. La nostra expertise pluriennale ci consente di proporre soluzioni di staffing altamente mirate, garantendo ai nostri clienti professionalità, affidabilità e competenze tecniche di elevato standard. Con un approccio basato sull’ascolto attivo e il rispetto delle esigenze del mercato locale, Pemsa promuove la crescita sostenibile delle aziende e valorizza il capitale umano attraverso opportunità di carriera adeguate, contribuendo a creare ambienti di lavoro sereni e produttivi. ## Missione:\n• Posa impianti di riscaldamento a pavimento\n• Esperienza installazione centrali terimiche\n• Eperienza installazione pompe di calore ## Profilo:\n• Esperienza minima di 5 anni in Svizzera nel settore della costruzione o attività equivalenti, con comprovata competenza tecnica e pratica.\n• Residenza entro 20 km dal luogo di lavoro , garantendo così puntualità e riduzione dei tempi di spostamento.\n• Lingua madre italiana , essenziale per un’efficace comunicazione interna e per interfacciarsi con il team e la clientela.\n• Patente di guida valida per automezzi (patente categoria B), requisito obbligatorio per la mobilità nell’ambito lavorativo. ## Ton interlocuteur/trice : Il nostro team di consulenti dedicati è a tua completa disposizione per supportarti nell’inserimento professionale, offrendo un accompagnamento personalizzato e rispondendo a ogni tua domanda con competenza e tempestività. Con Pemsa avrai accesso a opportunità uniche nel contesto svizzero, valorizzando le tue esperienze e facilitando una crescita professionale continua in un ambiente di lavoro stimolante e qualificato. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
@@ -12350,7 +12419,7 @@
         "it": "impianti-idraulici-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
         "de": "durchfuhrungen-pemsa-torricella",
-        "fr": "mise-en-uvre-pemsa-torricella"
+        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -12370,15 +12439,17 @@
       "postalCode": "6500",
       "firstSeenAt": "2026-06-10T12:46:51.447Z",
       "previousSlugsByLocale": {
-        "fr": [
+        "it": [
           "idraulico-impianti-riscaldamento-pemsa-torricella"
         ],
-        "it": [
+        "fr": [
+          "mise-en-uvre-pemsa-torricella",
           "idraulico-impianti-riscaldamento-pemsa-torricella"
         ]
       },
       "previousSlugs": [
-        "idraulico-impianti-riscaldamento-pemsa-torricella"
+        "idraulico-impianti-riscaldamento-pemsa-torricella",
+        "mise-en-uvre-pemsa-torricella"
       ]
     },
     {
