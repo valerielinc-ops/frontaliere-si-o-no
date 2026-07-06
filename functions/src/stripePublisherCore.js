@@ -21,6 +21,12 @@
  * — the client amount is never trusted. The unit price + discount tiers MUST stay in
  * sync with services/publisherPricing.ts (deploy-boundary duplication: the functions
  * bundle is isolated and cannot import the SPA TS module). See PUBLISHER-PORTAL-PLAN §6.2.
+ *
+ * handleStripeWebhook also dispatches reader no-ads subscription events (a fully
+ * separate domain, #3655 part 2/2 of #2961) to ./stripeReaderCore.js before its
+ * own publisher-order switch runs — see that file for details. verifyCaller,
+ * getStripe and db are exported so stripeReaderCore.js can reuse them instead
+ * of duplicating (same functions bundle, no deploy boundary between the two).
  */
 
 import admin from 'firebase-admin';
@@ -38,7 +44,7 @@ import { revertPendingJobsToDraft } from './publisherPendingReapCore.js';
 // ── Stripe client (lazy, cached) ────────────────────────────────────────────
 let _stripe = null;
 const _productTaxCodeEnsured = new Set();
-async function getStripe() {
+export async function getStripe() {
   if (_stripe) return _stripe;
   const key = await getRemoteConfigValue('STRIPE_SECRET_KEY');
   if (!key) throw new Error('stripe_secret_key_missing');
@@ -47,11 +53,11 @@ async function getStripe() {
   return _stripe;
 }
 
-function db() {
+export function db() {
   return admin.firestore();
 }
 
-async function verifyCaller(req) {
+export async function verifyCaller(req) {
   const header = req.get('Authorization') || req.get('authorization') || '';
   const match = header.match(/^Bearer\s+(.+)$/i);
   if (!match) return null;
@@ -518,6 +524,19 @@ export async function handleStripeWebhook(req) {
 
   const obj = event.data?.object || {};
   const ts = admin.firestore.FieldValue.serverTimestamp();
+
+  // Reader no-ads subscription events (#3655, part 2/2 of #2961) are a fully
+  // separate domain (reader_subscriptions collection, no publisher_jobs/orders
+  // involvement), dispatched from its own sibling module. Dynamic import keeps
+  // this a lazy load (matching the `await import('stripe')` convention above)
+  // and avoids a static circular import — stripeReaderCore.js imports
+  // verifyCaller/getStripe/db back from THIS file. Short-circuits (returns
+  // early) so the publisher switch below never double-processes the same event.
+  const { handleReaderWebhookEvent } = await import('./stripeReaderCore.js');
+  if (await handleReaderWebhookEvent(event, { db, ts })) {
+    await eventRef.set({ type: event.type, processedAt: ts });
+    return { status: 200, body: { received: true } };
+  }
 
   // Sub-statuses that mean the ad must come down.
   const DEAD_SUB_STATUSES = new Set(['canceled', 'unpaid', 'incomplete_expired']);

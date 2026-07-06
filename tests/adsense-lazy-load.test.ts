@@ -130,6 +130,20 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
       'script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]',
     );
   });
+
+  it('gates the loader on the reader no-ads entitlement flag BEFORE any load path (#3655)', () => {
+    // Static-shell counterpart to AdSenseBanner's hasActiveReaderNoAdsEntitlement()
+    // check (services/readerEntitlement.ts). A signed-in reader with an active
+    // CHF 2.99/month subscription must never have adsbygoogle.js loaded from the
+    // static SEO shell either — this is a per-visitor client-state check, NEVER
+    // a global/per-route toggle (AGENTS.md Non-Negotiable #7). Guards the exact
+    // flag name so it can never silently drift from readerEntitlement.ts's
+    // READER_NOADS_ACTIVE_KEY constant.
+    expect(ADSENSE_LOADER_CONTENT).toContain("reader_noads_active");
+    expect(ADSENSE_LOADER_CONTENT).toMatch(
+      /localStorage\.getItem\(['"]reader_noads_active['"]\)\s*===\s*['"]true['"]/,
+    );
+  });
 });
 
 describe('AdSense lazy loading — static SEO shell', () => {
