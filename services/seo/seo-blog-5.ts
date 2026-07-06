@@ -46482,6 +46482,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-a2-luglio-frontalieri': {
+    title: 'Traffico sull\'A2: rallentamenti e code verso il Ticino',
+    description: 'Aggiornamenti in tempo reale sulla viabilità in Ticino: code sull\'A2, San Gottardo e frontiera di Chiasso. Consigli pratici per i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, sull, rallentamenti, code',
+    ogTitle: 'Traffico A2 e frontiera: aggiornamenti viabilità Ticino',
+    ogDescription: 'Aggiornamenti in tempo reale sulla viabilità in Ticino: code sull\'A2, San Gottardo e frontiera di Chiasso. Consigli pratici per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/traffico-a2-luglio-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico sull'A2: rallentamenti e code verso il Ticino",
+      "description": "Aggiornamenti in tempo reale sulla viabilità in Ticino: code sull'A2, San Gottardo e frontiera di Chiasso. Consigli pratici per i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-a2-luglio-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico sull'autostrada A2 in Ticino durante il periodo estivo"
+      },
+      "datePublished": "2026-07-06T05:13:00+00:00",
+      "dateModified": "2026-07-06T05:13:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-a2-luglio-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

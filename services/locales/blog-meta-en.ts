@@ -8278,6 +8278,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dipendenza-fossili-svizzera-energia.title': 'Switzerland and Fossils: How Much Energy Dependence Weighs',
     'blog.article.dipendenza-fossili-svizzera-energia.excerpt': 'Analysis of Switzerland\'s dependence on fossil fuels: 58% of the final energy consumed comes from oil and gas. What it means for the economy.',
     'blog.article.dipendenza-fossili-svizzera-energia.imageAlt': 'Panoramic view of Lugano and its lake.',
+    'blog.article.traffico-a2-luglio-frontalieri.title': 'Traffic on the A2: slowdowns and queues towards Ticino',
+    'blog.article.traffico-a2-luglio-frontalieri.excerpt': 'July brings queues on the A2 motorway. Let\'s analyse the waiting times at the Gotthard, Airolo and Chiasso Brogeda border for frontier workers.',
+    'blog.article.traffico-a2-luglio-frontalieri.imageAlt': 'Traffic on the A2 motorway in Ticino during the summer period',
 };
 
 export default blogMetaEn;

@@ -8279,6 +8279,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dipendenza-fossili-svizzera-energia.title': 'Suisse et fossiles : combien pèse la dépendance énergétique',
     'blog.article.dipendenza-fossili-svizzera-energia.excerpt': 'Analyse de la dépendance suisse aux combustibles fossiles : 58 % de l\'énergie finale consommée provient du pétrole et du gaz. Ce que cela signifie pour l\'économie.',
     'blog.article.dipendenza-fossili-svizzera-energia.imageAlt': 'Vue panoramique de Lugano et son lac.',
+    'blog.article.traffico-a2-luglio-frontalieri.title': 'Trafic sur l\'A2 : ralentissements et files d\'attente vers le Tessin',
+    'blog.article.traffico-a2-luglio-frontalieri.excerpt': 'Juillet apporte des files d\'attente sur l\'autoroute A2. Analysons les temps d\'attente au Saint-Gothard, à Airolo et à la frontière de Chiasso Brogeda pour les travailleurs frontaliers.',
+    'blog.article.traffico-a2-luglio-frontalieri.imageAlt': 'Trafic sur l\'autoroute A2 au Tessin pendant la période estivale',
 };
 
 export default blogMetaFr;
