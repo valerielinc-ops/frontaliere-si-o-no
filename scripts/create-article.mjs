@@ -65,7 +65,7 @@ import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError, printRunSummary } from './lib/ai-models.mjs';
+import { callLLM as _aiCallLLM, AI_MODELS, DEFAULT_CHAIN, getPreferredModel, isLocalLlmEnabled, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError, printRunSummary } from './lib/ai-models.mjs';
 // Quota-free MT cascade (DeepL-free / Google / MyMemory / LibreTranslate /
 // local Opus-MT) — the SAME translator the job crawlers + FAQ batch use
 // (scripts/lib/dedicated-crawler-common.mjs, batch-add-faq-to-articles.mjs).
@@ -3274,6 +3274,7 @@ async function callLLM(messages, opts = {}) {
     // attempt consumed nearly all of it). ...opts still wins if a caller passes
     // its own deadlineMs (or explicit null to opt out of the cap entirely).
     const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 90_000, deadlineMs: RUN_START_MS + RUN_WALL_BUDGET_MS, ...opts, modelUsedRef });
+    if (modelUsedRef.model === AI_MODELS.LOCAL_FALLBACK) _localFallbackUsedThisHeadline = true;
     if (isBody2Check) {
       let itContent = null;
       let parseErr = null;
@@ -4122,7 +4123,14 @@ async function callGemini(pageContent, url, sourceContext = null) {
   //   2. Provide generous source content (6000 chars) so the model has facts to work with
   //   3. Send compact IT-only JSON template (EN/DE/FR generated in separate calls)
   //   4. Compress editorial rules (no repetition per locale)
-  const MAX_SOURCE_CHARS = 6000;
+  const generationAttempt = Number(sourceContext?._generationAttempt || 1);
+  // Regen attempts (2+) also carry factCheckRefinementInstruction (flagged
+  // claims to fix) and, since fix B above, domainFactsBlock — both compete
+  // with source content for the same ~8000-token input cap several free
+  // models enforce. Shrinking the re-sent source on retries only (never on
+  // the first, richness-matters attempt) buys headroom without touching
+  // first-attempt grounding.
+  const MAX_SOURCE_CHARS = generationAttempt > 1 ? 4500 : 6000;
   const MAX_IDS_TO_SEND = 50;
 
   const truncatedContent = pageContent
@@ -4142,7 +4150,6 @@ async function callGemini(pageContent, url, sourceContext = null) {
     ? sourceContext.relatedHeadlines.map((h, i) => `- [${i + 1}] (${h.source}) ${h.headline}`).join('\n')
     : '';
 
-  const generationAttempt = Number(sourceContext?._generationAttempt || 1);
   const generationAttemptMax = Number(sourceContext?._generationAttemptMax || 1);
   const minItalianWords = Number(sourceContext?._minItalianWords || CREATE_ARTICLE_MIN_IT_WORDS);
 
@@ -4303,11 +4310,24 @@ Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni
     ? `- imagePrompt: scena fotorealistica Ticino, DSLR, non sembrare AI`
     : `- imagePrompt: scena svizzera nazionale/cantonale pertinente al tema, fotorealistica, DSLR, non sembrare AI`;
 
+  // Organic/news sources (real URL) carry no ground-truth facts — only the
+  // evergreen:// and stats-bfs:// branches bake EVERGREEN_FACTS_BRIEF into
+  // pageContent upstream (see the evergreen prompt builder above). Without it,
+  // a model filling REGOLA #1's requested "implicazioni pratiche" gap reaches
+  // for training-data recall instead, and the fact-checker's own copy of these
+  // exact values (VERIFIED_DOMAIN_FACTS) then flags any mismatch as critical —
+  // the dominant failure mode observed on local/fallback runs (2026-07-06).
+  // Feeding the same compact brief here closes the generator/checker grounding
+  // gap for every model in the cascade, not just local.
+  const isSyntheticSource = url.startsWith('evergreen://') || url.startsWith('stats-bfs://');
+  const domainFactsBlock = isSyntheticSource ? '' : `\nFATTI DI DOMINIO VERIFICATI (materiale di riferimento per contesto/implicazioni pratiche, SEPARATO dalla notizia sopra — non attribuirli alla fonte, usali solo se pertinenti al tema):\n${EVERGREEN_FACTS_BRIEF}\n`;
+
   const prompt = `${systemRoleLine}
 
 SOURCE URL: ${url.startsWith('evergreen://') ? '(editorial research)' : url.startsWith('stats-bfs://') ? 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi.html (BFS)' : url}
 SOURCE CONTENT:
 ${truncatedContent}
+${domainFactsBlock}
 ${sourceContext?.headline ? `\nHEADLINE: ${sourceContext.headline}` : ''}
 ${relatedContext ? `\nRELATED:\n${relatedContext}` : ''}
 
@@ -4621,7 +4641,20 @@ Rispondi SOLO con JSON valido, senza markdown.` },
   // hallucination defense). Treat the abort as a controlled failure so
   // the run report classifies it and the workflow's retry/self-trigger
   // path can pick a different headline instead of publishing slop.
-  if (itData?.abort_topical_relevance === true) {
+  //
+  // Self-contradiction guard (2026-07-06, run 28802314827): the schema's own
+  // contract (see buildArticleJsonSchema above) requires the model to EITHER
+  // set abort_topical_relevance and leave content null, OR fill content and
+  // leave abort_topical_relevance null — never both. Weaker models (observed:
+  // local/fallback qwen2.5:14b) sometimes set the abort flag while ALSO fully
+  // populating content.it with a genuinely relevant article (the `reason`
+  // text itself affirmed frontaliere relevance) — blindly trusting the flag
+  // discarded a valid, on-topic article and burned the remaining retry
+  // budget on doomed local/fallback re-attempts. When content is actually
+  // present the model contradicted its own abort signal; trust the content
+  // it produced over the flag instead of throwing.
+  const itContentPreAbortCheck = itData?.abort_topical_relevance === true ? normalizeItalianContentFromPayload(itData) : null;
+  if (itData?.abort_topical_relevance === true && !itContentPreAbortCheck) {
     const reason = String(itData.reason || '').slice(0, 500) || '(no reason)';
     console.error(`  ⏭️  [topic-gate] Generation aborted by REGOLA #0 — source lacks real frontaliere angle.`);
     console.error(`     Reason: ${reason}`);
@@ -4633,8 +4666,14 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     err.topicGateAbort = true;
     throw err;
   }
+  if (itContentPreAbortCheck) {
+    console.error(`  ⚠️  [topic-gate] Model set abort_topical_relevance=true but ALSO returned full content.it — contract violation, trusting content over the flag (reason given: "${String(itData.reason || '').slice(0, 200)}").`);
+    if (RUN_REPORT && typeof RUN_REPORT === 'object') {
+      RUN_REPORT.topicGateSelfContradictions = (RUN_REPORT.topicGateSelfContradictions || 0) + 1;
+    }
+  }
 
-  const itContent = normalizeItalianContentFromPayload(itData);
+  const itContent = itContentPreAbortCheck || normalizeItalianContentFromPayload(itData);
   if (!itContent) {
     // qualityReject=true: same content-quality class as the JSON-parse and
     // missing-field siblings above/below — see their comments for why.
@@ -7917,6 +7956,33 @@ function wallBudgetExceeded() {
 }
 
 /**
+ * Set true the first time callLLM() observes local/fallback actually serving
+ * a request for the CURRENT headline (see callLLM below). Reset to false at
+ * the top of generateAndValidateArticle (2026-07-06, PR #3704 review round
+ * 2) — the process handles multiple headlines/pools/evergreen per run, each
+ * via its own generateAndValidateArticle call, and a module-level flag left
+ * set across headlines would poison a brand-new headline's first attempt
+ * (which hasn't even tried the cloud model yet) purely because a PREVIOUS,
+ * unrelated headline had cascaded to local. Cheaper and more precise than
+ * the Firestore-score-based cloudCascadeExhausted check used by main()'s
+ * evergreen pre-scan: that one only sees model scoring/cooldown state and
+ * misses per-request cascades caused by prompt token-size alone. Read by
+ * generateAndValidateArticle's own retry-loop wall-clock guard below.
+ */
+let _localFallbackUsedThisHeadline = false;
+/**
+ * Minimum wall-clock remaining (ms) to risk another local/fallback attempt
+ * once one has already run for this headline. Local/fallback (qwen2.5:14b via Ollama)
+ * full inference for this prompt size took ~17.5min and ~12.5min in the two
+ * observed cases (run 28802314827); below this floor a further attempt would
+ * be truncated mid-inference by _callLocal's own deadline cap (ai-models.mjs)
+ * instead of completing — zero output, wasted GH Actions minutes. Set below
+ * the faster observed completion (~12.5min) with a small margin so an
+ * average-length attempt still gets a chance.
+ */
+const LOCAL_MIN_VIABLE_MS = 11 * 60_000;
+
+/**
  * True when the error is a CONTENT/QUALITY rejection (fact-check block,
  * topic-gate REGOLA #0 abort, fabrication, or a non-conformant headline that
  * survived its retry budget) rather than an infrastructure bug.
@@ -7965,7 +8031,23 @@ async function main() {
     // future-soft-preference) but no longer skips the news scan. Manual
     // override via FORCE_EVERGREEN=1 still works for admin/testing.
     const evergreenCounterState = _loadEvergreenCounter();
-    const forceEvergreen = process.env.FORCE_EVERGREEN === '1';
+    // Local-only cascade detection: when every cloud model is exhausted/
+    // cooling-down and only local/fallback remains, organic/news generation
+    // forces the (weak, CPU-only) local model to closely follow a specific
+    // news article — the failure mode that actually blocks runs is source-
+    // fidelity ("coerenza") drift, not hallucination. Evergreen mode is
+    // grounded on EVERGREEN_FACTS_BRIEF and exempt from that check (see
+    // llmFactCheck's isEvergreen branch), so route local-only runs there
+    // instead of burning the wall-clock budget on organic retries unlikely
+    // to pass. No-op when local/fallback is disabled or cloud has capacity.
+    await initScoreStore();
+    const cloudOnlyChain = DEFAULT_CHAIN.filter((m) => m !== AI_MODELS.LOCAL_FALLBACK);
+    const cloudCascadeExhausted = isLocalLlmEnabled() && !getPreferredModel({ chain: cloudOnlyChain });
+    if (cloudCascadeExhausted) {
+      console.error('🔀 Cascata cloud esaurita, solo local/fallback disponibile — route diretto a evergreen (grounding garantito).');
+      RUN_REPORT.notes.push('Local-only cascade detected pre-scan: routed to evergreen (organic/news generation skipped)');
+    }
+    const forceEvergreen = process.env.FORCE_EVERGREEN === '1' || cloudCascadeExhausted;
     let newsSuccess = false;
 
     // ── Phase 3: quota-based slot dispatch (proven vs discovery) ──
@@ -8623,6 +8705,17 @@ async function main() {
 
 /** Core article pipeline: fetch → generate IT → validate → duplicates → translate → sanitize → image → modify files → git */
 async function generateAndValidateArticle(url, sourceContext = null) {
+  // Scope the local-only wall-clock guard to THIS headline (2026-07-06,
+  // PR #3704 review): the flag is set by any callLLM() in the process that
+  // cascades to local/fallback — including a PREVIOUS headline's retries,
+  // its translation, or its body expansion, all of which run inside the
+  // same process before this call. Without resetting per-headline, a prior
+  // headline touching local/fallback would poison a brand-new headline's
+  // very first attempt (which hasn't even tried the cloud model yet) the
+  // moment wall-clock ran low — reproducing the "run publishes zero
+  // articles" failure via a different path than the one this guard exists
+  // to fix.
+  _localFallbackUsedThisHeadline = false;
   if (isGoogleNewsRssUrl(url)) {
     const err = new Error(`topic-gate abort: Google News RSS wrapper senza fonte diretta (${url})`);
     err.topicGateAbort = true;
@@ -8687,6 +8780,33 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   }
 
   for (let attempt = 1; attempt <= CREATE_ARTICLE_MIN_WORDS_RETRIES; attempt++) {
+    // Wall-clock guard for the local-only cascade (2026-07-06, incident run
+    // 28802314827): once local/fallback has generated at least one attempt
+    // for THIS headline (flag reset per-headline — see the reset at the top
+    // of this function), cloud has empirically proven unusable for this
+    // prompt (the
+    // Firestore-score-based cloudCascadeExhausted check in main() only sees
+    // model scoring/cooldown state and misses per-request token-size
+    // cascades). Each full local/fallback inference took ~12-17min observed;
+    // a further attempt below LOCAL_MIN_VIABLE_MS remaining would be
+    // truncated mid-inference by _callLocal's own deadline cap instead of
+    // completing — zero output, wasted GH Actions minutes. That exact chain
+    // (17.5min + 12.5min burned on unrelated rejections, leaving only 5.5min
+    // for a 3rd local attempt that then hard-timed-out) is why that run
+    // published nothing. Stop cleanly here instead; the next cron run gets a
+    // fresh full budget. Same qualityReject disposition as the other
+    // "survived retry budget" throws (see isQualityRejectError above) — this
+    // is a clean per-headline deferral, not an infrastructure crash.
+    if (_localFallbackUsedThisHeadline) {
+      const remainingMs = RUN_WALL_BUDGET_MS - (Date.now() - RUN_START_MS);
+      if (remainingMs < LOCAL_MIN_VIABLE_MS) {
+        console.error(`  ⏭️  Interrompo i retry: local/fallback già usato per questo headline, restano ${Math.round(remainingMs / 60_000)}min (< ${LOCAL_MIN_VIABLE_MS / 60_000}min necessari per completare un altro tentativo senza timeout) — evito un timeout a vuoto.`);
+        RUN_REPORT.notes.push(`Retry loop stopped early: local-only wall-clock guard (attempt=${attempt}, remainingMin=${Math.round(remainingMs / 60_000)})`);
+        const err = new Error(`Local/fallback wall-clock budget insufficiente per un altro tentativo (restano ${Math.round(remainingMs / 60_000)}min)`);
+        err.qualityReject = true;
+        throw err;
+      }
+    }
     const modelSlot = MIN_WORDS_MODEL_ROTATION[Math.min(attempt - 1, MIN_WORDS_MODEL_ROTATION.length - 1)];
     const useGeminiDirect = modelSlot === 'gemini';
     // Higher temperature on later attempts to get more varied/longer output
@@ -8897,11 +9017,15 @@ async function generateAndValidateArticle(url, sourceContext = null) {
           // ordered by llmFactCheck) so a long violation list can't bloat an
           // already-large prompt past the input window of the degraded free
           // models this fix targets (adversarial review PR #2615). Surface the
-          // truncation rather than silently dropping the tail.
+          // truncation rather than silently dropping the tail. Per-issue claim/
+          // reason lengths tightened 2026-07-06 (90/110→70/90 chars) alongside
+          // the regen-attempt MAX_SOURCE_CHARS cut above — both compete for the
+          // same ~8000-token input ceiling once fix B's domainFactsBlock also
+          // rides along on organic-mode regen attempts.
           const FACTCHECK_FEEDBACK_CAP = 8;
           lastFactCheckErrors = factResult.issues
             .slice(0, FACTCHECK_FEEDBACK_CAP)
-            .map(i => `- [${i.category || '?'}] "${(i.claim || '').slice(0, 90)}" — ${(i.reason || 'non nella fonte').slice(0, 110)}`)
+            .map(i => `- [${i.category || '?'}] "${(i.claim || '').slice(0, 70)}" — ${(i.reason || 'non nella fonte').slice(0, 90)}`)
             .join('\n');
           if (factResult.issues.length > FACTCHECK_FEEDBACK_CAP) {
             lastFactCheckErrors += `\n(+${factResult.issues.length - FACTCHECK_FEEDBACK_CAP} altre violazioni: applica lo STESSO principio a tutto il testo, non solo a queste)`;

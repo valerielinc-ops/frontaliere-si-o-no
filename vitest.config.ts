@@ -75,6 +75,7 @@ const JSDOM_TS_FILES = [
   'tests/cdn-image-base.test.ts',
   'tests/dist-salary-hub-footer-portal.test.ts',
   'tests/dom-reconciliation-guard.test.ts',
+  'tests/exchange-rate-service-local-cache.test.ts',
   'tests/extract-article-text.test.ts',
   'tests/flat-html-redirect.test.ts',
   'tests/fuel-italian-station-redesign.test.ts',

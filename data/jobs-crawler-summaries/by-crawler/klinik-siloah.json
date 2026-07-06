@@ -1,58 +1,16 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-07-05T23:36:45.711Z",
-  "total": 1,
+  "generatedAt": "2026-07-06T14:32:14.908Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7787,
-  "avgDurationMs": 7787,
-  "durationHistory": [
-    7787
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "klinik-siloah-54f1cfb5a8ae",
-      "slug": "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah",
-      "company": "Privatklinik Siloah",
-      "companyKey": "klinik-siloah",
-      "companyDomain": "swissmedical.net",
-      "title": "Lehrstelle Fachperson Gesundheit per 2027 auf der chirurgischen Bettenstation",
-      "needsRetranslation": false,
-      "location": "Gümligen",
-      "canton": "BE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134932699-lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134932699-lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation",
-      "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:36:43.884Z",
-      "addressLocality": "Gümligen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3073",
-      "streetAddress": "Worbstrasse 324, 3073 Gümligen",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-30",
-      "datePosted": "2026-06-30",
-      "firstSeenAt": "2026-06-30T11:41:53.331Z",
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }

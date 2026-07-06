@@ -32,6 +32,10 @@ import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
+// Reverse crosslink lavoro -> evento (#3646, epic #3125) — the item PR #3696
+// declared open. Isolated module reusing eventsSeoPagesPlugin's own data
+// primitives (AGENTS.md §6); see build-plugins/shared/jobEventsCrosslink.ts.
+import { nearbyEventsBlockForJobPage } from './shared/jobEventsCrosslink';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
@@ -4317,12 +4321,13 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const rawFullSlug = `${prefix}-${rawSlug}`;
  const rawRelPath = `${localePrefix[locale]}/${sectionSlug}/${rawFullSlug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const rawDir = np.join(distDir, rawRelPath);
- if (!fs.existsSync(np.join(rawDir, 'index.html'))) {
+ const rawDirIndex = np.join(rawDir, 'index.html');
+ if (!_writtenPaths.has(rawDirIndex) && !fs.existsSync(rawDirIndex)) {
  _md(rawDir);
- _qw(np.join(rawDir, 'index.html'), companyHtml);
+ _qw(rawDirIndex, companyHtml);
  }
  const rawFlat = np.join(distDir, rawRelPath + '.html');
- if (!fs.existsSync(rawFlat)) {
+ if (!_writtenPaths.has(rawFlat) && !fs.existsSync(rawFlat)) {
  _md(np.dirname(rawFlat));
  _qwFlat(rawFlat, companyHtml);
  }
@@ -4369,12 +4374,13 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  hreflangEntries: aliasHreflang,
  });
  const aliasDir = np.join(distDir, aliasRelPath);
- if (!fs.existsSync(np.join(aliasDir, 'index.html'))) {
+ const aliasDirIndex = np.join(aliasDir, 'index.html');
+ if (!_writtenPaths.has(aliasDirIndex) && !fs.existsSync(aliasDirIndex)) {
  _md(aliasDir);
- _qw(np.join(aliasDir, 'index.html'), aliasHtml);
+ _qw(aliasDirIndex, aliasHtml);
  }
  const aliasFlat = np.join(distDir, aliasRelPath + '.html');
- if (!fs.existsSync(aliasFlat)) {
+ if (!_writtenPaths.has(aliasFlat) && !fs.existsSync(aliasFlat)) {
  _md(np.dirname(aliasFlat));
  _qwFlat(aliasFlat, aliasHtml);
  }
@@ -4811,12 +4817,13 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  });
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
- if (!fs.existsSync(np.join(dir, 'index.html'))) {
+ const dirIndex = np.join(dir, 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
- _qw(np.join(dir, 'index.html'), html);
+ _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!fs.existsSync(flatFile)) {
+ if (!_writtenPaths.has(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
@@ -5720,12 +5727,13 @@ ${staticAnalyticsHtml}
  });
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
- if (!fs.existsSync(np.join(dir, 'index.html'))) {
+ const dirIndex = np.join(dir, 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
- _qw(np.join(dir, 'index.html'), html);
+ _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!fs.existsSync(flatFile)) {
+ if (!_writtenPaths.has(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
@@ -5954,6 +5962,7 @@ ${staticAnalyticsHtml}
  <h2 class="s-iEVPhz">${esc(locale === 'it' ? `Settori a ${location}` : locale === 'en' ? `Sectors in ${location}` : locale === 'de' ? `Branchen in ${location}` : `Secteurs a ${location}`)}</h2>
  <div class="s-J2fKgL">${sectorLinks}</div>
  </section>
+ ${nearbyEventsBlockForJobPage(locale, 'TI', location, getCantonDisplayLabel('TI', locale))}
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location }))}
  </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
@@ -6659,7 +6668,7 @@ ${staticAnalyticsHtml}
    : locale === 'de' ? `Stellenangebote in ${cityDisplay}`
    : `Offres d'emploi à ${cityDisplay}`;
  const tilesHtml = `<section class="s-S6PRaY"><div class="s-CGuDZg"><div class="s-JFi4vt">${esc(jobCountLabel)}</div><div class="s-9UotdJ">${cityJobs.length}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(cantonTileLabel)}</div><div class="s-9UotdJ">${esc(canton)}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(permitTileLabel)}</div><div class="s-9UotdJ">G</div></div></section>`;
- const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(updatedDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
+ const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(updatedDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${nearbyEventsBlockForJobPage(locale, canton, cityDisplay, cDisplay)}${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -7405,12 +7414,13 @@ ${staticAnalyticsHtml}
  });
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
- if (!fs.existsSync(np.join(dir, 'index.html'))) {
+ const dirIndex = np.join(dir, 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
- _qw(np.join(dir, 'index.html'), html);
+ _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!fs.existsSync(flatFile)) {
+ if (!_writtenPaths.has(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }

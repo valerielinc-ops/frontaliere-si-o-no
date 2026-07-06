@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-lengg",
-  "assembledAt": "2026-07-06T11:00:05.253Z",
+  "assembledAt": "2026-07-06T14:47:32.428Z",
   "jobs": [
     {
       "id": "klinik-lengg-f404b98255c2",
@@ -33,7 +33,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a/441f7e8a-f768-4396-b9fe-c886ef55e55c",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.377Z",
+      "crawledAt": "2026-07-06T14:47:24.368Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -74,13 +74,11 @@
         ]
       },
       "previousSlugs": [
-        "eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a-klinik-lengg",
-        "stage-di-selezione-per-il-corso-di-studi-hf-per-dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-lengg-zurich"
+        "eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a-klinik-lengg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a-klinik-lengg",
-          "stage-di-selezione-per-il-corso-di-studi-hf-per-dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-lengg-zurich"
+          "eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a-klinik-lengg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:17.545Z",
@@ -128,7 +126,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/studierende-studierender-hf-fh-pflege-akut-somatik-a/70b0b145-c264-46c2-9724-755b6cabc071",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.377Z",
+      "crawledAt": "2026-07-06T14:47:24.368Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,111 +173,14 @@
         ]
       },
       "previousSlugs": [
-        "studierende-studierender-hf-fh-pflege-akut-somatik-a-klinik-lengg-zurich",
-        "studente-i-hf-fh-infermieristica-acuta-somatica-a-klinik-lengg-zurich"
+        "studierende-studierender-hf-fh-pflege-akut-somatik-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-studierender-hf-fh-pflege-akut-somatik-a-klinik-lengg-zurich",
-          "studente-i-hf-fh-infermieristica-acuta-somatica-a-klinik-lengg-zurich"
+          "studierende-studierender-hf-fh-pflege-akut-somatik-a-klinik-lengg-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:17.547Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-lengg-251ac6656524",
-      "slug": "formatore-a-professionale-dipl-infermiere-a-hf-fh-klinik-lengg-zurich",
-      "slugByLocale": {
-        "it": "formatore-a-professionale-dipl-infermiere-a-hf-fh-klinik-lengg-zurich",
-        "en": "professional-trainer-dipl-nursing-professional-hf-fh-klinik-lengg-zurich",
-        "de": "berufsbildner-in-dipl-pflegefachperson-hf-fh-a-klinik-lengg-zurich",
-        "fr": "formateur-trice-professionnel-le-diplome-e-en-soins-infirmiers-hf-fh-klinik-lengg-zurich"
-      },
-      "company": "Klinik Lengg",
-      "companyKey": "klinik-lengg",
-      "companyDomain": "kliniklengg.ch",
-      "title": "Berufsbildner:in Dipl. Pflegefachperson HF/ FH (a)",
-      "titleByLocale": {
-        "it": "Formatore/a professionale Dipl. Infermiere/a HF/FH",
-        "en": "Professional Trainer, Dipl. Nursing Professional HF/FH",
-        "de": "Berufsbildner:in Dipl. Pflegefachperson HF/ FH (a)",
-        "fr": "Formateur/trice professionnel(le), Diplômé(e) en soins infirmiers HF/FH"
-      },
-      "description": "Aufgaben:\n• Sie tragen die Verantwortung für den Pflegeprozess der Ihnen zugeteilten Patientinnen und Patienten, anhand der in der Klinik Lengg angewandten Pflegemodelle\n\n• Sie betreuen und begleiten unsere HF Studierenden und Lernenden FaGe in der Funktion als Berufsbildner:in\n\n• Im Rahmen eines LAG-Konzeptes fördern Sie selbstgesteuert die praxisbezogene Bildung und tragen die Verantwortung des Qualifaktionsprozesses\n\n• Sie pflegen und betreuen unsere Patientinnen und Patienten kompetent in einem interprofessionellen Behandlungsteam bestehend aus Therapeuten, Ärzten sowie Mitarbeitenden der Logis\n\nAnforderungen:\n• Sie verfügen über ein erfolgreich abgeschlossenes Studium als Dipl. Pflegefachfrau / Pflegefachmann HF/FH\n\n• Sie begeistern sich für die Berufsbildung, geben Ihr Wissen mit Freude weiter und bringen das nötige Fingerspitzengefühl sowie soziale Kompetenz im Umgang mit Studierenden und Lernenden mit\n\n• Weiterbildung als Berufsbildner/in SVEB oder die Bereitschaft diese zu absolvieren\n\n• Sie zeichnen sich als belastbare, kommunikative und offene Persönlichkeit aus und arbeiten gerne im Team\n\n• Sie beweisen eine hohe Sozialkompetenz im Umgang mit Patienten und deren Angehörigen\n\n• Gutes Organisationstalent sowie Freude an interdisziplinärer Zusammenarbeit runden ihr Profil ab\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
-      "descriptionByLocale": {
-        "it": "Mansioni - Responsabilità per il processo di cura dei pazienti e dei pazienti assegnati, in base ai modelli di assistenza infermieristica applicati nella clinica Lengg - Assistenza e accompagnamento degli studenti HF e degli apprendisti FaGe nella funzione di formatore professionale - Promuovere l'istruzione pratica in un concetto LAG e responsabilità del processo di qualificazione - Assistenza e cura dei pazienti e dei pazienti in un'équipe di trattamento interprofessionale composta da terapeuti, medici e collaboratori della logistica\n• Requisiti - Diploma di infermiere/a HF / FH - Passione per la formazione professionale, condivisione delle conoscenze con piacere e competenza sociale nel rapporto con gli studenti e gli apprendisti - Formazione come formatore professionale SVEB o a frequentarla - Persona affidabile, comunicativa e aperta, con piacere di lavorare in team - Alta competenza nel rapporto sociale con i pazienti e i loro familiari - Buone capacità organizzativa e piacere di collaborare in modo interdisciplinare Contatto La Clinica Lengg AG a Zurigo è il centro di competenza per l'epilessia e riabilitazione neurologica. Il nostro obiettivo è quello di offrire alle pazienti e ai pazienti con malattie neurologiche la massima riabilitazione possibile e una diagnosi accurata e un trattamento duraturo per le pazienti e i pazienti con epilessia. Circa 300 collaboratori si impegnano in modo umano, competente, innovativo e affidabile per far sì",
-        "en": "Mansioni - Responsabilità per il processo di cura delle pazienti e dei pazienti assegnati, in base ai modelli di assistenza infermieristica applicati nella clinica Lengg - Assistenza e accompagnamento degli studenti HF e degli apprendisti FaGe nella funzione di formatore professionale - Promuovere l 'istruzione pratica in un concetto LAG e responsabilità del processo di qualificazione - Assistenza e cura delle pazienti e dei pazienti in un 'équipe di trattamento interprofessionale composta da terapeuti, medici e collaboratori della logistica\n• Requisiti - Diploma di infermiere/a HF / FH - Passione per la formazione professionale, condivisione delle conoscenze con piacere e competenza sociale nel rapporto gli studenti e gli apprendisti - Formazione come formatore professionale SVEB o disponibilità a frequentarla - Person affaidabile, comunicativa ea ea, con apert, piacere di lareavorare in team competenza - Alza nel rapporto i pazienti i loro capaci - Buizzare di organi di collaborative pizzare di collaborativee in la clinicareggi interdisciplinary AG a contingencia per centigio per centigio a littile di l' épidabilia per épidabiliae. Il nostro obiettivo è quello di offrire alle pazienti e ai pazienti con malattie neurologiche la massima riabilitazione possibile e una diagnosi accurata e un trattamento duraturo per le pazienti e i pazienti con epilessia. Approximately 300 collaborators are impegnano in modo umano, competent, innovativo e affidabile per far sì",
-        "de": "Aufgaben:\n• Sie tragen die Verantwortung für den Pflegeprozess der Ihnen zugeteilten Patientinnen und Patienten, anhand der in der Klinik Lengg angewandten Pflegemodelle\n• Sie betreuen und begleiten unsere HF Studierenden und Lernenden FaGe in der Funktion als Berufsbildner:in\n• Im Rahmen eines LAG-Konzeptes fördern Sie selbstgesteuert die praxisbezogene Bildung und tragen die Verantwortung des Qualifaktionsprozesses\n• Sie pflegen und betreuen unsere Patientinnen und Patienten kompetent in einem interprofessionellen Behandlungsteam bestehend aus Therapeuten, Ärzten sowie Mitarbeitenden der Logis Anforderungen:\n• Sie verfügen über ein erfolgreich abgeschlossenes Studium als Dipl. Pflegefachfrau / Pflegefachmann HF/FH\n• Sie begeistern sich für die Berufsbildung, geben Ihr Wissen mit Freude weiter und bringen das nötige Fingerspitzengefühl sowie soziale Kompetenz im Umgang mit Studierenden und Lernenden mit\n• Weiterbildung als Berufsbildner/in SVEB oder die Bereitschaft diese zu absolvieren\n• Sie zeichnen sich als belastbare, kommunikative und offene Persönlichkeit aus und arbeiten gerne im Team\n• Sie beweisen eine hohe Sozialkompetenz im Umgang mit Patienten und deren Angehörigen\n• Gutes Organisationstalent sowie Freude an interdisziplinärer Zusammenarbeit runden ihr Profil ab Die Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation. Es ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
-        "fr": "Mansioni - Responsabilità per il processo di cura delle pazienti e dei pazienti assegnati, in base ai modelli di assistenza infermieristica applicati nella clinica Lengg - Assistenza e accompagnamento degli studenti HF e degli apprendisti FaGe nella funzione di formatore professionale - Promuovere l'istruzione pratica in un concetto LAG e responsabilità del processo di qualificazione - Assistenza e cura delle pazienti e dei pazienti in un'équipe di trattamento interprofessionale composta da terapeuti, medici e collaboratori della logistica\n• Requisiti - Diploma di infermiere/a HF / FH - Passione per la formazione professionale, condivisione delle concenze con piacere e competenza nel sociale rapporto con glitiden e gli apprendisti - Formazione formate formatore SVale professionnale oEBità disponibilità alava - Personabile comidate, afficta e operati e - Al piare comate in te pazione sociale e di pazienti sociale - Cento e modazione di modazione di modazione di modazione di associaciazione a AG. Il nostro obiettivo è quello di offrire alle pazienti e ai pazienti con malattie neurologiche la massima riabilitazione possibile e una diagnosi accurata e un trattamento duraturo per le pazienti e i pazienti con epilessia. Environ 300 collaborateurs si impegnano in modo umano, competente, innovativo e affidabile per far sì"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/ad835304-93b3-48f4-8dc1-26ace217e71e",
-      "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.376Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "streetAddress": "Bleulerstrasse 60",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-16",
-      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/ad835304-93b3-48f4-8dc1-26ace217e71e",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma di infermiere/a HF / FH",
-          "Formazione come formatore professionale SVEB o disponibilità a frequentarla",
-          "Persona affidabile, comunicativa e aperta, con piacere di lavorare in team",
-          "Alta competenza sociale nel rapporto con i pazienti e i loro familiari",
-          "Buone capacità organizzative e piacere di collaborare in modo interdisciplinare"
-        ],
-        "en": [
-          "Diploma in Nursing HF/FH",
-          "Training as a professional trainer SVEB or willingness to attend",
-          "Reliable, communicative, and open-minded person with a pleasure in teamwork",
-          "High social competence in dealing with patients and their families",
-          "Good organizational skills and pleasure in interdisciplinary collaboration"
-        ],
-        "fr": [
-          "Diplôme en soins infirmiers HF/FH",
-          "Formation en tant que formateur/trice professionnel(le) SVEB ou disponibilité à y assister",
-          "Personne fiable, communicative et ouverte d'esprit, avec plaisir de travailler en équipe",
-          "Compétence sociale élevée dans les relations avec les patients et leur famille",
-          "Bonnes compétences organisationnelles et plaisir de collaborer de manière interdisciplinaire"
-        ]
-      },
-      "previousSlugs": [
-        "berufsbildner-in-dipl-pflegefachperson-hf-fh-a-klinik-lengg-zurich",
-        "formatore-a-professionale-dipl-infermiere-a-hf-fh-klinik-lengg-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "berufsbildner-in-dipl-pflegefachperson-hf-fh-a-klinik-lengg-zurich",
-          "formatore-a-professionale-dipl-infermiere-a-hf-fh-klinik-lengg-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:22:17.538Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -325,7 +226,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/quereinsteiger-in-neurophysiologie-im-tagdienst/328a1ae3-3bc1-4591-bf90-d3e3f626a20f",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.374Z",
+      "crawledAt": "2026-07-06T14:47:24.367Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -344,19 +245,110 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
-        "candidato-a-in-riqualificazione-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
+        "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
-          "candidato-a-in-riqualificazione-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
+          "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
         ],
         "en": [
           "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
         ]
       },
       "firstSeenAt": "2026-06-05T12:05:44.589Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "klinik-lengg-251ac6656524",
+      "slug": "formatore-a-professionale-dipl-infermiere-a-hf-fh-klinik-lengg-zurich",
+      "slugByLocale": {
+        "it": "formatore-a-professionale-dipl-infermiere-a-hf-fh-klinik-lengg-zurich",
+        "en": "professional-trainer-dipl-nursing-professional-hf-fh-klinik-lengg-zurich",
+        "de": "berufsbildner-in-dipl-pflegefachperson-hf-fh-a-klinik-lengg-zurich",
+        "fr": "formateur-trice-professionnel-le-diplome-e-en-soins-infirmiers-hf-fh-klinik-lengg-zurich"
+      },
+      "company": "Klinik Lengg",
+      "companyKey": "klinik-lengg",
+      "companyDomain": "kliniklengg.ch",
+      "title": "Berufsbildner:in Dipl. Pflegefachperson HF/ FH (a)",
+      "titleByLocale": {
+        "it": "Formatore/a professionale Dipl. Infermiere/a HF/FH",
+        "en": "Professional Trainer, Dipl. Nursing Professional HF/FH",
+        "de": "Berufsbildner:in Dipl. Pflegefachperson HF/ FH (a)",
+        "fr": "Formateur/trice professionnel(le), Diplômé(e) en soins infirmiers HF/FH"
+      },
+      "description": "Aufgaben:\n• Sie tragen die Verantwortung für den Pflegeprozess der Ihnen zugeteilten Patientinnen und Patienten, anhand der in der Klinik Lengg angewandten Pflegemodelle\n\n• Sie betreuen und begleiten unsere HF Studierenden und Lernenden FaGe in der Funktion als Berufsbildner:in\n\n• Im Rahmen eines LAG-Konzeptes fördern Sie selbstgesteuert die praxisbezogene Bildung und tragen die Verantwortung des Qualifaktionsprozesses\n\n• Sie pflegen und betreuen unsere Patientinnen und Patienten kompetent in einem interprofessionellen Behandlungsteam bestehend aus Therapeuten, Ärzten sowie Mitarbeitenden der Logis\n\nAnforderungen:\n• Sie verfügen über ein erfolgreich abgeschlossenes Studium als Dipl. Pflegefachfrau / Pflegefachmann HF/FH\n\n• Sie begeistern sich für die Berufsbildung, geben Ihr Wissen mit Freude weiter und bringen das nötige Fingerspitzengefühl sowie soziale Kompetenz im Umgang mit Studierenden und Lernenden mit\n\n• Weiterbildung als Berufsbildner/in SVEB oder die Bereitschaft diese zu absolvieren\n\n• Sie zeichnen sich als belastbare, kommunikative und offene Persönlichkeit aus und arbeiten gerne im Team\n\n• Sie beweisen eine hohe Sozialkompetenz im Umgang mit Patienten und deren Angehörigen\n\n• Gutes Organisationstalent sowie Freude an interdisziplinärer Zusammenarbeit runden ihr Profil ab\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
+      "descriptionByLocale": {
+        "it": "Mansioni - Responsabilità per il processo di cura dei pazienti e dei pazienti assegnati, in base ai modelli di assistenza infermieristica applicati nella clinica Lengg - Assistenza e accompagnamento degli studenti HF e degli apprendisti FaGe nella funzione di formatore professionale - Promuovere l'istruzione pratica in un concetto LAG e responsabilità del processo di qualificazione - Assistenza e cura dei pazienti e dei pazienti in un'équipe di trattamento interprofessionale composta da terapeuti, medici e collaboratori della logistica\n• Requisiti - Diploma di infermiere/a HF / FH - Passione per la formazione professionale, condivisione delle conoscenze con piacere e competenza sociale nel rapporto con gli studenti e gli apprendisti - Formazione come formatore professionale SVEB o a frequentarla - Persona affidabile, comunicativa e aperta, con piacere di lavorare in team - Alta competenza nel rapporto sociale con i pazienti e i loro familiari - Buone capacità organizzativa e piacere di collaborare in modo interdisciplinare Contatto La Clinica Lengg AG a Zurigo è il centro di competenza per l'epilessia e riabilitazione neurologica. Il nostro obiettivo è quello di offrire alle pazienti e ai pazienti con malattie neurologiche la massima riabilitazione possibile e una diagnosi accurata e un trattamento duraturo per le pazienti e i pazienti con epilessia. Circa 300 collaboratori si impegnano in modo umano, competente, innovativo e affidabile per far sì",
+        "en": "Mansioni - Responsabilità per il processo di cura delle pazienti e dei pazienti assegnati, in base ai modelli di assistenza infermieristica applicati nella clinica Lengg - Assistenza e accompagnamento degli studenti HF e degli apprendisti FaGe nella funzione di formatore professionale - Promuovere l 'istruzione pratica in un concetto LAG e responsabilità del processo di qualificazione - Assistenza e cura delle pazienti e dei pazienti in un 'équipe di trattamento interprofessionale composta da terapeuti, medici e collaboratori della logistica\n• Requisiti - Diploma di infermiere/a HF / FH - Passione per la formazione professionale, condivisione delle conoscenze con piacere e competenza sociale nel rapporto gli studenti e gli apprendisti - Formazione come formatore professionale SVEB o disponibilità a frequentarla - Person affaidabile, comunicativa ea ea, con apert, piacere di lareavorare in team competenza - Alza nel rapporto i pazienti i loro capaci - Buizzare di organi di collaborative pizzare di collaborativee in la clinicareggi interdisciplinary AG a contingencia per centigio per centigio a littile di l' épidabilia per épidabiliae. Il nostro obiettivo è quello di offrire alle pazienti e ai pazienti con malattie neurologiche la massima riabilitazione possibile e una diagnosi accurata e un trattamento duraturo per le pazienti e i pazienti con epilessia. Approximately 300 collaborators are impegnano in modo umano, competent, innovativo e affidabile per far sì",
+        "de": "Aufgaben:\n• Sie tragen die Verantwortung für den Pflegeprozess der Ihnen zugeteilten Patientinnen und Patienten, anhand der in der Klinik Lengg angewandten Pflegemodelle\n• Sie betreuen und begleiten unsere HF Studierenden und Lernenden FaGe in der Funktion als Berufsbildner:in\n• Im Rahmen eines LAG-Konzeptes fördern Sie selbstgesteuert die praxisbezogene Bildung und tragen die Verantwortung des Qualifaktionsprozesses\n• Sie pflegen und betreuen unsere Patientinnen und Patienten kompetent in einem interprofessionellen Behandlungsteam bestehend aus Therapeuten, Ärzten sowie Mitarbeitenden der Logis Anforderungen:\n• Sie verfügen über ein erfolgreich abgeschlossenes Studium als Dipl. Pflegefachfrau / Pflegefachmann HF/FH\n• Sie begeistern sich für die Berufsbildung, geben Ihr Wissen mit Freude weiter und bringen das nötige Fingerspitzengefühl sowie soziale Kompetenz im Umgang mit Studierenden und Lernenden mit\n• Weiterbildung als Berufsbildner/in SVEB oder die Bereitschaft diese zu absolvieren\n• Sie zeichnen sich als belastbare, kommunikative und offene Persönlichkeit aus und arbeiten gerne im Team\n• Sie beweisen eine hohe Sozialkompetenz im Umgang mit Patienten und deren Angehörigen\n• Gutes Organisationstalent sowie Freude an interdisziplinärer Zusammenarbeit runden ihr Profil ab Die Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation. Es ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
+        "fr": "Mansioni - Responsabilità per il processo di cura delle pazienti e dei pazienti assegnati, in base ai modelli di assistenza infermieristica applicati nella clinica Lengg - Assistenza e accompagnamento degli studenti HF e degli apprendisti FaGe nella funzione di formatore professionale - Promuovere l'istruzione pratica in un concetto LAG e responsabilità del processo di qualificazione - Assistenza e cura delle pazienti e dei pazienti in un'équipe di trattamento interprofessionale composta da terapeuti, medici e collaboratori della logistica\n• Requisiti - Diploma di infermiere/a HF / FH - Passione per la formazione professionale, condivisione delle concenze con piacere e competenza nel sociale rapporto con glitiden e gli apprendisti - Formazione formate formatore SVale professionnale oEBità disponibilità alava - Personabile comidate, afficta e operati e - Al piare comate in te pazione sociale e di pazienti sociale - Cento e modazione di modazione di modazione di modazione di associaciazione a AG. Il nostro obiettivo è quello di offrire alle pazienti e ai pazienti con malattie neurologiche la massima riabilitazione possibile e una diagnosi accurata e un trattamento duraturo per le pazienti e i pazienti con epilessia. Environ 300 collaborateurs si impegnano in modo umano, competente, innovativo e affidabile per far sì"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/ad835304-93b3-48f4-8dc1-26ace217e71e",
+      "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T14:47:24.367Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "streetAddress": "Bleulerstrasse 60",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-16",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/ad835304-93b3-48f4-8dc1-26ace217e71e",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Diploma di infermiere/a HF / FH",
+          "Formazione come formatore professionale SVEB o disponibilità a frequentarla",
+          "Persona affidabile, comunicativa e aperta, con piacere di lavorare in team",
+          "Alta competenza sociale nel rapporto con i pazienti e i loro familiari",
+          "Buone capacità organizzative e piacere di collaborare in modo interdisciplinare"
+        ],
+        "en": [
+          "Diploma in Nursing HF/FH",
+          "Training as a professional trainer SVEB or willingness to attend",
+          "Reliable, communicative, and open-minded person with a pleasure in teamwork",
+          "High social competence in dealing with patients and their families",
+          "Good organizational skills and pleasure in interdisciplinary collaboration"
+        ],
+        "fr": [
+          "Diplôme en soins infirmiers HF/FH",
+          "Formation en tant que formateur/trice professionnel(le) SVEB ou disponibilité à y assister",
+          "Personne fiable, communicative et ouverte d'esprit, avec plaisir de travailler en équipe",
+          "Compétence sociale élevée dans les relations avec les patients et leur famille",
+          "Bonnes compétences organisationnelles et plaisir de collaborer de manière interdisciplinaire"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-dipl-pflegefachperson-hf-fh-a-klinik-lengg-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-dipl-pflegefachperson-hf-fh-a-klinik-lengg-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T12:22:17.538Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -401,7 +393,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/psychotherapeutin-psychotherapeut-fuer-vielseitige-taetigkeit-mit-schwerpunkt-neuropsychosomatik/08c1c891-1321-45a2-89d3-0ccdda477dd6",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.373Z",
+      "crawledAt": "2026-07-06T14:47:24.366Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -483,7 +475,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/ernaehrungsberaterin-ernaehrungsberater-svde-a/f8083361-6422-45d9-ba7d-c2387dabdfb3",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.371Z",
+      "crawledAt": "2026-07-06T14:47:24.365Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -503,13 +495,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
-        "nutritionist-nutritionist-svde-a-klinik-lengg-zurich",
-        "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich"
+        "nutritionist-nutritionist-svde-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
-          "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich"
+          "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
         ],
         "en": [
           "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
@@ -565,7 +555,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-fachfrau-fachmann-gesundheit-a/bd031dc3-88d9-4cd2-a2ae-aa4d8512d16b",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.370Z",
+      "crawledAt": "2026-07-06T14:47:24.363Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -584,13 +574,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich",
-        "formazione-professionale-in-specializzazione-professionale-sanitario-a-klinik-lengg-zurich"
+        "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich",
-          "formazione-professionale-in-specializzazione-professionale-sanitario-a-klinik-lengg-zurich"
+          "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich"
         ],
         "en": [
           "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich"
@@ -645,7 +633,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/assistenzaerztin-assistenzarzt-neurorehabilitation-a/0415652b-0903-4688-b7a3-4b1e42110871",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.370Z",
+      "crawledAt": "2026-07-06T14:47:24.363Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -664,13 +652,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich",
-        "assistente-medico-neuroriabilitazione-a-klinik-lengg-zurich"
+        "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich",
-          "assistente-medico-neuroriabilitazione-a-klinik-lengg-zurich"
+          "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
@@ -725,7 +711,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/fachpersonen-pflege-im-flexiblen-pflegepool-a/31f1983f-5f09-4c1c-a1a0-a19e99be9210",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.369Z",
+      "crawledAt": "2026-07-06T14:47:24.362Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -744,13 +730,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich",
-        "cura-nel-pool-di-assistenza-flessibile-a-klinik-lengg-zurich"
+        "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich",
-          "cura-nel-pool-di-assistenza-flessibile-a-klinik-lengg-zurich"
+          "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich"
         ],
         "en": [
           "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich"
@@ -804,7 +788,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-frueh-und-spaetdienst/1f5cb508-e2d2-4603-b4c6-85b05333f7f9",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.368Z",
+      "crawledAt": "2026-07-06T14:47:24.361Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -881,7 +865,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/94592149-ddbf-40a6-bcd2-d389e3b37d4c",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.367Z",
+      "crawledAt": "2026-07-06T14:47:24.360Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -955,7 +939,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/b5a23cc0-f4a0-4bb9-a084-1e424a28cbde",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.367Z",
+      "crawledAt": "2026-07-06T14:47:24.359Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1036,7 +1020,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/parkinson-nurse-dipl-pflegefachperson-a/8d548bde-6b77-4823-a117-cf1903618621",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.366Z",
+      "crawledAt": "2026-07-06T14:47:24.358Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1055,13 +1039,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich",
-        "infermiera-di-parkinson-a-klinik-lengg-zurich"
+        "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich",
-          "infermiera-di-parkinson-a-klinik-lengg-zurich"
+          "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich"
         ],
         "fr": [
           "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich"
@@ -1113,7 +1095,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/qualitaets-und-prozessmanager-a/165883ba-acbe-4705-81d3-02cbb566d9b4",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.364Z",
+      "crawledAt": "2026-07-06T14:47:24.357Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1185,13 +1167,12 @@
         "de": "Aufgaben:\n• Als Fachfrau/Fachmann Gesundheit in der Klinik Lengg pflegen und betreuen Sie Menschen mit neurologischen Erkrankungen und Epilepsie\n• Zusätzlich übernehmen Sie Aufgaben in den Bereichen Administration und Organisation, dabei arbeiten Sie eng mit Ärztinnen und Ärzten sowie Therapeutinnen und Therapeuten zusammen und sind eingebunden in ein Team aus Pflegenden, das Sie während Ihrer Ausbildung begleitet, fördert und fordert Anforderungen:\n• Schulabschluss Sek. A., B. oder 10. Schuljahr mit guten Noten (Deutschnote mind. 4.5, Mathematik mind. 4.0)\n• Bereitschaft für unregelmässige Arbeitszeiten\n• Gute Erreichbarkeit der Klinik und der Berufsfachschule\n• Sehr gute Sozialkompetenzen wie Einfühlungsvermögen, gute Umgangsformen, Zuverlässigkeit und Verantwortungsbewusstsein\n• Multicheck Die Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation. Es ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
         "fr": "Tâches :\n• En tant que spécialiste de la santé à la clinique Lengg, vous prenez soin des personnes atteintes de maladies neurologiques et d'épilepsie\n• De plus, vous assumez des tâches dans les domaines de l'administration et de l'organisation, travaillez en étroite collaboration avec les médecins et les thérapeutes et participez à une équipe d'infirmières qui vous accompagnent, vous encouragent et vous mettent au défi pendant votre formation. Exigences\n• A., B. ou 10. Année scolaire avec de bonnes notes (niveau allemand au moins). 4.5, Mathématiques.\n• Disponibilité pour les heures de travail irrégulières\n• Bonne accessibilité de la clinique et de l'école professionnelle\n• Très bonnes compétences sociales comme l'empathie, les bonnes manières, la fiabilité et la responsabilité\n• Contrôle multiple Klinik Lengg AG à Zurich est le centre d'excellence en épileptologie et en réadaptation neurologique. Notre objectif est de fournir aux patients atteints de maladies neurologiques la réadaptation la plus large possible et d'assurer un diagnostic précis et un traitement durable des patients atteints d'épilepsie. Environ 300 employés s'engagent à faire preuve d'humanité, de compétence, d'innovation et de fiabilité pour que nos patients retrouvent la plus grande indépendance possible et donc leur qualité de vie. Faites partie d'une de nos équipes interdisciplinaires et interprofessionnelles."
       },
-      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.kliniklengg.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027/8c55a1bd-f7c3-473a-9f54-ed90d5badbc3",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.363Z",
+      "crawledAt": "2026-07-06T14:47:24.355Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1210,13 +1191,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027-klinik-lengg-zurich",
-        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-a-2027-klinik-lengg-zurich"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027-klinik-lengg-zurich",
-          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-a-2027-klinik-lengg-zurich"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027-klinik-lengg-zurich"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027-klinik-lengg-zurich"
@@ -1271,7 +1250,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/leiterin-leiter-ergotherapie/1e62fa80-792e-4654-8db8-847b2938de89",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.360Z",
+      "crawledAt": "2026-07-06T14:47:24.354Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1290,13 +1269,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiterin-leiter-ergotherapie-klinik-lengg-zurich",
-        "capo-della-terapia-occupazionale-klinik-lengg-zurich"
+        "leiterin-leiter-ergotherapie-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiterin-leiter-ergotherapie-klinik-lengg-zurich",
-          "capo-della-terapia-occupazionale-klinik-lengg-zurich"
+          "leiterin-leiter-ergotherapie-klinik-lengg-zurich"
         ],
         "en": [
           "leiterin-leiter-ergotherapie-klinik-lengg-zurich"
@@ -1351,7 +1328,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-im-frueh-und-spaetdienst/7c141e72-d48e-4c1c-8115-e1c841c6db9e",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.359Z",
+      "crawledAt": "2026-07-06T14:47:24.351Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1428,7 +1405,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache/01fa115e-9d01-46d2-ac0f-f6e257fd73e5",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:47:46.354Z",
+      "crawledAt": "2026-07-06T14:47:24.350Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1473,6 +1450,85 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "klinik-lengg-9c3ec9366f25",
+      "slug": "eeg-assistentin-assistent-o-fachfrau-fachmann-neurophysiologische-diagnostik-klinik-lengg-zurich",
+      "slugByLocale": {
+        "de": "eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik-klinik",
+        "it": "eeg-assistentin-assistent-o-fachfrau-fachmann-neurophysiologische-diagnostik-klinik-lengg-zurich",
+        "en": "eeg-assistant-assistant-or-specialist-specialist-neurophysiological-diagnostics-klinik-lengg-zurich",
+        "fr": "assistant-eeg-assistant-ou-specialiste-specialiste-du-diagnostic-neurophysiologique-klinik-lengg-zurich"
+      },
+      "company": "Klinik Lengg",
+      "companyKey": "klinik-lengg",
+      "companyDomain": "kliniklengg.ch",
+      "title": "EEG Assistentin / Assistent oder Fachfrau / Fachmann Neurophysiologische Diagnostik",
+      "titleByLocale": {
+        "de": "EEG Assistentin / Assistent oder Fachfrau / Fachmann Neurophysiologische Diagnostik",
+        "it": "EEG Assistentin / Assistent o Fachfrau / Fachmann Neurophysiologische Diagnostik",
+        "en": "EEG assistant / assistant or specialist / specialist neurophysiological diagnostics",
+        "fr": "Assistant EEG / assistant ou spécialiste / spécialiste du diagnostic neurophysiologique"
+      },
+      "description": "Aufgaben:\n• Durchführung von Standard-EEG, Langzeit-/Video- und Elektroenzephalographien (EEG)\n\n• Überwachung der Patienten und klinische Testungen bei Anfällen\n\n• Durchführung von Provokationstests und Reaktionszeitmessungen\n\n• Nach erfolgreicher Einarbeitung können Sie die Elektroden bei unseren Patientinnen und Patienten anlegen und die EEGs registrieren\n\n• Geräte/Elektroden Pflege\n\n• Administrative Aufgaben\n\n• Fachspezifische Einarbeitung sowie Möglichkeit, den berufsbegleitenden Lehrgang zur \"Fachperson für neurophysiologische Diagnostik (FND)\" zu absolvieren.\n\n• Möglichkeit, sich am Pikettdienst am Wochenende zu beteiligen\n\nAnforderungen:\n• Interesse und Flair an medizinisch-technischen Aufgaben\n\n• Abgeschlossene medizinische Ausbildung (z.B. FaGe, MPA etc.)\n\n• Abgeschlossene Ausbildung als FND oder Vorkenntnisse im Bereich EEG von Vorteil\n\n• Offene und selbständige Persönlichkeit mit hoher Eigenverantwortung und Teamfähigkeit\n\n• Schnelle, effiziente Einarbeitung in neue Themen, Aufgabenstellungen und Prozesse\n\n• Gute PC-Anwendungskenntnisse\n\n• Gute Deutschkenntnisse\n\n• Empathisches und bestimmtes Verhalten gegenüber Menschen aller Altersgruppen, teilweise mit und ohne schwere körperliche und geistige Einschränkungen\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
+      "descriptionByLocale": {
+        "de": "Aufgaben:\n• Durchführung von Standard-EEG, Langzeit-/Video- und Elektroenzephalographien (EEG)\n\n• Überwachung der Patienten und klinische Testungen bei Anfällen\n\n• Durchführung von Provokationstests und Reaktionszeitmessungen\n\n• Nach erfolgreicher Einarbeitung können Sie die Elektroden bei unseren Patientinnen und Patienten anlegen und die EEGs registrieren\n\n• Geräte/Elektroden Pflege\n\n• Administrative Aufgaben\n\n• Fachspezifische Einarbeitung sowie Möglichkeit, den berufsbegleitenden Lehrgang zur \"Fachperson für neurophysiologische Diagnostik (FND)\" zu absolvieren.\n\n• Möglichkeit, sich am Pikettdienst am Wochenende zu beteiligen\n\nAnforderungen:\n• Interesse und Flair an medizinisch-technischen Aufgaben\n\n• Abgeschlossene medizinische Ausbildung (z.B. FaGe, MPA etc.)\n\n• Abgeschlossene Ausbildung als FND oder Vorkenntnisse im Bereich EEG von Vorteil\n\n• Offene und selbständige Persönlichkeit mit hoher Eigenverantwortung und Teamfähigkeit\n\n• Schnelle, effiziente Einarbeitung in neue Themen, Aufgabenstellungen und Prozesse\n\n• Gute PC-Anwendungskenntnisse\n\n• Gute Deutschkenntnisse\n\n• Empathisches und bestimmtes Verhalten gegenüber Menschen aller Altersgruppen, teilweise mit und ohne schwere körperliche und geistige Einschränkungen\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
+        "it": "Compiti:\n• Prestazioni di EEG standard, video e elettroencefalografie a lungo termine (EEG)\n\n• Monitoraggio del paziente e test clinici per convulsioni\n\n• Condurre prove di provocazione e misurazioni dei tempi di risposta\n\n• Dopo una formazione di successo, è possibile creare gli elettrodi con i nostri pazienti e registrare gli EEGs\n\n• Dispositivo/cura elettrica\n\n• Attività amministrative\n\n• Formazione specifica per il soggetto e l'opportunità di completare il corso part-time su \"Specialist for Neurophysiological Diagnostics (FND)\".\n\n• Possibilità di partecipare al servizio di piketting del fine settimana\n\nRequisiti\n• Interessi e sfaccettature nei compiti tecnici\n\n• Formazione medica completata (ad esempio FaGe, MPA, ecc.)\n\n• Formazione completa come un FND o conoscenza preventiva di EEG benefico\n\n• Personalità aperta e indipendente con un alto livello di responsabilità personale e lavoro di squadra\n\n• Conoscenza rapida ed efficiente di nuovi argomenti, compiti e processi\n\n• Buona conoscenza delle applicazioni PC\n\n• Buona conoscenza del tedesco\n\n• Comportamento empatico e specifico verso persone di tutte le età, a volte con e senza gravi limitazioni fisiche e mentali\n\nKlinik Lengg AG di Zurigo è il centro di eccellenza per l'epilessologia e la riabilitazione neurologica.\n\nIl nostro obiettivo è quello di fornire ai pazienti malattie neurologiche la più ampia riabilitazione possibile e garantire una diagnosi accurata e un trattamento sostenibile dei pazienti con epilessia. Circa 300 dipendenti si impegnano in modo umano, competente, innovativo e affidabile per garantire che i nostri pazienti riacquistano la massima indipendenza possibile - e quindi la loro qualità di vita. Diventa parte di una delle nostre squadre interdisciplinari e interprofessionali.",
+        "en": "Tasks:\n• Performance of standard EEG, long-term/video and electroencephalographies (EEG)\n\n• Patient monitoring and clinical testing for seizures\n\n• Conducting provocation tests and response time measurements\n\n• After successful training, you can create the electrodes with our patients and register the EEGs\n\n• Device/electrode care\n\n• Administrative tasks\n\n• Subject-specific training as well as the opportunity to complete the part-time course on \"Specialist for Neurophysiological Diagnostics (FND)\".\n\n• Opportunity to participate in the weekend piketting service\n\nRequirements\n• Interest and flair in medical-technical tasks\n\n• Completed medical training (e.g. FaGe, MPA, etc.)\n\n• Completed training as an FND or prior knowledge of EEG beneficial\n\n• Open and independent personality with a high level of personal responsibility and teamwork\n\n• Quick, efficient familiarization with new topics, tasks and processes\n\n• Good PC application knowledge\n\n• Good knowledge of German\n\n• Empathetic and specific behavior towards people of all ages, sometimes with and without severe physical and mental limitations\n\nKlinik Lengg AG in Zurich is the centre of excellence for epileptology and neurological rehabilitation.\n\nIt is our aim to provide patients with neurological diseases with the widest possible rehabilitation and to ensure an accurate diagnosis and sustainable treatment of patients with epilepsy. Around 300 employees are committed to humanely, competently, innovatively and reliably ensuring that our patients regain the greatest possible independence - and thus their quality of life. Become part of one of our interdisciplinary and interprofessional teams.",
+        "fr": "Tâches :\n• Exécution des normes EEG, à long terme/vidéo et électroencéphalographie (EEG)\n\n• Surveillance des patients et tests cliniques de convulsions\n\n• Tests de provocation et mesures du temps de réponse\n\n• Après une formation réussie, vous pouvez créer les électrodes avec nos patients et enregistrer les EEG\n\n• Entretien appareil/électrode\n\n• Tâches administratives\n\n• Formation spécifique ainsi que la possibilité de compléter le cours à temps partiel sur \"Spécialiste pour le diagnostic neurophysiologique (FND)\".\n\n• Possibilité de participer au service de piquetage du week-end\n\nExigences\n• Intérêt et élégance dans les tâches médico-techniques\n\n• Formation médicale terminée (p. ex. FaGe, MPA, etc.)\n\n• Formation terminée en tant que DPN ou connaissance préalable de l'EEG bénéfique\n\n• Personnalité ouverte et indépendante avec un haut niveau de responsabilité personnelle et de travail d'équipe\n\n• Connaissance rapide et efficace des nouveaux sujets, tâches et processus\n\n• Bonne connaissance des applications PC\n\n• Bonne connaissance de l'allemand\n\n• Comportement empathique et spécifique envers les personnes de tous âges, avec et sans limitations physiques et mentales sévères\n\nKlinik Lengg AG à Zurich est le centre d'excellence en épileptologie et en réadaptation neurologique.\n\nNotre objectif est de fournir aux patients atteints de maladies neurologiques la réadaptation la plus large possible et d'assurer un diagnostic précis et un traitement durable des patients atteints d'épilepsie. Environ 300 employés s'engagent à faire preuve d'humanité, de compétence, d'innovation et de fiabilité pour que nos patients retrouvent la plus grande indépendance possible et donc leur qualité de vie. Faites partie d'une de nos équipes interdisciplinaires et interprofessionnelles."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.kliniklengg.ch/offene-stellen/eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik/16bdbeec-3cd8-4dec-8935-ae3083ab64a3",
+      "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T14:47:24.346Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "streetAddress": "Bleulerstrasse 60",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-05",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik/16bdbeec-3cd8-4dec-8935-ae3083ab64a3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik-klinik"
+        ],
+        "en": [
+          "eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik-klinik"
+        ],
+        "fr": [
+          "eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik-klinik"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-06T14:47:24.346Z"
     }
   ]
 }

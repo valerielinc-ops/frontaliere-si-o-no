@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sanatorium-kilchberg",
-  "assembledAt": "2026-07-05T23:54:27.553Z",
+  "assembledAt": "2026-07-06T15:05:26.689Z",
   "jobs": [
     {
       "id": "sanatorium-kilchberg-57bc0cc78487",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/289/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:25.074Z",
+      "crawledAt": "2026-07-06T15:05:24.523Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/344/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:23.967Z",
+      "crawledAt": "2026-07-06T15:05:22.680Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -219,7 +219,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/528/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:23.089Z",
+      "crawledAt": "2026-07-06T15:05:21.943Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -321,7 +321,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/537/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:22.205Z",
+      "crawledAt": "2026-07-06T15:05:21.227Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -415,7 +415,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/542/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:21.362Z",
+      "crawledAt": "2026-07-06T15:05:20.513Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -521,7 +521,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/572/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:20.498Z",
+      "crawledAt": "2026-07-06T15:05:19.808Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -623,7 +623,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/584/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:19.608Z",
+      "crawledAt": "2026-07-06T15:05:19.101Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -711,7 +711,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/587/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:18.725Z",
+      "crawledAt": "2026-07-06T15:05:18.284Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -770,6 +770,434 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sanatorium-kilchberg-a398c5ac0b2b",
+      "slug": "codificatore-medico-codificatrice-medica-sanatorium-kilchberg-kilchberg",
+      "slugByLocale": {
+        "it": "codificatore-medico-codificatrice-medica-sanatorium-kilchberg-kilchberg",
+        "en": "medical-coder-sanatorium-kilchberg-kilchberg",
+        "de": "medizinische-kodiererin-medizinischen-kodierer-sanatorium-kilchberg-kilchberg",
+        "fr": "codeur-medical-codeuse-medicale-sanatorium-kilchberg-kilchberg"
+      },
+      "company": "Sanatorium Kilchberg",
+      "companyKey": "sanatorium-kilchberg",
+      "companyDomain": "sanatorium-kilchberg.ch",
+      "title": "Medizinische Kodiererin / Medizinischen Kodierer",
+      "titleByLocale": {
+        "it": "Codificatore Medico / Codificatrice Medica",
+        "en": "Medical Coder",
+        "de": "Medizinische Kodiererin / Medizinischen Kodierer",
+        "fr": "Codeur Médical / Codeuse Médicale"
+      },
+      "description": "Medizinische Kodiererin / Medizinischen Kodierer | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Medizinische Kodiererin / Medizinischen Kodierer Sanatorium Kilchberg AG | online seit: 04.05.2026 Wir suchen per sofort oder nach Vereinbarung 40% Kodierung/Medizincontrolling Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Eigenverantwortliche, korrekte und termingerechte Kodierung psychiatrischer Fälle nach den geltenden Kodier-/Abrechnungsregeln des BfS und SwissDRG / TARPSY\n\nPlausibilitäts- und Vollständigkeitsprüfung der klinischen Dokumentation\n\nUnterstützung bei der kontinuierlichen Verbesserung der Dokumentations- und Kodierqualität\n\nUnterstützung bei der Kodierrevision\n\nKontrolle und Korrektur der abrechnungsrelevanten Falldaten, Bearbeitung von Rechnungsrückweisungen\n\nMedizinische pflegerische Grundausbildung und mehrjährige Kodiererfahrung, idealerweise in der Kodierung psychiatrischer Fälle unter TARPSY\n\nGute IT-Anwenderkenntnisse, sowie eine strukturierte Arbeitsweise, vernetztes Denken und gute organisatorische Fähigkeiten\n\nErfahrung mit gängigen Klinikinformationssystemen und Kodier-Software\n\n• Bereich: Kaufmännische Berufe\n• Art: 40.00%",
+      "descriptionByLocale": {
+        "it": "Medico encoder Sanatorium Kilchberg AG | online dal: 04.05.2026 Siamo alla ricerca del 40% su appuntamento codifica/medicina che controlla Il Sanatorium Kilchberg vi offre un ambiente di lavoro soddisfacente con interessanti opportunità di sviluppo in un team dinamico e di valore. Porta i tuoi punti di forza e modella il futuro della clinica. Mansioni - Autoresponsabilità, corretta e puntuale codificazione dei casi psichiatrici secondo le normative BfS e SwissDRG / TARPSY - verifica di plausibilità e completezza della documentazione clinica - supporto nel miglioramento continuo della documentazione e della qualità di codifica - supporto nella revisione del codier - controllo e correzione dei dati di caso rilevanti dagli insediamenti",
+        "en": "Medical encoder Sanatorium Kilchberg AG | online since: 04.05.2026 We are looking for 40% by appointment encoding/medicine controlling The Sanatorium Kilchberg offers you a fulfilling working environment with exciting development opportunities in a dynamic and value-adding team. Bring your strengths in and shape the future of the clinic. Mansioni - Self-responsibility, correct and timely encoding of psychiatric cases according to the applicable BfS and SwissDRG / TARPSY - plausibility and completeness check of clinical documentation - support in continuous improvement of documentation and coding quality - support in codier revision - control and correction of settlement-relevant case data",
+        "de": "Medizinische Kodiererin / Medizinischen Kodierer | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Medizinische Kodiererin / Medizinischen Kodierer Sanatorium Kilchberg AG | online seit: 04.05.2026 Wir suchen per sofort oder nach Vereinbarung 40% Kodierung/Medizincontrolling Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Eigenverantwortliche, korrekte und termingerechte Kodierung psychiatrischer Fälle nach den geltenden Kodier-/Abrechnungsregeln des BfS und SwissDRG / TARPSY Plausibilitäts- und Vollständigkeitsprüfung der klinischen Dokumentation Unterstützung bei der kontinuierlichen Verbesserung der Dokumentations- und Kodierqualität Unterstützung bei der Kodierrevision Kontrolle und Korrektur der abrechnungsrelevanten Falldaten, Bearbeitung von Rechnungsrückweisungen Medizinische pflegerische Grundausbildung und mehrjährige Kodiererfahrung, idealerweise in der Kodierung psychiatrischer Fälle unter TARPSY Gute IT-Anwenderkenntnisse, sowie eine strukturierte Arbeitsweise, vernetztes Denken und gute organisatorische Fähigkeiten Erfahrung mit gängigen Klinikinformationssystemen und Kodier-Software\n• Bereich: Kaufmännische Berufe\n• Art: 40.00%",
+        "fr": "Encodeur médical Sanatorium Kilchberg AG en ligne depuis: 04.05.2026 Nous sommes à la recherche de 40% sur rendez-vous encodage / contrôle de la médecine Le Sanatorium Kilchberg vous offre un environnement de travail satisfaisant avec des opportunités de développement passionnantes dans une équipe dynamique et enrichissante. Apportez vos forces et façonnez l'avenir de la clinique. Mansioni - Autoresponsabilité, codage correct et en temps opportun des cas psychiatriques selon le BfS et SwissDRG / TARPSY - contrôle de plausibilité et d'exhaustivité de la documentation clinique - soutien à l'amélioration continue de la documentation et de la qualité du codage - soutien à la révision de la codification - contrôle et correction des données de cas pertinentes au règlement"
+      },
+      "needsRetranslation": true,
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://recruitingapp-3010.umantis.com/Vacancies/592/Description/1",
+      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T15:05:17.559Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8802",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/592/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Formazione medica o infermieristica di base",
+          "Esperienza pluriennale nella codifica, preferibilmente psichiatrica",
+          "Conoscenze approfondite di TARPSY e SwissDRG",
+          "Buone competenze informatiche",
+          "Capacità di lavorare in modo strutturato e organizzato",
+          "Esperienza con sistemi informativi clinici e software di codifica",
+          "Capacità di pensiero sistemico",
+          "Attitudine al miglioramento continuo"
+        ],
+        "en": [
+          "Basic medical or nursing training",
+          "Several years of coding experience, preferably in psychiatry",
+          "In-depth knowledge of TARPSY and SwissDRG",
+          "Strong IT skills",
+          "Structured and organized working style",
+          "Experience with clinical information systems and coding software",
+          "Systemic thinking skills",
+          "Commitment to continuous improvement"
+        ],
+        "fr": [
+          "Formation médicale ou infirmière de base",
+          "Expérience de plusieurs années en codification, de préférence en psychiatrie",
+          "Connaissance approfondie de TARPSY et SwissDRG",
+          "Compétences informatiques solides",
+          "Méthode de travail structurée et organisée",
+          "Expérience avec des systèmes d'information clinique et logiciels de codification",
+          "Capacité de pensée systémique",
+          "Engagement pour l'amélioration continue"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-kodiererin-medizinischen-kodierer-sanatorium-kilchberg-kilchberg",
+        "codificatore-medico-codificatrice-medica-sanatorium-kilchberg-kilchberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-kodiererin-medizinischen-kodierer-sanatorium-kilchberg-kilchberg",
+          "codificatore-medico-codificatrice-medica-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T14:37:08.394Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sanatorium-kilchberg-76a62d567f93",
+      "slug": "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos",
+      "slugByLocale": {
+        "it": "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos",
+        "en": "emergency-medical-technician-summer-season-2026-50-100-spital-davos-davos",
+        "de": "rettungssanitater-in-sommersaison-2026-50-100-spital-davos-ch",
+        "fr": "technicien-de-secours-medical-saison-estivale-2026-50-100-spital-davos-davos"
+      },
+      "company": "Sanatorium Kilchberg",
+      "companyKey": "sanatorium-kilchberg",
+      "companyDomain": "sanatorium-kilchberg.ch",
+      "title": "HR Bereichsverantwortliche / r",
+      "titleByLocale": {
+        "it": "Responsabile HR",
+        "en": "HR Manager",
+        "de": "HR Bereichsverantwortliche / r",
+        "fr": "Responsable RH"
+      },
+      "description": "HR Bereichsverantwortliche / r | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen HR Bereichsverantwortliche / r Sanatorium Kilchberg AG | online seit: 05.05.2026 Wir suchen ab sofort oder nach Vereinbarung 80 - 100% Human Resources Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Fachkompetente Beratung und Unterstützung der Führungskräfte in personalrelevanten Fragestellungen\n\nUnterstützung und Begleitung der Mitarbeitenden in schwierigen Arbeits- und Lebenssituationen sowie im Case Management\n\nSicherstellung einer effizienten Personalgewinnung sowie des On- und Offboardings\n\nMitarbeit bei wiederkehrenden Vergütungsprozessen (Lohneinstufung, Lohnrunde, sonstige Vergütungen)\n\nEinführung und Weiterentwicklung von Prozessen und Arbeitsinstrumenten\n\nAdministrative Aufgaben im Rahmen der Funktion\n\nFerienvertretung einer Kollegin im Bereich Beratung und Rekrutierung\n\nAktiver Austausch im HR Team\n\n• Bereich: Kaufmännische Berufe\n• Art: 100.00%",
+      "descriptionByLocale": {
+        "it": "Mansioni - Consulenza professionale e supporto dei dirigenti in materia personale - Supporto e supporto dei dipendenti in situazioni di lavoro e di vita difficili, nonché in caso di gestione - Garantire un recupero efficiente del personale e on- e off-boarding - Lavorare con processi di compensazione ricorrenti (studio, round salariale, altre retribuzioni) - Introduzione e ulteriore sviluppo di processi e strumenti di lavoro",
+        "en": "Mansioni - Professional consultancy and support of executives in personal matters - Support and support of employees in difficult working and living situations as well as in case management - Ensuring efficient personnel recovery and on- and off-boarding - Working with recurring compensation processes (study, wage round, other remuneration) - Introduction and further development of processes and working instruments",
+        "de": "HR Bereichsverantwortliche / r | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen HR Bereichsverantwortliche / r Sanatorium Kilchberg AG | online seit: 05.05.2026 Wir suchen ab sofort oder nach Vereinbarung 80 - 100% Human Resources Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Fachkompetente Beratung und Unterstützung der Führungskräfte in personalrelevanten Fragestellungen Unterstützung und Begleitung der Mitarbeitenden in schwierigen Arbeits- und Lebenssituationen sowie im Case Management Sicherstellung einer effizienten Personalgewinnung sowie des On- und Offboardings Mitarbeit bei wiederkehrenden Vergütungsprozessen (Lohneinstufung, Lohnrunde, sonstige Vergütungen) Einführung und Weiterentwicklung von Prozessen und Arbeitsinstrumenten Administrative Aufgaben im Rahmen der Funktion Ferienvertretung einer Kollegin im Bereich Beratung und Rekrutierung Aktiver Austausch im HR Team\n• Bereich: Kaufmännische Berufe\n• Art: 100.00%",
+        "fr": "Mansioni - Conseils professionnels et soutien aux cadres en matière personnelle - Soutien et soutien aux employés en situation difficile de travail et de vie ainsi qu'à la gestion des cas - Assurer une récupération efficace du personnel et le maintien et l'éloignement - Travailler avec des processus de rémunération récurrents (étude, ronde salariale, autres rémunérations) - Introduction et développement ultérieur des processus et des instruments de travail"
+      },
+      "needsRetranslation": true,
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://recruitingapp-3010.umantis.com/Vacancies/595/Description/1",
+      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T15:05:16.831Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8802",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/595/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "hr-bereichsverantwortliche-r-sanatorium-kilchberg-kilchberg",
+          "rettungssanitater-in-sommersaison-2026-50-100-spital-davos-ch"
+        ],
+        "it": [
+          "hr-bereichsverantwortliche-r-sanatorium-kilchberg-kilchberg",
+          "responsabile-hr-sanatorium-kilchberg-kilchberg",
+          "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos"
+        ],
+        "en": [
+          "hr-manager-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "responsable-rh-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "hr-bereichsverantwortliche-r-sanatorium-kilchberg-kilchberg",
+        "responsabile-hr-sanatorium-kilchberg-kilchberg",
+        "hr-manager-sanatorium-kilchberg-kilchberg",
+        "responsable-rh-sanatorium-kilchberg-kilchberg",
+        "rettungssanitater-in-sommersaison-2026-50-100-spital-davos-ch",
+        "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos"
+      ],
+      "firstSeenAt": "2026-05-19T14:37:07.607Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sanatorium-kilchberg-3a7dc18f56b3",
+      "slug": "medicina-interna-sanatorium-kilchberg-kilchberg",
+      "slugByLocale": {
+        "it": "medicina-interna-sanatorium-kilchberg-kilchberg",
+        "en": "senior-physician-senior-physician-internal-medicine-sanatorium-kilchberg-kilchberg",
+        "de": "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg",
+        "fr": "medecin-principal-medecin-principal-medecine-interne-sanatorium-kilchberg-kilchberg"
+      },
+      "company": "Sanatorium Kilchberg",
+      "companyKey": "sanatorium-kilchberg",
+      "companyDomain": "sanatorium-kilchberg.ch",
+      "title": "Oberärztin / Oberarzt Innere Medizin",
+      "titleByLocale": {
+        "it": "Medicina interna",
+        "en": "Senior physician / Senior physician Internal Medicine",
+        "de": "Oberärztin / Oberarzt Innere Medizin",
+        "fr": "Médecin principal / Médecin principal Médecine interne"
+      },
+      "description": "Oberärztin / Oberarzt Innere Medizin | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Innere Medizin Sanatorium Kilchberg AG | online seit: 29.05.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 60% Internistischer Dienst Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Internistische konsiliarische Fachberatung der Assistenz- und Oberärzte der Psychiatrie\n\nWöchentliche Kardex-Visitendienste\n\nDurchführen von internistischen Konsilen\n\nAbgeschlossene Facharztausbildung in Innerer Medizin oder kurz davor\n\nFreude und Verständnis in der Arbeit mit psychiatrischen Patienten\n\nSelbstständige Arbeitsweise\n\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 60.00%",
+      "descriptionByLocale": {
+        "it": "Oberärztin / Oberarzt Innere Medizin | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Innere Medizin Sanatorium Kilchberg AG | online seit: 29.05.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 60% Internistischer Dienst Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Internistische konsiliarische Fachberatung der Assistenz- und Oberärzte der Psychiatrie Wöchentliche Kardex-Visitendienste Durchführen von internistischen Konsilen Abgeschlossene Facharztausbildung in Innerer Medizin oder kurz davor Freude und Verständnis in der Arbeit mit psychiatrischen Patienten Selbstständige Arbeitsweise\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 60.00%",
+        "en": "Oberärztin / Oberarzt Innere Medizin | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Innere Medizin Sanatorium Kilchberg AG | online seit: 29.05.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 60% Internistischer Dienst Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Internistische konsiliarische Fachberatung der Assistenz- und Oberärzte der Psychiatrie Wöchentliche Kardex-Visitendienste Durchführen von internistischen Konsilen Abgeschlossene Facharztausbildung in Innerer Medizin oder kurz davor Freude und Verständnis in der Arbeit mit psychiatrischen Patienten Selbstständige Arbeitsweise\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 60.00%",
+        "de": "Oberärztin / Oberarzt Innere Medizin | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Innere Medizin Sanatorium Kilchberg AG | online seit: 29.05.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 60% Internistischer Dienst Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Internistische konsiliarische Fachberatung der Assistenz- und Oberärzte der Psychiatrie Wöchentliche Kardex-Visitendienste Durchführen von internistischen Konsilen Abgeschlossene Facharztausbildung in Innerer Medizin oder kurz davor Freude und Verständnis in der Arbeit mit psychiatrischen Patienten Selbstständige Arbeitsweise\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 60.00%",
+        "fr": "Oberärztin / Oberarzt Innere Medizin | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Innere Medizin Sanatorium Kilchberg AG | online seit: 29.05.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 60% Internistischer Dienst Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Internistische konsiliarische Fachberatung der Assistenz- und Oberärzte der Psychiatrie Wöchentliche Kardex-Visitendienste Durchführen von internistischen Konsilen Abgeschlossene Facharztausbildung in Innerer Medizin oder kurz davor Freude und Verständnis in der Arbeit mit psychiatrischen Patienten Selbstständige Arbeitsweise\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 60.00%"
+      },
+      "needsRetranslation": true,
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://recruitingapp-3010.umantis.com/Vacancies/606/Description/1",
+      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T15:05:16.109Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8802",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/606/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg",
+        "medicina-interna-sanatorium-kilchberg-kilchberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg",
+          "medicina-interna-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "firstSeenAt": "2026-05-29T13:47:42.521Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sanatorium-kilchberg-6fa32c1a4326",
+      "slug": "primario-sanatorium-kilchberg-kilchberg",
+      "slugByLocale": {
+        "it": "primario-sanatorium-kilchberg-kilchberg",
+        "en": "senior-physician-senior-physician-sanatorium-kilchberg-kilchberg",
+        "de": "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg",
+        "fr": "medecin-superieur-medecin-superieur-sanatorium-kilchberg-kilchberg"
+      },
+      "company": "Sanatorium Kilchberg",
+      "companyKey": "sanatorium-kilchberg",
+      "companyDomain": "sanatorium-kilchberg.ch",
+      "title": "Oberärztin / Oberarzt",
+      "titleByLocale": {
+        "it": "Primario",
+        "en": "Senior physician / senior physician",
+        "de": "Oberärztin / Oberarzt",
+        "fr": "Médecin supérieur / Médecin supérieur"
+      },
+      "description": "Oberärztin / Oberarzt | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Sanatorium Kilchberg AG | online seit: 05.06.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 80% Psychotherapeutische Privatstation E Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Kollegiale Zusammenarbeit mit psychologischem und pflegerischem Kader\n\nWeiterentwicklung einer altersgemischten Privatstation mit psychotherapeutischer Ausrichtung\n\nBehandlungsschwerpunkt Depression\n\nSupervision und Ausbildung von AssistenzärztInnen und PsychologInnen\n\nBeteiligung an internen Fortbildungen und an der Öffentlichkeitsarbeit\n\nAbgeschlossene Ausbildung zur Fachärztin / zum Facharzt Psychiatrie und Psychotherapie\n\nFreude am klinischen Arbeiten\n\nInteresse an interdisziplinärer Zusammenarbeit\n\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 80.00%",
+      "descriptionByLocale": {
+        "it": "Oberärztin / Oberarzt | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Sanatorium Kilchberg AG | online seit: 05.06.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 80% Psychotherapeutische Privatstation E Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Kollegiale Zusammenarbeit mit psychologischem und pflegerischem Kader Weiterentwicklung einer altersgemischten Privatstation mit psychotherapeutischer Ausrichtung Behandlungsschwerpunkt Depression Supervision und Ausbildung von AssistenzärztInnen und PsychologInnen Beteiligung an internen Fortbildungen und an der Öffentlichkeitsarbeit Abgeschlossene Ausbildung zur Fachärztin / zum Facharzt Psychiatrie und Psychotherapie Freude am klinischen Arbeiten Interesse an interdisziplinärer Zusammenarbeit\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 80.00%",
+        "en": "Oberärztin / Oberarzt | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Sanatorium Kilchberg AG | online seit: 05.06.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 80% Psychotherapeutische Privatstation E Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Kollegiale Zusammenarbeit mit psychologischem und pflegerischem Kader Weiterentwicklung einer altersgemischten Privatstation mit psychotherapeutischer Ausrichtung Behandlungsschwerpunkt Depression Supervision und Ausbildung von AssistenzärztInnen und PsychologInnen Beteiligung an internen Fortbildungen und an der Öffentlichkeitsarbeit Abgeschlossene Ausbildung zur Fachärztin / zum Facharzt Psychiatrie und Psychotherapie Freude am klinischen Arbeiten Interesse an interdisziplinärer Zusammenarbeit\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 80.00%",
+        "de": "Oberärztin / Oberarzt | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Sanatorium Kilchberg AG | online seit: 05.06.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 80% Psychotherapeutische Privatstation E Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Kollegiale Zusammenarbeit mit psychologischem und pflegerischem Kader Weiterentwicklung einer altersgemischten Privatstation mit psychotherapeutischer Ausrichtung Behandlungsschwerpunkt Depression Supervision und Ausbildung von AssistenzärztInnen und PsychologInnen Beteiligung an internen Fortbildungen und an der Öffentlichkeitsarbeit Abgeschlossene Ausbildung zur Fachärztin / zum Facharzt Psychiatrie und Psychotherapie Freude am klinischen Arbeiten Interesse an interdisziplinärer Zusammenarbeit\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 80.00%",
+        "fr": "Oberärztin / Oberarzt | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Sanatorium Kilchberg AG | online seit: 05.06.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 80% Psychotherapeutische Privatstation E Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Kollegiale Zusammenarbeit mit psychologischem und pflegerischem Kader Weiterentwicklung einer altersgemischten Privatstation mit psychotherapeutischer Ausrichtung Behandlungsschwerpunkt Depression Supervision und Ausbildung von AssistenzärztInnen und PsychologInnen Beteiligung an internen Fortbildungen und an der Öffentlichkeitsarbeit Abgeschlossene Ausbildung zur Fachärztin / zum Facharzt Psychiatrie und Psychotherapie Freude am klinischen Arbeiten Interesse an interdisziplinärer Zusammenarbeit\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 80.00%"
+      },
+      "needsRetranslation": true,
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://recruitingapp-3010.umantis.com/Vacancies/608/Description/1",
+      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T15:05:15.413Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8802",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-05",
+      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/608/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg",
+        "primario-sanatorium-kilchberg-kilchberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg",
+          "primario-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "firstSeenAt": "2026-06-05T22:45:25.005Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sanatorium-kilchberg-436cf9be7104",
+      "slug": "apprendistato-fachfrau-mann-gesundheit-cfc-ab-august-2027-sanatorium-kilchberg",
+      "slugByLocale": {
+        "it": "apprendistato-fachfrau-mann-gesundheit-cfc-ab-august-2027-sanatorium-kilchberg",
+        "en": "apprenticeship-professional-health-efz-from-august-2027-sanatorium-kilchberg-kilchberg",
+        "de": "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
+        "fr": "apprentissage-sante-professionnelle-efz-a-partir-d-aout-2027-sanatorium-kilchberg-kilchberg"
+      },
+      "company": "Sanatorium Kilchberg",
+      "companyKey": "sanatorium-kilchberg",
+      "companyDomain": "sanatorium-kilchberg.ch",
+      "title": "Lehrstelle Fachfrau/-mann Gesundheit EFZ ab August 2027",
+      "titleByLocale": {
+        "it": "Apprendistato Fachfrau/-mann Gesundheit CFC ab August 2027",
+        "en": "Apprenticeship Professional Health EFZ from August 2027",
+        "de": "Lehrstelle Fachfrau/-mann Gesundheit EFZ ab August 2027",
+        "fr": "Apprentissage Santé professionnelle EFZ à partir d'août 2027"
+      },
+      "description": "Lehrstelle Fachfrau/-mann Gesundheit EFZ ab August 2027 | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Lehrstelle Fachfrau/-mann Gesundheit EFZ ab August 2027 Sanatorium Kilchberg AG | online seit: 01.07.2026 Wir bieten ab August 2027 100% Pflegepädagogik NEU: Die 37h-Woche für Pflegende im Schichtdienst wird in den Regelbetrieb überführt Das Sanatorium Kilchberg bietet Dir ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bring Deine Stärken ein und gestalte die Zukunft der Klinik mit. Deine Aufgaben: Dafür sorgen, dass sich unsere Patienten und Patientinnen gut aufgehoben fühlen\n\nMithelfen bei der Ernährung und Gestaltung des Alltags für Patienten und Patientinnen\n\nMit Patienten und Patientinnen in Kontakt treten und Gespräche führen\n\nMedizinische Aufgaben wie die Medikamentenverabreichung, Blutentnahmen oder Vitalzeichenmessung\n\nÜbernahme von verschiedenen administrativen und logistischen Aufgaben\n\nEin gutes Schulzeugnis von der Sek A oder B\n\nOffen und interessiert auf Menschen zugehen und Freude daran haben, Dich auf sie einzulassen und sie zu unterstützen\n\nGerne im Team arbeiten, aber auch selbstständig und aktiv sein\n\n• Bereich: Pflegeberufe\n• Art: 100.00%",
+      "descriptionByLocale": {
+        "it": "Apprenticeship Professional Health EFZ da agosto 2027 | job@sani Jump to the main content jump to the action bar Sfortunatamente, il tuo browser non può visualizzare alcun frame embedded special health EFZ dal agosto 2027 Sanatorium Kilchberg AG | online dal: 01.07.2026 Offriamo da agosto 2027 100% educazione allattante NUOVO: La settimana 37h per i caregiver nel lavoro a turni viene trasferito al funzionamento regolare Il Kilchberg Sanatorium offre un ambiente di lavoro soddisfacente con interessanti opportunità di sviluppo in un team dinamico e apprezzativo. Porta i tuoi punti di forza e modella il futuro della clinica. I vostri compiti: Assicurarsi che i nostri pazienti si sentano in buone mani Aiutare a dieta e modellare la vita quotidiana per i pazienti Entra in contatto con i pazienti e parla Attività mediche come l'amministrazione della droga, il campionamento del sangue o la misurazione dei segni vitali Assumere vari compiti amministrativi e logistici Un buon rapporto scolastico da Sek A o B Avvicinare le persone apertamente e interessati e godere di essere coinvolti e supportarli Come lavorare in un team, ma anche essere indipendente e attivo\n• Dominio: Infermieristica professioni\n• Tipo: 100.00%",
+        "en": "Apprenticeship Professional Health EFZ from August 2027 | jobs@sani Jump to the main content jump to the action bar Unfortunately, your browser cannot display any embedded frames apprenticeship specialist health EFZ from August 2027 Sanatorium Kilchberg AG | online since: 01.07.2026 We offer from August 2027 100% nursing education NEW: The 37h week for caregivers in shift work is transferred to regular operation The Kilchberg Sanatorium offers A fulfilling working environment with exciting development opportunities in a dynamic and appreciative team. Bring your strengths and shape the future of the clinic. Your tasks: Ensure that our patients feel in good hands Helping to diet and shape everyday life for patients Get in touch with patients and have conversations Medical tasks such as drug administration, blood sampling or vital sign measurement Taking over various administrative and logistical tasks A good school report from Sek A or B Approach people openly and interested and enjoy getting involved and supporting them Like to work in a team, but also be independent and active\n• Domain: Nursing professions\n• Type: 100.00%",
+        "de": "Lehrstelle Fachfrau/-mann Gesundheit EFZ ab August 2027 | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Lehrstelle Fachfrau/-mann Gesundheit EFZ ab August 2027 Sanatorium Kilchberg AG | online seit: 01.07.2026 Wir bieten ab August 2027 100% Pflegepädagogik NEU: Die 37h-Woche für Pflegende im Schichtdienst wird in den Regelbetrieb überführt Das Sanatorium Kilchberg bietet Dir ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bring Deine Stärken ein und gestalte die Zukunft der Klinik mit. Deine Aufgaben: Dafür sorgen, dass sich unsere Patienten und Patientinnen gut aufgehoben fühlen Mithelfen bei der Ernährung und Gestaltung des Alltags für Patienten und Patientinnen Mit Patienten und Patientinnen in Kontakt treten und Gespräche führen Medizinische Aufgaben wie die Medikamentenverabreichung, Blutentnahmen oder Vitalzeichenmessung Übernahme von verschiedenen administrativen und logistischen Aufgaben Ein gutes Schulzeugnis von der Sek A oder B Offen und interessiert auf Menschen zugehen und Freude daran haben, Dich auf sie einzulassen und sie zu unterstützen Gerne im Team arbeiten, aber auch selbstständig und aktiv sein\n• Bereich: Pflegeberufe\n• Art: 100.00%",
+        "fr": "Apprenticeship Professional Health EFZ à partir d'août 2027.00 jobs@sani Jump to the main content jump to the action bar Malheureusement, votre navigateur ne peut pas afficher de cadres intégrés apprentissage spécialiste santé EFZ à partir d'août 2027 Sanatorium Kilchberg AG. Nous offrons à partir d'août 2027 100% formation infirmière NOUVEAU: La 37h semaine pour les soignants en travail posté est transférée à l'opération régulière Le Sanatorium Kilchberg offre Un environnement de travail satisfaisant avec des possibilités de développement passionnantes dans une équipe dynamique et reconnaissante. Apportez vos forces et façonnez l'avenir de la clinique. Vos tâches: S'assurer que nos patients se sentent bien Aider à l'alimentation et façonner la vie quotidienne pour les patients Prenez contact avec les patients et avez des conversations Tâches médicales telles que l'administration de médicaments, l'échantillonnage sanguin ou la mesure des signes vitaux Prise en charge de diverses tâches administratives et logistiques Un bon rapport d'école de Sek A ou B Approchez les gens ouvertement et intéressés et aimez s'impliquer et les soutenir Comme travailler en équipe, mais aussi être indépendant et actif\n• Domaine: Sciences infirmières\n• Type : 100.00%"
+      },
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://recruitingapp-3010.umantis.com/Vacancies/620/Description/1",
+      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T15:05:14.597Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8802",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/620/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
+        "apprendistato-fachfrau-mann-gesundheit-cfc-ab-august-2027-sanatorium-kilchberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
+          "apprendistato-fachfrau-mann-gesundheit-cfc-ab-august-2027-sanatorium-kilchberg"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "firstSeenAt": "2026-07-01T12:46:14.550Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -874,435 +1302,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "sanatorium-kilchberg-a398c5ac0b2b",
-      "slug": "codificatore-medico-codificatrice-medica-sanatorium-kilchberg-kilchberg",
-      "slugByLocale": {
-        "it": "codificatore-medico-codificatrice-medica-sanatorium-kilchberg-kilchberg",
-        "en": "medical-coder-sanatorium-kilchberg-kilchberg",
-        "de": "medizinische-kodiererin-medizinischen-kodierer-sanatorium-kilchberg-kilchberg",
-        "fr": "codeur-medical-codeuse-medicale-sanatorium-kilchberg-kilchberg"
       },
-      "company": "Sanatorium Kilchberg",
-      "companyKey": "sanatorium-kilchberg",
-      "companyDomain": "sanatorium-kilchberg.ch",
-      "title": "Medizinische Kodiererin / Medizinischen Kodierer",
-      "titleByLocale": {
-        "it": "Codificatore Medico / Codificatrice Medica",
-        "en": "Medical Coder",
-        "de": "Medizinische Kodiererin / Medizinischen Kodierer",
-        "fr": "Codeur Médical / Codeuse Médicale"
-      },
-      "description": "Medizinische Kodiererin / Medizinischen Kodierer | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Medizinische Kodiererin / Medizinischen Kodierer Sanatorium Kilchberg AG | online seit: 04.05.2026 Wir suchen per sofort oder nach Vereinbarung 40% Kodierung/Medizincontrolling Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Eigenverantwortliche, korrekte und termingerechte Kodierung psychiatrischer Fälle nach den geltenden Kodier-/Abrechnungsregeln des BfS und SwissDRG / TARPSY\n\nPlausibilitäts- und Vollständigkeitsprüfung der klinischen Dokumentation\n\nUnterstützung bei der kontinuierlichen Verbesserung der Dokumentations- und Kodierqualität\n\nUnterstützung bei der Kodierrevision\n\nKontrolle und Korrektur der abrechnungsrelevanten Falldaten, Bearbeitung von Rechnungsrückweisungen\n\nMedizinische pflegerische Grundausbildung und mehrjährige Kodiererfahrung, idealerweise in der Kodierung psychiatrischer Fälle unter TARPSY\n\nGute IT-Anwenderkenntnisse, sowie eine strukturierte Arbeitsweise, vernetztes Denken und gute organisatorische Fähigkeiten\n\nErfahrung mit gängigen Klinikinformationssystemen und Kodier-Software\n\n• Bereich: Kaufmännische Berufe\n• Art: 40.00%",
-      "descriptionByLocale": {
-        "it": "Medico encoder Sanatorium Kilchberg AG | online dal: 04.05.2026 Siamo alla ricerca del 40% su appuntamento codifica/medicina che controlla Il Sanatorium Kilchberg vi offre un ambiente di lavoro soddisfacente con interessanti opportunità di sviluppo in un team dinamico e di valore. Porta i tuoi punti di forza e modella il futuro della clinica. Mansioni - Autoresponsabilità, corretta e puntuale codificazione dei casi psichiatrici secondo le normative BfS e SwissDRG / TARPSY - verifica di plausibilità e completezza della documentazione clinica - supporto nel miglioramento continuo della documentazione e della qualità di codifica - supporto nella revisione del codier - controllo e correzione dei dati di caso rilevanti dagli insediamenti",
-        "en": "Medical encoder Sanatorium Kilchberg AG | online since: 04.05.2026 We are looking for 40% by appointment encoding/medicine controlling The Sanatorium Kilchberg offers you a fulfilling working environment with exciting development opportunities in a dynamic and value-adding team. Bring your strengths in and shape the future of the clinic. Mansioni - Self-responsibility, correct and timely encoding of psychiatric cases according to the applicable BfS and SwissDRG / TARPSY - plausibility and completeness check of clinical documentation - support in continuous improvement of documentation and coding quality - support in codier revision - control and correction of settlement-relevant case data",
-        "de": "Medizinische Kodiererin / Medizinischen Kodierer | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Medizinische Kodiererin / Medizinischen Kodierer Sanatorium Kilchberg AG | online seit: 04.05.2026 Wir suchen per sofort oder nach Vereinbarung 40% Kodierung/Medizincontrolling Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Eigenverantwortliche, korrekte und termingerechte Kodierung psychiatrischer Fälle nach den geltenden Kodier-/Abrechnungsregeln des BfS und SwissDRG / TARPSY Plausibilitäts- und Vollständigkeitsprüfung der klinischen Dokumentation Unterstützung bei der kontinuierlichen Verbesserung der Dokumentations- und Kodierqualität Unterstützung bei der Kodierrevision Kontrolle und Korrektur der abrechnungsrelevanten Falldaten, Bearbeitung von Rechnungsrückweisungen Medizinische pflegerische Grundausbildung und mehrjährige Kodiererfahrung, idealerweise in der Kodierung psychiatrischer Fälle unter TARPSY Gute IT-Anwenderkenntnisse, sowie eine strukturierte Arbeitsweise, vernetztes Denken und gute organisatorische Fähigkeiten Erfahrung mit gängigen Klinikinformationssystemen und Kodier-Software\n• Bereich: Kaufmännische Berufe\n• Art: 40.00%",
-        "fr": "Encodeur médical Sanatorium Kilchberg AG en ligne depuis: 04.05.2026 Nous sommes à la recherche de 40% sur rendez-vous encodage / contrôle de la médecine Le Sanatorium Kilchberg vous offre un environnement de travail satisfaisant avec des opportunités de développement passionnantes dans une équipe dynamique et enrichissante. Apportez vos forces et façonnez l'avenir de la clinique. Mansioni - Autoresponsabilité, codage correct et en temps opportun des cas psychiatriques selon le BfS et SwissDRG / TARPSY - contrôle de plausibilité et d'exhaustivité de la documentation clinique - soutien à l'amélioration continue de la documentation et de la qualité du codage - soutien à la révision de la codification - contrôle et correction des données de cas pertinentes au règlement"
-      },
-      "needsRetranslation": true,
-      "location": "Kilchberg",
-      "canton": "ZH",
-      "url": "https://recruitingapp-3010.umantis.com/Vacancies/592/Description/1",
-      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:17.006Z",
-      "addressLocality": "Kilchberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8802",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/592/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione medica o infermieristica di base",
-          "Esperienza pluriennale nella codifica, preferibilmente psichiatrica",
-          "Conoscenze approfondite di TARPSY e SwissDRG",
-          "Buone competenze informatiche",
-          "Capacità di lavorare in modo strutturato e organizzato",
-          "Esperienza con sistemi informativi clinici e software di codifica",
-          "Capacità di pensiero sistemico",
-          "Attitudine al miglioramento continuo"
-        ],
-        "en": [
-          "Basic medical or nursing training",
-          "Several years of coding experience, preferably in psychiatry",
-          "In-depth knowledge of TARPSY and SwissDRG",
-          "Strong IT skills",
-          "Structured and organized working style",
-          "Experience with clinical information systems and coding software",
-          "Systemic thinking skills",
-          "Commitment to continuous improvement"
-        ],
-        "fr": [
-          "Formation médicale ou infirmière de base",
-          "Expérience de plusieurs années en codification, de préférence en psychiatrie",
-          "Connaissance approfondie de TARPSY et SwissDRG",
-          "Compétences informatiques solides",
-          "Méthode de travail structurée et organisée",
-          "Expérience avec des systèmes d'information clinique et logiciels de codification",
-          "Capacité de pensée systémique",
-          "Engagement pour l'amélioration continue"
-        ]
-      },
-      "previousSlugs": [
-        "medizinische-kodiererin-medizinischen-kodierer-sanatorium-kilchberg-kilchberg",
-        "codificatore-medico-codificatrice-medica-sanatorium-kilchberg-kilchberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-kodiererin-medizinischen-kodierer-sanatorium-kilchberg-kilchberg",
-          "codificatore-medico-codificatrice-medica-sanatorium-kilchberg-kilchberg"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T14:37:08.394Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sanatorium-kilchberg-76a62d567f93",
-      "slug": "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos",
-      "slugByLocale": {
-        "it": "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos",
-        "en": "emergency-medical-technician-summer-season-2026-50-100-spital-davos-davos",
-        "de": "rettungssanitater-in-sommersaison-2026-50-100-spital-davos-ch",
-        "fr": "technicien-de-secours-medical-saison-estivale-2026-50-100-spital-davos-davos"
-      },
-      "company": "Sanatorium Kilchberg",
-      "companyKey": "sanatorium-kilchberg",
-      "companyDomain": "sanatorium-kilchberg.ch",
-      "title": "HR Bereichsverantwortliche / r",
-      "titleByLocale": {
-        "it": "Responsabile HR",
-        "en": "HR Manager",
-        "de": "HR Bereichsverantwortliche / r",
-        "fr": "Responsable RH"
-      },
-      "description": "HR Bereichsverantwortliche / r | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen HR Bereichsverantwortliche / r Sanatorium Kilchberg AG | online seit: 05.05.2026 Wir suchen ab sofort oder nach Vereinbarung 80 - 100% Human Resources Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Fachkompetente Beratung und Unterstützung der Führungskräfte in personalrelevanten Fragestellungen\n\nUnterstützung und Begleitung der Mitarbeitenden in schwierigen Arbeits- und Lebenssituationen sowie im Case Management\n\nSicherstellung einer effizienten Personalgewinnung sowie des On- und Offboardings\n\nMitarbeit bei wiederkehrenden Vergütungsprozessen (Lohneinstufung, Lohnrunde, sonstige Vergütungen)\n\nEinführung und Weiterentwicklung von Prozessen und Arbeitsinstrumenten\n\nAdministrative Aufgaben im Rahmen der Funktion\n\nFerienvertretung einer Kollegin im Bereich Beratung und Rekrutierung\n\nAktiver Austausch im HR Team\n\n• Bereich: Kaufmännische Berufe\n• Art: 100.00%",
-      "descriptionByLocale": {
-        "it": "Mansioni - Consulenza professionale e supporto dei dirigenti in materia personale - Supporto e supporto dei dipendenti in situazioni di lavoro e di vita difficili, nonché in caso di gestione - Garantire un recupero efficiente del personale e on- e off-boarding - Lavorare con processi di compensazione ricorrenti (studio, round salariale, altre retribuzioni) - Introduzione e ulteriore sviluppo di processi e strumenti di lavoro",
-        "en": "Mansioni - Professional consultancy and support of executives in personal matters - Support and support of employees in difficult working and living situations as well as in case management - Ensuring efficient personnel recovery and on- and off-boarding - Working with recurring compensation processes (study, wage round, other remuneration) - Introduction and further development of processes and working instruments",
-        "de": "HR Bereichsverantwortliche / r | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen HR Bereichsverantwortliche / r Sanatorium Kilchberg AG | online seit: 05.05.2026 Wir suchen ab sofort oder nach Vereinbarung 80 - 100% Human Resources Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Fachkompetente Beratung und Unterstützung der Führungskräfte in personalrelevanten Fragestellungen Unterstützung und Begleitung der Mitarbeitenden in schwierigen Arbeits- und Lebenssituationen sowie im Case Management Sicherstellung einer effizienten Personalgewinnung sowie des On- und Offboardings Mitarbeit bei wiederkehrenden Vergütungsprozessen (Lohneinstufung, Lohnrunde, sonstige Vergütungen) Einführung und Weiterentwicklung von Prozessen und Arbeitsinstrumenten Administrative Aufgaben im Rahmen der Funktion Ferienvertretung einer Kollegin im Bereich Beratung und Rekrutierung Aktiver Austausch im HR Team\n• Bereich: Kaufmännische Berufe\n• Art: 100.00%",
-        "fr": "Mansioni - Conseils professionnels et soutien aux cadres en matière personnelle - Soutien et soutien aux employés en situation difficile de travail et de vie ainsi qu'à la gestion des cas - Assurer une récupération efficace du personnel et le maintien et l'éloignement - Travailler avec des processus de rémunération récurrents (étude, ronde salariale, autres rémunérations) - Introduction et développement ultérieur des processus et des instruments de travail"
-      },
-      "needsRetranslation": true,
-      "location": "Kilchberg",
-      "canton": "ZH",
-      "url": "https://recruitingapp-3010.umantis.com/Vacancies/595/Description/1",
-      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:16.119Z",
-      "addressLocality": "Kilchberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8802",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/595/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "hr-bereichsverantwortliche-r-sanatorium-kilchberg-kilchberg",
-          "rettungssanitater-in-sommersaison-2026-50-100-spital-davos-ch"
-        ],
-        "it": [
-          "hr-bereichsverantwortliche-r-sanatorium-kilchberg-kilchberg",
-          "responsabile-hr-sanatorium-kilchberg-kilchberg",
-          "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos"
-        ],
-        "en": [
-          "hr-manager-sanatorium-kilchberg-kilchberg"
-        ],
-        "fr": [
-          "responsable-rh-sanatorium-kilchberg-kilchberg"
-        ]
-      },
-      "previousSlugs": [
-        "hr-bereichsverantwortliche-r-sanatorium-kilchberg-kilchberg",
-        "responsabile-hr-sanatorium-kilchberg-kilchberg",
-        "hr-manager-sanatorium-kilchberg-kilchberg",
-        "responsable-rh-sanatorium-kilchberg-kilchberg",
-        "rettungssanitater-in-sommersaison-2026-50-100-spital-davos-ch",
-        "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos"
-      ],
-      "firstSeenAt": "2026-05-19T14:37:07.607Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sanatorium-kilchberg-3a7dc18f56b3",
-      "slug": "medicina-interna-sanatorium-kilchberg-kilchberg",
-      "slugByLocale": {
-        "it": "medicina-interna-sanatorium-kilchberg-kilchberg",
-        "en": "senior-physician-senior-physician-internal-medicine-sanatorium-kilchberg-kilchberg",
-        "de": "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg",
-        "fr": "medecin-principal-medecin-principal-medecine-interne-sanatorium-kilchberg-kilchberg"
-      },
-      "company": "Sanatorium Kilchberg",
-      "companyKey": "sanatorium-kilchberg",
-      "companyDomain": "sanatorium-kilchberg.ch",
-      "title": "Oberärztin / Oberarzt Innere Medizin",
-      "titleByLocale": {
-        "it": "Medicina interna",
-        "en": "Senior physician / Senior physician Internal Medicine",
-        "de": "Oberärztin / Oberarzt Innere Medizin",
-        "fr": "Médecin principal / Médecin principal Médecine interne"
-      },
-      "description": "Oberärztin / Oberarzt Innere Medizin | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Innere Medizin Sanatorium Kilchberg AG | online seit: 29.05.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 60% Internistischer Dienst Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Internistische konsiliarische Fachberatung der Assistenz- und Oberärzte der Psychiatrie\n\nWöchentliche Kardex-Visitendienste\n\nDurchführen von internistischen Konsilen\n\nAbgeschlossene Facharztausbildung in Innerer Medizin oder kurz davor\n\nFreude und Verständnis in der Arbeit mit psychiatrischen Patienten\n\nSelbstständige Arbeitsweise\n\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 60.00%",
-      "descriptionByLocale": {
-        "it": "Oberärztin / Oberarzt Innere Medizin | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Innere Medizin Sanatorium Kilchberg AG | online seit: 29.05.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 60% Internistischer Dienst Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Internistische konsiliarische Fachberatung der Assistenz- und Oberärzte der Psychiatrie Wöchentliche Kardex-Visitendienste Durchführen von internistischen Konsilen Abgeschlossene Facharztausbildung in Innerer Medizin oder kurz davor Freude und Verständnis in der Arbeit mit psychiatrischen Patienten Selbstständige Arbeitsweise\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 60.00%",
-        "en": "Oberärztin / Oberarzt Innere Medizin | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Innere Medizin Sanatorium Kilchberg AG | online seit: 29.05.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 60% Internistischer Dienst Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Internistische konsiliarische Fachberatung der Assistenz- und Oberärzte der Psychiatrie Wöchentliche Kardex-Visitendienste Durchführen von internistischen Konsilen Abgeschlossene Facharztausbildung in Innerer Medizin oder kurz davor Freude und Verständnis in der Arbeit mit psychiatrischen Patienten Selbstständige Arbeitsweise\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 60.00%",
-        "de": "Oberärztin / Oberarzt Innere Medizin | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Innere Medizin Sanatorium Kilchberg AG | online seit: 29.05.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 60% Internistischer Dienst Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Internistische konsiliarische Fachberatung der Assistenz- und Oberärzte der Psychiatrie Wöchentliche Kardex-Visitendienste Durchführen von internistischen Konsilen Abgeschlossene Facharztausbildung in Innerer Medizin oder kurz davor Freude und Verständnis in der Arbeit mit psychiatrischen Patienten Selbstständige Arbeitsweise\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 60.00%",
-        "fr": "Oberärztin / Oberarzt Innere Medizin | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Innere Medizin Sanatorium Kilchberg AG | online seit: 29.05.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 60% Internistischer Dienst Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Internistische konsiliarische Fachberatung der Assistenz- und Oberärzte der Psychiatrie Wöchentliche Kardex-Visitendienste Durchführen von internistischen Konsilen Abgeschlossene Facharztausbildung in Innerer Medizin oder kurz davor Freude und Verständnis in der Arbeit mit psychiatrischen Patienten Selbstständige Arbeitsweise\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 60.00%"
-      },
-      "needsRetranslation": true,
-      "location": "Kilchberg",
-      "canton": "ZH",
-      "url": "https://recruitingapp-3010.umantis.com/Vacancies/606/Description/1",
-      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:15.246Z",
-      "addressLocality": "Kilchberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8802",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-29",
-      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/606/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg",
-        "medicina-interna-sanatorium-kilchberg-kilchberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg",
-          "medicina-interna-sanatorium-kilchberg-kilchberg"
-        ],
-        "en": [
-          "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg"
-        ],
-        "fr": [
-          "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg"
-        ]
-      },
-      "firstSeenAt": "2026-05-29T13:47:42.521Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sanatorium-kilchberg-6fa32c1a4326",
-      "slug": "primario-sanatorium-kilchberg-kilchberg",
-      "slugByLocale": {
-        "it": "primario-sanatorium-kilchberg-kilchberg",
-        "en": "senior-physician-senior-physician-sanatorium-kilchberg-kilchberg",
-        "de": "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg",
-        "fr": "medecin-superieur-medecin-superieur-sanatorium-kilchberg-kilchberg"
-      },
-      "company": "Sanatorium Kilchberg",
-      "companyKey": "sanatorium-kilchberg",
-      "companyDomain": "sanatorium-kilchberg.ch",
-      "title": "Oberärztin / Oberarzt",
-      "titleByLocale": {
-        "it": "Primario",
-        "en": "Senior physician / senior physician",
-        "de": "Oberärztin / Oberarzt",
-        "fr": "Médecin supérieur / Médecin supérieur"
-      },
-      "description": "Oberärztin / Oberarzt | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Sanatorium Kilchberg AG | online seit: 05.06.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 80% Psychotherapeutische Privatstation E Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Kollegiale Zusammenarbeit mit psychologischem und pflegerischem Kader\n\nWeiterentwicklung einer altersgemischten Privatstation mit psychotherapeutischer Ausrichtung\n\nBehandlungsschwerpunkt Depression\n\nSupervision und Ausbildung von AssistenzärztInnen und PsychologInnen\n\nBeteiligung an internen Fortbildungen und an der Öffentlichkeitsarbeit\n\nAbgeschlossene Ausbildung zur Fachärztin / zum Facharzt Psychiatrie und Psychotherapie\n\nFreude am klinischen Arbeiten\n\nInteresse an interdisziplinärer Zusammenarbeit\n\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 80.00%",
-      "descriptionByLocale": {
-        "it": "Oberärztin / Oberarzt | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Sanatorium Kilchberg AG | online seit: 05.06.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 80% Psychotherapeutische Privatstation E Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Kollegiale Zusammenarbeit mit psychologischem und pflegerischem Kader Weiterentwicklung einer altersgemischten Privatstation mit psychotherapeutischer Ausrichtung Behandlungsschwerpunkt Depression Supervision und Ausbildung von AssistenzärztInnen und PsychologInnen Beteiligung an internen Fortbildungen und an der Öffentlichkeitsarbeit Abgeschlossene Ausbildung zur Fachärztin / zum Facharzt Psychiatrie und Psychotherapie Freude am klinischen Arbeiten Interesse an interdisziplinärer Zusammenarbeit\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 80.00%",
-        "en": "Oberärztin / Oberarzt | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Sanatorium Kilchberg AG | online seit: 05.06.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 80% Psychotherapeutische Privatstation E Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Kollegiale Zusammenarbeit mit psychologischem und pflegerischem Kader Weiterentwicklung einer altersgemischten Privatstation mit psychotherapeutischer Ausrichtung Behandlungsschwerpunkt Depression Supervision und Ausbildung von AssistenzärztInnen und PsychologInnen Beteiligung an internen Fortbildungen und an der Öffentlichkeitsarbeit Abgeschlossene Ausbildung zur Fachärztin / zum Facharzt Psychiatrie und Psychotherapie Freude am klinischen Arbeiten Interesse an interdisziplinärer Zusammenarbeit\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 80.00%",
-        "de": "Oberärztin / Oberarzt | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Sanatorium Kilchberg AG | online seit: 05.06.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 80% Psychotherapeutische Privatstation E Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Kollegiale Zusammenarbeit mit psychologischem und pflegerischem Kader Weiterentwicklung einer altersgemischten Privatstation mit psychotherapeutischer Ausrichtung Behandlungsschwerpunkt Depression Supervision und Ausbildung von AssistenzärztInnen und PsychologInnen Beteiligung an internen Fortbildungen und an der Öffentlichkeitsarbeit Abgeschlossene Ausbildung zur Fachärztin / zum Facharzt Psychiatrie und Psychotherapie Freude am klinischen Arbeiten Interesse an interdisziplinärer Zusammenarbeit\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 80.00%",
-        "fr": "Oberärztin / Oberarzt | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Oberärztin / Oberarzt Sanatorium Kilchberg AG | online seit: 05.06.2026 Wir suchen per 1. Oktober 2026 oder nach Vereinbarung 80% Psychotherapeutische Privatstation E Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Kollegiale Zusammenarbeit mit psychologischem und pflegerischem Kader Weiterentwicklung einer altersgemischten Privatstation mit psychotherapeutischer Ausrichtung Behandlungsschwerpunkt Depression Supervision und Ausbildung von AssistenzärztInnen und PsychologInnen Beteiligung an internen Fortbildungen und an der Öffentlichkeitsarbeit Abgeschlossene Ausbildung zur Fachärztin / zum Facharzt Psychiatrie und Psychotherapie Freude am klinischen Arbeiten Interesse an interdisziplinärer Zusammenarbeit\n• Bereich: Ärztliche Berufe und andere medizinische Fachbereiche\n• Art: 80.00%"
-      },
-      "needsRetranslation": true,
-      "location": "Kilchberg",
-      "canton": "ZH",
-      "url": "https://recruitingapp-3010.umantis.com/Vacancies/608/Description/1",
-      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:14.355Z",
-      "addressLocality": "Kilchberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8802",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-05",
-      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/608/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg",
-        "primario-sanatorium-kilchberg-kilchberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg",
-          "primario-sanatorium-kilchberg-kilchberg"
-        ],
-        "en": [
-          "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg"
-        ],
-        "fr": [
-          "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg"
-        ]
-      },
-      "firstSeenAt": "2026-06-05T22:45:25.005Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sanatorium-kilchberg-436cf9be7104",
-      "slug": "apprendistato-fachfrau-mann-gesundheit-cfc-ab-august-2027-sanatorium-kilchberg",
-      "slugByLocale": {
-        "it": "apprendistato-fachfrau-mann-gesundheit-cfc-ab-august-2027-sanatorium-kilchberg",
-        "en": "apprenticeship-professional-health-efz-from-august-2027-sanatorium-kilchberg-kilchberg",
-        "de": "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
-        "fr": "apprentissage-sante-professionnelle-efz-a-partir-d-aout-2027-sanatorium-kilchberg-kilchberg"
-      },
-      "company": "Sanatorium Kilchberg",
-      "companyKey": "sanatorium-kilchberg",
-      "companyDomain": "sanatorium-kilchberg.ch",
-      "title": "Lehrstelle Fachfrau/-mann Gesundheit EFZ ab August 2027",
-      "titleByLocale": {
-        "it": "Apprendistato Fachfrau/-mann Gesundheit CFC ab August 2027",
-        "en": "Apprenticeship Professional Health EFZ from August 2027",
-        "de": "Lehrstelle Fachfrau/-mann Gesundheit EFZ ab August 2027",
-        "fr": "Apprentissage Santé professionnelle EFZ à partir d'août 2027"
-      },
-      "description": "Lehrstelle Fachfrau/-mann Gesundheit EFZ ab August 2027 | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Lehrstelle Fachfrau/-mann Gesundheit EFZ ab August 2027 Sanatorium Kilchberg AG | online seit: 01.07.2026 Wir bieten ab August 2027 100% Pflegepädagogik NEU: Die 37h-Woche für Pflegende im Schichtdienst wird in den Regelbetrieb überführt Das Sanatorium Kilchberg bietet Dir ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bring Deine Stärken ein und gestalte die Zukunft der Klinik mit. Deine Aufgaben: Dafür sorgen, dass sich unsere Patienten und Patientinnen gut aufgehoben fühlen\n\nMithelfen bei der Ernährung und Gestaltung des Alltags für Patienten und Patientinnen\n\nMit Patienten und Patientinnen in Kontakt treten und Gespräche führen\n\nMedizinische Aufgaben wie die Medikamentenverabreichung, Blutentnahmen oder Vitalzeichenmessung\n\nÜbernahme von verschiedenen administrativen und logistischen Aufgaben\n\nEin gutes Schulzeugnis von der Sek A oder B\n\nOffen und interessiert auf Menschen zugehen und Freude daran haben, Dich auf sie einzulassen und sie zu unterstützen\n\nGerne im Team arbeiten, aber auch selbstständig und aktiv sein\n\n• Bereich: Pflegeberufe\n• Art: 100.00%",
-      "descriptionByLocale": {
-        "it": "Apprenticeship Professional Health EFZ da agosto 2027 | job@sani Jump to the main content jump to the action bar Sfortunatamente, il tuo browser non può visualizzare alcun frame embedded special health EFZ dal agosto 2027 Sanatorium Kilchberg AG | online dal: 01.07.2026 Offriamo da agosto 2027 100% educazione allattante NUOVO: La settimana 37h per i caregiver nel lavoro a turni viene trasferito al funzionamento regolare Il Kilchberg Sanatorium offre un ambiente di lavoro soddisfacente con interessanti opportunità di sviluppo in un team dinamico e apprezzativo. Porta i tuoi punti di forza e modella il futuro della clinica. I vostri compiti: Assicurarsi che i nostri pazienti si sentano in buone mani Aiutare a dieta e modellare la vita quotidiana per i pazienti Entra in contatto con i pazienti e parla Attività mediche come l'amministrazione della droga, il campionamento del sangue o la misurazione dei segni vitali Assumere vari compiti amministrativi e logistici Un buon rapporto scolastico da Sek A o B Avvicinare le persone apertamente e interessati e godere di essere coinvolti e supportarli Come lavorare in un team, ma anche essere indipendente e attivo\n• Dominio: Infermieristica professioni\n• Tipo: 100.00%",
-        "en": "Apprenticeship Professional Health EFZ from August 2027 | jobs@sani Jump to the main content jump to the action bar Unfortunately, your browser cannot display any embedded frames apprenticeship specialist health EFZ from August 2027 Sanatorium Kilchberg AG | online since: 01.07.2026 We offer from August 2027 100% nursing education NEW: The 37h week for caregivers in shift work is transferred to regular operation The Kilchberg Sanatorium offers A fulfilling working environment with exciting development opportunities in a dynamic and appreciative team. Bring your strengths and shape the future of the clinic. Your tasks: Ensure that our patients feel in good hands Helping to diet and shape everyday life for patients Get in touch with patients and have conversations Medical tasks such as drug administration, blood sampling or vital sign measurement Taking over various administrative and logistical tasks A good school report from Sek A or B Approach people openly and interested and enjoy getting involved and supporting them Like to work in a team, but also be independent and active\n• Domain: Nursing professions\n• Type: 100.00%",
-        "de": "Lehrstelle Fachfrau/-mann Gesundheit EFZ ab August 2027 | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Lehrstelle Fachfrau/-mann Gesundheit EFZ ab August 2027 Sanatorium Kilchberg AG | online seit: 01.07.2026 Wir bieten ab August 2027 100% Pflegepädagogik NEU: Die 37h-Woche für Pflegende im Schichtdienst wird in den Regelbetrieb überführt Das Sanatorium Kilchberg bietet Dir ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bring Deine Stärken ein und gestalte die Zukunft der Klinik mit. Deine Aufgaben: Dafür sorgen, dass sich unsere Patienten und Patientinnen gut aufgehoben fühlen Mithelfen bei der Ernährung und Gestaltung des Alltags für Patienten und Patientinnen Mit Patienten und Patientinnen in Kontakt treten und Gespräche führen Medizinische Aufgaben wie die Medikamentenverabreichung, Blutentnahmen oder Vitalzeichenmessung Übernahme von verschiedenen administrativen und logistischen Aufgaben Ein gutes Schulzeugnis von der Sek A oder B Offen und interessiert auf Menschen zugehen und Freude daran haben, Dich auf sie einzulassen und sie zu unterstützen Gerne im Team arbeiten, aber auch selbstständig und aktiv sein\n• Bereich: Pflegeberufe\n• Art: 100.00%",
-        "fr": "Apprenticeship Professional Health EFZ à partir d'août 2027.00 jobs@sani Jump to the main content jump to the action bar Malheureusement, votre navigateur ne peut pas afficher de cadres intégrés apprentissage spécialiste santé EFZ à partir d'août 2027 Sanatorium Kilchberg AG. Nous offrons à partir d'août 2027 100% formation infirmière NOUVEAU: La 37h semaine pour les soignants en travail posté est transférée à l'opération régulière Le Sanatorium Kilchberg offre Un environnement de travail satisfaisant avec des possibilités de développement passionnantes dans une équipe dynamique et reconnaissante. Apportez vos forces et façonnez l'avenir de la clinique. Vos tâches: S'assurer que nos patients se sentent bien Aider à l'alimentation et façonner la vie quotidienne pour les patients Prenez contact avec les patients et avez des conversations Tâches médicales telles que l'administration de médicaments, l'échantillonnage sanguin ou la mesure des signes vitaux Prise en charge de diverses tâches administratives et logistiques Un bon rapport d'école de Sek A ou B Approchez les gens ouvertement et intéressés et aimez s'impliquer et les soutenir Comme travailler en équipe, mais aussi être indépendant et actif\n• Domaine: Sciences infirmières\n• Type : 100.00%"
-      },
-      "location": "Kilchberg",
-      "canton": "ZH",
-      "url": "https://recruitingapp-3010.umantis.com/Vacancies/620/Description/1",
-      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:54:13.309Z",
-      "addressLocality": "Kilchberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8802",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/620/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
-        "apprendistato-fachfrau-mann-gesundheit-cfc-ab-august-2027-sanatorium-kilchberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
-          "apprendistato-fachfrau-mann-gesundheit-cfc-ab-august-2027-sanatorium-kilchberg"
-        ],
-        "en": [
-          "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
-        ],
-        "fr": [
-          "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
-        ]
-      },
-      "firstSeenAt": "2026-07-01T12:46:14.550Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }

@@ -1034,6 +1034,9 @@ export const Analytics = {
  // "Script error", ResizeObserver loops, browser-extension globals, etc.)
  // via the shared deny-list in services/benignErrorPatterns.ts.
  if (!msg || isBenignErrorMessage(msg)) return;
+ // Drop errors from browser extension scripts — they run in page context
+ // but are third-party; no fix is possible on our end.
+ if (event.filename && /(?:chrome|moz|safari)-extension:\/\//.test(event.filename)) return;
  Analytics.trackAppError('unhandled_error', {
  message: msg || 'Unknown error',
  stack: event.error?.stack || `at ${event.filename}:${event.lineno}:${event.colno}`,
@@ -1068,6 +1071,9 @@ export const Analytics = {
  // the global handlers shared the reporter's list (2026-06-22 triage).
  if (isBenignErrorMessage(message)) return;
  const stack = reason instanceof Error ? reason.stack || '' : '';
+ // Drop errors from browser extensions — they run in page context but are
+ // third-party; no fix is possible on our end.
+ if (stack && /(?:chrome|moz|safari)-extension:\/\//.test(stack)) return;
  Analytics.trackAppError('unhandled_rejection', {
  message,
  stack,

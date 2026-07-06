@@ -142,6 +142,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
   '/guida-frontaliere/da-50000-a-150000-chf-come-cambia-netto-frontaliere/',
   '/guida-frontaliere/sposato-o-single-impatto-tasse-frontaliere/',
   '/guida-frontaliere/costo-nascosto-cambio-chf-eur-stipendio-netto/',
+  '/guida-frontaliere/fiscalita/',
   // EN — /en/cross-border-guide/{slug}/
   '/en/cross-border-guide/complete-guide-crossborder-salary-calculation-2026/',
   '/en/cross-border-guide/new-vs-old-crossborder-worker-tax-differences/',
@@ -151,6 +152,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
   '/en/cross-border-guide/from-50000-to-150000-chf-how-net-changes-crossborder/',
   '/en/cross-border-guide/married-or-single-impact-on-crossborder-taxes/',
   '/en/cross-border-guide/hidden-cost-chf-eur-exchange-net-salary/',
+  '/en/cross-border-guide/taxation/',
   // DE — /de/grenzgaenger-ratgeber/{slug}/
   '/de/grenzgaenger-ratgeber/kompletter-leitfaden-gehaltsberechnung-grenzgaenger-2026/',
   '/de/grenzgaenger-ratgeber/neuer-vs-alter-grenzgaenger-steuerliche-unterschiede/',
@@ -160,6 +162,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
   '/de/grenzgaenger-ratgeber/von-50000-bis-150000-chf-wie-sich-netto-aendert-grenzgaenger/',
   '/de/grenzgaenger-ratgeber/verheiratet-oder-ledig-auswirkung-steuern-grenzgaenger/',
   '/de/grenzgaenger-ratgeber/versteckte-kosten-chf-eur-wechselkurs-nettogehalt/',
+  '/de/grenzgaenger-ratgeber/besteuerung/',
   // FR — /fr/guide-frontalier/{slug}/
   '/fr/guide-frontalier/guide-complet-calcul-salaire-frontalier-2026/',
   '/fr/guide-frontalier/nouveau-vs-ancien-frontalier-differences-fiscales/',
@@ -169,6 +172,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
   '/fr/guide-frontalier/de-50000-a-150000-chf-comment-le-net-change-frontalier/',
   '/fr/guide-frontalier/marie-ou-celibataire-impact-impots-frontalier/',
   '/fr/guide-frontalier/cout-cache-change-chf-eur-salaire-net/',
+  '/fr/guide-frontalier/fiscalite/',
 ]);
 
 // ── Route types ──────────────────────────────────────────────
@@ -972,6 +976,34 @@ function matchEventsCantonLocale(pathname: string): Locale | null {
  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
   const m = EVENTS_PATH_PATTERN[locale].exec(pathname);
   if (m && EVENTS_CANTON_SLUGS[locale].has(m[1])) return locale;
+ }
+ return null;
+}
+
+/**
+ * Swiss-wide events index hub (issue #3645, F3): the canton-less landing
+ * page one level above every `/eventi/<canton>/` hub matched above. Kept as
+ * a SEPARATE, stand-alone pattern rather than folding into
+ * `EVENTS_PATH_PATTERN` so the existing (high-traffic) canton/comune matcher
+ * is untouched. `EVENTS_PATH_PATTERN`'s canton-segment group requires at
+ * least one char (`[a-z0-9-]+`), so a bare `/eventi/` never matches it —
+ * these two patterns are mutually exclusive by construction, no ordering
+ * dependency between them. Literal segments mirror
+ * scripts/lib/events-utils.mjs's `EVENTS_LOCALIZED_SEGMENT`/
+ * `EVENTS_INDEX_PATH` (same duplication trade-off `EVENTS_PATH_PATTERN`
+ * above already accepts: a RegExp needs a literal, can't import the runtime
+ * string) — tests/router.test.ts guards against drift.
+ */
+const EVENTS_INDEX_PATTERN: Record<Locale, RegExp> = {
+ it: /^\/eventi\/?$/,
+ en: /^\/en\/events\/?$/,
+ de: /^\/de\/veranstaltungen\/?$/,
+ fr: /^\/fr\/evenements\/?$/,
+};
+
+function matchEventsIndexLocale(pathname: string): Locale | null {
+ for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+  if (EVENTS_INDEX_PATTERN[locale].test(pathname)) return locale;
  }
  return null;
 }
@@ -2654,6 +2686,17 @@ export function parsePath(pathname: string): ParseResult {
    const eventsLocale = matchEventsCantonLocale(pathname);
    if (eventsLocale) {
      return { route: { activeTab: 'vita', vitaSubTab: 'places', staticOverlay: true }, locale: eventsLocale };
+   }
+ }
+
+ // Swiss-wide events index hub (issue #3645, F3) — bare /eventi/ + locale
+ // variants, one level above every canton hub matched just above. Separate
+ // branch (not folded into the block above) since it's a wholly separate,
+ // mutually-exclusive pattern — see `EVENTS_INDEX_PATTERN`'s docblock.
+ {
+   const eventsIndexLocale = matchEventsIndexLocale(pathname);
+   if (eventsIndexLocale) {
+     return { route: { activeTab: 'vita', vitaSubTab: 'places', staticOverlay: true }, locale: eventsIndexLocale };
    }
  }
 

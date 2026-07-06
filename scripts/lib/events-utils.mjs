@@ -134,6 +134,17 @@ const EVENTS_LOCALIZED_SEGMENT = {
   fr: (slug) => `/fr/evenements/${slug}`,
 };
 
+// ── Swiss-wide events index hub (issue #3645, F3) ───────────────────────
+// Canton-less base path for the `/eventi/` (+ locale variants) index hub that
+// sits one level above every per-canton hub built from
+// `EVENTS_LOCALIZED_SEGMENT`. DERIVED from the same builders (calling each
+// with an empty slug and trimming the trailing slash) rather than a second
+// literal copy of the "eventi"/"events"/"veranstaltungen"/"evenements"
+// strings — the exact duplication bug §6 exists to prevent (issue #3088).
+export const EVENTS_INDEX_PATH = Object.fromEntries(
+  Object.entries(EVENTS_LOCALIZED_SEGMENT).map(([locale, segmentFor]) => [locale, segmentFor('').replace(/\/$/, '')]),
+);
+
 /**
  * Localized events base path for any of the 26 cantons (half-cantons AI/AR and
  * BL/BS collapse onto their URL group, same as the job board — see
@@ -767,6 +778,38 @@ export function upcomingEvents(events, todayIso) {
     .sort(
       (a, b) =>
         (a.startDate || '').localeCompare(b.startDate || '') ||
+        (a.title || '').localeCompare(b.title || '') ||
+        (a.id || '').localeCompare(b.id || ''),
+    );
+}
+
+/**
+ * Grace-window default for `recentlyEndedEvents` — how many days after an
+ * event ends it still gets an (orphaned, noindex) detail bridge page instead
+ * of vanishing outright on the next rebuild.
+ */
+export const EVENT_PAST_GRACE_DAYS = 14;
+
+/**
+ * Events that ended within the last `graceDays` days (default
+ * `EVENT_PAST_GRACE_DAYS`), sorted descending (most recently ended first).
+ * Used only to emit orphaned `noindex,follow` bridge pages for a short
+ * window — NOT part of `upcomingEvents`'s indexable/sitemap set.
+ */
+export function recentlyEndedEvents(events, todayIso, graceDays = EVENT_PAST_GRACE_DAYS) {
+  const today = todayIso || isoDay(new Date());
+  const cutoffDate = new Date(`${today}T00:00:00.000Z`);
+  cutoffDate.setUTCDate(cutoffDate.getUTCDate() - graceDays);
+  const cutoff = isoDay(cutoffDate);
+  return [...events]
+    .filter((e) => {
+      if (!e || typeof e.startDate !== 'string') return false;
+      const end = e.endDate || e.startDate;
+      return end < today && end >= cutoff;
+    })
+    .sort(
+      (a, b) =>
+        (b.endDate || b.startDate || '').localeCompare(a.endDate || a.startDate || '') ||
         (a.title || '').localeCompare(b.title || '') ||
         (a.id || '').localeCompare(b.id || ''),
     );
