@@ -68,9 +68,18 @@ export async function sendRenewalReminders(nowMs = Date.now()) {
   const resend = new Resend(resendApiKey);
 
   let sent = 0;
+  // Batched via db.getAll() instead of one sequential .get() per publisher —
+  // same fix class as the alert-email lookup in scripts/send-job-alerts.mjs
+  // (AGENTS.md #6 sibling pattern). byPublisher is bounded by distinct
+  // publishers with ads renewing in the 3-day window, so one unchunked call
+  // (no chunk-loop) is proportionate here.
+  const uids = [...byPublisher.keys()];
+  const pubSnaps = await db().getAll(...uids.map((uid) => db().collection('publishers').doc(String(uid))));
+  const pubSnapByUid = new Map(uids.map((uid, i) => [uid, pubSnaps[i]]));
+
   for (const [uid, entry] of byPublisher) {
     try {
-      const pubSnap = await db().collection('publishers').doc(String(uid)).get();
+      const pubSnap = pubSnapByUid.get(uid);
       const to = pubSnap.exists ? pubSnap.data().email : null;
       if (!to) continue;
 
