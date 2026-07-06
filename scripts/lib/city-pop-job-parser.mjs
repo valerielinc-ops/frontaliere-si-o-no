@@ -199,7 +199,17 @@ export async function fetchAllCityPopJobs() {
     const descriptionHtml = ld?.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     const description = descriptionText || `${title} presso ${CITY_POP_COMPANY_NAME} a ${place || HQ.city}.`;
-    const sourceLang = detectLang(descriptionText || title, 'de');
+    // No hardcoded language fallback: City Pop operates across German-,
+    // French- and Italian-speaking Switzerland (Zürich/Baden AND Lugano/
+    // Lausanne/Geneva) — a single-locale default would silently mistag an
+    // ambiguous FR/IT posting as 'de', freezing the wrong locale key in
+    // slugByLocale/descriptionByLocale downstream. `null` on a genuinely
+    // ambiguous/short text is handled gracefully: mergeLocaleTextMap()
+    // treats a falsy sourceLocale as "unknown" (symmetric merge, no forced
+    // locale overwrite) and hardenJobLocaleFields() re-derives + backfills
+    // the real source locale from the job's own title/description on the
+    // very next pipeline step.
+    const sourceLang = detectLang(descriptionText || title, null);
 
     const urlHash = createHash('sha1').update(listing.id).digest('hex').slice(0, 12);
 

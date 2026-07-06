@@ -48,7 +48,7 @@ import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
-import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs } from './lib/dedicated-crawler-common.mjs';
+import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
@@ -285,7 +285,7 @@ export function applyPerLocaleSlugCollisionGuard(jobs) {
       if (!slug || slug === myBaseSlug) continue;
       const owner = baseSlugOwners.get(`${canton}|${slug}`);
       if (!owner || owner === myId) continue;
-      addPreviousSlugForLocale(job, locale, slug, 20, 'assemble-jobs-dataset.collision-guard');
+      addPreviousSlugForLocale(job, locale, slug, DEFAULT_PREV_SLUG_CAP, 'assemble-jobs-dataset.collision-guard');
       delete job.slugByLocale[locale];
       if (job.titleByLocale && typeof job.titleByLocale === 'object') {
         delete job.titleByLocale[locale];
@@ -1902,7 +1902,7 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
     for (const s of (prior.previousSlugs || [])) {
       const sStr = String(s || '');
       if (!sStr || knownNew.has(sStr)) continue;
-      addPreviousSlugForLocale(job, 'it', sStr, 20, 'trackSlugHistoryDrift/carry-forward-flat');
+      addPreviousSlugForLocale(job, 'it', sStr, DEFAULT_PREV_SLUG_CAP, 'trackSlugHistoryDrift/carry-forward-flat');
       knownNew.add(sStr);
       mergedSlugs++;
       driftedThisJob = true;
@@ -1920,7 +1920,7 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
           // Dedup per-locale instead.
           const bucket = (job.previousSlugsByLocale && job.previousSlugsByLocale[locale]) || [];
           if (bucket.includes(sStr)) continue;
-          addPreviousSlugForLocale(job, locale, sStr, 20, 'trackSlugHistoryDrift/carry-forward-locale');
+          addPreviousSlugForLocale(job, locale, sStr, DEFAULT_PREV_SLUG_CAP, 'trackSlugHistoryDrift/carry-forward-locale');
           knownNew.add(sStr);
           mergedSlugs++;
           driftedThisJob = true;
@@ -1995,14 +1995,14 @@ function reconcileGhostExpired(activeJobs, expiredJobs) {
     if (ej.slugByLocale && typeof ej.slugByLocale === 'object') {
       for (const [locale, s] of Object.entries(ej.slugByLocale)) {
         if (!s || existingSlugs.has(s)) continue;
-        addPreviousSlugForLocale(match, locale, s, 20, 'assemble-jobs-dataset.reconcileGhostExpired');
+        addPreviousSlugForLocale(match, locale, s, DEFAULT_PREV_SLUG_CAP, 'assemble-jobs-dataset.reconcileGhostExpired');
         existingSlugs.add(s);
         addedCount++;
       }
     }
     for (const s of (ej.previousSlugs || [])) {
       if (!s || existingSlugs.has(s)) continue;
-      addPreviousSlugForLocale(match, 'it', s, 20, 'assemble-jobs-dataset.reconcileGhostExpired');
+      addPreviousSlugForLocale(match, 'it', s, DEFAULT_PREV_SLUG_CAP, 'assemble-jobs-dataset.reconcileGhostExpired');
       existingSlugs.add(s);
       addedCount++;
     }

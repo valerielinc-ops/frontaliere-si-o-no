@@ -511,6 +511,16 @@ function mergeJobs(discoveredJobs) {
         delete prevDescs.it;
       }
     }
+    // Traced end-to-end (issue 3639): passing job.sourceLang here does NOT
+    // change how the L505 purge interacts with the 'it' locale. The purge
+    // above only ever fires when job.sourceLang !== 'it', which means 'it'
+    // is always a NON-source locale in mergeLocaleTextMap's sourceLocale
+    // branch — and that branch's non-source-locale rule ("existing wins if
+    // long enough, else fall back to fresh") is the exact same formula as
+    // the no-sourceLocale fallback path used before this arg was threaded.
+    // The only locale whose merge behavior actually changed is job.sourceLang
+    // itself (fresh now wins there over stale existing text), which is never
+    // 'it' inside the purge branch. No new IT-locale gap is introduced.
     const merged = {
       ...prev,
       ...job,

@@ -43,6 +43,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
+  LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   DEBIOPHARM_WORKABLE_ACCOUNT_SLUG,
@@ -294,7 +295,10 @@ async function mergeJobs(discoveredJobs) {
         titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
         descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
-        previousSlugs: mergePreviousSlugsCapped(existingJob.previousSlugs, discovered.previousSlugs, { jobId: existingJob.id || discovered.id, source: 'update-debiopharm-jobs.mjs' }),
+        // cap explicit (issue #3630): flat previousSlugs is the same field
+        // dedicated-crawler-common.mjs manages elsewhere with LEGACY_PREV_SLUGS_CAP;
+        // the module default of 20 would re-collapse it on this crawler's next run.
+        previousSlugs: mergePreviousSlugsCapped(existingJob.previousSlugs, discovered.previousSlugs, { jobId: existingJob.id || discovered.id, source: 'update-debiopharm-jobs.mjs', cap: LEGACY_PREV_SLUGS_CAP }),
       });
       updated += 1;
     } else {

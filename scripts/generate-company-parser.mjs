@@ -17,6 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { callLLM, flushScores } from './lib/ai-models.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { decodeHtmlEntities } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -107,7 +108,11 @@ function sameRegistrableDomain(hostA, hostB) {
 
 function tryUrl(raw, base = null) {
   try {
-    return base ? new URL(raw, base).toString() : new URL(raw).toString();
+    // Sibling fix (#3626): hrefs scraped straight out of raw HTML carry
+    // HTML-escaped `&amp;` etc. instead of literal chars — decode before
+    // constructing the URL, same as shared-jobs-crawler.mjs's tryUrl().
+    const cleaned = decodeHtmlEntities(String(raw));
+    return base ? new URL(cleaned, base).toString() : new URL(cleaned).toString();
   } catch {
     return null;
   }

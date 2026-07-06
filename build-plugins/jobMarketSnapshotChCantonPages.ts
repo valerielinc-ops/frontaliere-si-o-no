@@ -92,8 +92,14 @@ const JOB_BOARD_PREFIX: Record<Locale, string> = {
   fr: 'trouver-emploi',
 };
 
-/** "snapshot" segment — same word in all 4 locales for predictable URL shape. */
-const SNAPSHOT_SEGMENT = 'snapshot';
+/**
+ * "snapshot" segment — same word in all 4 locales for predictable URL shape.
+ * Exported so searchConsoleCompat.ts can self-map this family's URLs (every
+ * canton either gets the full page or a below-floor noindex bridge at this
+ * exact path — see resolveSearchConsoleCompatTarget) without duplicating the
+ * literal.
+ */
+export const SNAPSHOT_SEGMENT = 'snapshot';
 
 const COPY: Record<
   Locale,

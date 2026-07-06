@@ -40,6 +40,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
+  LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   GUESS_WORKABLE_ACCOUNT_ID,
@@ -296,7 +297,12 @@ async function mergeJobs(discoveredJobs) {
         titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
         descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
-        previousSlugs: mergePreviousSlugsCapped(existingJob.previousSlugs, discovered.previousSlugs, { jobId: existingJob.id || discovered.id, source: 'update-guess-jobs.mjs' }),
+        // cap explicit: this job's flat previousSlugs is the SAME field
+        // dedicated-crawler-common.mjs's syncLegacyPreviousSlugs maintains
+        // elsewhere in the pipeline (translate-pending, regenerate-slugs),
+        // which now uses LEGACY_PREV_SLUGS_CAP too — the module default
+        // (20) would re-collapse it on this crawler's next run (#3630).
+        previousSlugs: mergePreviousSlugsCapped(existingJob.previousSlugs, discovered.previousSlugs, { jobId: existingJob.id || discovered.id, source: 'update-guess-jobs.mjs', cap: LEGACY_PREV_SLUGS_CAP }),
       });
       updated += 1;
     } else {

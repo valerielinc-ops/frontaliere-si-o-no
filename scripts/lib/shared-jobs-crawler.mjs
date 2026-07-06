@@ -608,7 +608,19 @@ function stripHtml(s) {
 function tryUrl(raw, base = null) {
   if (!raw) return null;
   try {
-    return base ? new URL(raw, base).toString() : new URL(raw).toString();
+    // Issue #3626 sibling fix: href attributes scraped straight out of raw HTML
+    // (e.g. `<a href="...&amp;startrow=25">`) carry HTML-escaped `&amp;` instead
+    // of a literal `&`. tryUrl() is the single convergence point every link
+    // extractor in this file (absoluteLinks, absoluteSameHostLinks,
+    // routeDiscoveredUrl, ...) funnels through, so decoding here fixes the
+    // whole class in one place instead of patching each extractor. Left
+    // undecoded, a multi-param pagination href like careers.zurich.com's
+    // `?q=&amp;locationsearch=Switzerland&amp;startrow=25` gets sent to the
+    // server with literal "amp;locationsearch"/"amp;startrow" keys — verified
+    // live: the malformed variant returns an unrelated 822-result unscoped
+    // page while the decoded variant returns the correct scoped page 2 of 56.
+    const cleaned = decodeHtmlEntities(String(raw));
+    return base ? new URL(cleaned, base).toString() : new URL(cleaned).toString();
   } catch {
     return null;
   }
@@ -644,7 +656,16 @@ function isKnownAtsHost(host = '') {
     h.includes('jobs.sbb.ch') ||
     h.includes('oraclecloud.com') ||
     h.includes('usi.ch') ||
-    h.includes('allibo.com')
+    h.includes('allibo.com') ||
+    // Issue #3626: careers.zurich.com is a SuccessFactors jobs2web-style search
+    // portal on a DIFFERENT registrable domain (zurich.com) than the company's
+    // marketing site (zurich.ch), so sameHost(link, company.website) never
+    // matches it. Without this entry, routeDiscoveredUrl() drops the adapter's
+    // search-listing seed URLs entirely (no branch claims them), so the BFS
+    // pagination crawl in crawlGenericListingJobs() — which the adapter's own
+    // seed-URL comment already assumes runs — never executes, and the crawler
+    // silently falls back to scraping unrelated zurich.ch marketing pages.
+    h.includes('careers.zurich.com')
   );
 }
 
