@@ -160,7 +160,7 @@ export function createAuditor(opts = {}) {
           const baseTotalRate = Number(baseline.totalRatePct ?? 0);
           const baseTotalOff = Number(baseline.totalOffenders ?? 0);
           const {
-            expectedOffenders, expectedTotalRate, totalCap, regression: totalRegression,
+            expectedOffenders, expectedTotalRate, totalCap, regression: totalRegression, missingFeatures,
           } = evaluateMixAdjustedTotalRegression({
             scannedByFeature, baseByFeature, tol,
             actualOffenders: offenders.length, actualScanned: scanned,
@@ -171,7 +171,7 @@ export function createAuditor(opts = {}) {
             expectedRate: Number(expectedTotalRate.toFixed(3)), expectedOffenders: Number(expectedOffenders.toFixed(2)),
             regression: Math.max(0, offenders.length - Math.round(expectedOffenders)),
           };
-          totalCapInfo = { actual: Number(totalRatePct.toFixed(3)), expected: Number(expectedTotalRate.toFixed(3)), cap: Number(totalCap.toFixed(3)) };
+          totalCapInfo = { actual: Number(totalRatePct.toFixed(3)), expected: Number(expectedTotalRate.toFixed(3)), cap: Number(totalCap.toFixed(3)), missingFeatures };
           if (totalRegression || regressedFeatures.length > 0) passed = false;
         } else {
           // Legacy absolute-count baseline (pre rate-ratchet). Kept so the
@@ -196,9 +196,16 @@ export function createAuditor(opts = {}) {
         }
       }
 
+      // Incomplete-scan flag (#3607): a baseline feature bucket entirely
+      // absent from the current scan is surfaced explicitly rather than
+      // silently folded into a lowered mix-adjusted expected total — see
+      // scripts/lib/mixAdjustedRateGate.mjs's computeMixAdjustedTotalCap.
+      const missingFeatureNote = totalCapInfo?.missingFeatures?.length
+        ? ` — INCOMPLETE SCAN: baseline feature(s) absent from current scan (${totalCapInfo.missingFeatures.join(', ')}); treated as a gate failure, not a lowered expected total`
+        : '';
       const humanSummary = passed
         ? `${offenders.length} duplicate(s) within baseline`
-        : `${offenders.length} title=h1 duplicate(s)${regressedFeatures.length > 0 ? ` — regressed features: ${regressedFeatures.map(r => r.rate != null ? `${r.feat}(${r.rate}% > ${r.maxRate}% allowed, ${r.count} vs ${r.max})` : `${r.feat}(${r.count}>${r.cap})`).join(', ')}` : (totalCapInfo ? ` — total rate cap exceeded (actual ${totalCapInfo.actual}% > mix-adjusted expected ${totalCapInfo.expected}% + tolerance = ${totalCapInfo.cap}%)` : '')}`;
+        : `${offenders.length} title=h1 duplicate(s)${missingFeatureNote}${regressedFeatures.length > 0 ? ` — regressed features: ${regressedFeatures.map(r => r.rate != null ? `${r.feat}(${r.rate}% > ${r.maxRate}% allowed, ${r.count} vs ${r.max})` : `${r.feat}(${r.count}>${r.cap})`).join(', ')}` : (totalCapInfo ? ` — total rate cap exceeded (actual ${totalCapInfo.actual}% > mix-adjusted expected ${totalCapInfo.expected}% + tolerance = ${totalCapInfo.cap}%)` : '')}`;
 
       return {
         passed,
@@ -208,7 +215,7 @@ export function createAuditor(opts = {}) {
         baselineFile: relBaseline(baselinePath),
         baselineDelta,
         byFeature,
-        extra: { scanned, skippedNoindex, missingTitle, missingH1, byLocale, regressedFeatures, scannedByFeature, rateByFeature, totalRatePct: Number(totalRatePct.toFixed(4)), limit },
+        extra: { scanned, skippedNoindex, missingTitle, missingH1, byLocale, regressedFeatures, scannedByFeature, rateByFeature, totalRatePct: Number(totalRatePct.toFixed(4)), limit, missingFeatures: totalCapInfo?.missingFeatures ?? [] },
         humanSummary,
       };
     },
