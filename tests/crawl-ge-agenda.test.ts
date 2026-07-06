@@ -80,6 +80,17 @@ describe('parseGeneveDateFr', () => {
     expect(parseGeneveDateFr('certains mercredis', NOW)).toBeNull();
   });
 
+  it('returns null for a day that does not exist in the given month (never fabricates a date)', () => {
+    // April has 30 days — "31 avril" is a mis-scan, not a real date.
+    expect(parseGeneveDateFr('31 avril', NOW)).toBeNull();
+    // Feb 29 only exists in a leap year.
+    expect(parseGeneveDateFr('29 fevrier 2026', NOW)).toBeNull();
+    expect(parseGeneveDateFr('29 fevrier 2028', NOW)).toEqual({
+      startDate: '2028-02-29',
+      endDate: '2028-02-29',
+    });
+  });
+
   it('returns null for empty/missing input', () => {
     expect(parseGeneveDateFr('', NOW)).toBeNull();
     expect(parseGeneveDateFr(undefined as unknown as string, NOW)).toBeNull();

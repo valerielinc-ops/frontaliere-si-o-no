@@ -61,6 +61,17 @@ function toIso(day, month, year) {
   return `${year}-${pad2(month)}-${pad2(day)}`;
 }
 
+// Reviewer adversarial check (#3644 PR review): the token scanner only range-
+// checks day as 1-31, so "31 avril" would otherwise silently produce the
+// non-existent 2026-04-31. Round-tripping through Date.UTC (which
+// auto-normalizes out-of-range days, e.g. April 31 -> May 1) catches every
+// invalid day/month combo, leap years included, since it's checked once the
+// exact year is already known.
+function isValidCalendarDate(day, month, year) {
+  const d = new Date(Date.UTC(year, month - 1, day));
+  return d.getUTCFullYear() === year && d.getUTCMonth() === month - 1 && d.getUTCDate() === day;
+}
+
 const MONTHS_FR = {
   janvier: 1,
   fevrier: 2,
@@ -151,6 +162,11 @@ export function parseGeneveDateFr(rawText, now = new Date()) {
     if (i > 0 && tokens[i].month < tokens[i - 1].month) yearOffset += 1;
     tokens[i].year = baseYear + yearOffset;
   }
+
+  // Reject a non-existent calendar date (e.g. a mis-scanned "31 avril")
+  // outright rather than silently fabricating it — skip-on-unparseable is
+  // the same contract as every other bail-out in this function.
+  if (tokens.some((t) => !isValidCalendarDate(t.day, t.month, t.year))) return null;
 
   const first = toIso(tokens[0].day, tokens[0].month, tokens[0].year);
   const last = toIso(tokens[tokens.length - 1].day, tokens[tokens.length - 1].month, tokens[tokens.length - 1].year);
