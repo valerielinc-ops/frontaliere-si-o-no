@@ -2475,10 +2475,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern",
-          "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw",
-          "logistics-lager-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
-          "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
           "logistique-lager-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
           "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl",
           "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-bern",
@@ -2492,7 +2488,13 @@
           "scientific-industry-staff-swiss-armed-forces-vtg-bern",
           "personnel-scientifique-industriel-swiss-armed-forces-vtg-bern",
           "wissenschaftliche-r-collaboratore-trice-in-swiss-armed-forces-vtg-bern-gt0ems",
-          "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-chur"
+          "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-chur",
+          "logistics-department-swiss-armed-forces-vtg-bellinzona",
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-bern",
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur",
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9",
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-bellinzona",
+          "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri"
         ],
         "en": [
           "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona",
@@ -2509,11 +2511,6 @@
         ]
       },
       "previousSlugs": [
-        "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl",
-        "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-bern",
-        "personale-attenzione-al-reclutamento-swiss-armed-forces-vtg-bern",
-        "personnel-focus-on-recruitment-swiss-armed-forces-vtg-bern",
-        "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern",
         "personnel-accent-sur-le-recrutement-swiss-armed-forces-vtg-bern",
         "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern-etokcg",
         "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bellinzona",
@@ -2527,7 +2524,13 @@
         "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-chur",
         "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern",
         "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw",
-        "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona"
+        "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona",
+        "logistics-department-swiss-armed-forces-vtg-bellinzona",
+        "logistiker-in-vorortlager-swiss-armed-forces-vtg-bern",
+        "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur",
+        "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9",
+        "logistiker-in-vorortlager-swiss-armed-forces-vtg-bellinzona",
+        "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
