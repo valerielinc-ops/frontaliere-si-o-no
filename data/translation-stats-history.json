@@ -1,62 +1,5 @@
 [
   {
-    "timestamp": "2026-06-20T06:12:52.415Z",
-    "label": "before",
-    "total": 17456,
-    "needsRetranslation": 2953,
-    "suppressed": 657,
-    "incomplete": 1156,
-    "complete": 16300,
-    "missingByLocale": {
-      "it": 462,
-      "en": 348,
-      "de": 755,
-      "fr": 240
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 953
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Roche",
-        "pending": 26
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Manor AG",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 13
-      },
-      {
-        "company": "Sulzer",
-        "pending": 6
-      },
-      {
-        "company": "IKEA",
-        "pending": 4
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 4
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-20T06:54:27.311Z",
     "label": "after",
     "total": 17456,
@@ -11395,6 +11338,63 @@
       },
       {
         "company": "IKEA",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-06T11:44:55.296Z",
+    "label": "after",
+    "total": 23359,
+    "needsRetranslation": 3236,
+    "suppressed": 257,
+    "incomplete": 339,
+    "complete": 23020,
+    "missingByLocale": {
+      "it": 283,
+      "en": 269,
+      "de": 43,
+      "fr": 266
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 240
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 5
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
         "pending": 3
       }
     ]
