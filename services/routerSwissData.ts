@@ -328,6 +328,8 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'guida-autista-frontaliere-ticino': { it: 'guida-autista-frontaliere-ticino', en: 'guide-cross-border-truck-driver-ticino', de: 'leitfaden-grenzgaenger-lkw-fahrer-tessin', fr: 'guide-frontalier-chauffeur-poids-lourds-ticino' },
  'analisi-busta-paga-frontalieri-2026': { it: 'analisi-busta-paga-frontalieri-2026', en: 'analysis-swiss-payslip-cross-border-2026', de: 'analyse-schweizer-lohnausweis-grenzgaenger-2026', fr: 'analyse-fiche-de-paie-frontaliers-2026' },
  'analisi-busta-paga-svizzera-2026': { it: 'analisi-busta-paga-svizzera-2026', en: 'swiss-payslip-analysis-2026', de: 'schweizer-lohnabrechnung-2026', fr: 'analyse-bulletin-salaire-suisse-2026' },
+ 'credito-imposta-frontalieri-2026': { it: 'credito-imposta-frontalieri-2026', en: 'tax-credit-cross-border-2026', de: 'steuer-gutschrift-grenzarbeiter-2026', fr: 'credit-dimpot-frontalier-2026' },
+ 'credito-imposta-frontaliere-2026': { it: 'credito-imposta-frontaliere-2026', en: 'frontalier-tax-credit-2026-within-20km', de: 'grenzganger-steuerguthaben-2026-20km', fr: 'frontaliers-credit-impot-2026-20km' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

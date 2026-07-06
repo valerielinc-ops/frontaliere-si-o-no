@@ -11796,6 +11796,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-credito-imposta-frontalieri-2026': {
+    title: 'Credito d\'imposta per frontalieri 2026: calcolo, limiti e checklist entro 20 km',
+    description: 'Scopri come calcolare il credito d\'imposta 2026 per i frontalieri entro 20 km, con esempi pratici, tabelle e la procedura passo‑passo per la dichiarazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, calcolo, limiti',
+    ogTitle: 'Credito d\'imposta frontalieri 2026: calcolo e checklist entro 20 km',
+    ogDescription: 'Guida completa al credito d\'imposta 2026 per i frontalieri entro 20 km: calcolo, limiti, scenari e procedura dichiarativa.',
+    canonicalPath: '/articoli-svizzera/credito-imposta-frontalieri-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d'imposta per frontalieri 2026: calcolo, limiti e checklist entro 20 km",
+      "description": "Scopri come calcolare il credito d'imposta 2026 per i frontalieri entro 20 km, con esempi pratici, tabelle e la procedura passo‑passo per la dichiarazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-imposta-frontalieri-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confine svizzero‑italiano con un treno pendolare, simbolo dei frontalieri."
+      },
+      "datePublished": "2026-07-06T05:29:20+00:00",
+      "dateModified": "2026-07-06T05:29:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/credito-imposta-frontalieri-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-credito-imposta-frontaliere-2026': {
+    title: 'Credito imposta frontaliere 2026: guida entro i 20 km',
+    description: 'Scopri come funziona il credito d\'imposta per frontalieri nel 2026: franchigie 7.500€ e 10.000€, quadro CE e limiti entro i 20 km. Guida pratica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, entro, calcolo',
+    ogTitle: 'Credito Imposta Frontaliere 2026: Guida Pratica',
+    ogDescription: 'Tutto sul credito d\'imposta per frontalieri 2026: calcolo, franchigie e compilazione dichiarazione italiana.',
+    canonicalPath: '/articoli-svizzera/credito-imposta-frontaliere-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito imposta frontaliere 2026: guida entro i 20 km",
+      "description": "Scopri come funziona il credito d'imposta per frontalieri nel 2026: franchigie 7.500€ e 10.000€, quadro CE e limiti entro i 20 km. Guida pratica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-imposta-frontaliere-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania con documenti fiscali e vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-07-06T05:47:42+00:00",
+      "dateModified": "2026-07-06T05:47:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/credito-imposta-frontaliere-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

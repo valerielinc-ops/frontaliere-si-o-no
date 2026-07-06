@@ -916,6 +916,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.analisi-busta-paga-svizzera-2026.title': 'Grenzgänger: Schweizer Lohnabrechnung 2026 und Einbehalte',
     'blog.article.analisi-busta-paga-svizzera-2026.excerpt': 'Praktischer Leitfaden zur Gehaltsabrechnung 2026: Beiträge, Quellensteuern und Steuerdifferenzen für Grenzgänger, die über 20 km arbeiten.',
     'blog.article.analisi-busta-paga-svizzera-2026.imageAlt': 'Moderne Büroansicht in Lugano, Schweiz',
+    'blog.article.credito-imposta-frontalieri-2026.title': 'Steuergutschrift Grenzgänger 2026: Das Wichtigste (20km)',
+    'blog.article.credito-imposta-frontalieri-2026.excerpt': 'Finden Sie heraus, wie die Steuergutschrift 2026 für Grenzgänger im Umkreis von 20 km gilt, mit praktischen Beispielen, erläuternden Tabellen und dem Schritt-für-Schritt-Verfahren für die italienische Erklärung.',
+    'blog.article.credito-imposta-frontalieri-2026.imageAlt': 'Schweiz‑Italienische Grenze mit Pendlerzug, Symbol für Grenzgänger.',
+    'blog.article.credito-imposta-frontaliere-2026.title': 'Grenzsteuergutschrift 2026: Fahren innerhalb von 20 km',
+    'blog.article.credito-imposta-frontaliere-2026.excerpt': 'Berechnung der Steuergutschrift für Grenzgänger im Jahr 2026, Entfernungsgrenzen und Anweisungen für die italienische Erklärung im EG-Rahmen.',
+    'blog.article.credito-imposta-frontaliere-2026.imageAlt': 'Schreibtisch mit Steuerdokumenten und Blick auf den Luganersee',
 };
 
 export default blogMetaChDe;
