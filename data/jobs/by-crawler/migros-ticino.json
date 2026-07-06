@@ -385,8 +385,8 @@
       "crawledAt": "2026-07-05T11:56:33.828Z",
       "firstSeenAt": "2026-07-05T11:56:33.828Z",
       "slugByLocale": {
-        "en": "seller-denner-ag-wetzikon",
-        "fr": "vendeur-denner-ag-wetzikon",
+        "en": "seller-denner-ag-wetzikon-8e6f7a",
+        "fr": "vendeur-denner-ag-wetzikon-8e6f7a",
         "it": "venditore-denner-ag-wetzikon",
         "de": "verkaufer-in-denner-ag-wetzikon"
       },
@@ -418,57 +418,23 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-wetzikon-8e6f7a"
+          "seller-denner-ag-wetzikon-8e6f7a",
+          "seller-denner-ag-wetzikon"
         ],
         "de": [
           "verkaufer-in-denner-ag-wetzikon-douzkp"
         ],
         "fr": [
-          "vendeur-denner-ag-wetzikon-8e6f7a"
-        ],
-        "it": [
-          "vendeur-denner-ag-zurich-e89fe9",
-          "venditore-denner-ag-rubigen",
-          "venditore-denner-ag-stein-ag",
-          "verkaufer-in-denner-ag-rubigen",
-          "venditore-denner-ag-gossau-sg",
-          "verkaufer-in-denner-ag-gossau-sg",
-          "venditore-denner-ag-wetzikon-e6382f",
-          "venditore-denner-ag-dubendorf",
-          "seller-denner-ag-dubendorf",
-          "verkaufer-in-denner-ag-dubendorf",
-          "vendeur-denner-ag-dubendorf",
-          "venditore-denner-ag-wetzikon-8e6f7a",
-          "seller-denner-ag-frauenfeld-008421",
-          "verkaufer-in-denner-ag-frauenfeld",
-          "vendeur-denner-ag-frauenfeld-008421",
-          "seller-denner-ag-frauenfeld",
-          "vendeur-denner-ag-frauenfeld",
-          "venditore-denner-ag-frauenfeld",
-          "venditore-denner-ag-frauenfeld-008421"
+          "vendeur-denner-ag-wetzikon-8e6f7a",
+          "vendeur-denner-ag-wetzikon"
         ]
       },
       "previousSlugs": [
+        "verkaufer-in-denner-ag-wetzikon-douzkp",
+        "seller-denner-ag-wetzikon-8e6f7a",
         "vendeur-denner-ag-wetzikon-8e6f7a",
-        "vendeur-denner-ag-zurich-e89fe9",
-        "venditore-denner-ag-rubigen",
-        "venditore-denner-ag-stein-ag",
-        "verkaufer-in-denner-ag-rubigen",
-        "venditore-denner-ag-gossau-sg",
-        "verkaufer-in-denner-ag-gossau-sg",
-        "venditore-denner-ag-wetzikon-e6382f",
-        "venditore-denner-ag-dubendorf",
-        "seller-denner-ag-dubendorf",
-        "verkaufer-in-denner-ag-dubendorf",
-        "vendeur-denner-ag-dubendorf",
-        "venditore-denner-ag-wetzikon-8e6f7a",
-        "seller-denner-ag-frauenfeld-008421",
-        "verkaufer-in-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld-008421",
-        "seller-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld",
-        "venditore-denner-ag-frauenfeld",
-        "venditore-denner-ag-frauenfeld-008421"
+        "seller-denner-ag-wetzikon",
+        "vendeur-denner-ag-wetzikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1091,8 +1057,8 @@
       "firstSeenAt": "2026-07-04T12:04:49.748Z",
       "slugByLocale": {
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld-008421",
+        "fr": "vendeur-denner-ag-frauenfeld-008421",
         "it": "venditore-denner-ag-frauenfeld"
       },
       "titleByLocale": {
@@ -1149,10 +1115,12 @@
           "seller-denner-ag-zurich"
         ],
         "en": [
-          "seller-denner-ag-frauenfeld-008421"
+          "seller-denner-ag-frauenfeld-008421",
+          "seller-denner-ag-frauenfeld"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld-008421"
+          "vendeur-denner-ag-frauenfeld-008421",
+          "vendeur-denner-ag-frauenfeld"
         ]
       },
       "previousSlugs": [
@@ -1163,7 +1131,9 @@
         "venditore-denner-ag-zurich-e89fe9",
         "seller-denner-ag-zurich",
         "seller-denner-ag-frauenfeld-008421",
-        "vendeur-denner-ag-frauenfeld-008421"
+        "vendeur-denner-ag-frauenfeld-008421",
+        "seller-denner-ag-frauenfeld",
+        "vendeur-denner-ag-frauenfeld"
       ]
     },
     {
