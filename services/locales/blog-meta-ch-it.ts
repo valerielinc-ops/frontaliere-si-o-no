@@ -922,6 +922,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.credito-imposta-frontaliere-2026.title': 'Credito imposta frontaliere 2026: guida entro i 20 km',
     'blog.article.credito-imposta-frontaliere-2026.excerpt': 'Calcolo del credito d\'imposta per frontalieri nel 2026, limiti di distanza e istruzioni per la dichiarazione italiana nel quadro CE.',
     'blog.article.credito-imposta-frontaliere-2026.imageAlt': 'Scrivania con documenti fiscali e vista sul Lago di Lugano',
+    'blog.article.prezzi-immobili-svizzera-giugno.title': 'Prezzi immobili in Svizzera: salita a giugno',
+    'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'A giugno i prezzi delle case salgono del 3,1% e gli appartamenti del 4,5% su base annua, con forti differenze tra Zurigo, Ticino e le altre regioni.',
+    'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Edifici residenziali moderni in Svizzera con montagne sullo sfondo',
 };
 
 export default blogMetaChIt;

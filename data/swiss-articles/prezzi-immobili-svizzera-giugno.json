@@ -1,0 +1,19 @@
+{
+  "id": "prezzi-immobili-svizzera-giugno",
+  "slug": "prezzi-immobili-svizzera-giugno",
+  "publishedAt": "2026-07-06T06:07:23.882Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 151.45302293333333,
+    "confidence": 1,
+    "finalScore": 151.45302293333333,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 15.145302293333334,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

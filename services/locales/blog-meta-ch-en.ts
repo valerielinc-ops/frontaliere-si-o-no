@@ -922,6 +922,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.credito-imposta-frontaliere-2026.title': '2026 Border Tax Credit: Driving within 20km',
     'blog.article.credito-imposta-frontaliere-2026.excerpt': 'Calculation of the tax credit for border workers in 2026, distance limits and instructions for the Italian declaration in the EC framework.',
     'blog.article.credito-imposta-frontaliere-2026.imageAlt': 'Desk with tax documents and view of Lake Lugano',
+    'blog.article.prezzi-immobili-svizzera-giugno.title': 'Swiss Property Prices: June Rise',
+    'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'In June, house prices rose by 3.1% and apartments by 4.5% on an annual basis, with sharp differences between Zurich, Ticino and the other regions.',
+    'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Modern residential buildings in Switzerland with mountains in the background',
 };
 
 export default blogMetaChEn;

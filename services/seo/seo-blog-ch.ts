@@ -11874,6 +11874,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prezzi-immobili-svizzera-giugno': {
+    title: 'Prezzi immobili in Svizzera: salita a giugno | Frontaliere Ticino',
+    description: 'I prezzi degli immobili residenziali continuano a crescere in Svizzera a giugno. Scopri i dati regionali e l\'impatto sul costo della vita. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, immobili, salita, giugno',
+    ogTitle: 'Prezzi immobili in Svizzera: salita a giugno',
+    ogDescription: 'I prezzi degli immobili residenziali continuano a crescere in Svizzera a giugno. Scopri i dati regionali e l\'impatto sul costo della vita.',
+    canonicalPath: '/articoli-svizzera/prezzi-immobili-svizzera-giugno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi immobili in Svizzera: salita a giugno",
+      "description": "I prezzi degli immobili residenziali continuano a crescere in Svizzera a giugno. Scopri i dati regionali e l'impatto sul costo della vita. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prezzi-immobili-svizzera-giugno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edifici residenziali moderni in Svizzera con montagne sullo sfondo"
+      },
+      "datePublished": "2026-07-06T06:07:20+00:00",
+      "dateModified": "2026-07-06T06:07:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-immobili-svizzera-giugno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
