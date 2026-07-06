@@ -8279,6 +8279,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dipendenza-fossili-svizzera-energia.title': 'Svizzera e fossili: quanto pesa la dipendenza energetica',
     'blog.article.dipendenza-fossili-svizzera-energia.excerpt': 'Analisi sulla dipendenza elvetica dai combustibili fossili: il 58% dell\'energia finale consumata deriva da petrolio e gas. Cosa significa per l\'economia.',
     'blog.article.dipendenza-fossili-svizzera-energia.imageAlt': 'Vista panoramica di Lugano e il suo lago.',
+    'blog.article.traffico-a2-luglio-frontalieri.title': 'Traffico sull\'A2: rallentamenti e code verso il Ticino',
+    'blog.article.traffico-a2-luglio-frontalieri.excerpt': 'Luglio porta code sull\'autostrada A2. Analizziamo i tempi di attesa al San Gottardo, ad Airolo e alla frontiera di Chiasso Brogeda per i lavoratori frontalieri.',
+    'blog.article.traffico-a2-luglio-frontalieri.imageAlt': 'Traffico sull\'autostrada A2 in Ticino durante il periodo estivo',
 };
 
 export default blogMetaIt;

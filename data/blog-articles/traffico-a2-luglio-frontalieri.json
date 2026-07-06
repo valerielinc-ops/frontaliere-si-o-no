@@ -1,0 +1,40 @@
+{
+  "id": "traffico-a2-luglio-frontalieri",
+  "slug": "traffico-a2-luglio-frontalieri",
+  "publishedAt": "2026-07-06T05:13:05.029Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.947575125325349,
+    "confidence": 0.8,
+    "finalScore": 5.558060100260279,
+    "topK": [
+      {
+        "slug": "code-e-non-solo-in-autostrada",
+        "cosine": 0.8713865697293941
+      },
+      {
+        "slug": "rientro-a2-incubo-30-aprile-2026",
+        "cosine": 0.8685175569966955
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.860014551996812
+      },
+      {
+        "slug": "tramonto-a-cadenazzo",
+        "cosine": 0.8575740542618903
+      },
+      {
+        "slug": "bellinzona-valli-bici-velocita",
+        "cosine": 0.8558653029496178
+      }
+    ],
+    "score": 0.6947575125325349,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}
