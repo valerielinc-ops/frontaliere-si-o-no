@@ -904,6 +904,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-infermiere-ticino-requisiti.title': 'Frontaliere infermiere in Ticino: requisiti e stipendio',
     'blog.article.frontaliere-infermiere-ticino-requisiti.excerpt': 'Guida pratica per infermieri frontalieri: dal riconoscimento del titolo di studio al nuovo Accordo, fino al calcolo dello stipendio netto.',
     'blog.article.frontaliere-infermiere-ticino-requisiti.imageAlt': 'Ospedale con vista sul Lago di Lugano',
+    'blog.article.frontaliere-operaio-edile-ticino-ccl.title': 'Frontaliere operaio edile in Ticino: guida al CCL',
+    'blog.article.frontaliere-operaio-edile-ticino-ccl.excerpt': 'Tutto sul contratto collettivo, minimi salariali, sicurezza sul lavoro e obblighi fiscali per gli operai edili frontalieri in Ticino.',
+    'blog.article.frontaliere-operaio-edile-ticino-ccl.imageAlt': 'Cantiere edile in Ticino con operai e standard di sicurezza svizzeri.',
 };
 
 export default blogMetaChIt;

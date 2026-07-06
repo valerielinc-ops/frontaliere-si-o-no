@@ -904,6 +904,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-infermiere-ticino-requisiti.title': 'Infirmière frontalière au Tessin : exigences et salaire',
     'blog.article.frontaliere-infermiere-ticino-requisiti.excerpt': 'Guide pratique pour les infirmiers frontaliers : de la reconnaissance du diplôme au nouvel Accord, jusqu\'au calcul du salaire net.',
     'blog.article.frontaliere-infermiere-ticino-requisiti.imageAlt': 'Hôpital avec vue sur le lac de Lugano',
+    'blog.article.frontaliere-operaio-edile-ticino-ccl.title': 'Travailleur frontalier de la construction au Tessin : guide de la CCT',
+    'blog.article.frontaliere-operaio-edile-ticino-ccl.excerpt': 'Tout sur la convention collective, les salaires minimums, la sécurité au travail et les obligations fiscales pour les travailleurs frontaliers de la construction au Tessin.',
+    'blog.article.frontaliere-operaio-edile-ticino-ccl.imageAlt': 'Chantier de construction au Tessin avec des ouvriers respectant les normes suisses.',
 };
 
 export default blogMetaChFr;

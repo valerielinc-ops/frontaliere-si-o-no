@@ -904,6 +904,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-infermiere-ticino-requisiti.title': 'Grenzgängerin Krankenschwester im Tessin: Anforderungen und Gehalt',
     'blog.article.frontaliere-infermiere-ticino-requisiti.excerpt': 'Praktischer Leitfaden für Grenzkrankenschwestern: von der Anerkennung des Bildungsabschlusses über die neue Vereinbarung bis hin zur Berechnung des Nettogehalts.',
     'blog.article.frontaliere-infermiere-ticino-requisiti.imageAlt': 'Krankenhaus mit Blick auf den Luganersee',
+    'blog.article.frontaliere-operaio-edile-ticino-ccl.title': 'Grenzgänger Bauarbeiter im Tessin: Leitfaden zum GAV',
+    'blog.article.frontaliere-operaio-edile-ticino-ccl.excerpt': 'Alles über den Tarifvertrag, Mindestlöhne, Arbeitssicherheit und steuerliche Pflichten für Grenzbauarbeiter im Tessin.',
+    'blog.article.frontaliere-operaio-edile-ticino-ccl.imageAlt': 'Baustelle im Tessin mit Arbeitern nach Schweizer Sicherheitsstandards.',
 };
 
 export default blogMetaChDe;
