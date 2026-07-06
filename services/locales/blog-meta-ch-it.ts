@@ -919,6 +919,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026.title': 'Credito d\'imposta per frontalieri 2026: calcolo, limiti e checklist entro 20 km',
     'blog.article.credito-imposta-frontalieri-2026.excerpt': 'Scopri come il credito d\'imposta 2026 si applica ai frontalieri entro 20 km, con esempi pratici, tabelle esplicative e la procedura passo‑passo per la dichiarazione italiana.',
     'blog.article.credito-imposta-frontalieri-2026.imageAlt': 'Confine svizzero‑italiano con un treno pendolare, simbolo dei frontalieri.',
+    'blog.article.credito-imposta-frontaliere-2026.title': 'Credito imposta frontaliere 2026: guida entro i 20 km',
+    'blog.article.credito-imposta-frontaliere-2026.excerpt': 'Calcolo del credito d\'imposta per frontalieri nel 2026, limiti di distanza e istruzioni per la dichiarazione italiana nel quadro CE.',
+    'blog.article.credito-imposta-frontaliere-2026.imageAlt': 'Scrivania con documenti fiscali e vista sul Lago di Lugano',
 };
 
 export default blogMetaChIt;

@@ -919,6 +919,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026.title': '2026 Tax Credit for Border Workers: Limits & Checklist',
     'blog.article.credito-imposta-frontalieri-2026.excerpt': 'Find out how the 2026 tax credit applies to border crossers within 20 km, with practical examples, explanatory tables and the step-by-step procedure for the Italian declaration.',
     'blog.article.credito-imposta-frontalieri-2026.imageAlt': 'Swiss‑Italian border with a commuter train, representing cross‑border workers.',
+    'blog.article.credito-imposta-frontaliere-2026.title': '2026 Border Tax Credit: Driving within 20km',
+    'blog.article.credito-imposta-frontaliere-2026.excerpt': 'Calculation of the tax credit for border workers in 2026, distance limits and instructions for the Italian declaration in the EC framework.',
+    'blog.article.credito-imposta-frontaliere-2026.imageAlt': 'Desk with tax documents and view of Lake Lugano',
 };
 
 export default blogMetaChEn;

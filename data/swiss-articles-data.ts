@@ -2753,6 +2753,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'credito-imposta-frontaliere-2026',
+    category: 'fiscale',
+    date: '2026-07-06T05:47:42.232Z',
+    image: '/images/blog/credito-imposta-frontaliere-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
