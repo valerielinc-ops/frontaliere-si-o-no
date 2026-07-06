@@ -14,7 +14,8 @@
  *  2. localeTableCompletenessPlugin (build-plugins/localeTableCompletenessPlugin.ts)
  *     actually wires the real production tables — HUB_SLUG_BY_LOCALE,
  *     NURSING_LANDING_SLUGS, HEALTH_PREMIUM_CANTON_SLUG,
- *     HEALTH_PREMIUM_AGE_SLUG, FUEL_SECTION_SLUG, PROFESSION_SLUGS — into
+ *     HEALTH_PREMIUM_AGE_SLUG, FUEL_SECTION_SLUG, PROFESSION_SLUGS,
+ *     CITY_HUB_SLUG — into
  *     its closeBundle() hook, and that hook does not throw against the real
  *     data (i.e. today's tables are actually complete, and a future
  *     incomplete edit to any one of them would fail the build via this
@@ -88,7 +89,7 @@ describe('localeTableCompletenessPlugin — issue #3608 item 2 sibling fix', () 
     expect(typeof plugin.closeBundle).toBe('function');
   });
 
-  it('does not throw against the real production tables (seoHubsData, nursingLandingsData, healthPremiumsData x2, fuelDailyData, professionLandingsData)', async () => {
+  it('does not throw against the real production tables (seoHubsData, nursingLandingsData, healthPremiumsData x2, fuelDailyData, professionLandingsData, cityJobsHub)', async () => {
     const plugin = localeTableCompletenessPlugin();
     // closeBundle is typed loosely by Vite's Plugin type; invoke with no args
     // the way Rollup does for a hook with no parameters.

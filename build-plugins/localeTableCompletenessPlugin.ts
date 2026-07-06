@@ -15,20 +15,21 @@
  * wires its own `assertSectorHubTablesComplete()` inline into
  * `jobsSeoPagesPlugin.ts`'s `closeBundle()` (the original #3608 item 2 fix).
  * The sibling-pattern grep for the same construct across `build-plugins/**`
- * found five more tables sharing the exact same shape and direct-index
+ * found six more tables sharing the exact same shape and direct-index
  * usage in URL construction:
  *   - seoHubsData.ts        → HUB_SLUG_BY_LOCALE
  *   - nursingLandingsData.ts → NURSING_LANDING_SLUGS
  *   - healthPremiumsData.ts  → HEALTH_PREMIUM_CANTON_SLUG, HEALTH_PREMIUM_AGE_SLUG
  *   - fuelDailyData.ts       → FUEL_SECTION_SLUG
  *   - professionLandingsData.ts → PROFESSION_SLUGS
+ *   - cityJobsHub.ts         → CITY_HUB_SLUG
  * Rather than duplicating a bespoke assertion + closeBundle wiring per file
- * (six near-identical copies), this plugin centralizes the check for all
- * five siblings behind the one shared generic in
+ * (seven near-identical copies), this plugin centralizes the check for all
+ * six siblings behind the one shared generic in
  * `build-plugins/shared/localeTableCompleteness.ts`.
  *
  * Registered standalone in vite.config.ts (not inside another plugin's
- * closeBundle) since none of these five tables are owned by a single
+ * closeBundle) since none of these six tables are owned by a single
  * feature plugin the way SECTOR_HUB_SLUG is owned by jobsSeoPagesPlugin.
  * Every table checked here is a build-plugins-only data module; none of
  * this file's imports are reachable from the client bundle, but the
@@ -48,6 +49,7 @@ import {
 } from './healthPremiumsData';
 import { FUEL_SECTION_SLUG, FUEL_DAILY_LOCALES, FUEL_TYPES } from './fuelDailyData';
 import { PROFESSION_SLUGS, PROFESSION_LOCALES, PROFESSION_IDS } from './professionLandingsData';
+import { CITY_HUB_SLUG, CITY_HUB_LOCALES, CITY_HUB_KEYS } from './cityJobsHub';
 
 export function localeTableCompletenessPlugin(): Plugin {
   return {
@@ -93,6 +95,13 @@ export function localeTableCompletenessPlugin(): Plugin {
         [['PROFESSION_SLUGS', PROFESSION_SLUGS]],
         PROFESSION_LOCALES,
         PROFESSION_IDS,
+      );
+
+      assertLocaleTablesComplete(
+        'cityJobsHub',
+        [['CITY_HUB_SLUG', CITY_HUB_SLUG]],
+        CITY_HUB_LOCALES,
+        CITY_HUB_KEYS,
       );
     },
   };
