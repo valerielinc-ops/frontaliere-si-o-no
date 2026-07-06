@@ -328,11 +328,27 @@ export function describeJsonParseError(repairedText, parseErr, contextChars = 12
  * back into the untouched completion). Log this alongside it so the next
  * occurrence of a still-unparseable repaired string can actually be
  * root-caused from the real input instead of guessed at.
+ *
+ * When the completion exceeds maxChars the budget is split 50/50 between
+ * head and tail so a single log line covers both the early imagePrompt/
+ * imageAlt zone AND the late body2/body3/faq zone — article-generation
+ * completions can reach 24-32k chars and a head-only window misses defects
+ * that land deep in the tail. \r\n and \r are normalised to \n before
+ * escaping so a raw completion with CRLF endings can't break one-event-
+ * per-line log consumers.
  */
 export function describeRawForDiagnostics(raw, maxChars = 4000) {
-  const str = String(raw ?? '');
-  const truncated = str.length > maxChars;
-  return `raw[0:${Math.min(str.length, maxChars)}]${truncated ? ` (troncato, totale ${str.length})` : ''}: ${str.slice(0, maxChars).replace(/\n/g, '\\n')}`;
+  const str = String(raw ?? '').replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  if (str.length <= maxChars) {
+    return `raw[0:${str.length}]: ${str.replace(/\n/g, '\\n')}`;
+  }
+  const headChars = Math.ceil(maxChars / 2);
+  const tailChars = maxChars - headChars;
+  const tailStart = str.length - tailChars;
+  const head = str.slice(0, headChars).replace(/\n/g, '\\n');
+  const tail = str.slice(tailStart).replace(/\n/g, '\\n');
+  const omitted = tailStart - headChars;
+  return `raw[0:${headChars}]...[${tailStart}:${str.length}] (total ${str.length}, ${omitted} omitted): ${head} ...[omitted]... ${tail}`;
 }
 
 export function fixJsonStringBody(input, { fixAsterisks = false } = {}) {
