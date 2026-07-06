@@ -24,7 +24,10 @@
 import * as fs from 'node:fs';
 import * as np from 'node:path';
 import {
+  ALL_CANTON_PROFESSION_IDS,
   PROFESSION_IDS,
+  type AnyProfessionId,
+  type CantonOnlyProfessionId,
   type ProfessionId,
   type ProfessionLocale,
 } from './professionLandingsData';
@@ -210,6 +213,46 @@ const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
   },
 };
 
+/**
+ * Matchers for the 5 canton-only professions (#3657). Kept separate from
+ * PROFESSION_MATCHERS (which backs the TI-only aggregateProfessionJobs used by
+ * the Ticino-bespoke landing system) so these ids never leak into that
+ * loop — they only ever run inside aggregateProfessionJobsByCanton below.
+ */
+const CANTON_ONLY_MATCHERS: Record<CantonOnlyProfessionId, ProfessionMatcher> = {
+  dietista: {
+    title: /\b(dietist|dietolog|nutrizionist|nutritionist|di[ée]t[ée]ticien|dieteticien|ern[äa]hrungsberat|di[äa]tassistent)/i,
+  },
+  meccanico: {
+    title: /(meccanic|m[ée]canicien|mechaniker|mechanic)/i,
+    // Reject "mechanical engineer" / "ingegnere meccanico" style titles — those
+    // are engineering roles, not the trade-mechanic profession this page targets.
+    exclude: /\b(ingegner|engineer|ingenieur|ingénieur)\b/i,
+  },
+  automazione: {
+    title: /(automatiker|automaticien|tecnico (?:di |in )?automazione|technicien en automatisation|automation technician|automatisierungstechniker)/i,
+    // Reject software/IT/RPA "automation" roles — this profession targets the
+    // industrial trade (Automatiker EFZ), not process/test automation software jobs.
+    exclude: /\b(software|informatic|\bit\b|rpa|test automation|devops|cloud)\b/i,
+  },
+  montatore: {
+    title: /(montator|montatric|montagg|monteur|monteuse)/i,
+    // Reject compounds already covered by a different profession: electrician
+    // ("Elektromonteur" / "monteur électricien") and French "monteur vidéo"
+    // (video editor) — not the generic fitter/assembler role this page targets.
+    exclude: /(elektromonteur|monteur[\s-]?[ée]lectricien|[ée]lectricien|elettricist|elektriker|vid[ée]o)/i,
+  },
+  'addetto-pulizie': {
+    title: /(addett[oa]\s+(?:alle\s+)?pulizi|pulizi[ae]|cleaner|cleaning operative|reinigungskraft|raumpfleg|geb[äa]udereinig|agent de nettoyage|agent d'entretien|agent de propret[ée])/i,
+  },
+};
+
+/** Matchers for every profession the per-canton family covers (24 + 5). */
+const ALL_PROFESSION_MATCHERS: Record<AnyProfessionId, ProfessionMatcher> = {
+  ...PROFESSION_MATCHERS,
+  ...CANTON_ONLY_MATCHERS,
+};
+
 // ── Cache + load ─────────────────────────────────────────────────────────────
 
 let _snapshotCache: Record<ProfessionId, ProfessionJobsSnapshot> | null = null;
@@ -386,23 +429,25 @@ function jobCantonUrlKey(job: JobRecord): string {
   return CANTON_URL_GROUP[code] ?? code;
 }
 
-let _cantonSnapshotCache: Record<string, Record<ProfessionId, ProfessionJobsSnapshot>> | null = null;
+let _cantonSnapshotCache: Record<string, Record<AnyProfessionId, ProfessionJobsSnapshot>> | null = null;
 let _cantonCacheRootDir: string | null = null;
 
 /**
  * Aggregate jobs.json into per-(canton, profession) snapshots — the data source
  * for the per-canton profession landings. Unlike aggregateProfessionJobs (which
- * pins to TI), this groups every active job by its canton (half-cantons collapse
- * to the URL group) and builds a profession snapshot per canton from the REAL
- * jobs in that canton: topEmployers, median salary and live counts are all
- * corpus-derived, so each canton page shows genuine local employers.
+ * pins to TI and only the 24 Ticino-bespoke professions), this groups every
+ * active job by its canton (half-cantons collapse to the URL group) and builds
+ * a profession snapshot per canton — for the full ALL_CANTON_PROFESSION_IDS set
+ * (24 + the 5 canton-only professions, #3657) — from the REAL jobs in that
+ * canton: topEmployers, median salary and live counts are all corpus-derived,
+ * so each canton page shows genuine local employers.
  *
- * Returns `Record<cantonUrlKey, Record<ProfessionId, snapshot>>`. Cached per rootDir.
+ * Returns `Record<cantonUrlKey, Record<AnyProfessionId, snapshot>>`. Cached per rootDir.
  */
 export function aggregateProfessionJobsByCanton(
   rootDir: string,
   now: number = Date.now(),
-): Record<string, Record<ProfessionId, ProfessionJobsSnapshot>> {
+): Record<string, Record<AnyProfessionId, ProfessionJobsSnapshot>> {
   if (_cantonSnapshotCache && _cantonCacheRootDir === rootDir) return _cantonSnapshotCache;
 
   const allJobs = loadJobs(rootDir);
@@ -415,11 +460,11 @@ export function aggregateProfessionJobsByCanton(
     else byCanton.set(key, [job]);
   }
 
-  const out: Record<string, Record<ProfessionId, ProfessionJobsSnapshot>> = {};
+  const out: Record<string, Record<AnyProfessionId, ProfessionJobsSnapshot>> = {};
   for (const [cantonKey, jobs] of byCanton.entries()) {
-    const perProfession = {} as Record<ProfessionId, ProfessionJobsSnapshot>;
-    for (const id of PROFESSION_IDS) {
-      perProfession[id] = buildSnapshotForProfession(jobs, PROFESSION_MATCHERS[id], now);
+    const perProfession = {} as Record<AnyProfessionId, ProfessionJobsSnapshot>;
+    for (const id of ALL_CANTON_PROFESSION_IDS) {
+      perProfession[id] = buildSnapshotForProfession(jobs, ALL_PROFESSION_MATCHERS[id], now);
     }
     out[cantonKey] = perProfession;
   }

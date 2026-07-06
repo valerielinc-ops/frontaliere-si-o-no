@@ -712,3 +712,92 @@ export const PROFESSION_FACTS: Record<ProfessionId, ProfessionFacts> = {
     recognitionLeadTimeMonths: [2, 6],
   },
 };
+
+/**
+ * Canton-only professions (#3657 — weekly report #3636 Profession Keyword
+ * Opportunities, owner-confirmed 2026-07-06).
+ *
+ * These ship ONLY as per-canton landings (professionCantonLandings.ts, every
+ * canton except TI — see professionCantonData.ts), whose template is entirely
+ * corpus-driven and profession-agnostic (real employers/salary/counts from
+ * aggregateProfessionJobsByCanton + generic renderCantonSeoProse). They
+ * deliberately sit OUTSIDE PROFESSION_IDS / PROFESSION_FACTS / the matcher
+ * table's Ticino counterpart: those three back the DIFFERENT, long-form
+ * editorial Ticino-only system (professionLandingsPlugin.ts +
+ * professionLandingsCopy.ts), which needs bespoke CCL / recognition-authority
+ * research and 4-locale FAQ/section copy per profession. Folding these 5 into
+ * PROFESSION_IDS directly would force TypeScript's exhaustive
+ * Record<ProfessionId, …> tables in professionLandingsCopy.ts to gain
+ * fabricated entries for a page family that was never requested. Keeping the
+ * two id sets separate keeps this a pure-config change (id + slug + a job
+ * title regex), not invented editorial content.
+ */
+export const CANTON_ONLY_PROFESSION_IDS = [
+  'dietista',
+  'meccanico',
+  'automazione',
+  'montatore',
+  'addetto-pulizie',
+] as const;
+export type CantonOnlyProfessionId = (typeof CANTON_ONLY_PROFESSION_IDS)[number];
+
+/** Every profession the per-canton landing family covers (existing 24 + the 5 above). */
+export type AnyProfessionId = ProfessionId | CantonOnlyProfessionId;
+
+/** Combined id list professionCantonData.ts / professionCantonLandings.ts iterate over. */
+export const ALL_CANTON_PROFESSION_IDS: readonly AnyProfessionId[] = [
+  ...PROFESSION_IDS,
+  ...CANTON_ONLY_PROFESSION_IDS,
+];
+
+const CANTON_ONLY_PROFESSION_ID_SET: ReadonlySet<string> = new Set(CANTON_ONLY_PROFESSION_IDS);
+
+export function isCantonOnlyProfessionId(id: AnyProfessionId): id is CantonOnlyProfessionId {
+  return CANTON_ONLY_PROFESSION_ID_SET.has(id);
+}
+
+/**
+ * Per-locale role keyword for canton-only professions — the canton-only
+ * equivalent of PROFESSION_SLUGS + professionRoleKeyword's prefix-stripping
+ * (canton-only professions have no Ticino slug to strip a keyword from, so
+ * the keyword is stored directly instead).
+ */
+export const CANTON_ONLY_ROLE_KEYWORDS: Record<ProfessionLocale, Record<CantonOnlyProfessionId, string>> = {
+  it: {
+    dietista: 'dietista',
+    meccanico: 'meccanico',
+    automazione: 'tecnico-automazione',
+    montatore: 'montatore',
+    'addetto-pulizie': 'addetto-pulizie',
+  },
+  en: {
+    dietista: 'dietitian',
+    meccanico: 'mechanic',
+    automazione: 'automation-technician',
+    montatore: 'fitter',
+    'addetto-pulizie': 'cleaner',
+  },
+  de: {
+    dietista: 'ernaehrungsberater',
+    meccanico: 'mechaniker',
+    automazione: 'automatiker',
+    montatore: 'monteur',
+    'addetto-pulizie': 'reinigungskraft',
+  },
+  fr: {
+    dietista: 'dieteticien',
+    meccanico: 'mecanicien',
+    automazione: 'technicien-en-automatisation',
+    montatore: 'monteur',
+    'addetto-pulizie': 'agent-de-nettoyage',
+  },
+};
+
+/**
+ * Role keyword for any profession the canton family covers (existing 24 via
+ * professionRoleKeyword, plus the 5 canton-only ids above).
+ */
+export function professionRoleKeywordAny(locale: ProfessionLocale, id: AnyProfessionId): string {
+  if (isCantonOnlyProfessionId(id)) return CANTON_ONLY_ROLE_KEYWORDS[locale][id];
+  return professionRoleKeyword(locale, id);
+}

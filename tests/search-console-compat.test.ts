@@ -414,6 +414,14 @@ describe('Search Console 404 compatibility resolver', () => {
       kind: 'legacy',
       locale: 'it',
     });
+    // The self-map is generic over the whole enumerated route set (driven by
+    // isProfessionCantonPath), so the 5 canton-only professions added for
+    // #3657 are covered automatically — no per-profession edit needed here.
+    expect(resolveSearchConsoleCompatTarget('/de/arbeit-zurich-automatiker')).toEqual({
+      canonicalPath: '/de/arbeit-zurich-automatiker/',
+      kind: 'legacy',
+      locale: 'de',
+    });
     // A profession/canton slug NOT in the enumeration must not false-positive.
     expect(resolveSearchConsoleCompatTarget('/de/arbeit-aargau-not-a-real-profession')).not.toEqual(
       expect.objectContaining({ canonicalPath: '/de/arbeit-aargau-not-a-real-profession/' }),

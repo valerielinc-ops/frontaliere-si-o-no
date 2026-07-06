@@ -14,7 +14,11 @@ import {
   isProfessionCantonPath,
   buildProfessionCantonPath,
 } from '../build-plugins/professionCantonData';
-import { PROFESSION_IDS, PROFESSION_LOCALES } from '../build-plugins/professionLandingsData';
+import {
+  PROFESSION_LOCALES,
+  ALL_CANTON_PROFESSION_IDS,
+  CANTON_ONLY_PROFESSION_IDS,
+} from '../build-plugins/professionLandingsData';
 import {
   renderProfessionCantonPage,
   emitProfessionCantonPages,
@@ -35,8 +39,12 @@ const SNAP = {
 };
 
 describe('professionCantonData — enumeration', () => {
-  it('enumerates 23 non-TI cantons × 24 professions × 4 locales = 2208 routes', () => {
-    expect(PROFESSION_CANTON_ROUTES.length).toBe(2208);
+  it('enumerates 23 non-TI cantons × 29 professions (24 + 5 canton-only, #3657) × 4 locales = 2668 routes', () => {
+    expect(ALL_CANTON_PROFESSION_IDS.length).toBe(29);
+    expect(PROFESSION_CANTON_ROUTES.length).toBe(2668);
+    expect(PROFESSION_CANTON_ROUTES.length).toBe(
+      PROFESSION_CANTON_KEYS.length * ALL_CANTON_PROFESSION_IDS.length * PROFESSION_LOCALES.length,
+    );
   });
   it('every route has a trailing slash and round-trips through parse', () => {
     for (const p of PROFESSION_CANTON_ROUTES) {
@@ -51,6 +59,21 @@ describe('professionCantonData — enumeration', () => {
     expect(buildProfessionCantonPath('it', 'ZH', 'infermiere')).toBe('/lavoro-zurigo-infermiere/');
     expect(buildProfessionCantonPath('en', 'ZH', 'infermiere')).toBe('/en/jobs-zurich-nurse/');
     expect(buildProfessionCantonPath('de', 'GE', 'ingegnere')).toBe('/de/arbeit-genf-ingenieur/');
+  });
+  it('builds the expected slug shape for the 5 canton-only professions (#3657)', () => {
+    expect(CANTON_ONLY_PROFESSION_IDS.length).toBe(5);
+    expect(buildProfessionCantonPath('it', 'ZH', 'dietista')).toBe('/lavoro-zurigo-dietista/');
+    expect(buildProfessionCantonPath('en', 'ZH', 'meccanico')).toBe('/en/jobs-zurich-mechanic/');
+    expect(buildProfessionCantonPath('de', 'ZH', 'automazione')).toBe('/de/arbeit-zurich-automatiker/');
+    expect(buildProfessionCantonPath('fr', 'GE', 'montatore')).toBe('/fr/travail-geneve-monteur/');
+    expect(buildProfessionCantonPath('it', 'GE', 'addetto-pulizie')).toBe('/lavoro-ginevra-addetto-pulizie/');
+    for (const id of CANTON_ONLY_PROFESSION_IDS) {
+      for (const locale of PROFESSION_LOCALES) {
+        const p = buildProfessionCantonPath(locale, 'ZH', id);
+        expect(p).toMatch(/\/$/);
+        expect(parseProfessionCantonPath(p)).toEqual({ locale, cantonKey: 'ZH', id, path: p });
+      }
+    }
   });
   it('rejects non-matching paths', () => {
     expect(parseProfessionCantonPath('/lavoro-ticino-infermiere/')).toBeNull(); // legacy TI family
@@ -86,6 +109,20 @@ describe('professionCanton — render', () => {
       expect(html).toContain('84'); // median salary
       expect(html).toMatch(/hreflang=["']?x-default["']?/);
       expect(html).not.toMatch(/\bdark:[a-z-]/);
+    }
+  });
+  it('renders the same invariants for the 5 canton-only professions (#3657)', () => {
+    for (const id of CANTON_ONLY_PROFESSION_IDS) {
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        const { html, words } = renderProfessionCantonPage({
+          locale, cantonKey: 'ZH', id, snapshot: SNAP, distDir: '',
+        });
+        expect(words).toBeGreaterThanOrEqual(50);
+        expect(html).toContain('Ospedale Regionale'); // real employer chip
+        expect(html).toContain('84'); // median salary
+        expect(html).toMatch(/hreflang=["']?x-default["']?/);
+        expect(html).not.toMatch(/\bdark:[a-z-]/);
+      }
     }
   });
 });
@@ -157,7 +194,7 @@ describe('emitProfessionCantonPages — below-floor bridge (structural 404 fix)'
       expect(res.pagesWritten).toBe(0);
       // Every (canton × profession × locale) combo is below floor with an
       // empty corpus — each gets its own bridge, none silently dropped.
-      expect(res.bridgesWritten).toBe(PROFESSION_CANTON_KEYS.length * PROFESSION_IDS.length * PROFESSION_LOCALES.length);
+      expect(res.bridgesWritten).toBe(PROFESSION_CANTON_KEYS.length * ALL_CANTON_PROFESSION_IDS.length * PROFESSION_LOCALES.length);
       // Bridges are deliberately kept out of the sitemap / internal-links feed.
       expect(res.emittedPaths.length).toBe(0);
 

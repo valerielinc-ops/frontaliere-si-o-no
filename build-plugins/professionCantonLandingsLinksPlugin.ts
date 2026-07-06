@@ -32,8 +32,8 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import {
   PROFESSION_LOCALES,
-  professionRoleKeyword,
-  type ProfessionId,
+  professionRoleKeywordAny,
+  type AnyProfessionId,
   type ProfessionLocale,
 } from './professionLandingsData';
 import {
@@ -82,8 +82,8 @@ function esc(s: string): string {
 }
 
 /** Title-cased role keyword (mirror of professionCantonLandings.professionLabel). */
-function professionLabel(locale: ProfessionLocale, id: ProfessionId): string {
-  const role = professionRoleKeyword(locale, id).replace(/-/g, ' ');
+function professionLabel(locale: ProfessionLocale, id: AnyProfessionId): string {
+  const role = professionRoleKeywordAny(locale, id).replace(/-/g, ' ');
   return role.charAt(0).toUpperCase() + role.slice(1);
 }
 

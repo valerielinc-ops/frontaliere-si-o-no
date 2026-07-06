@@ -200,6 +200,16 @@ function buildCoverage() {
     if (matched) covered.set(matched, `profession landing /lavoro-ticino-${id}/`);
   }
 
+  // Canton-only professions (#3657): shipped ONLY as per-canton landings
+  // (build-plugins/professionCantonLandings.ts), no Ticino-bespoke page, so
+  // they never surface via the PROFESSION_IDS loop above. Without this, the
+  // weekly report would re-flag them as "opportunities" forever even though
+  // they're already live (every non-TI canton × these 5 ids × 4 locales).
+  for (const id of extractTsStringArray(PROFESSION_LANDINGS_PATH, 'CANTON_ONLY_PROFESSION_IDS')) {
+    const matched = matchProfession(id) || (PROFESSION_TAXONOMY.some((e) => e.id === id) ? id : null);
+    if (matched) covered.set(matched, `canton profession landing /lavoro-{canton}-${id}/`);
+  }
+
   const NURSING_TO_PROFESSION = { nurses: 'infermiere', oss: 'oss' }; // healthcare-ticino is a sector hub, not a profession
   for (const id of extractTsStringArray(NURSING_LANDINGS_PATH, 'NURSING_LANDING_IDS')) {
     const mapped = NURSING_TO_PROFESSION[id];
