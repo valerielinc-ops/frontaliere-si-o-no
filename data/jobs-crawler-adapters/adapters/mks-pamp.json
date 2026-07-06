@@ -12,6 +12,25 @@
     "https://careers.mkspamp.com/jobs"
   ],
   "notes": "Dedicated MKS PAMP crawler. RSS feed for job list, detail pages for location filtering (JSON-LD). Filters Castel San Pietro (TI) positions.",
-  "updatedAt": "2026-03-12T19:36:00.000Z",
-  "seedMetaByUrl": {}
+  "updatedAt": "2026-07-06T22:27:55.782Z",
+  "seedMetaByUrl": {
+    "https://careers.mkspamp.com/jobs/7617467-operatore-trattamenti-reflui": {
+      "location": "Castel San Pietro",
+      "canton": "TI",
+      "company": "MKS PAMP",
+      "postedDate": "2026-04-22"
+    },
+    "https://careers.mkspamp.com/jobs/7130612-operatore-reparto-raffineria": {
+      "location": "Castel San Pietro",
+      "canton": "TI",
+      "company": "MKS PAMP",
+      "postedDate": "2026-01-28"
+    },
+    "https://careers.mkspamp.com/jobs/7129880-specialista-tecnico-chimico-responsabile-conduzione-impianto": {
+      "location": "Castel San Pietro",
+      "canton": "TI",
+      "company": "MKS PAMP",
+      "postedDate": "2026-01-28"
+    }
+  }
 }
