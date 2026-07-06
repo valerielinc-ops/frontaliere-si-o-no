@@ -45,4 +45,28 @@ describe('scripts/create-article.mjs AUTHORS mirror — stays in sync with data/
     expect(picked.name).toBe(canonical!.name);
     expect(picked.linkedinUrl).toBe(canonical!.social.linkedin);
   });
+
+  // Review finding on this PR: optimizeSeoMetadata()'s baseKeywords appends
+  // 'frontalieri' to every article's seo.keywords, which feeds into this
+  // scorer's haystack — an unrelated pensions/customs/wage article (laura-
+  // bianchi's/redazione's domain) must NOT tie-break to the fiscal-treaty
+  // guest specialist just because 'frontalieri' is universally present.
+  it('does not misassign an unrelated pensions article to samuele-valente via the universal "frontalieri" keyword', () => {
+    const title = 'AVS e LPP per i frontalieri: guida alla previdenza in Svizzera 2026';
+    const id = 'avs-lpp-frontalieri-previdenza-svizzera-2026';
+    // Mirrors optimizeSeoMetadata()'s baseKeywords + a couple of real terms.
+    const seoKeywords = 'frontalieri, ticino, svizzera, italia, avs, lpp';
+    const haystack = ['pensione', title, id, seoKeywords].join(' ');
+    const picked = pickAuthorForTopic(haystack, id);
+    expect(picked.slug).toBe('laura-bianchi');
+  });
+
+  it('does not misassign an unrelated customs/wage article to samuele-valente via the universal "frontalieri" keyword', () => {
+    const title = 'Dogana e trasporti per i lavoratori frontalieri: cosa sapere';
+    const id = 'dogana-trasporti-lavoratori-frontalieri';
+    const seoKeywords = 'frontalieri, ticino, svizzera, italia, dogana';
+    const haystack = ['pratico', title, id, seoKeywords].join(' ');
+    const picked = pickAuthorForTopic(haystack, id);
+    expect(picked.slug).toBe('redazione');
+  });
 });
