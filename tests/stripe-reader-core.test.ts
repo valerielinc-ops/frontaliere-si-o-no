@@ -385,6 +385,57 @@ describe('handleReaderWebhookEvent', () => {
     expect(store.reader1.status).toBe('canceled');
   });
 
+  it('cancels a reader subscription on customer.subscription.updated flipping straight to canceled (no separate .deleted)', async () => {
+    store.reader1 = { stripeCustomerId: 'cus_new', stripeSubscriptionId: 'sub_1', status: 'past_due' };
+    const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
+    const event = {
+      type: 'customer.subscription.updated',
+      data: { object: { id: 'sub_1', customer: 'cus_new', status: 'canceled', metadata: { plan: READER_NOADS_PLAN } } },
+    };
+    const handled = await handleReaderWebhookEvent(event, fakeCtx(ts));
+    expect(handled).toBe(true);
+    expect(store.reader1.status).toBe('canceled');
+  });
+
+  it.each(['unpaid', 'incomplete_expired'])(
+    'cancels a reader subscription on customer.subscription.updated → %s',
+    async (deadStatus) => {
+      store.reader1 = { stripeCustomerId: 'cus_new', stripeSubscriptionId: 'sub_1', status: 'active' };
+      const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
+      const event = {
+        type: 'customer.subscription.updated',
+        data: { object: { id: 'sub_1', customer: 'cus_new', status: deadStatus, metadata: { plan: READER_NOADS_PLAN } } },
+      };
+      const handled = await handleReaderWebhookEvent(event, fakeCtx(ts));
+      expect(handled).toBe(true);
+      expect(store.reader1.status).toBe('canceled');
+    },
+  );
+
+  it('ignores customer.subscription.updated when the new status is still live (e.g. active/trialing)', async () => {
+    store.reader1 = { stripeCustomerId: 'cus_new', stripeSubscriptionId: 'sub_1', status: 'active' };
+    const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
+    const event = {
+      type: 'customer.subscription.updated',
+      data: { object: { id: 'sub_1', customer: 'cus_new', status: 'trialing', metadata: { plan: READER_NOADS_PLAN } } },
+    };
+    const handled = await handleReaderWebhookEvent(event, fakeCtx(ts));
+    expect(handled).toBe(false);
+    expect(store.reader1.status).toBe('active');
+  });
+
+  it('ignores customer.subscription.updated for a different plan even with a dead status', async () => {
+    store.reader1 = { stripeCustomerId: 'cus_new', stripeSubscriptionId: 'sub_1', status: 'active' };
+    const { handleReaderWebhookEvent } = await load();
+    const event = {
+      type: 'customer.subscription.updated',
+      data: { object: { id: 'sub_1', customer: 'cus_new', status: 'canceled', metadata: { plan: 'publisher_ad' } } },
+    };
+    const handled = await handleReaderWebhookEvent(event, fakeCtx(ts));
+    expect(handled).toBe(false);
+    expect(store.reader1.status).toBe('active');
+  });
+
   it('returns false for an unrelated event type (publisher domain untouched)', async () => {
     const { handleReaderWebhookEvent } = await load();
     const event = { type: 'charge.refunded', data: { object: {} } };

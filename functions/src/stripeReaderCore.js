@@ -170,6 +170,11 @@ async function readerByStripeRef(dbFn, { customerId, subscriptionId }) {
  *   the caller (reused rather than re-created per Firestore write, matching
  *   the rest of this Cloud Functions bundle's convention).
  */
+// Sub-statuses that mean the ad-free entitlement must come down. Mirrors
+// stripePublisherCore.js's own DEAD_SUB_STATUSES (not exported — small enough
+// to keep in sync manually, guarded by tests/stripe-reader-core.test.ts).
+const DEAD_SUB_STATUSES = new Set(['canceled', 'unpaid', 'incomplete_expired']);
+
 export async function handleReaderWebhookEvent(event, { db: dbFn, ts }) {
   const obj = event.data?.object || {};
 
@@ -199,6 +204,20 @@ export async function handleReaderWebhookEvent(event, { db: dbFn, ts }) {
       const snap = await readerByStripeRef(dbFn, { customerId: obj.customer, subscriptionId: obj.subscription });
       if (!snap) return false;
       await snap.ref.set({ status: 'past_due', updatedAt: ts }, { merge: true });
+      return true;
+    }
+    case 'customer.subscription.updated': {
+      // Stripe's dunning config can flip a subscription straight to
+      // canceled/unpaid/incomplete_expired via `.updated` without ever
+      // emitting a separate `.deleted` (mirrors stripePublisherCore.js's own
+      // DEAD_SUB_STATUSES handling for the same reason). Without this case,
+      // a lapsed reader's `status` stays 'past_due' forever — and
+      // readerEntitlement.ts's ACTIVE_ENTITLEMENT_STATUSES treats 'past_due'
+      // as still ad-free, so Auto Ads would never come back on.
+      if (obj.metadata?.plan !== READER_NOADS_PLAN || !DEAD_SUB_STATUSES.has(obj.status)) return false;
+      const snap = await readerByStripeRef(dbFn, { customerId: obj.customer, subscriptionId: obj.id });
+      if (!snap) return false;
+      await snap.ref.set({ status: 'canceled', updatedAt: ts }, { merge: true });
       return true;
     }
     case 'customer.subscription.deleted':
