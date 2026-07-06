@@ -54,6 +54,9 @@ export const BENIGN_MESSAGES: readonly RegExp[] = [
 export const THIRD_PARTY_STACK_ORIGINS: readonly RegExp[] = [
   // Google Identity Services (One Tap / Sign in with Google) — #3407.
   /^https:\/\/accounts\.google\.com\/gsi\//i,
+  // Browser extension content scripts (Chrome / Firefox / Safari) — #3673.
+  // They run in page context but are entirely third-party; no fix possible.
+  /^(?:chrome|moz|safari)-extension:\/\//i,
 ];
 
 /**
