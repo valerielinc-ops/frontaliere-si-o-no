@@ -5027,7 +5027,7 @@
         "it": "enterprise-architetto-per-digitale-steuerlosungen-kantonale-verwaltung-zurich",
         "en": "enterprise-architect-for-digital-control-solutions-kantonale-verwaltung-zurich-zurich",
         "de": "enterprise-architect-fur-digitale-steuerlosungen-kanton-zuerich-zurich",
-        "fr": "enterprise-architect-fur-digitale-steuerlosungen-kanton-zuerich-zurich"
+        "fr": "architecte-d-entreprise-pour-solutions-fiscales-numeriques-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -5080,6 +5080,9 @@
           "enterprise-architect-fur-digitale-steuerlosungen-kanton-zuerich-zurich"
         ],
         "en": [
+          "enterprise-architect-fur-digitale-steuerlosungen-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "enterprise-architect-fur-digitale-steuerlosungen-kanton-zuerich-zurich"
         ]
       },
@@ -6184,12 +6187,12 @@
     },
     {
       "id": "kanton-zuerich-4c2b7b46377e",
-      "slug": "solution-architekt-in-power-platform-kanton-zuerich-zurich",
+      "slug": "architetto-di-soluzioni-power-platform-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "solution-architekt-in-power-platform-kanton-zuerich-zurich",
+        "it": "architetto-di-soluzioni-power-platform-kantonale-verwaltung-zurich-zurich",
         "en": "solution-architekt-in-power-platform-kantonale-verwaltung-zurich-zurich",
         "de": "solution-architekt-in-power-platform-kanton-zuerich-zurich",
-        "fr": "solution-architekt-in-power-platform-kanton-zuerich-zurich"
+        "fr": "architecte-solutions-power-platform-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6248,17 +6251,26 @@
         }
       },
       "previousSlugs": [
-        "solution-architect-power-platform-kantonale-verwaltung-zurich-zurich"
-      ]
+        "solution-architect-power-platform-kantonale-verwaltung-zurich-zurich",
+        "solution-architekt-in-power-platform-kanton-zuerich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-architekt-in-power-platform-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "solution-architekt-in-power-platform-kanton-zuerich-zurich"
+        ]
+      }
     },
     {
       "id": "kanton-zuerich-938774c850c4",
-      "slug": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
+      "slug": "business-analyst-in-ambito-fiscale-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
+        "it": "business-analyst-in-ambito-fiscale-kantonale-verwaltung-zurich-zurich",
         "en": "business-analyst-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich",
         "de": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
-        "fr": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich"
+        "fr": "business-analyst-dans-le-domaine-fiscal-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6317,8 +6329,17 @@
         }
       },
       "previousSlugs": [
-        "business-analista-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich"
-      ]
+        "business-analista-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich",
+        "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich"
+        ]
+      }
     },
     {
       "id": "kanton-zuerich-f2d21dabced4",
@@ -7824,7 +7845,7 @@
         "it": "revisore-dei-conti-kantonale-verwaltung-zurich-zurich",
         "en": "reviser-in-kantonale-verwaltung-zurich-zurich",
         "de": "revisor-in-kanton-zuerich-zurich",
-        "fr": "revisor-in-kanton-zuerich-zurich"
+        "fr": "reviseur-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -7877,6 +7898,9 @@
           "revisor-in-kanton-zuerich-zurich"
         ],
         "en": [
+          "revisor-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "revisor-in-kanton-zuerich-zurich"
         ]
       },
