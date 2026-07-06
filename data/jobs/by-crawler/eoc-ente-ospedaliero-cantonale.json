@@ -971,7 +971,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6986",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-lugano-2"
+        ]
+      },
+      "previousSlugs": [
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-lugano-2"
+      ]
     },
     {
       "id": "company-x29n63",
@@ -1042,7 +1050,19 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6986",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+          "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio"
+        ]
+      },
+      "previousSlugs": [
+        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+        "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio"
+      ]
     },
     {
       "id": "company-x29n64",
@@ -14070,7 +14090,9 @@
         "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
         "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
         "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
-        "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0"
+        "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0",
+        "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-c98af0",
+        "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-c98af0"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -14090,11 +14112,13 @@
           "medizinische-praxisassistentin-medizinischer-praxisassistent-60-70-eoc-ente-ospedaliero-cantonale-locarno",
           "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
           "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
-          "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano"
+          "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+          "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-c98af0"
         ],
         "en": [
           "medical-study-assistant-eoc-ente-ospedaliero-cantonale-locarno",
-          "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0"
+          "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0",
+          "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-c98af0"
         ],
         "de": [
           "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-locarno"

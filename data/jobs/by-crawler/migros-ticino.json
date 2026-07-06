@@ -1830,7 +1830,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "venditore-denner-ag-zurich-fzpktp"
+        ]
+      },
+      "previousSlugs": [
+        "venditore-denner-ag-zurich-fzpktp"
+      ]
     },
     {
       "id": "company-r5knfa",
@@ -4226,11 +4234,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-ag-wetzikon"
+          "verkaufer-in-denner-ag-wetzikon",
+          "venditore-denner-ag-wetzikon-8q0wha"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-wetzikon"
+        "verkaufer-in-denner-ag-wetzikon",
+        "venditore-denner-ag-wetzikon-8q0wha"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4874,12 +4884,51 @@
         ],
         "fr": [
           "vendeur-denner-ag-wetzikon-8e6f7a"
+        ],
+        "it": [
+          "verkaufer-in-denner-ag-wetzikon-douzkp",
+          "vendeur-denner-ag-zurich-e89fe9",
+          "venditore-denner-ag-rubigen",
+          "venditore-denner-ag-stein-ag",
+          "verkaufer-in-denner-ag-rubigen",
+          "venditore-denner-ag-gossau-sg",
+          "verkaufer-in-denner-ag-gossau-sg",
+          "venditore-denner-ag-wetzikon-e6382f",
+          "venditore-denner-ag-dubendorf",
+          "seller-denner-ag-dubendorf",
+          "verkaufer-in-denner-ag-dubendorf",
+          "vendeur-denner-ag-dubendorf",
+          "venditore-denner-ag-wetzikon-8e6f7a",
+          "seller-denner-ag-frauenfeld-008421",
+          "verkaufer-in-denner-ag-frauenfeld",
+          "vendeur-denner-ag-frauenfeld-008421",
+          "seller-denner-ag-frauenfeld",
+          "vendeur-denner-ag-frauenfeld",
+          "venditore-denner-ag-frauenfeld",
+          "venditore-denner-ag-frauenfeld-008421"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-ag-wetzikon-douzkp",
         "seller-denner-ag-wetzikon-8e6f7a",
-        "vendeur-denner-ag-wetzikon-8e6f7a"
+        "vendeur-denner-ag-wetzikon-8e6f7a",
+        "vendeur-denner-ag-zurich-e89fe9",
+        "venditore-denner-ag-rubigen",
+        "venditore-denner-ag-stein-ag",
+        "verkaufer-in-denner-ag-rubigen",
+        "venditore-denner-ag-gossau-sg",
+        "verkaufer-in-denner-ag-gossau-sg",
+        "venditore-denner-ag-wetzikon-e6382f",
+        "venditore-denner-ag-dubendorf",
+        "seller-denner-ag-dubendorf",
+        "verkaufer-in-denner-ag-dubendorf",
+        "vendeur-denner-ag-dubendorf",
+        "venditore-denner-ag-wetzikon-8e6f7a",
+        "seller-denner-ag-frauenfeld-008421",
+        "verkaufer-in-denner-ag-frauenfeld",
+        "vendeur-denner-ag-frauenfeld-008421",
+        "seller-denner-ag-frauenfeld",
+        "vendeur-denner-ag-frauenfeld"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9558,7 +9607,9 @@
           "verkaufer-in-denner-ag-dubendorf-9wcq9n",
           "verkaufer-in-denner-ag-wetzikon",
           "vendeur-denner-ag-frauenfeld",
-          "venditore-denner-ag-frauenfeld"
+          "venditore-denner-ag-frauenfeld",
+          "venditore-denner-ag-frauenfeld-008421",
+          "vendeur-denner-ag-langenthal-634638"
         ],
         "en": [
           "verkaufer-in-denner-ag-dubendorf",
@@ -19518,7 +19569,10 @@
           "venditore-denner-ag-langenthal",
           "verkaufer-in-denner-ag-rubigen",
           "seller-denner-ag-frauenfeld",
-          "verkaufer-in-denner-ag-frauenfeld"
+          "verkaufer-in-denner-ag-frauenfeld",
+          "vendeur-denner-ag-frauenfeld",
+          "seller-denner-ag-frauenfeld-008421",
+          "vendeur-denner-ag-frauenfeld-008421"
         ],
         "en": [
           "verkaufer-in-denner-ag-zurich"
@@ -103711,10 +103765,17 @@
           "vielseitiger-verkaufer-h-f-d-societe-cooperative-migros-vaud-yverdon-les-bains-758dfd",
           "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-6xjbfk",
           "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly",
-          "versatile-salesperson-h-f-d-societe-cooperative-migros-vaud-yverdon-les-bains"
+          "versatile-salesperson-h-f-d-societe-cooperative-migros-vaud-yverdon-les-bains",
+          "vielseitiger-verkaufer-h-f-d-societe-cooperative-migros-vaud-yverdon-les-bains",
+          "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-g5hmlo",
+          "multipurpose-seller-h-f-d-societe-cooperative-migros-vaud-yverdon-les-bains",
+          "vice-responsabile-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l",
+          "stellvertretender-filialleiter-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l",
+          "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l"
         ],
         "en": [
-          "gestionnaire-de-vente-food-societe-cooperative-migros-vaud-yverdon-les-bains-r01gwh"
+          "gestionnaire-de-vente-food-societe-cooperative-migros-vaud-yverdon-les-bains-r01gwh",
+          "deputy-manager-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l"
         ],
         "de": [
           "gestionnaire-de-vente-food-societe-cooperative-migros-vaud-yverdon-les-bains-r01gwh"
