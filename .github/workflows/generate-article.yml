@@ -173,19 +173,30 @@ jobs:
           # LOCAL_LLM_TIMEOUT_MS also sizes undici's headers/body timeout via the
           # local dispatcher — non-streaming CPU inference otherwise dies at
           # undici's 300s default as `fetch failed` before any output.
-          # 900000 (15min), not 30min: run 28755532056 showed both real
-          # successful completions finish in 9.3min/11.9min (qwen2.5:7b, full
-          # production prompt), while the one call that never finishes still
-          # burns the ENTIRE ceiling before giving up. At 30min that single
-          # stuck attempt consumed more than half of the 55min frontaliere wall
-          # budget for zero output — starving every later retry/expand attempt
-          # of the time they needed. 15min keeps ~25% headroom over the slowest
-          # observed success while halving the worst-case wasted-attempt cost.
+          # 900000 (15min) was sized for qwen2.5:7b: run 28755532056 showed
+          # real successful completions at 9.3min/11.9min, later confirmed
+          # faster in practice (6-11min across 60 live runs, 2026-06-30..07-03,
+          # local fallback engaged 2/60). Bumped to 1500000 (25min) 2026-07-06
+          # for the qwen2.5:14b upgrade (2x params vs 7b — quality fix for
+          # fact-check criticals the 7b model was hallucinating, e.g. inventing
+          # non-existent institutions): ~2x the 7b range gives an estimated
+          # 12-22min per call, so 25min keeps headroom without letting a single
+          # stuck call burn past the smallest section wall-budget (30min,
+          # svizzera) on its own. Deliberately NOT touching
+          # CREATE_ARTICLE_MAX_WALL_MS below to compensate for the larger
+          # model — #3102 already tried blowing that budget up for local
+          # fallback (300min) and #3307 reverted it: the bigger ceiling
+          # silently defeated the deadlineMs cascade-abort safety, letting
+          # unrelated stuck free-tier calls walk the entire chain uninterrupted
+          # (the real driver of 60-140min runaway runs). The per-run budget
+          # stays exactly as validated; if 14b keeps hitting this per-call
+          # timeout or the run-level deadline in live runs, revert
+          # ARTICLE_LOCAL_MODEL to qwen2.5:7b (repo variable, no code change).
           {
             echo "LOCAL_LLM_ENABLED=1"
             echo "LOCAL_LLM_URL=http://127.0.0.1:11434/v1/chat/completions"
             echo "LOCAL_LLM_MODEL=$LOCAL_MODEL"
-            echo "LOCAL_LLM_TIMEOUT_MS=900000"
+            echo "LOCAL_LLM_TIMEOUT_MS=1500000"
           } >> "$GITHUB_ENV"
           echo "🧠 Local LLM fallback ready: $LOCAL_MODEL (last-resort in the cascade)"
 

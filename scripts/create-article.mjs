@@ -2795,13 +2795,27 @@ ASSICURAZIONI:
 // models are back in the pool. Regeneration attempts append fact-check feedback
 // (pre-existing behaviour shared by all sections); this brief keeps that path
 // strictly smaller than the #3009 full-sheet version.
+//
+// Extended 2026-07-06: run flagged 2 critical fact-check issues from an
+// evergreen tax-calculation article — the generator invented "Istituto
+// Federale della Statistica (STATIKA)" (real entity: BFS) and wrongly
+// attributed tax-rate-setting to UFAS (real institution, wrong competency —
+// UFAS is social-insurance, not taxation). Neither BFS nor a tax-authority
+// acronym were in the brief's institution whitelist, so a model without
+// training-data recall of the real Swiss tax administration had nothing
+// grounded to reach for. Added BFS + AFC/ESTV and an explicit competency
+// line so every model in the cascade (not just local/fallback — this brief
+// feeds whichever model the chain picks) has the real names before writing,
+// instead of only being graded against them after the fact. New estTokens
+// ~7333 (+118 vs the measurement above) — still ~667 under the 8000 cap.
 const EVERGREEN_FACTS_BRIEF = `FATTI VERIFICATI (ground truth — il fact-checker blocca l'articolo se diverghi da questi valori):
 - Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri (MAI "in entrambi i paesi"). L'Italia evita la doppia imposizione con il credito d'imposta (quadro CE del 730).
 - Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO 2024 (NON 2026). Ratifica IT: Legge 83 del 13/6/2023.
 - Vecchi frontalieri (già tali prima del 17/7/2023): esenzione €7'500, regime transitorio 2024–2033. Nuovi frontalieri: franchigia €10'000.
 - Convenzione doppie imposizioni Italia-Svizzera: firmata il 9 DICEMBRE 1976. La Svizzera NON è membro UE/SEE.
 - Aliquote/contributi svizzeri: AVS/AI/IPG 5.3% dipendente, AD/AC 1.1% (cap CHF 148'200), LAINF 0.7–1.5%, LPP 7–18% per fascia età (dal 25 anni). IRPEF italiana: 23% fino €28'000, 35% €28'001–50'000, 43% oltre €50'000.
-- Acronimi/enti VALIDI (non inventarne altri): SECO, SEM, USTAT, UFSP/BAG, SUVA, INPS, Agenzia delle Entrate, MEF.
+- Acronimi/enti VALIDI (non inventarne altri): SECO, SEM, USTAT, UFSP/BAG, SUVA, INPS, Agenzia delle Entrate, MEF, BFS (Ufficio Federale di Statistica), AFC/ESTV (Amministrazione Federale delle Contribuzioni).
+- Le aliquote fiscali (imposta alla fonte, aliquote federali/cantonali) sono stabilite da leggi federali/cantonali e amministrate da AFC/ESTV a livello federale e dalle amministrazioni cantonali delle contribuzioni — MAI da UFAS (previdenza sociale, AVS/AI) né da BFS (statistica: rileva dati, non fissa aliquote).
 - LAMal = assicurazione malattia (NON "tassa sulla salute"); frontalieri G hanno diritto d'opzione; franchige adulti CHF 300–2500.`;
 
 /**
