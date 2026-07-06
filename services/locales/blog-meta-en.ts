@@ -8281,6 +8281,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-a2-luglio-frontalieri.title': 'Traffic on the A2: slowdowns and queues towards Ticino',
     'blog.article.traffico-a2-luglio-frontalieri.excerpt': 'July brings queues on the A2 motorway. Let\'s analyse the waiting times at the Gotthard, Airolo and Chiasso Brogeda border for frontier workers.',
     'blog.article.traffico-a2-luglio-frontalieri.imageAlt': 'Traffic on the A2 motorway in Ticino during the summer period',
+    'blog.article.modelli-cu-2026-frontalieri.title': 'Single certification 2026: official models',
+    'blog.article.modelli-cu-2026-frontalieri.excerpt': 'Italy has made available the Official Models of the Single Certification 2026, a key document for the declaration of income, including that received in Switzerland by border workers, who use the tax credit in the EC Framework of 730 to avoid double taxation.',
+    'blog.article.modelli-cu-2026-frontalieri.imageAlt': 'Panoramic view of Lugano in the morning, with the lake and surrounding mountains under a clear sky. Perfect for a cross-border commuter going to work.',
 };
 
 export default blogMetaEn;
