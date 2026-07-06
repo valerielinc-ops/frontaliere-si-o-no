@@ -1,18 +1,50 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-07-06T13:14:19.771Z",
+  "generatedAt": "2026-07-06T22:21:31.875Z",
   "total": 8,
-  "newCount": 2,
-  "updatedCount": 6,
-  "removedCount": 2,
+  "newCount": 1,
+  "updatedCount": 7,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 19456,
-  "avgDurationMs": 19456,
+  "durationMs": 21891,
+  "avgDurationMs": 21891,
   "durationHistory": [
-    19456
+    21891
   ],
   "newJobs": [
+    {
+      "title": "Inside Sales DACH 80%-100% (w/m/d) REF290650V",
+      "slug": "inside-sales-dach-80-100-w-m-d-ref290650v-bosch-frauenfeld",
+      "url": "https://jobs.bosch.com/en/job/REF290650V-inside-sales-dach-80-100-w-m-d-ref290650v",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000136038419-inside-sales-dach-80-100-w-m-d-ref290650v?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "category": "sales",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-06",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "PreMaster Programm - Global Portfolio Management (w/m/div.) REF290737G",
       "slug": "premaster-programm-global-portfolio-management-w-m-div-ref290737g-bosch-solothurn-zuchwil",
@@ -35,12 +67,18 @@
       "sourceLang": "de",
       "postedDate": "2026-07-06",
       "validThrough": "",
-      "_qualityScore": 79,
+      "id": "bosch-thermotechnik-ag-cd5c9b2c3929",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-07-06T13:14:19.769Z",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -65,16 +103,20 @@
       "sourceLang": "de",
       "postedDate": "2026-07-06",
       "validThrough": "",
-      "_qualityScore": 79,
+      "id": "bosch-thermotechnik-ag-90e383618e35",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-07-06T13:14:19.769Z",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Key Account Manager Schweiz - Power Tools Zubehör Fachhandel 100% (w/m/div.) REF285400K",
       "slug": "key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k-bosch-solothurn-zuchwil",
@@ -254,10 +296,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Lehrstelle Produktionsmechaniker (w/m/div.) 2027 - REF289874T",
-      "slug": "lehrstelle-produktionsmechaniker-w-m-div-2027-ref289874t-bosch-st-niklaus",
+      "slug": "apprendistato-produktionsmechaniker-w-m-div-2027-ref289874t-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF289874T-lehrstelle-produktionsmechaniker-w-m-div-2027-ref289874t",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000135228555-lehrstelle-produktionsmechaniker-w-m-div-2027-ref289874t?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -278,80 +322,6 @@
       "postedDate": "2026-07-01",
       "validThrough": "",
       "id": "bosch-thermotechnik-ag-94d7feb6b670",
-      "salaryMin": 49000,
-      "salaryMax": 74500,
-      "currency": "CHF",
-      "postalCode": "3924",
-      "firstSeenAt": "2026-07-01T21:55:04.144Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "title": "Lehrstelle Automatiker (w/m/div.) 2027 - REF289864E",
-      "slug": "apprendistato-automatiker-w-m-div-2027-ref289864e-bosch-thermotechnik-ag-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF289864E-lehrstelle-automatiker-w-m-div-2027-ref289864e",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000135231799-lehrstelle-automatiker-w-m-div-2027-ref289864e?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "engineering",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-01",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-b2cd7cd05c9c",
-      "salaryMin": 49000,
-      "salaryMax": 74500,
-      "currency": "CHF",
-      "postalCode": "3924",
-      "firstSeenAt": "2026-07-01T21:55:04.144Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Lehrstelle Polymechaniker (w/m/div.) 2027 - REF289873F",
-      "slug": "apprendistato-polymechaniker-w-m-div-2027-ref289873f-bosch-thermotechnik-ag-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF289873F-lehrstelle-polymechaniker-w-m-div-2027-ref289873f",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000135229734-lehrstelle-polymechaniker-w-m-div-2027-ref289873f?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "engineering",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-01",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-afa54087d489",
       "salaryMin": 49000,
       "salaryMax": 74500,
       "currency": "CHF",
