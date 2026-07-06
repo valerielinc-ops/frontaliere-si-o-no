@@ -907,6 +907,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-operaio-edile-ticino-ccl.title': 'Grenzgänger Bauarbeiter im Tessin: Leitfaden zum GAV',
     'blog.article.frontaliere-operaio-edile-ticino-ccl.excerpt': 'Alles über den Tarifvertrag, Mindestlöhne, Arbeitssicherheit und steuerliche Pflichten für Grenzbauarbeiter im Tessin.',
     'blog.article.frontaliere-operaio-edile-ticino-ccl.imageAlt': 'Baustelle im Tessin mit Arbeitern nach Schweizer Sicherheitsstandards.',
+    'blog.article.guida-autista-frontaliere-ticino.title': 'Grenzgänger Chauffeur im Tessin: Komplette Anleitung 2026',
+    'blog.article.guida-autista-frontaliere-ticino.excerpt': 'Alles über Genehmigungen, Führerscheine, Löhne und Steuern für Grenzgänger in der Schweiz nach den ab 2024 geltenden Vorschriften.',
+    'blog.article.guida-autista-frontaliere-ticino.imageAlt': 'LKW-Fahrer an einem Logistikzentrum in der Schweiz',
 };
 
 export default blogMetaChDe;

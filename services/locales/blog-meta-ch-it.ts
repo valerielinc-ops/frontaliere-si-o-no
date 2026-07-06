@@ -907,6 +907,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-operaio-edile-ticino-ccl.title': 'Frontaliere operaio edile in Ticino: guida al CCL',
     'blog.article.frontaliere-operaio-edile-ticino-ccl.excerpt': 'Tutto sul contratto collettivo, minimi salariali, sicurezza sul lavoro e obblighi fiscali per gli operai edili frontalieri in Ticino.',
     'blog.article.frontaliere-operaio-edile-ticino-ccl.imageAlt': 'Cantiere edile in Ticino con operai e standard di sicurezza svizzeri.',
+    'blog.article.guida-autista-frontaliere-ticino.title': 'Frontaliere autista in Ticino: guida completa 2026',
+    'blog.article.guida-autista-frontaliere-ticino.excerpt': 'Tutto su permessi, patenti, stipendi e tassazione per autisti frontalieri in Svizzera secondo le norme vigenti dal 2024.',
+    'blog.article.guida-autista-frontaliere-ticino.imageAlt': 'Autista di camion in un polo logistico in Svizzera',
 };
 
 export default blogMetaChIt;

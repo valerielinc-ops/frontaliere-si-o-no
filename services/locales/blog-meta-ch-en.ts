@@ -907,6 +907,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-operaio-edile-ticino-ccl.title': 'Construction worker frontier worker in Ticino: guide to the CCL',
     'blog.article.frontaliere-operaio-edile-ticino-ccl.excerpt': 'All about the collective agreement, minimum wages, job security and tax obligations for border construction workers in Ticino.',
     'blog.article.frontaliere-operaio-edile-ticino-ccl.imageAlt': 'Construction site in Ticino with workers following Swiss safety standards.',
+    'blog.article.guida-autista-frontaliere-ticino.title': 'Driver frontier in Ticino: complete guide 2026',
+    'blog.article.guida-autista-frontaliere-ticino.excerpt': 'All about permits, licenses, salaries and taxation for border drivers in Switzerland according to the rules in force since 2024.',
+    'blog.article.guida-autista-frontaliere-ticino.imageAlt': 'Truck driver at a logistics hub in Switzerland',
 };
 
 export default blogMetaChEn;
