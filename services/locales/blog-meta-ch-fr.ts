@@ -922,6 +922,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.credito-imposta-frontaliere-2026.title': 'Crédit d\'impôt frontalier 2026 : conduite dans les 20 km',
     'blog.article.credito-imposta-frontaliere-2026.excerpt': 'Calcul du crédit d\'impôt pour frontaliers en 2026, limites de distance et instructions pour la déclaration italienne dans le cadre CE.',
     'blog.article.credito-imposta-frontaliere-2026.imageAlt': 'Bureau avec documents fiscaux et vue sur le lac de Lugano',
+    'blog.article.prezzi-immobili-svizzera-giugno.title': 'Prix de l\'immobilier en Suisse : hausse en juin',
+    'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'En juin, les prix des maisons augmentent de 3,1% et les appartements de 4,5% sur une base annuelle, avec de fortes différences entre Zurich, le Tessin et les autres régions.',
+    'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Immeubles résidentiels modernes en Suisse avec montagnes en arrière-plan',
 };
 
 export default blogMetaChFr;
