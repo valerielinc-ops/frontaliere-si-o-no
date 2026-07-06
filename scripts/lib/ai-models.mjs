@@ -2471,6 +2471,30 @@ function _learnSchemaIncompatible(modelForTracking) {
  * and let a doomed HTTP call through. chars/3.5 + 500 on the same prompt
  * yields ~8826, within 1% of the real count and back over the cap.
  *
+ * Tightening chars/4 → chars/3.5 raises EVERY model's estimate uniformly, so
+ * issue #3618 item 1 asked whether this pushes some other DEFAULT_CHAIN
+ * model — one that was correctly passing before — into a false-positive skip
+ * at realistic prompt sizes. Audited by sweeping every model in DEFAULT_CHAIN
+ * across chars 4000..35000 (this codebase's real article-generation "Call
+ * 1/5" prompt, source text + instructions, is not a fixed 8-10k chars — the
+ * same run 28732970228 prompt that motivated this change was itself ~29140
+ * chars): old vs new divisor disagree ONLY inside a narrow per-cap window —
+ * (12251, 14000] chars for the 4000-token caps, (26251, 30000] chars for the
+ * 8000-token caps (the GitHub Models / Groq provider defaults that cover most
+ * of the chain). No model has a *different, lower* real limit than these —
+ * DEFAULT_REQUEST_TOKENS_BY_PROVIDER's own docstring notes the GitHub 8000
+ * cap was verified ACCOUNT-WIDE across five unrelated model families hitting
+ * byte-identical 413 text at the same estimate, i.e. token-counting for a
+ * given prompt doesn't vary by which model on that provider receives it — so
+ * a prompt landing in that window is genuinely at-or-over every model's real
+ * cap on that provider, not a false positive for some but not others. Net:
+ * no model is incorrectly newly-skipped; the tightened divisor only converts
+ * previously-silent false negatives (doomed 413/400 calls) into pre-flight
+ * skips, matching the fallback chain's own stated cost model (a wrong skip
+ * costs one chain step; a wrong pass costs a guaranteed failed HTTP call).
+ * See tests/scripts/ai-models-token-estimate-divisor.test.ts for the
+ * regression lock on the divisor value and the boundary math above.
+ *
  * Exported for tests / smoke probes.
  */
 export function estimateRequestTokens(messages, opts = {}) {

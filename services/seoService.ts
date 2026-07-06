@@ -4391,6 +4391,12 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dipendenza-fossili-svizzera-energia': { name: 'Energia Svizzera', path: '/articoli-frontaliere/dipendenza-fossili-svizzera-energia', parent: 'blog' },
     'blog-analisi-busta-paga-svizzera-2026': { name: 'Busta paga frontalieri', path: '/articoli-svizzera/analisi-busta-paga-svizzera-2026/', parent: 'blog' },
     'blog-traffico-a2-luglio-frontalieri': { name: 'Traffico A2', path: '/articoli-frontaliere/traffico-a2-luglio-frontalieri', parent: 'blog' },
+    'blog-credito-imposta-frontalieri-2026': { name: 'Crediti fiscali', path: '/articoli-svizzera/credito-imposta-frontalieri-2026/', parent: 'blog' },
+    'blog-modelli-cu-2026-frontalieri': { name: 'Certificazione Unica 2026', path: '/articoli-frontaliere/modelli-cu-2026-frontalieri', parent: 'blog' },
+    'blog-credito-imposta-frontaliere-2026': { name: 'Credito Imposta 2026', path: '/articoli-svizzera/credito-imposta-frontaliere-2026/', parent: 'blog' },
+    'blog-sicurezza-lavoro-ticino-cfsl': { name: 'Sicurezza Lavoro Ticino', path: '/articoli-frontaliere/sicurezza-lavoro-ticino-cfsl', parent: 'blog' },
+    'blog-prezzi-immobili-svizzera-giugno': { name: 'Prezzi Immobili', path: '/articoli-svizzera/prezzi-immobili-svizzera-giugno/', parent: 'blog' },
+    'blog-gallarate-rho-lavori-luglio-2026': { name: 'Mobilità', path: '/articoli-frontaliere/gallarate-rho-lavori-luglio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

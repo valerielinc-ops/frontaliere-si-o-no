@@ -8,16 +8,28 @@
 # same insertion point, git marks the spot as a conflict; both additions are
 # valid and must be kept. This helper:
 #   1. Strips conflict markers, keeping content from BOTH sides.
-#   2. Repairs JSON files that lose commas during marker removal.
-#   3. Dedupes single-declaration conflicts in routerBlogData.ts and router.ts
+#   2. Defense-in-depth for the non-JSON growing-container siblings —
+#      blog-articles-data.ts, swiss-articles-data.ts, seo-pages.ts,
+#      blog-meta-*.ts, sitemap*.xml — via
+#      scripts/lib/dedupe-growing-container-closer.mjs: repairs a duplicated
+#      root closer IF one is present (no-op otherwise). Real chained-rebase
+#      reproduction (tests/resolve-append-conflicts-idempotency.test.ts)
+#      found this exact corruption shape only actually occurs for JSON;
+#      these siblings either resolve cleanly on their own or hit a
+#      different failure caught by step 5 below. Kept in case a future
+#      insertion-anchor change or a different conflict shape does produce
+#      it.
+#   3. Repairs JSON files that lose commas during marker removal (including
+#      the JSON-shaped version of the same duplicated-root-closer corruption).
+#   4. Dedupes single-declaration conflicts in routerBlogData.ts and router.ts
 #      (`export const ALL_BLOG_ARTICLE_IDS = [...]`, `type _BlogId<N> = …`).
-#   4. Validates BOTH article registries (blog-articles-data.ts AND the SVIZZERA
+#   5. Validates BOTH article registries (blog-articles-data.ts AND the SVIZZERA
 #      sibling swiss-articles-data.ts) for duplicate / merged article entries.
-#   5. Generic backstop: every conflicted .ts/.tsx must still parse and be free
+#   6. Generic backstop: every conflicted .ts/.tsx must still parse and be free
 #      of duplicate object keys (a mid-entry conflict boundary fuses two entries
 #      into one object — e.g. seo-blog-ch.ts dup keys, seo-pages.ts missing
 #      comma — which previously slipped through and broke the deploy build).
-#   6. Final cross-file integrity gate (scripts/ci/validate-article-append-integrity.mjs):
+#   7. Final cross-file integrity gate (scripts/ci/validate-article-append-integrity.mjs):
 #      catches the two corruption shapes that stay syntactically valid and so
 #      slip past step 5 — a duplicate localized slug in SWISS_SLUGS (REVERSE_SWISS
 #      collision) OR BLOG_SLUGS/FRONTALIERE (REVERSE_BLOG collision), and a fused
@@ -67,6 +79,20 @@ resolve_append_conflicts() {
       continue
     fi
 
+    # Repair duplicated root-closer growing-container corruption (issue
+    # #3617-class). The JSON-only fix above doesn't cover the non-JSON
+    # append-only siblings hit by the SAME chained-rebase-cycle failure mode
+    # (blog-articles-data.ts, swiss-articles-data.ts, seo-pages.ts,
+    # blog-meta-*.ts, sitemap*.xml) — see
+    # scripts/lib/dedupe-growing-container-closer.mjs for the per-target
+    # anchor-bounded repair. No-ops (file untouched) for anything else.
+    # Guarded on file existence like the integrity gate below: this script
+    # is also exercised from throwaway temp repos in tests, whose cwd has
+    # no `scripts/` tree at all.
+    if [ -f scripts/lib/dedupe-growing-container-closer.mjs ]; then
+      node scripts/lib/dedupe-growing-container-closer.mjs "$file"
+    fi
+
     # Basic syntax check for JSON files
     if [[ "$file" == *.json ]]; then
       if ! node -e "JSON.parse(require('fs').readFileSync('$file','utf8'))" 2>/dev/null; then
@@ -77,9 +103,52 @@ resolve_append_conflicts() {
         # - Trailing comma before closing bracket
         # - Missing comma between nested objects (}\n  {)
         # - Duplicate keys (both sides added at same insertion point)
+        # - Duplicated root closer (issue #3617): when THIS SAME file hits a
+        #   second (or later) rebase-conflict cycle inside one push's retry
+        #   loop (git-push-with-retry.sh --in-place-resolver-cmd re-runs this
+        #   resolver once per cycle, up to 4 times), each cycle's conflict
+        #   hunk independently ends at the container's closing token, so
+        #   "keep both sides" can leave the root '}'/']' twice, e.g.:
+        #     { "a": 1, "b": 2 }\n  "c": 3\n }
+        #   stripPrematureRootCloses() below drops every root-depth closer
+        #   except the last one (bracket-depth tracked, so legitimate NESTED
+        #   closers are left untouched) before the comma fixups run.
         node -e "
           const fs = require('fs');
           let s = fs.readFileSync('$file','utf8');
+          function stripPrematureRootCloses(src) {
+            const closerFor = { '{': '}', '[': ']' };
+            const m = src.match(/\S/);
+            if (!m) return src;
+            const rootClose = closerFor[src[m.index]];
+            if (!rootClose) return src;
+            let depth = 0, inString = false, escape = false;
+            const rootCloseIdx = [];
+            for (let i = 0; i < src.length; i++) {
+              const c = src[i];
+              if (inString) {
+                if (escape) escape = false;
+                else if (c === '\\\\') escape = true;
+                else if (c === '\"') inString = false;
+                continue;
+              }
+              if (c === '\"') { inString = true; continue; }
+              if (c === '{' || c === '[') { depth++; continue; }
+              if (c === '}' || c === ']') {
+                if (depth === 0) { rootCloseIdx.push(i); continue; }
+                depth--;
+                if (depth === 0) rootCloseIdx.push(i);
+              }
+            }
+            if (rootCloseIdx.length <= 1) return src;
+            const drop = new Set(rootCloseIdx.slice(0, -1));
+            let out = '';
+            for (let i = 0; i < src.length; i++) {
+              if (!drop.has(i)) out += src[i];
+            }
+            return out;
+          }
+          s = stripPrematureRootCloses(s);
           // Fix double commas
           s = s.replace(/,(\s*),/g, ',\$1');
           // Fix trailing comma before closing bracket/brace
@@ -126,9 +195,21 @@ resolve_append_conflicts() {
           }
           const merged = [...ids].map((s) => \`'\${s}'\`).join(', ');
           const replacement = \`export const ALL_BLOG_ARTICLE_IDS: BlogArticleId[] = [\${merged}];\`;
+          // Remove the OTHER (non-first) duplicate declarations using their
+          // ORIGINAL captured offsets, back-to-front so an earlier removal
+          // never shifts a not-yet-processed offset (including \`first\`,
+          // which is always leftmost and is handled last, once nothing
+          // before it can shift). Do NOT re-scan the mutated string with
+          // \`listRx\` here (issue #3617): the merged \`replacement\` we are
+          // about to splice in is syntactically identical to what the regex
+          // matches, so a global re-scan would match — and delete — the
+          // declaration we just inserted, silently dropping every id.
+          for (let i = listMatches.length - 1; i > 0; i--) {
+            const m = listMatches[i];
+            src = src.slice(0, m.index) + src.slice(m.index + m[0].length);
+          }
           const first = listMatches[0];
           src = src.slice(0, first.index) + replacement + src.slice(first.index + first[0].length);
-          src = src.replace(listRx, '');
           console.log('  🔁 Merged ' + listMatches.length + ' ALL_BLOG_ARTICLE_IDS declarations into one (' + ids.size + ' ids)');
         }
         // Merge duplicate \`type _BlogId<N> = '…' | …;\` declarations

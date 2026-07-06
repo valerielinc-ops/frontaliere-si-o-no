@@ -8282,6 +8282,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traffico-a2-luglio-frontalieri.title': 'Trafic sur l\'A2 : ralentissements et files d\'attente vers le Tessin',
     'blog.article.traffico-a2-luglio-frontalieri.excerpt': 'Juillet apporte des files d\'attente sur l\'autoroute A2. Analysons les temps d\'attente au Saint-Gothard, à Airolo et à la frontière de Chiasso Brogeda pour les travailleurs frontaliers.',
     'blog.article.traffico-a2-luglio-frontalieri.imageAlt': 'Trafic sur l\'autoroute A2 au Tessin pendant la période estivale',
+    'blog.article.modelli-cu-2026-frontalieri.title': 'Certification unique 2026 : modèles officiels',
+    'blog.article.modelli-cu-2026-frontalieri.excerpt': 'L\'Italie a mis à disposition les Modèles Officiels de la Certification Unique 2026, un document clé pour la déclaration des revenus, y compris ceux perçus en Suisse par les frontaliers, qui utilisent le crédit d\'impôt dans le Cadre CE de 730 pour éviter la double imposition.',
+    'blog.article.modelli-cu-2026-frontalieri.imageAlt': 'Vue panoramique de Lugano le matin, avec le lac et les montagnes environnantes sous un ciel clair. Idéal pour un frontalier se rendant au travail.',
+    'blog.article.sicurezza-lavoro-ticino-cfsl.title': 'Sécurité travail Tessin : solution modèle certifiée',
+    'blog.article.sicurezza-lavoro-ticino-cfsl.excerpt': 'La coopérative Coop-SSL obtient la reconnaissance CFSL pour la gestion de la santé dans l\'entreprise. Une nouvelle norme pour les PME tessinoises et les travailleurs.',
+    'blog.article.sicurezza-lavoro-ticino-cfsl.imageAlt': 'Certification CFSL de sécurité au travail au Tessin',
+    'blog.article.gallarate-rho-lavori-luglio-2026.title': 'Gallarate-Rho : fermeture le week-end du 11 au 13 juillet 2026',
+    'blog.article.gallarate-rho-lavori-luglio-2026.excerpt': 'Arrêtez les trains entre Gallarate et Milan pour des travaux de renforcement technologique. Un nouvel arrêt est prévu à Nerviano.',
+    'blog.article.gallarate-rho-lavori-luglio-2026.imageAlt': 'Gare de Gallarate-Rho avec travaux en cours',
 };
 
 export default blogMetaFr;

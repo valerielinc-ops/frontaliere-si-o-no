@@ -24884,6 +24884,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'modelli-cu-2026-frontalieri',
+ category: 'fiscale',
+ date: '2026-07-06T05:42:17.443Z',
+ image: '/images/blog/modelli-cu-2026-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'sicurezza-lavoro-ticino-cfsl',
+ category: 'novita',
+ date: '2026-07-06T05:58:09.786Z',
+ image: '/images/blog/sicurezza-lavoro-ticino-cfsl.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'gallarate-rho-lavori-luglio-2026',
+ category: 'pratico',
+ date: '2026-07-06T06:46:16.557Z',
+ image: '/images/blog/gallarate-rho-lavori-luglio-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

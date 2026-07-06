@@ -916,6 +916,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.analisi-busta-paga-svizzera-2026.title': 'Frontaliers : bulletin de paie suisse 2026 et retenues',
     'blog.article.analisi-busta-paga-svizzera-2026.excerpt': 'Guide pratique de la fiche de paie 2026 : cotisations, impôts à la source et différences fiscales pour les frontaliers travaillant au-delà de 20 km.',
     'blog.article.analisi-busta-paga-svizzera-2026.imageAlt': 'Vue moderne d\'un bureau à Lugano, Suisse',
+    'blog.article.credito-imposta-frontalieri-2026.title': 'Crédit d\'impôt frontaliers 2026 : calcul et limites 20km',
+    'blog.article.credito-imposta-frontalieri-2026.excerpt': 'Découvrez comment le crédit d\'impôt 2026 s\'applique aux frontaliers dans un rayon de 20 km, avec des exemples pratiques, des tableaux explicatifs et la procédure étape par étape pour la déclaration italienne.',
+    'blog.article.credito-imposta-frontalieri-2026.imageAlt': 'Frontière Suisse‑Italie avec un train de banlieue, symbole des frontaliers.',
+    'blog.article.credito-imposta-frontaliere-2026.title': 'Crédit d\'impôt frontalier 2026 : conduite dans les 20 km',
+    'blog.article.credito-imposta-frontaliere-2026.excerpt': 'Calcul du crédit d\'impôt pour frontaliers en 2026, limites de distance et instructions pour la déclaration italienne dans le cadre CE.',
+    'blog.article.credito-imposta-frontaliere-2026.imageAlt': 'Bureau avec documents fiscaux et vue sur le lac de Lugano',
+    'blog.article.prezzi-immobili-svizzera-giugno.title': 'Prix de l\'immobilier en Suisse : hausse en juin',
+    'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'En juin, les prix des maisons augmentent de 3,1% et les appartements de 4,5% sur une base annuelle, avec de fortes différences entre Zurich, le Tessin et les autres régions.',
+    'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Immeubles résidentiels modernes en Suisse avec montagnes en arrière-plan',
 };
 
 export default blogMetaChFr;

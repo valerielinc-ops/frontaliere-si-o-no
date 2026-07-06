@@ -46521,6 +46521,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-modelli-cu-2026-frontalieri': {
+    title: 'Certificazione unica 2026: modelli ufficiali | Frontaliere Ticino',
+    description: 'Disponibili i Modelli Ufficiali della Certificazione Unica 2026. Guida pratica per i frontalieri su come dichiarare i redditi svizzeri in Italia, evitare la',
+    keywords: 'frontalieri, ticino, svizzera, italia, certificazione, unica, modelli, ufficiali',
+    ogTitle: 'Certificazione Unica 2026: Modelli Ufficiali per Frontalieri',
+    ogDescription: 'Approfondimento sulla Certificazione Unica 2026 e le sue implicazioni per i frontalieri, con focus sulla dichiarazione dei redditi in Italia e il credito',
+    canonicalPath: '/articoli-frontaliere/modelli-cu-2026-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Certificazione unica 2026: modelli ufficiali",
+      "description": "Disponibili i Modelli Ufficiali della Certificazione Unica 2026. Guida pratica per i frontalieri su come dichiarare i redditi svizzeri in Italia, evitare la",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/modelli-cu-2026-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano al mattino, con il lago e le montagne circostanti sotto un cielo limpido. Perfetto per un frontaliere che si reca al lavoro."
+      },
+      "datePublished": "2026-07-06T05:42:17+00:00",
+      "dateModified": "2026-07-06T05:42:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/modelli-cu-2026-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sicurezza-lavoro-ticino-cfsl': {
+    title: 'Sicurezza lavoro Ticino: certificata soluzione modello',
+    description: 'La cooperativa Coop-SSL ottiene la certificazione CFSL per la sicurezza sul lavoro in Ticino. Scopri i vantaggi della Soluzione Modello per aziende e',
+    keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, lavoro, certificata, soluzione',
+    ogTitle: 'Sicurezza lavoro Ticino: certificata Soluzione Modello',
+    ogDescription: 'La cooperativa Coop-SSL ottiene la certificazione CFSL per la sicurezza sul lavoro in Ticino. Scopri i vantaggi della Soluzione Modello per aziende e',
+    canonicalPath: '/articoli-frontaliere/sicurezza-lavoro-ticino-cfsl',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sicurezza lavoro Ticino: certificata soluzione modello",
+      "description": "La cooperativa Coop-SSL ottiene la certificazione CFSL per la sicurezza sul lavoro in Ticino. Scopri i vantaggi della Soluzione Modello per aziende e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sicurezza-lavoro-ticino-cfsl.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Certificazione sicurezza sul lavoro CFSL in Ticino"
+      },
+      "datePublished": "2026-07-06T05:58:09+00:00",
+      "dateModified": "2026-07-06T05:58:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-lavoro-ticino-cfsl/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gallarate-rho-lavori-luglio-2026': {
+    title: 'Gallarate-Rho: chiusura weekend 11-13 luglio 2026',
+    description: 'Stop ai treni sulla linea Gallarate-Milano per lavori di potenziamento. Possibili disagi per i frontalieri. Scopri cosa fare. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, gallarate-rho, chiusura, weekend, 11-13',
+    ogTitle: 'Gallarate-Rho chiusa nel weekend 11-13 luglio 2026',
+    ogDescription: 'Stop ai treni sulla linea Gallarate-Milano per lavori di potenziamento. Possibili disagi per i frontalieri. Scopri cosa fare.',
+    canonicalPath: '/articoli-frontaliere/gallarate-rho-lavori-luglio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gallarate-Rho: chiusura weekend 11-13 luglio 2026",
+      "description": "Stop ai treni sulla linea Gallarate-Milano per lavori di potenziamento. Possibili disagi per i frontalieri. Scopri cosa fare. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gallarate-rho-lavori-luglio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria Gallarate-Rho con lavori in corso"
+      },
+      "datePublished": "2026-07-06T06:46:16+00:00",
+      "dateModified": "2026-07-06T06:46:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gallarate-rho-lavori-luglio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -458,15 +458,6 @@ function jobMatchKey(job) {
   return `${slugify(job.title)}-${COMPANY_KEY}`;
 }
 
-function filterEmpty(obj = {}) {
-  if (!obj || typeof obj !== 'object') return {};
-  const out = {};
-  for (const [k, v] of Object.entries(obj)) {
-    if (v && String(v).trim()) out[k] = v;
-  }
-  return out;
-}
-
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
@@ -508,7 +499,7 @@ async function mergeJobs(discoveredJobs) {
         sector: discovered.sector || ex.sector,
         source: 'oscam-crawler',
         titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30),
+        descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(ex.slugByLocale, discovered.slugByLocale, 3),
       };
 
@@ -516,15 +507,14 @@ async function mergeJobs(discoveredJobs) {
         discovered.description &&
         discovered.description.length > (ex.description || '').length
       ) {
+        // Sibling of issue #3453 (Coop crawler): this used to reset
+        // descriptionByLocale to `filterEmpty(discovered.descriptionByLocale)`
+        // (source-locale only) whenever the description grew by >100 chars,
+        // discarding the safe merge computed above via mergeLocaleTextMap
+        // (which preserves existing translated locales and only fills gaps)
+        // and wiping any already-translated en/de/fr entries. The merge above
+        // already reflects the fresh source text — no separate reset needed.
         updatedJob.description = discovered.description;
-        // Clear stale locale translations when description changes significantly
-        const prevLen = (ex.description || '').length;
-        const newLen = discovered.description.length;
-        if (Math.abs(newLen - prevLen) > 100) {
-          updatedJob.descriptionByLocale = {
-            ...filterEmpty(discovered.descriptionByLocale),
-          };
-        }
       }
 
       merged.push(updatedJob);
