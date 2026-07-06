@@ -143,6 +143,20 @@ const RULES_IT: readonly BlogContextualLinkRule[] = [
     targetUrl: '/cerca-lavoro-ticino/ultimi-3-giorni/',
     priority: 7,
   },
+
+  // F4 — Events (issue #3646): reverse articoli→evento crosslink
+  {
+    id: 'it.events.ticino',
+    keywordPattern: /\beventi\s+(?:in\s+)?(?:ticino|lugano|bellinzona|locarno|mendrisio|chiasso)\b/i,
+    targetUrl: '/eventi/',
+    priority: 8,
+  },
+  {
+    id: 'it.events.cosa-fare',
+    keywordPattern: /\bcosa\s+fare\s+(?:questo\s+)?weekend\s+(?:in\s+)?ticino\b/i,
+    targetUrl: '/eventi/',
+    priority: 7,
+  },
 ];
 
 /**
@@ -224,6 +238,20 @@ const RULES_EN: readonly BlogContextualLinkRule[] = [
     targetUrl: '/en/find-jobs-ticino/last-3-days/',
     priority: 7,
   },
+
+  // F4 — Events (issue #3646): reverse articoli→evento crosslink
+  {
+    id: 'en.events.ticino',
+    keywordPattern: /\bevents\s+(?:in\s+)?ticino\b/i,
+    targetUrl: '/en/events/',
+    priority: 8,
+  },
+  {
+    id: 'en.events.whats-on',
+    keywordPattern: /\bwhat['’]?s\s+on\s+(?:in\s+)?ticino\s+this\s+weekend\b/i,
+    targetUrl: '/en/events/',
+    priority: 7,
+  },
 ];
 
 /**
@@ -293,6 +321,20 @@ const RULES_DE: readonly BlogContextualLinkRule[] = [
     targetUrl: '/de/jobs-im-tessin/letzte-3-tage/',
     priority: 7,
   },
+
+  // F4 — Events (issue #3646): reverse articoli→evento crosslink
+  {
+    id: 'de.events.tessin',
+    keywordPattern: /\bVeranstaltungen\s+(?:im\s+)?Tessin\b/i,
+    targetUrl: '/de/veranstaltungen/',
+    priority: 8,
+  },
+  {
+    id: 'de.events.was-los',
+    keywordPattern: /\bwas\s+ist\s+los\s+im\s+Tessin\b/i,
+    targetUrl: '/de/veranstaltungen/',
+    priority: 7,
+  },
 ];
 
 /**
@@ -360,6 +402,20 @@ const RULES_FR: readonly BlogContextualLinkRule[] = [
     id: 'fr.recency.3days',
     keywordPattern: /\boffres\s+(?:d['e]?\s*emploi\s+)?(?:des\s+)?(?:3|trois)\s+derniers\s+jours\b/i,
     targetUrl: '/fr/trouver-emploi-tessin/derniers-3-jours/',
+    priority: 7,
+  },
+
+  // F4 — Events (issue #3646): reverse articoli→evento crosslink
+  {
+    id: 'fr.events.tessin',
+    keywordPattern: /\b[ée]v[ée]nements\s+(?:au\s+)?tessin\b/i,
+    targetUrl: '/fr/evenements/',
+    priority: 8,
+  },
+  {
+    id: 'fr.events.quoi-faire',
+    keywordPattern: /\bquoi\s+faire\s+ce\s+week-?end\s+(?:au\s+)?tessin\b/i,
+    targetUrl: '/fr/evenements/',
     priority: 7,
   },
 ];

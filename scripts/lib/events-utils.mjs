@@ -783,6 +783,38 @@ export function upcomingEvents(events, todayIso) {
     );
 }
 
+/**
+ * Grace-window default for `recentlyEndedEvents` — how many days after an
+ * event ends it still gets an (orphaned, noindex) detail bridge page instead
+ * of vanishing outright on the next rebuild.
+ */
+export const EVENT_PAST_GRACE_DAYS = 14;
+
+/**
+ * Events that ended within the last `graceDays` days (default
+ * `EVENT_PAST_GRACE_DAYS`), sorted descending (most recently ended first).
+ * Used only to emit orphaned `noindex,follow` bridge pages for a short
+ * window — NOT part of `upcomingEvents`'s indexable/sitemap set.
+ */
+export function recentlyEndedEvents(events, todayIso, graceDays = EVENT_PAST_GRACE_DAYS) {
+  const today = todayIso || isoDay(new Date());
+  const cutoffDate = new Date(`${today}T00:00:00.000Z`);
+  cutoffDate.setUTCDate(cutoffDate.getUTCDate() - graceDays);
+  const cutoff = isoDay(cutoffDate);
+  return [...events]
+    .filter((e) => {
+      if (!e || typeof e.startDate !== 'string') return false;
+      const end = e.endDate || e.startDate;
+      return end < today && end >= cutoff;
+    })
+    .sort(
+      (a, b) =>
+        (b.endDate || b.startDate || '').localeCompare(a.endDate || a.startDate || '') ||
+        (a.title || '').localeCompare(b.title || '') ||
+        (a.id || '').localeCompare(b.id || ''),
+    );
+}
+
 /** Group events by their resolved comune (events without a comune are dropped). */
 export function groupByComune(events) {
   const map = new Map();

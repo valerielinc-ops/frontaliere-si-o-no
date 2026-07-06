@@ -156,19 +156,31 @@ describe('eventLd nationwide fields (#3125)', () => {
     expect(ld.image.copyrightNotice).toBeTruthy();
   });
 
-  it('falls back to the plain site image URL when the event has no image', () => {
+  it('falls back to the per-category catalog image (F4) when the event has no image', () => {
+    // F4 (#3646): no direct photo → real, site-owned, category-scoped
+    // catalog image (width/height/alt-ready ImageObject), not the generic
+    // site OG placeholder.
     const withoutImage = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(withoutImage.image).toBe('https://frontaliereticino.ch/og-image.png');
+    expect(withoutImage.image).toMatchObject({
+      '@type': 'ImageObject',
+      contentUrl: 'https://frontaliereticino.ch/images/events/catalog/musica.svg',
+      url: 'https://frontaliereticino.ch/images/events/catalog/musica.svg',
+      width: 1200,
+      height: 675,
+    });
   });
 
-  it('never hotlinks a raw non-mirrored third-party image URL — degrades to the site image instead', () => {
+  it('never hotlinks a raw non-mirrored third-party image URL — degrades to the catalog image instead', () => {
     // Defense-in-depth: every crawler is contracted to only ever store a
     // mirrored `/images/events/...` path (or leave imageUrl unset), but a
     // stale pre-mirroring dataset snapshot could still carry a raw URL. That
     // must NEVER be embedded (hotlinked) into production JSON-LD.
     const hotlinked = { ...EVENT, imageUrl: 'https://biglietteria.ch/files/flyer.jpg' };
     const ld = eventLd(hotlinked as never, 'it') as Record<string, any>;
-    expect(ld.image).toBe('https://frontaliereticino.ch/og-image.png');
+    expect(ld.image).toMatchObject({
+      '@type': 'ImageObject',
+      contentUrl: 'https://frontaliereticino.ch/images/events/catalog/musica.svg',
+    });
   });
 });
 

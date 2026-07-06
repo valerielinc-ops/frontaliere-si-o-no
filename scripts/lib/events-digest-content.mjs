@@ -105,7 +105,7 @@ const T = {
     byComuneH: 'Events, municipality by municipality',
     inComune: (c, slug) => `[${c}](${BASE_PATH.en}/${slug}/)`,
     howH: 'How to use this agenda',
-    how: `This agenda gathers events from the territory's official agendas and refreshes daily. For the full picture see [this weekend's events](${BASE_PATH.en}/${WEEKEND_SLUG.en}/) or [the whole week](${BASE_PATH.en}/${WEEK_SLUG.en}/). If you are a cross-border worker, also check the [border municipalities](/en/living-in-ticino/border-municipalities/) and [jobs in Ticino](/en/cerca-lavoro-ticino/).`,
+    how: `This agenda gathers events from the territory's official agendas and refreshes daily. For the full picture see [this weekend's events](${BASE_PATH.en}/${WEEKEND_SLUG.en}/) or [the whole week](${BASE_PATH.en}/${WEEK_SLUG.en}/). If you are a cross-border worker, also check the [border municipalities](/en/living-in-ticino/border-municipalities/) and [jobs in Ticino](/en/find-jobs-ticino/).`,
     faq: (n, range) => [
       { q: 'What events are on this weekend in Ticino?', a: `This weekend${range ? ` (${range})` : ''} there ${n === 1 ? 'is one event' : `are ${n} events`} across Ticino — concerts, exhibitions, festivals and markets, listed above municipality by municipality and refreshed daily.` },
       { q: 'How often is the agenda updated?', a: 'Daily: new events published by the official agendas automatically flow into the weekend and week agendas.' },
@@ -121,7 +121,7 @@ const T = {
     byComuneH: 'Veranstaltungen, Gemeinde für Gemeinde',
     inComune: (c, slug) => `[${c}](${BASE_PATH.de}/${slug}/)`,
     howH: 'So nutzen Sie diese Agenda',
-    how: `Diese Agenda sammelt Veranstaltungen aus den offiziellen Agenden der Region und wird täglich aktualisiert. Für den vollen Überblick siehe [die Veranstaltungen dieses Wochenendes](${BASE_PATH.de}/${WEEKEND_SLUG.de}/) oder [die ganze Woche](${BASE_PATH.de}/${WEEK_SLUG.de}/). Als Grenzgänger lohnt sich auch ein Blick auf die [Grenzgemeinden](/de/leben-im-tessin/grenzgemeinden/) und die [Stellen im Tessin](/de/cerca-lavoro-ticino/).`,
+    how: `Diese Agenda sammelt Veranstaltungen aus den offiziellen Agenden der Region und wird täglich aktualisiert. Für den vollen Überblick siehe [die Veranstaltungen dieses Wochenendes](${BASE_PATH.de}/${WEEKEND_SLUG.de}/) oder [die ganze Woche](${BASE_PATH.de}/${WEEK_SLUG.de}/). Als Grenzgänger lohnt sich auch ein Blick auf die [Grenzgemeinden](/de/leben-im-tessin/grenzgemeinden/) und die [Stellen im Tessin](/de/jobs-im-tessin/).`,
     faq: (n, range) => [
       { q: 'Welche Veranstaltungen gibt es am Wochenende im Tessin?', a: `An diesem Wochenende${range ? ` (${range})` : ''} ${n === 1 ? 'gibt es eine Veranstaltung' : `gibt es ${n} Veranstaltungen`} im Tessin — Konzerte, Ausstellungen, Feste und Märkte, oben Gemeinde für Gemeinde aufgelistet und täglich aktualisiert.` },
       { q: 'Wie oft wird die Agenda aktualisiert?', a: 'Täglich: neue von den offiziellen Agenden veröffentlichte Veranstaltungen fliessen automatisch in die Wochenend- und Wochen-Agenda ein.' },
@@ -137,7 +137,7 @@ const T = {
     byComuneH: 'Les événements, commune par commune',
     inComune: (c, slug) => `[${c}](${BASE_PATH.fr}/${slug}/)`,
     howH: 'Comment utiliser cet agenda',
-    how: `Cet agenda rassemble les événements depuis les agendas officiels du territoire et se met à jour chaque jour. Pour le panorama complet, voir [les événements de ce week-end](${BASE_PATH.fr}/${WEEKEND_SLUG.fr}/) ou [toute la semaine](${BASE_PATH.fr}/${WEEK_SLUG.fr}/). Si vous êtes frontalier, jetez aussi un œil aux [communes frontalières](/fr/vivre-au-tessin/communes-frontiere/) et aux [emplois au Tessin](/fr/cerca-lavoro-ticino/).`,
+    how: `Cet agenda rassemble les événements depuis les agendas officiels du territoire et se met à jour chaque jour. Pour le panorama complet, voir [les événements de ce week-end](${BASE_PATH.fr}/${WEEKEND_SLUG.fr}/) ou [toute la semaine](${BASE_PATH.fr}/${WEEK_SLUG.fr}/). Si vous êtes frontalier, jetez aussi un œil aux [communes frontalières](/fr/vivre-au-tessin/communes-frontiere/) et aux [emplois au Tessin](/fr/trouver-emploi-tessin/).`,
     faq: (n, range) => [
       { q: 'Quels événements ce week-end au Tessin ?', a: `Ce week-end${range ? ` (${range})` : ''}, il y a ${n === 1 ? 'un événement' : `${n} événements`} au Tessin — concerts, expositions, fêtes et marchés, listés ci-dessus commune par commune et mis à jour chaque jour.` },
       { q: 'À quelle fréquence l’agenda est-il mis à jour ?', a: 'Chaque jour : les nouveaux événements publiés par les agendas officiels alimentent automatiquement l’agenda du week-end et de la semaine.' },

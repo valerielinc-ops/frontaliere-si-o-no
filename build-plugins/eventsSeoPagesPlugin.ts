@@ -66,6 +66,7 @@ import {
   OTHER_EVENTS_SEGMENT,
   OTHER_EVENTS_COMUNE_KEY,
   eventReferralUrl,
+  recentlyEndedEvents,
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
@@ -121,7 +122,6 @@ function localizedDescription(event: SiteEvent, locale: Locale): string | undefi
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
 const SITEMAP_NAME = 'sitemap-eventi.xml';
 const SOURCE = EVENT_SOURCES['tio-agenda'];
-const SITE_IMAGE = `${BASE_URL}/og-image.png`;
 
 // Localized base segment per canton+locale — shared with the FB poster and
 // the weekend-digest article generator (AGENTS.md §6, one source of truth).
@@ -159,6 +159,18 @@ const HOME_LABEL: Record<Locale, string> = {
   fr: 'Accueil',
 };
 
+// Notice banner for the short noindex,follow grace-window bridge page kept
+// for events that already ended (see `recentlyEndedEvents` in
+// scripts/lib/events-utils.mjs). Page stays live briefly for anyone who
+// still lands on the URL, but is deliberately unlinked and out of the
+// sitemap/Event JSON-LD — see closeBundle()'s past-events emission pass.
+const PAST_EVENT_NOTICE: Record<Locale, string> = {
+  it: 'Questo evento si è già svolto: le informazioni restano visibili solo per consultazione.',
+  en: 'This event has already taken place — the details below are kept for reference only.',
+  de: 'Diese Veranstaltung hat bereits stattgefunden — die Angaben dienen nur noch zur Information.',
+  fr: 'Cet événement a déjà eu lieu — les informations ci-dessous ne sont conservées qu\'à titre de référence.',
+};
+
 // Inbound crosslinks the issue asks for: tie event pages into the existing
 // border-municipality, salary, blog and job surfaces.
 const CROSSLINKS: Array<{ href: Record<Locale, string>; label: Record<Locale, string> }> = [
@@ -181,7 +193,11 @@ const CROSSLINKS: Array<{ href: Record<Locale, string>; label: Record<Locale, st
     label: { it: 'Articoli frontalieri', en: 'Cross-border articles', de: 'Grenzgänger-Artikel', fr: 'Articles frontaliers' },
   },
   {
-    href: { it: '/cerca-lavoro-ticino/', en: '/en/cerca-lavoro-ticino/', de: '/de/cerca-lavoro-ticino/', fr: '/fr/cerca-lavoro-ticino/' },
+    // Per-locale job-board slug — MUST match services/router.ts SLUG_TABLES[locale].jobBoard
+    // (cerca-lavoro-ticino / find-jobs-ticino / jobs-im-tessin / trouver-emploi-tessin).
+    // Naively locale-prefixing the IT slug (e.g. /en/cerca-lavoro-ticino/) 404s — router.ts
+    // only matches the CURRENT locale's own jobBoard slug (see parseRoute() ~line 3191).
+    href: { it: '/cerca-lavoro-ticino/', en: '/en/find-jobs-ticino/', de: '/de/jobs-im-tessin/', fr: '/fr/trouver-emploi-tessin/' },
     label: { it: 'Lavoro in Ticino', en: 'Jobs in Ticino', de: 'Stellen im Tessin', fr: 'Emplois au Tessin' },
   },
   {
@@ -685,6 +701,81 @@ const TONE_GRADIENT_CLASSES: Record<CategoryTone, string> = {
   neutral: 'from-neutral-subtle to-surface-raised',
 };
 
+// ── Per-category "catalog" fallback image ───────────────────────
+// Real event photos only exist once mirrorEventImage() succeeds (source
+// had a usable image AND the download/CDN-mirror step worked). Many
+// sources 403 hotlinks or carry no image at all — until now those events
+// rendered a *decorative* gradient <div> (emoji, no real <img>), so the
+// visible card/hero and the Event JSON-LD `image` field had no bytes to
+// point to (JSON-LD fell back to the sitewide og-image, card had nothing
+// with width/height/alt). Below: a tiny set of static, site-owned SVG
+// "catalog" images — one per CATEGORY_VISUAL entry, reusing the exact
+// same emoji/tone tokens already defined above (no new design language) —
+// so every event, image or not, resolves to a real fetchable, same-origin
+// <img> with width/height/alt (never a third-party hotlink).
+const CATALOG_TONE_HEX: Record<CategoryTone, string> = {
+  accent: '#f5f3ff', // --_accent-subtle
+  info: '#f0fdfa', // --_info-subtle
+  success: '#ecfdf5', // --_success-subtle
+  warning: '#fffbeb', // --_warning-subtle
+  neutral: '#fafaf9', // --_neutral-subtle
+};
+const CATALOG_SURFACE_RAISED_HEX = '#f1f5f9'; // --_surface-raised, gradient end (light mode)
+const CATALOG_IMAGE_WIDTH = 1200;
+const CATALOG_IMAGE_HEIGHT = 675; // 16:9, matches detail-page hero + Google Images min-width guidance
+
+/** Category key used for the catalog image, defaulting unknown/missing
+ * categories to `altro` same fallback categoryVisual()/categoryLabel() use. */
+function catalogCategorySlug(category: string | undefined): string {
+  return category && CATEGORY_VISUAL[category] ? category : 'altro';
+}
+
+function catalogImagePath(category: string | undefined): string {
+  return `/images/events/catalog/${catalogCategorySlug(category)}.svg`;
+}
+
+/** Deterministic SVG markup for one category's catalog image. Locale-free
+ * by design (only the emoji is drawn) so a single file per category is
+ * reused across it/en/de/fr — the translated label lives in the calling
+ * page's own `alt` attribute, not baked into the asset. */
+function catalogImageSvgMarkup(category: string): string {
+  const visual = CATEGORY_VISUAL[category];
+  const bg = CATALOG_TONE_HEX[visual.tone];
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${CATALOG_IMAGE_WIDTH} ${CATALOG_IMAGE_HEIGHT}" width="${CATALOG_IMAGE_WIDTH}" height="${CATALOG_IMAGE_HEIGHT}" role="img">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="${bg}"/>
+      <stop offset="100%" stop-color="${CATALOG_SURFACE_RAISED_HEX}"/>
+    </linearGradient>
+  </defs>
+  <rect width="${CATALOG_IMAGE_WIDTH}" height="${CATALOG_IMAGE_HEIGHT}" fill="url(#g)"/>
+  <text x="${CATALOG_IMAGE_WIDTH / 2}" y="${CATALOG_IMAGE_HEIGHT / 2}" font-size="220" text-anchor="middle" dominant-baseline="central">${visual.emoji}</text>
+</svg>
+`;
+}
+
+/** Writes the fixed set of per-category catalog SVGs once per build
+ * (content is deterministic — no need to scan the dataset for which
+ * categories are actually used, the whole set is tiny). */
+function writeCatalogImages(writeFile: (relPath: string, contents: string) => void): void {
+  for (const category of Object.keys(CATEGORY_VISUAL)) {
+    writeFile(`images/events/catalog/${category}.svg`, catalogImageSvgMarkup(category));
+  }
+}
+
+/** ImageObject JSON-LD for the catalog fallback. Unlike mirrored source
+ * photos (which credit the source via `creditText`), this is a site-owned
+ * asset, so the `imageObjectLd()` defaults (site Organization as creator,
+ * site license page) are already correct — no overrides needed. */
+function catalogImageObjectLd(category: string | undefined, locale: Locale): ImageObjectLd {
+  return imageObjectLd({
+    contentUrl: `${BASE_URL}${catalogImagePath(category)}`,
+    caption: categoryLabel(category, locale),
+    width: CATALOG_IMAGE_WIDTH,
+    height: CATALOG_IMAGE_HEIGHT,
+  });
+}
+
 /**
  * Shared presentation-only CSS for every events page (hub, comune, "other
  * events", detail, digest). Pure visual layer — no data/JSON-LD impact:
@@ -910,7 +1001,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
         : {}),
     },
     description: description.length >= 30 ? description : `${description} Evento in ${cantonName || 'Svizzera'}.`,
-    image: mirroredEventImageObject(event) ?? SITE_IMAGE,
+    image: mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale),
     // On a detail page `url` is OUR canonical page (the page about the event);
     // the original source is then surfaced as `sameAs`. On aggregate pages
     // (no canonicalUrl) we keep the source URL.
@@ -950,8 +1041,8 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
  * pre-mirroring data (e.g. a `data/events.json` snapshot committed before a
  * given source crawler mirrored its images): an `imageUrl` that is NOT
  * site-relative is treated exactly like "no image at all" (falls back to
- * SITE_IMAGE at the call site) rather than ever being embedded as a hotlink
- * in production JSON-LD.
+ * the per-category catalogImageObjectLd() at the call site) rather than
+ * ever being embedded as a hotlink in production JSON-LD.
  *
  * License honesty: no per-image license is ever scraped from any event
  * source (tio.ch/biglietteria.ch flyers, Guidle, MySwitzerland all lack
@@ -995,10 +1086,13 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
   // `imageUrl` only ever holds a mirrored site-relative path (see
   // `mirrorEventImage()`); a raw third-party URL is never rendered here
   // (defense-in-depth, mirrors the same guard in `mirroredEventImageObject`).
+  // No direct photo → per-category catalog SVG (real, site-owned, same-origin
+  // <img> with width/height/alt) instead of a decorative div with no <img> at
+  // all — see writeCatalogImages()/catalogImagePath() above.
   const media =
     event.imageUrl && event.imageUrl.startsWith('/')
       ? `<img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" src="${esc(event.imageUrl)}" width="480" height="270" loading="lazy" alt="${esc(cardTitle)}">`
-      : `<div class="flex h-full w-full items-center justify-center bg-gradient-to-br ${TONE_GRADIENT_CLASSES[visual.tone]} text-5xl" aria-hidden="true">${visual.emoji}</div>`;
+      : `<img class="h-full w-full object-cover" src="${esc(catalogImagePath(event.category))}" width="480" height="270" loading="lazy" alt="${esc(cat)}">`;
   return `<article class="ev-card group relative overflow-hidden rounded-lg border border-edge bg-surface shadow-stripe-sm transition-[box-shadow,border-color] duration-300 hover:border-accent-border hover:shadow-stripe-md">
     <div class="ev-media relative aspect-video w-full overflow-hidden bg-surface-raised">
       ${media}
@@ -1141,6 +1235,8 @@ export function renderHubPage(params: {
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].breadcrumbLabel)}</a>
+      <span class="mx-2">/</span>
       <span>${esc(copy.hubLabel)}</span>
     </nav>
 
@@ -1204,7 +1300,8 @@ export function renderHubPage(params: {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: copy.hubLabel, item: canonicalUrl },
+      { '@type': 'ListItem', position: 2, name: NATIONAL_COPY[locale].breadcrumbLabel, item: `${BASE_URL}${nationalIndexPath(locale)}` },
+      { '@type': 'ListItem', position: 3, name: copy.hubLabel, item: canonicalUrl },
     ],
   });
   const faqLd = inlineScriptJson({
@@ -1381,6 +1478,8 @@ export function renderComunePage(params: {
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].breadcrumbLabel)}</a>
+      <span class="mx-2">/</span>
       <a class="text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.hubLabel)}</a>
       <span class="mx-2">/</span>
       <span>${esc(comune)}</span>
@@ -1439,8 +1538,9 @@ export function renderComunePage(params: {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale, canton)}` },
-      { '@type': 'ListItem', position: 3, name: comune, item: canonicalUrl },
+      { '@type': 'ListItem', position: 2, name: NATIONAL_COPY[locale].breadcrumbLabel, item: `${BASE_URL}${nationalIndexPath(locale)}` },
+      { '@type': 'ListItem', position: 3, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale, canton)}` },
+      { '@type': 'ListItem', position: 4, name: comune, item: canonicalUrl },
     ],
   });
   const faqLd = inlineScriptJson({
@@ -1616,6 +1716,8 @@ export function renderOtherEventsPage(params: {
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].breadcrumbLabel)}</a>
+      <span class="mx-2">/</span>
       <a class="text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.hubLabel)}</a>
       <span class="mx-2">/</span>
       <span>${esc(oeCopy.breadcrumbLabel)}</span>
@@ -1674,8 +1776,9 @@ export function renderOtherEventsPage(params: {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale, canton)}` },
-      { '@type': 'ListItem', position: 3, name: oeCopy.breadcrumbLabel, item: canonicalUrl },
+      { '@type': 'ListItem', position: 2, name: NATIONAL_COPY[locale].breadcrumbLabel, item: `${BASE_URL}${nationalIndexPath(locale)}` },
+      { '@type': 'ListItem', position: 3, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale, canton)}` },
+      { '@type': 'ListItem', position: 4, name: oeCopy.breadcrumbLabel, item: canonicalUrl },
     ],
   });
   const faqLd = inlineScriptJson({
@@ -1985,8 +2088,16 @@ export function renderEventDetailPage(params: {
   dateStamp: string;
   distDir: string;
   detailHref: DetailHref;
+  /**
+   * Set for the short grace-window bridge page emitted for events that
+   * already ended (`recentlyEndedEvents`). Forces `noindex,follow`, shows a
+   * "this already took place" notice, and drops Event JSON-LD — Google
+   * guidance is to avoid rich-result markup for past events (unlike
+   * JobPosting, which explicitly supports a past `validThrough`).
+   */
+  isPast?: boolean;
 }): { urlPath: string; html: string; wordCount: number } {
-  const { locale, event, comune, eventSlug, sameComuneEvents, dateStamp, distDir, detailHref } = params;
+  const { locale, event, comune, eventSlug, sameComuneEvents, dateStamp, distDir, detailHref, isPast = false } = params;
   const canton = (event.canton || 'TI').toUpperCase();
   const title = localizedTitle(event, locale);
   const copy = copyFor(canton, locale);
@@ -2008,15 +2119,18 @@ export function renderEventDetailPage(params: {
   const description = localizedDescription(event, locale);
   const visual = categoryVisual(event.category);
   // `imageUrl` only ever holds a mirrored site-relative path — see the same
-  // guard in `renderEventCard`/`mirroredEventImageObject`.
-  const heroImage =
-    event.imageUrl && event.imageUrl.startsWith('/')
-      ? `<div class="ev-in mb-4 overflow-hidden rounded-lg border border-edge shadow-stripe-md"><img class="aspect-[16/9] w-full object-cover" src="${esc(event.imageUrl)}" width="1200" height="675" loading="eager" fetchpriority="high" alt="${esc(title)}"></div>`
-      : '';
+  // guard in `renderEventCard`/`mirroredEventImageObject`. No direct photo →
+  // per-category catalog SVG (real, site-owned image, never absent) instead
+  // of no hero image at all.
+  const heroImage = event.imageUrl && event.imageUrl.startsWith('/')
+    ? `<div class="ev-in mb-4 overflow-hidden rounded-lg border border-edge shadow-stripe-md"><img class="aspect-[16/9] w-full object-cover" src="${esc(event.imageUrl)}" width="1200" height="675" loading="eager" fetchpriority="high" alt="${esc(title)}"></div>`
+    : `<div class="ev-in mb-4 overflow-hidden rounded-lg border border-edge shadow-stripe-md"><img class="aspect-[16/9] w-full object-cover" src="${esc(catalogImagePath(event.category))}" width="1200" height="675" loading="eager" fetchpriority="high" alt="${esc(cat)}"></div>`;
 
   const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-3xl px-4 py-6 sm:px-6 lg:px-8">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
+      <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].breadcrumbLabel)}</a>
       <span class="mx-2">/</span>
       <a class="text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.hubLabel)}</a>
       <span class="mx-2">/</span>
@@ -2034,6 +2148,8 @@ export function renderEventDetailPage(params: {
       <p class="mt-3 text-base leading-7 text-body">${esc(dc.lede(when, time, event.venue ? event.venue : '', displayComune))}</p>
       ${description ? `<p class="mt-3 text-sm leading-6 text-body">${esc(description)}</p>` : ''}
     </header>
+
+    ${isPast ? `<p class="mt-4 rounded-md border border-warning-border bg-warning-subtle px-4 py-3 text-sm font-medium text-warning">${esc(PAST_EVENT_NOTICE[locale])}</p>` : ''}
 
     <dl class="mt-5 grid gap-3 sm:grid-cols-2">
       ${renderMetric(dc.whenLabel, `${esc(when)}${time}`)}
@@ -2082,15 +2198,20 @@ export function renderEventDetailPage(params: {
     )}
   </div>`;
 
-  const eventLdScript = inlineScriptJson(eventLd(event, locale, canonicalUrl));
+  // Past events: drop Event JSON-LD entirely (Google recommends against rich
+  // results for events that already happened) rather than keep it with a
+  // stale date, unlike JobPosting which explicitly supports a past
+  // `validThrough` — see comment on `isPast` above.
+  const eventLdScript = isPast ? null : inlineScriptJson(eventLd(event, locale, canonicalUrl));
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale, canton)}` },
-      { '@type': 'ListItem', position: 3, name: displayComune, item: `${BASE_URL}${comunePath}` },
-      { '@type': 'ListItem', position: 4, name: title, item: canonicalUrl },
+      { '@type': 'ListItem', position: 2, name: NATIONAL_COPY[locale].breadcrumbLabel, item: `${BASE_URL}${nationalIndexPath(locale)}` },
+      { '@type': 'ListItem', position: 3, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale, canton)}` },
+      { '@type': 'ListItem', position: 4, name: displayComune, item: `${BASE_URL}${comunePath}` },
+      { '@type': 'ListItem', position: 5, name: title, item: canonicalUrl },
     ],
   });
   const faqLd = inlineScriptJson({
@@ -2109,10 +2230,10 @@ export function renderEventDetailPage(params: {
     description: dc.metaDesc(title, displayComune, when),
     canonicalUrl,
     hreflangHtml: buildEventAlternates(canton, comune, eventSlug),
-    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    robots: !isPast && wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml: body,
-    jsonLdScripts: [eventLdScript, breadcrumbLd, faqLd],
+    jsonLdScripts: eventLdScript ? [eventLdScript, breadcrumbLd, faqLd] : [breadcrumbLd, faqLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
   });
@@ -2271,6 +2392,8 @@ export function renderDigestPage(params: {
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].breadcrumbLabel)}</a>
+      <span class="mx-2">/</span>
       <a class="text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.hubLabel)}</a>
       <span class="mx-2">/</span>
       <span>${esc(dc.h1)}</span>
@@ -2324,8 +2447,9 @@ export function renderDigestPage(params: {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale, canton)}` },
-      { '@type': 'ListItem', position: 3, name: dc.h1, item: canonicalUrl },
+      { '@type': 'ListItem', position: 2, name: NATIONAL_COPY[locale].breadcrumbLabel, item: `${BASE_URL}${nationalIndexPath(locale)}` },
+      { '@type': 'ListItem', position: 3, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale, canton)}` },
+      { '@type': 'ListItem', position: 4, name: dc.h1, item: canonicalUrl },
     ],
   });
   const faqLd = inlineScriptJson({
@@ -2558,6 +2682,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         };
 
       const collector = new WriteCollector({ distDir, pluginName: 'eventsSeoPagesPlugin' });
+      writeCatalogImages((relPath, contents) => collector.add(path.join(distDir, relPath), contents));
       let pagesWritten = 0;
       let thinPages = 0;
       let totalComuni = 0;
@@ -2653,6 +2778,60 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           hasOtherEvents: otherEvents.length > 0,
         });
         cantonStats.push({ canton, eventCount: events.length, comuneCount: byComune.size });
+      }
+
+      // Recently-ended events (issue #3646, F4 "indexability": noindex,follow
+      // on events that already took place). `upcomingEvents` drops a past
+      // event outright — without this pass the URL just 404s on the next
+      // rebuild. Emits a short grace-window bridge page instead (own slug
+      // dedup namespace, own comune grouping — kept fully separate from
+      // `detailSlugs`/`perCantonSitemap`/`cantonStats`/the sitemap on
+      // purpose: these pages are deliberately orphaned, no indexed page
+      // links to them, so they cannot affect BFS crawl depth and never
+      // reappear in Event JSON-LD or the sitemap). Outbound links from the
+      // page itself (to whatever is currently live in the same comune) are
+      // still fine — same idea as the jobs expired-soft-landing pattern.
+      const pastEvents = recentlyEndedEvents(dataset.events, dateStamp) as SiteEvent[];
+      const pastEventsByCanton = new Map<string, SiteEvent[]>();
+      for (const ev of pastEvents) {
+        const canton = (ev.canton || 'TI').toUpperCase();
+        if (!ev.comune) continue; // comune-less past events: not worth a bridge page (rare, no stable bucket to land on)
+        pastEventsByCanton.set(canton, [...(pastEventsByCanton.get(canton) ?? []), ev]);
+      }
+      for (const [canton, events] of pastEventsByCanton) {
+        const byComune = groupByComune(events) as Map<string, SiteEvent[]>;
+        const liveByComune = byCantonComune.get(canton);
+        for (const [comune, list] of byComune) {
+          const used = new Set<string>();
+          const pastSlugFor = new Map<string, string>();
+          for (const ev of list) {
+            const base = slugifyEvent(ev);
+            let slug = base;
+            let n = 2;
+            while (used.has(slug)) slug = `${base}-${n++}`;
+            used.add(slug);
+            pastSlugFor.set(ev.id, slug);
+          }
+          const liveSameComune = liveByComune?.get(comune) ?? [];
+          for (const locale of LOCALES) {
+            const detailHref = detailHrefFor(locale);
+            for (const ev of list) {
+              emit(
+                renderEventDetailPage({
+                  locale,
+                  event: ev,
+                  comune,
+                  eventSlug: pastSlugFor.get(ev.id)!,
+                  sameComuneEvents: liveSameComune,
+                  dateStamp,
+                  distDir,
+                  detailHref,
+                  isPast: true,
+                }),
+              );
+            }
+          }
+        }
       }
 
       // Swiss-wide index hub (issue #3645, F3) — one per locale, always
