@@ -14,7 +14,7 @@
  *   - Sibling-link injection replaces the placeholder
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
@@ -887,6 +887,37 @@ describe('findOrphanedCompanyCityPairs', () => {
   it('ignores snapshot jobs whose city does not match any company-city hub', () => {
     const snapshots = [snapshotWith('2026-20', 'Gamma SA', 'gamma-sa', 'Lausanne', 6)];
     expect(findOrphanedCompanyCityPairs(snapshots, [])).toEqual([]);
+  });
+
+  // Follow-up #3608 item 1: the snapshot writer (scripts/snapshot-jobs-weekly.mjs)
+  // maps the live job shape (`company`/`companyKey`) onto the persisted-snapshot
+  // shape (`employer`/`employerKey`). If a snapshot file ever regressed to the
+  // live shape, `job.employer` would be silently empty and orphans would be
+  // under-detected with no error. These tests exercise that drift-detection path.
+  it('warns (without throwing) when a snapshot row has "company" but no "employer" — schema drift', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const driftedSnapshot: JobsSnapshot = {
+      week: '2026-21',
+      jobs: [
+        { slug: 'x-1', city: 'Chiasso', company: 'Gamma SA' } as unknown as JobsSnapshot['jobs'][number],
+        { slug: 'x-2', city: 'Chiasso', company: 'Gamma SA' } as unknown as JobsSnapshot['jobs'][number],
+        { slug: 'x-3', city: 'Chiasso', company: 'Gamma SA' } as unknown as JobsSnapshot['jobs'][number],
+      ],
+    };
+    const orphans = findOrphanedCompanyCityPairs([driftedSnapshot], []);
+    expect(orphans).toEqual([]); // drifted rows produce zero `employer` matches
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('snapshot schema drift'),
+    );
+    warnSpy.mockRestore();
+  });
+
+  it('does NOT warn for a well-formed snapshot (no schema drift false-positive)', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const snapshots = [snapshotWith('2026-20', 'Gamma SA', 'gamma-sa', 'Chiasso', 4)];
+    findOrphanedCompanyCityPairs(snapshots, []);
+    expect(warnSpy).not.toHaveBeenCalled();
+    warnSpy.mockRestore();
   });
 });
 

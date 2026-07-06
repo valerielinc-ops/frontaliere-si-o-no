@@ -64,6 +64,7 @@ import {
   canonicalCompanySlug,
   cantonMeetsThreshold,
   companyCityMeetsThreshold,
+  MIN_JOBS_PER_COMPANY_IN_CITY,
   getIsoWeekAndYear,
   isoWeekKey,
   parseCompanyCityPath,
@@ -1221,6 +1222,19 @@ export function findOrphanedCompanyCityPairs(
   const currentKeys = new Set(currentPairs.map((p) => `${p.city}::${p.companySlug}`));
   const seen = new Map<string, CompanyCityPair & { employer: string }>();
 
+  // Follow-up #3608 item 1: `snapshot.jobs[]` is written by
+  // scripts/snapshot-jobs-weekly.mjs, which maps the LIVE job shape
+  // (`company`/`companyKey`) onto the persisted-snapshot shape
+  // (`employer`/`employerKey`) — see `JobsSnapshot` doc comment above.
+  // If a future snapshot writer regressed to the live shape (or a
+  // hand-edited/legacy snapshot file used it), `job.employer` would be
+  // silently empty for that row and it would never surface as a
+  // candidate — no error, just quietly fewer orphans found. Count that
+  // instead of failing loudly, since one drifted snapshot file
+  // shouldn't crash the whole build.
+  let schemaDriftRows = 0;
+  let candidatePairs = 0;
+
   for (const snapshot of snapshots) {
     const counts = new Map<
       WeeklyEmployersCompanyCity,
@@ -1228,7 +1242,10 @@ export function findOrphanedCompanyCityPairs(
     >();
     for (const job of snapshot.jobs) {
       const employer = String(job.employer || '').trim();
-      if (!employer) continue;
+      if (!employer) {
+        if (String((job as { company?: unknown }).company || '').trim()) schemaDriftRows++;
+        continue;
+      }
       const employerKey = normEmployerKey(employer, job.employerKey);
       if (!employerKey) continue;
       const cityLower = String(job.city || '').toLowerCase();
@@ -1248,6 +1265,7 @@ export function findOrphanedCompanyCityPairs(
     for (const [city, cityCounts] of counts.entries()) {
       for (const [employerKey, rec] of cityCounts.entries()) {
         if (!companyCityMeetsThreshold(rec)) continue;
+        candidatePairs++;
         const companySlug = canonicalCompanySlug(rec.employer, employerKey);
         if (!companySlug || !/^[a-z0-9][a-z0-9-]*$/.test(companySlug)) continue;
         const key = `${city}::${companySlug}`;
@@ -1256,6 +1274,19 @@ export function findOrphanedCompanyCityPairs(
       }
     }
   }
+
+  if (schemaDriftRows > 0) {
+    console.warn(
+      `[weekly-employers] orphan bridge scan: ${schemaDriftRows} snapshot row(s) had ` +
+        `"company" but no "employer" field — snapshot schema drift, these rows were ` +
+        'skipped and may under-detect orphans. Check the snapshot-writer script.',
+    );
+  }
+  console.log(
+    `[weekly-employers] orphan bridge scan: ${candidatePairs} snapshot candidate(s) met ` +
+      `the ${MIN_JOBS_PER_COMPANY_IN_CITY}-job threshold across ${snapshots.length} ` +
+      `snapshot(s), ${seen.size} orphaned (absent from current build) after dedup.`,
+  );
 
   return Array.from(seen.values());
 }

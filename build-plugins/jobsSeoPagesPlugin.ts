@@ -118,6 +118,7 @@ import {
  buildSectorHubPath,
  buildSectorHubSeo,
  jobMatchesSector,
+ assertSectorHubTablesComplete,
  type SectorHubKey,
 } from './jobSectorLanding';
 import { SEO_HUB_RESERVED_SLUGS, JOBS_PAGE_SIZE as HUB_JOBS_PAGE_SIZE, hubSlugFor } from './seoHubsData';
@@ -490,6 +491,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  name: 'jobs-seo-pages',
  apply: 'build',
  async closeBundle() {
+ // Fail the build loudly (follow-up #3608 item 2) instead of silently
+ // emitting a literal "undefined" segment in a sector-hub canonical URL —
+ // see assertSectorHubTablesComplete() doc comment in ./jobSectorLanding.
+ assertSectorHubTablesComplete();
  const fs = await import('node:fs');
  const np = await import('node:path');
  const distDir = np.resolve(rootDir, 'dist');
