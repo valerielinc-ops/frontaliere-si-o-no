@@ -2618,6 +2618,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni',
+    category: 'pratico',
+    date: '2026-07-06T00:44:49.677Z',
+    image: '/images/blog/lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
