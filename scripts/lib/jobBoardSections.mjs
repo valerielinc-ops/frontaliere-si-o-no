@@ -70,6 +70,15 @@ export const JOB_BOARD_SECTION_RX =
   new RegExp(`(?:^|/)(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/`);
 
 /**
+ * Matches a single URL path SEGMENT (no slashes) against the job-board
+ * section shape — for callers that already split a path into parts (e.g.
+ * `pathname.split('/')`) and need to test one segment at a time rather than
+ * a full path string.
+ */
+export const JOB_BOARD_SEGMENT_RX =
+  new RegExp(`^(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*$`);
+
+/**
  * @param {string} normalisedPath path that already starts with `/` and has had
  *   the `dist/` prefix and trailing `index.html` stripped (the form the audit
  *   classifiers build before bucketing).
