@@ -100,4 +100,28 @@ describe('SEO localization', () => {
     vi.unstubAllGlobals();
     globalThis.fetch = originalFetch;
   });
+
+  it('canton job-board pages reflect their OWN canton, not a hardcoded Ticino fallback', async () => {
+    const route: AppRoute = { activeTab: 'job-board', jobBoardCanton: 'ZH' };
+    const section = getSeoSection(route);
+    const path = buildPath(route, 'de');
+
+    await loadAllLocaleChunks('de');
+    setLocale('de');
+    window.history.replaceState({}, '', path);
+    await updateMetaTags(section);
+
+    expect(document.title).toContain('Zurich');
+    expect(document.title).not.toContain('Tessin');
+
+    const structuredDataScripts = Array.from(document.querySelectorAll('script[data-dynamic-ld]'));
+    const breadcrumbList = structuredDataScripts
+      .map((el) => JSON.parse(el.textContent || '{}'))
+      .find((schema) => schema['@type'] === 'BreadcrumbList');
+    const breadcrumbCrumb = breadcrumbList.itemListElement.find((item: any) => item.position === 2);
+    expect(breadcrumbCrumb.item).toBe(`https://frontaliereticino.ch${path}`);
+    expect(breadcrumbCrumb.name).toContain('Zurich');
+    expect(breadcrumbCrumb.item).not.toContain('/cerca-lavoro-ticino');
+    expect(breadcrumbCrumb.name).not.toContain('Tessin');
+  });
 });

@@ -104,7 +104,9 @@ describe('job-board-stats', () => {
       removed: 1,
     });
 
-    expect(summary.links.allJobs).toBe('https://frontaliereticino.ch/cerca-lavoro-ticino');
+    // Aggregate (Switzerland-wide) link, not a single canton's board — see
+    // scripts/lib/job-board-stats.mjs JOB_BOARD_AGGREGATE_URL.
+    expect(summary.links.allJobs).toBe('https://frontaliereticino.ch/cerca-lavoro-svizzera');
     expect(summary.leaders.topCompaniesActive[0]).toMatchObject({
       name: 'Swisscom (sede Ticino)',
       count: 2,
@@ -389,5 +391,40 @@ describe('job-board-stats', () => {
 
     // Current day: full arrays retained (concurrent same-day pushes dedupe on them).
     expect(Array.isArray(today.addedKeys)).toBe(true);
+  });
+
+  it('resolves canton-aware summary links instead of hardcoding the TI job board root', () => {
+    const zhJob = job({
+      id: 'zh-job',
+      slug: 'zh-job',
+      canton: 'ZH',
+      location: 'Zurich',
+      company: 'Google Zurich',
+      companyKey: 'google-zurich',
+      title: 'Data Engineer',
+    });
+
+    const { summary } = buildJobsStatsArtifacts({
+      previousJobs: [],
+      currentJobs: [zhJob],
+      existingHistory: {},
+      now: '2026-06-09T10:00:00.000+02:00',
+    });
+
+    const company = summary.leaders.topCompaniesActive.find((c) => c.name === 'Google Zurich');
+    const location = summary.leaders.topLocationsActive.find((l) => l.name === 'Zurich');
+    expect(company?.url).toBe('https://frontaliereticino.ch/cerca-lavoro-zurigo/azienda-google-zurich');
+    expect(location?.url).toBe('https://frontaliereticino.ch/cerca-lavoro-zurigo/ricerca-zurich');
+
+    // TI jobs keep the legacy TI section unchanged.
+    const { summary: tiSummary } = buildJobsStatsArtifacts({
+      previousJobs: [],
+      currentJobs: [job({ id: 'ti-job', slug: 'ti-job' })],
+      existingHistory: {},
+      now: '2026-06-09T10:00:00.000+02:00',
+    });
+    expect(tiSummary.leaders.topCompaniesActive[0].url).toBe(
+      'https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-swisscom-sede-ticino',
+    );
   });
 });

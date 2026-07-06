@@ -19,6 +19,7 @@
 
 import { readFileSync, readdirSync, statSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 
 const DIST = path.resolve('dist');
 
@@ -83,21 +84,20 @@ const WHITELIST_PREFIXES = [
 ];
 
 /**
- * URL-path prefixes for JobPosting pages. Google de-duplicates jobs via the
- * `JobPosting` structured-data fingerprint (title+hiringOrganization+location),
- * so on-page title overlap across cities/companies is expected and NOT a
- * cannibalization signal at the SERP layer.
+ * JobPosting page paths. Google de-duplicates jobs via the `JobPosting`
+ * structured-data fingerprint (title+hiringOrganization+location), so on-page
+ * title overlap across cities/companies is expected and NOT a cannibalization
+ * signal at the SERP layer. Canton-aware match (mirrors backfill-slug-aliases.mjs
+ * / mine-all-job-slugs.mjs / sync-gsc-orphans.mjs) — a hardcoded TI-only prefix
+ * list here meant every non-TI canton job page (e.g. `/cerca-lavoro-zurigo/...`)
+ * was NOT skipped, so distinct real job postings were wrongly flagged as
+ * cannibalization false positives.
  */
-const JOB_PATH_PREFIXES = [
- '/cerca-lavoro-ticino/',
- '/en/find-jobs-ticino/',
- '/de/jobs-im-tessin/',
- '/fr/trouver-emploi-tessin/',
- '/fr/emplois-tessin/',
-];
-
 function isJobPath(urlPath) {
- return JOB_PATH_PREFIXES.some((p) => urlPath.startsWith(p));
+ // `/fr/emplois-tessin/` is a legacy TI-only redirect target
+ // (build-plugins/legacyRedirectsPlugin.ts) with no canton variant — kept as an
+ // explicit literal since it predates the current canton URL section builder.
+ return JOB_BOARD_SECTION_RX.test(urlPath) || urlPath.startsWith('/fr/emplois-tessin/');
 }
 
 const MIN_CLUSTER_SIZE = 2;

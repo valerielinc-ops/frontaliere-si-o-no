@@ -12,6 +12,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { getJobBoardSectionPrefix } from './lib/jobBoardSections.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -100,20 +101,22 @@ function isLegitLegacyAliasCanonicalization(url, canonical) {
 }
 
 // Check if a canonical mismatch is legitimate job-section consolidation.
-// Job pages under /cerca-lavoro-ticino/ legitimately point canonical to
-// other job pages in the same section for: previousSlugs bridges,
+// Job pages under any canton's job-board section (e.g. /cerca-lavoro-ticino/,
+// /cerca-lavoro-vaud/, /en/find-jobs-geneva/) legitimately point canonical to
+// other job pages in the SAME section for: previousSlugs bridges,
 // locale-variant legacy redirects, and dedup suffix changes.
 // The one BAD case (canonical → listing page without sub-path) is excluded.
 function isLegitJobCanonicalConsolidation(url, canonical) {
-  const JOB_SECTION = '/cerca-lavoro-ticino/';
   const urlPath = url.replace(BASE_URL, '');
   const canonPath = canonical.replace(BASE_URL, '');
 
-  // Both must be in the job section
-  if (!urlPath.startsWith(JOB_SECTION) || !canonPath.startsWith(JOB_SECTION)) return false;
+  // Both must be in the same job section
+  const urlSection = getJobBoardSectionPrefix(urlPath);
+  const canonSection = getJobBoardSectionPrefix(canonPath);
+  if (!urlSection || !canonSection || urlSection !== canonSection) return false;
 
   // Canonical pointing to the listing page root (no sub-path) is a BUG, not consolidation
-  const canonSubPath = canonPath.slice(JOB_SECTION.length).replace(/\/$/, '');
+  const canonSubPath = canonPath.slice(canonSection.length).replace(/\/$/, '');
   if (!canonSubPath) return false;
 
   // Canonical points to a specific job page within the section — legitimate consolidation

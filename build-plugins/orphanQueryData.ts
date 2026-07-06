@@ -65,6 +65,7 @@ export interface OrphanCountableJob {
   slug?: string;
   slugByLocale?: Partial<Record<OrphanLandingLocale, string>>;
   company?: string;
+  canton?: string;
   location?: string;
   addressLocality?: string;
   expired?: boolean;

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildBriefingPrompt } from '../services/newsletter-content.mjs';
+import { buildBriefingPrompt, buildSubjectPrompt } from '../services/newsletter-content.mjs';
 
 const baseCtx = (locale: 'it' | 'en' | 'de' | 'fr') => ({
   subscriber: { locale, preferences: {}, locationInterest: null, sectorInterest: null },
@@ -43,5 +43,18 @@ describe('buildBriefingPrompt — locale-aware example', () => {
       const { system } = buildBriefingPrompt(baseCtx(locale));
       expect(system).toMatch(/ABSOLUTE LANGUAGE RULE/);
     }
+  });
+
+  it('normalizes a dirty regional locale (de-CH) to German, not the Italian default', () => {
+    const ctx = { ...baseCtx('it'), subscriber: { ...baseCtx('it').subscriber, locale: 'de-CH' } };
+    const { system } = buildBriefingPrompt(ctx);
+    expect(system).toMatch(/Write in German/);
+    expect(system).not.toMatch(/Write in Italian/);
+  });
+
+  it('buildSubjectPrompt normalizes an uppercase locale (DE) to German', () => {
+    const ctx = { ...baseCtx('it'), subscriber: { ...baseCtx('it').subscriber, locale: 'DE' } };
+    const { system } = buildSubjectPrompt(ctx);
+    expect(system).toMatch(/Write ONE email subject line in German/);
   });
 });

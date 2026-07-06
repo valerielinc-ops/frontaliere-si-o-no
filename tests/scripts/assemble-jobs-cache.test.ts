@@ -57,6 +57,25 @@ beforeAll(async () => {
     { recursive: true },
   );
 
+  // scripts/jobs-url-helper.mjs (transitively imported via crawler-template.mjs)
+  // resolves canton URL sections via the shared build-plugins module + the two
+  // canton reference JSON files at module-load time — mirror that slice of the
+  // real repo layout too, or the import fails inside the sandbox.
+  mkdirSync(path.join(tmpRoot, 'build-plugins', 'shared'), { recursive: true });
+  cpSync(
+    path.join(REPO_ROOT, 'build-plugins', 'shared', 'cantonResolvers.mjs'),
+    path.join(tmpRoot, 'build-plugins', 'shared', 'cantonResolvers.mjs'),
+  );
+  mkdirSync(path.join(tmpRoot, 'data'), { recursive: true });
+  cpSync(
+    path.join(REPO_ROOT, 'data', 'canton-url-slugs.json'),
+    path.join(tmpRoot, 'data', 'canton-url-slugs.json'),
+  );
+  cpSync(
+    path.join(REPO_ROOT, 'data', 'canton-municipalities.json'),
+    path.join(tmpRoot, 'data', 'canton-municipalities.json'),
+  );
+
   // Pre-create empty slice directories so existsSync passes
   mkdirSync(path.join(tmpRoot, 'data', 'jobs', 'by-crawler'), { recursive: true });
   mkdirSync(path.join(tmpRoot, 'data', 'jobs', 'expired', 'by-crawler'), { recursive: true });

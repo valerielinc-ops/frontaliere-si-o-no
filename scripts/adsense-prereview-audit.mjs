@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { readFileSync, existsSync, readdirSync, statSync, mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { isJobBoardSectionPath } from './lib/jobBoardSections.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.resolve(ROOT, 'dist');
@@ -222,7 +223,9 @@ function pickUrlSamples() {
     let s = 0;
     if (p === '/') s += 90;
     if (p.includes('/articoli-frontaliere/')) s += 60;
-    if (p.includes('/cerca-lavoro-ticino/')) s += 55;
+    // Any canton's job-board section, not just Ticino — the sampler was
+    // only boosting TI job pages, under-sampling every other canton.
+    if (isJobBoardSectionPath(p)) s += 55;
     if (p.includes('/compara-servizi/')) s += 45;
     if (p.includes('/calcola-stipendio/')) s += 40;
     if (p.includes('/statistiche/')) s += 35;

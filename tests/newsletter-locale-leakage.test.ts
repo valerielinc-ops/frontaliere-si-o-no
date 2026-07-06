@@ -45,11 +45,14 @@ const PREFS_SLUGS: Record<Locale, string> = {
   fr: 'preferences-newsletter',
 };
 
+// The newsletter's job-board CTA has no per-subscriber canton context (its
+// "total jobs" metric counts every canton), so it resolves to the
+// Switzerland-wide aggregate board, not the TI-only one.
 const JOB_BOARD_SLUGS: Record<Locale, string> = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
+  it: 'cerca-lavoro-svizzera',
+  en: 'find-jobs-switzerland',
+  de: 'jobs-in-schweiz',
+  fr: 'trouver-emploi-suisse',
 };
 
 // Locale-correct featured-tool ("salary calculator") name. The IT brand

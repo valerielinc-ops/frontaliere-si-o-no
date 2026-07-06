@@ -114,10 +114,13 @@ describe('job alert email — identity footer', () => {
 });
 
 describe('job alert email — top-bar manage alerts CTA', () => {
-  it('all-jobs button still points to the job board', () => {
+  it('all-jobs button points to the Switzerland-wide aggregate board, not a single canton', () => {
     const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob()], true);
-    // The "View all jobs" CTA continues to land on /en/find-jobs-ticino
-    expect(result.html).toMatch(/href="[^"]*\/en\/find-jobs-ticino\/?\?[^"]*"/);
+    // "View all jobs" has no single canton to resolve — it must land on the
+    // aggregate board (/en/find-jobs-switzerland/), not the fixture job's own
+    // canton (Lugano → Ticino) or any other single-canton section.
+    expect(result.html).toMatch(/href="[^"]*\/en\/find-jobs-switzerland\/?\?[^"]*"/);
+    expect(result.html).not.toMatch(/href="[^"]*\/en\/find-jobs-ticino\/?\?[^"]*"/);
   });
 });
 
@@ -761,5 +764,20 @@ describe('job alert email — unsubscribe links match the sending domain (anti-s
     // Route MUST be a wildcard (`*`): an exact route does not match URLs with a
     // query string, and every emitted unsub link carries `?alertId=…&token=…`.
     expect(wrangler).toContain('frontaliereticino.ch/disiscrivi-alert*');
+  });
+});
+
+describe('job alert email — dirty locale normalization', () => {
+  it('normalizes a regional locale (de-CH) to the German job board, not a broken /de-CH/ prefix', () => {
+    const alert = { ...fixtureAlert('it'), locale: 'de-CH' };
+    const result = buildAlertEmail(alert, [fixtureJob()], true);
+    expect(result.html).not.toContain('/de-CH');
+    expect(result.html).toContain('jobs-im-tessin');
+  });
+
+  it('normalizes an uppercase locale (FR) to the French job board', () => {
+    const alert = { ...fixtureAlert('it'), locale: 'FR' };
+    const result = buildAlertEmail(alert, [fixtureJob()], true);
+    expect(result.html).toContain('trouver-emploi-tessin');
   });
 });

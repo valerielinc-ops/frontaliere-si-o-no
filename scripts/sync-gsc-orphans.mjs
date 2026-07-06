@@ -31,6 +31,7 @@ import {
   buildCityCantonIndex,
   buildOrphanLocalePaths,
 } from './lib/orphan-canton-paths.mjs';
+import { JOB_BOARD_SEGMENT_RX, JOB_BOARD_SECTION_GSC_STEMS } from './lib/jobBoardSections.mjs';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -89,16 +90,6 @@ const GSC_REFRESH_TOKEN = process.env.GSC_REFRESH_TOKEN || '';
 const ENABLE_URL_INSPECTION = process.env.ENABLE_URL_INSPECTION === '1';
 const ENABLE_WAYBACK = process.env.ENABLE_WAYBACK === '1';
 
-// ── Locale path prefixes ─────────────────────────────────
-const LOCALE_PREFIXES = {
-  it: ['/cerca-lavoro-ticino/'],
-  en: ['/en/find-jobs-ticino/', '/en/find-job-ticino/', '/en/job-search-ticino/'],
-  de: ['/de/jobs-im-tessin/', '/de/jobsuche-tessin/', '/de/stellenangebote-tessin/'],
-  fr: ['/fr/recherche-emploi-tessin/', '/fr/trouver-emploi-tessin/', '/fr/emplois-tessin/'],
-};
-
-const ALL_PREFIXES = Object.values(LOCALE_PREFIXES).flat();
-
 // Non-job slug prefixes that should be filtered out of the orphan pool.
 // These are company pages, search pages, etc. — not actual job detail pages.
 const NON_JOB_SLUG_PREFIXES = [
@@ -125,28 +116,25 @@ function readJsonSafe(filePath) {
 }
 
 function extractSlugFromPath(urlPath) {
-  // Match case-insensitively (GSC may index a locale segment with drifted
-  // casing, e.g. `/EN/find-jobs-ticino/...`) — mirrors inferLocale() in
-  // build-plugins/searchConsoleCompat.ts.
-  const lowerPath = urlPath.toLowerCase();
-  for (const prefix of ALL_PREFIXES) {
-    if (lowerPath.startsWith(prefix)) {
-      const slug = lowerPath.slice(prefix.length).replace(/\/$/, '');
-      if (slug && !slug.includes('/')) return slug;
-    }
-  }
-  return null;
+  // Canton-aware (mirrors extractSlugFromPath in backfill-slug-aliases.mjs /
+  // mine-all-job-slugs.mjs): a hardcoded TI-only prefix list here meant every
+  // non-TI canton job page (e.g. `/cerca-lavoro-zurigo/...`) was invisible to
+  // the orphan pipeline. Match case-insensitively — GSC may index a locale
+  // segment with drifted casing, e.g. `/EN/find-jobs-ticino/...`.
+  const pathname = String(urlPath || '').toLowerCase().replace(/^\/(en|de|fr)\//, '/');
+  const parts = pathname.split('/').filter(Boolean);
+  const boardIdx = parts.findIndex((part) => JOB_BOARD_SEGMENT_RX.test(part));
+  if (boardIdx === -1) return null;
+  const slug = parts[boardIdx + 1];
+  return slug && !slug.includes('/') ? slug.replace(/\/$/, '') : null;
 }
 
 function detectLocaleFromPath(urlPath) {
-  // Match case-insensitively — see extractSlugFromPath() above.
-  const lowerPath = urlPath.toLowerCase();
-  for (const [locale, prefixes] of Object.entries(LOCALE_PREFIXES)) {
-    for (const prefix of prefixes) {
-      if (lowerPath.startsWith(prefix)) return locale;
-    }
-  }
-  return 'it';
+  // Locale lives only in the leading `/en|/de|/fr` segment (the default `it`
+  // locale has none) — independent of which canton section follows it, so
+  // this no longer needs the TI-only prefix list either.
+  const m = String(urlPath || '').match(/^\/(en|de|fr)\//i);
+  return m ? m[1].toLowerCase() : 'it';
 }
 
 function sleep(ms) {
@@ -223,18 +211,23 @@ async function fetchGscJobUrls(accessToken) {
   /** @type {Map<string, { slug: string, locale: string, path: string, queries: {query: string, clicks: number, impressions: number}[], totalImpressions: number, totalClicks: number }>} */
   const slugMap = new Map();
 
-  // Query per locale group to get best coverage
+  // Query per locale group to get best coverage. Canton-aware: these were
+  // TI-only literals, so GSC was NEVER queried for non-TI canton job pages —
+  // the orphan pipeline couldn't see them at all, regardless of downstream
+  // parsing. Broadened to the generic section stem (matches every canton,
+  // e.g. `/cerca-lavoro-zurigo/`, via GSC's substring `contains` operator) —
+  // shared with find-orphan-indexed-jobs.mjs via JOB_BOARD_SECTION_GSC_STEMS
+  // so the two queries can't drift apart again; the historical single-locale
+  // legacy routes (singular `find-job`, `job-search`, old DE/FR prefixes)
+  // only ever existed for Ticino, so those stay literal here.
   const filterExpressions = [
-    '/cerca-lavoro-ticino/',
-    '/en/find-jobs-ticino/',    // current route (plural)
-    '/en/find-job-ticino/',     // legacy route (singular)
-    '/en/job-search-ticino/',
-    '/de/jobs-im-tessin/',
-    '/de/jobsuche-tessin/',
-    '/de/stellenangebote-tessin/',  // old DE prefix
-    '/fr/recherche-emploi-tessin/',
-    '/fr/trouver-emploi-tessin/',
-    '/fr/emplois-tessin/',          // old FR prefix
+    ...JOB_BOARD_SECTION_GSC_STEMS,
+    '/en/find-job-ticino/',     // legacy route (singular, TI-only historical)
+    '/en/job-search-ticino/',   // legacy route (TI-only historical)
+    '/de/jobsuche-tessin/',         // legacy route (TI-only historical)
+    '/de/stellenangebote-tessin/',  // legacy route (TI-only historical)
+    '/fr/recherche-emploi-tessin/', // legacy route (TI-only historical)
+    '/fr/emplois-tessin/',          // legacy route (TI-only historical)
   ];
 
   for (const expression of filterExpressions) {

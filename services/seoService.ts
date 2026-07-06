@@ -1067,9 +1067,9 @@ const SEO_SECTION_DESCRIPTION_KEY_MAP: Record<string, string> = {
  privacy: 'seo.privacy.description',
 };
 
-function translateIfExists(key: string | undefined): string | null {
+function translateIfExists(key: string | undefined, cantonCode?: string): string | null {
  if (!key) return null;
- const value = t(key, getCantonI18nParams());
+ const value = t(key, getCantonI18nParams(cantonCode));
  return value && value !== key ? value : null;
 }
 
@@ -1117,7 +1117,7 @@ function buildLocalizedUnknownSectionTitle(section: string, locale: Locale): str
  return `${prefix[locale]} ${human}`;
 }
 
-function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, locale: Locale): {
+function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, locale: Locale, cantonCode?: string): {
  title: string;
  description: string;
  keywords: string;
@@ -1132,8 +1132,8 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
 
  const titleKey = SEO_SECTION_TITLE_KEY_MAP[section];
  const descriptionKey = SEO_SECTION_DESCRIPTION_KEY_MAP[section];
- const localizedTitle = translateIfExists(titleKey);
- const localizedDescription = translateIfExists(descriptionKey);
+ const localizedTitle = translateIfExists(titleKey, cantonCode);
+ const localizedDescription = translateIfExists(descriptionKey, cantonCode);
 
  if (!localizedTitle && !localizedDescription) {
  const fallbackTitle = buildLocalizedUnknownSectionTitle(section, locale);
@@ -1153,9 +1153,9 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
  };
 }
 
-function getLocalizedSectionLabel(section: string, fallback: string): string {
+function getLocalizedSectionLabel(section: string, fallback: string, cantonCode?: string): string {
  const key = SEO_SECTION_TITLE_KEY_MAP[section];
- const localized = translateIfExists(key);
+ const localized = translateIfExists(key, cantonCode);
  return localized || fallback;
 }
 
@@ -4411,9 +4411,15 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  });
  }
  if (info.path !== '/') {
- const { route: infoRoute } = parsePath(info.path);
+ // job-board's sectionNames entry is a static TI fallback (`/cerca-lavoro-ticino`);
+ // real canton pages must reflect the page's ACTUAL canton, not the fallback —
+ // same class of bug as bridgeThinShell.ts's aggregate fallback (see relatedLinks.ts).
+ const jobBoardCanton = section === 'jobboard' ? route.jobBoardCanton : undefined;
+ const infoRoute = section === 'jobboard'
+ ? ({ activeTab: 'job-board', jobBoardCanton } as AppRoute)
+ : parsePath(info.path).route;
  crumbs.push({
- name: getLocalizedSectionLabel(section, info.name),
+ name: getLocalizedSectionLabel(section, info.name, jobBoardCanton),
  path: buildPath(infoRoute, locale),
  });
  }
@@ -4524,7 +4530,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  const hasLocalizedImageAlt = isBlogArticle && localizedImageAlt !== `blog.article.${blogArticleId}.imageAlt`;
 
  const isDialectPage = section === 'dialetto';
- const localizedSeoContent = resolveLocalizedSeoContent(sectionKey, metadata, locale);
+ const localizedSeoContent = resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
  const dialectTitleByLocale: Record<Locale, string> = {
  it: 'Dialetto Ticinese | 64 Espressioni e Proverbi | Frontaliere Ticino',
  en: 'Ticinese Dialect | 64 Expressions and Proverbs | Frontaliere Ticino',

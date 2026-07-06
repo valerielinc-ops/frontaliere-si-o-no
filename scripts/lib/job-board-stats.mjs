@@ -1,11 +1,23 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
   buildStableJobIdentity,
   jobsDiffer,
 } from './job-identity.mjs';
+import { AGGREGATE_KEY, createCantonResolvers } from '../../build-plugins/shared/cantonResolvers.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..', '..');
+const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
+const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
+const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const JOB_BOARD_ROOT_PATH = '/cerca-lavoro-ticino';
-const JOB_BOARD_ROOT_URL = `${BASE_URL}${JOB_BOARD_ROOT_PATH}`;
+// Aggregate (Switzerland-wide) job-board root — used for cross-job links that
+// aren't scoped to a single job's canton (all-jobs summary link, historical
+// title-stat entries merged across jobs from potentially different cantons).
+const JOB_BOARD_AGGREGATE_URL = `${BASE_URL}/${resolveCantonSection('it', AGGREGATE_KEY)}`;
 const HISTORY_LIMIT = 180;
 const COMPACT_AFTER_DAYS = 30;
 const ZURICH_TIMEZONE = 'Europe/Zurich';
@@ -77,13 +89,17 @@ function zurichDate(now = new Date()) {
   return `${map.year}-${map.month}-${map.day}`;
 }
 
+function jobBoardUrl(job) {
+  return `${BASE_URL}/${resolveCantonSection('it', resolveJobCanton(job))}`;
+}
+
 function getCompanySummary(job = {}) {
   const name = normalizeSpace(job.company || 'Azienda');
   const key = canonicalCompanyRouteSlug(name, normalizeSpace(job.companyKey || ''));
   return {
     key: key || slugifyTerm(name) || 'azienda',
     name,
-    url: `${JOB_BOARD_ROOT_URL}/azienda-${key || 'azienda'}`,
+    url: `${jobBoardUrl(job)}/azienda-${key || 'azienda'}`,
   };
 }
 
@@ -97,7 +113,7 @@ function getLocationSummary(job = {}) {
   return {
     key,
     name,
-    url: `${JOB_BOARD_ROOT_URL}/ricerca-${key}`,
+    url: `${jobBoardUrl(job)}/ricerca-${key}`,
   };
 }
 
@@ -107,7 +123,7 @@ function getTitleSummary(job = {}) {
   return {
     key,
     name,
-    url: `${JOB_BOARD_ROOT_URL}/ricerca-${key}`,
+    url: `${jobBoardUrl(job)}/ricerca-${key}`,
   };
 }
 
@@ -560,7 +576,7 @@ export function buildJobsStatsSummary(currentJobs = [], history = {}, options = 
   return {
     generatedAt: new Date(now).toISOString(),
     links: {
-      allJobs: JOB_BOARD_ROOT_URL,
+      allJobs: JOB_BOARD_AGGREGATE_URL,
     },
     totals: {
       activeJobs: safeArray(currentJobs).length,
@@ -631,7 +647,7 @@ function migrateHistoryTitleLocale(history, currentJobs) {
         merged.set(itKey, {
           key: itKey,
           name: itName,
-          url: `${JOB_BOARD_ROOT_URL}/ricerca-${itKey}`,
+          url: `${JOB_BOARD_AGGREGATE_URL}/ricerca-${itKey}`,
           addedKeys: [...safeArray(item.addedKeys)],
           updatedKeys: [...safeArray(item.updatedKeys)],
           removedKeys: [...safeArray(item.removedKeys)],

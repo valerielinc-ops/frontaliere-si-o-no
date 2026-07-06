@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
-import { computeCrawlDiff, snapshotJobSlugs } from '../scripts/jobs-url-helper.mjs';
+import { computeCrawlDiff, printPublishedJobUrls, snapshotJobSlugs } from '../scripts/jobs-url-helper.mjs';
 
 function job(overrides: Record<string, unknown> = {}) {
   return {
@@ -74,5 +74,26 @@ describe('jobs-url-helper crawl diff', () => {
     expect(diff.newJobs).toHaveLength(0);
     expect(diff.removedJobs).toHaveLength(0);
     expect(diff.updatedJobs).toHaveLength(1);
+  });
+});
+
+describe('printPublishedJobUrls is canton-aware (not TI-only)', () => {
+  // Regression: jobUrl() used to hardcode JOB_PATH = 'cerca-lavoro-ticino' for
+  // every job's CI Job Summary link regardless of canton — same bug class as
+  // the job-alert/newsletter canton-URL fix (AGENTS.md #6 sibling sweep).
+  it('resolves each job to its own canton board section', () => {
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    printPublishedJobUrls(
+      [
+        { title: 'Dev TI', canton: 'TI', slug: 'dev-ti' },
+        { title: 'Dev VD', canton: 'VD', slug: 'dev-vd' },
+      ],
+      'TestCrawler',
+    );
+    const lines = logSpy.mock.calls.map((args) => args[0]).join('\n');
+    logSpy.mockRestore();
+
+    expect(lines).toContain('/cerca-lavoro-ticino/dev-ti/');
+    expect(lines).toContain('/cerca-lavoro-vaud/dev-vd/');
   });
 });

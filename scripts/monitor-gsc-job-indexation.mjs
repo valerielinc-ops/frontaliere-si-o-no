@@ -28,10 +28,14 @@ import { readFileSync, existsSync, writeFileSync, mkdirSync, appendFileSync } fr
 import { createSign } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { JOB_BOARD_SECTION_PREFIX_SOURCE, getJobBoardSectionPrefix } from './lib/jobBoardSections.mjs';
+import { isCompanyHubSlug } from '../services/newsletter-content.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
-const LISTING_PATH = '/cerca-lavoro-ticino/';
+// Any canton's job-board section root (TI legacy + every canton + the
+// Switzerland-wide aggregator) — see scripts/lib/jobBoardSections.mjs.
+const JOB_BOARD_LISTING_ROOT_RX = new RegExp(`/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/$`);
 const MAX_ANALYTICS_PAGES = 50;
 const MAX_INSPECT = 30;
 const FETCH_TIMEOUT_MS = 20_000;
@@ -132,7 +136,9 @@ async function getTopJobPages(accessToken, siteUrl) {
             filters: [{
               dimension: 'page',
               operator: 'includingRegex',
-              expression: '/cerca-lavoro-ticino/.+',
+              // Any canton's job-board section (TI legacy + every canton +
+              // the Switzerland-wide aggregator), not TI only.
+              expression: `/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/.+`,
             }],
           }],
           rowLimit: MAX_ANALYTICS_PAGES,
@@ -199,12 +205,14 @@ function categorize(result, pageUrl) {
   if (result.error) return 'UNKNOWN';
 
   const path = new URL(pageUrl).pathname;
-  const isJobPage = path.includes('/cerca-lavoro-ticino/') &&
-                    !path.endsWith('/cerca-lavoro-ticino/') &&
-                    !path.includes('/azienda-');
+  const sectionPrefix = getJobBoardSectionPrefix(path);
+  const lastSegment = path.split('/').filter(Boolean).pop() || '';
+  const isJobPage = sectionPrefix !== null &&
+                    path !== sectionPrefix &&
+                    !isCompanyHubSlug(lastSegment);
 
   // Canonical regression to listing page
-  if (isJobPage && (result.googleCanonical?.endsWith(LISTING_PATH) || result.canonical?.endsWith(LISTING_PATH))) {
+  if (isJobPage && (JOB_BOARD_LISTING_ROOT_RX.test(result.googleCanonical || '') || JOB_BOARD_LISTING_ROOT_RX.test(result.canonical || ''))) {
     return 'FAIL';
   }
 
@@ -355,7 +363,7 @@ async function sendEmailAlert({ results, failedPages, persistentFailures, sample
 async function triggerRedeploy(failedPages) {
   // Only trigger for canonical regressions (fixable by redeploy)
   const canonicalFails = failedPages.filter(p =>
-    p.googleCanonical?.endsWith(LISTING_PATH) || p.canonical?.endsWith(LISTING_PATH)
+    JOB_BOARD_LISTING_ROOT_RX.test(p.googleCanonical || '') || JOB_BOARD_LISTING_ROOT_RX.test(p.canonical || '')
   );
   if (canonicalFails.length === 0) return;
 
