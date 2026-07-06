@@ -78,8 +78,7 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "mistral-ai-fd5e46b9a438",
@@ -222,7 +221,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:05:01.971Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
