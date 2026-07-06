@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { launchChromium } from './lib/ensure-chromium.mjs';
 import { buildNewsletter, FEATURED_TOOLS, nlNormLocale } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, getFallbackBriefing, loadDashboardMetrics } from '../services/newsletter-content.mjs';
+import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -152,7 +153,10 @@ const CHECKS = [
   {
     id: 'jobs-section',
     label: 'Job listings section present',
-    check: (html) => /cerca-lavoro-ticino/i.test(html),
+    // Canton-aware: matchJobsForSubscriber matches across all of Switzerland,
+    // not just TI, so a TI-only literal here would false-fail whenever the
+    // top-matched jobs happen to be non-TI (AGENTS.md #6 sibling sweep).
+    check: (html) => JOB_BOARD_SECTION_RX.test(html),
   },
   {
     id: 'unsubscribe-link',
@@ -219,11 +223,11 @@ function runStressChecks(html, stressHtml) {
     passed: stressHtml.length > 8000,
   });
 
-  // Stress: both HTMLs contain the jobs section
+  // Stress: both HTMLs contain the jobs section (canton-aware, see jobs-section check above)
   results.push({
     id: 'stress-jobs-present',
     label: 'Job section present with stress content',
-    passed: /cerca-lavoro-ticino/i.test(stressHtml),
+    passed: JOB_BOARD_SECTION_RX.test(stressHtml),
   });
 
   // Stress: no unclosed tags in stress HTML (simple heuristic)

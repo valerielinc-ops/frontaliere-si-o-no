@@ -91,6 +91,18 @@ describe('newsletter QA structural check definitions', () => {
     const qa = fs.readFileSync(path.join(ROOT, 'scripts', 'newsletter-qa.mjs'), 'utf8');
     expect(qa).toContain('table-based-layout');
   });
+
+  // Regression: jobs-section/stress-jobs-present run against real
+  // matchJobsForSubscriber() output (buildQaHtml matches across ALL of
+  // Switzerland with no location preference), so a TI-only literal here
+  // would false-fail whenever the top-matched jobs happen to be non-TI —
+  // same bug class as the job_links check below (AGENTS.md #6 sibling sweep).
+  it('jobs-section and stress-jobs-present checks are canton-aware, not TI-only', () => {
+    const qa = fs.readFileSync(path.join(ROOT, 'scripts', 'newsletter-qa.mjs'), 'utf8');
+    expect(qa).toMatch(/JOB_BOARD_SECTION_RX/);
+    expect(qa).not.toMatch(/id:\s*'jobs-section'[\s\S]{0,80}cerca-lavoro-ticino/);
+    expect(qa).not.toMatch(/id:\s*'stress-jobs-present'[\s\S]{0,80}cerca-lavoro-ticino/);
+  });
 });
 
 describe('inline QA job_links check is locale-aware and canton-aware', () => {
