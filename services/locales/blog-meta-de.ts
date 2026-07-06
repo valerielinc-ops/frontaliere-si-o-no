@@ -8286,6 +8286,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sicurezza-lavoro-ticino-cfsl.title': 'Arbeitssicherheit Tessin: zertifizierte Modelllösung',
     'blog.article.sicurezza-lavoro-ticino-cfsl.excerpt': 'Die Genossenschaft Coop-SSL erhält die EKAS-Anerkennung für betriebliches Gesundheitsmanagement. Ein neuer Standard für Tessiner KMU und Arbeitnehmer.',
     'blog.article.sicurezza-lavoro-ticino-cfsl.imageAlt': 'CFSL Arbeitssicherheits-Zertifizierung im Tessin',
+    'blog.article.gallarate-rho-lavori-luglio-2026.title': 'Gallarate-Rho: Wochenendschluss 11.-13. Juli 2026',
+    'blog.article.gallarate-rho-lavori-luglio-2026.excerpt': 'Stoppen Sie die Züge zwischen Gallarate und Mailand für technologische Verbesserungsarbeiten. Eine neue Haltestelle in Nerviano ist geplant.',
+    'blog.article.gallarate-rho-lavori-luglio-2026.imageAlt': 'Bahnhof Gallarate-Rho mit laufenden Arbeiten',
 };
 
 export default blogMetaDe;

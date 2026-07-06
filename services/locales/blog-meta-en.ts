@@ -8287,6 +8287,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sicurezza-lavoro-ticino-cfsl.title': 'Ticino work safety: certified model solution',
     'blog.article.sicurezza-lavoro-ticino-cfsl.excerpt': 'The Coop-SSL cooperative obtains CFSL recognition for health management in the company. A new standard for Ticino SMEs and workers.',
     'blog.article.sicurezza-lavoro-ticino-cfsl.imageAlt': 'CFSL occupational safety certification in Ticino',
+    'blog.article.gallarate-rho-lavori-luglio-2026.title': 'Gallarate-Rho: weekend closure 11-13 July 2026',
+    'blog.article.gallarate-rho-lavori-luglio-2026.excerpt': 'Stop trains between Gallarate and Milan for technological upgrading works. A new stop is planned in Nerviano.',
+    'blog.article.gallarate-rho-lavori-luglio-2026.imageAlt': 'Gallarate-Rho train station with ongoing works',
 };
 
 export default blogMetaEn;

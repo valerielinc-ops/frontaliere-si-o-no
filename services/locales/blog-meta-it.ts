@@ -8288,6 +8288,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sicurezza-lavoro-ticino-cfsl.title': 'Sicurezza lavoro Ticino: certificata soluzione modello',
     'blog.article.sicurezza-lavoro-ticino-cfsl.excerpt': 'La cooperativa Coop-SSL ottiene il riconoscimento CFSL per la gestione della salute in azienda. Un nuovo standard per le PMI ticinesi e i lavoratori.',
     'blog.article.sicurezza-lavoro-ticino-cfsl.imageAlt': 'Certificazione sicurezza sul lavoro CFSL in Ticino',
+    'blog.article.gallarate-rho-lavori-luglio-2026.title': 'Gallarate-Rho: chiusura weekend 11-13 luglio 2026',
+    'blog.article.gallarate-rho-lavori-luglio-2026.excerpt': 'Stop ai treni tra Gallarate e Milano per lavori di potenziamento tecnologico. Prevista una nuova fermata a Nerviano.',
+    'blog.article.gallarate-rho-lavori-luglio-2026.imageAlt': 'Stazione ferroviaria Gallarate-Rho con lavori in corso',
 };
 
 export default blogMetaIt;
