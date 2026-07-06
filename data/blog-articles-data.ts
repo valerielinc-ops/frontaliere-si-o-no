@@ -24902,6 +24902,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'gallarate-rho-lavori-luglio-2026',
+ category: 'pratico',
+ date: '2026-07-06T06:46:16.557Z',
+ image: '/images/blog/gallarate-rho-lavori-luglio-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

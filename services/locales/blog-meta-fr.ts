@@ -8288,6 +8288,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sicurezza-lavoro-ticino-cfsl.title': 'Sécurité travail Tessin : solution modèle certifiée',
     'blog.article.sicurezza-lavoro-ticino-cfsl.excerpt': 'La coopérative Coop-SSL obtient la reconnaissance CFSL pour la gestion de la santé dans l\'entreprise. Une nouvelle norme pour les PME tessinoises et les travailleurs.',
     'blog.article.sicurezza-lavoro-ticino-cfsl.imageAlt': 'Certification CFSL de sécurité au travail au Tessin',
+    'blog.article.gallarate-rho-lavori-luglio-2026.title': 'Gallarate-Rho : fermeture le week-end du 11 au 13 juillet 2026',
+    'blog.article.gallarate-rho-lavori-luglio-2026.excerpt': 'Arrêtez les trains entre Gallarate et Milan pour des travaux de renforcement technologique. Un nouvel arrêt est prévu à Nerviano.',
+    'blog.article.gallarate-rho-lavori-luglio-2026.imageAlt': 'Gare de Gallarate-Rho avec travaux en cours',
 };
 
 export default blogMetaFr;
