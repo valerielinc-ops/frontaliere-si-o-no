@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, normalizeContract } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, normalizeContract, mergeLocaleTextMap } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { getEvents, clear as clearSlugHistoryJournal } from '../scripts/lib/slug-history-journal.mjs';
 
 describe('normalizeContract — workload percentage-range classification (#3482)', () => {
@@ -1188,5 +1188,66 @@ describe('hasFullLocaleCoverage — post-merge needsRetranslation guard (#3442)'
   it('returns false for an empty/undefined job (never crashes)', () => {
     expect(hasFullLocaleCoverage({})).toBe(false);
     expect(hasFullLocaleCoverage(undefined)).toBe(false);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────
+// mergeLocaleTextMap — sourceLocale-aware merge (regression, issue #3453)
+// ─────────────────────────────────────────────────────────────
+//
+// Several dedicated crawlers (Coop, Oscam, La Fonte, AIL) rebuild a job's
+// description from freshly fetched source data every crawl cycle and used to
+// reset the ENTIRE descriptionByLocale map to just the freshly fetched
+// locale whenever the rebuilt text differed from the previously stored
+// description by more than 100 chars — a bound easily crossed by incidental
+// reformatting (footer/company/locality lines shift the assembled length)
+// rather than a genuine rewrite of the source posting. That wiped
+// already-translated locales outright. The fix reuses this exact function
+// (already the safe-merge primitive for titleByLocale/slugByLocale
+// elsewhere) with an explicit `sourceLocale` so only the fetched locale's
+// slot is authoritative and every other locale keeps its real translation,
+// no matter how large the source-locale delta is.
+describe('mergeLocaleTextMap — sourceLocale-aware merge (issue #3453)', () => {
+  it('preserves other-locale translations even when the source-locale text changes drastically (>100 chars)', () => {
+    const existing = {
+      it: 'Breve descrizione originale.',
+      de: 'Eine bereits vollständig übersetzte und lange deutsche Stellenbeschreibung mit vielen Details zur Position.',
+      en: 'A fully translated, long English job description with plenty of detail about the role.',
+      fr: "Une description de poste française déjà entièrement traduite et détaillée.",
+    };
+    // Freshly rebuilt source-locale text, far longer than the prior stored
+    // description (delta > 100 chars) — e.g. after incidental reformatting
+    // of the Coop detail-page footer/header, not a real content rewrite.
+    const freshItText =
+      'Descrizione italiana completamente ricostruita, molto più lunga del testo precedente, con intestazione azienda, sede e piè di pagina aggiornati per riflettere il nuovo formato del template di assemblaggio.';
+    expect(Math.abs(freshItText.length - existing.it.length)).toBeGreaterThan(100);
+
+    const merged = mergeLocaleTextMap(existing, { it: freshItText }, 30, 'it');
+
+    // Source locale is refreshed...
+    expect(merged.it).toBe(freshItText);
+    // ...but the other, already-translated locales are NOT wiped.
+    expect(merged.de).toBe(existing.de);
+    expect(merged.en).toBe(existing.en);
+    expect(merged.fr).toBe(existing.fr);
+  });
+
+  it('still fills a genuinely empty non-source locale from the incoming map instead of leaving it missing', () => {
+    const existing = { it: 'Testo sorgente originale abbastanza lungo da superare la soglia minima.' };
+    const merged = mergeLocaleTextMap(
+      existing,
+      { it: 'Testo sorgente riscritto, molto più lungo del precedente per superare la soglia di 100 caratteri di differenza.', de: 'Ein neuer deutscher Text, der lang genug ist, um die Mindestzeichenzahl zu erreichen.' },
+      30,
+      'it',
+    );
+    expect(merged.de).toContain('neuer deutscher Text');
+  });
+
+  it('updates the source locale regardless of delta size (no reset gate needed)', () => {
+    const existing = { it: 'Testo corto.', en: 'A short but real english translation of the posting.' };
+    const tinyEdit = 'Testo corto!'; // 1-char delta, well under 100
+    const merged = mergeLocaleTextMap(existing, { it: tinyEdit }, 3, 'it');
+    expect(merged.it).toBe(tinyEdit);
+    expect(merged.en).toBe(existing.en);
   });
 });
