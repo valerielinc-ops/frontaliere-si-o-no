@@ -1,55 +1,19 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-07-06T12:55:31.881Z",
-  "total": 10,
+  "generatedAt": "2026-07-06T22:19:25.753Z",
+  "total": 9,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 2,
   "removedCount": 1,
-  "unchangedCount": 6,
-  "durationMs": 1437,
-  "avgDurationMs": 1437,
+  "unchangedCount": 7,
+  "durationMs": 1172,
+  "avgDurationMs": 1172,
   "durationHistory": [
-    1437
+    1172
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Responsabile Gruppo di ricerca Estensione orticoltura",
-      "slug": "responsabile-gruppo-di-ricerca-estensione-orticoltura-agroscope-zurich",
-      "url": "https://jobs.admin.ch/posti-vacanti/responsabile-gruppo-di-ricerca-estensione-orticoltura/db40b2d9-c61b-40bd-b61f-6b3df87f4410",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17900",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "8046 Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-05",
-      "validThrough": "2026-07-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-2fb72da051dc",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-06-05T21:30:01.164Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
     {
       "title": "Collaboratore/trice scientifico/a",
       "slug": "collaboratore-trice-scientifico-a-agroscope-sursee",
@@ -122,7 +86,9 @@
         "translation": 21,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Collaboratore/trice in agronomia/biologia - Selezione delle albicocche",
       "slug": "collaboratore-trice-in-agronomia-biologia-selezione-delle-albicocche-agroscope-conthey",
@@ -156,45 +122,6 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "title": "Post-dottorando/a Valutazione del sistema alimentare basata su modelli",
-      "slug": "post-dottorando-a-valutazione-del-sistema-alimentare-basata-su-modelli-agroscope-ettenhausen-svizzera",
-      "url": "https://jobs.admin.ch/posti-vacanti/post-dottorando-a-valutazione-del-sistema-alimentare-basata-su-modelli/537b36d9-9fad-44a6-9858-1d8172c09249",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19351",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Ettenhausen, Svizzera",
-      "addressLocality": "Ettenhausen",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-10",
-      "validThrough": "2026-07-12",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-a8bb04a295c0",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "8500",
-      "firstSeenAt": "2026-06-10T11:32:27.833Z",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
         "completeness": 22
       }
     }
@@ -338,6 +265,42 @@
       "streetAddress": "",
       "postalCode": "1700",
       "firstSeenAt": "2026-06-15T13:46:34.713Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Responsabile Gruppo di ricerca Estensione orticoltura",
+      "slug": "responsabile-gruppo-di-ricerca-estensione-orticoltura-agroscope-zurich",
+      "url": "https://jobs.admin.ch/posti-vacanti/responsabile-gruppo-di-ricerca-estensione-orticoltura/db40b2d9-c61b-40bd-b61f-6b3df87f4410",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17900",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "8046 Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-05",
+      "validThrough": "2026-07-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-2fb72da051dc",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-06-05T21:30:01.164Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

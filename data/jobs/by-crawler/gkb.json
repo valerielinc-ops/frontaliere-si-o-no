@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-07-06T13:49:50.812Z",
+  "assembledAt": "2026-07-06T22:19:25.438Z",
   "jobs": [
     {
       "id": "gkb-48538c69e008",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1871/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:49:48.406Z",
+      "crawledAt": "2026-07-06T22:19:23.257Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -69,6 +69,7 @@
         "business-analyst-payments-focus-aziende-60-100-graubundner-kantonalbank-chur"
       ],
       "firstSeenAt": "2026-06-01T23:46:30.584Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -85,12 +86,12 @@
     },
     {
       "id": "gkb-3b0574f7105f",
-      "slug": "legal-advisor-regulatory-relations-80-100-gkb-ch",
+      "slug": "legal-consulente-regulatory-relations-80-100-graubundner-kantonalbank-chur",
       "slugByLocale": {
-        "it": "legal-advisor-regulatory-relations-80-100-gkb-ch",
+        "it": "legal-consulente-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "en": "legal-advisor-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "de": "legal-advisor-regulatory-relations-80-100-gkb-ch",
-        "fr": "legal-advisor-regulatory-relations-80-100-gkb-ch"
+        "fr": "legal-conseiller-regulatory-relations-80-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -114,7 +115,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:49:47.535Z",
+      "crawledAt": "2026-07-06T22:19:22.396Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -135,6 +136,17 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "firstSeenAt": "2026-06-03T13:43:29.166Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-advisor-regulatory-relations-80-100-gkb-ch"
+        ],
+        "fr": [
+          "legal-advisor-regulatory-relations-80-100-gkb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "legal-advisor-regulatory-relations-80-100-gkb-ch"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -154,8 +166,8 @@
       "slug": "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
         "it": "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf",
-        "en": "senior-physician-for-internal-medicine-acute-geriatrics-100-m-w-d-spital-mannedorf-mannedorf",
-        "de": "oberarzt-fur-innere-medizin-akutgeriatrie-100-m-w-d-spital-mannedorf-mannedorf",
+        "en": "it-controlling-und-governance-manager-100-graubundner-kantonalbank-chur",
+        "de": "it-controlling-und-governance-manager-100-gkb-ch",
         "fr": "medecin-specialiste-en-medecine-interne-geriatrie-100-m-w-d-spital-mannedorf-mannedorf"
       },
       "company": "Graubündner Kantonalbank",
@@ -164,7 +176,7 @@
       "title": "IT-Controlling und Governance Manager (100%)",
       "titleByLocale": {
         "it": "Responsabile Controllo e Governance IT (100%)",
-        "en": "IT Controlling and Governance Manager (100%)",
+        "en": "IT-Controlling und Governance Manager (100%)",
         "de": "IT-Controlling und Governance Manager (100%)",
         "fr": "Gestionnaire du contrôle et de la gouvernance de la TI (100%)"
       },
@@ -180,7 +192,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1939/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:49:46.682Z",
+      "crawledAt": "2026-07-06T22:19:21.533Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -202,17 +214,21 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "it-controlling-und-governance-manager-100-gkb-ch",
-          "oberarzt-fur-innere-medizin-akutgeriatrie-100-m-w-d-spital-mannedorf-mannedorf"
+          "oberarzt-fur-innere-medizin-akutgeriatrie-100-m-w-d-spital-mannedorf-mannedorf",
+          "it-controlling-und-governance-manager-100-gkb-ch"
         ],
         "it": [
           "it-controlling-und-governance-manager-100-gkb-ch",
           "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "en": [
+          "senior-physician-for-internal-medicine-acute-geriatrics-100-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
         "it-controlling-und-governance-manager-100-gkb-ch",
         "oberarzt-fur-innere-medizin-akutgeriatrie-100-m-w-d-spital-mannedorf-mannedorf",
+        "senior-physician-for-internal-medicine-acute-geriatrics-100-m-w-d-spital-mannedorf-mannedorf",
         "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-06-08T12:57:10.558Z",
@@ -228,6 +244,7 @@
           "unitText": "YEAR"
         }
       },
+      "needsRetranslation": true,
       "addressRegion": "GR"
     },
     {
@@ -236,8 +253,8 @@
       "slugByLocale": {
         "it": "collaboratore-trice-document-lifecycle-processing-80-100-graubundner-kantonalbank-chur",
         "en": "mitarbeiter-in-document-lifecycle-processing-80-100-graubundner-kantonalbank-chur",
-        "de": "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-ch",
-        "fr": "mitarbeiter-in-document-lifecycle-processing-80-100-graubundner-kantonalbank-chur"
+        "de": "mitarbeiter-in-document-lifecycle-processing-80-100-graubundner-kantonalbank-chur",
+        "fr": "employe-en-traitement-du-cycle-de-vie-des-documents-80-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -261,7 +278,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1941/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:49:45.814Z",
+      "crawledAt": "2026-07-06T22:19:20.670Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -283,12 +300,19 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-ch",
+        "mitarbeiter-in-document-lifecycle-processing-80-100-graubundner-kantonalbank-chur",
         "collaboratore-trice-document-lifecycle-processing-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-ch",
           "collaboratore-trice-document-lifecycle-processing-80-100-graubundner-kantonalbank-chur"
+        ],
+        "de": [
+          "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-document-lifecycle-processing-80-100-graubundner-kantonalbank-chur"
         ]
       },
       "firstSeenAt": "2026-06-09T22:27:01.386Z",
@@ -311,9 +335,9 @@
       "slug": "consulente-in-digital-business-80-100-graubundner-kantonalbank-chur",
       "slugByLocale": {
         "it": "consulente-in-digital-business-80-100-graubundner-kantonalbank-chur",
-        "en": "berater-in-digital-business-80-100-gkb-ch",
-        "de": "berater-in-digital-business-80-100-gkb-ch",
-        "fr": "berater-in-digital-business-80-100-gkb-ch"
+        "en": "consultant-in-digital-business-80-100-graubundner-kantonalbank-chur",
+        "de": "berater-in-digital-business-80-100-graubundner-kantonalbank-chur",
+        "fr": "consultant-en-digital-business-80-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -337,7 +361,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:49:44.932Z",
+      "crawledAt": "2026-07-06T22:19:19.785Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -365,6 +389,15 @@
         "it": [
           "berater-in-digital-business-80-100-gkb-ch",
           "consulente-in-digital-business-80-100-graubundner-kantonalbank-chur"
+        ],
+        "en": [
+          "berater-in-digital-business-80-100-gkb-ch"
+        ],
+        "de": [
+          "berater-in-digital-business-80-100-gkb-ch"
+        ],
+        "fr": [
+          "berater-in-digital-business-80-100-gkb-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T12:09:26.227Z",
@@ -388,7 +421,7 @@
       "slugByLocale": {
         "it": "consulente-nella-regione-di-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
         "en": "consultant-in-mortgage-region-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
-        "de": "berater-in-hypotheken-region-lenzerheide-80-gkb-ch",
+        "de": "berater-in-hypotheken-region-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
         "fr": "consultant-dans-la-region-hypothecaire-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
       },
       "company": "Graubündner Kantonalbank",
@@ -413,7 +446,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:49:44.053Z",
+      "crawledAt": "2026-07-06T22:19:18.914Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -447,6 +480,9 @@
         ],
         "fr": [
           "berater-in-hypotheken-region-lenzerheide-80-gkb-ch"
+        ],
+        "de": [
+          "berater-in-hypotheken-region-lenzerheide-80-gkb-ch"
         ]
       },
       "firstSeenAt": "2026-06-11T12:41:09.293Z",
@@ -470,7 +506,7 @@
       "slugByLocale": {
         "it": "esperta-di-cura-per-la-continenza-e-uroterapia-50-80-m-f-d-spital-mannedorf-mannedorf",
         "en": "care-expert-for-continence-and-urotherapy-50-80-m-f-d-spital-mannedorf-mannedorf",
-        "de": "pflegeexpertin-kontinenz-forderung-urotherapie-50-80-m-w-d-spital-mannedorf-mannedorf",
+        "de": "senior-produktmanager-in-finanzieren-60-100-graubundner-kantonalbank-chur",
         "fr": "expert-en-soins-pour-la-continence-et-l-urotherapie-50-80-m-f-d-spital-mannedorf-mannedorf"
       },
       "company": "Graubündner Kantonalbank",
@@ -495,7 +531,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1940/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:49:43.171Z",
+      "crawledAt": "2026-07-06T22:19:18.051Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -547,12 +583,12 @@
     },
     {
       "id": "gkb-e8678ecbf87d",
-      "slug": "teilzeitstudent-in-ceo-office-direktionssekretariat-60-graubundner-kantonalbank-chur",
+      "slug": "studente-part-time-in-ceo-office-directorate-secretariat-60-graubundner-kantonalbank-chur",
       "slugByLocale": {
-        "it": "teilzeitstudent-in-ceo-office-direktionssekretariat-60-graubundner-kantonalbank-chur",
-        "en": "teilzeitstudent-in-ceo-office-direktionssekretariat-60-graubundner-kantonalbank-chur",
-        "de": "teilzeitstudent-in-ceo-office-direktionssekretariat-60-gkb-ch",
-        "fr": "teilzeitstudent-in-ceo-office-direktionssekretariat-60-graubundner-kantonalbank-chur"
+        "it": "studente-part-time-in-ceo-office-directorate-secretariat-60-graubundner-kantonalbank-chur",
+        "en": "part-time-student-in-ceo-office-directorate-secretariat-60-graubundner-kantonalbank-chur",
+        "de": "teilzeitstudent-in-ceo-office-direktionssekretariat-60-graubundner-kantonalbank-chur",
+        "fr": "etudiant-a-temps-partiel-au-secretariat-du-ceo-direction-60-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -576,7 +612,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1944/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:49:42.300Z",
+      "crawledAt": "2026-07-06T22:19:17.167Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -604,6 +640,15 @@
         "it": [
           "teilzeitstudent-in-ceo-office-direktionssekretariat-60-gkb-ch",
           "teilzeitstudent-in-ceo-office-direktionssekretariat-60-graubundner-kantonalbank-chur"
+        ],
+        "en": [
+          "teilzeitstudent-in-ceo-office-direktionssekretariat-60-graubundner-kantonalbank-chur"
+        ],
+        "de": [
+          "teilzeitstudent-in-ceo-office-direktionssekretariat-60-gkb-ch"
+        ],
+        "fr": [
+          "teilzeitstudent-in-ceo-office-direktionssekretariat-60-graubundner-kantonalbank-chur"
         ]
       },
       "firstSeenAt": "2026-06-12T12:11:14.121Z",
@@ -627,7 +672,7 @@
       "slugByLocale": {
         "it": "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf",
         "en": "head-of-or-and-bed-disposition-80-100-m-f-d-spital-mannedorf-mannedorf",
-        "de": "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf",
+        "de": "immobilienbewirtschafter-in-100-graubundner-kantonalbank-chur",
         "fr": "direction-de-la-planification-du-bloc-operatoire-et-des-lits-80-100-m-f-d-spital-mannedorf-mannedorf"
       },
       "company": "Graubündner Kantonalbank",
@@ -652,7 +697,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:49:41.422Z",
+      "crawledAt": "2026-07-06T22:19:16.262Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -704,12 +749,12 @@
     },
     {
       "id": "gkb-d829938f33ae",
-      "slug": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
+      "slug": "servizio-legale-specializzato-conformita-80-100-graubundner-kantonalbank-chur",
       "slugByLocale": {
-        "it": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
-        "en": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
+        "it": "servizio-legale-specializzato-conformita-80-100-graubundner-kantonalbank-chur",
+        "en": "specialist-in-legal-service-compliance-80-100-graubundner-kantonalbank-chur",
         "de": "fachspezialist-in-rechtsdienst-compliance-80-100-graubundner-kantonalbank-chur",
-        "fr": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
+        "fr": "specialiste-service-juridique-compliance-80-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -733,7 +778,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:49:40.480Z",
+      "crawledAt": "2026-07-06T22:19:15.364Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -753,6 +798,25 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugsByLocale": {
+        "de": [
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
+          "fachspezialist-in-rechtsdienst-compliance-80-100-graubundner-kantonalbank-chur"
+        ],
+        "it": [
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
+        ],
+        "en": [
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
+        ],
+        "fr": [
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
+        "fachspezialist-in-rechtsdienst-compliance-80-100-graubundner-kantonalbank-chur"
+      ],
       "firstSeenAt": "2026-07-03T12:21:57.949Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -766,15 +830,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "de": [
-          "fachspezialist-in-rechtsdienst-compliance-80-100-graubundner-kantonalbank-chur"
-        ]
-      },
-      "previousSlugs": [
-        "fachspezialist-in-rechtsdienst-compliance-80-100-graubundner-kantonalbank-chur"
-      ]
+      "addressRegion": "GR"
     }
   ]
 }
