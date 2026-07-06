@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-compliance-manager-pictet-geneva",
-        "responsabile-della-conformita-aziendale-pictet-group-geneva"
+        "business-compliance-manager-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-compliance-manager-pictet-geneva",
-          "responsabile-della-conformita-aziendale-pictet-group-geneva"
+          "business-compliance-manager-pictet-geneva"
         ],
         "fr": [
           "business-compliance-manager-pictet-geneva"
@@ -127,13 +125,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-specialist-pictet-hong-kong",
-        "investment-specialista-pictet-group-hong-kong"
+        "investment-specialist-pictet-hong-kong"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-specialist-pictet-hong-kong",
-          "investment-specialista-pictet-group-hong-kong"
+          "investment-specialist-pictet-hong-kong"
         ],
         "de": [
           "investment-specialist-pictet-hong-kong"
@@ -206,13 +202,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-specialist-pictet-geneva",
-        "investment-specialista-pictet-group-geneva"
+        "investment-specialist-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-specialist-pictet-geneva",
-          "investment-specialista-pictet-group-geneva"
+          "investment-specialist-pictet-geneva"
         ],
         "de": [
           "investment-specialist-pictet-geneva"
@@ -348,13 +342,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "financial-analyst-pictet-singapore",
-        "financial-analista-pictet-group-singapore"
+        "financial-analyst-pictet-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "financial-analyst-pictet-singapore",
-          "financial-analista-pictet-group-singapore"
+          "financial-analyst-pictet-singapore"
         ],
         "de": [
           "financial-analyst-pictet-singapore"
@@ -380,12 +372,12 @@
     },
     {
       "id": "pictet-1a6a1bd7288c",
-      "slug": "equity-analyst-pictet-singapore",
+      "slug": "equity-analista-pictet-group-singapore",
       "slugByLocale": {
         "en": "equity-analyst-pictet-singapore",
-        "it": "equity-analyst-pictet-singapore",
-        "de": "equity-analyst-pictet-singapore",
-        "fr": "equity-analyst-pictet-singapore"
+        "it": "equity-analista-pictet-group-singapore",
+        "de": "aktienanalyst-pictet-group-singapore",
+        "fr": "equity-analyste-pictet-group-singapore"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -441,16 +433,30 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-06T15:03:50.787Z"
+      "firstSeenAt": "2026-07-06T15:03:50.787Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "equity-analyst-pictet-singapore"
+        ],
+        "de": [
+          "equity-analyst-pictet-singapore"
+        ],
+        "fr": [
+          "equity-analyst-pictet-singapore"
+        ]
+      },
+      "previousSlugs": [
+        "equity-analyst-pictet-singapore"
+      ]
     },
     {
       "id": "pictet-5c01f9b941d3",
-      "slug": "client-relationship-officer-greek-team-pictet-geneva",
+      "slug": "client-relationship-officer-squadra-greca-pictet-group-geneva",
       "slugByLocale": {
         "en": "client-relationship-officer-greek-team-pictet-geneva",
-        "it": "client-relationship-officer-greek-team-pictet-geneva",
+        "it": "client-relationship-officer-squadra-greca-pictet-group-geneva",
         "de": "client-relationship-officer-greek-team-pictet-geneva",
-        "fr": "client-relationship-officer-greek-team-pictet-geneva"
+        "fr": "agent-de-relations-client-equipe-grecque-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -506,16 +512,27 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-06T15:03:50.238Z"
+      "firstSeenAt": "2026-07-06T15:03:50.238Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-greek-team-pictet-geneva"
+        ],
+        "fr": [
+          "client-relationship-officer-greek-team-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-greek-team-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-456caba1ff25",
-      "slug": "investor-relations-pictet-london",
+      "slug": "relazioni-con-gli-investitori-pictet-group-london",
       "slugByLocale": {
         "en": "investor-relations-pictet-london",
-        "it": "investor-relations-pictet-london",
+        "it": "relazioni-con-gli-investitori-pictet-group-london",
         "de": "investor-relations-pictet-london",
-        "fr": "investor-relations-pictet-london"
+        "fr": "relations-avec-les-investisseurs-pictet-group-london"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -571,7 +588,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-06T15:03:49.684Z"
+      "firstSeenAt": "2026-07-06T15:03:49.684Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investor-relations-pictet-london"
+        ],
+        "fr": [
+          "investor-relations-pictet-london"
+        ]
+      },
+      "previousSlugs": [
+        "investor-relations-pictet-london"
+      ]
     },
     {
       "id": "pictet-0c344e2b0437",
@@ -580,7 +608,7 @@
         "en": "senior-risk-compliance-manager-pictet-geneva",
         "it": "senior-risk-compliance-manager-pictet-geneva",
         "de": "senior-risk-compliance-manager-pictet-geneva",
-        "fr": "senior-risk-compliance-manager-pictet-geneva"
+        "fr": "gestionnaire-principal-des-risques-et-de-la-conformite-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -645,7 +673,7 @@
         "en": "business-process-manager-investment-pictet-geneva",
         "it": "business-process-manager-investment-pictet-geneva",
         "de": "business-process-manager-investment-pictet-geneva",
-        "fr": "business-process-manager-investment-pictet-geneva"
+        "fr": "gestionnaire-de-processus-operationnels-investissement-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
