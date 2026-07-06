@@ -1,53 +1,18 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-07-05T12:06:41.320Z",
+  "generatedAt": "2026-07-06T00:10:25.040Z",
   "total": 81,
-  "newCount": 1,
-  "updatedCount": 77,
+  "newCount": 0,
+  "updatedCount": 78,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 391483,
-  "avgDurationMs": 391483,
+  "durationMs": 410492,
+  "avgDurationMs": 410492,
   "durationHistory": [
-    391483
+    410492
   ],
-  "newJobs": [
-    {
-      "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
-      "title": "Ticketkontrolleur:in und Kundenberatung",
-      "company": "PostAuto",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "ticketkontrolleur-in-und-kundenberatung-post-2",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-06-29",
-      "validThrough": "2026-07-29",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "40-100%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Chur"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 62,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 6,
-        "completeness": 9
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74246-de_DE",
@@ -268,7 +233,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "impiegato-nella-gestione-immobiliare-die-schweizerische-post-bern",
+      "slug": "personale-nella-gestione-della-proprieta-die-schweizerische-post-bern",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
@@ -798,11 +763,11 @@
       "postalCode": "5000",
       "firstSeenAt": "2026-06-30T12:17:41.061Z",
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1058,6 +1023,48 @@
       }
     },
     {
+      "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
+      "title": "Ticketkontrolleur:in und Kundenberatung",
+      "company": "PostAuto",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "slug": "ticketkontrolleur-in-und-kundenberatung-post-2",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-06-29",
+      "validThrough": "2026-07-29",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "40-100%",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Chur"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-318dbdb3c660",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7000",
+      "firstSeenAt": "2026-07-05T12:06:41.314Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73798-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73798-de_DE",
       "title": "Zusteller:in Briefe und Pakete",
@@ -1259,48 +1266,6 @@
       "addressCountry": "CH",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T23:18:16.329Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Zustellerin-Pakete/74179-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Pakete/74179-de_DE",
-      "title": "Zusteller:in Pakete",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Mägenwil",
-      "canton": "AG",
-      "country": "CH",
-      "slug": "consegna-in-pacchetti-die-schweizerische-post-magenwil",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-06-26",
-      "validThrough": "2026-07-10",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "AG",
-        "location": "Mägenwil"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-1863e2f1c9a4",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "addressLocality": "Mägenwil",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "postalCode": "5000",
-      "firstSeenAt": "2026-06-26T22:47:17.321Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
