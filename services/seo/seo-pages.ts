@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3087,
+ "numberOfItems": 3088,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7762,7 +7762,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3084, "name": "Traffico sull'A2: rallentamenti e code verso il...", "url": `${BASE_URL}/articoli-frontaliere/traffico-a2-luglio-frontalieri` },
           { "@type": "ListItem", "position": 3085, "name": "Credito d'imposta per frontalieri 2026: calcolo...", "url": `${BASE_URL}/articoli-frontaliere/credito-imposta-frontalieri-2026` },
           { "@type": "ListItem", "position": 3086, "name": "Certificazione unica 2026: modelli ufficiali", "url": `${BASE_URL}/articoli-frontaliere/modelli-cu-2026-frontalieri` },
-          { "@type": "ListItem", "position": 3087, "name": "Credito imposta frontaliere 2026: guida entro i...", "url": `${BASE_URL}/articoli-frontaliere/credito-imposta-frontaliere-2026` }
+          { "@type": "ListItem", "position": 3087, "name": "Credito imposta frontaliere 2026: guida entro i...", "url": `${BASE_URL}/articoli-frontaliere/credito-imposta-frontaliere-2026` },
+          { "@type": "ListItem", "position": 3088, "name": "Sicurezza lavoro Ticino: certificata soluzione ...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-lavoro-ticino-cfsl` }
  ]
  },
  {

@@ -24893,6 +24893,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'sicurezza-lavoro-ticino-cfsl',
+ category: 'novita',
+ date: '2026-07-06T05:58:09.786Z',
+ image: '/images/blog/sicurezza-lavoro-ticino-cfsl.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

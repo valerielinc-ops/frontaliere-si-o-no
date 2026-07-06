@@ -8285,6 +8285,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.modelli-cu-2026-frontalieri.title': 'Certificazione unica 2026: modelli ufficiali',
     'blog.article.modelli-cu-2026-frontalieri.excerpt': 'L\'Italia ha reso disponibili i Modelli Ufficiali della Certificazione Unica 2026, un documento chiave per la dichiarazione dei redditi, inclusi quelli percepiti in Svizzera dai frontalieri, che utilizzano il credito d\'imposta nel Quadro CE del 730 per evitare la doppia imposizione.',
     'blog.article.modelli-cu-2026-frontalieri.imageAlt': 'Vista panoramica di Lugano al mattino, con il lago e le montagne circostanti sotto un cielo limpido. Perfetto per un frontaliere che si reca al lavoro.',
+    'blog.article.sicurezza-lavoro-ticino-cfsl.title': 'Sicurezza lavoro Ticino: certificata soluzione modello',
+    'blog.article.sicurezza-lavoro-ticino-cfsl.excerpt': 'La cooperativa Coop-SSL ottiene il riconoscimento CFSL per la gestione della salute in azienda. Un nuovo standard per le PMI ticinesi e i lavoratori.',
+    'blog.article.sicurezza-lavoro-ticino-cfsl.imageAlt': 'Certificazione sicurezza sul lavoro CFSL in Ticino',
 };
 
 export default blogMetaIt;

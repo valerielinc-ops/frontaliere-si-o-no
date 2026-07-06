@@ -4394,6 +4394,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-credito-imposta-frontalieri-2026': { name: 'Crediti fiscali', path: '/articoli-svizzera/credito-imposta-frontalieri-2026/', parent: 'blog' },
     'blog-modelli-cu-2026-frontalieri': { name: 'Certificazione Unica 2026', path: '/articoli-frontaliere/modelli-cu-2026-frontalieri', parent: 'blog' },
     'blog-credito-imposta-frontaliere-2026': { name: 'Credito Imposta 2026', path: '/articoli-svizzera/credito-imposta-frontaliere-2026/', parent: 'blog' },
+    'blog-sicurezza-lavoro-ticino-cfsl': { name: 'Sicurezza Lavoro Ticino', path: '/articoli-frontaliere/sicurezza-lavoro-ticino-cfsl', parent: 'blog' },
  };
 
  const info = sectionNames[section];
