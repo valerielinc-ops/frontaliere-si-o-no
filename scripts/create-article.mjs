@@ -9554,6 +9554,12 @@ export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pi
 // candidates the shared pipeline above still expects.
 export { normalizeTitleCasing, collapseShoutingTitle, generateExcerpt, splitBodyIntoSections, findStockImageCandidates };
 
+// Re-exported so eval/research harnesses (e.g. the local-LLM rewrite eval,
+// issue #3656) can run the SAME blocking fact-check gate used in production
+// against candidate output, instead of re-implementing an approximation of
+// it. Pure re-export — no behavior change for the internal caller above.
+export { llmFactCheck };
+
 // Only run the AI generation pipeline when invoked directly as a CLI — importing
 // this module (to reuse registerArticleFiles/buildBodyFile) must NOT execute it.
 const invokedDirectly = (() => {
