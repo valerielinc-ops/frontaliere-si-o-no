@@ -101,3 +101,58 @@ describe('matchJobsForSubscriber — companyUrl is gated end-to-end', () => {
     if (acme) expect(acme.companyUrl).toContain('acme-sa');
   });
 });
+
+// ─────────────────────────────────────────────────────────────────────────
+// TI-only company-hub gate (#3557).
+//
+// The hub URL this module builds (companyPageUrl → JOB_BOARD_PATH) is always
+// the Ticino board path. The build only ever emits a hub page at that path
+// for a company with >=1 active TI job (jobsSeoPagesPlugin.ts's legacy
+// companyMap loop, ~line 3700) — a company whose active jobs are ALL outside
+// TI gets a *different* per-canton hub URL instead, never this one. Before
+// this fix, buildCompanyHubSlugSet allow-listed such companies anyway, so
+// the newsletter linked a hub URL the build never emits at this path.
+describe('buildCompanyHubSlugSet — TI-only canton gate (#3557)', () => {
+  it('excludes a company whose only active job is outside TI', () => {
+    const nonTiOnlyJobs = [
+      { title: 'Dev', slug: 'dev-zh', company: 'Zurich Corp', canton: 'ZH', location: 'Zürich', description: 'Sviluppo software a Zurigo.' },
+    ];
+    const set = buildCompanyHubSlugSet(nonTiOnlyJobs);
+    expect(set.has(slugifyCompanyName('Zurich Corp'))).toBe(false);
+    expect(set.size).toBe(0);
+  });
+
+  it('includes a company with >=1 active TI job even if it also has non-TI jobs', () => {
+    const mixedCantonJobs = [
+      { title: 'Dev', slug: 'dev-multi-ti', company: 'Multi SA', canton: 'TI', location: 'Lugano', description: 'Ruolo a Lugano.' },
+      { title: 'Dev', slug: 'dev-multi-zh', company: 'Multi SA', canton: 'ZH', location: 'Zürich', description: 'Ruolo a Zurigo.' },
+    ];
+    const set = buildCompanyHubSlugSet(mixedCantonJobs);
+    expect(set.has(slugifyCompanyName('Multi SA'))).toBe(true);
+  });
+
+  it('companyHubUrlIfEmitted returns "" for a company whose only active job is outside TI', () => {
+    // Mirrors production: buildCompanyHubSlugSet always runs over the FULL
+    // active jobs array (activeJobs has real TI jobs), never a single
+    // company's jobs in isolation — so the allow-set here is non-empty and
+    // the gate (not the "empty allow-set, fail-open" escape hatch) is what's
+    // under test.
+    const jobsWithNonTiOnlyCompany = [
+      ...activeJobs,
+      { title: 'Dev', slug: 'dev-zh', company: 'Zurich Corp', canton: 'ZH', location: 'Zürich', description: 'Sviluppo software a Zurigo.' },
+    ];
+    const emitted = buildCompanyHubSlugSet(jobsWithNonTiOnlyCompany);
+    expect(companyHubUrlIfEmitted('Zurich Corp', 'it', emitted)).toBe('');
+  });
+
+  it('matchJobsForSubscriber attaches no companyUrl for a non-TI-only company', () => {
+    const jobsWithNonTiOnlyCompany = [
+      ...activeJobs,
+      { title: 'Dev', slug: 'dev-zh', company: 'Zurich Corp', canton: 'ZH', location: 'Zürich', description: 'Sviluppo software a Zurigo.' },
+    ];
+    const subscriber = { locale: 'it' };
+    const matched = matchJobsForSubscriber(subscriber, jobsWithNonTiOnlyCompany, 4, 'it');
+    const zhCard = matched.find((c) => c.company === 'Zurich Corp');
+    if (zhCard) expect(zhCard.companyUrl).toBe('');
+  });
+});

@@ -93,6 +93,7 @@ import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
 import { sectionPagesPlugin } from './build-plugins/sectionPagesPlugin';
 import { precompressHtmlPlugin } from './build-plugins/precompressHtmlPlugin';
+import { localeTableCompletenessPlugin } from './build-plugins/localeTableCompletenessPlugin';
 import { withProfile, profileSummaryPlugin } from './build-plugins/profilePlugin';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -153,6 +154,12 @@ export default defineConfig(({ mode }) => {
  affiliateRedirectPlugin(__dirname),
  // ── SEO plugins (skipped when FAST_BUILD=1) ──────────────────
  ...(isFastBuild ? [] : [
+ // Asserts every hand-authored Record<Locale, Record<Key, string>>
+ // slug table used to build a canonical URL is fully populated (issue
+ // #3608 item 2 sibling fix). Cheap in-memory check with no I/O; placed
+ // first in this block so a missing entry fails the build immediately
+ // instead of after the heavy SEO plugins have already run.
+ localeTableCompletenessPlugin(),
  ogPagesPlugin(__dirname),
  jobsSeoPagesPlugin(__dirname),
  // Per-job OG images (1200×630) for FB/LinkedIn previews. Reads

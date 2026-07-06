@@ -21,6 +21,7 @@
 import type { JobBoardLocale } from './jobBoardSeo';
 import { clampSiteSuffix, formatSeoH1, formatSeoTitle } from './shared/seoContentTokens';
 import { firstParsableMs } from './shared/firstParsableDate';
+import { assertLocaleTablesComplete, findMissingLocaleTableEntries } from './shared/localeTableCompleteness';
 
 export type SectorHubKey =
   | 'infermieri'
@@ -555,6 +556,55 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     tecnici: 'Techniciens',
   },
 };
+
+/**
+ * Pure checker backing {@link assertSectorHubTablesComplete} — kept
+ * separate so tests can feed synthetic (deliberately incomplete) tables
+ * without needing to mutate the real, always-complete module constants.
+ *
+ * Returns `"tableName.locale.sector"` for every entry that is missing,
+ * `undefined`, or an empty/whitespace string.
+ */
+export function findMissingSectorHubEntries(
+  tables: ReadonlyArray<
+    readonly [string, Record<JobBoardLocale, Record<SectorHubKey, string>>]
+  >,
+  locales: readonly JobBoardLocale[] = Object.keys(
+    SECTOR_HUB_LOCALE_PREFIX,
+  ) as JobBoardLocale[],
+  keys: readonly SectorHubKey[] = SECTOR_HUB_KEYS,
+): string[] {
+  return findMissingLocaleTableEntries(tables, locales, keys);
+}
+
+/**
+ * Structural completeness guard for the two `Record<JobBoardLocale,
+ * Record<SectorHubKey, string>>` lookup tables above.
+ *
+ * The type annotation alone does NOT protect us: `npm run build` runs
+ * `vite build`, which transpiles TS via esbuild and never runs `tsc`
+ * (no `typecheck` script exists in this repo) — so a missing per-locale
+ * entry would NOT fail the build. It would instead render a literal
+ * `"undefined"` path segment in a canonical sector-hub URL, which Google
+ * either de-indexes or 404s on (follow-up #3608 item 2).
+ *
+ * Node-only: call this from a build-plugin hook (`closeBundle`, etc.),
+ * never at module-import time — this file is also imported by the
+ * client bundle (`App.tsx`, `services/router.ts`) for `SECTOR_HUB_KEYS`/
+ * `buildSectorHubPath`, and a thrown error at import time would crash
+ * the live app for every visitor instead of just failing the build.
+ */
+export function assertSectorHubTablesComplete(): void {
+  assertLocaleTablesComplete(
+    'jobSectorLanding',
+    [
+      ['SECTOR_HUB_SLUG', SECTOR_HUB_SLUG],
+      ['SECTOR_HUB_DISPLAY', SECTOR_HUB_DISPLAY],
+    ],
+    Object.keys(SECTOR_HUB_LOCALE_PREFIX) as JobBoardLocale[],
+    SECTOR_HUB_KEYS,
+  );
+}
 
 /** FIRE emoji threshold — matches cityJobsHub default. */
 export const SECTOR_HUB_FIRE_THRESHOLD = 30;

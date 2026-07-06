@@ -24,6 +24,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const source = readFileSync(resolve(__dirname, '../build-plugins/seoHubsPlugin.ts'), 'utf8');
+const staticPagesSource = readFileSync(resolve(__dirname, '../build-plugins/staticPagesPlugin.ts'), 'utf8');
 
 describe('seoHubsPlugin thin canton-hub below-floor bridges', () => {
   it('defines the shared below-floor/noindex canton-hub bridge helper', () => {
@@ -58,5 +59,39 @@ describe('seoHubsPlugin thin canton-hub below-floor bridges', () => {
     const endIdx = source.indexOf('\n  };\n', startIdx);
     const body = source.slice(startIdx, endIdx);
     expect(body).not.toContain('sitemapEntries.push');
+  });
+
+  // #3608 item 3 (adversarial follow-up on #3594): emitCantonHubBelowFloorBridge
+  // has no explicit `shouldEmitLocale` gate of its own (it loops HUB_LOCALES
+  // internally) — the real BUILD_LOCALE shard-locale gate for its writes is
+  // path-based: it writes via the injected `qw` param, which the caller
+  // (staticPagesPlugin.ts) binds to its own `_qw`, which funnels every write
+  // through the shared WriteCollector's collector.add() → shouldEmitPath on
+  // the actual computed dist path (see build-plugins/shared/localeEmitFilter.ts
+  // and tests/below-floor-bridge-locale-shard.test.ts for an end-to-end proof
+  // of that chokepoint against the three below-floor emitters that ARE
+  // invocable outside a full build). These two tests lock in that this
+  // helper still writes only via the injected `qw` — never a raw fs write —
+  // and that the caller still wires `qw` to a WriteCollector-backed `_qw`,
+  // so a future refactor can't silently bypass the shard-locale gate for
+  // this family of below-floor bridges.
+  it('the bridge helper writes only via the injected qw param, never a raw fs write', () => {
+    const startIdx = source.indexOf('const emitCantonHubBelowFloorBridge = (canton: string): void => {');
+    const endIdx = source.indexOf('\n  };\n', startIdx);
+    const body = source.slice(startIdx, endIdx);
+    expect(body).toContain('qw(np.join(distDir, canonicalPath.slice(1), \'index.html\'), html);');
+    expect(body).not.toContain('fs.writeFileSync(');
+  });
+
+  it('the caller (staticPagesPlugin.ts) wires qw to its own WriteCollector-backed _qw, the real shard-locale chokepoint', () => {
+    const callIdx = staticPagesSource.indexOf('const hubs = emitSeoHubs({');
+    expect(callIdx).toBeGreaterThan(-1);
+    const callBody = staticPagesSource.slice(callIdx, callIdx + 200);
+    expect(callBody).toContain('qw: _qw,');
+
+    const qwDefIdx = staticPagesSource.indexOf('function _qw(');
+    expect(qwDefIdx).toBeGreaterThan(-1);
+    const qwBody = staticPagesSource.slice(qwDefIdx, qwDefIdx + 300);
+    expect(qwBody).toContain('collector.add(');
   });
 });

@@ -109,7 +109,17 @@ import https from 'node:https';
 // Exercise the REAL newsletter URL builder, not a frozen copy of the bug — so
 // check (B) auto-resolves once companyPageUrl is fixed AND catches any future
 // prefix/slug regression (the builder is the single source of truth).
-import { companyPageUrl, slugifyCompanyName } from '../services/newsletter-content.mjs';
+// `companyHubUrlIfEmitted` + `buildCompanyHubSlugSet` are the production GATE
+// (issue #3557): the raw `companyPageUrl` builds a URL for every company
+// unconditionally, but the build only ever EMITS a hub page at this (Ticino
+// board) URL for companies with >=1 active TI job — a non-TI-only company
+// gets a *different* per-canton hub URL instead, never this one. Testing the
+// ungated builder flagged companies the real newsletter never even links.
+import {
+  slugifyCompanyName,
+  buildCompanyHubSlugSet,
+  companyHubUrlIfEmitted,
+} from '../services/newsletter-content.mjs';
 
 const execFileP = promisify(execFile);
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -413,6 +423,9 @@ function makeResolver(served, meta) {
 }
 
 // ── Company sample for check (B): real companies from the jobs dataset ───────
+// Returns both the company sample AND the full jobs array — the latter feeds
+// `buildCompanyHubSlugSet(jobs)` so check (B) can gate on the same TI-only
+// allow-set the real newsletter builder uses (issue #3557).
 async function loadCompanySample(limit) {
   // Try assembled jobs dataset, then a few known fallbacks. Each entry → a
   // company display name; we only need a representative spread of slugs.
@@ -440,15 +453,21 @@ async function loadCompanySample(limit) {
   }
   // Slug via the SAME function the real builder uses (slugifyCompanyName), so
   // the URL we test matches what the newsletter actually emits.
-  // Always include the proven-incident company so the gate self-tests.
+  // Always include the proven-incident company so the gate self-tests (EOC is
+  // a real, currently-active TI employer, so it passes the TI-only gate below).
   names.add('EOC Ente Ospedaliero Cantonale');
-  return [...names].map((name) => ({ name, slug: slugifyCompanyName(name) })).filter((c) => c.slug);
+  const companies = [...names].map((name) => ({ name, slug: slugifyCompanyName(name) })).filter((c) => c.slug);
+  return { companies, jobs: jobs || [] };
 }
 
 // The path the REAL newsletter builder emits for a company hub, for the given
-// locale. companyPageUrl returns an absolute URL → reduce to a normalized path.
-function builderHubPath(slug, locale) {
-  return normPath(companyPageUrl(slug, locale));
+// locale — gated through the SAME TI-only allow-set (`emittedSlugs`) the real
+// newsletter uses, so a company the builder never links (e.g. a non-TI-only
+// company, issue #3557) isn't flagged as a would-be-404: there is no link to
+// begin with. Returns '' when the builder emits no link at all.
+function builderHubPath(name, locale, emittedSlugs) {
+  const url = companyHubUrlIfEmitted(name, locale, emittedSlugs);
+  return url ? normPath(url) : '';
 }
 // The locally-correct localized form, used only for a human-readable hint in the
 // report (the offender DETECTION above is driven by the real builder).
@@ -503,11 +522,16 @@ async function main() {
 
   // ── (B) NEWSLETTER HUB-LINK CORRECTNESS ────────────────────────────────
   log('[404] (B) newsletter hub-link correctness …');
-  const companies = await loadCompanySample(SAMPLE);
+  const { companies, jobs } = await loadCompanySample(SAMPLE);
+  // TI-only allow-set the real newsletter gates company-hub links through
+  // (issue #3557) — a company outside this set gets NO link at all, so it's
+  // not a would-be-404, it's correctly-absent.
+  const emittedSlugs = buildCompanyHubSlugSet(jobs);
   const hubOffenders = [];
   for (const { name, slug } of companies) {
     for (const locale of ['it', 'en', 'de', 'fr']) {
-      const url = builderHubPath(slug, locale); // what the REAL builder emits
+      const url = builderHubPath(name, locale, emittedSlugs); // what the REAL builder emits (TI-gated)
+      if (!url) continue; // builder emits no link for this company/locale — correctly gated, nothing to 404-check
       if (!resolves(url)) {
         const expected = expectedHubPath(slug, locale);
         hubOffenders.push({
