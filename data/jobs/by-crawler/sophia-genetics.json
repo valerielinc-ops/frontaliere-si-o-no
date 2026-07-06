@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sophia-genetics",
-  "assembledAt": "2026-07-06T00:03:53.296Z",
+  "assembledAt": "2026-07-06T15:16:11.273Z",
   "jobs": [
     {
       "id": "sophia-genetics-a85899187eab",
@@ -33,7 +33,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T00:03:50.962Z",
+      "crawledAt": "2026-07-06T15:16:08.792Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -53,6 +53,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:25:48.314Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -97,7 +98,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/E4102E5646/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T00:03:50.891Z",
+      "crawledAt": "2026-07-06T15:16:08.696Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -161,7 +162,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/D92BC8459B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T00:03:50.817Z",
+      "crawledAt": "2026-07-06T15:16:08.613Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -241,7 +242,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/F52E4089C5/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T00:03:50.745Z",
+      "crawledAt": "2026-07-06T15:16:08.528Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -272,7 +273,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sophia-genetics-18205de0c204",
@@ -305,7 +307,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/28887796D7/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T00:03:50.229Z",
+      "crawledAt": "2026-07-06T15:16:07.896Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -369,7 +371,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/A5F8F7F93B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T00:03:50.142Z",
+      "crawledAt": "2026-07-06T15:16:07.794Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -389,6 +391,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:25:47.424Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -433,7 +436,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/892266C223/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T00:03:49.740Z",
+      "crawledAt": "2026-07-06T15:16:07.273Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -497,7 +500,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/39F1F5A7B1/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T00:03:49.525Z",
+      "crawledAt": "2026-07-06T15:16:06.969Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zurich",
       "streetAddress": "",
@@ -528,7 +531,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
