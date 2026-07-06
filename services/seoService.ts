@@ -4369,6 +4369,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-riapertura-treni-ticino-2024': { name: 'Riapertura dei treni tra Varese, il Ticino', path: '/articoli-frontaliere/riapertura-treni-ticino-2024', parent: 'blog' },
     'blog-unions-launch-referendum-minimum-wage-reform': { name: 'La riforma salari minimi', path: '/articoli-svizzera/unions-launch-referendum-minimum-wage-reform/', parent: 'blog' },
     'blog-sicurezza-alimentare-aziende-ticino': { name: 'Sicurezza alimentare Ticino', path: '/articoli-frontaliere/sicurezza-alimentare-aziende-ticino', parent: 'blog' },
+    'blog-sciopero-aereo-malpensa-linate-2024': { name: 'Sciopero Aereo', path: '/articoli-svizzera/sciopero-aereo-malpensa-linate-2024/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
