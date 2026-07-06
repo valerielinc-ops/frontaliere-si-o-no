@@ -100,6 +100,57 @@ export function resolveRecoveryTarget(job, slug, bySuffixHash) {
   return { targetJob: job, skip: false, redirected: false };
 }
 
+/**
+ * Write a single recovered slug onto its target job, capacity-permitting.
+ *
+ * Recovered slugs are, by definition, the OLDEST entries a job ever had
+ * (they were captured long enough ago to have since fallen off history) —
+ * never the newest. Pushing them onto the tail and then cap-trimming the
+ * front (the pattern addPreviousSlugForLocale uses for live, chronologically
+ * -ordered captures) would silently evict whatever is CURRENTLY in the
+ * bucket to make room for these stale entries, i.e. recovery would
+ * manufacture brand-new losses of live slugs on every run — the exact
+ * oscillation that kept this workflow's own "Recover N previousSlugs"
+ * commits showing up as the top offending commits in the next scan (#3587).
+ * Recovery must stay capacity-permitting and non-destructive (see
+ * recover-prev-slugs.yml header: "Recovery is non-destructive — only
+ * ADDS"): skip instead of evicting once a bucket is already at cap.
+ *
+ * @param {object} targetJob – job to mutate in place.
+ * @param {string} locale – locale bucket the slug is attributed to.
+ * @param {string} slug – recovered slug value.
+ * @param {number} [cap=CAP] – max entries per bucket / flat array.
+ * @returns {{ restored: boolean, skippedAtCap: boolean }}
+ */
+export function applyRecoveredSlug(targetJob, locale, slug, cap = CAP) {
+  if (!targetJob.previousSlugsByLocale || typeof targetJob.previousSlugsByLocale !== 'object') {
+    targetJob.previousSlugsByLocale = {};
+  }
+  if (!Array.isArray(targetJob.previousSlugsByLocale[locale])) {
+    targetJob.previousSlugsByLocale[locale] = [];
+  }
+
+  let restored = false;
+  let skippedAtCap = false;
+  if (!targetJob.previousSlugsByLocale[locale].includes(slug)) {
+    if (targetJob.previousSlugsByLocale[locale].length < cap) {
+      targetJob.previousSlugsByLocale[locale].push(slug);
+      restored = true;
+    } else {
+      skippedAtCap = true;
+    }
+  }
+
+  // Also sync flat previousSlugs for legacy consumers — same
+  // non-destructive, capacity-permitting rule as above.
+  if (!Array.isArray(targetJob.previousSlugs)) targetJob.previousSlugs = [];
+  if (!targetJob.previousSlugs.includes(slug) && targetJob.previousSlugs.length < cap) {
+    targetJob.previousSlugs.push(slug);
+  }
+
+  return { restored, skippedAtCap };
+}
+
 // One-shot cache of (file → jobId → Map<slug, locale>) built lazily
 // when the first job in a file is processed. Subsequent jobs in the
 // same file reuse the cached index → 1 git-log + N git-show per FILE
@@ -185,6 +236,7 @@ function main() {
     slugsRestoredByLocale: 0,
     slugsRestoredFromHistory: 0,
     slugsRestoredFromDetection: 0,
+    slugsSkippedAtCap: 0,
     jobsMissing: 0,
   };
   const filesByName = new Map();
@@ -236,28 +288,15 @@ function main() {
           locale = detectLocaleFromSlug(slug);
           stats.slugsRestoredFromDetection++;
         }
-        // Write to previousSlugsByLocale[locale]
-        if (!targetJob.previousSlugsByLocale || typeof targetJob.previousSlugsByLocale !== 'object') {
-          targetJob.previousSlugsByLocale = {};
-        }
-        if (!Array.isArray(targetJob.previousSlugsByLocale[locale])) {
-          targetJob.previousSlugsByLocale[locale] = [];
-        }
-        if (!targetJob.previousSlugsByLocale[locale].includes(slug)) {
-          targetJob.previousSlugsByLocale[locale].push(slug);
-          if (targetJob.previousSlugsByLocale[locale].length > CAP) {
-            targetJob.previousSlugsByLocale[locale] = targetJob.previousSlugsByLocale[locale].slice(-CAP);
-          }
+        // Write the recovered slug capacity-permitting (see applyRecoveredSlug
+        // docstring for why this must never evict currently-live entries).
+        const { restored, skippedAtCap } = applyRecoveredSlug(targetJob, locale, slug, CAP);
+        if (restored) {
           changedJobIds.add(resolveJobDiffKey(targetJob));
           stats.slugsRestoredByLocale++;
         }
-        // Also sync flat previousSlugs for legacy consumers
-        if (!Array.isArray(targetJob.previousSlugs)) targetJob.previousSlugs = [];
-        if (!targetJob.previousSlugs.includes(slug)) {
-          targetJob.previousSlugs.push(slug);
-          if (targetJob.previousSlugs.length > CAP) {
-            targetJob.previousSlugs = targetJob.previousSlugs.slice(-CAP);
-          }
+        if (skippedAtCap) {
+          stats.slugsSkippedAtCap++;
         }
       }
     }
@@ -278,6 +317,7 @@ function main() {
   console.log(`  ├─ from git history:        ${stats.slugsRestoredFromHistory}`);
   console.log(`  └─ from language detection: ${stats.slugsRestoredFromDetection}`);
   console.log(`  slugs redirected (mismatch): ${stats.slugsRedirected || 0}`);
+  console.log(`  slugs skipped (bucket full): ${stats.slugsSkippedAtCap}`);
   console.log(`  jobs missing in current:     ${stats.jobsMissing}`);
 }
 
