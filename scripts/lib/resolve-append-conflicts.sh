@@ -8,11 +8,17 @@
 # same insertion point, git marks the spot as a conflict; both additions are
 # valid and must be kept. This helper:
 #   1. Strips conflict markers, keeping content from BOTH sides.
-#   2. Repairs a duplicated root closer left by a chained rebase-conflict
-#      cycle (issue #3617-class) in the non-JSON growing-container siblings —
+#   2. Defense-in-depth for the non-JSON growing-container siblings —
 #      blog-articles-data.ts, swiss-articles-data.ts, seo-pages.ts,
 #      blog-meta-*.ts, sitemap*.xml — via
-#      scripts/lib/dedupe-growing-container-closer.mjs.
+#      scripts/lib/dedupe-growing-container-closer.mjs: repairs a duplicated
+#      root closer IF one is present (no-op otherwise). Real chained-rebase
+#      reproduction (tests/resolve-append-conflicts-idempotency.test.ts)
+#      found this exact corruption shape only actually occurs for JSON;
+#      these siblings either resolve cleanly on their own or hit a
+#      different failure caught by step 5 below. Kept in case a future
+#      insertion-anchor change or a different conflict shape does produce
+#      it.
 #   3. Repairs JSON files that lose commas during marker removal (including
 #      the JSON-shaped version of the same duplicated-root-closer corruption).
 #   4. Dedupes single-declaration conflicts in routerBlogData.ts and router.ts
