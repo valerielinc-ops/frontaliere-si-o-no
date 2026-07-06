@@ -1,6 +1,6 @@
 {
   "crawlerKey": "svar-spitalverbund-ar",
-  "assembledAt": "2026-07-06T00:34:45.642Z",
+  "assembledAt": "2026-07-06T11:30:22.797Z",
   "jobs": [
     {
       "id": "svar-spitalverbund-ar-f3d22cc7bc9b",
@@ -223,86 +223,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:40:30.830Z",
-      "salaryMin": 65000,
-      "salaryMax": 98500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65000,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-260b8dff964f",
-      "slug": "collaboratore-trice-empfang-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "collaboratore-trice-empfang-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "reception-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "mitarbeiter-in-empfang-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "reception-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Mitarbeiter/in Empfang (m/w/d)",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Empfang (m/w/d)",
-        "en": "Reception (m/f/d)",
-        "de": "Mitarbeiter/in Empfang (m/w/d)",
-        "fr": "Réception (m/f/d)"
-      },
-      "description": "Ihre Aufgaben\n• Empfang, Betreuung und Aufnahme und von Patienten und von Gästen\n• Bedienung der Telefonzentrale und kompetente Erteilung von Auskünften\n• Allgemeine administrative Arbeiten (Patientenmutationen, Falleröffnungen, stationären Aufnahmen, Laborfällen, Tagespatienten, ambulanten Vorgesprächen, Reservationen etc.), Fahrzeug- und Raumreservationen\n• Postverteilung/-versand sowie Paketverteilung/-versand\n• Entgegennahme und Übergabe der Post sowie Laboraufträgen\n• Kassaführung, Noten-/Münz-Vorrat bewirtschaften, Monats-/Jahresabschluss und Bereitstellen von Geldern\n• Abrechnen von Medikamentenversand und Postversände\n• Erfassen von Patientenaustritte und administrativen Arbeiten bei Todesfällen\n• Telefonlinien für Patienten freigeben\n• Diverse Ausgaben (Briefmarken, Batterien, Kopierpapier, Parkkarten, Geburtstagskarten, Mitarbeiter-Benefits etc.) und Schlüssel (Velo, Kapelle, Fahrzeuge, etc.) verwalten\n• Zusammenarbeit mit Triage / Patientenadministration / IT bzgl. Ein-/ Austritte, Reservationen, Support-Tickets etc.\n• Durchführung von Einzelaufträgen\n\nIhr Profil\n• Eine abgeschlossene Ausbildung im Bereich Bürokommunikation, Hotellerie oder eine ähnliche kaufmännische Ausbildung.\n• Mehrere Jahre Berufserfahrung in einer vergleichbaren Position, idealerweise mit direktem Kundenkontakt\n• Kenntnisse in der Verwaltung von Patientendaten nach den Datenschutzrichtlinien.\n• Sicherer Umgang mit Bürosoftware (z.B. MS Office), Kliniksoftware und Terminals zur Verwaltung von Patientendaten.\n• Einwandfreies Deutsch in Wort und Schrift, zusätzlich Englisch oder andere Fremdsprache ist von Vorteil.\n• Erfahrung in der Arbeit am Empfang, in der Kundenbetreuung oder an der Rezeption ist von Vorteil.\n• Hohe Empathiefähigkeit, Einfühlungsvermögen und respektvolle Kommunikation\n• Wahrung der Schweigepflicht und das sensibles Handling von Patientendaten und persönlichen Informationen\n• Freundliche, professionell handelnde und geduldige Persönlichkeit, die auch in stressigen Momenten ruhig bleibt.\n• Verantwortungsvolle Person, die eine sachliche und pragmatische Arbeitsweise besitzt und mehrere Aufgaben gleichzeitig zu koordinieren kann\n• Teamplayer: in, die in der Lage ist, sich selbst zu reflektieren und geeignete Massnahmen zur Selbstpflege zu ergreifen.\n• Sensibilität und die Fähigkeit, auf diverse Bedürfnisse und kulturelle Besonderheiten einzugehen\n• Belastbare und ausgeglichene Persönlichkeit mit hoher Einsatzbereitschaft und Flexibilität (keine kleinen Kinder mehr)\n\nZusätzlich profitieren Sie von\n• Wertschätzende Atmosphäre in einem engagierten und lebendigen interdisziplinären Team\n• Prozesshafte Einarbeitung durch das Team\n• Weitere attraktive Benefits\n\nEintritt: 01. August 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Accoglienza, cura e accoglienza di pazienti e ospiti\n• Funzionamento dello scambio telefonico e fornitura competente di informazioni\n• Lavoro amministrativo generale (mutazioni paziente, aperture di caduta, registrazioni stazionarie, casi di laboratorio, pazienti diurni, discussioni preliminari ambulatoriali, prenotazioni, prenotazioni di veicoli e di spazio\n• Distribuzione / spedizione e distribuzione dei pacchi / spedizione\n• Ricezione e consegna degli ordini postali e di laboratorio\n• Gestione di cassa, scorte di note/coin, conti mensili/annuali e fornitura di fondi\n• Servizi di spedizione e fatturazione posta\n• Registrazione delle uscite del paziente e del lavoro amministrativo in caso di morte\n• Condivisione delle linee telefoniche per i pazienti\n• Gestire varie spese (bolli di spedizione, batterie, carta di copia, carte di parcheggio, biglietti di compleanno, vantaggi dei dipendenti, ecc) e chiavi (velo, cappella, veicoli, ecc.)\n• Cooperazione con triage / paziente amministrazione / IT per quanto riguarda. Entry/exits, prenotazioni, biglietti di supporto ecc.\n• Attuazione di contratti specifici Il tuo profilo\n• Formazione completa nel campo della comunicazione ufficio, hotel o simile formazione commerciale.\n• Diversi anni di esperienza professionale in una posizione paragonabile, idealmente con contatto diretto del cliente\n• Conoscenza nella gestione dei dati dei pazienti secondo le linee guida sulla protezione dei dati.\n• Gestione sicura del software per ufficio (ad esempio MS Office), del software clinico e dei terminali per la gestione dei dati dei pazienti.\n• Tedesco impeccabile in parola e scrittura, inoltre inglese o altra lingua straniera è un vantaggio.\n• L'esperienza di lavoro presso la reception, il supporto clienti o la reception è utile.\n• Alta empatia, empatia e comunicazione rispettosa\n• Manutenzione della riservatezza e del trattamento sensibile dei dati dei pazienti e delle informazioni personali\n• Personalità amichevole, professionale e paziente che rimane calma anche nei momenti stressanti.\n• Persona responsabile che ha un modo di lavorare fatto e pragmatico e può coordinare più compiti contemporaneamente\n• Giocatore di squadra: in chi è in grado di riflettere se stessi e prendere adeguate misure di auto-cura.\n• Sensibilità e capacità di rispondere a diverse esigenze e caratteristiche culturali\n• Personalità resiliente ed equilibrata con alto impegno e flessibilità (non più bambini piccoli) Inoltre, si beneficia di\n• Atmosfera apprezzata in un team interdisciplinare impegnato e vivace\n• Formazione di processo da parte del team\n• Altri vantaggi Ingresso: 01. agosto 2026",
-        "en": "Their tasks\n• Reception, care and reception of patients and guests\n• Operation of the telephone exchange and competent provision of information\n• General administrative work (patient mutations, fall openings, stationary recordings, laboratory cases, day patients, outpatient preliminary discussions, reservations, etc.), vehicle and space reservations\n• Postal distribution/shipping and parcel distribution/shipping\n• Receiving and handing over post and laboratory orders\n• Cash management, stocks of notes/coins, monthly/annual accounts and provision of funds\n• Shipping and mail billing services\n• Recording patient exits and administrative work in the event of deaths\n• Sharing phone lines for patients\n• Manage various expenses (postage stamps, batteries, copy paper, parking cards, birthday cards, employee benefits, etc.) and keys (velo, chapel, vehicles, etc.)\n• Cooperation with triage / patient administration / IT regarding. Entry/exits, reservations, support tickets etc.\n• Implementation of specific contracts Your profile\n• Completed training in the field of office communication, hotel or similar commercial training.\n• Several years of professional experience in a comparable position, ideally with direct customer contact\n• Knowledge in the management of patient data according to the data protection guidelines.\n• Secure handling of office software (e.g. MS Office), clinic software and terminals for managing patient data.\n• Impeccable German in word and writing, in addition English or other foreign language is an advantage.\n• Experience working at the reception, customer support or reception is beneficial.\n• High empathy, empathy and respectful communication\n• Maintenance of confidentiality and sensitive handling of patient data and personal information\n• Friendly, professionally acting and patient personality that stays calm even in stressful moments.\n• Responsible person who has a factual and pragmatic way of working and can coordinate several tasks simultaneously\n• Team player: in who is able to reflect themselves and take appropriate self-care measures.\n• Sensitivity and the ability to respond to diverse needs and cultural features\n• Resilient and balanced personality with high commitment and flexibility (no more small children) In addition, you benefit from\n• Appreciative atmosphere in a committed and lively interdisciplinary team\n• Process training by the team\n• Other attractive benefits Admission: 01. August 2026",
-        "de": "Ihre Aufgaben\n• Empfang, Betreuung und Aufnahme und von Patienten und von Gästen\n• Bedienung der Telefonzentrale und kompetente Erteilung von Auskünften\n• Allgemeine administrative Arbeiten (Patientenmutationen, Falleröffnungen, stationären Aufnahmen, Laborfällen, Tagespatienten, ambulanten Vorgesprächen, Reservationen etc.), Fahrzeug- und Raumreservationen\n• Postverteilung/-versand sowie Paketverteilung/-versand\n• Entgegennahme und Übergabe der Post sowie Laboraufträgen\n• Kassaführung, Noten-/Münz-Vorrat bewirtschaften, Monats-/Jahresabschluss und Bereitstellen von Geldern\n• Abrechnen von Medikamentenversand und Postversände\n• Erfassen von Patientenaustritte und administrativen Arbeiten bei Todesfällen\n• Telefonlinien für Patienten freigeben\n• Diverse Ausgaben (Briefmarken, Batterien, Kopierpapier, Parkkarten, Geburtstagskarten, Mitarbeiter-Benefits etc.) und Schlüssel (Velo, Kapelle, Fahrzeuge, etc.) verwalten\n• Zusammenarbeit mit Triage / Patientenadministration / IT bzgl. Ein-/ Austritte, Reservationen, Support-Tickets etc.\n• Durchführung von Einzelaufträgen Ihr Profil\n• Eine abgeschlossene Ausbildung im Bereich Bürokommunikation, Hotellerie oder eine ähnliche kaufmännische Ausbildung.\n• Mehrere Jahre Berufserfahrung in einer vergleichbaren Position, idealerweise mit direktem Kundenkontakt\n• Kenntnisse in der Verwaltung von Patientendaten nach den Datenschutzrichtlinien.\n• Sicherer Umgang mit Bürosoftware (z.B. MS Office), Kliniksoftware und Terminals zur Verwaltung von Patientendaten.\n• Einwandfreies Deutsch in Wort und Schrift, zusätzlich Englisch oder andere Fremdsprache ist von Vorteil.\n• Erfahrung in der Arbeit am Empfang, in der Kundenbetreuung oder an der Rezeption ist von Vorteil.\n• Hohe Empathiefähigkeit, Einfühlungsvermögen und respektvolle Kommunikation\n• Wahrung der Schweigepflicht und das sensibles Handling von Patientendaten und persönlichen Informationen\n• Freundliche, professionell handelnde und geduldige Persönlichkeit, die auch in stressigen Momenten ruhig bleibt.\n• Verantwortungsvolle Person, die eine sachliche und pragmatische Arbeitsweise besitzt und mehrere Aufgaben gleichzeitig zu koordinieren kann\n• Teamplayer: in, die in der Lage ist, sich selbst zu reflektieren und geeignete Massnahmen zur Selbstpflege zu ergreifen.\n• Sensibilität und die Fähigkeit, auf diverse Bedürfnisse und kulturelle Besonderheiten einzugehen\n• Belastbare und ausgeglichene Persönlichkeit mit hoher Einsatzbereitschaft und Flexibilität (keine kleinen Kinder mehr) Zusätzlich profitieren Sie von\n• Wertschätzende Atmosphäre in einem engagierten und lebendigen interdisziplinären Team\n• Prozesshafte Einarbeitung durch das Team\n• Weitere attraktive Benefits Eintritt: 01. August 2026",
-        "fr": "Leurs tâches\n• Réception, soins et accueil des patients et des invités\n• Fonctionnement de l'échange téléphonique et information compétente\n• Travaux administratifs généraux (mutations du patient, ouvertures d'automne, enregistrements fixes, cas de laboratoire, patients de jour, discussions préliminaires en consultation externe, réservations, etc.), réservations de véhicules et d'espace\n• Distribution postale/expédition et distribution/expédition de colis\n• Réception et remise des commandes de poste et de laboratoire\n• Gestion de la trésorerie, stocks de billets/de pièces, comptes mensuels/annuels et fourniture de fonds\n• Services d'expédition et de facturation du courrier\n• Enregistrement des sorties de patients et des travaux administratifs en cas de décès\n• Partage de lignes téléphoniques pour les patients\n• Gérer diverses dépenses (postes, piles, papier à copier, cartes de stationnement, cartes d'anniversaire, avantages sociaux, etc.) et clés (vélo, chapelle, véhicules, etc.)\n• Coopération avec le triage / administration du patient / IT concernant. Entrée/sortie, réservations, tickets de soutien, etc.\n• Mise en œuvre de contrats spécifiques Votre profil\n• Formation complète dans le domaine de la communication de bureau, de l'hôtellerie ou d'une formation commerciale similaire.\n• Plusieurs années d'expérience professionnelle dans une position comparable, idéalement avec contact direct avec le client\n• Connaissance de la gestion des données du patient conformément aux lignes directrices en matière de protection des données.\n• Traitement sécurisé des logiciels de bureau (p. ex. MS Office), des logiciels de clinique et des terminaux pour la gestion des données sur les patients.\n• L'allemand impeccable en paroles et en écriture, en outre l'anglais ou une autre langue étrangère est un avantage.\n• L'expérience de travail à la réception, le support client ou la réception est bénéfique.\n• Haute empathie, empathie et communication respectueuse\n• Maintien de la confidentialité et traitement sensible des données sur les patients et des renseignements personnels\n• Ambiance, comportement professionnel et personnalité patiente qui reste calme même dans des moments stressants.\n• Personne responsable qui a une manière concrète et pragmatique de travailler et peut coordonner plusieurs tâches simultanément\n• Joueur d'équipe: en qui est capable de se réfléchir et de prendre des mesures d'auto-soin appropriées.\n• Sensibilité et capacité de répondre à divers besoins et caractéristiques culturelles\n• Personnalité résiliente et équilibrée avec un haut engagement et flexibilité (plus de petits enfants) En outre, vous bénéficiez\n• Ambiance appréciée dans une équipe interdisciplinaire engagée et vivante\n• Formation de l'équipe\n• Autres avantages intéressants Entrée: 01. Août 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4030163",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T00:34:41.824Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-30",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4030163",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4030163",
-      "previousSlugs": [
-        "mitarbeiter-in-empfang-m-w-d-svar-spitalverbund-ar-herisau",
-        "collaboratore-trice-empfang-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-empfang-m-w-d-svar-spitalverbund-ar-herisau",
-          "collaboratore-trice-empfang-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "en": [
-          "mitarbeiter-in-empfang-m-w-d-svar-spitalverbund-ar-herisau"
-        ],
-        "fr": [
-          "mitarbeiter-in-empfang-m-w-d-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-06-30T12:40:29.463Z",
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
