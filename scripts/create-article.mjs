@@ -827,6 +827,22 @@ const AUTHORS = Object.freeze([
       'attualità',
     ]),
   }),
+  // Guest author added to data/authors.ts 2026-06-30 but never mirrored here —
+  // pickAuthorForTopic() could never select them, so redazione articles about
+  // the Italia-Svizzera cross-border tax treaty (their specialty) kept
+  // falling through to marco-ferrari/round-robin instead.
+  Object.freeze({
+    slug: 'samuele-valente',
+    name: 'Samuele Valente',
+    linkedinUrl: 'https://www.linkedin.com/in/samuele-valente-9b8a4335b/',
+    expertise: Object.freeze([
+      'fiscalità transfrontaliera',
+      'accordo italia-svizzera',
+      'interpelli agenzia delle entrate',
+      'residenza fiscale',
+      'frontalieri',
+    ]),
+  }),
 ]);
 
 let _authorRoundRobinIdx = 0;
