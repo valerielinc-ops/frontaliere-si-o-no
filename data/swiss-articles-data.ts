@@ -2690,6 +2690,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'divorzio-frontaliere-mantenimento-svizzera',
+    category: 'fiscale',
+    date: '2026-07-06T03:22:09.966Z',
+    image: '/images/blog/divorzio-frontaliere-mantenimento-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

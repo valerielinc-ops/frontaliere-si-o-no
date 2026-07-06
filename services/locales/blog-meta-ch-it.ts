@@ -898,6 +898,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.successione-eredita-frontaliere-conto-svizzero.title': 'Successione eredità: conto svizzero e frontaliere in Italia',
     'blog.article.successione-eredita-frontaliere-conto-svizzero.excerpt': 'Come gestire l\'eredità di conti o immobili in Svizzera per residenti in Italia. Regole sulla doppia imposizione e quadro fiscale tra i due Paesi.',
     'blog.article.successione-eredita-frontaliere-conto-svizzero.imageAlt': 'Edificio bancario a Lugano riflettente il paesaggio circostante',
+    'blog.article.divorzio-frontaliere-mantenimento-svizzera.title': 'Divorzio frontaliere: assegno mantenimento in Svizzera',
+    'blog.article.divorzio-frontaliere-mantenimento-svizzera.excerpt': 'Guida pratica su giurisdizione e calcolo dell\'assegno di mantenimento per frontalieri tra Svizzera e Italia nel rispetto delle norme vigenti.',
+    'blog.article.divorzio-frontaliere-mantenimento-svizzera.imageAlt': 'Vista panoramica di un ufficio a Lugano con il lago sullo sfondo',
 };
 
 export default blogMetaChIt;

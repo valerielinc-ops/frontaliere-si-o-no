@@ -322,6 +322,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'quadro-rw-conto-svizzero-obblighi': { it: 'quadro-rw-conto-svizzero-obblighi', en: 'switzerland-bank-account-tax-reporting', de: 'schweizer-bankkonto-steuererklaerung', fr: 'declaration-compte-suisse-impots' },
  'matrimonio-frontaliere-regime-fiscale': { it: 'matrimonio-frontaliere-regime-fiscale', en: 'cross-border-worker-marriage-tax-regime', de: 'heirat-grenzganger-steuerregime', fr: 'mariage-frontalier-regime-fiscal' },
  'successione-eredita-frontaliere-conto-svizzero': { it: 'successione-eredita-frontaliere-conto-svizzero', en: 'inheritance-cross-border-switzerland-italy', de: 'erbschaft-grenzgaenger-schweizer-konto', fr: 'succession-heritage-frontalier-compte-suisse' },
+ 'divorzio-frontaliere-mantenimento-svizzera': { it: 'divorzio-frontaliere-mantenimento-svizzera', en: 'divorce-cross-border-worker-maintenance-switzerland', de: 'scheidung-grenzgaenger-unterhalt-schweiz', fr: 'divorce-frontalier-pension-alimentaire-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

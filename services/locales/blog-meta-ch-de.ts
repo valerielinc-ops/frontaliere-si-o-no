@@ -898,6 +898,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.successione-eredita-frontaliere-conto-svizzero.title': 'Erbfolge: Schweizer und Grenzgängerkonto in Italien',
     'blog.article.successione-eredita-frontaliere-conto-svizzero.excerpt': 'Wie man das Erbe von Konten oder Immobilien in der Schweiz für in Italien ansässige Personen verwaltet. Doppelbesteuerungsregeln und steuerlicher Rahmen zwischen den beiden Ländern.',
     'blog.article.successione-eredita-frontaliere-conto-svizzero.imageAlt': 'Schweizer Bankgebäude in Lugano mit Spiegelung der Landschaft',
+    'blog.article.divorzio-frontaliere-mantenimento-svizzera.title': 'Grenzüberschreitende Scheidung: Unterhaltszulage in der Schweiz',
+    'blog.article.divorzio-frontaliere-mantenimento-svizzera.excerpt': 'Praktischer Leitfaden zur Gerichtsbarkeit und Berechnung der Unterhaltszulage für Grenzgänger zwischen der Schweiz und Italien unter Einhaltung der geltenden Vorschriften.',
+    'blog.article.divorzio-frontaliere-mantenimento-svizzera.imageAlt': 'Panoramablick auf ein Büro in Lugano mit dem See im Hintergrund',
 };
 
 export default blogMetaChDe;
