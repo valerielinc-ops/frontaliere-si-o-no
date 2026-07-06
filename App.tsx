@@ -29,6 +29,8 @@ const GamificationWidget = lazyRetry(() => import('@/components/community/Gamifi
 // WhatsNewModal below.
 const NewsletterPopup = React.lazy(() => import('@/components/community/NewsletterPopup'));
 const OfferwallNewsletterGate = React.lazy(() => import('@/components/community/OfferwallNewsletterGate'));
+// AdBlock detection gate + A/B bucket (#3654). Client-only overlay, never SSR.
+const AdBlockGate = React.lazy(() => import('@/components/community/AdBlockGate'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
 const NewsletterMount = React.lazy(() => import('@/components/community/NewsletterMount'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
@@ -63,6 +65,9 @@ const TermsOfService = lazyRetry(() => import('@/components/pages/TermsOfService
 const ChiSiamo = lazyRetry(() => import('@/components/pages/ChiSiamo').then(m => ({ default: m.ChiSiamo })));
 const AutorePage = lazyRetry(() => import('@/components/pages/AutorePage').then(m => ({ default: m.AutorePage })));
 const Correzioni = lazyRetry(() => import('@/components/pages/Correzioni').then(m => ({ default: m.Correzioni })));
+// Subscription placeholder — hidden route, CTA target for the AdBlock gate (#3654).
+// No nav/sitemap entry until #3655 builds the real Stripe checkout flow.
+const SubscribePage = lazyRetry(() => import('@/components/pages/SubscribePage'));
 const Metodologia = lazyRetry(() => import('@/components/pages/Metodologia').then(m => ({ default: m.Metodologia })));
 const DataDeletion = lazyRetry(() => import('@/components/pages/DataDeletion').then(m => ({ default: m.DataDeletion })));
 const EmailConfirmed = lazyRetry(() => import('@/components/pages/EmailConfirmed').then(m => ({ default: m.EmailConfirmed })));
@@ -2483,6 +2488,10 @@ const App: React.FC = () => {
  <div>
  <Correzioni />
  </div>
+ ) : activeTab === 'subscribe' ? (
+ <div>
+ <SubscribePage />
+ </div>
  ) : activeTab === 'metodologia' ? (
  <div>
  <Metodologia />
@@ -3491,6 +3500,7 @@ const App: React.FC = () => {
 
  <SafeLazy boundary="newsletter-popup"><NewsletterPopup /></SafeLazy>
  <SafeLazy boundary="offerwall-gate"><OfferwallNewsletterGate /></SafeLazy>
+ <SafeLazy boundary="adblock-gate"><AdBlockGate /></SafeLazy>
  <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
  {showWhatsNew && (
  <SafeLazy boundary="whats-new-modal">

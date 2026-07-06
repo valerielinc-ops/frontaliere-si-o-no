@@ -32,10 +32,17 @@
  *
  * The map covers only trigger words that ACTUALLY occur in this repo's
  * first-party chunk/module names — `firebase` (vendor-firebase-* vendor chunks),
- * `analytics` (services/analytics*.ts dynamic chunks) and `recaptcha`
- * (services/recaptchaService.ts). Tracker keywords that are exclusively
- * THIRD-PARTY script names (adsbygoogle, gtag, doubleclick, …) can never be a
- * Rollup chunk name, so rewriting them would be dead code — left out on purpose.
+ * `analytics` (services/analytics*.ts dynamic chunks), `recaptcha`
+ * (services/recaptchaService.ts) and `adblock` (components/community/AdBlockGate.tsx,
+ * services/adBlockAbTest.ts, services/adBlockDetection.ts, #3654). `adblock` is
+ * an even stronger trigger than the others: EasyList's companion
+ * "Adblock Warning Removal List" (antiadblockfilters.txt) and many
+ * regional/mobile blocklists specifically target anti-adblock-detection
+ * scripts by name — if `AdBlockGate.js` gets network-blocked, the detection
+ * feature silently never fires precisely for the ad-blocking users it targets.
+ * Tracker keywords that are exclusively THIRD-PARTY script names (adsbygoogle,
+ * gtag, doubleclick, …) can never be a Rollup chunk name, so rewriting them
+ * would be dead code — left out on purpose.
  *
  * Kept as a tiny pure module with ZERO imports: it is loaded by vite.config
  * (the config graph forbids `@/` value imports — must resolve relatively).
@@ -44,6 +51,7 @@ const AD_FILTER_REWRITES: ReadonlyArray<readonly [RegExp, string]> = [
   [/firebase/gi, 'fdb'],
   [/analytics/gi, 'mx'],
   [/recaptcha/gi, 'rcp'],
+  [/adblock/gi, 'abd'],
 ];
 
 export function adFilterSafeChunkName(name: string): string {
