@@ -1,16 +1,16 @@
 {
   "key": "villa-im-park",
   "label": "Privatklinik Villa im Park",
-  "generatedAt": "2026-07-06T00:26:46.574Z",
+  "generatedAt": "2026-07-06T15:28:19.618Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3820,
-  "avgDurationMs": 3820,
+  "unchangedCount": 1,
+  "durationMs": 3927,
+  "avgDurationMs": 3927,
   "durationHistory": [
-    3820
+    3927
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133073891-dipl-experte-expertin-anasthesiepflege-nds-hf-60-90-?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T00:26:43.765Z",
+      "crawledAt": "2026-07-06T15:28:16.752Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist",
@@ -64,7 +64,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T00:26:44.212Z",
+      "crawledAt": "2026-07-06T15:28:17.253Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -89,10 +89,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "villa-im-park-080744ccf7ea",
-      "slug": "studium-zur-dipl-pflegefachperson-hf-villa-im-park-rothrist",
+      "slug": "diploma-di-infermiere-a-hf-privatklinik-villa-im-park-rothrist",
       "company": "Privatklinik Villa im Park",
       "companyKey": "villa-im-park",
       "companyDomain": "swissmedical.net",
@@ -118,17 +121,17 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000123906949-studium-zur-dipl-pflegefachperson-hf?oga=true",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T06:03:29.581Z",
-      "_qualityScore": 83,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
