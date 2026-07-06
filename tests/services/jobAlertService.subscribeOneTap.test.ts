@@ -215,4 +215,31 @@ describe('subscribeJobAlertOneTap', () => {
     ).rejects.toThrow(/Maximum 3/);
     expect(addDocMock).not.toHaveBeenCalled();
   });
+
+  // Issue #3650 — the job-match profile CTA pre-fills the alert's canton from
+  // services/jobMatchProfile.ts (already-validated canton code) as a 6th
+  // optional arg, hard-scoping the alert instead of covering all cantons.
+  it('sets cantonFilter from the optional cantonCode argument', async () => {
+    await subscribeJobAlertOneTap('u', 'e@x.com', '💻 Tecnologia', 'it', undefined, 'TI');
+    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as {
+      cantonFilter: string[] | null;
+    };
+    expect(alertPayload.cantonFilter).toEqual(['TI']);
+  });
+
+  it('defaults cantonFilter to null when cantonCode is omitted', async () => {
+    await subscribeJobAlertOneTap('u', 'e@x.com', 'Marketing', 'it');
+    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as {
+      cantonFilter: string[] | null;
+    };
+    expect(alertPayload.cantonFilter).toBeNull();
+  });
+
+  it('defaults cantonFilter to null when cantonCode is explicitly null', async () => {
+    await subscribeJobAlertOneTap('u', 'e@x.com', 'Marketing', 'it', undefined, null);
+    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as {
+      cantonFilter: string[] | null;
+    };
+    expect(alertPayload.cantonFilter).toBeNull();
+  });
 });
