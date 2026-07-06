@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-07-05T23:53:35.714Z",
+  "assembledAt": "2026-07-06T14:41:22.167Z",
   "jobs": [
     {
       "id": "postauto-bf2947cb041f",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74080-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:53:33.726Z",
+      "crawledAt": "2026-07-06T14:41:20.067Z",
       "addressLocality": "Engelburg",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -55,11 +55,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-engelburg"
+        "postauto-fahrer-in-postauto-engelburg",
+        "autista-postbus-postauto-ag-engelburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-engelburg"
+          "postauto-fahrer-in-postauto-engelburg",
+          "autista-postbus-postauto-ag-engelburg"
         ],
         "en": [
           "postauto-fahrer-in-postauto-engelburg"
@@ -113,7 +115,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74077-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:53:32.828Z",
+      "crawledAt": "2026-07-06T14:41:19.079Z",
       "addressLocality": "Hausen am Albis",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -136,14 +138,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "postauto-fahrer-in-postauto-hausen-am-albis"
+          "postauto-fahrer-in-postauto-hausen-am-albis",
+          "postauto-fahrer-in-postauto-wilderswil"
         ],
         "it": [
-          "postauto-fahrer-in-postauto-hausen-am-albis"
+          "postauto-fahrer-in-postauto-hausen-am-albis",
+          "postbus-driver-in-postauto-hausen-am-albis"
         ]
       },
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-hausen-am-albis"
+        "postauto-fahrer-in-postauto-hausen-am-albis",
+        "postauto-fahrer-in-postauto-wilderswil",
+        "postbus-driver-in-postauto-hausen-am-albis"
       ],
       "firstSeenAt": "2026-07-04T11:33:39.026Z",
       "salaryMin": 73500,
@@ -190,7 +196,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74075-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:53:31.925Z",
+      "crawledAt": "2026-07-06T14:41:18.053Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -212,11 +218,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-wilderswil"
+        "postauto-fahrer-in-postauto-wilderswil",
+        "postbus-driver-in-postauto-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-wilderswil",
+          "postbus-driver-in-postauto-wilderswil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:37.505Z",
@@ -264,7 +272,7 @@
       "url": "https://job.post.ch/default/job/Teamleiterin-Fahrausweiskontrolle-und-Kundenberatung/73411-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:53:31.042Z",
+      "crawledAt": "2026-07-06T14:41:17.000Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -297,6 +305,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:36.090Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -312,7 +321,7 @@
     },
     {
       "id": "postauto-318dbdb3c660",
-      "slug": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
+      "slug": "ticketkontrolleur-in-und-kundenberatung-post",
       "slugByLocale": {
         "it": "ticketkontrolleur-in-und-kundenberatung-post",
         "en": "ticket-controller-in-and-customer-advice-postauto-chur",
@@ -341,7 +350,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:53:30.037Z",
+      "crawledAt": "2026-07-06T14:41:15.996Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -365,11 +374,13 @@
       "previousSlugs": [
         "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
         "ticket-controller-in-and-customer-advice-postauto-ag-chur",
-        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-chur"
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-chur",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+          "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur"
         ],
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
@@ -381,6 +392,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:34.678Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -425,7 +437,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74207-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:53:29.153Z",
+      "crawledAt": "2026-07-06T14:41:14.847Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -461,6 +473,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:33.292Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -476,7 +489,7 @@
     },
     {
       "id": "postauto-0ab88a59e4c8",
-      "slug": "autista-postbus-postauto-ag-chur",
+      "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-chur",
         "en": "postauto-fahrer-in-post",
@@ -505,7 +518,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74217-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:53:28.269Z",
+      "crawledAt": "2026-07-06T14:41:13.867Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -529,11 +542,13 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-chur",
         "postbus-driver-in-postauto-ag-chur",
-        "pilote-postbus-in-postauto-ag-chur"
+        "pilote-postbus-in-postauto-ag-chur",
+        "autista-postbus-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-chur"
+          "postauto-fahrer-in-postauto-chur",
+          "autista-postbus-postauto-ag-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur",
@@ -560,7 +575,7 @@
     },
     {
       "id": "postauto-6b05723c6af8",
-      "slug": "autista-postbus-postauto-ag-sarnen",
+      "slug": "autista-postbus-postauto-sarnen",
       "slugByLocale": {
         "it": "autista-postbus-postauto-sarnen",
         "en": "postbus-driver-in-postauto-sarnen",
@@ -589,7 +604,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73577-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:53:27.389Z",
+      "crawledAt": "2026-07-06T14:41:12.874Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -613,11 +628,13 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-sarnen",
         "postbus-driver-in-postauto-ag-sarnen",
-        "pilote-postbus-in-postauto-ag-sarnen"
+        "pilote-postbus-in-postauto-ag-sarnen",
+        "autista-postbus-postauto-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-sarnen"
+          "postauto-fahrer-in-postauto-sarnen",
+          "autista-postbus-postauto-ag-sarnen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-sarnen",
@@ -673,7 +690,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73719-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:53:26.478Z",
+      "crawledAt": "2026-07-06T14:41:11.931Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -695,11 +712,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-stans"
+        "postauto-fahrer-in-postauto-stans",
+        "postbus-driver-in-postauto-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-stans"
+          "postauto-fahrer-in-postauto-stans",
+          "postbus-driver-in-postauto-stans"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:29.067Z",
@@ -718,7 +737,7 @@
     },
     {
       "id": "postauto-124b2cdbddf7",
-      "slug": "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
+      "slug": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen",
       "slugByLocale": {
         "it": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen",
         "en": "security-specialist-in-public-transport-postauto-wallisellen",
@@ -747,7 +766,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:53:25.597Z",
+      "crawledAt": "2026-07-06T14:41:11.056Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -771,11 +790,13 @@
       "previousSlugs": [
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
         "security-specialist-in-public-transport-postauto-ag-wallisellen",
-        "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen"
+        "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
@@ -802,11 +823,11 @@
     },
     {
       "id": "postauto-ae32ed6b82d9",
-      "slug": "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+      "slug": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur",
       "slugByLocale": {
         "it": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur",
         "en": "security-specialist-in-public-transport-postauto-winterthur",
-        "de": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+        "de": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
         "fr": "specialiste-de-la-securite-dans-les-transports-publics-postauto-winterthur"
       },
       "company": "PostAuto AG",
@@ -831,7 +852,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T23:53:24.074Z",
+      "crawledAt": "2026-07-06T14:41:09.985Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -855,11 +876,13 @@
       "previousSlugs": [
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
         "security-specialist-in-public-transport-postauto-ag-winterthur",
-        "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur"
+        "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
@@ -868,6 +891,9 @@
         "fr": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
           "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur"
+        ],
+        "de": [
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:25.279Z",
@@ -883,6 +909,152 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "postauto-505e99e7d477",
+      "slug": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
+      "slugByLocale": {
+        "de": "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
+        "it": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
+        "en": "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
+        "fr": "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Quereinsteiger:in als PostAuto-Fahrer:in",
+      "titleByLocale": {
+        "de": "Quereinsteiger:in als PostAuto-Fahrer:in",
+        "it": "Candidato/a in riqualificazione come PostAuto-Fahrer:in",
+        "en": "Quereinsteiger:in als PostAuto-Fahrer:in",
+        "fr": "Quereinsteiger:in als PostAuto-Fahrer:in"
+      },
+      "description": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
+      "descriptionByLocale": {
+        "de": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
+        "it": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
+        "en": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
+        "fr": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten."
+      },
+      "location": "Stans",
+      "canton": "NW",
+      "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73694-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T14:41:08.629Z",
+      "addressLocality": "Stans",
+      "addressRegion": "NW",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Autisti / Conducenti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "validThrough": "2026-07-30",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73694-de_DE",
+      "jobReqId": "73694",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans"
+        ]
+      },
+      "previousSlugs": [
+        "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans"
+      ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-06T14:41:08.629Z"
+    },
+    {
+      "id": "postauto-180ae9b3fe95",
+      "slug": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
+      "slugByLocale": {
+        "de": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
+        "it": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
+        "en": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
+        "fr": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Sachbearbeiter:in Disposition Leitstelle Mitte",
+      "titleByLocale": {
+        "de": "Sachbearbeiter:in Disposition Leitstelle Mitte",
+        "it": "Sachbearbeiter:in Disposition Leitstelle Mitte",
+        "en": "Sachbearbeiter:in Disposition Leitstelle Mitte",
+        "fr": "Sachbearbeiter:in Disposition Leitstelle Mitte"
+      },
+      "description": "Bist du bereit, den Puls der täglichen Betriebssteuerung mitzugestalten? Liebst du es, komplexe Abläufe zu koordinieren und blitzschnell zu reagieren? Hast du Freude daran, mit digitalen Tools den Betrieb aktiv mitzugestalten? Mit dir sichern wir den reibungslosen Betrieb unseres Liniennetzes, auch dann, wenn es mal nicht nach Plan läuft. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt\n\nDas kannst du bewirken\n\n-\n\nDu überwachst den Linienbetrieb in Echtzeit und steuerst bei Abweichungen gezielt gegen, um die Qualität und Pünktlichkeit sicherzustellen.\n\nDu steuerst den Verkehr selbstständig und zielgerichtet, triffst rasche Entscheidungen bei Störungen und koordinierst wirkungsvoll alle notwendigen Massnahmen – vom Fahrzeugeinsatz bis zur Personaldisposition.\n\nDu informierst Fahrgäste sowie interne und externe Stellen transparent über Ereignisse und Störungen.\n\nIn enger Zusammenarbeit mit Partnern wie Bahngesellschaften oder Blaulichtorganisationen disponierst du kurzfristig Personal und Fahrzeuge.\n\nDu setzt moderne Systeme wie ISA, Planbox und den Störungsmanager effizient ein, um Abläufe zu optimieren.\n\nDu wirkst aktiv an der Weiterentwicklung von Prozessen und Tools der Leitstelle mit und bringst eigene Ideen zur Verbesserung ein.\n\nIm Rahmen der Notfallorganisation übernimmst du eine zentrale Rolle und handelst verantwortungsvoll bei besonderen Lagen wie Unfällen, Naturereignissen oder Sicherheitsvorfällen – schnell, umsichtig und lösungsorientiert.\n\nDas bringst du mit\n\nEine abgeschlossene Berufslehre (EFZ), idealerweise im kaufmännischen, technischen oder logistischen Bereich, bildet die Grundlage für diese Funktion.\n\nDu hast Erfahrung in der Disposition, Leitstelle oder einem vergleichbaren Umfeld – idealerweise im öffentlichen Verkehr.\n\nFundierte Kenntnisse im Umgang mit digitalen Tools und Systemen wie ISA, Planbox oder dem Störungsmanager sowie Sicherheit im Einsatz von MS 365 werden vorausgesetzt.\n\nDu verfügst über ausgeprägte Kommunikationsfähigkeiten, ein sicheres Auftreten und bringst Teamgeist sowie Eigenverantwortung mit.\n\nDu arbeitest gerne im Schichtbetrieb, auch an Wochenenden, Feiertagen und im Pikettdienst, übernimmst in Randzeiten Verantwortung.\n\nDu kommunizierst mündlich und schriftlich gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
+      "descriptionByLocale": {
+        "de": "Bist du bereit, den Puls der täglichen Betriebssteuerung mitzugestalten? Liebst du es, komplexe Abläufe zu koordinieren und blitzschnell zu reagieren? Hast du Freude daran, mit digitalen Tools den Betrieb aktiv mitzugestalten? Mit dir sichern wir den reibungslosen Betrieb unseres Liniennetzes, auch dann, wenn es mal nicht nach Plan läuft. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt\n\nDas kannst du bewirken\n\n-\n\nDu überwachst den Linienbetrieb in Echtzeit und steuerst bei Abweichungen gezielt gegen, um die Qualität und Pünktlichkeit sicherzustellen.\n\nDu steuerst den Verkehr selbstständig und zielgerichtet, triffst rasche Entscheidungen bei Störungen und koordinierst wirkungsvoll alle notwendigen Massnahmen – vom Fahrzeugeinsatz bis zur Personaldisposition.\n\nDu informierst Fahrgäste sowie interne und externe Stellen transparent über Ereignisse und Störungen.\n\nIn enger Zusammenarbeit mit Partnern wie Bahngesellschaften oder Blaulichtorganisationen disponierst du kurzfristig Personal und Fahrzeuge.\n\nDu setzt moderne Systeme wie ISA, Planbox und den Störungsmanager effizient ein, um Abläufe zu optimieren.\n\nDu wirkst aktiv an der Weiterentwicklung von Prozessen und Tools der Leitstelle mit und bringst eigene Ideen zur Verbesserung ein.\n\nIm Rahmen der Notfallorganisation übernimmst du eine zentrale Rolle und handelst verantwortungsvoll bei besonderen Lagen wie Unfällen, Naturereignissen oder Sicherheitsvorfällen – schnell, umsichtig und lösungsorientiert.\n\nDas bringst du mit\n\nEine abgeschlossene Berufslehre (EFZ), idealerweise im kaufmännischen, technischen oder logistischen Bereich, bildet die Grundlage für diese Funktion.\n\nDu hast Erfahrung in der Disposition, Leitstelle oder einem vergleichbaren Umfeld – idealerweise im öffentlichen Verkehr.\n\nFundierte Kenntnisse im Umgang mit digitalen Tools und Systemen wie ISA, Planbox oder dem Störungsmanager sowie Sicherheit im Einsatz von MS 365 werden vorausgesetzt.\n\nDu verfügst über ausgeprägte Kommunikationsfähigkeiten, ein sicheres Auftreten und bringst Teamgeist sowie Eigenverantwortung mit.\n\nDu arbeitest gerne im Schichtbetrieb, auch an Wochenenden, Feiertagen und im Pikettdienst, übernimmst in Randzeiten Verantwortung.\n\nDu kommunizierst mündlich und schriftlich gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
+        "it": "Bist du bereit, den Puls der täglichen Betriebssteuerung mitzugestalten? Liebst du es, komplexe Abläufe zu koordinieren und blitzschnell zu reagieren? Hast du Freude daran, mit digitalen Tools den Betrieb aktiv mitzugestalten? Mit dir sichern wir den reibungslosen Betrieb unseres Liniennetzes, auch dann, wenn es mal nicht nach Plan läuft. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt\n\nDas kannst du bewirken\n\n-\n\nDu überwachst den Linienbetrieb in Echtzeit und steuerst bei Abweichungen gezielt gegen, um die Qualität und Pünktlichkeit sicherzustellen.\n\nDu steuerst den Verkehr selbstständig und zielgerichtet, triffst rasche Entscheidungen bei Störungen und koordinierst wirkungsvoll alle notwendigen Massnahmen – vom Fahrzeugeinsatz bis zur Personaldisposition.\n\nDu informierst Fahrgäste sowie interne und externe Stellen transparent über Ereignisse und Störungen.\n\nIn enger Zusammenarbeit mit Partnern wie Bahngesellschaften oder Blaulichtorganisationen disponierst du kurzfristig Personal und Fahrzeuge.\n\nDu setzt moderne Systeme wie ISA, Planbox und den Störungsmanager effizient ein, um Abläufe zu optimieren.\n\nDu wirkst aktiv an der Weiterentwicklung von Prozessen und Tools der Leitstelle mit und bringst eigene Ideen zur Verbesserung ein.\n\nIm Rahmen der Notfallorganisation übernimmst du eine zentrale Rolle und handelst verantwortungsvoll bei besonderen Lagen wie Unfällen, Naturereignissen oder Sicherheitsvorfällen – schnell, umsichtig und lösungsorientiert.\n\nDas bringst du mit\n\nEine abgeschlossene Berufslehre (EFZ), idealerweise im kaufmännischen, technischen oder logistischen Bereich, bildet die Grundlage für diese Funktion.\n\nDu hast Erfahrung in der Disposition, Leitstelle oder einem vergleichbaren Umfeld – idealerweise im öffentlichen Verkehr.\n\nFundierte Kenntnisse im Umgang mit digitalen Tools und Systemen wie ISA, Planbox oder dem Störungsmanager sowie Sicherheit im Einsatz von MS 365 werden vorausgesetzt.\n\nDu verfügst über ausgeprägte Kommunikationsfähigkeiten, ein sicheres Auftreten und bringst Teamgeist sowie Eigenverantwortung mit.\n\nDu arbeitest gerne im Schichtbetrieb, auch an Wochenenden, Feiertagen und im Pikettdienst, übernimmst in Randzeiten Verantwortung.\n\nDu kommunizierst mündlich und schriftlich gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
+        "en": "Bist du bereit, den Puls der täglichen Betriebssteuerung mitzugestalten? Liebst du es, komplexe Abläufe zu koordinieren und blitzschnell zu reagieren? Hast du Freude daran, mit digitalen Tools den Betrieb aktiv mitzugestalten? Mit dir sichern wir den reibungslosen Betrieb unseres Liniennetzes, auch dann, wenn es mal nicht nach Plan läuft. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt\n\nDas kannst du bewirken\n\n-\n\nDu überwachst den Linienbetrieb in Echtzeit und steuerst bei Abweichungen gezielt gegen, um die Qualität und Pünktlichkeit sicherzustellen.\n\nDu steuerst den Verkehr selbstständig und zielgerichtet, triffst rasche Entscheidungen bei Störungen und koordinierst wirkungsvoll alle notwendigen Massnahmen – vom Fahrzeugeinsatz bis zur Personaldisposition.\n\nDu informierst Fahrgäste sowie interne und externe Stellen transparent über Ereignisse und Störungen.\n\nIn enger Zusammenarbeit mit Partnern wie Bahngesellschaften oder Blaulichtorganisationen disponierst du kurzfristig Personal und Fahrzeuge.\n\nDu setzt moderne Systeme wie ISA, Planbox und den Störungsmanager effizient ein, um Abläufe zu optimieren.\n\nDu wirkst aktiv an der Weiterentwicklung von Prozessen und Tools der Leitstelle mit und bringst eigene Ideen zur Verbesserung ein.\n\nIm Rahmen der Notfallorganisation übernimmst du eine zentrale Rolle und handelst verantwortungsvoll bei besonderen Lagen wie Unfällen, Naturereignissen oder Sicherheitsvorfällen – schnell, umsichtig und lösungsorientiert.\n\nDas bringst du mit\n\nEine abgeschlossene Berufslehre (EFZ), idealerweise im kaufmännischen, technischen oder logistischen Bereich, bildet die Grundlage für diese Funktion.\n\nDu hast Erfahrung in der Disposition, Leitstelle oder einem vergleichbaren Umfeld – idealerweise im öffentlichen Verkehr.\n\nFundierte Kenntnisse im Umgang mit digitalen Tools und Systemen wie ISA, Planbox oder dem Störungsmanager sowie Sicherheit im Einsatz von MS 365 werden vorausgesetzt.\n\nDu verfügst über ausgeprägte Kommunikationsfähigkeiten, ein sicheres Auftreten und bringst Teamgeist sowie Eigenverantwortung mit.\n\nDu arbeitest gerne im Schichtbetrieb, auch an Wochenenden, Feiertagen und im Pikettdienst, übernimmst in Randzeiten Verantwortung.\n\nDu kommunizierst mündlich und schriftlich gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
+        "fr": "Bist du bereit, den Puls der täglichen Betriebssteuerung mitzugestalten? Liebst du es, komplexe Abläufe zu koordinieren und blitzschnell zu reagieren? Hast du Freude daran, mit digitalen Tools den Betrieb aktiv mitzugestalten? Mit dir sichern wir den reibungslosen Betrieb unseres Liniennetzes, auch dann, wenn es mal nicht nach Plan läuft. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt\n\nDas kannst du bewirken\n\n-\n\nDu überwachst den Linienbetrieb in Echtzeit und steuerst bei Abweichungen gezielt gegen, um die Qualität und Pünktlichkeit sicherzustellen.\n\nDu steuerst den Verkehr selbstständig und zielgerichtet, triffst rasche Entscheidungen bei Störungen und koordinierst wirkungsvoll alle notwendigen Massnahmen – vom Fahrzeugeinsatz bis zur Personaldisposition.\n\nDu informierst Fahrgäste sowie interne und externe Stellen transparent über Ereignisse und Störungen.\n\nIn enger Zusammenarbeit mit Partnern wie Bahngesellschaften oder Blaulichtorganisationen disponierst du kurzfristig Personal und Fahrzeuge.\n\nDu setzt moderne Systeme wie ISA, Planbox und den Störungsmanager effizient ein, um Abläufe zu optimieren.\n\nDu wirkst aktiv an der Weiterentwicklung von Prozessen und Tools der Leitstelle mit und bringst eigene Ideen zur Verbesserung ein.\n\nIm Rahmen der Notfallorganisation übernimmst du eine zentrale Rolle und handelst verantwortungsvoll bei besonderen Lagen wie Unfällen, Naturereignissen oder Sicherheitsvorfällen – schnell, umsichtig und lösungsorientiert.\n\nDas bringst du mit\n\nEine abgeschlossene Berufslehre (EFZ), idealerweise im kaufmännischen, technischen oder logistischen Bereich, bildet die Grundlage für diese Funktion.\n\nDu hast Erfahrung in der Disposition, Leitstelle oder einem vergleichbaren Umfeld – idealerweise im öffentlichen Verkehr.\n\nFundierte Kenntnisse im Umgang mit digitalen Tools und Systemen wie ISA, Planbox oder dem Störungsmanager sowie Sicherheit im Einsatz von MS 365 werden vorausgesetzt.\n\nDu verfügst über ausgeprägte Kommunikationsfähigkeiten, ein sicheres Auftreten und bringst Teamgeist sowie Eigenverantwortung mit.\n\nDu arbeitest gerne im Schichtbetrieb, auch an Wochenenden, Feiertagen und im Pikettdienst, übernimmst in Randzeiten Verantwortung.\n\nDu kommunizierst mündlich und schriftlich gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache."
+      },
+      "location": "Spiez",
+      "canton": "BE",
+      "url": "https://job.post.ch/default/job/Sachbearbeiterin-Disposition-Leitstelle-Mitte/74218-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T14:41:06.973Z",
+      "addressLocality": "Spiez",
+      "addressRegion": "BE",
+      "streetAddress": "",
+      "postalCode": "3700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Pianificazione trasporti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "validThrough": "2026-07-28",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/Sachbearbeiterin-Disposition-Leitstelle-Mitte/74218-de_DE",
+      "jobReqId": "74218",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-06T14:41:06.973Z"
     }
   ]
 }
