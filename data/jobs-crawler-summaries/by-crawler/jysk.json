@@ -1,18 +1,47 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-07-05T23:06:25.141Z",
-  "total": 50,
-  "newCount": 0,
+  "generatedAt": "2026-07-06T14:14:54.212Z",
+  "total": 51,
+  "newCount": 1,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 41,
-  "durationMs": 46718,
-  "avgDurationMs": 46718,
+  "durationMs": 50816,
+  "avgDurationMs": 50816,
   "durationHistory": [
-    46718
+    50816
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-16ywgs",
+      "slug": "verkaufer-in-a-60-80-in-der-filiale-lachen-jysk-lachen-16ywgs",
+      "company": "JYSK",
+      "title": "Verkäufer/in (a) 60-80% in der Filiale Lachen",
+      "location": "Lachen",
+      "canton": "SZ",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-60-80-der-filiale-lachen",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-07-06T14:14:52.883Z",
+      "firstSeenAt": "2026-07-06T14:14:52.883Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-6h1xzk",
