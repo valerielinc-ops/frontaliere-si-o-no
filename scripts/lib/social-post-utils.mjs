@@ -37,6 +37,13 @@ export const SITE_URL = 'https://frontaliereticino.ch';
 // previously duplicated as a spaceless hashtag-only map inside
 // schedule-fb-jobs-daily.mjs) — merged here per project rule (a regex/
 // constant duplicated literally in ≥2 files MUST live in ONE shared module).
+//
+// Also includes the two half-canton URL group keys (BASILEA, APPENZELLO —
+// see data/canton-url-slugs.json `cantonGroups` / resolveCantonUrlKey in
+// scripts/lib/events-utils.mjs) with the generic group name, matching
+// build-plugins/jobsSeoPagesPlugin.ts's getCantonDisplayLabel IT entries for
+// the same two keys. Callers that group events/jobs by URL section (instead
+// of raw ISO code) look these up directly.
 export const CANTON_NAME_BY_CODE = {
   AG: 'Argovia', AI: 'Appenzello Interno', AR: 'Appenzello Esterno',
   BE: 'Berna', BL: 'Basilea Campagna', BS: 'Basilea Città',
@@ -45,6 +52,7 @@ export const CANTON_NAME_BY_CODE = {
   OW: 'Obvaldo', SG: 'San Gallo', SH: 'Sciaffusa', SO: 'Soletta',
   SZ: 'Svitto', TG: 'Turgovia', TI: 'Ticino', UR: 'Uri',
   VD: 'Vaud', VS: 'Vallese', ZG: 'Zugo', ZH: 'Zurigo',
+  BASILEA: 'Basilea', APPENZELLO: 'Appenzello',
 };
 
 // ── Sanitization helpers ────────────────────────────────────

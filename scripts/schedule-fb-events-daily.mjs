@@ -29,7 +29,7 @@
 
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow, weekendEvents, eventsBasePathForCanton } from './lib/events-utils.mjs';
+import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow, weekendEvents, eventsBasePathForCanton, resolveCantonUrlKey } from './lib/events-utils.mjs';
 import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive, CANTON_NAME_BY_CODE } from './lib/social-post-utils.mjs';
 import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-jobs-daily.mjs';
 
@@ -191,7 +191,14 @@ export function selectWeekendDigests(events, todayIso, postedSet, maxCantons = M
 
   const byCanton = new Map();
   for (const e of weekend) {
-    const canton = String(e?.canton || 'TI').toUpperCase().trim() || 'TI';
+    const raw = String(e?.canton || 'TI').toUpperCase().trim() || 'TI';
+    // Collapse half-cantons (AI/AR, BL/BS) onto their shared URL group key —
+    // buildWeekendDigestUrl('BL') and ('BS') resolve to the SAME landing
+    // page, so grouping by the raw code would post two duplicate roundups
+    // to that one page in the same run. Same resolver buildWeekendDigestUrl
+    // (via eventsBasePathForCanton) uses internally, so the grouping key
+    // always matches the page it links to.
+    const canton = resolveCantonUrlKey(raw);
     if (!byCanton.has(canton)) byCanton.set(canton, []);
     byCanton.get(canton).push(e);
   }

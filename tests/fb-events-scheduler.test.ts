@@ -201,6 +201,23 @@ describe('selectWeekendDigests', () => {
     expect(out).toHaveLength(1);
     expect(out[0].canton).toBe('ZH');
   });
+  // Regression: BL and BS (like AI/AR) are a "half-canton" pair that share
+  // ONE URL/landing page (eventsBasePathForCanton collapses both onto
+  // /eventi/basilea/). Grouping the digest by the raw ISO code would post
+  // two separate roundups to that same page in the same run.
+  it('merges half-canton pairs (BL+BS) into a single roundup, not two duplicate posts', () => {
+    const halfCanton = [
+      { id: 'bl1', comune: 'Liestal', startDate: '2027-01-02', canton: 'BL' },
+      { id: 'bs1', comune: 'Basilea', startDate: '2027-01-02', canton: 'BS' },
+    ];
+    const out = selectWeekendDigests(halfCanton, '2027-01-01', new Set());
+    expect(out).toHaveLength(1);
+    expect(out[0].canton).toBe('BASILEA');
+    expect(out[0].id).toBe('weekend-digest-BASILEA-2027-01-02');
+    expect(out[0].url).toBe(buildWeekendDigestUrl('BS'));
+    expect(out[0].url).toContain('/eventi/basilea/questo-weekend/');
+    expect(out[0].coveredIds.sort()).toEqual(['bl1', 'bs1']);
+  });
 });
 
 describe('run() weekend digest', () => {

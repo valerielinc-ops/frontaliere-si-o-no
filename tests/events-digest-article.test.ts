@@ -138,4 +138,20 @@ describe('buildWeekendDigestArticle — multi-canton (other cantons section)', (
     const tiOnly = buildWeekendDigestArticle({ events: [EVENTS_MULTI[0]], todayIso: TODAY });
     expect(tiOnly.content.it.body2).not.toContain('Eventi anche in altri cantoni');
   });
+
+  // Regression: BL and BS (like AI/AR) are a "half-canton" pair that share
+  // ONE URL/landing page. Grouping the section by the raw ISO code would
+  // render two duplicate "### Basilea" headings both linking to that page.
+  it('merges half-canton pairs (BL+BS) into a single "### Basilea" section', () => {
+    const halfCanton = [
+      { id: 'ti1', title: 'Concerto al LAC', comune: 'Lugano', startDate: '2027-01-02', category: 'musica', canton: 'TI' },
+      { id: 'bl1', title: 'Mercatino di Liestal', comune: 'Liestal', startDate: '2027-01-02', category: 'mercato', canton: 'BL' },
+      { id: 'bs1', title: 'Fiera di Basilea', comune: 'Basilea', startDate: '2027-01-02', category: 'mercato', canton: 'BS' },
+    ];
+    const merged = buildWeekendDigestArticle({ events: halfCanton, todayIso: TODAY });
+    const body = merged.content.it.body2;
+    expect(body.match(/### Basilea/g)).toHaveLength(1);
+    expect(body).toContain('Liestal');
+    expect(body).toContain('Basilea');
+  });
 });
