@@ -1,16 +1,16 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-07-06T14:20:52.507Z",
+  "generatedAt": "2026-07-06T22:31:18.341Z",
   "total": 1,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5031,
-  "avgDurationMs": 5031,
+  "durationMs": 21267,
+  "avgDurationMs": 21267,
   "durationHistory": [
-    5031
+    21267
   ],
   "newJobs": [
     {
@@ -18,13 +18,13 @@
       "slug": "responsabile-globale-payroll-e-sistemi-hr-chiasso",
       "company": "lastminute.com",
       "title": "Global Payroll & HR Systems Manager",
-      "location": "SwitzerlandTeam",
+      "location": "Chiasso",
       "canton": "TI",
       "category": "tech",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-17",
+      "postedDate": "2026-07-06",
       "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -34,24 +34,23 @@
       },
       "companyKey": "lastminute-com",
       "companyDomain": "lastminute.com",
-      "crawledAt": "2026-05-17T10:36:25.314Z",
-      "firstSeenAt": "2026-05-17T10:36:25.314Z",
-      "addressLocality": "SwitzerlandTeam",
+      "crawledAt": "2026-07-06T22:31:17.387Z",
+      "firstSeenAt": "2026-07-06T22:31:17.387Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chiasso",
       "country": "CH",
       "sourceLang": "en",
       "salaryMin": 79500,
       "salaryMax": 135000,
-      "streetAddress": "",
-      "postalCode": "6500",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "postalCode": "6830",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 25,
+        "translation": 23,
         "completeness": 22
       }
     }
