@@ -8285,6 +8285,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.modelli-cu-2026-frontalieri.title': 'Certification unique 2026 : modèles officiels',
     'blog.article.modelli-cu-2026-frontalieri.excerpt': 'L\'Italie a mis à disposition les Modèles Officiels de la Certification Unique 2026, un document clé pour la déclaration des revenus, y compris ceux perçus en Suisse par les frontaliers, qui utilisent le crédit d\'impôt dans le Cadre CE de 730 pour éviter la double imposition.',
     'blog.article.modelli-cu-2026-frontalieri.imageAlt': 'Vue panoramique de Lugano le matin, avec le lac et les montagnes environnantes sous un ciel clair. Idéal pour un frontalier se rendant au travail.',
+    'blog.article.sicurezza-lavoro-ticino-cfsl.title': 'Sécurité travail Tessin : solution modèle certifiée',
+    'blog.article.sicurezza-lavoro-ticino-cfsl.excerpt': 'La coopérative Coop-SSL obtient la reconnaissance CFSL pour la gestion de la santé dans l\'entreprise. Une nouvelle norme pour les PME tessinoises et les travailleurs.',
+    'blog.article.sicurezza-lavoro-ticino-cfsl.imageAlt': 'Certification CFSL de sécurité au travail au Tessin',
 };
 
 export default blogMetaFr;
