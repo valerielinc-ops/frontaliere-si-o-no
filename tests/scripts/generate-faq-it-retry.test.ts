@@ -33,6 +33,18 @@ const VALID_FAQ_JSON = JSON.stringify([
 // Mirrors the actual truncated-JSON shape from the live incident.
 const TRUNCATED_JSON = '[{"q":"Cosa prevede l\'Accordo?","a":"L\'Accordo Italia-Svizzera del 2020 sulla tassazione dei';
 
+// Mirrors the SECOND live incident on the same article (after the first
+// retry fix landed): every one of 3 retry attempts truncated identically at
+// maxTokens:2000 — 2+ complete pairs generated, then cut off mid-answer on
+// the next one. Real cause: 2000 tokens wasn't enough for 5 detailed answers,
+// not a random glitch (confirmed by the raw response showing clean prose cut
+// mid-sentence, not corruption around a special character).
+const TRUNCATED_WITH_COMPLETE_PAIRS =
+  '[{"q":"Cosa prevede l\'Accordo?","a":"L\'Accordo del 2020 introduce un modello di tassazione alla fonte."},' +
+  '{"q":"Quali sono i requisiti di frontiera?","a":"Risiedere entro 20 km dal confine e rientrare quotidianamente."},' +
+  '{"q":"Quali comuni beneficiano della compensazione?","a":"I comuni italiani frontalieri ricevono il 40% fino al 2033."},' +
+  '{"q":"Come funziona il telelavoro dal 2024?","a":"È previsto un adeguamento del 25% per il telelavoro in regime permanente, in attesa della ratifica del prot';
+
 // Real calls are mocked, but generateFaqIT still pays the module's real
 // rate-limit gap (~4.5s) between attempts — fake timers (which also fake
 // Date, matching the rate limiter's Date.now()-based slot bookkeeping) let
@@ -50,7 +62,9 @@ async function runWithFakeTimers<T>(fn: () => Promise<T>): Promise<T> {
     // The rate limiter's module-level slot bookkeeping carries over between
     // tests while each test's fake clock resets to "now" — advance generously
     // (real wall-clock cost of this call is ~0 regardless of the ms value).
-    await vi.advanceTimersByTimeAsync(60000);
+    // Generous margin: drift accumulates across every test in this file since
+    // the rate limiter's slot state is module-global, not reset per test.
+    await vi.advanceTimersByTimeAsync(180000);
     return await promise;
   } finally {
     vi.useRealTimers();
@@ -98,6 +112,29 @@ describe('generateFaqIT — retries on malformed/truncated LLM output', () => {
 
     expect(faq.length).toBe(3);
     expect(aiModelsMock.callSingleModel).toHaveBeenCalledTimes(1);
+  });
+
+  it('salvages complete pairs from a truncated array without needing a retry', async () => {
+    aiModelsMock.callSingleModel.mockResolvedValueOnce(TRUNCATED_WITH_COMPLETE_PAIRS);
+
+    const faq = await runWithFakeTimers(() => generateFaqIT('test-article-id', 'Corpo di test '.repeat(50)));
+
+    expect(faq.length).toBe(3);
+    expect(faq[0].q).toBe("Cosa prevede l'Accordo?");
+    expect(faq[2].q).toBe('Quali comuni beneficiano della compensazione?');
+    expect(aiModelsMock.callSingleModel).toHaveBeenCalledTimes(1);
+  });
+
+  it('escalates maxTokens on a truncation-shaped failure instead of repeating the same budget', async () => {
+    aiModelsMock.callSingleModel
+      .mockResolvedValueOnce(TRUNCATED_JSON)
+      .mockResolvedValueOnce(TRUNCATED_JSON)
+      .mockResolvedValue(VALID_FAQ_JSON);
+
+    await runWithFakeTimers(() => generateFaqIT('test-article-id', 'Corpo di test '.repeat(50)));
+
+    const maxTokensUsed = aiModelsMock.callSingleModel.mock.calls.map((call) => call[1]?.maxTokens);
+    expect(maxTokensUsed).toEqual([2000, 4000, 8000]);
   });
 });
 
