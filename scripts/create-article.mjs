@@ -3274,7 +3274,7 @@ async function callLLM(messages, opts = {}) {
     // attempt consumed nearly all of it). ...opts still wins if a caller passes
     // its own deadlineMs (or explicit null to opt out of the cap entirely).
     const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 90_000, deadlineMs: RUN_START_MS + RUN_WALL_BUDGET_MS, ...opts, modelUsedRef });
-    if (modelUsedRef.model === AI_MODELS.LOCAL_FALLBACK) _localFallbackUsedThisRun = true;
+    if (modelUsedRef.model === AI_MODELS.LOCAL_FALLBACK) _localFallbackUsedThisHeadline = true;
     if (isBody2Check) {
       let itContent = null;
       let parseErr = null;
@@ -7957,16 +7957,22 @@ function wallBudgetExceeded() {
 
 /**
  * Set true the first time callLLM() observes local/fallback actually serving
- * a request this run (see callLLM below). Cheaper and more precise than the
- * Firestore-score-based cloudCascadeExhausted check used by main()'s
+ * a request for the CURRENT headline (see callLLM below). Reset to false at
+ * the top of generateAndValidateArticle (2026-07-06, PR #3704 review round
+ * 2) — the process handles multiple headlines/pools/evergreen per run, each
+ * via its own generateAndValidateArticle call, and a module-level flag left
+ * set across headlines would poison a brand-new headline's first attempt
+ * (which hasn't even tried the cloud model yet) purely because a PREVIOUS,
+ * unrelated headline had cascaded to local. Cheaper and more precise than
+ * the Firestore-score-based cloudCascadeExhausted check used by main()'s
  * evergreen pre-scan: that one only sees model scoring/cooldown state and
  * misses per-request cascades caused by prompt token-size alone. Read by
- * generateAndValidateArticle's retry-loop wall-clock guard below.
+ * generateAndValidateArticle's own retry-loop wall-clock guard below.
  */
-let _localFallbackUsedThisRun = false;
+let _localFallbackUsedThisHeadline = false;
 /**
  * Minimum wall-clock remaining (ms) to risk another local/fallback attempt
- * once one has already run this run. Local/fallback (qwen2.5:14b via Ollama)
+ * once one has already run for this headline. Local/fallback (qwen2.5:14b via Ollama)
  * full inference for this prompt size took ~17.5min and ~12.5min in the two
  * observed cases (run 28802314827); below this floor a further attempt would
  * be truncated mid-inference by _callLocal's own deadline cap (ai-models.mjs)
@@ -8699,6 +8705,17 @@ async function main() {
 
 /** Core article pipeline: fetch → generate IT → validate → duplicates → translate → sanitize → image → modify files → git */
 async function generateAndValidateArticle(url, sourceContext = null) {
+  // Scope the local-only wall-clock guard to THIS headline (2026-07-06,
+  // PR #3704 review): the flag is set by any callLLM() in the process that
+  // cascades to local/fallback — including a PREVIOUS headline's retries,
+  // its translation, or its body expansion, all of which run inside the
+  // same process before this call. Without resetting per-headline, a prior
+  // headline touching local/fallback would poison a brand-new headline's
+  // very first attempt (which hasn't even tried the cloud model yet) the
+  // moment wall-clock ran low — reproducing the "run publishes zero
+  // articles" failure via a different path than the one this guard exists
+  // to fix.
+  _localFallbackUsedThisHeadline = false;
   if (isGoogleNewsRssUrl(url)) {
     const err = new Error(`topic-gate abort: Google News RSS wrapper senza fonte diretta (${url})`);
     err.topicGateAbort = true;
@@ -8765,7 +8782,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   for (let attempt = 1; attempt <= CREATE_ARTICLE_MIN_WORDS_RETRIES; attempt++) {
     // Wall-clock guard for the local-only cascade (2026-07-06, incident run
     // 28802314827): once local/fallback has generated at least one attempt
-    // this run, cloud has empirically proven unusable for this prompt (the
+    // for THIS headline (flag reset per-headline — see the reset at the top
+    // of this function), cloud has empirically proven unusable for this
+    // prompt (the
     // Firestore-score-based cloudCascadeExhausted check in main() only sees
     // model scoring/cooldown state and misses per-request token-size
     // cascades). Each full local/fallback inference took ~12-17min observed;
@@ -8778,10 +8797,10 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     // fresh full budget. Same qualityReject disposition as the other
     // "survived retry budget" throws (see isQualityRejectError above) — this
     // is a clean per-headline deferral, not an infrastructure crash.
-    if (_localFallbackUsedThisRun) {
+    if (_localFallbackUsedThisHeadline) {
       const remainingMs = RUN_WALL_BUDGET_MS - (Date.now() - RUN_START_MS);
       if (remainingMs < LOCAL_MIN_VIABLE_MS) {
-        console.error(`  ⏭️  Interrompo i retry: local/fallback già usato in questo run, restano ${Math.round(remainingMs / 60_000)}min (< ${LOCAL_MIN_VIABLE_MS / 60_000}min necessari per completare un altro tentativo senza timeout) — evito un timeout a vuoto.`);
+        console.error(`  ⏭️  Interrompo i retry: local/fallback già usato per questo headline, restano ${Math.round(remainingMs / 60_000)}min (< ${LOCAL_MIN_VIABLE_MS / 60_000}min necessari per completare un altro tentativo senza timeout) — evito un timeout a vuoto.`);
         RUN_REPORT.notes.push(`Retry loop stopped early: local-only wall-clock guard (attempt=${attempt}, remainingMin=${Math.round(remainingMs / 60_000)})`);
         const err = new Error(`Local/fallback wall-clock budget insufficiente per un altro tentativo (restano ${Math.round(remainingMs / 60_000)}min)`);
         err.qualityReject = true;
