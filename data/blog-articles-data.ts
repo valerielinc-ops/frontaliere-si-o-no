@@ -24821,6 +24821,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'iniziativa-10-milioni-voto-giugno',
+ category: 'novita',
+ date: '2026-07-06T03:16:03.118Z',
+ image: '/images/blog/iniziativa-10-milioni-voto-giugno.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

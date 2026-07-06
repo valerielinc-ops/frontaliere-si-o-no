@@ -8259,6 +8259,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sviluppo-droni-ticino-mobilita.title': 'Luftmobilität im Tessin: der Drohnentest in Ambrì',
     'blog.article.sviluppo-droni-ticino-mobilita.excerpt': 'Die EH216-S, eine elektrische Drohne mit vertikalem Start, debütiert in Ambrì. Ein innovatives Projekt, um die Alpentäler zu verbinden und Straßenbegrenzungen zu überwinden.',
     'blog.article.sviluppo-droni-ticino-mobilita.imageAlt': 'Elektrische Drohne EH216-S über der Alpenlandschaft des Tessins',
+    'blog.article.iniziativa-10-milioni-voto-giugno.title': 'Abstimmung vom 14. Juni: Umfrage zur 10-Millionen-Initiative',
+    'blog.article.iniziativa-10-milioni-voto-giugno.excerpt': 'Die Nein-Front steigt mit Blick auf die Abstimmung am 14. Juni auf 52%. SRG-Datenanalyse zur SVP-Initiative und zum Zivildienstgesetz.',
+    'blog.article.iniziativa-10-milioni-voto-giugno.imageAlt': 'Informationstafel auf einem Schweizer Platz im Tessin vor einer Abstimmung.',
 };
 
 export default blogMetaDe;

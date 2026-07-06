@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3071,
+ "numberOfItems": 3072,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7746,7 +7746,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3068, "name": "Sicurezza a Gallarate: allarme FediCons sui pre...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-gallarate-fedi-cons` },
           { "@type": "ListItem", "position": 3069, "name": "Matrimonio frontaliere: impatti fiscali e resid...", "url": `${BASE_URL}/articoli-frontaliere/matrimonio-frontaliere-regime-fiscale` },
           { "@type": "ListItem", "position": 3070, "name": "Mobilità aerea in Ticino: il test dei droni ad ...", "url": `${BASE_URL}/articoli-frontaliere/sviluppo-droni-ticino-mobilita` },
-          { "@type": "ListItem", "position": 3071, "name": "Successione eredità: conto svizzero e frontalie...", "url": `${BASE_URL}/articoli-frontaliere/successione-eredita-frontaliere-conto-svizzero` }
+          { "@type": "ListItem", "position": 3071, "name": "Successione eredità: conto svizzero e frontalie...", "url": `${BASE_URL}/articoli-frontaliere/successione-eredita-frontaliere-conto-svizzero` },
+          { "@type": "ListItem", "position": 3072, "name": "Voto 14 giugno: sondaggio sull'iniziativa 10 mi...", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-10-milioni-voto-giugno` }
  ]
  },
  {

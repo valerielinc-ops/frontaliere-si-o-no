@@ -8261,6 +8261,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sviluppo-droni-ticino-mobilita.title': 'Mobilità aerea in Ticino: il test dei droni ad Ambrì',
     'blog.article.sviluppo-droni-ticino-mobilita.excerpt': 'L\'EH216-S, drone elettrico a decollo verticale, debutta ad Ambrì. Un progetto innovativo per collegare le valli alpine e superare i limiti stradali.',
     'blog.article.sviluppo-droni-ticino-mobilita.imageAlt': 'Drone elettrico EH216-S in volo sopra il panorama alpino del Ticino',
+    'blog.article.iniziativa-10-milioni-voto-giugno.title': 'Voto 14 giugno: sondaggio sull\'iniziativa 10 milioni',
+    'blog.article.iniziativa-10-milioni-voto-giugno.excerpt': 'Il fronte del \'no\' sale al 52% in vista del voto del 14 giugno. Analisi dei dati SSR sull\'iniziativa UDC e sulla legge per il servizio civile.',
+    'blog.article.iniziativa-10-milioni-voto-giugno.imageAlt': 'Cartellone informativo in una piazza del Canton Ticino prima di una votazione.',
 };
 
 export default blogMetaIt;
