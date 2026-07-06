@@ -22,17 +22,16 @@ import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
+import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DRY_RUN = process.argv.includes('--dry-run');
 
-const LOCALE_PREFIXES = {
-  it: '/cerca-lavoro-ticino/',
-  en: '/en/find-jobs-ticino/',
-  de: '/de/jobs-im-tessin/',
-  fr: '/fr/trouver-emploi-tessin/',
-};
+const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
+const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
+const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
 
 // Non-job slug prefixes — filter these out
 const NON_JOB_SLUG_PREFIXES = [
@@ -66,34 +65,50 @@ function isValidJobSlug(slug) {
   return true;
 }
 
+// Canton-aware: GSC/compat paths live under every canton's job-board section
+// (`cerca-lavoro-{slug}`, `find-jobs-{slug}`, …), not just the legacy TI board
+// — see scripts/lib/jobBoardSections.mjs.
 function extractSlugFromPath(urlPath) {
   if (!urlPath || typeof urlPath !== 'string') return null;
-  const allPrefixes = [
-    '/cerca-lavoro-ticino/', '/en/find-jobs-ticino/', '/en/find-job-ticino/',
-    '/en/job-search-ticino/', '/de/jobs-im-tessin/', '/de/jobsuche-tessin/',
-    '/fr/recherche-emploi-tessin/', '/fr/trouver-emploi-tessin/',
-  ];
   // Match case-insensitively (GSC may index a locale segment with drifted
   // casing, e.g. `/EN/find-jobs-ticino/...`) — mirrors inferLocale() in
   // build-plugins/searchConsoleCompat.ts.
-  const lowerPath = urlPath.toLowerCase();
-  for (const prefix of allPrefixes) {
-    if (lowerPath.startsWith(prefix)) {
-      const slug = lowerPath.slice(prefix.length).replace(/\/$/, '');
-      if (slug && !slug.includes('/')) return slug;
-      return null;
-    }
-  }
-  return null;
+  const pathname = urlPath.toLowerCase().replace(/^\/(en|de|fr)\//, '/');
+  const parts = pathname.split('/').filter(Boolean);
+  const boardIdx = parts.findIndex((part) => JOB_BOARD_SEGMENT_RX.test(part));
+  if (boardIdx === -1) return null;
+  const slug = parts[boardIdx + 1]?.replace(/\/$/, '');
+  return slug && !slug.includes('/') ? slug : null;
 }
 
-function buildLocalePaths(slug) {
-  return {
-    it: LOCALE_PREFIXES.it + slug,
-    en: LOCALE_PREFIXES.en + slug,
-    de: LOCALE_PREFIXES.de + slug,
-    fr: LOCALE_PREFIXES.fr + slug,
-  };
+// `cantonCode` defaults to the legacy TI board when unknown/unresolvable —
+// same default resolveCantonSection() itself applies for a falsy/absent code.
+function buildLocalePathsForCanton(cantonCode, slug) {
+  const paths = {};
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    const section = resolveCantonSection(locale, cantonCode);
+    paths[locale] = locale === 'it' ? `/${section}/${slug}` : `/${locale}/${section}/${slug}`;
+  }
+  return paths;
+}
+
+function buildLocalePathsForJob(job, slug) {
+  const cantonCode = resolveJobCanton({ canton: job?.canton, location: job?.location });
+  return buildLocalePathsForCanton(cantonCode, slug);
+}
+
+// Swap the trailing slug segment of an already-resolved entry's locale paths
+// — used when recovering a slug variant (fuzzy match) of a known entry, so
+// the recovered slug inherits its parent's real canton section instead of
+// defaulting to TI.
+function reuseLocalePathsForSlug(entry, newSlug) {
+  const result = {};
+  for (const l of ['it', 'en', 'de', 'fr']) {
+    const p = entry?.locales?.[l];
+    if (!p) continue;
+    result[l] = p.slice(0, p.lastIndexOf('/') + 1) + newSlug;
+  }
+  return result;
 }
 
 // ══════════════════════════════════════════════════════════
@@ -111,28 +126,30 @@ function mineActiveJobs() {
       const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
       const jobs = Array.isArray(data) ? data : (data.jobs || []);
       for (const job of jobs) {
+        const cantonCode = resolveJobCanton({ canton: job?.canton, location: job?.location });
+
         // Main slug
         if (isValidJobSlug(job.slug)) {
           if (!slugs.has(job.slug)) slugs.set(job.slug, { locales: {} });
-          slugs.get(job.slug).locales.it = LOCALE_PREFIXES.it + job.slug;
+          slugs.get(job.slug).locales.it = buildLocalePathsForCanton(cantonCode, job.slug).it;
         }
 
         // Locale-specific slugs
         if (job.slugByLocale) {
           for (const [locale, s] of Object.entries(job.slugByLocale)) {
-            if (!isValidJobSlug(s) || !LOCALE_PREFIXES[locale]) continue;
+            if (!isValidJobSlug(s) || !['it', 'en', 'de', 'fr'].includes(locale)) continue;
             if (!slugs.has(s)) slugs.set(s, { locales: {} });
-            slugs.get(s).locales[locale] = LOCALE_PREFIXES[locale] + s;
+            slugs.get(s).locales[locale] = buildLocalePathsForCanton(cantonCode, s)[locale];
           }
         }
 
         // Previous slugs (these are IT slugs used for all locale paths)
         for (const ps of (job.previousSlugs || [])) {
           if (!isValidJobSlug(ps)) continue;
-          if (!slugs.has(ps)) slugs.set(ps, { locales: buildLocalePaths(ps) });
+          if (!slugs.has(ps)) slugs.set(ps, { locales: buildLocalePathsForCanton(cantonCode, ps) });
           else {
             const entry = slugs.get(ps);
-            const paths = buildLocalePaths(ps);
+            const paths = buildLocalePathsForCanton(cantonCode, ps);
             for (const l of ['it', 'en', 'de', 'fr']) {
               if (!entry.locales[l]) entry.locales[l] = paths[l];
             }
@@ -155,20 +172,21 @@ function mineExpiredJobs() {
       const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
       const jobs = Array.isArray(data) ? data : (data.jobs || []);
       for (const job of jobs) {
+        const cantonCode = resolveJobCanton({ canton: job?.canton, location: job?.location });
         if (isValidJobSlug(job.slug)) {
           if (!slugs.has(job.slug)) slugs.set(job.slug, { locales: {} });
-          slugs.get(job.slug).locales.it = LOCALE_PREFIXES.it + job.slug;
+          slugs.get(job.slug).locales.it = buildLocalePathsForCanton(cantonCode, job.slug).it;
         }
         if (job.slugByLocale) {
           for (const [locale, s] of Object.entries(job.slugByLocale)) {
-            if (!isValidJobSlug(s) || !LOCALE_PREFIXES[locale]) continue;
+            if (!isValidJobSlug(s) || !['it', 'en', 'de', 'fr'].includes(locale)) continue;
             if (!slugs.has(s)) slugs.set(s, { locales: {} });
-            slugs.get(s).locales[locale] = LOCALE_PREFIXES[locale] + s;
+            slugs.get(s).locales[locale] = buildLocalePathsForCanton(cantonCode, s)[locale];
           }
         }
         for (const ps of (job.previousSlugs || [])) {
           if (!isValidJobSlug(ps)) continue;
-          if (!slugs.has(ps)) slugs.set(ps, { locales: buildLocalePaths(ps) });
+          if (!slugs.has(ps)) slugs.set(ps, { locales: buildLocalePathsForCanton(cantonCode, ps) });
         }
       }
     } catch {}
@@ -183,28 +201,32 @@ function mineSlugRegistry() {
 
   for (const entry of Object.values(registry)) {
     if (typeof entry === 'string') {
-      // Simple fingerprint → slug format
-      if (isValidJobSlug(entry)) slugs.set(entry, { locales: buildLocalePaths(entry) });
+      // Simple fingerprint → slug format — no canton context available for
+      // this legacy shape, defaults to the legacy TI board (see
+      // buildLocalePathsForCanton).
+      if (isValidJobSlug(entry)) slugs.set(entry, { locales: buildLocalePathsForCanton('TI', entry) });
     } else if (typeof entry === 'object' && entry !== null) {
-      // Rich format: { canonicalSlug, slugByLocale: { it, en, de, fr } }
+      // Rich format: { canonicalSlug, canton, slugByLocale: { it, en, de, fr } }
       const canonical = entry.canonicalSlug || entry.slug;
+      const cantonCode = entry.canton || 'TI';
       if (isValidJobSlug(canonical)) {
         const locales = {};
         if (entry.slugByLocale) {
           for (const [l, s] of Object.entries(entry.slugByLocale)) {
-            if (isValidJobSlug(s) && LOCALE_PREFIXES[l]) {
-              locales[l] = LOCALE_PREFIXES[l] + s;
+            if (isValidJobSlug(s) && ['it', 'en', 'de', 'fr'].includes(l)) {
+              locales[l] = buildLocalePathsForCanton(cantonCode, s)[l];
               // Also register the locale-specific slug as its own entry
               if (s !== canonical && isValidJobSlug(s)) {
                 if (!slugs.has(s)) slugs.set(s, { locales: {} });
-                slugs.get(s).locales[l] = LOCALE_PREFIXES[l] + s;
+                slugs.get(s).locales[l] = locales[l];
               }
             }
           }
         }
         // Fill missing locales with canonical slug
+        const canonicalPaths = buildLocalePathsForCanton(cantonCode, canonical);
         for (const l of ['it', 'en', 'de', 'fr']) {
-          if (!locales[l]) locales[l] = LOCALE_PREFIXES[l] + canonical;
+          if (!locales[l]) locales[l] = canonicalPaths[l];
         }
         if (!slugs.has(canonical)) slugs.set(canonical, { locales });
         else {
@@ -226,7 +248,14 @@ function mineOrphanData() {
 
   for (const o of orphans) {
     if (!isValidJobSlug(o.slug)) continue;
-    slugs.set(o.slug, { locales: buildLocalePaths(o.slug) });
+    // Entries carry the actual observed `path`/`locale` (real canton board
+    // section GSC indexed it under) — use that instead of assuming TI.
+    if (o.path && o.locale && ['it', 'en', 'de', 'fr'].includes(o.locale)) {
+      if (!slugs.has(o.slug)) slugs.set(o.slug, { locales: {} });
+      slugs.get(o.slug).locales[o.locale] = o.path;
+    } else if (!slugs.has(o.slug)) {
+      slugs.set(o.slug, { locales: buildLocalePathsForCanton('TI', o.slug) });
+    }
   }
   return slugs;
 }
@@ -289,13 +318,17 @@ function mineGitRemovedSlugs() {
 
       if (!line.startsWith('-')) continue;
 
+      // Raw git diff text only exposes the slug value, never the job's canton
+      // field at this parse point — defaults to the legacy TI board (same
+      // default buildLocalePathsForCanton/resolveCantonSection apply for an
+      // unresolvable canton).
       if (inSlugByLocale || trimmed.includes('"slugByLocale"')) {
         const m = trimmed.match(localeSlugRe);
         if (m) {
           const [, locale, slug] = m;
-          if (isValidJobSlug(slug) && LOCALE_PREFIXES[locale]) {
+          if (isValidJobSlug(slug) && ['it', 'en', 'de', 'fr'].includes(locale)) {
             if (!slugs.has(slug)) slugs.set(slug, { locales: {} });
-            slugs.get(slug).locales[locale] = LOCALE_PREFIXES[locale] + slug;
+            slugs.get(slug).locales[locale] = buildLocalePathsForCanton('TI', slug)[locale];
           }
         }
       }
@@ -303,7 +336,7 @@ function mineGitRemovedSlugs() {
       const topMatch = trimmed.match(/^\s*"slug":\s*"([a-z0-9][a-z0-9-]{10,})"/);
       if (topMatch && isValidJobSlug(topMatch[1])) {
         const slug = topMatch[1];
-        if (!slugs.has(slug)) slugs.set(slug, { locales: buildLocalePaths(slug) });
+        if (!slugs.has(slug)) slugs.set(slug, { locales: buildLocalePathsForCanton('TI', slug) });
       }
     }
   } catch (err) {
@@ -372,7 +405,11 @@ function fuzzyReconcileOrphans(knownSlugs) {
 
     if (best) {
       matched++;
-      reconciled.set(orphan, { locales: buildLocalePaths(orphan) });
+      // Reuse the matched parent slug's own resolved board section rather
+      // than assuming TI — the fuzzy match is a truncated/renamed variant of
+      // `best`, so it lives under the same canton section.
+      const bestEntry = knownSlugs.get(best);
+      reconciled.set(orphan, { locales: reuseLocalePathsForSlug(bestEntry, orphan) });
     }
   }
 
@@ -461,10 +498,15 @@ function main() {
       reservedHubsSkipped++;
       continue;
     }
-    // Ensure slug has all 4 locale paths
+    // Ensure slug has all 4 locale paths. By this point every mining source
+    // has already tried to resolve the real canton section (see sources
+    // above) — a locale still missing here means NO source had canton
+    // context for it, so this last-resort fill defaults to the legacy TI
+    // board (same default buildLocalePathsForCanton/resolveCantonSection
+    // apply for an unresolvable canton).
     const localePaths = { ...data.locales };
     for (const l of ['it', 'en', 'de', 'fr']) {
-      if (!localePaths[l]) localePaths[l] = LOCALE_PREFIXES[l] + slug;
+      if (!localePaths[l]) localePaths[l] = buildLocalePathsForCanton('TI', slug)[l];
     }
 
     if (!tracking[slug]) {

@@ -14,12 +14,25 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { fileURLToPath } from 'node:url';
+import {
+  JOB_BOARD_SECTION_PREFIX_SOURCE,
+  JOB_BOARD_SECTION_GSC_STEMS,
+  isJobBoardSectionPath,
+} from './lib/jobBoardSections.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
 const SITE_URL = 'https://frontaliereticino.ch';
-const JOB_PREFIX = '/cerca-lavoro-ticino/';
+
+// Canton-aware: captures the slug segment after ANY job-board section prefix
+// (cerca-lavoro-<canton>, find-jobs-<canton>, jobs-in(-der)-<canton>,
+// jobs-im-<canton>, trouver-emploi-<canton>, incl. the TI legacy slugs and
+// the Switzerland aggregator) — not just the old `/cerca-lavoro-ticino/`
+// literal, so orphans from every canton section are found, not just Ticino.
+// Case-insensitive: GSC may index a locale/section segment with drifted
+// casing (e.g. `/EN/find-jobs-ticino/...`).
+const JOB_SLUG_RX = new RegExp(`/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/([^/?#]+)`, 'i');
 
 // ── Load env ─────────────────────────────────────────────
 const GSC_CLIENT_ID = process.env.GSC_CLIENT_ID || '';
@@ -107,52 +120,63 @@ async function getIndexedJobUrls(accessToken) {
   const startDate = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
   const urls = new Set();
-  let startRow = 0;
 
-  while (true) {
-    const res = await fetch(
-      `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/searchAnalytics/query`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          startDate,
-          endDate,
-          dimensions: ['page'],
-          dimensionFilterGroups: [{
-            filters: [{
-              dimension: 'page',
-              operator: 'contains',
-              expression: '/cerca-lavoro-ticino/',
+  // Canton-aware: the old single `/cerca-lavoro-ticino/` filter meant GSC was
+  // NEVER even queried for non-TI canton job-board pages (cerca-lavoro-zurigo,
+  // find-jobs-geneva, jobs-in-aargau, trouver-emploi-vaud, …) — those orphans
+  // were invisible to this tool regardless of downstream parsing. GSC's
+  // `contains` operator is substring-only (not a regex), so it can't OR
+  // across the canton set in one call — loop the same query per generic
+  // locale/section stem instead (mirrors the proven pattern already used in
+  // sync-gsc-orphans.mjs, shared via JOB_BOARD_SECTION_GSC_STEMS).
+  for (const expression of JOB_BOARD_SECTION_GSC_STEMS) {
+    let startRow = 0;
+
+    while (true) {
+      const res = await fetch(
+        `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/searchAnalytics/query`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            startDate,
+            endDate,
+            dimensions: ['page'],
+            dimensionFilterGroups: [{
+              filters: [{
+                dimension: 'page',
+                operator: 'contains',
+                expression,
+              }],
             }],
-          }],
-          rowLimit: 5000,
-          startRow,
-        }),
-      },
-    );
+            rowLimit: 5000,
+            startRow,
+          }),
+        },
+      );
 
-    if (!res.ok) {
-      console.error(`GSC API error: ${res.status} ${await res.text()}`);
-      break;
-    }
-
-    const data = await res.json();
-    const rows = data.rows || [];
-    if (rows.length === 0) break;
-
-    for (const row of rows) {
-      const pageUrl = row.keys?.[0] || '';
-      if (pageUrl.includes('/cerca-lavoro-ticino/')) {
-        urls.add(pageUrl);
+      if (!res.ok) {
+        console.error(`GSC API error for "${expression}": ${res.status} ${await res.text()}`);
+        break;
       }
-    }
 
-    startRow += rows.length;
-    if (rows.length < 5000) break;
+      const data = await res.json();
+      const rows = data.rows || [];
+      if (rows.length === 0) break;
+
+      for (const row of rows) {
+        const pageUrl = row.keys?.[0] || '';
+        if (isJobBoardSectionPath(pageUrl)) {
+          urls.add(pageUrl);
+        }
+      }
+
+      startRow += rows.length;
+      if (rows.length < 5000) break;
+    }
   }
 
   return urls;
@@ -181,7 +205,7 @@ async function main() {
   // Extract slugs from URLs and find orphans
   const orphans = [];
   for (const url of indexedUrls) {
-    const match = url.match(/\/cerca-lavoro-ticino\/([^/?#]+)/);
+    const match = url.match(JOB_SLUG_RX);
     if (!match) continue;
     const slug = match[1].replace(/\/$/, '');
     if (!slug || knownSlugs.has(slug)) continue;

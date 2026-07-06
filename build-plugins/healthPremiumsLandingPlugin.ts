@@ -61,7 +61,7 @@ import {
   type TriYearCantonDelta,
   type BracketTrend,
 } from './healthPremiumsData';
-import { generateRelatedLinksBlock, JOB_LISTING_ROOT, renderAboveFoldJobCta } from './shared/relatedLinks';
+import { generateRelatedLinksBlock, SWITZERLAND_JOB_ROOT, renderAboveFoldJobCta } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -113,25 +113,25 @@ const HEALTH_PREMIUMS_DISCOVER_MORE_CTAS: Record<
 > = {
   it: [
     { title: 'Confronto casse malati',                href: LAMAL_COMPARE_PATH.it },
-    { title: 'Offerte di lavoro in Ticino',           href: JOB_LISTING_ROOT.it },
+    { title: 'Offerte di lavoro in Svizzera',         href: SWITZERLAND_JOB_ROOT.it },
     { title: 'Calcolatore stipendio frontaliere',     href: HOME_PATH.it },
     { title: 'Tempi di attesa alle dogane',           href: BORDER_WAIT_HUB_PATH.it },
   ],
   en: [
     { title: 'Compare health insurers',               href: LAMAL_COMPARE_PATH.en },
-    { title: 'Job openings in Ticino',                href: JOB_LISTING_ROOT.en },
+    { title: 'Job openings in Switzerland',           href: SWITZERLAND_JOB_ROOT.en },
     { title: 'Cross-border salary calculator',        href: HOME_PATH.en },
     { title: 'Border crossing wait times',            href: BORDER_WAIT_HUB_PATH.en },
   ],
   de: [
     { title: 'Krankenkassen vergleichen',             href: LAMAL_COMPARE_PATH.de },
-    { title: 'Stellenangebote im Tessin',             href: JOB_LISTING_ROOT.de },
+    { title: 'Stellenangebote in der Schweiz',        href: SWITZERLAND_JOB_ROOT.de },
     { title: 'Gehaltsrechner Grenzgänger',            href: HOME_PATH.de },
     { title: 'Wartezeiten an der Grenze',             href: BORDER_WAIT_HUB_PATH.de },
   ],
   fr: [
     { title: 'Comparer les caisses maladie',          href: LAMAL_COMPARE_PATH.fr },
-    { title: "Offres d'emploi au Tessin",             href: JOB_LISTING_ROOT.fr },
+    { title: "Offres d'emploi en Suisse",             href: SWITZERLAND_JOB_ROOT.fr },
     { title: 'Calculateur salaire frontalier',        href: HOME_PATH.fr },
     { title: "Temps d'attente aux douanes",           href: BORDER_WAIT_HUB_PATH.fr },
   ],
@@ -2344,7 +2344,7 @@ function renderLeafPage(inp: LeafInputs): string {
   ${adviceBannerHtml}
   ${statsHtml}
   ${rankingLineHtml}
-  ${renderAboveFoldJobCta(locale)}
+  ${renderAboveFoldJobCta(locale, 'switzerland')}
   <section class="s-ziawP1" aria-labelledby="comparatorCta">
     <h2 id="comparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
     <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
@@ -2648,7 +2648,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   ${adviceBannerHtml}
   ${statsHtml}
   ${rankingLineHtml}
-  ${renderAboveFoldJobCta(locale)}
+  ${renderAboveFoldJobCta(locale, 'switzerland')}
   <section class="s-ziawP1" aria-labelledby="cantonComparatorCta">
     <h2 id="cantonComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
     <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
@@ -2912,7 +2912,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     <p style="${LEDE_STYLE}">${esc(taglineByLocale[locale])}</p>
   </header>
   ${rootStatsHtml}
-  ${renderAboveFoldJobCta(locale)}
+  ${renderAboveFoldJobCta(locale, 'switzerland')}
   <section class="s-ziawP1" aria-labelledby="rootComparatorCta">
     <h2 id="rootComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
     <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>

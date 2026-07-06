@@ -6,6 +6,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
+import { isJobBoardSectionPath } from '../scripts/lib/jobBoardSections.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -150,10 +151,10 @@ function categorizeUrls(urls: string[], locale: 'it' | 'en' | 'de' | 'fr' = 'it'
 
  // Locale-specific path prefixes (Italian has no locale prefix)
  const prefixMap: Record<string, Record<string, string>> = {
- it: { calc: '/calcola-stipendio', comp: '/compara-servizi', tax: '/tasse-e-pensione', guide: '/guida-frontaliere', life: '/vivere-in-ticino', stats: '/statistiche', job: '/cerca-lavoro', jobOffer: '/offerta-lavoro', blog: '/articoli-frontaliere', gloss: '/glossario-frontaliere' },
- en: { calc: '/en/calculate-salary', comp: '/en/service-comparison', tax: '/en/taxes-and-pension', guide: '/en/cross-border-guide', life: '/en/living-in-ticino', stats: '/en/statistics', job: '/en/find-jobs-ticino', jobOffer: '/en/job-offer', blog: '/en/cross-border-articles', gloss: '/en/cross-border-glossary' },
- de: { calc: '/de/gehalt-berechnen', comp: '/de/service-vergleich', tax: '/de/grenzgaenger-besteuerung-leitfaden-2026', guide: '/de/grenzgaenger-ratgeber', life: '/de/leben-im-tessin', stats: '/de/statistiken', job: '/de/jobs-im-tessin', jobOffer: '/de/stellenangebot', blog: '/de/grenzgaenger-artikel', gloss: '/de/grenzgaenger-glossar' },
- fr: { calc: '/fr/calculer-salaire', comp: '/fr/comparaison-services', tax: '/fr/impots-et-retraite', guide: '/fr/guide-frontalier', life: '/fr/vivre-au-tessin', stats: '/fr/statistiques', job: '/fr/trouver-emploi-tessin', jobOffer: '/fr/offre-emploi', blog: '/fr/articles-frontalier', gloss: '/fr/glossaire-frontalier' },
+ it: { calc: '/calcola-stipendio', comp: '/compara-servizi', tax: '/tasse-e-pensione', guide: '/guida-frontaliere', life: '/vivere-in-ticino', stats: '/statistiche', jobOffer: '/offerta-lavoro', blog: '/articoli-frontaliere', gloss: '/glossario-frontaliere' },
+ en: { calc: '/en/calculate-salary', comp: '/en/service-comparison', tax: '/en/taxes-and-pension', guide: '/en/cross-border-guide', life: '/en/living-in-ticino', stats: '/en/statistics', jobOffer: '/en/job-offer', blog: '/en/cross-border-articles', gloss: '/en/cross-border-glossary' },
+ de: { calc: '/de/gehalt-berechnen', comp: '/de/service-vergleich', tax: '/de/grenzgaenger-besteuerung-leitfaden-2026', guide: '/de/grenzgaenger-ratgeber', life: '/de/leben-im-tessin', stats: '/de/statistiken', jobOffer: '/de/stellenangebot', blog: '/de/grenzgaenger-artikel', gloss: '/de/grenzgaenger-glossar' },
+ fr: { calc: '/fr/calculer-salaire', comp: '/fr/comparaison-services', tax: '/fr/impots-et-retraite', guide: '/fr/guide-frontalier', life: '/fr/vivre-au-tessin', stats: '/fr/statistiques', jobOffer: '/fr/offre-emploi', blog: '/fr/articles-frontalier', gloss: '/fr/glossaire-frontalier' },
  };
  const p = prefixMap[locale];
 
@@ -165,7 +166,7 @@ function categorizeUrls(urls: string[], locale: 'it' | 'en' | 'de' | 'fr' = 'it'
  else if (url.startsWith(p.guide)) categories.get('Practical Guides')!.push(url);
  else if (url.startsWith(p.life)) categories.get('Life in Ticino')!.push(url);
  else if (url.startsWith(p.stats)) categories.get('Statistics')!.push(url);
- else if (url.startsWith(p.job) || url.startsWith(p.jobOffer)) categories.get('Job Board')!.push(url);
+ else if (isJobBoardSectionPath(url) || url.startsWith(p.jobOffer)) categories.get('Job Board')!.push(url);
  else if (url.startsWith(p.blog)) categories.get('Blog Articles')!.push(url);
  else if (url.startsWith(p.gloss)) categories.get('Glossary')!.push(url);
  else categories.get('Other Pages')!.push(url);

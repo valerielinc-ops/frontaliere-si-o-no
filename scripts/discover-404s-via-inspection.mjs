@@ -36,10 +36,25 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://frontaliereticino.ch';
+
+const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
+const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
+const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
+
+/** Per-canton `{it,en,de,fr}` job-board section prefixes, e.g. `/cerca-lavoro-zurigo/`. */
+function buildCantonLocalePrefixes(cantonCode) {
+  const prefixes = {};
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    const section = resolveCantonSection(locale, cantonCode);
+    prefixes[locale] = `${locale === 'it' ? '' : `/${locale}`}/${section}/`;
+  }
+  return prefixes;
+}
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const BATCH_SIZE = Number(
@@ -105,12 +120,6 @@ async function detectSiteProperty(accessToken) {
  */
 function collectCandidatePaths() {
   const paths = new Set();
-  const LOCALE_PREFIXES = {
-    it: '/cerca-lavoro-ticino/',
-    en: '/en/find-jobs-ticino/',
-    de: '/de/jobs-im-tessin/',
-    fr: '/fr/trouver-emploi-tessin/',
-  };
 
   // 1. Active job tracking — paths for every (slug, locale) pair
   const tracking = readJsonSafe(dataPath('all-known-job-slugs.json'), {});
@@ -124,25 +133,32 @@ function collectCandidatePaths() {
 
   // 2. Active jobs: expand previousSlugsByLocale under every locale base URL
   // (covers cross-locale 404s where a historical slug was indexed under a
-  // different locale prefix than it was generated for).
+  // different locale prefix than it was generated for). Section prefixes are
+  // resolved per-job's own canton — a hardcoded TI-only prefix set here meant
+  // every non-TI canton job's previous slugs were checked against the wrong
+  // (Ticino) section instead of their real one, so real 404s on e.g.
+  // `/cerca-lavoro-zurigo/<old-slug>/` were never inspected.
   const activeJobs = readJsonSafe(path.resolve(ROOT, 'public/data/jobs.json'), []);
   if (Array.isArray(activeJobs)) {
     for (const job of activeJobs) {
+      const cantonCode = resolveJobCanton({ canton: job?.canton, location: job?.location });
+      const localePrefixes = buildCantonLocalePrefixes(cantonCode);
       const psBL = job && job.previousSlugsByLocale;
-      if (!psBL || typeof psBL !== 'object') continue;
-      for (const arr of Object.values(psBL)) {
-        if (!Array.isArray(arr)) continue;
-        for (const oldSlug of arr) {
-          if (typeof oldSlug !== 'string' || !oldSlug) continue;
-          for (const prefix of Object.values(LOCALE_PREFIXES)) {
-            paths.add(`${prefix}${oldSlug}`.replace(/\/+$/, ''));
+      if (psBL && typeof psBL === 'object') {
+        for (const arr of Object.values(psBL)) {
+          if (!Array.isArray(arr)) continue;
+          for (const oldSlug of arr) {
+            if (typeof oldSlug !== 'string' || !oldSlug) continue;
+            for (const prefix of Object.values(localePrefixes)) {
+              paths.add(`${prefix}${oldSlug}`.replace(/\/+$/, ''));
+            }
           }
         }
       }
       if (Array.isArray(job.previousSlugs)) {
         for (const oldSlug of job.previousSlugs) {
           if (typeof oldSlug !== 'string' || !oldSlug) continue;
-          for (const prefix of Object.values(LOCALE_PREFIXES)) {
+          for (const prefix of Object.values(localePrefixes)) {
             paths.add(`${prefix}${oldSlug}`.replace(/\/+$/, ''));
           }
         }

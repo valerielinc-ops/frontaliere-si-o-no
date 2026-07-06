@@ -42,6 +42,7 @@
  */
 
 import { escHtml } from './htmlEscape';
+import { AGGREGATE_KEY, resolveCantonSection } from './cantonSection';
 import {
   FUEL_ITALIAN_CITIES,
   FUEL_ZONES,
@@ -195,6 +196,28 @@ export const JOB_LISTING_ROOT: Record<LinkLocale, string> = {
   fr: '/fr/trouver-emploi-tessin/',
 };
 
+const LOCALE_PATH_PREFIX: Record<LinkLocale, string> = {
+  it: '',
+  en: '/en',
+  de: '/de',
+  fr: '/fr',
+};
+
+/**
+ * Switzerland-wide job-board root (the `_AGGREGATE_` section, always emitted
+ * regardless of per-canton job count — see jobsSeoPagesPlugin.ts's MIN_JOBS
+ * gate bypass for the aggregator). Callers whose page type spans every
+ * canton (health-premiums) must NOT default to the Ticino-only
+ * `JOB_LISTING_ROOT` — same reasoning as bridgeThinShell.ts's
+ * `aggregateListingPath`.
+ */
+export const SWITZERLAND_JOB_ROOT: Record<LinkLocale, string> = {
+  it: `${LOCALE_PATH_PREFIX.it}/${resolveCantonSection('it', AGGREGATE_KEY)}/`,
+  en: `${LOCALE_PATH_PREFIX.en}/${resolveCantonSection('en', AGGREGATE_KEY)}/`,
+  de: `${LOCALE_PATH_PREFIX.de}/${resolveCantonSection('de', AGGREGATE_KEY)}/`,
+  fr: `${LOCALE_PATH_PREFIX.fr}/${resolveCantonSection('fr', AGGREGATE_KEY)}/`,
+};
+
 /**
  * Compact above-the-fold onward-nav CTA to the job board (the 5.34 PV-RPM page,
  * 63% of site revenue). Rendered immediately AFTER a static data page's primary
@@ -204,9 +227,17 @@ export const JOB_LISTING_ROOT: Record<LinkLocale, string> = {
  * DiscoverMore/related-links only reach the ~15% who scroll the whole page.
  * Links only (no ad slots → regression guard unaffected); reuses the shipped
  * `s-cta` / `s-ziawP1` atoms so it renders at first paint with no CLS and no new CSS.
+ *
+ * `scope` picks the CTA target: `'ticino'` (default) for feature pages that
+ * are themselves Ticino-only by design (fuel-daily zones, border-wait
+ * crossings — all Ticino↔Italy); `'switzerland'` for feature pages that span
+ * every canton (health-premiums), where defaulting to Ticino would send most
+ * visitors to a job board scoped to a canton their page has nothing to do with.
  */
-export function renderAboveFoldJobCta(locale: LinkLocale): string {
-  return `<p class="s-ziawP1" style="margin:1.1rem 0"><a href="${escHtml(JOB_LISTING_ROOT[locale])}" class="s-cta" style="font-size:14px">${escHtml(COPY[locale].allJobs)} →</a></p>`;
+export function renderAboveFoldJobCta(locale: LinkLocale, scope: 'ticino' | 'switzerland' = 'ticino'): string {
+  const href = scope === 'switzerland' ? SWITZERLAND_JOB_ROOT[locale] : JOB_LISTING_ROOT[locale];
+  const label = scope === 'switzerland' ? COPY[locale].allJobsSwitzerland : COPY[locale].allJobs;
+  return `<p class="s-ziawP1" style="margin:1.1rem 0"><a href="${escHtml(href)}" class="s-cta" style="font-size:14px">${escHtml(label)} →</a></p>`;
 }
 
 const LAST_3_DAYS_PATH: Record<LinkLocale, string> = {
@@ -341,6 +372,7 @@ interface Copy {
   readonly last3Days: string;
   readonly sinceYesterday: string;
   readonly allJobs: string;
+  readonly allJobsSwitzerland: string;
   readonly healthPremiums: string;
   readonly healthPremiumsTicino: string;
   readonly healthComparator: string;
@@ -393,6 +425,7 @@ const COPY: Record<LinkLocale, Copy> = {
     last3Days: 'Offerte di lavoro degli ultimi 3 giorni',
     sinceYesterday: 'Nuove offerte di lavoro da ieri',
     allJobs: 'Tutte le offerte di lavoro in Ticino',
+    allJobsSwitzerland: 'Tutte le offerte di lavoro in Svizzera',
     healthPremiums: 'Premi cassa malati per cantone',
     healthPremiumsTicino: 'Premi cassa malati in Ticino',
     healthComparator: 'Confronta le casse malati',
@@ -437,6 +470,7 @@ const COPY: Record<LinkLocale, Copy> = {
     last3Days: 'Jobs posted in the last 3 days',
     sinceYesterday: 'New jobs since yesterday',
     allJobs: 'All Ticino jobs',
+    allJobsSwitzerland: 'All jobs in Switzerland',
     healthPremiums: 'Health-insurance premiums by canton',
     healthPremiumsTicino: 'Health-insurance premiums in Ticino',
     healthComparator: 'Compare health insurers',
@@ -481,6 +515,7 @@ const COPY: Record<LinkLocale, Copy> = {
     last3Days: 'Stellen der letzten 3 Tage',
     sinceYesterday: 'Neue Stellen seit gestern',
     allJobs: 'Alle Tessiner Stellen',
+    allJobsSwitzerland: 'Alle Stellen in der Schweiz',
     healthPremiums: 'Krankenkassenprämien pro Kanton',
     healthPremiumsTicino: 'Krankenkassenprämien im Tessin',
     healthComparator: 'Krankenkassen vergleichen',
@@ -525,6 +560,7 @@ const COPY: Record<LinkLocale, Copy> = {
     last3Days: 'Offres des 3 derniers jours',
     sinceYesterday: 'Nouvelles offres depuis hier',
     allJobs: 'Toutes les offres au Tessin',
+    allJobsSwitzerland: 'Toutes les offres en Suisse',
     healthPremiums: 'Primes assurance-maladie par canton',
     healthPremiumsTicino: 'Primes assurance-maladie au Tessin',
     healthComparator: 'Comparer les caisses-maladie',
