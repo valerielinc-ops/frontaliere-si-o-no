@@ -26,11 +26,24 @@
  * Generated files:
  *   1. scripts/lib/{key}-job-parser.mjs        — Parser (ATS-aware when --ats != custom; ~50 lines instead of ~200)
  *   2. scripts/update-{key}-jobs.mjs           — Runner (30-line entry point)
- *   3. .github/workflows/update-jobs-{key}.yml — GitHub Actions workflow
- *   4. tests/{key}-crawler.test.ts             — Parser unit tests
+ *   3. tests/{key}-crawler.test.ts             — Parser unit tests
+ *
+ * NOTE (2026-07 consolidation): a standalone `.github/workflows/update-jobs-
+ * {key}.yml` is NO LONGER generated. All crawlers now run as `background:
+ * true` steps inside one of 23 `.github/workflows/crawler-group-NN.yml`
+ * files (see scripts/generate-crawler-group-workflows.mjs) — the individual-
+ * workflow-per-crawler pattern was removed to stop each dispatch from
+ * consuming a full GitHub Free-tier concurrent-job slot for its whole run
+ * duration. This script writes a synthetic manifest entry for the new
+ * crawler (`node scripts/update-{key}-jobs.mjs` invoked directly — no
+ * package.json script needed) and re-runs the group generator automatically
+ * (see runGroupGeneratorForNewCrawler() below) so the new crawler is folded
+ * into its least-loaded group and every crawler-group-*.yml is regenerated
+ * deterministically in the same scaffold step.
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import { buildManifestEntryForNewCrawler } from './lib/crawler-manifest-entry.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -205,8 +218,12 @@ if (marquee) {
 const files = {
   parser: path.join(ROOT, 'scripts', 'lib', `${companyKey}-job-parser.mjs`),
   runner: path.join(ROOT, 'scripts', `update-${companyKey}-jobs.mjs`),
-  workflow: path.join(ROOT, '.github', 'workflows', `update-jobs-${companyKey}.yml`),
   test: path.join(ROOT, 'tests', `${companyKey}-crawler.test.ts`),
+  // No `workflow` file — since the 2026-07 consolidation, crawlers don't get
+  // their own .github/workflows/update-jobs-{key}.yml. Instead a manifest
+  // entry is appended to data/crawler-manifest.json and the group generator
+  // re-run (see runGroupGeneratorForNewCrawler() below), folding the new
+  // crawler into whichever crawler-group-NN.yml is currently least loaded.
 };
 
 /* ── Existence Check ─────────────────────────────────────────── */
@@ -724,120 +741,6 @@ runStandardCrawlerPipeline({
 });
 `;
 
-/* ── Template: Workflow ──────────────────────────────────────── */
-
-const workflowContent = `name: Update ${companyName} Jobs (Dedicated)
-
-on:
-  workflow_dispatch:
-    inputs:
-      strict_localization:
-        description: 'Fail if any locale is missing/untranslated (1=yes, 0=no)'
-        required: false
-        default: '1'
-        type: string
-      timeout_ms:
-        description: 'Optional request timeout in ms (4000-15000)'
-        required: false
-        type: string
-      skip_ai_translation:
-        description: "Skip AI translation (1=yes, cache only)"
-        required: false
-        default: "0"
-        type: string
-
-concurrency:
-  group: jobs-crawler-${companyKey}
-  cancel-in-progress: false
-
-permissions:
-  contents: write
-  issues: write
-
-env:
-  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
-
-jobs:
-  update-${companyKey}-jobs:
-    runs-on: ubuntu-latest
-    timeout-minutes: 360
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 50
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-${playwrightTier ? `
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
-` : ''}
-      - name: Prepare Firebase credentials (optional)
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: \${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-          else
-            echo "ℹ️ Firebase secrets not set — crawler will use file config only."
-            exit 0
-          fi
-          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-
-      - name: Load secrets from Remote Config
-        env:
-          GH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
-        run: |
-          node scripts/load-rc-env.mjs
-          echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
-
-      - name: Run dedicated ${companyName} crawler
-        env:
-          JOBS_CRAWLER_TIMEOUT_MS: \${{ github.event.inputs.timeout_ms || '' }}
-          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
-          JOBS_${CONST_PREFIX}_STRICT: \${{ github.event.inputs.strict_localization || '1' }}
-          CRAWLER_SLICE_ONLY: '1'
-          SKIP_AI_TRANSLATION: \${{ github.event.inputs.skip_ai_translation || '0' }}
-        run: node scripts/update-${companyKey}-jobs.mjs
-
-      - name: Housekeeping — remove expired job listings (scoped)
-        env:
-          JOBS_HOUSEKEEPING_SCOPE: '${companyKey}'
-          JOBS_SLICE_FILE: 'data/jobs/by-crawler/${companyKey}.json'
-        run: node scripts/cleanup-jobs.mjs
-        continue-on-error: true
-
-      - name: Commit and push
-        id: changes
-        env:
-          SKIP_AI_TRANSLATION: \${{ github.event.inputs.skip_ai_translation || '0' }}
-        run: bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ${companyName} jobs (dedicated crawler)" data/jobs-crawler-adapters/
-
-      - name: Report failure to GitHub Issue
-        if: failure()
-        continue-on-error: true
-        env:
-          GH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
-        run: |
-          node scripts/lib/github-issue-creator.mjs \\
-            --title "Crawler Failure: \${{ github.workflow }}" \\
-            --description "## Crawler fallito
-          **Run:** https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
-          **Branch:** \${{ github.ref_name }}
-          **Trigger:** \${{ github.event_name }}" \\
-            --priority 2 \\
-            --label Bug \\
-            --workflow "\${{ github.workflow }}"
-`;
-
 /* ── Template: Test ──────────────────────────────────────────── */
 
 const testContent = `import { describe, it, expect } from 'vitest';
@@ -984,8 +887,67 @@ console.log(`\n🏗️  Scaffolding crawler: ${companyKey} (${companyName}) [--a
 
 writeFile(files.parser, parserContent, 'Parser');
 writeFile(files.runner, runnerContent, 'Runner');
-writeFile(files.workflow, workflowContent, 'Workflow');
 writeFile(files.test, testContent, 'Test');
+
+/* ── Crawler-group manifest + workflow regeneration ─────────── */
+// (2026-07 consolidation) No standalone workflow file — append this
+// crawler to data/crawler-manifest.json and re-run the group generator so
+// it's folded into its least-loaded crawler-group-NN.yml.
+runGroupGeneratorForNewCrawler({ companyKey, companyName, constPrefix: CONST_PREFIX, playwright: playwrightTier });
+
+function runGroupGeneratorForNewCrawler({ companyKey: key, companyName: name, constPrefix, playwright }) {
+  const manifestPath = path.join(ROOT, 'data', 'crawler-manifest.json');
+  if (!fs.existsSync(manifestPath)) {
+    console.warn(
+      '  ⚠️  data/crawler-manifest.json not found — skipping group registration.\n' +
+      '     Run manually once it exists: node scripts/generate-crawler-group-workflows.mjs',
+    );
+    return;
+  }
+
+  let manifest;
+  try {
+    manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+  } catch (err) {
+    console.warn(`  ⚠️  Could not parse data/crawler-manifest.json (${err?.message || err}) — skipping group registration.`);
+    return;
+  }
+
+  const existingIdx = manifest.findIndex((entry) => entry.crawlerSlug === key);
+  if (existingIdx !== -1 && !force) {
+    console.log(`  ℹ️  '${key}' already present in data/crawler-manifest.json — skipping append (pass --force to overwrite its manifest entry + regenerate).`);
+    return;
+  }
+
+  const newEntry = buildManifestEntryForNewCrawler({
+    companyKey: key,
+    companyName: name,
+    constPrefix,
+    playwright,
+  });
+  if (existingIdx !== -1) {
+    manifest[existingIdx] = newEntry;
+  } else {
+    manifest.push(newEntry);
+  }
+  manifest.sort((a, b) => (a.crawlerSlug < b.crawlerSlug ? -1 : a.crawlerSlug > b.crawlerSlug ? 1 : 0));
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n', 'utf-8');
+  console.log(`  ✅ Manifest: appended '${key}' to data/crawler-manifest.json (${manifest.length} crawlers total)`);
+
+  try {
+    execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'generate-crawler-group-workflows.mjs')], {
+      stdio: 'inherit',
+      cwd: ROOT,
+    });
+    console.log(`  ✅ Regenerated all crawler-group-*.yml — '${key}' is now scheduled with its group.`);
+  } catch (err) {
+    console.warn(
+      `  ⚠️  Group regeneration failed (${err?.message || err}).\n` +
+      '     The crawler is scaffolded and in the manifest, but NOT yet in any crawler-group-*.yml.\n' +
+      '     Fix the error above, then rerun: node scripts/generate-crawler-group-workflows.mjs',
+    );
+  }
+}
 
 /* ── Logo registry + local mirror ────────────────────────────── */
 
@@ -1078,10 +1040,18 @@ console.log(`
   5. REGISTER IN ORCHESTRATOR
      Add '${companyKey}' to data/jobs-crawler-config.json
 
+  6. VERIFY GROUP PLACEMENT (already done automatically above)
+     '${companyKey}' was appended to data/crawler-manifest.json and folded into
+     its least-loaded group by scripts/generate-crawler-group-workflows.mjs.
+     Check which group it landed in:
+       grep -l "crawler-${companyKey}" .github/workflows/crawler-group-*.yml
+
   7. PUSH & TRIGGER
      git add -A && git commit -m "feat(crawler): add ${companyName} dedicated crawler"
      git push
-     gh workflow run update-jobs-${companyKey}.yml
+     # Dispatches the WHOLE group (all its member crawlers), not just this one —
+     # individual per-crawler dispatch no longer exists post-consolidation.
+     gh workflow run <crawler-group-NN.yml from step 6>
 
   8. AFTER CRAWLER SUCCEEDS
      gh workflow run translate-pending.yml

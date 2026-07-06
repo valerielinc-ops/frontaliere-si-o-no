@@ -51,14 +51,22 @@
  * 2. RUNNER — scripts/update-{company-key}-jobs.mjs
  *    ~30 lines: imports parser + this template, calls runStandardCrawlerPipeline().
  *
- * 3. WORKFLOW — .github/workflows/update-jobs-{company-key}.yml
- *    GitHub Actions workflow with dispatch, node setup, crawler run,
- *    housekeeping, commit+push. See update-jobs-lonza.yml as reference.
+ * 3. WORKFLOW REGISTRATION — data/crawler-manifest.json + crawler-group-{01..23}.yml
+ *    No standalone per-crawler workflow file since the 2026-07 consolidation
+ *    (581 individual update-jobs-{slug}.yml workflows were replaced by 23
+ *    grouped workflows — each crawler now runs as a `background: true` step
+ *    inside one group job, see scripts/generate-crawler-group-workflows.mjs).
+ *    A manifest entry (install, firebase-prep, RC-load, crawler-run,
+ *    housekeeping, commit+push, report-failure) is appended to
+ *    data/crawler-manifest.json and the group generator re-run, folding the
+ *    crawler into its least-loaded group automatically.
  *
  * 4. TEST — tests/{company-key}-crawler.test.ts
  *    Parser unit tests: validates job shape, slug format, isCompanyJob(), etc.
  *
- * Use `node scripts/scaffold-crawler.mjs {company-key}` to generate all 4 files.
+ * Use `node scripts/scaffold-crawler.mjs {company-key}` to generate parser +
+ * runner + test AND register the crawler in its group (steps 1, 2, 4 above +
+ * step 3's manifest/group registration, all automatically).
  *
  * IMPORTANT: After building the parser, always verify generated URLs by opening
  * them in a browser. SPA career portals (ServiceNow, Workday, SuccessFactors)

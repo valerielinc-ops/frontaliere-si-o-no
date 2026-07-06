@@ -11,7 +11,9 @@
  * Every scheduled workflow already opens a stable-titled issue on `if: failure()` via
  * scripts/lib/github-issue-creator.mjs. The mirror `--resolve` step (close on green) was
  * only ever wired into ~5 workflows (deploy/lighthouse/post-deploy/watchdog), so the
- * ~300 `update-jobs-*` crawlers, `update-fuel-prices`, `quality-alerts`, etc. left their
+ * ~300 crawlers (consolidated 2026-07 into 23 `crawler-group-*.yml` workflows;
+ * each crawler still opens its own failure issue via its own composite step),
+ * plus `update-fuel-prices`, `quality-alerts`, etc. left their
  * failure issue OPEN even when the very next run went green (e.g. #2354: failed run
  * 27646211111, then two green runs, issue stayed open). Wiring `--resolve` into every
  * workflow file = 300-file churn that silently misses any future workflow. Instead this

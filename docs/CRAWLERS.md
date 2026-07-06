@@ -4,11 +4,31 @@
 
 ## Architecture
 
-- **103 dedicated crawlers**, one per company
-- Each has: workflow (`update-jobs-{slug}.yml`), script (`scripts/update-{slug}-jobs.mjs`), parser (`scripts/lib/{slug}-job-parser.mjs`)
+- **581 dedicated crawlers**, one per company
+- Each has: script (`scripts/update-{slug}-jobs.mjs`), parser (`scripts/lib/{slug}-job-parser.mjs`)
 - Shared infrastructure in `scripts/lib/dedicated-crawler-common.mjs` (~2000 lines)
 - ATS-specific clients (Workday, Greenhouse, Lever, SuccessFactors) extracted in `scripts/lib/ats-clients/`
 - AI translation via `scripts/lib/ai-models.mjs` with Firestore-backed scoring, 429 tracking, and multi-model fallback chain
+
+## Consolidated CI Workflows (2026-07)
+
+Crawlers no longer have their own `.github/workflows/update-jobs-{slug}.yml` file. Every dispatched individual workflow used to hold a full GitHub Free-tier concurrent-job slot (20 max) for its **entire run duration** (mean ~27min, up to ~3h for Coop) — ~1160 dispatches/day across the (then) 581 workflows starved all other CI (PR tests, `pr-review-loop`) of runner slots.
+
+**Fix**: 581 individual workflows → **23 `.github/workflows/crawler-group-{01..23}.yml` workflows**. Each group runs its member crawlers as GitHub Actions "parallel steps": every crawler is a `background: true` step inside ONE job, with a final `wait-all: true` step rejoining them. A `background: true` step starts and returns immediately; the job only holds its GitHub Actions concurrent-job slot once, no matter how many crawlers run inside it — a `matrix:` strategy would NOT achieve this (matrix = one job per entry = still one slot per entry).
+
+**Pipeline**:
+- `scripts/extract-crawler-manifest.mjs` — parses every crawler's own bespoke steps (install, optional Playwright, Firebase prep, RC-secrets load, run-crawler, scoped housekeeping, commit+push, report-failure) into `data/crawler-manifest.json`. Real inspection of the pre-consolidation corpus found meaningful per-crawler variance beyond commit-message text (some crawlers pass an extra `data/jobs-crawler-adapters/` path to `git-commit-data.sh`, 10 use `npm ci --ignore-scripts`, some need Playwright + `xvfb-run`, step names differ, 2/581 lack a housekeeping step) — the manifest preserves every crawler's own steps VERBATIM rather than reconstructing them from a generic template.
+- `scripts/fetch-crawler-workflow-durations.mjs` — pulls recent successful-run durations per crawler via the GitHub API, writes `data/crawler-workflow-duration-baseline.json` (workflow-file → avg-duration-ms). Re-runnable; falls back to the corpus median for any crawler with no run history.
+- `scripts/generate-crawler-group-workflows.mjs` — the generator. Bin-packs crawlers into 23 groups via the repo's existing LPT (longest-processing-time) bin-packer (`scripts/ci/lpt-shard.mjs`, already used to balance vitest shards), using MAX (not sum) duration per group since background steps run concurrently. Extreme outliers (Coop, ~3h) are isolated into their own dedicated group first so they don't dominate an otherwise-balanced group. For each crawler, its extracted bespoke steps are collapsed into ONE composite shell script — GitHub Actions' `background: true` applies to a single `run:` block, not a multi-step sub-job — with subshell isolation per sub-step (so an internal `exit 0`, e.g. the real "no Firebase secret → skip" branch, only ends that sub-step, not the whole crawler) and `$GITHUB_ENV` writes re-sourced between sub-steps to replicate cross-step env propagation.
+- Output: `.github/workflows/crawler-group-01.yml` .. `crawler-group-23.yml`. Regenerate after adding/removing/renaming a crawler: `node scripts/extract-crawler-manifest.mjs && node scripts/generate-crawler-group-workflows.mjs` (deterministic given the same manifest + duration baseline).
+
+**Critical invariant preserved**: each crawler's commit-and-push and error-reporting mechanism is UNCHANGED — no shared/generic commit or error-reporting step was introduced. Every crawler still commits and reports errors via its own extracted steps, just co-located in one job instead of its own workflow run.
+
+**slug-history-journal collision fix**: `scripts/lib/slug-history-journal.mjs`'s `defaultSummaryPath()` writes per-run telemetry to `SLUG_HISTORY_SUMMARY_FILE || /tmp/slug-history-summary-${pid}.txt`; the consumer `scripts/lib/git-commit-data.sh` falls back to `ls -t /tmp/slug-history-summary-*.txt | head -1` (globally-newest file, no crawler-name binding) when the env var is unset. With many crawlers as concurrent background steps sharing one job's `/tmp`, a crawler's commit step could steal + delete a sibling's telemetry file. Fix: every crawler's composite step sets `SLUG_HISTORY_SUMMARY_FILE=/tmp/slug-history-summary-{crawlerSlug}.txt` (unique per crawler name) at the generated-YAML level — `slug-history-journal.mjs`/`git-commit-data.sh` themselves are untouched (their PID-based default + glob fallback remain correct for any future single-crawler-per-job usage, e.g. manual local dispatch).
+
+**Adding a new crawler**: `node scripts/scaffold-crawler.mjs {slug} ...` no longer generates a standalone workflow file. It writes the parser/runner/test files as before, then appends a manifest entry to `data/crawler-manifest.json` (via `scripts/lib/crawler-manifest-entry.mjs`, the same step-shape builder used so the manifest format can't drift between the bulk extractor and the scaffolder) and re-runs the group generator automatically, folding the new crawler into whichever group is currently least loaded.
+
+**Orchestrator**: `orchestrate-crawlers.yml` discovers `.github/workflows/crawler-group-*.yml` (not `update-jobs-*.yml`) and dispatches all 23 with a flat delay (default 20s) between dispatches — the old volume-tiered staggering (Large/Medium/Small) existed to avoid overwhelming the 20-concurrent-slot cap with ~580 individual dispatches; with only 23 targets (each holding one slot) it's no longer needed.
 
 ## Cathedral CH-wide expansion (2026-05-10)
 
@@ -52,10 +72,7 @@ Only **USI, SUPSI, LIS** had real ongoing slug churn. Other crawlers either fill
 
 ## Crawler Orchestration
 
-`orchestrate-crawlers.yml` dispatches all 103 crawlers with volume-based staggering:
-- Large (>50 jobs): 300s delay
-- Medium (10-50 jobs): 60s delay
-- Small (<10 jobs): 30s delay
+`orchestrate-crawlers.yml` dispatches all 23 `crawler-group-*.yml` workflows (see "Consolidated CI Workflows" above) with a flat delay (default 20s) between dispatches — see that section for why the old per-crawler volume-based staggering (Large/Medium/Small) is no longer needed.
 
 ## Key Data Files
 

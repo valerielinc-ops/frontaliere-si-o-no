@@ -54,7 +54,8 @@ const CRAWLER_FAILURE_TITLE_PREFIX = 'Crawler Failure:';
 const DEFAULT_CRAWLER_GATE_THRESHOLD = 3; // escalate on the 3rd failure
 // Window must comfortably span (threshold-1) crawl cadences so a genuinely-broken
 // source reliably reaches the threshold. orchestrate-crawlers.yml dispatches each
-// update-jobs-* twice daily (~12h apart), so 3 consecutive failures span ~24h; a
+// crawler-group-*.yml (each running its member crawlers as background steps)
+// twice daily (~12h apart), so 3 consecutive failures span ~24h; a
 // 24h window leaves the oldest event sitting on the cutoff (CI jitter decides
 // inclusion) → escalation becomes a coin-flip and real breakage can decay
 // silently. 48h gives a full cadence of margin so the 3rd consecutive failure

@@ -1,0 +1,3446 @@
+# AUTO-GENERATED — do not edit by hand.
+# Source: node scripts/generate-crawler-group-workflows.mjs
+# Regenerate after adding/removing/renaming a crawler (edit the crawler's
+# own script + npm script, re-run: node scripts/extract-crawler-manifest.mjs
+# && node scripts/generate-crawler-group-workflows.mjs).
+#
+# Group 20 members (26): transgourmet, planzer, sophia-genetics, usz, luks, srg-ssr, prosenectute-ti, nant, pbl, novelis, sonnweid, riveneuve, hoch-health, siegfried, klinik-arlesheim, ems-chemie, hes-so-valais, kanton-aargau, cler, entero, clariant, cambiavalute, cseb, arsante-clinique-de-carouge, axa, bcvs
+#
+# Each "Crawler: ..." step below is a background:true composite shell
+# script that runs that ONE crawler's own install/prep/run/housekeeping/
+# commit/error-report sequence, spliced verbatim from its former dedicated
+# workflow file (data/crawler-manifest.json) — commit-and-push and error-
+# reporting mechanisms are UNCHANGED per crawler, just co-located in one
+# job so the group holds a single GitHub Actions concurrent-job slot
+# instead of one slot per crawler.
+
+name: Crawler Group 20 (26 crawlers)
+on:
+  workflow_dispatch: null
+concurrency:
+  group: crawler-group-20
+  cancel-in-progress: false
+permissions:
+  contents: write
+  issues: write
+env:
+  NODE_OPTIONS: --disable-warning=DEP0040 --disable-warning=DEP0169
+jobs:
+  run-crawler-group-20:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+      - name: "Crawler: Update Transgourmet Jobs (Dedicated)"
+        id: crawler-transgourmet
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-transgourmet.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-transgourmet.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Transgourmet crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_TRANSGOURMET_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-transgourmet-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Transgourmet crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="transgourmet"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/transgourmet.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Transgourmet jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Planzer Jobs (Dedicated)"
+        id: crawler-planzer
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-planzer.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-planzer.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Planzer crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_PLANZER_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-planzer-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Planzer crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="planzer"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/planzer.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Planzer jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update SOPHiA GENETICS Jobs (Dedicated)"
+        id: crawler-sophia-genetics
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-sophia-genetics.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-sophia-genetics.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated SOPHiA GENETICS crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_SOPHIA_GENETICS_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-sophia-genetics-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated SOPHiA GENETICS crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="sophia-genetics"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/sophia-genetics.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SOPHiA GENETICS jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issue"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Universitätsspital Zürich (USZ) Jobs (Dedicated)"
+        id: crawler-usz
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-usz.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-usz.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Universitätsspital Zürich (USZ) crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_USZ_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-usz-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Universitätsspital Zürich (USZ) crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="usz"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/usz.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Universitätsspital Zürich (USZ) jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Luzerner Kantonsspital (LUKS) Jobs (Dedicated)"
+        id: crawler-luks
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-luks.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-luks.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Install Playwright Chromium"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npx playwright install --with-deps chromium
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install Playwright Chromium failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Luzerner Kantonsspital (LUKS) crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_LUKS_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-luks-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Luzerner Kantonsspital (LUKS) crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="luks"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/luks.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Luzerner Kantonsspital (LUKS) jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update SRG SSR Jobs (Dedicated)"
+        id: crawler-srg-ssr
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-srg-ssr.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-srg-ssr.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated SRG SSR crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_SRG_SSR_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-srg-ssr-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated SRG SSR crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="srg-ssr"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/srg-ssr.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SRG SSR jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Pro Senectute Ticino Jobs (Dedicated)"
+        id: crawler-prosenectute-ti
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-prosenectute-ti.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-prosenectute-ti.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated PROSENECTUTE_TI crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_PROSENECTUTE_TI_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-prosenectute-ti-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated PROSENECTUTE_TI crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="prosenectute-ti"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/prosenectute-ti.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update PROSENECTUTE_TI jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Fondation de Nant Jobs (Dedicated)"
+        id: crawler-nant
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-nant.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-nant.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Fondation de Nant crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_NANT_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-nant-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Fondation de Nant crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="nant"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/nant.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Fondation de Nant jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Psychiatrie Baselland Jobs (Dedicated)"
+        id: crawler-pbl
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-pbl.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-pbl.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated PBL crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_PBL_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-pbl-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated PBL crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="pbl"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/pbl.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update PBL jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Novelis Jobs (Dedicated)"
+        id: crawler-novelis
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-novelis.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-novelis.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Novelis crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_NOVELIS_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-novelis-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Novelis crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="novelis"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/novelis.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Novelis jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Sonnweid (Pflegezentrum) Jobs (Dedicated)"
+        id: crawler-sonnweid
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-sonnweid.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-sonnweid.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Sonnweid crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_SONNWEID_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-sonnweid-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Sonnweid crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="sonnweid"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/sonnweid.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Sonnweid jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Fondation Rive-Neuve Jobs (Dedicated)"
+        id: crawler-riveneuve
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-riveneuve.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-riveneuve.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Rive-Neuve crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_RIVENEUVE_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-riveneuve-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Rive-Neuve crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="riveneuve"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/riveneuve.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Rive-Neuve jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update HOCH Health Ostschweiz Jobs (Dedicated)"
+        id: crawler-hoch-health
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hoch-health.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-hoch-health.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated HOCH_HEALTH crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_HOCH_HEALTH_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-hoch-health-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated HOCH_HEALTH crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="hoch-health"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/hoch-health.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ github.token }}"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update HOCH_HEALTH jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Siegfried Jobs (Dedicated)"
+        id: crawler-siegfried
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-siegfried.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-siegfried.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Siegfried crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_SIEGFRIED_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-siegfried-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Siegfried crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="siegfried"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/siegfried.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Siegfried jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Klinik Arlesheim Jobs (Dedicated)"
+        id: crawler-klinik-arlesheim
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-klinik-arlesheim.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-klinik-arlesheim.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated KLINIK_ARLESHEIM crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_KLINIK_ARLESHEIM_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-klinik-arlesheim-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated KLINIK_ARLESHEIM crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="klinik-arlesheim"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/klinik-arlesheim.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update KLINIK_ARLESHEIM jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update EMS-Chemie Jobs (Dedicated)"
+        id: crawler-ems-chemie
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ems-chemie.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-ems-chemie.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated EMS-Chemie crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_EMS_CHEMIE_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            npm run jobs:update:ems-chemie
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated EMS-Chemie crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="ems-chemie"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/ems-chemie.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "🧪 Auto-update EMS-Chemie jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update HES-SO Valais Jobs (Dedicated)"
+        id: crawler-hes-so-valais
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hes-so-valais.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-hes-so-valais.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated HES-SO Valais-Wallis crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_HESSO_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-hes-so-valais-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated HES-SO Valais-Wallis crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="hes-so-valais"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/hes-so-valais.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update HES-SO Valais-Wallis jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Kanton Aargau Jobs (Dedicated)"
+        id: crawler-kanton-aargau
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kanton-aargau.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-kanton-aargau.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Kanton Aargau crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_KANTON_AARGAU_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-kanton-aargau-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Kanton Aargau crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="kanton-aargau"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/kanton-aargau.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Kanton Aargau jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Cler Jobs (Dedicated)"
+        id: crawler-cler
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-cler.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-cler.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Cler crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_CLER_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            npm run jobs:update:cler
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Cler crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="cler"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/cler.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "🏦 Auto-update Cler jobs (dedicated crawler)"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update entero Jobs (Dedicated)"
+        id: crawler-entero
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-entero.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-entero.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated entero crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_ENTERO_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-entero-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated entero crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="entero"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/entero.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update entero jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Clariant Jobs (Dedicated)"
+        id: crawler-clariant
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-clariant.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-clariant.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Clariant crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_CLARIANT_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-clariant-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Clariant crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="clariant"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/clariant.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Clariant jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update CambiaValute.ch Jobs (Dedicated)"
+        id: crawler-cambiavalute
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-cambiavalute.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-cambiavalute.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Install Playwright browsers"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npx playwright install --with-deps chromium
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install Playwright browsers failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated CambiaValute.ch crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_CAMBIAVALUTE_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            npm run jobs:update:cambiavalute
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated CambiaValute.ch crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="cambiavalute"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/cambiavalute.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💱 Auto-update CambiaValute.ch jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Center da Sanadad Engiadina Bassa Jobs (Dedicated)"
+        id: crawler-cseb
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-cseb.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-cseb.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Center da Sanadad Engiadina Bassa crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_CSEB_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-cseb-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Center da Sanadad Engiadina Bassa crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="cseb"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/cseb.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Center da Sanadad Engiadina Bassa jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Arsanté (Clinique de Carouge) Jobs (Dedicated)"
+        id: crawler-arsante-clinique-de-carouge
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-arsante-clinique-de-carouge.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-arsante-clinique-de-carouge.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Arsanté crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_ARSANTE_CLINIQUE_DE_CAROUGE_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-arsante-clinique-de-carouge-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Arsanté crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="arsante-clinique-de-carouge"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/arsante-clinique-de-carouge.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Arsanté jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update AXA Svizzera Jobs (Dedicated Crawler)"
+        id: crawler-axa
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-axa.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-axa.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci --ignore-scripts
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run AXA Svizzera dedicated crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-axa-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run AXA Svizzera dedicated crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="axa"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/axa.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "Auto-update AXA Svizzera jobs (dedicated crawler)"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: "Crawler: Update Banque Cantonale du Valais Jobs (Dedicated)"
+        id: crawler-bcvs
+        background: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-bcvs.txt
+        run: |-
+          set +e  # composite emulates per-step continue-on-error/if:failure(); no global -e
+          __STEP_FAILED=0
+          __GITHUB_ENV_FILE="/tmp/gh-env-bcvs.sh"
+          : > "$__GITHUB_ENV_FILE"
+
+          echo "::group::Install dependencies"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            npm ci
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Install dependencies failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Prepare Firebase credentials (optional)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export FIREBASE_SERVICE_ACCOUNT_JSON="${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+            if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+              printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            else
+              echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+              exit 0
+            fi
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Prepare Firebase credentials (optional) failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Load secrets from Remote Config"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            node scripts/load-rc-env.mjs
+            echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Load secrets from Remote Config failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Run dedicated Banque Cantonale du Valais crawler"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_CRAWLER_TIMEOUT_MS="${{ github.event.inputs.timeout_ms || '' }}"
+            export JOBS_CRAWLER_USE_FIRESTORE_CONFIG="1"
+            export JOBS_BCVS_STRICT="${{ github.event.inputs.strict_localization || '1' }}"
+            export CRAWLER_SLICE_ONLY="1"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            node scripts/update-bcvs-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Run dedicated Banque Cantonale du Valais crawler failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Housekeeping — remove expired job listings (scoped)"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export JOBS_HOUSEKEEPING_SCOPE="bcvs"
+            export JOBS_SLICE_FILE="data/jobs/by-crawler/bcvs.json"
+            node scripts/cleanup-jobs.mjs
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            echo "::warning::Housekeeping — remove expired job listings (scoped) failed (exit $__THIS_STEP_EXIT) — continue-on-error, not failing the crawler"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Commit and push"
+          (
+            export GITHUB_ENV="$__GITHUB_ENV_FILE"
+            export SKIP_AI_TRANSLATION="${{ github.event.inputs.skip_ai_translation || '0' }}"
+            bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Banque Cantonale du Valais jobs (dedicated crawler)" data/jobs-crawler-adapters/
+          )
+          __THIS_STEP_EXIT=$?
+          set -a; source "$__GITHUB_ENV_FILE"; set +a
+          if [ "$__THIS_STEP_EXIT" != "0" ]; then
+            __STEP_FAILED=1
+            echo "::error::Commit and push failed (exit $__THIS_STEP_EXIT)"
+          fi
+          echo "::endgroup::"
+
+          echo "::group::Report failure to GitHub Issues"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            (
+              export GITHUB_ENV="$__GITHUB_ENV_FILE"
+              export GH_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+              node scripts/lib/github-issue-creator.mjs \
+                --title "Crawler Failure: ${{ github.workflow }}" \
+                --description "## Crawler fallito
+              **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              **Branch:** ${{ github.ref_name }}
+              **Trigger:** ${{ github.event_name }}" \
+                --priority 2 \
+                --label Bug \
+                --workflow "${{ github.workflow }}"
+            )
+          else
+            echo "(skipped — no prior failure in this crawler's steps)"
+          fi
+          echo "::endgroup::"
+
+          rm -f "$__GITHUB_ENV_FILE"
+          if [ "$__STEP_FAILED" != "0" ]; then
+            exit 1
+          fi
+          exit 0
+      - name: Wait for all 26 crawlers in crawler-group-20
+        wait-all: true

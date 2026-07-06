@@ -27,32 +27,27 @@ Rollback is fully scripted — see [docs/CATHEDRAL-ROLLBACK.md](CATHEDRAL-ROLLBA
 - **`jobs-by-canton` sharding** (E4) — monolithic `data/jobs.json` is **deprecated** for runtime reads. The SPA's JobBoard now lazy-fetches `data/jobs/by-canton/{canton}.json` based on referrer/geo. The assembled `data/jobs.json` is still emitted for build-plugin consumption, but client-side bundles must NOT import it.
 - **Sitemap shards** — `sitemap-index.xml` is the new entry point. Per-canton shards `sitemap-jobs-{italian-slug}.xml` (e.g. `sitemap-jobs-ticino.xml`, `sitemap-jobs-zurigo.xml`) replace the legacy monolithic `sitemap-jobs.xml`. The legacy URL is preserved as a 301 redirect for one quarter.
 
-### Phase 2 additions — 11 marquee crawler workflows
+### Phase 2 additions — 11 marquee crawlers (historical, 2026-05-10)
 
-Daily crawler workflows (cron staggered 07:00–09:00 UTC, classified `Medium` by orchestrator):
+> Slugs below are still crawled — as of the 2026-07 consolidation (see Stage 3) they run as `background: true` steps inside one of the 23 `crawler-group-{01..23}.yml` files rather than in their own dedicated `update-jobs-{slug}.yml` workflow. `grep -l "crawler-{slug}" .github/workflows/crawler-group-*.yml` finds which group any of them currently lives in.
 
-| Workflow | Vertical | Canton focus |
+| Crawler slug | Vertical | Canton focus |
 |---|---|---|
-| `update-jobs-roche.yml` | Pharma | BS |
-| `update-jobs-novartis.yml` | Pharma | BS |
-| `update-jobs-zurich-insurance.yml` | Finance | ZH |
-| `update-jobs-nestle.yml` | Food | VD |
-| `update-jobs-schindler.yml` | Industrial | LU |
-| `update-jobs-migros-hq.yml` | Retail | ZH |
-| `update-jobs-swiss-re.yml` | Insurance | ZH |
-| `update-jobs-eth-zurich.yml` | Academic | ZH |
-| `update-jobs-epfl.yml` | Academic | VD |
-| `update-jobs-chuv.yml` | Hospital | VD |
-| `update-jobs-inselspital.yml` | Hospital | BE |
+| `roche` | Pharma | BS |
+| `novartis` | Pharma | BS |
+| `zurich-insurance` | Finance | ZH |
+| `nestle` | Food | VD |
+| `schindler` | Industrial | LU |
+| `migros-hq` | Retail | ZH |
+| `swiss-re` | Insurance | ZH |
+| `eth-zurich` | Academic | ZH |
+| `epfl` | Academic | VD |
+| `chuv` | Hospital | VD |
+| `inselspital` | Hospital | BE |
 
-### Concurrency impact
+### Concurrency impact (superseded 2026-07 — see Stage 3)
 
-Phase 2 adds **~12 daily workflow runs** to the GitHub Actions concurrency budget:
-- 11 new marquee crawlers
-- 1 `crawler-health-monitor`
-- (`brand-monitor` already counted from Phase 1)
-
-Combined with the existing ~103 crawlers, orchestration delays (Large 120 s / Medium 60 s / Small 20 s) keep peak concurrency below the free-tier 20-runner cap. If GH Actions queue depth grows during the 08:00 / 20:00 UTC bursts, increase the orchestrator's Medium-tier delay to 90 s before paying for hosted runners (see CLAUDE.md zero-cost rule).
+Historically (pre-consolidation), every dispatched crawler held its own GitHub Free-tier concurrent-job slot for its full run duration, so the orchestrator staggered dispatches by estimated crawler volume (Large 120s / Medium 60s / Small 20s) to stay under the 20-runner cap. The 2026-07 consolidation into 23 `crawler-group-*.yml` workflows (each holding exactly ONE concurrent-job slot regardless of how many crawlers run inside it via `background: true` steps) made this volume-tiered staggering unnecessary — the orchestrator now uses a flat, short delay between its 23 dispatches (see Stage 2).
 
 ---
 
@@ -77,34 +72,33 @@ Combined with the existing ~103 crawlers, orchestration delays (Large 120 s / Me
 
 ### Stage 2 — Orchestration (`orchestrate-crawlers.yml`)
 
-**Trigger**: Cron `0 8 * * *` + `0 20 * * *` (twice daily) + manual dispatch
+**Trigger**: Cron `0 9 * * *` + `0 21 * * *` (twice daily) + manual dispatch
 
 **What it does**:
-1. Discovers all `update-jobs-*.yml` workflows
-2. Reads each crawler's jobs count to classify volume:
-   - Large (>50 jobs): 120 s delay between dispatches
-   - Medium (10–50): 60 s delay
-   - Small (<10): 20 s delay
-3. Dispatches each with `skip_ai_translation=1` flag (AI translation is deferred to translate-pending)
-4. Coop Ticino is excluded — has its own dedicated cron at 06:00 UTC
+1. Discovers all `crawler-group-*.yml` workflows (23 files, see Stage 3 below)
+2. Dispatches each with `skip_ai_translation=1` flag (AI translation is deferred to translate-pending) and a short delay between dispatches (default 20s — only 23 targets, no volume-tiered staggering needed anymore)
+3. Coop is folded into its own dedicated group (`crawler-group-01.yml`, historically the single slowest crawler at ~3h) rather than a standalone cron
 
-After dispatching, **does not wait**. All crawlers run concurrently. `translate-pending` handles the "after all crawlers" step.
+After dispatching, **does not wait**. All 23 groups run concurrently, each holding exactly ONE GitHub Actions concurrent-job slot. `translate-pending` handles the "after all crawlers" step.
 
 ---
 
-### Stage 3 — Individual Crawlers (`update-jobs-{slug}.yml` ×114)
+### Stage 3 — Crawler Groups (`crawler-group-{01..23}.yml`, 581 crawlers)
 
-> Was ×103 pre-cathedral; +11 marquee crawlers shipped 2026-05-10 (Phase 2). See the [Cathedral CH-wide expansion](#cathedral-ch-wide-expansion-2026-05-10) section above for the full list.
+> **Consolidated 2026-07** from 581 individual `update-jobs-{slug}.yml` workflows into 23 grouped workflows. Each dispatched individual workflow used to hold a full GitHub Free-tier concurrent-job slot (20 max) for its ENTIRE run duration (mean ~27min, up to ~3h for Coop) — ~1160 dispatches/day starved all other CI (PR tests, review-loop) of runner slots. Each `crawler-group-NN.yml` runs its member crawlers as GitHub Actions "parallel steps" (`background: true` + `wait-all: true`) — many crawlers execute concurrently INSIDE ONE job, so the group holds a single concurrent-job slot no matter how many crawlers it contains. See `scripts/generate-crawler-group-workflows.mjs` (the generator, re-run after adding/removing a crawler) and `scripts/extract-crawler-manifest.mjs` (parses each crawler's own bespoke steps into `data/crawler-manifest.json`). Bin-packing balances the 23 groups by historical average duration (`data/crawler-workflow-duration-baseline.json`, refreshed via `scripts/fetch-crawler-workflow-durations.mjs`), isolating extreme outliers (Coop) into their own group.
 
-**Trigger**: Dispatched by orchestrator (or manually)
+**Trigger**: Dispatched by orchestrator (or manually) — dispatching a group runs ALL its member crawlers.
 
-**Each crawler does**:
-1. Crawl company job portal (Playwright or API-based)
+**Each crawler's own composite background step does** (byte-for-byte preserved from its former individual workflow — no shared/generic commit or error-reporting step was introduced):
+1. Crawl company job portal (Playwright or API-based; some crawlers still install Playwright/`xvfb-run` as part of their own step)
 2. Extract jobs — **skips AI translation** (`skip_ai_translation=1`), marks jobs `needsRetranslation: true`
 3. Write per-crawler slice: `data/jobs/by-crawler/{slug}.json`
 4. Write translation cache: `data/translation-cache/{slug}.json`
-5. Scoped housekeeping: URL-validates only this company's jobs
-6. Commit and push with `git-commit-data.sh --slice-only` (uses `GITHUB_TOKEN`)
+5. Scoped housekeeping: URL-validates only this company's jobs (`continue-on-error` — never fails the crawler)
+6. Commit and push with `git-commit-data.sh --slice-only` (uses `GITHUB_TOKEN`) — each crawler's own commit message/extra-paths preserved verbatim
+7. On failure: reports to GitHub Issues via its own `github-issue-creator.mjs` call, unchanged per crawler
+
+Each crawler's composite step sets `SLUG_HISTORY_SUMMARY_FILE=/tmp/slug-history-summary-{slug}.txt` (unique per crawler name) so concurrent sibling crawlers sharing one job's `/tmp` cannot steal/delete each other's commit-message telemetry (`scripts/lib/slug-history-journal.mjs`'s PID-based default + `scripts/lib/git-commit-data.sh`'s newest-file glob fallback are correct for single-crawler-per-job usage, but would collide across concurrent background steps without this per-crawler override).
 
 > **Important**: Commits with `GITHUB_TOKEN` do NOT trigger `deploy.yml` (GitHub anti-loop rule). Deploy is triggered only by `translate-pending` via `GITHUB_PAT`.
 
@@ -113,6 +107,8 @@ After dispatching, **does not wait**. All crawlers run concurrently. `translate-
 - `data/jobs/expired/by-crawler/{slug}.json` — jobs that failed URL validation
 - `data/jobs-crawler-summaries/by-crawler/{slug}.json` — metadata (count, timestamp)
 - `data/translation-cache/{slug}.json` — SHA256-keyed AI translation cache
+
+**Adding a new crawler**: `scripts/scaffold-crawler.mjs` no longer generates a standalone workflow file — it appends a manifest entry to `data/crawler-manifest.json` and re-runs the group generator automatically, folding the new crawler into its least-loaded group.
 
 ---
 

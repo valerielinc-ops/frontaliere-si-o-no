@@ -115,7 +115,8 @@ export function makePastaHrBrowserHeaders(referer, origin, { ua } = {}) {
   return {
     Accept: 'application/json, text/javascript, */*; q=0.01',
     // Verified safe on the direct (non-Playwright) fetch path: undici (Node 22,
-    // the runtime for every update-jobs-* crawler workflow) decompresses the
+    // the runtime for every crawler, whether run standalone or as a
+    // crawler-group-*.yml background step) decompresses the
     // response body from its `Content-Encoding` *unconditionally* for `fetch`,
     // independent of the request `Accept-Encoding`. Pinning gzip/deflate/br here
     // (to mirror the real in-page widget XHR for the WAF) does NOT make the

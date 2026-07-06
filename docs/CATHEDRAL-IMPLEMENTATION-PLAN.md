@@ -160,7 +160,7 @@ Each crawler = 1 task = 1 agent in worktree. Parallelism 3 max.
 For each company:
 1. `scripts/update-{slug}-jobs.mjs`
 2. `scripts/lib/{slug}-job-parser.mjs` (using ats-clients)
-3. `.github/workflows/update-jobs-{slug}.yml`
+3. Manifest entry in `data/crawler-manifest.json` + placement in a `crawler-group-{01..23}.yml` (no per-crawler workflow file since the 2026-07 consolidation — `scripts/scaffold-crawler.mjs` handles both automatically)
 4. Entry in `data/jobs-crawler-config.json`
 
 ### PHASE 3 — Test coverage

@@ -44,7 +44,7 @@ jobs:
     # concurrency: { cancel-in-progress: false } holds the deploy-cloudflare-worker
     # group, blocking every subsequent Worker deploy — including a hotfix for the
     # regression that triggered the rollback. Makes the declared 30-min safety net
-    # real (#1821; matches update-jobs-*/production-canary convention).
+    # real (#1821; matches crawler-group-*.yml/production-canary convention).
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5

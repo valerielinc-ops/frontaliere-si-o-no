@@ -83,7 +83,8 @@ jobs:
 
       - name: Load RC secrets
         # Populates $GITHUB_ENV with CF_API_TOKEN (and friends) from Firebase
-        # Remote Config. Same step used by every update-jobs-* crawler.
+        # Remote Config. Same step used by every crawler (now bundled inside
+        # crawler-group-*.yml's per-crawler composite background steps).
         run: node scripts/load-rc-env.mjs
 
       - name: Run DMARC monitor

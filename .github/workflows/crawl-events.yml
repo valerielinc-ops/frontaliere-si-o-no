@@ -14,7 +14,8 @@ name: Crawl Ticino + nationwide + Genève pilot events (tio.ch, guidle, myswitze
 # as a gate so a malformed dataset can never turn main red (AGENTS.md:
 # "data-refresh che committa su main = stesso gate test di una PR").
 #
-# NOTE: named crawl-events.yml (NOT update-jobs-*.yml) on purpose, so the jobs
+# NOTE: named crawl-events.yml (NOT crawler-group-*.yml, the naming pattern
+# orchestrate-crawlers.yml discovers and dispatches) on purpose, so the jobs
 # orchestrator/health-monitor never sweeps it into the jobs pipeline.
 
 on:
