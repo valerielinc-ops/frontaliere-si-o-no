@@ -125,6 +125,34 @@ describe('generateFaqIT — retries on malformed/truncated LLM output', () => {
     expect(aiModelsMock.callSingleModel).toHaveBeenCalledTimes(1);
   });
 
+  // Verifies the fix: _extractCompleteJsonFaqPairs must receive `repaired` (the
+  // repairJsonArray output), not the original `raw`. When all complete pairs
+  // carry the common LLM quote-corruption (unescaped " inside a string value —
+  // documented in JSON_QUOTE_SAFETY_RULE_IT / issue #3282), the regex's
+  // [^"\\]* capture group stops at the first unescaped " and no pair matches
+  // in `raw`, making salvage a no-op. repairJsonArray escapes those quotes;
+  // passing `repaired` lets the extractor recover both complete pairs with no
+  // retry needed.
+  it('salvages complete pairs from a quote-corrupted truncated response via repaired string', async () => {
+    // Both complete pairs have unescaped inner " (e.g. "tassa" echoed from
+    // source) — the truncated third pair prevents JSON.parse(repaired) from
+    // succeeding. Only _extractCompleteJsonFaqPairs(repaired) recovers them.
+    const TRUNCATED_QUOTE_CORRUPTED =
+      '[{"q":"Come funziona la "tassa sulla salute"?","a":"L\'importo ufficiale dipende dal reddito."},' +
+      '{"q":"Chi \xe8 interessato?","a":"I frontalieri "regolari" con residenza entro 20 km."},' +
+      '{"q":"Cosa succede con il telelavoro?","a":"Dal 2024 \xe8 previsto';
+
+    aiModelsMock.callSingleModel.mockResolvedValue(TRUNCATED_QUOTE_CORRUPTED);
+
+    const faq = await runWithFakeTimers(() => generateFaqIT('test-article-id', 'Corpo di test '.repeat(50)));
+
+    expect(faq.length).toBe(2);
+    expect(faq[0].q).toContain('tassa sulla salute');
+    expect(faq[1].a).toContain('regolari');
+    // Salvage succeeded on the first attempt — no retry.
+    expect(aiModelsMock.callSingleModel).toHaveBeenCalledTimes(1);
+  });
+
   it('escalates maxTokens on a truncation-shaped failure instead of repeating the same budget', async () => {
     aiModelsMock.callSingleModel
       .mockResolvedValueOnce(TRUNCATED_JSON)
