@@ -68,10 +68,29 @@ export async function sendRenewalReminders(nowMs = Date.now()) {
   const resend = new Resend(resendApiKey);
 
   let sent = 0;
+  // Batched via db.getAll() instead of one sequential .get() per publisher —
+  // same fix class as the alert-email lookup in scripts/send-job-alerts.mjs
+  // (AGENTS.md #6 sibling pattern). byPublisher is bounded by distinct
+  // publishers with ads renewing in the 3-day window, so one unchunked call
+  // (no chunk-loop) is proportionate here.
+  // Own try/catch: a batch-level failure (transient network blip) degrades
+  // to "0 sent this run" (unstamped publishers retry next daily run) instead
+  // of throwing past the per-publisher loop below and losing every OTHER
+  // publisher's reminder too — the batched call has no equivalent to the old
+  // per-publisher catch that isolated one failure from the rest.
+  const uids = [...byPublisher.keys()];
+  let pubSnapByUid = new Map();
+  try {
+    const pubSnaps = await db().getAll(...uids.map((uid) => db().collection('publishers').doc(String(uid))));
+    pubSnapByUid = new Map(uids.map((uid, i) => [uid, pubSnaps[i]]));
+  } catch (err) {
+    console.warn(`⚠️  batched publisher lookup failed for ${uids.length} publisher(s): ${err?.message || err}`);
+  }
+
   for (const [uid, entry] of byPublisher) {
     try {
-      const pubSnap = await db().collection('publishers').doc(String(uid)).get();
-      const to = pubSnap.exists ? pubSnap.data().email : null;
+      const pubSnap = pubSnapByUid.get(uid);
+      const to = pubSnap && pubSnap.exists ? pubSnap.data().email : null;
       if (!to) continue;
 
       const days = entry.renewsAt != null
