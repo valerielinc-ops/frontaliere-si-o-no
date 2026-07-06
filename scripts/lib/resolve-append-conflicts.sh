@@ -169,9 +169,21 @@ resolve_append_conflicts() {
           }
           const merged = [...ids].map((s) => \`'\${s}'\`).join(', ');
           const replacement = \`export const ALL_BLOG_ARTICLE_IDS: BlogArticleId[] = [\${merged}];\`;
+          // Remove the OTHER (non-first) duplicate declarations using their
+          // ORIGINAL captured offsets, back-to-front so an earlier removal
+          // never shifts a not-yet-processed offset (including \`first\`,
+          // which is always leftmost and is handled last, once nothing
+          // before it can shift). Do NOT re-scan the mutated string with
+          // \`listRx\` here (issue #3617): the merged \`replacement\` we are
+          // about to splice in is syntactically identical to what the regex
+          // matches, so a global re-scan would match — and delete — the
+          // declaration we just inserted, silently dropping every id.
+          for (let i = listMatches.length - 1; i > 0; i--) {
+            const m = listMatches[i];
+            src = src.slice(0, m.index) + src.slice(m.index + m[0].length);
+          }
           const first = listMatches[0];
           src = src.slice(0, first.index) + replacement + src.slice(first.index + first[0].length);
-          src = src.replace(listRx, '');
           console.log('  🔁 Merged ' + listMatches.length + ' ALL_BLOG_ARTICLE_IDS declarations into one (' + ids.size + ' ids)');
         }
         // Merge duplicate \`type _BlogId<N> = '…' | …;\` declarations
