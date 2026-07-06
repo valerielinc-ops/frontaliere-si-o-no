@@ -1,51 +1,22 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-07-06T00:31:58.627Z",
+  "generatedAt": "2026-07-06T15:43:39.165Z",
   "total": 19,
-  "newCount": 2,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 15,
-  "durationMs": 20257,
-  "avgDurationMs": 20257,
+  "unchangedCount": 16,
+  "durationMs": 21353,
+  "avgDurationMs": 21353,
   "durationHistory": [
-    20257
+    21353
   ],
-  "newJobs": [
-    {
-      "id": "company-213hp8",
-      "slug": "cancelliere-a-i-oppure-cancelliere-a-ii-a-tempo-pieno-100-presso-la-corte-di-appello-e-di-revisione-penale-locarno-orario-di-lavoro-42-ore-s",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Tribunale d'appello",
-      "location": "Locarno",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4224",
-      "source": "Company Careers Crawler",
-      "salaryMin": 93625,
-      "salaryMax": 150736,
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-07-06T00:31:52.385Z",
-      "firstSeenAt": "2026-07-06T00:31:52.385Z",
-      "needsRetranslation": true,
-      "sourceLang": "it",
-      "_qualityScore": 72,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 19
-      }
-    },
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-213hp7",
-      "slug": "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-men",
+      "slug": "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-men-213hp7",
       "company": "Amministrazione Cantonale Ticino",
       "title": "Concorso generale 2026 Infermieri/e con specialità (salute mentale) e infermieri/e presso l’Organizzazione sociopsichiatrica cantonale (OSC), Mendrisio",
       "location": "Mendrisio",
@@ -63,18 +34,22 @@
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-07-06T00:31:52.385Z",
       "firstSeenAt": "2026-07-06T00:31:52.385Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 70,
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "6850",
+      "country": "CH",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 2,
-        "completeness": 19
+        "translation": 23,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-213hpc",
       "slug": "docente-di-cultura-iii-a-tempo-parziale-30-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-clinica-psichiatra-cantonale-cpc-unita-di-213hpc",
@@ -151,6 +126,41 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-213hp8",
+      "slug": "tribunale-d-appello-amministrazione-cantonale-ticino-locarno",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Tribunale d'appello",
+      "location": "Locarno",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4224",
+      "source": "Company Careers Crawler",
+      "salaryMin": 93625,
+      "salaryMax": 150736,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-07-06T00:31:52.385Z",
+      "firstSeenAt": "2026-07-06T00:31:52.385Z",
+      "sourceLang": "it",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "6600",
+      "country": "CH",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
     {
       "id": "company-213hpb",
       "slug": "operatore-trice-sociale-i-opzione-assistente-sociale-a-tempo-parziale-50-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-centro-abit-213hpb",
