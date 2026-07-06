@@ -31,7 +31,7 @@
 - MAI committare `data/known-company-slugs.json` (skip-worktree).
 - Crawler template: `runStandardCrawlerPipeline` da `scripts/lib/crawler-template.mjs` (7-step pipeline).
 - Boilerplate guard: `MIN_UNIQUE_WORDS = 30` in `scripts/assemble-jobs-dataset.mjs` → se desc < 30 unique words usa `SKIP_BOILERPLATE_GUARD=1` env nel workflow.
-- Workflow template: copy `.github/workflows/update-jobs-bethesda-spital.yml`.
+- Workflow: `node scripts/scaffold-crawler.mjs {slug}` upserts a `data/crawler-manifest.json` entry (post-consolidation 2026-07: no more standalone per-crawler `.github/workflows/update-jobs-{slug}.yml` — see `docs/CRAWLERS.md`); run `node scripts/generate-crawler-group-workflows.mjs` afterwards to fold it into a `crawler-group-*.yml`.
 - Playwright richiesto per JS-rendered ATS (Vercel checkpoint, Cloudflare passive challenge, GWT app, SAP SF SPA, Jalios JCMS silent). Use `scripts/lib/ats-clients/playwright-runtime.mjs`.
 - PDF parser disponibile via `scripts/lib/pdf-job-content.mjs` (export `buildPdfBackedDescription`, `normalizePdfJobText`). Dep: `pdf-parse@^2.4.5`.
 
