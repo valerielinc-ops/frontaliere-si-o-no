@@ -2159,63 +2159,127 @@ async function generateExcerpt(title, body1, body2, body3) {
   return capBlogDescription(bodyText).value;
 }
 
+/** Char-based thirds over an ordered list of chunks (paragraphs or sentences),
+ * guaranteeing each of the 3 groups gets >=1 chunk whenever items.length >= 3. */
+function chunksByCharThirds(items, joiner) {
+  const total = items.reduce((sum, s) => sum + s.length, 0);
+  let cut1 = -1;
+  let cut2 = -1;
+  let acc = 0;
+  for (let i = 0; i < items.length; i++) {
+    acc += items[i].length;
+    if (cut1 === -1 && acc >= total / 3) cut1 = i + 1;
+    else if (cut2 === -1 && acc >= (total * 2) / 3) cut2 = i + 1;
+  }
+  cut1 = Math.min(Math.max(cut1, 1), items.length - 2);
+  cut2 = Math.min(Math.max(cut2, cut1 + 1), items.length - 1);
+  return {
+    body1: items.slice(0, cut1).join(joiner).trim(),
+    body2: items.slice(cut1, cut2).join(joiner).trim(),
+    body3: items.slice(cut2).join(joiner).trim(),
+  };
+}
+
+/** Zero-LLM last resort: split at paragraph boundaries (falling back to
+ * sentence boundaries, then a raw char cut) so splitBodyIntoSections never
+ * throws — an unavailable/exhausted model degrades to a slightly-less-natural
+ * cut instead of failing the whole article. */
+function deterministicBodySplit(text) {
+  const paragraphs = text.split(/\n\n+/).filter((p) => p.trim());
+  if (paragraphs.length >= 3) return chunksByCharThirds(paragraphs, '\n\n');
+  const sentences = text.split(/(?<=[.!?])\s+/).filter(Boolean);
+  if (sentences.length >= 3) return chunksByCharThirds(sentences, ' ');
+  const third = Math.ceil(text.length / 3) || 1;
+  return {
+    body1: text.slice(0, third).trim(),
+    body2: text.slice(third, third * 2).trim(),
+    body3: text.slice(third * 2).trim(),
+  };
+}
+
 /**
  * Split a single free-text article body (as authored by a journalist in the
  * redazione dashboard) into the fixed body1/body2/body3 shape the rest of
  * the pipeline (REQUIRED_IT_BODY_FIELDS, validateItalianPayload,
- * translateArticle, enforceStrongInternalLinks, ...) already expects. An LLM
- * call decides the split points (issue #3174 follow-up — the journalist's
- * explicit choice over a blank-line heuristic) so it can balance section
- * length instead of cutting mid-thought.
+ * translateArticle, enforceStrongInternalLinks, ...) already expects.
+ *
+ * The LLM picks ONLY the two paragraph indices where section 2 and section 3
+ * start (issue #3174 follow-up — the journalist's explicit choice over a
+ * blank-line heuristic, so it can balance section length instead of cutting
+ * mid-thought) — it never re-emits the body text itself. Earlier versions had
+ * the LLM echo the full body back inside body1/body2/body3, which made output
+ * size scale 1:1 with input size against a fixed maxTokens:4000 cap: any body
+ * long enough that its escaped JSON echo exceeded ~4000 tokens (any free-tier
+ * model's output ceiling, see MODEL_MAX_OUTPUT_TOKENS in lib/ai-models.mjs)
+ * truncated identically on all 3 attempts — a structural cap mismatch, not a
+ * transient failure, so retrying never helped (root cause of the 44k-char
+ * "Accordo Italia-Svizzera" article failing 3/3). Requesting 2 integers keeps
+ * the LLM response constant-size regardless of body length, and slicing the
+ * original paragraphs verbatim in JS also removes any risk of the LLM
+ * mangling markdown while copying.
  */
 async function splitBodyIntoSections(fullBody, title) {
   const text = String(fullBody || '').trim();
   if (!text) throw new Error('splitBodyIntoSections: corpo vuoto');
 
-  const schema = {
-    name: 'body_split',
-    schema: {
-      type: 'object',
-      additionalProperties: false,
-      required: ['body1', 'body2', 'body3'],
-      properties: {
-        body1: { type: 'string' },
-        body2: { type: 'string' },
-        body3: { type: 'string' },
-      },
-    },
-  };
-  const messages = [
-    {
-      role: 'system',
-      content:
-        'Sei un redattore italiano. Dividi il testo fornito in ESATTAMENTE 3 sezioni bilanciate ' +
-        '(body1, body2, body3) senza aggiungere, riassumere o rimuovere contenuto — solo suddividere ' +
-        'nei punti più naturali. Preserva ESATTAMENTE la formattazione markdown esistente (grassetto ' +
-        '**testo**, elenchi, e link interni nel formato [testo](nav:azione)). Rispondi SOLO in JSON.\n\n' +
-        JSON_QUOTE_SAFETY_RULE_IT,
-    },
-    { role: 'user', content: `Titolo: ${title}\n\nTesto da dividere:\n${text}` },
-  ];
+  const paragraphs = text.split(/\n\n+/).filter((p) => p.trim());
 
-  for (let attempt = 1; attempt <= 3; attempt++) {
-    try {
-      const raw = await _aiCallLLM(messages, {
-        temperature: 0.3,
-        maxTokens: 4000,
-        timeout: 60_000,
-        jsonMode: true,
-        jsonSchema: schema,
-      });
-      const parsed = JSON.parse(repairLlmJson(raw));
-      if (parsed?.body1 && parsed?.body2 && parsed?.body3 && parsed.body2.trim().length >= 40) {
-        return { body1: parsed.body1.trim(), body2: parsed.body2.trim(), body3: parsed.body3.trim() };
+  if (paragraphs.length >= 3) {
+    const numbered = paragraphs
+      .map((p, i) => `[${i}] ${p.length > 200 ? `${p.slice(0, 200)}…` : p}`)
+      .join('\n\n');
+    const schema = {
+      name: 'body_split_points',
+      schema: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['section2StartIndex', 'section3StartIndex'],
+        properties: {
+          section2StartIndex: { type: 'integer' },
+          section3StartIndex: { type: 'integer' },
+        },
+      },
+    };
+    const messages = [
+      {
+        role: 'system',
+        content:
+          'Sei un redattore italiano. Il testo sottostante è numerato per paragrafo. Un articolo va diviso ' +
+          'in ESATTAMENTE 3 sezioni bilanciate senza aggiungere, riassumere o rimuovere contenuto: scegli ' +
+          'solo in quale paragrafo iniziano la sezione 2 e la sezione 3 (i punti di taglio più naturali). ' +
+          'Rispondi SOLO in JSON con i due indici (interi, 0-based, riferiti al numero tra parentesi quadre).',
+      },
+      { role: 'user', content: `Titolo: ${title}\n\nParagrafi (${paragraphs.length} totali):\n${numbered}` },
+    ];
+
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        const raw = await _aiCallLLM(messages, {
+          temperature: 0.3,
+          maxTokens: 200,
+          timeout: 30_000,
+          jsonMode: true,
+          jsonSchema: schema,
+        });
+        const parsed = JSON.parse(repairLlmJson(raw));
+        const i2 = Number(parsed?.section2StartIndex);
+        const i3 = Number(parsed?.section3StartIndex);
+        if (Number.isInteger(i2) && Number.isInteger(i3) && i2 >= 1 && i3 > i2 && i3 < paragraphs.length) {
+          const body1 = paragraphs.slice(0, i2).join('\n\n').trim();
+          const body2 = paragraphs.slice(i2, i3).join('\n\n').trim();
+          const body3 = paragraphs.slice(i3).join('\n\n').trim();
+          if (body1 && body2.length >= 40 && body3) return { body1, body2, body3 };
+        }
+      } catch (err) {
+        console.warn(`  ⚠️  splitBodyIntoSections tentativo ${attempt} fallito: ${err.message}`);
       }
-    } catch (err) {
-      console.warn(`  ⚠️  splitBodyIntoSections tentativo ${attempt} fallito: ${err.message}`);
     }
+    console.warn('  ⚠️  splitBodyIntoSections: nessun punto di taglio valido dopo 3 tentativi — uso fallback deterministico a paragrafi');
+  } else {
+    console.warn(`  ⚠️  splitBodyIntoSections: solo ${paragraphs.length} paragrafo/i — uso fallback deterministico`);
   }
-  throw new Error('splitBodyIntoSections: impossibile ottenere una suddivisione valida dopo 3 tentativi');
+
+  return deterministicBodySplit(text);
 }
 
 /**
