@@ -18,7 +18,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang, LEGACY_PREV_SLUGS_CAP } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/helsinn-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -109,7 +109,10 @@ async function mergeJobs(discoveredJobs) {
       titleByLocale: mergeLocaleTextMap(old.titleByLocale, d.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(old.descriptionByLocale, d.descriptionByLocale, 30, d.sourceLang),
       slugByLocale: mergeLocaleTextMap(old.slugByLocale, d.slugByLocale, 3),
-      previousSlugs: mergePreviousSlugsCapped(old.previousSlugs, d.previousSlugs, { jobId: old.id || d.id, source: 'update-helsinn-jobs.mjs' }),
+      // cap explicit (issue #3630): flat previousSlugs is the same field
+      // dedicated-crawler-common.mjs manages elsewhere with LEGACY_PREV_SLUGS_CAP;
+      // the module default of 20 would re-collapse it on this crawler's next run.
+      previousSlugs: mergePreviousSlugsCapped(old.previousSlugs, d.previousSlugs, { jobId: old.id || d.id, source: 'update-helsinn-jobs.mjs', cap: LEGACY_PREV_SLUGS_CAP }),
     }); updated++; }
     else { merged.push(d); added++; }
   }
