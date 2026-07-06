@@ -319,6 +319,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'unions-launch-referendum-minimum-wage-reform': { it: 'unions-launch-referendum-minimum-wage-reform', en: 'unions-launch-referendum-minimum-wage-reform-2026', de: 'unions-launch-referendum-mindestlohnerform-2026', fr: 'unions-launch-referendum-reforme-minimum-salaire-2026' },
  'sciopero-aereo-malpensa-linate-2024': { it: 'sciopero-aereo-malpensa-linate-2024', en: 'air-transport-strike-milan-airports', de: 'flugstreik-mailand-flughaefen', fr: 'greve-aerienne-aeroports-milan' },
  'totalizzazione-contributi-avs-inps': { it: 'totalizzazione-contributi-avs-inps', en: 'avs-inps-contribution-totalization-guide', de: 'avs-inps-beitragszusammenlegung-leitfaden', fr: 'totalisation-contributions-avs-inps-guide' },
+ 'quadro-rw-conto-svizzero-obblighi': { it: 'quadro-rw-conto-svizzero-obblighi', en: 'switzerland-bank-account-tax-reporting', de: 'schweizer-bankkonto-steuererklaerung', fr: 'declaration-compte-suisse-impots' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

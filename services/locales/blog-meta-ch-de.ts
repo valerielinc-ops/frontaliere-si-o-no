@@ -889,6 +889,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.totalizzazione-contributi-avs-inps.title': 'AHV- und NISF-Beiträge summieren: wie es funktioniert',
     'blog.article.totalizzazione-contributi-avs-inps.excerpt': 'Praktischer Leitfaden zur Zusammenrechnung der Beiträge zwischen der Schweiz und Italien: Verfahren, Formulare und Berechnung der Rente für diejenigen, die in beiden Ländern gearbeitet haben.',
     'blog.article.totalizzazione-contributi-avs-inps.imageAlt': 'Finanzunterlagen und Taschenrechner auf einem Schreibtisch in Lugano',
+    'blog.article.quadro-rw-conto-svizzero-obblighi.title': 'RW-Tabelle: Kontoauszug Schweiz',
+    'blog.article.quadro-rw-conto-svizzero-obblighi.excerpt': 'Praktischer Leitfaden zu den Steuerüberwachungspflichten für Grenzgänger mit Konto in der Schweiz: Was müssen Sie dem Finanzamt melden?',
+    'blog.article.quadro-rw-conto-svizzero-obblighi.imageAlt': 'Modernes Bankbüro in Lugano mit Blick auf den See',
 };
 
 export default blogMetaChDe;

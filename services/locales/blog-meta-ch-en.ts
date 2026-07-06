@@ -889,6 +889,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.totalizzazione-contributi-avs-inps.title': 'Totalisation of AVS and INPS contributions: how it works',
     'blog.article.totalizzazione-contributi-avs-inps.excerpt': 'Practical guide to the aggregation of contributions between Switzerland and Italy: procedure, forms and calculation of the pension for those who have worked in both countries.',
     'blog.article.totalizzazione-contributi-avs-inps.imageAlt': 'Financial documents and a calculator on a desk in Lugano',
+    'blog.article.quadro-rw-conto-svizzero-obblighi.title': 'Box RW: Swiss current account statement',
+    'blog.article.quadro-rw-conto-svizzero-obblighi.excerpt': 'Practical guide to tax monitoring obligations for border workers with an account in Switzerland: what to declare to the Revenue Agency.',
+    'blog.article.quadro-rw-conto-svizzero-obblighi.imageAlt': 'Modern bank office in Lugano with lake view',
 };
 
 export default blogMetaChEn;
