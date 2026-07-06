@@ -457,7 +457,7 @@ Scrivi ora il testo:`;
   return text;
 }
 
-export async function generateFaqIT(articleId, bodyText) {
+async function _generateFaqITAttempt(bodyText) {
   const prompt = `Sei un esperto di lavoro transfrontaliero Svizzera-Italia. Leggi questo articolo e genera ESATTAMENTE 5 coppie FAQ (domanda/risposta) in italiano. Il MINIMO ASSOLUTO è 3 coppie.
 
 REGOLE:
@@ -502,6 +502,28 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
     throw new Error('FAQ response is not an array');
   }
   return faq;
+}
+
+// Live incident: a redazione article's FAQ generation died on a single
+// malformed-JSON response ("Unterminated string in JSON") with zero retries
+// — the regex last-resort fallback only recognizes labeled plain-text Q&A
+// ("Domanda: ... Risposta: ..."), not a truncated JSON array, so it couldn't
+// recover either. A malformed/truncated single response from one model roll
+// is exactly the kind of transient glitch a retry fixes (same pattern already
+// used by splitBodyIntoSections/translateArticle elsewhere in this pipeline)
+// — this failed the entire publish over a small, independently-regenerable
+// FAQ field.
+export async function generateFaqIT(articleId, bodyText) {
+  let lastErr;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      return await _generateFaqITAttempt(bodyText);
+    } catch (err) {
+      lastErr = err;
+      console.error(`  ⚠️  generateFaqIT tentativo ${attempt} fallito: ${err.message}`);
+    }
+  }
+  throw lastErr;
 }
 
 /**
