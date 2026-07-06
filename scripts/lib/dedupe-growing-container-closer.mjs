@@ -8,11 +8,10 @@
  * container's own closing token, so naive marker-stripping leaves that
  * token twice with the other side's new entry orphaned in between.
  *
- * The SAME failure shape reaches several non-JSON append-only targets
- * written by scripts/create-article.mjs / scripts/lib/seo-pages-article-list.mjs,
- * because their insertion regexes anchor on the container's closing token
- * itself (not on the preceding entry), so a second conflict on that same
- * anchor duplicates it exactly like JSON did:
+ * Several non-JSON append-only targets written by scripts/create-article.mjs /
+ * scripts/lib/seo-pages-article-list.mjs anchor their insertion regex on the
+ * container's closing token itself (not on the preceding entry), which is
+ * the SAME anchor shape that let the JSON corruption above happen:
  *   - data/blog-articles-data.ts   (`const RAW_ARTICLES = [ ... ]`)
  *   - data/swiss-articles-data.ts  (`const RAW_SWISS_ARTICLES = [ ... ]`)
  *   - services/seo/seo-pages.ts    ("Articoli Frontaliere" ItemList block)
@@ -20,6 +19,16 @@
  *     (`Record<string, string>` meta-key objects)
  *   - public/sitemap-blog.xml, sitemap-blog-ch.xml, sitemap-news.xml,
  *     sitemap.xml (`<urlset>...</urlset>`)
+ *
+ * Real end-to-end reproduction via chained git rebase (PR #3622 follow-up,
+ * tests/resolve-append-conflicts-idempotency.test.ts) found this shape does
+ * NOT actually reach these targets: the array-of-object siblings hit a
+ * different, already-handled failure (an aligned inner-field conflict,
+ * safely rejected rather than silently merged), and the single-line-entry
+ * siblings resolve cleanly across chained cycles with no duplication at all.
+ * The repairs below are kept as defense-in-depth — a no-op on
+ * already-correct input — in case a future insertion-anchor change or a
+ * different conflict shape does produce this corruption for these targets.
  *
  * `services/routerBlogData.ts`/`services/routerSwissData.ts`'s BLOG_SLUGS /
  * SWISS_SLUGS maps are NOT in this list: their insertion anchors on the
