@@ -46404,6 +46404,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiusura-piattaforma-post-sanela': {
+    title: 'Post Sanela chiude: cosa cambia per i pazienti in Ticino',
+    description: 'La Posta chiude la piattaforma Post Sanela entro fine 2026. Guida pratica per i pazienti ticinesi su come salvare e gestire i dati della cartella in',
+    keywords: 'frontalieri, ticino, svizzera, italia, post, sanela, chiude, cosa',
+    ogTitle: 'Post Sanela chiude: cosa fare per i pazienti in Ticino',
+    ogDescription: 'La Posta chiude la piattaforma Post Sanela entro fine 2026. Guida pratica per i pazienti ticinesi su come salvare e gestire i dati.',
+    canonicalPath: '/articoli-frontaliere/chiusura-piattaforma-post-sanela',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Post Sanela chiude: cosa cambia per i pazienti in Ticino",
+      "description": "La Posta chiude la piattaforma Post Sanela entro fine 2026. Guida pratica per i pazienti ticinesi su come salvare e gestire i dati della cartella in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chiusura-piattaforma-post-sanela.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Schermo di computer con dati sanitari in un ufficio moderno in Ticino"
+      },
+      "datePublished": "2026-07-06T04:21:48+00:00",
+      "dateModified": "2026-07-06T04:21:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-piattaforma-post-sanela/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
