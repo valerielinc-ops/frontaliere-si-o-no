@@ -152,7 +152,7 @@ function persistCrawlChangeSummary(diff, label = '') {
 
 /**
  * Print published site URLs for each job to stdout.
- * @param {Array<{slug?: string; title?: string; company?: string}>} jobs
+ * @param {Array<{slug?: string; title?: string; company?: string; canton?: string; location?: string}>} jobs
  * @param {string} [label] - Optional label (e.g. 'Coop', 'Migros')
  */
 export function printPublishedJobUrls(jobs, label = '') {
@@ -167,7 +167,7 @@ export function printPublishedJobUrls(jobs, label = '') {
 /**
  * Append a Markdown table of published job URLs to the GitHub Actions Job Summary.
  * No-ops when not running in CI (GITHUB_STEP_SUMMARY unset).
- * @param {Array<{slug?: string; title?: string; company?: string}>} jobs
+ * @param {Array<{slug?: string; title?: string; company?: string; canton?: string; location?: string}>} jobs
  * @param {string} [label] - Section header label
  */
 export function writeJobsSummary(jobs, label = '') {

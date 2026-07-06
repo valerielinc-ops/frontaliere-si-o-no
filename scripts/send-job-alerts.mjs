@@ -26,7 +26,7 @@ import { fileURLToPath } from 'node:url';
 import { normalizeContract } from '../services/newsletter-content.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { buildAlertProfile, scoreJobForAlert, partitionByGeoPreference } from '../services/jobAlertMatching.mjs';
-import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
+import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { isAddressSuppressed, isJobAlertExcluded } from '../services/emailSuppression.mjs';
@@ -74,14 +74,6 @@ if (TARGET_EMAIL_RAW) {
 // slash is canonical (site convention) and dodges a no-slash→slash 301 on POST.
 const UNSUB_URL = `${BASE_URL}/disiscrivi-alert/`;
 
-// Locale-aware job board URL paths (must match router.ts slug tables)
-const JOB_BOARD_PATHS = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
-};
-
 // Locale-aware newsletter preferences slugs (must match router.ts slug tables)
 const PREFERENCES_SLUGS = {
   it: 'preferenze-newsletter',
@@ -94,10 +86,10 @@ const PREFERENCES_SLUGS = {
 const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
 
 // Canton-aware job-board section resolver (mirrors
-// migrate-all-known-job-slugs-canton-aware.mjs). Every non-TI canton has its
-// own board section (cerca-lavoro-vaud, jobs-in-aargau, …) — only TI uses the
-// legacy JOB_BOARD_PATHS above (kept for the generic Switzerland-wide
-// allJobsUrl CTA, which has no single canton to resolve).
+// migrate-all-known-job-slugs-canton-aware.mjs). Every canton has its own
+// board section (cerca-lavoro-vaud, jobs-in-aargau, …); the generic
+// Switzerland-wide allJobsUrl CTA (no single canton to resolve) uses the
+// AGGREGATE_KEY section instead.
 const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
 const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
 const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
@@ -634,7 +626,7 @@ function behaviorSignals(personalization) {
 function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   const locale = nlNormLocale(alert.locale);
   const s = getStrings(locale);
-  const jobBoardPath = JOB_BOARD_PATHS[locale] || JOB_BOARD_PATHS.it;
+  const jobBoardPath = resolveCantonSection(locale, AGGREGATE_KEY);
   const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
   const autologinCode = autologinEnabled ? generateAutologinCode(alert.email) : null;
   const preferencesUrl = makePreferencesUrl(alert.email, locale);

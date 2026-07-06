@@ -978,7 +978,7 @@ export function buildBriefingPrompt(ctx) {
  * @param {object} ctx.subscriber — { locale, preferences, locationInterest }
  * @param {object} ctx.exchangeRate — { rate }
  * @param {Array}  ctx.matchedJobs — [{ title }]
- * @param {string} ctx.briefingSummary — First line of the AI briefing
+ * @param {string} [ctx.briefingSummary] — First line of the AI briefing, if available
  * @returns {{ system: string, user: string }}
  */
 export function buildSubjectPrompt(ctx) {

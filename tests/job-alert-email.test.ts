@@ -114,10 +114,13 @@ describe('job alert email — identity footer', () => {
 });
 
 describe('job alert email — top-bar manage alerts CTA', () => {
-  it('all-jobs button still points to the job board', () => {
+  it('all-jobs button points to the Switzerland-wide aggregate board, not a single canton', () => {
     const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob()], true);
-    // The "View all jobs" CTA continues to land on /en/find-jobs-ticino
-    expect(result.html).toMatch(/href="[^"]*\/en\/find-jobs-ticino\/?\?[^"]*"/);
+    // "View all jobs" has no single canton to resolve — it must land on the
+    // aggregate board (/en/find-jobs-switzerland/), not the fixture job's own
+    // canton (Lugano → Ticino) or any other single-canton section.
+    expect(result.html).toMatch(/href="[^"]*\/en\/find-jobs-switzerland\/?\?[^"]*"/);
+    expect(result.html).not.toMatch(/href="[^"]*\/en\/find-jobs-ticino\/?\?[^"]*"/);
   });
 });
 
