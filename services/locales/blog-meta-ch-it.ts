@@ -901,6 +901,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.divorzio-frontaliere-mantenimento-svizzera.title': 'Divorzio frontaliere: assegno mantenimento in Svizzera',
     'blog.article.divorzio-frontaliere-mantenimento-svizzera.excerpt': 'Guida pratica su giurisdizione e calcolo dell\'assegno di mantenimento per frontalieri tra Svizzera e Italia nel rispetto delle norme vigenti.',
     'blog.article.divorzio-frontaliere-mantenimento-svizzera.imageAlt': 'Vista panoramica di un ufficio a Lugano con il lago sullo sfondo',
+    'blog.article.frontaliere-infermiere-ticino-requisiti.title': 'Frontaliere infermiere in Ticino: requisiti e stipendio',
+    'blog.article.frontaliere-infermiere-ticino-requisiti.excerpt': 'Guida pratica per infermieri frontalieri: dal riconoscimento del titolo di studio al nuovo Accordo, fino al calcolo dello stipendio netto.',
+    'blog.article.frontaliere-infermiere-ticino-requisiti.imageAlt': 'Ospedale con vista sul Lago di Lugano',
 };
 
 export default blogMetaChIt;

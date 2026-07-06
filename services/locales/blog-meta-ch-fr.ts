@@ -901,6 +901,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.divorzio-frontaliere-mantenimento-svizzera.title': 'Divorce frontalier : chèque entretien en Suisse',
     'blog.article.divorzio-frontaliere-mantenimento-svizzera.excerpt': 'Guide pratique sur la juridiction et le calcul de l\'allocation d\'entretien pour frontaliers entre la Suisse et l\'Italie dans le respect des règles en vigueur.',
     'blog.article.divorzio-frontaliere-mantenimento-svizzera.imageAlt': 'Vue panoramique d\'un bureau à Lugano avec le lac en arrière-plan',
+    'blog.article.frontaliere-infermiere-ticino-requisiti.title': 'Infirmière frontalière au Tessin : exigences et salaire',
+    'blog.article.frontaliere-infermiere-ticino-requisiti.excerpt': 'Guide pratique pour les infirmiers frontaliers : de la reconnaissance du diplôme au nouvel Accord, jusqu\'au calcul du salaire net.',
+    'blog.article.frontaliere-infermiere-ticino-requisiti.imageAlt': 'Hôpital avec vue sur le lac de Lugano',
 };
 
 export default blogMetaChFr;

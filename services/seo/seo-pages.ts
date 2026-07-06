@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3074,
+ "numberOfItems": 3075,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7749,7 +7749,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3071, "name": "Successione eredità: conto svizzero e frontalie...", "url": `${BASE_URL}/articoli-frontaliere/successione-eredita-frontaliere-conto-svizzero` },
           { "@type": "ListItem", "position": 3072, "name": "Voto 14 giugno: sondaggio sull'iniziativa 10 mi...", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-10-milioni-voto-giugno` },
           { "@type": "ListItem", "position": 3073, "name": "Divorzio frontaliere: assegno mantenimento in S...", "url": `${BASE_URL}/articoli-frontaliere/divorzio-frontaliere-mantenimento-svizzera` },
-          { "@type": "ListItem", "position": 3074, "name": "Lastminute.com Chiasso: intesa raggiunta per i ...", "url": `${BASE_URL}/articoli-frontaliere/accordo-sociale-lastminute-chiasso` }
+          { "@type": "ListItem", "position": 3074, "name": "Lastminute.com Chiasso: intesa raggiunta per i ...", "url": `${BASE_URL}/articoli-frontaliere/accordo-sociale-lastminute-chiasso` },
+          { "@type": "ListItem", "position": 3075, "name": "Frontaliere infermiere in Ticino: requisiti e s...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-infermiere-ticino-requisiti` }
  ]
  },
  {

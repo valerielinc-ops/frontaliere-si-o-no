@@ -901,6 +901,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.divorzio-frontaliere-mantenimento-svizzera.title': 'Border divorce: maintenance allowance in Switzerland',
     'blog.article.divorzio-frontaliere-mantenimento-svizzera.excerpt': 'Practical guide on jurisdiction and calculation of the maintenance allowance for border workers between Switzerland and Italy in compliance with current regulations.',
     'blog.article.divorzio-frontaliere-mantenimento-svizzera.imageAlt': 'Panoramic view of an office in Lugano with the lake in the background',
+    'blog.article.frontaliere-infermiere-ticino-requisiti.title': 'Border nurse in Ticino: requirements and salary',
+    'blog.article.frontaliere-infermiere-ticino-requisiti.excerpt': 'Practical guide for border nurses: from the recognition of the qualification to the new Agreement, up to the calculation of the net salary.',
+    'blog.article.frontaliere-infermiere-ticino-requisiti.imageAlt': 'Hospital with view of Lake Lugano',
 };
 
 export default blogMetaChEn;
