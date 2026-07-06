@@ -4363,6 +4363,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vivere-varese-lavorare-ticino': { name: 'Vivere Varese', path: '/articoli-svizzera/vivere-varese-lavorare-ticino/', parent: 'blog' },
     'blog-la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso': { name: 'LA SOSPENSIONE DEI RISTORNI ALLA PROVA', path: '/articoli-frontaliere/la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso', parent: 'blog' },
     'blog-classifica-dogane-ticino': { name: 'Classifica dogane', path: '/articoli-frontaliere/classifica-dogane-ticino', parent: 'blog' },
+    'blog-lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni': { name: 'Lavoro in Svizzera', path: '/articoli-svizzera/lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

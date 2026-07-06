@@ -874,6 +874,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.vivere-varese-lavorare-ticino.title': 'Varese-Wohnen, Ticino-Arbeit: Frontalier-Guide',
     'blog.article.vivere-varese-lavorare-ticino.excerpt': 'Erfahren Sie, wie Sie den Pendelweg zwischen Varese und Lugano, die Lebenshaltungskosten, Schulen für Kinder und die grenzüberschreitende Gemeinschaft steuern können.',
     'blog.article.vivere-varese-lavorare-ticino.imageAlt': 'Blick auf den Luganersee bei Sonnenaufgang mit der Stadt Lugano im Hintergrund und den umliegenden Bergen. Ein Grenzpendler im Vordergrund.',
+    'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.title': 'Arbeit in der Schweiz: 300\'000 neue Stellen in fünf Jahren',
+    'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.excerpt': 'Der Schweizer Arbeitsmarkt erlebte nach dem Pandemie-Schock fünf Jahre Wachstum mit rund 300\'000 neu geschaffenen Arbeitsplätzen.',
+    'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.imageAlt': 'Bild eines Bürogebäudes in Lugano',
 };
 
 export default blogMetaChDe;

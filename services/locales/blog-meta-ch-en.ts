@@ -874,6 +874,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vivere-varese-lavorare-ticino.title': 'Varese to Ticino: Guide for Cross-Border Commuters',
     'blog.article.vivere-varese-lavorare-ticino.excerpt': 'Find out how to manage the Varese-Lugano commute, the cost of living, schools for children and the cross-border community.',
     'blog.article.vivere-varese-lavorare-ticino.imageAlt': 'View of Lake Lugano at dawn with the city of Lugano in the background and the surrounding mountains. A cross-border commuter in the foreground.',
+    'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.title': 'Work in Switzerland: 300,000 new jobs in five years',
+    'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.excerpt': 'The Swiss labour market experienced five years of growth after the pandemic shock, with around 300,000 new jobs created.',
+    'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.imageAlt': 'Image of an office building in Lugano',
 };
 
 export default blogMetaChEn;

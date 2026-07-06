@@ -11250,6 +11250,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni': {
+    title: 'Lavoro in Svizzera: 300\'000 nuovi posti in cinque anni',
+    description: 'Il mercato del lavoro svizzero ha vissuto cinque anni di crescita dopo lo shock della pandemia, con circa 300\'000 nuovi posti di lavoro creati. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, nuovi, posti, cinque',
+    ogTitle: 'Lavoro in Svizzera: 300\'000 nuovi posti in cinque anni',
+    ogDescription: 'Il mercato del lavoro svizzero ha vissuto cinque anni di crescita dopo lo shock della pandemia, con circa 300\'000 nuovi posti di lavoro creati.',
+    canonicalPath: '/articoli-svizzera/lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro in Svizzera: 300'000 nuovi posti in cinque anni",
+      "description": "Il mercato del lavoro svizzero ha vissuto cinque anni di crescita dopo lo shock della pandemia, con circa 300'000 nuovi posti di lavoro creati. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un edificio uffici a Lugano"
+      },
+      "datePublished": "2026-07-06T00:44:49+00:00",
+      "dateModified": "2026-07-06T00:44:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

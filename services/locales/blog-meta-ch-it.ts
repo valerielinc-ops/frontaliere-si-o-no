@@ -874,6 +874,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.vivere-varese-lavorare-ticino.title': 'Vivere a Varese e lavorare in Ticino: guida completa per frontalieri',
     'blog.article.vivere-varese-lavorare-ticino.excerpt': 'Scopri come gestire il pendolarismo Varese-Lugano, il costo della vita, le scuole per i figli e la comunità di frontalieri.',
     'blog.article.vivere-varese-lavorare-ticino.imageAlt': 'Vista del Lago di Lugano all\'alba con la città di Lugano sullo sfondo e le montagne circostanti. Un frontaliere in primo piano.',
+    'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.title': 'Lavoro in Svizzera: 300\'000 nuovi posti in cinque anni',
+    'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.excerpt': 'Il mercato del lavoro svizzero ha vissuto cinque anni di crescita dopo lo shock della pandemia, con circa 300\'000 nuovi posti di lavoro creati.',
+    'blog.article.lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.imageAlt': 'Immagine di un edificio uffici a Lugano',
 };
 
 export default blogMetaChIt;
