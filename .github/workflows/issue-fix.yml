@@ -88,11 +88,26 @@ jobs:
         # di script — inclusi helper `scripts/{ci,dev,evals}/` e audit/report
         # read-only — a opus@40; osservato 2026-06-04 come tier-breadth waste). Gli
         # script funnel restano high via i loro keyword semantici/path index-muting.
+        #
+        # Terza clausola (2026-07-06): analisi storica FIX_OUTCOME 5 settimane ha
+        # mostrato max-turns in crescita costante (0%→24.5% W23→W27), dominato da
+        # follow-up SEO/audit/validate-dist con titolo tipo `fix(seo-404): ...` /
+        # `fix(seo-audit): ...` / `audit-dist-multi.mjs: ...` — NON matchano la
+        # prima clausola (niente crawler/parser/build-plugin/workflows/test
+        # gate/validator/migrator letterale) né la seconda (niente prefisso
+        # `scripts/` nel titolo) → finiscono tier=normal (40 turni) nonostante
+        # tocchino routing/locale/gate logic intricata quanto un crawler. Caso
+        # concreto: #3481 "1 item deferred — fix(seo-404): case-insensitive
+        # locale-prefix detection in inferLocale()" — già ridotto al singolo item
+        # dal circuit-breaker aggregate, comunque max-turns. Aggiunta mirata
+        # (seo-/audit-dist/validate-dist), non un bare `seo`/`audit` generico —
+        # stesso principio anti-tier-breadth-waste della nota sopra.
         run: |
           set -euo pipefail
           body=$(gh issue view "$ISSUE_NUMBER" --json title,body,labels --jq '.title + "\n" + .body + "\n" + (.labels[].name)')
           if echo "$body" | grep -qiE 'crawler|parser|build-plugin|\.github/workflows/|test gate|validator|migrator' \
-             || echo "$body" | grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)'; then
+             || echo "$body" | grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)' \
+             || echo "$body" | grep -qiE 'seo-[a-z0-9]|audit-dist|validate-dist'; then
             echo "tier=high" >> "$GITHUB_OUTPUT"
             echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
             # 40->50 (misurato 06-12): 44 run/7gg morti error_max_turns a
