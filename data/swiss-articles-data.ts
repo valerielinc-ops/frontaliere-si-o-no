@@ -2744,6 +2744,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'credito-imposta-frontalieri-2026',
+    category: 'fiscale',
+    date: '2026-07-06T05:29:20.354Z',
+    image: '/images/blog/credito-imposta-frontalieri-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'credito-imposta-frontaliere-2026',
+    category: 'fiscale',
+    date: '2026-07-06T05:47:42.232Z',
+    image: '/images/blog/credito-imposta-frontaliere-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'prezzi-immobili-svizzera-giugno',
+    category: 'pratico',
+    date: '2026-07-06T06:07:20.972Z',
+    image: '/images/blog/prezzi-immobili-svizzera-giugno.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

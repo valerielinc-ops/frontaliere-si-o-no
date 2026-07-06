@@ -12,7 +12,7 @@ import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
-import { buildSimplePage, asyncCssHeadBlock, rootShell } from './htmlTemplate';
+import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { firstParsableMs } from './shared/firstParsableDate';
@@ -221,6 +221,43 @@ export function pickSearchLandingFallbackJobs<T>(
  }
  }
  return [];
+}
+
+/**
+ * Cap a search-stats-landing title ("Offerte di lavoro {name} in Svizzera"
+ * style — see the search-stats-landing block below) on a whitespace
+ * boundary, no ellipsis (per titleSuffix.ts's no-`…` policy protecting SERP
+ * CTR).
+ *
+ * Budgeted on the ESCAPED length, not the raw length: `name` comes from
+ * crawled job-title stats leaders (`topTitlesAdded30d` in
+ * data/jobs-stats.json, e.g. "Sales & Marketing"), and `htmlTemplate.ts`
+ * renders this title as `esc(title)` (one escape pass) — the same
+ * measurement `audit-title-length.mjs` applies to the raw HTML source. A raw
+ * `&`/`<`/`>`/`"` expands on escape, so a candidate that fits the raw budget
+ * can still overflow the cap once escaped. The word-boundary slice below can
+ * land within the raw budget but still overflow once escaped (a retained
+ * `&` survives the cut) — shrink the raw ceiling and retry until the escaped
+ * candidate fits. Bounded: each retry strictly decrements the ceiling, so
+ * this converges in at most `maxChars` iterations. Same class of fix as
+ * eventsSeoPagesPlugin.ts's `eventDetailMetaTitle` (#3589).
+ */
+export function capSearchStatsLandingTitle(
+ rawTitle: string,
+ maxChars: number = TITLE_MAX_CHARS,
+ measureLength: (s: string) => number = (s) => escHtml(s).length,
+): string {
+ const capAt = (max: number): string => {
+ if (rawTitle.length <= max) return rawTitle;
+ const sliced = rawTitle.slice(0, max);
+ const lastSpace = sliced.lastIndexOf(' ');
+ return lastSpace > 0 ? sliced.slice(0, lastSpace).trimEnd() : sliced.trimEnd();
+ };
+ let capped = capAt(maxChars);
+ for (let max = maxChars; measureLength(capped) > maxChars && max > 0; max -= 1) {
+ capped = capAt(max);
+ }
+ return capped;
 }
 
 /**
@@ -8310,17 +8347,12 @@ ${staticAnalyticsHtml}
  // Search-stats-landing titles wrap the keyword in locale frame
  // ("Offerte di lavoro {name} in Svizzera" / "{name} job openings in
  // Switzerland" / etc). With long compound queries the wrapped title
- // blows past TITLE_MAX_CHARS (66) and audit:title-length fails. Cap
- // the wrapped title on a whitespace boundary, no ellipsis (per
- // titleSuffix.ts no-`…` policy that protects SERP CTR).
+ // blows past TITLE_MAX_CHARS (66) and audit:title-length fails.
+ // `capSearchStatsLandingTitle` caps it on a whitespace boundary (no
+ // ellipsis) budgeted on the ESCAPED length — see its doc comment for why
+ // (crawled `name` can carry `&`/`<`/`>`/`"`, e.g. "Sales & Marketing").
  const rawTitle = copy.title(name);
- const cappedTitle = rawTitle.length > TITLE_MAX_CHARS
-   ? (() => {
-       const sliced = rawTitle.slice(0, TITLE_MAX_CHARS);
-       const lastSpace = sliced.lastIndexOf(' ');
-       return lastSpace > 0 ? sliced.slice(0, lastSpace).trimEnd() : sliced.trimEnd();
-     })()
-   : rawTitle;
+ const cappedTitle = capSearchStatsLandingTitle(rawTitle);
  const title = buildTitleWithBrand(cappedTitle);
  const description = copy.description(name, matchingJobs.length);
  const _altPairs = localeList

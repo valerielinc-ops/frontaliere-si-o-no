@@ -46,6 +46,7 @@ import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
+  MIN_JOBS_PER_COMPANY_IN_CITY,
   SWISS_CANTON_CODES,
   WEEKLY_EMPLOYERS_ARCHIVE_PREFIX,
   WEEKLY_EMPLOYERS_CITIES,
@@ -95,6 +96,7 @@ import {
   resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
+import { capSearchStatsLandingTitle } from './jobsSeoPagesPlugin';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import { resolveCantonSection as sharedResolveCantonSection } from './shared/cantonSection';
 import { getCityCanton } from './shared/cantonCities';
@@ -1222,18 +1224,14 @@ export function findOrphanedCompanyCityPairs(
   const currentKeys = new Set(currentPairs.map((p) => `${p.city}::${p.companySlug}`));
   const seen = new Map<string, CompanyCityPair & { employer: string }>();
 
-  // Follow-up #3608 item 1: `snapshot.jobs[]` is written by
-  // scripts/snapshot-jobs-weekly.mjs, which maps the LIVE job shape
-  // (`company`/`companyKey`) onto the persisted-snapshot shape
-  // (`employer`/`employerKey`) — see `JobsSnapshot` doc comment above.
-  // If a future snapshot writer regressed to the live shape (or a
-  // hand-edited/legacy snapshot file used it), `job.employer` would be
-  // silently empty for that row and it would never surface as a
-  // candidate — no error, just quietly fewer orphans found. Count that
-  // instead of failing loudly, since one drifted snapshot file
-  // shouldn't crash the whole build.
-  let schemaDriftRows = 0;
-  let candidatePairs = 0;
+  // Debug-mode counters (DEBUG_WEEKLY_EMPLOYERS_ORPHANS=1) surfacing whether
+  // snapshot schema/casing has drifted from the current build's live-job
+  // normalization — a silent mismatch here would under-detect orphans
+  // (GSC 404 leak) with no error, since every filter below just `continue`s.
+  let skippedEmptyEmployer = 0;
+  let candidatesMetThreshold = 0;
+  let filteredAlreadyCurrent = 0;
+  let dedupedAcrossSnapshots = 0;
 
   for (const snapshot of snapshots) {
     const counts = new Map<
@@ -1243,7 +1241,7 @@ export function findOrphanedCompanyCityPairs(
     for (const job of snapshot.jobs) {
       const employer = String(job.employer || '').trim();
       if (!employer) {
-        if (String((job as { company?: unknown }).company || '').trim()) schemaDriftRows++;
+        skippedEmptyEmployer++;
         continue;
       }
       const employerKey = normEmployerKey(employer, job.employerKey);
@@ -1265,28 +1263,32 @@ export function findOrphanedCompanyCityPairs(
     for (const [city, cityCounts] of counts.entries()) {
       for (const [employerKey, rec] of cityCounts.entries()) {
         if (!companyCityMeetsThreshold(rec)) continue;
-        candidatePairs++;
         const companySlug = canonicalCompanySlug(rec.employer, employerKey);
         if (!companySlug || !/^[a-z0-9][a-z0-9-]*$/.test(companySlug)) continue;
+        candidatesMetThreshold++;
         const key = `${city}::${companySlug}`;
-        if (currentKeys.has(key) || seen.has(key)) continue;
+        if (currentKeys.has(key)) {
+          filteredAlreadyCurrent++;
+          continue;
+        }
+        if (seen.has(key)) {
+          dedupedAcrossSnapshots++;
+          continue;
+        }
         seen.set(key, { city, companySlug, employer: rec.employer });
       }
     }
   }
 
-  if (schemaDriftRows > 0) {
-    console.warn(
-      `[weekly-employers] orphan bridge scan: ${schemaDriftRows} snapshot row(s) had ` +
-        `"company" but no "employer" field — snapshot schema drift, these rows were ` +
-        'skipped and may under-detect orphans. Check the snapshot-writer script.',
+  if (process.env.DEBUG_WEEKLY_EMPLOYERS_ORPHANS === '1') {
+    console.log(
+      `[weekly-employers] orphan-scan: ${candidatesMetThreshold} snapshot candidates met the ` +
+        `${MIN_JOBS_PER_COMPANY_IN_CITY}-job gate across ${snapshots.length} week(s); ` +
+        `${filteredAlreadyCurrent} still current (not orphaned), ${dedupedAcrossSnapshots} deduped ` +
+        `repeats, ${seen.size} distinct orphan(s) bridged; ${skippedEmptyEmployer} snapshot job(s) ` +
+        `skipped for empty employer field (possible schema drift).`,
     );
   }
-  console.log(
-    `[weekly-employers] orphan bridge scan: ${candidatePairs} snapshot candidate(s) met ` +
-      `the ${MIN_JOBS_PER_COMPANY_IN_CITY}-job threshold across ${snapshots.length} ` +
-      `snapshot(s), ${seen.size} orphaned (absent from current build) after dedup.`,
-  );
 
   return Array.from(seen.values());
 }
@@ -3541,7 +3543,12 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
         : `W${weekNum} ${year}`;
     return `${cityDisplay} — ${employer} — ${qualifier}`;
   })();
-  const compactClamped = compactBase.length <= 60 ? compactBase : compactBase.slice(0, 60).replace(/[\s,—-]+$/u, '');
+  // Budget on ESCAPED length (capSearchStatsLandingTitle's default
+  // measureLength) — cityDisplay/employer are interpolated raw and can carry
+  // `&`/`<`/`>`/`"` that expand once htmlTemplate.ts's single-escape shell
+  // renders the title, same class as eventsSeoPagesPlugin.ts's
+  // eventDetailMetaTitle (#3589).
+  const compactClamped = capSearchStatsLandingTitle(compactBase, 60).replace(/[\s,—-]+$/u, '');
   const title = buildTitleWithBrand(compactClamped);
   const description = heroSummary.slice(0, 180);
 

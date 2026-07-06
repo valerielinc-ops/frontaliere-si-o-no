@@ -4,6 +4,7 @@ import {
   CANTON_VALAIS_COMPANY_NAME,
   isCantonValaisJob,
   isTrustedDomain,
+  resolveServiceNowPageCap,
 } from '../scripts/lib/canton-valais-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -124,6 +125,29 @@ describe('Canton du Valais crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── resolveServiceNowPageCap (issue #3578) ──
+  // SN_API_URLS[0] has no `sysparm_limit` query param, so before this fix
+  // the truncation-warning guard (`if (limitParam)`) silently no-op'd for it.
+  describe('resolveServiceNowPageCap', () => {
+    it('reads the cap from an explicit sysparm_limit param', () => {
+      expect(
+        resolveServiceNowPageCap('https://vs.service-now.com/api/x_hdvi2_hvs_ats/ats_portal_api/jobs?sysparm_limit=100&language=fr'),
+      ).toBe(100);
+    });
+
+    it('respects a non-default explicit sysparm_limit value', () => {
+      expect(
+        resolveServiceNowPageCap('https://vs.service-now.com/api/x_hdvi2_hvs_ats/ats_portal_api/jobs?sysparm_limit=250'),
+      ).toBe(250);
+    });
+
+    it('falls back to the sentinel cap when sysparm_limit is absent (SN_API_URLS[0])', () => {
+      expect(
+        resolveServiceNowPageCap('https://vs.service-now.com/api/x_hdvi2_hvs_ats/ats_portal/jobs?language=fr'),
+      ).toBe(100);
     });
   });
 });

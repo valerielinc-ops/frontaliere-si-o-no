@@ -627,7 +627,7 @@ async function mergeMendrisioJobs(discoveredJobs) {
         source: 'mendrisio-concorsi-crawler',
         validThrough: discovered.validThrough || existing.validThrough,
         titleByLocale: mergeLocaleTextMap(prevTitleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(prevDescByLocale, discovered.descriptionByLocale, 30),
+        descriptionByLocale: mergeLocaleTextMap(prevDescByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(prevSlugByLocale, discovered.slugByLocale, 3),
       };
 

@@ -135,7 +135,7 @@ async function mergeJobs(discoveredJobs) {
   for (const discovered of discoveredJobs) {
     const key = canonicalizeUrl(discovered.url);
     const old = existingByUrl.get(key);
-    if (old) { merged.push({ ...old, ...discovered, titleByLocale: mergeLocaleTextMap(old.titleByLocale, discovered.titleByLocale, 3), descriptionByLocale: mergeLocaleTextMap(old.descriptionByLocale, discovered.descriptionByLocale, 30), slugByLocale: mergeLocaleTextMap(old.slugByLocale, discovered.slugByLocale, 3) }); updated++; }
+    if (old) { merged.push({ ...old, ...discovered, titleByLocale: mergeLocaleTextMap(old.titleByLocale, discovered.titleByLocale, 3), descriptionByLocale: mergeLocaleTextMap(old.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang), slugByLocale: mergeLocaleTextMap(old.slugByLocale, discovered.slugByLocale, 3) }); updated++; }
     else { merged.push(discovered); added++; }
   }
   const final = [...nonCompanyJobs, ...merged];
