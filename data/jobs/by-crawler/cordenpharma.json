@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cordenpharma",
-  "assembledAt": "2026-07-06T13:29:15.197Z",
+  "assembledAt": "2026-07-06T22:17:27.082Z",
   "jobs": [
     {
       "id": "cordenpharma-5c70bbadea4d",
@@ -33,7 +33,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20885/mitarbeiter-logistik-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:29:13.033Z",
+      "crawledAt": "2026-07-06T22:17:25.018Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -116,7 +116,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20851/betriebsmechaniker-produktions-und-gebaudetechnik-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:29:12.538Z",
+      "crawledAt": "2026-07-06T22:17:24.500Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -151,6 +151,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:47:50.294Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -195,7 +196,7 @@
       "url": "https://career.cordenpharma.com/en/p/liestal/jobs/20921/it-site-lead-europe-multi-site-mfd-switzerland-france-portugal",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T13:29:11.927Z",
+      "crawledAt": "2026-07-06T22:17:23.977Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -214,6 +215,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:47:49.833Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -258,7 +260,7 @@
       "url": "https://career.cordenpharma.com/en/p/liestal/jobs/20846/head-of-development-mfd-innovative-synthesis-dual-role",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T13:29:11.428Z",
+      "crawledAt": "2026-07-06T22:17:23.336Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -305,7 +307,7 @@
       "title": "Analytical Scientist, 100% (m/w/d)",
       "titleByLocale": {
         "it": "Scienziato Analitico, 100% (m/f/d)",
-        "en": "Analytical Scientist, 100% (m/f/d)",
+        "en": "Analytical Scientist, 100% (m/w/d)",
         "de": "Analytical Scientist, 100% (m/w/d)",
         "fr": "Scientifique analytique, 100 % (m/f/d)"
       },
@@ -321,7 +323,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20861/analytical-scientist-100-mwd-abteilung-qc-analytics",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:29:10.889Z",
+      "crawledAt": "2026-07-06T22:17:22.859Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -353,6 +355,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:47:48.722Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -381,7 +384,7 @@
       "title": "Analytical Project Leader (APL), 100% (m/w/d)",
       "titleByLocale": {
         "it": "Capo Progetto Analitico (APL), 100% (lunedì/f/g)",
-        "en": "Analytical Project Leader (APL), 100% (m/f/d)",
+        "en": "Analytical Project Leader (APL), 100% (m/w/d)",
         "de": "Analytical Project Leader (APL), 100% (m/w/d)",
         "fr": "Chef de projet analytique (APL), 100 % (m/f/d)"
       },
@@ -397,7 +400,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:29:10.360Z",
+      "crawledAt": "2026-07-06T22:17:21.827Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -429,6 +432,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:47:48.276Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
