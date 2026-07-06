@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3079,
+ "numberOfItems": 3080,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7754,7 +7754,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3076, "name": "A8 Milano-Varese: chiusure notturne per lavori ...", "url": `${BASE_URL}/articoli-frontaliere/lavori-autostrada-a8-luglio-2026` },
           { "@type": "ListItem", "position": 3077, "name": "Frontaliere operaio edile in Ticino: guida al CCL", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-operaio-edile-ticino-ccl` },
           { "@type": "ListItem", "position": 3078, "name": "Tilo Mendrisio-Gallarate: completato il potenzi...", "url": `${BASE_URL}/articoli-frontaliere/potenziamento-linee-tilo-mendrisio-gallarate` },
-          { "@type": "ListItem", "position": 3079, "name": "Frontaliere autista in Ticino: guida completa 2026", "url": `${BASE_URL}/articoli-frontaliere/guida-autista-frontaliere-ticino` }
+          { "@type": "ListItem", "position": 3079, "name": "Frontaliere autista in Ticino: guida completa 2026", "url": `${BASE_URL}/articoli-frontaliere/guida-autista-frontaliere-ticino` },
+          { "@type": "ListItem", "position": 3080, "name": "Post Sanela chiude: cosa cambia per i pazienti ...", "url": `${BASE_URL}/articoli-frontaliere/chiusura-piattaforma-post-sanela` }
  ]
  },
  {

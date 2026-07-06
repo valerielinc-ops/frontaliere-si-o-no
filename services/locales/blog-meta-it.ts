@@ -8273,6 +8273,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.title': 'Tilo Mendrisio-Gallarate: completato il potenziamento RFI',
     'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.excerpt': 'Conclusi i lavori di Rete Ferroviaria Italiana sulla tratta transfrontaliera: ripristinata la piena operatività dei collegamenti Tilo tra Ticino e Varesotto.',
     'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.imageAlt': 'Treno Tilo in arrivo alla stazione di Mendrisio',
+    'blog.article.chiusura-piattaforma-post-sanela.title': 'Post Sanela chiude: cosa cambia per i pazienti in Ticino',
+    'blog.article.chiusura-piattaforma-post-sanela.excerpt': 'La Posta interrompe il servizio di cartella informatizzata entro fine 2026. Ecco le procedure per il salvataggio dei dati e il futuro del sistema sanitario.',
+    'blog.article.chiusura-piattaforma-post-sanela.imageAlt': 'Schermo di computer con dati sanitari in un ufficio moderno in Ticino',
 };
 
 export default blogMetaIt;

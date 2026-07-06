@@ -8271,6 +8271,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.title': 'Tilo Mendrisio-Gallarate: RFI-Boosting abgeschlossen',
     'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.excerpt': 'Nach Abschluss der Arbeiten des italienischen Eisenbahnnetzes auf der grenzüberschreitenden Strecke: Wiederherstellung der vollen Funktionsfähigkeit der TILO-Verbindungen zwischen Tessin und Varesotto.',
     'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.imageAlt': 'Tilo-Zug bei der Ankunft am Bahnhof Mendrisio',
+    'blog.article.chiusura-piattaforma-post-sanela.title': 'Post Sanela schliesst: Was sich für die Patienten im Tessin ändert',
+    'blog.article.chiusura-piattaforma-post-sanela.excerpt': 'Die Post stellt den elektronischen Ordnerdienst bis Ende 2026 ein. Hier sind die Verfahren zur Datensicherung und die Zukunft des Gesundheitssystems.',
+    'blog.article.chiusura-piattaforma-post-sanela.imageAlt': 'Computerbildschirm mit Gesundheitsdaten in einem modernen Schweizer Büro',
 };
 
 export default blogMetaDe;
