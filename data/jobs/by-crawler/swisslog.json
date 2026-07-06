@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisslog",
-  "assembledAt": "2026-07-06T00:39:56.140Z",
+  "assembledAt": "2026-07-06T15:46:45.745Z",
   "jobs": [
     {
       "id": "swisslog-5a6e970a5f45",
@@ -33,7 +33,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/servicetechnikerin-mechanik-mwd-4094",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T00:39:54.005Z",
+      "crawledAt": "2026-07-06T15:46:43.525Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -69,6 +69,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:41:26.497Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -113,7 +114,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T00:39:54.004Z",
+      "crawledAt": "2026-07-06T15:46:43.524Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -193,7 +194,7 @@
       "url": "https://www.swisslog.com/en-us/careers/openings/controls-software-service-engineer-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T00:39:54.004Z",
+      "crawledAt": "2026-07-06T15:46:43.524Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -275,7 +276,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/mitarbeiterin-instandhaltung-mwd-4206",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T00:39:54.003Z",
+      "crawledAt": "2026-07-06T15:46:43.523Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -339,7 +340,7 @@
       "title": "Technical Project Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile del progetto tecnico (m/f/d)",
-        "en": "Technical Project Manager (m/f/d)",
+        "en": "Technical Project Manager (m/w/d)",
         "de": "Technical Project Manager (m/w/d)",
         "fr": "Gestionnaire de projet technique (m/f/d)"
       },
@@ -355,7 +356,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/technical-project-manager-mwd-4182",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T00:39:54.001Z",
+      "crawledAt": "2026-07-06T15:46:43.522Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -388,6 +389,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:41:26.494Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
