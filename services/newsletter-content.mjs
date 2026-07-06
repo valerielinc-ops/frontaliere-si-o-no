@@ -12,6 +12,7 @@ import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
 import { locTokenHit } from './locToken.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { JOB_BOARD_SECTION_RX } from '../scripts/lib/jobBoardSections.mjs';
+import { nlNormLocale } from './newsletter-template.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -863,7 +864,7 @@ const LOCALE_NAMES = { it: 'Italian', en: 'English', de: 'German', fr: 'French' 
  * @returns {{ system: string, user: string }}
  */
 export function buildBriefingPrompt(ctx) {
-  const locale = ctx.subscriber?.locale || 'it';
+  const locale = nlNormLocale(ctx.subscriber?.locale);
   const langName = LOCALE_NAMES[locale] || 'Italian';
   const prefs = ctx.subscriber?.preferences || {};
   const interests = [];
@@ -981,7 +982,7 @@ export function buildBriefingPrompt(ctx) {
  * @returns {{ system: string, user: string }}
  */
 export function buildSubjectPrompt(ctx) {
-  const locale = ctx.subscriber?.locale || 'it';
+  const locale = nlNormLocale(ctx.subscriber?.locale);
   const langName = LOCALE_NAMES[locale] || 'Italian';
 
   // Day of week for time-sensitive hooks
