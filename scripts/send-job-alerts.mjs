@@ -25,6 +25,7 @@ import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { normalizeContract } from '../services/newsletter-content.mjs';
 import { buildAlertProfile, scoreJobForAlert, partitionByGeoPreference } from '../services/jobAlertMatching.mjs';
+import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { isAddressSuppressed, isJobAlertExcluded } from '../services/emailSuppression.mjs';
@@ -91,6 +92,15 @@ const PREFERENCES_SLUGS = {
 // IT is canonical (no prefix); other locales get /{locale}/ prefix.
 const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
 
+// Canton-aware job-board section resolver (mirrors
+// migrate-all-known-job-slugs-canton-aware.mjs). Every non-TI canton has its
+// own board section (cerca-lavoro-vaud, jobs-in-aargau, …) — only TI uses the
+// legacy JOB_BOARD_PATHS above (kept for the generic Switzerland-wide
+// allJobsUrl CTA, which has no single canton to resolve).
+const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
+const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
+const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
+
 // ── Pre-send live-link preflight (issue #3172) ──────────────────────
 // data/jobs.json is a periodic crawl snapshot; a job listed as "recent" at
 // crawl-time can be pulled/expired by an employer, or its per-locale SSG page
@@ -117,7 +127,8 @@ const JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO = 0.34;
 // buildAlertEmail, minus the alert-specific utm query string — irrelevant to
 // liveness and would otherwise fragment the cache key per alertId).
 function jobPageUrl(job, locale) {
-  const jobBoardPath = JOB_BOARD_PATHS[locale] || JOB_BOARD_PATHS.it;
+  const cantonCode = resolveJobCanton({ canton: job.canton, location: job.location });
+  const jobBoardPath = resolveCantonSection(locale, cantonCode);
   const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
   const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
   return slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}` : null;
@@ -759,8 +770,8 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const company = job.company || '';
     const rawLocation = job.location || job.addressLocality || '';
     const location = rawLocation.replace(/^[-\u2013\u2014\s]+/, '').trim();
-    const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
-    const rawJobUrl = slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}?${utmBase}` : BASE_URL;
+    const jobUrl = jobPageUrl(job, locale);
+    const rawJobUrl = jobUrl ? `${jobUrl}?${utmBase}` : BASE_URL;
     const url = wrapUrl(rawJobUrl);
     const initial = (company || '?')[0].toUpperCase();
     const avatar = resolveAvatarSrc(job);
@@ -914,8 +925,8 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const title = cleanTitle(job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle);
     const company = job.company || '';
     const rawLocation = (job.location || job.addressLocality || '').replace(/^[-\u2013\u2014\s]+/, '').trim();
-    const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
-    const rawJobUrl = slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}?${utmBase}` : BASE_URL;
+    const jobUrl = jobPageUrl(job, locale);
+    const rawJobUrl = jobUrl ? `${jobUrl}?${utmBase}` : BASE_URL;
     const url = wrapUrl(rawJobUrl);
     const meta = [company, rawLocation].filter(Boolean).join(' \u00b7 ');
     return `${title}\n${meta}\n${url}`;
