@@ -8280,6 +8280,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-a2-luglio-frontalieri.title': 'Verkehr auf der A2: Verlangsamungen und Staus ins Tessin',
     'blog.article.traffico-a2-luglio-frontalieri.excerpt': 'Juli bringt Staus auf die Autobahn A2. Wir analysieren die Wartezeiten am Gotthard, in Airolo und an der Grenze von Chiasso Brogeda für Grenzgänger.',
     'blog.article.traffico-a2-luglio-frontalieri.imageAlt': 'Verkehr auf der A2-Autobahn im Tessin während der Sommerzeit',
+    'blog.article.modelli-cu-2026-frontalieri.title': 'Einheitliche Zertifizierung 2026: Offizielle Modelle',
+    'blog.article.modelli-cu-2026-frontalieri.excerpt': 'Italien hat die offiziellen Muster der einheitlichen Bescheinigung 2026 zur Verfügung gestellt, ein Schlüsseldokument für die Steuererklärung, einschließlich derjenigen, die in der Schweiz von Grenzgängern erhoben werden, die die Steuergutschrift im EG-Rahmen von 730 verwenden, um Doppelbesteuerung zu vermeiden.',
+    'blog.article.modelli-cu-2026-frontalieri.imageAlt': 'Panoramablick auf Lugano am Morgen, mit dem See und den umliegenden Bergen unter klarem Himmel. Perfekt für einen Grenzgänger auf dem Weg zur Arbeit.',
 };
 
 export default blogMetaDe;
