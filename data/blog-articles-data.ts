@@ -24812,6 +24812,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sviluppo-droni-ticino-mobilita',
+ category: 'novita',
+ date: '2026-07-06T02:56:30.910Z',
+ image: '/images/blog/sviluppo-droni-ticino-mobilita.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
