@@ -10,6 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
 import { locTokenHit } from './locToken.mjs';
+import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -486,21 +487,52 @@ export function companyPageUrl(companySlug, locale = 'it') {
   return `${BASE_URL}/${boardPath}/${prefix}-${companySlug}/`;
 }
 
+// Company-hub URL this module builds (`companyPageUrl` → JOB_BOARD_PATH) is
+// always the Ticino board path. That URL is only ever emitted by the build
+// for companies with >=1 real TI job — see the "TI-only scope" comment on
+// the legacy `companyMap` loop in build-plugins/jobsSeoPagesPlugin.ts
+// (~line 3700), gated on the same `resolveJobCanton` resolver. A company
+// whose only active jobs are outside TI gets a *different* per-canton hub
+// URL instead (jobsSeoPagesPlugin.ts ~line 7600), never one at this Ticino
+// board path. Lazy-load + cache mirrors `loadLogoManifest` above.
+let _cantonResolvers = null;
+function loadCantonResolvers() {
+  if (_cantonResolvers !== null) return _cantonResolvers;
+  try {
+    const cantonSlugFile = JSON.parse(
+      fs.readFileSync(path.resolve(__dirname, '..', 'data', 'canton-url-slugs.json'), 'utf-8')
+    );
+    const municipalitiesFile = JSON.parse(
+      fs.readFileSync(path.resolve(__dirname, '..', 'data', 'canton-municipalities.json'), 'utf-8')
+    );
+    _cantonResolvers = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
+  } catch {
+    _cantonResolvers = false;
+  }
+  return _cantonResolvers;
+}
+
 /**
  * Set of company-hub slugs the build actually emits — one per company that has
- * ≥1 ACTIVE job (`data/jobs.json`). The build emits a company hub for every
- * active company (and brand-alias slugs additionally get 200 bridge pages), so
- * a company whose name exists ONLY on EXPIRED jobs has NO emitted hub: linking
- * it silently 404s (#2530, e.g. `jumbo-divisione-di-coop-societa-cooperativa`,
- * a name present only in `data/expired-jobs.json`). Built from the same active
- * jobs array and the same `slugifyCompanyName` the link builder uses, so the
- * allow-set matches the emitted set by construction.
+ * ≥1 ACTIVE **TI** job (`data/jobs.json`). The build emits a company hub at
+ * this (Ticino board) URL for every active TI company (and brand-alias slugs
+ * additionally get 200 bridge pages), so a company whose name exists ONLY on
+ * EXPIRED jobs, or ONLY on non-TI jobs, has NO emitted hub at this URL:
+ * linking it silently 404s (#2530 expired-only case, e.g.
+ * `jumbo-divisione-di-coop-societa-cooperativa`, a name present only in
+ * `data/expired-jobs.json`; #3557 non-TI-only case, recovered as a redirect
+ * by the CF worker's company-hub safety net rather than a raw 404, but the
+ * origin page itself never exists). Built from the same active jobs array,
+ * the same `slugifyCompanyName` the link builder uses, and the same
+ * `resolveJobCanton` TI gate the emitter uses, so the allow-set matches the
+ * emitted set by construction.
  *
  * @param {object[]} jobs active jobs array (data/jobs.json)
  * @returns {Set<string>} emitted company-hub slugs
  */
 export function buildCompanyHubSlugSet(jobs) {
   const set = new Set();
+  const resolvers = loadCantonResolvers();
   for (const j of jobs || []) {
     // Mirror the emitter's `validJobs` gate (jobsSeoPagesPlugin.ts ~1255): a hub
     // is emitted only for a company on a job that ALSO has title, location and a
@@ -512,6 +544,9 @@ export function buildCompanyHubSlugSet(jobs) {
     // from companyHubBridgePlugin's crawler-known coverage (#2608 item 3), so the
     // raw slug is the correct allow-set key.
     if (j && j.title && j.company && j.location && (j.description || j.descriptionByLocale)) {
+      // TI-only gate (issue #3557): skip jobs whose resolved canton isn't TI,
+      // mirroring the emitter's companyMap loop exactly.
+      if (resolvers && resolvers.resolveJobCanton(j) !== 'TI') continue;
       const slug = slugifyCompanyName(j.company);
       if (slug) set.add(slug);
     }
