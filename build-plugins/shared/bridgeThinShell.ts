@@ -34,23 +34,34 @@
 
 import { EJP_STRIPPED_MARKER } from './ejpMarker';
 import { inlineScriptJson } from './inlineJsonScript';
+import { AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './cantonSection';
 
-const LOCALE_LISTING_PATH: Record<string, string> = {
-  it: '/cerca-lavoro-ticino/',
-  en: '/en/find-jobs-ticino/',
-  de: '/de/jobs-im-tessin/',
-  fr: '/fr/trouver-emploi-tessin/',
+const LOCALE_PATH_PREFIX: Record<CantonLocale, string> = {
+  it: '',
+  en: '/en',
+  de: '/de',
+  fr: '/fr',
 };
+
+// Bridge pages exist for jobs of any canton (previousSlugs winners span the
+// whole dataset, not just TI — see jobsSeoPagesPlugin.ts's canton-keyed
+// previousSlugWinners scan), so the generic "browse all listings" fallback
+// link must not assume Ticino. Points at the Switzerland-wide aggregate
+// board, same pattern as legacyRedirectsPlugin.ts's `_AGGREGATE_` fallback.
+function aggregateListingPath(locale: string): string {
+  const loc = (locale === 'en' || locale === 'de' || locale === 'fr' ? locale : 'it') as CantonLocale;
+  return `${LOCALE_PATH_PREFIX[loc]}/${resolveCantonSection(loc, AGGREGATE_KEY)}/`;
+}
 
 const BRIDGE_PROSE: Record<string, (canonicalPath: string, listingPath: string) => string> = {
   it: (canonicalPath, listingPath) =>
-    `Questa offerta è stata aggiornata e ora vive alla nuova pagina canonica. Continua a vedere tutti i dettagli — stipendio, sede di lavoro, contratto, candidatura — sulla versione più recente dell'annuncio. Se la pagina non si carica automaticamente, vai alla <a href="${canonicalPath}">pagina aggiornata dell'offerta</a> oppure consulta tutte le <a href="${listingPath}">offerte di lavoro in Ticino</a>. La nostra piattaforma indicizza quotidianamente migliaia di posizioni aperte presso aziende svizzere per frontalieri italiani.`,
+    `Questa offerta è stata aggiornata e ora vive alla nuova pagina canonica. Continua a vedere tutti i dettagli — stipendio, sede di lavoro, contratto, candidatura — sulla versione più recente dell'annuncio. Se la pagina non si carica automaticamente, vai alla <a href="${canonicalPath}">pagina aggiornata dell'offerta</a> oppure consulta tutte le <a href="${listingPath}">offerte di lavoro in Svizzera</a>. La nostra piattaforma indicizza quotidianamente migliaia di posizioni aperte presso aziende svizzere per frontalieri italiani.`,
   en: (canonicalPath, listingPath) =>
-    `This job listing has been updated and now lives on the new canonical page. Continue to see all the details — salary, location, contract, application — on the most recent version of the offer. If the page does not load automatically, go to the <a href="${canonicalPath}">updated job offer page</a> or browse all the <a href="${listingPath}">jobs in Ticino</a>. Our platform indexes thousands of open positions at Swiss companies for Italian cross-border workers every day.`,
+    `This job listing has been updated and now lives on the new canonical page. Continue to see all the details — salary, location, contract, application — on the most recent version of the offer. If the page does not load automatically, go to the <a href="${canonicalPath}">updated job offer page</a> or browse all the <a href="${listingPath}">jobs in Switzerland</a>. Our platform indexes thousands of open positions at Swiss companies for Italian cross-border workers every day.`,
   de: (canonicalPath, listingPath) =>
-    `Dieses Stellenangebot wurde aktualisiert und befindet sich nun auf der neuen kanonischen Seite. Sehen Sie alle Details — Gehalt, Arbeitsort, Vertrag, Bewerbung — weiterhin auf der aktuellsten Version des Inserats. Falls die Seite nicht automatisch geladen wird, gehen Sie zur <a href="${canonicalPath}">aktualisierten Stellenangebot-Seite</a> oder schauen Sie sich alle <a href="${listingPath}">Stellen im Tessin</a> an. Unsere Plattform indiziert täglich tausende offene Positionen bei Schweizer Unternehmen für italienische Grenzgänger.`,
+    `Dieses Stellenangebot wurde aktualisiert und befindet sich nun auf der neuen kanonischen Seite. Sehen Sie alle Details — Gehalt, Arbeitsort, Vertrag, Bewerbung — weiterhin auf der aktuellsten Version des Inserats. Falls die Seite nicht automatisch geladen wird, gehen Sie zur <a href="${canonicalPath}">aktualisierten Stellenangebot-Seite</a> oder schauen Sie sich alle <a href="${listingPath}">Stellen in der Schweiz</a> an. Unsere Plattform indiziert täglich tausende offene Positionen bei Schweizer Unternehmen für italienische Grenzgänger.`,
   fr: (canonicalPath, listingPath) =>
-    `Cette offre d'emploi a été mise à jour et se trouve désormais sur la nouvelle page canonique. Continuez à voir tous les détails — salaire, lieu de travail, contrat, candidature — sur la version la plus récente de l'offre. Si la page ne se charge pas automatiquement, allez à la <a href="${canonicalPath}">page mise à jour de l'offre d'emploi</a> ou consultez toutes les <a href="${listingPath}">offres d'emploi au Tessin</a>. Notre plateforme indexe quotidiennement des milliers de postes ouverts auprès d'entreprises suisses pour les travailleurs frontaliers italiens.`,
+    `Cette offre d'emploi a été mise à jour et se trouve désormais sur la nouvelle page canonique. Continuez à voir tous les détails — salaire, lieu de travail, contrat, candidature — sur la version la plus récente de l'offre. Si la page ne se charge pas automatiquement, allez à la <a href="${canonicalPath}">page mise à jour de l'offre d'emploi</a> ou consultez toutes les <a href="${listingPath}">offres d'emploi en Suisse</a>. Notre plateforme indexe quotidiennement des milliers de postes ouverts auprès d'entreprises suisses pour les travailleurs frontaliers italiens.`,
 };
 
 function htmlEscape(s: string): string {
@@ -99,7 +110,7 @@ export function buildBridgeThinHtml(cachedHtml: string, targetSlug: string, loca
   const h1Text = htmlEscape(extractH1(cachedHtml));
   const canonicalUrl = extractCanonicalUrl(cachedHtml);
   const canonicalPath = canonicalPathFromUrl(canonicalUrl);
-  const listingPath = LOCALE_LISTING_PATH[locale] || LOCALE_LISTING_PATH.it;
+  const listingPath = aggregateListingPath(locale);
   const proseFn = BRIDGE_PROSE[locale] || BRIDGE_PROSE.it;
   const prose = proseFn(canonicalPath, listingPath);
 

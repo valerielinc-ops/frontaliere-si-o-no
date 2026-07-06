@@ -100,7 +100,7 @@ import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
-import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { JOB_BOARD_SECTION_RX, getJobBoardSectionPrefix } from './lib/jobBoardSections.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -309,12 +309,15 @@ function isLegitLegacyAlias(url, canonical) {
   return canonPath === expected;
 }
 
+// Same-section check generalised to any canton's job-board (was TI-only —
+// see scripts/lib/jobBoardSections.mjs:getJobBoardSectionPrefix).
 function isLegitJobConsolidation(url, canonical) {
-  const JOB_SECTION = '/cerca-lavoro-ticino/';
   const urlPath = url.replace(HOST, '');
   const canonPath = canonical.replace(HOST, '');
-  if (!urlPath.startsWith(JOB_SECTION) || !canonPath.startsWith(JOB_SECTION)) return false;
-  const canonSubPath = canonPath.slice(JOB_SECTION.length).replace(/\/$/, '');
+  const urlSection = getJobBoardSectionPrefix(urlPath);
+  const canonSection = getJobBoardSectionPrefix(canonPath);
+  if (!urlSection || !canonSection || urlSection !== canonSection) return false;
+  const canonSubPath = canonPath.slice(canonSection.length).replace(/\/$/, '');
   if (!canonSubPath) return false;
   return true;
 }

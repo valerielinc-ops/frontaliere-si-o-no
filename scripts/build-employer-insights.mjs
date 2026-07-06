@@ -27,8 +27,18 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
+import { JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
+
+// re2 (ClickHouse/HogQL match()) equivalent of JOB_BOARD_SECTION_RX — the
+// old `LIKE '%cerca-lavoro-%'` filter only matched Italian-locale pathnames,
+// silently dropping every EN/DE/FR job-page pageview from the insights.
+const JOB_BOARD_PATH_RX = `(^|/)(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z]`;
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
+const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
+const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
 const argv = process.argv.slice(2);
 const has = (f) => argv.includes(f);
 const arg = (f, d) => { const i = argv.indexOf(f); return i >= 0 && argv[i + 1] ? argv[i + 1] : d; };
@@ -59,16 +69,22 @@ function loadJobMaps() {
   const jobs = Array.isArray(raw) ? raw : raw.jobs || [];
   const slugToCompany = new Map();   // slug (current+previous) → companyKey
   const slugToTitle = new Map();
+  const slugToCanton = new Map();    // slug (current+previous) → canton code
   const companyName = new Map();     // companyKey → display name
   for (const j of jobs) {
     const ck = j.companyKey;
     if (!ck) continue;
     if (j.company) companyName.set(ck, j.company);
     const slugs = new Set([j.slug, ...(j.previousSlugs || [])].filter(Boolean));
-    for (const s of slugs) { slugToCompany.set(s, ck); if (j.title && !slugToTitle.has(s)) slugToTitle.set(s, j.title); }
+    const canton = resolveJobCanton(j);
+    for (const s of slugs) {
+      slugToCompany.set(s, ck);
+      slugToCanton.set(s, canton);
+      if (j.title && !slugToTitle.has(s)) slugToTitle.set(s, j.title);
+    }
     if (j.slug && j.title) slugToTitle.set(j.slug, j.title);
   }
-  return { slugToCompany, slugToTitle, companyName };
+  return { slugToCompany, slugToTitle, slugToCanton, companyName };
 }
 
 // last non-empty path segment, e.g. /cerca-lavoro-ticino/<slug>/ → <slug>
@@ -86,7 +102,7 @@ function deriveTitle(slug, companyKey) {
 }
 
 async function main() {
-  const { slugToCompany, slugToTitle, companyName } = loadJobMaps();
+  const { slugToCompany, slugToTitle, slugToCanton, companyName } = loadJobMaps();
   const period = `INTERVAL ${PERIOD_DAYS} DAY`;
   // companyKeys longest-first so a substring match picks the most specific key
   // (the key is embedded in every ad slug: "<title>-<companyKey>-<location>").
@@ -100,7 +116,7 @@ async function main() {
   // Q1 — views + visitors per job-page path (one row per path).
   const viewsRows = await hogql(
     `SELECT properties.$pathname AS path, count() AS views, count(DISTINCT person_id) AS visitors
-     FROM events WHERE event='$pageview' AND properties.$pathname LIKE '%cerca-lavoro-%'
+     FROM events WHERE event='$pageview' AND match(properties.$pathname, '${JOB_BOARD_PATH_RX}')
      AND timestamp > now() - ${period} GROUP BY path LIMIT 100000`,
   );
   // Q2 — applies per ad (job_apply, recent event).
@@ -120,7 +136,7 @@ async function main() {
   // Q4 — weekly views trend per path.
   const trendRows = await hogql(
     `SELECT toStartOfWeek(timestamp) AS wk, properties.$pathname AS path, count() AS views
-     FROM events WHERE event='$pageview' AND properties.$pathname LIKE '%cerca-lavoro-%'
+     FROM events WHERE event='$pageview' AND match(properties.$pathname, '${JOB_BOARD_PATH_RX}')
      AND timestamp > now() - INTERVAL 84 DAY GROUP BY wk, path LIMIT 200000`,
   );
 
@@ -167,7 +183,8 @@ async function main() {
     for (const a of c.ads.values()) {
       const ap = appliesBySlug.get(a.slug)?.applies || 0;
       const lost = Math.max(0, a.views - ap);
-      ads.push({ slug: a.slug, title: a.title, path: `/cerca-lavoro-ticino/${a.slug}/`, views: a.views, visitors: a.visitors, applies: ap, lost });
+      const section = resolveCantonSection('it', slugToCanton.get(a.slug));
+      ads.push({ slug: a.slug, title: a.title, path: `/${section}/${a.slug}/`, views: a.views, visitors: a.visitors, applies: ap, lost });
       totViews += a.views; totVisitors += a.visitors; totApplies += ap;
     }
     ads.sort((x, y) => y.views - x.views);

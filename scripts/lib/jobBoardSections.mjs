@@ -88,3 +88,50 @@ export const JOB_BOARD_SEGMENT_RX =
 export function isJobBoardSectionPath(normalisedPath) {
   return JOB_BOARD_SECTION_RX.test(normalisedPath);
 }
+
+/**
+ * Matches the leading `[/locale]/section-slug/` prefix of a path anchored at
+ * the START of the string (unlike JOB_BOARD_SECTION_RX, which matches the
+ * segment anywhere). Used by canonical-consolidation checks that need to
+ * confirm two paths sit in the SAME job-board section — e.g. a
+ * previousSlugs bridge or dedup-suffix rename within one canton's listing —
+ * as opposed to just "some" job-board section.
+ */
+const JOB_BOARD_SECTION_PREFIX_RX =
+  new RegExp(`^(?:/(?:en|de|fr))?/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/`);
+
+/**
+ * @param {string} normalisedPath path that starts with `/` (optionally
+ *   locale-prefixed) and has NOT had the leading slash stripped.
+ * @returns {string|null} the matched `[/locale]/section-slug/` prefix
+ *   (e.g. `/cerca-lavoro-vaud/`, `/en/find-jobs-geneva/`), or null if the
+ *   path isn't under a canton-aware job-board section.
+ */
+export function getJobBoardSectionPrefix(normalisedPath) {
+  const m = normalisedPath.match(JOB_BOARD_SECTION_PREFIX_RX);
+  return m ? m[0] : null;
+}
+
+/**
+ * Canonical GSC Search Analytics `contains`-filter expression stems for
+ * "any canton job-board page" queries — one per locale (the `it` locale has
+ * no leading locale segment; `de` has two live section variants,
+ * `jobs-in-{slug}`/`jobs-in-der-{slug}` and `jobs-im-{slug}`). GSC's
+ * `contains` operator is a substring match, not a regex, so a query can't OR
+ * across the canton set in one call — callers loop one request per stem.
+ * Shared so this list can't drift out of sync between the scripts that query
+ * GSC for job-board pages across ALL cantons (not just Ticino).
+ *
+ * TI-only historical legacy routes (singular `find-job-ticino`, old German
+ * `jobsuche-tessin`/`stellenangebote-tessin`, French
+ * `recherche-emploi-tessin`/`emplois-tessin`, …) never existed for other
+ * cantons and are NOT part of this canonical list — callers that still need
+ * to catch those append them as their own literal, locale-scoped entries.
+ */
+export const JOB_BOARD_SECTION_GSC_STEMS = [
+  '/cerca-lavoro-',      // it — all cantons + aggregator (TI legacy: cerca-lavoro-ticino)
+  '/en/find-jobs-',      // en — all cantons and aggregator (current route, plural)
+  '/de/jobs-im-',        // de — canton variant (incl. TI legacy jobs-im-tessin)
+  '/de/jobs-in-',        // de — canton variant (jobs-in-<canton> / jobs-in-der-<canton>)
+  '/fr/trouver-emploi-', // fr — all cantons and aggregator (TI legacy: trouver-emploi-tessin)
+];
