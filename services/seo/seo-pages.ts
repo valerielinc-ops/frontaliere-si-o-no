@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3082,
+ "numberOfItems": 3083,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7757,7 +7757,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3079, "name": "Frontaliere autista in Ticino: guida completa 2026", "url": `${BASE_URL}/articoli-frontaliere/guida-autista-frontaliere-ticino` },
           { "@type": "ListItem", "position": 3080, "name": "Post Sanela chiude: cosa cambia per i pazienti ...", "url": `${BASE_URL}/articoli-frontaliere/chiusura-piattaforma-post-sanela` },
           { "@type": "ListItem", "position": 3081, "name": "Frontalieri: analisi busta paga Svizzera 2026", "url": `${BASE_URL}/articoli-frontaliere/analisi-busta-paga-frontalieri-2026` },
-          { "@type": "ListItem", "position": 3082, "name": "Svizzera e fossili: quanto pesa la dipendenza e...", "url": `${BASE_URL}/articoli-frontaliere/dipendenza-fossili-svizzera-energia` }
+          { "@type": "ListItem", "position": 3082, "name": "Svizzera e fossili: quanto pesa la dipendenza e...", "url": `${BASE_URL}/articoli-frontaliere/dipendenza-fossili-svizzera-energia` },
+          { "@type": "ListItem", "position": 3083, "name": "Frontalieri: busta paga svizzera 2026 e trattenute", "url": `${BASE_URL}/articoli-frontaliere/analisi-busta-paga-svizzera-2026` }
  ]
  },
  {
