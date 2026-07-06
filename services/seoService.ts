@@ -4388,6 +4388,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-guida-autista-frontaliere-ticino': { name: 'Frontaliere autista Ticino', path: '/articoli-svizzera/guida-autista-frontaliere-ticino/', parent: 'blog' },
     'blog-chiusura-piattaforma-post-sanela': { name: 'Chiusura Post Sanela', path: '/articoli-frontaliere/chiusura-piattaforma-post-sanela', parent: 'blog' },
     'blog-analisi-busta-paga-frontalieri-2026': { name: 'Busta paga frontaliere', path: '/articoli-svizzera/analisi-busta-paga-frontalieri-2026/', parent: 'blog' },
+    'blog-dipendenza-fossili-svizzera-energia': { name: 'Energia Svizzera', path: '/articoli-frontaliere/dipendenza-fossili-svizzera-energia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

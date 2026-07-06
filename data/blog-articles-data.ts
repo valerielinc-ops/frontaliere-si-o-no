@@ -24866,6 +24866,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dipendenza-fossili-svizzera-energia',
+ category: 'novita',
+ date: '2026-07-06T04:52:31.066Z',
+ image: '/images/blog/dipendenza-fossili-svizzera-energia.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
