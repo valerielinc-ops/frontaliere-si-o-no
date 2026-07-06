@@ -13,16 +13,16 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-07-06T00:21:30.031Z",
+  "updatedAt": "2026-07-06T15:08:01.817Z",
   "seedDetailUrls": [
-    "https://www.supsi.ch/bando26_1011",
-    "https://www.supsi.ch/bando26_1012",
-    "https://www.supsi.ch/bando26_5034",
-    "https://www.supsi.ch/bando26_1009",
-    "https://www.supsi.ch/bando26_5033",
     "https://www.supsi.ch/bando26_2013",
     "https://www.supsi.ch/bando26_5032",
     "https://www.supsi.ch/bando26_2010",
+    "https://www.supsi.ch/bando26_5029",
+    "https://www.supsi.ch/bando26_2004",
+    "https://www.supsi.ch/bando26_2005",
+    "https://www.supsi.ch/bando26_5020",
+    "https://www.supsi.ch/bando26_5028",
     "https://www.supsi.ch/bando26_5021",
     "https://www.supsi.ch/bando26_5022",
     "https://www.supsi.ch/bando26_5023",
@@ -32,50 +32,6 @@
     "https://www.supsi.ch/bando26_4001"
   ],
   "seedMetaByUrl": {
-    "https://www.supsi.ch/bando26_1011": {
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "expiresAt": "2026-07-05"
-    },
-    "https://www.supsi.ch/bando26_1012": {
-      "location": "cMendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-07-05"
-    },
-    "https://www.supsi.ch/bando26_5034": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
-      "expiresAt": "2026-07-05"
-    },
-    "https://www.supsi.ch/bando26_1009": {
-      "location": "Dipartimento ambiente costruzioni e design (DACD)",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
-      "expiresAt": "2026-07-05"
-    },
-    "https://www.supsi.ch/bando26_5033": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
-      "expiresAt": "2026-07-05"
-    },
     "https://www.supsi.ch/bando26_2013": {
       "location": "Manno",
       "canton": "TI",
@@ -102,6 +58,51 @@
       "companyDomain": "supsi.ch",
       "contract": "Part-time",
       "expiresAt": "2026-07-30"
+    },
+    "https://www.supsi.ch/bando26_5029": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Full-time",
+      "expiresAt": "2026-07-30"
+    },
+    "https://www.supsi.ch/bando26_2004": {
+      "location": "Manno",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-08-23"
+    },
+    "https://www.supsi.ch/bando26_2005": {
+      "location": "Manno",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-08-23"
+    },
+    "https://www.supsi.ch/bando26_5020": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-08-31"
+    },
+    "https://www.supsi.ch/bando26_5028": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-08-31"
     },
     "https://www.supsi.ch/bando26_5021": {
       "location": "Lugano",
