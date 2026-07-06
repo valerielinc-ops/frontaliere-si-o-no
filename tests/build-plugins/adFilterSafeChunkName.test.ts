@@ -14,7 +14,7 @@ import { adFilterSafeChunkName } from '@/build-plugins/shared/adFilterSafeChunkN
  */
 
 // Tracker keywords that occur in real first-party names and must NOT survive.
-const TRIGGER = /firebase|analytics|recaptcha/i;
+const TRIGGER = /firebase|analytics|recaptcha|adblock/i;
 
 // The real chunk/module names this build emits (vite.config manualChunks + the
 // auto-named dynamic-import boundaries) that carry a tracker keyword.
@@ -29,6 +29,11 @@ const REAL_TRIGGER_CHUNKS = [
   'analytics',
   'analyticsPageContext',
   'recaptchaService',
+  // #3654 — AdBlock detection gate. `adblock` is targeted by name by
+  // dedicated anti-adblock-detection filter lists (see docstring).
+  'AdBlockGate',
+  'adBlockAbTest',
+  'adBlockDetection',
 ];
 
 // Names with no trigger word — must pass through byte-identical.
@@ -65,6 +70,9 @@ describe('adFilterSafeChunkName', () => {
     expect(adFilterSafeChunkName('analytics')).toBe('mx');
     expect(adFilterSafeChunkName('analyticsPageContext')).toBe('mxPageContext');
     expect(adFilterSafeChunkName('recaptchaService')).toBe('rcpService');
+    expect(adFilterSafeChunkName('AdBlockGate')).toBe('abdGate');
+    expect(adFilterSafeChunkName('adBlockAbTest')).toBe('abdAbTest');
+    expect(adFilterSafeChunkName('adBlockDetection')).toBe('abdDetection');
   });
 
   it('is a no-op for names without a tracker keyword', () => {

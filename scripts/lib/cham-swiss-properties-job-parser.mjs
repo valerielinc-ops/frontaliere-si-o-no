@@ -190,7 +190,16 @@ export async function fetchAllChamSwissPropertiesJobs() {
     const descriptionHtml = ld?.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     const description = descriptionText || `${title} presso ${CHAM_SWISS_PROPERTIES_COMPANY_NAME} a ${place || HQ.city}.`;
-    const sourceLang = detectLang(descriptionText || title, 'de');
+    // No hardcoded language fallback: Cham Swiss Properties develops projects
+    // in Cham/Zug (DE) AND Geneva (FR) — a single-locale default would
+    // silently mistag an ambiguous FR posting as 'de', freezing the wrong
+    // locale key in slugByLocale/descriptionByLocale downstream. `null` on a
+    // genuinely ambiguous/short text is handled gracefully: mergeLocaleTextMap()
+    // treats a falsy sourceLocale as "unknown" (symmetric merge, no forced
+    // locale overwrite) and hardenJobLocaleFields() re-derives + backfills the
+    // real source locale from the job's own title/description on the very
+    // next pipeline step.
+    const sourceLang = detectLang(descriptionText || title, null);
 
     const urlHash = createHash('sha1').update(listing.id).digest('hex').slice(0, 12);
 

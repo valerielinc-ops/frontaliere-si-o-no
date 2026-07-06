@@ -5214,6 +5214,22 @@ export function buildStableId(job) {
 
 export const LOCALES = ['it', 'en', 'de', 'fr'];
 
+// Single source of truth for the previousSlugs cap convention (issue #3630:
+// the magic number 20 was duplicated across ~7 call sites in this file with
+// no shared constant, so the legacy flat-array cap silently drifted out of
+// sync with the per-locale cap it's derived from). DEFAULT_PREV_SLUG_CAP
+// bounds a SINGLE bucket (one locale's previousSlugsByLocale[locale], or a
+// dedicated-crawler script's own flat array before locale-aware capture
+// existed). LEGACY_PREV_SLUGS_CAP bounds the flat legacy `previousSlugs`
+// field, which is always a UNION across multiple buckets (either
+// LOCALES.length per-locale arrays via syncLegacyPreviousSlugs, or two
+// merged job records' flat arrays during dedup) — using the single-bucket
+// cap there collapsed the union to 20 the instant any one bucket changed,
+// discarding everything beyond the newest 20 regardless of how much
+// history the other buckets held.
+export const DEFAULT_PREV_SLUG_CAP = 20;
+export const LEGACY_PREV_SLUGS_CAP = DEFAULT_PREV_SLUG_CAP * LOCALES.length;
+
 export function normalizeCompanyKey(input) { return normalizeKey(input).slice(0, 64); }
 
 export function dateOnly(input) {
@@ -5735,7 +5751,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
         const freshArr = Array.isArray(fresh.previousSlugsByLocale?.[locale]) ? fresh.previousSlugsByLocale[locale] : [];
         const merged = [...new Set([...oldArr, ...freshArr])];
         if (merged.length > 0) {
-          fresh.previousSlugsByLocale[locale] = capSlugArray(merged, 20, {
+          fresh.previousSlugsByLocale[locale] = capSlugArray(merged, DEFAULT_PREV_SLUG_CAP, {
             jobId: fresh.id, locale,
             source: 'dedicated-crawler-common.mergePreserveLocaleData',
           });
@@ -5939,7 +5955,7 @@ export function shouldReusePreviousLocalization(prev = {}, next = {}, cfg = {}) 
  * @param {number} cap               – Max previousSlugs entries per locale (default 20).
  * @returns {string[]} Newly captured lost slugs (may be empty).
  */
-export function captureLostSlugs(job, prevSlugByLocale = {}, prevSlug = '', cap = 20) {
+export function captureLostSlugs(job, prevSlugByLocale = {}, prevSlug = '', cap = DEFAULT_PREV_SLUG_CAP) {
   const lost = [];
 
   // Master slug changed → add to IT locale (master slug serves the IT path)
@@ -5978,7 +5994,7 @@ export function captureLostSlugs(job, prevSlugByLocale = {}, prevSlug = '', cap 
  * `job.previousSlugs` in sync (union of all locale entries) for
  * backward compatibility with consumers not yet migrated.
  */
-export function addPreviousSlugForLocale(job, locale, slug, cap = 20, _source = 'addPreviousSlugForLocale') {
+export function addPreviousSlugForLocale(job, locale, slug, cap = DEFAULT_PREV_SLUG_CAP, _source = 'addPreviousSlugForLocale') {
   if (!slug || !locale) return;
   const norm = normalizeSpace(String(slug));
   if (!norm) return;
@@ -6150,8 +6166,23 @@ export function cleanPreviousSlugsPerLocale(job) {
  * `previousSlugsByLocale` entries PLUS any existing legacy entries
  * that haven't been attributed to a locale yet.
  * This keeps backward compatibility for consumers that still read the flat array.
+ *
+ * Cap sizing (issue #3630, recidiva of #3587): `cap` here is the PER-LOCALE
+ * cap (default 20) passed through from addPreviousSlugForLocale, but `union`
+ * above is a union across up to LOCALES.length independent per-locale
+ * buckets PLUS pre-existing legacy entries — not a single bucket. Capping
+ * that union at the single-locale value meant the flat array collapsed to
+ * `cap` entries the instant ANY per-locale capture fired, discarding
+ * everything beyond the newest 20 in one shot regardless of how many
+ * distinct locale buckets or legacy entries were actually behind it
+ * (observed: coop-ticino job company-de3q6m dropped previousSlugs from 240
+ * to 20 in a single "Regenerate locale slugs" commit even though
+ * previousSlugsByLocale only grew by 1-2 entries). The flat array's own cap
+ * must scale with the number of locale buckets it unions, so it only trims
+ * once genuinely stale beyond what any single locale could account for.
  */
-function syncLegacyPreviousSlugs(job, cap = 20) {
+function syncLegacyPreviousSlugs(job, cap = DEFAULT_PREV_SLUG_CAP) {
+  const legacyCap = cap * LOCALES.length;
   const all = new Set();
   // Preserve existing legacy entries FIRST (pre-migration or unattributed) so
   // they occupy the front of the union. Locale-aware entries are added
@@ -6177,7 +6208,7 @@ function syncLegacyPreviousSlugs(job, cap = 20) {
     delete job.previousSlugs;
   } else {
     const union = [...all];
-    job.previousSlugs = capSlugArray(union, cap, {
+    job.previousSlugs = capSlugArray(union, legacyCap, {
       jobId: job.id, source: 'dedicated-crawler-common.syncLegacyPreviousSlugs',
     });
   }
@@ -6193,7 +6224,7 @@ function mergePreviousSlugsByLocale(a, b, jobId = null, source = 'mergePreviousS
     const aArr = (a && Array.isArray(a[locale])) ? a[locale] : [];
     const bArr = (b && Array.isArray(b[locale])) ? b[locale] : [];
     const union = [...new Set([...aArr, ...bArr])];
-    const merged = capSlugArray(union, 20, {
+    const merged = capSlugArray(union, DEFAULT_PREV_SLUG_CAP, {
       jobId, locale, source: `dedicated-crawler-common.${source}`,
     });
     if (merged.length > 0) result[locale] = merged;
@@ -6238,7 +6269,12 @@ function mergeDuplicateJobPreservingSlugHistory(a, b) {
       ...(Array.isArray(b.previousSlugs) ? b.previousSlugs : []),
     ]),
   ];
-  const mergedPreviousSlugs = capSlugArray(previousSlugsUnion, 20, {
+  // Flat previousSlugs is the union of TWO colliding records' own flat arrays
+  // (each already ~LEGACY_PREV_SLUGS_CAP-bounded), not a single bucket —
+  // same class of bug as syncLegacyPreviousSlugs (issue #3630): capping a
+  // multi-source union at the single-bucket value discards history the
+  // instant two records merge.
+  const mergedPreviousSlugs = capSlugArray(previousSlugsUnion, LEGACY_PREV_SLUGS_CAP, {
     jobId, source: 'dedicated-crawler-common.mergeDuplicateJobPreservingSlugHistory',
   });
   const mergedPreviousSlugsByLocale = mergePreviousSlugsByLocale(
@@ -6359,7 +6395,10 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
         ...(Array.isArray(next.previousSlugs) ? next.previousSlugs : []),
       ])
     ];
-    const mergedPreviousSlugsCapped = capSlugArray(previousSlugsUnion, 20, {
+    // Same union-across-multiple-sources construct as
+    // mergeDuplicateJobPreservingSlugHistory / syncLegacyPreviousSlugs above
+    // (issue #3630) — use the scaled legacy cap, not the single-bucket one.
+    const mergedPreviousSlugsCapped = capSlugArray(previousSlugsUnion, LEGACY_PREV_SLUGS_CAP, {
       jobId: mergeJobId, source: 'dedicated-crawler-common.mergeAndDeduplicate',
     });
     const best = {

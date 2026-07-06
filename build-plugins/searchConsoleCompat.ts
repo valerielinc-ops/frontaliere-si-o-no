@@ -10,8 +10,51 @@ import {
  type FuelType,
 } from './fuelDailyData';
 import { isProfessionCantonPath } from './professionCantonData';
+import { WEEKLY_EMPLOYERS_SECTION } from './weeklyEmployersData';
+import { SNAPSHOT_SEGMENT } from './jobMarketSnapshotChCantonPages';
+import { HUB_SLUG_BY_LOCALE } from './seoHubsData';
+import {
+ EDITORIAL_CANTONS,
+ getJobTodayLandingSlug,
+ getJobNursesHubSlug,
+ getJobPartTimeLandingSlug,
+ careClusterSlug,
+ type JobCareClusterKey,
+} from './jobEditorialLanding';
 
 type SupportedLocale = CantonLocale;
+
+// Editorial-canton landing kinds confirmed (via emitEditorialBelowFloorBridge
+// call sites in jobsSeoPagesPlugin.ts) to ALWAYS have a live page at their
+// canonical slug for EVERY canton — either the full listing or a noindex
+// below-floor bridge, never a silent skip. Other descriptor kinds
+// (official-gazette/location/location-type/location-sector/sector-region/
+// recency) do NOT have that universal per-canton guarantee, so they are
+// deliberately excluded — self-mapping them would risk telling the compat
+// layer a genuinely-404 path is live.
+//
+// Built ONCE at module load from the same slug builders jobEditorialLanding.ts
+// uses internally, rather than calling resolveEditorialJobLandingDescriptor()
+// per 404 URL: that resolver rebuilds per-canton Sets on every call, and
+// tests/search-console-compat.test.ts resolves 150k+ committed URLs in one
+// test — an unconditional per-call resolve there turned a ~13s test into a
+// 60s+ timeout. A precomputed Set keeps the per-URL check O(1).
+const CARE_CLUSTER_KEYS: readonly JobCareClusterKey[] = ['clinics', 'careHomes', 'oss', 'educators'];
+const SELF_MAPPABLE_EDITORIAL_SLUGS: ReadonlySet<string> = (() => {
+ const s = new Set<string>();
+ const locales: SupportedLocale[] = ['it', 'en', 'de', 'fr'];
+ for (const canton of EDITORIAL_CANTONS) {
+ for (const locale of locales) {
+ s.add(getJobTodayLandingSlug(locale, canton));
+ s.add(getJobNursesHubSlug(locale, canton));
+ s.add(getJobPartTimeLandingSlug(locale, canton));
+ for (const key of CARE_CLUSTER_KEYS) {
+ s.add(careClusterSlug(key, canton, locale));
+ }
+ }
+ }
+ return s;
+})();
 
 // Legacy TI sections — the listing fallback used for `search` and `company`
 // compat targets (canton-independent). Per-canton job-detail paths instead
@@ -409,6 +452,27 @@ export function resolveSearchConsoleCompatTarget(
  }
  }
  }
+ }
+ // Family self-map: weekly-employers / job-market-snapshot / editorial-canton
+ // (today, nurses-hub, part-time, care-variant only) / canton-hub (tutti,
+ // settori, aziende) all emit this exact single-segment slug under EVERY
+ // canton's job-board section unconditionally — either the full page or a
+ // below-floor noindex bridge (see renderBelowFloorBridge /
+ // emitEditorialBelowFloorBridge / emitCantonHubBelowFloorBridge) — so, like
+ // isProfessionCantonPath above, a URL matching one of these known slugs
+ // always has a live target at the SAME path today, even if GSC's Coverage
+ // export captured it as 404 from an earlier build.
+ if (
+ slug === WEEKLY_EMPLOYERS_SECTION[locale] ||
+ slug === SNAPSHOT_SEGMENT ||
+ (Object.values(HUB_SLUG_BY_LOCALE[locale]) as string[]).includes(slug) ||
+ SELF_MAPPABLE_EDITORIAL_SLUGS.has(slug)
+ ) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
  }
  // Fallback (slug unknown / already this path): canonicalize to the canton
  // listing already encoded IN THE URL (capture group 2), not one re-derived

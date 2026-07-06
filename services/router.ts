@@ -173,7 +173,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'employer-insights' | 'journalist-dashboard';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'employer-insights' | 'journalist-dashboard' | 'subscribe';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -822,6 +822,9 @@ interface SlugTable {
  chiSiamo: string;
  // Public corrections policy + log (Google News compliance B1)
  correzioni: string;
+ // Subscription placeholder (adblock-gate CTA target, #3654 — hidden route,
+ // no nav/sitemap entry until #3655 builds the real Stripe checkout flow)
+ subscribe: string;
  // Editorial methodology page (Google News compliance — A3)
  metodologia: string;
  // Trade unions guide
@@ -1202,6 +1205,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'chi-siamo',
  correzioni: 'correzioni',
+ subscribe: 'abbonamento',
  metodologia: 'metodologia',
  costs: 'costi-pendolarismo',
  salarySurvey: 'sondaggio-stipendi',
@@ -1305,6 +1309,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'about-us',
  correzioni: 'corrections',
+ subscribe: 'subscribe',
  metodologia: 'methodology',
  sindacati: 'trade-unions-cross-border-workers',
  guidaCompleta: 'complete-guide-cross-border-work-switzerland-2026',
@@ -1411,6 +1416,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'ueber-uns',
  correzioni: 'korrekturen',
+ subscribe: 'abonnement',
  metodologia: 'methodik',
  sindacati: 'gewerkschaften-grenzgaenger',
  guidaCompleta: 'komplettanleitung-grenzgaenger-arbeit-schweiz-2026',
@@ -1517,6 +1523,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'a-propos',
  correzioni: 'corrections',
+ subscribe: 'abonnement',
  metodologia: 'methodologie',
  sindacati: 'syndicats-frontaliers',
  guidaCompleta: 'guide-complet-travail-frontalier-suisse-2026',
@@ -2177,6 +2184,7 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  [table.terms]: { tab: 'terms' },
  [table.chiSiamo]: { tab: 'chi-siamo' },
  [table.correzioni]: { tab: 'correzioni' },
+ [table.subscribe]: { tab: 'subscribe' },
  [table.metodologia]: { tab: 'metodologia' },
  [table.dataDeletion]: { tab: 'data-deletion' },
  [table.apiStatus]: { tab: 'api-status' },
@@ -3571,6 +3579,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.chiSiamo}${hashSuffix}`);
  case 'correzioni':
  return finish(`${prefix}/${table.correzioni}${hashSuffix}`);
+ case 'subscribe':
+ return finish(`${prefix}/${table.subscribe}${hashSuffix}`);
  case 'metodologia':
  return finish(`${prefix}/${table.metodologia}${hashSuffix}`);
  case 'sindacati':

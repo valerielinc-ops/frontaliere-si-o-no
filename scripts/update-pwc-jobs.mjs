@@ -39,6 +39,7 @@ import {
   mergeLocaleTextMap,
   isLocationExplicitlyForeign,
   captureLostSlugs,
+  LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
 import { capSlugArray } from './lib/slug-history-journal.mjs';
 import {
@@ -256,7 +257,11 @@ function mergeJobs(discoveredJobs) {
         return oldL && oldL !== newL ? [oldL] : [];
       }),
     ])).filter(Boolean);
-    const previousSlugs = capSlugArray(previousSlugsUnion, 20, {
+    // Union spans prev.previousSlugs, job.previousSlugs, and a per-locale
+    // drift scan across all LOCALES — same multi-source-union-capped-at-
+    // single-bucket-value construct as dedicated-crawler-common.mjs's
+    // syncLegacyPreviousSlugs (issue #3630), so use the same scaled cap.
+    const previousSlugs = capSlugArray(previousSlugsUnion, LEGACY_PREV_SLUGS_CAP, {
       jobId: prev.id || job.id, source: 'update-pwc-jobs.mergeJobs',
     });
     const merged = {

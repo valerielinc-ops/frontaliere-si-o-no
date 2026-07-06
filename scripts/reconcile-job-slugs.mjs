@@ -28,6 +28,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import {
+  addPreviousSlugForLocale,
+  LOCALES,
+  DEFAULT_PREV_SLUG_CAP,
+  LEGACY_PREV_SLUGS_CAP,
+} from './lib/dedicated-crawler-common.mjs';
+import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -785,11 +792,15 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
   }
 
   // ── previousSlugs cap guard ──
+  // Shared with dedicated-crawler-common.mjs's LEGACY_PREV_SLUGS_CAP so this
+  // reconciliation path doesn't drift out of sync with the pipeline-wide
+  // previousSlugs cap convention (issue #3630 sibling: this file used its
+  // own hardcoded 30 while every crawler used 20/80).
   const currentPreviousSlugs = bestJob.previousSlugs?.length || 0;
-  if (currentPreviousSlugs > 30) {
+  if (currentPreviousSlugs > LEGACY_PREV_SLUGS_CAP) {
     if (verbose) {
       console.log(
-        `  ⚠️ "${orphanSlug}" — target job already has ${currentPreviousSlugs} previousSlugs (cap: 30), skipping`,
+        `  ⚠️ "${orphanSlug}" — target job already has ${currentPreviousSlugs} previousSlugs (cap: ${LEGACY_PREV_SLUGS_CAP}), skipping`,
       );
     }
     return null;
@@ -913,17 +924,22 @@ export function reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, opti
       continue;
     }
 
-    // Apply merge
+    // Apply merge — journaled via the shared addPreviousSlugForLocale helper
+    // (issue #3630 sibling) instead of a raw `.push()`, so this write shows
+    // up in the slug-history-journal summary and previousSlugs stays synced
+    // with previousSlugsByLocale rather than drifting from it.
     if (!dryRun) {
-      if (!job.previousSlugs) job.previousSlugs = [];
-      job.previousSlugs.push(orphanSlug);
+      const orphanLocale = detectSlugLocale(orphanSlug);
+      addPreviousSlugForLocale(job, orphanLocale, orphanSlug, DEFAULT_PREV_SLUG_CAP, 'reconcile-job-slugs.reconcileOrphanSlugs');
     }
 
-    // Also add cross-locale slugs from enrichment if available
+    // Also add cross-locale slugs from enrichment if available. Enrichment
+    // entries carry a REAL locale key (unlike orphanSlug above, which is
+    // detected heuristically) — use it directly instead of discarding it.
     if (enrichment?.slugByLocale && !dryRun) {
-      for (const [, localeSlug] of Object.entries(enrichment.slugByLocale)) {
+      for (const [locale, localeSlug] of Object.entries(enrichment.slugByLocale)) {
         if (localeSlug && !existingSlugs.has(localeSlug)) {
-          job.previousSlugs.push(localeSlug);
+          addPreviousSlugForLocale(job, locale, localeSlug, DEFAULT_PREV_SLUG_CAP, 'reconcile-job-slugs.reconcileOrphanSlugs');
           existingSlugs.add(localeSlug);
           index.allSlugSet.add(localeSlug);
         }
@@ -1042,19 +1058,34 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
       continue;
     }
 
-    // Cap check
+    // Cap check — shared LEGACY_PREV_SLUGS_CAP, not a locally hardcoded 30
+    // (issue #3630 sibling: this file's own cap had drifted from the
+    // pipeline-wide convention used everywhere else).
     const totalAfter = (job.previousSlugs?.length || 0) + uniqueNew.length;
-    if (totalAfter > 30) {
+    if (totalAfter > LEGACY_PREV_SLUGS_CAP) {
       if (verbose) {
-        console.log(`  ⚠️ Would exceed previousSlugs cap (${totalAfter} > 30), skipping`);
+        console.log(`  ⚠️ Would exceed previousSlugs cap (${totalAfter} > ${LEGACY_PREV_SLUGS_CAP}), skipping`);
       }
       skippedCount++;
       continue;
     }
 
     if (!dryRun) {
-      if (!job.previousSlugs) job.previousSlugs = [];
-      job.previousSlugs.push(...uniqueNew);
+      // Journaled via addPreviousSlugForLocale (issue #3630 sibling) instead
+      // of a raw `.push(...uniqueNew)` — keeps previousSlugsByLocale synced
+      // and makes the write visible in the slug-history-journal summary.
+      // slugByLocale entries carry a real locale key; anything else
+      // (ej.slug, ej.previousSlugs) falls back to heuristic detection.
+      const slugLocaleMap = new Map();
+      if (ej.slugByLocale) {
+        for (const [locale, s] of Object.entries(ej.slugByLocale)) {
+          if (s) slugLocaleMap.set(s, locale);
+        }
+      }
+      for (const s of uniqueNew) {
+        const locale = slugLocaleMap.get(s) || detectSlugLocale(s);
+        addPreviousSlugForLocale(job, locale, s, DEFAULT_PREV_SLUG_CAP, 'reconcile-job-slugs.reconcileExpiredSlugs');
+      }
     }
 
     for (const s of uniqueNew) index.allSlugSet.add(s);
@@ -1111,7 +1142,30 @@ function updateCrawlerSlices(updatedJobs) {
           (sj.slugByLocale?.it && sj.slugByLocale.it === updatedJob.slugByLocale?.it),
       );
       if (sliceJob) {
-        sliceJob.previousSlugs = updatedJob.previousSlugs;
+        // Merge, don't overwrite (issue #3630 sibling): updatedJob comes
+        // from data/jobs.json, a snapshot that can be stale relative to the
+        // live crawler slice — a dedicated crawler run after that snapshot
+        // was taken may have captured slice-only previousSlugs entries.
+        // Overwriting the slice's array wholesale silently discarded those.
+        const mergedFlat = mergePreviousSlugsCapped(sliceJob.previousSlugs, updatedJob.previousSlugs, {
+          jobId: sliceJob.id || updatedJob.id,
+          source: 'reconcile-job-slugs.updateCrawlerSlices',
+          cap: LEGACY_PREV_SLUGS_CAP,
+        });
+        if (mergedFlat.length > 0) sliceJob.previousSlugs = mergedFlat;
+        else delete sliceJob.previousSlugs;
+
+        if (updatedJob.previousSlugsByLocale) {
+          if (!sliceJob.previousSlugsByLocale) sliceJob.previousSlugsByLocale = {};
+          for (const locale of LOCALES) {
+            const a = sliceJob.previousSlugsByLocale[locale] || [];
+            const b = updatedJob.previousSlugsByLocale[locale] || [];
+            if (a.length === 0 && b.length === 0) continue;
+            const union = [...new Set([...a, ...b])];
+            sliceJob.previousSlugsByLocale[locale] =
+              union.length > DEFAULT_PREV_SLUG_CAP ? union.slice(-DEFAULT_PREV_SLUG_CAP) : union;
+          }
+        }
         modified = true;
       }
     }
