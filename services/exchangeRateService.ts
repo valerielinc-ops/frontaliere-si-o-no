@@ -21,6 +21,15 @@ const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
 const DEFAULT_RATE = 0.94;
 const IS_TEST_ENV = typeof process !== 'undefined' && (process.env.NODE_ENV === 'test' || !!process.env.VITEST);
 
+// Call counters exposed for tests (see tests/exchange-rate-service-local-cache.test.ts).
+// IS_TEST_ENV makes getFirestoreRate/fetchFromTwelveData/getHistoryFromFirestore
+// return null immediately, so a fresh-cache short-circuit and the pre-fix
+// unconditional-call path resolve to the identical final value — only the
+// call count discriminates whether the short-circuit actually skipped them.
+let firestoreRateCalls = 0;
+let twelveDataCalls = 0;
+let firestoreHistoryCalls = 0;
+
 /** Which source provided the current rate */
 export type RateSource = 'twelvedata' | 'firestore' | 'cache' | 'fallback';
 
@@ -64,6 +73,7 @@ function setLocalCache(rate: number, source: RateSource): void {
 // ─── Firestore cache (shared across all clients) ─────────────
 
 async function getFirestoreRate(): Promise<CacheEntry | null> {
+ firestoreRateCalls++;
  if (IS_TEST_ENV) return null;
  try {
  const { getFirestore, doc, getDoc } = await resilientImport(
@@ -147,6 +157,7 @@ async function saveFirestoreRate(rate: number): Promise<void> {
 const EXCHANGE_RATE_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getExchangeRate';
 
 async function fetchFromTwelveData(): Promise<number | null> {
+ twelveDataCalls++;
  if (IS_TEST_ENV) return null;
  const controller = new AbortController();
  const timeoutId = setTimeout(() => controller.abort(), 6000);
@@ -346,6 +357,7 @@ function setLocalHistory(period: HistoryPeriod, points: HistoryPoint[]): void {
 
 /** Read history from Firestore (shared across all clients) */
 async function getHistoryFromFirestore(period: HistoryPeriod): Promise<{ points: HistoryPoint[]; lastDate: string } | null> {
+ firestoreHistoryCalls++;
  if (IS_TEST_ENV) return null;
  try {
  const { getFirestore, doc, getDoc } = await resilientImport(
@@ -499,3 +511,10 @@ function appendLiveRate(points: HistoryPoint[], liveRate?: number | null): Histo
  }
  return result;
 }
+
+/** Test-only introspection (see tests/exchange-rate-service-local-cache.test.ts) */
+export const __testing = {
+ get firestoreRateCalls(): number { return firestoreRateCalls; },
+ get twelveDataCalls(): number { return twelveDataCalls; },
+ get firestoreHistoryCalls(): number { return firestoreHistoryCalls; },
+};

@@ -16,27 +16,34 @@ beforeEach(() => {
 });
 
 describe('fetchExchangeRate — fresh localStorage cache', () => {
-  it('returns the cached rate without falling back to the hardcoded default', async () => {
+  it('returns the cached rate without falling back to the hardcoded default, and skips Firestore/TwelveData entirely', async () => {
     localStorage.setItem('exchange_rate_cache', JSON.stringify({
       rate: 0.987,
       timestamp: Date.now(),
       source: 'twelvedata',
     }));
-    const { fetchExchangeRate } = await import(MODULE);
-    const rate = await fetchExchangeRate();
+    const mod = await import(MODULE);
+    const rate = await mod.fetchExchangeRate();
     expect(rate).toBe(0.987);
+    // Discriminates the fix: pre-fix code unconditionally called Firestore
+    // (then TwelveData) before ever consulting a fresh local cache, so this
+    // would be >0 without the localStorage-first short-circuit.
+    expect(mod.__testing.firestoreRateCalls).toBe(0);
+    expect(mod.__testing.twelveDataCalls).toBe(0);
   });
 
-  it('does not crash when the local cache is missing (falls through to default)', async () => {
-    const { fetchExchangeRate } = await import(MODULE);
-    const rate = await fetchExchangeRate();
+  it('falls through to Firestore/TwelveData when the local cache is missing (proves the counters actually discriminate)', async () => {
+    const mod = await import(MODULE);
+    const rate = await mod.fetchExchangeRate();
     expect(typeof rate).toBe('number');
     expect(rate).toBeGreaterThan(0);
+    expect(mod.__testing.firestoreRateCalls).toBeGreaterThan(0);
+    expect(mod.__testing.twelveDataCalls).toBeGreaterThan(0);
   });
 });
 
 describe('fetchExchangeHistory — fresh localStorage cache', () => {
-  it('returns the cached points as-is when fetched within the last 6h', async () => {
+  it('returns the cached points as-is when fetched within the last 6h, and skips the Firestore read entirely', async () => {
     const points = [
       { date: '2026-06-01', rate: 0.9 },
       { date: '2026-06-02', rate: 0.91 },
@@ -46,9 +53,12 @@ describe('fetchExchangeHistory — fresh localStorage cache', () => {
       lastDate: '2026-06-02',
       fetchedAt: Date.now(),
     }));
-    const { fetchExchangeHistory } = await import(MODULE);
-    const result = await fetchExchangeHistory('1m');
+    const mod = await import(MODULE);
+    const result = await mod.fetchExchangeHistory('1m');
     expect(result).toEqual(points);
+    // Discriminates the fix: pre-fix code called Firestore unconditionally
+    // before ever checking local-cache freshness.
+    expect(mod.__testing.firestoreHistoryCalls).toBe(0);
   });
 
   it('appends the live rate as an extra point on top of the fresh cache', async () => {
@@ -58,21 +68,23 @@ describe('fetchExchangeHistory — fresh localStorage cache', () => {
       lastDate: '2026-06-01',
       fetchedAt: Date.now(),
     }));
-    const { fetchExchangeHistory } = await import(MODULE);
-    const result = await fetchExchangeHistory('1m', 0.95);
+    const mod = await import(MODULE);
+    const result = await mod.fetchExchangeHistory('1m', 0.95);
     expect(result[0]).toEqual(points[0]);
     expect(result[result.length - 1].rate).toBe(0.95);
+    expect(mod.__testing.firestoreHistoryCalls).toBe(0);
   });
 
-  it('legacy cache entries without fetchedAt (pre-fix) still resolve via the age-agnostic fallback', async () => {
+  it('legacy cache entries without fetchedAt (pre-fix) still resolve via the age-agnostic fallback, but DO hit Firestore first (proves the counter discriminates)', async () => {
     const points = [{ date: '2026-05-01', rate: 0.111 }];
     localStorage.setItem('ft_exchange_history_1m', JSON.stringify({
       points,
       lastDate: '2026-05-01',
       // no fetchedAt — simulates a cache entry written before this fix shipped
     }));
-    const { fetchExchangeHistory } = await import(MODULE);
-    const result = await fetchExchangeHistory('1m');
+    const mod = await import(MODULE);
+    const result = await mod.fetchExchangeHistory('1m');
     expect(result).toEqual(points);
+    expect(mod.__testing.firestoreHistoryCalls).toBeGreaterThan(0);
   });
 });
