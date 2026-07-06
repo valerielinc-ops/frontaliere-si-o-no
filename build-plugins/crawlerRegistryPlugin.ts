@@ -1,8 +1,27 @@
 /**
  * crawlerRegistryPlugin — Auto-discover job crawler workflows.
  *
- * Scans .github/workflows/update-jobs-*.yml files and provides workflow
- * metadata (id, title, schedule, defaultInputs) as /data/jobs-crawler-workflows.json.
+ * Consolidation (2026-07): the 581 individual `update-jobs-*.yml` workflows
+ * (one GitHub Actions workflow per crawler) were replaced by 23 grouped
+ * `crawler-group-*.yml` workflows, each bundling ~25 crawlers as concurrent
+ * `background: true` steps inside ONE job (see
+ * scripts/generate-crawler-group-workflows.mjs). There is no longer a 1:1
+ * mapping between a crawler and a dispatchable GitHub Actions workflow file.
+ *
+ * To keep the admin panel's existing per-crawler summary/status UI working
+ * unchanged (components/pages/AdminPanel.tsx matches a crawler's job-count
+ * summary by slug/summaryKey, and dispatches/polls runs by `workflow.id` as
+ * a literal GitHub Actions workflow filename), this plugin still emits ONE
+ * registry entry PER CRAWLER — but `id` now points at that crawler's
+ * CONTAINING GROUP workflow file, since that's the only thing GitHub can
+ * actually dispatch/poll. Manually triggering a single crawler from the
+ * admin panel now dispatches its whole group (that group's other ~25
+ * crawlers run alongside it) — an honest consequence of the consolidation,
+ * not a bug. `groupId`/`groupMemberCount` are added so the UI can label this
+ * clearly if desired.
+ *
+ * Provides workflow metadata (id, title, schedule, defaultInputs) as
+ * /data/jobs-crawler-workflows.json.
  *
  * - Build: writes dist/data/jobs-crawler-workflows.json
  * - Dev server: serves the JSON via middleware (live-scanned on each request)
@@ -21,6 +40,9 @@ interface CrawlerWorkflowEntry {
  schedule: string | null;
  summaryKey: string | null;
  defaultInputs?: Record<string, string>;
+ slug?: string;
+ groupId?: string;
+ groupMemberCount?: number;
 }
 
 /** Mirror the normalization used by scripts/jobs-url-helper.mjs normalizeSummaryKey() */
@@ -36,8 +58,7 @@ function normalizeSummaryKey(label: string): string {
  * Try to extract the company label used by `printCrawlChangeSummary(diff, LABEL)`.
  * Reads the crawler script and looks for COMPANY_NAME or the literal label arg.
  */
-function extractSummaryKey(root: string, workflowFilename: string): string | null {
- const slug = workflowFilename.replace(/^update-jobs-/, '').replace(/\.yml$/, '');
+function extractSummaryKey(root: string, slug: string): string | null {
  const scriptPath = path.resolve(root, 'scripts', `update-${slug}-jobs.mjs`);
  if (!fs.existsSync(scriptPath)) return null;
 
@@ -61,49 +82,63 @@ function extractSummaryKey(root: string, workflowFilename: string): string | nul
  return null;
 }
 
+/**
+ * Extract per-crawler slugs from a generated crawler-group-NN.yml file. Each
+ * crawler's background step has a stable `id: crawler-<slug>` marker (see
+ * scripts/generate-crawler-group-workflows.mjs) and a `name: Run <slug>` —
+ * both are greppable without a full YAML parse (kept dependency-free/fast
+ * since this runs on every dev-server request).
+ */
+function extractGroupMembers(content: string): string[] {
+ const ids = [...content.matchAll(/^\s*id:\s*crawler-(\S+)\s*$/gm)].map(m => m[1]);
+ return ids;
+}
+
 function scanWorkflows(root: string): CrawlerWorkflowEntry[] {
  const workflowDir = path.resolve(root, '.github/workflows');
  if (!fs.existsSync(workflowDir)) return [];
 
- const files = fs.readdirSync(workflowDir)
- .filter(f => f.startsWith('update-jobs-') && f.endsWith('.yml'))
+ const groupFiles = fs.readdirSync(workflowDir)
+ .filter(f => /^crawler-group-\d+\.yml$/.test(f))
  .sort();
 
- const crawlers: CrawlerWorkflowEntry[] = files.map(filename => {
+ const crawlers: CrawlerWorkflowEntry[] = [];
+
+ for (const filename of groupFiles) {
  const content = fs.readFileSync(path.join(workflowDir, filename), 'utf-8');
+ const members = extractGroupMembers(content);
 
- // Extract workflow name: "Update XXX Jobs (Dedicated)" → "XXX"
- const nameMatch = content.match(/^name:\s*(.+)$/m);
- const rawName = (nameMatch?.[1]?.trim() || filename).replace(/^["']|["']$/g, '');
- const title = rawName
- .replace(/^Update\s+/i, '')
- .replace(/\s+Jobs?\s*\(.*\)\s*$/i, '')
- .trim();
+ for (const slug of members) {
+ // Human-friendly title from the slug (e.g. "klinik-schuetzen" -> "Klinik Schuetzen").
+ const title = slug
+ .split('-')
+ .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+ .join(' ');
 
- // Extract cron schedule: "cron: '45 8 * * *'" → "08:45"
- const cronMatch = content.match(/cron:\s*'(\d+)\s+(\d+)\s+/);
- const schedule = cronMatch
- ? `${cronMatch[2].padStart(2, '0')}:${cronMatch[1].padStart(2, '0')}`
- : null;
+ // Group workflows are workflow_dispatch-only (scheduling lives in
+ // orchestrate-crawlers.yml), so there's no per-crawler cron to extract.
+ const schedule = null;
 
- // Check for strict_localization input
- const hasStrictLocalization = content.includes('strict_localization');
+ // strict_localization is no longer a group-level workflow_dispatch
+ // input (it's baked into each crawler's own inlined shell body with
+ // its original per-crawler fallback default) — no defaultInputs needed.
+ const summaryKey = extractSummaryKey(root, slug);
 
- // Extract the summary key that the crawler script uses when writing to jobs-crawler-summaries.json
- const summaryKey = extractSummaryKey(root, filename);
-
- return {
+ crawlers.push({
  id: filename,
  title,
  context: 'jobs' as const,
  summaryKey,
- description: `Crawler dedicato — ${title}.`,
- details: 'Crawler dedicato con localizzazione 4 lingue.',
+ description: `Crawler dedicato — ${title} (parte di ${filename}).`,
+ details: `Crawler dedicato con localizzazione 4 lingue. Eseguito insieme ad altri ${members.length - 1} crawler nello stesso gruppo (${filename}) — il dispatch avvia l'intero gruppo.`,
  expectedDuration: '5-20 min',
  schedule,
- ...(hasStrictLocalization ? { defaultInputs: { strict_localization: '1' } } : {}),
- };
+ slug,
+ groupId: filename,
+ groupMemberCount: members.length,
  });
+ }
+ }
 
  // Add the orchestrator workflow if it exists
  const orchestratorPath = path.join(workflowDir, 'orchestrate-crawlers.yml');
@@ -113,10 +148,10 @@ function scanWorkflows(root: string): CrawlerWorkflowEntry[] {
  title: '🎯 Orchestratore Crawler',
  context: 'jobs',
  summaryKey: null,
- description: 'Dispatcher centralizzato — avvia tutti i crawler in sequenza con ritardo configurabile.',
- details: `Sostituisce i 76 schedule individuali. Runs 2×/day (03:00 + 15:00 UTC).`,
- expectedDuration: '30-45 min',
- schedule: '03:00 / 15:00',
+ description: 'Dispatcher centralizzato — avvia tutti i crawler-group in sequenza con ritardo configurabile.',
+ details: `Dispatcha i ${groupFiles.length} workflow crawler-group (ognuno esegue in parallelo, come background steps, i crawler del proprio gruppo). Nessun crawler ha più uno schedule individuale. Runs 2×/day (09:00 + 21:00 UTC).`,
+ expectedDuration: '60-90 min',
+ schedule: '09:00 / 21:00',
  defaultInputs: { group: 'all', delay_seconds: '20', dry_run: 'false' },
  });
  }

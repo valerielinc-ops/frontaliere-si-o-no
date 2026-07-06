@@ -163,6 +163,14 @@ interface WorkflowActionDefinition {
  summaryKey?: string | null; // key in jobs-crawler-summaries.json (extracted from crawler script)
  defaultInputs?: Record<string, string>;
  isUtility?: boolean; // true for non-crawler workflows (e.g. merge utilities) — excluded from crawler table
+ // Crawler slug (e.g. 'abb'), independent of `id`. Post-consolidation
+ // (2026-07) `id` is the crawler's CONTAINING GROUP workflow filename
+ // (crawler-group-NN.yml, since individual update-jobs-{slug}.yml files no
+ // longer exist — see crawlerRegistryPlugin.ts), so it can no longer be
+ // reverse-derived from `id` by stripping a fixed prefix/suffix.
+ slug?: string;
+ groupId?: string;
+ groupMemberCount?: number;
 }
 
 interface WorkflowJobSummary {
@@ -956,6 +964,9 @@ export default function AdminPanel() {
  schedule: w.schedule || undefined,
  summaryKey: w.summaryKey || null,
  defaultInputs: w.defaultInputs || undefined,
+ slug: w.slug || undefined,
+ groupId: w.groupId || undefined,
+ groupMemberCount: w.groupMemberCount != null ? Number(w.groupMemberCount) : undefined,
  })),
  );
  }
@@ -1593,10 +1604,23 @@ export default function AdminPanel() {
 
  const getWorkflowTabSummary = (context: WorkflowContext) => {
  const workflows = workflowActions.filter((wf) => wf.context === context && !wf.isUtility);
+ // Post-consolidation (2026-07), many crawler entries share the SAME `wf.id`
+ // (their containing crawler-group-*.yml). `workflowStates` is keyed by
+ // `wf.id`, i.e. ONE status per distinct GitHub Actions run — counting once
+ // per crawler ROW instead of once per distinct `wf.id` would multiply a
+ // single group's status by its member count (e.g. a 26-member group stuck
+ // `in_progress` would add 26 to "pending" instead of 1), wildly overstating
+ // the tab-level health badge. Dedup by `wf.id` before counting.
+ const seenIds = new Set<string>();
+ const distinctWorkflows = workflows.filter((wf) => {
+ if (seenIds.has(wf.id)) return false;
+ seenIds.add(wf.id);
+ return true;
+ });
  let ok = 0;
  let error = 0;
  let pending = 0;
- for (const workflow of workflows) {
+ for (const workflow of distinctWorkflows) {
  const state = workflowStates[workflow.id];
  if (!state) { pending += 1; continue; }
  const status = String(state.status || '').toLowerCase();
@@ -1626,14 +1650,20 @@ export default function AdminPanel() {
  const grouped = workflowActions.filter((wf) => wf.context === context && !wf.isUtility);
  const isJobsContext = context === 'jobs';
 
- const findCrawlerSummary = (wf: { id: string; summaryKey?: string | null }): CrawlerSummaryRow | undefined => {
- const slug = wf.id.replace(/^update-jobs-/, '').replace(/\.yml$/, '');
+ const findCrawlerSummary = (wf: { id: string; slug?: string; summaryKey?: string | null }): CrawlerSummaryRow | undefined => {
+ // Post-consolidation (2026-07), `wf.id` is the crawler's CONTAINING GROUP
+ // workflow filename (crawler-group-NN.yml), not a per-crawler
+ // update-jobs-{slug}.yml — it can no longer be reverse-derived into a
+ // slug by stripping a fixed prefix/suffix. Use the explicit `slug` field
+ // the registry now provides (falls back to `id` for any future entry
+ // that still follows the old per-crawler naming, e.g. non-jobs contexts).
+ const slug = wf.slug || wf.id.replace(/^update-jobs-/, '').replace(/\.yml$/, '');
  // 1. Exact match on summaryKey extracted from crawler script at build time
  if (wf.summaryKey) {
  const byKey = crawlerSummaries.find(s => s.key === wf.summaryKey);
  if (byKey) return byKey;
  }
- // 2. Exact match on workflow filename slug
+ // 2. Exact match on crawler slug
  const exact = crawlerSummaries.find(s => s.key === slug);
  if (exact) return exact;
  // 3. Fuzzy: summary key contains slug or slug contains summary key
@@ -1719,7 +1749,12 @@ export default function AdminPanel() {
  type JobRow = { key: string; title: string; description: string; schedule: string | null; wf: typeof grouped[0] | null; summary: CrawlerSummaryRow | undefined };
  const rows: JobRow[] = grouped.map(wf => {
  const summary = findCrawlerSummary(wf);
- return { key: wf.id, title: wf.title, description: wf.description, schedule: wf.schedule || null, wf, summary };
+ // Post-consolidation (2026-07), `wf.id` is the crawler's CONTAINING
+ // GROUP workflow filename — many crawlers in `grouped` now share the
+ // SAME `id` (all members of the same crawler-group-*.yml), which would
+ // collide as a React list key and silently drop rows. Prefer the
+ // per-crawler `slug` (unique) when present.
+ return { key: wf.slug || wf.id, title: wf.title, description: wf.description, schedule: wf.schedule || null, wf, summary };
  });
  for (const s of unmatchedSummaries) {
  rows.push({ key: `summary-${s.key}`, title: s.label, description: '', schedule: null, wf: null, summary: s });
@@ -1940,10 +1975,24 @@ export default function AdminPanel() {
 
  const retryAllFailed = async () => {
  if (failedCrawlers.length === 0 || retryFailedProgress?.running) return;
- setRetryFailedProgress({ running: true, current: 0, total: failedCrawlers.length, currentLabel: '' });
- for (let i = 0; i < failedCrawlers.length; i++) {
- const row = failedCrawlers[i];
- setRetryFailedProgress({ running: true, current: i + 1, total: failedCrawlers.length, currentLabel: row.title });
+ // Post-consolidation (2026-07), many crawler rows share the SAME `wf.id`
+ // (their containing crawler-group-*.yml — see the comment on `key: wf.slug
+ // || wf.id` above). Without dedup, "Rilancia N falliti" would dispatch the
+ // same group workflow once per failed crawler row inside it (e.g. 3 failed
+ // groups x ~25 members each = 75 dispatch calls instead of 3) — each
+ // distinct failed workflow should only be re-run ONCE regardless of how
+ // many crawler rows point at it.
+ const seenIds = new Set<string>();
+ const toRetry = failedCrawlers.filter((row) => {
+ const id = row.wf!.id;
+ if (seenIds.has(id)) return false;
+ seenIds.add(id);
+ return true;
+ });
+ setRetryFailedProgress({ running: true, current: 0, total: toRetry.length, currentLabel: '' });
+ for (let i = 0; i < toRetry.length; i++) {
+ const row = toRetry[i];
+ setRetryFailedProgress({ running: true, current: i + 1, total: toRetry.length, currentLabel: row.title });
  await runWorkflowAction(row.wf!.id);
  }
  setRetryFailedProgress(null);
@@ -2084,7 +2133,17 @@ export default function AdminPanel() {
  const isSuccess = wfState?.status === 'completed' && wfState.conclusion === 'success';
  const isFailure = wfState?.status === 'completed' && wfState.conclusion != null && wfState.conclusion !== 'success';
  const isRunning = wfState?.loading || wfState?.status === 'queued' || wfState?.status === 'in_progress';
- const failedSteps = wfState?.jobs.flatMap(j => j.failedSteps.map(s => `${j.name}: ${s}`)) || [];
+ // Post-consolidation (2026-07): `wfState` reflects the whole GROUP
+ // workflow run (crawler-group-*.yml), shared by every crawler in that
+ // group — `failedSteps` therefore includes sibling crawlers' failures
+ // too. When we know this row's own crawler slug, narrow to just its own
+ // "Run <slug>" background step so the failure detail shown for THIS
+ // crawler isn't noisy with unrelated siblings' errors.
+ const ownStepName = row.wf?.slug ? `Run ${row.wf.slug}` : null;
+ const allFailedSteps = wfState?.jobs.flatMap(j => j.failedSteps.map(s => `${j.name}: ${s}`)) || [];
+ const failedSteps = ownStepName
+ ? allFailedSteps.filter(s => s.includes(ownStepName))
+ : allFailedSteps;
  const lastRunAgo = wfState?.updatedAt ? relativeTime(wfState.updatedAt)
  : row.summary?.generatedAt ? relativeTime(row.summary.generatedAt) : null;
  const s = row.summary;
