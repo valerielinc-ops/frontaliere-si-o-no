@@ -8276,6 +8276,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusura-piattaforma-post-sanela.title': 'Post Sanela chiude: cosa cambia per i pazienti in Ticino',
     'blog.article.chiusura-piattaforma-post-sanela.excerpt': 'La Posta interrompe il servizio di cartella informatizzata entro fine 2026. Ecco le procedure per il salvataggio dei dati e il futuro del sistema sanitario.',
     'blog.article.chiusura-piattaforma-post-sanela.imageAlt': 'Schermo di computer con dati sanitari in un ufficio moderno in Ticino',
+    'blog.article.dipendenza-fossili-svizzera-energia.title': 'Svizzera e fossili: quanto pesa la dipendenza energetica',
+    'blog.article.dipendenza-fossili-svizzera-energia.excerpt': 'Analisi sulla dipendenza elvetica dai combustibili fossili: il 58% dell\'energia finale consumata deriva da petrolio e gas. Cosa significa per l\'economia.',
+    'blog.article.dipendenza-fossili-svizzera-energia.imageAlt': 'Vista panoramica di Lugano e il suo lago.',
 };
 
 export default blogMetaIt;

@@ -8275,6 +8275,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusura-piattaforma-post-sanela.title': 'Post Sanela closes: what changes for patients in Ticino',
     'blog.article.chiusura-piattaforma-post-sanela.excerpt': 'The Post Office shall discontinue the computerised folder service by the end of 2026. Here are the procedures for saving data and the future of the health system.',
     'blog.article.chiusura-piattaforma-post-sanela.imageAlt': 'Computer screen showing health data in a modern Swiss office',
+    'blog.article.dipendenza-fossili-svizzera-energia.title': 'Switzerland and Fossils: How Much Energy Dependence Weighs',
+    'blog.article.dipendenza-fossili-svizzera-energia.excerpt': 'Analysis of Switzerland\'s dependence on fossil fuels: 58% of the final energy consumed comes from oil and gas. What it means for the economy.',
+    'blog.article.dipendenza-fossili-svizzera-energia.imageAlt': 'Panoramic view of Lugano and its lake.',
 };
 
 export default blogMetaEn;
