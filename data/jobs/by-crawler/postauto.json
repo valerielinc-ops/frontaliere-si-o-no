@@ -55,13 +55,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-engelburg",
-        "autista-postbus-postauto-ag-engelburg"
+        "postauto-fahrer-in-postauto-engelburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-engelburg",
-          "autista-postbus-postauto-ag-engelburg"
+          "postauto-fahrer-in-postauto-engelburg"
         ],
         "en": [
           "postauto-fahrer-in-postauto-engelburg"
@@ -138,18 +136,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "postauto-fahrer-in-postauto-hausen-am-albis",
-          "postauto-fahrer-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-hausen-am-albis"
         ],
         "it": [
-          "postauto-fahrer-in-postauto-hausen-am-albis",
-          "postbus-driver-in-postauto-hausen-am-albis"
+          "postauto-fahrer-in-postauto-hausen-am-albis"
         ]
       },
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-hausen-am-albis",
-        "postauto-fahrer-in-postauto-wilderswil",
-        "postbus-driver-in-postauto-hausen-am-albis"
+        "postauto-fahrer-in-postauto-hausen-am-albis"
       ],
       "firstSeenAt": "2026-07-04T11:33:39.026Z",
       "salaryMin": 73500,
@@ -218,13 +212,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-wilderswil",
-        "postbus-driver-in-postauto-wilderswil"
+        "postauto-fahrer-in-postauto-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-wilderswil",
-          "postbus-driver-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-wilderswil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:37.505Z",
@@ -709,13 +701,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-stans",
-        "postbus-driver-in-postauto-stans"
+        "postauto-fahrer-in-postauto-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-stans",
-          "postbus-driver-in-postauto-stans"
+          "postauto-fahrer-in-postauto-stans"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:29.067Z",
@@ -913,8 +903,8 @@
       "slugByLocale": {
         "de": "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
         "it": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
-        "en": "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
-        "fr": "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans"
+        "en": "lateral-entrant-in-as-postbus-driver-in-postauto-ag-stans",
+        "fr": "entree-laterale-in-comme-pilote-postbus-in-postauto-ag-stans"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -964,6 +954,12 @@
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans"
+        ],
+        "en": [
+          "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans"
+        ],
+        "fr": [
+          "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans"
         ]
       },
       "previousSlugs": [
@@ -985,12 +981,12 @@
     },
     {
       "id": "postauto-180ae9b3fe95",
-      "slug": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
+      "slug": "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez",
       "slugByLocale": {
         "de": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-        "it": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-        "en": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-        "fr": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez"
+        "it": "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez",
+        "en": "personnel-in-disposition-control-center-center-postauto-ag-spiez",
+        "fr": "personnel-dans-le-centre-de-controle-de-disposition-postauto-ag-spiez"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1049,7 +1045,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-06T14:41:06.973Z"
+      "firstSeenAt": "2026-07-06T14:41:06.973Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez"
+        ],
+        "en": [
+          "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez"
+        ],
+        "fr": [
+          "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez"
+      ]
     }
   ]
 }

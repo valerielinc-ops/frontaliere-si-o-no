@@ -24,11 +24,11 @@
         "it": "Apprendistato IT (CFC Operations and Infrastructure)",
         "de": "IT-Lehrlingsausbildung (CFC Operations and Infrastructure)"
       },
-      "slug": "apprenti-e-it-cfc-exploitation-et-infrastructure-fnz",
+      "slug": "apprendistato-it-cfc-operations-and-infrastructure-fnz-switzerland-ag-geneva",
       "slugByLocale": {
-        "en": "apprenti-e-it-cfc-exploitation-et-infrastructure-fnz",
-        "it": "apprenti-e-it-cfc-exploitation-et-infrastructure-fnz",
-        "de": "apprenti-e-it-cfc-exploitation-et-infrastructure-fnz",
+        "en": "it-apprenticeship-cfc-operations-and-infrastructure-fnz-switzerland-ag-geneva",
+        "it": "apprendistato-it-cfc-operations-and-infrastructure-fnz-switzerland-ag-geneva",
+        "de": "it-lehrlingsausbildung-cfc-operations-and-infrastructure-fnz-switzerland-ag-geneva",
         "fr": "apprenti-e-it-cfc-exploitation-et-infrastructure-fnz"
       },
       "category": "technology",
@@ -63,7 +63,21 @@
       "addressRegion": "GE",
       "addressCountry": "CH",
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-06T13:46:18.840Z"
+      "firstSeenAt": "2026-07-06T13:46:18.840Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-it-cfc-exploitation-et-infrastructure-fnz"
+        ],
+        "en": [
+          "apprenti-e-it-cfc-exploitation-et-infrastructure-fnz"
+        ],
+        "de": [
+          "apprenti-e-it-cfc-exploitation-et-infrastructure-fnz"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-it-cfc-exploitation-et-infrastructure-fnz"
+      ]
     }
   ]
 }

@@ -89,9 +89,9 @@
         "en": "Zusteller:in Briefe und Pakete",
         "fr": "Zusteller:in Briefe und Pakete"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-buochs",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-buochs",
         "en": "zusteller-in-briefe-und-pakete-post",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "zusteller-in-briefe-und-pakete-post"
@@ -129,7 +129,15 @@
       "addressLocality": "Buochs",
       "addressRegion": "NW",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-06T15:19:00.145Z"
+      "firstSeenAt": "2026-07-06T15:19:00.145Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74225-de_DE",
@@ -153,9 +161,9 @@
         "en": "Zusteller:in Briefe und Pakete",
         "fr": "Zusteller:in Briefe und Pakete"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-zurich-mulligen",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-zurich-mulligen",
         "en": "zusteller-in-briefe-und-pakete-post-2",
         "de": "zusteller-in-briefe-und-pakete-post-2",
         "fr": "zusteller-in-briefe-und-pakete-post-2"
@@ -179,11 +187,13 @@
       "id": "posta-svizzera-centro-regionale-4d6c51611e51",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post-2"
+        "zusteller-in-briefe-und-pakete-post-2",
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -509,9 +519,9 @@
         "en": "Zusteller:in Briefe und Pakete",
         "fr": "Zusteller:in Briefe und Pakete"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-basel",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-basel",
         "en": "zusteller-in-briefe-und-pakete-post-3",
         "de": "zusteller-in-briefe-und-pakete-post-3",
         "fr": "zusteller-in-briefe-und-pakete-post-3"
@@ -535,11 +545,13 @@
       "id": "posta-svizzera-centro-regionale-1ac1deb96484",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-briefe-und-pakete-post-3"
+          "zusteller-in-briefe-und-pakete-post-3",
+          "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post-3"
+        "zusteller-in-briefe-und-pakete-post-3",
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -582,9 +594,9 @@
         "en": "Quereinsteiger:in als PostAuto-Fahrer:in",
         "fr": "Quereinsteiger:in als PostAuto-Fahrer:in"
       },
-      "slug": "quereinsteiger-in-als-postauto-fahrer-in-post",
+      "slug": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans",
       "slugByLocale": {
-        "it": "quereinsteiger-in-als-postauto-fahrer-in-post",
+        "it": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans",
         "en": "quereinsteiger-in-als-postauto-fahrer-in-post",
         "de": "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
         "fr": "quereinsteiger-in-als-postauto-fahrer-in-post"
@@ -622,7 +634,15 @@
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-06T15:19:00.145Z"
+      "firstSeenAt": "2026-07-06T15:19:00.145Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinsteiger-in-als-postauto-fahrer-in-post"
+        ]
+      },
+      "previousSlugs": [
+        "quereinsteiger-in-als-postauto-fahrer-in-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Immobilienbewirtschafterin/73643-de_DE",

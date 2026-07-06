@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "daler-hopital-a6afc4bd3b99",
-      "slug": "assistant-e-en-pharmacie-daler-hopital-fribourg",
+      "slug": "assistente-di-farmacia-hopital-daler-fribourg",
       "slugByLocale": {
         "fr": "aide-de-salle-d-operation-atsso-daler-hopital-fribourg",
-        "it": "assistant-e-en-pharmacie-daler-hopital-fribourg",
-        "en": "assistant-e-en-pharmacie-daler-hopital-fribourg",
-        "de": "assistant-e-en-pharmacie-daler-hopital-fribourg"
+        "it": "assistente-di-farmacia-hopital-daler-fribourg",
+        "en": "pharmacy-assistant-hopital-daler-fribourg",
+        "de": "assistent-e-en-pharmacie-hopital-daler-fribourg"
       },
       "company": "Hôpital Daler",
       "companyKey": "daler-hopital",
@@ -58,15 +58,18 @@
           "gestionnaire-en-intendance-daler-hopital-fribourg",
           "aide-de-salle-d-operation-atsso-daler-hopital-fribourg",
           "collaborateur-rice-administratif-ve-daler-hopital-fribourg",
-          "assistente-amministrativo-hopital-daler-fribourg"
+          "assistente-amministrativo-hopital-daler-fribourg",
+          "assistant-e-en-pharmacie-daler-hopital-fribourg"
         ],
         "en": [
           "collaborateur-rice-administratif-ve-daler-hopital-fribourg",
-          "administrative-assistant-hopital-daler-fribourg"
+          "administrative-assistant-hopital-daler-fribourg",
+          "assistant-e-en-pharmacie-daler-hopital-fribourg"
         ],
         "de": [
           "collaborateur-rice-administratif-ve-daler-hopital-fribourg",
-          "verwaltungsassistent-hopital-daler-fribourg"
+          "verwaltungsassistent-hopital-daler-fribourg",
+          "assistant-e-en-pharmacie-daler-hopital-fribourg"
         ],
         "fr": [
           "gestionnaire-en-intendance-daler-hopital-fribourg",
@@ -79,7 +82,8 @@
         "collaborateur-rice-administratif-ve-daler-hopital-fribourg",
         "assistente-amministrativo-hopital-daler-fribourg",
         "administrative-assistant-hopital-daler-fribourg",
-        "verwaltungsassistent-hopital-daler-fribourg"
+        "verwaltungsassistent-hopital-daler-fribourg",
+        "assistant-e-en-pharmacie-daler-hopital-fribourg"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
