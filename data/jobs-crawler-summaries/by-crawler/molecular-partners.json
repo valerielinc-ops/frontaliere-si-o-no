@@ -1,56 +1,16 @@
 {
   "key": "molecular-partners",
   "label": "Molecular Partners",
-  "generatedAt": "2026-07-06T14:50:57.381Z",
-  "total": 1,
+  "generatedAt": "2026-07-06T22:16:06.608Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3427,
-  "avgDurationMs": 3427,
-  "durationHistory": [
-    3427
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "molecular-partners-b49b35ae4d5d",
-      "slug": "head-of-process-development-80-100-molecular-partners-schlieren",
-      "company": "Molecular Partners",
-      "companyKey": "molecular-partners",
-      "companyDomain": "molecularpartners.com",
-      "title": "Head of Process Development (80-100%)",
-      "location": "Switzerland, Zürich, Schlieren",
-      "canton": "ZH",
-      "url": "https://molecularpartners-career.talent-soft.com/job/job-head-of-process-development-80-100-_178.aspx",
-      "source": "Molecular Partners Dedicated Parser (Talentsoft)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-06T14:50:55.456Z",
-      "addressLocality": "Schlieren",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8952",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Biotecnologie / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-head-of-process-development-80-100-_178.aspx",
-      "firstSeenAt": "2026-07-03T22:41:40.747Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 1
 }

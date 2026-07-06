@@ -8,23 +8,64 @@
     "html"
   ],
   "seedUrls": [
-    "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=Locarno%2C+CH",
-    "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=Lugano+Agno%2C+CH"
+    "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=&startrow=0"
   ],
-  "notes": "Dedicated Skyguide crawler parses the SuccessFactors filtered listings for Locarno and Lugano Agno and extracts full detail pages.",
-  "updatedAt": "2026-03-16T06:24:49.019Z",
+  "notes": "Dedicated Skyguide crawler parses the national SuccessFactors listing (all cantons, paginated) and extracts full detail pages; canton derived per-job.",
+  "updatedAt": "2026-07-06T22:16:13.521Z",
   "seedMetaByUrl": {
-    "https://jobs.skyguide.ch/job/Locarno-Formazione-controllorea-del-traffico-aereo-Locarno/1140799801/": {
-      "location": "Locarno",
-      "canton": "TI",
+    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-Technikerin-HLK-%2880-100%29/1372612733/": {
+      "location": "Wangen b. Dübendorf",
+      "canton": "ZH",
       "company": "Skyguide",
-      "postedDate": "2026-02-24"
+      "postedDate": "2026-07-05"
+    },
+    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-IT-Application-Solutions-Lead-%2880-100%29/1391456533/": {
+      "location": "Wangen b. Dübendorf",
+      "canton": "ZH",
+      "company": "Skyguide",
+      "postedDate": "2026-07-04"
+    },
+    "https://jobs.skyguide.ch/job/Sion-Formation-contr%C3%B4leur%C2%B7euse-de-la-circulation-a%C3%A9rienne-Sion/1140869101/": {
+      "location": "Sion",
+      "canton": "VS",
+      "company": "Skyguide",
+      "postedDate": "2026-06-21"
+    },
+    "https://jobs.skyguide.ch/job/Gen%C3%A8ve-Formation-contr%C3%B4leur%C2%B7euse-de-la-circulation-a%C3%A9rienne-Gen%C3%A8ve/1140871001/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "Skyguide",
+      "postedDate": "2026-06-21"
+    },
+    "https://jobs.skyguide.ch/job/Payerne-Formation-contr%C3%B4leur%C2%B7euse-de-la-circulation-a%C3%A9rienne-Payerne/1140873301/": {
+      "location": "Payerne",
+      "canton": "VD",
+      "company": "Skyguide",
+      "postedDate": "2026-06-21"
+    },
+    "https://jobs.skyguide.ch/job/D%C3%BCbendorf-Ausbildung-Flugverkehrsleiterin-Fluglotsin/1140795501/": {
+      "location": "Dübendorf",
+      "canton": "ZH",
+      "company": "Skyguide",
+      "postedDate": "2026-06-21"
     },
     "https://jobs.skyguide.ch/job/Lugano-Agno-Formazione-controllorea-del-traffico-aereo-Lugano/1140799301/": {
       "location": "Lugano Agno",
       "canton": "TI",
       "company": "Skyguide",
-      "postedDate": "2026-02-24"
+      "postedDate": "2026-06-21"
+    },
+    "https://jobs.skyguide.ch/job/Locarno-Formazione-controllorea-del-traffico-aereo-Locarno/1140799801/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "Skyguide",
+      "postedDate": "2026-06-21"
+    },
+    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-Network-Architect-%2880-100%29/1399690633/": {
+      "location": "Wangen b. Dübendorf",
+      "canton": "ZH",
+      "company": "Skyguide",
+      "postedDate": "2026-06-02"
     }
   }
 }
