@@ -4391,6 +4391,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dipendenza-fossili-svizzera-energia': { name: 'Energia Svizzera', path: '/articoli-frontaliere/dipendenza-fossili-svizzera-energia', parent: 'blog' },
     'blog-analisi-busta-paga-svizzera-2026': { name: 'Busta paga frontalieri', path: '/articoli-svizzera/analisi-busta-paga-svizzera-2026/', parent: 'blog' },
     'blog-traffico-a2-luglio-frontalieri': { name: 'Traffico A2', path: '/articoli-frontaliere/traffico-a2-luglio-frontalieri', parent: 'blog' },
+    'blog-credito-imposta-frontalieri-2026': { name: 'Crediti fiscali', path: '/articoli-svizzera/credito-imposta-frontalieri-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -916,6 +916,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.analisi-busta-paga-svizzera-2026.title': 'Frontalieri: busta paga svizzera 2026 e trattenute',
     'blog.article.analisi-busta-paga-svizzera-2026.excerpt': 'Guida pratica alla busta paga 2026: contributi, imposte alla fonte e le differenze fiscali per i frontalieri che lavorano oltre i 20 km.',
     'blog.article.analisi-busta-paga-svizzera-2026.imageAlt': 'Vista moderna di un ufficio a Lugano, Svizzera',
+    'blog.article.credito-imposta-frontalieri-2026.title': 'Credito d\'imposta per frontalieri 2026: calcolo, limiti e checklist entro 20 km',
+    'blog.article.credito-imposta-frontalieri-2026.excerpt': 'Scopri come il credito d\'imposta 2026 si applica ai frontalieri entro 20 km, con esempi pratici, tabelle esplicative e la procedura passo‑passo per la dichiarazione italiana.',
+    'blog.article.credito-imposta-frontalieri-2026.imageAlt': 'Confine svizzero‑italiano con un treno pendolare, simbolo dei frontalieri.',
 };
 
 export default blogMetaChIt;

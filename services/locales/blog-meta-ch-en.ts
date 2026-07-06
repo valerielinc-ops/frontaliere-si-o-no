@@ -916,6 +916,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.analisi-busta-paga-svizzera-2026.title': 'Frontier workers: Swiss payroll 2026 and withheld',
     'blog.article.analisi-busta-paga-svizzera-2026.excerpt': 'Practical guide to the 2026 payroll: contributions, taxes at source and tax differences for border workers working over 20 km.',
     'blog.article.analisi-busta-paga-svizzera-2026.imageAlt': 'Modern office view in Lugano, Switzerland',
+    'blog.article.credito-imposta-frontalieri-2026.title': '2026 Tax Credit for Border Workers: Limits & Checklist',
+    'blog.article.credito-imposta-frontalieri-2026.excerpt': 'Find out how the 2026 tax credit applies to border crossers within 20 km, with practical examples, explanatory tables and the step-by-step procedure for the Italian declaration.',
+    'blog.article.credito-imposta-frontalieri-2026.imageAlt': 'Swiss‑Italian border with a commuter train, representing cross‑border workers.',
 };
 
 export default blogMetaChEn;
