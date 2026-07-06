@@ -1222,10 +1222,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-for-cookie-permissions-schindler-bussigny",
-        "manager-fur-cookie-einwilligungen-schindler-bussigny",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
-        "manager-per-cookie-einwilligungen-schindler-basel-qcm1tp",
         "manager-fur-cookie-einwilligungen-schindler-basel-2",
         "manager-fur-cookie-einwilligungen-schindler-st-gallen",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny",
@@ -1241,7 +1237,11 @@
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5c82e",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
         "manager-per-cookie-einwilligungen-schindler-bern-2",
-        "manager-fur-cookie-einwilligungen-schindler-bern"
+        "manager-fur-cookie-einwilligungen-schindler-bern",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz",
+        "manager-fur-cookie-einwilligungen-schindler-basel",
+        "manager-fur-cookie-einwilligungen-schindler-st-gallen-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1253,10 +1253,6 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern"
         ],
         "en": [
-          "manager-per-cookie-einwilligungen-schindler-ebikon-i5ae2l",
-          "manager-per-cookie-einwilligungen-schindler-ebikon-2",
-          "manager-per-cookie-einwilligungen-schindler-ebikon-55kbk7",
-          "manager-per-cookie-einwilligungen-schindler-ebikon-i5c82e",
           "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
           "manager-per-cookie-einwilligungen-schindler-bern-nycz98",
           "manager-per-cookie-einwilligungen-schindler-bern-8f3fzf",
@@ -1272,7 +1268,11 @@
           "manager-per-cookie-einwilligungen-schindler-basel-qcm1tp",
           "manager-fur-cookie-einwilligungen-schindler-basel-2",
           "manager-per-cookie-einwilligungen-schindler-bern",
-          "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7"
+          "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz",
+          "manager-fur-cookie-einwilligungen-schindler-basel",
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen-2"
         ],
         "de": [
           "manager-fur-cookie-einwilligungen-schindler-bern"
@@ -1843,7 +1843,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-basel-2",
         "manager-fur-cookie-einwilligungen-schindler-bern",
         "manager-fur-cookie-einwilligungen-schindler-bern-2",
         "manager-per-cookie-einwilligungen-schindler-bern",
@@ -1862,7 +1861,8 @@
         "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "manager-per-cookie-einwilligungen-schindler-basel",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
-        "manager-fur-cookie-einwilligungen-schindler-basel"
+        "manager-fur-cookie-einwilligungen-schindler-basel",
+        "manager-per-cookie-einwilligungen-schindler-basel-qcm1tp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1872,7 +1872,8 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny"
         ],
         "en": [
-          "manager-fur-cookie-einwilligungen-schindler-basel"
+          "manager-fur-cookie-einwilligungen-schindler-basel",
+          "manager-per-cookie-einwilligungen-schindler-basel-qcm1tp"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-winterthur"
@@ -2025,7 +2026,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cookie-consent-manager-schindler-basel",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5c82e",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
         "manager-for-cookie-consents-schindler-basel",
@@ -2044,7 +2044,8 @@
         "manager-fur-cookie-einwilligungen-schindler-basel",
         "manager-per-cookie-einwilligungen-schindler-zurich-keecwn",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2058,7 +2059,8 @@
           "manager-per-cookie-einwilligungen-schindler-zurich-keecwn",
           "manager-per-cookie-einwilligungen-schindler-basel-8f2yxg",
           "manager-per-cookie-einwilligungen-schindler-oberentfelden-8cq51r",
-          "manager-fur-cookie-einwilligungen-schindler-basel"
+          "manager-fur-cookie-einwilligungen-schindler-basel",
+          "manager-per-cookie-einwilligungen-schindler-st-gallen"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-zurich"
@@ -3080,8 +3082,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-st-gallen-2",
-        "manager-for-cookie-permissions-schindler-st-gallen",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern",
         "manager-fur-cookie-einwilligungen-schindler-st-gallen",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny",
@@ -3099,7 +3099,9 @@
         "manager-fur-cookie-einwilligungen-schindler-basel",
         "manager-fur-cookie-einwilligungen-schindler-bussigny",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
-        "manager-per-cookie-einwilligungen-schindler-basel-qcm1tp"
+        "manager-per-cookie-einwilligungen-schindler-basel-qcm1tp",
+        "manager-per-cookie-einwilligungen-schindler-bussigny",
+        "manager-for-cookie-permissions-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3127,7 +3129,9 @@
           "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
           "manager-per-cookie-einwilligungen-schindler-oberentfelden-8cq51r",
           "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-          "manager-per-cookie-einwilligungen-schindler-oberentfelden"
+          "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+          "manager-per-cookie-einwilligungen-schindler-bussigny",
+          "manager-for-cookie-permissions-schindler-bussigny"
         ],
         "fr": [
           "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern"
@@ -5019,10 +5023,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-for-cookie-permissions-schindler-bussigny",
-        "manager-fur-cookie-einwilligungen-schindler-bussigny",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
         "manager-fur-cookie-einwilligungen-schindler-st-gallen-2",
         "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
         "manager-fur-cookie-einwilligungen-schindler-winterthur",
@@ -5038,7 +5038,11 @@
         "manager-fur-cookie-einwilligungen-schindler-st-gallen",
         "manager-per-cookie-einwilligungen-schindler-basel",
         "manager-fur-cookie-einwilligungen-schindler-basel",
-        "manager-per-cookie-einwilligungen-schindler-basel-qcm1tp"
+        "manager-per-cookie-einwilligungen-schindler-basel-qcm1tp",
+        "manager-per-cookie-einwilligungen-schindler-bern-qbggpm",
+        "manager-per-cookie-einwilligungen-schindler-bern-nycz98",
+        "manager-per-cookie-einwilligungen-schindler-bern-8f3fzf",
+        "manager-per-cookie-einwilligungen-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5048,10 +5052,6 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern"
         ],
         "en": [
-          "manager-per-cookie-einwilligungen-schindler-bern-2",
-          "manager-fur-cookie-einwilligungen-schindler-st-gallen",
-          "manager-per-cookie-einwilligungen-schindler-basel",
-          "manager-fur-cookie-einwilligungen-schindler-basel",
           "manager-per-cookie-einwilligungen-schindler-basel-qcm1tp",
           "manager-fur-cookie-einwilligungen-schindler-basel-2",
           "manager-fur-cookie-einwilligungen-schindler-bern-2",
@@ -5067,7 +5067,11 @@
           "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
           "manager-per-cookie-einwilligungen-schindler-oberentfelden-8cq51r",
           "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-          "manager-per-cookie-einwilligungen-schindler-oberentfelden"
+          "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+          "manager-per-cookie-einwilligungen-schindler-bern-qbggpm",
+          "manager-per-cookie-einwilligungen-schindler-bern-nycz98",
+          "manager-per-cookie-einwilligungen-schindler-bern-8f3fzf",
+          "manager-per-cookie-einwilligungen-schindler-bussigny"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-bern"

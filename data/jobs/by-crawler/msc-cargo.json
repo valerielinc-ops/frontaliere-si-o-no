@@ -65,7 +65,19 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-05T23:30:21.519Z"
+      "firstSeenAt": "2026-07-05T23:30:21.519Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva"
+        ],
+        "de": [
+          "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva",
+        "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-5d15f1a38e9c",
@@ -130,7 +142,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-05T23:30:20.795Z"
+      "firstSeenAt": "2026-07-05T23:30:20.795Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "senior-manager-digital-medias-payants-delivery-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-digital-medias-payants-delivery-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-1850ab808b78",
@@ -202,10 +222,14 @@
         ],
         "fr": [
           "junior-architect-port-development-intern-msc-geneva"
+        ],
+        "de": [
+          "junior-architect-port-development-praktikant-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "junior-architect-port-development-intern-msc-geneva"
+        "junior-architect-port-development-intern-msc-geneva",
+        "junior-architect-port-development-praktikant-msc-group-geneva"
       ]
     },
     {
