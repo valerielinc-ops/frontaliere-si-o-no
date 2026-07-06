@@ -170,15 +170,22 @@ jobs:
           ollama run "$LOCAL_MODEL" "ok" >/dev/null 2>&1 || true
           # Export so the generate step's ai-models cascade can reach the local
           # model as last resort. ollama exposes an OpenAI-compatible endpoint.
-          # LOCAL_LLM_TIMEOUT_MS gives a full CPU generation room (30 min, well
-          # under the 300-min wall) and also sizes undici's headers/body timeout
-          # via the local dispatcher — non-streaming CPU inference otherwise dies
-          # at undici's 300s default as `fetch failed` before any output.
+          # LOCAL_LLM_TIMEOUT_MS also sizes undici's headers/body timeout via the
+          # local dispatcher — non-streaming CPU inference otherwise dies at
+          # undici's 300s default as `fetch failed` before any output.
+          # 900000 (15min), not 30min: run 28755532056 showed both real
+          # successful completions finish in 9.3min/11.9min (qwen2.5:7b, full
+          # production prompt), while the one call that never finishes still
+          # burns the ENTIRE ceiling before giving up. At 30min that single
+          # stuck attempt consumed more than half of the 55min frontaliere wall
+          # budget for zero output — starving every later retry/expand attempt
+          # of the time they needed. 15min keeps ~25% headroom over the slowest
+          # observed success while halving the worst-case wasted-attempt cost.
           {
             echo "LOCAL_LLM_ENABLED=1"
             echo "LOCAL_LLM_URL=http://127.0.0.1:11434/v1/chat/completions"
             echo "LOCAL_LLM_MODEL=$LOCAL_MODEL"
-            echo "LOCAL_LLM_TIMEOUT_MS=1800000"
+            echo "LOCAL_LLM_TIMEOUT_MS=900000"
           } >> "$GITHUB_ENV"
           echo "🧠 Local LLM fallback ready: $LOCAL_MODEL (last-resort in the cascade)"
 
