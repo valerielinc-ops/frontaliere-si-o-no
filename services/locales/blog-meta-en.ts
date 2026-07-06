@@ -8242,6 +8242,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.block-ristorni-federalismo.title': 'Refreshment block: "The Confederation cannot blame the Canton"',
     'blog.article.block-ristorni-federalismo.excerpt': 'The Council of State has decided to freeze the refunds of border workers destined for Italy.',
     'blog.article.block-ristorni-federalismo.imageAlt': 'A border worker in line at the Chiasso border crossing, with a sorrowful expression on their face.',
+    'blog.article.riapertura-treni-ticino-2024.title': 'Reopening of trains between Varese, Ticino and Porto Ceresio',
+    'blog.article.riapertura-treni-ticino-2024.excerpt': 'Rail links between Varese, Canton Ticino and Porto Ceresio reopen after four weeks of interruption',
+    'blog.article.riapertura-treni-ticino-2024.imageAlt': 'The news of the reopening of the train connections between Varese, the Canton Ticino and Porto Ceresio represents a breath of fresh air for commuters',
 };
 
 export default blogMetaEn;

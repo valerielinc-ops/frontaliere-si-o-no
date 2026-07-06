@@ -8241,6 +8241,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.block-ristorni-federalismo.title': 'Erstattungssperre: "Der Bund kann dem Kanton keine Schuld geben"',
     'blog.article.block-ristorni-federalismo.excerpt': 'Der Staatsrat hat beschlossen, die Rückzahlungen von Grenzgängern nach Italien einzufrieren.',
     'blog.article.block-ristorni-federalismo.imageAlt': 'Ein Grenzgänger in der Schlange am Chiasso-Borderübergang, mit einem traurigen Gesichtsausdruck.',
+    'blog.article.riapertura-treni-ticino-2024.title': 'Wiedereröffnung der Züge zwischen Varese, dem Tessin und Porto Ceresio',
+    'blog.article.riapertura-treni-ticino-2024.excerpt': 'Die Zugverbindungen zwischen Varese, dem Kanton Tessin und Porto Ceresio werden nach vierwöchiger Unterbrechung wieder geöffnet',
+    'blog.article.riapertura-treni-ticino-2024.imageAlt': 'Die Nachrichten über die Wiedereröffnung der Eisenbahnverbindungen zwischen Varese, dem Kanton Tessin und Porto Ceresio repräsentieren eine Atemluft für Pendler',
 };
 
 export default blogMetaDe;

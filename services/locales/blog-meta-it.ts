@@ -8243,6 +8243,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.block-ristorni-federalismo.title': 'Blocco dei ristorni: "La Confederazione non può dar la colpa al Cantone"',
     'blog.article.block-ristorni-federalismo.excerpt': 'Il Consiglio di Stato ha deciso di congelare i ristorni dei frontalieri destinati all\'Italia.',
     'blog.article.block-ristorni-federalismo.imageAlt': 'Un frontaliere in fila per il valico di Chiasso, con un sorriso amaro sulla faccia.',
+    'blog.article.riapertura-treni-ticino-2024.title': 'Riapertura dei treni tra Varese, il Ticino e Porto Ceresio',
+    'blog.article.riapertura-treni-ticino-2024.excerpt': 'Riaprono i collegamenti ferroviari tra Varese, il Canton Ticino e Porto Ceresio dopo quattro settimane di interruzione',
+    'blog.article.riapertura-treni-ticino-2024.imageAlt': 'La notizia della riapertura dei collegamenti ferroviari tra Varese, il Canton Ticino e Porto Ceresio rappresenta una boccata d\'ossigeno per i pendolari',
 };
 
 export default blogMetaIt;

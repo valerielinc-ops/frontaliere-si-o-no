@@ -24767,6 +24767,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'riapertura-treni-ticino-2024',
+ category: 'pratico',
+ date: '2026-07-06T01:33:25.034Z',
+ image: '/images/blog/riapertura-treni-ticino-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
