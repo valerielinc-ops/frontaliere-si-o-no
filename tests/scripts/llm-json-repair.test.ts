@@ -191,6 +191,20 @@ describe('fixJsonStringBody', () => {
     expect(parsed.c).toBe(1);
   });
 
+  // Regression lock for the exact issue #3618 item 2 repro shape
+  // (imagePrompt/imageAlt, the real article-schema field pair this bug hits
+  // in production) — the generic 'a'/'b' test above already covers the
+  // mechanism, this pins the literal cited shape so it can't silently
+  // regress under a future refactor of either field's schema.
+  it('does not corrupt imagePrompt/imageAlt when a markdown-bold run precedes a stray unescaped quote inside imagePrompt (issue #3618 item 2 exact repro)', () => {
+    const broken =
+      '{"imagePrompt":"Un **famoso** spot di pesca "vicino al lago".","imageAlt":{"it":"Vista panoramica"}}';
+    const repaired = fixJsonStringBody(broken, { fixAsterisks: true });
+    const parsed = JSON.parse(repaired);
+    expect(parsed.imagePrompt).toBe('Un **famoso** spot di pesca "vicino al lago".');
+    expect(parsed.imageAlt).toEqual({ it: 'Vista panoramica' });
+  });
+
   // Regression: scanValueEnd() treated '{'/'[' as ending the value immediately
   // after the opening bracket instead of finding the matching close. That made
   // the lookahead wrongly reject a preceding string field's real closing quote
