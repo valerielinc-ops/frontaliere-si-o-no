@@ -1070,6 +1070,15 @@
     "candidatesCount": 2,
     "canton": "AG"
   },
+  "AG::it::verkaufer-in-denner-ag-langenthal": {
+    "winnerJobIdentifier": "company-ach2e5",
+    "winnerCanonical": "venditore-denner-ag-stein-ag",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::it::verkaufer-in-denner-ag-mohlin": {
     "winnerJobIdentifier": "company-ynz3u9",
     "winnerCanonical": "venditore-denner-ag-mohlin-68d2c2",
@@ -1080,6 +1089,15 @@
     "canton": "AG"
   },
   "AG::it::verkaufer-in-denner-ag-wattwil": {
+    "winnerJobIdentifier": "company-ach2e5",
+    "winnerCanonical": "venditore-denner-ag-stein-ag",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
+  "AG::it::verkaufer-in-denner-ag-zurich": {
     "winnerJobIdentifier": "company-ach2e5",
     "winnerCanonical": "venditore-denner-ag-stein-ag",
     "decidedAt": "2026-07-06T00:00:00.000Z",
@@ -13185,12 +13203,12 @@
     "canton": "BE"
   },
   "BE::it::scienziato-senior-operazioni-tecniche-test-analitici-csl-behring-bern": {
-    "winnerJobIdentifier": "csl-behring-b96b7621563c",
-    "winnerCanonical": "scienziato-tech-ops-csl-behring-bern",
-    "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
-    "score": 0.3636,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "csl-behring-a38a13589b68",
+    "winnerCanonical": "specialista-di-laboratorio-senior-tech-ops-csl-behring-bern",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::scienziato-senior-tech-ops-csl-behring-bern": {
@@ -16965,12 +16983,12 @@
     "canton": "GR"
   },
   "GR::en::apprendistato-come-addetto-a-al-commercio-al-dettaglio-afc-derrate-alimentari-volg-untervaz": {
-    "winnerJobIdentifier": "volg-fenaco-8bb331bcabf5",
-    "winnerCanonical": "apprenticeship-as-retail-specialist-efz-lebensmittel-volg-untervaz",
-    "decidedAt": "2026-06-15T00:00:00.000Z",
+    "winnerJobIdentifier": "volg-fenaco-51b4337a6fa7",
+    "winnerCanonical": "apprenticeship-as-retail-assistant-eba-food-volg-untervaz-uiccmi",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.1111,
-    "candidatesCount": 2,
+    "score": 0.1053,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::en::apprendistato-come-assistente-al-commercio-al-dettaglio-cfp-alimentari-volg-untervaz": {
@@ -19872,12 +19890,12 @@
     "canton": "GR"
   },
   "GR::it::apprendistato-come-addetto-a-al-commercio-al-dettaglio-afc-derrate-alimentari-volg-untervaz": {
-    "winnerJobIdentifier": "volg-fenaco-8bb331bcabf5",
-    "winnerCanonical": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-untervaz",
-    "decidedAt": "2026-06-15T00:00:00.000Z",
+    "winnerJobIdentifier": "volg-fenaco-51b4337a6fa7",
+    "winnerCanonical": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-untervaz",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.7692,
-    "candidatesCount": 2,
+    "score": 0.5333,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::apprendistato-come-assistente-al-commercio-al-dettaglio-cfp-alimentari-volg-untervaz": {
@@ -36372,7 +36390,7 @@
     "winnerJobIdentifier": "company-ylgjxe",
     "winnerCanonical": "venditore-denner-ag-sulgen",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "TG"
@@ -36399,7 +36417,7 @@
     "winnerJobIdentifier": "company-ylgjxe",
     "winnerCanonical": "venditore-denner-ag-sulgen",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "TG"
@@ -36417,7 +36435,7 @@
     "winnerJobIdentifier": "company-ylgjxe",
     "winnerCanonical": "venditore-denner-ag-sulgen",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 1,
     "canton": "TG"
@@ -36534,7 +36552,7 @@
     "winnerJobIdentifier": "company-ylgjxe",
     "winnerCanonical": "venditore-denner-ag-sulgen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 1,
     "canton": "TG"
@@ -36552,7 +36570,7 @@
     "winnerJobIdentifier": "company-ylgjxe",
     "winnerCanonical": "venditore-denner-ag-sulgen",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 1,
     "canton": "TG"
@@ -36570,7 +36588,7 @@
     "winnerJobIdentifier": "company-7kk8ni",
     "winnerCanonical": "venditore-denner-ag-frauenfeld",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-06-27T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "TG"
@@ -36597,7 +36615,7 @@
     "winnerJobIdentifier": "company-ylgjxe",
     "winnerCanonical": "venditore-denner-ag-sulgen",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 1,
     "canton": "TG"
@@ -36606,7 +36624,7 @@
     "winnerJobIdentifier": "company-ylgjxe",
     "winnerCanonical": "venditore-denner-ag-sulgen",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "TG"
@@ -36615,7 +36633,7 @@
     "winnerJobIdentifier": "company-ylgjxe",
     "winnerCanonical": "venditore-denner-ag-sulgen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 1,
     "canton": "TG"
@@ -36624,7 +36642,7 @@
     "winnerJobIdentifier": "company-ylgjxe",
     "winnerCanonical": "venditore-denner-ag-sulgen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "TG"
@@ -36651,7 +36669,7 @@
     "winnerJobIdentifier": "company-ylgjxe",
     "winnerCanonical": "venditore-denner-ag-sulgen",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "TG"
@@ -36660,7 +36678,7 @@
     "winnerJobIdentifier": "company-ylgjxe",
     "winnerCanonical": "venditore-denner-ag-sulgen",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
     "canton": "TG"
@@ -36675,9 +36693,9 @@
     "canton": "TG"
   },
   "TG::it::venditore-denner-ag-wattwil": {
-    "winnerJobIdentifier": "company-ylgjxe",
-    "winnerCanonical": "venditore-denner-ag-sulgen",
-    "decidedAt": "2026-07-01T00:00:00.000Z",
+    "winnerJobIdentifier": "company-7kk8ni",
+    "winnerCanonical": "venditore-denner-ag-frauenfeld",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 1,
@@ -36750,7 +36768,7 @@
     "winnerJobIdentifier": "company-ylgjxe",
     "winnerCanonical": "venditore-denner-ag-sulgen",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 1,
     "canton": "TG"
@@ -37173,7 +37191,7 @@
     "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-02T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
     "canton": "TI"
@@ -37614,7 +37632,7 @@
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "TI"
@@ -37656,11 +37674,11 @@
     "canton": "TI"
   },
   "TI::de::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uikzn5",
-    "winnerCanonical": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
-    "decidedAt": "2026-06-02T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
-    "score": 0.4444,
+    "winnerJobIdentifier": "company-uil169",
+    "winnerCanonical": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.7143,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -37668,7 +37686,7 @@
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 1,
     "canton": "TI"
@@ -37791,11 +37809,11 @@
     "canton": "TI"
   },
   "TI::de::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uikzou",
-    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
-    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uil0c5",
+    "winnerCanonical": "medizinischer-assistent-neurochirurgie-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.4,
+    "score": 0.6,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -37992,7 +38010,7 @@
     "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 1,
     "canton": "TI"
@@ -38007,11 +38025,11 @@
     "canton": "TI"
   },
   "TI::de::physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-uil2ol",
-    "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-06-02T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
-    "score": 0.4,
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -38439,11 +38457,11 @@
     "canton": "TI"
   },
   "TI::en::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uikzou",
-    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou",
-    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uilr3p",
+    "winnerCanonical": "assistant-physician-100-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.25,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -38916,11 +38934,11 @@
     "canton": "TI"
   },
   "TI::en::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-uil2ol",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -39108,7 +39126,7 @@
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
     "canton": "TI"
@@ -39135,7 +39153,7 @@
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 1,
     "canton": "TI"
@@ -39204,11 +39222,11 @@
     "canton": "TI"
   },
   "TI::en::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uilr2u",
-    "winnerCanonical": "medical-study-assistant-100-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.8,
+    "score": 0.2667,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -39267,11 +39285,11 @@
     "canton": "TI"
   },
   "TI::en::nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uikzn5",
-    "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
-    "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
-    "score": 0.6667,
+    "winnerJobIdentifier": "company-uikzlh",
+    "winnerCanonical": "nursing-practitioner-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -39441,7 +39459,7 @@
     "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 1,
     "canton": "TI"
@@ -39465,11 +39483,11 @@
     "canton": "TI"
   },
   "TI::en::physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-uil2ol",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-06-02T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
-    "score": 0.5556,
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -40611,7 +40629,7 @@
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.4167,
     "candidatesCount": 2,
     "canton": "TI"
@@ -40638,7 +40656,7 @@
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "TI"
@@ -40896,11 +40914,11 @@
     "canton": "TI"
   },
   "TI::fr::physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-uil2ol",
-    "winnerCanonical": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
-    "score": 0.3636,
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -40944,7 +40962,7 @@
     "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 1,
     "canton": "TI"
@@ -40959,11 +40977,11 @@
     "canton": "TI"
   },
   "TI::fr::physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-uil2ol",
-    "winnerCanonical": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-06-02T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
-    "score": 0.4,
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -41295,7 +41313,7 @@
     "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-25T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 1,
     "canton": "TI"
@@ -41304,7 +41322,7 @@
     "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "TI"
@@ -41313,7 +41331,7 @@
     "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "TI"
@@ -41322,7 +41340,7 @@
     "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "TI"
@@ -41553,11 +41571,11 @@
     "canton": "TI"
   },
   "TI::it::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be": {
-    "winnerJobIdentifier": "company-uil2ol",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.4545,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -41697,11 +41715,11 @@
     "canton": "TI"
   },
   "TI::it::employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-c72886": {
-    "winnerJobIdentifier": "company-uil169",
-    "winnerCanonical": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.7,
+    "score": 0.5455,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -41943,7 +41961,7 @@
     "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-25T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 1,
     "canton": "TI"
@@ -41952,7 +41970,7 @@
     "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "TI"
@@ -42186,7 +42204,7 @@
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3077,
     "candidatesCount": 1,
     "canton": "TI"
@@ -42195,7 +42213,7 @@
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 1,
     "canton": "TI"
@@ -42438,26 +42456,26 @@
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::it::physiotherapeut-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.4545,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::physiotherapeut-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.3636,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -42489,11 +42507,11 @@
     "canton": "TI"
   },
   "TI::it::physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-050a3d": {
-    "winnerJobIdentifier": "company-uil2ol",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.4545,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -42519,7 +42537,7 @@
     "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-25T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 1,
     "canton": "TI"
@@ -42561,11 +42579,11 @@
     "canton": "TI"
   },
   "TI::it::physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-uil2ol",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-06-02T00:00:00.000Z",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.3636,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -42672,7 +42690,7 @@
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-23T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 2,
     "canton": "TI"
@@ -42726,7 +42744,7 @@
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.4167,
     "candidatesCount": 2,
     "canton": "TI"
@@ -42816,7 +42834,7 @@
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-23T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
     "canton": "TI"
@@ -42912,21 +42930,21 @@
     "canton": "TI"
   },
   "VD::de::adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains": {
-    "winnerJobIdentifier": "company-r01gwh",
-    "winnerCanonical": "lebensmittelverkaufsleiter-societe-cooperative-migros-vaud-yverdon-les-bains",
+    "winnerJobIdentifier": "company-msolex",
+    "winnerCanonical": "stellvertretender-manager-m-f-d-societe-cooperative-migros-vaud-ecublens",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.5385,
-    "candidatesCount": 2,
+    "score": 0.375,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::de::adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l": {
-    "winnerJobIdentifier": "company-r01gwh",
-    "winnerCanonical": "lebensmittelverkaufsleiter-societe-cooperative-migros-vaud-yverdon-les-bains",
+    "winnerJobIdentifier": "company-msolex",
+    "winnerCanonical": "stellvertretender-manager-m-f-d-societe-cooperative-migros-vaud-ecublens",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3529,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::de::allianz-bewerbermanagement": {
@@ -43002,12 +43020,12 @@
     "canton": "VD"
   },
   "VD::de::deputy-manager-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l": {
-    "winnerJobIdentifier": "company-r01gwh",
-    "winnerCanonical": "lebensmittelverkaufsleiter-societe-cooperative-migros-vaud-yverdon-les-bains",
+    "winnerJobIdentifier": "company-msolex",
+    "winnerCanonical": "stellvertretender-manager-m-f-d-societe-cooperative-migros-vaud-ecublens",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.4375,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::de::enseignant-e-specialise-e-ophtalmique-lausanne": {
@@ -43443,12 +43461,12 @@
     "canton": "VD"
   },
   "VD::de::stellvertretender-filialleiter-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l": {
-    "winnerJobIdentifier": "company-r01gwh",
-    "winnerCanonical": "lebensmittelverkaufsleiter-societe-cooperative-migros-vaud-yverdon-les-bains",
+    "winnerJobIdentifier": "company-msolex",
+    "winnerCanonical": "stellvertretender-manager-m-f-d-societe-cooperative-migros-vaud-ecublens",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.4375,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::de::taches-principales-hirslanden-search": {
@@ -43497,30 +43515,30 @@
     "canton": "VD"
   },
   "VD::de::vice-responsabile-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l": {
-    "winnerJobIdentifier": "company-r01gwh",
-    "winnerCanonical": "lebensmittelverkaufsleiter-societe-cooperative-migros-vaud-yverdon-les-bains",
+    "winnerJobIdentifier": "company-msolex",
+    "winnerCanonical": "stellvertretender-manager-m-f-d-societe-cooperative-migros-vaud-ecublens",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3529,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::en::adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains": {
-    "winnerJobIdentifier": "company-r01gwh",
-    "winnerCanonical": "food-sales-manager-societe-cooperative-migros-vaud-yverdon-les-bains",
+    "winnerJobIdentifier": "company-msolex",
+    "winnerCanonical": "assistant-manager-m-f-d-societe-cooperative-migros-vaud-ecublens",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.4667,
-    "candidatesCount": 2,
+    "score": 0.375,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::en::adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l": {
-    "winnerJobIdentifier": "company-r01gwh",
-    "winnerCanonical": "food-sales-manager-societe-cooperative-migros-vaud-yverdon-les-bains",
+    "winnerJobIdentifier": "company-msolex",
+    "winnerCanonical": "assistant-manager-m-f-d-societe-cooperative-migros-vaud-ecublens",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.4375,
-    "candidatesCount": 2,
+    "score": 0.3529,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::en::allianz-bewerbermanagement": {
@@ -43551,12 +43569,12 @@
     "canton": "VD"
   },
   "VD::en::deputy-manager-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l": {
-    "winnerJobIdentifier": "company-r01gwh",
-    "winnerCanonical": "food-sales-manager-societe-cooperative-migros-vaud-yverdon-les-bains",
+    "winnerJobIdentifier": "company-msolex",
+    "winnerCanonical": "assistant-manager-m-f-d-societe-cooperative-migros-vaud-ecublens",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.5333,
-    "candidatesCount": 2,
+    "score": 0.4375,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::en::enseignant-e-specialise-e-ophtalmique-lausanne": {
@@ -43956,12 +43974,12 @@
     "canton": "VD"
   },
   "VD::en::stellvertretender-filialleiter-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l": {
-    "winnerJobIdentifier": "company-r01gwh",
-    "winnerCanonical": "food-sales-manager-societe-cooperative-migros-vaud-yverdon-les-bains",
+    "winnerJobIdentifier": "company-msolex",
+    "winnerCanonical": "assistant-manager-m-f-d-societe-cooperative-migros-vaud-ecublens",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.4375,
-    "candidatesCount": 2,
+    "score": 0.3529,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::en::taches-principales-hirslanden-search": {
@@ -44019,12 +44037,12 @@
     "canton": "VD"
   },
   "VD::en::vice-responsabile-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l": {
-    "winnerJobIdentifier": "company-r01gwh",
-    "winnerCanonical": "food-sales-manager-societe-cooperative-migros-vaud-yverdon-les-bains",
+    "winnerJobIdentifier": "company-msolex",
+    "winnerCanonical": "assistant-manager-m-f-d-societe-cooperative-migros-vaud-ecublens",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.4375,
-    "candidatesCount": 2,
+    "score": 0.3529,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::fr::adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains": {
@@ -45081,20 +45099,20 @@
     "canton": "VD"
   },
   "VD::it::galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyv2": {
-    "winnerJobIdentifier": "galenica-ed9e3621d65e",
+    "winnerJobIdentifier": "galenica-4902eb4c4623",
     "winnerCanonical": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne",
-    "decidedAt": "2026-07-02T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.9,
     "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyxm": {
-    "winnerJobIdentifier": "galenica-ed9e3621d65e",
-    "winnerCanonical": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne",
-    "decidedAt": "2026-07-02T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
-    "score": 0.9,
+    "winnerJobIdentifier": "galenica-2f6bb1c8f701",
+    "winnerCanonical": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.7273,
     "candidatesCount": 1,
     "canton": "VD"
   },
@@ -45342,12 +45360,12 @@
     "canton": "VD"
   },
   "VD::it::vice-responsabile-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-axjg9l": {
-    "winnerJobIdentifier": "company-r01gwh",
-    "winnerCanonical": "responsabile-vendite-food-societe-cooperative-migros-vaud-yverdon-les-bains",
+    "winnerJobIdentifier": "company-msolex",
+    "winnerCanonical": "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-ecublens",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.5333,
-    "candidatesCount": 2,
+    "score": 0.4375,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VS::de::administrative-assistant-professor-s-secretary-60-80-target-language-english-epfl-sion": {
@@ -47700,21 +47718,21 @@
     "canton": "ZH"
   },
   "ZH::de::dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-fc8b987d7bb9",
-    "winnerCanonical": "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk",
-    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0,
-    "candidatesCount": 1,
+    "score": 0.3333,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::de::dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-puk-zuerich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-fc8b987d7bb9",
-    "winnerCanonical": "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk",
-    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.0714,
-    "candidatesCount": 1,
+    "score": 0.6,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::de::dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-zu-dtq80w": {
@@ -47817,12 +47835,12 @@
     "canton": "ZH"
   },
   "ZH::de::dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-a78af0b3ba29",
-    "winnerCanonical": "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-puk-zuerich-zurich",
-    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.6,
+    "candidatesCount": 4,
     "canton": "ZH"
   },
   "ZH::de::dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -48243,7 +48261,7 @@
     "winnerJobIdentifier": "galenica-140c46587273",
     "winnerCanonical": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dietikon",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-01T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 3,
     "canton": "ZH"
@@ -49158,12 +49176,12 @@
     "canton": "ZH"
   },
   "ZH::de::senior-backend-developer-tether-ch-5": {
-    "winnerJobIdentifier": "tether-8ae98b0bd8fd",
-    "winnerCanonical": "senior-backend-entwickler-tether-operations-zurich",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "tether-3517f1641e4b",
+    "winnerCanonical": "investment-associate-rise-fund-100-remote-tether-ch-3",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "score": 0.1538,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich": {
@@ -50139,11 +50157,11 @@
     "canton": "ZH"
   },
   "ZH::en::assistant-commercial-caisses-enregistreuses-services-assistant-etudiant-coop-genossenschaft-zurich-85efae": {
-    "winnerJobIdentifier": "company-1y9oa1",
-    "winnerCanonical": "cashier-service-assistant-student-part-time-coop-genossenschaft-zurich",
-    "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.2667,
+    "winnerJobIdentifier": "company-de3q6m",
+    "winnerCanonical": "seller-in-cash-registers-services-coop-genossenschaft-illnau-effretikon",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.1875,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -50499,11 +50517,11 @@
     "canton": "ZH"
   },
   "ZH::en::dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
-    "winnerCanonical": "dipl-nursing-specialist-nursing-specialist-acute-station-adolescent-a0-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-06-12T00:00:00.000Z",
-    "lastSeenAt": "2026-06-16T00:00:00.000Z",
-    "score": 0.25,
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-nursing-professional-nursing-professional-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.3077,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -50535,11 +50553,11 @@
     "canton": "ZH"
   },
   "ZH::en::dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
-    "winnerCanonical": "dipl-nursing-specialist-nursing-specialist-acute-station-adolescent-a0-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-06-12T00:00:00.000Z",
-    "lastSeenAt": "2026-06-16T00:00:00.000Z",
-    "score": 0.2667,
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-nursing-professional-nursing-professional-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -50889,7 +50907,7 @@
     "winnerJobIdentifier": "galenica-140c46587273",
     "winnerCanonical": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dietikon",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-01T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.1176,
     "candidatesCount": 3,
     "canton": "ZH"
@@ -51393,7 +51411,7 @@
     "winnerJobIdentifier": "schindler-5f5ed73aa9ca",
     "winnerCanonical": "manager-fur-cookie-einwilligungen-schindler-winterthur",
     "decidedAt": "2026-07-02T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -51704,6 +51722,15 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
+  "ZH::en::portfolio-manager-real-estate-portfolio-manager-real-estate-focus-on-site-development-psychiatrische-universitatsklinik": {
+    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
+    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.1176,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-psychiatrische-universitatsklinik": {
     "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
     "winnerCanonical": "dipl-nursing-specialist-nursing-specialist-acute-station-adolescent-a0-psychiatrische-universitatsklinik-zurich-zurich",
@@ -51714,10 +51741,10 @@
     "canton": "ZH"
   },
   "ZH::en::portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk": {
-    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
-    "winnerCanonical": "dipl-nursing-specialist-nursing-specialist-acute-station-adolescent-a0-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-27T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-7bd3b96c22d9",
+    "winnerCanonical": "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -51831,21 +51858,21 @@
     "canton": "ZH"
   },
   "ZH::en::sales-assistant-cash-registers-services-coop-genossenschaft-baden-0908c4": {
-    "winnerJobIdentifier": "company-de3q6m",
-    "winnerCanonical": "seller-in-cash-registers-services-coop-genossenschaft-illnau-effretikon",
+    "winnerJobIdentifier": "company-grzqv",
+    "winnerCanonical": "cashier-service-assistant-coop-genossenschaft-dietikon-0grzqv",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.3846,
-    "candidatesCount": 4,
+    "score": 0.2308,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::en::sales-assistant-cash-registers-services-coop-genossenschaft-baden-can6kx": {
-    "winnerJobIdentifier": "company-de3q6m",
-    "winnerCanonical": "seller-in-cash-registers-services-coop-genossenschaft-illnau-effretikon",
+    "winnerJobIdentifier": "company-grzqv",
+    "winnerCanonical": "cashier-service-assistant-coop-genossenschaft-dietikon-0grzqv",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.3846,
-    "candidatesCount": 4,
+    "score": 0.2308,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::en::sales-assistant-cash-registers-services-coop-genossenschaft-wadenswil": {
@@ -51876,10 +51903,10 @@
     "canton": "ZH"
   },
   "ZH::en::sales-assistant-cash-registers-services-student-assistant-coop-genossenschaft-zurich-5d6e2a": {
-    "winnerJobIdentifier": "company-1y9oa1",
-    "winnerCanonical": "cashier-service-assistant-student-part-time-coop-genossenschaft-zurich",
-    "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-06-26T00:00:00.000Z",
+    "winnerJobIdentifier": "company-de3q6m",
+    "winnerCanonical": "seller-in-cash-registers-services-coop-genossenschaft-illnau-effretikon",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -52227,12 +52254,12 @@
     "canton": "ZH"
   },
   "ZH::en::senior-backend-developer-tether-ch-5": {
-    "winnerJobIdentifier": "tether-8ae98b0bd8fd",
-    "winnerCanonical": "senior-backend-developer-tether-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "tether-3517f1641e4b",
+    "winnerCanonical": "investment-associate-rise-fund-100-remote-tether-ch",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.8333,
-    "candidatesCount": 2,
+    "score": 0.1667,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::senior-consultant-m-w-80-100-universitats-kinderspital-zurich-zurich": {
@@ -53631,11 +53658,11 @@
     "canton": "ZH"
   },
   "ZH::fr::dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
-    "winnerCanonical": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-adolescent-de-la-station-a0-psychiatrische",
-    "decidedAt": "2026-06-12T00:00:00.000Z",
-    "lastSeenAt": "2026-06-16T00:00:00.000Z",
-    "score": 0.1053,
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "infirmiere-diplomee-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.2308,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -53658,11 +53685,11 @@
     "canton": "ZH"
   },
   "ZH::fr::dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
-    "winnerCanonical": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-adolescent-de-la-station-a0-psychiatrische",
-    "decidedAt": "2026-06-12T00:00:00.000Z",
-    "lastSeenAt": "2026-06-16T00:00:00.000Z",
-    "score": 0.1111,
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "infirmiere-diplomee-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -54656,6 +54683,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::fr::membre-de-l-equipe-sandwich-produktion-50-80-m-j-marche-restaurants-schweiz-ag-dietlikon": {
+    "winnerJobIdentifier": "company-3ezvju",
+    "winnerCanonical": "nourriture-des-membres-de-l-equipe-f-m-d-marche-restaurants-schweiz-ag-dietlikon-ed2af4",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::metzger-in-fleischfachfrau-fleischfachmann-coop-dagmersellen-luzern-hqghlo": {
     "winnerJobIdentifier": "company-7q5u4d",
     "winnerCanonical": "boucher-specialiste-de-la-viande-coop-genossenschaft-winterthur",
@@ -54819,10 +54855,10 @@
     "canton": "ZH"
   },
   "ZH::fr::portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk": {
-    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
-    "winnerCanonical": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-adolescent-de-la-station-a0-psychiatrische",
-    "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-27T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-7bd3b96c22d9",
+    "winnerCanonical": "infirmiere-certifiee-de-garde-de-nuit-service-pediatrique-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -54834,6 +54870,15 @@
     "lastSeenAt": "2026-06-18T00:00:00.000Z",
     "score": 0.5714,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::fr::production-de-sandwichs-membres-de-l-equipe-50-80-f-m-d-marche-restaurants-schweiz-ag-dietlikon": {
+    "winnerJobIdentifier": "company-3ezvju",
+    "winnerCanonical": "nourriture-des-membres-de-l-equipe-f-m-d-marche-restaurants-schweiz-ag-dietlikon-ed2af4",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.6316,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::fr::produktionsregler-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
@@ -55206,12 +55251,12 @@
     "canton": "ZH"
   },
   "ZH::fr::senior-backend-developer-tether-ch-5": {
-    "winnerJobIdentifier": "tether-8ae98b0bd8fd",
-    "winnerCanonical": "developpeur-principal-tether-operations-zurich",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "tether-3517f1641e4b",
+    "winnerCanonical": "associe-en-investissement-rise-fund-100-a-distance-tether-operations-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.1,
-    "candidatesCount": 2,
+    "score": 0.0625,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich": {
@@ -55467,12 +55512,12 @@
     "canton": "ZH"
   },
   "ZH::fr::venditore-denner-ag-frauenfeld-008421": {
-    "winnerJobIdentifier": "company-9wcq9n",
-    "winnerCanonical": "vendeur-denner-ag-dubendorf",
+    "winnerJobIdentifier": "company-9ufgm8",
+    "winnerCanonical": "vendeur-denner-ag-zurich-e89fe9",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.2857,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::venditore-denner-ag-frauenfeld-7kk8ni": {
@@ -56034,12 +56079,12 @@
     "canton": "ZH"
   },
   "ZH::it::agent-name-kassen-services-coop-genossenschaft-volketswil-1a55a8": {
-    "winnerJobIdentifier": "company-de3q6m",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-illnau-effretikon",
+    "winnerJobIdentifier": "company-grzqv",
+    "winnerCanonical": "addetto-a-alle-casse-servizi-coop-genossenschaft-dietikon",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.1429,
-    "candidatesCount": 3,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::allianz-bewerbermanagement": {
@@ -56952,11 +56997,11 @@
     "canton": "ZH"
   },
   "ZH::it::dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
-    "winnerCanonical": "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische",
-    "decidedAt": "2026-06-12T00:00:00.000Z",
-    "lastSeenAt": "2026-06-16T00:00:00.000Z",
-    "score": 0.1111,
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.5455,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -58644,12 +58689,12 @@
     "canton": "ZH"
   },
   "ZH::it::nom-de-l-agent-kassen-services-coop-genossenschaft-volketswil-1a55a8": {
-    "winnerJobIdentifier": "company-de3q6m",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-illnau-effretikon",
+    "winnerJobIdentifier": "company-grzqv",
+    "winnerCanonical": "addetto-a-alle-casse-servizi-coop-genossenschaft-dietikon",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.125,
-    "candidatesCount": 3,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::oberarztin-arzt-80-100-clienia-ag-zurich": {
@@ -58857,6 +58902,15 @@
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.8182,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::produzione-di-sandwich-50-80-w-m-d-marche-restaurants-schweiz-ag-dietlikon": {
+    "winnerJobIdentifier": "company-oyviiv",
+    "winnerCanonical": "membro-del-team-bakery-f-m-d-marche-restaurants-schweiz-ag-dietlikon",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.3889,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::project-manager-gis-high-voltage-80-100-hitachi-energy-zurich-switzerland": {
@@ -59121,12 +59175,12 @@
     "canton": "ZH"
   },
   "ZH::it::salesperson-cashier-services-coop-genossenschaft-baden": {
-    "winnerJobIdentifier": "company-de3q6m",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-illnau-effretikon",
+    "winnerJobIdentifier": "company-grzqv",
+    "winnerCanonical": "addetto-a-alle-casse-servizi-coop-genossenschaft-dietikon",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.1667,
-    "candidatesCount": 4,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::salesperson-food-coop-genossenschaft-zurich": {
@@ -59160,7 +59214,7 @@
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "venditore-denner-ag-urdorf",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-30T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 3,
     "canton": "ZH"
@@ -59169,7 +59223,7 @@
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "venditore-denner-ag-urdorf",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-30T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 3,
     "canton": "ZH"
@@ -59184,12 +59238,12 @@
     "canton": "ZH"
   },
   "ZH::it::seller-denner-ag-zurich-1ed56c": {
-    "winnerJobIdentifier": "company-o7keak",
-    "winnerCanonical": "venditore-denner-ag-zurich",
-    "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-30T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 3,
+    "winnerJobIdentifier": "company-56ql1j",
+    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::seller-fresh-products-coop-genossenschaft-richterswil-5c8745": {
@@ -59391,12 +59445,12 @@
     "canton": "ZH"
   },
   "ZH::it::senior-backend-developer-tether-ch-5": {
-    "winnerJobIdentifier": "tether-8ae98b0bd8fd",
-    "winnerCanonical": "sviluppatore-senior-backend-tether-operations-zurich",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "tether-3517f1641e4b",
+    "winnerCanonical": "investimenti-associate-rise-fund-100-remote-tether-operations-zurich",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "score": 0.0714,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich": {
@@ -59642,6 +59696,24 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::teammember-sandwich-produktion-50-80-m-w-d-marche-dietlikon-8fw5cq": {
+    "winnerJobIdentifier": "company-oyviiv",
+    "winnerCanonical": "membro-del-team-bakery-f-m-d-marche-restaurants-schweiz-ag-dietlikon",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.2105,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::teammember-sandwich-produktion-50-80-m-w-d-marche-restaurants-schweiz-ag-dietlikon-8fw5cq": {
+    "winnerJobIdentifier": "company-oyviiv",
+    "winnerCanonical": "membro-del-team-bakery-f-m-d-marche-restaurants-schweiz-ag-dietlikon",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.3684,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::tecnico-del-data-center-svizzera-rafz-sito-reboot-monkey-rafz": {
     "winnerJobIdentifier": "reboot-monkey-fd5914207512",
     "winnerCanonical": "tecnico-data-center-svizzera-rafz-in-presenza-reboot-monkey-rafz",
@@ -59796,12 +59868,12 @@
     "canton": "ZH"
   },
   "ZH::it::vendeur-denner-ag-frauenfeld": {
-    "winnerJobIdentifier": "company-56ql1j",
-    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "winnerJobIdentifier": "company-9wcq9n",
+    "winnerCanonical": "venditore-denner-ag-dubendorf",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.3333,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::vendeur-denner-ag-frauenfeld-008421": {
@@ -59826,7 +59898,7 @@
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "venditore-denner-ag-urdorf",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-30T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 3,
     "canton": "ZH"
@@ -59850,21 +59922,21 @@
     "canton": "ZH"
   },
   "ZH::it::vendeur-denner-ag-zurich-1ed56c": {
-    "winnerJobIdentifier": "company-o7keak",
-    "winnerCanonical": "venditore-denner-ag-zurich",
-    "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-30T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 3,
-    "canton": "ZH"
-  },
-  "ZH::it::vendeur-denner-ag-zurich-e89fe9": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "venditore-denner-ag-urdorf",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.2857,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::vendeur-denner-ag-zurich-e89fe9": {
+    "winnerJobIdentifier": "company-9wcq9n",
+    "winnerCanonical": "venditore-denner-ag-dubendorf",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::vendeur-euse-produits-frais-coop-genossenschaft-richterswil-5c8745": {
@@ -59931,8 +60003,8 @@
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-frauenfeld": {
-    "winnerJobIdentifier": "company-56ql1j",
-    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "winnerJobIdentifier": "company-9wcq9n",
+    "winnerCanonical": "venditore-denner-ag-dubendorf",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.6,
@@ -59940,12 +60012,12 @@
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-frauenfeld-008421": {
-    "winnerJobIdentifier": "company-56ql1j",
-    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "winnerJobIdentifier": "company-9ufgm8",
+    "winnerCanonical": "venditore-denner-ag-zurich-e89fe9",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 3,
+    "score": 0.4286,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-frauenfeld-7kk8ni": {
@@ -59958,12 +60030,12 @@
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-gossau-sg": {
-    "winnerJobIdentifier": "company-56ql1j",
-    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "winnerJobIdentifier": "company-9wcq9n",
+    "winnerCanonical": "venditore-denner-ag-dubendorf",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 3,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-langenthal": {
@@ -59985,21 +60057,21 @@
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-rubigen": {
-    "winnerJobIdentifier": "company-56ql1j",
-    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "winnerJobIdentifier": "company-9wcq9n",
+    "winnerCanonical": "venditore-denner-ag-dubendorf",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.6,
-    "candidatesCount": 3,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-stein-ag": {
-    "winnerJobIdentifier": "company-56ql1j",
-    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "winnerJobIdentifier": "company-9wcq9n",
+    "winnerCanonical": "venditore-denner-ag-dubendorf",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.6,
-    "candidatesCount": 3,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-urdorf": {
@@ -60012,66 +60084,66 @@
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-wattwil": {
-    "winnerJobIdentifier": "company-56ql1j",
-    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "winnerJobIdentifier": "company-9wcq9n",
+    "winnerCanonical": "venditore-denner-ag-dubendorf",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.6,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-wattwil-8129f7": {
-    "winnerJobIdentifier": "company-56ql1j",
-    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "winnerJobIdentifier": "company-9wcq9n",
+    "winnerCanonical": "venditore-denner-ag-dubendorf",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-wetzikon": {
-    "winnerJobIdentifier": "company-56ql1j",
-    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "winnerJobIdentifier": "company-9wcq9n",
+    "winnerCanonical": "venditore-denner-ag-dubendorf",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.6,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-wetzikon-e6382f": {
-    "winnerJobIdentifier": "company-56ql1j",
-    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "winnerJobIdentifier": "company-9wcq9n",
+    "winnerCanonical": "venditore-denner-ag-dubendorf",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-zurich": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "venditore-denner-ag-urdorf",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-30T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-zurich-1d38ef": {
-    "winnerJobIdentifier": "company-o7keak",
-    "winnerCanonical": "venditore-denner-ag-zurich",
-    "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-30T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 3,
+    "winnerJobIdentifier": "company-56ql1j",
+    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-zurich-1ed56c": {
-    "winnerJobIdentifier": "company-o7keak",
-    "winnerCanonical": "venditore-denner-ag-zurich",
-    "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-30T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 3,
+    "winnerJobIdentifier": "company-56ql1j",
+    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-zurich-fzpktp": {
@@ -60111,12 +60183,12 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-denner-ag-gossau-sg": {
-    "winnerJobIdentifier": "company-56ql1j",
-    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "winnerJobIdentifier": "company-9wcq9n",
+    "winnerCanonical": "venditore-denner-ag-dubendorf",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.25,
-    "candidatesCount": 3,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-denner-ag-gossau-sg-66bf93": {
@@ -60135,6 +60207,15 @@
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::verkaufer-in-denner-ag-rubigen": {
+    "winnerJobIdentifier": "company-56ql1j",
+    "winnerCanonical": "venditore-denner-ag-urdorf",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-denner-ag-urdorf": {
@@ -60389,6 +60470,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::verkaufer-in-frischprodukte-coop-kloten-zurich": {
+    "winnerJobIdentifier": "company-wq4uuw",
+    "winnerCanonical": "venditore-di-prodotti-freschi-coop-genossenschaft-kloten",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::verkaufer-in-frischprodukte-coop-pfaffikon-zurich-itq4w3": {
     "winnerJobIdentifier": "company-itq4w3",
     "winnerCanonical": "venditore-di-prodotti-freschi-coop-genossenschaft-pfaffikon",
@@ -60453,11 +60543,11 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-frischprodukte-coop-zurich-3lyeu4": {
-    "winnerJobIdentifier": "company-itq4w3",
-    "winnerCanonical": "addetto-a-vendite-prodotti-freschi-coop-genossenschaft-pfaffikon",
-    "decidedAt": "2026-07-01T00:00:00.000Z",
+    "winnerJobIdentifier": "company-zh31qt",
+    "winnerCanonical": "venditore-di-prodotti-freschi-coop-genossenschaft-feuerthalen",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.0769,
+    "score": 0.0833,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -60543,21 +60633,21 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-baden-aargau-can6kx": {
-    "winnerJobIdentifier": "company-de3q6m",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-illnau-effretikon",
+    "winnerJobIdentifier": "company-grzqv",
+    "winnerCanonical": "addetto-a-alle-casse-servizi-coop-genossenschaft-dietikon",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.1429,
-    "candidatesCount": 4,
+    "score": 0.0667,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-genossenschaft-baden-can6kx": {
-    "winnerJobIdentifier": "company-de3q6m",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-illnau-effretikon",
+    "winnerJobIdentifier": "company-grzqv",
+    "winnerCanonical": "addetto-a-alle-casse-servizi-coop-genossenschaft-dietikon",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
-    "score": 0.2308,
-    "candidatesCount": 4,
+    "score": 0.1429,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-genossenschaft-cham-lpj1m6": {
@@ -60588,12 +60678,12 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-genossenschaft-volketswil": {
-    "winnerJobIdentifier": "company-de3q6m",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-illnau-effretikon",
+    "winnerJobIdentifier": "company-z12qze",
+    "winnerCanonical": "addetto-a-alle-casse-servizi-coop-genossenschaft-volketswil",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.25,
-    "candidatesCount": 4,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-genossenschaft-wadenswil": {
@@ -60621,6 +60711,15 @@
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::verkaufer-in-kassen-services-coop-genossenschaft-zurich": {
+    "winnerJobIdentifier": "company-t19yhg",
+    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-zurich-02b9ee",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-genossenschaft-zurich-jp46wh": {
@@ -60687,12 +60786,12 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-volketswil-zurich": {
-    "winnerJobIdentifier": "company-de3q6m",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-illnau-effretikon",
+    "winnerJobIdentifier": "company-z12qze",
+    "winnerCanonical": "addetto-a-alle-casse-servizi-coop-genossenschaft-volketswil",
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-06T00:00:00.000Z",
     "score": 0.1538,
-    "candidatesCount": 4,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-wadenswil-zurich": {
@@ -60773,6 +60872,15 @@
     "decidedAt": "2026-06-16T00:00:00.000Z",
     "lastSeenAt": "2026-06-18T00:00:00.000Z",
     "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::verkaufer-in-kassen-services-studentenaushilfe-coop-zurich": {
+    "winnerJobIdentifier": "company-rw1sqg",
+    "winnerCanonical": "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich-63e09f",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-06T00:00:00.000Z",
+    "score": 0.1765,
     "candidatesCount": 2,
     "canton": "ZH"
   },
