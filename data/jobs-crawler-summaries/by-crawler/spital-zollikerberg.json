@@ -1,22 +1,22 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-06T00:12:09.903Z",
-  "total": 6,
+  "generatedAt": "2026-07-06T15:38:26.575Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2850,
-  "avgDurationMs": 2850,
+  "durationMs": 2835,
+  "avgDurationMs": 2835,
   "durationHistory": [
-    2850
+    2835
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "spital-zollikerberg-60e7cb04eb98",
-      "slug": "berufsbildnerin-berufsbildner-maternite-spital-zollikerberg-zollikerberg",
+      "slug": "formazione-professionale-formazione-professionale-maternite-spital-zollikerberg-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
@@ -43,12 +43,15 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=13c68f5e-2740-4239-854d-6abfc112cc18,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "_qualityScore": 77,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
