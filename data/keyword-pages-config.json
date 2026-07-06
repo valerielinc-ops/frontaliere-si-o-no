@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-05T06:44:53.280Z",
-  "totalQueriesAnalyzed": 3498,
+  "generatedAt": "2026-07-06T08:00:07.190Z",
+  "totalQueriesAnalyzed": 3500,
   "qualifyingQueries": 252,
   "clustersFound": 124,
   "pages": [
@@ -11,8 +11,8 @@
         "case",
         "anziani"
       ],
-      "totalClicks": 50,
-      "totalImpressions": 854,
+      "totalClicks": 51,
+      "totalImpressions": 870,
       "queryCount": 2,
       "allQueries": [
         "case anziani ticino offerte di lavoro",
@@ -27,24 +27,24 @@
       }
     },
     {
-      "slug": "offerte-di-lavoro-casa-di-riposo-svizzera",
-      "query": "offerte di lavoro casa di riposo svizzera",
+      "slug": "offerte-lavoro-casa-di-riposo-svizzera",
+      "query": "offerte lavoro casa di riposo svizzera",
       "filterKeywords": [
         "casa",
         "riposo"
       ],
-      "totalClicks": 46,
-      "totalImpressions": 539,
+      "totalClicks": 47,
+      "totalImpressions": 557,
       "queryCount": 2,
       "allQueries": [
-        "offerte di lavoro casa di riposo svizzera",
-        "offerte lavoro casa di riposo svizzera"
+        "offerte lavoro casa di riposo svizzera",
+        "offerte di lavoro casa di riposo svizzera"
       ],
       "copy": {
         "it": {
-          "title": "Offerte di Lavoro Casa di Riposo Svizzera in Ticino | Frontaliere Ticino",
-          "description": "Offerte di lavoro per \"offerte di lavoro casa di riposo svizzera\" in Ticino. Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
-          "heading": "Offerte di Lavoro Casa di Riposo Svizzera in Ticino"
+          "title": "Offerte Lavoro Casa di Riposo Svizzera in Ticino | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"offerte lavoro casa di riposo svizzera\" in Ticino. Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Offerte Lavoro Casa di Riposo Svizzera in Ticino"
         }
       }
     },
@@ -138,7 +138,7 @@
         "anziani"
       ],
       "totalClicks": 35,
-      "totalImpressions": 521,
+      "totalImpressions": 530,
       "queryCount": 7,
       "allQueries": [
         "offerte di lavoro casa anziani ticino",
@@ -293,7 +293,7 @@
         "italiana"
       ],
       "totalClicks": 12,
-      "totalImpressions": 146,
+      "totalImpressions": 147,
       "queryCount": 4,
       "allQueries": [
         "offerte di lavoro educatrice svizzera italiana",
@@ -428,7 +428,7 @@
         "sociale"
       ],
       "totalClicks": 7,
-      "totalImpressions": 42,
+      "totalImpressions": 43,
       "queryCount": 2,
       "allQueries": [
         "educatore sociale offerte lavoro ticino",
@@ -630,7 +630,7 @@
         "noi"
       ],
       "totalClicks": 4,
-      "totalImpressions": 45,
+      "totalImpressions": 48,
       "queryCount": 1,
       "allQueries": [
         "case di riposo ticino lavora con noi"
@@ -860,6 +860,160 @@
           "title": "Consulente Alla Clientela Ticino | Frontaliere Ticino",
           "description": "Offerte di lavoro per \"consulente alla clientela ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
           "heading": "Consulente Alla Clientela Ticino"
+        }
+      }
+    },
+    {
+      "slug": "dietista-ticino",
+      "query": "dietista ticino",
+      "filterKeywords": [
+        "dietist"
+      ],
+      "totalClicks": 0,
+      "totalImpressions": 0,
+      "queryCount": 1,
+      "allQueries": [
+        "dietista ticino"
+      ],
+      "source": "profession-gap",
+      "professionId": "dietista",
+      "copy": {
+        "it": {
+          "title": "Dietista Ticino - Posizioni Aperte | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"dietista ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Dietista Ticino"
+        }
+      }
+    },
+    {
+      "slug": "meccanico-ticino",
+      "query": "meccanico ticino",
+      "filterKeywords": [
+        "meccanic"
+      ],
+      "totalClicks": 0,
+      "totalImpressions": 12,
+      "queryCount": 1,
+      "allQueries": [
+        "meccanico ticino"
+      ],
+      "source": "profession-gap",
+      "professionId": "meccanico",
+      "copy": {
+        "it": {
+          "title": "Meccanico Ticino - Posizioni Aperte | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"meccanico ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Meccanico Ticino"
+        }
+      }
+    },
+    {
+      "slug": "tecnico-automazione-ticino",
+      "query": "tecnico automazione ticino",
+      "filterKeywords": [
+        "automazion"
+      ],
+      "totalClicks": 0,
+      "totalImpressions": 0,
+      "queryCount": 1,
+      "allQueries": [
+        "tecnico automazione ticino"
+      ],
+      "source": "profession-gap",
+      "professionId": "automazione",
+      "copy": {
+        "it": {
+          "title": "Tecnico Automazione Ticino - Posizioni Aperte | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"tecnico automazione ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Tecnico Automazione Ticino"
+        }
+      }
+    },
+    {
+      "slug": "addetto-alle-pulizie-ticino",
+      "query": "addetto alle pulizie ticino",
+      "filterKeywords": [
+        "pulizie"
+      ],
+      "totalClicks": 5,
+      "totalImpressions": 24,
+      "queryCount": 1,
+      "allQueries": [
+        "addetto alle pulizie ticino"
+      ],
+      "source": "profession-gap",
+      "professionId": "addetto-pulizie",
+      "copy": {
+        "it": {
+          "title": "Addetto Alle Pulizie Ticino - Posizioni Aperte | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"addetto alle pulizie ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Addetto Alle Pulizie Ticino"
+        }
+      }
+    },
+    {
+      "slug": "pasticcere-ticino",
+      "query": "pasticcere ticino",
+      "filterKeywords": [
+        "pasticc"
+      ],
+      "totalClicks": 0,
+      "totalImpressions": 2,
+      "queryCount": 1,
+      "allQueries": [
+        "pasticcere ticino"
+      ],
+      "source": "profession-gap",
+      "professionId": "pasticcere",
+      "copy": {
+        "it": {
+          "title": "Pasticcere Ticino - Posizioni Aperte | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"pasticcere ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Pasticcere Ticino"
+        }
+      }
+    },
+    {
+      "slug": "risorse-umane-ticino",
+      "query": "risorse umane ticino",
+      "filterKeywords": [
+        "risorse umane"
+      ],
+      "totalClicks": 2,
+      "totalImpressions": 88,
+      "queryCount": 1,
+      "allQueries": [
+        "risorse umane ticino"
+      ],
+      "source": "profession-gap",
+      "professionId": "risorse-umane",
+      "copy": {
+        "it": {
+          "title": "Risorse Umane Ticino - Posizioni Aperte | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"risorse umane ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Risorse Umane Ticino"
+        }
+      }
+    },
+    {
+      "slug": "pittore-imbianchino-ticino",
+      "query": "pittore / imbianchino ticino",
+      "filterKeywords": [
+        "imbianchin"
+      ],
+      "totalClicks": 1,
+      "totalImpressions": 11,
+      "queryCount": 1,
+      "allQueries": [
+        "pittore / imbianchino ticino"
+      ],
+      "source": "profession-gap",
+      "professionId": "pittore",
+      "copy": {
+        "it": {
+          "title": "Pittore / Imbianchino Ticino - Posizioni Aperte | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"pittore / imbianchino ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Pittore / Imbianchino Ticino"
         }
       }
     }
