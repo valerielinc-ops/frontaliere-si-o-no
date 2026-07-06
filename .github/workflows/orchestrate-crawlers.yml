@@ -10,16 +10,16 @@ on:
   workflow_dispatch:
     inputs:
       group:
-        description: 'Which crawlers to run (all = every update-jobs-*.yml)'
+        description: 'Which crawlers to run (all = every crawler-group-*.yml)'
         required: false
         default: 'all'
         type: choice
         options:
           - all
       delay_seconds:
-        description: 'Seconds to wait between dispatches (10-120)'
+        description: 'Seconds to wait between dispatches (10-60)'
         required: false
-        default: '120'
+        default: '20'
         type: string
       dry_run:
         description: 'Log which workflows would run without dispatching'
@@ -45,22 +45,15 @@ env:
 jobs:
   dispatch:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
-    # FRO-432: shard the dispatch across parallel jobs. A single sequential pass
-    # over the full crawler set (425 on 2026-06-03) cannot finish inside the
-    # 180-min job timeout — the run was cancelled at ~386/425, so the
-    # alphabetical tail (t–z: tschuggen … zurzach-care) was never dispatched and
-    # those ~27 crawlers went `stale` in the health monitor. Sharding splits the
-    # set so every crawler is reached well within the timeout, with headroom for
-    # growth. Keep SHARD_TOTAL small (2): each shard's API call rate stays under
-    # the 1000 req/hour GITHUB_TOKEN ceiling even when both run concurrently.
-    strategy:
-      fail-fast: false
-      matrix:
-        shard: [0, 1]
-    env:
-      SHARD_INDEX: ${{ matrix.shard }}
-      SHARD_TOTAL: '2'
+    timeout-minutes: 30
+    # Consolidation (2026-07): the crawler set collapsed from 581 individual
+    # `update-jobs-*.yml` workflows to 23 grouped `crawler-group-*.yml`
+    # workflows (each group bundles multiple crawlers as concurrent
+    # `background: true` steps inside ONE job — see
+    # scripts/generate-crawler-group-workflows.mjs). Dispatching 23 targets
+    # takes seconds, well within any single job's timeout, so the FRO-432
+    # 2-shard matrix split (needed to fit 581 sequential dispatches inside a
+    # 180-min job) is no longer necessary — a single job dispatches all 23.
 
     steps:
       - name: Checkout (workflow files + failure-report script)
@@ -88,14 +81,6 @@ jobs:
           sparse-checkout-cone-mode: false
           fetch-depth: 1
 
-      # Run inside each shard (not as a separate gating job) on purpose: a
-      # standalone `reap` job that `dispatch needs:` would, on its own
-      # failure/cancellation, leave both shards SKIPPED — a silent stale wave
-      # with no failure signal (skipped != failed, so the Report-failure step
-      # never fires), the exact symptom this workflow fixes. As a step here, a
-      # reap error fails the shard job → visible red + Report failure fires,
-      # while the other shard still dispatches its half. Cancelling already-gone
-      # queued runs is a no-op, so the two shards reaping concurrently is safe.
       - name: Reap zombie queued runs (>30 min)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -166,10 +151,10 @@ jobs:
             done
           fi
 
-      - name: Discover and dispatch crawler workflows
+      - name: Discover and dispatch crawler group workflows
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DELAY: ${{ inputs.delay_seconds || '120' }}
+          DELAY: ${{ inputs.delay_seconds || '20' }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
         run: |
           set -euo pipefail
@@ -179,33 +164,16 @@ jobs:
           echo "╚══════════════════════════════════════════════════════════╝"
           echo ""
 
-          # FRO-326/FRO-424: Volume-based staggering.
-          # AI quota spreading is no longer needed here (skip_ai_translation=1 is passed
-          # to all crawlers; translation runs centrally via translate-pending.yml).
-          # Delays exist only to avoid GitHub API rate limits and runner contention.
-          # Large crawlers (>50 jobs): 120s delay (2 minutes)
-          # Medium crawlers (10-50 jobs): 60s delay (1 minute)
-          # Small crawlers (<10 jobs): 20s delay
-
-          # Known large crawlers (>50 estimated jobs per run)
-          # NB: update-jobs-raiffeisen moved here from MEDIUM_CRAWLERS — the
-          # dedicated national parser (medium 1950, all regional banks minus
-          # Vedeggio-Cassarate) returns ~210 jobs, well above the 50 threshold.
-          LARGE_CRAWLERS="update-jobs-coop update-jobs-sbb update-jobs-migros update-jobs-post update-jobs-confederazione update-jobs-sunrise update-jobs-amag update-jobs-kanton-zuerich update-jobs-raiffeisen"
-          # Known medium crawlers (10-50 jobs)
-          MEDIUM_CRAWLERS="update-jobs-allianz update-jobs-axpo update-jobs-axa update-jobs-hamilton update-jobs-volg update-jobs-hitachi update-jobs-trumpf update-jobs-agroscope update-jobs-bosch update-jobs-kempinski update-jobs-colin-cie update-jobs-engelvoelkers update-jobs-stadt-chur update-jobs-cler update-jobs-guess update-jobs-giorgio-armani update-jobs-sintetica update-jobs-casale update-jobs-citta-di-lugano update-jobs-ferrovia-retica update-jobs-mikron update-jobs-rapelli update-jobs-denner update-jobs-lonza"
-
+          # Consolidation (2026-07): 581 individual crawlers collapsed into 23
+          # grouped workflows (crawler-group-01..23.yml — see
+          # scripts/generate-crawler-group-workflows.mjs). The old FRO-326/
+          # FRO-424 volume-based per-crawler stagger (20s/60s/120s by known
+          # job-count tier) no longer applies at this granularity: there are
+          # only 23 dispatch calls total instead of ~580, so GitHub API
+          # rate-limit / runner-contention risk is already far lower. A single
+          # flat delay between dispatches is enough headroom.
           get_delay() {
-            local name="$1"
-            local base="${name%.yml}"
-            base="${base#update-jobs-}"
-            for lg in $LARGE_CRAWLERS; do
-              if [[ "$lg" == "update-jobs-$base" ]]; then echo "120"; return; fi
-            done
-            for md in $MEDIUM_CRAWLERS; do
-              if [[ "$md" == "update-jobs-$base" ]]; then echo "60"; return; fi
-            done
-            echo "20"
+            echo "$DELAY"
           }
 
           # Verify-by-observation: `gh workflow run` is a fire-and-forget RPC against
@@ -261,49 +229,31 @@ jobs:
             return 1
           }
 
-          # Discover all crawler workflow files (stable alphabetical order so the
-          # interleave below is deterministic across shards). LC_ALL=C pins a
-          # byte-wise collation so both concurrent shards see an identical order
-          # regardless of runner locale — a divergent LC_COLLATE could otherwise
-          # drop a crawler from both shards or double-dispatch it (FRO #1409).
-          mapfile -t all_workflows < <(find .github/workflows -name 'update-jobs-*.yml' -type f | LC_ALL=C sort)
-          grand_total=${#all_workflows[@]}
+          # Discover all crawler-group workflow files (stable alphabetical
+          # order — crawler-group-01..23.yml sorts correctly since indices are
+          # zero-padded). LC_ALL=C pins a byte-wise collation regardless of
+          # runner locale for determinism.
+          mapfile -t workflows < <(find .github/workflows -name 'crawler-group-*.yml' -type f | LC_ALL=C sort)
+          total=${#workflows[@]}
 
-          if [ "$grand_total" -eq 0 ]; then
-            echo "❌ No crawler workflows found!"
+          if [ "$total" -eq 0 ]; then
+            echo "❌ No crawler-group workflows found!"
             exit 1
           fi
 
-          # FRO-432: keep only the crawlers belonging to this shard. Interleave by
-          # position (index % SHARD_TOTAL == SHARD_INDEX) rather than slicing a
-          # contiguous block, so each shard is a representative mix of letters and
-          # a single failed shard never starves a whole alphabet range.
-          workflows=()
-          for i in "${!all_workflows[@]}"; do
-            if [ "$(( i % SHARD_TOTAL ))" -eq "$SHARD_INDEX" ]; then
-              workflows+=("${all_workflows[$i]}")
-            fi
-          done
-          total=${#workflows[@]}
-
-          echo "📋 Shard ${SHARD_INDEX}/${SHARD_TOTAL}: dispatching $total of $grand_total crawler workflows (FRO-326 volume-based staggering)"
+          echo "📋 Dispatching $total crawler-group workflows"
           echo ""
 
           dispatched=0
-          skipped=0
           failed=0
 
-          # Dispatch this shard's crawlers in alphabetical order; delay between each based on volume
+          # Dispatch all crawler-group workflows in alphabetical order, with a
+          # flat delay between each (see get_delay() above).
           for wf in "${workflows[@]}"; do
             filename=$(basename "$wf")
-            counter=$((dispatched + skipped + failed + 1))
+            counter=$((dispatched + failed + 1))
 
             this_delay=$(get_delay "$filename")
-            if [ "$this_delay" = "SKIP" ]; then
-              echo "  [$counter/$total] $filename — ⏭️  skipped (separate schedule)"
-              skipped=$((skipped + 1))
-              continue
-            fi
 
             echo -n "  [$counter/$total] $filename (delay: ${this_delay}s)"
 
@@ -321,7 +271,7 @@ jobs:
               failed=$((failed + 1))
             fi
 
-            # Volume-based delay between dispatches
+            # Delay between dispatches
             if [ "$counter" -lt "$total" ] && [ "$DRY_RUN" != "true" ]; then
               sleep "$this_delay"
             fi
@@ -329,11 +279,9 @@ jobs:
 
           echo ""
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "  📦 Shard:      ${SHARD_INDEX}/${SHARD_TOTAL}"
           echo "  ✅ Dispatched: $dispatched"
           echo "  ❌ Failed:     $failed"
-          echo "  ⏭️  Skipped:    $skipped"
-          echo "  📊 Shard total: $total (of $grand_total overall)"
+          echo "  📊 Total:      $total crawler-group workflows"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
           if [ "$failed" -gt 0 ]; then
@@ -344,20 +292,19 @@ jobs:
             echo "---- end gh stderr ----"
           fi
 
-          # Tolerate a few transient dispatch hiccups before failing the shard.
+          # Tolerate a few transient dispatch hiccups before failing the job.
           # `dispatch_and_verify` already retries; a residual "no run appeared
           # within 15s" is a flaky GitHub dispatch-API timing issue, NOT a
-          # crawler bug — the un-dispatched crawler is simply re-dispatched on
-          # the next cron cycle, so nothing breaks. Failing the whole shard on a
-          # single 1/220 hiccup just opened a spurious "Workflow Failure" issue
-          # every time (#1880). Only fail on a SYSTEMIC dispatch outage (many
-          # failures), which is the signal actually worth an issue.
-          DISPATCH_FAIL_TOLERANCE="${DISPATCH_FAIL_TOLERANCE:-3}"
+          # crawler bug — the un-dispatched group is simply re-dispatched on
+          # the next cron cycle, so nothing breaks. Failing the whole job on a
+          # single hiccup out of only 23 targets would be too sensitive, so we
+          # keep a small tolerance before treating it as a systemic outage.
+          DISPATCH_FAIL_TOLERANCE="${DISPATCH_FAIL_TOLERANCE:-2}"
           if [ "$failed" -gt "$DISPATCH_FAIL_TOLERANCE" ]; then
-            echo "❌ $failed dispatch failure(s) exceed tolerance ($DISPATCH_FAIL_TOLERANCE) — systemic dispatch outage, failing the shard."
+            echo "❌ $failed dispatch failure(s) exceed tolerance ($DISPATCH_FAIL_TOLERANCE) — systemic dispatch outage, failing the job."
             exit 1
           elif [ "$failed" -gt 0 ]; then
-            echo "✅ $failed transient dispatch failure(s) within tolerance ($DISPATCH_FAIL_TOLERANCE) — not failing the shard; they retry next cron cycle."
+            echo "✅ $failed transient dispatch failure(s) within tolerance ($DISPATCH_FAIL_TOLERANCE) — not failing the job; they retry next cron cycle."
           fi
 
       - name: Report failure to GitHub Issues

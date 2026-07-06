@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Scaffold a new job crawler — generates all 4 required files.
+ * Scaffold a new job crawler — generates all required files.
  *
  * Usage:
  *   node scripts/scaffold-crawler.mjs <company-key> [options]
@@ -24,15 +24,27 @@
  *   --force       Overwrite existing files
  *
  * Generated files:
- *   1. scripts/lib/{key}-job-parser.mjs        — Parser (ATS-aware when --ats != custom; ~50 lines instead of ~200)
- *   2. scripts/update-{key}-jobs.mjs           — Runner (30-line entry point)
- *   3. .github/workflows/update-jobs-{key}.yml — GitHub Actions workflow
- *   4. tests/{key}-crawler.test.ts             — Parser unit tests
+ *   1. scripts/lib/{key}-job-parser.mjs — Parser (ATS-aware when --ats != custom; ~50 lines instead of ~200)
+ *   2. scripts/update-{key}-jobs.mjs    — Runner (30-line entry point)
+ *   3. tests/{key}-crawler.test.ts      — Parser unit tests
+ *
+ * Consolidation (2026-07): crawlers no longer each get their own
+ * `.github/workflows/update-jobs-{key}.yml` (581 individual workflows were
+ * replaced by 23 grouped `crawler-group-*.yml` workflows — see
+ * scripts/generate-crawler-group-workflows.mjs). Instead this script upserts
+ * a manifest entry for the new crawler into data/crawler-manifest.json (same
+ * shape the group generator consumes: prepSteps/runStep/postSteps extracted
+ * from the same workflow-step template used previously). Run
+ * `node scripts/generate-crawler-group-workflows.mjs` afterwards to fold the
+ * new crawler into a group workflow (it's assigned to the corpus median
+ * duration until a real baseline sample exists — see
+ * data/crawler-workflow-duration-baseline.json).
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import YAML from 'yaml';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -205,9 +217,10 @@ if (marquee) {
 const files = {
   parser: path.join(ROOT, 'scripts', 'lib', `${companyKey}-job-parser.mjs`),
   runner: path.join(ROOT, 'scripts', `update-${companyKey}-jobs.mjs`),
-  workflow: path.join(ROOT, '.github', 'workflows', `update-jobs-${companyKey}.yml`),
   test: path.join(ROOT, 'tests', `${companyKey}-crawler.test.ts`),
 };
+
+const CRAWLER_MANIFEST_PATH = path.join(ROOT, 'data', 'crawler-manifest.json');
 
 /* ── Existence Check ─────────────────────────────────────────── */
 
@@ -217,6 +230,14 @@ if (!force) {
     console.error('❌ Files already exist (use --force to overwrite):');
     existing.forEach(([type, p]) => console.error(`   ${type}: ${path.relative(ROOT, p)}`));
     process.exit(1);
+  }
+  if (fs.existsSync(CRAWLER_MANIFEST_PATH)) {
+    const { manifest } = JSON.parse(fs.readFileSync(CRAWLER_MANIFEST_PATH, 'utf-8'));
+    if (manifest.some((c) => c.slug === companyKey)) {
+      console.error(`❌ Crawler manifest already has an entry for slug '${companyKey}' (use --force to overwrite):`);
+      console.error(`   ${path.relative(ROOT, CRAWLER_MANIFEST_PATH)}`);
+      process.exit(1);
+    }
   }
 }
 
@@ -980,12 +1001,74 @@ function writeFile(filePath, content, label) {
   console.log(`  ✅ ${label}: ${path.relative(ROOT, filePath)}`);
 }
 
+/**
+ * Parse the same per-crawler `workflowContent` YAML template used previously
+ * (kept as-is above so it stays the single place describing the exact step
+ * shape) into a manifest entry — prepSteps/runStep/postSteps, matching what
+ * scripts/generate-crawler-group-workflows.mjs consumes for every crawler.
+ * This mirrors the one-off bulk extraction originally run against the 581
+ * individual workflow files during the consolidation.
+ */
+function workflowContentToManifestEntry(slug, yamlText) {
+  const doc = YAML.parse(yamlText);
+  const jobKeys = Object.keys(doc.jobs || {});
+  if (jobKeys.length !== 1) {
+    throw new Error(`workflowContentToManifestEntry: expected 1 job, found ${jobKeys.length}`);
+  }
+  const jobKey = jobKeys[0];
+  const job = doc.jobs[jobKey];
+  const steps = job.steps || [];
+
+  const SHARED_PREFIX_NAMES = new Set(['Checkout', 'Setup Node.js']);
+  const runStepIdx = steps.findIndex((s) => typeof s.name === 'string' && /^Run\b/.test(s.name));
+  if (runStepIdx === -1) {
+    throw new Error(`workflowContentToManifestEntry: no "Run ..." step found for ${slug}`);
+  }
+
+  const prepSteps = steps.slice(0, runStepIdx).filter((s) => !SHARED_PREFIX_NAMES.has(s.name));
+  const runStep = steps[runStepIdx];
+  const postSteps = steps.slice(runStepIdx + 1);
+
+  return {
+    slug,
+    file: `update-jobs-${slug}.yml`, // historical naming kept for the summary-key script lookup
+    jobKey,
+    timeoutMinutes: job['timeout-minutes'] ?? 360,
+    prepSteps,
+    runStep,
+    postSteps,
+  };
+}
+
+function upsertCrawlerManifestEntry(entry) {
+  let data = { manifest: [], anomalies: [] };
+  if (fs.existsSync(CRAWLER_MANIFEST_PATH)) {
+    data = JSON.parse(fs.readFileSync(CRAWLER_MANIFEST_PATH, 'utf-8'));
+  }
+  const idx = data.manifest.findIndex((c) => c.slug === entry.slug);
+  if (idx === -1) {
+    data.manifest.push(entry);
+  } else {
+    data.manifest[idx] = entry;
+  }
+  data.manifest.sort((a, b) => a.slug.localeCompare(b.slug));
+  fs.mkdirSync(path.dirname(CRAWLER_MANIFEST_PATH), { recursive: true });
+  fs.writeFileSync(CRAWLER_MANIFEST_PATH, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+  console.log(`  ✅ Crawler manifest: upserted '${entry.slug}' in ${path.relative(ROOT, CRAWLER_MANIFEST_PATH)}`);
+}
+
 console.log(`\n🏗️  Scaffolding crawler: ${companyKey} (${companyName}) [--ats=${atsTier}${playwrightTier ? ', --playwright' : ''}]\n`);
 
 writeFile(files.parser, parserContent, 'Parser');
 writeFile(files.runner, runnerContent, 'Runner');
-writeFile(files.workflow, workflowContent, 'Workflow');
 writeFile(files.test, testContent, 'Test');
+upsertCrawlerManifestEntry(workflowContentToManifestEntry(companyKey, workflowContent));
+
+console.log(
+  `  ℹ️  No standalone workflow file is generated (consolidation, 2026-07) — run\n` +
+  `     node scripts/generate-crawler-group-workflows.mjs\n` +
+  `     to fold '${companyKey}' into a crawler-group-*.yml workflow.`,
+);
 
 /* ── Logo registry + local mirror ────────────────────────────── */
 
@@ -1078,10 +1161,17 @@ console.log(`
   5. REGISTER IN ORCHESTRATOR
      Add '${companyKey}' to data/jobs-crawler-config.json
 
+  6. FOLD INTO A CRAWLER-GROUP WORKFLOW
+     node scripts/generate-crawler-group-workflows.mjs
+     # Regenerates all .github/workflows/crawler-group-*.yml from
+     # data/crawler-manifest.json (already updated above) — '${companyKey}'
+     # is assigned to a group using the corpus median duration until a real
+     # sample lands in data/crawler-workflow-duration-baseline.json.
+
   7. PUSH & TRIGGER
      git add -A && git commit -m "feat(crawler): add ${companyName} dedicated crawler"
      git push
-     gh workflow run update-jobs-${companyKey}.yml
+     gh workflow run <crawler-group-NN.yml>   # whichever group now contains '${companyKey}'
 
   8. AFTER CRAWLER SUCCEEDS
      gh workflow run translate-pending.yml

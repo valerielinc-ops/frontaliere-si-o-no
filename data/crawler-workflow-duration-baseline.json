@@ -1,0 +1,2331 @@
+{
+  "generatedAt": "2026-07-06T16:43:49Z",
+  "source": "gh api repos/{owner}/{repo}/actions/runs (event=workflow_dispatch,status=success), aggregated per workflow path",
+  "medianDurationMs": 1466500,
+  "crawlers": {
+    "update-jobs-a-plus-plus-group": {
+      "avgDurationMs": 149000,
+      "sampleCount": 1
+    },
+    "update-jobs-aarreha-schinznach": {
+      "avgDurationMs": 201000,
+      "sampleCount": 1
+    },
+    "update-jobs-abb": {
+      "avgDurationMs": 252000,
+      "sampleCount": 1
+    },
+    "update-jobs-abbott": {
+      "avgDurationMs": 191000,
+      "sampleCount": 1
+    },
+    "update-jobs-abraxas": {
+      "avgDurationMs": 240000,
+      "sampleCount": 1
+    },
+    "update-jobs-adullam": {
+      "avgDurationMs": 177000,
+      "sampleCount": 1
+    },
+    "update-jobs-adus-klinik": {
+      "avgDurationMs": 190000,
+      "sampleCount": 1
+    },
+    "update-jobs-afry": {
+      "avgDurationMs": 389000,
+      "sampleCount": 1
+    },
+    "update-jobs-agie-charmilles": {
+      "avgDurationMs": 386000,
+      "sampleCount": 1
+    },
+    "update-jobs-agroscope": {
+      "avgDurationMs": 281000,
+      "sampleCount": 1
+    },
+    "update-jobs-ail": {
+      "avgDurationMs": 170000,
+      "sampleCount": 1
+    },
+    "update-jobs-air-zermatt": {
+      "avgDurationMs": 210000,
+      "sampleCount": 1
+    },
+    "update-jobs-alcon": {
+      "avgDurationMs": 191000,
+      "sampleCount": 1
+    },
+    "update-jobs-aldi-suisse": {
+      "avgDurationMs": 228000,
+      "sampleCount": 1
+    },
+    "update-jobs-allianz": {
+      "avgDurationMs": 599000,
+      "sampleCount": 1
+    },
+    "update-jobs-alpiq": {
+      "avgDurationMs": 188000,
+      "sampleCount": 1
+    },
+    "update-jobs-alprose": {
+      "avgDurationMs": 130000,
+      "sampleCount": 1
+    },
+    "update-jobs-alten": {
+      "avgDurationMs": 222000,
+      "sampleCount": 1
+    },
+    "update-jobs-amag": {
+      "avgDurationMs": 214000,
+      "sampleCount": 1
+    },
+    "update-jobs-ameos-ch": {
+      "avgDurationMs": 280000,
+      "sampleCount": 1
+    },
+    "update-jobs-amina-bank": {
+      "avgDurationMs": 188000,
+      "sampleCount": 1
+    },
+    "update-jobs-amstein-walthert": {
+      "avgDurationMs": 250000,
+      "sampleCount": 1
+    },
+    "update-jobs-answerconsulting": {
+      "avgDurationMs": 154000,
+      "sampleCount": 1
+    },
+    "update-jobs-anybotics": {
+      "avgDurationMs": 245000,
+      "sampleCount": 1
+    },
+    "update-jobs-apg-sga": {
+      "avgDurationMs": 223000,
+      "sampleCount": 1
+    },
+    "update-jobs-apple-retail-switzerland": {
+      "avgDurationMs": 294000,
+      "sampleCount": 1
+    },
+    "update-jobs-ardentis": {
+      "avgDurationMs": 258000,
+      "sampleCount": 1
+    },
+    "update-jobs-ardian": {
+      "avgDurationMs": 274000,
+      "sampleCount": 1
+    },
+    "update-jobs-ariston": {
+      "avgDurationMs": 275000,
+      "sampleCount": 1
+    },
+    "update-jobs-arosa-lenzerheide": {
+      "avgDurationMs": 200000,
+      "sampleCount": 1
+    },
+    "update-jobs-arsante-clinique-de-carouge": {
+      "avgDurationMs": 360000,
+      "sampleCount": 1
+    },
+    "update-jobs-artificialy": {
+      "avgDurationMs": 153000,
+      "sampleCount": 1
+    },
+    "update-jobs-artisa": {
+      "avgDurationMs": 395000,
+      "sampleCount": 1
+    },
+    "update-jobs-arxada": {
+      "avgDurationMs": 236000,
+      "sampleCount": 1
+    },
+    "update-jobs-asana-spital": {
+      "avgDurationMs": 309000,
+      "sampleCount": 1
+    },
+    "update-jobs-audemars-piguet": {
+      "avgDurationMs": 263000,
+      "sampleCount": 1
+    },
+    "update-jobs-avaloq": {
+      "avgDurationMs": 560000,
+      "sampleCount": 1
+    },
+    "update-jobs-axa": {
+      "avgDurationMs": 278000,
+      "sampleCount": 1
+    },
+    "update-jobs-axpo": {
+      "avgDurationMs": 297000,
+      "sampleCount": 1
+    },
+    "update-jobs-bachem": {
+      "avgDurationMs": 264000,
+      "sampleCount": 1
+    },
+    "update-jobs-bachtelen": {
+      "avgDurationMs": 239000,
+      "sampleCount": 1
+    },
+    "update-jobs-badrutts-palace": {
+      "avgDurationMs": 183000,
+      "sampleCount": 1
+    },
+    "update-jobs-balgrist": {
+      "avgDurationMs": 545000,
+      "sampleCount": 1
+    },
+    "update-jobs-bally": {
+      "avgDurationMs": 321000,
+      "sampleCount": 1
+    },
+    "update-jobs-baloise": {
+      "avgDurationMs": 267000,
+      "sampleCount": 1
+    },
+    "update-jobs-banca-sempione": {
+      "avgDurationMs": 300000,
+      "sampleCount": 1
+    },
+    "update-jobs-barry-callebaut": {
+      "avgDurationMs": 568000,
+      "sampleCount": 1
+    },
+    "update-jobs-bcv": {
+      "avgDurationMs": 377000,
+      "sampleCount": 1
+    },
+    "update-jobs-bcvs": {
+      "avgDurationMs": 339000,
+      "sampleCount": 1
+    },
+    "update-jobs-beekeeper": {
+      "avgDurationMs": 341000,
+      "sampleCount": 1
+    },
+    "update-jobs-belimo": {
+      "avgDurationMs": 243000,
+      "sampleCount": 1
+    },
+    "update-jobs-benteler": {
+      "avgDurationMs": 227000,
+      "sampleCount": 1
+    },
+    "update-jobs-berit-klinik": {
+      "avgDurationMs": 258000,
+      "sampleCount": 1
+    },
+    "update-jobs-berner-klinik-montana": {
+      "avgDurationMs": 359000,
+      "sampleCount": 1
+    },
+    "update-jobs-berner-montage": {
+      "avgDurationMs": 280000,
+      "sampleCount": 1
+    },
+    "update-jobs-bethesda-spital": {
+      "avgDurationMs": 257000,
+      "sampleCount": 1
+    },
+    "update-jobs-bitfinex": {
+      "avgDurationMs": 491000,
+      "sampleCount": 1
+    },
+    "update-jobs-bkw": {
+      "avgDurationMs": 933000,
+      "sampleCount": 1
+    },
+    "update-jobs-bls": {
+      "avgDurationMs": 342000,
+      "sampleCount": 1
+    },
+    "update-jobs-bms-building": {
+      "avgDurationMs": 498000,
+      "sampleCount": 1
+    },
+    "update-jobs-board": {
+      "avgDurationMs": 265000,
+      "sampleCount": 1
+    },
+    "update-jobs-bobst": {
+      "avgDurationMs": 414000,
+      "sampleCount": 1
+    },
+    "update-jobs-bosch": {
+      "avgDurationMs": 496000,
+      "sampleCount": 1
+    },
+    "update-jobs-bossard": {
+      "avgDurationMs": 433000,
+      "sampleCount": 1
+    },
+    "update-jobs-bps-suisse": {
+      "avgDurationMs": 432000,
+      "sampleCount": 1
+    },
+    "update-jobs-bracco": {
+      "avgDurationMs": 614000,
+      "sampleCount": 1
+    },
+    "update-jobs-brack-alltron": {
+      "avgDurationMs": 300000,
+      "sampleCount": 1
+    },
+    "update-jobs-breitling": {
+      "avgDurationMs": 595000,
+      "sampleCount": 1
+    },
+    "update-jobs-bucher-suter": {
+      "avgDurationMs": 236000,
+      "sampleCount": 1
+    },
+    "update-jobs-bucherer": {
+      "avgDurationMs": 630000,
+      "sampleCount": 1
+    },
+    "update-jobs-buehler": {
+      "avgDurationMs": 764000,
+      "sampleCount": 1
+    },
+    "update-jobs-buergenstock-hotels": {
+      "avgDurationMs": 482000,
+      "sampleCount": 1
+    },
+    "update-jobs-burkhalter": {
+      "avgDurationMs": 711000,
+      "sampleCount": 1
+    },
+    "update-jobs-c-and-a-schweiz": {
+      "avgDurationMs": 592000,
+      "sampleCount": 1
+    },
+    "update-jobs-cambiavalute": {
+      "avgDurationMs": 830000,
+      "sampleCount": 1
+    },
+    "update-jobs-canton-ticino-osc": {
+      "avgDurationMs": 216000,
+      "sampleCount": 1
+    },
+    "update-jobs-canton-valais": {
+      "avgDurationMs": 810000,
+      "sampleCount": 1
+    },
+    "update-jobs-capri-holdings": {
+      "avgDurationMs": 423000,
+      "sampleCount": 1
+    },
+    "update-jobs-caritas-schweiz": {
+      "avgDurationMs": 875000,
+      "sampleCount": 1
+    },
+    "update-jobs-casale": {
+      "avgDurationMs": 685000,
+      "sampleCount": 1
+    },
+    "update-jobs-caseificio-gottardo": {
+      "avgDurationMs": 202000,
+      "sampleCount": 1
+    },
+    "update-jobs-cds-savognin": {
+      "avgDurationMs": 287000,
+      "sampleCount": 1
+    },
+    "update-jobs-cedes": {
+      "avgDurationMs": 693000,
+      "sampleCount": 1
+    },
+    "update-jobs-centiel": {
+      "avgDurationMs": 740000,
+      "sampleCount": 1
+    },
+    "update-jobs-cerbios-pharma": {
+      "avgDurationMs": 914000,
+      "sampleCount": 1
+    },
+    "update-jobs-cereneo": {
+      "avgDurationMs": 497000,
+      "sampleCount": 1
+    },
+    "update-jobs-cern": {
+      "avgDurationMs": 550000,
+      "sampleCount": 1
+    },
+    "update-jobs-cham-swiss-properties": {
+      "avgDurationMs": 474000,
+      "sampleCount": 1
+    },
+    "update-jobs-chicco-doro": {
+      "avgDurationMs": 280000,
+      "sampleCount": 1
+    },
+    "update-jobs-chopard": {
+      "avgDurationMs": 456000,
+      "sampleCount": 1
+    },
+    "update-jobs-citta-di-bellinzona": {
+      "avgDurationMs": 445000,
+      "sampleCount": 1
+    },
+    "update-jobs-citta-di-locarno": {
+      "avgDurationMs": 363000,
+      "sampleCount": 1
+    },
+    "update-jobs-citta-di-lugano": {
+      "avgDurationMs": 207000,
+      "sampleCount": 1
+    },
+    "update-jobs-city-pop": {
+      "avgDurationMs": 161000,
+      "sampleCount": 1
+    },
+    "update-jobs-claraspital": {
+      "avgDurationMs": 806000,
+      "sampleCount": 1
+    },
+    "update-jobs-clariant": {
+      "avgDurationMs": 348000,
+      "sampleCount": 1
+    },
+    "update-jobs-cler": {
+      "avgDurationMs": 685000,
+      "sampleCount": 1
+    },
+    "update-jobs-clienia-ag": {
+      "avgDurationMs": 535000,
+      "sampleCount": 1
+    },
+    "update-jobs-climeworks": {
+      "avgDurationMs": 244000,
+      "sampleCount": 1
+    },
+    "update-jobs-clinica-hildebrand": {
+      "avgDurationMs": 467000,
+      "sampleCount": 1
+    },
+    "update-jobs-clinica-holistica-engiadina": {
+      "avgDurationMs": 342000,
+      "sampleCount": 1
+    },
+    "update-jobs-clinica-varini": {
+      "avgDurationMs": 255000,
+      "sampleCount": 1
+    },
+    "update-jobs-clinique-cic": {
+      "avgDurationMs": 843000,
+      "sampleCount": 1
+    },
+    "update-jobs-clinique-de-genolier": {
+      "avgDurationMs": 783000,
+      "sampleCount": 1
+    },
+    "update-jobs-clinique-de-la-plaine": {
+      "avgDurationMs": 1070000,
+      "sampleCount": 1
+    },
+    "update-jobs-clinique-de-montchoisi": {
+      "avgDurationMs": 808000,
+      "sampleCount": 1
+    },
+    "update-jobs-clinique-de-valere": {
+      "avgDurationMs": 455000,
+      "sampleCount": 1
+    },
+    "update-jobs-clinique-generale-beaulieu": {
+      "avgDurationMs": 320000,
+      "sampleCount": 1
+    },
+    "update-jobs-clinique-generale-ste-anne": {
+      "avgDurationMs": 259000,
+      "sampleCount": 1
+    },
+    "update-jobs-clinique-la-source": {
+      "avgDurationMs": 945000,
+      "sampleCount": 1
+    },
+    "update-jobs-clinique-le-noirmont": {
+      "avgDurationMs": 239000,
+      "sampleCount": 1
+    },
+    "update-jobs-cnp": {
+      "avgDurationMs": 465000,
+      "sampleCount": 1
+    },
+    "update-jobs-colin-cie": {
+      "avgDurationMs": 460000,
+      "sampleCount": 1
+    },
+    "update-jobs-concara": {
+      "avgDurationMs": 880000,
+      "sampleCount": 1
+    },
+    "update-jobs-concordia": {
+      "avgDurationMs": 626000,
+      "sampleCount": 1
+    },
+    "update-jobs-confederazione": {
+      "avgDurationMs": 664000,
+      "sampleCount": 1
+    },
+    "update-jobs-constellium": {
+      "avgDurationMs": 651000,
+      "sampleCount": 1
+    },
+    "update-jobs-convit": {
+      "avgDurationMs": 581000,
+      "sampleCount": 1
+    },
+    "update-jobs-coop": {
+      "avgDurationMs": 9597000,
+      "sampleCount": 1
+    },
+    "update-jobs-coopers": {
+      "avgDurationMs": 634000,
+      "sampleCount": 1
+    },
+    "update-jobs-cordenpharma": {
+      "avgDurationMs": 435000,
+      "sampleCount": 1
+    },
+    "update-jobs-corner": {
+      "avgDurationMs": 834000,
+      "sampleCount": 1
+    },
+    "update-jobs-croix-rouge-fribourgeoise": {
+      "avgDurationMs": 701000,
+      "sampleCount": 1
+    },
+    "update-jobs-crr-suva-sion": {
+      "avgDurationMs": 633000,
+      "sampleCount": 1
+    },
+    "update-jobs-cs-bregaglia": {
+      "avgDurationMs": 1447000,
+      "sampleCount": 1
+    },
+    "update-jobs-csc-costruzioni": {
+      "avgDurationMs": 1628000,
+      "sampleCount": 1
+    },
+    "update-jobs-csd-engineers": {
+      "avgDurationMs": 856000,
+      "sampleCount": 1
+    },
+    "update-jobs-cseb": {
+      "avgDurationMs": 268000,
+      "sampleCount": 1
+    },
+    "update-jobs-csl-behring": {
+      "avgDurationMs": 337000,
+      "sampleCount": 1
+    },
+    "update-jobs-css-versicherung": {
+      "avgDurationMs": 1024000,
+      "sampleCount": 1
+    },
+    "update-jobs-csvm-mustair": {
+      "avgDurationMs": 265000,
+      "sampleCount": 1
+    },
+    "update-jobs-csvp-poschiavo": {
+      "avgDurationMs": 218000,
+      "sampleCount": 1
+    },
+    "update-jobs-daler-hopital": {
+      "avgDurationMs": 301000,
+      "sampleCount": 1
+    },
+    "update-jobs-damiani": {
+      "avgDurationMs": 209000,
+      "sampleCount": 1
+    },
+    "update-jobs-davos-klosters-bergbahnen": {
+      "avgDurationMs": 906000,
+      "sampleCount": 1
+    },
+    "update-jobs-debiopharm": {
+      "avgDurationMs": 434000,
+      "sampleCount": 1
+    },
+    "update-jobs-decathlon": {
+      "avgDurationMs": 1357000,
+      "sampleCount": 1
+    },
+    "update-jobs-deloitte": {
+      "avgDurationMs": 286000,
+      "sampleCount": 1
+    },
+    "update-jobs-delvitech": {
+      "avgDurationMs": 560000,
+      "sampleCount": 1
+    },
+    "update-jobs-denner": {
+      "avgDurationMs": 950000,
+      "sampleCount": 1
+    },
+    "update-jobs-diakoniewerk-neumuenster": {
+      "avgDurationMs": 643000,
+      "sampleCount": 1
+    },
+    "update-jobs-dic-sa": {
+      "avgDurationMs": 623000,
+      "sampleCount": 1
+    },
+    "update-jobs-dormakaba": {
+      "avgDurationMs": 2866000,
+      "sampleCount": 1
+    },
+    "update-jobs-duferco": {
+      "avgDurationMs": 1016000,
+      "sampleCount": 1
+    },
+    "update-jobs-dxt": {
+      "avgDurationMs": 367000,
+      "sampleCount": 1
+    },
+    "update-jobs-edmond-de-rothschild": {
+      "avgDurationMs": 260000,
+      "sampleCount": 1
+    },
+    "update-jobs-efg": {
+      "avgDurationMs": 1687000,
+      "sampleCount": 1
+    },
+    "update-jobs-ehc-vd": {
+      "avgDurationMs": 519000,
+      "sampleCount": 1
+    },
+    "update-jobs-ehnv": {
+      "avgDurationMs": 205000,
+      "sampleCount": 1
+    },
+    "update-jobs-elettra-1938": {
+      "avgDurationMs": 1028000,
+      "sampleCount": 1
+    },
+    "update-jobs-emil-frey": {
+      "avgDurationMs": 940000,
+      "sampleCount": 1
+    },
+    "update-jobs-emmi": {
+      "avgDurationMs": 463000,
+      "sampleCount": 1
+    },
+    "update-jobs-empa": {
+      "avgDurationMs": 570000,
+      "sampleCount": 1
+    },
+    "update-jobs-ems-chemie": {
+      "avgDurationMs": 1803000,
+      "sampleCount": 1
+    },
+    "update-jobs-endress-hauser": {
+      "avgDurationMs": 297000,
+      "sampleCount": 1
+    },
+    "update-jobs-engadin-tourismus": {
+      "avgDurationMs": 520000,
+      "sampleCount": 1
+    },
+    "update-jobs-engelvoelkers": {
+      "avgDurationMs": 638000,
+      "sampleCount": 1
+    },
+    "update-jobs-entero": {
+      "avgDurationMs": 475000,
+      "sampleCount": 1
+    },
+    "update-jobs-eoc": {
+      "avgDurationMs": 2649000,
+      "sampleCount": 1
+    },
+    "update-jobs-epfl": {
+      "avgDurationMs": 2040000,
+      "sampleCount": 1
+    },
+    "update-jobs-epi-geneve": {
+      "avgDurationMs": 2966000,
+      "sampleCount": 1
+    },
+    "update-jobs-epi-stiftung": {
+      "avgDurationMs": 499000,
+      "sampleCount": 1
+    },
+    "update-jobs-equans": {
+      "avgDurationMs": 445000,
+      "sampleCount": 1
+    },
+    "update-jobs-eraneos": {
+      "avgDurationMs": 1433000,
+      "sampleCount": 1
+    },
+    "update-jobs-ergolz-klinik": {
+      "avgDurationMs": 1118000,
+      "sampleCount": 1
+    },
+    "update-jobs-etat-de-fribourg": {
+      "avgDurationMs": 1037000,
+      "sampleCount": 1
+    },
+    "update-jobs-etat-de-vaud": {
+      "avgDurationMs": 3169000,
+      "sampleCount": 1
+    },
+    "update-jobs-etavis": {
+      "avgDurationMs": 235000,
+      "sampleCount": 1
+    },
+    "update-jobs-eth-zurich": {
+      "avgDurationMs": 669000,
+      "sampleCount": 1
+    },
+    "update-jobs-evam-vaud": {
+      "avgDurationMs": 479000,
+      "sampleCount": 1
+    },
+    "update-jobs-everest-re": {
+      "avgDurationMs": 311000,
+      "sampleCount": 1
+    },
+    "update-jobs-fart": {
+      "avgDurationMs": 198000,
+      "sampleCount": 1
+    },
+    "update-jobs-faulhaber": {
+      "avgDurationMs": 1488000,
+      "sampleCount": 1
+    },
+    "update-jobs-felfel": {
+      "avgDurationMs": 4622000,
+      "sampleCount": 1
+    },
+    "update-jobs-ferring": {
+      "avgDurationMs": 1873000,
+      "sampleCount": 1
+    },
+    "update-jobs-ferrovia-retica": {
+      "avgDurationMs": 846000,
+      "sampleCount": 1
+    },
+    "update-jobs-fhgr": {
+      "avgDurationMs": 1820000,
+      "sampleCount": 1
+    },
+    "update-jobs-fielmann": {
+      "avgDurationMs": 717000,
+      "sampleCount": 1
+    },
+    "update-jobs-fincons": {
+      "avgDurationMs": 1130000,
+      "sampleCount": 1
+    },
+    "update-jobs-flury-stiftung": {
+      "avgDurationMs": 488000,
+      "sampleCount": 1
+    },
+    "update-jobs-fmi": {
+      "avgDurationMs": 932000,
+      "sampleCount": 1
+    },
+    "update-jobs-fnz": {
+      "avgDurationMs": 872000,
+      "sampleCount": 1
+    },
+    "update-jobs-fondation-domus": {
+      "avgDurationMs": 211000,
+      "sampleCount": 1
+    },
+    "update-jobs-fondation-soins-lausanne": {
+      "avgDurationMs": 1345000,
+      "sampleCount": 1
+    },
+    "update-jobs-forel-klinik": {
+      "avgDurationMs": 825000,
+      "sampleCount": 1
+    },
+    "update-jobs-franklin-university": {
+      "avgDurationMs": 400000,
+      "sampleCount": 1
+    },
+    "update-jobs-fusalp": {
+      "avgDurationMs": 978000,
+      "sampleCount": 1
+    },
+    "update-jobs-fust": {
+      "avgDurationMs": 590000,
+      "sampleCount": 1
+    },
+    "update-jobs-galderma": {
+      "avgDurationMs": 1397000,
+      "sampleCount": 1
+    },
+    "update-jobs-galenica": {
+      "avgDurationMs": 842000,
+      "sampleCount": 1
+    },
+    "update-jobs-galliker": {
+      "avgDurationMs": 937000,
+      "sampleCount": 1
+    },
+    "update-jobs-gavi": {
+      "avgDurationMs": 1125000,
+      "sampleCount": 1
+    },
+    "update-jobs-geberit": {
+      "avgDurationMs": 191000,
+      "sampleCount": 1
+    },
+    "update-jobs-gemeinde-st-moritz": {
+      "avgDurationMs": 1197000,
+      "sampleCount": 1
+    },
+    "update-jobs-georg-fischer": {
+      "avgDurationMs": 830000,
+      "sampleCount": 1
+    },
+    "update-jobs-gesundheitsnetz-kuesnacht": {
+      "avgDurationMs": 396000,
+      "sampleCount": 1
+    },
+    "update-jobs-gesundheitszentrum-fricktal": {
+      "avgDurationMs": 705000,
+      "sampleCount": 1
+    },
+    "update-jobs-ghol": {
+      "avgDurationMs": 647000,
+      "sampleCount": 1
+    },
+    "update-jobs-giardino": {
+      "avgDurationMs": 489000,
+      "sampleCount": 1
+    },
+    "update-jobs-gim-architekten": {
+      "avgDurationMs": 2503000,
+      "sampleCount": 1
+    },
+    "update-jobs-giorgio-armani": {
+      "avgDurationMs": 1170000,
+      "sampleCount": 1
+    },
+    "update-jobs-givaudan": {
+      "avgDurationMs": 919000,
+      "sampleCount": 1
+    },
+    "update-jobs-gkb": {
+      "avgDurationMs": 613000,
+      "sampleCount": 1
+    },
+    "update-jobs-globus": {
+      "avgDurationMs": 493000,
+      "sampleCount": 1
+    },
+    "update-jobs-goline": {
+      "avgDurationMs": 1374000,
+      "sampleCount": 1
+    },
+    "update-jobs-google-switzerland": {
+      "avgDurationMs": 1691000,
+      "sampleCount": 1
+    },
+    "update-jobs-grace": {
+      "avgDurationMs": 1565000,
+      "sampleCount": 1
+    },
+    "update-jobs-grand-resort-bad-ragaz": {
+      "avgDurationMs": 283000,
+      "sampleCount": 1
+    },
+    "update-jobs-groupe-e": {
+      "avgDurationMs": 473000,
+      "sampleCount": 1
+    },
+    "update-jobs-groupe-mutuel": {
+      "avgDurationMs": 514000,
+      "sampleCount": 1
+    },
+    "update-jobs-guess": {
+      "avgDurationMs": 1136000,
+      "sampleCount": 1
+    },
+    "update-jobs-gz-dielsdorf": {
+      "avgDurationMs": 421000,
+      "sampleCount": 1
+    },
+    "update-jobs-gzo-wetzikon": {
+      "avgDurationMs": 1355000,
+      "sampleCount": 1
+    },
+    "update-jobs-h-ju-hopital-du-jura": {
+      "avgDurationMs": 1308000,
+      "sampleCount": 1
+    },
+    "update-jobs-hamilton": {
+      "avgDurationMs": 528000,
+      "sampleCount": 1
+    },
+    "update-jobs-has-healthcare": {
+      "avgDurationMs": 257000,
+      "sampleCount": 1
+    },
+    "update-jobs-heineken-ch": {
+      "avgDurationMs": 2106500,
+      "sampleCount": 2
+    },
+    "update-jobs-helsana": {
+      "avgDurationMs": 1012500,
+      "sampleCount": 2
+    },
+    "update-jobs-helsinn": {
+      "avgDurationMs": 1288000,
+      "sampleCount": 2
+    },
+    "update-jobs-helvetia": {
+      "avgDurationMs": 1743000,
+      "sampleCount": 2
+    },
+    "update-jobs-hermes": {
+      "avgDurationMs": 1302500,
+      "sampleCount": 2
+    },
+    "update-jobs-hes-so-valais": {
+      "avgDurationMs": 1152500,
+      "sampleCount": 2
+    },
+    "update-jobs-hess-carrosserie": {
+      "avgDurationMs": 985000,
+      "sampleCount": 2
+    },
+    "update-jobs-hfr-hopital-fribourgeois": {
+      "avgDurationMs": 653500,
+      "sampleCount": 2
+    },
+    "update-jobs-hib": {
+      "avgDurationMs": 1102000,
+      "sampleCount": 2
+    },
+    "update-jobs-hilcona": {
+      "avgDurationMs": 885000,
+      "sampleCount": 2
+    },
+    "update-jobs-hilti": {
+      "avgDurationMs": 1455000,
+      "sampleCount": 2
+    },
+    "update-jobs-hirslanden": {
+      "avgDurationMs": 2290500,
+      "sampleCount": 2
+    },
+    "update-jobs-hitachi-energy": {
+      "avgDurationMs": 1765500,
+      "sampleCount": 2
+    },
+    "update-jobs-hoch-health": {
+      "avgDurationMs": 1072000,
+      "sampleCount": 2
+    },
+    "update-jobs-hochgebirgsklinik-davos": {
+      "avgDurationMs": 2751500,
+      "sampleCount": 2
+    },
+    "update-jobs-hofweissbad": {
+      "avgDurationMs": 1658500,
+      "sampleCount": 2
+    },
+    "update-jobs-holcim": {
+      "avgDurationMs": 904000,
+      "sampleCount": 2
+    },
+    "update-jobs-holmes-place": {
+      "avgDurationMs": 412000,
+      "sampleCount": 2
+    },
+    "update-jobs-honegger": {
+      "avgDurationMs": 1486500,
+      "sampleCount": 2
+    },
+    "update-jobs-hopital-de-lavaux": {
+      "avgDurationMs": 1491500,
+      "sampleCount": 2
+    },
+    "update-jobs-hopital-de-moutier": {
+      "avgDurationMs": 439000,
+      "sampleCount": 2
+    },
+    "update-jobs-hopital-du-valais": {
+      "avgDurationMs": 447500,
+      "sampleCount": 2
+    },
+    "update-jobs-hopital-la-tour": {
+      "avgDurationMs": 1027500,
+      "sampleCount": 2
+    },
+    "update-jobs-hornbach": {
+      "avgDurationMs": 1512000,
+      "sampleCount": 1
+    },
+    "update-jobs-hospice-general": {
+      "avgDurationMs": 1083000,
+      "sampleCount": 2
+    },
+    "update-jobs-hoval": {
+      "avgDurationMs": 868000,
+      "sampleCount": 2
+    },
+    "update-jobs-hrc": {
+      "avgDurationMs": 270500,
+      "sampleCount": 2
+    },
+    "update-jobs-huber-suhner": {
+      "avgDurationMs": 917000,
+      "sampleCount": 2
+    },
+    "update-jobs-hug": {
+      "avgDurationMs": 2295000,
+      "sampleCount": 2
+    },
+    "update-jobs-hugo-boss": {
+      "avgDurationMs": 1600000,
+      "sampleCount": 2
+    },
+    "update-jobs-huntsman": {
+      "avgDurationMs": 1472500,
+      "sampleCount": 2
+    },
+    "update-jobs-ibsa": {
+      "avgDurationMs": 1723000,
+      "sampleCount": 2
+    },
+    "update-jobs-idorsia": {
+      "avgDurationMs": 1719500,
+      "sampleCount": 2
+    },
+    "update-jobs-igroove": {
+      "avgDurationMs": 2085500,
+      "sampleCount": 2
+    },
+    "update-jobs-igs-bern": {
+      "avgDurationMs": 383000,
+      "sampleCount": 1
+    },
+    "update-jobs-ikea": {
+      "avgDurationMs": 1086500,
+      "sampleCount": 2
+    },
+    "update-jobs-imad": {
+      "avgDurationMs": 1519000,
+      "sampleCount": 2
+    },
+    "update-jobs-imerys": {
+      "avgDurationMs": 1227500,
+      "sampleCount": 2
+    },
+    "update-jobs-implenia": {
+      "avgDurationMs": 1536500,
+      "sampleCount": 2
+    },
+    "update-jobs-institution-lavigny": {
+      "avgDurationMs": 582500,
+      "sampleCount": 2
+    },
+    "update-jobs-integra-biosciences": {
+      "avgDurationMs": 918500,
+      "sampleCount": 2
+    },
+    "update-jobs-interdiscount": {
+      "avgDurationMs": 612500,
+      "sampleCount": 2
+    },
+    "update-jobs-interroll": {
+      "avgDurationMs": 2036000,
+      "sampleCount": 2
+    },
+    "update-jobs-ipw": {
+      "avgDurationMs": 980500,
+      "sampleCount": 2
+    },
+    "update-jobs-ist": {
+      "avgDurationMs": 1594000,
+      "sampleCount": 2
+    },
+    "update-jobs-josef-mueller": {
+      "avgDurationMs": 973500,
+      "sampleCount": 2
+    },
+    "update-jobs-julius-baer": {
+      "avgDurationMs": 2986500,
+      "sampleCount": 2
+    },
+    "update-jobs-jumbo": {
+      "avgDurationMs": 3773500,
+      "sampleCount": 2
+    },
+    "update-jobs-jysk": {
+      "avgDurationMs": 1169000,
+      "sampleCount": 2
+    },
+    "update-jobs-kanton-aargau": {
+      "avgDurationMs": 1194000,
+      "sampleCount": 2
+    },
+    "update-jobs-kanton-basel-landschaft": {
+      "avgDurationMs": 1431000,
+      "sampleCount": 2
+    },
+    "update-jobs-kanton-gr": {
+      "avgDurationMs": 342500,
+      "sampleCount": 2
+    },
+    "update-jobs-kanton-solothurn": {
+      "avgDurationMs": 475000,
+      "sampleCount": 2
+    },
+    "update-jobs-kanton-st-gallen": {
+      "avgDurationMs": 2813500,
+      "sampleCount": 2
+    },
+    "update-jobs-kanton-zuerich": {
+      "avgDurationMs": 1973500,
+      "sampleCount": 2
+    },
+    "update-jobs-kantonsspital-uri": {
+      "avgDurationMs": 480000,
+      "sampleCount": 2
+    },
+    "update-jobs-kellerhals-carrard": {
+      "avgDurationMs": 2391000,
+      "sampleCount": 2
+    },
+    "update-jobs-kempinski": {
+      "avgDurationMs": 2745000,
+      "sampleCount": 2
+    },
+    "update-jobs-kiabi": {
+      "avgDurationMs": 2605000,
+      "sampleCount": 2
+    },
+    "update-jobs-kispi-sg": {
+      "avgDurationMs": 1534000,
+      "sampleCount": 2
+    },
+    "update-jobs-kispi-zurich": {
+      "avgDurationMs": 1426500,
+      "sampleCount": 2
+    },
+    "update-jobs-kispi": {
+      "avgDurationMs": 1964000,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-aadorf": {
+      "avgDurationMs": 1759500,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-adelheid": {
+      "avgDurationMs": 802500,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-arlesheim": {
+      "avgDurationMs": 2373500,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-barmelweid": {
+      "avgDurationMs": 2458000,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-gut": {
+      "avgDurationMs": 886500,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-im-hasel": {
+      "avgDurationMs": 691500,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-lengg": {
+      "avgDurationMs": 2859500,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-schloss-mammern": {
+      "avgDurationMs": 1360500,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-schoenberg": {
+      "avgDurationMs": 1618500,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-schuetzen": {
+      "avgDurationMs": 4280500,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-seeschau": {
+      "avgDurationMs": 1594000,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-sgm": {
+      "avgDurationMs": 3606000,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-siloah": {
+      "avgDurationMs": 1943500,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-sonnenhalde": {
+      "avgDurationMs": 2237500,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-susenberg": {
+      "avgDurationMs": 1043500,
+      "sampleCount": 2
+    },
+    "update-jobs-klinik-wyssholzli": {
+      "avgDurationMs": 663000,
+      "sampleCount": 2
+    },
+    "update-jobs-kliniken-valens": {
+      "avgDurationMs": 3200500,
+      "sampleCount": 2
+    },
+    "update-jobs-knowledge-lab": {
+      "avgDurationMs": 2365000,
+      "sampleCount": 2
+    },
+    "update-jobs-komax-group": {
+      "avgDurationMs": 1736000,
+      "sampleCount": 2
+    },
+    "update-jobs-kone": {
+      "avgDurationMs": 1473000,
+      "sampleCount": 2
+    },
+    "update-jobs-kronenhof": {
+      "avgDurationMs": 3511000,
+      "sampleCount": 2
+    },
+    "update-jobs-ksa": {
+      "avgDurationMs": 1466500,
+      "sampleCount": 2
+    },
+    "update-jobs-ksb": {
+      "avgDurationMs": 1250500,
+      "sampleCount": 2
+    },
+    "update-jobs-ksbl": {
+      "avgDurationMs": 2675500,
+      "sampleCount": 2
+    },
+    "update-jobs-ksgl": {
+      "avgDurationMs": 381500,
+      "sampleCount": 2
+    },
+    "update-jobs-ksgr": {
+      "avgDurationMs": 3496500,
+      "sampleCount": 2
+    },
+    "update-jobs-ksml": {
+      "avgDurationMs": 2225000,
+      "sampleCount": 2
+    },
+    "update-jobs-ksow": {
+      "avgDurationMs": 888500,
+      "sampleCount": 2
+    },
+    "update-jobs-kssg": {
+      "avgDurationMs": 481500,
+      "sampleCount": 2
+    },
+    "update-jobs-ksw": {
+      "avgDurationMs": 1594500,
+      "sampleCount": 2
+    },
+    "update-jobs-kudelski-nagra": {
+      "avgDurationMs": 1412000,
+      "sampleCount": 2
+    },
+    "update-jobs-kuehne-nagel": {
+      "avgDurationMs": 1466000,
+      "sampleCount": 2
+    },
+    "update-jobs-kuhn-rikon": {
+      "avgDurationMs": 636500,
+      "sampleCount": 2
+    },
+    "update-jobs-kulm-hotel": {
+      "avgDurationMs": 1156000,
+      "sampleCount": 2
+    },
+    "update-jobs-kzu": {
+      "avgDurationMs": 2133500,
+      "sampleCount": 2
+    },
+    "update-jobs-laderach": {
+      "avgDurationMs": 1940000,
+      "sampleCount": 2
+    },
+    "update-jobs-lafonte": {
+      "avgDurationMs": 2307500,
+      "sampleCount": 2
+    },
+    "update-jobs-lalive": {
+      "avgDurationMs": 1529000,
+      "sampleCount": 2
+    },
+    "update-jobs-lastminute": {
+      "avgDurationMs": 568000,
+      "sampleCount": 2
+    },
+    "update-jobs-leukerbad-clinic": {
+      "avgDurationMs": 2046000,
+      "sampleCount": 2
+    },
+    "update-jobs-lhm-luzerner-hohenklinik-montana": {
+      "avgDurationMs": 1194000,
+      "sampleCount": 2
+    },
+    "update-jobs-lidl": {
+      "avgDurationMs": 4339500,
+      "sampleCount": 2
+    },
+    "update-jobs-liebherr": {
+      "avgDurationMs": 927500,
+      "sampleCount": 2
+    },
+    "update-jobs-lindenhofgruppe": {
+      "avgDurationMs": 2678000,
+      "sampleCount": 2
+    },
+    "update-jobs-lindt-spruengli": {
+      "avgDurationMs": 1996000,
+      "sampleCount": 2
+    },
+    "update-jobs-linnea": {
+      "avgDurationMs": 2712500,
+      "sampleCount": 2
+    },
+    "update-jobs-lis": {
+      "avgDurationMs": 1703000,
+      "sampleCount": 2
+    },
+    "update-jobs-livingcircle": {
+      "avgDurationMs": 2601500,
+      "sampleCount": 2
+    },
+    "update-jobs-livit": {
+      "avgDurationMs": 585500,
+      "sampleCount": 2
+    },
+    "update-jobs-localsearch": {
+      "avgDurationMs": 2785500,
+      "sampleCount": 2
+    },
+    "update-jobs-logitech": {
+      "avgDurationMs": 2092500,
+      "sampleCount": 2
+    },
+    "update-jobs-lombard-odier": {
+      "avgDurationMs": 2688000,
+      "sampleCount": 2
+    },
+    "update-jobs-lombardi": {
+      "avgDurationMs": 888000,
+      "sampleCount": 2
+    },
+    "update-jobs-lonza": {
+      "avgDurationMs": 683000,
+      "sampleCount": 2
+    },
+    "update-jobs-luks": {
+      "avgDurationMs": 3044000,
+      "sampleCount": 2
+    },
+    "update-jobs-lups": {
+      "avgDurationMs": 1282500,
+      "sampleCount": 2
+    },
+    "update-jobs-lwphr": {
+      "avgDurationMs": 1801000,
+      "sampleCount": 2
+    },
+    "update-jobs-mabetex": {
+      "avgDurationMs": 1532000,
+      "sampleCount": 2
+    },
+    "update-jobs-manor": {
+      "avgDurationMs": 1336000,
+      "sampleCount": 2
+    },
+    "update-jobs-marriott": {
+      "avgDurationMs": 2517000,
+      "sampleCount": 2
+    },
+    "update-jobs-matterhorn-gotthard-bahn": {
+      "avgDurationMs": 1742500,
+      "sampleCount": 2
+    },
+    "update-jobs-medacta": {
+      "avgDurationMs": 3103500,
+      "sampleCount": 2
+    },
+    "update-jobs-medartis": {
+      "avgDurationMs": 2229500,
+      "sampleCount": 2
+    },
+    "update-jobs-medbase": {
+      "avgDurationMs": 880500,
+      "sampleCount": 2
+    },
+    "update-jobs-medics-labor": {
+      "avgDurationMs": 2230000,
+      "sampleCount": 2
+    },
+    "update-jobs-medtronic": {
+      "avgDurationMs": 622000,
+      "sampleCount": 2
+    },
+    "update-jobs-mendrisio": {
+      "avgDurationMs": 2023500,
+      "sampleCount": 2
+    },
+    "update-jobs-merian-iselin": {
+      "avgDurationMs": 3983000,
+      "sampleCount": 2
+    },
+    "update-jobs-michel-gruppe": {
+      "avgDurationMs": 1460500,
+      "sampleCount": 2
+    },
+    "update-jobs-microsoft": {
+      "avgDurationMs": 1425500,
+      "sampleCount": 2
+    },
+    "update-jobs-migrolino": {
+      "avgDurationMs": 1694500,
+      "sampleCount": 2
+    },
+    "update-jobs-migros-hq": {
+      "avgDurationMs": 2824500,
+      "sampleCount": 2
+    },
+    "update-jobs-migros": {
+      "avgDurationMs": 3423500,
+      "sampleCount": 2
+    },
+    "update-jobs-mikron": {
+      "avgDurationMs": 3170500,
+      "sampleCount": 2
+    },
+    "update-jobs-mistral-ai": {
+      "avgDurationMs": 1739500,
+      "sampleCount": 2
+    },
+    "update-jobs-mkspamp": {
+      "avgDurationMs": 1994000,
+      "sampleCount": 2
+    },
+    "update-jobs-mobiliar": {
+      "avgDurationMs": 347000,
+      "sampleCount": 2
+    },
+    "update-jobs-modellstation-somosa": {
+      "avgDurationMs": 620000,
+      "sampleCount": 2
+    },
+    "update-jobs-molecular-partners": {
+      "avgDurationMs": 2286000,
+      "sampleCount": 2
+    },
+    "update-jobs-moncucco": {
+      "avgDurationMs": 952000,
+      "sampleCount": 2
+    },
+    "update-jobs-msc-cargo": {
+      "avgDurationMs": 752500,
+      "sampleCount": 2
+    },
+    "update-jobs-mtic": {
+      "avgDurationMs": 1634500,
+      "sampleCount": 2
+    },
+    "update-jobs-nant": {
+      "avgDurationMs": 2713000,
+      "sampleCount": 2
+    },
+    "update-jobs-nestle": {
+      "avgDurationMs": 1867000,
+      "sampleCount": 2
+    },
+    "update-jobs-new-yorker": {
+      "avgDurationMs": 1735000,
+      "sampleCount": 2
+    },
+    "update-jobs-nord-anglia": {
+      "avgDurationMs": 2165500,
+      "sampleCount": 2
+    },
+    "update-jobs-novartis": {
+      "avgDurationMs": 2041500,
+      "sampleCount": 2
+    },
+    "update-jobs-novelis": {
+      "avgDurationMs": 1639500,
+      "sampleCount": 2
+    },
+    "update-jobs-nsn-medical": {
+      "avgDurationMs": 1642000,
+      "sampleCount": 2
+    },
+    "update-jobs-nvidia-zurich": {
+      "avgDurationMs": 754500,
+      "sampleCount": 2
+    },
+    "update-jobs-octapharma": {
+      "avgDurationMs": 2489000,
+      "sampleCount": 2
+    },
+    "update-jobs-oerlikon": {
+      "avgDurationMs": 928500,
+      "sampleCount": 2
+    },
+    "update-jobs-oetiker": {
+      "avgDurationMs": 2151000,
+      "sampleCount": 2
+    },
+    "update-jobs-omega": {
+      "avgDurationMs": 1470500,
+      "sampleCount": 2
+    },
+    "update-jobs-on-running": {
+      "avgDurationMs": 2823500,
+      "sampleCount": 2
+    },
+    "update-jobs-ophtalmique": {
+      "avgDurationMs": 649500,
+      "sampleCount": 2
+    },
+    "update-jobs-orell-fuessli-thalia": {
+      "avgDurationMs": 3383000,
+      "sampleCount": 2
+    },
+    "update-jobs-oscam-castelrotto": {
+      "avgDurationMs": 2538500,
+      "sampleCount": 2
+    },
+    "update-jobs-oscam": {
+      "avgDurationMs": 1423500,
+      "sampleCount": 2
+    },
+    "update-jobs-otis": {
+      "avgDurationMs": 1082500,
+      "sampleCount": 2
+    },
+    "update-jobs-ottos": {
+      "avgDurationMs": 3413500,
+      "sampleCount": 2
+    },
+    "update-jobs-pallas-kliniken": {
+      "avgDurationMs": 2181000,
+      "sampleCount": 2
+    },
+    "update-jobs-palliativklinik": {
+      "avgDurationMs": 1308500,
+      "sampleCount": 2
+    },
+    "update-jobs-paraplegie": {
+      "avgDurationMs": 1330500,
+      "sampleCount": 2
+    },
+    "update-jobs-patek-philippe": {
+      "avgDurationMs": 1781500,
+      "sampleCount": 2
+    },
+    "update-jobs-pbl": {
+      "avgDurationMs": 1337500,
+      "sampleCount": 2
+    },
+    "update-jobs-pdag": {
+      "avgDurationMs": 1665000,
+      "sampleCount": 2
+    },
+    "update-jobs-pdgr": {
+      "avgDurationMs": 1360000,
+      "sampleCount": 2
+    },
+    "update-jobs-pemsa": {
+      "avgDurationMs": 2420000,
+      "sampleCount": 2
+    },
+    "update-jobs-pfister": {
+      "avgDurationMs": 2047500,
+      "sampleCount": 2
+    },
+    "update-jobs-pictet": {
+      "avgDurationMs": 2302500,
+      "sampleCount": 2
+    },
+    "update-jobs-pigna": {
+      "avgDurationMs": 1843500,
+      "sampleCount": 2
+    },
+    "update-jobs-pizzarotti": {
+      "avgDurationMs": 1738000,
+      "sampleCount": 2
+    },
+    "update-jobs-planzer": {
+      "avgDurationMs": 1772000,
+      "sampleCount": 2
+    },
+    "update-jobs-pole-sante-pays-enhaut": {
+      "avgDurationMs": 2012500,
+      "sampleCount": 2
+    },
+    "update-jobs-postauto": {
+      "avgDurationMs": 1653500,
+      "sampleCount": 2
+    },
+    "update-jobs-postch": {
+      "avgDurationMs": 3006000,
+      "sampleCount": 2
+    },
+    "update-jobs-postfinance": {
+      "avgDurationMs": 3046500,
+      "sampleCount": 2
+    },
+    "update-jobs-prada": {
+      "avgDurationMs": 1520500,
+      "sampleCount": 2
+    },
+    "update-jobs-privatklinik-bethanien": {
+      "avgDurationMs": 1439500,
+      "sampleCount": 2
+    },
+    "update-jobs-privatklinik-hohenegg": {
+      "avgDurationMs": 2433500,
+      "sampleCount": 2
+    },
+    "update-jobs-privatklinik-meiringen": {
+      "avgDurationMs": 1661500,
+      "sampleCount": 2
+    },
+    "update-jobs-privatklinik-obach": {
+      "avgDurationMs": 2170000,
+      "sampleCount": 2
+    },
+    "update-jobs-privatklinik-wyss": {
+      "avgDurationMs": 2904000,
+      "sampleCount": 2
+    },
+    "update-jobs-prosenectute-ti": {
+      "avgDurationMs": 1673500,
+      "sampleCount": 2
+    },
+    "update-jobs-proton": {
+      "avgDurationMs": 3150500,
+      "sampleCount": 2
+    },
+    "update-jobs-psgn": {
+      "avgDurationMs": 2030000,
+      "sampleCount": 2
+    },
+    "update-jobs-puk-zuerich": {
+      "avgDurationMs": 2125500,
+      "sampleCount": 2
+    },
+    "update-jobs-pwc": {
+      "avgDurationMs": 3596500,
+      "sampleCount": 2
+    },
+    "update-jobs-pzm-muensingen": {
+      "avgDurationMs": 1508500,
+      "sampleCount": 2
+    },
+    "update-jobs-raiffeisen-vc": {
+      "avgDurationMs": 2244500,
+      "sampleCount": 2
+    },
+    "update-jobs-raiffeisen": {
+      "avgDurationMs": 1708000,
+      "sampleCount": 2
+    },
+    "update-jobs-rapelli": {
+      "avgDurationMs": 2084000,
+      "sampleCount": 2
+    },
+    "update-jobs-reboot-monkey": {
+      "avgDurationMs": 2180000,
+      "sampleCount": 2
+    },
+    "update-jobs-reha-andeer": {
+      "avgDurationMs": 1912000,
+      "sampleCount": 2
+    },
+    "update-jobs-reha-bellikon": {
+      "avgDurationMs": 2238000,
+      "sampleCount": 2
+    },
+    "update-jobs-rehab-basel": {
+      "avgDurationMs": 3631000,
+      "sampleCount": 2
+    },
+    "update-jobs-rehaklinik-hasliberg": {
+      "avgDurationMs": 2826000,
+      "sampleCount": 2
+    },
+    "update-jobs-relewant": {
+      "avgDurationMs": 1656500,
+      "sampleCount": 2
+    },
+    "update-jobs-rennbahnklinik": {
+      "avgDurationMs": 1651000,
+      "sampleCount": 2
+    },
+    "update-jobs-rfsm-fribourg": {
+      "avgDurationMs": 2516000,
+      "sampleCount": 2
+    },
+    "update-jobs-rheinmetall-air-defence": {
+      "avgDurationMs": 2855000,
+      "sampleCount": 2
+    },
+    "update-jobs-rhne-reseau-hospitalier-neuchatelois": {
+      "avgDurationMs": 1720000,
+      "sampleCount": 2
+    },
+    "update-jobs-richemont": {
+      "avgDurationMs": 2458500,
+      "sampleCount": 2
+    },
+    "update-jobs-ricola": {
+      "avgDurationMs": 1587500,
+      "sampleCount": 2
+    },
+    "update-jobs-rieter": {
+      "avgDurationMs": 2456000,
+      "sampleCount": 2
+    },
+    "update-jobs-riri": {
+      "avgDurationMs": 1180500,
+      "sampleCount": 2
+    },
+    "update-jobs-rittmeyer": {
+      "avgDurationMs": 3376000,
+      "sampleCount": 2
+    },
+    "update-jobs-rituals-cosmetics": {
+      "avgDurationMs": 3343500,
+      "sampleCount": 2
+    },
+    "update-jobs-riveneuve": {
+      "avgDurationMs": 1324000,
+      "sampleCount": 2
+    },
+    "update-jobs-roche": {
+      "avgDurationMs": 5167500,
+      "sampleCount": 2
+    },
+    "update-jobs-rolex": {
+      "avgDurationMs": 2260500,
+      "sampleCount": 2
+    },
+    "update-jobs-rsbj": {
+      "avgDurationMs": 2859000,
+      "sampleCount": 2
+    },
+    "update-jobs-rss-surselva": {
+      "avgDurationMs": 2246500,
+      "sampleCount": 2
+    },
+    "update-jobs-ruag": {
+      "avgDurationMs": 3254000,
+      "sampleCount": 2
+    },
+    "update-jobs-saint-gobain-weber-isover": {
+      "avgDurationMs": 3239500,
+      "sampleCount": 2
+    },
+    "update-jobs-salina-reha": {
+      "avgDurationMs": 3853000,
+      "sampleCount": 2
+    },
+    "update-jobs-sanatorium-kilchberg": {
+      "avgDurationMs": 1812500,
+      "sampleCount": 2
+    },
+    "update-jobs-sbb": {
+      "avgDurationMs": 1814500,
+      "sampleCount": 2
+    },
+    "update-jobs-scandit": {
+      "avgDurationMs": 2524000,
+      "sampleCount": 2
+    },
+    "update-jobs-schindler": {
+      "avgDurationMs": 1281000,
+      "sampleCount": 2
+    },
+    "update-jobs-schulthess-klinik": {
+      "avgDurationMs": 2257500,
+      "sampleCount": 2
+    },
+    "update-jobs-see-spital": {
+      "avgDurationMs": 2110000,
+      "sampleCount": 2
+    },
+    "update-jobs-selecta": {
+      "avgDurationMs": 2638500,
+      "sampleCount": 2
+    },
+    "update-jobs-senevita": {
+      "avgDurationMs": 3150500,
+      "sampleCount": 2
+    },
+    "update-jobs-sfs-group": {
+      "avgDurationMs": 2505000,
+      "sampleCount": 2
+    },
+    "update-jobs-sicpa": {
+      "avgDurationMs": 1736000,
+      "sampleCount": 2
+    },
+    "update-jobs-siegfried": {
+      "avgDurationMs": 840000,
+      "sampleCount": 2
+    },
+    "update-jobs-siemens-healthineers": {
+      "avgDurationMs": 3494500,
+      "sampleCount": 2
+    },
+    "update-jobs-siemens": {
+      "avgDurationMs": 2909000,
+      "sampleCount": 2
+    },
+    "update-jobs-sika": {
+      "avgDurationMs": 1011500,
+      "sampleCount": 2
+    },
+    "update-jobs-sintetica": {
+      "avgDurationMs": 2699500,
+      "sampleCount": 2
+    },
+    "update-jobs-six-group": {
+      "avgDurationMs": 1251000,
+      "sampleCount": 2
+    },
+    "update-jobs-skyguide": {
+      "avgDurationMs": 1700500,
+      "sampleCount": 2
+    },
+    "update-jobs-smg-swiss-marketplace-group": {
+      "avgDurationMs": 2555500,
+      "sampleCount": 2
+    },
+    "update-jobs-sobi": {
+      "avgDurationMs": 1698500,
+      "sampleCount": 2
+    },
+    "update-jobs-sodexo": {
+      "avgDurationMs": 2414000,
+      "sampleCount": 2
+    },
+    "update-jobs-soh-solothurner-spitaeler": {
+      "avgDurationMs": 1915000,
+      "sampleCount": 2
+    },
+    "update-jobs-solina": {
+      "avgDurationMs": 3802500,
+      "sampleCount": 2
+    },
+    "update-jobs-solothurner-spitaeler": {
+      "avgDurationMs": 2760000,
+      "sampleCount": 2
+    },
+    "update-jobs-somedia": {
+      "avgDurationMs": 2362000,
+      "sampleCount": 2
+    },
+    "update-jobs-sonarsource": {
+      "avgDurationMs": 1876500,
+      "sampleCount": 2
+    },
+    "update-jobs-sonnweid": {
+      "avgDurationMs": 1890500,
+      "sampleCount": 2
+    },
+    "update-jobs-sonova": {
+      "avgDurationMs": 1998000,
+      "sampleCount": 2
+    },
+    "update-jobs-sophia-genetics": {
+      "avgDurationMs": 1813500,
+      "sampleCount": 2
+    },
+    "update-jobs-spitaeler-schaffhausen": {
+      "avgDurationMs": 1659500,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-affoltern": {
+      "avgDurationMs": 3139500,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-buelach": {
+      "avgDurationMs": 1739500,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-davos": {
+      "avgDurationMs": 2872500,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-emmental": {
+      "avgDurationMs": 3955500,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-lachen": {
+      "avgDurationMs": 2080000,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-limmattal": {
+      "avgDurationMs": 2926500,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-maennedorf": {
+      "avgDurationMs": 1598000,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-muri": {
+      "avgDurationMs": 3007000,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-nidwalden": {
+      "avgDurationMs": 2068500,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-oberengadin": {
+      "avgDurationMs": 1450500,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-schwyz": {
+      "avgDurationMs": 1814000,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-sts": {
+      "avgDurationMs": 1507000,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-thurgau": {
+      "avgDurationMs": 2037000,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-thusis": {
+      "avgDurationMs": 2393500,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-uster": {
+      "avgDurationMs": 2132000,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-zofingen": {
+      "avgDurationMs": 2848500,
+      "sampleCount": 2
+    },
+    "update-jobs-spital-zollikerberg": {
+      "avgDurationMs": 2528500,
+      "sampleCount": 2
+    },
+    "update-jobs-spitex-basel": {
+      "avgDurationMs": 2526000,
+      "sampleCount": 2
+    },
+    "update-jobs-spitex-ch": {
+      "avgDurationMs": 2471000,
+      "sampleCount": 2
+    },
+    "update-jobs-spitex-zuerich": {
+      "avgDurationMs": 1963500,
+      "sampleCount": 2
+    },
+    "update-jobs-spruengli": {
+      "avgDurationMs": 3527000,
+      "sampleCount": 1
+    },
+    "update-jobs-spz": {
+      "avgDurationMs": 2319500,
+      "sampleCount": 2
+    },
+    "update-jobs-srg-ssr": {
+      "avgDurationMs": 2548000,
+      "sampleCount": 2
+    },
+    "update-jobs-sro": {
+      "avgDurationMs": 2136000,
+      "sampleCount": 2
+    },
+    "update-jobs-stadler-rail": {
+      "avgDurationMs": 1977500,
+      "sampleCount": 2
+    },
+    "update-jobs-stadt-bern": {
+      "avgDurationMs": 1486000,
+      "sampleCount": 2
+    },
+    "update-jobs-stadt-chur": {
+      "avgDurationMs": 1643000,
+      "sampleCount": 2
+    },
+    "update-jobs-stadt-luzern": {
+      "avgDurationMs": 2897500,
+      "sampleCount": 2
+    },
+    "update-jobs-stadt-zuerich": {
+      "avgDurationMs": 1668000,
+      "sampleCount": 2
+    },
+    "update-jobs-stadtspital-zuerich": {
+      "avgDurationMs": 3205500,
+      "sampleCount": 2
+    },
+    "update-jobs-staubli": {
+      "avgDurationMs": 2480500,
+      "sampleCount": 2
+    },
+    "update-jobs-stgag": {
+      "avgDurationMs": 2799500,
+      "sampleCount": 2
+    },
+    "update-jobs-stiftung-diaconis": {
+      "avgDurationMs": 2436000,
+      "sampleCount": 2
+    },
+    "update-jobs-stiftung-kind-autismus": {
+      "avgDurationMs": 1853000,
+      "sampleCount": 2
+    },
+    "update-jobs-strabag": {
+      "avgDurationMs": 2669000,
+      "sampleCount": 2
+    },
+    "update-jobs-straumann": {
+      "avgDurationMs": 1693500,
+      "sampleCount": 2
+    },
+    "update-jobs-stryker": {
+      "avgDurationMs": 1581500,
+      "sampleCount": 2
+    },
+    "update-jobs-suchtfachstelle-zuerich": {
+      "avgDurationMs": 2506000,
+      "sampleCount": 2
+    },
+    "update-jobs-suchthilfe-region-basel": {
+      "avgDurationMs": 2620000,
+      "sampleCount": 2
+    },
+    "update-jobs-suedhang": {
+      "avgDurationMs": 1599000,
+      "sampleCount": 2
+    },
+    "update-jobs-sulzer": {
+      "avgDurationMs": 2660000,
+      "sampleCount": 2
+    },
+    "update-jobs-sune-egge": {
+      "avgDurationMs": 1242500,
+      "sampleCount": 2
+    },
+    "update-jobs-sunrise": {
+      "avgDurationMs": 1703000,
+      "sampleCount": 2
+    },
+    "update-jobs-supsi": {
+      "avgDurationMs": 1862000,
+      "sampleCount": 2
+    },
+    "update-jobs-suva": {
+      "avgDurationMs": 2032500,
+      "sampleCount": 2
+    },
+    "update-jobs-svar-spitalverbund-ar": {
+      "avgDurationMs": 2269000,
+      "sampleCount": 2
+    },
+    "update-jobs-swatchgroup": {
+      "avgDurationMs": 1605000,
+      "sampleCount": 2
+    },
+    "update-jobs-swica": {
+      "avgDurationMs": 2191000,
+      "sampleCount": 2
+    },
+    "update-jobs-swiss-life": {
+      "avgDurationMs": 1953500,
+      "sampleCount": 2
+    },
+    "update-jobs-swiss-medical-network": {
+      "avgDurationMs": 3039000,
+      "sampleCount": 2
+    },
+    "update-jobs-swiss-re": {
+      "avgDurationMs": 2615000,
+      "sampleCount": 2
+    },
+    "update-jobs-swisscom": {
+      "avgDurationMs": 2366000,
+      "sampleCount": 2
+    },
+    "update-jobs-swisslog": {
+      "avgDurationMs": 3003000,
+      "sampleCount": 2
+    },
+    "update-jobs-swissquote": {
+      "avgDurationMs": 2389000,
+      "sampleCount": 2
+    },
+    "update-jobs-sygnum": {
+      "avgDurationMs": 2657000,
+      "sampleCount": 2
+    },
+    "update-jobs-szb-chb": {
+      "avgDurationMs": 1330000,
+      "sampleCount": 2
+    },
+    "update-jobs-talan": {
+      "avgDurationMs": 1771000,
+      "sampleCount": 2
+    },
+    "update-jobs-tally-weijl": {
+      "avgDurationMs": 2480500,
+      "sampleCount": 2
+    },
+    "update-jobs-tarchini-group": {
+      "avgDurationMs": 2250500,
+      "sampleCount": 2
+    },
+    "update-jobs-tecan": {
+      "avgDurationMs": 1812000,
+      "sampleCount": 2
+    },
+    "update-jobs-temenos": {
+      "avgDurationMs": 2548500,
+      "sampleCount": 2
+    },
+    "update-jobs-tertianum": {
+      "avgDurationMs": 3467500,
+      "sampleCount": 2
+    },
+    "update-jobs-tether": {
+      "avgDurationMs": 2422000,
+      "sampleCount": 2
+    },
+    "update-jobs-therapiezentrum-meggen": {
+      "avgDurationMs": 1617500,
+      "sampleCount": 2
+    },
+    "update-jobs-thermo-fisher-scientific": {
+      "avgDurationMs": 2487500,
+      "sampleCount": 2
+    },
+    "update-jobs-thurklinik": {
+      "avgDurationMs": 2768500,
+      "sampleCount": 2
+    },
+    "update-jobs-tich": {
+      "avgDurationMs": 2500000,
+      "sampleCount": 2
+    },
+    "update-jobs-tinext": {
+      "avgDurationMs": 1548500,
+      "sampleCount": 2
+    },
+    "update-jobs-tl-lausanne": {
+      "avgDurationMs": 1252000,
+      "sampleCount": 2
+    },
+    "update-jobs-totalenergies": {
+      "avgDurationMs": 2011500,
+      "sampleCount": 2
+    },
+    "update-jobs-tpl-lugano": {
+      "avgDurationMs": 1332500,
+      "sampleCount": 2
+    },
+    "update-jobs-trafigura": {
+      "avgDurationMs": 1912500,
+      "sampleCount": 2
+    },
+    "update-jobs-transgourmet": {
+      "avgDurationMs": 2027500,
+      "sampleCount": 2
+    },
+    "update-jobs-triaplus": {
+      "avgDurationMs": 2155500,
+      "sampleCount": 2
+    },
+    "update-jobs-trumpf": {
+      "avgDurationMs": 2659000,
+      "sampleCount": 2
+    },
+    "update-jobs-tschuggen": {
+      "avgDurationMs": 2824500,
+      "sampleCount": 2
+    },
+    "update-jobs-tsmg": {
+      "avgDurationMs": 1707500,
+      "sampleCount": 2
+    },
+    "update-jobs-ubp": {
+      "avgDurationMs": 3053000,
+      "sampleCount": 2
+    },
+    "update-jobs-ubs": {
+      "avgDurationMs": 1486333,
+      "sampleCount": 3
+    },
+    "update-jobs-ukbb": {
+      "avgDurationMs": 2119500,
+      "sampleCount": 2
+    },
+    "update-jobs-unibe": {
+      "avgDurationMs": 1673500,
+      "sampleCount": 2
+    },
+    "update-jobs-unispital-basel": {
+      "avgDurationMs": 1960000,
+      "sampleCount": 2
+    },
+    "update-jobs-upd": {
+      "avgDurationMs": 1641000,
+      "sampleCount": 2
+    },
+    "update-jobs-uroviva": {
+      "avgDurationMs": 2630000,
+      "sampleCount": 2
+    },
+    "update-jobs-usi": {
+      "avgDurationMs": 2378500,
+      "sampleCount": 2
+    },
+    "update-jobs-usz": {
+      "avgDurationMs": 2242500,
+      "sampleCount": 2
+    },
+    "update-jobs-uzh": {
+      "avgDurationMs": 1892500,
+      "sampleCount": 2
+    },
+    "update-jobs-valiant-bank": {
+      "avgDurationMs": 2646500,
+      "sampleCount": 2
+    },
+    "update-jobs-valora": {
+      "avgDurationMs": 1910500,
+      "sampleCount": 2
+    },
+    "update-jobs-vaudoise": {
+      "avgDurationMs": 1446000,
+      "sampleCount": 2
+    },
+    "update-jobs-vaxcyte": {
+      "avgDurationMs": 2547500,
+      "sampleCount": 2
+    },
+    "update-jobs-veeam": {
+      "avgDurationMs": 2076500,
+      "sampleCount": 2
+    },
+    "update-jobs-vf": {
+      "avgDurationMs": 1776000,
+      "sampleCount": 2
+    },
+    "update-jobs-victorinox": {
+      "avgDurationMs": 2031500,
+      "sampleCount": 2
+    },
+    "update-jobs-villa-im-park": {
+      "avgDurationMs": 1496000,
+      "sampleCount": 2
+    },
+    "update-jobs-vir-biotechnology": {
+      "avgDurationMs": 1727500,
+      "sampleCount": 2
+    },
+    "update-jobs-visionapartments": {
+      "avgDurationMs": 1388000,
+      "sampleCount": 2
+    },
+    "update-jobs-vista": {
+      "avgDurationMs": 2414000,
+      "sampleCount": 2
+    },
+    "update-jobs-vitrea-gesundheit": {
+      "avgDurationMs": 2132000,
+      "sampleCount": 2
+    },
+    "update-jobs-viva-luzern": {
+      "avgDurationMs": 2791500,
+      "sampleCount": 2
+    },
+    "update-jobs-volg": {
+      "avgDurationMs": 1503500,
+      "sampleCount": 2
+    },
+    "update-jobs-volksschule-luzern": {
+      "avgDurationMs": 2545000,
+      "sampleCount": 2
+    },
+    "update-jobs-vontobel": {
+      "avgDurationMs": 2390000,
+      "sampleCount": 2
+    },
+    "update-jobs-vtg": {
+      "avgDurationMs": 1989500,
+      "sampleCount": 2
+    },
+    "update-jobs-vz-vermoegenszentrum": {
+      "avgDurationMs": 1331000,
+      "sampleCount": 2
+    },
+    "update-jobs-wagerenhof": {
+      "avgDurationMs": 2191000,
+      "sampleCount": 2
+    },
+    "update-jobs-weisse-arena": {
+      "avgDurationMs": 1918000,
+      "sampleCount": 2
+    },
+    "update-jobs-wuerth-international": {
+      "avgDurationMs": 1956000,
+      "sampleCount": 2
+    },
+    "update-jobs-yapeal": {
+      "avgDurationMs": 2119500,
+      "sampleCount": 2
+    },
+    "update-jobs-zambon": {
+      "avgDurationMs": 1978500,
+      "sampleCount": 2
+    },
+    "update-jobs-zegna": {
+      "avgDurationMs": 1155000,
+      "sampleCount": 2
+    },
+    "update-jobs-zermatt-bergbahnen": {
+      "avgDurationMs": 1236000,
+      "sampleCount": 2
+    },
+    "update-jobs-zfv-unternehmungen": {
+      "avgDurationMs": 1954000,
+      "sampleCount": 2
+    },
+    "update-jobs-zkb": {
+      "avgDurationMs": 2415500,
+      "sampleCount": 2
+    },
+    "update-jobs-zuger-kantonsspital": {
+      "avgDurationMs": 1853000,
+      "sampleCount": 2
+    },
+    "update-jobs-zurich": {
+      "avgDurationMs": 2205000,
+      "sampleCount": 2
+    },
+    "update-jobs-zurzach-care": {
+      "avgDurationMs": 1895500,
+      "sampleCount": 2
+    }
+  }
+}

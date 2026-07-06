@@ -39,7 +39,7 @@
  *    previousSlugs before writing.
  *
  * ═══════════════════════════════════════════════════════════════════════════════
- * CREATING A NEW CRAWLER — 4 files needed
+ * CREATING A NEW CRAWLER — 3 files + 1 manifest entry
  * ═══════════════════════════════════════════════════════════════════════════════
  *
  * 1. PARSER — scripts/lib/{company-key}-job-parser.mjs
@@ -51,14 +51,22 @@
  * 2. RUNNER — scripts/update-{company-key}-jobs.mjs
  *    ~30 lines: imports parser + this template, calls runStandardCrawlerPipeline().
  *
- * 3. WORKFLOW — .github/workflows/update-jobs-{company-key}.yml
- *    GitHub Actions workflow with dispatch, node setup, crawler run,
- *    housekeeping, commit+push. See update-jobs-lonza.yml as reference.
+ * 3. WORKFLOW STEPS — data/crawler-manifest.json entry (NOT a standalone
+ *    workflow file — consolidation, 2026-07). scaffold-crawler.mjs upserts an
+ *    entry describing the dispatch, node setup, crawler run, housekeeping,
+ *    commit+push steps into the shared manifest; run
+ *    `node scripts/generate-crawler-group-workflows.mjs` afterwards to fold
+ *    the new crawler into one of the 23 `.github/workflows/crawler-group-*.yml`
+ *    workflows (each bundles ~25 crawlers as concurrent background steps in
+ *    ONE job — see that script's header for why).
  *
  * 4. TEST — tests/{company-key}-crawler.test.ts
  *    Parser unit tests: validates job shape, slug format, isCompanyJob(), etc.
  *
- * Use `node scripts/scaffold-crawler.mjs {company-key}` to generate all 4 files.
+ * Use `node scripts/scaffold-crawler.mjs {company-key}` to generate the
+ * parser/runner/test + upsert the manifest entry, then run
+ * `node scripts/generate-crawler-group-workflows.mjs` to regenerate the
+ * group workflows.
  *
  * IMPORTANT: After building the parser, always verify generated URLs by opening
  * them in a browser. SPA career portals (ServiceNow, Workday, SuccessFactors)
