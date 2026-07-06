@@ -403,7 +403,7 @@ async function mergeJobs(discoveredJobs) {
         country: 'CH',
         source: 'capri-holdings-workday-crawler',
         titleByLocale: mergeLocaleTextMap(ex.titleByLocale, d.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, d.descriptionByLocale, 30),
+        descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, d.descriptionByLocale, 30, d.sourceLang),
         slugByLocale: mergeLocaleTextMap(ex.slugByLocale, d.slugByLocale, 3),
       });
       updated++;

@@ -154,7 +154,7 @@ async function mergeJobs(discoveredJobs) {
   for (const discovered of discoveredJobs) {
     const key = canonicalizeUrl(discovered.url);
     const ex = existingByUrl.get(key);
-    if (ex) { merged.push({ ...ex, title: discovered.title || ex.title, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'vir-greenhouse-crawler', sourceLang: discovered.sourceLang || ex.sourceLang, titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3), descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30), slugByLocale: mergeLocaleTextMap(ex.slugByLocale, discovered.slugByLocale, 3) }); updated++; }
+    if (ex) { merged.push({ ...ex, title: discovered.title || ex.title, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'vir-greenhouse-crawler', sourceLang: discovered.sourceLang || ex.sourceLang, titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3), descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang), slugByLocale: mergeLocaleTextMap(ex.slugByLocale, discovered.slugByLocale, 3) }); updated++; }
     else { merged.push(discovered); added++; }
   }
   for (const [url] of existingByUrl) { if (!discoveredByUrl.has(url)) removed++; }

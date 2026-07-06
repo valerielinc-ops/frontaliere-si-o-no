@@ -1,9 +1,14 @@
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 import { isChCountry } from './ch-country-guard.mjs';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 export const GUESS_WORKABLE_ACCOUNT_ID = '452934';
 export const GUESS_WORKABLE_ACCOUNT_SLUG = 'guess-europe-sagl';
+
+// HQ fallback — Bioggio, canton TI. Kept local (mirrors komax-group-job-parser.mjs's
+// convention) so the canton resolvers below don't need it threaded in as a param.
+const HQ = getCompanyDefaults('guess-europe') || { city: 'Bioggio', canton: 'TI', postalCode: '6934', addressRegion: 'TI' };
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -41,6 +46,46 @@ export function isGuessTicinoWidgetJob(job = {}) {
     isChCountry(job.country) &&
     Boolean(inferSwissTargetCanton(signal) || isTargetSwissLocation(signal))
   );
+}
+
+/**
+ * Resolve the canton for a job, or signal (via null) that it should be
+ * skipped.
+ *
+ * isGuessTicinoWidgetJob() actually admits ANY TARGET_CANTON job (via
+ * inferSwissTargetCanton()/isTargetSwissLocation() over the combined
+ * city+state+department+country signal), not just Ticino, despite this
+ * crawler's Ticino-only docstring/intent — so a real, non-empty city text
+ * that itself fails to resolve to a canton must never fabricate the
+ * Bioggio HQ canton (TI) for a job that isn't verifiably there (AGENTS.md
+ * Non-Negotiable #3, mirrors clariant/swisslog/debiopharm/komax/lindt-
+ * spruengli). Only default to HQ.canton when there's no real city text at
+ * all.
+ */
+export function resolveGuessCanton(city = '') {
+  const cityText = String(city || '').trim();
+  const inferredCanton = inferAnyCanton(cityText);
+  if (inferredCanton) return inferredCanton;
+  if (cityText) return null;
+  return HQ.canton;
+}
+
+/**
+ * Pure canton-backfill decision for update-guess-jobs.mjs's postProcessJobs()
+ * (#3480, mirrors resolveDebiopharmBackfillCanton in
+ * update-debiopharm-jobs.mjs). An already-published job is never dropped
+ * here (AGENTS.md "never cut live pages without OK") — a real but
+ * unresolvable location text only earns a `needsCantonReview` flag for
+ * editorial triage; the safe-default canton itself is always still
+ * written (Non-Negotiable #3).
+ */
+export function resolveGuessBackfillCanton(locationText = '') {
+  const text = String(locationText || '').trim();
+  const inferredCanton = inferAnyCanton(text);
+  return {
+    canton: inferredCanton || HQ.canton,
+    needsCantonReview: Boolean(text && !inferredCanton),
+  };
 }
 
 export function buildGuessDetailUrl(shortcode = '') {

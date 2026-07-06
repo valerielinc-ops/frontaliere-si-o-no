@@ -1477,10 +1477,29 @@ interface DetailCopy {
  * the truncatable token: word-aware {@link truncateHeadline}, never a naive
  * mid-string cut. Suffix (comune/region/brand) is always preserved — it's
  * the local-SEO signal, analogous to city in job titles.
+ *
+ * Budget and overflow check are computed on the ESCAPED length, not the raw
+ * length: `audit-title-length.mjs` measures the raw HTML source of `<title>`,
+ * which `htmlTemplate.ts` renders as `esc(title)` (one escape pass) — mirrors
+ * the `measureLength` pattern in {@link buildTitleWithBrand} /
+ * {@link composeSerpJobTitle} (`titleSuffix.ts`). A raw `&`/`<`/`>`/`"` in a
+ * crawled title (e.g. "Rock & Blues Night") expands on escape, so a title
+ * that looks in-budget pre-escape can still overflow the 66-char cap
+ * post-escape. `truncateHeadline` itself truncates on RAW code units, so an
+ * already-in-raw-budget title can still escape-overflow (a retained `&`
+ * survives truncation) — shrink the raw ceiling and retry until the escaped
+ * result fits; bounded by `budget` iterations (`truncateHeadline` degrades to
+ * `'…'` once `max` hits 0, which always measures within any budget >= 1).
+ * `Math.max(1, …)` guards a comune suffix long enough to push the budget
+ * negative, which would otherwise make `truncateHeadline` emit an empty/
+ * broken title.
  */
 function eventDetailMetaTitle(rawTitle: string, suffix: string): string {
-  const budget = TITLE_MAX_CHARS - suffix.length;
-  const title = rawTitle.length > budget ? truncateHeadline(rawTitle, budget) : rawTitle;
+  const budget = Math.max(1, TITLE_MAX_CHARS - esc(suffix).length);
+  let title = rawTitle;
+  for (let max = budget; esc(title).length > budget && max > 0; max -= 1) {
+    title = truncateHeadline(rawTitle, max);
+  }
   return `${title}${suffix}`;
 }
 

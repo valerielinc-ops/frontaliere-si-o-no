@@ -424,7 +424,7 @@ function mergeManorJobs(discoveredJobs) {
       existing.category = job.category;
       existing.description = job.description;
       existing.descriptionIt = job.descriptionIt;
-      existing.descriptionByLocale = mergeLocaleTextMap(existing.descriptionByLocale, job.descriptionByLocale, 30);
+      existing.descriptionByLocale = mergeLocaleTextMap(existing.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang);
       existing.postedDate = job.postedDate || existing.postedDate;
       existing.source = job.source;
       existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, job.slugByLocale, 3);

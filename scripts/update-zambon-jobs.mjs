@@ -195,7 +195,7 @@ async function mergeJobs(discoveredJobs) {
   for (const d of discoveredJobs) {
     const key = canonicalizeUrl(d.url); const old = existingByUrl.get(key);
     if (old) {
-      const mergedDescByLocale = mergeLocaleTextMap(old.descriptionByLocale, d.descriptionByLocale, 30);
+      const mergedDescByLocale = mergeLocaleTextMap(old.descriptionByLocale, d.descriptionByLocale, 30, d.sourceLang);
       // Force-update Italian description when the new source is significantly richer
       if (d.description && d.description.length > (old.description || '').length * 1.5) {
         mergedDescByLocale.it = d.description;

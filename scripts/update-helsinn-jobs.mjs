@@ -107,7 +107,7 @@ async function mergeJobs(discoveredJobs) {
       ...old,
       ...d,
       titleByLocale: mergeLocaleTextMap(old.titleByLocale, d.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(old.descriptionByLocale, d.descriptionByLocale, 30),
+      descriptionByLocale: mergeLocaleTextMap(old.descriptionByLocale, d.descriptionByLocale, 30, d.sourceLang),
       slugByLocale: mergeLocaleTextMap(old.slugByLocale, d.slugByLocale, 3),
       previousSlugs: mergePreviousSlugsCapped(old.previousSlugs, d.previousSlugs, { jobId: old.id || d.id, source: 'update-helsinn-jobs.mjs' }),
     }); updated++; }

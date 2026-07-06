@@ -435,15 +435,6 @@ function canonicalizeUrl(url = '') {
   }
 }
 
-function filterEmpty(obj = {}) {
-  if (!obj || typeof obj !== 'object') return {};
-  const out = {};
-  for (const [k, v] of Object.entries(obj)) {
-    if (v && String(v).trim()) out[k] = v;
-  }
-  return out;
-}
-
 function jobMatchKey(job) {
   // Match by UUID from PDF URL or by slug
   const url = String(job?.url || '');
@@ -493,7 +484,7 @@ async function mergeJobs(discoveredJobs) {
         source: 'ail-lugano-crawler',
         validThrough: discovered.validThrough || ex.validThrough,
         titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30),
+        descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(ex.slugByLocale, discovered.slugByLocale, 3),
       };
 
@@ -501,15 +492,14 @@ async function mergeJobs(discoveredJobs) {
         discovered.description &&
         discovered.description.length > (ex.description || '').length
       ) {
+        // Sibling of issue #3453 (Coop crawler): this used to reset
+        // descriptionByLocale to `filterEmpty(discovered.descriptionByLocale)`
+        // (source-locale only) whenever the description grew by >100 chars,
+        // discarding the safe merge computed above via mergeLocaleTextMap
+        // (which preserves existing translated locales and only fills gaps)
+        // and wiping any already-translated en/de/fr entries. The merge above
+        // already reflects the fresh source text — no separate reset needed.
         updatedJob.description = discovered.description;
-        // Clear stale locale translations when description changes significantly
-        const prevLen = (ex.description || '').length;
-        const newLen = discovered.description.length;
-        if (Math.abs(newLen - prevLen) > 100) {
-          updatedJob.descriptionByLocale = {
-            ...filterEmpty(discovered.descriptionByLocale),
-          };
-        }
       }
 
       merged.push(updatedJob);

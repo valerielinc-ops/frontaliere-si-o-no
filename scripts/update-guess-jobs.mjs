@@ -49,6 +49,8 @@ import {
   buildGuessDetailUrl,
   buildGuessApplyUrl,
   parseGuessJobDetailPayload,
+  resolveGuessCanton,
+  resolveGuessBackfillCanton,
 } from './lib/guess-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
@@ -211,7 +213,18 @@ async function fetchGuessDetail(shortcode) {
 function buildGuessJob(listing, detail) {
   const parsed = parseGuessJobDetailPayload(detail);
   const title = parsed.title || String(listing?.title || '').trim();
-  const city = parsed.city || String(listing?.city || '').trim() || 'Bioggio';
+  const rawCity = parsed.city || String(listing?.city || '').trim();
+  // Unresolved-canton skip guard (#3480 sibling — same construct already
+  // fixed for clariant/swisslog/debiopharm/komax/lindt-spruengli): resolve
+  // BEFORE the 'Bioggio' display fallback is applied, so a real-but-
+  // unresolvable city is never masked into looking like "no location text
+  // at all" and silently fabricated to the Bioggio HQ canton (TI).
+  const canton = resolveGuessCanton(rawCity);
+  if (canton === null) {
+    console.warn(`     ⚠️  Skipping unresolvable location "${rawCity}" (${title})`);
+    return null;
+  }
+  const city = rawCity || 'Bioggio';
   // Slug-only guard: `city` can be the literal "undefined"/"null" string (truthy)
   // → `-undefined` in an active slug (#952, class #900/#901). location/addressLocality
   // keep raw `city` (choke-point normalizer owns de-index).
@@ -230,9 +243,9 @@ function buildGuessJob(listing, detail) {
     companyDomain: COMPANY_DOMAIN,
     location: city,
     addressLocality: city,
-    addressRegion: inferAnyCanton(city) || DEFAULT_CANTON,
+    addressRegion: canton,
     addressCountry: 'CH',
-    canton: inferAnyCanton(city) || DEFAULT_CANTON,
+    canton,
     country: 'CH',
     employmentType: parsed.employmentType,
     contractType: parsed.employmentType,
@@ -281,7 +294,7 @@ async function mergeJobs(discoveredJobs) {
         ...existingJob,
         ...discovered,
         titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30),
+        descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
         previousSlugs: mergePreviousSlugsCapped(existingJob.previousSlugs, discovered.previousSlugs, { jobId: existingJob.id || discovered.id, source: 'update-guess-jobs.mjs' }),
       });
@@ -353,7 +366,19 @@ function postProcessJobs() {
       job.companyDomain = COMPANY_DOMAIN;
       fixed += 1;
     }
-    job.canton = inferAnyCanton(job.location || job.addressLocality || '') || DEFAULT_CANTON;
+    // Unresolved-canton skip guard, backfill side (#3480 — mirrors
+    // update-debiopharm-jobs.mjs's postProcessJobs()). Canton is still
+    // recomputed unconditionally every run (unchanged prior behavior); a
+    // real-but-unresolvable location text additionally earns a
+    // `needsCantonReview` flag for editorial triage instead of silently
+    // fabricating the Bioggio HQ canton (TI) for an already-published job
+    // (AGENTS.md "never cut live pages without OK" + Non-Negotiable #3).
+    const { canton: backfillCanton, needsCantonReview } = resolveGuessBackfillCanton(job.location || job.addressLocality || '');
+    job.canton = backfillCanton;
+    if (needsCantonReview && job.needsCantonReview !== true) {
+      job.needsCantonReview = true;
+      fixed += 1;
+    }
     job.country = 'CH';
     job.addressCountry = 'CH';
     job.addressRegion = job.canton;
@@ -433,7 +458,13 @@ async function main() {
   for (const listing of listings) {
     console.log(`  📄 Processing: ${listing.title} (${listing.city})`);
     const detail = await fetchGuessDetail(listing.shortcode);
-    discoveredJobs.push(buildGuessJob(listing, detail));
+    const job = buildGuessJob(listing, detail);
+    if (!job) continue;
+    discoveredJobs.push(job);
+  }
+
+  if (discoveredJobs.length === 0) {
+    throw new Error('Guess discovery produced 0 admissible jobs after enrichment.');
   }
 
   updateAdapterConfig(discoveredJobs);

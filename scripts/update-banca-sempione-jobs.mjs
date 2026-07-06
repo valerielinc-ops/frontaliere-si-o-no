@@ -370,7 +370,7 @@ function mergeBancaSempioneJobs(discoveredJobs) {
       // Always merge locale data to preserve AI translations
       existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, job.slugByLocale, 3);
       existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, job.titleByLocale, 2);
-      existing.descriptionByLocale = mergeLocaleTextMap(existing.descriptionByLocale, job.descriptionByLocale, 30);
+      existing.descriptionByLocale = mergeLocaleTextMap(existing.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang);
       updated++;
       existingByUrl.delete(key); // track processed
     } else {

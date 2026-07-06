@@ -38,6 +38,12 @@ const SN_API_URLS = [
   'https://vs.service-now.com/api/x_hdvi2_hvs_ats/ats_portal_api/jobs?sysparm_limit=100&language=fr',
 ];
 
+// SN_API_URLS[0] carries no explicit `sysparm_limit`, so we can't read the real
+// server-side page cap from its query string. Fall back to the sibling
+// endpoint's known limit as a sentinel so the truncation warning still fires
+// for that endpoint instead of silently no-op'ing (issue #3578).
+const SN_DEFAULT_PAGE_CAP = 100;
+
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -117,6 +123,17 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+/**
+ * Resolve the page-size cap to compare a ServiceNow listing count against.
+ * Uses the URL's own `sysparm_limit` when present; otherwise falls back to
+ * SN_DEFAULT_PAGE_CAP so the truncation warning still fires for endpoints
+ * that don't carry an explicit limit param (issue #3578).
+ */
+export function resolveServiceNowPageCap(apiUrl) {
+  const limitParam = new URL(apiUrl).searchParams.get('sysparm_limit');
+  return limitParam ? Number(limitParam) : SN_DEFAULT_PAGE_CAP;
+}
+
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
@@ -153,10 +170,11 @@ async function tryServiceNowApi() {
         });
         if (items.length > 0) {
           console.log(`   ServiceNow API returned ${items.length} items`);
-          const limitParam = new URL(apiUrl).searchParams.get('sysparm_limit');
-          if (limitParam) {
-            warnIfListingAtCap({ label: 'Canton du Valais listing', count: items.length, cap: Number(limitParam) });
-          }
+          warnIfListingAtCap({
+            label: 'Canton du Valais listing',
+            count: items.length,
+            cap: resolveServiceNowPageCap(apiUrl),
+          });
           return items;
         }
       } else {

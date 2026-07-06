@@ -263,7 +263,7 @@ function mergeJobs(discoveredJobs) {
       ...prev,
       ...job,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergedSlugByLocale,
       ...(previousSlugs.length > 0 ? { previousSlugs } : {}),
     };

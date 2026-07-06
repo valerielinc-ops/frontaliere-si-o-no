@@ -312,10 +312,14 @@ function mergeJobs(discoveredJobs) {
       ...prev,
       ...job,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Issue #3453-class: never reset descriptionByLocale to a source-only
+      // map on a large content delta — sourceLocale-aware merge already
+      // refreshes the source locale while preserving translated ones.
       descriptionByLocale: mergeLocaleTextMap(
-        descChanged ? {} : prev.descriptionByLocale,
+        prev.descriptionByLocale,
         job.descriptionByLocale,
         30,
+        job.sourceLang,
       ),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
       ...(descChanged ? { needsRetranslation: true } : {}),
