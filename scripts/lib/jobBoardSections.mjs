@@ -51,6 +51,15 @@
  */
 
 /**
+ * Canonical prefix alternation, exported separately so callers that need to
+ * CAPTURE the matched board segment (e.g. rewriting/validating an href, not
+ * just testing membership) can compose their own regex around it instead of
+ * copy-pasting the prefix list — keeps every consumer in lockstep with any
+ * future canton prefix added here.
+ */
+export const JOB_BOARD_SECTION_PREFIX_SOURCE = 'cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im';
+
+/**
  * Matches the leading job-board section segment of a normalised dist path
  * (a path beginning with `/`, optionally locale-prefixed `/en|/de|/fr`).
  * Examples that match: `/cerca-lavoro-ticino/…`, `/cerca-lavoro-argovia/…`,
@@ -58,7 +67,7 @@
  * `/de/jobs-in-aargau/…`, `/de/jobs-in-der-waadt/…`, `/fr/trouver-emploi-vaud/…`.
  */
 export const JOB_BOARD_SECTION_RX =
-  /(?:^|\/)(?:cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im)-[a-z][a-z-]*\//;
+  new RegExp(`(?:^|/)(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/`);
 
 /**
  * @param {string} normalisedPath path that already starts with `/` and has had
