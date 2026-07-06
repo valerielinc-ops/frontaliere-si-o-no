@@ -1,19 +1,21 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-07-06T13:36:35.516Z",
+  "generatedAt": "2026-07-06T22:30:30.163Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2686,
-  "avgDurationMs": 2686,
+  "unchangedCount": 1,
+  "durationMs": 2890,
+  "avgDurationMs": 2890,
   "durationHistory": [
-    2686
+    2890
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "diakoniewerk-neumuenster-496f41f530ed",
       "slug": "formatrice-professionale-maternite-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg-zollikerberg",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
