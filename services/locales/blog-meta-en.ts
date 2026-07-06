@@ -8269,6 +8269,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-autostrada-a8-luglio-2026.title': 'A8 Milan-Varese: night closures for work in July',
     'blog.article.lavori-autostrada-a8-luglio-2026.excerpt': 'Construction sites for safety barriers on the A8: closed sections and junctions blocked from 6 to 12 July 2026. Here are the recommended alternative routes.',
     'blog.article.lavori-autostrada-a8-luglio-2026.imageAlt': 'Highway construction works on the A8 Milan-Varese near the Swiss border',
+    'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.title': 'Tilo Mendrisio-Gallarate: RFI upgrade completed',
+    'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.excerpt': 'The works of the Italian Railway Network on the cross-border section have been completed: full operation of the Tilo connections between Ticino and Varesotto has been restored.',
+    'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.imageAlt': 'Tilo train arriving at Mendrisio station',
 };
 
 export default blogMetaEn;

@@ -8270,6 +8270,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavori-autostrada-a8-luglio-2026.title': 'A8 Milan-Varese : fermetures nocturnes pour travaux en juillet',
     'blog.article.lavori-autostrada-a8-luglio-2026.excerpt': 'Chantiers pour les barrières de sécurité sur l\'A8 : tronçons fermés et échangeurs bloqués du 6 au 12 juillet 2026. Voici les itinéraires alternatifs recommandés.',
     'blog.article.lavori-autostrada-a8-luglio-2026.imageAlt': 'Travaux autoroutiers sur l\'A8 Milan-Varèse près de la frontière suisse',
+    'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.title': 'Tilo Mendrisio-Gallarate : l\'amélioration RFI est terminée',
+    'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.excerpt': 'Les travaux du Réseau Ferroviaire Italien sur le tronçon transfrontalier ont été achevés : les liaisons TILO entre le Tessin et Varesotto ont été rétablies pleinement opérationnelles.',
+    'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.imageAlt': 'Train Tilo arrivant à la gare de Mendrisio',
 };
 
 export default blogMetaFr;

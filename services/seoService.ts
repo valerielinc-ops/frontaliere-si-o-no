@@ -4384,6 +4384,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-infermiere-ticino-requisiti': { name: 'Frontaliere infermiere Ticino', path: '/articoli-svizzera/frontaliere-infermiere-ticino-requisiti/', parent: 'blog' },
     'blog-lavori-autostrada-a8-luglio-2026': { name: 'Lavori A8', path: '/articoli-frontaliere/lavori-autostrada-a8-luglio-2026', parent: 'blog' },
     'blog-frontaliere-operaio-edile-ticino-ccl': { name: 'Lavoro edile Ticino', path: '/articoli-svizzera/frontaliere-operaio-edile-ticino-ccl/', parent: 'blog' },
+    'blog-potenziamento-linee-tilo-mendrisio-gallarate': { name: 'Potenziamento Tilo', path: '/articoli-frontaliere/potenziamento-linee-tilo-mendrisio-gallarate', parent: 'blog' },
  };
 
  const info = sectionNames[section];
