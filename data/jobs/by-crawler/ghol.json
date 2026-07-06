@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-07-05T22:47:10.092Z",
+  "assembledAt": "2026-07-06T13:45:32.942Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,8 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T22:47:07.975Z",
+      "crawledAt": "2026-07-06T13:45:30.625Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -147,7 +148,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T22:47:07.974Z",
+      "crawledAt": "2026-07-06T13:45:30.624Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -251,7 +253,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T22:47:07.973Z",
+      "crawledAt": "2026-07-06T13:45:30.623Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -328,7 +330,8 @@
       "applyUrl": "https://app.beehire.com/invite/j92t_xzbO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T22:47:07.973Z",
+      "crawledAt": "2026-07-06T13:45:30.623Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Descrizione GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle."
@@ -416,7 +419,7 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T22:47:07.972Z",
+      "crawledAt": "2026-07-06T13:45:30.622Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -493,7 +496,8 @@
       "applyUrl": "https://app.beehire.com/invite/SAEhDyjSq",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T22:47:07.972Z",
+      "crawledAt": "2026-07-06T13:45:30.622Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -569,7 +573,8 @@
       "applyUrl": "https://app.beehire.com/invite/B-qFH1Hv4Y",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T22:47:07.971Z",
+      "crawledAt": "2026-07-06T13:45:30.621Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest",
         "assistente-medico-dr-barriol-urologia-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -645,7 +650,7 @@
       "applyUrl": "https://app.beehire.com/invite/iMHZFWFWX",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T22:47:07.969Z",
+      "crawledAt": "2026-07-06T13:45:30.619Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -724,7 +729,7 @@
       "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T22:47:07.968Z",
+      "crawledAt": "2026-07-06T13:45:30.617Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -801,7 +806,7 @@
       "applyUrl": "https://app.beehire.com/invite/Hx8j9fccF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T22:47:07.967Z",
+      "crawledAt": "2026-07-06T13:45:30.615Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
