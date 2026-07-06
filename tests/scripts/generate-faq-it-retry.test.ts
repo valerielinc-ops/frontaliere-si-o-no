@@ -22,7 +22,7 @@ vi.mock('../../scripts/lib/ai-models.mjs', async (importOriginal) => {
   return { ...actual, callSingleModel: aiModelsMock.callSingleModel, callLLM: aiModelsMock.callLLM };
 });
 
-const { generateFaqIT } = await import('../../scripts/batch-add-faq-to-articles.mjs');
+const { generateFaqIT, generateTopUpFaqIT } = await import('../../scripts/batch-add-faq-to-articles.mjs');
 
 const VALID_FAQ_JSON = JSON.stringify([
   { q: 'Domanda 1?', a: 'Risposta 1 con dati concreti sufficientemente lunga per passare i controlli di qualita.' },
@@ -98,5 +98,45 @@ describe('generateFaqIT — retries on malformed/truncated LLM output', () => {
 
     expect(faq.length).toBe(3);
     expect(aiModelsMock.callSingleModel).toHaveBeenCalledTimes(1);
+  });
+});
+
+// Review finding on PR #3629: generateTopUpFaqIT shares the exact same
+// LLM-JSON-array shape and single-attempt fragility generateFaqIT had — both
+// now share the _withFaqRetry wrapper, locked in here.
+describe('generateTopUpFaqIT — shares the same retry wrapper as generateFaqIT', () => {
+  const existingFaq = [{ q: 'Domanda esistente?', a: 'Risposta esistente.' }];
+
+  beforeEach(() => {
+    aiModelsMock.callSingleModel.mockReset();
+    aiModelsMock.callLLM.mockReset();
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+    vi.useRealTimers();
+  });
+
+  it('retries after a truncated-JSON response and succeeds on a later attempt', async () => {
+    aiModelsMock.callSingleModel
+      .mockResolvedValueOnce(TRUNCATED_JSON)
+      .mockResolvedValue(VALID_FAQ_JSON);
+
+    const faq = await runWithFakeTimers(() =>
+      generateTopUpFaqIT('test-article-id', 'Corpo di test '.repeat(50), existingFaq),
+    );
+
+    expect(Array.isArray(faq)).toBe(true);
+    expect(faq.length).toBeGreaterThan(0);
+    expect(aiModelsMock.callSingleModel.mock.calls.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('gives up after 3 attempts if every response is truncated/malformed', async () => {
+    aiModelsMock.callSingleModel.mockResolvedValue(TRUNCATED_JSON);
+    aiModelsMock.callLLM.mockResolvedValue(TRUNCATED_JSON);
+
+    await expect(
+      runWithFakeTimers(() => generateTopUpFaqIT('test-article-id', 'Corpo di test '.repeat(50), existingFaq)),
+    ).rejects.toThrow();
   });
 });
