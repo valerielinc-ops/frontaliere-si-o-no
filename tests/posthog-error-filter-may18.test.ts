@@ -35,6 +35,56 @@ describe('posthog-error-filter — May 2026 noise additions', () => {
     expect(filter(exception('ReferenceError: foo is not defined'))).not.toBeNull();
   });
 
+  it('drops exception whose entire stack is from a Chrome extension (#3673)', () => {
+    const extensionEvent = {
+      event: '$exception',
+      properties: {
+        $exception_list: [{
+          stacktrace: {
+            frames: [
+              { filename: 'chrome-extension://bhmmomiinigofkjcapegjjndpbikblnp/scripts/content.js' },
+            ],
+          },
+        }],
+      },
+    };
+    expect(filter(extensionEvent)).toBeNull();
+  });
+
+  it('drops exception whose entire stack is from a Firefox extension (#3673)', () => {
+    const extensionEvent = {
+      event: '$exception',
+      properties: {
+        $exception_list: [{
+          stacktrace: {
+            frames: [
+              { filename: 'moz-extension://some-uuid/scripts/content.js' },
+            ],
+          },
+        }],
+      },
+    };
+    expect(filter(extensionEvent)).toBeNull();
+  });
+
+  it('preserves exception with mixed first-party + extension frames (#3673)', () => {
+    const mixedEvent = {
+      event: '$exception',
+      properties: {
+        $exception_list: [{
+          stacktrace: {
+            frames: [
+              { filename: 'chrome-extension://bhmmomiinigofkjcapegjjndpbikblnp/scripts/content.js' },
+              { filename: 'https://frontaliereticino.ch/assets/index-abc.js' },
+            ],
+          },
+        }],
+      },
+    };
+    // Not dropped: has at least one first-party frame → real error
+    expect(filter(mixedEvent)).not.toBeNull();
+  });
+
   it('exposes patterns as a readonly array of RegExp', () => {
     expect(Array.isArray(BENIGN_MESSAGES)).toBe(true);
     for (const p of BENIGN_MESSAGES) expect(p).toBeInstanceOf(RegExp);
