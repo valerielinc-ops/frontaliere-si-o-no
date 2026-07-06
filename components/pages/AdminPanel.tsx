@@ -3025,7 +3025,21 @@ export default function AdminPanel() {
  const refreshWorkflowSnapshots = async () => {
  try {
  const connection = await getGitHubConnection();
- await Promise.all(workflowActions.map(async (workflow) => {
+ // Post-consolidation (2026-07), many crawler rows share the SAME `wf.id`
+ // (their containing crawler-group-*.yml) — same dedup pattern already
+ // used by getWorkflowTabSummary/retryAllFailed above. `workflowState` is
+ // keyed by `wf.id`, so fetching+setting it once per distinct id already
+ // updates every row that shares that id; without this dedup, a ~25-member
+ // group fired ~25x redundant listWorkflowRuns/listRunJobs/log-excerpt API
+ // calls per refresh (mount, tab switch, dynamicCrawlerWorkflows load)
+ // instead of once per distinct group workflow.
+ const seenIds = new Set<string>();
+ const distinctWorkflows = workflowActions.filter((wf) => {
+ if (seenIds.has(wf.id)) return false;
+ seenIds.add(wf.id);
+ return true;
+ });
+ await Promise.all(distinctWorkflows.map(async (workflow) => {
  try {
  const runs = await listWorkflowRuns(connection, workflow.id);
  const run = runs[0];

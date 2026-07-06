@@ -21,6 +21,8 @@
  *   --url         Career page URL (used in parser template)
  *   --marquee     Slug from data/marquee-companies-list.json — auto-pulls name/hq_canton/hq_city/ats_hint/careerUrl
  *   --playwright  Workflow installs Chromium (for SPA / JS-only ATS pages)
+ *   --ignore-scripts  Install step uses `npm ci --ignore-scripts` (for a
+ *                 postinstall script known to fail/hang in CI)
  *   --force       Overwrite existing files
  *
  * Generated files:
@@ -66,6 +68,8 @@ Options:
   --url <url>         Career page URL
   --marquee <slug>    Auto-pull name/canton/city/ats_hint/careerUrl from data/marquee-companies-list.json
   --playwright        Workflow installs Chromium (for SPA / JS-only ATS pages)
+  --ignore-scripts    Install step uses \`npm ci --ignore-scripts\` (for a
+                      postinstall script known to fail/hang in CI)
   --force             Overwrite existing files
 
 Examples:
@@ -154,6 +158,13 @@ if (!companyKey || companyKey.length < 2) {
 
 const force = args.includes('--force');
 const playwrightTier = args.includes('--playwright');
+// Mirrors --playwright: records the crawler's need for a leaner install in
+// the manifest data generate-crawler-group-workflows.mjs reads for its
+// group-level --ignore-scripts propagation (see needsIgnoreScripts there).
+// Without this flag, a newly scaffolded crawler needing --ignore-scripts had
+// no supported way to declare it short of hand-editing
+// data/crawler-manifest.json after the fact.
+const ignoreScriptsTier = args.includes('--ignore-scripts');
 
 const companyName =
   getOption('--name') ||
@@ -796,7 +807,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci${ignoreScriptsTier ? ' --ignore-scripts' : ''}
 ${playwrightTier ? `
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
@@ -1057,7 +1068,7 @@ function upsertCrawlerManifestEntry(entry) {
   console.log(`  ✅ Crawler manifest: upserted '${entry.slug}' in ${path.relative(ROOT, CRAWLER_MANIFEST_PATH)}`);
 }
 
-console.log(`\n🏗️  Scaffolding crawler: ${companyKey} (${companyName}) [--ats=${atsTier}${playwrightTier ? ', --playwright' : ''}]\n`);
+console.log(`\n🏗️  Scaffolding crawler: ${companyKey} (${companyName}) [--ats=${atsTier}${playwrightTier ? ', --playwright' : ''}${ignoreScriptsTier ? ', --ignore-scripts' : ''}]\n`);
 
 writeFile(files.parser, parserContent, 'Parser');
 writeFile(files.runner, runnerContent, 'Runner');
