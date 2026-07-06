@@ -8243,6 +8243,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.block-ristorni-federalismo.title': 'Blocage des restaurants : « La Confédération ne peut pas blâmer le canton »',
     'blog.article.block-ristorni-federalismo.excerpt': 'Le Conseil d\'État a décidé de geler les restaurants des frontaliers destinés à l\'Italie.',
     'blog.article.block-ristorni-federalismo.imageAlt': 'Un travailleur frontalier dans la file d\'attente du passage de frontière de Chiasso, avec un sourire triste sur son visage.',
+    'blog.article.riapertura-treni-ticino-2024.title': 'Réouverture des trains entre Varese, le Tessin et Porto Ceresio',
+    'blog.article.riapertura-treni-ticino-2024.excerpt': 'Les liaisons ferroviaires entre Varese, le canton du Tessin et Porto Ceresio rouvrent après quatre semaines d\'interruption',
+    'blog.article.riapertura-treni-ticino-2024.imageAlt': 'Les informations sur la réouverture des liaisons ferroviaires entre Varese, le canton du Tessin et Porto Ceresio représentent une bouffée d\'oxygène pour les voyageurs',
 };
 
 export default blogMetaFr;

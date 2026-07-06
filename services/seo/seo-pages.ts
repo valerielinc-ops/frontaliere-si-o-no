@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3058,
+ "numberOfItems": 3060,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7733,7 +7733,9 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3055, "name": "LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CO...", "url": `${BASE_URL}/articoli-frontaliere/la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso/` },
           { "@type": "ListItem", "position": 3056, "name": "Classifica delle dogane in Ticino: le migliori ...", "url": `${BASE_URL}/articoli-frontaliere/classifica-dogane-ticino/` },
           { "@type": "ListItem", "position": 3057, "name": "Lavoro in Svizzera: 300'000 nuovi posti in cinq...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni` },
-          { "@type": "ListItem", "position": 3058, "name": "Blocco dei ristorni: \"La Confederazione non può...", "url": `${BASE_URL}/articoli-frontaliere/block-ristorni-federalismo` }
+          { "@type": "ListItem", "position": 3058, "name": "Blocco dei ristorni: \"La Confederazione non può...", "url": `${BASE_URL}/articoli-frontaliere/block-ristorni-federalismo` },
+          { "@type": "ListItem", "position": 3059, "name": "Il caldo modifica il valore degli immobili", "url": `${BASE_URL}/articoli-frontaliere/il-caldo-modifica-il-valore-degli-immobili` },
+          { "@type": "ListItem", "position": 3060, "name": "Riapertura dei treni tra Varese, il Ticino e Po...", "url": `${BASE_URL}/articoli-frontaliere/riapertura-treni-ticino-2024` }
  ]
  },
  {
