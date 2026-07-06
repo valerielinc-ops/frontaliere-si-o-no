@@ -8270,6 +8270,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-autostrada-a8-luglio-2026.title': 'A8 Milano-Varese: chiusure notturne per lavori a luglio',
     'blog.article.lavori-autostrada-a8-luglio-2026.excerpt': 'Cantieri per le barriere di sicurezza sulla A8: tratte chiuse e svincoli bloccati dal 6 al 12 luglio 2026. Ecco i percorsi alternativi consigliati.',
     'blog.article.lavori-autostrada-a8-luglio-2026.imageAlt': 'Lavori autostradali sulla A8 Milano-Varese verso il confine svizzero',
+    'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.title': 'Tilo Mendrisio-Gallarate: completato il potenziamento RFI',
+    'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.excerpt': 'Conclusi i lavori di Rete Ferroviaria Italiana sulla tratta transfrontaliera: ripristinata la piena operatività dei collegamenti Tilo tra Ticino e Varesotto.',
+    'blog.article.potenziamento-linee-tilo-mendrisio-gallarate.imageAlt': 'Treno Tilo in arrivo alla stazione di Mendrisio',
 };
 
 export default blogMetaIt;
