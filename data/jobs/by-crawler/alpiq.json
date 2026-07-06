@@ -1,67 +1,7 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-07-06T12:57:19.448Z",
+  "assembledAt": "2026-07-06T22:17:20.758Z",
   "jobs": [
-    {
-      "id": "alpiq-e1fbe0ada2de",
-      "slug": "archivist-in-all-100-alpiq-olten",
-      "slugByLocale": {
-        "it": "archivist-in-all-100-alpiq-olten",
-        "fr": "archiviste-dans-tous-100-alpiq-olten"
-      },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Archivist:in (all) 100%",
-      "titleByLocale": {
-        "it": "Archivista: in (tutti) 100%",
-        "fr": "Archiviste: dans (tous) 100%"
-      },
-      "description": "Archivist:in (all) 100%\n\nTyp: Permanent | Ort: Olten | Model: Vor Ort, max. 1 Tag HO | Reiset&auml;tigkeit: Selten innerhalb der CH&Uuml;ber unsAlpiq geh&ouml;rt zu den f&uuml;hrenden Stromproduzenten der Schweiz und ist ein bedeutender Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus&hellip;\n\nOlten - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Archivista: in (tutti) 100%\n\nTipo: Permanente | Ubicazione: Olten | Modello: In loco, max. 1 giorno HO | Reisetätigkeit: Raramente all'interno di CHÜber unsAlpiq goört ai principali produttori di energia elettrica della Svizzera ed è un importante fornitore di servizi energetici in Europa. Con sede a Losanna e un portafoglio forte di…\n\nOlten - 100%\nPermanente",
-        "en": "Archivist:in (all) 100%\n\nType: Permanent | Location: Olten | Model: On site, max. 1 day HO | Reisetätigkeit: Rarely within CHÜber unsAlpiq goört to the leading electricity producers of Switzerland and is a major provider of energy services in Europe. With headquarters in Lausanne and a strong portfolio of…\n\nOlten - 100%\nPermanent",
-        "fr": "Archiviste: dans (tous) 100%\n\nType: Permanent Lieu: Olten 1 jour HO= Reisetätigkeit: Rarement au sein de CHÜber unsAlpiq goö pas aux principaux producteurs d'électricité de Suisse et est un important fournisseur de services énergétiques en Europe. Avec siège social à Lausanne et un portefeuille solide de …\n\nOlten - 100%\nPermanent"
-      },
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9601",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T12:57:17.444Z",
-      "country": "CH",
-      "salaryMin": 68000,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-06T12:57:17.444Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
-    },
     {
       "id": "alpiq-6f6e2e4039a0",
       "slug": "head-internal-audit-all-100-alpiq-olten",
@@ -81,14 +21,12 @@
       },
       "description": "Head Internal Audit (all) 100%\n\nRole type: Permanent | Location: Olten or Lausanne | Model: Hybrid | Level of travels: 10%Our CopanyAlpiq is one of Switzerland&rsquo;s leading electricity producers and a key energy services provider across Europe. Headquartered in Lausanne and powered by a strong portfolio of hydropower, nuclear, and&hellip;\n\nOlten - 100%\nPermanent",
       "descriptionByLocale": {
-        "it": "Audit interno (tutti) 100%\n\nTipo di ruolo: Permanente | Ubicazione: Olten o Lausanne | Modello: Hybrid | Livello di viaggio: 10%Il nostro CopanyAlpiq è uno dei principali produttori di elettricità e un fornitore di servizi energetici chiave in tutta Europa. Con sede a Losanna e alimentata da un forte portafoglio di energia idroelettrica, nucleare e…\n\nOlten - 100%\nPermanente",
-        "de": "Head Internal Audit (alle) 100%\n\nRollentyp: Permanent | Standort: Olten oder Lausanne | Modell: Hybrid | Reiseniveau: 10%Unser CopanyAlpiq ist einer der führenden Stromproduzenten der Schweiz und ein wichtiger Energiedienstleister in ganz Europa. Mit Hauptsitz in Lausanne und angetrieben von einem starken Portfolio von Wasserkraft, Atomkraft und & hellip;\n\nOlten - 100%\nDauerhaft",
-        "fr": "Responsable de l'audit interne (tous) 100%\n\nType de rôle: Permanente. Basé à Lausanne et alimenté par un solide portefeuille d'hydroélectricité, de nucléaire et d'héliport;\n\nOlten - 100%\nPermanent"
+        "it": "Audit interno (tutti) 100% Tipo di ruolo: Permanente | Ubicazione: Olten o Lausanne | Modello: Hybrid | Livello di viaggio: 10%Il nostro CopanyAlpiq è uno dei principali produttori di elettricità e un fornitore di servizi energetici chiave in tutta Europa. Con sede a Losanna e alimentata da un forte portafoglio di energia idroelettrica, nucleare e… Olten - 100% Permanente",
+        "de": "Head Internal Audit (alle) 100% Rollentyp: Permanent | Standort: Olten oder Lausanne | Modell: Hybrid | Reiseniveau: 10%Unser CopanyAlpiq ist einer der führenden Stromproduzenten der Schweiz und ein wichtiger Energiedienstleister in ganz Europa. Mit Hauptsitz in Lausanne und angetrieben von einem starken Portfolio von Wasserkraft, Atomkraft und & hellip; Olten - 100% Dauerhaft",
+        "fr": "Responsable de l'audit interne (tous) 100% Type de rôle: Permanente. Basé à Lausanne et alimenté par un solide portefeuille d'hydroélectricité, de nucléaire et d'héliport; Olten - 100% Permanent"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "location": "Olten",
       "canton": "",
       "postalCode": "4600",
@@ -106,7 +44,9 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9606&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T12:57:17.445Z",
+      "crawledAt": "2026-07-06T22:17:18.895Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-06T12:57:17.445Z",
       "country": "CH",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -119,10 +59,64 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "alpiq-e1fbe0ada2de",
+      "slug": "archivist-in-all-100-alpiq-olten",
+      "slugByLocale": {
+        "it": "archivist-in-all-100-alpiq-olten",
+        "fr": "archiviste-dans-tous-100-alpiq-olten"
       },
-      "firstSeenAt": "2026-07-06T12:57:17.445Z",
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Archivist:in (all) 100%",
+      "titleByLocale": {
+        "it": "Archivista: in (tutti) 100%",
+        "fr": "Archiviste: dans (tous) 100%"
+      },
+      "description": "Archivist:in (all) 100%\n\nTyp: Permanent | Ort: Olten | Model: Vor Ort, max. 1 Tag HO | Reiset&auml;tigkeit: Selten innerhalb der CH&Uuml;ber unsAlpiq geh&ouml;rt zu den f&uuml;hrenden Stromproduzenten der Schweiz und ist ein bedeutender Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus&hellip;\n\nOlten - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Archivista: in (tutti) 100% Tipo: Permanente | Ubicazione: Olten | Modello: In loco, max. 1 giorno HO | Reisetätigkeit: Raramente all'interno di CHÜber unsAlpiq goört ai principali produttori di energia elettrica della Svizzera ed è un importante fornitore di servizi energetici in Europa. Con sede a Losanna e un portafoglio forte di… Olten - 100% Permanente",
+        "en": "Archivist:in (all) 100% Type: Permanent | Location: Olten | Model: On site, max. 1 day HO | Reisetätigkeit: Rarely within CHÜber unsAlpiq goört to the leading electricity producers of Switzerland and is a major provider of energy services in Europe. With headquarters in Lausanne and a strong portfolio of… Olten - 100% Permanent",
+        "fr": "Archiviste: dans (tous) 100% Type: Permanent Lieu: Olten 1 jour HO= Reisetätigkeit: Rarement au sein de CHÜber unsAlpiq goö pas aux principaux producteurs d'électricité de Suisse et est un important fournisseur de services énergétiques en Europe. Avec siège social à Lausanne et un portefeuille solide de … Olten - 100% Permanent"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9601",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T22:17:18.896Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "firstSeenAt": "2026-07-06T12:57:17.444Z",
+      "country": "CH",
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "alpiq-beb74dfaeacf",
@@ -169,7 +163,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9535&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T12:57:17.441Z",
+      "crawledAt": "2026-07-06T22:17:18.892Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -230,7 +224,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T12:57:17.443Z",
+      "crawledAt": "2026-07-06T22:17:18.893Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -291,7 +285,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9542&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T12:57:17.443Z",
+      "crawledAt": "2026-07-06T22:17:18.893Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -352,7 +346,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9547&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T12:57:17.443Z",
+      "crawledAt": "2026-07-06T22:17:18.894Z",
       "previousSlugs": [
         "anlageningenieur-all-100-alpiq-niedergosgen"
       ],
@@ -421,7 +415,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9545&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T12:57:17.443Z",
+      "crawledAt": "2026-07-06T22:17:18.894Z",
       "firstSeenAt": "2026-06-29T21:34:24.957Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -496,7 +490,8 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "alpiq-70d91ad872b7",
@@ -540,7 +535,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T12:57:17.444Z",
+      "crawledAt": "2026-07-06T22:17:18.895Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-30T09:56:14.281Z",
       "country": "CH",
@@ -602,7 +597,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T12:57:17.444Z",
+      "crawledAt": "2026-07-06T22:17:18.895Z",
       "firstSeenAt": "2026-05-30T09:56:14.282Z",
       "country": "CH",
       "salaryMin": 96000,

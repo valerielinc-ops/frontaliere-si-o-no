@@ -1,18 +1,19 @@
 {
   "key": "bucher-suter",
   "label": "Bucher + Suter AG",
-  "generatedAt": "2026-07-06T13:12:02.498Z",
+  "generatedAt": "2026-07-06T22:17:22.284Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4810,
-  "avgDurationMs": 4810,
+  "durationMs": 7904,
+  "avgDurationMs": 7904,
   "durationHistory": [
-    4810
+    7904
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bucher-suter-e0ead8bbd6a9",
       "slug": "team-leader-operations-people-process-business-applications-bucher-suter-bern",
@@ -20,13 +21,13 @@
       "companyKey": "bucher-suter",
       "companyDomain": "bucher-suter.com",
       "title": "Team Leader Operations – People, Process, Business Applications",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://www.bucher-suter.com/jobs/team-leader-operations-people-process-business-applications/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T13:11:59.507Z",
+      "crawledAt": "2026-07-06T22:17:16.463Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "featured": false,
       "postedDate": "2026-07-06",
       "applyUrl": "https://www.bucher-suter.com/jobs/team-leader-operations-people-process-business-applications/",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-07-06T13:11:59.507Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "bucher-suter-2abc155c1813",
       "slug": "it-project-manager-bucher-suter-bern",
@@ -65,7 +65,7 @@
       "url": "https://www.bucher-suter.com/jobs/it-project-manager/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T13:12:00.428Z",
+      "crawledAt": "2026-07-06T22:17:20.326Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://www.bucher-suter.com/jobs/it-project-manager-2/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T13:11:59.713Z",
+      "crawledAt": "2026-07-06T22:17:17.207Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://www.bucher-suter.com/jobs/salesforce-business-consultant-agentforce-contact-center-service-cloud-ch/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T13:12:00.006Z",
+      "crawledAt": "2026-07-06T22:17:18.816Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://www.bucher-suter.com/jobs/linux-system-administrator-engineer/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T13:12:00.215Z",
+      "crawledAt": "2026-07-06T22:17:19.532Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
