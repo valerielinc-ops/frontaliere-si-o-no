@@ -913,6 +913,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.analisi-busta-paga-frontalieri-2026.title': 'Frontaliers : analyse paie Suisse 2026',
     'blog.article.analisi-busta-paga-frontalieri-2026.excerpt': 'Guide pratique des retenues, des cotisations sociales et du calcul du net réel pour les frontaliers en Suisse en 2026 selon l\'accord en vigueur.',
     'blog.article.analisi-busta-paga-frontalieri-2026.imageAlt': 'Documents financiers et calculatrice sur un bureau avec vue sur Lugano',
+    'blog.article.analisi-busta-paga-svizzera-2026.title': 'Frontaliers : bulletin de paie suisse 2026 et retenues',
+    'blog.article.analisi-busta-paga-svizzera-2026.excerpt': 'Guide pratique de la fiche de paie 2026 : cotisations, impôts à la source et différences fiscales pour les frontaliers travaillant au-delà de 20 km.',
+    'blog.article.analisi-busta-paga-svizzera-2026.imageAlt': 'Vue moderne d\'un bureau à Lugano, Suisse',
 };
 
 export default blogMetaChFr;

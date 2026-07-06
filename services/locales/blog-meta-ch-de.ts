@@ -913,6 +913,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.analisi-busta-paga-frontalieri-2026.title': 'Grenzgänger: Analyse Lohnabrechnung Schweiz 2026',
     'blog.article.analisi-busta-paga-frontalieri-2026.excerpt': 'Praktischer Leitfaden zu Abzügen, Sozialbeiträgen und zur Berechnung des Realnettos für Grenzgänger in der Schweiz im Jahr 2026 gemäss geltendem Abkommen.',
     'blog.article.analisi-busta-paga-frontalieri-2026.imageAlt': 'Finanzdokumente und Taschenrechner auf einem Schreibtisch mit Blick auf Lugano',
+    'blog.article.analisi-busta-paga-svizzera-2026.title': 'Grenzgänger: Schweizer Lohnabrechnung 2026 und Einbehalte',
+    'blog.article.analisi-busta-paga-svizzera-2026.excerpt': 'Praktischer Leitfaden zur Gehaltsabrechnung 2026: Beiträge, Quellensteuern und Steuerdifferenzen für Grenzgänger, die über 20 km arbeiten.',
+    'blog.article.analisi-busta-paga-svizzera-2026.imageAlt': 'Moderne Büroansicht in Lugano, Schweiz',
 };
 
 export default blogMetaChDe;

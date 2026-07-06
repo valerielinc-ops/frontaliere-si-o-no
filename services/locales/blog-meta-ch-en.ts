@@ -913,6 +913,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.analisi-busta-paga-frontalieri-2026.title': 'Frontier workers: payroll analysis Switzerland 2026',
     'blog.article.analisi-busta-paga-frontalieri-2026.excerpt': 'Practical guide to deductions, social contributions and the calculation of the real net for border workers in Switzerland in 2026 according to the current agreement.',
     'blog.article.analisi-busta-paga-frontalieri-2026.imageAlt': 'Financial documents and calculator on a desk with a view of Lugano',
+    'blog.article.analisi-busta-paga-svizzera-2026.title': 'Frontier workers: Swiss payroll 2026 and withheld',
+    'blog.article.analisi-busta-paga-svizzera-2026.excerpt': 'Practical guide to the 2026 payroll: contributions, taxes at source and tax differences for border workers working over 20 km.',
+    'blog.article.analisi-busta-paga-svizzera-2026.imageAlt': 'Modern office view in Lugano, Switzerland',
 };
 
 export default blogMetaChEn;
