@@ -346,6 +346,29 @@ function updateAdapterConfig(discoveredJobs) {
   console.log(`📝 Adapter ${COMPANY_KEY} updated.`);
 }
 
+/**
+ * Pure canton-backfill decision for postProcessJobs() (#3480). Given the
+ * real (already-scraped) location text of an ALREADY-published job whose
+ * `canton` field is currently missing, returns the safe-default canton to
+ * write (Non-Negotiable #3: structured data must always carry a canton —
+ * the safe default itself is never removed) plus a `needsCantonReview`
+ * flag when the location text is real but unresolvable, distinct from "no
+ * location text at all" (which safely defaults to HQ with no flag).
+ *
+ * Unlike buildDebiopharmJob's admission-time skip guard, an already-published
+ * job is never dropped/cut here (AGENTS.md "never cut live pages without
+ * OK") — the flag exists purely for editorial triage; the canton/
+ * addressRegion the job page actually shows is unchanged.
+ */
+export function resolveDebiopharmBackfillCanton(locationText = '') {
+  const text = String(locationText || '').trim();
+  const inferredCanton = inferAnyCanton(text);
+  return {
+    canton: inferredCanton || DEFAULT_CANTON,
+    needsCantonReview: Boolean(text && !inferredCanton),
+  };
+}
+
 function postProcessJobs() {
   const raw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
@@ -365,7 +388,9 @@ function postProcessJobs() {
       fixed += 1;
     }
     if (!job.canton) {
-      job.canton = inferAnyCanton(job.location || job.addressLocality || '') || DEFAULT_CANTON;
+      const { canton, needsCantonReview } = resolveDebiopharmBackfillCanton(job.location || job.addressLocality || '');
+      job.canton = canton;
+      if (needsCantonReview) job.needsCantonReview = true;
       fixed += 1;
     }
     job.country = 'CH';
