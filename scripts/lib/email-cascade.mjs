@@ -23,7 +23,8 @@
  *   MAILGUN_DOMAIN           — Mailgun sending domain
  *   MAILTRAP_API_TOKEN       — Mailtrap API token (4000/mo, 150/day free tier)
  *   MAILEROO_API_KEY         — Maileroo sending key (3000/mo free tier)
- *   RESEND_API_KEY           — Resend API key (fallback only)
+ *   RESEND_API_KEY           — Resend API key (50000/mo paid plan since 2026-07-06,
+ *                                bulk workhorse of the cascade, not a fallback)
  *   CF_API_TOKEN             — Cloudflare token used by default for Email Service:
  *                                it already carries Email Sending: Edit + Analytics
  *                                Read (verified live). 3000/mo included on the
@@ -40,7 +41,10 @@
 
 const PROVIDERS = [
   { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000  },
-  { id: 'resend',   dailyLimit: 100, monthlyLimit: 3000  },
+  // resend: paid plan activated 2026-07-06 (50000/mo, owner request) — this is
+  // now the bulk workhorse of the cascade, not a fallback. dailyLimit = 50000/30
+  // months-average, floored.
+  { id: 'resend',   dailyLimit: 1666, monthlyLimit: 50000 },
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
   // maileroo: free tier (100/day). DKIM selector mta._domainkey.frontaliereticino.ch
@@ -51,13 +55,15 @@ const PROVIDERS = [
   // dmarc=pass at p=reject (dis=NONE), delivered to inbox. Placed before cloudflare so
   // the purely-free providers are preferred over the paid Workers quota.
   { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000  },
-  // Cloudflare Email Service: 3000/mo is the included allowance on Workers Paid;
-  // no documented per-day cap. dailyLimit=1000, monthlyLimit=30000 (owner request
-  // 2026-07-03) — owner accepted paid overage above the included 3000/mo, up to
-  // ~$9.45/mo worst case ($0.35/1000 past the included allowance, if cloudflare
-  // maxes out every day of the month). Placed last: it draws on the paid-plan
-  // quota, so prefer the purely-free providers first.
-  { id: 'cloudflare', dailyLimit: 1000, monthlyLimit: 30000 },
+  // Cloudflare Email Service: reverted to the free-tier threshold 2026-07-06
+  // (owner request) — dailyLimit=100, monthlyLimit=3000, superseding the
+  // 2026-07-03 paid-overage bump (dailyLimit 1000/monthlyLimit 30000). Root
+  // cause for the revert: cloudflare's burst-rate throttle (429 code=10004)
+  // fires well below any of these daily caps (hit at ~200 sends on 2026-07-06),
+  // so raising the daily cap bought no real extra headroom — it only masked
+  // the fact that resend now covers the bulk volume instead. Placed last: it
+  // draws on the paid-plan quota, so prefer the purely-free providers first.
+  { id: 'cloudflare', dailyLimit: 100, monthlyLimit: 3000 },
 ];
 
 // In-memory daily counters (reset on new UTC day)
@@ -165,13 +171,42 @@ async function fetchResendDailyUsage() {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return 0;
   try {
-    const res = await fetch('https://api.resend.com/emails', {
-      headers: { Authorization: 'Bearer ' + apiKey }
-    });
-    if (!res.ok) return 0;
-    const data = await res.json();
     const today = getTodayUTC();
-    return (data.data || []).filter(e => e.created_at?.startsWith(today)).length;
+    let count = 0;
+    let after;
+    // /emails is sorted newest-first; page with limit=100 (API max) until an
+    // entry older than today appears or has_more is false. Capped at 20 pages
+    // (2000 entries) — comfortably above the 1666/day cascade cap, so a
+    // legitimate day's volume never gets truncated back into the same
+    // undercount bug this replaces (previously: default limit=20, single
+    // page, silently missed everything sent earlier that day past the 20
+    // most recent — harmless at the old 100/day resend cap, but a real
+    // over-send risk now that resend carries the 1666/day bulk cascade load).
+    for (let page = 0; page < 20; page++) {
+      const url = new URL('https://api.resend.com/emails');
+      url.searchParams.set('limit', '100');
+      if (after) url.searchParams.set('after', after);
+      const res = await fetch(url, { headers: { Authorization: 'Bearer ' + apiKey } });
+      if (!res.ok) break;
+      const data = await res.json();
+      const entries = data.data || [];
+      if (entries.length === 0) break;
+      const todayEntries = [];
+      let hitOlderDay = false;
+      for (const e of entries) {
+        if (e.created_at?.startsWith(today)) {
+          todayEntries.push(e);
+        } else {
+          hitOlderDay = true;
+          break;
+        }
+      }
+      count += todayEntries.length;
+      if (hitOlderDay || !data.has_more) break;
+      after = entries[entries.length - 1]?.id;
+      if (!after) break;
+    }
+    return count;
   } catch { return 0; }
 }
 
@@ -320,7 +355,8 @@ async function syncQuotasFromAPIs() {
   _counters.cloudflare = cloudflare;
   _quotasSynced = true;
 
-  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, mailtrap=${mailtrap}/150, resend=${resend}/100, maileroo=${maileroo}/100, cloudflare=${cloudflare}/1000`);
+  const limit = id => PROVIDERS.find(p => p.id === id).dailyLimit;
+  console.log(`   Usage today: mailgun=${mailgun}/${limit('mailgun')}, mailjet=${mailjet}/${limit('mailjet')}, mailtrap=${mailtrap}/${limit('mailtrap')}, resend=${resend}/${limit('resend')}, maileroo=${maileroo}/${limit('maileroo')}, cloudflare=${cloudflare}/${limit('cloudflare')}`);
 }
 
 // ── Provider availability check ──────────────────────────────
@@ -928,14 +964,13 @@ function campaignIdTag(email) {
 }
 
 /**
- * Total theoretical daily send capacity across the whole cascade —
- * the sum of every provider's daily limit (currently mailgun 100 + resend 100
- * + mailjet 200 + mailtrap 150 + maileroo 100 + cloudflare 1000 = 1650). Single
- * source of truth so callers (e.g. the newsletter per-run cap) stay in sync when
- * providers change.
+ * Total theoretical daily send capacity across the whole cascade — the sum of
+ * every provider's daily limit (see PROVIDERS above). Single source of truth
+ * so callers (e.g. the newsletter per-run cap) stay in sync when providers
+ * change, instead of a second hardcoded total drifting from the array.
  */
 export function getCascadeDailyCapacity() {
   return PROVIDERS.reduce((sum, p) => sum + p.dailyLimit, 0);
 }
 
-export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag };
+export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage };

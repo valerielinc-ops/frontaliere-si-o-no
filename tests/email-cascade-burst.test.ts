@@ -3,6 +3,7 @@ import {
   isRateLimitedError,
   sendEmailCascade,
   fetchMailtrapDailyUsage,
+  fetchResendDailyUsage,
   fetchCloudflareUsage,
   fetchCloudflareDeliveryStats,
   campaignIdTag,
@@ -88,6 +89,69 @@ describe('fetchMailtrapDailyUsage', () => {
   it('returns 0 when no token is configured', async () => {
     delete process.env.MAILTRAP_API_TOKEN;
     expect(await fetchMailtrapDailyUsage()).toBe(0);
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/*  fetchResendDailyUsage — must paginate past the API's default      */
+/*  20-item page instead of silently under-counting today's sends     */
+/* ------------------------------------------------------------------ */
+
+describe('fetchResendDailyUsage', () => {
+  const realFetch = globalThis.fetch;
+  const today = new Date().toISOString().slice(0, 10);
+  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+
+  function entry(id, dateStr) {
+    return { id, created_at: `${dateStr}T10:00:00.000Z` };
+  }
+
+  beforeEach(() => { process.env.RESEND_API_KEY = 'test-key'; });
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    delete process.env.RESEND_API_KEY;
+  });
+
+  it('counts past the default 20-item page across multiple pages', async () => {
+    let calls = 0;
+    globalThis.fetch = (async (url) => {
+      calls++;
+      if (calls === 1) {
+        expect(String(url)).toContain('limit=100');
+        expect(String(url)).not.toContain('after=');
+        const page = Array.from({ length: 100 }, (_, i) => entry(`p1-${i}`, today));
+        return { ok: true, json: async () => ({ data: page, has_more: true }) };
+      }
+      expect(String(url)).toContain(`after=p1-99`);
+      const page = Array.from({ length: 50 }, (_, i) => entry(`p2-${i}`, today));
+      return { ok: true, json: async () => ({ data: page, has_more: false }) };
+    });
+    expect(await fetchResendDailyUsage()).toBe(150);
+    expect(calls).toBe(2);
+  });
+
+  it('stops at the first entry from a previous day without fetching another page', async () => {
+    let calls = 0;
+    globalThis.fetch = (async () => {
+      calls++;
+      const page = [
+        ...Array.from({ length: 30 }, (_, i) => entry(`today-${i}`, today)),
+        ...Array.from({ length: 10 }, (_, i) => entry(`yesterday-${i}`, yesterday)),
+      ];
+      return { ok: true, json: async () => ({ data: page, has_more: true }) };
+    });
+    expect(await fetchResendDailyUsage()).toBe(30);
+    expect(calls).toBe(1);
+  });
+
+  it('returns 0 when no API key is configured', async () => {
+    delete process.env.RESEND_API_KEY;
+    expect(await fetchResendDailyUsage()).toBe(0);
+  });
+
+  it('returns 0 on a failed request', async () => {
+    globalThis.fetch = (async () => ({ ok: false, json: async () => ({}) }));
+    expect(await fetchResendDailyUsage()).toBe(0);
   });
 });
 

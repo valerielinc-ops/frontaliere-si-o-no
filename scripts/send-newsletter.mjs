@@ -46,7 +46,7 @@ import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
 import { makeUnsubscribeUrl, makeResubscribeUrl, generateAutologinCode } from '../services/newsletterUrls.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
-import { getCascadeDailyCapacity } from './lib/email-cascade.mjs';
+import { getCascadeDailyCapacity, PROVIDERS as EMAIL_PROVIDERS } from './lib/email-cascade.mjs';
 import { normalizeEmailAddress } from './lib/parseEmailField.mjs';
 import { subscriberFromFirestoreRow } from './lib/subscriberFromFirestoreRow.mjs';
 
@@ -77,18 +77,20 @@ const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'mailtrap', 'cloudflare'];
 const IS_SINGLE_PROVIDER = SINGLE_PROVIDERS.includes(EMAIL_PROVIDER);
 // The per-run cap tracks the FULL cascade capacity — the sum of every configured
 // provider's daily limit (getCascadeDailyCapacity, single source of truth in
-// email-cascade.mjs). Currently 750/day = mailgun 100 + resend 100 + mailjet 200
-// + mailtrap 150 + maileroo 100 + cloudflare 100. Adding/removing a provider
-// auto-updates this cap.
-// resend-only legacy mode stays 100.
+// email-cascade.mjs, PROVIDERS array). Adding/removing a provider or changing a
+// limit auto-updates this cap — see PROVIDERS in email-cascade.mjs for current
+// per-provider numbers instead of a second hardcoded total here that would drift.
+// resend-only legacy mode stays at resend's own dailyLimit (also derived, not hardcoded).
 // The weekly campaign (campaignId=weekly_{monday}) resumes across daily cron runs and must clear
 // the full active list (~2.5k) before Monday's campaign-ID rollover strands the unsent tail.
 // On healthy days the old 350 cap was the binding limit: 2026-05-26 and 05-27 both hit 350 with
 // mailjet delivering 149-200 and thousands still pending. Deriving from providers lets each day
-// clear up to the real ceiling (now 750 incl maileroo + cloudflare) instead of an unused-capacity static number.
+// clear up to the real ceiling instead of an unused-capacity static number.
 // CAVEAT: on days a provider is down (mailjet "fetch failed" on 05-28..30; 05-29 delivered only
 // 98/350) provider reliability — not this cap — is the binding constraint, and the cap is moot.
-const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend' ? 100 : getCascadeDailyCapacity();
+const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend'
+  ? EMAIL_PROVIDERS.find(p => p.id === 'resend').dailyLimit
+  : getCascadeDailyCapacity();
 
 /**
  * Run async tasks with bounded concurrency.
