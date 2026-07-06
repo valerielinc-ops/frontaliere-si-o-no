@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach, afterAll } from 'vitest';
 import { buildPath, parsePath, pushRoute, replaceRoute, updatePathForLocale, registerJobSlugMap, getJobMetaForSlug, type AppRoute } from '@/services/router';
+import type { Locale } from '@/services/i18n';
 
 const SEO_LANDINGS = [
   'salary-60000',
@@ -996,6 +997,50 @@ describe('Router — legacy bare English slugs', () => {
     const { route, locale } = parsePath('/fr/emploi');
     expect(route.activeTab).toBe('job-board');
     expect(locale).toBe('fr');
+  });
+});
+
+describe('Router — Swiss-wide events index hub (issue #3645, F3)', () => {
+  it('parsePath("/eventi/") resolves to the vita/places static overlay in IT', () => {
+    const { route, locale } = parsePath('/eventi/');
+    expect(route.activeTab).toBe('vita');
+    expect(route.vitaSubTab).toBe('places');
+    expect(route.staticOverlay).toBe(true);
+    expect(locale).toBe('it');
+  });
+
+  it('parsePath("/eventi") (no trailing slash) still resolves — canonical link always emits the slash', () => {
+    const { route } = parsePath('/eventi');
+    expect(route.activeTab).toBe('vita');
+    expect(route.staticOverlay).toBe(true);
+  });
+
+  it('resolves the bare index root for every locale variant', () => {
+    const cases: Array<[string, Locale]> = [
+      ['/eventi/', 'it'],
+      ['/en/events/', 'en'],
+      ['/de/veranstaltungen/', 'de'],
+      ['/fr/evenements/', 'fr'],
+    ];
+    for (const [path, expectedLocale] of cases) {
+      const { route, locale } = parsePath(path);
+      expect(route.activeTab, path).toBe('vita');
+      expect(route.staticOverlay, path).toBe(true);
+      expect(locale, path).toBe(expectedLocale);
+    }
+  });
+
+  it('does not swallow a per-canton hub (EVENTS_INDEX_PATTERN and EVENTS_PATH_PATTERN stay mutually exclusive)', () => {
+    // Regression guard: EVENTS_INDEX_PATTERN's `^\/eventi\/?$` requires zero
+    // chars after the segment, EVENTS_PATH_PATTERN's canton group requires
+    // one-or-more — both existing side by side must never let the bare
+    // index pattern intercept a real canton hub path.
+    for (const path of ['/eventi/ticino/', '/en/events/zurich/', '/de/veranstaltungen/graubunden/', '/fr/evenements/vaud/']) {
+      const { route } = parsePath(path);
+      expect(route.activeTab, path).toBe('vita');
+      expect(route.vitaSubTab, path).toBe('places');
+      expect(route.staticOverlay, path).toBe(true);
+    }
   });
 });
 

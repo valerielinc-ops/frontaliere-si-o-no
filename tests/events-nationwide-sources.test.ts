@@ -11,6 +11,7 @@ import path from 'node:path';
 import {
   EVENT_SOURCES,
   EVENTS_BASE_PATH,
+  EVENTS_INDEX_PATH,
   eventsBasePathForCanton,
   resolveCantonUrlKey,
   germanCantonPreposition,
@@ -51,6 +52,26 @@ describe('eventsBasePathForCanton', () => {
   it('degrades to the TI fallback for an unknown/blank canton', () => {
     expect(eventsBasePathForCanton('')).toEqual(EVENTS_BASE_PATH);
     expect(eventsBasePathForCanton('XX')).toEqual(EVENTS_BASE_PATH);
+  });
+});
+
+describe('EVENTS_INDEX_PATH (issue #3645, F3: Swiss-wide index hub)', () => {
+  it('derives the canton-less base path per locale from EVENTS_LOCALIZED_SEGMENT, not a second literal copy', () => {
+    expect(EVENTS_INDEX_PATH).toEqual({
+      it: '/eventi',
+      en: '/en/events',
+      de: '/de/veranstaltungen',
+      fr: '/fr/evenements',
+    });
+  });
+
+  it('is a strict prefix of every per-canton base path (TI and a non-TI canton)', () => {
+    const zh = eventsBasePathForCanton('ZH');
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const base = EVENTS_INDEX_PATH[locale];
+      expect(EVENTS_BASE_PATH[locale].startsWith(`${base}/`)).toBe(true);
+      expect(zh[locale].startsWith(`${base}/`)).toBe(true);
+    }
   });
 });
 

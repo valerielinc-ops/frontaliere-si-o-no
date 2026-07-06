@@ -134,6 +134,17 @@ const EVENTS_LOCALIZED_SEGMENT = {
   fr: (slug) => `/fr/evenements/${slug}`,
 };
 
+// ── Swiss-wide events index hub (issue #3645, F3) ───────────────────────
+// Canton-less base path for the `/eventi/` (+ locale variants) index hub that
+// sits one level above every per-canton hub built from
+// `EVENTS_LOCALIZED_SEGMENT`. DERIVED from the same builders (calling each
+// with an empty slug and trimming the trailing slash) rather than a second
+// literal copy of the "eventi"/"events"/"veranstaltungen"/"evenements"
+// strings — the exact duplication bug §6 exists to prevent (issue #3088).
+export const EVENTS_INDEX_PATH = Object.fromEntries(
+  Object.entries(EVENTS_LOCALIZED_SEGMENT).map(([locale, segmentFor]) => [locale, segmentFor('').replace(/\/$/, '')]),
+);
+
 /**
  * Localized events base path for any of the 26 cantons (half-cantons AI/AR and
  * BL/BS collapse onto their URL group, same as the job board — see
