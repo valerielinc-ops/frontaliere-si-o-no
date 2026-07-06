@@ -572,23 +572,31 @@
           "kundenberaterin-basis-thun-m-w-d-80-100-bank-cler-thun",
           "kundenberaterin-basis-thun-m-w-d-80-100-bank-cler-thun-eyu8hy",
           "consulente-clienti-basis-thun-f-m-80-100-bank-cler-thun-a45e28",
-          "kundenberaterin-basis-thun-w-m-banca-cler"
+          "kundenberaterin-basis-thun-w-m-banca-cler",
+          "consulente-clienti-base-thun-f-m-80-100-bank-cler-thun"
         ],
         "en": [
-          "kundenberaterin-basis-thun-m-w-d-80-100-bank-cler-thun-eyu8hy"
+          "kundenberaterin-basis-thun-m-w-d-80-100-bank-cler-thun-eyu8hy",
+          "customer-consultant-basis-thun-f-m-80-100-bank-cler-thun-a45e28"
         ],
         "de": [
-          "kundenberaterin-basis-thun-m-w-d-80-100-bank-cler-thun-eyu8hy"
+          "kundenberaterin-basis-thun-m-w-d-80-100-bank-cler-thun-eyu8hy",
+          "kundenberaterin-basis-thun-w-m-80-100-bank-cler-bellinzona"
         ],
         "fr": [
-          "kundenberaterin-basis-thun-m-w-d-80-100-bank-cler-thun-eyu8hy"
+          "kundenberaterin-basis-thun-m-w-d-80-100-bank-cler-thun-eyu8hy",
+          "consultant-client-base-thun-f-m-80-100-bank-cler-thun-a45e28"
         ]
       },
       "previousSlugs": [
         "kundenberaterin-basis-thun-m-w-d-80-100-bank-cler-thun",
         "kundenberaterin-basis-thun-m-w-d-80-100-bank-cler-thun-eyu8hy",
         "consulente-clienti-basis-thun-f-m-80-100-bank-cler-thun-a45e28",
-        "kundenberaterin-basis-thun-w-m-banca-cler"
+        "kundenberaterin-basis-thun-w-m-banca-cler",
+        "consulente-clienti-base-thun-f-m-80-100-bank-cler-thun",
+        "customer-consultant-basis-thun-f-m-80-100-bank-cler-thun-a45e28",
+        "consultant-client-base-thun-f-m-80-100-bank-cler-thun-a45e28",
+        "kundenberaterin-basis-thun-w-m-80-100-bank-cler-bellinzona"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -661,18 +669,22 @@
           "kundenberater-privatkunden-individual-thun-m-w-d-80-100-bank-cler-thun-qfpnle",
           "servizio-clienti-individual-thun-f-m-80-100-bank-cler-thun",
           "consulente-clienti-individual-thun-f-m-80-100-bank-cler-thun-ded971",
-          "kundenberater-privatkunden-individual-thun-w-m-banca-cler"
+          "kundenberater-privatkunden-individual-thun-w-m-banca-cler",
+          "consulente-clienti-privati-individuale-thun-f-m-80-100-bank-cler-thun"
         ],
         "en": [
           "kundenberater-privatkunden-individual-thun-m-w-d-80-100-bank-cler-thun-qfpnle",
-          "customer-service-provider-individual-thun-f-m-80-100-bank-cler-thun"
+          "customer-service-provider-individual-thun-f-m-80-100-bank-cler-thun",
+          "customer-advisor-individual-thun-f-m-80-100-bank-cler-thun-ded971"
         ],
         "de": [
-          "kundenberater-privatkunden-individual-thun-m-w-d-80-100-bank-cler-thun-qfpnle"
+          "kundenberater-privatkunden-individual-thun-m-w-d-80-100-bank-cler-thun-qfpnle",
+          "kundenberater-privatkunden-individual-thun-w-m-80-100-bank-cler-bellinzona"
         ],
         "fr": [
           "kundenberater-privatkunden-individual-thun-m-w-d-80-100-bank-cler-thun-qfpnle",
-          "fournisseur-de-services-a-la-clientele-thun-individuel-f-m-80-100-bank-cler-thun"
+          "fournisseur-de-services-a-la-clientele-thun-individuel-f-m-80-100-bank-cler-thun",
+          "conseiller-client-thune-individuelle-f-m-80-100-bank-cler-thun-ded971"
         ]
       },
       "previousSlugs": [
@@ -682,7 +694,11 @@
         "consulente-clienti-individual-thun-f-m-80-100-bank-cler-thun-ded971",
         "customer-service-provider-individual-thun-f-m-80-100-bank-cler-thun",
         "fournisseur-de-services-a-la-clientele-thun-individuel-f-m-80-100-bank-cler-thun",
-        "kundenberater-privatkunden-individual-thun-w-m-banca-cler"
+        "kundenberater-privatkunden-individual-thun-w-m-banca-cler",
+        "consulente-clienti-privati-individuale-thun-f-m-80-100-bank-cler-thun",
+        "customer-advisor-individual-thun-f-m-80-100-bank-cler-thun-ded971",
+        "conseiller-client-thune-individuelle-f-m-80-100-bank-cler-thun-ded971",
+        "kundenberater-privatkunden-individual-thun-w-m-80-100-bank-cler-bellinzona"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -755,7 +771,8 @@
           "geschaftsstellenleiterin-st-gallen-m-w-d-80-100-bank-cler-st-gallen-vi1wcp",
           "amministratore-delegato-st-gallen-f-m-80-100-bank-cler-st-gallen",
           "direttore-di-filiale-st-gallen-f-m-80-100-bank-cler-st-gallen",
-          "geschaftsstellenleiterin-st-gallen-w-m-banca-cler"
+          "geschaftsstellenleiterin-st-gallen-w-m-banca-cler",
+          "geschaftsstellenleiterin-st-gallen-m-w-d-80-100-bank-cler-st-gallen-4fztxe"
         ],
         "en": [
           "geschaftsstellenleiterin-st-gallen-m-w-d-80-100-bank-cler-st-gallen-vi1wcp",
@@ -780,7 +797,8 @@
         "directeur-general-st-gallen-f-m-80-100-bank-cler-st-gallen",
         "managing-director-st-gallen-m-w-d-80-100-bank-cler-st-gallen-4fztxe",
         "directeur-general-st-gallen-m-w-d-80-100-bank-cler-st-gallen-4fztxe",
-        "geschaftsstellenleiterin-st-gallen-w-m-banca-cler"
+        "geschaftsstellenleiterin-st-gallen-w-m-banca-cler",
+        "geschaftsstellenleiterin-st-gallen-m-w-d-80-100-bank-cler-st-gallen-4fztxe"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -1043,13 +1061,16 @@
           "kundenberaterin-vermogende-privatkunden-zurich-m-w-d-80-100-bank-cler-zurich-36sxf7",
           "consulente-clienti-wealthy-clienti-privati-zurigo-f-m-80-100-bank-cler-zurich-af5340",
           "kundenberaterin-vermogende-privatkunden-zurich-m-w-d-80-100-bank-cler-zurich-2",
-          "kundenberaterin-vermogende-privatkunden-zurich-w-m-banca-cler"
+          "kundenberaterin-vermogende-privatkunden-zurich-w-m-banca-cler",
+          "customer-advisor-ricchi-clienti-private-zurich-f-m-80-100-bank-cler-zurich"
         ],
         "en": [
-          "kundenberaterin-vermogende-privatkunden-zurich-m-w-d-80-100-bank-cler-zurich-36sxf7"
+          "kundenberaterin-vermogende-privatkunden-zurich-m-w-d-80-100-bank-cler-zurich-36sxf7",
+          "customer-consultant-wealthy-private-clients-zurich-f-m-80-100-bank-cler-zurich-af5340"
         ],
         "fr": [
-          "kundenberaterin-vermogende-privatkunden-zurich-m-w-d-80-100-bank-cler-zurich-36sxf7"
+          "kundenberaterin-vermogende-privatkunden-zurich-m-w-d-80-100-bank-cler-zurich-36sxf7",
+          "consultant-client-richesse-clients-prives-zurich-f-m-80-100-bank-cler-zurich-af5340"
         ]
       },
       "previousSlugs": [
@@ -1057,7 +1078,10 @@
         "kundenberaterin-vermogende-privatkunden-zurich-m-w-d-80-100-bank-cler-zurich-36sxf7",
         "consulente-clienti-wealthy-clienti-privati-zurigo-f-m-80-100-bank-cler-zurich-af5340",
         "kundenberaterin-vermogende-privatkunden-zurich-m-w-d-80-100-bank-cler-zurich-2",
-        "kundenberaterin-vermogende-privatkunden-zurich-w-m-banca-cler"
+        "kundenberaterin-vermogende-privatkunden-zurich-w-m-banca-cler",
+        "customer-advisor-ricchi-clienti-private-zurich-f-m-80-100-bank-cler-zurich",
+        "customer-consultant-wealthy-private-clients-zurich-f-m-80-100-bank-cler-zurich-af5340",
+        "consultant-client-richesse-clients-prives-zurich-f-m-80-100-bank-cler-zurich-af5340"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -1110,7 +1134,8 @@
         "consulente-clienti-base-zurigo-stv-team-leader-f-m-80-100-bank-cler-zurich",
         "consultant-client-base-zurich-stv-chef-d-equipe-f-m-80-100-bank-cler-zurich",
         "kundenberaterin-basis-zurich-stv-teamleiterin-m-w-d-80-100-bank-cler-zurich-2",
-        "kundenberaterin-basis-zurich-stv-teamleiterin-w-m-banca-cler"
+        "kundenberaterin-basis-zurich-stv-teamleiterin-w-m-banca-cler",
+        "consulente-clienti-base-zurigo-vice-capo-squadra-f-m-80-100-bank-cler-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1118,7 +1143,8 @@
           "kundenberaterin-basis-zurich-stv-teamleiterin-m-w-d-80-100-bank-cler-zurich-damm35",
           "consulente-clienti-base-zurigo-stv-team-leader-f-m-80-100-bank-cler-zurich",
           "kundenberaterin-basis-zurich-stv-teamleiterin-m-w-d-80-100-bank-cler-zurich-2",
-          "kundenberaterin-basis-zurich-stv-teamleiterin-w-m-banca-cler"
+          "kundenberaterin-basis-zurich-stv-teamleiterin-w-m-banca-cler",
+          "consulente-clienti-base-zurigo-vice-capo-squadra-f-m-80-100-bank-cler-zurich"
         ],
         "en": [
           "kundenberaterin-basis-zurich-stv-teamleiterin-m-w-d-80-100-bank-cler-zurich-damm35"
