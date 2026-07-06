@@ -36,11 +36,11 @@ import {
   type ProfessionJobsSnapshot,
 } from './professionJobsAggregate';
 import {
-  PROFESSION_IDS,
+  ALL_CANTON_PROFESSION_IDS,
   PROFESSION_LOCALES,
   PROFESSION_LOCALE_PREFIX,
-  professionRoleKeyword,
-  type ProfessionId,
+  professionRoleKeywordAny,
+  type AnyProfessionId,
   type ProfessionLocale,
 } from './professionLandingsData';
 import {
@@ -68,8 +68,8 @@ const OG_LOCALE: Record<ProfessionLocale, string> = {
 };
 
 /** Localised profession label (Title-cased role keyword is good enough). */
-function professionLabel(locale: ProfessionLocale, id: ProfessionId): string {
-  const role = professionRoleKeyword(locale, id).replace(/-/g, ' ');
+function professionLabel(locale: ProfessionLocale, id: AnyProfessionId): string {
+  const role = professionRoleKeywordAny(locale, id).replace(/-/g, ' ');
   return role.charAt(0).toUpperCase() + role.slice(1);
 }
 
@@ -213,7 +213,7 @@ const BRIDGE_COPY: Record<ProfessionLocale, BridgeCopy> = {
  * to (buildSalaryStatsPath) — that family is emitted unconditionally for
  * every canton regardless of job counts, so it's always a safe target.
  */
-function renderBelowFloorBridge(locale: ProfessionLocale, cantonKey: string, id: ProfessionId): string {
+function renderBelowFloorBridge(locale: ProfessionLocale, cantonKey: string, id: AnyProfessionId): string {
   const cantonName = getCantonDisplayName(cantonKey, locale as CantonDisplayLocale);
   const role = professionLabel(locale, id);
   const copy = BRIDGE_COPY[locale];
@@ -227,7 +227,7 @@ function renderBelowFloorBridge(locale: ProfessionLocale, cantonKey: string, id:
 export function renderProfessionCantonPage(opts: {
   locale: ProfessionLocale;
   cantonKey: string;
-  id: ProfessionId;
+  id: AnyProfessionId;
   snapshot: ProfessionJobsSnapshot;
   distDir: string;
 }): { html: string; words: number } {
@@ -269,7 +269,7 @@ export function renderProfessionCantonPage(opts: {
         .join('')}</ul>`
     : '';
 
-  const roleKw = professionRoleKeyword(locale, id);
+  const roleKw = professionRoleKeywordAny(locale, id);
   const cantonSlug = SALARY_STATS_CANTON_SLUGS[cantonKey][locale];
   // Link to the per-canton salary stats landing (shipped in PR #2085) + the
   // job board filtered by this role.
@@ -397,7 +397,7 @@ export async function emitProfessionCantonPages(opts: { rootDir: string; distDir
     // below floor) must still get bridges for every profession, or a
     // previously-live page in that canton would 404 with no recovery path.
     const perProfession = byCanton[cantonKey];
-    for (const id of PROFESSION_IDS) {
+    for (const id of ALL_CANTON_PROFESSION_IDS) {
       const snapshot = perProfession?.[id];
       if (!snapshot || snapshot.liveCount < MIN_JOBS) {
         result.pagesSkippedForJobs++;
