@@ -3274,6 +3274,7 @@ async function callLLM(messages, opts = {}) {
     // attempt consumed nearly all of it). ...opts still wins if a caller passes
     // its own deadlineMs (or explicit null to opt out of the cap entirely).
     const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 90_000, deadlineMs: RUN_START_MS + RUN_WALL_BUDGET_MS, ...opts, modelUsedRef });
+    if (modelUsedRef.model === AI_MODELS.LOCAL_FALLBACK) _localFallbackUsedThisRun = true;
     if (isBody2Check) {
       let itContent = null;
       let parseErr = null;
@@ -4640,7 +4641,20 @@ Rispondi SOLO con JSON valido, senza markdown.` },
   // hallucination defense). Treat the abort as a controlled failure so
   // the run report classifies it and the workflow's retry/self-trigger
   // path can pick a different headline instead of publishing slop.
-  if (itData?.abort_topical_relevance === true) {
+  //
+  // Self-contradiction guard (2026-07-06, run 28802314827): the schema's own
+  // contract (see buildArticleJsonSchema above) requires the model to EITHER
+  // set abort_topical_relevance and leave content null, OR fill content and
+  // leave abort_topical_relevance null — never both. Weaker models (observed:
+  // local/fallback qwen2.5:14b) sometimes set the abort flag while ALSO fully
+  // populating content.it with a genuinely relevant article (the `reason`
+  // text itself affirmed frontaliere relevance) — blindly trusting the flag
+  // discarded a valid, on-topic article and burned the remaining retry
+  // budget on doomed local/fallback re-attempts. When content is actually
+  // present the model contradicted its own abort signal; trust the content
+  // it produced over the flag instead of throwing.
+  const itContentPreAbortCheck = itData?.abort_topical_relevance === true ? normalizeItalianContentFromPayload(itData) : null;
+  if (itData?.abort_topical_relevance === true && !itContentPreAbortCheck) {
     const reason = String(itData.reason || '').slice(0, 500) || '(no reason)';
     console.error(`  ⏭️  [topic-gate] Generation aborted by REGOLA #0 — source lacks real frontaliere angle.`);
     console.error(`     Reason: ${reason}`);
@@ -4652,8 +4666,14 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     err.topicGateAbort = true;
     throw err;
   }
+  if (itContentPreAbortCheck) {
+    console.error(`  ⚠️  [topic-gate] Model set abort_topical_relevance=true but ALSO returned full content.it — contract violation, trusting content over the flag (reason given: "${String(itData.reason || '').slice(0, 200)}").`);
+    if (RUN_REPORT && typeof RUN_REPORT === 'object') {
+      RUN_REPORT.topicGateSelfContradictions = (RUN_REPORT.topicGateSelfContradictions || 0) + 1;
+    }
+  }
 
-  const itContent = normalizeItalianContentFromPayload(itData);
+  const itContent = itContentPreAbortCheck || normalizeItalianContentFromPayload(itData);
   if (!itContent) {
     // qualityReject=true: same content-quality class as the JSON-parse and
     // missing-field siblings above/below — see their comments for why.
@@ -7936,6 +7956,27 @@ function wallBudgetExceeded() {
 }
 
 /**
+ * Set true the first time callLLM() observes local/fallback actually serving
+ * a request this run (see callLLM below). Cheaper and more precise than the
+ * Firestore-score-based cloudCascadeExhausted check used by main()'s
+ * evergreen pre-scan: that one only sees model scoring/cooldown state and
+ * misses per-request cascades caused by prompt token-size alone. Read by
+ * generateAndValidateArticle's retry-loop wall-clock guard below.
+ */
+let _localFallbackUsedThisRun = false;
+/**
+ * Minimum wall-clock remaining (ms) to risk another local/fallback attempt
+ * once one has already run this run. Local/fallback (qwen2.5:14b via Ollama)
+ * full inference for this prompt size took ~17.5min and ~12.5min in the two
+ * observed cases (run 28802314827); below this floor a further attempt would
+ * be truncated mid-inference by _callLocal's own deadline cap (ai-models.mjs)
+ * instead of completing — zero output, wasted GH Actions minutes. Set below
+ * the faster observed completion (~12.5min) with a small margin so an
+ * average-length attempt still gets a chance.
+ */
+const LOCAL_MIN_VIABLE_MS = 11 * 60_000;
+
+/**
  * True when the error is a CONTENT/QUALITY rejection (fact-check block,
  * topic-gate REGOLA #0 abort, fabrication, or a non-conformant headline that
  * survived its retry budget) rather than an infrastructure bug.
@@ -8722,6 +8763,31 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   }
 
   for (let attempt = 1; attempt <= CREATE_ARTICLE_MIN_WORDS_RETRIES; attempt++) {
+    // Wall-clock guard for the local-only cascade (2026-07-06, incident run
+    // 28802314827): once local/fallback has generated at least one attempt
+    // this run, cloud has empirically proven unusable for this prompt (the
+    // Firestore-score-based cloudCascadeExhausted check in main() only sees
+    // model scoring/cooldown state and misses per-request token-size
+    // cascades). Each full local/fallback inference took ~12-17min observed;
+    // a further attempt below LOCAL_MIN_VIABLE_MS remaining would be
+    // truncated mid-inference by _callLocal's own deadline cap instead of
+    // completing — zero output, wasted GH Actions minutes. That exact chain
+    // (17.5min + 12.5min burned on unrelated rejections, leaving only 5.5min
+    // for a 3rd local attempt that then hard-timed-out) is why that run
+    // published nothing. Stop cleanly here instead; the next cron run gets a
+    // fresh full budget. Same qualityReject disposition as the other
+    // "survived retry budget" throws (see isQualityRejectError above) — this
+    // is a clean per-headline deferral, not an infrastructure crash.
+    if (_localFallbackUsedThisRun) {
+      const remainingMs = RUN_WALL_BUDGET_MS - (Date.now() - RUN_START_MS);
+      if (remainingMs < LOCAL_MIN_VIABLE_MS) {
+        console.error(`  ⏭️  Interrompo i retry: local/fallback già usato in questo run, restano ${Math.round(remainingMs / 60_000)}min (< ${LOCAL_MIN_VIABLE_MS / 60_000}min necessari per completare un altro tentativo senza timeout) — evito un timeout a vuoto.`);
+        RUN_REPORT.notes.push(`Retry loop stopped early: local-only wall-clock guard (attempt=${attempt}, remainingMin=${Math.round(remainingMs / 60_000)})`);
+        const err = new Error(`Local/fallback wall-clock budget insufficiente per un altro tentativo (restano ${Math.round(remainingMs / 60_000)}min)`);
+        err.qualityReject = true;
+        throw err;
+      }
+    }
     const modelSlot = MIN_WORDS_MODEL_ROTATION[Math.min(attempt - 1, MIN_WORDS_MODEL_ROTATION.length - 1)];
     const useGeminiDirect = modelSlot === 'gemini';
     // Higher temperature on later attempts to get more varied/longer output
