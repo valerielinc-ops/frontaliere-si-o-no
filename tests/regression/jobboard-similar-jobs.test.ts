@@ -153,11 +153,15 @@ describe('JobBoard — job_match_similar_click wiring (source assertions)', () =
     expect(occurrences.length).toBe(2);
   });
 
-  it('keys related-jobs cards on buildListingDedupKey, not raw job.id', () => {
-    // Both related-jobs render blocks key their card on the fixed identity
-    // primitive; job.id alone can collide across distinct jobs (#3649).
+  it('keys related-jobs cards and renderJobCard on buildListingDedupKey, not raw job.id', () => {
+    // Both related-jobs render blocks, plus the shared renderJobCard used by
+    // renderJobListWithAds for the 8 editorial-landing sections, key their
+    // card on the fixed identity primitive; job.id alone can collide across
+    // distinct jobs (#3649). renderJobListWithAds flattens renderJobCard's
+    // output as a sibling of the interleaved ad node, so a raw job.id key
+    // collision there is a real React duplicate-key risk, not just cosmetic.
     const occurrences = SOURCE.match(/key=\{buildListingDedupKey\(job\)\}/g) || [];
-    expect(occurrences.length).toBe(2);
+    expect(occurrences.length).toBe(3);
   });
 });
 

@@ -4817,7 +4817,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const renderJobCard = (job: JobListing) => (
  <JobCard
- key={job.id}
+ key={buildListingDedupKey(job)}
  job={job}
  jobHref={buildJobPath(job)}
  salary={formatSalary(job)}
