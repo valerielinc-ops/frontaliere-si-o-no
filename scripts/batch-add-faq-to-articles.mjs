@@ -457,16 +457,45 @@ Scrivi ora il testo:`;
   return text;
 }
 
-async function _generateFaqITAttempt(bodyText) {
-  const prompt = `Sei un esperto di lavoro transfrontaliero Svizzera-Italia. Leggi questo articolo e genera ESATTAMENTE 5 coppie FAQ (domanda/risposta) in italiano. Il MINIMO ASSOLUTO è 3 coppie.
+// Salvage last resort: pull out whichever {"q":"...","a":"..."} objects are
+// already complete in a response that got cut off mid-array (maxTokens hit
+// before the model finished) — JSON.parse-per-field un-escapes properly
+// (handles the same embedded-quote/apostrophe content extractFaqFromText's
+// plain-label regex can't), and any still-incomplete trailing object is
+// simply not matched, so nothing malformed leaks through.
+function _extractCompleteJsonFaqPairs(raw) {
+  const pairs = [];
+  const objRe = /\{\s*"q"\s*:\s*"((?:[^"\\]|\\.)*)"\s*,\s*"a"\s*:\s*"((?:[^"\\]|\\.)*)"\s*\}/g;
+  let m;
+  while ((m = objRe.exec(raw)) !== null) {
+    try {
+      pairs.push({ q: JSON.parse(`"${m[1]}"`), a: JSON.parse(`"${m[2]}"`) });
+    } catch {
+      // Malformed individual pair — skip, keep scanning for the rest.
+    }
+  }
+  return pairs;
+}
+
+function _isTruncationError(err) {
+  return /Unterminated|Unexpected end/i.test(err?.message || '');
+}
+
+function _faqPrompt({ isTopUp, needed, existingQs, bodyText }) {
+  const countInstruction = isTopUp
+    ? `genera esattamente ${needed} coppie FAQ (domanda/risposta) NUOVE in italiano.\n\nDOMANDE GIÀ ESISTENTI (NON ripeterle né riformularle):\n- ${existingQs}`
+    : `genera ESATTAMENTE 5 coppie FAQ (domanda/risposta) in italiano. Il MINIMO ASSOLUTO è 3 coppie.`;
+  const rules = isTopUp
+    ? `- Le nuove FAQ devono coprire aspetti DIVERSI da quelli già presenti`
+    : `- Genera ALMENO 3 coppie, idealmente 5\n- Le FAQ devono coprire aspetti DIVERSI dell'articolo\n- NON ripetere il titolo dell'articolo nelle domande`;
+
+  return `Sei un esperto di lavoro transfrontaliero Svizzera-Italia. Leggi questo articolo e ${countInstruction}
 
 REGOLE:
-- Genera ALMENO 3 coppie, idealmente 5
+${rules}
 - Ogni domanda deve essere una query di ricerca naturale che un frontaliere potrebbe digitare su Google
 - Ogni risposta deve essere concisa e autosufficiente (40-80 parole), con dati concreti
-- Le FAQ devono coprire aspetti DIVERSI dell'articolo
 - Usa apostrofi diritti ('), mai virgolette curve
-- NON ripetere il titolo dell'articolo nelle domande
 
 ARTICOLO:
 ${bodyText.slice(0, 6000)}
@@ -475,10 +504,14 @@ ${JSON_QUOTE_SAFETY_RULE_IT}
 
 Rispondi SOLO con un JSON array (no markdown, no code fences):
 [{"q":"Domanda 1?","a":"Risposta 1."},{"q":"Domanda 2?","a":"Risposta 2."}]`;
+}
+
+async function _generateFaqITAttempt(bodyText, maxTokens) {
+  const prompt = _faqPrompt({ isTopUp: false, bodyText });
 
   const raw = await callFaqModel(
     [{ role: 'user', content: prompt }],
-    { temperature: 0.5, maxTokens: 2000, jsonMode: true },
+    { temperature: 0.5, maxTokens, jsonMode: true },
   );
 
   const repaired = repairJsonArray(raw);
@@ -489,6 +522,10 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
     // Try extracting Q&A pairs via regex as last resort
     const regexFaq = extractFaqFromText(raw);
     if (regexFaq && regexFaq.length >= 2) return regexFaq;
+    // A cut-off array (maxTokens hit mid-generation) still has complete
+    // leading pairs worth salvaging instead of discarding the whole response.
+    const salvaged = _extractCompleteJsonFaqPairs(raw);
+    if (salvaged.length >= 2) return salvaged;
     console.error(`  [JSON parse failed] ${parseErr.message} — ${describeJsonParseError(repaired, parseErr)}`);
     console.error(`  ${describeRawForDiagnostics(raw)}`);
     throw new Error(`JSON non valido dalla generazione FAQ: ${parseErr.message}`);
@@ -508,56 +545,47 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
 // malformed-JSON response ("Unterminated string in JSON") with zero retries
 // — the regex last-resort fallback only recognizes labeled plain-text Q&A
 // ("Domanda: ... Risposta: ..."), not a truncated JSON array, so it couldn't
-// recover either. A malformed/truncated single response from one model roll
-// is exactly the kind of transient glitch a retry fixes (same pattern already
-// used by splitBodyIntoSections/translateArticle elsewhere in this pipeline)
-// — this failed the entire publish over a small, independently-regenerable
-// FAQ field. generateTopUpFaqIT (below) hits the same LLM-JSON-array shape
-// with the same single-attempt fragility, so both share this retry wrapper
-// rather than duplicating the loop.
+// recover either. generateTopUpFaqIT (below) hits the same LLM-JSON-array
+// shape with the same single-attempt fragility, so both share this retry
+// wrapper rather than duplicating the loop.
+//
+// Follow-up (same article, next publish attempt): the retry alone wasn't
+// enough — all 3 attempts truncated identically at maxTokens:2000, each
+// cutting off mid-answer at a different point (raw response lengths ~1300,
+// ~2330, ~2350 chars each time — real content, not a corruption artifact,
+// see the salvage extractor above), because this article's 5 detailed
+// 40-80-word answers plus JSON overhead don't fit in 2000 tokens. Escalating
+// maxTokens on a detected truncation mirrors translateArticle's
+// callWithRetry elsewhere in this pipeline (3x on truncation, capped) instead
+// of retrying the exact same insufficient budget 3 times for an identical
+// result.
 async function _withFaqRetry(label, attemptFn) {
   let lastErr;
+  let maxTokens = 2000;
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      return await attemptFn();
+      return await attemptFn(maxTokens);
     } catch (err) {
       lastErr = err;
       console.error(`  ⚠️  ${label} tentativo ${attempt} fallito: ${err.message}`);
+      if (_isTruncationError(err)) maxTokens = Math.min(maxTokens * 2, 8000);
     }
   }
   throw lastErr;
 }
 
 export async function generateFaqIT(articleId, bodyText) {
-  return _withFaqRetry('generateFaqIT', () => _generateFaqITAttempt(bodyText));
+  return _withFaqRetry('generateFaqIT', (maxTokens) => _generateFaqITAttempt(bodyText, maxTokens));
 }
 
-async function _generateTopUpFaqITAttempt(bodyText, existingFaq) {
+async function _generateTopUpFaqITAttempt(bodyText, existingFaq, maxTokens) {
   const needed = MIN_FAQ_PAIRS - existingFaq.length;
   const existingQs = existingFaq.map(p => p.q).join('\n- ');
-
-  const prompt = `Sei un esperto di lavoro transfrontaliero Svizzera-Italia. Leggi questo articolo e genera esattamente ${needed + 2} coppie FAQ (domanda/risposta) NUOVE in italiano.
-
-DOMANDE GIÀ ESISTENTI (NON ripeterle né riformularle):
-- ${existingQs}
-
-REGOLE:
-- Le nuove FAQ devono coprire aspetti DIVERSI da quelli già presenti
-- Ogni domanda deve essere una query di ricerca naturale che un frontaliere potrebbe digitare su Google
-- Ogni risposta deve essere concisa e autosufficiente (40-80 parole), con dati concreti
-- Usa apostrofi diritti ('), mai virgolette curve
-
-ARTICOLO:
-${bodyText.slice(0, 6000)}
-
-${JSON_QUOTE_SAFETY_RULE_IT}
-
-Rispondi SOLO con un JSON array (no markdown, no code fences):
-[{"q":"Domanda 1?","a":"Risposta 1."},{"q":"Domanda 2?","a":"Risposta 2."}]`;
+  const prompt = _faqPrompt({ isTopUp: true, needed: needed + 2, existingQs, bodyText });
 
   const raw = await callFaqModel(
     [{ role: 'user', content: prompt }],
-    { temperature: 0.5, maxTokens: 2000, jsonMode: true },
+    { temperature: 0.5, maxTokens, jsonMode: true },
   );
 
   const repaired = repairJsonArray(raw);
@@ -567,6 +595,8 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
   } catch (parseErr) {
     const regexFaq = extractFaqFromText(raw);
     if (regexFaq && regexFaq.length >= 1) return regexFaq;
+    const salvaged = _extractCompleteJsonFaqPairs(raw);
+    if (salvaged.length >= 1) return salvaged;
     console.error(`  [JSON parse failed] ${parseErr.message} — ${describeJsonParseError(repaired, parseErr)}`);
     console.error(`  ${describeRawForDiagnostics(raw)}`);
     throw new Error(`JSON non valido dalla generazione top-up FAQ: ${parseErr.message}`);
@@ -595,7 +625,7 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
  * response.
  */
 export async function generateTopUpFaqIT(articleId, bodyText, existingFaq) {
-  return _withFaqRetry('generateTopUpFaqIT', () => _generateTopUpFaqITAttempt(bodyText, existingFaq));
+  return _withFaqRetry('generateTopUpFaqIT', (maxTokens) => _generateTopUpFaqITAttempt(bodyText, existingFaq, maxTokens));
 }
 
 async function translateFaq(faqArray, targetLang) {
