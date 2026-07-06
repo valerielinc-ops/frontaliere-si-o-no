@@ -4,7 +4,9 @@
  * Computes a personal relevance score (0-31) for each job based on:
  * - Behavior signals (viewed jobs, search queries, filter usage)
  * - Profile signals (municipality, workPosition)
- * - Job-match profile signals (sector, canton, experience level from SalarySurvey)
+ * - Job-match profile signals (sector, canton, experience level — from
+ *   SalarySurvey and/or the newsletter_subscribers profile for logged-in
+ *   subscribers, merged via services/jobMatchProfile.ts#mergeNewsletterSignals)
  * - Trending signals (job popularity in user's location)
  *
  * Sort order: personalScore DESC → cantonRank ASC → date DESC → qualityScore DESC
@@ -182,19 +184,31 @@ export function computePersonalScore(
  // Salary overlap: Phase 2
  }
 
- // ── Job-match profile boost (0-7): sector/canton/experience from SalarySurvey ──
+ // ── Job-match profile boost (0-7): sector/canton/experience from
+ // SalarySurvey, or sector_interest/location_interest merged in from the
+ // newsletter_subscribers profile (mergeNewsletterSignals) — see #3648 ──
  if (jobMatchProfile) {
- // Sector → category match: +3
+ // Sector → category match: +3. jobMatchProfile.sector is either a
+ // SalarySurvey key (mapped via SURVEY_SECTOR_TO_CATEGORY) or an
+ // already-category-shaped string from the newsletter profile — fall
+ // back to the raw value when it isn't a known SalarySurvey key.
  if (jobMatchProfile.sector) {
- const mappedCategory = SURVEY_SECTOR_TO_CATEGORY[jobMatchProfile.sector];
- if (mappedCategory && isCategoryMatch(job.category, mappedCategory)) {
+ const mappedCategory = SURVEY_SECTOR_TO_CATEGORY[jobMatchProfile.sector] ?? jobMatchProfile.sector;
+ if (isCategoryMatch(job.category, mappedCategory)) {
  addSignal(3, 'profile_sector');
  }
  }
 
- // Canton match: +2
- if (jobMatchProfile.canton && job.canton && jobMatchProfile.canton === job.canton) {
+ // Canton match: +2. jobMatchProfile.canton is either a 2-letter canton
+ // code (SalarySurvey, compared exactly against job.canton) or a city
+ // name from the newsletter profile (location_interest/geo_city — no
+ // canton code, so fall back to a location-text match).
+ if (jobMatchProfile.canton) {
+ if (job.canton && jobMatchProfile.canton === job.canton) {
  addSignal(2, 'profile_canton');
+ } else if (jobLoc && isLocationMatch(jobMatchProfile.canton, jobLoc)) {
+ addSignal(2, 'profile_canton');
+ }
  }
 
  // Experience level → title keyword match: +2

@@ -48,7 +48,7 @@ import {
  getTrendingByLocation,
  computeTrendingBoost,
 } from '@/services/personalizationScoring';
-import { type JobMatchProfileData, loadJobMatchProfile } from '@/services/jobMatchProfile';
+import { type JobMatchProfileData, loadJobMatchProfile, mergeNewsletterSignals } from '@/services/jobMatchProfile';
 import NewJobsCounter from '@/components/community/NewJobsCounter';
 import TrendingSection from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
@@ -2711,6 +2711,38 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isJobDetailView = selectedJob !== null;
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
+
+ // Job-match profile, part 2: merge in the newsletter_subscribers doc's
+ // sector_interest/location_interest for logged-in subscribers (issue #3648
+ // asks for "SalarySurvey / preferenze newsletter" as combined profile
+ // sources — public Firestore read per firestore.rules, no new auth needed).
+ // Fills gaps only: an explicit SalarySurvey answer always wins.
+ useEffect(() => {
+ if (!enablePersonalization || !authResolved || !userEmail) return;
+ let cancelled = false;
+ (async () => {
+ try {
+ const [{ getFirestore, doc, getDoc }, { app }] = await Promise.all([
+ import('firebase/firestore'),
+ import('@/services/firebase'),
+ ]);
+ const snap = await getDoc(doc(getFirestore(app), 'newsletter_subscribers', userEmail.toLowerCase()));
+ if (cancelled || !snap.exists()) return;
+ const data = snap.data() as Record<string, unknown>;
+ const newsletterSignals = {
+ sector_interest: typeof data.sector_interest === 'string' ? data.sector_interest : null,
+ job_category: typeof data.job_category === 'string' ? data.job_category : null,
+ location_interest: typeof data.location_interest === 'string' ? data.location_interest : null,
+ geo_city: typeof data.geo_city === 'string' ? data.geo_city : null,
+ };
+ setJobMatchProfile((prev) => mergeNewsletterSignals(prev, newsletterSignals));
+ } catch {
+ // best-effort — ranking falls back to the SalarySurvey-only profile (or none)
+ }
+ })();
+ return () => { cancelled = true; };
+ }, [enablePersonalization, authResolved, userEmail]);
+
  useEffect(() => {
  try { console.log('[AlertDebug] enter', { detail: isJobDetailView, flag: enableJobAlerts, uid: !!userId, email: !!userEmail, inFlight: newsletterAutologinInFlight, jobId: selectedJob?.id }); } catch { /* noop */ }
  if (!isJobDetailView || !selectedJob) return;

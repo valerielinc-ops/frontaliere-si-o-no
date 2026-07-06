@@ -248,6 +248,38 @@ describe('computePersonalScore', () => {
     const { score } = computePersonalScore(job, emptyBehavior(), null, jobMatchProfile);
     expect(score).toBeGreaterThanOrEqual(7);
   });
+
+  // ── Newsletter-sourced profile fallbacks (mergeNewsletterSignals, #3648) ──
+  // jobMatchProfile.sector/canton can come from the newsletter_subscribers
+  // doc instead of SalarySurvey: sector is already category-shaped (not a
+  // SURVEY_SECTOR_TO_CATEGORY key) and canton is a city name, not a code.
+
+  it('scores sector signal when the profile sector is already category-shaped (newsletter source)', () => {
+    // 'tech' is not a SalarySurvey key in SURVEY_SECTOR_TO_CATEGORY, so the
+    // `?? jobMatchProfile.sector` fallback must pass it through unchanged.
+    const jobMatchProfile = makeJobMatchProfile({ sector: 'tech' });
+    const job = makeJob({ category: 'tech' });
+    const { score, topSignal } = computePersonalScore(job, emptyBehavior(), null, jobMatchProfile);
+    expect(score).toBeGreaterThanOrEqual(3);
+    expect(topSignal).toBe('profile_sector');
+  });
+
+  it('scores canton signal via location-text match when the profile canton is a city name (newsletter source)', () => {
+    // 'Lugano' is not a 2-letter canton code, so the exact `job.canton`
+    // comparison must fall back to isLocationMatch against jobLoc.
+    const jobMatchProfile = makeJobMatchProfile({ canton: 'Lugano' });
+    const job = makeJob({ canton: 'TI', addressLocality: 'Lugano' });
+    const { score, topSignal } = computePersonalScore(job, emptyBehavior(), null, jobMatchProfile);
+    expect(score).toBeGreaterThanOrEqual(2);
+    expect(topSignal).toBe('profile_canton');
+  });
+
+  it('does not score canton signal when the profile city name does not match jobLoc', () => {
+    const jobMatchProfile = makeJobMatchProfile({ canton: 'Lugano' });
+    const job = makeJob({ canton: 'ZH', addressLocality: 'Zurich', location: 'Zurich' });
+    const { score } = computePersonalScore(job, emptyBehavior(), null, jobMatchProfile);
+    expect(score).toBe(0);
+  });
 });
 
 // ── computeNewJobsCount ────────────────────────────────────────
