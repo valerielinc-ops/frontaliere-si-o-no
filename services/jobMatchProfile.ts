@@ -7,6 +7,8 @@
  * this is a coarse ranking hint, not account data — keeps the surface small.
  */
 
+import { isStorageAvailable } from '@/services/storageAvailability';
+
 const STORAGE_KEY = 'frontaliere_job_match_profile';
 
 export interface JobMatchProfileData {
@@ -15,17 +17,6 @@ export interface JobMatchProfileData {
   experienceLevel: string | null;
   canton: string | null;
   updatedAt: number;
-}
-
-function isStorageAvailable(): boolean {
-  try {
-    const key = '__fs_test__';
-    localStorage.setItem(key, '1');
-    localStorage.removeItem(key);
-    return true;
-  } catch {
-    return false;
-  }
 }
 
 /** Read persisted job-match profile, or null when never saved / unavailable. */

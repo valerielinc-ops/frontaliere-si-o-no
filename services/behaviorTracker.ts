@@ -8,6 +8,7 @@
 
 import type { Firestore } from 'firebase/firestore';
 import { resilientImport } from '@/services/resilientImport';
+import { isStorageAvailable } from '@/services/storageAvailability';
 
 // ─── Types ──────────────────────────────────────────────────────
 
@@ -57,17 +58,6 @@ function emptyBehavior(): BehaviorData {
  filterUsage: { category: {}, location: {}, contract: {} },
  syncedAt: null,
  };
-}
-
-function isStorageAvailable(): boolean {
- try {
- const key = '__fs_test__';
- localStorage.setItem(key, '1');
- localStorage.removeItem(key);
- return true;
- } catch {
- return false;
- }
 }
 
 function readRaw(): BehaviorData {
