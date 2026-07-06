@@ -16,6 +16,7 @@ const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobA
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
+const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
@@ -32,7 +33,7 @@ import {
  type Job as RawJob,
 } from '@/services/jobsService';
 import { normalizeSearchText, buildStemmedHaystack, stemSearchToken } from '@/services/textUtils';
-import { cantonSearchTokens } from '@/services/cantonList';
+import { cantonSearchTokens, CANTON_CODES } from '@/services/cantonList';
 import {
  type BehaviorData,
  getBehaviorData,
@@ -47,6 +48,7 @@ import {
  computeNewJobsCount,
  getTrendingByLocation,
  computeTrendingBoost,
+ SURVEY_SECTOR_TO_CATEGORY,
 } from '@/services/personalizationScoring';
 import { type JobMatchProfileData, loadJobMatchProfile, mergeNewsletterSignals } from '@/services/jobMatchProfile';
 import NewJobsCounter from '@/components/community/NewJobsCounter';
@@ -2786,6 +2788,70 @@ const JobBoard: React.FC<JobBoardProps> = ({
  })();
  return () => { cancelled = true; };
  }, [enablePersonalization, authResolved, userEmail]);
+
+ // ── Job-match alert CTA (issue #3650, JM3) ──────────────────────────────
+ // "Avvisami per ruoli come questo" pre-fills a job alert straight from the
+ // JM1 profile (sector/canton, services/jobMatchProfile.ts) instead of
+ // sending the user through JobAlertForm to re-enter filters they've
+ // already given us. Category comes from the same sector→category table
+ // computePersonalScore already uses (SURVEY_SECTOR_TO_CATEGORY), so the
+ // CTA's keyword always matches the "Personalizzato per te" scoring it sits
+ // next to. Canton is only used as a hard filter when it's a real 2-letter
+ // canton code — the newsletter-merge signal above can carry a free-text
+ // city instead (see mergeNewsletterSignals), which would silently produce
+ // a zero-match alert if used as-is.
+ const jobMatchAlertCategoryKey = useMemo(() => {
+ const sector = jobMatchProfile?.sector;
+ if (!sector) return null;
+ const mapped = SURVEY_SECTOR_TO_CATEGORY[sector] ?? sector;
+ return mapped in CATEGORY_EMOJI ? (mapped as JobCategory) : null;
+ }, [jobMatchProfile]);
+
+ const jobMatchAlertCategoryLabel = jobMatchAlertCategoryKey
+ ? t(`jobBoard.filter.${jobMatchAlertCategoryKey}`)
+ : '';
+
+ const jobMatchAlertCantonCode = useMemo(() => {
+ const canton = jobMatchProfile?.canton;
+ if (!canton) return null;
+ const upper = canton.trim().toUpperCase();
+ return (CANTON_CODES as readonly string[]).includes(upper) ? upper : null;
+ }, [jobMatchProfile]);
+
+ // null = still checking (existing alerts / quota), false = hide (already
+ // subscribed to this category or at the 3-alert cap), true = show.
+ const [jobMatchAlertEligible, setJobMatchAlertEligible] = useState<boolean | null>(null);
+
+ useEffect(() => {
+ setJobMatchAlertEligible(null);
+ if (!enablePersonalization || !enableJobAlerts || !jobMatchAlertCategoryLabel || !userId || !userEmail) return;
+ let cancelled = false;
+ (async () => {
+ try {
+ const { getUserAlerts, findMatchingAlertForCategory, MAX_ALERTS_PER_USER } = await import(
+ '@/services/jobAlertService'
+ );
+ const existing = await getUserAlerts(userId);
+ if (cancelled) return;
+ const alreadySubscribed = Boolean(findMatchingAlertForCategory(existing, jobMatchAlertCategoryLabel));
+ const quotaFull = existing.length >= MAX_ALERTS_PER_USER;
+ setJobMatchAlertEligible(!alreadySubscribed && !quotaFull);
+ } catch {
+ // best-effort — hide the CTA rather than risk a duplicate/broken alert
+ if (!cancelled) setJobMatchAlertEligible(false);
+ }
+ })();
+ return () => { cancelled = true; };
+ }, [enablePersonalization, enableJobAlerts, jobMatchAlertCategoryLabel, userId, userEmail]);
+
+ const jobMatchAlertVisible = Boolean(
+ enablePersonalization && enableJobAlerts && jobMatchAlertCategoryLabel && userId && userEmail && jobMatchAlertEligible,
+ );
+
+ useEffect(() => {
+ if (!jobMatchAlertVisible) return;
+ Analytics.trackJobAlertCtaShown('job_match_pill', jobMatchAlertCategoryLabel);
+ }, [jobMatchAlertVisible, jobMatchAlertCategoryLabel]);
 
  useEffect(() => {
  try { console.log('[AlertDebug] enter', { detail: isJobDetailView, flag: enableJobAlerts, uid: !!userId, email: !!userEmail, inFlight: newsletterAutologinInFlight, jobId: selectedJob?.id }); } catch { /* noop */ }
@@ -8317,6 +8383,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <UserCheck className="w-3.5 h-3.5" />
  Personalizzato per te
  </div>
+ )}
+ {jobMatchAlertVisible && userId && userEmail && (
+ <Suspense fallback={null}>
+ <JobMatchAlertCta
+ userId={userId}
+ email={userEmail}
+ locale={locale}
+ categoryLabel={jobMatchAlertCategoryLabel}
+ cantonCode={jobMatchAlertCantonCode}
+ onSubscribed={() => {
+ Analytics.trackJobAlertCtaClick('job_match_pill', 'success', jobMatchAlertCategoryLabel);
+ Analytics.trackJobAlertCreated({
+ keywords: jobMatchAlertCategoryLabel,
+ location: jobMatchAlertCantonCode || '',
+ frequency: 'weekly',
+ surface: 'job_match_pill',
+ });
+ Analytics.trackJobMatchAlertSignup(jobMatchAlertCategoryLabel, jobMatchAlertCantonCode);
+ setJobMatchAlertEligible(false);
+ }}
+ onErrored={() => {
+ Analytics.trackJobAlertCtaClick('job_match_pill', 'error', jobMatchAlertCategoryLabel);
+ }}
+ />
+ </Suspense>
  )}
  {trendingJobs.length >= 3 && (
  <TrendingSection

@@ -350,15 +350,23 @@ export interface JobAlertSource {
 }
 
 /**
- * 1-tap subscribe helper for the job-detail prompt.
+ * 1-tap subscribe helper for the job-detail prompt AND the job-match profile
+ * CTA (JobBoard.tsx, issue #3650 — "Avvisami per ruoli come questo").
  *
  * Builds a canonical `JobAlertConfig` (keyword = emoji-stripped category, weekly
- * frequency, no other filters) and forwards to `createAlert`. The max-3
- * active-alerts limit enforced by `createAlert` propagates to the caller.
+ * frequency) and forwards to `createAlert`. The max-3 active-alerts limit
+ * enforced by `createAlert` propagates to the caller.
  *
  * The category label carries a leading emoji (e.g. "💻 Tecnologia"); it is
  * stripped via `stripKeywordEmoji` so the stored keyword can actually match job
- * text (see that helper). `source` records which job drove the subscription.
+ * text (see that helper). `source` records which job drove the subscription
+ * (omitted by the job-match CTA, which isn't tied to one specific job).
+ *
+ * `cantonCode` optionally hard-scopes the alert to a canton (validated 2-letter
+ * ISO code — see `services/cantonList.ts:CANTON_CODES`) when the caller already
+ * has a real canton signal, e.g. the job-match profile's `canton` field
+ * (`services/jobMatchProfile.ts`). Omitted/null for the job-detail prompt,
+ * which has no canton signal to pre-fill from.
  */
 export async function subscribeJobAlertOneTap(
   userId: string,
@@ -366,13 +374,14 @@ export async function subscribeJobAlertOneTap(
   category: string,
   locale: 'it' | 'en' | 'de' | 'fr',
   source?: JobAlertSource,
+  cantonCode?: string | null,
 ): Promise<JobAlert> {
   const config: JobAlertConfig = {
     keywords: [stripKeywordEmoji(category)],
     locations: [],
     contractTypes: [],
     sectors: [],
-    cantonFilter: null,
+    cantonFilter: cantonCode ? [cantonCode] : null,
     frequency: 'weekly',
     locale,
     sourceJobSlug: source?.slug ?? null,
