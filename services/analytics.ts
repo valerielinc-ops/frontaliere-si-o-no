@@ -1421,6 +1421,21 @@ export const Analytics = {
  },
 
  /**
+ * Click su una card del blocco "offerte simili" nel JobDetail (#3649). Il
+ * blocco riusa il clustering settore/cantone già calcolato per la lista
+ * (categoria/località/azienda); `match_reason` riporta quale segnale ha
+ * prodotto il match e `position` l'indice nella lista mostrata (0-based).
+ */
+ trackJobMatchSimilarClick: (sourceJobSlug: string, matchedJobSlug: string, matchReason: string, position: number) => {
+ log('job_match_similar_click', {
+ source_job_slug: sourceJobSlug || '',
+ matched_job_slug: matchedJobSlug || '',
+ match_reason: matchReason || 'other',
+ position,
+ });
+ },
+
+ /**
  * Interazione grafico — single event, no double-fire with select_content
  */
  trackChartInteraction: (chartType: string, action: string) => {
