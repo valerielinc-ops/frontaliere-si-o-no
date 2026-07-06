@@ -45,6 +45,8 @@ let lastSource: RateSource = 'fallback';
 // In-memory singleton: once fetched, all hook instances share the same value
 let memoryRate: number | null = null;
 let memoryTimestamp = 0;
+// In-flight dedup: concurrent callers share one network round-trip
+let ratePromise: Promise<number> | null = null;
 
 /** Returns which API source provided the current rate */
 export function getRateSource(): RateSource {
@@ -212,6 +214,13 @@ export async function fetchExchangeRate(): Promise<number> {
  return localEntryFresh.rate;
  }
 
+ // In-flight dedup: if multiple components mount in the same tick and all miss
+ // the local cache, they share a single Firestore/TwelveData round-trip instead
+ // of each issuing their own read.
+ if (ratePromise) return ratePromise;
+
+ ratePromise = (async () => {
+ try {
  // 3. Firestore cache (shared across all users/tabs)
  const firestoreEntry = await getFirestoreRate();
  if (firestoreEntry && (now - firestoreEntry.timestamp) < CACHE_DURATION) {
@@ -254,6 +263,12 @@ export async function fetchExchangeRate(): Promise<number> {
  // 7. Hardcoded fallback
  lastSource = 'fallback';
  return DEFAULT_RATE;
+ } finally {
+ ratePromise = null;
+ }
+ })();
+
+ return ratePromise;
 }
 
 /**
@@ -318,6 +333,8 @@ const HISTORY_LOCAL_KEY = 'ft_exchange_history_';
 // local copy is never more than a few hours stale — comfortably fresh enough
 // to skip a Firestore read on repeat chart views within the same day.
 const HISTORY_CACHE_DURATION = 6 * 60 * 60 * 1000; // 6 hours
+// In-flight dedup per period: concurrent callers share one Firestore read
+const historyPromiseMap = new Map<HistoryPeriod, Promise<HistoryPoint[]>>();
 
 function getHistoryDateRange(period: HistoryPeriod): { startStr: string; endStr: string } {
  const end = new Date();
@@ -462,17 +479,24 @@ export async function fetchExchangeHistory(
  return appendLiveRate(localCacheFresh.points, liveRate);
  }
 
+ // In-flight dedup: concurrent callers for the same period share one Firestore
+ // read — each still applies its own liveRate after the shared fetch completes.
+ const inflight = historyPromiseMap.get(period);
+ if (inflight) return appendLiveRate(await inflight, liveRate);
+
+ const promise = (async (): Promise<HistoryPoint[]> => {
+ try {
  // 2. Firestore (authoritative source, updated by daily cron)
  const firestoreCache = await getHistoryFromFirestore(period);
  if (firestoreCache && firestoreCache.points.length > 0) {
  setLocalHistory(period, firestoreCache.points);
- return appendLiveRate(firestoreCache.points, liveRate);
+ return firestoreCache.points;
  }
 
  // 3. localStorage (offline fallback — even if stale, better than nothing)
  const localCache = localCacheFresh ?? getLocalHistory(period);
  if (localCache && localCache.points.length > 0) {
- return appendLiveRate(localCache.points, liveRate);
+ return localCache.points;
  }
 
  // 4. Emergency fallback: fetch from Frankfurter API directly
@@ -498,7 +522,14 @@ export async function fetchExchangeHistory(
  setLocalHistory(period, points);
  }
 
- return appendLiveRate(points, liveRate);
+ return points;
+ } finally {
+ historyPromiseMap.delete(period);
+ }
+ })();
+
+ historyPromiseMap.set(period, promise);
+ return appendLiveRate(await promise, liveRate);
 }
 
 /** Append today's live rate if not already the last data point */
