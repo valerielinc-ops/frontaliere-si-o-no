@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ubs",
-  "assembledAt": "2026-07-05T12:46:28.547Z",
+  "assembledAt": "2026-07-06T00:22:08.920Z",
   "jobs": [
     {
       "id": "ubs-3cb541bf78b3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=346799&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.583Z",
+      "crawledAt": "2026-07-06T00:22:05.665Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -119,7 +119,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=347419&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.577Z",
+      "crawledAt": "2026-07-06T00:22:05.657Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -169,6 +169,93 @@
           "unitText": "YEAR"
         }
       },
+      "addressRegion": "ZH",
+      "needsRetranslation": true
+    },
+    {
+      "id": "ubs-18b3fc3ae845",
+      "slug": "tirocinio-fuori-ciclo-2026-data-scientist-group-consulenza-interna-ubs-zurich",
+      "slugByLocale": {
+        "it": "tirocinio-fuori-ciclo-2026-data-scientist-group-consulenza-interna-ubs-zurich",
+        "en": "2026-off-cycle-internship-data-scientist-group-internal-consulting-ubs-zurich",
+        "de": "2026-off-cycle-praktikum-data-scientist-group-interne-beratung-ubs-zurich",
+        "fr": "2026-stage-hors-cycle-groupe-de-data-scientist-conseils-internes-ubs-zurich"
+      },
+      "company": "UBS",
+      "companyKey": "ubs",
+      "companyDomain": "ubs.com",
+      "title": "2026 Off-cycle Internship - Data Scientist Group Internal Consulting",
+      "titleByLocale": {
+        "it": "Tirocinio fuori ciclo 2026 - Data Scientist Group Consulenza Interna",
+        "en": "2026 Off-cycle Internship - Data Scientist Group Internal Consulting",
+        "de": "2026 Off-Cycle Praktikum - Data Scientist Group Interne Beratung",
+        "fr": "2026 Stage hors cycle - Groupe de Data Scientist Conseils internes"
+      },
+      "description": "Interested in working financial services and have an eye for detail, but not sure where to start? Do you want to work for a firm with a truly global footprint?\n\nWe're looking for bright students to join our 2026 Internship Program within Group Internal Consulting, Predictive and Behavioral Analytics.\n\nYou’ll get to:\n• propose ideas on how we can make improvements to our business; take these ideas and bring them to life problem solve and craft actionable solutions across transformation/integration projects\n• present insights internally by transforming complex information into clear takeaways and recommendations\n• understand ML algorithms (e.g. XGBoost, Neural Networks) and learning techniques (e.g. supervised, unsupervised, reinforcement learning)\n• write code in Python and build solutions using common libraries and frameworks (e.g. Pandas, scikit-learn, TensorFlow, Pytorch, Keras, spaCy)\n• solve problems and craft actionable solutions across transformation/integration projects\n• manage project’s timelines, stakeholders, risks etc.\n• develop business acumen and consulting skillset to help advise internal clients across the firm\n• build and maintain strong relationships within the Solutions team, Group Functions and Business Divisions",
+      "descriptionByLocale": {
+        "it": "Interessato a lavorare i servizi finanziari e avere un occhio per i dettagli, ma non sicuro da dove cominciare? Vuoi lavorare per un'azienda con un'impronta veramente globale? Stiamo cercando studenti brillanti per aderire al nostro 2026 Internship Program all'interno di Gruppo Internal Consulting, Predictive e Analisi comportamentale. Si arriva a:\n• proporre idee su come possiamo apportare miglioramenti al nostro business; prendere queste idee e portarle a problemi di vita risolvere e realizzare soluzioni attuabili attraverso progetti di trasformazione/integrazione\n• presentare intuizioni internamente trasformando le informazioni complesse in takeaway chiari e raccomandazioni\n• comprendere gli algoritmi ML (ad es. XGBost, Neural Networks) e le tecniche di apprendimento (ad es. supervisionato, non supervisionato, rafforzamento di apprendimento)\n• scrivere codice in Python e costruire soluzioni utilizzando librerie e framework comuni (ad esempio Pandas, scikit-learn, TensorFlow, Pytorch, Keras, spaCy)\n• risolvere problemi e creare soluzioni attuabili attraverso progetti di trasformazione/integrazione\n• gestire i tempi del progetto, le parti interessate, i rischi ecc.\n• sviluppare business acum e consulenza competenzeet per aiutare a consigliare i clienti interni in tutta la società\n• costruire e mantenere forti relazioni all'interno del team Solutions, Funzioni di Gruppo e Divisioni Business",
+        "en": "Interested in working financial services and have an eye for detail, but not sure where to start? Do you want to work for a firm with a truly global footprint? We're looking for bright students to join our 2026 Internship Program within Group Internal Consulting, Predictive and Behavioral Analytics. You’ll get to:\n• propose ideas on how we can make improvements to our business; take these ideas and bring them to life problem solve and craft actionable solutions across transformation/integration projects\n• present insights internally by transforming complex information into clear takeaways and recommendations\n• understand ML algorithms (e.g. XGBoost, Neural Networks) and learning techniques (e.g. supervised, unsupervised, reinforcement learning)\n• write code in Python and build solutions using common libraries and frameworks (e.g. Pandas, scikit-learn, TensorFlow, Pytorch, Keras, spaCy)\n• solve problems and craft actionable solutions across transformation/integration projects\n• manage project’s timelines, stakeholders, risks etc.\n• develop business acumen and consulting skillset to help advise internal clients across the firm\n• build and maintain strong relationships within the Solutions team, Group Functions and Business Divisions",
+        "de": "Sie interessieren sich für funktionierende Finanzdienstleistungen und haben ein Auge für Details, aber nicht sicher, wo Sie anfangen sollen? Möchten Sie für ein Unternehmen mit einer wirklich globalen Präsenz arbeiten? Wir suchen nach intelligenten Studenten, die an unserem Praktikumsprogramm 2026 im Rahmen von Group Internal Consulting, Predictive and Behavioral Analytics teilnehmen. Sie erhalten:\n• Ideen vorzuschlagen, wie wir unser Geschäft verbessern können; diese Ideen zu nehmen und sie zum Leben zu erwecken Problem zu lösen und umsetzbare Lösungen für Transformations- / Integrationsprojekte zu schaffen\n• Einblicke intern präsentieren, indem komplexe Informationen in klare Takeaways und Empfehlungen umgewandelt werden\n• ML-Algorithmen (z. B. XGBoost, Neuronale Netzwerke) und Lerntechniken (z. B. überwachtes, unbeaufsichtigtes, verstärkendes Lernen) verstehen\n• Code in Python schreiben und Lösungen mit gängigen Bibliotheken und Frameworks erstellen (z.B. Pandas, scikit-learn, TensorFlow, Pytorch, Keras, spaCy)\n• Probleme lösen und umsetzbare Lösungen für Transformations-/Integrationsprojekte schaffen\n• Verwalten der Projektzeitpläne, Stakeholder, Risiken usw.\n• Entwicklung von Geschäftssinn und Beratungskompetenzen, um interne Kunden im gesamten Unternehmen zu beraten\n• Aufbau und Pflege starker Beziehungen innerhalb des Solutions-Teams, der Gruppenfunktionen und der Geschäftsbereiche",
+        "fr": "Intéressé par le travail des services financiers et avoir un oeil pour les détails, mais pas sûr par où commencer? Voulez-vous travailler pour une entreprise avec une empreinte véritablement mondiale? Nous recherchons des étudiants brillants pour rejoindre notre programme de stages 2026 au sein de Groupe Internal Consulting, Predictive and Behavior Analytics. Vous arriverez à:\n• proposer des idées sur la façon dont nous pouvons améliorer notre entreprise; prendre ces idées et les mettre en pratique résoudre les problèmes et élaborer des solutions concrètes à travers les projets de transformation/intégration\n• présenter des idées à l'interne en transformant l'information complexe en mesures et recommandations claires\n• comprendre les algorithmes ML (p. ex. XGBoost, Neural Networks) et les techniques d'apprentissage (p. ex. supervision, non supervision, renforcement de l'apprentissage)\n• écrire du code dans Python et construire des solutions en utilisant des bibliothèques et des cadres communs (p. ex. Pandas, scikit-learn, TensorFlow, Pytorch, Keras, spaCy)\n• résoudre les problèmes et trouver des solutions concrètes à travers les projets de transformation/intégration\n• gérer les échéanciers du projet, les intervenants, les risques, etc.\n• développer un ensemble de compétences en matière de conseil et de conseil pour conseiller les clients internes de l'entreprise;\n• établir et maintenir des relations solides au sein de l'équipe Solutions, des fonctions de groupe et des divisions d'affaires"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=347585&PageType=jobdetails",
+      "source": "UBS Dedicated Parser (Taleo API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-06T00:22:05.645Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-23",
+      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=347585&PageType=jobdetails",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_ubsMeta": {
+        "reqId": "347585",
+        "department": "Group Functions",
+        "region": "Switzerland - Zürich",
+        "cities": "",
+        "categoryRaw": "Business management, administration and support",
+        "jobType": ""
+      },
+      "previousSlugs": [
+        "2026-off-cycle-internship-data-scientist-group-internal-consulting-ubs-zurich",
+        "tirocinio-fuori-ciclo-2026-data-scientist-group-consulenza-interna-ubs-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "2026-off-cycle-internship-data-scientist-group-internal-consulting-ubs-zurich",
+          "tirocinio-fuori-ciclo-2026-data-scientist-group-consulenza-interna-ubs-zurich"
+        ],
+        "de": [
+          "2026-off-cycle-internship-data-scientist-group-internal-consulting-ubs-zurich"
+        ],
+        "fr": [
+          "2026-off-cycle-internship-data-scientist-group-internal-consulting-ubs-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T12:37:47.871Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
       "addressRegion": "ZH"
     },
     {
@@ -202,7 +289,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=347766&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.567Z",
+      "crawledAt": "2026-07-06T00:22:05.644Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -288,7 +375,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=347614&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.567Z",
+      "crawledAt": "2026-07-06T00:22:05.644Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -374,7 +461,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=347589&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.567Z",
+      "crawledAt": "2026-07-06T00:22:05.644Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -430,92 +517,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "ubs-18b3fc3ae845",
-      "slug": "tirocinio-fuori-ciclo-2026-data-scientist-group-consulenza-interna-ubs-zurich",
-      "slugByLocale": {
-        "it": "tirocinio-fuori-ciclo-2026-data-scientist-group-consulenza-interna-ubs-zurich",
-        "en": "2026-off-cycle-internship-data-scientist-group-internal-consulting-ubs-zurich",
-        "de": "2026-off-cycle-praktikum-data-scientist-group-interne-beratung-ubs-zurich",
-        "fr": "2026-stage-hors-cycle-groupe-de-data-scientist-conseils-internes-ubs-zurich"
-      },
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "2026 Off-cycle Internship - Data Scientist Group Internal Consulting",
-      "titleByLocale": {
-        "it": "Tirocinio fuori ciclo 2026 - Data Scientist Group Consulenza Interna",
-        "en": "2026 Off-cycle Internship - Data Scientist Group Internal Consulting",
-        "de": "2026 Off-Cycle Praktikum - Data Scientist Group Interne Beratung",
-        "fr": "2026 Stage hors cycle - Groupe de Data Scientist Conseils internes"
-      },
-      "description": "Interested in working financial services and have an eye for detail, but not sure where to start? Do you want to work for a firm with a truly global footprint?\n\nWe're looking for bright students to join our 2026 Internship Program within Group Internal Consulting, Predictive and Behavioral Analytics.\n\nYou’ll get to:\n• propose ideas on how we can make improvements to our business; take these ideas and bring them to life problem solve and craft actionable solutions across transformation/integration projects\n• present insights internally by transforming complex information into clear takeaways and recommendations\n• understand ML algorithms (e.g. XGBoost, Neural Networks) and learning techniques (e.g. supervised, unsupervised, reinforcement learning)\n• write code in Python and build solutions using common libraries and frameworks (e.g. Pandas, scikit-learn, TensorFlow, Pytorch, Keras, spaCy)\n• solve problems and craft actionable solutions across transformation/integration projects\n• manage project’s timelines, stakeholders, risks etc.\n• develop business acumen and consulting skillset to help advise internal clients across the firm\n• build and maintain strong relationships within the Solutions team, Group Functions and Business Divisions",
-      "descriptionByLocale": {
-        "it": "Interessato a lavorare i servizi finanziari e avere un occhio per i dettagli, ma non sicuro da dove cominciare? Vuoi lavorare per un'azienda con un'impronta veramente globale? Stiamo cercando studenti brillanti per aderire al nostro 2026 Internship Program all'interno di Gruppo Internal Consulting, Predictive e Analisi comportamentale. Si arriva a:\n• proporre idee su come possiamo apportare miglioramenti al nostro business; prendere queste idee e portarle a problemi di vita risolvere e realizzare soluzioni attuabili attraverso progetti di trasformazione/integrazione\n• presentare intuizioni internamente trasformando le informazioni complesse in takeaway chiari e raccomandazioni\n• comprendere gli algoritmi ML (ad es. XGBost, Neural Networks) e le tecniche di apprendimento (ad es. supervisionato, non supervisionato, rafforzamento di apprendimento)\n• scrivere codice in Python e costruire soluzioni utilizzando librerie e framework comuni (ad esempio Pandas, scikit-learn, TensorFlow, Pytorch, Keras, spaCy)\n• risolvere problemi e creare soluzioni attuabili attraverso progetti di trasformazione/integrazione\n• gestire i tempi del progetto, le parti interessate, i rischi ecc.\n• sviluppare business acum e consulenza competenzeet per aiutare a consigliare i clienti interni in tutta la società\n• costruire e mantenere forti relazioni all'interno del team Solutions, Funzioni di Gruppo e Divisioni Business",
-        "en": "Interested in working financial services and have an eye for detail, but not sure where to start? Do you want to work for a firm with a truly global footprint? We're looking for bright students to join our 2026 Internship Program within Group Internal Consulting, Predictive and Behavioral Analytics. You’ll get to:\n• propose ideas on how we can make improvements to our business; take these ideas and bring them to life problem solve and craft actionable solutions across transformation/integration projects\n• present insights internally by transforming complex information into clear takeaways and recommendations\n• understand ML algorithms (e.g. XGBoost, Neural Networks) and learning techniques (e.g. supervised, unsupervised, reinforcement learning)\n• write code in Python and build solutions using common libraries and frameworks (e.g. Pandas, scikit-learn, TensorFlow, Pytorch, Keras, spaCy)\n• solve problems and craft actionable solutions across transformation/integration projects\n• manage project’s timelines, stakeholders, risks etc.\n• develop business acumen and consulting skillset to help advise internal clients across the firm\n• build and maintain strong relationships within the Solutions team, Group Functions and Business Divisions",
-        "de": "Sie interessieren sich für funktionierende Finanzdienstleistungen und haben ein Auge für Details, aber nicht sicher, wo Sie anfangen sollen? Möchten Sie für ein Unternehmen mit einer wirklich globalen Präsenz arbeiten? Wir suchen nach intelligenten Studenten, die an unserem Praktikumsprogramm 2026 im Rahmen von Group Internal Consulting, Predictive and Behavioral Analytics teilnehmen. Sie erhalten:\n• Ideen vorzuschlagen, wie wir unser Geschäft verbessern können; diese Ideen zu nehmen und sie zum Leben zu erwecken Problem zu lösen und umsetzbare Lösungen für Transformations- / Integrationsprojekte zu schaffen\n• Einblicke intern präsentieren, indem komplexe Informationen in klare Takeaways und Empfehlungen umgewandelt werden\n• ML-Algorithmen (z. B. XGBoost, Neuronale Netzwerke) und Lerntechniken (z. B. überwachtes, unbeaufsichtigtes, verstärkendes Lernen) verstehen\n• Code in Python schreiben und Lösungen mit gängigen Bibliotheken und Frameworks erstellen (z.B. Pandas, scikit-learn, TensorFlow, Pytorch, Keras, spaCy)\n• Probleme lösen und umsetzbare Lösungen für Transformations-/Integrationsprojekte schaffen\n• Verwalten der Projektzeitpläne, Stakeholder, Risiken usw.\n• Entwicklung von Geschäftssinn und Beratungskompetenzen, um interne Kunden im gesamten Unternehmen zu beraten\n• Aufbau und Pflege starker Beziehungen innerhalb des Solutions-Teams, der Gruppenfunktionen und der Geschäftsbereiche",
-        "fr": "Intéressé par le travail des services financiers et avoir un oeil pour les détails, mais pas sûr par où commencer? Voulez-vous travailler pour une entreprise avec une empreinte véritablement mondiale? Nous recherchons des étudiants brillants pour rejoindre notre programme de stages 2026 au sein de Groupe Internal Consulting, Predictive and Behavior Analytics. Vous arriverez à:\n• proposer des idées sur la façon dont nous pouvons améliorer notre entreprise; prendre ces idées et les mettre en pratique résoudre les problèmes et élaborer des solutions concrètes à travers les projets de transformation/intégration\n• présenter des idées à l'interne en transformant l'information complexe en mesures et recommandations claires\n• comprendre les algorithmes ML (p. ex. XGBoost, Neural Networks) et les techniques d'apprentissage (p. ex. supervision, non supervision, renforcement de l'apprentissage)\n• écrire du code dans Python et construire des solutions en utilisant des bibliothèques et des cadres communs (p. ex. Pandas, scikit-learn, TensorFlow, Pytorch, Keras, spaCy)\n• résoudre les problèmes et trouver des solutions concrètes à travers les projets de transformation/intégration\n• gérer les échéanciers du projet, les intervenants, les risques, etc.\n• développer un ensemble de compétences en matière de conseil et de conseil pour conseiller les clients internes de l'entreprise;\n• établir et maintenir des relations solides au sein de l'équipe Solutions, des fonctions de groupe et des divisions d'affaires"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=347585&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.567Z",
-      "addressLocality": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-23",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=347585&PageType=jobdetails",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_ubsMeta": {
-        "reqId": "347585",
-        "department": "Group Functions",
-        "region": "Switzerland - Zürich",
-        "cities": "",
-        "categoryRaw": "Business management, administration and support",
-        "jobType": ""
-      },
-      "previousSlugs": [
-        "2026-off-cycle-internship-data-scientist-group-internal-consulting-ubs-zurich",
-        "tirocinio-fuori-ciclo-2026-data-scientist-group-consulenza-interna-ubs-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "2026-off-cycle-internship-data-scientist-group-internal-consulting-ubs-zurich",
-          "tirocinio-fuori-ciclo-2026-data-scientist-group-consulenza-interna-ubs-zurich"
-        ],
-        "de": [
-          "2026-off-cycle-internship-data-scientist-group-internal-consulting-ubs-zurich"
-        ],
-        "fr": [
-          "2026-off-cycle-internship-data-scientist-group-internal-consulting-ubs-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T12:37:47.871Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
       "id": "ubs-0614abb23b71",
       "slug": "tirocinio-fuori-ciclo-2026-controllo-del-rischio-di-gruppo-zurigo-ubs-zurich",
       "slugByLocale": {
@@ -546,7 +547,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=348010&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.559Z",
+      "crawledAt": "2026-07-06T00:22:05.633Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -596,7 +597,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "ubs-1e97654f7d40",
@@ -629,7 +631,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=347915&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.559Z",
+      "crawledAt": "2026-07-06T00:22:05.633Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -676,7 +678,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "ubs-54946bd1708a",
@@ -709,7 +712,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346321&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.535Z",
+      "crawledAt": "2026-07-06T00:22:05.602Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -795,7 +798,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346323&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.534Z",
+      "crawledAt": "2026-07-06T00:22:05.600Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -881,7 +884,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346329&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.533Z",
+      "crawledAt": "2026-07-06T00:22:05.598Z",
       "addressLocality": "Zentralschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -966,7 +969,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346322&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.531Z",
+      "crawledAt": "2026-07-06T00:22:05.597Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1052,7 +1055,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346535&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.530Z",
+      "crawledAt": "2026-07-06T00:22:05.595Z",
       "addressLocality": "Mittelland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1137,7 +1140,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346670&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.529Z",
+      "crawledAt": "2026-07-06T00:22:05.593Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -1223,7 +1226,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346701&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.527Z",
+      "crawledAt": "2026-07-06T00:22:05.591Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -1309,7 +1312,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346666&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.526Z",
+      "crawledAt": "2026-07-06T00:22:05.589Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -1395,7 +1398,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346592&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.526Z",
+      "crawledAt": "2026-07-06T00:22:05.589Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1481,7 +1484,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346668&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.524Z",
+      "crawledAt": "2026-07-06T00:22:05.587Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -1567,7 +1570,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346669&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.523Z",
+      "crawledAt": "2026-07-06T00:22:05.585Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -1653,7 +1656,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346597&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.521Z",
+      "crawledAt": "2026-07-06T00:22:05.583Z",
       "addressLocality": "Zentralschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1738,7 +1741,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346594&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.521Z",
+      "crawledAt": "2026-07-06T00:22:05.583Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -1824,7 +1827,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346600&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.519Z",
+      "crawledAt": "2026-07-06T00:22:05.581Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1910,7 +1913,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346601&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.518Z",
+      "crawledAt": "2026-07-06T00:22:05.579Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1996,7 +1999,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346608&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.517Z",
+      "crawledAt": "2026-07-06T00:22:05.577Z",
       "addressLocality": "Nordschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2051,91 +2054,6 @@
       }
     },
     {
-      "id": "ubs-07e01ccf320e",
-      "slug": "bem-2027-entrata-bancaria-dopo-la-matura-fr-marzo-ubs-westschweiz",
-      "slugByLocale": {
-        "it": "bem-2027-entrata-bancaria-dopo-la-matura-fr-marzo-ubs-westschweiz",
-        "en": "2027-bem-bank-entry-to-matura-fr-march-ubs-westschweiz",
-        "de": "2027-bem-bankeinstieg-nach-matura-fr-marz-ubs-westschweiz",
-        "fr": "2027-bem-entree-bancaire-a-matura-fr-mars-ubs-westschweiz"
-      },
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "2027 BEM – Bankeinstieg nach Matura – FR – März",
-      "titleByLocale": {
-        "it": "BEM 2027 – Entrata bancaria dopo la Matura – FR – marzo",
-        "en": "2027 BEM – Bank entry to Matura – FR – March",
-        "de": "2027 BEM – Bankeinstieg nach Matura – FR – März",
-        "fr": "2027 BEM – Entrée bancaire à Matura – FR – Mars"
-      },
-      "description": "Deine Rolle\nDu willst nach der Matura direkt in die Praxis einsteigen, Verantwortung übernehmen und die Welt des Bankings aus erster Hand erleben?\nAls Teil unserer Junior Talents startest du bei UBS deine berufliche Zukunft. Du bist von Anfang an im Tagesgeschäft mit dabei, rotierst durch verschiedene Teams, unterstützt im Kunden und Produktumfeld und analysierst Fälle und bereitest Gespräche vor.\n\nDas erwartet dich bei uns:\n• Eine 18-monatige Ausbildung mit spannenden Einblicken in unsere verschiedenen Bereiche und Geschäftsstellen\n• Während je drei sechsmonatigen Rotationseinsätzen, arbeitest du in Kunden- und Produktberatungen (physisch & digital) und lernst vieles zu Themen wie Geldanlange, Kredite, Hypotheken und Zahlungen\n• In jedem Einsatz eine Praxisausbilderin oder einen Praxisausbilder, die oder der dich begleitet und fördert\n• ein idealer Einstieg ins Bankgeschäft mit Perspektiven für deine weitere Laufbahn\n\nDeine Ausbildung\nDeine Ausbildung ist praxisnah, abwechslungsreich und auf deine Entwicklung ausgerichtet. Neben deiner Arbeit im Team erwirbst du am CYP (cyp.ch) gemeinsam mit Maturandinnen und Maturanden anderer Banken die theoretischen Grundlagen des Bankfachs.\nErgänzend dazu besuchst du regelmässig interne Fachausbildungen. So lernst du unsere Produkte und Dienstleistungen im Detail kennen und kannst dein Wissen direkt im Arbeitsalltag anwenden – optimal vorbereitet auf die Abschlussprüfung.\n\nAm Ende deiner Ausbildung erhältst du das Zertifikat «Bankeinstieg nach Matura», ausgestellt von der Schweizerischen Bankiervereinigung (SBVg). Viele unserer Absolvierenden treten danach direkt bei uns in eine Festanstellung über oder entwickeln sich in unserem zweijährigen Nachwuchsförderprogramm (JUNA) weiter.\n\nWenn du mehr über unser BEM-Programm und die benötigten Bewerbungsunterlagen erfahren möchtest, klicke bitte hier .\n\nDein Team\nAls Mitglied unserer UBS BEM-Trainee-Community trefft ihr euch regelmässig zu internen und externen Schulungen, Veranstaltungen und gemeinsamen Aktivitäten. Dabei entstehen oft Freundschaften und Netzwerke, die über die Ausbildungszeit hinaus bestehen.\n\nBei UBS setzen wir gezielt auf moderne Technologien wie Künstliche Intelligenz (KI), um unsere Dienstleistungen laufend zu verbessern – auch in deinem Team. So gestalten wir Prozesse effizienter, nutzen Daten intelligenter und erleichtern den Arbeitsalltag – für Mitarbeitende sowie Kundinnen und Kunden.\n\nDeine Fähigkeiten und Erfahrungen\nWir suchen neugierige, selbstständige junge Menschen, die gerne lernen, Verantwortung übernehmen und den Austausch mit anderen schätzen – im Team genauso wie im Kontakt mit Kundinnen und Kunden.\n\nWichtig ist, dass du einen der folgenden Abschlüsse mitbringst:\n• Gymnasiale Maturität (vorzugsweise mit Schwerpunkt Wirtschaft)\n• Fachmaturität\n• KV EFZ mit Berufsmaturität erworben ausserhalb des Bankensektors\n• KV EFZ mit Berufsmaturität via Handelsmittelschule erworben ausserhalb des Bankensektors\n\nErkennst du dich wieder? Dann bist du bei uns genau richtig!\n\nAusserdem überzeugst du durch:\n• Freude am Umgang mit Menschen und ausgeprägten Teamgeist\n• Motivation und eine positive Grundeinstellung\n• Hohe Lernbereitschaft und Offenheit für Neues\n• Interesse an der Finanzwelt, am Arbeiten mit KI & modernen digitalen Tools\n\nVielleicht studierst du bereits und merkst, dass dir der Praxisbezug fehlt? Oder du hast erste Erfahrungen im Verkauf oder in kundenorientierten Tätigkeiten gesammelt? Überlege dir, wie deine bisherigen Erfolge und Erfahrungen zu den Fähigkeiten passen, die wir suchen.\n\nDie Anstellungstermine für unsere BEM-Trainees sind jeweils im März und September. Bitte beachte, dass du dich pro Jahr nur für ein Startdatum und eine Region bewerben kannst.",
-      "descriptionByLocale": {
-        "it": "Il tuo ruolo Vuoi andare direttamente in pratica dopo la laurea, assumersi la responsabilità e sperimentare il mondo del banking in prima persona? Come parte dei nostri Junior Talents, si inizia il vostro futuro professionale a UBS. Sei coinvolto in attività quotidiane dall'inizio, ruotare attraverso diverse squadre, il supporto nell'ambiente del cliente e del prodotto e analizzare i casi e preparare le discussioni. Questo è ciò che vi aspetta con noi:\n• Un corso di formazione di 18 mesi con interessanti approfondimenti nei nostri vari settori e uffici\n• Durante tre incarichi di rotazione di sei mesi, si lavora nella consulenza clienti e prodotti (fisica e digitale) e imparare molto su argomenti come denaro, prestiti, mutui e pagamenti.\n• In ogni compito, un istruttore pratico che accompagna e ti promuove\n• un ingresso ideale nel settore bancario con prospettive per la tua ulteriore carriera La tua istruzione La vostra formazione è pratica, varia e focalizzata sul vostro sviluppo. Oltre al tuo lavoro come squadra, al CYP (cyp.ch), acquisirai le basi teoriche del soggetto bancario insieme a studenti di altre banche. Inoltre, si frequenta regolarmente corsi di formazione specialistica interna. Così si arriva a conoscere i nostri prodotti e servizi in dettaglio e può applicare la vostra conoscenza direttamente nel lavoro quotidiano – in modo ottimale preparato per l'esame finale. Al termine della vostra formazione, riceverete il certificato “ingresso alla Matura”, rilasciato dalla Swiss Bankers Association (SBA). Molti dei nostri laureati poi passare direttamente a una posizione permanente con noi o sviluppare ulteriormente nel nostro programma di sviluppo di giovani talenti di due anni (JUNA). Se volete saperne di più sul nostro programma BEM e sui documenti richiesti, fare clic qui. La tua squadra Come membro della nostra comunità di tirocinanti UBS BEM, vi incontrerete regolarmente per la formazione interna ed esterna, eventi e attività congiunte. Questo spesso crea amicizie e reti che esistono oltre il periodo di formazione. A UBS, ci concentriamo sulle tecnologie moderne come l'intelligenza artificiale (AI) per migliorare continuamente i nostri servizi – compreso nel vostro team. In questo modo, rendiamo i processi più efficienti, usiamo i dati in modo più intelligente e facilitiamo il lavoro quotidiano – per i dipendenti e i clienti. Le tue competenze ed esperienza Siamo alla ricerca di giovani curiosi e indipendenti che amano imparare, assumersi la responsabilità e apprezzare lo scambio con gli altri – nella squadra così come in contatto con i clienti. È importante che porti uno dei seguenti gradi:\n• maturità scolastica (preferibilmente con un focus sull'economia)\n• Maturità specialistica\n• KV EFZ con maturità professionale acquisita al di fuori del settore bancario\n• KV EFZ con maturità professionale acquisita al di fuori del settore bancario tramite scuola media commerciale Ti riconosci di nuovo? Allora hai proprio ragione con noi! Convinci anche da:\n• Gioia nel trattare con le persone e uno spirito di squadra forte\n• Motivazione e un atteggiamento di base positivo\n• Elevata disponibilità ad imparare e apertura a cose nuove\n• Interesse nel mondo finanziario, lavorando con AI & moderni strumenti digitali Forse stai già studiando e ti rendi conto che non hai alcuna rilevanza pratica? O avete acquisito esperienza iniziale nelle vendite o attività orientate al cliente? Pensate a come i vostri successi passati e le esperienze corrispondono alle competenze che stiamo cercando. Le date di lavoro per i nostri tirocinanti sono in marzo e settembre. Si prega di notare che è possibile richiedere solo per una data di inizio e una regione all'anno.",
-        "en": "Your role Do you want to go straight into practice after graduation, take on responsibility and experience the world of banking first hand? As part of our Junior Talents, you start your professional future at UBS. You are involved in day-to-day business from the beginning, rotate through different teams, support in the customer and product environment and analyze cases and prepare discussions. This is what awaits you with us:\n• An 18-month training course with exciting insights into our various areas and offices\n• During three six-month rotation assignments, you work in customer and product consulting (physical & digital) and learn a lot about topics such as money, loans, mortgages and payments.\n• In each assignment, a practical instructor who accompanies and promotes you\n• an ideal entry into banking with prospects for your further career Your education Your education is practical, varied and focused on your development. In addition to your work as a team, at the CYP (cyp.ch), you will acquire the theoretical foundations of the banking subject together with students from other banks. In addition, you regularly attend internal specialist training courses. So you get to know our products and services in detail and can apply your knowledge directly in everyday work – optimally prepared for the final exam. At the end of your training, you will receive the certificate “Bank entry to Matura”, issued by the Swiss Bankers Association (SBA). Many of our graduates then move directly to a permanent position with us or develop further in our two-year young talent development program (JUNA). If you would like to know more about our BEM program and the required application documents, please click here. Your team As a member of our UBS BEM trainee community, you will meet regularly for internal and external training, events and joint activities. This often creates friendships and networks that exist beyond the training period. At UBS, we focus on modern technologies such as artificial intelligence (AI) to continuously improve our services – including in your team. In this way, we make processes more efficient, use data more intelligently and make everyday work easier – for employees and customers. Your skills and experience We are looking for curious, independent young people who like to learn, take on responsibility and appreciate the exchange with others – in the team as well as in contact with customers. It is important that you bring one of the following degrees:\n• High school maturity (preferably with a focus on economics)\n• Specialist Maturity\n• KV EFZ with professional maturity acquired outside the banking sector\n• KV EFZ with vocational maturity acquired outside the banking sector via commercial medium school Do you recognize yourself again? Then you are exactly right with us! You also convince by:\n• Joy in dealing with people and a strong team spirit\n• Motivation and a positive basic attitude\n• High willingness to learn and openness to new things\n• Interest in the financial world, working with AI & modern digital tools Perhaps you are already studying and realize that you lack practical relevance? Or have you gained initial experience in sales or customer-oriented activities? Think about how your past successes and experiences match the skills we are looking for. The employment dates for our BEM trainees are in March and September. Please note that you can only apply for one start date and one region per year.",
-        "de": "Deine Rolle Du willst nach der Matura direkt in die Praxis einsteigen, Verantwortung übernehmen und die Welt des Bankings aus erster Hand erleben? Als Teil unserer Junior Talents startest du bei UBS deine berufliche Zukunft. Du bist von Anfang an im Tagesgeschäft mit dabei, rotierst durch verschiedene Teams, unterstützt im Kunden und Produktumfeld und analysierst Fälle und bereitest Gespräche vor. Das erwartet dich bei uns:\n• Eine 18-monatige Ausbildung mit spannenden Einblicken in unsere verschiedenen Bereiche und Geschäftsstellen\n• Während je drei sechsmonatigen Rotationseinsätzen, arbeitest du in Kunden- und Produktberatungen (physisch & digital) und lernst vieles zu Themen wie Geldanlange, Kredite, Hypotheken und Zahlungen\n• In jedem Einsatz eine Praxisausbilderin oder einen Praxisausbilder, die oder der dich begleitet und fördert\n• ein idealer Einstieg ins Bankgeschäft mit Perspektiven für deine weitere Laufbahn Deine Ausbildung Deine Ausbildung ist praxisnah, abwechslungsreich und auf deine Entwicklung ausgerichtet. Neben deiner Arbeit im Team erwirbst du am CYP (cyp.ch) gemeinsam mit Maturandinnen und Maturanden anderer Banken die theoretischen Grundlagen des Bankfachs. Ergänzend dazu besuchst du regelmässig interne Fachausbildungen. So lernst du unsere Produkte und Dienstleistungen im Detail kennen und kannst dein Wissen direkt im Arbeitsalltag anwenden – optimal vorbereitet auf die Abschlussprüfung. Am Ende deiner Ausbildung erhältst du das Zertifikat «Bankeinstieg nach Matura», ausgestellt von der Schweizerischen Bankiervereinigung (SBVg). Viele unserer Absolvierenden treten danach direkt bei uns in eine Festanstellung über oder entwickeln sich in unserem zweijährigen Nachwuchsförderprogramm (JUNA) weiter. Wenn du mehr über unser BEM-Programm und die benötigten Bewerbungsunterlagen erfahren möchtest, klicke bitte hier . Dein Team Als Mitglied unserer UBS BEM-Trainee-Community trefft ihr euch regelmässig zu internen und externen Schulungen, Veranstaltungen und gemeinsamen Aktivitäten. Dabei entstehen oft Freundschaften und Netzwerke, die über die Ausbildungszeit hinaus bestehen. Bei UBS setzen wir gezielt auf moderne Technologien wie Künstliche Intelligenz (KI), um unsere Dienstleistungen laufend zu verbessern – auch in deinem Team. So gestalten wir Prozesse effizienter, nutzen Daten intelligenter und erleichtern den Arbeitsalltag – für Mitarbeitende sowie Kundinnen und Kunden. Deine Fähigkeiten und Erfahrungen Wir suchen neugierige, selbstständige junge Menschen, die gerne lernen, Verantwortung übernehmen und den Austausch mit anderen schätzen – im Team genauso wie im Kontakt mit Kundinnen und Kunden. Wichtig ist, dass du einen der folgenden Abschlüsse mitbringst:\n• Gymnasiale Maturität (vorzugsweise mit Schwerpunkt Wirtschaft)\n• Fachmaturität\n• KV EFZ mit Berufsmaturität erworben ausserhalb des Bankensektors\n• KV EFZ mit Berufsmaturität via Handelsmittelschule erworben ausserhalb des Bankensektors Erkennst du dich wieder? Dann bist du bei uns genau richtig! Ausserdem überzeugst du durch:\n• Freude am Umgang mit Menschen und ausgeprägten Teamgeist\n• Motivation und eine positive Grundeinstellung\n• Hohe Lernbereitschaft und Offenheit für Neues\n• Interesse an der Finanzwelt, am Arbeiten mit KI & modernen digitalen Tools Vielleicht studierst du bereits und merkst, dass dir der Praxisbezug fehlt? Oder du hast erste Erfahrungen im Verkauf oder in kundenorientierten Tätigkeiten gesammelt? Überlege dir, wie deine bisherigen Erfolge und Erfahrungen zu den Fähigkeiten passen, die wir suchen. Die Anstellungstermine für unsere BEM-Trainees sind jeweils im März und September. Bitte beachte, dass du dich pro Jahr nur für ein Startdatum und eine Region bewerben kannst.",
-        "fr": "Votre rôle Voulez-vous aller directement à la pratique après la graduation, prendre des responsabilités et de l'expérience du monde bancaire de première main? Dans le cadre de nos Jeunes Talents, vous commencez votre avenir professionnel chez UBS. Vous êtes impliqué dans les affaires quotidiennes depuis le début, pivotez à travers différentes équipes, support dans l'environnement client et produit, analysez des cas et préparez des discussions. C'est ce qui vous attend avec nous:\n• Un cours de formation de 18 mois avec des idées passionnantes sur nos différents domaines et bureaux\n• Au cours de trois missions de rotation de six mois, vous travaillez en consultation client et produit (physique et numérique) et apprenez beaucoup sur des sujets tels que l'argent, les prêts, les prêts hypothécaires et les paiements.\n• Dans chaque mission, un instructeur pratique qui vous accompagne et vous encourage\n• une entrée idéale dans la banque avec des perspectives pour votre future carrière Votre éducation Votre éducation est pratique, variée et axée sur votre développement. En plus de votre travail en équipe, au CYP (cyp.ch), vous acquerrez les bases théoriques du sujet bancaire avec des étudiants d'autres banques. En outre, vous assistez régulièrement à des formations internes spécialisées. Ainsi, vous apprenez à connaître nos produits et services en détail et pouvez appliquer vos connaissances directement dans le travail quotidien – parfaitement préparé pour l'examen final. A la fin de votre formation, vous recevrez le certificat d'inscription bancaire à Matura, délivré par la Swiss Bankers Association (SBA). Beaucoup de nos diplômés passent ensuite directement à un poste permanent chez nous ou se développent dans notre programme de développement des jeunes talents (JUNA) de deux ans. Si vous souhaitez en savoir plus sur notre programme BEM et les documents de demande requis, veuillez cliquer ici. Votre équipe En tant que membre de notre communauté de stagiaires UBS BEM, vous vous rencontrerez régulièrement pour une formation interne et externe, des événements et des activités conjointes. Cela crée souvent des amitiés et des réseaux qui existent au-delà de la période de formation. Chez UBS, nous nous concentrons sur les technologies modernes comme l'intelligence artificielle (IA) pour améliorer continuellement nos services, y compris dans votre équipe. Ainsi, nous rendons les processus plus efficaces, utilisons les données plus intelligemment et facilitons le travail quotidien – pour les employés et les clients. Vos compétences et votre expérience Nous recherchons des jeunes curieux et indépendants qui aiment apprendre, prendre des responsabilités et apprécier l'échange avec les autres – dans l'équipe comme en contact avec les clients. Il est important d'apporter l'un des degrés suivants:\n• Niveau d'études secondaires (de préférence axé sur l'économie)\n• Maturité du spécialiste\n• KV EFZ à maturité professionnelle acquise en dehors du secteur bancaire\n• KV EFZ à maturité professionnelle acquise en dehors du secteur bancaire par l'intermédiaire d'une école moyenne commerciale Tu te reconnais encore ? Alors tu as raison avec nous ! Vous convainquez également par:\n• La joie de traiter avec les gens et un esprit d'équipe fort\n• Motivation et attitude de base positive\n• Haute volonté d'apprendre et ouverture aux nouvelles choses\n• Intérêt pour le monde financier, en travaillant avec l'IA et les outils numériques modernes Peut-être étudiez-vous déjà et réalisez-vous que vous manquez de pertinence pratique? Ou avez-vous acquis une expérience initiale dans les ventes ou les activités axées sur le client? Pensez à la façon dont vos réussites passées et vos expériences correspondent aux compétences que nous recherchons. Les dates d'emploi de nos stagiaires BEM sont en mars et septembre. Veuillez noter que vous ne pouvez demander qu'une date de début et une région par année."
-      },
-      "location": "Westschweiz",
-      "canton": "",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346610&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.515Z",
-      "addressLocality": "Westschweiz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-03",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346610&PageType=jobdetails",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_ubsMeta": {
-        "reqId": "346610",
-        "department": "",
-        "region": "Schweiz - Westschweiz",
-        "cities": "",
-        "categoryRaw": "",
-        "jobType": ""
-      },
-      "previousSlugs": [
-        "2027-bem-bankeinstieg-nach-matura-fr-marz-ubs-westschweiz",
-        "bem-2027-entrata-bancaria-dopo-la-matura-fr-marzo-ubs-westschweiz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "2027-bem-bankeinstieg-nach-matura-fr-marz-ubs-westschweiz",
-          "bem-2027-entrata-bancaria-dopo-la-matura-fr-marzo-ubs-westschweiz"
-        ],
-        "en": [
-          "2027-bem-bankeinstieg-nach-matura-fr-marz-ubs-westschweiz"
-        ],
-        "fr": [
-          "2027-bem-bankeinstieg-nach-matura-fr-marz-ubs-westschweiz"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T12:37:47.804Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ubs-2d80e126d8bc",
       "slug": "bem-2027-entrata-bancaria-dopo-la-maturita-ag-sun-marzo-ubs-aargau-solothurn",
       "slugByLocale": {
@@ -2166,7 +2084,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346609&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.515Z",
+      "crawledAt": "2026-07-06T00:22:05.576Z",
       "addressLocality": "Aargau / Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -2222,38 +2140,38 @@
       "addressRegion": "AG"
     },
     {
-      "id": "ubs-5f8bc0353354",
-      "slug": "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-gstaad-ubs-mittelland",
+      "id": "ubs-07e01ccf320e",
+      "slug": "bem-2027-entrata-bancaria-dopo-la-matura-fr-marzo-ubs-westschweiz",
       "slugByLocale": {
-        "it": "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-gstaad-ubs-mittelland",
-        "en": "2027-banking-education-commercial-basic-education-kv-gstaad-ubs-mittelland",
-        "de": "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland",
-        "fr": "2027-education-bancaire-education-de-base-commerciale-kv-gstaad-ubs-mittelland"
+        "it": "bem-2027-entrata-bancaria-dopo-la-matura-fr-marzo-ubs-westschweiz",
+        "en": "2027-bem-bank-entry-to-matura-fr-march-ubs-westschweiz",
+        "de": "2027-bem-bankeinstieg-nach-matura-fr-marz-ubs-westschweiz",
+        "fr": "2027-bem-entree-bancaire-a-matura-fr-mars-ubs-westschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
       "companyDomain": "ubs.com",
-      "title": "2027 Banklehre – Kaufmännische Grundbildung (KV) – Gstaad",
+      "title": "2027 BEM – Bankeinstieg nach Matura – FR – März",
       "titleByLocale": {
-        "it": "2027 Apprendistato in banca – formazione commerciale di base (KV) – Gstaad",
-        "en": "2027 Banking Education – Commercial Basic Education (KV) – Gstaad",
-        "de": "2027 Banklehre – Kaufmännische Grundbildung (KV) – Gstaad",
-        "fr": "2027 Éducation bancaire – Éducation de base commerciale (KV) – Gstaad"
+        "it": "BEM 2027 – Entrata bancaria dopo la Matura – FR – marzo",
+        "en": "2027 BEM – Bank entry to Matura – FR – March",
+        "de": "2027 BEM – Bankeinstieg nach Matura – FR – März",
+        "fr": "2027 BEM – Entrée bancaire à Matura – FR – Mars"
       },
-      "description": "Wohnst du im Simmental oder im Saanenland und du hast Spass daran, mit Menschen zu arbeiten? Bist du neugierig und offen für Neues? Möchtest du etwas bewegen und herausgefordert werden? Dann werde Teil unseres Teams und gestalte die Zukunft mit uns!\n\nWir bieten dir eine vielseitige kaufmännische Ausbildung mit viel Praxis im Bankgeschäft. Bei uns lernst du alles, was du für eine erfolgreiche Karriere und deinen weiteren beruflichen Weg bei UBS brauchst.\n\nDeine Ausbildung\nWährend deiner dreijährigen Ausbildung wirst du in verschiedenen Teams am Standort Gstaad arbeiten und die vielen spannenden Bereiche von UBS kennenlernen. Unsere motivierten Praxisausbilderinnen und Praxisausbilder begleiten dich persönlich und stehen dir dabei immer zur Seite.\n\nNeben der Berufsfachschule bekommst du eine praxisorientierte Ausbildung am CYP in deiner Region. Dort triffst du auf andere Lernende von verschiedenen Banken und lernst die theoretischen Grundlagen des Bankwesens. Das CYP bereitet dich perfekt auf die bankfachliche Lehrabschlussprüfung vor. Bei UBS vertiefst du dein Wissen über unsere Produkte und Dienstleistungen und lernst unseren UBS-Beratungsansatz kennen. Ausserdem legen wir grossen Wert darauf, deine sozialen Fähigkeiten wie Verkaufsverhalten und Kommunikation zu stärken.\n\nDeine Lehrzeit endet bei uns nicht einfach mit dem eidgenössischen Fähigkeitszeugnis «Kauffrau/Kaufmann» (EFZ mit oder ohne Berufsmatura Typ Wirtschaft möglich). Viele Lehrabgängerinnen und Lehrabgänger treten bei uns in eine Festanstellung über oder vertiefen ihr Fachwissen in unserem zweijährigen Nachwuchsförderprogramm.\n\nDein Team\nDu bist Teil einer grossen Gruppe von UBS KV-Lernenden. Ihr trefft euch regelmässig bei internen und externen Schulungen, mehrtägigen Events und vielem mehr. Dabei entstehen oft Freundschaften, die über die Arbeit und Ausbildung hinausgehen.\n\nBei UBS setzen wir gezielt auf moderne Technologien wie Künstliche Intelligenz (KI), um unsere Dienstleistungen laufend zu verbessern – auch in deinem Team. So gestalten wir Prozesse effizienter, nutzen Daten intelligenter und erleichtern den Arbeitsalltag – für Mitarbeitende sowie Kundinnen und Kunden.\n\nDeine Kenntnisse und Erfahrungen\n• Du hast gute Noten in Mathematik, Deutsch, Englisch und Französisch. Besonders wichtig sind uns:\n• •Du hast Spass daran, mit Menschen zu arbeiten und bist ein echter Teamplayer.\n• •Du bist motiviert und hast immer eine positive Einstellung.\n• •Du lernst gerne Neues und bist offen für Veränderungen.\n• •Du interessierst dich für die Finanzwelt.\n\nNächste Schritte\n• Bewirb dich schnell und einfach über den folgenden Link .\n• Auf unserer Homepage findest du auch alle Infos zur Lehre und zu Infoveranstaltungen in deiner Nähe.",
+      "description": "Deine Rolle\nDu willst nach der Matura direkt in die Praxis einsteigen, Verantwortung übernehmen und die Welt des Bankings aus erster Hand erleben?\nAls Teil unserer Junior Talents startest du bei UBS deine berufliche Zukunft. Du bist von Anfang an im Tagesgeschäft mit dabei, rotierst durch verschiedene Teams, unterstützt im Kunden und Produktumfeld und analysierst Fälle und bereitest Gespräche vor.\n\nDas erwartet dich bei uns:\n• Eine 18-monatige Ausbildung mit spannenden Einblicken in unsere verschiedenen Bereiche und Geschäftsstellen\n• Während je drei sechsmonatigen Rotationseinsätzen, arbeitest du in Kunden- und Produktberatungen (physisch & digital) und lernst vieles zu Themen wie Geldanlange, Kredite, Hypotheken und Zahlungen\n• In jedem Einsatz eine Praxisausbilderin oder einen Praxisausbilder, die oder der dich begleitet und fördert\n• ein idealer Einstieg ins Bankgeschäft mit Perspektiven für deine weitere Laufbahn\n\nDeine Ausbildung\nDeine Ausbildung ist praxisnah, abwechslungsreich und auf deine Entwicklung ausgerichtet. Neben deiner Arbeit im Team erwirbst du am CYP (cyp.ch) gemeinsam mit Maturandinnen und Maturanden anderer Banken die theoretischen Grundlagen des Bankfachs.\nErgänzend dazu besuchst du regelmässig interne Fachausbildungen. So lernst du unsere Produkte und Dienstleistungen im Detail kennen und kannst dein Wissen direkt im Arbeitsalltag anwenden – optimal vorbereitet auf die Abschlussprüfung.\n\nAm Ende deiner Ausbildung erhältst du das Zertifikat «Bankeinstieg nach Matura», ausgestellt von der Schweizerischen Bankiervereinigung (SBVg). Viele unserer Absolvierenden treten danach direkt bei uns in eine Festanstellung über oder entwickeln sich in unserem zweijährigen Nachwuchsförderprogramm (JUNA) weiter.\n\nWenn du mehr über unser BEM-Programm und die benötigten Bewerbungsunterlagen erfahren möchtest, klicke bitte hier .\n\nDein Team\nAls Mitglied unserer UBS BEM-Trainee-Community trefft ihr euch regelmässig zu internen und externen Schulungen, Veranstaltungen und gemeinsamen Aktivitäten. Dabei entstehen oft Freundschaften und Netzwerke, die über die Ausbildungszeit hinaus bestehen.\n\nBei UBS setzen wir gezielt auf moderne Technologien wie Künstliche Intelligenz (KI), um unsere Dienstleistungen laufend zu verbessern – auch in deinem Team. So gestalten wir Prozesse effizienter, nutzen Daten intelligenter und erleichtern den Arbeitsalltag – für Mitarbeitende sowie Kundinnen und Kunden.\n\nDeine Fähigkeiten und Erfahrungen\nWir suchen neugierige, selbstständige junge Menschen, die gerne lernen, Verantwortung übernehmen und den Austausch mit anderen schätzen – im Team genauso wie im Kontakt mit Kundinnen und Kunden.\n\nWichtig ist, dass du einen der folgenden Abschlüsse mitbringst:\n• Gymnasiale Maturität (vorzugsweise mit Schwerpunkt Wirtschaft)\n• Fachmaturität\n• KV EFZ mit Berufsmaturität erworben ausserhalb des Bankensektors\n• KV EFZ mit Berufsmaturität via Handelsmittelschule erworben ausserhalb des Bankensektors\n\nErkennst du dich wieder? Dann bist du bei uns genau richtig!\n\nAusserdem überzeugst du durch:\n• Freude am Umgang mit Menschen und ausgeprägten Teamgeist\n• Motivation und eine positive Grundeinstellung\n• Hohe Lernbereitschaft und Offenheit für Neues\n• Interesse an der Finanzwelt, am Arbeiten mit KI & modernen digitalen Tools\n\nVielleicht studierst du bereits und merkst, dass dir der Praxisbezug fehlt? Oder du hast erste Erfahrungen im Verkauf oder in kundenorientierten Tätigkeiten gesammelt? Überlege dir, wie deine bisherigen Erfolge und Erfahrungen zu den Fähigkeiten passen, die wir suchen.\n\nDie Anstellungstermine für unsere BEM-Trainees sind jeweils im März und September. Bitte beachte, dass du dich pro Jahr nur für ein Startdatum und eine Region bewerben kannst.",
       "descriptionByLocale": {
-        "it": "Vivi nella Simmental o Saanenland e ti diverti a lavorare con la gente? Siete curiosi e aperti a cose nuove? Vuoi fare la differenza ed essere sfidato? Allora diventa parte del nostro team e forma il futuro con noi! Vi offriamo una formazione commerciale versatile con molta pratica nel settore bancario. Con noi, imparerai tutto il necessario per una carriera di successo e il tuo ulteriore percorso professionale presso UBS. La tua istruzione Durante la vostra formazione di tre anni, lavorerete in diverse squadre nella posizione di Gstaad e conoscere le molte aree emozionanti di UBS. I nostri istruttori pratici motivati vi accompagnano personalmente e sono sempre al vostro fianco. Oltre alla scuola professionale, riceverete una formazione pratica presso il CYP nella vostra regione. Lì incontrerai altri studenti provenienti da diverse banche e imparerai le basi teoriche del banking. Il CYP ti prepara perfettamente per l'esame di laurea bancario. A UBS, approfondirete la vostra conoscenza dei nostri prodotti e servizi e conoscere il nostro approccio di consulenza UBS. Alleghiamo anche grande importanza per rafforzare le vostre competenze sociali come il comportamento di vendita e la comunicazione. L'apprendistato non termina semplicemente con il certificato federale di competenza «Kauffrau/Kaufmann» (EFZ con o senza un'economia di tipo professionale possibile). Molti apprendisti si trasferiscono in un lavoro permanente con noi o approfondiscono la loro esperienza nel nostro programma di sviluppo di giovani talenti di due anni. La tua squadra Siete parte di un grande gruppo di studenti UBS KV. Si incontra regolarmente in sessioni di formazione interna ed esterna, eventi multi-day e molto altro. Questo spesso crea amicizie che vanno oltre il lavoro e l'istruzione. A UBS, ci concentriamo sulle tecnologie moderne come l'intelligenza artificiale (AI) per migliorare continuamente i nostri servizi – compreso nel vostro team. In questo modo, rendiamo i processi più efficienti, usiamo i dati in modo più intelligente e facilitiamo il lavoro quotidiano – per i dipendenti e i clienti. La vostra conoscenza ed esperienza\n• Hai buoni voti in matematica, tedesco, inglese e francese. Particolarmente importante per noi sono:\n• •Ti piace lavorare con le persone e sei un vero giocatore di squadra.\n• •Sei motivato e hai sempre un atteggiamento positivo.\n• • Ti piace imparare cose nuove e sono aperti al cambiamento.\n• • Sei interessato al mondo finanziario. Prossimo passo\n• Applicare rapidamente e facilmente tramite il seguente link.\n• Sulla nostra homepage troverete anche tutte le informazioni sugli eventi di insegnamento e informazione nella vostra zona.",
-        "en": "Do you live in the Simmental or Saanenland and you have fun working with people? Are you curious and open to new things? Do you want to make a difference and be challenged? Then become part of our team and shape the future with us! We offer you a versatile commercial education with a lot of practice in banking. With us, you will learn everything you need for a successful career and your further professional path at UBS. Your education During your three-year training, you will work in different teams at the Gstaad location and get to know the many exciting areas of UBS. Our motivated practical instructors accompany you personally and are always at your side. In addition to the vocational school, you will receive a practical education at the CYP in your region. There you will meet other learners from different banks and learn the theoretical basics of banking. The CYP prepares you perfectly for the banking degree exam. At UBS, you will deepen your knowledge of our products and services and learn about our UBS consulting approach. We also attach great importance to strengthening your social skills such as sales behavior and communication. Your apprenticeship does not simply end with the federal certificate of competence «Kauffrau/Kaufmann» (EFZ with or without professional qualification type economy possible). Many apprentices move into permanent employment with us or deepen their expertise in our two-year young talent development program. Your team You are part of a large group of UBS KV learners. You meet regularly at internal and external training sessions, multi-day events and much more. This often creates friendships that go beyond work and education. At UBS, we focus on modern technologies such as artificial intelligence (AI) to continuously improve our services – including in your team. In this way, we make processes more efficient, use data more intelligently and make everyday work easier – for employees and customers. Your knowledge and experience\n• You have good grades in mathematics, German, English and French. Particularly important to us are:\n• •You enjoy working with people and you are a real team player.\n• •You are motivated and always have a positive attitude.\n• • You like to learn new things and are open to change.\n• • You are interested in the financial world. Next steps\n• Apply quickly and easily via the following link.\n• On our homepage you will also find all information about teaching and information events in your area.",
-        "de": "Wohnst du im Simmental oder im Saanenland und du hast Spass daran, mit Menschen zu arbeiten? Bist du neugierig und offen für Neues? Möchtest du etwas bewegen und herausgefordert werden? Dann werde Teil unseres Teams und gestalte die Zukunft mit uns! \n• Wir bieten dir eine vielseitige kaufmännische Ausbildung mit viel Praxis im Bankgeschäft. Bei uns lernst du alles, was du für eine erfolgreiche Karriere und deinen weiteren beruflichen Weg bei UBS brauchst. Deine Ausbildung Während deiner dreijährigen Ausbildung wirst du in verschiedenen Teams am Standort Gstaad arbeiten und die vielen spannenden Bereiche von UBS kennenlernen. Unsere motivierten Praxisausbilderinnen und Praxisausbilder begleiten dich persönlich und stehen dir dabei immer zur Seite. Neben der Berufsfachschule bekommst du eine praxisorientierte Ausbildung am CYP in deiner Region. Dort triffst du auf andere Lernende von verschiedenen Banken und lernst die theoretischen Grundlagen des Bankwesens. Das CYP bereitet dich perfekt auf die bankfachliche Lehrabschlussprüfung vor. Bei UBS vertiefst du dein Wissen über unsere Produkte und Dienstleistungen und lernst unseren UBS-Beratungsansatz kennen. Ausserdem legen wir grossen Wert darauf, deine sozialen Fähigkeiten wie Verkaufsverhalten und Kommunikation zu stärken. Deine Lehrzeit endet bei uns nicht einfach mit dem eidgenössischen Fähigkeitszeugnis «Kauffrau/Kaufmann» (EFZ mit oder ohne Berufsmatura Typ Wirtschaft möglich). Viele Lehrabgängerinnen und Lehrabgänger treten bei uns in eine Festanstellung über oder vertiefen ihr Fachwissen in unserem zweijährigen Nachwuchsförderprogramm. Dein Team Du bist Teil einer grossen Gruppe von UBS KV-Lernenden. Ihr trefft euch regelmässig bei internen und externen Schulungen, mehrtägigen Events und vielem mehr. Dabei entstehen oft Freundschaften, die über die Arbeit und Ausbildung hinausgehen. Bei UBS setzen wir gezielt auf moderne Technologien wie Künstliche Intelligenz (KI), um unsere Dienstleistungen laufend zu verbessern – auch in deinem Team. So gestalten wir Prozesse effizienter, nutzen Daten intelligenter und erleichtern den Arbeitsalltag – für Mitarbeitende sowie Kundinnen und Kunden. Deine Kenntnisse und Erfahrungen Du hast gute Noten in Mathematik, Deutsch, Englisch und Französisch. Besonders wichtig sind uns: •Du hast Spass daran, mit Menschen zu arbeiten und bist ein echter Teamplayer. •Du bist motiviert und hast immer eine positive Einstellung. •Du lernst gerne Neues und bist offen für Veränderungen. •Du interessierst dich für die Finanzwelt. Nächste Schritte Bewirb dich schnell und einfach über den folgenden Link . Auf unserer Homepage findest du auch alle Infos zur Lehre und zu Infoveranstaltungen in deiner Nähe.",
-        "fr": "Vous vivez dans le Simmental ou le Saanenland et vous vous amusez à travailler avec les gens? Êtes-vous curieux et ouvert à de nouvelles choses ? Voulez-vous faire une différence et être défié? Faites ensuite partie de notre équipe et façonnez l'avenir avec nous! Nous vous offrons une éducation commerciale polyvalente avec beaucoup de pratique dans le secteur bancaire. Avec nous, vous apprendrez tout ce dont vous avez besoin pour réussir votre carrière et votre parcours professionnel chez UBS. Votre éducation Au cours de votre formation de trois ans, vous travaillerez dans différentes équipes à l'emplacement de Gstaad et apprendrez à connaître les nombreux domaines passionnants de UBS. Nos instructeurs pratiques motivés vous accompagnent personnellement et sont toujours à vos côtés. En plus de l'école professionnelle, vous recevrez une formation pratique au CYP dans votre région. Vous y rencontrerez d'autres apprenants de différentes banques et apprendrez les bases théoriques de la banque. Le CYP vous prépare parfaitement pour l'examen de diplôme bancaire. Chez UBS, vous approfondirez votre connaissance de nos produits et services et vous en apprendrez davantage sur notre approche de consultation UBS. Nous attachons également une grande importance au renforcement de vos compétences sociales telles que le comportement des ventes et la communication. Votre apprentissage ne se termine pas simplement par le certificat fédéral de compétence «Kauffrau/Kaufmann» (EFZ avec ou sans l'économie de type qualification professionnelle possible). Beaucoup d'apprentis passent à l'emploi permanent chez nous ou approfondissent leur expertise dans notre programme de développement des jeunes talents de deux ans. Votre équipe Vous faites partie d'un grand groupe d'apprenants UBS KV. Vous vous réunissez régulièrement lors de sessions de formation internes et externes, d'événements de plusieurs jours et bien plus encore. Cela crée souvent des amitiés qui vont au-delà du travail et de l'éducation. Chez UBS, nous nous concentrons sur les technologies modernes comme l'intelligence artificielle (IA) pour améliorer continuellement nos services, y compris dans votre équipe. Ainsi, nous rendons les processus plus efficaces, utilisons les données plus intelligemment et facilitons le travail quotidien – pour les employés et les clients. Vos connaissances et votre expérience\n• Vous avez de bonnes notes en mathématiques, allemand, anglais et français. Pour nous, il est particulièrement important:\n• •Vous aimez travailler avec les gens et vous êtes un vrai joueur d'équipe.\n• •Vous êtes motivé et avez toujours une attitude positive.\n• • Vous aimez apprendre de nouvelles choses et êtes ouvert au changement.\n• • Vous êtes intéressé par le monde financier. Prochaines étapes\n• Appliquer rapidement et facilement via le lien suivant.\n• Sur notre page d'accueil, vous trouverez également toutes les informations sur les événements d'enseignement et d'information dans votre région."
+        "it": "Il tuo ruolo Vuoi andare direttamente in pratica dopo la laurea, assumersi la responsabilità e sperimentare il mondo del banking in prima persona? Come parte dei nostri Junior Talents, si inizia il vostro futuro professionale a UBS. Sei coinvolto in attività quotidiane dall'inizio, ruotare attraverso diverse squadre, il supporto nell'ambiente del cliente e del prodotto e analizzare i casi e preparare le discussioni. Questo è ciò che vi aspetta con noi:\n• Un corso di formazione di 18 mesi con interessanti approfondimenti nei nostri vari settori e uffici\n• Durante tre incarichi di rotazione di sei mesi, si lavora nella consulenza clienti e prodotti (fisica e digitale) e imparare molto su argomenti come denaro, prestiti, mutui e pagamenti.\n• In ogni compito, un istruttore pratico che accompagna e ti promuove\n• un ingresso ideale nel settore bancario con prospettive per la tua ulteriore carriera La tua istruzione La vostra formazione è pratica, varia e focalizzata sul vostro sviluppo. Oltre al tuo lavoro come squadra, al CYP (cyp.ch), acquisirai le basi teoriche del soggetto bancario insieme a studenti di altre banche. Inoltre, si frequenta regolarmente corsi di formazione specialistica interna. Così si arriva a conoscere i nostri prodotti e servizi in dettaglio e può applicare la vostra conoscenza direttamente nel lavoro quotidiano – in modo ottimale preparato per l'esame finale. Al termine della vostra formazione, riceverete il certificato “ingresso alla Matura”, rilasciato dalla Swiss Bankers Association (SBA). Molti dei nostri laureati poi passare direttamente a una posizione permanente con noi o sviluppare ulteriormente nel nostro programma di sviluppo di giovani talenti di due anni (JUNA). Se volete saperne di più sul nostro programma BEM e sui documenti richiesti, fare clic qui. La tua squadra Come membro della nostra comunità di tirocinanti UBS BEM, vi incontrerete regolarmente per la formazione interna ed esterna, eventi e attività congiunte. Questo spesso crea amicizie e reti che esistono oltre il periodo di formazione. A UBS, ci concentriamo sulle tecnologie moderne come l'intelligenza artificiale (AI) per migliorare continuamente i nostri servizi – compreso nel vostro team. In questo modo, rendiamo i processi più efficienti, usiamo i dati in modo più intelligente e facilitiamo il lavoro quotidiano – per i dipendenti e i clienti. Le tue competenze ed esperienza Siamo alla ricerca di giovani curiosi e indipendenti che amano imparare, assumersi la responsabilità e apprezzare lo scambio con gli altri – nella squadra così come in contatto con i clienti. È importante che porti uno dei seguenti gradi:\n• maturità scolastica (preferibilmente con un focus sull'economia)\n• Maturità specialistica\n• KV EFZ con maturità professionale acquisita al di fuori del settore bancario\n• KV EFZ con maturità professionale acquisita al di fuori del settore bancario tramite scuola media commerciale Ti riconosci di nuovo? Allora hai proprio ragione con noi! Convinci anche da:\n• Gioia nel trattare con le persone e uno spirito di squadra forte\n• Motivazione e un atteggiamento di base positivo\n• Elevata disponibilità ad imparare e apertura a cose nuove\n• Interesse nel mondo finanziario, lavorando con AI & moderni strumenti digitali Forse stai già studiando e ti rendi conto che non hai alcuna rilevanza pratica? O avete acquisito esperienza iniziale nelle vendite o attività orientate al cliente? Pensate a come i vostri successi passati e le esperienze corrispondono alle competenze che stiamo cercando. Le date di lavoro per i nostri tirocinanti sono in marzo e settembre. Si prega di notare che è possibile richiedere solo per una data di inizio e una regione all'anno.",
+        "en": "Your role Do you want to go straight into practice after graduation, take on responsibility and experience the world of banking first hand? As part of our Junior Talents, you start your professional future at UBS. You are involved in day-to-day business from the beginning, rotate through different teams, support in the customer and product environment and analyze cases and prepare discussions. This is what awaits you with us:\n• An 18-month training course with exciting insights into our various areas and offices\n• During three six-month rotation assignments, you work in customer and product consulting (physical & digital) and learn a lot about topics such as money, loans, mortgages and payments.\n• In each assignment, a practical instructor who accompanies and promotes you\n• an ideal entry into banking with prospects for your further career Your education Your education is practical, varied and focused on your development. In addition to your work as a team, at the CYP (cyp.ch), you will acquire the theoretical foundations of the banking subject together with students from other banks. In addition, you regularly attend internal specialist training courses. So you get to know our products and services in detail and can apply your knowledge directly in everyday work – optimally prepared for the final exam. At the end of your training, you will receive the certificate “Bank entry to Matura”, issued by the Swiss Bankers Association (SBA). Many of our graduates then move directly to a permanent position with us or develop further in our two-year young talent development program (JUNA). If you would like to know more about our BEM program and the required application documents, please click here. Your team As a member of our UBS BEM trainee community, you will meet regularly for internal and external training, events and joint activities. This often creates friendships and networks that exist beyond the training period. At UBS, we focus on modern technologies such as artificial intelligence (AI) to continuously improve our services – including in your team. In this way, we make processes more efficient, use data more intelligently and make everyday work easier – for employees and customers. Your skills and experience We are looking for curious, independent young people who like to learn, take on responsibility and appreciate the exchange with others – in the team as well as in contact with customers. It is important that you bring one of the following degrees:\n• High school maturity (preferably with a focus on economics)\n• Specialist Maturity\n• KV EFZ with professional maturity acquired outside the banking sector\n• KV EFZ with vocational maturity acquired outside the banking sector via commercial medium school Do you recognize yourself again? Then you are exactly right with us! You also convince by:\n• Joy in dealing with people and a strong team spirit\n• Motivation and a positive basic attitude\n• High willingness to learn and openness to new things\n• Interest in the financial world, working with AI & modern digital tools Perhaps you are already studying and realize that you lack practical relevance? Or have you gained initial experience in sales or customer-oriented activities? Think about how your past successes and experiences match the skills we are looking for. The employment dates for our BEM trainees are in March and September. Please note that you can only apply for one start date and one region per year.",
+        "de": "Deine Rolle Du willst nach der Matura direkt in die Praxis einsteigen, Verantwortung übernehmen und die Welt des Bankings aus erster Hand erleben? Als Teil unserer Junior Talents startest du bei UBS deine berufliche Zukunft. Du bist von Anfang an im Tagesgeschäft mit dabei, rotierst durch verschiedene Teams, unterstützt im Kunden und Produktumfeld und analysierst Fälle und bereitest Gespräche vor. Das erwartet dich bei uns:\n• Eine 18-monatige Ausbildung mit spannenden Einblicken in unsere verschiedenen Bereiche und Geschäftsstellen\n• Während je drei sechsmonatigen Rotationseinsätzen, arbeitest du in Kunden- und Produktberatungen (physisch & digital) und lernst vieles zu Themen wie Geldanlange, Kredite, Hypotheken und Zahlungen\n• In jedem Einsatz eine Praxisausbilderin oder einen Praxisausbilder, die oder der dich begleitet und fördert\n• ein idealer Einstieg ins Bankgeschäft mit Perspektiven für deine weitere Laufbahn Deine Ausbildung Deine Ausbildung ist praxisnah, abwechslungsreich und auf deine Entwicklung ausgerichtet. Neben deiner Arbeit im Team erwirbst du am CYP (cyp.ch) gemeinsam mit Maturandinnen und Maturanden anderer Banken die theoretischen Grundlagen des Bankfachs. Ergänzend dazu besuchst du regelmässig interne Fachausbildungen. So lernst du unsere Produkte und Dienstleistungen im Detail kennen und kannst dein Wissen direkt im Arbeitsalltag anwenden – optimal vorbereitet auf die Abschlussprüfung. Am Ende deiner Ausbildung erhältst du das Zertifikat «Bankeinstieg nach Matura», ausgestellt von der Schweizerischen Bankiervereinigung (SBVg). Viele unserer Absolvierenden treten danach direkt bei uns in eine Festanstellung über oder entwickeln sich in unserem zweijährigen Nachwuchsförderprogramm (JUNA) weiter. Wenn du mehr über unser BEM-Programm und die benötigten Bewerbungsunterlagen erfahren möchtest, klicke bitte hier . Dein Team Als Mitglied unserer UBS BEM-Trainee-Community trefft ihr euch regelmässig zu internen und externen Schulungen, Veranstaltungen und gemeinsamen Aktivitäten. Dabei entstehen oft Freundschaften und Netzwerke, die über die Ausbildungszeit hinaus bestehen. Bei UBS setzen wir gezielt auf moderne Technologien wie Künstliche Intelligenz (KI), um unsere Dienstleistungen laufend zu verbessern – auch in deinem Team. So gestalten wir Prozesse effizienter, nutzen Daten intelligenter und erleichtern den Arbeitsalltag – für Mitarbeitende sowie Kundinnen und Kunden. Deine Fähigkeiten und Erfahrungen Wir suchen neugierige, selbstständige junge Menschen, die gerne lernen, Verantwortung übernehmen und den Austausch mit anderen schätzen – im Team genauso wie im Kontakt mit Kundinnen und Kunden. Wichtig ist, dass du einen der folgenden Abschlüsse mitbringst:\n• Gymnasiale Maturität (vorzugsweise mit Schwerpunkt Wirtschaft)\n• Fachmaturität\n• KV EFZ mit Berufsmaturität erworben ausserhalb des Bankensektors\n• KV EFZ mit Berufsmaturität via Handelsmittelschule erworben ausserhalb des Bankensektors Erkennst du dich wieder? Dann bist du bei uns genau richtig! Ausserdem überzeugst du durch:\n• Freude am Umgang mit Menschen und ausgeprägten Teamgeist\n• Motivation und eine positive Grundeinstellung\n• Hohe Lernbereitschaft und Offenheit für Neues\n• Interesse an der Finanzwelt, am Arbeiten mit KI & modernen digitalen Tools Vielleicht studierst du bereits und merkst, dass dir der Praxisbezug fehlt? Oder du hast erste Erfahrungen im Verkauf oder in kundenorientierten Tätigkeiten gesammelt? Überlege dir, wie deine bisherigen Erfolge und Erfahrungen zu den Fähigkeiten passen, die wir suchen. Die Anstellungstermine für unsere BEM-Trainees sind jeweils im März und September. Bitte beachte, dass du dich pro Jahr nur für ein Startdatum und eine Region bewerben kannst.",
+        "fr": "Votre rôle Voulez-vous aller directement à la pratique après la graduation, prendre des responsabilités et de l'expérience du monde bancaire de première main? Dans le cadre de nos Jeunes Talents, vous commencez votre avenir professionnel chez UBS. Vous êtes impliqué dans les affaires quotidiennes depuis le début, pivotez à travers différentes équipes, support dans l'environnement client et produit, analysez des cas et préparez des discussions. C'est ce qui vous attend avec nous:\n• Un cours de formation de 18 mois avec des idées passionnantes sur nos différents domaines et bureaux\n• Au cours de trois missions de rotation de six mois, vous travaillez en consultation client et produit (physique et numérique) et apprenez beaucoup sur des sujets tels que l'argent, les prêts, les prêts hypothécaires et les paiements.\n• Dans chaque mission, un instructeur pratique qui vous accompagne et vous encourage\n• une entrée idéale dans la banque avec des perspectives pour votre future carrière Votre éducation Votre éducation est pratique, variée et axée sur votre développement. En plus de votre travail en équipe, au CYP (cyp.ch), vous acquerrez les bases théoriques du sujet bancaire avec des étudiants d'autres banques. En outre, vous assistez régulièrement à des formations internes spécialisées. Ainsi, vous apprenez à connaître nos produits et services en détail et pouvez appliquer vos connaissances directement dans le travail quotidien – parfaitement préparé pour l'examen final. A la fin de votre formation, vous recevrez le certificat d'inscription bancaire à Matura, délivré par la Swiss Bankers Association (SBA). Beaucoup de nos diplômés passent ensuite directement à un poste permanent chez nous ou se développent dans notre programme de développement des jeunes talents (JUNA) de deux ans. Si vous souhaitez en savoir plus sur notre programme BEM et les documents de demande requis, veuillez cliquer ici. Votre équipe En tant que membre de notre communauté de stagiaires UBS BEM, vous vous rencontrerez régulièrement pour une formation interne et externe, des événements et des activités conjointes. Cela crée souvent des amitiés et des réseaux qui existent au-delà de la période de formation. Chez UBS, nous nous concentrons sur les technologies modernes comme l'intelligence artificielle (IA) pour améliorer continuellement nos services, y compris dans votre équipe. Ainsi, nous rendons les processus plus efficaces, utilisons les données plus intelligemment et facilitons le travail quotidien – pour les employés et les clients. Vos compétences et votre expérience Nous recherchons des jeunes curieux et indépendants qui aiment apprendre, prendre des responsabilités et apprécier l'échange avec les autres – dans l'équipe comme en contact avec les clients. Il est important d'apporter l'un des degrés suivants:\n• Niveau d'études secondaires (de préférence axé sur l'économie)\n• Maturité du spécialiste\n• KV EFZ à maturité professionnelle acquise en dehors du secteur bancaire\n• KV EFZ à maturité professionnelle acquise en dehors du secteur bancaire par l'intermédiaire d'une école moyenne commerciale Tu te reconnais encore ? Alors tu as raison avec nous ! Vous convainquez également par:\n• La joie de traiter avec les gens et un esprit d'équipe fort\n• Motivation et attitude de base positive\n• Haute volonté d'apprendre et ouverture aux nouvelles choses\n• Intérêt pour le monde financier, en travaillant avec l'IA et les outils numériques modernes Peut-être étudiez-vous déjà et réalisez-vous que vous manquez de pertinence pratique? Ou avez-vous acquis une expérience initiale dans les ventes ou les activités axées sur le client? Pensez à la façon dont vos réussites passées et vos expériences correspondent aux compétences que nous recherchons. Les dates d'emploi de nos stagiaires BEM sont en mars et septembre. Veuillez noter que vous ne pouvez demander qu'une date de début et une région par année."
       },
-      "location": "Mittelland",
+      "location": "Westschweiz",
       "canton": "",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=348017&PageType=jobdetails",
+      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346610&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.514Z",
-      "addressLocality": "Mittelland",
+      "crawledAt": "2026-07-06T00:22:05.575Z",
+      "addressLocality": "Westschweiz",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "",
@@ -2264,44 +2182,44 @@
       "sector": "Finanza / Banca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=348017&PageType=jobdetails",
+      "postedDate": "2026-06-03",
+      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346610&PageType=jobdetails",
       "requirements": [],
       "requirementsByLocale": {},
       "_ubsMeta": {
-        "reqId": "348017",
+        "reqId": "346610",
         "department": "",
-        "region": "Schweiz - Mittelland",
+        "region": "Schweiz - Westschweiz",
         "cities": "",
         "categoryRaw": "",
         "jobType": ""
       },
       "previousSlugs": [
-        "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland",
-        "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-gstaad-ubs-mittelland"
+        "2027-bem-bankeinstieg-nach-matura-fr-marz-ubs-westschweiz",
+        "bem-2027-entrata-bancaria-dopo-la-matura-fr-marzo-ubs-westschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland",
-          "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-gstaad-ubs-mittelland"
+          "2027-bem-bankeinstieg-nach-matura-fr-marz-ubs-westschweiz",
+          "bem-2027-entrata-bancaria-dopo-la-matura-fr-marzo-ubs-westschweiz"
         ],
         "en": [
-          "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland"
+          "2027-bem-bankeinstieg-nach-matura-fr-marz-ubs-westschweiz"
         ],
         "fr": [
-          "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland"
+          "2027-bem-bankeinstieg-nach-matura-fr-marz-ubs-westschweiz"
         ]
       },
-      "firstSeenAt": "2026-07-03T12:37:47.799Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "firstSeenAt": "2026-07-03T12:37:47.804Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2337,7 +2255,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346665&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.514Z",
+      "crawledAt": "2026-07-06T00:22:05.574Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -2393,6 +2311,91 @@
       "addressRegion": "VS"
     },
     {
+      "id": "ubs-5f8bc0353354",
+      "slug": "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-gstaad-ubs-mittelland",
+      "slugByLocale": {
+        "it": "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-gstaad-ubs-mittelland",
+        "en": "2027-banking-education-commercial-basic-education-kv-gstaad-ubs-mittelland",
+        "de": "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland",
+        "fr": "2027-education-bancaire-education-de-base-commerciale-kv-gstaad-ubs-mittelland"
+      },
+      "company": "UBS",
+      "companyKey": "ubs",
+      "companyDomain": "ubs.com",
+      "title": "2027 Banklehre – Kaufmännische Grundbildung (KV) – Gstaad",
+      "titleByLocale": {
+        "it": "2027 Apprendistato in banca – formazione commerciale di base (KV) – Gstaad",
+        "en": "2027 Banking Education – Commercial Basic Education (KV) – Gstaad",
+        "de": "2027 Banklehre – Kaufmännische Grundbildung (KV) – Gstaad",
+        "fr": "2027 Éducation bancaire – Éducation de base commerciale (KV) – Gstaad"
+      },
+      "description": "Wohnst du im Simmental oder im Saanenland und du hast Spass daran, mit Menschen zu arbeiten? Bist du neugierig und offen für Neues? Möchtest du etwas bewegen und herausgefordert werden? Dann werde Teil unseres Teams und gestalte die Zukunft mit uns!\n\nWir bieten dir eine vielseitige kaufmännische Ausbildung mit viel Praxis im Bankgeschäft. Bei uns lernst du alles, was du für eine erfolgreiche Karriere und deinen weiteren beruflichen Weg bei UBS brauchst.\n\nDeine Ausbildung\nWährend deiner dreijährigen Ausbildung wirst du in verschiedenen Teams am Standort Gstaad arbeiten und die vielen spannenden Bereiche von UBS kennenlernen. Unsere motivierten Praxisausbilderinnen und Praxisausbilder begleiten dich persönlich und stehen dir dabei immer zur Seite.\n\nNeben der Berufsfachschule bekommst du eine praxisorientierte Ausbildung am CYP in deiner Region. Dort triffst du auf andere Lernende von verschiedenen Banken und lernst die theoretischen Grundlagen des Bankwesens. Das CYP bereitet dich perfekt auf die bankfachliche Lehrabschlussprüfung vor. Bei UBS vertiefst du dein Wissen über unsere Produkte und Dienstleistungen und lernst unseren UBS-Beratungsansatz kennen. Ausserdem legen wir grossen Wert darauf, deine sozialen Fähigkeiten wie Verkaufsverhalten und Kommunikation zu stärken.\n\nDeine Lehrzeit endet bei uns nicht einfach mit dem eidgenössischen Fähigkeitszeugnis «Kauffrau/Kaufmann» (EFZ mit oder ohne Berufsmatura Typ Wirtschaft möglich). Viele Lehrabgängerinnen und Lehrabgänger treten bei uns in eine Festanstellung über oder vertiefen ihr Fachwissen in unserem zweijährigen Nachwuchsförderprogramm.\n\nDein Team\nDu bist Teil einer grossen Gruppe von UBS KV-Lernenden. Ihr trefft euch regelmässig bei internen und externen Schulungen, mehrtägigen Events und vielem mehr. Dabei entstehen oft Freundschaften, die über die Arbeit und Ausbildung hinausgehen.\n\nBei UBS setzen wir gezielt auf moderne Technologien wie Künstliche Intelligenz (KI), um unsere Dienstleistungen laufend zu verbessern – auch in deinem Team. So gestalten wir Prozesse effizienter, nutzen Daten intelligenter und erleichtern den Arbeitsalltag – für Mitarbeitende sowie Kundinnen und Kunden.\n\nDeine Kenntnisse und Erfahrungen\n• Du hast gute Noten in Mathematik, Deutsch, Englisch und Französisch. Besonders wichtig sind uns:\n• •Du hast Spass daran, mit Menschen zu arbeiten und bist ein echter Teamplayer.\n• •Du bist motiviert und hast immer eine positive Einstellung.\n• •Du lernst gerne Neues und bist offen für Veränderungen.\n• •Du interessierst dich für die Finanzwelt.\n\nNächste Schritte\n• Bewirb dich schnell und einfach über den folgenden Link .\n• Auf unserer Homepage findest du auch alle Infos zur Lehre und zu Infoveranstaltungen in deiner Nähe.",
+      "descriptionByLocale": {
+        "it": "Vivi nella Simmental o Saanenland e ti diverti a lavorare con la gente? Siete curiosi e aperti a cose nuove? Vuoi fare la differenza ed essere sfidato? Allora diventa parte del nostro team e forma il futuro con noi! Vi offriamo una formazione commerciale versatile con molta pratica nel settore bancario. Con noi, imparerai tutto il necessario per una carriera di successo e il tuo ulteriore percorso professionale presso UBS. La tua istruzione Durante la vostra formazione di tre anni, lavorerete in diverse squadre nella posizione di Gstaad e conoscere le molte aree emozionanti di UBS. I nostri istruttori pratici motivati vi accompagnano personalmente e sono sempre al vostro fianco. Oltre alla scuola professionale, riceverete una formazione pratica presso il CYP nella vostra regione. Lì incontrerai altri studenti provenienti da diverse banche e imparerai le basi teoriche del banking. Il CYP ti prepara perfettamente per l'esame di laurea bancario. A UBS, approfondirete la vostra conoscenza dei nostri prodotti e servizi e conoscere il nostro approccio di consulenza UBS. Alleghiamo anche grande importanza per rafforzare le vostre competenze sociali come il comportamento di vendita e la comunicazione. L'apprendistato non termina semplicemente con il certificato federale di competenza «Kauffrau/Kaufmann» (EFZ con o senza un'economia di tipo professionale possibile). Molti apprendisti si trasferiscono in un lavoro permanente con noi o approfondiscono la loro esperienza nel nostro programma di sviluppo di giovani talenti di due anni. La tua squadra Siete parte di un grande gruppo di studenti UBS KV. Si incontra regolarmente in sessioni di formazione interna ed esterna, eventi multi-day e molto altro. Questo spesso crea amicizie che vanno oltre il lavoro e l'istruzione. A UBS, ci concentriamo sulle tecnologie moderne come l'intelligenza artificiale (AI) per migliorare continuamente i nostri servizi – compreso nel vostro team. In questo modo, rendiamo i processi più efficienti, usiamo i dati in modo più intelligente e facilitiamo il lavoro quotidiano – per i dipendenti e i clienti. La vostra conoscenza ed esperienza\n• Hai buoni voti in matematica, tedesco, inglese e francese. Particolarmente importante per noi sono:\n• •Ti piace lavorare con le persone e sei un vero giocatore di squadra.\n• •Sei motivato e hai sempre un atteggiamento positivo.\n• • Ti piace imparare cose nuove e sono aperti al cambiamento.\n• • Sei interessato al mondo finanziario. Prossimo passo\n• Applicare rapidamente e facilmente tramite il seguente link.\n• Sulla nostra homepage troverete anche tutte le informazioni sugli eventi di insegnamento e informazione nella vostra zona.",
+        "en": "Do you live in the Simmental or Saanenland and you have fun working with people? Are you curious and open to new things? Do you want to make a difference and be challenged? Then become part of our team and shape the future with us! We offer you a versatile commercial education with a lot of practice in banking. With us, you will learn everything you need for a successful career and your further professional path at UBS. Your education During your three-year training, you will work in different teams at the Gstaad location and get to know the many exciting areas of UBS. Our motivated practical instructors accompany you personally and are always at your side. In addition to the vocational school, you will receive a practical education at the CYP in your region. There you will meet other learners from different banks and learn the theoretical basics of banking. The CYP prepares you perfectly for the banking degree exam. At UBS, you will deepen your knowledge of our products and services and learn about our UBS consulting approach. We also attach great importance to strengthening your social skills such as sales behavior and communication. Your apprenticeship does not simply end with the federal certificate of competence «Kauffrau/Kaufmann» (EFZ with or without professional qualification type economy possible). Many apprentices move into permanent employment with us or deepen their expertise in our two-year young talent development program. Your team You are part of a large group of UBS KV learners. You meet regularly at internal and external training sessions, multi-day events and much more. This often creates friendships that go beyond work and education. At UBS, we focus on modern technologies such as artificial intelligence (AI) to continuously improve our services – including in your team. In this way, we make processes more efficient, use data more intelligently and make everyday work easier – for employees and customers. Your knowledge and experience\n• You have good grades in mathematics, German, English and French. Particularly important to us are:\n• •You enjoy working with people and you are a real team player.\n• •You are motivated and always have a positive attitude.\n• • You like to learn new things and are open to change.\n• • You are interested in the financial world. Next steps\n• Apply quickly and easily via the following link.\n• On our homepage you will also find all information about teaching and information events in your area.",
+        "de": "Wohnst du im Simmental oder im Saanenland und du hast Spass daran, mit Menschen zu arbeiten? Bist du neugierig und offen für Neues? Möchtest du etwas bewegen und herausgefordert werden? Dann werde Teil unseres Teams und gestalte die Zukunft mit uns! \n• Wir bieten dir eine vielseitige kaufmännische Ausbildung mit viel Praxis im Bankgeschäft. Bei uns lernst du alles, was du für eine erfolgreiche Karriere und deinen weiteren beruflichen Weg bei UBS brauchst. Deine Ausbildung Während deiner dreijährigen Ausbildung wirst du in verschiedenen Teams am Standort Gstaad arbeiten und die vielen spannenden Bereiche von UBS kennenlernen. Unsere motivierten Praxisausbilderinnen und Praxisausbilder begleiten dich persönlich und stehen dir dabei immer zur Seite. Neben der Berufsfachschule bekommst du eine praxisorientierte Ausbildung am CYP in deiner Region. Dort triffst du auf andere Lernende von verschiedenen Banken und lernst die theoretischen Grundlagen des Bankwesens. Das CYP bereitet dich perfekt auf die bankfachliche Lehrabschlussprüfung vor. Bei UBS vertiefst du dein Wissen über unsere Produkte und Dienstleistungen und lernst unseren UBS-Beratungsansatz kennen. Ausserdem legen wir grossen Wert darauf, deine sozialen Fähigkeiten wie Verkaufsverhalten und Kommunikation zu stärken. Deine Lehrzeit endet bei uns nicht einfach mit dem eidgenössischen Fähigkeitszeugnis «Kauffrau/Kaufmann» (EFZ mit oder ohne Berufsmatura Typ Wirtschaft möglich). Viele Lehrabgängerinnen und Lehrabgänger treten bei uns in eine Festanstellung über oder vertiefen ihr Fachwissen in unserem zweijährigen Nachwuchsförderprogramm. Dein Team Du bist Teil einer grossen Gruppe von UBS KV-Lernenden. Ihr trefft euch regelmässig bei internen und externen Schulungen, mehrtägigen Events und vielem mehr. Dabei entstehen oft Freundschaften, die über die Arbeit und Ausbildung hinausgehen. Bei UBS setzen wir gezielt auf moderne Technologien wie Künstliche Intelligenz (KI), um unsere Dienstleistungen laufend zu verbessern – auch in deinem Team. So gestalten wir Prozesse effizienter, nutzen Daten intelligenter und erleichtern den Arbeitsalltag – für Mitarbeitende sowie Kundinnen und Kunden. Deine Kenntnisse und Erfahrungen Du hast gute Noten in Mathematik, Deutsch, Englisch und Französisch. Besonders wichtig sind uns: •Du hast Spass daran, mit Menschen zu arbeiten und bist ein echter Teamplayer. •Du bist motiviert und hast immer eine positive Einstellung. •Du lernst gerne Neues und bist offen für Veränderungen. •Du interessierst dich für die Finanzwelt. Nächste Schritte Bewirb dich schnell und einfach über den folgenden Link . Auf unserer Homepage findest du auch alle Infos zur Lehre und zu Infoveranstaltungen in deiner Nähe.",
+        "fr": "Vous vivez dans le Simmental ou le Saanenland et vous vous amusez à travailler avec les gens? Êtes-vous curieux et ouvert à de nouvelles choses ? Voulez-vous faire une différence et être défié? Faites ensuite partie de notre équipe et façonnez l'avenir avec nous! Nous vous offrons une éducation commerciale polyvalente avec beaucoup de pratique dans le secteur bancaire. Avec nous, vous apprendrez tout ce dont vous avez besoin pour réussir votre carrière et votre parcours professionnel chez UBS. Votre éducation Au cours de votre formation de trois ans, vous travaillerez dans différentes équipes à l'emplacement de Gstaad et apprendrez à connaître les nombreux domaines passionnants de UBS. Nos instructeurs pratiques motivés vous accompagnent personnellement et sont toujours à vos côtés. En plus de l'école professionnelle, vous recevrez une formation pratique au CYP dans votre région. Vous y rencontrerez d'autres apprenants de différentes banques et apprendrez les bases théoriques de la banque. Le CYP vous prépare parfaitement pour l'examen de diplôme bancaire. Chez UBS, vous approfondirez votre connaissance de nos produits et services et vous en apprendrez davantage sur notre approche de consultation UBS. Nous attachons également une grande importance au renforcement de vos compétences sociales telles que le comportement des ventes et la communication. Votre apprentissage ne se termine pas simplement par le certificat fédéral de compétence «Kauffrau/Kaufmann» (EFZ avec ou sans l'économie de type qualification professionnelle possible). Beaucoup d'apprentis passent à l'emploi permanent chez nous ou approfondissent leur expertise dans notre programme de développement des jeunes talents de deux ans. Votre équipe Vous faites partie d'un grand groupe d'apprenants UBS KV. Vous vous réunissez régulièrement lors de sessions de formation internes et externes, d'événements de plusieurs jours et bien plus encore. Cela crée souvent des amitiés qui vont au-delà du travail et de l'éducation. Chez UBS, nous nous concentrons sur les technologies modernes comme l'intelligence artificielle (IA) pour améliorer continuellement nos services, y compris dans votre équipe. Ainsi, nous rendons les processus plus efficaces, utilisons les données plus intelligemment et facilitons le travail quotidien – pour les employés et les clients. Vos connaissances et votre expérience\n• Vous avez de bonnes notes en mathématiques, allemand, anglais et français. Pour nous, il est particulièrement important:\n• •Vous aimez travailler avec les gens et vous êtes un vrai joueur d'équipe.\n• •Vous êtes motivé et avez toujours une attitude positive.\n• • Vous aimez apprendre de nouvelles choses et êtes ouvert au changement.\n• • Vous êtes intéressé par le monde financier. Prochaines étapes\n• Appliquer rapidement et facilement via le lien suivant.\n• Sur notre page d'accueil, vous trouverez également toutes les informations sur les événements d'enseignement et d'information dans votre région."
+      },
+      "location": "Mittelland",
+      "canton": "",
+      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=348017&PageType=jobdetails",
+      "source": "UBS Dedicated Parser (Taleo API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T00:22:05.573Z",
+      "addressLocality": "Mittelland",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=348017&PageType=jobdetails",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_ubsMeta": {
+        "reqId": "348017",
+        "department": "",
+        "region": "Schweiz - Mittelland",
+        "cities": "",
+        "categoryRaw": "",
+        "jobType": ""
+      },
+      "previousSlugs": [
+        "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland",
+        "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-gstaad-ubs-mittelland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland",
+          "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-gstaad-ubs-mittelland"
+        ],
+        "en": [
+          "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland"
+        ],
+        "fr": [
+          "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T12:37:47.799Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "ubs-e9b7f2429886",
       "slug": "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-berna-ubs-mittelland",
       "slugByLocale": {
@@ -2423,7 +2426,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346320&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.512Z",
+      "crawledAt": "2026-07-06T00:22:05.571Z",
       "addressLocality": "Mittelland",
       "addressCountry": "CH",
       "country": "CH",
@@ -2508,7 +2511,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=347873&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.512Z",
+      "crawledAt": "2026-07-06T00:22:05.571Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2594,7 +2597,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=347739&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.512Z",
+      "crawledAt": "2026-07-06T00:22:05.571Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2680,7 +2683,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=347871&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.512Z",
+      "crawledAt": "2026-07-06T00:22:05.571Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2766,7 +2769,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=347881&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-05T12:46:25.511Z",
+      "crawledAt": "2026-07-06T00:22:05.569Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2836,7 +2839,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=347876&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.511Z",
+      "crawledAt": "2026-07-06T00:22:05.569Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2922,7 +2925,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346326&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.510Z",
+      "crawledAt": "2026-07-06T00:22:05.568Z",
       "addressLocality": "Westschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -3007,7 +3010,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346324&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.510Z",
+      "crawledAt": "2026-07-06T00:22:05.568Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -3093,7 +3096,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346333&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.510Z",
+      "crawledAt": "2026-07-06T00:22:05.568Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3179,7 +3182,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346330&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.510Z",
+      "crawledAt": "2026-07-06T00:22:05.568Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3265,7 +3268,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=347872&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.510Z",
+      "crawledAt": "2026-07-06T00:22:05.568Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3351,7 +3354,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346334&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.508Z",
+      "crawledAt": "2026-07-06T00:22:05.566Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -3437,7 +3440,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346343&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.507Z",
+      "crawledAt": "2026-07-06T00:22:05.564Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -3523,7 +3526,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346342&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.507Z",
+      "crawledAt": "2026-07-06T00:22:05.564Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -3564,6 +3567,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.785Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3609,7 +3613,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346346&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.505Z",
+      "crawledAt": "2026-07-06T00:22:05.562Z",
       "addressLocality": "Plateau suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -3650,6 +3654,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.783Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3695,7 +3700,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346341&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.504Z",
+      "crawledAt": "2026-07-06T00:22:05.560Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -3736,6 +3741,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.795Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3781,7 +3787,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346345&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.503Z",
+      "crawledAt": "2026-07-06T00:22:05.559Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -3822,6 +3828,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.793Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3867,7 +3874,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346344&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.501Z",
+      "crawledAt": "2026-07-06T00:22:05.557Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -3908,6 +3915,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.791Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3953,7 +3961,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346316&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.500Z",
+      "crawledAt": "2026-07-06T00:22:05.555Z",
       "addressLocality": "Nordschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -4038,7 +4046,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346318&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.500Z",
+      "crawledAt": "2026-07-06T00:22:05.555Z",
       "addressLocality": "Aargau / Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -4124,7 +4132,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346331&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.498Z",
+      "crawledAt": "2026-07-06T00:22:05.553Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -4210,7 +4218,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346347&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-05T12:46:25.497Z",
+      "crawledAt": "2026-07-06T00:22:05.551Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -4280,7 +4288,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=337101&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.485Z",
+      "crawledAt": "2026-07-06T00:22:05.535Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4360,7 +4368,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339843&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.457Z",
+      "crawledAt": "2026-07-06T00:22:05.497Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4440,7 +4448,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339844&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.457Z",
+      "crawledAt": "2026-07-06T00:22:05.497Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4510,7 +4518,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339845&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.457Z",
+      "crawledAt": "2026-07-06T00:22:05.497Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4590,7 +4598,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339846&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.457Z",
+      "crawledAt": "2026-07-06T00:22:05.497Z",
       "addressLocality": "Aargau / Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -4670,7 +4678,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340088&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.457Z",
+      "crawledAt": "2026-07-06T00:22:05.497Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4740,7 +4748,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343604&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.417Z",
+      "crawledAt": "2026-07-06T00:22:05.444Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -4820,7 +4828,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342590&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.391Z",
+      "crawledAt": "2026-07-06T00:22:05.415Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4890,7 +4898,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343111&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.295Z",
+      "crawledAt": "2026-07-06T00:22:05.287Z",
       "addressLocality": "Western Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -4969,7 +4977,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340734&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.293Z",
+      "crawledAt": "2026-07-06T00:22:05.285Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -5049,7 +5057,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345896&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.291Z",
+      "crawledAt": "2026-07-06T00:22:05.281Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5119,7 +5127,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343918&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.270Z",
+      "crawledAt": "2026-07-06T00:22:05.254Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -5199,7 +5207,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343921&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.269Z",
+      "crawledAt": "2026-07-06T00:22:05.252Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -5279,7 +5287,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345868&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.261Z",
+      "crawledAt": "2026-07-06T00:22:05.242Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5314,6 +5322,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.423Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5327,90 +5336,6 @@
         }
       },
       "addressRegion": "ZH"
-    },
-    {
-      "id": "ubs-312d7c5decec",
-      "slug": "responsabile-desk-uhnw-wm-svizzera-orientale-ubs-ostschweiz",
-      "slugByLocale": {
-        "it": "responsabile-desk-uhnw-wm-svizzera-orientale-ubs-ostschweiz",
-        "en": "desk-head-uhnw-world-cup-eastern-switzerland-ubs-ostschweiz",
-        "de": "desk-head-uhnw-wm-ostschweiz-ubs",
-        "fr": "responsable-de-desk-uhnw-wm-suisse-orientale-ubs-ostschweiz"
-      },
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "Desk Head UHNW WM Ostschweiz",
-      "titleByLocale": {
-        "it": "Responsabile Desk UHNW WM Svizzera Orientale",
-        "en": "Desk Head UHNW World Cup Eastern Switzerland",
-        "de": "Desk Head UHNW WM Ostschweiz",
-        "fr": "Responsable de Desk UHNW WM Suisse Orientale"
-      },
-      "description": "Laufen Sie zur Hochform auf, wenn Sie ein Team leiten? Wissen Sie, wie man Kundinnen und Kunden betreut und Ziele erreicht? Wir suchen eine neue Kollegin oder einen neuen Kollegen für folgende Aufgaben:\n\n• Sie motivieren und leiten das lokale UHNW Team vom Standort St. Gallen aus. Dabei stellen sie sicher, dass alle Kundenberaterinnen und Kundenberater, Assistenten und Spezialisten für die Bedürfnisse, Vorgaben und Ziele Ihrer Kunden und Prospekts geeignete Lösungen anbieten und alle Kunden ganzheitlich sowie entlang unseres Offerings beraten werden.\n• Sie involvieren proaktiv unsere Anlage-, Finanzierungs- und Wealth Planning-Spezialisten bedarfsgerecht.\n• Sie planen und unterstützen unsere Wachstumsambitionen mit einem zielgerichteten Prozess, um Kundenbeziehungen weiterzuentwickeln und Neukunden zu gewinnen.\n• Sie zeichnen sich verantwortlich, die Zielvorgaben mit den vorhandenen Ressourcen effektiv und effizient zu erreichen\n• Sie beurteilen und fördern die Stärken, das Entwicklungspotenzial, die Fähigkeiten und das Wissen der Teammitglieder. Dabei achten Sie darauf, dass Massnahmen gezielt und zeitgerecht umgesetzt werden.\n• Sie bauen die spezifischen Fach-, Markt- und Systemkenntnisse der Teammitglieder stetig aus.\n• Sie stellen sicher, dass die Aktivitäten allen vorhandenen Vorschriften, Richtlinien und Standards entsprechen.\n• Sie leben unsere Unternehmens- und Risikokultur und stellen eine teamweite Umsetzung sicher.",
-      "descriptionByLocale": {
-        "it": "Sei al tuo meglio quando guidi un team? Sai come assistere i clienti e raggiungere gli obiettivi?\n• Stiamo cercando un nuovo collega per i seguenti compiti: Compiti - Motivi e guidate il team UHNW locale dalla sede di San Gallo. Assicurati che tutti i consulenti clienti, gli assistenti e gli specialisti offrano soluzioni appropriate per le esigenze, le specifiche e gli obiettivi dei tuoi clienti e prospect e che tutti i clienti siano consulati in modo olistico e in linea con la nostra offerta. - Coinvolgi proattivamente i nostri specialisti in investimenti, finanziamenti e pianificazione patrimoniale secondo le necessità. - Pianifica e supporta le nostre ambizioni di crescita con un processo mirato per sviluppare ulteriormente le relazioni con i clienti e acquisire nuovi clienti. - Sei responsabile del raggiungimento degli obiettivi con le risorse disponibili in modo efficace ed efficiente. - Valuta e promuovi i punti di forza, il potenziale di sviluppo, le capacità e le conoscenze dei membri del team. Assicurati che le misure siano implementate in modo mirato e tempestivo. - Sviluppa costantemente le specifiche conoscenze tecniche, di mercato e di sistema dei membri del team. - Assicurati che tutte le attività siano conformi alle normative, linee guida e standard esistenti. - Vivete la nostra cultura aziendale e di rischio e assicurati un'implementazione in tutto il team.",
-        "en": "Do you perform at your best when leading a team? Do you know how to take care of clients and achieve goals? We are looking for a new colleague for the following tasks: Tasks - You motivate and lead the local UHNW team from the St. Gallen location. You ensure that all client advisors, assistants, and specialists offer suitable solutions for the needs, specifications, and goals of your clients and prospects and that all clients are advised holistically and in line with our offering. - You proactively involve our investment, financing, and wealth planning specialists as needed. - You plan and support our growth ambitions with a targeted process to further develop customer relationships and acquire new customers. - You are responsible for achieving the targets with the available resources effectively and efficiently. - You assess and promote the strengths, development potential, skills, and knowledge of the team members. You ensure that measures are implemented in a targeted and timely manner. - You continuously expand the specific technical, market, and system knowledge of the team members. - You ensure that all activities comply with the existing regulations, guidelines, and standards. - You embody our corporate and risk culture and ensure team-wide implementation.",
-        "de": "Laufen Sie zur Hochform auf, wenn Sie ein Team leiten? Wissen Sie, wie man Kundinnen und Kunden betreut und Ziele erreicht? Wir suchen eine neue Kollegin oder einen neuen Kollegen für folgende Aufgaben:\n• Sie motivieren und leiten das lokale UHNW Team vom Standort St. Gallen aus. Dabei stellen sie sicher, dass alle Kundenberaterinnen und Kundenberater, Assistenten und Spezialisten für die Bedürfnisse, Vorgaben und Ziele Ihrer Kunden und Prospekts geeignete Lösungen anbieten und alle Kunden ganzheitlich sowie entlang unseres Offerings beraten werden.\n• Sie involvieren proaktiv unsere Anlage-, Finanzierungs- und Wealth Planning-Spezialisten bedarfsgerecht.\n• Sie planen und unterstützen unsere Wachstumsambitionen mit einem zielgerichteten Prozess, um Kundenbeziehungen weiterzuentwickeln und Neukunden zu gewinnen.\n• Sie zeichnen sich verantwortlich, die Zielvorgaben mit den vorhandenen Ressourcen effektiv und effizient zu erreichen\n• Sie beurteilen und fördern die Stärken, das Entwicklungspotenzial, die Fähigkeiten und das Wissen der Teammitglieder. Dabei achten Sie darauf, dass Massnahmen gezielt und zeitgerecht umgesetzt werden.\n• Sie bauen die spezifischen Fach-, Markt- und Systemkenntnisse der Teammitglieder stetig aus.\n• Sie stellen sicher, dass die Aktivitäten allen vorhandenen Vorschriften, Richtlinien und Standards entsprechen.\n• Sie leben unsere Unternehmens- und Risikokultur und stellen eine teamweite Umsetzung sicher.",
-        "fr": "Êtes-vous à votre meilleur lorsque vous dirigez une équipe? Savez-vous comment prendre soin des clients et atteindre les objectifs? Nous recherchons un nouveau collègue pour les tâches suivantes: Tâches - Vous motivez et dirigez l'équipe UHNW locale depuis le site de Saint-Gall. Vous vous assurez que tous les conseillers clients, assistants et spécialistes offrent des solutions adaptées aux besoins, spécifications et objectifs de vos clients et prospects et que tous les clients sont conseillés de manière holistique et conformément à notre offre. - Vous impliquez proactivement nos spécialistes en investissement, financement et planification patrimoniale selon les besoins. - Vous planifiez et soutenez nos ambitions de croissance avec un processus ciblé pour développer davantage les relations clients et acquérir de nouveaux clients. - Vous êtes responsable de l'atteinte des objectifs avec les ressources disponibles de manière efficace et efficiente. - Vous évaluez et promouvez les forces, le potentiel de développement, les compétences et les connaissances des membres de l'équipe. Vous vous assurez que les mesures sont mises en œuvre de manière ciblée et opportune. - Vous développez continuellement les connaissances techniques, marchandes et systémiques spécifiques des membres de l'équipe. - Vous vous assurez que toutes les activités sont conformes aux réglementations, directives et standards existants. - Vous incarnez notre culture d'entreprise et de risque et assurez une mise en œuvre à l'échelle de l'équipe."
-      },
-      "location": "Ostschweiz",
-      "canton": "SG",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341997&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.240Z",
-      "addressLocality": "Ostschweiz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9000",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-05",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341997&PageType=jobdetails",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_ubsMeta": {
-        "reqId": "341997",
-        "department": "Global Wealth Management",
-        "region": "Schweiz - Ostschweiz",
-        "cities": "",
-        "categoryRaw": "Kundenberatung / Relationship Management",
-        "jobType": ""
-      },
-      "previousSlugs": [
-        "desk-head-uhnw-wm-ostschweiz-ubs-ostschweiz",
-        "desk-head-uhnw-wm-ostschweiz-ubs",
-        "responsabile-desk-uhnw-wm-svizzera-orientale-ubs-ostschweiz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "desk-head-uhnw-wm-ostschweiz-ubs-ostschweiz",
-          "responsabile-desk-uhnw-wm-svizzera-orientale-ubs-ostschweiz"
-        ],
-        "en": [
-          "desk-head-uhnw-wm-ostschweiz-ubs"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T15:04:48.404Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "SG"
     },
     {
       "id": "ubs-ea0ba22a5f4f",
@@ -5443,7 +5368,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346894&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.213Z",
+      "crawledAt": "2026-07-06T00:22:05.185Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -5509,7 +5434,7 @@
         "it": "Addetto agli eventi (pagato a ore)",
         "en": "Event Attendant (hourly paid)",
         "de": "Veranstaltungsmitarbeiter (stundenweise bezahlt)",
-        "fr": "Participant à l'événement (payé en heures)"
+        "fr": "Event Attendant (hourly paid)"
       },
       "description": "Do you always put clients at the center of everything you do? Are you passionate about creating a welcoming and positive atmosphere?\nAs additional support for our team in Geneva, we are looking for a new colleague (female or male) to join us as an Event Attendant on an hourly, on-call basis (on average, approximately 65 hours per year).\nIn this role, you will be responsible for welcoming guests and providing excellent client service at a variety of events, including client gatherings, press conferences, and third-party events involving UBS. You will support the event manager and play a key role in ensuring each event runs smoothly and safely.",
       "descriptionByLocale": {
@@ -5523,7 +5448,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339987&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.209Z",
+      "crawledAt": "2026-07-06T00:22:05.179Z",
       "addressLocality": "Western Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -5561,6 +5486,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.362Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5605,7 +5531,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344127&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.197Z",
+      "crawledAt": "2026-07-06T00:22:05.163Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -5685,7 +5611,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345697&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.195Z",
+      "crawledAt": "2026-07-06T00:22:05.161Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -5720,6 +5646,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.332Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -5765,7 +5692,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340998&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.193Z",
+      "crawledAt": "2026-07-06T00:22:05.158Z",
       "addressLocality": "Mittelland",
       "addressCountry": "CH",
       "country": "CH",
@@ -5844,7 +5771,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339314&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.160Z",
+      "crawledAt": "2026-07-06T00:22:05.114Z",
       "addressLocality": "Mittelland",
       "addressCountry": "CH",
       "country": "CH",
@@ -5926,7 +5853,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345975&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.156Z",
+      "crawledAt": "2026-07-06T00:22:05.109Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6007,7 +5934,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344922&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.156Z",
+      "crawledAt": "2026-07-06T00:22:05.109Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6077,7 +6004,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346337&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.153Z",
+      "crawledAt": "2026-07-06T00:22:05.105Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -6157,7 +6084,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344898&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.141Z",
+      "crawledAt": "2026-07-06T00:22:05.089Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -6244,7 +6171,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346972&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.140Z",
+      "crawledAt": "2026-07-06T00:22:05.088Z",
       "addressLocality": "Western Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -6307,7 +6234,7 @@
       "title": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (w/m/d)",
       "titleByLocale": {
         "it": "UBS Card Center AG - Responsabile Supply & Demand Management 80 - 100%",
-        "en": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (f/m/d)",
+        "en": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (w/m/d)",
         "de": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (w/m/d)",
         "fr": "UBS Card Center AG - Responsable Supply & Demand Management 80 - 100%"
       },
@@ -6323,7 +6250,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346607&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.131Z",
+      "crawledAt": "2026-07-06T00:22:05.076Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6348,6 +6275,7 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-02T15:04:48.251Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -6393,7 +6321,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346793&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.127Z",
+      "crawledAt": "2026-07-06T00:22:05.071Z",
       "addressLocality": "Mittelland",
       "addressCountry": "CH",
       "country": "CH",
@@ -6459,9 +6387,9 @@
       "title": "Speditionsfachfrau/mann",
       "titleByLocale": {
         "it": "Specialista in logistica",
-        "en": "Freight forwarding specialist",
+        "en": "Speditionsfachfrau/mann",
         "de": "Speditionsfachfrau/mann",
-        "fr": "Spécialiste du transport de marchandises"
+        "fr": "Speditionsfachfrau/mann"
       },
       "description": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nWir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n OZL Abwicklung (Ein- und Ausgänge)\n Offertanfrage und Transportkalkulationen\n Raffinations- & Produktionsbereich (Abstimmungen)\n Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n Rechnungskontrolle (Debitoren/Kreditoren)",
       "descriptionByLocale": {
@@ -6475,7 +6403,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343821&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.126Z",
+      "crawledAt": "2026-07-06T00:22:05.069Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6566,7 +6494,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344735&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.123Z",
+      "crawledAt": "2026-07-06T00:22:05.065Z",
       "addressLocality": "Western Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -6629,7 +6557,7 @@
       "title": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100%",
       "titleByLocale": {
         "it": "Consulente Ipotechario Remoto – Vendite e Consulenza a Distanza",
-        "en": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100 %",
+        "en": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100%",
         "de": "Remote Berater Mortgage – Remote Sales & Advice Basel, 80-100%",
         "fr": "Conseiller Hypothécaire à Distance – Ventes et Conseils à Distance"
       },
@@ -6645,7 +6573,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342772&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.119Z",
+      "crawledAt": "2026-07-06T00:22:05.060Z",
       "addressLocality": "Nordschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -6680,6 +6608,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.239Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6724,7 +6653,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344719&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.092Z",
+      "crawledAt": "2026-07-06T00:22:05.024Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -6804,7 +6733,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346145&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.067Z",
+      "crawledAt": "2026-07-06T00:22:04.991Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6884,7 +6813,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345890&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:25.052Z",
+      "crawledAt": "2026-07-06T00:22:04.971Z",
       "addressLocality": "Western Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -6963,7 +6892,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344290&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.041Z",
+      "crawledAt": "2026-07-06T00:22:04.956Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -7043,7 +6972,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346951&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:25.018Z",
+      "crawledAt": "2026-07-06T00:22:04.927Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -7123,7 +7052,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=335152&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:25.006Z",
+      "crawledAt": "2026-07-06T00:22:04.916Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7187,7 +7116,7 @@
       "title": "Client Advisor Retail Cité",
       "titleByLocale": {
         "it": "Client Consulente Retail Cité",
-        "en": "Client Advisor Retail City",
+        "en": "Client Advisor Retail Cité",
         "de": "Client Berater Retail Cité",
         "fr": "Client Conseiller Retail Cité"
       },
@@ -7203,7 +7132,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345457&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:24.972Z",
+      "crawledAt": "2026-07-06T00:22:04.870Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -7244,6 +7173,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.025Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -7289,7 +7219,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347352&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:24.972Z",
+      "crawledAt": "2026-07-06T00:22:04.870Z",
       "addressLocality": "Zürich, United Kingdom",
       "addressCountry": "CH",
       "country": "CH",
@@ -7355,6 +7285,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.030Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "baseSalary": {
@@ -7400,7 +7331,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347857&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:24.951Z",
+      "crawledAt": "2026-07-06T00:22:04.842Z",
       "addressLocality": "Missouri",
       "addressCountry": "CH",
       "country": "CH",
@@ -7466,7 +7397,7 @@
         "it": "Relazioni con gli Investitori - Beni Realizzabili – Alternative Globali Unificate",
         "en": "Investor Relations Real Assets – Unified Global Alternatives",
         "de": "Investor Relations Real Assets – Vereinheitlichte globale Alternativen",
-        "fr": "Relations avec les investisseurs Biens réels – Alternatives mondiales unifiées"
+        "fr": "Investor Relations Real Assets – Unified Global Alternatives"
       },
       "description": "Are you at your best when serving clients and providing specialist real assets and private markets knowledge? Do you have the demonstrated ability to work with clients to deliver alternative investment solutions?\n\nWe are looking for someone who can:\n\n• lead the Investor Relations function for the UGA Infrastructure vertical, overseeing and developing a team of approximately five professionals\n• provide specialist knowledge of UGA's infrastructure products to clients worldwide\n• provide high-quality investment solutions to institutional and private investors\n• contribute to fundraising efforts by completing RFPs and creating compelling marketing materials, including pitch decks and due diligence questionnaires (DDQs)\n• work closely with the investment teams to conduct research and analysis on market trends, industry benchmarks, and competitor activity to enhance investor communication and position the firm as a market leader\n• work closely with the Asset Management Client Coverage teams as well as Global Wealth Management client advisors to support sales and client services efforts",
       "descriptionByLocale": {
@@ -7480,7 +7411,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346118&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:24.942Z",
+      "crawledAt": "2026-07-06T00:22:04.831Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7518,6 +7449,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:47.967Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7563,7 +7495,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344486&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:24.930Z",
+      "crawledAt": "2026-07-06T00:22:04.815Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7596,6 +7528,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.557Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -7641,7 +7574,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346531&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-05T12:46:24.923Z",
+      "crawledAt": "2026-07-06T00:22:04.805Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -7711,7 +7644,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346983&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:24.912Z",
+      "crawledAt": "2026-07-06T00:22:04.791Z",
       "addressLocality": "Nordschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -7800,7 +7733,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345780&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:24.911Z",
+      "crawledAt": "2026-07-06T00:22:04.789Z",
       "addressLocality": "Zentralschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -7887,7 +7820,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344339&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:24.909Z",
+      "crawledAt": "2026-07-06T00:22:04.787Z",
       "addressLocality": "Zentralschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -7974,7 +7907,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343612&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:46:24.897Z",
+      "crawledAt": "2026-07-06T00:22:04.771Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8057,7 +7990,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346356&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:24.876Z",
+      "crawledAt": "2026-07-06T00:22:04.744Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8143,7 +8076,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347460&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:24.871Z",
+      "crawledAt": "2026-07-06T00:22:04.738Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8227,7 +8160,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348087&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:24.866Z",
+      "crawledAt": "2026-07-06T00:22:04.731Z",
       "addressLocality": "Missouri",
       "addressCountry": "CH",
       "country": "CH",
@@ -8313,7 +8246,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345737&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:24.862Z",
+      "crawledAt": "2026-07-06T00:22:04.727Z",
       "addressLocality": "Zürich, United Kingdom, United States - New York",
       "addressCountry": "CH",
       "country": "CH",
@@ -8391,7 +8324,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347613&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-05T12:46:24.830Z",
+      "crawledAt": "2026-07-06T00:22:04.688Z",
       "addressLocality": "Plateau suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -8471,7 +8404,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345109&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:24.824Z",
+      "crawledAt": "2026-07-06T00:22:04.680Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -8509,6 +8442,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:46.871Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -8554,7 +8488,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348234&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T12:46:24.823Z",
+      "crawledAt": "2026-07-06T00:22:04.679Z",
       "addressLocality": "Zürich, United Kingdom",
       "addressCountry": "CH",
       "country": "CH",
@@ -8594,85 +8528,90 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "ubs-248d3bbd7018",
-      "slug": "assistente-clienti-ubs-missouri",
+      "id": "ubs-312d7c5decec",
+      "slug": "responsabile-desk-uhnw-wm-svizzera-orientale-ubs-ostschweiz",
       "slugByLocale": {
-        "it": "assistente-clienti-ubs-missouri",
-        "en": "client-associate-ubs-missouri",
-        "de": "kundenbetreuer-ubs-missouri",
-        "fr": "associe-client-ubs-missouri"
+        "it": "responsabile-desk-uhnw-wm-svizzera-orientale-ubs-ostschweiz",
+        "en": "desk-head-uhnw-world-cup-eastern-switzerland-ubs-ostschweiz",
+        "de": "desk-head-uhnw-wm-ostschweiz-ubs",
+        "fr": "responsable-de-desk-uhnw-wm-suisse-orientale-ubs-ostschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
       "companyDomain": "ubs.com",
-      "title": "Client Associate",
+      "title": "Desk Head UHNW WM Ostschweiz",
       "titleByLocale": {
-        "it": "Assistente Clienti",
-        "en": "Client Associate",
-        "de": "Kundenbetreuer",
-        "fr": "Associé Client"
+        "it": "Responsabile Desk UHNW WM Svizzera Orientale",
+        "en": "Desk Head UHNW WM Ostschweiz",
+        "de": "Desk Head UHNW WM Ostschweiz",
+        "fr": "Responsable de Desk UHNW WM Suisse Orientale"
       },
-      "description": "Are you truly service oriented? Do you know how to take care of people?\n\nWe're looking for a Client Associate to :\n\n- keep management systems up-to-date with client information\n- educate clients on account services and capabilities\n- help with the preparation of reports and other materials for client meetings\n- collect the right documentation for opening new accounts and service requests\n- plan team marketing events and maintain marketing materials",
+      "description": "Laufen Sie zur Hochform auf, wenn Sie ein Team leiten? Wissen Sie, wie man Kundinnen und Kunden betreut und Ziele erreicht? Wir suchen eine neue Kollegin oder einen neuen Kollegen für folgende Aufgaben:\n\n• Sie motivieren und leiten das lokale UHNW Team vom Standort St. Gallen aus. Dabei stellen sie sicher, dass alle Kundenberaterinnen und Kundenberater, Assistenten und Spezialisten für die Bedürfnisse, Vorgaben und Ziele Ihrer Kunden und Prospekts geeignete Lösungen anbieten und alle Kunden ganzheitlich sowie entlang unseres Offerings beraten werden.\n• Sie involvieren proaktiv unsere Anlage-, Finanzierungs- und Wealth Planning-Spezialisten bedarfsgerecht.\n• Sie planen und unterstützen unsere Wachstumsambitionen mit einem zielgerichteten Prozess, um Kundenbeziehungen weiterzuentwickeln und Neukunden zu gewinnen.\n• Sie zeichnen sich verantwortlich, die Zielvorgaben mit den vorhandenen Ressourcen effektiv und effizient zu erreichen\n• Sie beurteilen und fördern die Stärken, das Entwicklungspotenzial, die Fähigkeiten und das Wissen der Teammitglieder. Dabei achten Sie darauf, dass Massnahmen gezielt und zeitgerecht umgesetzt werden.\n• Sie bauen die spezifischen Fach-, Markt- und Systemkenntnisse der Teammitglieder stetig aus.\n• Sie stellen sicher, dass die Aktivitäten allen vorhandenen Vorschriften, Richtlinien und Standards entsprechen.\n• Sie leben unsere Unternehmens- und Risikokultur und stellen eine teamweite Umsetzung sicher.",
       "descriptionByLocale": {
-        "it": "Sei davvero orientato al servizio? Sai come prenderti cura delle persone?\n• Stiamo cercando un Assistente Clienti per: - mantenere i sistemi di gestione aggiornati con le informazioni dei clienti - educare i clienti sui servizi e le capacità del conto - aiutare nella preparazione di report e altri materiali per gli incontri con i clienti - raccogliere la documentazione corretta per l'apertura di nuovi conti e le richieste di servizio - pianificare eventi di marketing di squadra e mantenere i materiali di marketing",
-        "en": "Are you truly service oriented? Do you know how to take care of people? We're looking for a Client Associate to : - keep management systems up-to-date with client information - educate clients on account services and capabilities - help with the preparation of reports and other materials for client meetings - collect the right documentation for opening new accounts and service requests - plan team marketing events and maintain marketing materials",
-        "de": "Sind Sie wirklich serviceorientiert? Wissen Sie, wie man sich um Menschen kümmert? Wir suchen einen Kundenbetreuer, der: - die Managementsysteme mit Kundeninformationen auf dem neuesten Stand hält - Kunden über Kontodienstleistungen und -funktionen aufklärt - bei der Erstellung von Berichten und anderen Unterlagen für Kundentreffen hilft - die richtige Dokumentation für die Eröffnung neuer Konten und Serviceanfragen sammelt - Team-Marketingveranstaltungen plant und Marketingmaterialien pflegt",
-        "fr": "Êtes-vous vraiment orienté service ? Savez-vous comment prendre soin des gens ? Nous recherchons un Associé Client pour : - maintenir les systèmes de gestion à jour avec les informations clients - éduquer les clients sur les services et les capacités du compte - aider à la préparation de rapports et autres documents pour les réunions clients - collecter la documentation appropriée pour l'ouverture de nouveaux comptes et les demandes de service - planifier les événements marketing de l'équipe et maintenir les supports marketing"
+        "it": "Sei al tuo meglio quando guidi un team? Sai come assistere i clienti e raggiungere gli obiettivi?\n• Stiamo cercando un nuovo collega per i seguenti compiti: Compiti - Motivi e guidate il team UHNW locale dalla sede di San Gallo. Assicurati che tutti i consulenti clienti, gli assistenti e gli specialisti offrano soluzioni appropriate per le esigenze, le specifiche e gli obiettivi dei tuoi clienti e prospect e che tutti i clienti siano consulati in modo olistico e in linea con la nostra offerta. - Coinvolgi proattivamente i nostri specialisti in investimenti, finanziamenti e pianificazione patrimoniale secondo le necessità. - Pianifica e supporta le nostre ambizioni di crescita con un processo mirato per sviluppare ulteriormente le relazioni con i clienti e acquisire nuovi clienti. - Sei responsabile del raggiungimento degli obiettivi con le risorse disponibili in modo efficace ed efficiente. - Valuta e promuovi i punti di forza, il potenziale di sviluppo, le capacità e le conoscenze dei membri del team. Assicurati che le misure siano implementate in modo mirato e tempestivo. - Sviluppa costantemente le specifiche conoscenze tecniche, di mercato e di sistema dei membri del team. - Assicurati che tutte le attività siano conformi alle normative, linee guida e standard esistenti. - Vivete la nostra cultura aziendale e di rischio e assicurati un'implementazione in tutto il team.",
+        "en": "Do you perform at your best when leading a team? Do you know how to take care of clients and achieve goals? We are looking for a new colleague for the following tasks: Tasks - You motivate and lead the local UHNW team from the St. Gallen location. You ensure that all client advisors, assistants, and specialists offer suitable solutions for the needs, specifications, and goals of your clients and prospects and that all clients are advised holistically and in line with our offering. - You proactively involve our investment, financing, and wealth planning specialists as needed. - You plan and support our growth ambitions with a targeted process to further develop customer relationships and acquire new customers. - You are responsible for achieving the targets with the available resources effectively and efficiently. - You assess and promote the strengths, development potential, skills, and knowledge of the team members. You ensure that measures are implemented in a targeted and timely manner. - You continuously expand the specific technical, market, and system knowledge of the team members. - You ensure that all activities comply with the existing regulations, guidelines, and standards. - You embody our corporate and risk culture and ensure team-wide implementation.",
+        "de": "Laufen Sie zur Hochform auf, wenn Sie ein Team leiten? Wissen Sie, wie man Kundinnen und Kunden betreut und Ziele erreicht? Wir suchen eine neue Kollegin oder einen neuen Kollegen für folgende Aufgaben:\n• Sie motivieren und leiten das lokale UHNW Team vom Standort St. Gallen aus. Dabei stellen sie sicher, dass alle Kundenberaterinnen und Kundenberater, Assistenten und Spezialisten für die Bedürfnisse, Vorgaben und Ziele Ihrer Kunden und Prospekts geeignete Lösungen anbieten und alle Kunden ganzheitlich sowie entlang unseres Offerings beraten werden.\n• Sie involvieren proaktiv unsere Anlage-, Finanzierungs- und Wealth Planning-Spezialisten bedarfsgerecht.\n• Sie planen und unterstützen unsere Wachstumsambitionen mit einem zielgerichteten Prozess, um Kundenbeziehungen weiterzuentwickeln und Neukunden zu gewinnen.\n• Sie zeichnen sich verantwortlich, die Zielvorgaben mit den vorhandenen Ressourcen effektiv und effizient zu erreichen\n• Sie beurteilen und fördern die Stärken, das Entwicklungspotenzial, die Fähigkeiten und das Wissen der Teammitglieder. Dabei achten Sie darauf, dass Massnahmen gezielt und zeitgerecht umgesetzt werden.\n• Sie bauen die spezifischen Fach-, Markt- und Systemkenntnisse der Teammitglieder stetig aus.\n• Sie stellen sicher, dass die Aktivitäten allen vorhandenen Vorschriften, Richtlinien und Standards entsprechen.\n• Sie leben unsere Unternehmens- und Risikokultur und stellen eine teamweite Umsetzung sicher.",
+        "fr": "Êtes-vous à votre meilleur lorsque vous dirigez une équipe? Savez-vous comment prendre soin des clients et atteindre les objectifs? Nous recherchons un nouveau collègue pour les tâches suivantes: Tâches - Vous motivez et dirigez l'équipe UHNW locale depuis le site de Saint-Gall. Vous vous assurez que tous les conseillers clients, assistants et spécialistes offrent des solutions adaptées aux besoins, spécifications et objectifs de vos clients et prospects et que tous les clients sont conseillés de manière holistique et conformément à notre offre. - Vous impliquez proactivement nos spécialistes en investissement, financement et planification patrimoniale selon les besoins. - Vous planifiez et soutenez nos ambitions de croissance avec un processus ciblé pour développer davantage les relations clients et acquérir de nouveaux clients. - Vous êtes responsable de l'atteinte des objectifs avec les ressources disponibles de manière efficace et efficiente. - Vous évaluez et promouvez les forces, le potentiel de développement, les compétences et les connaissances des membres de l'équipe. Vous vous assurez que les mesures sont mises en œuvre de manière ciblée et opportune. - Vous développez continuellement les connaissances techniques, marchandes et systémiques spécifiques des membres de l'équipe. - Vous vous assurez que toutes les activités sont conformes aux réglementations, directives et standards existants. - Vous incarnez notre culture d'entreprise et de risque et assurez une mise en œuvre à l'échelle de l'équipe."
       },
-      "location": "Missouri",
-      "canton": "UR",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345276&PageType=jobdetails",
+      "location": "Ostschweiz",
+      "canton": "SG",
+      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341997&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:41:28.698Z",
-      "addressLocality": "Missouri",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-05T12:46:25.240Z",
+      "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
-      "category": "Finanza",
+      "postalCode": "9000",
+      "category": "Commerciale",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Finanza / Banca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-05",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345276&PageType=jobdetails",
+      "postedDate": "2026-06-05",
+      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341997&PageType=jobdetails",
       "requirements": [],
       "requirementsByLocale": {},
       "_ubsMeta": {
-        "reqId": "345276",
+        "reqId": "341997",
         "department": "Global Wealth Management",
-        "region": "United States - Missouri",
+        "region": "Schweiz - Ostschweiz",
         "cities": "",
-        "categoryRaw": "Finance",
+        "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
       },
       "previousSlugs": [
-        "client-associate-ubs-missouri",
-        "assistente-clienti-ubs-missouri"
+        "desk-head-uhnw-wm-ostschweiz-ubs-ostschweiz",
+        "desk-head-uhnw-wm-ostschweiz-ubs",
+        "responsabile-desk-uhnw-wm-svizzera-orientale-ubs-ostschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "client-associate-ubs-missouri",
-          "assistente-clienti-ubs-missouri"
+          "desk-head-uhnw-wm-ostschweiz-ubs-ostschweiz",
+          "responsabile-desk-uhnw-wm-svizzera-orientale-ubs-ostschweiz"
+        ],
+        "en": [
+          "desk-head-uhnw-wm-ostschweiz-ubs"
         ]
       },
-      "firstSeenAt": "2026-07-02T15:04:48.641Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "firstSeenAt": "2026-07-02T15:04:48.404Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "UR",
-      "crawlerMissStreak": 2
+      "addressRegion": "SG",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }

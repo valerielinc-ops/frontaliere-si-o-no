@@ -1,5 +1,47 @@
 [
   {
+    "slug": "assistente-clienti-ubs-missouri",
+    "title": "Client Associate",
+    "titleByLocale": {
+      "it": "Assistente Clienti",
+      "en": "Client Associate",
+      "de": "Kundenbetreuer",
+      "fr": "Associé Client"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Missouri",
+    "addressLocality": "Missouri",
+    "descriptionByLocale": {
+      "it": "Sei davvero orientato al servizio? Sai come prenderti cura delle persone?\n• Stiamo cercando un Assistente Clienti per: - mantenere i sistemi di gestione aggiornati con le informazioni dei clienti - educare i clienti sui servizi e le capacità del conto - aiutare nella preparazione di report e altri materiali per gli incontri con i clienti - raccogliere la documentazione corretta per l'apertura di nuovi conti e le richieste di servizio - pianificare eventi di marketing di squadra e mantenere i materiali di marketing",
+      "en": "Are you truly service oriented? Do you know how to take care of people? We're looking for a Client Associate to : - keep management systems up-to-date with client information - educate clients on account services and capabilities - help with the preparation of reports and other materials for client meetings - collect the right documentation for opening new accounts and service requests - plan team marketing events and maintain marketing materials",
+      "de": "Sind Sie wirklich serviceorientiert? Wissen Sie, wie man sich um Menschen kümmert? Wir suchen einen Kundenbetreuer, der: - die Managementsysteme mit Kundeninformationen auf dem neuesten Stand hält - Kunden über Kontodienstleistungen und -funktionen aufklärt - bei der Erstellung von Berichten und anderen Unterlagen für Kundentreffen hilft - die richtige Dokumentation für die Eröffnung neuer Konten und Serviceanfragen sammelt - Team-Marketingveranstaltungen plant und Marketingmaterialien pflegt",
+      "fr": "Êtes-vous vraiment orienté service ? Savez-vous comment prendre soin des gens ? Nous recherchons un Associé Client pour : - maintenir les systèmes de gestion à jour avec les informations clients - éduquer les clients sur les services et les capacités du compte - aider à la préparation de rapports et autres documents pour les réunions clients - collecter la documentation appropriée pour l'ouverture de nouveaux comptes et les demandes de service - planifier les événements marketing de l'équipe et maintenir les supports marketing"
+    },
+    "slugByLocale": {
+      "it": "assistente-clienti-ubs-missouri",
+      "en": "client-associate-ubs-missouri",
+      "de": "kundenbetreuer-ubs-missouri",
+      "fr": "associe-client-ubs-missouri"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-07-06T00:22:05.791Z",
+    "previousSlugs": [
+      "client-associate-ubs-missouri",
+      "assistente-clienti-ubs-missouri"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "client-associate-ubs-missouri",
+        "assistente-clienti-ubs-missouri"
+      ]
+    },
+    "salaryMin": 69500,
+    "salaryMax": 106000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "tirocinio-fuori-ciclo-2026-modellazione-del-rischio-quantitativo-zh-ubs-zurich",
     "title": "2026 Off-cycle Internship – Quant Risk Modelling – ZH",
     "titleByLocale": {
