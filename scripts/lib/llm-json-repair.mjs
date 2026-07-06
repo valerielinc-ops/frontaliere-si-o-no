@@ -319,6 +319,22 @@ export function describeJsonParseError(repairedText, parseErr, contextChars = 12
   return `repaired[${start}:${end}] around position ${pos}: ${before}<<HERE>>${after}`;
 }
 
+/**
+ * Bounded raw (pre-repair) text snippet for diagnosing residual repair gaps
+ * that describeJsonParseError() cannot show — its position windows around
+ * the POST-repair string, which is undiagnosable on its own when the repair
+ * itself is what's still wrong (repairLlmJson/repairJsonArray change the
+ * string's length via escaping/fence-stripping, so that offset doesn't map
+ * back into the untouched completion). Log this alongside it so the next
+ * occurrence of a still-unparseable repaired string can actually be
+ * root-caused from the real input instead of guessed at.
+ */
+export function describeRawForDiagnostics(raw, maxChars = 4000) {
+  const str = String(raw ?? '');
+  const truncated = str.length > maxChars;
+  return `raw[0:${Math.min(str.length, maxChars)}]${truncated ? ` (troncato, totale ${str.length})` : ''}: ${str.slice(0, maxChars).replace(/\n/g, '\\n')}`;
+}
+
 export function fixJsonStringBody(input, { fixAsterisks = false } = {}) {
   let out = '';
   let inStr = false;
