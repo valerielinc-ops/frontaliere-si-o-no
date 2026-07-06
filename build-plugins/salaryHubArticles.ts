@@ -555,8 +555,18 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         de: `${ARTICLE_PREFIX.de}/neuer-vs-alter-grenzgaenger-steuerliche-unterschiede/`,
         fr: `${ARTICLE_PREFIX.fr}/nouveau-vs-ancien-frontalier-differences-fiscales/`,
       };
-      const deductionsHref = '/articoli-svizzera/frontaliere-detrazioni-fiscali-italia-2026/';
-      const pillarHref = '/guida-tassazione-frontalieri-2026/';
+      const deductionsHref: Record<Locale, string> = {
+        it: '/articoli-svizzera/frontaliere-detrazioni-fiscali-italia-2026/',
+        en: '/en/swiss-articles/frontaliere-detrazioni-fiscali-italia-2026/',
+        de: '/de/schweiz-artikel/frontaliere-detrazioni-fiscali-italia-2026/',
+        fr: '/fr/articles-suisse/frontaliere-detrazioni-fiscali-italia-2026/',
+      };
+      const pillarHref: Record<Locale, string> = {
+        it: '/guida-tassazione-frontalieri-2026/',
+        en: '/en/cross-border-taxation-guide-2026/',
+        de: '/de/grenzgaenger-besteuerung-leitfaden-2026/',
+        fr: '/fr/guide-imposition-frontaliers-2026/',
+      };
       const calcUrl = `${LOCALE_CALC_PREFIX[locale]}/`;
       if (locale === 'it') return `
         <p>La tassazione dei frontalieri Ticino-Italia si basa su tre pilastri: l'imposta alla fonte in Ticino trattenuta dal datore di lavoro svizzero, il Nuovo Accordo fiscale Italia-Svizzera in vigore dal 2024 e la Convenzione contro le doppie imposizioni del 1976. Questa guida raccoglie i concetti chiave e rimanda agli approfondimenti dedicati.</p>
@@ -567,9 +577,9 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Doppia imposizione: come viene evitata</h2>
         <p>La Convenzione Italia-Svizzera contro le doppie imposizioni, firmata il 9 dicembre 1976, stabilisce che il reddito da lavoro frontaliere non venga tassato due volte: l'Italia riconosce un credito d'imposta per le imposte già pagate in Svizzera, da indicare nel quadro CE del modello 730 o Redditi PF.</p>
         <h2>Detrazioni fiscali deducibili</h2>
-        <p>Sia in Svizzera sia in Italia esistono voci deducibili che riducono l'imponibile: contributi previdenziali (LPP, terzo pilastro), spese mediche e, sul lato italiano, oneri riconosciuti dall'Agenzia delle Entrate e dal MEF in dichiarazione dei redditi. L'elenco completo delle detrazioni applicabili ai frontalieri è nell'articolo <a href="${deductionsHref}">Detrazioni fiscali per frontalieri in Italia</a>.</p>
+        <p>Sia in Svizzera sia in Italia esistono voci deducibili che riducono l'imponibile: contributi previdenziali (LPP, terzo pilastro), spese mediche e, sul lato italiano, oneri riconosciuti dall'Agenzia delle Entrate e dal MEF in dichiarazione dei redditi. L'elenco completo delle detrazioni applicabili ai frontalieri è nell'articolo <a href="${deductionsHref.it}">Detrazioni fiscali per frontalieri in Italia</a>.</p>
         <h2>Per approfondire</h2>
-        <p>Per una guida ancora più dettagliata su tabelle, aliquote e simulazioni, consulta la <a href="${pillarHref}">guida completa alla tassazione dei frontalieri 2026</a> oppure calcola il tuo netto con il <a href="${calcUrl}">calcolatore stipendio netto</a>.</p>`;
+        <p>Per una guida ancora più dettagliata su tabelle, aliquote e simulazioni, consulta la <a href="${pillarHref.it}">guida completa alla tassazione dei frontalieri 2026</a> oppure calcola il tuo netto con il <a href="${calcUrl}">calcolatore stipendio netto</a>.</p>`;
       if (locale === 'en') return `
         <p>Cross-border worker taxation between Ticino and Italy rests on three pillars: withholding tax deducted by the Swiss employer, the new Italy-Switzerland tax agreement in force since 2024, and the 1976 double-taxation treaty. This hub page collects the core concepts and links to the in-depth guides.</p>
         <h2>Withholding tax: who applies it and how</h2>
@@ -579,9 +589,9 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Double taxation: how it's avoided</h2>
         <p>The 1976 Italy-Switzerland double-taxation treaty ensures cross-border employment income isn't taxed twice: Italy grants a tax credit for taxes already paid in Switzerland, reported in the CE section of the 730/Redditi PF tax return.</p>
         <h2>Deductible tax items</h2>
-        <p>Both Switzerland and Italy allow deductions that reduce taxable income: pension contributions (LPP, third pillar), medical expenses and, on the Italian side, expenses recognized by the Agenzia delle Entrate and the MEF in the tax return. See the full list in <a href="${deductionsHref}">Tax deductions for cross-border workers in Italy</a>.</p>
+        <p>Both Switzerland and Italy allow deductions that reduce taxable income: pension contributions (LPP, third pillar), medical expenses and, on the Italian side, expenses recognized by the Agenzia delle Entrate and the MEF in the tax return. See the full list in <a href="${deductionsHref.en}">Tax deductions for cross-border workers in Italy</a>.</p>
         <h2>Go deeper</h2>
-        <p>For a more detailed guide on tables, rates and simulations, see the <a href="${pillarHref}">complete 2026 cross-border taxation guide</a> or calculate your net salary with the <a href="${calcUrl}">net salary calculator</a>.</p>`;
+        <p>For a more detailed guide on tables, rates and simulations, see the <a href="${pillarHref.en}">complete 2026 cross-border taxation guide</a> or calculate your net salary with the <a href="${calcUrl}">net salary calculator</a>.</p>`;
       if (locale === 'de') return `
         <p>Die Besteuerung von Grenzgängern zwischen Tessin und Italien beruht auf drei Säulen: der vom Schweizer Arbeitgeber einbehaltenen Quellensteuer, dem seit 2024 geltenden neuen Steuerabkommen Italien-Schweiz und dem Doppelbesteuerungsabkommen von 1976. Diese Übersichtsseite bündelt die zentralen Begriffe und verlinkt auf die vertiefenden Ratgeber.</p>
         <h2>Quellensteuer: wer sie anwendet und wie</h2>
@@ -591,9 +601,9 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Doppelbesteuerung: wie sie vermieden wird</h2>
         <p>Das Doppelbesteuerungsabkommen Italien-Schweiz von 1976 stellt sicher, dass das Erwerbseinkommen von Grenzgängern nicht doppelt besteuert wird: Italien gewährt eine Steuergutschrift für bereits in der Schweiz bezahlte Steuern, einzutragen im Abschnitt CE der Steuererklärung 730/Redditi PF.</p>
         <h2>Abzugsfähige Steuerposten</h2>
-        <p>Sowohl in der Schweiz als auch in Italien gibt es abzugsfähige Posten, die das steuerbare Einkommen reduzieren: Vorsorgebeiträge (BVG, dritte Säule), Arztkosten und, auf italienischer Seite, von der Agenzia delle Entrate und dem MEF in der Steuererklärung anerkannte Aufwendungen. Die vollständige Liste finden Sie im Artikel <a href="${deductionsHref}">Steuerabzüge für Grenzgänger in Italien</a>.</p>
+        <p>Sowohl in der Schweiz als auch in Italien gibt es abzugsfähige Posten, die das steuerbare Einkommen reduzieren: Vorsorgebeiträge (BVG, dritte Säule), Arztkosten und, auf italienischer Seite, von der Agenzia delle Entrate und dem MEF in der Steuererklärung anerkannte Aufwendungen. Die vollständige Liste finden Sie im Artikel <a href="${deductionsHref.de}">Steuerabzüge für Grenzgänger in Italien</a>.</p>
         <h2>Mehr erfahren</h2>
-        <p>Für einen noch detaillierteren Ratgeber zu Tabellen, Sätzen und Simulationen siehe den <a href="${pillarHref}">vollständigen Ratgeber Grenzgänger-Besteuerung 2026</a> oder berechnen Sie Ihr Nettogehalt mit dem <a href="${calcUrl}">Nettogehalts-Rechner</a>.</p>`;
+        <p>Für einen noch detaillierteren Ratgeber zu Tabellen, Sätzen und Simulationen siehe den <a href="${pillarHref.de}">vollständigen Ratgeber Grenzgänger-Besteuerung 2026</a> oder berechnen Sie Ihr Nettogehalt mit dem <a href="${calcUrl}">Nettogehalts-Rechner</a>.</p>`;
       return `
         <p>La fiscalité des frontaliers entre le Tessin et l'Italie repose sur trois piliers : l'impôt à la source retenu par l'employeur suisse, le nouvel accord fiscal Italie-Suisse en vigueur depuis 2024, et la convention contre les doubles impositions de 1976. Cette page centralise les concepts clés et renvoie vers les guides approfondis.</p>
         <h2>Impôt à la source : qui l'applique et comment</h2>
@@ -603,9 +613,9 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Double imposition : comment elle est évitée</h2>
         <p>La convention italo-suisse contre les doubles impositions, signée le 9 décembre 1976, garantit que le revenu du travail frontalier n'est pas taxé deux fois : l'Italie accorde un crédit d'impôt pour les impôts déjà payés en Suisse, à reporter dans le cadre CE de la déclaration 730/Redditi PF.</p>
         <h2>Déductions fiscales</h2>
-        <p>La Suisse comme l'Italie prévoient des postes déductibles qui réduisent le revenu imposable : cotisations de prévoyance (LPP, 3e pilier), frais médicaux et, côté italien, charges reconnues par l'Agenzia delle Entrate et le MEF dans la déclaration de revenus. La liste complète figure dans l'article <a href="${deductionsHref}">Déductions fiscales pour frontaliers en Italie</a>.</p>
+        <p>La Suisse comme l'Italie prévoient des postes déductibles qui réduisent le revenu imposable : cotisations de prévoyance (LPP, 3e pilier), frais médicaux et, côté italien, charges reconnues par l'Agenzia delle Entrate et le MEF dans la déclaration de revenus. La liste complète figure dans l'article <a href="${deductionsHref.fr}">Déductions fiscales pour frontaliers en Italie</a>.</p>
         <h2>Pour aller plus loin</h2>
-        <p>Pour un guide encore plus détaillé sur les barèmes, taux et simulations, consultez le <a href="${pillarHref}">guide complet de la fiscalité des frontaliers 2026</a> ou calculez votre salaire net avec le <a href="${calcUrl}">calculateur de salaire net</a>.</p>`;
+        <p>Pour un guide encore plus détaillé sur les barèmes, taux et simulations, consultez le <a href="${pillarHref.fr}">guide complet de la fiscalité des frontaliers 2026</a> ou calculez votre salaire net avec le <a href="${calcUrl}">calculateur de salaire net</a>.</p>`;
     },
     faqItems: (locale, _data) => {
       if (locale === 'it') return [
