@@ -4373,6 +4373,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-centrodestra-como-elezioni-gazebo': { name: 'Elezioni Como', path: '/articoli-frontaliere/centrodestra-como-elezioni-gazebo', parent: 'blog' },
     'blog-totalizzazione-contributi-avs-inps': { name: 'Totalizzazione AVS INPS', path: '/articoli-svizzera/totalizzazione-contributi-avs-inps/', parent: 'blog' },
     'blog-frontalieri-brianza-causa-stato-italiano': { name: 'Frontalieri Brianza causa', path: '/articoli-frontaliere/frontalieri-brianza-causa-stato-italiano', parent: 'blog' },
+    'blog-quadro-rw-conto-svizzero-obblighi': { name: 'Quadro RW conto estero', path: '/articoli-svizzera/quadro-rw-conto-svizzero-obblighi/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -889,6 +889,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.totalizzazione-contributi-avs-inps.title': 'Totalisation des cotisations AVS et INPS : comment ça marche',
     'blog.article.totalizzazione-contributi-avs-inps.excerpt': 'Guide pratique pour la totalisation des cotisations entre la Suisse et l\'Italie : procédure, formulaires et calcul de la pension pour ceux qui ont travaillé dans les deux pays.',
     'blog.article.totalizzazione-contributi-avs-inps.imageAlt': 'Documents financiers et calculatrice sur un bureau à Lugano',
+    'blog.article.quadro-rw-conto-svizzero-obblighi.title': 'Cadre RW : déclaration compte courant suisse',
+    'blog.article.quadro-rw-conto-svizzero-obblighi.excerpt': 'Guide pratique des obligations de suivi fiscal pour les frontaliers titulaires d\'un compte en Suisse : que déclarer à l\'Agence du revenu ?',
+    'blog.article.quadro-rw-conto-svizzero-obblighi.imageAlt': 'Bureau bancaire moderne à Lugano avec vue sur le lac',
 };
 
 export default blogMetaChFr;

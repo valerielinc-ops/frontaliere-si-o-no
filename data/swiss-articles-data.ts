@@ -2663,6 +2663,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'quadro-rw-conto-svizzero-obblighi',
+    category: 'fiscale',
+    date: '2026-07-06T02:33:06.519Z',
+    image: '/images/blog/quadro-rw-conto-svizzero-obblighi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
