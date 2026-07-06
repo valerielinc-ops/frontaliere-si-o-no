@@ -1,11 +1,20 @@
 /**
- * Regression coverage for the PR #3622 review finding: the issue #3617
- * duplicated-root-closer repair only covered JSON. The SAME chained
- * rebase-conflict-cycle corruption shape hits the non-JSON append-only
- * siblings whose insertion anchors on the container's own closing token —
- * blog-articles-data.ts, swiss-articles-data.ts, seo-pages.ts,
- * blog-meta-*.ts, sitemap*.xml. This locks in
- * scripts/lib/dedupe-growing-container-closer.mjs's per-target repair.
+ * Unit coverage for scripts/lib/dedupe-growing-container-closer.mjs's
+ * per-target repair (PR #3622 review follow-up to issue #3617's JSON-only
+ * duplicated-root-closer fix). These tests feed the repair functions the
+ * documented corrupted shape directly and check the repair logic in
+ * isolation — they do not assert that real concurrent-writer git mechanics
+ * produce that shape for every target. End-to-end reproduction via real
+ * chained rebase (tests/resolve-append-conflicts-idempotency.test.ts) found
+ * that only JSON files reach a duplicated closer this way: the array-of-
+ * object siblings (blog-articles-data.ts, swiss-articles-data.ts) instead
+ * hit a different, already-handled failure (aligned inner-field conflict,
+ * safely rejected by the pre-existing article-registry check), and the
+ * single-line-entry siblings (blog-meta-*.ts, sitemap*.xml, seo-pages.ts's
+ * ItemList) resolve cleanly across chained cycles with no duplication at
+ * all. This module is kept as defense-in-depth for the documented shape —
+ * a no-op on already-correct input — not as a fix for a confirmed-reachable
+ * bug in these targets.
  */
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
