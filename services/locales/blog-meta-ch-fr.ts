@@ -895,6 +895,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.matrimonio-frontaliere-regime-fiscale.title': 'Mariage frontalier : Impacts fiscaux et résidence',
     'blog.article.matrimonio-frontaliere-regime-fiscale.excerpt': 'Qu\'est-ce que cela change pour un frontalier qui épouse un citoyen suisse ? Analyse du régime fiscal, des obligations et des procédures entre l\'Italie et la Suisse.',
     'blog.article.matrimonio-frontaliere-regime-fiscale.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes en arrière-plan',
+    'blog.article.successione-eredita-frontaliere-conto-svizzero.title': 'Succession héritage : compte suisse et frontalier en Italie',
+    'blog.article.successione-eredita-frontaliere-conto-svizzero.excerpt': 'Comment gérer l\'héritage de comptes ou d\'immeubles en Suisse pour les résidents en Italie. Règles sur la double imposition et cadre fiscal entre les deux pays.',
+    'blog.article.successione-eredita-frontaliere-conto-svizzero.imageAlt': 'Bâtiment bancaire suisse à Lugano reflétant le paysage environnant',
 };
 
 export default blogMetaChFr;

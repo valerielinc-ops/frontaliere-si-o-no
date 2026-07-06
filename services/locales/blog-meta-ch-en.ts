@@ -895,6 +895,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.matrimonio-frontaliere-regime-fiscale.title': 'Border Marriage: Tax Impacts and Residence',
     'blog.article.matrimonio-frontaliere-regime-fiscale.excerpt': 'What changes for a border worker who marries a Swiss citizen? Analysis of the tax regime, obligations and procedures between Italy and Switzerland.',
     'blog.article.matrimonio-frontaliere-regime-fiscale.imageAlt': 'View of Lake Lugano with modern buildings in the background',
+    'blog.article.successione-eredita-frontaliere-conto-svizzero.title': 'Inheritance succession: Swiss and border account in Italy',
+    'blog.article.successione-eredita-frontaliere-conto-svizzero.excerpt': 'How to manage the inheritance of accounts or real estate in Switzerland for residents in Italy. Double taxation rules and tax framework between the two countries.',
+    'blog.article.successione-eredita-frontaliere-conto-svizzero.imageAlt': 'Swiss bank building in Lugano reflecting the surrounding landscape',
 };
 
 export default blogMetaChEn;
