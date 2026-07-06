@@ -7,6 +7,25 @@ import React, { useState, useEffect } from 'react';
 import { Users } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 
+const LS_KEY = 'simulations_count_cache';
+const LS_TTL_MS = 60 * 60 * 1000; // 1 hour
+
+function getLocalCount(): { total: number; timestamp: number } | null {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (typeof parsed?.total === 'number' && typeof parsed?.timestamp === 'number') return parsed;
+  } catch { /* ignore */ }
+  return null;
+}
+
+function setLocalCount(total: number): void {
+  try {
+    localStorage.setItem(LS_KEY, JSON.stringify({ total, timestamp: Date.now() }));
+  } catch { /* ignore */ }
+}
+
 let cachedCount: number | null = null;
 
 interface SocialProofBadgeProps {
@@ -20,6 +39,14 @@ const SocialProofBadge: React.FC<SocialProofBadgeProps> = ({ fullWidth = false }
  useEffect(() => {
  if (cachedCount !== null) return;
 
+ // 1. Fresh localStorage cache — skip Firestore on repeat page loads within TTL
+ const local = getLocalCount();
+ if (local && (Date.now() - local.timestamp) < LS_TTL_MS) {
+ cachedCount = local.total;
+ setCount(local.total);
+ return;
+ }
+
  const fetchCount = async () => {
  try {
  const { getFirestore, doc, getDoc } = await import('firebase/firestore');
@@ -29,6 +56,7 @@ const SocialProofBadge: React.FC<SocialProofBadgeProps> = ({ fullWidth = false }
  if (snap.exists()) {
  const total = snap.data()?.total || 0;
  cachedCount = total;
+ setLocalCount(total);
  setCount(total);
  }
  } catch {
