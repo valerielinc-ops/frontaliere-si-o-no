@@ -45975,6 +45975,474 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-block-ristorni-federalismo': {
+    title: 'Blocco dei ristorni: "La Confederazione non può dar la colpa al Cantone"',
+    description: 'Il Consiglio di Stato ha deciso di congelare i ristorni dei frontalieri destinati all\'Italia in risposta alle pressioni della consigliera federale Karin',
+    keywords: 'frontalieri, ticino, svizzera, italia, blocco, ristorni, confederazione, colpa',
+    ogTitle: 'Blocco dei ristorni: "La Confederazione non può dar la colpa al Cantone"',
+    ogDescription: 'Il Consiglio di Stato ha deciso di congelare i ristorni dei frontalieri destinati all\'Italia in risposta alle pressioni della consigliera federale Karin',
+    canonicalPath: '/articoli-frontaliere/block-ristorni-federalismo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Blocco dei ristorni: \"La Confederazione non può dar la colpa al Cantone\"",
+      "description": "Il Consiglio di Stato ha deciso di congelare i ristorni dei frontalieri destinati all'Italia in risposta alle pressioni della consigliera federale Karin",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/block-ristorni-federalismo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in fila per il valico di Chiasso, con un sorriso amaro sulla faccia."
+      },
+      "datePublished": "2026-07-06T01:06:50+00:00",
+      "dateModified": "2026-07-06T01:06:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/block-ristorni-federalismo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-riapertura-treni-ticino-2024': {
+    title: 'Riapertura dei treni tra Varese, il Ticino e Porto Ceresio',
+    description: 'I treni riprendono a circolare tra Varese, il Canton Ticino e Porto Ceresio il 6 luglio. La riapertura dei collegamenti ferroviari rappresenta una boccata',
+    keywords: 'frontalieri, ticino, svizzera, italia, riapertura, treni, varese, porto',
+    ogTitle: 'Riapertura dei treni tra Varese, il Ticino e Porto Ceresio',
+    ogDescription: 'I treni riprendono a circolare tra Varese, il Canton Ticino e Porto Ceresio il 6 luglio.',
+    canonicalPath: '/articoli-frontaliere/riapertura-treni-ticino-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riapertura dei treni tra Varese, il Ticino e Porto Ceresio",
+      "description": "I treni riprendono a circolare tra Varese, il Canton Ticino e Porto Ceresio il 6 luglio. La riapertura dei collegamenti ferroviari rappresenta una boccata",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/riapertura-treni-ticino-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La notizia della riapertura dei collegamenti ferroviari tra Varese, il Canton Ticino e Porto Ceresio rappresenta una boccata d'ossigeno per i pendolari"
+      },
+      "datePublished": "2026-07-06T01:33:25+00:00",
+      "dateModified": "2026-07-06T01:33:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riapertura-treni-ticino-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sicurezza-alimentare-aziende-ticino': {
+    title: 'Sicurezza alimentare Ticino: 90% delle aziende promosse',
+    description: 'Il Laboratorio cantonale pubblica il Rapporto 2025: 90% di conformità, ma aumentano i controlli per le ditte non in regola. Ecco i dettagli per le aziende.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, alimentare, aziende, promosse',
+    ogTitle: 'Sicurezza alimentare Ticino: 90% delle aziende promosse',
+    ogDescription: 'Il Rapporto 2025 del Laboratorio cantonale fotografa lo stato della sicurezza alimentare in Ticino: il 90% delle aziende è in regola.',
+    canonicalPath: '/articoli-frontaliere/sicurezza-alimentare-aziende-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sicurezza alimentare Ticino: 90% delle aziende promosse",
+      "description": "Il Laboratorio cantonale pubblica il Rapporto 2025: 90% di conformità, ma aumentano i controlli per le ditte non in regola. Ecco i dettagli per le aziende.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sicurezza-alimentare-aziende-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ispezione di sicurezza alimentare in un'azienda del Canton Ticino"
+      },
+      "datePublished": "2026-07-06T01:52:29+00:00",
+      "dateModified": "2026-07-06T01:52:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-alimentare-aziende-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-centrodestra-como-elezioni-gazebo': {
+    title: 'Como: il centrodestra in strada per le prossime elezioni',
+    description: 'Il centrodestra comasco in via Boldoni: incontro con i cittadini per ascoltare istanze e definire il programma elettorale. Tutti i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, centrodestra, strada, prossime',
+    ogTitle: 'Como: il centrodestra in strada per le prossime elezioni',
+    ogDescription: 'Incontro pubblico del centrodestra a Como per ascoltare i cittadini e preparare le elezioni.',
+    canonicalPath: '/articoli-frontaliere/centrodestra-como-elezioni-gazebo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como: il centrodestra in strada per le prossime elezioni",
+      "description": "Il centrodestra comasco in via Boldoni: incontro con i cittadini per ascoltare istanze e definire il programma elettorale. Tutti i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/centrodestra-como-elezioni-gazebo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gazebo politici in via Boldoni a Como"
+      },
+      "datePublished": "2026-07-06T02:07:07+00:00",
+      "dateModified": "2026-07-06T02:07:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centrodestra-como-elezioni-gazebo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-brianza-causa-stato-italiano': {
+    title: 'Frontalieri Brianza pronti a far causa allo Stato italiano',
+    description: 'Perché i frontalieri della Brianza sono pronti a far causa allo Stato italiano? Analisi pratica dell\'accordo fiscale 2024 e del credito d\'imposta.',
+    keywords: 'frontalieri, ticino, svizzera, italia, brianza, pronti, causa, allo',
+    ogTitle: 'Frontalieri Brianza: perché vogliono fare causa allo Stato',
+    ogDescription: 'Analisi pratica delle ragioni dei frontalieri della Brianza contro lo Stato italiano dopo il nuovo accordo fiscale 2024.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-brianza-causa-stato-italiano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri Brianza pronti a far causa allo Stato italiano",
+      "description": "Perché i frontalieri della Brianza sono pronti a far causa allo Stato italiano? Analisi pratica dell'accordo fiscale 2024 e del credito d'imposta.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-brianza-causa-stato-italiano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica sul lago di Lugano con lo skyline della città"
+      },
+      "datePublished": "2026-07-06T02:26:38+00:00",
+      "dateModified": "2026-07-06T02:26:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-brianza-causa-stato-italiano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sicurezza-gallarate-fedi-cons': {
+    title: 'Sicurezza a Gallarate: allarme FediCons sui presidi',
+    description: 'FediCons segnala un aumento di episodi di degrado nel centro di Gallarate, richiedendo più agenti di polizia locale e maggiore illuminazione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, gallarate, allarme, fedicons',
+    ogTitle: 'Sicurezza Gallarate: allarme FediCons su presidi',
+    ogDescription: 'FediCons segnala un aumento di episodi di degrado nel centro di Gallarate, richiedendo più agenti di polizia locale e maggiore illuminazione.',
+    canonicalPath: '/articoli-frontaliere/sicurezza-gallarate-fedi-cons',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sicurezza a Gallarate: allarme FediCons sui presidi",
+      "description": "FediCons segnala un aumento di episodi di degrado nel centro di Gallarate, richiedendo più agenti di polizia locale e maggiore illuminazione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sicurezza-gallarate-fedi-cons.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro cittadino con illuminazione pubblica"
+      },
+      "datePublished": "2026-07-06T02:40:55+00:00",
+      "dateModified": "2026-07-06T02:40:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-gallarate-fedi-cons/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sviluppo-droni-ticino-mobilita': {
+    title: 'Mobilità aerea in Ticino: il test dei droni ad Ambrì',
+    description: 'Il drone elettrico EH216-S vola ad Ambrì: il Ticino sperimenta il trasporto aereo per superare i limiti stradali. Scopri le novità tecnologiche. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, mobilità, aerea, test, droni',
+    ogTitle: 'Mobilità aerea in Ticino: il test dei droni ad Ambrì',
+    ogDescription: 'Il drone elettrico EH216-S vola ad Ambrì: il Ticino sperimenta il trasporto aereo per superare i limiti stradali.',
+    canonicalPath: '/articoli-frontaliere/sviluppo-droni-ticino-mobilita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mobilità aerea in Ticino: il test dei droni ad Ambrì",
+      "description": "Il drone elettrico EH216-S vola ad Ambrì: il Ticino sperimenta il trasporto aereo per superare i limiti stradali. Scopri le novità tecnologiche. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sviluppo-droni-ticino-mobilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Drone elettrico EH216-S in volo sopra il panorama alpino del Ticino"
+      },
+      "datePublished": "2026-07-06T02:56:30+00:00",
+      "dateModified": "2026-07-06T02:56:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sviluppo-droni-ticino-mobilita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iniziativa-10-milioni-voto-giugno': {
+    title: 'Voto 14 giugno: sondaggio sull\'iniziativa 10 milioni',
+    description: 'Il 52% degli svizzeri si oppone all\'iniziativa \'No a una Svizzera da 10 milioni\'. Dati, analisi e impatti del sondaggio SSR in vista del voto di giugno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, giugno, sondaggio, sull',
+    ogTitle: 'Voto 14 giugno: sondaggio sull\'iniziativa 10 milioni',
+    ogDescription: 'Il 52% degli svizzeri si oppone all\'iniziativa \'No a una Svizzera da 10 milioni\'. Dati, analisi e impatti del sondaggio SSR in vista del voto di giugno.',
+    canonicalPath: '/articoli-frontaliere/iniziativa-10-milioni-voto-giugno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto 14 giugno: sondaggio sull'iniziativa 10 milioni",
+      "description": "Il 52% degli svizzeri si oppone all'iniziativa 'No a una Svizzera da 10 milioni'. Dati, analisi e impatti del sondaggio SSR in vista del voto di giugno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iniziativa-10-milioni-voto-giugno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cartellone informativo in una piazza del Canton Ticino prima di una votazione."
+      },
+      "datePublished": "2026-07-06T03:16:03+00:00",
+      "dateModified": "2026-07-06T03:16:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-10-milioni-voto-giugno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-accordo-sociale-lastminute-chiasso': {
+    title: 'Lastminute.com Chiasso: intesa raggiunta per i 56 licenziati',
+    description: 'Raggiunta l\'intesa sul piano sociale per i 56 dipendenti di Lastminute.com a Chiasso. Ecco i dettagli sulle tutele per i lavoratori coinvolti. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lastminute, chiasso, intesa, raggiunta',
+    ogTitle: 'Lastminute.com Chiasso: accordo raggiunto per i 56 licenziati',
+    ogDescription: 'Raggiunta l\'intesa sul piano sociale per i 56 dipendenti di Lastminute.com a Chiasso. Scopri i dettagli sulle tutele.',
+    canonicalPath: '/articoli-frontaliere/accordo-sociale-lastminute-chiasso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lastminute.com Chiasso: intesa raggiunta per i 56 licenziati",
+      "description": "Raggiunta l'intesa sul piano sociale per i 56 dipendenti di Lastminute.com a Chiasso. Ecco i dettagli sulle tutele per i lavoratori coinvolti. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/accordo-sociale-lastminute-chiasso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del quartiere direzionale di Chiasso in Ticino"
+      },
+      "datePublished": "2026-07-06T03:32:17+00:00",
+      "dateModified": "2026-07-06T03:32:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordo-sociale-lastminute-chiasso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavori-autostrada-a8-luglio-2026': {
+    title: 'A8 Milano-Varese: chiusure notturne per lavori a luglio',
+    description: 'Lavori di ammodernamento barriere sulla A8 Milano-Varese: scopri le chiusure notturne dal 6 al 12 luglio 2026 e i percorsi alternativi consigliati.',
+    keywords: 'frontalieri, ticino, svizzera, italia, milano-varese, chiusure, notturne, lavori',
+    ogTitle: 'A8 Milano-Varese: chiusure notturne luglio 2026',
+    ogDescription: 'Lavori di ammodernamento barriere sulla A8 Milano-Varese: scopri le chiusure notturne dal 6 al 12 luglio 2026 e i percorsi alternativi consigliati.',
+    canonicalPath: '/articoli-frontaliere/lavori-autostrada-a8-luglio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A8 Milano-Varese: chiusure notturne per lavori a luglio",
+      "description": "Lavori di ammodernamento barriere sulla A8 Milano-Varese: scopri le chiusure notturne dal 6 al 12 luglio 2026 e i percorsi alternativi consigliati.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavori-autostrada-a8-luglio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori autostradali sulla A8 Milano-Varese verso il confine svizzero"
+      },
+      "datePublished": "2026-07-06T03:50:14+00:00",
+      "dateModified": "2026-07-06T03:50:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-autostrada-a8-luglio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-potenziamento-linee-tilo-mendrisio-gallarate': {
+    title: 'Tilo Mendrisio-Gallarate: completato il potenziamento RFI',
+    description: 'Lavori RFI conclusi sulla tratta Mendrisio-Gallarate: ripristinata la piena operatività dei treni Tilo per i frontalieri. Scopri i dettagli del potenziamento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tilo, mendrisio-gallarate, completato, potenziamento',
+    ogTitle: 'Tilo Mendrisio-Gallarate: potenziamento RFI completato',
+    ogDescription: 'Lavori RFI conclusi sulla tratta Mendrisio-Gallarate: ripristinata la piena operatività dei treni Tilo per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/potenziamento-linee-tilo-mendrisio-gallarate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tilo Mendrisio-Gallarate: completato il potenziamento RFI",
+      "description": "Lavori RFI conclusi sulla tratta Mendrisio-Gallarate: ripristinata la piena operatività dei treni Tilo per i frontalieri. Scopri i dettagli del potenziamento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/potenziamento-linee-tilo-mendrisio-gallarate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno Tilo in arrivo alla stazione di Mendrisio"
+      },
+      "datePublished": "2026-07-06T04:05:23+00:00",
+      "dateModified": "2026-07-06T04:05:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/potenziamento-linee-tilo-mendrisio-gallarate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-chiusura-piattaforma-post-sanela': {
+    title: 'Post Sanela chiude: cosa cambia per i pazienti in Ticino',
+    description: 'La Posta chiude la piattaforma Post Sanela entro fine 2026. Guida pratica per i pazienti ticinesi su come salvare e gestire i dati della cartella in',
+    keywords: 'frontalieri, ticino, svizzera, italia, post, sanela, chiude, cosa',
+    ogTitle: 'Post Sanela chiude: cosa fare per i pazienti in Ticino',
+    ogDescription: 'La Posta chiude la piattaforma Post Sanela entro fine 2026. Guida pratica per i pazienti ticinesi su come salvare e gestire i dati.',
+    canonicalPath: '/articoli-frontaliere/chiusura-piattaforma-post-sanela',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Post Sanela chiude: cosa cambia per i pazienti in Ticino",
+      "description": "La Posta chiude la piattaforma Post Sanela entro fine 2026. Guida pratica per i pazienti ticinesi su come salvare e gestire i dati della cartella in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chiusura-piattaforma-post-sanela.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Schermo di computer con dati sanitari in un ufficio moderno in Ticino"
+      },
+      "datePublished": "2026-07-06T04:21:48+00:00",
+      "dateModified": "2026-07-06T04:21:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-piattaforma-post-sanela/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

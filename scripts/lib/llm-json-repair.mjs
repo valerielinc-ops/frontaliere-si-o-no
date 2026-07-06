@@ -148,13 +148,26 @@ function precededByFreshOpen(str, idx, fixAsterisks) {
  * reads `..."tassa": "un tributo" imposto...`, where "tassa" is mid-prose,
  * not a key). A genuine key must itself have been freshly opened right
  * after a real `,`/`{`, not reached while another string was already open.
+ *
+ * A `*` run right after the quote isn't trusted unconditionally either —
+ * bold markdown routinely sits INSIDE a still-open string right after an
+ * earlier stray quote (`"testo "citato" **grassetto** fine."`), so what
+ * follows the run must itself look like a fresh continuation, same as the
+ * comma/colon branches below. Blind trust here closed the string early and
+ * corrupted everything after it, including unrelated sibling JSON keys
+ * (issue #3618 item 2).
  */
 function decideQuoteCloses(str, quoteIdx, fixAsterisks) {
   let j = quoteIdx + 1;
   while (j < str.length && /\s/.test(str[j])) j++;
   const next = str[j];
-  if (next === undefined || next === '}' || next === ']' || (fixAsterisks && next === '*')) {
+  if (next === undefined || next === '}' || next === ']') {
     return true;
+  }
+  if (fixAsterisks && next === '*') {
+    let k = j;
+    while (k < str.length && str[k] === '*') k++;
+    return afterSeparatorLooksValid(str, k, false, fixAsterisks);
   }
   if (next === ':') {
     const keyOpen = findPrecedingUnescapedQuote(str, quoteIdx);
@@ -237,11 +250,22 @@ function scanKeyEnd(str, i) {
  * looks like a valid JSON continuation, given `afterSepPos` already points
  * just past that separator. A colon expects a value (lenient: values
  * legitimately contain embedded quotes, e.g. prose). A comma/asterisk-run
- * expects a fresh key: unlike a value, a key can't legitimately contain its
- * own embedded quote, so it's scanned strictly and must be followed by a
- * real colon — this is what rejects `"tassa", "un tributo", e discusso.`
+ * first tries a fresh key: unlike a value, a key can't legitimately contain
+ * its own embedded quote, so it's scanned strictly and must be followed by
+ * a real colon — this is what rejects `"tassa", "un tributo", e discusso.`
  * (no colon after the strictly-scanned "un tributo") while still accepting
  * `"a":"...","b":"..."` (each key strictly closes, colon follows).
+ *
+ * If the key interpretation fails, a comma can still be a genuine
+ * separator between bare VALUES, not just object entries (`["a","b"]`) —
+ * rejecting outright here corrupted every bare string-array element
+ * (issue #3602). But the fallback must reuse the SAME strict, no-retry
+ * close (scanKeyEnd) rather than the permissive scanValueEnd/scanStringEnd
+ * used for real values below: that permissive scanner is designed to skip
+ * past an ambiguous embedded quote and keep looking for a later real
+ * closer, which is exactly wrong for this candidate — it let a deliberate
+ * prose aside (`"tassa", "un tributo", e discusso.`) telescope all the way
+ * to the string's true end and get mistaken for a valid fresh value.
  */
 function afterSeparatorLooksValid(str, afterSepPos, isColon, fixAsterisks) {
   let i = afterSepPos;
@@ -255,8 +279,8 @@ function afterSeparatorLooksValid(str, afterSepPos, isColon, fixAsterisks) {
     if (keyEnd === -1) return false;
     let m = keyEnd;
     while (m < str.length && /\s/.test(str[m])) m++;
-    if (str[m] !== ':') return false;
-    return afterSeparatorLooksValid(str, m + 1, true, fixAsterisks);
+    if (str[m] === ':') return afterSeparatorLooksValid(str, m + 1, true, fixAsterisks);
+    return looksLikeJsonContinuation(str, keyEnd, fixAsterisks);
   }
   const valueEnd = scanValueEnd(str, i, fixAsterisks);
   return valueEnd !== -1 && looksLikeJsonContinuation(str, valueEnd, fixAsterisks);
@@ -317,6 +341,38 @@ export function describeJsonParseError(repairedText, parseErr, contextChars = 12
   const before = str.slice(start, pos).replace(/\n/g, '\\n');
   const after = str.slice(pos, end).replace(/\n/g, '\\n');
   return `repaired[${start}:${end}] around position ${pos}: ${before}<<HERE>>${after}`;
+}
+
+/**
+ * Bounded raw (pre-repair) text snippet for diagnosing residual repair gaps
+ * that describeJsonParseError() cannot show — its position windows around
+ * the POST-repair string, which is undiagnosable on its own when the repair
+ * itself is what's still wrong (repairLlmJson/repairJsonArray change the
+ * string's length via escaping/fence-stripping, so that offset doesn't map
+ * back into the untouched completion). Log this alongside it so the next
+ * occurrence of a still-unparseable repaired string can actually be
+ * root-caused from the real input instead of guessed at.
+ *
+ * When the completion exceeds maxChars the budget is split 50/50 between
+ * head and tail so a single log line covers both the early imagePrompt/
+ * imageAlt zone AND the late body2/body3/faq zone — article-generation
+ * completions can reach 24-32k chars and a head-only window misses defects
+ * that land deep in the tail. \r\n and \r are normalised to \n before
+ * escaping so a raw completion with CRLF endings can't break one-event-
+ * per-line log consumers.
+ */
+export function describeRawForDiagnostics(raw, maxChars = 4000) {
+  const str = String(raw ?? '').replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  if (str.length <= maxChars) {
+    return `raw[0:${str.length}]: ${str.replace(/\n/g, '\\n')}`;
+  }
+  const headChars = Math.ceil(maxChars / 2);
+  const tailChars = maxChars - headChars;
+  const tailStart = str.length - tailChars;
+  const head = str.slice(0, headChars).replace(/\n/g, '\\n');
+  const tail = str.slice(tailStart).replace(/\n/g, '\\n');
+  const omitted = tailStart - headChars;
+  return `raw[0:${headChars}]...[${tailStart}:${str.length}] (total ${str.length}, ${omitted} omitted): ${head} ...[omitted]... ${tail}`;
 }
 
 export function fixJsonStringBody(input, { fixAsterisks = false } = {}) {

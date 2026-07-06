@@ -11250,6 +11250,513 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni': {
+    title: 'Lavoro in Svizzera: 300\'000 nuovi posti in cinque anni',
+    description: 'Il mercato del lavoro svizzero ha vissuto cinque anni di crescita dopo lo shock della pandemia, con circa 300\'000 nuovi posti di lavoro creati. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, nuovi, posti, cinque',
+    ogTitle: 'Lavoro in Svizzera: 300\'000 nuovi posti in cinque anni',
+    ogDescription: 'Il mercato del lavoro svizzero ha vissuto cinque anni di crescita dopo lo shock della pandemia, con circa 300\'000 nuovi posti di lavoro creati.',
+    canonicalPath: '/articoli-svizzera/lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro in Svizzera: 300'000 nuovi posti in cinque anni",
+      "description": "Il mercato del lavoro svizzero ha vissuto cinque anni di crescita dopo lo shock della pandemia, con circa 300'000 nuovi posti di lavoro creati. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un edificio uffici a Lugano"
+      },
+      "datePublished": "2026-07-06T00:44:49+00:00",
+      "dateModified": "2026-07-06T00:44:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-il-caldo-modifica-il-valore-degli-immobili': {
+    title: 'Il caldo modifica il valore degli immobili | Frontaliere Ticino',
+    description: 'Il cambiamento climatico influenza il valore degli immobili in Svizzera, con gli attici moderni perdendo valore a causa della canicola. Leggi come.',
+    keywords: 'frontalieri, ticino, svizzera, italia, caldo, modifica, valore, immobili',
+    ogTitle: 'Il caldo modifica il valore degli immobili | Frontaliere Ticino',
+    ogDescription: 'Il cambiamento climatico influenza il valore degli immobili in Svizzera, con gli attici moderni perdendo valore a causa della canicola.',
+    canonicalPath: '/articoli-svizzera/il-caldo-modifica-il-valore-degli-immobili/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il caldo modifica il valore degli immobili",
+      "description": "Il cambiamento climatico influenza il valore degli immobili in Svizzera, con gli attici moderni perdendo valore a causa della canicola. Leggi come.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/il-caldo-modifica-il-valore-degli-immobili.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con un attico moderno in primo piano"
+      },
+      "datePublished": "2026-07-06T01:21:58+00:00",
+      "dateModified": "2026-07-06T01:21:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/il-caldo-modifica-il-valore-degli-immobili/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-unions-launch-referendum-minimum-wage-reform': {
+    title: 'Sindacati lanciano referendum contro riforma salari minimi',
+    description: 'La riforma salari minimi approvata dal Parlamento esporrebbe i lavoratori a basso reddito e le donne a rischi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sindacati, lanciano, referendum, contro',
+    ogTitle: 'Sindacati lanciano referendum contro riforma salari minimi',
+    ogDescription: 'La riforma salari minimi approvata dal Parlamento esporrebbe i lavoratori a basso reddito e le donne a rischi',
+    canonicalPath: '/articoli-svizzera/unions-launch-referendum-minimum-wage-reform/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sindacati lanciano referendum contro riforma salari minimi",
+      "description": "La riforma salari minimi approvata dal Parlamento esporrebbe i lavoratori a basso reddito e le donne a rischi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/unions-launch-referendum-minimum-wage-reform.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un gruppo di persone che discutono in una sala riunioni a Lugano"
+      },
+      "datePublished": "2026-07-06T01:44:12+00:00",
+      "dateModified": "2026-07-06T01:44:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/unions-launch-referendum-minimum-wage-reform/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sciopero-aereo-malpensa-linate-2024': {
+    title: 'Sciopero aereo: 160 voli cancellati a Malpensa e Linate',
+    description: 'Sciopero aereo di 24 ore in Italia: 160 voli cancellati tra Malpensa e Linate. Le ragioni della protesta sindacale e i consigli per i passeggeri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sciopero, aereo, voli, cancellati',
+    ogTitle: 'Sciopero aereo: 160 voli cancellati a Malpensa e Linate',
+    ogDescription: 'Mobilitazione di 24 ore negli scali milanesi per il rinnovo del contratto. Circa 160 voli annullati.',
+    canonicalPath: '/articoli-svizzera/sciopero-aereo-malpensa-linate-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sciopero aereo: 160 voli cancellati a Malpensa e Linate",
+      "description": "Sciopero aereo di 24 ore in Italia: 160 voli cancellati tra Malpensa e Linate. Le ragioni della protesta sindacale e i consigli per i passeggeri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sciopero-aereo-malpensa-linate-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Schermi di un aeroporto con voli cancellati"
+      },
+      "datePublished": "2026-07-06T01:57:56+00:00",
+      "dateModified": "2026-07-06T01:57:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sciopero-aereo-malpensa-linate-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-totalizzazione-contributi-avs-inps': {
+    title: 'Totalizzazione contributi AVS e INPS: come funziona',
+    description: 'Scopri come funziona la totalizzazione dei contributi tra Svizzera e Italia per la pensione: procedure, modulistica e calcolo pro-rata per i lavoratori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, totalizzazione, contributi, inps, funziona',
+    ogTitle: 'Totalizzazione contributi AVS e INPS: guida pratica',
+    ogDescription: 'Scopri come funziona la totalizzazione dei contributi tra Svizzera e Italia per la pensione.',
+    canonicalPath: '/articoli-svizzera/totalizzazione-contributi-avs-inps/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Totalizzazione contributi AVS e INPS: come funziona",
+      "description": "Scopri come funziona la totalizzazione dei contributi tra Svizzera e Italia per la pensione: procedure, modulistica e calcolo pro-rata per i lavoratori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/totalizzazione-contributi-avs-inps.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti finanziari e calcolatrice su una scrivania a Lugano"
+      },
+      "datePublished": "2026-07-06T02:16:18+00:00",
+      "dateModified": "2026-07-06T02:16:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/totalizzazione-contributi-avs-inps/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-quadro-rw-conto-svizzero-obblighi': {
+    title: 'Quadro RW: dichiarazione conto corrente svizzero',
+    description: 'Guida fiscale: come dichiarare il conto corrente svizzero nel quadro RW dell\'Agenzia delle Entrate. Obblighi IVAFE e sanzioni per i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, quadro, dichiarazione, conto, corrente',
+    ogTitle: 'Quadro RW dichiarazione conto corrente svizzero',
+    ogDescription: 'Guida fiscale: come dichiarare il conto corrente svizzero nel quadro RW dell\'Agenzia delle Entrate. Obblighi IVAFE e sanzioni per i frontalieri.',
+    canonicalPath: '/articoli-svizzera/quadro-rw-conto-svizzero-obblighi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quadro RW: dichiarazione conto corrente svizzero",
+      "description": "Guida fiscale: come dichiarare il conto corrente svizzero nel quadro RW dell'Agenzia delle Entrate. Obblighi IVAFE e sanzioni per i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/quadro-rw-conto-svizzero-obblighi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio bancario moderno a Lugano con vista lago"
+      },
+      "datePublished": "2026-07-06T02:33:06+00:00",
+      "dateModified": "2026-07-06T02:33:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/quadro-rw-conto-svizzero-obblighi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-matrimonio-frontaliere-regime-fiscale': {
+    title: 'Matrimonio frontaliere: impatti fiscali e residenza',
+    description: 'Scopri come cambia il regime fiscale per un frontaliere che sposa un cittadino svizzero. Guida pratica su imposte, residenza e obblighi tra Italia e Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, matrimonio, impatti, fiscali, residenza',
+    ogTitle: 'Matrimonio frontaliere: regime fiscale e residenza',
+    ogDescription: 'Guida pratica per frontalieri che si sposano: imposte, residenza e obblighi fiscali tra Italia e Svizzera secondo il nuovo accordo.',
+    canonicalPath: '/articoli-svizzera/matrimonio-frontaliere-regime-fiscale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Matrimonio frontaliere: impatti fiscali e residenza",
+      "description": "Scopri come cambia il regime fiscale per un frontaliere che sposa un cittadino svizzero. Guida pratica su imposte, residenza e obblighi tra Italia e Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/matrimonio-frontaliere-regime-fiscale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del lago di Lugano con edifici moderni sullo sfondo"
+      },
+      "datePublished": "2026-07-06T02:47:02+00:00",
+      "dateModified": "2026-07-06T02:47:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/matrimonio-frontaliere-regime-fiscale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-successione-eredita-frontaliere-conto-svizzero': {
+    title: 'Successione eredità: conto svizzero e frontaliere in Italia',
+    description: 'Guida pratica sulla successione di beni e conti svizzeri per frontalieri residenti in Italia: regole fiscali, doppia imposizione e adempimenti. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, successione, eredità, conto, svizzero',
+    ogTitle: 'Successione eredità: conto svizzero e frontaliere in Italia',
+    ogDescription: 'Guida pratica sulla successione di beni e conti svizzeri per frontalieri residenti in Italia: regole fiscali, doppia imposizione e adempimenti.',
+    canonicalPath: '/articoli-svizzera/successione-eredita-frontaliere-conto-svizzero/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Successione eredità: conto svizzero e frontaliere in Italia",
+      "description": "Guida pratica sulla successione di beni e conti svizzeri per frontalieri residenti in Italia: regole fiscali, doppia imposizione e adempimenti. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/successione-eredita-frontaliere-conto-svizzero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio bancario a Lugano riflettente il paesaggio circostante"
+      },
+      "datePublished": "2026-07-06T03:07:16+00:00",
+      "dateModified": "2026-07-06T03:07:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/successione-eredita-frontaliere-conto-svizzero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-divorzio-frontaliere-mantenimento-svizzera': {
+    title: 'Divorzio frontaliere: assegno mantenimento in Svizzera',
+    description: 'Guida pratica per frontalieri tra Svizzera e Italia: giurisdizione, calcolo assegno di mantenimento su stipendio svizzero e riconoscimento sentenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, divorzio, assegno, mantenimento, pratica',
+    ogTitle: 'Divorzio frontaliere: assegno mantenimento e stipendio',
+    ogDescription: 'Guida pratica per frontalieri tra Svizzera e Italia: giurisdizione, calcolo assegno di mantenimento su stipendio svizzero e riconoscimento sentenze.',
+    canonicalPath: '/articoli-svizzera/divorzio-frontaliere-mantenimento-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divorzio frontaliere: assegno mantenimento in Svizzera",
+      "description": "Guida pratica per frontalieri tra Svizzera e Italia: giurisdizione, calcolo assegno di mantenimento su stipendio svizzero e riconoscimento sentenze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/divorzio-frontaliere-mantenimento-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di un ufficio a Lugano con il lago sullo sfondo"
+      },
+      "datePublished": "2026-07-06T03:22:09+00:00",
+      "dateModified": "2026-07-06T03:22:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/divorzio-frontaliere-mantenimento-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-infermiere-ticino-requisiti': {
+    title: 'Frontaliere infermiere in Ticino: requisiti e stipendio',
+    description: 'Guida pratica per infermieri frontalieri in Ticino: riconoscimento titolo, nuovo Accordo 2024, tasse, previdenza e calcolo dello stipendio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermiere, requisiti, stipendio, pratica',
+    ogTitle: 'Frontaliere infermiere in Ticino: requisiti e stipendio',
+    ogDescription: 'Guida pratica per infermieri frontalieri in Ticino: riconoscimento titolo, nuovo Accordo 2024, tasse, previdenza e calcolo dello stipendio.',
+    canonicalPath: '/articoli-svizzera/frontaliere-infermiere-ticino-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere infermiere in Ticino: requisiti e stipendio",
+      "description": "Guida pratica per infermieri frontalieri in Ticino: riconoscimento titolo, nuovo Accordo 2024, tasse, previdenza e calcolo dello stipendio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-infermiere-ticino-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-07-06T03:42:50+00:00",
+      "dateModified": "2026-07-06T03:42:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-infermiere-ticino-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-operaio-edile-ticino-ccl': {
+    title: 'Frontaliere operaio edile in Ticino: guida al CCL',
+    description: 'Guida pratica per frontalieri edili in Ticino: contratti CCL, salari, sicurezza, imposte e previdenza nel rispetto degli accordi Italia-Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, operaio, edile, tutto, contratto',
+    ogTitle: 'Frontaliere operaio edile in Ticino: guida al CCL',
+    ogDescription: 'Scopri le regole per lavorare nell\'edilizia in Ticino: CCL, tasse, assicurazioni e previdenza per frontalieri.',
+    canonicalPath: '/articoli-svizzera/frontaliere-operaio-edile-ticino-ccl/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere operaio edile in Ticino: guida al CCL",
+      "description": "Guida pratica per frontalieri edili in Ticino: contratti CCL, salari, sicurezza, imposte e previdenza nel rispetto degli accordi Italia-Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-operaio-edile-ticino-ccl.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile in Ticino con operai e standard di sicurezza svizzeri."
+      },
+      "datePublished": "2026-07-06T03:55:25+00:00",
+      "dateModified": "2026-07-06T03:55:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-operaio-edile-ticino-ccl/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-guida-autista-frontaliere-ticino': {
+    title: 'Frontaliere autista in Ticino: guida completa 2026',
+    description: 'Guida pratica per autisti frontalieri in Ticino: permessi G, patenti, stipendio, tassazione dal 2024 e contributi sociali. Informazioni aggiornate.',
+    keywords: 'frontalieri, ticino, svizzera, italia, autista, completa, tutto, permessi',
+    ogTitle: 'Frontaliere autista in Ticino: guida permessi e tasse',
+    ogDescription: 'Guida pratica per autisti frontalieri in Ticino: permessi G, patenti, stipendio, tassazione dal 2024 e contributi sociali.',
+    canonicalPath: '/articoli-svizzera/guida-autista-frontaliere-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere autista in Ticino: guida completa 2026",
+      "description": "Guida pratica per autisti frontalieri in Ticino: permessi G, patenti, stipendio, tassazione dal 2024 e contributi sociali. Informazioni aggiornate.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-autista-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autista di camion in un polo logistico in Svizzera"
+      },
+      "datePublished": "2026-07-06T04:11:42+00:00",
+      "dateModified": "2026-07-06T04:11:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-autista-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-analisi-busta-paga-frontalieri-2026': {
+    title: 'Frontalieri: analisi busta paga Svizzera 2026 | Frontaliere Ticino',
+    description: 'Analisi completa della busta paga svizzera 2026 per frontalieri: trattenute, contributi, franchigie e calcolo del netto reale secondo l\'accordo vigente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, analisi, busta, paga, pratica',
+    ogTitle: 'Frontalieri: analisi busta paga Svizzera 2026',
+    ogDescription: 'Analisi completa della busta paga svizzera 2026 per frontalieri: trattenute, contributi, franchigie e calcolo del netto reale.',
+    canonicalPath: '/articoli-svizzera/analisi-busta-paga-frontalieri-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: analisi busta paga Svizzera 2026",
+      "description": "Analisi completa della busta paga svizzera 2026 per frontalieri: trattenute, contributi, franchigie e calcolo del netto reale secondo l'accordo vigente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/analisi-busta-paga-frontalieri-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti finanziari e calcolatrice su una scrivania con vista su Lugano"
+      },
+      "datePublished": "2026-07-06T04:39:53+00:00",
+      "dateModified": "2026-07-06T04:39:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/analisi-busta-paga-frontalieri-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

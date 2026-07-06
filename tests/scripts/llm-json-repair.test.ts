@@ -9,7 +9,7 @@
 // had this bug inlined — fixed once in shared ./lib/llm-json-repair.mjs.
 
 import { describe, expect, it } from 'vitest';
-import { stripCodeFences, findMatchingClose, fixJsonStringBody, describeJsonParseError } from '../../scripts/lib/llm-json-repair.mjs';
+import { stripCodeFences, findMatchingClose, fixJsonStringBody, describeJsonParseError, describeRawForDiagnostics } from '../../scripts/lib/llm-json-repair.mjs';
 
 describe('fixJsonStringBody', () => {
   it('escapes an unescaped inner quote so the string does not terminate early', () => {
@@ -148,6 +148,49 @@ describe('fixJsonStringBody', () => {
     expect(parsed.b).toBe('Anche "questo" qui.');
   });
 
+  // Regression (issue #3602): afterSeparatorLooksValid's comma-branch only ever
+  // tried interpreting a quoted candidate following a comma as a fresh object
+  // KEY (must be followed by ':'), returning false outright otherwise. A comma
+  // inside an array separates bare VALUES, not key:value pairs, so this
+  // corrupted every plain string-array field (e.g. tags) by merging elements.
+  it('does not merge bare string-array elements at a plain comma separator', () => {
+    const broken = '{"tags":["a","b"],"body":"ok"}';
+    const repaired = fixJsonStringBody(broken, { fixAsterisks: true });
+    const parsed = JSON.parse(repaired);
+    expect(parsed.tags).toEqual(['a', 'b']);
+    expect(parsed.body).toBe('ok');
+  });
+
+  it('still rejects a comma-then-quoted-aside as an array separator when the fallback value never resolves (no regression from the #3602 fix)', () => {
+    const broken = '{"a":"il termine "tassa", "un tributo", e discusso."}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('il termine "tassa", "un tributo", e discusso.');
+  });
+
+  // Regression: decideQuoteCloses() unconditionally trusted any quote
+  // immediately followed by a '*' run (fixAsterisks) as a genuine closer,
+  // without checking that what follows the run looks like a real
+  // continuation — unlike the comma/colon branches, which do. Bold markdown
+  // routinely sits INSIDE a still-open string right after an earlier stray
+  // quote, so this closed the string early and corrupted everything after
+  // it, including unrelated sibling JSON keys (issue #3618 item 2).
+  it('does not close a string early at a stray quote merely because markdown bold follows, when the bold is literal content still inside the string', () => {
+    const broken = '{"a":"testo "citato" **grassetto** fine.","b":"next"}';
+    const repaired = fixJsonStringBody(broken, { fixAsterisks: true });
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('testo "citato" **grassetto** fine.');
+    expect(parsed.b).toBe('next');
+  });
+
+  it('still converts a genuine markdown-bold separator between two bare array string elements', () => {
+    const broken = '{"tags":["value1"**"value2"],"c":1}';
+    const repaired = fixJsonStringBody(broken, { fixAsterisks: true });
+    const parsed = JSON.parse(repaired);
+    expect(parsed.tags).toEqual(['value1', 'value2']);
+    expect(parsed.c).toBe(1);
+  });
+
   // Regression: scanValueEnd() treated '{'/'[' as ending the value immediately
   // after the opening bracket instead of finding the matching close. That made
   // the lookahead wrongly reject a preceding string field's real closing quote
@@ -248,6 +291,44 @@ describe('describeJsonParseError', () => {
     const described = describeJsonParseError(repaired, err);
     // Must not throw/slice out of bounds — position is clamped to string length.
     expect(described).toContain(`position ${repaired.length}`);
+  });
+});
+
+describe('describeRawForDiagnostics', () => {
+  it('returns the full string when it fits within maxChars', () => {
+    const raw = '{"a":"short"}';
+    const result = describeRawForDiagnostics(raw, 4000);
+    expect(result).toBe(`raw[0:${raw.length}]: ${raw}`);
+  });
+
+  it('splits head+tail when string exceeds maxChars', () => {
+    const raw = 'A'.repeat(10000);
+    const result = describeRawForDiagnostics(raw, 100);
+    expect(result).toMatch(/^raw\[0:50\]\.\.\.\[9950:10000\]/);
+    expect(result).toContain('total 10000');
+    expect(result).toContain('omitted');
+    // head + tail each 50 chars
+    expect(result).toContain('A'.repeat(50));
+  });
+
+  it('normalises \\r\\n to \\\\n so it does not break log consumers', () => {
+    const raw = 'line1\r\nline2\r\nline3';
+    const result = describeRawForDiagnostics(raw, 4000);
+    expect(result).not.toContain('\r');
+    expect(result).toContain('\\n');
+    expect(result).toContain('line1\\nline2\\nline3');
+  });
+
+  it('normalises bare \\r to \\\\n', () => {
+    const raw = 'line1\rline2';
+    const result = describeRawForDiagnostics(raw, 4000);
+    expect(result).not.toContain('\r');
+    expect(result).toContain('line1\\nline2');
+  });
+
+  it('handles null/undefined gracefully', () => {
+    expect(() => describeRawForDiagnostics(null)).not.toThrow();
+    expect(() => describeRawForDiagnostics(undefined)).not.toThrow();
   });
 });
 

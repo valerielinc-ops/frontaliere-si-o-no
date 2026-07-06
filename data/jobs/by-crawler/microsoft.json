@@ -1,6 +1,6 @@
 {
   "crawlerKey": "microsoft",
-  "assembledAt": "2026-07-05T11:50:05.963Z",
+  "assembledAt": "2026-07-05T23:46:46.697Z",
   "jobs": [
     {
       "id": "microsoft-200042292",
@@ -33,7 +33,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556924215",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T11:50:03.890Z",
+      "crawledAt": "2026-07-05T23:46:44.760Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -49,6 +49,16 @@
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556924215",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "data-center-project-manager-microsoft-geneva",
+        "responsabile-del-progetto-data-center-microsoft-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "data-center-project-manager-microsoft-geneva",
+          "responsabile-del-progetto-data-center-microsoft-geneva"
+        ]
+      },
       "firstSeenAt": "2026-07-02T22:19:09.547Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -62,15 +72,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "previousSlugsByLocale": {
-        "it": [
-          "data-center-project-manager-microsoft-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "data-center-project-manager-microsoft-geneva"
-      ]
+      "postalCode": "1204"
     },
     {
       "id": "microsoft-200040836",
@@ -103,7 +105,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556887764",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T11:50:03.888Z",
+      "crawledAt": "2026-07-05T23:46:44.757Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -120,11 +122,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-software-engineer-microsoft-zurich"
+        "senior-software-engineer-microsoft-zurich",
+        "senior-software-ingegnere-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-microsoft-zurich"
+          "senior-software-engineer-microsoft-zurich",
+          "senior-software-ingegnere-microsoft-zurich"
         ],
         "de": [
           "senior-software-engineer-microsoft-zurich"
@@ -180,7 +184,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556913974",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T11:50:03.885Z",
+      "crawledAt": "2026-07-05T23:46:44.755Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -243,7 +247,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556625311",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-05T11:50:03.882Z",
+      "crawledAt": "2026-07-05T23:46:44.752Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -260,11 +264,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-sciences-internship-microsoft-zurich"
+        "applied-sciences-internship-microsoft-zurich",
+        "tirocinio-in-scienze-applicate-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-sciences-internship-microsoft-zurich"
+          "applied-sciences-internship-microsoft-zurich",
+          "tirocinio-in-scienze-applicate-microsoft-zurich"
         ],
         "de": [
           "applied-sciences-internship-microsoft-zurich"

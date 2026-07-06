@@ -28,7 +28,7 @@ const __dirname = dirname(__filename);
 const ROOT = resolve(__dirname, '..');
 import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, resetExhaustedModel, printRunSummary } from './lib/ai-models.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
-import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError } from './lib/llm-json-repair.mjs';
+import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 
 // ── CLI argument parsing ─────────────────────────────────────
@@ -490,6 +490,7 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
     const regexFaq = extractFaqFromText(raw);
     if (regexFaq && regexFaq.length >= 2) return regexFaq;
     console.error(`  [JSON parse failed] ${parseErr.message} — ${describeJsonParseError(repaired, parseErr)}`);
+    console.error(`  ${describeRawForDiagnostics(raw)}`);
     throw new Error(`JSON non valido dalla generazione FAQ: ${parseErr.message}`);
   }
   const faq = extractFaqArray(parsed);
@@ -497,7 +498,7 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
     // Try extracting from raw text as last resort
     const regexFaq = extractFaqFromText(raw);
     if (regexFaq && regexFaq.length >= 2) return regexFaq;
-    console.error(`  [extractFaqArray null] type=${typeof parsed} keys=${parsed ? Object.keys(parsed).join(',') : 'N/A'} raw[0:300]: ${raw.slice(0, 300).replace(/\n/g, '\\n')}`);
+    console.error(`  [extractFaqArray null] type=${typeof parsed} keys=${parsed ? Object.keys(parsed).join(',') : 'N/A'} ${describeRawForDiagnostics(raw)}`);
     throw new Error('FAQ response is not an array');
   }
   return faq;
@@ -542,6 +543,8 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
   } catch (parseErr) {
     const regexFaq = extractFaqFromText(raw);
     if (regexFaq && regexFaq.length >= 1) return regexFaq;
+    console.error(`  [JSON parse failed] ${parseErr.message} — ${describeJsonParseError(repaired, parseErr)}`);
+    console.error(`  ${describeRawForDiagnostics(raw)}`);
     throw new Error(`JSON non valido dalla generazione top-up FAQ: ${parseErr.message}`);
   }
   const faq = extractFaqArray(parsed);

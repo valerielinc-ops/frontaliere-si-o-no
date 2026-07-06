@@ -314,6 +314,19 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'mutuo-italia-frontalieri-guida': { it: 'mutuo-italia-frontalieri-guida', en: 'mortgage-italy-cross-border-guide', de: 'hypothek-italien-grenzgaenger-fuehrer', fr: 'hypotheque-italie-frontalier-guide' },
  'vivere-come-lavorare-ticino': { it: 'vivere-come-lavorare-ticino', en: 'live-como-work-ticino', de: 'leben-como-arbeiten-tessin', fr: 'vivre-a-come-travailler-tessin' },
  'vivere-varese-lavorare-ticino': { it: 'vivere-varese-lavorare-ticino', en: 'living-varese-working-ticino', de: 'leben-varese-arbeiten-tessin', fr: 'vivre-varese-travailler-tessin' },
+ 'lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni': { it: 'lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni', en: '300-000-new-jobs-in-switzerland-in-five-years', de: '300-000-neue-arbeitsplatze-in-die-schweiz-in-fuenf-jahren', fr: '300-000-nouveaux-postes-de-travail-en-suisse-en-cinq-annees' },
+ 'il-caldo-modifica-il-valore-degli-immobili': { it: 'il-caldo-modifica-il-valore-degli-immobili', en: 'the-heat-affects-property-values', de: 'die-wohnungswerte-sind-im-merkmal-bei-der-erwaermung-im-merkmal-angekommen', fr: 'le-changement-climatique-affecte-la-valeur-immobiliere' },
+ 'unions-launch-referendum-minimum-wage-reform': { it: 'unions-launch-referendum-minimum-wage-reform', en: 'unions-launch-referendum-minimum-wage-reform-2026', de: 'unions-launch-referendum-mindestlohnerform-2026', fr: 'unions-launch-referendum-reforme-minimum-salaire-2026' },
+ 'sciopero-aereo-malpensa-linate-2024': { it: 'sciopero-aereo-malpensa-linate-2024', en: 'air-transport-strike-milan-airports', de: 'flugstreik-mailand-flughaefen', fr: 'greve-aerienne-aeroports-milan' },
+ 'totalizzazione-contributi-avs-inps': { it: 'totalizzazione-contributi-avs-inps', en: 'avs-inps-contribution-totalization-guide', de: 'avs-inps-beitragszusammenlegung-leitfaden', fr: 'totalisation-contributions-avs-inps-guide' },
+ 'quadro-rw-conto-svizzero-obblighi': { it: 'quadro-rw-conto-svizzero-obblighi', en: 'switzerland-bank-account-tax-reporting', de: 'schweizer-bankkonto-steuererklaerung', fr: 'declaration-compte-suisse-impots' },
+ 'matrimonio-frontaliere-regime-fiscale': { it: 'matrimonio-frontaliere-regime-fiscale', en: 'cross-border-worker-marriage-tax-regime', de: 'heirat-grenzganger-steuerregime', fr: 'mariage-frontalier-regime-fiscal' },
+ 'successione-eredita-frontaliere-conto-svizzero': { it: 'successione-eredita-frontaliere-conto-svizzero', en: 'inheritance-cross-border-switzerland-italy', de: 'erbschaft-grenzgaenger-schweizer-konto', fr: 'succession-heritage-frontalier-compte-suisse' },
+ 'divorzio-frontaliere-mantenimento-svizzera': { it: 'divorzio-frontaliere-mantenimento-svizzera', en: 'divorce-cross-border-worker-maintenance-switzerland', de: 'scheidung-grenzgaenger-unterhalt-schweiz', fr: 'divorce-frontalier-pension-alimentaire-suisse' },
+ 'frontaliere-infermiere-ticino-requisiti': { it: 'frontaliere-infermiere-ticino-requisiti', en: 'frontier-nurse-ticino-requirements', de: 'grenzganger-pfleger-tessin-voraussetzungen', fr: 'frontalier-infirmier-ticino-exigences' },
+ 'frontaliere-operaio-edile-ticino-ccl': { it: 'frontaliere-operaio-edile-ticino-ccl', en: 'cross-border-construction-worker-ticino-ccl', de: 'grenzgaenger-bauarbeiter-tessin-ccl', fr: 'frontalier-ouvrier-construction-tessin-ccl' },
+ 'guida-autista-frontaliere-ticino': { it: 'guida-autista-frontaliere-ticino', en: 'guide-cross-border-truck-driver-ticino', de: 'leitfaden-grenzgaenger-lkw-fahrer-tessin', fr: 'guide-frontalier-chauffeur-poids-lourds-ticino' },
+ 'analisi-busta-paga-frontalieri-2026': { it: 'analisi-busta-paga-frontalieri-2026', en: 'analysis-swiss-payslip-cross-border-2026', de: 'analyse-schweizer-lohnausweis-grenzgaenger-2026', fr: 'analyse-fiche-de-paie-frontaliers-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-06-19T11:44:19.310Z",
-    "label": "before",
-    "total": 17159,
-    "needsRetranslation": 2806,
-    "suppressed": 658,
-    "incomplete": 988,
-    "complete": 16171,
-    "missingByLocale": {
-      "it": 315,
-      "en": 293,
-      "de": 680,
-      "fr": 125
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 928
-      },
-      {
-        "company": "Manor AG",
-        "pending": 16
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Baden (KSB)",
-        "pending": 3
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      },
-      {
-        "company": "Roche",
-        "pending": 2
-      },
-      {
-        "company": "Sulzer",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-19T12:20:30.910Z",
-    "label": "after",
-    "total": 17159,
-    "needsRetranslation": 2717,
-    "suppressed": 659,
-    "incomplete": 988,
-    "complete": 16171,
-    "missingByLocale": {
-      "it": 316,
-      "en": 293,
-      "de": 683,
-      "fr": 125
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 928
-      },
-      {
-        "company": "Manor AG",
-        "pending": 16
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Baden (KSB)",
-        "pending": 3
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      },
-      {
-        "company": "Roche",
-        "pending": 2
-      },
-      {
-        "company": "Sulzer",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-19T13:44:17.062Z",
-    "label": "before",
-    "total": 17191,
-    "needsRetranslation": 8548,
-    "suppressed": 659,
-    "incomplete": 1775,
-    "complete": 15416,
-    "missingByLocale": {
-      "it": 878,
-      "en": 657,
-      "de": 871,
-      "fr": 548
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 928
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "Richemont",
-        "pending": 106
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 99
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 33
-      },
-      {
-        "company": "Migros-Genossenschafts-Bund",
-        "pending": 27
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 26
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 24
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-19T15:16:08.833Z",
-    "label": "after",
-    "total": 17191,
-    "needsRetranslation": 3193,
-    "suppressed": 658,
-    "incomplete": 1570,
-    "complete": 15621,
-    "missingByLocale": {
-      "it": 734,
-      "en": 536,
-      "de": 818,
-      "fr": 425
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 928
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 99
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 33
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 26
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 24
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "Richemont",
-        "pending": 14
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-19T17:48:04.033Z",
     "label": "before",
     "total": 17225,
@@ -11509,6 +11281,120 @@
       },
       {
         "company": "Kantonsspital Uri",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-06T01:32:26.939Z",
+    "label": "before",
+    "total": 23254,
+    "needsRetranslation": 7916,
+    "suppressed": 270,
+    "incomplete": 426,
+    "complete": 22828,
+    "missingByLocale": {
+      "it": 311,
+      "en": 282,
+      "de": 79,
+      "fr": 310
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 254
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 61
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 15
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-06T02:05:44.893Z",
+    "label": "after",
+    "total": 23254,
+    "needsRetranslation": 3270,
+    "suppressed": 270,
+    "incomplete": 426,
+    "complete": 22828,
+    "missingByLocale": {
+      "it": 311,
+      "en": 282,
+      "de": 79,
+      "fr": 310
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 254
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 61
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 15
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
         "pending": 3
       }
     ]

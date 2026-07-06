@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-zollikerberg",
-  "assembledAt": "2026-07-05T12:40:03.308Z",
+  "assembledAt": "2026-07-06T00:12:09.902Z",
   "jobs": [
     {
       "id": "spital-zollikerberg-1f2c44befc6f",
@@ -34,7 +34,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b8568310-faca-4394-96a6-34e0c9c1c417,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:40:01.253Z",
+      "crawledAt": "2026-07-06T00:12:07.641Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,7 +52,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
+        "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
+        "specialist-health-private-station-2-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -112,7 +113,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=13c68f5e-2740-4239-854d-6abfc112cc18,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:40:01.253Z",
+      "crawledAt": "2026-07-06T00:12:07.641Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -130,7 +131,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildnerin-berufsbildner-maternite-spital-zollikerberg-zollikerberg"
+        "berufsbildnerin-berufsbildner-maternite-spital-zollikerberg-zollikerberg",
+        "formazione-professionale-formazione-professionale-maternite-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -142,83 +144,6 @@
         ],
         "fr": [
           "berufsbildnerin-berufsbildner-maternite-spital-zollikerberg-zollikerberg"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-zollikerberg-bb1a289bbd04",
-      "slug": "assistente-infermieristico-nel-reparto-privato-1-spital-zollikerberg-zollikerberg",
-      "slugByLocale": {
-        "it": "assistente-infermieristico-nel-reparto-privato-1-spital-zollikerberg-zollikerberg",
-        "en": "nursing-assistant-nursing-assistant-in-the-private-station-1-spital-zollikerberg-zollikerberg",
-        "de": "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg",
-        "fr": "assistant-infirmier-assistant-infirmier-au-poste-prive-1-spital-zollikerberg-zollikerberg"
-      },
-      "company": "Spital Zollikerberg",
-      "companyKey": "spital-zollikerberg",
-      "companyDomain": "spitalzollikerberg.ch",
-      "title": "Pflegehelferin / Pflegehelfer in der Privatstation 1",
-      "titleByLocale": {
-        "it": "Assistente infermieristico nel reparto privato 1",
-        "en": "Nursing assistant / nursing assistant in the private station 1",
-        "de": "Pflegehelferin / Pflegehelfer in der Privatstation 1",
-        "fr": "Assistant infirmier / assistant infirmier au poste privé 1"
-      },
-      "description": "Pflegehelferin / Pflegehelfer in der Privatstation 1 — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-      "descriptionByLocale": {
-        "it": "Assistente infermieristico nella stazione privata 1 — Spital Zollikerberg, Zollikerberg (ZH). Area: Infermieristica professioni. Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Nursing assistant in the private station 1 — Spital Zollikerberg, Zollikerberg (ZH). Area: Nursing professions. Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
-        "de": "Pflegehelferin / Pflegehelfer in der Privatstation 1 — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "fr": "Assistant infirmier au poste privé 1 — Spital Zollikerberg, Zollikerberg (ZH). Domaine: professions infirmières. Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
-      },
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=68c54407-f26a-48c1-85aa-cbb63a8c9c65,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:40:01.252Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=68c54407-f26a-48c1-85aa-cbb63a8c9c65,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg",
-          "assistente-infermieristico-nel-reparto-privato-1-spital-zollikerberg-zollikerberg"
-        ],
-        "en": [
-          "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg"
-        ],
-        "fr": [
-          "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
@@ -267,7 +192,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=2db94135-e692-41e7-8d61-41b5aee9eeba,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:40:01.252Z",
+      "crawledAt": "2026-07-06T00:12:07.640Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -285,7 +210,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-pool-in-festanstellung-spital-zollikerberg-zollikerberg"
+        "fachfrau-fachmann-gesundheit-pool-in-festanstellung-spital-zollikerberg-zollikerberg",
+        "specialista-del-pool-sanitario-per-l-impiego-permanente-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -345,7 +271,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=6e550bef-a1ba-421c-9c94-a3e726a58e15,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:40:01.252Z",
+      "crawledAt": "2026-07-06T00:12:07.640Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -363,7 +289,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-spital"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-spital",
+        "infermiera-diplomatica-visita-spital-zollikerberg-zuhause-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -375,6 +302,85 @@
         ],
         "fr": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-spital"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-zollikerberg-bb1a289bbd04",
+      "slug": "assistente-infermieristico-nel-reparto-privato-1-spital-zollikerberg-zollikerberg",
+      "slugByLocale": {
+        "it": "assistente-infermieristico-nel-reparto-privato-1-spital-zollikerberg-zollikerberg",
+        "en": "nursing-assistant-nursing-assistant-in-the-private-station-1-spital-zollikerberg-zollikerberg",
+        "de": "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg",
+        "fr": "assistant-infirmier-assistant-infirmier-au-poste-prive-1-spital-zollikerberg-zollikerberg"
+      },
+      "company": "Spital Zollikerberg",
+      "companyKey": "spital-zollikerberg",
+      "companyDomain": "spitalzollikerberg.ch",
+      "title": "Pflegehelferin / Pflegehelfer in der Privatstation 1",
+      "titleByLocale": {
+        "it": "Assistente infermieristico nel reparto privato 1",
+        "en": "Nursing assistant / nursing assistant in the private station 1",
+        "de": "Pflegehelferin / Pflegehelfer in der Privatstation 1",
+        "fr": "Pflegehelferin / Pflegehelfer in der Privatstation 1"
+      },
+      "description": "Pflegehelferin / Pflegehelfer in der Privatstation 1 — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+      "descriptionByLocale": {
+        "it": "Assistente infermieristico nella stazione privata 1 — Spital Zollikerberg, Zollikerberg (ZH). Area: Infermieristica professioni. Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
+        "en": "Nursing assistant in the private station 1 — Spital Zollikerberg, Zollikerberg (ZH). Area: Nursing professions. Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
+        "de": "Pflegehelferin / Pflegehelfer in der Privatstation 1 — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Assistant infirmier au poste privé 1 — Spital Zollikerberg, Zollikerberg (ZH). Domaine: professions infirmières. Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
+      },
+      "needsRetranslation": true,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=68c54407-f26a-48c1-85aa-cbb63a8c9c65,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T00:12:07.639Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=68c54407-f26a-48c1-85aa-cbb63a8c9c65,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg",
+        "assistente-infermieristico-nel-reparto-privato-1-spital-zollikerberg-zollikerberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg",
+          "assistente-infermieristico-nel-reparto-privato-1-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
@@ -423,7 +429,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0bc225d4-9c0d-4ea5-a3ef-d3d20fbba737,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-05T12:40:01.250Z",
+      "crawledAt": "2026-07-06T00:12:07.638Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -441,7 +447,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital"
+        "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital",
+        "specialista-certificato-in-tecnologia-chirurgica-medica-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [

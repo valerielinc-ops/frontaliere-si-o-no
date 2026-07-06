@@ -76,7 +76,7 @@ import { translateFieldFreeMt } from './lib/article-free-mt.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
-import { stripCodeFences, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError } from './lib/llm-json-repair.mjs';
+import { stripCodeFences, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
 import {
   factCheckFingerprint,
   totalMajorWeight,
@@ -3194,6 +3194,7 @@ async function callLLM(messages, opts = {}) {
         // pattern from a specific model can actually be root-caused.
         if (parseErr) {
           console.error(`  🔎 JSON parse fallito (${modelUsedRef.model || 'unknown'}): ${parseErr.message} — ${describeJsonParseError(repaired, parseErr)}`);
+          console.error(`  📄 ${describeRawForDiagnostics(result)}`);
         }
       } else {
         for (const field of REQUIRED_IT_BODY_FIELDS) {
@@ -4483,6 +4484,7 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     // we don't pay double for a transient `***`-between-properties glitch.
     console.error(`❌ JSON parse error: ${parseErr.message}`);
     console.error(`   ${describeJsonParseError(itRepaired, parseErr)}`);
+    console.error(`   ${describeRawForDiagnostics(itRaw)}`);
     const isTruncation = /Unterminated|Unexpected end/i.test(parseErr.message);
     const retryTokens = isTruncation ? 16000 : 8000;
     console.error(`  🔄 Retry IT con maxTokens=${retryTokens}${isTruncation ? ' (troncamento rilevato)' : ''}...`);
@@ -4796,6 +4798,7 @@ async function translateArticle(data) {
     } catch (parseErr) {
       console.error(`  ⚠️  JSON parse error (${label}): ${parseErr.message}`);
       console.error(`     ${describeJsonParseError(repaired, parseErr)}`);
+      console.error(`     ${describeRawForDiagnostics(raw)}`);
       // Detect truncation (model hit output cap): use 3× tokens on retry
       const isTruncation = parseErr.message.includes('Unterminated') || parseErr.message.includes('Unexpected end');
       const retry1Tokens = isTruncation ? Math.max(maxTokens * 3, 12000) : maxTokens + 4000;
