@@ -892,6 +892,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.quadro-rw-conto-svizzero-obblighi.title': 'Quadro RW: dichiarazione conto corrente svizzero',
     'blog.article.quadro-rw-conto-svizzero-obblighi.excerpt': 'Guida pratica agli obblighi di monitoraggio fiscale per i frontalieri con conto in Svizzera: cosa dichiarare all\'Agenzia delle Entrate.',
     'blog.article.quadro-rw-conto-svizzero-obblighi.imageAlt': 'Ufficio bancario moderno a Lugano con vista lago',
+    'blog.article.matrimonio-frontaliere-regime-fiscale.title': 'Matrimonio frontaliere: impatti fiscali e residenza',
+    'blog.article.matrimonio-frontaliere-regime-fiscale.excerpt': 'Cosa cambia per un frontaliere che sposa un cittadino svizzero? Analisi del regime fiscale, obblighi e procedure tra Italia e Svizzera.',
+    'blog.article.matrimonio-frontaliere-regime-fiscale.imageAlt': 'Panorama del lago di Lugano con edifici moderni sullo sfondo',
 };
 
 export default blogMetaChIt;

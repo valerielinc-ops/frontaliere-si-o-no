@@ -892,6 +892,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.quadro-rw-conto-svizzero-obblighi.title': 'Box RW: Swiss current account statement',
     'blog.article.quadro-rw-conto-svizzero-obblighi.excerpt': 'Practical guide to tax monitoring obligations for border workers with an account in Switzerland: what to declare to the Revenue Agency.',
     'blog.article.quadro-rw-conto-svizzero-obblighi.imageAlt': 'Modern bank office in Lugano with lake view',
+    'blog.article.matrimonio-frontaliere-regime-fiscale.title': 'Border Marriage: Tax Impacts and Residence',
+    'blog.article.matrimonio-frontaliere-regime-fiscale.excerpt': 'What changes for a border worker who marries a Swiss citizen? Analysis of the tax regime, obligations and procedures between Italy and Switzerland.',
+    'blog.article.matrimonio-frontaliere-regime-fiscale.imageAlt': 'View of Lake Lugano with modern buildings in the background',
 };
 
 export default blogMetaChEn;
