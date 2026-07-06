@@ -46,6 +46,7 @@ import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
+  MIN_JOBS_PER_COMPANY_IN_CITY,
   SWISS_CANTON_CODES,
   WEEKLY_EMPLOYERS_ARCHIVE_PREFIX,
   WEEKLY_EMPLOYERS_CITIES,
@@ -1221,6 +1222,15 @@ export function findOrphanedCompanyCityPairs(
   const currentKeys = new Set(currentPairs.map((p) => `${p.city}::${p.companySlug}`));
   const seen = new Map<string, CompanyCityPair & { employer: string }>();
 
+  // Debug-mode counters (DEBUG_WEEKLY_EMPLOYERS_ORPHANS=1) surfacing whether
+  // snapshot schema/casing has drifted from the current build's live-job
+  // normalization — a silent mismatch here would under-detect orphans
+  // (GSC 404 leak) with no error, since every filter below just `continue`s.
+  let skippedEmptyEmployer = 0;
+  let candidatesMetThreshold = 0;
+  let filteredAlreadyCurrent = 0;
+  let dedupedAcrossSnapshots = 0;
+
   for (const snapshot of snapshots) {
     const counts = new Map<
       WeeklyEmployersCompanyCity,
@@ -1228,7 +1238,10 @@ export function findOrphanedCompanyCityPairs(
     >();
     for (const job of snapshot.jobs) {
       const employer = String(job.employer || '').trim();
-      if (!employer) continue;
+      if (!employer) {
+        skippedEmptyEmployer++;
+        continue;
+      }
       const employerKey = normEmployerKey(employer, job.employerKey);
       if (!employerKey) continue;
       const cityLower = String(job.city || '').toLowerCase();
@@ -1250,11 +1263,29 @@ export function findOrphanedCompanyCityPairs(
         if (!companyCityMeetsThreshold(rec)) continue;
         const companySlug = canonicalCompanySlug(rec.employer, employerKey);
         if (!companySlug || !/^[a-z0-9][a-z0-9-]*$/.test(companySlug)) continue;
+        candidatesMetThreshold++;
         const key = `${city}::${companySlug}`;
-        if (currentKeys.has(key) || seen.has(key)) continue;
+        if (currentKeys.has(key)) {
+          filteredAlreadyCurrent++;
+          continue;
+        }
+        if (seen.has(key)) {
+          dedupedAcrossSnapshots++;
+          continue;
+        }
         seen.set(key, { city, companySlug, employer: rec.employer });
       }
     }
+  }
+
+  if (process.env.DEBUG_WEEKLY_EMPLOYERS_ORPHANS === '1') {
+    console.log(
+      `[weekly-employers] orphan-scan: ${candidatesMetThreshold} snapshot candidates met the ` +
+        `${MIN_JOBS_PER_COMPANY_IN_CITY}-job gate across ${snapshots.length} week(s); ` +
+        `${filteredAlreadyCurrent} still current (not orphaned), ${dedupedAcrossSnapshots} deduped ` +
+        `repeats, ${seen.size} distinct orphan(s) bridged; ${skippedEmptyEmployer} snapshot job(s) ` +
+        `skipped for empty employer field (possible schema drift).`,
+    );
   }
 
   return Array.from(seen.values());
