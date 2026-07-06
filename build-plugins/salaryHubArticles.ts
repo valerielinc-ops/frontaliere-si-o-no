@@ -567,7 +567,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Doppia imposizione: come viene evitata</h2>
         <p>La Convenzione Italia-Svizzera contro le doppie imposizioni, firmata il 9 dicembre 1976, stabilisce che il reddito da lavoro frontaliere non venga tassato due volte: l'Italia riconosce un credito d'imposta per le imposte già pagate in Svizzera, da indicare nel quadro CE del modello 730 o Redditi PF.</p>
         <h2>Detrazioni fiscali deducibili</h2>
-        <p>Sia in Svizzera sia in Italia esistono voci deducibili che riducono l'imponibile: contributi previdenziali (LPP, terzo pilastro), spese mediche e, sul lato italiano, oneri riconosciuti in dichiarazione dei redditi. L'elenco completo delle detrazioni applicabili ai frontalieri è nell'articolo <a href="${deductionsHref}">Detrazioni fiscali per frontalieri in Italia</a>.</p>
+        <p>Sia in Svizzera sia in Italia esistono voci deducibili che riducono l'imponibile: contributi previdenziali (LPP, terzo pilastro), spese mediche e, sul lato italiano, oneri riconosciuti dall'Agenzia delle Entrate e dal MEF in dichiarazione dei redditi. L'elenco completo delle detrazioni applicabili ai frontalieri è nell'articolo <a href="${deductionsHref}">Detrazioni fiscali per frontalieri in Italia</a>.</p>
         <h2>Per approfondire</h2>
         <p>Per una guida ancora più dettagliata su tabelle, aliquote e simulazioni, consulta la <a href="${pillarHref}">guida completa alla tassazione dei frontalieri 2026</a> oppure calcola il tuo netto con il <a href="${calcUrl}">calcolatore stipendio netto</a>.</p>`;
       if (locale === 'en') return `
@@ -579,7 +579,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Double taxation: how it's avoided</h2>
         <p>The 1976 Italy-Switzerland double-taxation treaty ensures cross-border employment income isn't taxed twice: Italy grants a tax credit for taxes already paid in Switzerland, reported in the CE section of the 730/Redditi PF tax return.</p>
         <h2>Deductible tax items</h2>
-        <p>Both Switzerland and Italy allow deductions that reduce taxable income: pension contributions (LPP, third pillar), medical expenses and, on the Italian side, expenses recognized in the tax return. See the full list in <a href="${deductionsHref}">Tax deductions for cross-border workers in Italy</a>.</p>
+        <p>Both Switzerland and Italy allow deductions that reduce taxable income: pension contributions (LPP, third pillar), medical expenses and, on the Italian side, expenses recognized by the Agenzia delle Entrate and the MEF in the tax return. See the full list in <a href="${deductionsHref}">Tax deductions for cross-border workers in Italy</a>.</p>
         <h2>Go deeper</h2>
         <p>For a more detailed guide on tables, rates and simulations, see the <a href="${pillarHref}">complete 2026 cross-border taxation guide</a> or calculate your net salary with the <a href="${calcUrl}">net salary calculator</a>.</p>`;
       if (locale === 'de') return `
@@ -591,7 +591,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Doppelbesteuerung: wie sie vermieden wird</h2>
         <p>Das Doppelbesteuerungsabkommen Italien-Schweiz von 1976 stellt sicher, dass das Erwerbseinkommen von Grenzgängern nicht doppelt besteuert wird: Italien gewährt eine Steuergutschrift für bereits in der Schweiz bezahlte Steuern, einzutragen im Abschnitt CE der Steuererklärung 730/Redditi PF.</p>
         <h2>Abzugsfähige Steuerposten</h2>
-        <p>Sowohl in der Schweiz als auch in Italien gibt es abzugsfähige Posten, die das steuerbare Einkommen reduzieren: Vorsorgebeiträge (BVG, dritte Säule), Arztkosten und, auf italienischer Seite, in der Steuererklärung anerkannte Aufwendungen. Die vollständige Liste finden Sie im Artikel <a href="${deductionsHref}">Steuerabzüge für Grenzgänger in Italien</a>.</p>
+        <p>Sowohl in der Schweiz als auch in Italien gibt es abzugsfähige Posten, die das steuerbare Einkommen reduzieren: Vorsorgebeiträge (BVG, dritte Säule), Arztkosten und, auf italienischer Seite, von der Agenzia delle Entrate und dem MEF in der Steuererklärung anerkannte Aufwendungen. Die vollständige Liste finden Sie im Artikel <a href="${deductionsHref}">Steuerabzüge für Grenzgänger in Italien</a>.</p>
         <h2>Mehr erfahren</h2>
         <p>Für einen noch detaillierteren Ratgeber zu Tabellen, Sätzen und Simulationen siehe den <a href="${pillarHref}">vollständigen Ratgeber Grenzgänger-Besteuerung 2026</a> oder berechnen Sie Ihr Nettogehalt mit dem <a href="${calcUrl}">Nettogehalts-Rechner</a>.</p>`;
       return `
@@ -603,7 +603,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Double imposition : comment elle est évitée</h2>
         <p>La convention italo-suisse contre les doubles impositions, signée le 9 décembre 1976, garantit que le revenu du travail frontalier n'est pas taxé deux fois : l'Italie accorde un crédit d'impôt pour les impôts déjà payés en Suisse, à reporter dans le cadre CE de la déclaration 730/Redditi PF.</p>
         <h2>Déductions fiscales</h2>
-        <p>La Suisse comme l'Italie prévoient des postes déductibles qui réduisent le revenu imposable : cotisations de prévoyance (LPP, 3e pilier), frais médicaux et, côté italien, charges reconnues dans la déclaration de revenus. La liste complète figure dans l'article <a href="${deductionsHref}">Déductions fiscales pour frontaliers en Italie</a>.</p>
+        <p>La Suisse comme l'Italie prévoient des postes déductibles qui réduisent le revenu imposable : cotisations de prévoyance (LPP, 3e pilier), frais médicaux et, côté italien, charges reconnues par l'Agenzia delle Entrate et le MEF dans la déclaration de revenus. La liste complète figure dans l'article <a href="${deductionsHref}">Déductions fiscales pour frontaliers en Italie</a>.</p>
         <h2>Pour aller plus loin</h2>
         <p>Pour un guide encore plus détaillé sur les barèmes, taux et simulations, consultez le <a href="${pillarHref}">guide complet de la fiscalité des frontaliers 2026</a> ou calculez votre salaire net avec le <a href="${calcUrl}">calculateur de salaire net</a>.</p>`;
     },
