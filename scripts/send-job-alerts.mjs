@@ -1243,52 +1243,75 @@ async function main() {
   // resolved to job geo/employer and fed at top weight into matching +
   // personalization (#3025). Prefer the alert-channel click over the newsletter.
   const lastClickedUrlByEmail = new Map();
-  for (const email of alertEmails) {
+  // Batched via db.getAll() instead of 3 sequential .get() awaits per email —
+  // same reads, same billed count, but one round-trip per chunk instead of
+  // 3×alertEmails.length serial round-trips (was the dominant Firestore read
+  // spike in the daily send-job-alerts run: ~12-21k LOOKUP reads over 2-3h).
+  const LOOKUP_CHUNK_SIZE = 200; // emails per db.getAll() call (3 refs/email → ≤600 refs/call)
+  for (let i = 0; i < alertEmails.length; i += LOOKUP_CHUNK_SIZE) {
+    const chunk = alertEmails.slice(i, i + LOOKUP_CHUNK_SIZE);
     try {
-      const subDoc = await db.collection('newsletter_subscribers').doc(email).get();
-      if (subDoc.exists) {
-        subscriberDocExists.add(email.toLowerCase());
-        const data = subDoc.data() || {};
-        subscriberProfiles.set(email.toLowerCase(), data);
-        if (data.last_clicked_url) lastClickedUrlByEmail.set(email.toLowerCase(), data.last_clicked_url);
-        if (isAddressSuppressed(data.status)) suppressedEmails.add(email.toLowerCase());
-        const lastSentAt = data.last_sent_at;
-        if (lastSentAt) {
-          const ts = typeof lastSentAt.toMillis === 'function' ? lastSentAt.toMillis() : new Date(lastSentAt).getTime();
-          if (now - ts < NEWSLETTER_COOLDOWN_MS) {
-            newsletterCooldownSet.add(email.toLowerCase());
+      // refs built INSIDE the try: `.doc(email)` throws synchronously on a
+      // malformed id (e.g. an email containing `/`), and this loop has no
+      // caller-level catch of its own — an escaped throw here propagates to
+      // the top-level `main().catch()`, aborting the WHOLE script (every
+      // remaining chunk + the downstream matching/send step), not just this
+      // chunk's email(s).
+      const refs = chunk.flatMap((email) => [
+        db.collection('newsletter_subscribers').doc(email),
+        // A bounce/complaint reported on the alert channel lands on the
+        // job_alert_subscribers doc, not newsletter_subscribers — check both.
+        // isJobAlertExcluded also covers this channel's OWN inactivity-sunset
+        // 'inactive' state (scripts/lib/jobAlertSunset.mjs, issue #2852 item 1) —
+        // soft and reversible, unlike the hard cross-channel signals above.
+        db.collection('job_alert_subscribers').doc(email),
+        // Personalization subdoc (browsing-derived location + intent). Read here
+        // so the matcher can fold it into ranking; absent for users who never
+        // browsed while identified — the matcher tolerates an empty profile.
+        db.collection('newsletter_subscribers').doc(email).collection('private').doc('personalization'),
+      ]);
+      const snaps = await db.getAll(...refs);
+      chunk.forEach((email, idx) => {
+        const [subDoc, alertSubDoc, personDoc] = snaps.slice(idx * 3, idx * 3 + 3);
+
+        if (subDoc.exists) {
+          subscriberDocExists.add(email.toLowerCase());
+          const data = subDoc.data() || {};
+          subscriberProfiles.set(email.toLowerCase(), data);
+          if (data.last_clicked_url) lastClickedUrlByEmail.set(email.toLowerCase(), data.last_clicked_url);
+          if (isAddressSuppressed(data.status)) suppressedEmails.add(email.toLowerCase());
+          const lastSentAt = data.last_sent_at;
+          if (lastSentAt) {
+            const ts = typeof lastSentAt.toMillis === 'function' ? lastSentAt.toMillis() : new Date(lastSentAt).getTime();
+            if (now - ts < NEWSLETTER_COOLDOWN_MS) {
+              newsletterCooldownSet.add(email.toLowerCase());
+            }
+          }
+          if (data.autologin_enabled === false) {
+            autologinDisabledSet.add(email.toLowerCase());
           }
         }
-        if (data.autologin_enabled === false) {
-          autologinDisabledSet.add(email.toLowerCase());
+
+        if (alertSubDoc.exists) {
+          const alertData = alertSubDoc.data() || {};
+          if (isJobAlertExcluded(alertData.status)) suppressedEmails.add(email.toLowerCase());
+          // Alert-channel click is the most relevant — overrides the newsletter one.
+          if (alertData.last_clicked_url) lastClickedUrlByEmail.set(email.toLowerCase(), alertData.last_clicked_url);
         }
-      }
-      // A bounce/complaint reported on the alert channel lands on the
-      // job_alert_subscribers doc, not newsletter_subscribers — check both.
-      // isJobAlertExcluded also covers this channel's OWN inactivity-sunset
-      // 'inactive' state (scripts/lib/jobAlertSunset.mjs, issue #2852 item 1) —
-      // soft and reversible, unlike the hard cross-channel signals above.
-      const alertSubDoc = await db.collection('job_alert_subscribers').doc(email).get();
-      if (alertSubDoc.exists) {
-        const alertData = alertSubDoc.data() || {};
-        if (isJobAlertExcluded(alertData.status)) suppressedEmails.add(email.toLowerCase());
-        // Alert-channel click is the most relevant — overrides the newsletter one.
-        if (alertData.last_clicked_url) lastClickedUrlByEmail.set(email.toLowerCase(), alertData.last_clicked_url);
-      }
-      // Personalization subdoc (browsing-derived location + intent). Read here
-      // so the matcher can fold it into ranking; absent for users who never
-      // browsed while identified — the matcher tolerates an empty profile.
-      const personDoc = await db.collection('newsletter_subscribers').doc(email)
-        .collection('private').doc('personalization').get();
-      if (personDoc.exists) {
-        const personData = personDoc.data() || {};
-        behaviorProfiles.set(email.toLowerCase(), behaviorSignals(personData));
-        personalizationRaw.set(email.toLowerCase(), personData);
-      }
+
+        if (personDoc.exists) {
+          const personData = personDoc.data() || {};
+          behaviorProfiles.set(email.toLowerCase(), behaviorSignals(personData));
+          personalizationRaw.set(email.toLowerCase(), personData);
+        }
+      });
     } catch (err) {
-      // Fail-open (don't drop a valid recipient on a transient read blip) but
+      // Fail-open (don't drop valid recipients on a transient read blip) but
       // stay observable — a silent catch previously hid Firestore read failures.
-      console.warn(`   ⚠️  subscriber lookup failed for ${email}: ${err?.message || err}`);
+      // Granularity is per-chunk now (was per-email): a getAll() failure is a
+      // single RPC-level error, not per-document, so isolating further would
+      // need per-email getAll calls — defeating the batching this fixes.
+      console.warn(`   ⚠️  batched subscriber lookup failed for ${chunk.length} email(s) starting at ${chunk[0]}: ${err?.message || err}`);
     }
   }
   if (suppressedEmails.size > 0) {
