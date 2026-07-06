@@ -3506,6 +3506,7 @@ Règles :
   'journalistDashboard.editor.titleCasingHint': 'Sera enregistré comme : {title}',
   'journalistDashboard.editor.categoryLabel': 'Catégorie',
   'journalistDashboard.editor.enrichmentHint': 'Astuce : utilisez [texte](nav:action) dans le corps du texte pour ajouter des liens internes automatiques (ex. [calculateur](nav:calculator)).',
+  'journalistDashboard.editor.languageNote': 'Rédigez l’article en italien : les autres langues (EN, DE, FR) sont générées automatiquement lors de la publication.',
   'journalistDashboard.editor.bodyLabel': 'Texte de l’article',
   'journalistDashboard.editor.boldTooltip': 'Gras',
   'journalistDashboard.editor.importDocument': 'Importer un document',

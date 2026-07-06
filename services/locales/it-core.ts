@@ -3593,6 +3593,7 @@ Regole:
   'journalistDashboard.editor.titleCasingHint': 'Verrà salvato come: {title}',
   'journalistDashboard.editor.categoryLabel': 'Categoria',
   'journalistDashboard.editor.enrichmentHint': 'Suggerimento: usa [testo](nav:azione) nel corpo del testo per aggiungere link interni automatici (es. [calcolatore](nav:calculator)).',
+  'journalistDashboard.editor.languageNote': 'Scrivi l\'articolo in italiano: le altre lingue (EN, DE, FR) vengono generate automaticamente alla pubblicazione.',
   'journalistDashboard.editor.bodyLabel': 'Testo dell\'articolo',
   'journalistDashboard.editor.boldTooltip': 'Grassetto',
   'journalistDashboard.editor.importDocument': 'Importa documento',

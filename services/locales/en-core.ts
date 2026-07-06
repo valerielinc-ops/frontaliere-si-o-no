@@ -3503,6 +3503,7 @@ Rules:
   'journalistDashboard.editor.titleCasingHint': 'Will be saved as: {title}',
   'journalistDashboard.editor.categoryLabel': 'Category',
   'journalistDashboard.editor.enrichmentHint': 'Tip: use [text](nav:action) in the body to add automatic internal links (e.g. [calculator](nav:calculator)).',
+  'journalistDashboard.editor.languageNote': 'Write the article in Italian: the other languages (EN, DE, FR) are generated automatically at publish time.',
   'journalistDashboard.editor.bodyLabel': 'Article text',
   'journalistDashboard.editor.boldTooltip': 'Bold',
   'journalistDashboard.editor.importDocument': 'Import document',

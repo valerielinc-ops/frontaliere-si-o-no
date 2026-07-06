@@ -658,6 +658,10 @@ export default function JournalistDashboardPage(): React.ReactElement {
         {openArticle && <StatusPill article={openArticle} />}
       </div>
 
+      <p className="text-xs text-muted bg-surface-alt border border-edge rounded-lg p-2.5 mb-6">
+        {t('journalistDashboard.editor.languageNote')}
+      </p>
+
       {/* ── Status banners ─────────────────────────────────── */}
       {openArticle?.status === 'failed' && (
         <div className="flex items-start gap-2.5 p-4 bg-danger-subtle border border-danger-border rounded-xl mb-6">
