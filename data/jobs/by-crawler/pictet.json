@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "pictet-24f0d8c6e818",
-      "slug": "economist-pictet-tokyo",
+      "slug": "economista-pictet-group-tokyo",
       "slugByLocale": {
         "en": "economist-pictet-tokyo",
-        "it": "economist-pictet-tokyo",
-        "de": "economist-pictet-tokyo",
-        "fr": "economist-pictet-tokyo"
+        "it": "economista-pictet-group-tokyo",
+        "de": "okonom-pictet-group-tokyo",
+        "fr": "economiste-pictet-group-tokyo"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -65,7 +65,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-05T23:59:19.260Z"
+      "firstSeenAt": "2026-07-05T23:59:19.260Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "economist-pictet-tokyo"
+        ],
+        "de": [
+          "economist-pictet-tokyo"
+        ],
+        "fr": [
+          "economist-pictet-tokyo"
+        ]
+      },
+      "previousSlugs": [
+        "economist-pictet-tokyo"
+      ]
     },
     {
       "id": "pictet-d75452704e8d",
@@ -116,13 +130,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg",
-        "responsabile-fatturazione-e-pagamenti-contratto-a-tempo-determinato-di-12-mesi-pictet-group-luxembourg"
+        "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg",
-          "responsabile-fatturazione-e-pagamenti-contratto-a-tempo-determinato-di-12-mesi-pictet-group-luxembourg"
+          "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
         ],
         "de": [
           "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
@@ -324,14 +336,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "strategic-project-manager-pictet-geneva",
-        "responsabile-del-progetto-strategico-pictet-group-geneva",
-        "responsabile-strategico-di-progetto-pictet-group-geneva"
+        "responsabile-del-progetto-strategico-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strategic-project-manager-pictet-geneva",
-          "responsabile-del-progetto-strategico-pictet-group-geneva",
-          "responsabile-strategico-di-progetto-pictet-group-geneva"
+          "responsabile-del-progetto-strategico-pictet-group-geneva"
         ],
         "de": [
           "strategic-project-manager-pictet-geneva"
@@ -404,13 +414,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-investment-specialist-m-f-d-pictet-frankfurt",
-        "senior-investment-specialista-m-f-d-pictet-group-frankfurt"
+        "senior-investment-specialist-m-f-d-pictet-frankfurt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-investment-specialist-m-f-d-pictet-frankfurt",
-          "senior-investment-specialista-m-f-d-pictet-group-frankfurt"
+          "senior-investment-specialist-m-f-d-pictet-frankfurt"
         ],
         "de": [
           "senior-investment-specialist-m-f-d-pictet-frankfurt"
@@ -483,13 +491,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-compliance-manager-pictet-geneva",
-        "responsabile-della-conformita-aziendale-pictet-group-geneva"
+        "business-compliance-manager-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-compliance-manager-pictet-geneva",
-          "responsabile-della-conformita-aziendale-pictet-group-geneva"
+          "business-compliance-manager-pictet-geneva"
         ],
         "fr": [
           "business-compliance-manager-pictet-geneva"
@@ -559,13 +565,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-specialist-pictet-hong-kong",
-        "investment-specialista-pictet-group-hong-kong"
+        "investment-specialist-pictet-hong-kong"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-specialist-pictet-hong-kong",
-          "investment-specialista-pictet-group-hong-kong"
+          "investment-specialist-pictet-hong-kong"
         ],
         "de": [
           "investment-specialist-pictet-hong-kong"
@@ -638,13 +642,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-specialist-pictet-geneva",
-        "investment-specialista-pictet-group-geneva"
+        "investment-specialist-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-specialist-pictet-geneva",
-          "investment-specialista-pictet-group-geneva"
+          "investment-specialist-pictet-geneva"
         ],
         "de": [
           "investment-specialist-pictet-geneva"
@@ -780,13 +782,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "financial-analyst-pictet-singapore",
-        "financial-analista-pictet-group-singapore"
+        "financial-analyst-pictet-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "financial-analyst-pictet-singapore",
-          "financial-analista-pictet-group-singapore"
+          "financial-analyst-pictet-singapore"
         ],
         "de": [
           "financial-analyst-pictet-singapore"
