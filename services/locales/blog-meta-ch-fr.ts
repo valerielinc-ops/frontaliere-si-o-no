@@ -886,6 +886,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sciopero-aereo-malpensa-linate-2024.title': 'Grève aérienne : 160 vols annulés à Malpensa et Linate',
     'blog.article.sciopero-aereo-malpensa-linate-2024.excerpt': 'Mobilisation de 24 heures dans les escales milanaises pour le renouvellement du contrat national. Environ 160 vols annulés entre Malpensa et Linate.',
     'blog.article.sciopero-aereo-malpensa-linate-2024.imageAlt': 'Écrans d\'aéroport affichant des annulations de vols',
+    'blog.article.totalizzazione-contributi-avs-inps.title': 'Totalisation des cotisations AVS et INPS : comment ça marche',
+    'blog.article.totalizzazione-contributi-avs-inps.excerpt': 'Guide pratique pour la totalisation des cotisations entre la Suisse et l\'Italie : procédure, formulaires et calcul de la pension pour ceux qui ont travaillé dans les deux pays.',
+    'blog.article.totalizzazione-contributi-avs-inps.imageAlt': 'Documents financiers et calculatrice sur un bureau à Lugano',
 };
 
 export default blogMetaChFr;

@@ -886,6 +886,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sciopero-aereo-malpensa-linate-2024.title': 'Sciopero aereo: 160 voli cancellati a Malpensa e Linate',
     'blog.article.sciopero-aereo-malpensa-linate-2024.excerpt': 'Mobilitazione di 24 ore negli scali milanesi per il rinnovo del contratto nazionale. Circa 160 i voli annullati tra Malpensa e Linate.',
     'blog.article.sciopero-aereo-malpensa-linate-2024.imageAlt': 'Schermi di un aeroporto con voli cancellati',
+    'blog.article.totalizzazione-contributi-avs-inps.title': 'Totalizzazione contributi AVS e INPS: come funziona',
+    'blog.article.totalizzazione-contributi-avs-inps.excerpt': 'Guida pratica alla totalizzazione dei contributi tra Svizzera e Italia: procedura, modulistica e calcolo della pensione per chi ha lavorato in entrambi i paesi.',
+    'blog.article.totalizzazione-contributi-avs-inps.imageAlt': 'Documenti finanziari e calcolatrice su una scrivania a Lugano',
 };
 
 export default blogMetaChIt;
