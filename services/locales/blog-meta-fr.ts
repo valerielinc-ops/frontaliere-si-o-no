@@ -8240,6 +8240,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.classifica-dogane-ticino.title': 'Classement des douanes tessinoises : les plus rapides et les plus lentes',
     'blog.article.classifica-dogane-ticino.excerpt': 'Chaque douane du Tessin, classée selon son temps d\'attente moyen : laquelle est la plus rapide, laquelle est la plus lente, et combien de minutes de vie on gagne (ou on perd) en choisissant l\'une plutôt que l\'autre.',
     'blog.article.classifica-dogane-ticino.imageAlt': 'File de voitures à une douane du canton du Tessin',
+    'blog.article.block-ristorni-federalismo.title': 'Blocage des restaurants : « La Confédération ne peut pas blâmer le canton »',
+    'blog.article.block-ristorni-federalismo.excerpt': 'Le Conseil d\'État a décidé de geler les restaurants des frontaliers destinés à l\'Italie.',
+    'blog.article.block-ristorni-federalismo.imageAlt': 'Un travailleur frontalier dans la file d\'attente du passage de frontière de Chiasso, avec un sourire triste sur son visage.',
 };
 
 export default blogMetaFr;

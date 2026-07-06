@@ -8239,6 +8239,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.classifica-dogane-ticino.title': 'Ticino border crossing ranking: the fastest and slowest for wait times',
     'blog.article.classifica-dogane-ticino.excerpt': 'Every border crossing in Ticino, ranked by average wait time: which one is fastest, which is slowest, and how many minutes of your life you gain (or lose) picking one over another.',
     'blog.article.classifica-dogane-ticino.imageAlt': 'Queuing traffic at a Canton Ticino border crossing',
+    'blog.article.block-ristorni-federalismo.title': 'Refreshment block: "The Confederation cannot blame the Canton"',
+    'blog.article.block-ristorni-federalismo.excerpt': 'The Council of State has decided to freeze the refunds of border workers destined for Italy.',
+    'blog.article.block-ristorni-federalismo.imageAlt': 'A border worker in line at the Chiasso border crossing, with a sorrowful expression on their face.',
 };
 
 export default blogMetaEn;
