@@ -65,7 +65,7 @@ import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError, printRunSummary } from './lib/ai-models.mjs';
+import { callLLM as _aiCallLLM, AI_MODELS, DEFAULT_CHAIN, getPreferredModel, isLocalLlmEnabled, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError, printRunSummary } from './lib/ai-models.mjs';
 // Quota-free MT cascade (DeepL-free / Google / MyMemory / LibreTranslate /
 // local Opus-MT) — the SAME translator the job crawlers + FAQ batch use
 // (scripts/lib/dedicated-crawler-common.mjs, batch-add-faq-to-articles.mjs).
@@ -4122,7 +4122,14 @@ async function callGemini(pageContent, url, sourceContext = null) {
   //   2. Provide generous source content (6000 chars) so the model has facts to work with
   //   3. Send compact IT-only JSON template (EN/DE/FR generated in separate calls)
   //   4. Compress editorial rules (no repetition per locale)
-  const MAX_SOURCE_CHARS = 6000;
+  const generationAttempt = Number(sourceContext?._generationAttempt || 1);
+  // Regen attempts (2+) also carry factCheckRefinementInstruction (flagged
+  // claims to fix) and, since fix B above, domainFactsBlock — both compete
+  // with source content for the same ~8000-token input cap several free
+  // models enforce. Shrinking the re-sent source on retries only (never on
+  // the first, richness-matters attempt) buys headroom without touching
+  // first-attempt grounding.
+  const MAX_SOURCE_CHARS = generationAttempt > 1 ? 4500 : 6000;
   const MAX_IDS_TO_SEND = 50;
 
   const truncatedContent = pageContent
@@ -4142,7 +4149,6 @@ async function callGemini(pageContent, url, sourceContext = null) {
     ? sourceContext.relatedHeadlines.map((h, i) => `- [${i + 1}] (${h.source}) ${h.headline}`).join('\n')
     : '';
 
-  const generationAttempt = Number(sourceContext?._generationAttempt || 1);
   const generationAttemptMax = Number(sourceContext?._generationAttemptMax || 1);
   const minItalianWords = Number(sourceContext?._minItalianWords || CREATE_ARTICLE_MIN_IT_WORDS);
 
@@ -4303,11 +4309,24 @@ Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni
     ? `- imagePrompt: scena fotorealistica Ticino, DSLR, non sembrare AI`
     : `- imagePrompt: scena svizzera nazionale/cantonale pertinente al tema, fotorealistica, DSLR, non sembrare AI`;
 
+  // Organic/news sources (real URL) carry no ground-truth facts — only the
+  // evergreen:// and stats-bfs:// branches bake EVERGREEN_FACTS_BRIEF into
+  // pageContent upstream (see the evergreen prompt builder above). Without it,
+  // a model filling REGOLA #1's requested "implicazioni pratiche" gap reaches
+  // for training-data recall instead, and the fact-checker's own copy of these
+  // exact values (VERIFIED_DOMAIN_FACTS) then flags any mismatch as critical —
+  // the dominant failure mode observed on local/fallback runs (2026-07-06).
+  // Feeding the same compact brief here closes the generator/checker grounding
+  // gap for every model in the cascade, not just local.
+  const isSyntheticSource = url.startsWith('evergreen://') || url.startsWith('stats-bfs://');
+  const domainFactsBlock = isSyntheticSource ? '' : `\nFATTI DI DOMINIO VERIFICATI (materiale di riferimento per contesto/implicazioni pratiche, SEPARATO dalla notizia sopra — non attribuirli alla fonte, usali solo se pertinenti al tema):\n${EVERGREEN_FACTS_BRIEF}\n`;
+
   const prompt = `${systemRoleLine}
 
 SOURCE URL: ${url.startsWith('evergreen://') ? '(editorial research)' : url.startsWith('stats-bfs://') ? 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi.html (BFS)' : url}
 SOURCE CONTENT:
 ${truncatedContent}
+${domainFactsBlock}
 ${sourceContext?.headline ? `\nHEADLINE: ${sourceContext.headline}` : ''}
 ${relatedContext ? `\nRELATED:\n${relatedContext}` : ''}
 
@@ -7965,7 +7984,23 @@ async function main() {
     // future-soft-preference) but no longer skips the news scan. Manual
     // override via FORCE_EVERGREEN=1 still works for admin/testing.
     const evergreenCounterState = _loadEvergreenCounter();
-    const forceEvergreen = process.env.FORCE_EVERGREEN === '1';
+    // Local-only cascade detection: when every cloud model is exhausted/
+    // cooling-down and only local/fallback remains, organic/news generation
+    // forces the (weak, CPU-only) local model to closely follow a specific
+    // news article — the failure mode that actually blocks runs is source-
+    // fidelity ("coerenza") drift, not hallucination. Evergreen mode is
+    // grounded on EVERGREEN_FACTS_BRIEF and exempt from that check (see
+    // llmFactCheck's isEvergreen branch), so route local-only runs there
+    // instead of burning the wall-clock budget on organic retries unlikely
+    // to pass. No-op when local/fallback is disabled or cloud has capacity.
+    await initScoreStore();
+    const cloudOnlyChain = DEFAULT_CHAIN.filter((m) => m !== AI_MODELS.LOCAL_FALLBACK);
+    const cloudCascadeExhausted = isLocalLlmEnabled() && !getPreferredModel({ chain: cloudOnlyChain });
+    if (cloudCascadeExhausted) {
+      console.error('🔀 Cascata cloud esaurita, solo local/fallback disponibile — route diretto a evergreen (grounding garantito).');
+      RUN_REPORT.notes.push('Local-only cascade detected pre-scan: routed to evergreen (organic/news generation skipped)');
+    }
+    const forceEvergreen = process.env.FORCE_EVERGREEN === '1' || cloudCascadeExhausted;
     let newsSuccess = false;
 
     // ── Phase 3: quota-based slot dispatch (proven vs discovery) ──
@@ -8897,11 +8932,15 @@ async function generateAndValidateArticle(url, sourceContext = null) {
           // ordered by llmFactCheck) so a long violation list can't bloat an
           // already-large prompt past the input window of the degraded free
           // models this fix targets (adversarial review PR #2615). Surface the
-          // truncation rather than silently dropping the tail.
+          // truncation rather than silently dropping the tail. Per-issue claim/
+          // reason lengths tightened 2026-07-06 (90/110→70/90 chars) alongside
+          // the regen-attempt MAX_SOURCE_CHARS cut above — both compete for the
+          // same ~8000-token input ceiling once fix B's domainFactsBlock also
+          // rides along on organic-mode regen attempts.
           const FACTCHECK_FEEDBACK_CAP = 8;
           lastFactCheckErrors = factResult.issues
             .slice(0, FACTCHECK_FEEDBACK_CAP)
-            .map(i => `- [${i.category || '?'}] "${(i.claim || '').slice(0, 90)}" — ${(i.reason || 'non nella fonte').slice(0, 110)}`)
+            .map(i => `- [${i.category || '?'}] "${(i.claim || '').slice(0, 70)}" — ${(i.reason || 'non nella fonte').slice(0, 90)}`)
             .join('\n');
           if (factResult.issues.length > FACTCHECK_FEEDBACK_CAP) {
             lastFactCheckErrors += `\n(+${factResult.issues.length - FACTCHECK_FEEDBACK_CAP} altre violazioni: applica lo STESSO principio a tutto il testo, non solo a queste)`;

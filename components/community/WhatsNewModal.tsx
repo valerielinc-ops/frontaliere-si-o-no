@@ -33,6 +33,19 @@ interface Release {
 
 export const RELEASES: Release[] = [
  {
+ version: '3.58.0',
+ date: '2026-07-06',
+ titleKey: 'whatsNew.v3580.title',
+ items: [
+ {
+ type: 'feature',
+ titleKey: 'whatsNew.v3580.taxHub.title',
+ descKey: 'whatsNew.v3580.taxHub.desc',
+ link: { tab: 'fisco', subTab: 'withholding-rates' },
+ },
+ ],
+ },
+ {
  version: '3.57.0',
  date: '2026-07-04',
  titleKey: 'whatsNew.v3570.title',

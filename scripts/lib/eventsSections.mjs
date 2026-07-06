@@ -25,17 +25,29 @@
  *   normal crawl, with no real content-quality regression (issue #3232).
  *   Matching the locale segment generically (any canton/comune/digest slug)
  *   removes the false positive and auto-covers any future canton.
+ *
+ * Why the trailing segment is OPTIONAL (issue #3645, F3).
+ *   F3 added a real, indexable Swiss-wide index hub at the bare
+ *   `/eventi/` (+ locale variants) root, one level above every canton hub
+ *   matched below — same markup-heavy shape (stat tiles, a 26-canton grid,
+ *   an upcoming-events list, FAQ, methodology), same audit-classification
+ *   risk as the original #3232 leak: without this, the bare root falls
+ *   through to `spa-other`/`spa-locale` and can drift those ratchets on a
+ *   normal crawl. Made the trailing `/<canton>` segment optional so the
+ *   bare root classifies as `eventi` too, instead of repeating the same
+ *   bug class for a different page.
  */
 
 /**
  * Matches the leading events section segment of a normalised dist path
  * (a path beginning with `/`, optionally locale-prefixed `/en|/de|/fr`).
- * Examples that match: `/eventi/ticino/…`, `/eventi/zurigo/…`,
- * `/en/events/aargau/…`, `/de/veranstaltungen/graubunden/…`,
- * `/fr/evenements/vaud/…`, `/eventi/questo-weekend/…` (digest landing).
+ * Examples that match: `/eventi/` (bare index hub), `/eventi/ticino/…`,
+ * `/eventi/zurigo/…`, `/en/events/aargau/…`,
+ * `/de/veranstaltungen/graubunden/…`, `/fr/evenements/vaud/…`,
+ * `/eventi/questo-weekend/…` (digest landing).
  */
 export const EVENTS_SECTION_RX =
-  /(?:^|\/)(?:eventi|events|veranstaltungen|evenements)\/[a-z][a-z-]*(?:\/|$)/;
+  /(?:^|\/)(?:eventi|events|veranstaltungen|evenements)(?:\/[a-z][a-z-]*)?(?:\/|$)/;
 
 /**
  * @param {string} normalisedPath path that already starts with `/` and has had

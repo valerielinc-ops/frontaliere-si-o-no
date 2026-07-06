@@ -622,7 +622,7 @@ const ZAI_API_BASE         = 'https://api.z.ai/api/paas/v4/chat/completions';
 // weights are whatever the local server has loaded — so we keep a stable id.
 const LOCAL_LLM_DEFAULT_URL   = 'http://127.0.0.1:8080/v1/chat/completions';
 const LOCAL_LLM_DEFAULT_MODEL = 'local-fallback';
-function isLocalLlmEnabled()  { return /^(1|true|yes|on)$/i.test((process.env.LOCAL_LLM_ENABLED || '').trim()); }
+export function isLocalLlmEnabled()  { return /^(1|true|yes|on)$/i.test((process.env.LOCAL_LLM_ENABLED || '').trim()); }
 function getLocalLlmUrl()     { return (process.env.LOCAL_LLM_URL || LOCAL_LLM_DEFAULT_URL).trim(); }
 function getLocalLlmModelId() { return (process.env.LOCAL_LLM_MODEL || LOCAL_LLM_DEFAULT_MODEL).trim(); }
 // llama.cpp/ollama ignore the key, but _callOpenAICompatible requires a non-empty

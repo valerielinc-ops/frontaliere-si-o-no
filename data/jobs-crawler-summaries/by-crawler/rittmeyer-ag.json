@@ -1,18 +1,51 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-07-06T00:28:08.547Z",
-  "total": 9,
-  "newCount": 0,
+  "generatedAt": "2026-07-06T15:19:20.857Z",
+  "total": 10,
+  "newCount": 1,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12845,
-  "avgDurationMs": 12845,
+  "durationMs": 9830,
+  "avgDurationMs": 9830,
   "durationHistory": [
-    12845
+    9830
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Service Techniker (a) Region Winterthur, Wil, St. Gallen",
+      "slug": "service-techniker-a-region-winterthur-wil-st-gallen-rittmeyer-ag-nordostschweiz",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/service-techniker-a-region-winterthur-wil-st-gallen/",
+      "applyUrl": "",
+      "company": "Rittmeyer AG",
+      "companyKey": "rittmeyer-ag",
+      "companyDomain": "rittmeyer.com",
+      "location": "Baar",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "postalCode": "6340",
+      "streetAddress": "Inwilerriedstrasse 57",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "other",
+      "sector": "Energia",
+      "source": "rittmeyer-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-06",
+      "employmentType": "other",
+      "contractType": "other",
+      "validThrough": "",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Service Techniker (a) Region Churer Rheintal, Imboden, Viamala, Sarganserland, Werdenberg",
