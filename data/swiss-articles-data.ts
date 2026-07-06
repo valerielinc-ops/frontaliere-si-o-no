@@ -2645,6 +2645,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sciopero-aereo-malpensa-linate-2024',
+    category: 'pratico',
+    date: '2026-07-06T01:57:56.400Z',
+    image: '/images/blog/sciopero-aereo-malpensa-linate-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

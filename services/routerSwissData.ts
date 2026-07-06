@@ -317,6 +317,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni': { it: 'lavoro-in-svizzera-300-000-nuovi-posti-in-cinque-anni', en: '300-000-new-jobs-in-switzerland-in-five-years', de: '300-000-neue-arbeitsplatze-in-die-schweiz-in-fuenf-jahren', fr: '300-000-nouveaux-postes-de-travail-en-suisse-en-cinq-annees' },
  'il-caldo-modifica-il-valore-degli-immobili': { it: 'il-caldo-modifica-il-valore-degli-immobili', en: 'the-heat-affects-property-values', de: 'die-wohnungswerte-sind-im-merkmal-bei-der-erwaermung-im-merkmal-angekommen', fr: 'le-changement-climatique-affecte-la-valeur-immobiliere' },
  'unions-launch-referendum-minimum-wage-reform': { it: 'unions-launch-referendum-minimum-wage-reform', en: 'unions-launch-referendum-minimum-wage-reform-2026', de: 'unions-launch-referendum-mindestlohnerform-2026', fr: 'unions-launch-referendum-reforme-minimum-salaire-2026' },
+ 'sciopero-aereo-malpensa-linate-2024': { it: 'sciopero-aereo-malpensa-linate-2024', en: 'air-transport-strike-milan-airports', de: 'flugstreik-mailand-flughaefen', fr: 'greve-aerienne-aeroports-milan' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

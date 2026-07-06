@@ -883,6 +883,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.unions-launch-referendum-minimum-wage-reform.title': 'Gewerkschaften starten Referendum gegen Mindestlohnreform',
     'blog.article.unions-launch-referendum-minimum-wage-reform.excerpt': 'Die vom Parlament verabschiedete Mindestlohnreform würde Geringverdiener und Frauen einem Risiko aussetzen',
     'blog.article.unions-launch-referendum-minimum-wage-reform.imageAlt': 'Bild eines Gruppen von Menschen, die in einem Konferenzraum in Lugano diskutieren',
+    'blog.article.sciopero-aereo-malpensa-linate-2024.title': 'Flugstreik: 160 Flüge in Malpensa und Linate gestrichen',
+    'blog.article.sciopero-aereo-malpensa-linate-2024.excerpt': '24-stündige Mobilisierung an den Mailänder Flughäfen für die Erneuerung des nationalen Vertrags. Rund 160 Flüge zwischen Malpensa und Linate wurden gestrichen.',
+    'blog.article.sciopero-aereo-malpensa-linate-2024.imageAlt': 'Flughafenanzeigetafeln mit Flugannullierungen',
 };
 
 export default blogMetaChDe;

@@ -883,6 +883,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.unions-launch-referendum-minimum-wage-reform.title': 'Unions launch referendum against minimum wage reform',
     'blog.article.unions-launch-referendum-minimum-wage-reform.excerpt': 'Minimum wage reform passed by Parliament would expose low-wage workers and women to risks',
     'blog.article.unions-launch-referendum-minimum-wage-reform.imageAlt': 'Image of a group of people discussing in a conference room in Lugano',
+    'blog.article.sciopero-aereo-malpensa-linate-2024.title': 'Plane strike: 160 flights cancelled in Malpensa and Linate',
+    'blog.article.sciopero-aereo-malpensa-linate-2024.excerpt': '24-hour mobilisation in Milan airports for the renewal of the national contract. About 160 flights were cancelled between Malpensa and Linate.',
+    'blog.article.sciopero-aereo-malpensa-linate-2024.imageAlt': 'Airport flight status screens showing cancellations',
 };
 
 export default blogMetaChEn;

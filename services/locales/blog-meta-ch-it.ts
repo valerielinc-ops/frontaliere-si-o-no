@@ -883,6 +883,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.unions-launch-referendum-minimum-wage-reform.title': 'Sindacati lanciano referendum contro riforma salari minimi',
     'blog.article.unions-launch-referendum-minimum-wage-reform.excerpt': 'La riforma salari minimi approvata dal Parlamento esporrebbe i lavoratori a basso reddito e le donne a rischi',
     'blog.article.unions-launch-referendum-minimum-wage-reform.imageAlt': 'Immagine di un gruppo di persone che discutono in una sala riunioni a Lugano',
+    'blog.article.sciopero-aereo-malpensa-linate-2024.title': 'Sciopero aereo: 160 voli cancellati a Malpensa e Linate',
+    'blog.article.sciopero-aereo-malpensa-linate-2024.excerpt': 'Mobilitazione di 24 ore negli scali milanesi per il rinnovo del contratto nazionale. Circa 160 i voli annullati tra Malpensa e Linate.',
+    'blog.article.sciopero-aereo-malpensa-linate-2024.imageAlt': 'Schermi di un aeroporto con voli cancellati',
 };
 
 export default blogMetaChIt;
