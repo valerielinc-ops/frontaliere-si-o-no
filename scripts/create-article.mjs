@@ -3576,6 +3576,12 @@ function extractDatesFromHtml(html, baseUrl) {
     try { href = new URL(am[1], baseUrl).href; } catch { continue; }
     if (!href.startsWith('http') || dateMap.has(href)) continue;
     const d = new Date(year, month - 1, day);
+    // Round-trip: reject calendar-impossible dates (31.04, 30.02) that
+    // Date's local-time constructor silently overflows into the next month
+    // instead of erroring — same anti-pattern fixed in
+    // scripts/lib/postch-job-parser.mjs (parseDdMmYyyy) and
+    // scripts/crawl-ge-agenda.mjs (parseGeneveDateFr / isValidCalendarDate).
+    if (d.getFullYear() !== year || d.getMonth() !== month - 1 || d.getDate() !== day) continue;
     if (!isNaN(d.getTime())) dateMap.set(href, d);
   }
 
