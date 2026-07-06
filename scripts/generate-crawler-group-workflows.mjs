@@ -292,7 +292,7 @@ function renderEnvExports(env) {
 }
 
 /** Build the YAML object (as a JS object, serialized via `yaml` lib) for one group workflow. */
-function buildGroupWorkflowObject(groupIndex, group, needsPlaywright) {
+function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnoreScripts) {
   const groupName = `crawler-group-${String(groupIndex).padStart(2, '0')}`;
 
   const steps = [];
@@ -309,9 +309,21 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright) {
     with: { 'node-version': '22', cache: 'npm' },
   });
 
+  // Some crawlers' original individual workflows used `npm ci --ignore-scripts`
+  // (a leaner/faster install, skipping dependency lifecycle scripts like
+  // native postinstalls). The group install step is shared+sequential across
+  // ALL members, so if ANY member required the flag we must apply it here:
+  // silently dropping it would (a) change that crawler's install semantics,
+  // and worse (b) without `--ignore-scripts` a flaky postinstall script can
+  // fail this non-continue-on-error step outright, blocking every background
+  // crawler step in the group from ever starting — not just the one crawler
+  // that needed the flag. Applying `--ignore-scripts` when not strictly
+  // required by every member is harmless: it only skips dependency lifecycle
+  // scripts for the shared top-level install, and doesn't affect any
+  // per-crawler `npm install`/build calls a crawler's own script might run.
   steps.push({
     name: 'Install dependencies',
-    run: 'npm ci',
+    run: needsIgnoreScripts ? 'npm ci --ignore-scripts' : 'npm ci',
   });
 
   if (needsPlaywright) {
@@ -455,7 +467,10 @@ export function generate({ manifestPath = MANIFEST_PATH, baselinePath = BASELINE
     const needsPlaywright = group.members.some((m) =>
       m.prepSteps.some((s) => /playwright/i.test(s.name || '')),
     );
-    const obj = buildGroupWorkflowObject(groupIndex, group, needsPlaywright);
+    const needsIgnoreScripts = group.members.some((m) =>
+      m.prepSteps.some((s) => /^npm ci\b.*--ignore-scripts/.test(s.run || '')),
+    );
+    const obj = buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnoreScripts);
     const yamlBody = YAML.stringify(obj, { lineWidth: 0 });
     const fileContent = `${workflowHeaderComment(groupIndex, group)}\n\n${yamlBody}`;
     const fileName = `crawler-group-${String(groupIndex).padStart(2, '0')}.yml`;

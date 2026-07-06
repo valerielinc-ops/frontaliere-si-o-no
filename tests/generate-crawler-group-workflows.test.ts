@@ -15,8 +15,12 @@
  * and 1 giant group of 559. These tests guard against that regression by
  * asserting group SIZE balance, not just wall-clock balance.
  */
-import { describe, it, expect } from 'vitest';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE } from '../scripts/generate-crawler-group-workflows.mjs';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import YAML from 'yaml';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate } from '../scripts/generate-crawler-group-workflows.mjs';
 
 interface Crawler {
   slug: string;
@@ -135,5 +139,121 @@ describe('packGroups', () => {
     const a = packGroups(crawlers, GROUP_COUNT, median);
     const b = packGroups(crawlers, GROUP_COUNT, median);
     expect(a.map((g) => g.members.map((m) => m.slug))).toEqual(b.map((g) => g.members.map((m) => m.slug)));
+  });
+});
+
+describe('generate() — shared install step reflects per-crawler prep requirements', () => {
+  // Regression guard (PR #3701 review finding): the shared "Install
+  // dependencies" step is sequential and shared by an ENTIRE group. If any
+  // member's original workflow required `npm ci --ignore-scripts` and the
+  // generator silently drops that flag, two things go wrong: (1) that
+  // crawler's install semantics silently change, and (2) since the step has
+  // no `continue-on-error`, a flaky dependency postinstall script failing
+  // there blocks the group's shared install step outright — which blocks
+  // EVERY background crawler step in that group from ever starting, not
+  // just the one crawler that needed the flag. The fix: if ANY member
+  // requires `--ignore-scripts`, the whole group's shared install step must
+  // use it (safe superset — harmless for members that didn't strictly
+  // require it).
+  let tmpDir: string;
+  let manifestPath: string;
+  let baselinePath: string;
+  let outDir: string;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-group-gen-test-'));
+    manifestPath = path.join(tmpDir, 'manifest.json');
+    baselinePath = path.join(tmpDir, 'baseline.json');
+    outDir = path.join(tmpDir, 'workflows');
+    fs.mkdirSync(outDir, { recursive: true });
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  function baseCrawler(slug, installRun = 'npm ci') {
+    return {
+      slug,
+      file: `update-jobs-${slug}.yml`,
+      jobKey: `update-${slug}-jobs`,
+      timeoutMinutes: 360,
+      prepSteps: [{ name: 'Install dependencies', run: installRun }],
+      runStep: { name: `Run ${slug}`, env: {}, run: `node scripts/update-${slug}-jobs.mjs` },
+      postSteps: [
+        { name: 'Commit and push', id: 'changes', env: {}, run: `bash scripts/lib/git-commit-data.sh --slice-only "Auto-update ${slug} jobs"` },
+        { name: 'Report failure to GitHub Issues', if: 'failure()', 'continue-on-error': true, env: {}, run: 'node scripts/lib/github-issue-creator.mjs --title "x"' },
+      ],
+    };
+  }
+
+  // GROUP_COUNT (23) crawlers of similar duration each become their own
+  // group "anchor" in packGroups' first phase — to reliably land MULTIPLE
+  // synthetic crawlers in the SAME group (reproducing the real corpus
+  // scenario where a group has ~25 members), use more crawlers than
+  // GROUP_COUNT so the "spread the tail by member count" phase kicks in.
+  const CRAWLER_COUNT = GROUP_COUNT * 3;
+
+  function writeManifestAndBaseline(crawlers) {
+    fs.writeFileSync(manifestPath, JSON.stringify({ manifest: crawlers, anomalies: [] }));
+    const crawlerBaseline = Object.fromEntries(
+      crawlers.map((c) => [
+        c.file.replace(/^update-jobs-/, 'update-jobs-').replace(/\.yml$/, ''),
+        { avgDurationMs: 500_000, sampleCount: 1 },
+      ]),
+    );
+    fs.writeFileSync(baselinePath, JSON.stringify({
+      generatedAt: new Date().toISOString(),
+      medianDurationMs: 500_000,
+      crawlers: crawlerBaseline,
+    }));
+  }
+
+  it('applies --ignore-scripts to the shared install step when any group member requires it', () => {
+    // One crawler whose ORIGINAL workflow used `npm ci --ignore-scripts` as
+    // its own "Install dependencies" prep step (mirrors the real afry/
+    // agroscope/pwc/etc. shape found in the actual 581-crawler corpus),
+    // plus enough same-duration crawlers that several of them are forced
+    // into the SAME group as it (reproducing the real "~25 members share
+    // one job" scenario, not an isolated singleton group).
+    const crawlers = [
+      baseCrawler('lean-crawler', 'npm ci --ignore-scripts'),
+      ...Array.from({ length: CRAWLER_COUNT - 1 }, (_, i) => baseCrawler(`normal-${i}`)),
+    ];
+    writeManifestAndBaseline(crawlers);
+
+    const results = generate({ manifestPath, baselinePath, outDir, write: true });
+    const groupWithLean = results.find((r) => r.members.includes('lean-crawler'));
+    expect(groupWithLean, 'expected lean-crawler to be placed in some group').toBeDefined();
+    expect(groupWithLean!.members.length, 'expected lean-crawler to share a group with other crawlers, not be isolated').toBeGreaterThan(1);
+
+    const doc = YAML.parse(groupWithLean!.content);
+    const jobKey = Object.keys(doc.jobs)[0];
+    const installStep = doc.jobs[jobKey].steps.find((s) => s.name === 'Install dependencies');
+    expect(installStep.run).toBe('npm ci --ignore-scripts');
+
+    // Every OTHER group (none of whose members required the flag) must keep
+    // plain `npm ci` — the fix should not force `--ignore-scripts`
+    // repo-wide, only for groups that actually contain a member needing it.
+    const otherGroups = results.filter((r) => !r.members.includes('lean-crawler'));
+    for (const g of otherGroups) {
+      const gDoc = YAML.parse(g.content);
+      const gJobKey = Object.keys(gDoc.jobs)[0];
+      const gInstall = gDoc.jobs[gJobKey].steps.find((s) => s.name === 'Install dependencies');
+      expect(gInstall.run, `group ${g.fileName} should not have --ignore-scripts`).toBe('npm ci');
+    }
+  });
+
+  it('keeps plain `npm ci` when no group member requires --ignore-scripts', () => {
+    const crawlers = Array.from({ length: CRAWLER_COUNT }, (_, i) => baseCrawler(`normal-${i}`));
+    writeManifestAndBaseline(crawlers);
+
+    const results = generate({ manifestPath, baselinePath, outDir, write: true });
+    for (const g of results) {
+      const doc = YAML.parse(g.content);
+      const jobKey = Object.keys(doc.jobs)[0];
+      const installStep = doc.jobs[jobKey].steps.find((s) => s.name === 'Install dependencies');
+      expect(installStep.run).toBe('npm ci');
+    }
   });
 });
