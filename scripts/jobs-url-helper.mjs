@@ -10,6 +10,8 @@
  *   } from './jobs-url-helper.mjs';
  */
 import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
   createEmptyCrawlerSummaryStore,
   readCrawlerSummaryStore,
@@ -20,10 +22,21 @@ import {
   buildStableJobIdentity,
   jobsDiffer,
 } from './lib/job-identity.mjs';
+import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const JOB_PATH = 'cerca-lavoro-ticino';
 const DATA_SUMMARIES_PATH = resolveCrawlerSummaryStorePath();
+
+// Job Summary links are IT-only (CI display, not customer-facing) but must
+// still resolve the correct per-canton board section — see the sibling fix
+// in send-job-alerts.mjs for why a TI-only path silently 404s for every
+// other canton.
+const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
+const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
+const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
 
 /**
  * Module-level wall-clock start time.
@@ -62,7 +75,9 @@ function jobUrl(job) {
   const localizedSlug = job?.slugByLocale?.it;
   const rawSlug = localizedSlug || job?.slug || job?.id || 'unknown';
   const slug = String(rawSlug).trim().replace(/^\/+|\/+$/g, '');
-  return `${BASE_URL}/${JOB_PATH}/${slug}/`;
+  const cantonCode = resolveJobCanton({ canton: job?.canton, location: job?.location });
+  const jobBoardPath = resolveCantonSection('it', cantonCode);
+  return `${BASE_URL}/${jobBoardPath}/${slug}/`;
 }
 
 function toSummaryEntry(job) {
