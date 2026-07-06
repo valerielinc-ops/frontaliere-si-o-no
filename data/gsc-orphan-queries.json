@@ -2,43 +2,48 @@
   "case-anziani": [
     {
       "query": "case anziani ticino offerte di lavoro",
-      "clicks": 39,
-      "impressions": 502
+      "clicks": 40,
+      "impressions": 514
     },
     {
       "query": "offerte di lavoro casa di riposo svizzera",
       "clicks": 23,
-      "impressions": 278
+      "impressions": 285
     },
     {
       "query": "offerte lavoro casa di riposo svizzera",
-      "clicks": 23,
-      "impressions": 259
+      "clicks": 24,
+      "impressions": 270
     },
     {
       "query": "case anziani lugano posti di lavoro",
       "clicks": 11,
-      "impressions": 155
+      "impressions": 159
     },
     {
       "query": "offerte di lavoro casa anziani ticino",
       "clicks": 13,
-      "impressions": 92
+      "impressions": 93
     },
     {
       "query": "casa anziani paradiso offerta lavoro",
       "clicks": 1,
-      "impressions": 79
+      "impressions": 81
     },
     {
       "query": "offerte lavoro casa anziani ticino",
       "clicks": 6,
-      "impressions": 66
+      "impressions": 68
     },
     {
       "query": "casa anziani comunale bellinzona offerte di lavoro",
       "clicks": 3,
-      "impressions": 61
+      "impressions": 64
+    },
+    {
+      "query": "casa anziani chiasso lavoro",
+      "clicks": 8,
+      "impressions": 49
     },
     {
       "query": "casa anziani mendrisio lavoro",
@@ -46,19 +51,14 @@
       "impressions": 49
     },
     {
-      "query": "casa anziani chiasso lavoro",
-      "clicks": 8,
-      "impressions": 48
-    },
-    {
       "query": "case di riposo ticino lavora con noi",
       "clicks": 4,
-      "impressions": 45
+      "impressions": 48
     },
     {
       "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
       "clicks": 0,
-      "impressions": 43
+      "impressions": 45
     },
     {
       "query": "casa anziani offerte di lavoro",
@@ -112,17 +112,17 @@
     {
       "query": "educatore sociale offerte lavoro ticino",
       "clicks": 4,
-      "impressions": 30
+      "impressions": 31
+    },
+    {
+      "query": "offerte di lavoro educatrice svizzera italiana",
+      "clicks": 8,
+      "impressions": 25
     },
     {
       "query": "offerte lavoro educatore ticino",
       "clicks": 1,
       "impressions": 25
-    },
-    {
-      "query": "offerte di lavoro educatrice svizzera italiana",
-      "clicks": 8,
-      "impressions": 24
     },
     {
       "query": "lavoro educatrice ticino",
@@ -132,6 +132,11 @@
     {
       "query": "educatrice ticino lavoro",
       "clicks": 1,
+      "impressions": 14
+    },
+    {
+      "query": "lavoro insegnante canton ticino",
+      "clicks": 0,
       "impressions": 13
     },
     {
@@ -142,11 +147,6 @@
     {
       "query": "offerte di lavoro educatore svizzera italiana",
       "clicks": 2,
-      "impressions": 12
-    },
-    {
-      "query": "lavoro insegnante canton ticino",
-      "clicks": 0,
       "impressions": 12
     },
     {
@@ -162,20 +162,20 @@
     {
       "query": "offerte lavoro educatrice ticino",
       "clicks": 1,
-      "impressions": 10
+      "impressions": 11
     },
     {
       "query": "educatore mendrisio lavoro",
       "clicks": 0,
-      "impressions": 10
-    },
-    {
-      "query": "educatore ticino",
-      "clicks": 0,
-      "impressions": 10
+      "impressions": 11
     },
     {
       "query": "offerte di lavoro educatrice ticino",
+      "clicks": 0,
+      "impressions": 11
+    },
+    {
+      "query": "educatore ticino",
       "clicks": 0,
       "impressions": 10
     },
@@ -214,7 +214,7 @@
     {
       "query": "nursing jobs",
       "clicks": 0,
-      "impressions": 209
+      "impressions": 218
     },
     {
       "query": "what nursing jobs are open in the zurich region?",
@@ -388,7 +388,7 @@
     {
       "query": "i am searching for caregiver jobs in ticino for elderly support.",
       "clicks": 0,
-      "impressions": 86
+      "impressions": 87
     },
     {
       "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
@@ -587,14 +587,14 @@
       "impressions": 5
     },
     {
+      "query": "consulente software ticino",
+      "clicks": 0,
+      "impressions": 5
+    },
+    {
       "query": "programmatore svizzera",
       "clicks": 0,
       "impressions": 4
-    },
-    {
-      "query": "consulente software ticino",
-      "clicks": 0,
-      "impressions": 3
     },
     {
       "query": "posti vacanti ticino",
@@ -794,7 +794,7 @@
     {
       "query": "pflegejobs regionalspital surselva ag",
       "clicks": 0,
-      "impressions": 12
+      "impressions": 13
     },
     {
       "query": "altenpfleger jobs lugano",
@@ -812,12 +812,12 @@
       "impressions": 3
     },
     {
-      "query": "ksw anästhesie",
+      "query": "pflege jobs spital zofingen",
       "clicks": 0,
-      "impressions": 1
+      "impressions": 2
     },
     {
-      "query": "pflege jobs spital zofingen",
+      "query": "ksw anästhesie",
       "clicks": 0,
       "impressions": 1
     }
@@ -1117,6 +1117,11 @@
       "impressions": 3
     },
     {
+      "query": "posti vacanti ticino",
+      "clicks": 1,
+      "impressions": 2
+    },
+    {
       "query": "lavoro logistica svizzera",
       "clicks": 0,
       "impressions": 2
@@ -1130,6 +1135,11 @@
       "query": "site:frontaliereticino.ch",
       "clicks": 0,
       "impressions": 2
+    },
+    {
+      "query": "lavoro ticino",
+      "clicks": 0,
+      "impressions": 1
     },
     {
       "query": "logistica ticino",
@@ -1438,6 +1448,27 @@
       "query": "pflegejobs spital schiers",
       "clicks": 0,
       "impressions": 2
+    }
+  ],
+  "insurance": [
+    {
+      "query": "calingo jobs",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "venditore-venditrice-m-f-d-40-1-lidl-svizzera-locarno": [
+    {
+      "query": "lidl locarno",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "lager": [
+    {
+      "query": "ja gerne alles",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "chauffeurs": [
