@@ -46638,6 +46638,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri': {
+    title: 'L\'Accordo Italia-Svizzera del 2020 sulla tassazione dei lavoratori frontalieri',
+    description: 'L\'Accordo Italia-Svizzera del 2020 introduce un nuovo regime di tassazione per i lavoratori frontalieri, sostituendo il quadro del 1974. L\'analisi valuta il',
+    keywords: 'frontalieri, ticino, svizzera, italia, accordo, italia-svizzera, 2020, sulla',
+    ogTitle: 'L\'Accordo Italia-Svizzera del 2020 sulla tassazione dei lavoratori frontalieri',
+    ogDescription: 'L\'Accordo Italia-Svizzera del 2020 introduce un nuovo regime di tassazione per i lavoratori frontalieri, sostituendo il quadro del 1974. L\'analisi valuta il',
+    canonicalPath: '/articoli-frontaliere/laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'Accordo Italia-Svizzera del 2020 sulla tassazione dei lavoratori frontalieri",
+      "description": "L'Accordo Italia-Svizzera del 2020 introduce un nuovo regime di tassazione per i lavoratori frontalieri, sostituendo il quadro del 1974. L'analisi valuta il",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/a2-giornico-cantiere-disagi-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: L'Accordo Italia-Svizzera del 2020 sulla tassazione dei lavoratori frontalieri"
+      },
+      "datePublished": "2026-07-06T07:45:13+00:00",
+      "dateModified": "2026-07-06T07:45:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

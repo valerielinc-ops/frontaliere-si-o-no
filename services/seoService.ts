@@ -4397,6 +4397,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sicurezza-lavoro-ticino-cfsl': { name: 'Sicurezza Lavoro Ticino', path: '/articoli-frontaliere/sicurezza-lavoro-ticino-cfsl', parent: 'blog' },
     'blog-prezzi-immobili-svizzera-giugno': { name: 'Prezzi Immobili', path: '/articoli-svizzera/prezzi-immobili-svizzera-giugno/', parent: 'blog' },
     'blog-gallarate-rho-lavori-luglio-2026': { name: 'Mobilità', path: '/articoli-frontaliere/gallarate-rho-lavori-luglio-2026', parent: 'blog' },
+    'blog-laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri': { name: 'L\'Accordo Italia-Svizzera del 2020 sulla', path: '/articoli-frontaliere/laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];
