@@ -39,7 +39,7 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import { COMPANY_ROUTE_PREFIX } from './shared/cantonSection';
 import { buildCanonicalBridgePage } from './constants';
 import { isBrandAlias, resolveBrandCanonical } from './shared/brandCanonicalMap';
-import { buildTitleWithBrand } from './shared/titleSuffix';
+import { buildTitleWithBrand, composePlaceTitle } from './shared/titleSuffix';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -99,7 +99,11 @@ interface BridgeCopy {
 
 const COPY: Record<Locale, BridgeCopy> = {
   it: {
-    matchedTitle: (c, n) => `Offerte di lavoro ${c} — ${n} annunci attivi`,
+    matchedTitle: (c, n) => composePlaceTitle([
+      `Offerte di lavoro ${c} — ${n} annunci attivi`,
+      `Offerte di lavoro ${c} — ${n} annunci`,
+      `Offerte di lavoro ${c}`,
+    ]),
     matchedDescription: (c, n) => `${n} annunci attivi di ${c} per frontalieri italo-svizzeri. Stipendio netto Permit G/B, fiscalità Accordo 2026, mappa pendolarismo TILO.`,
     matchedH1: (c, n) => `${n} annunci di ${c}`,
     matchedLede: (c, n) => `Trovi ${n} annunci attivi di ${c} aggiornati ogni giorno. Ogni offerta riporta il calcolo automatico dello stipendio netto Permit G (vivere in Italia) vs Permit B (vivere in Svizzera), le tempistiche di pendolarismo verso il confine ticinese e le agevolazioni fiscali introdotte dal Nuovo Accordo bilaterale italo-svizzero del 2026.`,
@@ -110,7 +114,11 @@ const COPY: Record<Locale, BridgeCopy> = {
     browseAllLabel: 'Sfoglia tutti gli annunci attivi',
   },
   en: {
-    matchedTitle: (c, n) => `Jobs at ${c} — ${n} cross-border openings`,
+    matchedTitle: (c, n) => composePlaceTitle([
+      `Jobs at ${c} — ${n} cross-border openings`,
+      `Jobs at ${c} — ${n} openings`,
+      `Jobs at ${c}`,
+    ]),
     matchedDescription: (c, n) => `${n} active openings at ${c} for Italian-Swiss cross-border workers. Permit G/B net salary, 2026 bilateral agreement tax adjustments, TILO commute map.`,
     matchedH1: (c, n) => `${n} openings at ${c}`,
     matchedLede: (c, n) => `Find ${n} active openings at ${c}, updated daily. Each listing carries the automatic net-salary calculation under Permit G (commuting from Italy) vs Permit B (Swiss residency), commute timetables to the Ticino border and the tax adjustments introduced by the 2026 Italy-Switzerland bilateral agreement.`,
@@ -121,7 +129,11 @@ const COPY: Record<Locale, BridgeCopy> = {
     browseAllLabel: 'Browse all active listings',
   },
   de: {
-    matchedTitle: (c, n) => `Stellen bei ${c} — ${n} aktive Inserate`,
+    matchedTitle: (c, n) => composePlaceTitle([
+      `Stellen bei ${c} — ${n} aktive Inserate`,
+      `Stellen bei ${c} — ${n} Inserate`,
+      `Stellen bei ${c}`,
+    ]),
     matchedDescription: (c, n) => `${n} aktive Stellen bei ${c} für italienisch-schweizerische Grenzgänger. Permit G/B Nettolohn, Steuer-Anpassungen Abkommen 2026, TILO-Pendelfahrpläne.`,
     matchedH1: (c, n) => `${n} Inserate von ${c}`,
     matchedLede: (c, n) => `Finden Sie ${n} aktive Stellen bei ${c}, täglich aktualisiert. Jedes Inserat enthält die automatische Nettolohn-Berechnung unter Permit G (Pendeln aus Italien) vs Permit B (Wohnsitz Schweiz), Pendlerfahrpläne zur Tessiner Grenze und die steuerlichen Anpassungen des neuen italienisch-schweizerischen Abkommens 2026.`,
@@ -132,7 +144,11 @@ const COPY: Record<Locale, BridgeCopy> = {
     browseAllLabel: 'Alle aktiven Stellen ansehen',
   },
   fr: {
-    matchedTitle: (c, n) => `Emplois chez ${c} — ${n} offres actives`,
+    matchedTitle: (c, n) => composePlaceTitle([
+      `Emplois chez ${c} — ${n} offres actives`,
+      `Emplois chez ${c} — ${n} offres`,
+      `Emplois chez ${c}`,
+    ]),
     matchedDescription: (c, n) => `${n} offres actives chez ${c} pour frontaliers italo-suisses. Salaire net Permit G/B, ajustements fiscaux Accord 2026, horaires TILO.`,
     matchedH1: (c, n) => `${n} annonces de ${c}`,
     matchedLede: (c, n) => `Trouvez ${n} offres actives chez ${c}, mises à jour quotidiennement. Chaque annonce inclut le calcul automatique du salaire net sous Permit G (frontalier depuis l'Italie) vs Permit B (résidence suisse), les horaires de transport vers la frontière tessinoise et les ajustements fiscaux du nouvel Accord bilatéral italo-suisse 2026.`,
