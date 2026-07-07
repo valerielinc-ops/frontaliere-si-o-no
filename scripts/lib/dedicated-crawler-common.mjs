@@ -4000,7 +4000,10 @@ export function validateDedicatedLocaleCoverage({
   untranslatedCheck = true,
   sampleLimit = 30,
   minSourceDescriptionCharsForHardValidation = minDescriptionChars,
-  maxToleratedMissingDescriptions = 0,
+  // null = "caller didn't set one" (distinct from an explicit 0, which means
+  // "this source wants zero tolerance" and must be respected verbatim — see
+  // FRO-628 below).
+  maxToleratedMissingDescriptions = null,
   // Injectable for tests; defaults to the live free-translate cascade metrics.
   getCascadeStatsFn = getCascadeStats,
 }) {
@@ -4157,7 +4160,22 @@ export function validateDedicatedLocaleCoverage({
       'missing_description', 'untranslated_description',
       'missing_title', 'untranslated_title',
     ]);
-    let effectiveTolerance = maxToleratedMissingDescriptions;
+    // FRO-628 (2026-07-07): crawlers that never set an explicit tolerance
+    // defaulted to 0 — a single untranslated job (one transient 429 mid-run)
+    // discarded the ENTIRE batch, including every other successfully
+    // translated job (#3783: ALTEN lost 3/3 jobs over 1 bad locale, and
+    // ~105 sibling crawlers share the same implicit-0 gap). Give the unset
+    // case a size-proportional floor instead — small enough that a genuine
+    // systemic translation break (most/all jobs affected) still hard-fails.
+    // Callers that DO set an explicit value (including 0, e.g. a source
+    // whose content-quality bar demands zero tolerance) keep it verbatim;
+    // this floor only fills in when nothing was configured.
+    const usedExplicitTolerance = maxToleratedMissingDescriptions !== null;
+    const DEFAULT_TRANSLATION_TOLERANCE_RATIO = Number(process.env.JOBS_TRANSLATION_TOLERANCE_RATIO) || 0.2;
+    const ratioTolerance = Math.max(1, Math.ceil(jobs.length * DEFAULT_TRANSLATION_TOLERANCE_RATIO));
+    let effectiveTolerance = usedExplicitTolerance
+      ? maxToleratedMissingDescriptions
+      : ratioTolerance;
 
     // Detect whether the translation INFRASTRUCTURE is down (vs an individual
     // job's translation being absent). Two independent layers can fail: the LLM
@@ -4226,6 +4244,25 @@ export function validateDedicatedLocaleCoverage({
         console.warn(`⚠️  Tolerating ${translationIssues.length} translation issue(s) (tolerance ${effectiveTolerance}): ${sample}${suffix}`);
         softIssues.push(...translationIssues);
         blockingIssues.length = 0;
+        // FRO-628 visibility: this specific commit-would-succeed path only
+        // exists because of the NEW ratio floor (an explicit tolerance was
+        // already silent pre-existing behavior for 26+ crawlers — not
+        // touched here). validateDedicatedLocaleCoverage is called
+        // synchronously by ~130 crawler scripts, so a GitHub issue (async,
+        // requires gh auth that isn't guaranteed outside CI) isn't a safe
+        // fire-and-forget here; the run's own Step Summary is — it's
+        // synchronous, needs no auth, and is exactly where a human already
+        // looks after an anomalous run.
+        if (!usedExplicitTolerance && process.env.GITHUB_STEP_SUMMARY) {
+          try {
+            fs.appendFileSync(
+              process.env.GITHUB_STEP_SUMMARY,
+              `\n⚠️ **${label}**: tolerated ${translationIssues.length} translation issue(s) ` +
+              `(proportional tolerance ${effectiveTolerance}/${jobs.length} jobs): ${sample}${suffix}\n` +
+              `Recovered by translate-pending.yml; will hard-fail deploy via validate-translation-completeness.mjs if still missing.\n`,
+            );
+          } catch { /* best-effort only */ }
+        }
       }
     }
   }
