@@ -4404,6 +4404,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gaggiolo-traffico': { name: 'Traffico al valico di Gaggiolo', path: '/articoli-frontaliere/gaggiolo-traffico', parent: 'blog' },
     'blog-lohn-denner-verkauf-2024': { name: 'Commercio di bestiame', path: '/articoli-svizzera/lohn-denner-verkauf-2024/', parent: 'blog' },
     'blog-axa-manno': { name: 'Axa Manno', path: '/articoli-frontaliere/axa-manno', parent: 'blog' },
+    'blog-gazzetta-ufficiale-legge-30-dicembre-2024-n-207': { name: 'Legge di Bilancio 2025', path: '/articoli-svizzera/gazzetta-ufficiale-legge-30-dicembre-2024-n-207/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

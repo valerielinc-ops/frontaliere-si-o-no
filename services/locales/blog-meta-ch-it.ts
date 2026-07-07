@@ -934,6 +934,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lohn-denner-verkauf-2024.title': 'Loihn denner: Nuove regole per il commercio di bestiame',
     'blog.article.lohn-denner-verkauf-2024.excerpt': 'Dal 1° gennaio 2024, nuove regole per il commercio di bestiame in Svizzera.',
     'blog.article.lohn-denner-verkauf-2024.imageAlt': 'Un frontaliere in una caffetteria a Lugano.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.title': 'Legge di Bilancio 2025: lavoro, previdenza e fisco',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.excerpt': 'La Legge di Bilancio 2025 prevede modifiche importanti per i frontalieri, tra cui un aumento delle franchigie per i redditi da lavoro.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.imageAlt': 'Immagine fotorealistica di una scena svizzera a livello nazionale.',
 };
 
 export default blogMetaChIt;

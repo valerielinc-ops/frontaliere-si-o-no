@@ -934,6 +934,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lohn-denner-verkauf-2024.title': 'Loihn denner: Neue Regeln für den Viehhandel',
     'blog.article.lohn-denner-verkauf-2024.excerpt': 'Ab dem 1. Januar 2024 neue Regeln für den Viehhandel in der Schweiz.',
     'blog.article.lohn-denner-verkauf-2024.imageAlt': 'Ein Frontalier in einem Luganer Café.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.title': 'Haushaltsgesetz 2025: Arbeit, Vorsorge und Steuern',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.excerpt': 'Das Haushaltsgesetz 2025 sieht wichtige Änderungen für Grenzgänger vor, darunter eine Erhöhung der Selbstbehalte für Arbeitseinkommen.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.imageAlt': 'Bild einer schweizerischen nationalen Szene.',
 };
 
 export default blogMetaChDe;
