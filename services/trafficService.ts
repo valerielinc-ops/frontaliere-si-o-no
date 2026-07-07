@@ -15,6 +15,10 @@ import { borderCrossings as centralizedCrossings } from '../data/borderCrossings
 import borderWaitCurrent from '../data/border-wait-current.json';
 import { slugifyCrossingName } from './borderCrossingSlug';
 
+const IS_TEST_ENV = typeof process !== 'undefined' && (process.env.NODE_ENV === 'test' || !!process.env.VITEST);
+const TRAFFIC_LS_KEY = 'traffic_current_cache';
+const TRAFFIC_LS_TTL_MS = 5 * 60 * 1000; // 5 minutes
+
 interface BorderCrossingCoordinates {
  name: string;
 }
@@ -57,17 +61,66 @@ export function hasLiveTrafficData(data: TrafficData[]): boolean {
 }
 
 class TrafficService {
+ private readLocalCache(): TrafficData[] | null {
+ if (IS_TEST_ENV) return null;
+ try {
+ const raw = localStorage.getItem(TRAFFIC_LS_KEY);
+ if (!raw) return null;
+ const parsed = JSON.parse(raw);
+ if (!Array.isArray(parsed?.data) || typeof parsed.timestamp !== 'number') return null;
+ if ((Date.now() - parsed.timestamp) >= TRAFFIC_LS_TTL_MS) return null;
+ return (parsed.data as Array<{
+ crossingName: string; waitTimeMinutes: number; status: string; direction: string;
+ lastUpdateMs: number; source: string; approachMinutes?: number; totalCrossingMinutes?: number;
+ }>).map(d => ({
+ crossingName: d.crossingName,
+ waitTimeMinutes: d.waitTimeMinutes,
+ status: d.status as TrafficData['status'],
+ direction: d.direction,
+ lastUpdate: new Date(d.lastUpdateMs),
+ source: d.source as TrafficData['source'],
+ approachMinutes: d.approachMinutes,
+ totalCrossingMinutes: d.totalCrossingMinutes,
+ }));
+ } catch { return null; }
+ }
+
+ private writeLocalCache(data: TrafficData[]): void {
+ if (IS_TEST_ENV) return;
+ try {
+ localStorage.setItem(TRAFFIC_LS_KEY, JSON.stringify({
+ data: data.map(d => ({
+ crossingName: d.crossingName,
+ waitTimeMinutes: d.waitTimeMinutes,
+ status: d.status,
+ direction: d.direction,
+ lastUpdateMs: d.lastUpdate.getTime(),
+ source: d.source,
+ approachMinutes: d.approachMinutes,
+ totalCrossingMinutes: d.totalCrossingMinutes,
+ })),
+ timestamp: Date.now(),
+ }));
+ } catch { /* ignore */ }
+ }
+
  /**
  * Priority order:
- * 1. Firestore `trafficCurrent` collection — written by the scheduled collector.
- * 2. Committed snapshot (data/border-wait-current.json) — last-known REAL values,
+ * 1. localStorage cache (fresh < 5 min) — skip Firestore on repeat page loads.
+ * 2. Firestore `trafficCurrent` collection — written by the scheduled collector.
+ * 3. Committed snapshot (data/border-wait-current.json) — last-known REAL values,
  *    the same source the static /traffico-dogane/.../oggi/ pages render, used
  *    when no fresh Firestore data is available. Never random/fabricated (#2997).
  */
  async getTrafficData(): Promise<TrafficData[]> {
+ // 1. Fresh localStorage cache
+ const cached = this.readLocalCache();
+ if (cached) return cached;
+
  try {
  const firestoreData = await this.getTrafficDataFromFirestore();
  if (firestoreData.length > 0) {
+ this.writeLocalCache(firestoreData);
  return firestoreData;
  }
  } catch (error) {
@@ -169,12 +222,11 @@ class TrafficService {
  }
 
  /**
- * Retained for callers that force a refresh (e.g. MorningDashboard). There is
- * no client-side cache anymore — `getTrafficData()` always re-reads Firestore
- * — so this is a no-op kept for API compatibility.
+ * Clears the localStorage cache so the next `getTrafficData()` call re-reads
+ * Firestore. Called by tests (beforeEach) and by callers that force a refresh.
  */
  clearCache() {
- /* no-op: live data is re-fetched on every getTrafficData() call */
+ try { localStorage.removeItem(TRAFFIC_LS_KEY); } catch { /* ignore */ }
  }
 }
 
