@@ -13,13 +13,16 @@ const WORKFLOWS_DIR = resolve(ROOT, '.github/workflows');
 // Consolidation (2026-07): these 3 crawlers no longer have their own
 // `.github/workflows/update-jobs-{slug}.yml` — they were folded into grouped
 // `crawler-group-*.yml` workflows as `background: true` steps (see
-// scripts/generate-crawler-group-workflows.mjs). Each crawler's entire
-// original step sequence (including its own env values) is inlined verbatim
-// as shell `export KEY="value"` lines inside that step's `run:` body. Rather
-// than hardcode which group each crawler currently lands in (bin-packing can
-// reassign groups whenever the generator re-runs), locate the crawler's own
-// background step by its stable `name: Run <slug>` marker in whichever
-// group file currently contains it.
+// scripts/generate-crawler-group-workflows.mjs). Each crawler's own env
+// values (including GH_TOKEN for the commit-and-push phase) are declared in
+// that step's own YAML `env:` map rather than spliced into the shell body
+// (root-cause fix for #3713: a text-spliced `${{ ... }}` resolves to literal
+// text before the shell parses the line, which is an injection risk for any
+// expression an actor can influence). Rather than hardcode which group each
+// crawler currently lands in (bin-packing can reassign groups whenever the
+// generator re-runs), locate the crawler's own background step by its
+// stable `name: Run <slug>` marker in whichever group file currently
+// contains it.
 const DEDICATED_CRAWLER_SLUGS = ['spital-lachen', 'hopital-de-lavaux', 'hoch-health'] as const;
 
 function findCrawlerBlock(slug: string): string {
@@ -56,16 +59,22 @@ describe('git-commit-data.sh GitHub auth hardening', () => {
 });
 
 describe('dedicated crawlers using git-commit-data.sh (now inlined in crawler-group-*.yml)', () => {
-  it('pass github.token explicitly for the commit-and-push phase of affected crawlers', () => {
+  it('pass GH_TOKEN via the step env: map (never spliced into the shell body)', () => {
     for (const slug of DEDICATED_CRAWLER_SLUGS) {
       const block = findCrawlerBlock(slug);
-      // Verbatim per-crawler shell body: `export GH_TOKEN="${{ github.token }}"`
-      // set right before the `flock ... git-commit-data.sh` invocation in the
-      // "Commit and push" phase (see buildCrawlerShellBody in
-      // scripts/generate-crawler-group-workflows.mjs).
-      expect(block, `crawler '${slug}' missing GH_TOKEN=github.token before commit-and-push`).toMatch(
-        /Commit and push[\s\S]*?export GH_TOKEN="\$\{\{ github\.token \}\}"[\s\S]*?git-commit-data\.sh/,
+      // Root-cause fix for #3713: GH_TOKEN must be declared in the step's own
+      // YAML `env:` map, resolved directly to a process env var by GitHub —
+      // never text-spliced as `export GH_TOKEN="${{ ... }}"` into the run
+      // body, where GitHub substitutes the expression to literal text before
+      // the shell parses the line (injection risk for any actor-controlled
+      // value that could contain `"` or a backtick).
+      expect(block, `crawler '${slug}' missing GH_TOKEN in step env:`).toMatch(
+        /env:\n(?:.*\n)*?\s+GH_TOKEN: \$\{\{ (?:secrets\.GITHUB_TOKEN|github\.token) \}\}/,
       );
+      expect(
+        block,
+        `crawler '${slug}' still splices GH_TOKEN into the shell body instead of using step env:`,
+      ).not.toMatch(/export GH_TOKEN=/);
     }
   });
 });
