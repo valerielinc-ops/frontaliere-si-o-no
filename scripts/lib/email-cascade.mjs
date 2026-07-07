@@ -68,6 +68,14 @@ const PROVIDERS = [
 
 // In-memory daily counters (reset on new UTC day)
 const _counters = {};
+// Real successful-send counts, tracked separately from `_counters` — the latter
+// also gets force-incremented to full quota when a provider is detected as
+// rate-limited/exhausted (see incrementCounter call in sendSingle's catch
+// branch), so it reflects "quota consumed" not "emails actually delivered".
+// Conflating the two made the provider summary table (logProviderSummary)
+// show e.g. "Sent: 100" for a provider that failed on its very first attempt
+// and delivered zero emails this run (2026-07-07 incident).
+const _realSentCounts = {};
 let _counterDate = '';
 let _quotasSynced = false;
 
@@ -79,7 +87,7 @@ function getCounter(providerId) {
   const today = getTodayUTC();
   if (_counterDate !== today) {
     _counterDate = today;
-    for (const p of PROVIDERS) _counters[p.id] = 0;
+    for (const p of PROVIDERS) { _counters[p.id] = 0; _realSentCounts[p.id] = 0; }
     _quotasSynced = false;
   }
   return _counters[providerId] || 0;
@@ -88,6 +96,11 @@ function getCounter(providerId) {
 function incrementCounter(providerId, count) {
   getCounter(providerId); // ensure initialized
   _counters[providerId] = (_counters[providerId] || 0) + count;
+}
+
+function recordRealSent(providerId) {
+  getCounter(providerId); // ensure initialized (shares the day-rollover check)
+  _realSentCounts[providerId] = (_realSentCounts[providerId] || 0) + 1;
 }
 
 function remainingQuota(providerId) {
@@ -742,6 +755,14 @@ function isSoftThrottleError(msg) {
 // Short cooldown for soft-throttled providers (mirrors the AI-model
 // provider cooldown in ai-models.mjs) — provider skipped for a bit,
 // quota counter left untouched so it resumes once the burst window clears.
+// Deliberately NOT retried-with-wait even when it's the sole remaining
+// provider with quota left (2026-07-07 review): waiting out the cooldown
+// and re-hitting the same endpoint is exactly the hammering behaviour this
+// cooldown was introduced to stop, and CF's REST error body carries no
+// Retry-After we could honor instead of guessing — see
+// tests/email-cascade-burst.test.ts "cools down cloudflare after a code=10004
+// soft throttle" for the invariant this preserves (skip immediately, no
+// retry within the same run).
 const PROVIDER_COOLDOWN_MS = 30_000;
 const _providerCooldownUntil = {};
 
@@ -761,9 +782,13 @@ async function sendSingle(email, forceProvider, finalizeForProvider) {
     : PROVIDERS;
 
   for (const provider of providers) {
-    if (!isProviderConfigured(provider.id)) continue;
-    if (remainingQuota(provider.id) <= 0) continue;
-    if (isProviderCoolingDown(provider.id)) continue;
+    if (!isProviderConfigured(provider.id)) { errors.push(`[${provider.id}] not configured`); continue; }
+    if (remainingQuota(provider.id) <= 0) { errors.push(`[${provider.id}] quota exhausted (${getCounter(provider.id)}/${provider.dailyLimit})`); continue; }
+    if (isProviderCoolingDown(provider.id)) {
+      const waitMs = (_providerCooldownUntil[provider.id] || 0) - Date.now();
+      errors.push(`[${provider.id}] cooling down${waitMs > 0 ? ` (${Math.ceil(waitMs / 1000)}s left)` : ''}`);
+      continue;
+    }
 
     try {
       // Optional hook: let the caller finalize the payload for the provider that
@@ -774,6 +799,7 @@ async function sendSingle(email, forceProvider, finalizeForProvider) {
       }
       const result = await SEND_FNS[provider.id](email);
       incrementCounter(provider.id, 1);
+      recordRealSent(provider.id);
       return result;
     } catch (err) {
       errors.push(`[${provider.id}] ${err.message}`);
@@ -781,7 +807,7 @@ async function sendSingle(email, forceProvider, finalizeForProvider) {
         cooldownProvider(provider.id);
       } else if (isRateLimitedError(err.message)) {
         incrementCounter(provider.id, remainingQuota(provider.id));
-        console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run`);
+        console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run: ${err.message.slice(0, 150)}`);
       }
     }
   }
@@ -914,7 +940,13 @@ export function getProviderStats() {
     id: p.id,
     configured: isProviderConfigured(p.id),
     dailyLimit: p.dailyLimit,
-    sent: getCounter(p.id),
+    sent: _realSentCounts[p.id] || 0,
+    // Quota marked used-up without a matching real send — happens when a
+    // provider is detected as rate-limited/exhausted (its quota jumps to the
+    // daily cap in one step so the cascade stops retrying it) rather than
+    // consumed one real send at a time. Non-zero here means "Sent" alone
+    // undercounts why Remaining is low.
+    benched: Math.max(0, getCounter(p.id) - (_realSentCounts[p.id] || 0)),
     remaining: remainingQuota(p.id),
   }));
 }
@@ -924,11 +956,11 @@ export function getProviderStats() {
  */
 export function logProviderSummary() {
   console.log('\n📊 Email Provider Summary:');
-  console.log('   Provider     | Configured | Sent | Remaining | Daily Limit');
-  console.log('   -------------|------------|------|-----------|-----------');
+  console.log('   Provider     | Configured | Sent | Benched | Remaining | Daily Limit');
+  console.log('   -------------|------------|------|---------|-----------|-----------');
   for (const stat of getProviderStats()) {
     const cfg = stat.configured ? '✅' : '❌';
-    console.log(`   ${stat.id.padEnd(12)} | ${cfg.padEnd(10)} | ${String(stat.sent).padEnd(4)} | ${String(stat.remaining).padEnd(9)} | ${stat.dailyLimit}`);
+    console.log(`   ${stat.id.padEnd(12)} | ${cfg.padEnd(10)} | ${String(stat.sent).padEnd(4)} | ${String(stat.benched).padEnd(7)} | ${String(stat.remaining).padEnd(9)} | ${stat.dailyLimit}`);
   }
 }
 
