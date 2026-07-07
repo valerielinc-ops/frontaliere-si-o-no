@@ -21,13 +21,16 @@
  *      myswitzerland) and the TI-only tio-agenda crawler can each index the
  *      SAME physical event under a different `<sourceKey>:<rawId>` id, so the
  *      by-id merge above does not catch it. A second pass groups the
- *      survivors by `(normalized title, startDate, normalized comune)` and,
- *      ONLY when a group spans 2+ DISTINCT sources, collapses it down to the
- *      single richest record — see `dedupeFuzzy` below for the scoring/
- *      tie-break rule. A same-source collision (e.g. two different events
- *      that happen to share a generic title and a low-confidence
- *      region-fallback comune) is left untouched — merging those would risk
- *      silently dropping a genuine event.
+ *      survivors by `(normalized title, startDate, normalized comune)` and
+ *      collapses a group down to the single richest record when either
+ *      (a) it spans 2+ DISTINCT sources, or (b) it is a single-source group
+ *      whose members ALSO carry near-identical `geo` coordinates (issue
+ *      #3744: the same source can re-index its own event under a second raw
+ *      id/URL) — see `dedupeFuzzy` below for the scoring/tie-break rule and
+ *      geo tolerance. A same-source collision WITHOUT a geo match (e.g. two
+ *      different events that happen to share a generic title and a
+ *      low-confidence region-fallback comune) is left untouched — merging
+ *      those would risk silently dropping a genuine event.
  *   4. Italian frontier comuni geo-link (issue #3125): every assembled event
  *      that carries `geo` but has no `italianFrontierComuni` yet (a crawler
  *      may already have attached it) gets `resolveItalianFrontierComuni`
@@ -52,6 +55,7 @@ import {
   isoDay,
   normalizeText,
   resolveItalianFrontierComuni,
+  haversineKm,
 } from './lib/events-utils.mjs';
 
 function readSlices() {
@@ -135,19 +139,86 @@ export function pickRichestEvent(group) {
   })[0];
 }
 
+// Same-source geo-match tolerance (issue #3744): a single crawler can emit
+// two records for the SAME physical event under different objectIDs/URLs
+// (observed: myswitzerland's "Heididorf Saisoneröffnung" indexed twice, same
+// startDate/comune and EXACT geo, two different objectIDs). 50m is tight
+// enough to only catch true re-indexing dupes — two genuinely different
+// venues that happen to share a generic title/date/region-fallback comune
+// are not normally 50m apart — while still tolerant of float rounding in the
+// source coordinates.
+const SAME_SOURCE_GEO_TOLERANCE_KM = 0.05;
+
+function hasGeo(ev) {
+  return (
+    typeof ev?.geo?.lat === 'number' &&
+    typeof ev?.geo?.lng === 'number' &&
+    Number.isFinite(ev.geo.lat) &&
+    Number.isFinite(ev.geo.lng)
+  );
+}
+
 /**
- * Collapse fuzzy cross-source duplicates. Returns the deduped event list plus
- * how many records were merged away (for --stats reporting).
+ * Partition a same-`sourceKey` fuzzy-dedup group (already collided on
+ * title+startDate+comune) into geo-match clusters — 2+ members within
+ * `SAME_SOURCE_GEO_TOLERANCE_KM` of each other, chained transitively so a
+ * rare 3-way same-source duplicate still collapses to one cluster — plus the
+ * leftover singles (events with no `geo`, or whose `geo` doesn't match anyone
+ * else in the group). Reuses the shared `haversineKm` helper
+ * (scripts/lib/events-utils.mjs) rather than re-implementing great-circle
+ * distance here (AGENTS.md §6).
+ */
+function clusterBySameGeo(group) {
+  const withGeo = group.filter(hasGeo);
+  const singles = group.filter((ev) => !hasGeo(ev));
+  const clusters = [];
+  const assigned = new Set();
+  for (let i = 0; i < withGeo.length; i += 1) {
+    if (assigned.has(i)) continue;
+    const cluster = [withGeo[i]];
+    assigned.add(i);
+    let grew = true;
+    while (grew) {
+      grew = false;
+      for (let j = 0; j < withGeo.length; j += 1) {
+        if (assigned.has(j)) continue;
+        const withinTolerance = cluster.some(
+          (member) =>
+            haversineKm(member.geo.lat, member.geo.lng, withGeo[j].geo.lat, withGeo[j].geo.lng) <=
+            SAME_SOURCE_GEO_TOLERANCE_KM,
+        );
+        if (withinTolerance) {
+          cluster.push(withGeo[j]);
+          assigned.add(j);
+          grew = true;
+        }
+      }
+    }
+    if (cluster.length > 1) clusters.push(cluster);
+    else singles.push(cluster[0]);
+  }
+  return { clusters, singles };
+}
+
+/**
+ * Collapse fuzzy duplicates. Returns the deduped event list plus how many
+ * records were merged away (for --stats reporting).
  *
- * Deliberately scoped to groups spanning >= 2 DISTINCT `sourceKey`s. A group
- * that collides on title+startDate+comune but comes entirely from a single
- * source is left untouched — e.g. two unrelated "Street Food" events on the
- * same day both region-resolved (low-confidence fallback) to the same
- * representative comune are a real, observed false-positive collision that
- * must not eat a genuine second event. Same-source id collisions are each
- * source's own responsibility (and are already deduped by the by-id merge
- * above); this pass only exists to catch the SAME physical event indexed
- * independently by two-or-more different crawlers.
+ * Two collapse conditions on a title+startDate+comune group:
+ *   - >= 2 DISTINCT `sourceKey`s (issue #3125) — the SAME physical event
+ *     indexed independently by two-or-more different crawlers.
+ *   - a single-source group whose members ALSO carry `geo` coordinates
+ *     within `SAME_SOURCE_GEO_TOLERANCE_KM` of each other (issue #3744) —
+ *     the same source re-indexed its own event under a second raw id/URL.
+ *
+ * A single-source group WITHOUT a geo match (e.g. two unrelated "Street
+ * Food" events on the same day both region-resolved — low-confidence
+ * fallback — to the same representative comune) is left untouched — a real,
+ * observed false-positive collision that must not eat a genuine second
+ * event. Geo is the only signal that discriminates a true same-source
+ * duplicate from that false positive; events with no `geo` on either side
+ * never collapse via this path (they may still collapse via the
+ * cross-source condition above if applicable).
  */
 export function dedupeFuzzy(events) {
   const groups = new Map();
@@ -159,9 +230,18 @@ export function dedupeFuzzy(events) {
   const out = [];
   let mergedAway = 0;
   for (const group of groups.values()) {
-    const distinctSources = new Set(group.map((ev) => ev.sourceKey || String(ev.id || '').split(':')[0]));
-    if (group.length === 1 || distinctSources.size < 2) {
+    if (group.length === 1) {
       out.push(...group);
+      continue;
+    }
+    const distinctSources = new Set(group.map((ev) => ev.sourceKey || String(ev.id || '').split(':')[0]));
+    if (distinctSources.size < 2) {
+      const { clusters, singles } = clusterBySameGeo(group);
+      for (const cluster of clusters) {
+        mergedAway += cluster.length - 1;
+        out.push(pickRichestEvent(cluster));
+      }
+      out.push(...singles);
       continue;
     }
     mergedAway += group.length - 1;
