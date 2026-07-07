@@ -9,7 +9,14 @@ describe('scripts/lib/git-commit-data.sh authentication', () => {
     const source = readFileSync(SCRIPT, 'utf8');
     const configureIndex = source.indexOf('ensure_git_auth()');
     const callIndex = source.indexOf('ensure_git_auth', configureIndex + 1);
-    const fetchIndex = source.indexOf('git fetch origin main');
+    // `git fetch origin main` is wrapped in a git_fetch_retry() helper (retry
+    // on transient network errors under set -e — issue #3771/#3774) whose
+    // definition appears before the first real call site, so indexOf('git
+    // fetch origin main') now matches inside the helper's own body instead of
+    // an actual invocation. Locate the first real *call* of the helper
+    // (its definition + the following occurrence) instead.
+    const fetchDefIndex = source.indexOf('git_fetch_retry()');
+    const fetchCallIndex = source.indexOf('git_fetch_retry', fetchDefIndex + 1);
     const pushIndex = source.indexOf('git push origin main');
 
     expect(configureIndex).toBeGreaterThan(-1);
@@ -18,7 +25,7 @@ describe('scripts/lib/git-commit-data.sh authentication', () => {
     expect(source).not.toContain('GITHUB_PAT:-');
     expect(source).toContain('git config --local http.https://github.com/.extraheader');
     expect(callIndex).toBeGreaterThan(configureIndex);
-    expect(callIndex).toBeLessThan(fetchIndex);
+    expect(callIndex).toBeLessThan(fetchCallIndex);
     expect(callIndex).toBeLessThan(pushIndex);
   });
 });
