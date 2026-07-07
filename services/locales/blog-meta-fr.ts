@@ -8303,6 +8303,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.axa-manno.title': 'Axa Manno : conseiller en assurance pour les frontaliers',
     'blog.article.axa-manno.excerpt': 'Axa Manno est un conseiller en assurance spécialisé dans les services aux frontaliers.',
     'blog.article.axa-manno.imageAlt': 'Une rue à Lugano avec un pendulaire qui vérifie son smartphone.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Nouvel accord frontalier : qu\'est-ce qui change pour les frontaliers au Tessin ?',
+    'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Le nouvel accord frontalier entre en vigueur le 1er janvier 2024. C\'est ce qui change pour les frontaliers au Tessin.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Un pendulaire à la gare de Chiasso',
 };
 
 export default blogMetaFr;
