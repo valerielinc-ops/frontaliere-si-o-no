@@ -934,6 +934,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lohn-denner-verkauf-2024.title': 'Loihn denner: New rules for livestock trade',
     'blog.article.lohn-denner-verkauf-2024.excerpt': 'From 1 January 2024, new rules for livestock trade in Switzerland.',
     'blog.article.lohn-denner-verkauf-2024.imageAlt': 'A frontalier in a Lugano café.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.title': 'Budget Law 2025: employment, social security and taxation',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.excerpt': 'The 2025 Budget Law provides for important changes for frontier workers, including an increase in deductibles for employment income.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.imageAlt': 'Image of a Swiss national scene.',
 };
 
 export default blogMetaChEn;

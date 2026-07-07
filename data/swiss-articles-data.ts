@@ -2798,6 +2798,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'gazzetta-ufficiale-legge-30-dicembre-2024-n-207',
+    category: 'pratico',
+    date: '2026-07-07T02:08:26.726Z',
+    image: '/images/blog/gazzetta-ufficiale-legge-30-dicembre-2024-n-207.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
