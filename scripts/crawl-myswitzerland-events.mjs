@@ -328,14 +328,22 @@ export function extractPrice(ld) {
   return undefined;
 }
 
-/** {street, postalCode} from JSON-LD `location.address` (PostalAddress), or undefined. */
+/**
+ * {street, postalCode, locality, region} from JSON-LD `location.address`
+ * (PostalAddress), or undefined. `locality`/`region` (issue #3739) surface
+ * `addressLocality`/`addressRegion` so the caller can pass the region as a
+ * high-confidence canton hint into `resolveComuneNationwide` instead of
+ * relying solely on venue/title text-matching.
+ */
 export function extractAddress(ld) {
   const addr = ld?.location?.address;
   if (!addr || typeof addr !== 'object') return undefined;
   const street = typeof addr.streetAddress === 'string' && addr.streetAddress.trim() ? addr.streetAddress.trim() : undefined;
   const postalCode = typeof addr.postalCode === 'string' && addr.postalCode.trim() ? addr.postalCode.trim() : undefined;
-  if (!street && !postalCode) return undefined;
-  return { street, postalCode };
+  const locality = typeof addr.addressLocality === 'string' && addr.addressLocality.trim() ? addr.addressLocality.trim() : undefined;
+  const region = typeof addr.addressRegion === 'string' && addr.addressRegion.trim() ? addr.addressRegion.trim() : undefined;
+  if (!street && !postalCode && !locality && !region) return undefined;
+  return { street, postalCode, locality, region };
 }
 
 /** Returns true if `name` matches any name in a schema.org performer/organizer value (string | object | array). */
@@ -518,9 +526,15 @@ async function main() {
     const mapped = mapEventRecord(rec.objectID, rec.perLocaleHits, enrichment || {});
     if (mapped) {
       const { event, imageSourceUrl, place } = mapped;
+      // #3739: myswitzerland's own JSON-LD ships a clean 2-letter canton code
+      // as `location.address.addressRegion` (e.g. "SZ") — pass it as the
+      // high-confidence cantonHint instead of relying solely on venue/title
+      // text-matching against the current BFS comune list, which misses
+      // fused post-2011 comuni (Niederurnen -> Glarus Nord) and non-comune
+      // toponyms (Petersplatz, a square inside Basel).
       const { comune, canton } = resolveComuneNationwide(
         { venue: [event.venue, place].filter(Boolean).join(' '), title: event.title, region: undefined },
-        undefined,
+        event.address?.region,
       );
       event.comune = comune || undefined;
       event.canton = canton || '';

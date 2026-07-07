@@ -18,6 +18,7 @@ import {
   isLandingPageLive,
   run,
 } from '../scripts/schedule-fb-events-daily.mjs';
+import { UNRESOLVED_CANTON_KEY } from '../scripts/lib/events-utils.mjs';
 
 const EVENT = {
   id: 'tio-agenda:1',
@@ -161,16 +162,19 @@ describe('selectWeekendDigests', () => {
     { id: 'w', title: 'Festa', comune: 'Lugano', startDate: '2027-01-02' },
     { id: 'far', title: 'Altro', comune: 'Lugano', startDate: '2027-02-10' },
   ];
-  it('returns one payload ledgered by the weekend start date', () => {
+  it('routes canton-less events to the canton-neutral bucket, not Ticino (#3739)', () => {
     const [p] = selectWeekendDigests(events, '2027-01-01', new Set());
     expect(p).toBeTruthy();
-    expect(p?.id).toBe('weekend-digest-2027-01-02');
-    expect(p?.url).toBe(WEEKEND_DIGEST_URL);
+    expect(p?.id).toBe(`weekend-digest-${UNRESOLVED_CANTON_KEY}-2027-01-02`);
+    expect(p?.url).toBe(buildWeekendDigestUrl(UNRESOLVED_CANTON_KEY));
+    expect(p?.url).not.toBe(WEEKEND_DIGEST_URL);
     expect(p?.placeId).toBeNull(); // multi-comune roundup → no geo-anchor
-    expect(p?.canton).toBe('TI'); // canton-less events default to TI (legacy MVP scope)
+    expect(p?.canton).toBe(UNRESOLVED_CANTON_KEY);
   });
   it('returns [] when this weekend was already posted', () => {
-    expect(selectWeekendDigests(events, '2027-01-01', new Set(['weekend-digest-2027-01-02']))).toEqual([]);
+    expect(
+      selectWeekendDigests(events, '2027-01-01', new Set([`weekend-digest-${UNRESOLVED_CANTON_KEY}-2027-01-02`])),
+    ).toEqual([]);
   });
   it('returns [] when no events fall in the weekend window', () => {
     expect(selectWeekendDigests([events[1]], '2027-01-01', new Set())).toEqual([]);
