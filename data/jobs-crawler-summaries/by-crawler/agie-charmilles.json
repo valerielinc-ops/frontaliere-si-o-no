@@ -1,81 +1,18 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-07-07T12:18:02.033Z",
+  "generatedAt": "2026-07-07T22:33:16.111Z",
   "total": 56,
-  "newCount": 2,
-  "updatedCount": 41,
+  "newCount": 0,
+  "updatedCount": 42,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 93105,
-  "avgDurationMs": 93105,
+  "unchangedCount": 1,
+  "durationMs": 94656,
+  "avgDurationMs": 94656,
   "durationHistory": [
-    93105
+    94656
   ],
-  "newJobs": [
-    {
-      "title": "HR Business Partner 100%",
-      "slug": "hr-business-partner-100-agie-charmilles-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-hr-business-partner-100/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/979baf437acd51c199eb6205edc2a522e90c957d3f7b3fee286ef695e5bd0bf7fb86072b345578fb68a25df087ec96336bc403c1d7b8cbcbc6e27ca40db4a4",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Losone",
-      "addressLocality": "Losone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "hr",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
-    {
-      "title": "SAP Developer",
-      "slug": "sap-developer-agie-charmilles-bellinzone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-sap-developer/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/4a75b43c0e18f1c714cf23f21bb0c57f8570cdb1d37c484bc3497e4fd560bc2f0cdc307b31859fc7f575bf0a11acd763a1186a7813774a3759dbab9994d109",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Bellinzone",
-      "addressLocality": "Bellinzone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-07-07",
-      "employmentType": "temporary",
-      "contractType": "temporary",
-      "validThrough": "",
-      "workload": "100%",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Modern Workplace Specialist - Messaging, Identity & Device Management 100%",
@@ -112,6 +49,42 @@
         "richness": 20,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "title": "SAP Developer",
+      "slug": "sap-developer-agie-charmilles-bellinzone",
+      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-sap-developer/",
+      "applyUrl": "https://tracking.jobchannel.ch/redirect/4a75b43c0e18f1c714cf23f21bb0c57f8570cdb1d37c484bc3497e4fd560bc2f0cdc307b31859fc7f575bf0a11acd763a1186a7813774a3759dbab9994d109",
+      "company": "AGIE Charmilles SA",
+      "companyKey": "agie-charmilles",
+      "companyDomain": "gfms.com",
+      "location": "Bellinzone",
+      "addressLocality": "Bellinzone",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Macchine utensili",
+      "source": "agie-charmilles-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-07",
+      "employmentType": "temporary",
+      "contractType": "temporary",
+      "validThrough": "",
+      "workload": "100%",
+      "id": "agie-charmilles-e67647fb366d",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-07T12:18:02.026Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -1158,12 +1131,15 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Application Engineer - Advanced Technical Support 100%",
-      "slug": "application-engineer-advanced-technical-support-100-agie-charmilles-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-application-engineer-advanced-technical-support-100/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/04081e358449aabb6b50ece521b793a35f664befa4f9039445515a679e46c2bf695e4fde4ab05c71793c07dc885bdaded670612a22f80f4bba6d05a9a484c8",
+      "title": "HR Business Partner 100%",
+      "slug": "hr-business-partner-100-agie-charmilles-losone",
+      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-hr-business-partner-100/",
+      "applyUrl": "https://tracking.jobchannel.ch/redirect/979baf437acd51c199eb6205edc2a522e90c957d3f7b3fee286ef695e5bd0bf7fb86072b345578fb68a25df087ec96336bc403c1d7b8cbcbc6e27ca40db4a4",
       "company": "AGIE Charmilles SA",
       "companyKey": "agie-charmilles",
       "companyDomain": "gfms.com",
@@ -1173,31 +1149,29 @@
       "addressCountry": "CH",
       "canton": "TI",
       "country": "CH",
-      "category": "engineering",
+      "category": "hr",
       "sector": "Macchine utensili",
       "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "postedDate": "2026-07-07",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "id": "agie-charmilles-cb830ae5a0e0",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
+      "id": "agie-charmilles-b4e55adf9671",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Via Goldau 7",
       "postalCode": "6616",
-      "firstSeenAt": "2026-06-13T10:22:52.923Z",
-      "_qualityScore": 93,
+      "firstSeenAt": "2026-07-07T12:18:02.026Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
