@@ -238,18 +238,6 @@ jobs:
           # the deadlineMs abort and keeps local fallback available (it still
           # fires when reached) without the runaway ceiling.
           CREATE_ARTICLE_MAX_WALL_MS: ${{ steps.section.outputs.section == 'svizzera' && '1800000' || '3300000' }}
-          # Semantic near-dup gate base cosine (constants.mjs default 0.86,
-          # scaled up by corpus size, hard-capped at 0.95 — see
-          # computeAdaptiveNearDupCosine). Run 28850309199 (2026-07-07) burned
-          # ~50min rejecting 2 full candidates at cosine 0.943/0.948 — both
-          # above the then-effective 0.937 threshold for frontaliere's 2769-
-          # article corpus — leaving no wall-clock budget left for the local
-          # LLM fallback to finish before the run deadline, so the run
-          # produced zero articles. 0.89 pushes the effective threshold to
-          # the 0.95 ceiling for both sections at current corpus sizes,
-          # clearing near-miss rejects like that one while still blocking
-          # true near-exact duplicates (>=0.95).
-          NEAR_DUP_COSINE: '0.89'
         run: |
           echo "📰 Generating blog article (section=$TARGET_SECTION)..."
           if [ -n "${{ inputs.url }}" ]; then
