@@ -1,16 +1,58 @@
 {
   "key": "klinik-schuetzen",
   "label": "Klinik Schützen Rheinfelden",
-  "generatedAt": "2026-07-06T22:15:15.004Z",
-  "total": 0,
+  "generatedAt": "2026-07-07T22:12:52.273Z",
+  "total": 9,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 5458,
+  "avgDurationMs": 5458,
+  "durationHistory": [
+    5458
+  ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "klinik-schuetzen-56a63b5ba710",
+      "slug": "dipl-sozialarbeiterin-sozialarbeiter-40-klinik-schuetzen-rheinfelden",
+      "company": "Klinik Schützen Rheinfelden",
+      "companyKey": "klinik-schuetzen",
+      "companyDomain": "klinikschuetzen.ch",
+      "title": "Dipl. Sozialarbeiterin / Sozialarbeiter (40%)",
+      "needsRetranslation": false,
+      "location": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-RH3PZ026",
+      "source": "Klinik Schützen Rheinfelden Dedicated Parser (HTML in-page anchors)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T22:15:12.039Z",
+      "addressLocality": "Rheinfelden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4310",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-RH3PZ026",
+      "firstSeenAt": "2026-05-19T12:20:46.882Z",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 1
+  "unchangedJobs": []
 }
