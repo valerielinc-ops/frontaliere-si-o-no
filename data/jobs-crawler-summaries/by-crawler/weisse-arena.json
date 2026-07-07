@@ -1,21 +1,19 @@
 {
   "key": "weisse-arena",
   "label": "Weisse Arena Gruppe",
-  "generatedAt": "2026-07-07T12:05:15.734Z",
+  "generatedAt": "2026-07-07T22:14:41.542Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 4296,
-  "avgDurationMs": 4296,
+  "unchangedCount": 0,
+  "durationMs": 4141,
+  "avgDurationMs": 4141,
   "durationHistory": [
-    4296
+    4141
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "weisse-arena-c801e73870c9",
       "slug": "nachtportier-in-weisse-arena-ch",
@@ -28,7 +26,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4524&jobTitle=Nachtportier%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:05:12.466Z",
+      "crawledAt": "2026-07-07T22:14:38.095Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -67,7 +65,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4522&jobTitle=HR+Generalist%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:05:12.467Z",
+      "crawledAt": "2026-07-07T22:14:38.097Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -106,7 +104,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4519&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:05:12.468Z",
+      "crawledAt": "2026-07-07T22:14:38.098Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -145,7 +143,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4518&jobTitle=Koch%2FK%C3%B6chin+mit+Feuer+und+Leidenschaft",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:05:12.475Z",
+      "crawledAt": "2026-07-07T22:14:38.098Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -184,7 +182,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4521&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:05:12.475Z",
+      "crawledAt": "2026-07-07T22:14:38.098Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -223,7 +221,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4514&jobTitle=Mitarbeiter%3Ain+Bahn%C3%BCberwachung",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:05:12.476Z",
+      "crawledAt": "2026-07-07T22:14:38.101Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -262,7 +260,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4510&jobTitle=Mitarbeiter%3Ain+Verkauf+und+Administration+Wintersaison+%2870-100%25%29",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:05:12.476Z",
+      "crawledAt": "2026-07-07T22:14:38.102Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -301,7 +299,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4502&jobTitle=Elektroinstallateur%3Ain%2FTechniker%3Ain+Infrastruktur",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:05:12.477Z",
+      "crawledAt": "2026-07-07T22:14:38.102Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -328,5 +326,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
