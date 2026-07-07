@@ -5048,14 +5048,10 @@ export function saveSlugRegistry(registry) {
   // flight, fail JSON.parse, and silently fall back to `{}` in
   // loadSlugRegistry's catch — causing that crawler to treat every job as
   // unregistered and mint a fresh (possibly different) slug for one that
-  // already has an immutable canonical slug pinned. Writing to a per-process
-  // temp file and renaming into place is atomic on the same filesystem (POSIX
-  // rename()), so any concurrent reader always sees either the pre- or
-  // post-write snapshot in full, never a partial one.
-  const registryPath = resolveSlugRegistryPath();
-  const tmpPath = `${registryPath}.tmp-${process.pid}`;
-  fs.writeFileSync(tmpPath, JSON.stringify(registry, null, 2) + '\n');
-  fs.renameSync(tmpPath, registryPath);
+  // already has an immutable canonical slug pinned. writeJsonAtomic commits
+  // via temp+rename (atomic on the same filesystem), so any concurrent
+  // reader always sees either the pre- or post-write snapshot in full.
+  writeJson(resolveSlugRegistryPath(), registry);
 }
 
 export function getRegisteredSlug(job, registry) {

@@ -12,10 +12,10 @@ import { loadSlugRegistry, saveSlugRegistry } from '../scripts/lib/dedicated-cra
 // a file this size, so a concurrent readFileSync elsewhere could observe a
 // truncated write mid-flight, fail JSON.parse, and silently fall back to `{}`
 // in loadSlugRegistry's catch -- causing that crawler to mint a fresh slug for
-// a job that already has an immutable canonical slug pinned. The fix writes
-// to a per-process temp file and renames into place (atomic on the same
-// filesystem), so any concurrent reader always sees either the pre- or
-// post-write snapshot in full, never a partial one.
+// a job that already has an immutable canonical slug pinned. The fix routes
+// through the shared writeJsonAtomic helper (scripts/lib/atomic-write-json.mjs),
+// which commits via temp+rename (atomic on the same filesystem), so any
+// concurrent reader always sees either the pre- or post-write snapshot in full.
 describe('saveSlugRegistry atomic write', () => {
   const tmpPaths: string[] = [];
 
@@ -36,7 +36,8 @@ describe('saveSlugRegistry atomic write', () => {
     saveSlugRegistry(registry);
 
     expect(fs.existsSync(registryPath)).toBe(true);
-    expect(fs.existsSync(`${registryPath}.tmp-${process.pid}`)).toBe(false);
+    const leftovers = fs.readdirSync(dir).filter((f) => f !== 'slug-registry.json');
+    expect(leftovers).toEqual([]);
     expect(JSON.parse(fs.readFileSync(registryPath, 'utf-8'))).toEqual(registry);
     expect(loadSlugRegistry()).toEqual(registry);
   });
