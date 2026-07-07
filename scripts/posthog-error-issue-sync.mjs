@@ -22,6 +22,24 @@ export function truncate(value, n) {
   return str.length > n ? `${str.slice(0, n - 1)}…` : str;
 }
 
+/**
+ * Error messages tracked in PostHog $exception for dashboard observability
+ * that are NOT actionable enough to generate a GitHub backlog issue. These
+ * errors are environmental noise handled client-side by existing recovery
+ * paths; the raw $exception capture is intentionally kept for chunk-load /
+ * error-rate dashboards but must not flood the backlog.
+ *
+ * Mirrors the rationale in services/benignErrorPatterns.ts APP_ERROR_ONLY_PATTERNS
+ * but applied at the issue-creation step rather than the before_send hook —
+ * so PostHog dashboard data is preserved while the GitHub signal stays clean.
+ */
+const ISSUE_DENY_PATTERNS = [
+  // Module-script preload failure on flaky networks / stale SW cache (#3762).
+  // Handled by SW cache-stale recovery + resilientImport(); kept in PostHog
+  // for chunk-load dashboards but not worth a GitHub ticket.
+  /Importing a module script failed/i,
+];
+
 async function hogql(host, pid, key, query) {
   const r = await fetch(`${host}/api/projects/${pid}/query/`, {
     method: 'POST',
@@ -77,7 +95,8 @@ export async function main() {
     .map(([msg, type, n, sessions, sampleUrl]) => ({
       message: msg, type: type || 'exception', count: n, sessions, sampleUrl,
     }))
-    .filter((e) => e.count >= MIN_COUNT);
+    .filter((e) => e.count >= MIN_COUNT)
+    .filter((e) => !ISSUE_DENY_PATTERNS.some((p) => p.test(e.message || '')));
 
   if (!entries.length) {
     console.log(`[posthog-error-issue-sync] no $exception above MIN_COUNT=${MIN_COUNT} in last ${WINDOW_DAYS}d — nothing to sync`);
