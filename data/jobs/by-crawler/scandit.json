@@ -1,6 +1,6 @@
 {
   "crawlerKey": "scandit",
-  "assembledAt": "2026-07-06T22:27:54.924Z",
+  "assembledAt": "2026-07-07T22:23:22.836Z",
   "jobs": [
     {
       "id": "scandit-11d5976f7463",
@@ -33,7 +33,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:27:50.512Z",
+      "crawledAt": "2026-07-07T22:23:18.459Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,6 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
       "addressRegion": "ZH"
     },
     {
@@ -111,7 +110,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8043068",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T15:36:04.804Z",
+      "crawledAt": "2026-07-07T22:23:18.156Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -127,6 +126,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:25:08.146Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -139,7 +139,6 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
       "addressRegion": "ZH"
     },
     {
@@ -173,7 +172,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7552618",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:27:49.893Z",
+      "crawledAt": "2026-07-07T22:23:17.845Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -214,7 +213,6 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
       "addressRegion": "ZH"
     },
     {
@@ -248,7 +246,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7434825",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T15:36:04.194Z",
+      "crawledAt": "2026-07-07T22:23:17.519Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -292,8 +290,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     }
   ]
 }
