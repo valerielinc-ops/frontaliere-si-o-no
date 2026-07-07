@@ -43,7 +43,7 @@ import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { truncateHeadline, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { truncateHeadline, TITLE_MAX_CHARS, composePlaceTitle } from './shared/titleSuffix';
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
@@ -256,7 +256,11 @@ const COPY: Record<Locale, Copy> = {
     hubTitle: 'Eventi in Ticino: agenda per comune aggiornata',
     hubH1: 'Eventi in Ticino, comune per comune',
     hubLede: 'Concerti, mostre, feste e appuntamenti in Ticino raccolti dalle agende ufficiali e raggruppati per comune.',
-    comuneTitle: (c) => `Eventi a ${c}: cosa fare e agenda aggiornata`,
+    comuneTitle: (c) => composePlaceTitle([
+      `Eventi a ${c}: cosa fare e agenda aggiornata`,
+      `Eventi a ${c}: agenda aggiornata`,
+      `Eventi a ${c}`,
+    ]),
     comuneH1: (c) => `Eventi a ${c} e dintorni`,
     comuneLede: (c) => `Tutti i prossimi eventi a ${c} e nella sua regione: concerti, mostre, feste e appuntamenti dall'agenda del Ticino.`,
     hubDesc: 'Agenda eventi del Canton Ticino aggiornata e divisa per comune: concerti, mostre, feste, teatro e appuntamenti utili anche per i frontalieri.',
@@ -293,7 +297,11 @@ const COPY: Record<Locale, Copy> = {
     hubTitle: 'Events in Ticino: an agenda by municipality',
     hubH1: 'Events in Ticino, municipality by municipality',
     hubLede: 'Concerts, exhibitions, festivals and happenings across Ticino, collected from official agendas and grouped by municipality.',
-    comuneTitle: (c) => `Events in ${c}: what to do and the latest agenda`,
+    comuneTitle: (c) => composePlaceTitle([
+      `Events in ${c}: what to do and the latest agenda`,
+      `Events in ${c}: latest agenda`,
+      `Events in ${c}`,
+    ]),
     comuneH1: (c) => `Events in ${c} and around`,
     comuneLede: (c) => `All upcoming events in ${c} and its region: concerts, exhibitions, festivals and happenings from the Ticino agenda.`,
     hubDesc: 'Up-to-date events agenda for the canton of Ticino, grouped by municipality: concerts, exhibitions, festivals, theatre and useful happenings for cross-border commuters too.',
@@ -330,7 +338,11 @@ const COPY: Record<Locale, Copy> = {
     hubTitle: 'Veranstaltungen im Tessin: Agenda nach Gemeinde',
     hubH1: 'Veranstaltungen im Tessin, Gemeinde für Gemeinde',
     hubLede: 'Konzerte, Ausstellungen, Feste und Anlässe im Tessin, aus offiziellen Agenden gesammelt und nach Gemeinde gruppiert.',
-    comuneTitle: (c) => `Veranstaltungen in ${c}: Programm und aktuelle Agenda`,
+    comuneTitle: (c) => composePlaceTitle([
+      `Veranstaltungen in ${c}: Programm und aktuelle Agenda`,
+      `Veranstaltungen in ${c}: aktuelle Agenda`,
+      `Veranstaltungen in ${c}`,
+    ]),
     comuneH1: (c) => `Veranstaltungen in ${c} und Umgebung`,
     comuneLede: (c) => `Alle kommenden Veranstaltungen in ${c} und der Region: Konzerte, Ausstellungen, Feste und Anlässe aus der Tessiner Agenda.`,
     hubDesc: 'Aktuelle Veranstaltungsagenda für den Kanton Tessin, nach Gemeinde gegliedert: Konzerte, Ausstellungen, Feste, Theater und nützliche Anlässe auch für Grenzgänger.',
@@ -367,7 +379,11 @@ const COPY: Record<Locale, Copy> = {
     hubTitle: 'Événements au Tessin: agenda par commune',
     hubH1: 'Événements au Tessin, commune par commune',
     hubLede: 'Concerts, expositions, fêtes et rendez-vous au Tessin, recueillis dans les agendas officiels et regroupés par commune.',
-    comuneTitle: (c) => `Événements à ${c}: que faire et agenda à jour`,
+    comuneTitle: (c) => composePlaceTitle([
+      `Événements à ${c}: que faire et agenda à jour`,
+      `Événements à ${c}: agenda à jour`,
+      `Événements à ${c}`,
+    ]),
     comuneH1: (c) => `Événements à ${c} et alentours`,
     comuneLede: (c) => `Tous les prochains événements à ${c} et dans sa région: concerts, expositions, fêtes et rendez-vous de l'agenda du Tessin.`,
     hubDesc: 'Agenda des événements du canton du Tessin à jour, classé par commune: concerts, expositions, fêtes, théâtre et rendez-vous utiles aussi pour les frontaliers.',
