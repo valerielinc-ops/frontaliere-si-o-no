@@ -108,6 +108,16 @@ export function identifyUser(distinctId: string, properties?: Record<string, any
 }
 
 /**
+ * Synchronously read the current client's PostHog distinct_id. Returns null when
+ * PostHog has not loaded yet — callers should treat this as "no correlation
+ * available" rather than block on it (e.g. fall back to another identifier).
+ */
+export function getDistinctId(): string | null {
+  if (!_posthog) return null;
+  return _posthog.get_distinct_id() ?? null;
+}
+
+/**
  * Synchronously read a feature flag's variant string. Returns null when PostHog
  * has not loaded yet or the flag is undefined — callers must handle the null
  * branch (typically by falling back to the control experience).
