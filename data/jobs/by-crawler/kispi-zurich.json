@@ -1,90 +1,7 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-07-06T22:19:08.688Z",
+  "assembledAt": "2026-07-07T12:00:52.884Z",
   "jobs": [
-    {
-      "id": "kispi-zurich-22cc5e50164b",
-      "slug": "paziente-dipendente-di-ricezione-p-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "paziente-dipendente-di-ricezione-p-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "patient-reception-staff-f-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "mitarbeiterin-patientenaufnahme-w-m-60-80-kispi-zurich-zurich",
-        "fr": "employe-d-accueil-m-m-50-80-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Mitarbeiterin Patientenaufnahme (w/m) 50-80%",
-      "titleByLocale": {
-        "it": "Paziente dipendente di ricezione (p/m) 50-80",
-        "en": "Patient reception employee (w/m) 50-80",
-        "de": "Mitarbeiterin Patientenaufnahme (w/m) 50-80%",
-        "fr": "Employé d'accueil (m/m) 50-80"
-      },
-      "description": "Mitarbeiterin Patientenaufnahme (w/m) 50-80% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "it": "Impiegato in ammissione di pazienti (p/m) 50-80 presso Kinderpital Zürich Eleónniftung a Zurigo (8032), Svizzera.\n• Tipo: part-time\n• Tempo di tempo: illimitato\n• Luogo: Zurigo (ZH)\n• Applicazione tramite il portale di carriera Umantis di Universitäts-Kinderpital Zürich (Kispi)",
-        "en": "Employee in patient admission (w/m) 50-80 at Kinderspital Zürich Eleonorenstiftung in Zurich (8032), Switzerland.\n• Type: part-time\n• Temporary period: unlimited\n• Location: Zurich (ZH)\n• Application via the Umantis career portal of Universitäts-Kinderspital Zürich (Kispi)",
-        "de": "Mitarbeiterin Patientenaufnahme (w/m) 50-80% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Employé en admission (m/m) 50-80 à Kinderspital Zürich Eleonorenstiftung à Zurich (8032), Suisse.\n• Type: temps partiel\n• Durée temporaire: illimitée\n• Emplacement: Zurich (ZH)\n• Application via le portail de carrière Umantis de Universitäts-Kinderspital Zürich (Kispi)"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3349/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:19:06.886Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-23",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3349/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiterin-patientenaufnahme-w-m-50-80-kispi-zurich-zurich",
-        "personale-di-accoglienza-f-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
-        "personnel-d-accueil-des-patients-f-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
-        "paziente-dipendente-di-ricezione-p-m-50-80-universitats-kinderspital-zurich-kispi-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-patientenaufnahme-w-m-50-80-kispi-zurich-zurich",
-          "personale-di-accoglienza-f-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
-          "paziente-dipendente-di-ricezione-p-m-50-80-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "en": [
-          "mitarbeiterin-patientenaufnahme-w-m-50-80-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "mitarbeiterin-patientenaufnahme-w-m-50-80-kispi-zurich-zurich",
-          "personnel-d-accueil-des-patients-f-m-50-80-universitats-kinderspital-zurich-kispi-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-06-23T12:21:07.976Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "kispi-zurich-047d6fb14fc5",
       "slug": "segreteria-medica-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
@@ -117,7 +34,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3681/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:19:05.889Z",
+      "crawledAt": "2026-07-07T12:00:51.148Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -186,7 +103,7 @@
       "title": "Pflegeexpertin / Pflegeexperte Praxis 50%",
       "titleByLocale": {
         "it": "Esperto di infermieristica 50 %",
-        "en": "Nursing expert / nursing expert practice 50 %",
+        "en": "Pflegeexpertin / Pflegeexperte Praxis 50%",
         "de": "Pflegeexpertin / Pflegeexperte Praxis 50%",
         "fr": "Expert en soins infirmiers / pratique expert en soins infirmiers 50 %"
       },
@@ -197,12 +114,13 @@
         "de": "Pflegeexpertin / Pflegeexperte Praxis 50% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Pratique d'expert en soins infirmiers 50% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type: Temps partiel\n• Délai: perpétuel\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3700/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:19:04.913Z",
+      "crawledAt": "2026-07-07T12:00:50.306Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -281,7 +199,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3672/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:19:03.950Z",
+      "crawledAt": "2026-07-07T12:00:49.473Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -342,7 +260,7 @@
       "title": "Scientific Project & Data Managerin (w/m) 50-100%",
       "titleByLocale": {
         "it": "Scientific Project & Data Manager (f/m) 50-100%",
-        "en": "Scientific Project & Data Manager (f/m) 50-100 %",
+        "en": "Scientific Project & Data Managerin (w/m) 50-100%",
         "de": "Scientific Project & Data Managerin (w/m) 50-100%",
         "fr": "Gestionnaire de projets scientifiques et de données (f/m) 50-100 %"
       },
@@ -353,12 +271,13 @@
         "de": "Scientific Project & Data Managerin (w/m) 50-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Teilzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Directeur scientifique de projet et de données (f/m) 50-100% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type: Temps partiel\n• Durée temporaire : temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3702/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:19:02.964Z",
+      "crawledAt": "2026-07-07T12:00:48.649Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -417,7 +336,7 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Fellow (m/w) 100%",
       "titleByLocale": {
-        "it": "Fellow (m/f) 100%",
+        "it": "Fellow (m/w) 100%",
         "en": "Fellow (m/f) 100%",
         "de": "Fellow (m/w) 100%",
         "fr": "Fellow (m/f) 100%"
@@ -429,12 +348,13 @@
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.06.2026 Pädiatrische Neuroradiologie Deine Aufgaben\n• In dieser Rolle befundest du neuroradiologische MRT-Untersuchungen bei Kindern und Jugendlichen unter fachärztlicher Supervision.\n• Art: Vollzeit\n• Befristung: befristet",
         "fr": "L'hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 29.06.2026 Neuroradiologie pédiatrique Vos tâches\n• Dans ce rôle, vous trouverez des examens IRM neuroradiologiques chez les enfants et les adolescents sous surveillance spécialisée.\n• Type: Temps plein\n• Durée temporaire : temporaire"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3704/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:19:02.009Z",
+      "crawledAt": "2026-07-07T12:00:47.860Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -491,12 +411,13 @@
         "de": "Head of Mass Spectrometry (m/f) 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Chef de spectrométrie de masse (m/f) à 100 % à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type : temps plein\n• Durée fixe : durée déterminée\n• Lieu : Zurich (ZH)\n• Candidature via le portail carrières Umantis de l'Hôpital universitaire pour enfants de Zurich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3696/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:19:01.019Z",
+      "crawledAt": "2026-07-07T12:00:47.022Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -572,7 +493,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3705/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:19:00.156Z",
+      "crawledAt": "2026-07-07T12:00:46.315Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -653,7 +574,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3683/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:18:59.316Z",
+      "crawledAt": "2026-07-07T12:00:45.480Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -718,12 +639,13 @@
         "de": "Staff Mass Spectrometrist (m/f) 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Spectrométriste de masse du personnel (m/f) à 100 % à l'Hôpital pour enfants Zurich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type : temps plein\n• Durée fixe : durée déterminée\n• Lieu : Zurich (ZH)\n• Candidature via le portail carrières Umantis de l'Hôpital universitaire pour enfants de Zurich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3697/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:18:58.268Z",
+      "crawledAt": "2026-07-07T12:00:44.654Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -750,6 +672,91 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kispi-zurich-22cc5e50164b",
+      "slug": "paziente-dipendente-di-ricezione-p-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "it": "paziente-dipendente-di-ricezione-p-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "patient-reception-staff-f-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "mitarbeiterin-patientenaufnahme-w-m-60-80-kispi-zurich-zurich",
+        "fr": "employe-d-accueil-m-m-50-80-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Mitarbeiterin Patientenaufnahme (w/m) 40%",
+      "titleByLocale": {
+        "it": "Paziente dipendente di ricezione (p/m) 50-80",
+        "en": "Patient reception employee (w/m) 50-80",
+        "de": "Mitarbeiterin Patientenaufnahme (w/m) 40%",
+        "fr": "Employé d'accueil (m/m) 50-80"
+      },
+      "description": "Mitarbeiterin Patientenaufnahme (w/m) 40% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "it": "Impiegato in ammissione di pazienti (p/m) 50-80 presso Kinderpital Zürich Eleónniftung a Zurigo (8032), Svizzera.\n• Tipo: part-time\n• Tempo di tempo: illimitato\n• Luogo: Zurigo (ZH)\n• Applicazione tramite il portale di carriera Umantis di Universitäts-Kinderpital Zürich (Kispi)",
+        "en": "Employee in patient admission (w/m) 50-80 at Kinderspital Zürich Eleonorenstiftung in Zurich (8032), Switzerland.\n• Type: part-time\n• Temporary period: unlimited\n• Location: Zurich (ZH)\n• Application via the Umantis career portal of Universitäts-Kinderspital Zürich (Kispi)",
+        "de": "Mitarbeiterin Patientenaufnahme (w/m) 40% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Employé en admission (m/m) 50-80 à Kinderspital Zürich Eleonorenstiftung à Zurich (8032), Suisse.\n• Type: temps partiel\n• Durée temporaire: illimitée\n• Emplacement: Zurich (ZH)\n• Application via le portail de carrière Umantis de Universitäts-Kinderspital Zürich (Kispi)"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3349/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-07T12:00:43.812Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-23",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3349/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiterin-patientenaufnahme-w-m-50-80-kispi-zurich-zurich",
+        "personale-di-accoglienza-f-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
+        "personnel-d-accueil-des-patients-f-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
+        "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich",
+        "paziente-dipendente-di-ricezione-p-m-50-80-universitats-kinderspital-zurich-kispi-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-patientenaufnahme-w-m-50-80-kispi-zurich-zurich",
+          "personale-di-accoglienza-f-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
+          "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich",
+          "paziente-dipendente-di-ricezione-p-m-50-80-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-patientenaufnahme-w-m-50-80-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-patientenaufnahme-w-m-50-80-kispi-zurich-zurich",
+          "personnel-d-accueil-des-patients-f-m-50-80-universitats-kinderspital-zurich-kispi-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-06-23T12:21:07.976Z",
+      "salaryMin": 29400,
+      "salaryMax": 44600,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 29400,
+          "maxValue": 44600,
           "unitText": "YEAR"
         }
       }
