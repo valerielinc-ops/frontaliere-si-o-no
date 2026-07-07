@@ -786,9 +786,9 @@
       "country": "CH",
       "description": "Stehst du gerne früh auf und suchst eine körperlich herausfordernde Tätigkeit? Dann passt du perfekt zu uns!",
       "descriptionByLocale": {
-        "it": "Stehst du gerne früh auf und suchst eine körperlich herausfordernde Tätigkeit? Dann passt du perfekt zu uns!",
+        "it": "Descrizione Ti piace alzarti presto e cercare un'attività fisica impegnativa? Allora sei perfetto per noi!",
         "en": "Description Do you like to get up early and seek a physically challenging activity? Then you fit perfectly with us!",
-        "de": "## Beschreibung Stehst du gerne früh auf und suchst eine körperlich herausfordernde Tätigkeit? Dann passt du perfekt zu uns!",
+        "de": "## Beschreibung\nStehst du gerne früh auf und suchst eine körperlich herausfordernde Tätigkeit? Dann passt du perfekt zu uns!",
         "fr": "Description Vous aimez vous lever tôt et chercher une activité physiquement difficile? Ensuite, vous vous adaptez parfaitement avec nous!"
       },
       "titleByLocale": {
@@ -853,7 +853,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post"
       ],
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "url": "https://job.post.ch/default/job/Programmleiterin-CRM-Transformation/74103-de_DE",
@@ -4349,13 +4349,13 @@
       "country": "CH",
       "description": "Stehst du gerne früh auf und geniesst es, selbstständig auf der Strasse unterwegs zu sein? Dann bist du bei uns genau richtig!",
       "descriptionByLocale": {
-        "it": "Stehst du gerne früh auf und geniesst es, selbstständig auf der Strasse unterwegs zu sein? Dann bist du bei uns genau richtig!",
+        "it": "Ti piace alzarti presto e goderti la strada da solo? Allora sei nel posto giusto!",
         "en": "Do you like to get up early and enjoy being on the road on your own? Then you are exactly right with us!",
         "de": "Stehst du gerne früh auf und geniesst es, selbstständig auf der Strasse unterwegs zu sein? Dann bist du bei uns genau richtig!",
         "fr": "Vous aimez vous lever tôt et profiter de la route sur votre propre? Alors vous avez exactement raison avec nous!"
       },
       "titleByLocale": {
-        "it": "Zusteller:in Pakete",
+        "it": "Spedizioniere/a",
         "en": "Delivery:in packages",
         "de": "Zusteller:in Pakete",
         "fr": "Livraison:en paquets"
@@ -4409,10 +4409,9 @@
       "addressCountry": "CH",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-22T15:16:16.205Z",
-      "retranslationAttempts": 5,
+      "retranslationAttempts": 6,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 126,
-      "needsRetranslation": true
+      "localeMismatchSuppressedLen": 126
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73599-de_DE",
@@ -6248,13 +6247,13 @@
       "country": "CH",
       "description": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
       "descriptionByLocale": {
-        "it": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
+        "it": "Descrizione Possiedi un innato senso dell'organizzazione, apprezzi la varietà e vorresti scoprire diversi ambiti?",
         "en": "Description Do you have an innate sense of organization, you appreciate variety and you would like to discover different fields?",
         "de": "Beschreibung Sie haben ein angeborenes Gefühl für Organisation, schätzen Abwechslung und möchten verschiedene Felder entdecken?",
-        "fr": "## Description Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
+        "fr": "## Description\nTu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
       },
       "titleByLocale": {
-        "it": "Apprentissage d'employé-e de commerce CFC, Services et administration - Berne (francophone)",
+        "it": "Apprendistato di impiegato/a di commercio AFC, Servizi e amministrazione - Berna (francese)",
         "en": "Business Employee Learning SWC, Services and Administration - Bern (French speaking)",
         "de": "Business Employee Learning SWC, Dienstleistungen und Verwaltung - Bern (französisch sprechend)",
         "fr": "Apprentissage d'employé-e de commerce CFC, Services et administration - Berne (francophone)"
@@ -6316,10 +6315,9 @@
         "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-berne-francophone-post",
         "apprendistato-commerciale-efz-servizi-e-amministrazione-berna-francofono-la-poste-suisse-bienne"
       ],
-      "retranslationAttempts": 5,
+      "retranslationAttempts": 6,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 117,
-      "needsRetranslation": true
+      "localeMismatchSuppressedLen": 117
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9-e-de-commerce-CFC%2C-Services-et-administration-Jura/73607-fr_FR",
@@ -6332,13 +6330,13 @@
       "country": "CH",
       "description": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
       "descriptionByLocale": {
-        "it": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
+        "it": "Descrizione Possiedi un innato senso dell'organizzazione, apprezzi la varietà e vorresti scoprire diversi ambiti?",
         "en": "Description Do you have an innate sense of organization, you appreciate variety and you would like to discover different fields?",
         "de": "Beschreibung Sie haben ein angeborenes Gefühl für Organisation, schätzen Abwechslung und möchten verschiedene Felder entdecken?",
-        "fr": "## Description Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
+        "fr": "## Description\nTu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
       },
       "titleByLocale": {
-        "it": "Apprentissage d'employé-e de commerce CFC, Services et administration - Jura",
+        "it": "Apprendistato di impiegato/a di commercio AFC, Servizi e amministrazione - Giura",
         "en": "Business Employee Learning SWC, Services and Administration - Jura",
         "de": "Business Employee Lernen SWC, Dienstleistungen und Verwaltung - Jura",
         "fr": "Apprentissage d'employé-e de commerce CFC, Services et administration - Jura"
@@ -6399,10 +6397,9 @@
         "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-jura-post",
         "apprendistato-come-impiegato-commerciale-efz-servizi-e-amministrazione-jura-la-poste-suisse-porrentruy"
       ],
-      "retranslationAttempts": 9,
+      "retranslationAttempts": 10,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 117,
-      "needsRetranslation": true
+      "localeMismatchSuppressedLen": 117
     },
     {
       "url": "https://job.post.ch/default/job/Stv_-Leiterin-Distributionsgebiet-%28Entwicklungsprogramm-Avanti%29/73785-de_DE",
