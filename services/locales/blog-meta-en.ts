@@ -8296,6 +8296,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.title': 'Slowing Swiss labour market: what\'s changing for frontier workers',
     'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.excerpt': 'Swiss unemployment rate stable at 3.1% seasonally adjusted in June. The estimate for 2026 and 2027 has been revised upwards due to energy prices.',
     'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.imageAlt': 'Cross-border commuters stuck at the Brogeda checkpoint in Lugano at sunset, heading towards the Italian border.',
+    'blog.article.gaggiolo-traffico.title': 'Traffic at the Gaggiolo crossing',
+    'blog.article.gaggiolo-traffico.excerpt': 'Heavy traffic at the Gaggiolo crossing due to the increase in commuters',
+    'blog.article.gaggiolo-traffico.imageAlt': 'Image of a mountain pass during rush hour',
 };
 
 export default blogMetaEn;

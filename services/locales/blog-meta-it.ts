@@ -8297,6 +8297,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.title': 'Mercato del lavoro svizzero in rallentamento: cosa cambia per i frontalieri',
     'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.excerpt': 'Tasso disoccupazione svizzero stabile al 3,1% destagionalizzato a giugno. SECO rivista al rialzo la stima per il 2026 e 2027 a causa dei prezzi dell\'energia.',
     'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.imageAlt': 'Pendolari in coda al valico di Brogeda a Lugano al tramonto, direzione confine italiano.',
+    'blog.article.gaggiolo-traffico.title': 'Traffico al valico di Gaggiolo',
+    'blog.article.gaggiolo-traffico.excerpt': 'Traffico intenso al valico di Gaggiolo a causa dell\'aumento dei pendolari',
+    'blog.article.gaggiolo-traffico.imageAlt': 'Immagine di un valico alpino durante l\'ora di punta',
 };
 
 export default blogMetaIt;
