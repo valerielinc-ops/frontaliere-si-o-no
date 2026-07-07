@@ -249,16 +249,22 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
     if (!Array.isArray(existing)) existing = [];
   } catch { /* file missing or malformed — start fresh */ }
 
+  // Keyed by companyKey+slug, not bare slug — this archives across every
+  // company in the assembled dataset, and two companies' jobs sharing a
+  // computed slug would silently drop one company's expired-job record here
+  // (same collision class fixed in scatter-jobs-to-slices.mjs /
+  // reconcile-job-slugs.mjs for issue #3734).
+  const archiveKey = (entry) => `${entry.companyKey || ''}::${entry.slug}`;
   const bySlug = new Map();
   for (const ej of existing) {
-    if (ej.slug) bySlug.set(ej.slug, ej);
+    if (ej.slug) bySlug.set(archiveKey(ej), ej);
   }
 
   let added = 0;
   for (const r of removedJobs) {
     const job = allJobsById.get(r.id);
     if (!job || !job.slug) continue;
-    bySlug.set(job.slug, buildExpiredEntry(job));
+    bySlug.set(archiveKey(job), buildExpiredEntry(job));
     added++;
   }
 

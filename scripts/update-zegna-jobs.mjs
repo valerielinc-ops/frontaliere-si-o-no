@@ -42,13 +42,19 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, m
 import { isTargetSwissLocation, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const ZEGNA_KEY = 'ermenegildo-zegna-logistica';
+// Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
+// defaults to internally for a single-key run, so this script's own
+// pre/post-crawl reads see the shared engine's actual output instead of the
+// gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
+// of #3775/#3768, confirmed cause of #3769/#3770).
+const DATA_JOBS = crawlerScratchPathFor(ZEGNA_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const ZEGNA_HQ = getCompanyDefaults(ZEGNA_KEY);
 const DEFAULT_CANTON = ZEGNA_HQ?.canton || 'TI';
 const DEFAULT_CITY = ZEGNA_HQ?.city || 'Stabio';

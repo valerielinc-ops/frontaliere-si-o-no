@@ -45,14 +45,20 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'banca-cler';
+// Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
+// defaults to internally for a single-key run, so this script's own
+// pre/post-crawl reads see the shared engine's actual output instead of the
+// gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
+// of #3775/#3768).
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 // Bank Cler HQ is Basel (BS). Per-job locations come from the detail page's
 // `Arbeitsort` field; this default is only used when extraction fails.
 const HQ_DEFAULTS = getCompanyDefaults(COMPANY_KEY) || {

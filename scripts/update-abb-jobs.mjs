@@ -49,14 +49,19 @@ import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locat
 import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
-const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
-
 const ABB_KEY = 'abb-svizzera-sede-ticino';
+// Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
+// defaults to internally for a single-key run, so this script's own
+// pre/post-crawl reads see the shared engine's actual output instead of the
+// gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
+// of #3775/#3768).
+const DATA_JOBS = crawlerScratchPathFor(ABB_KEY);
+const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
+const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const DEFAULT_CANTON = getCompanyDefaults(ABB_KEY)?.canton || 'TI';
 const ABB_COMPANY_NAME = 'ABB Svizzera (sede Ticino)';
 const ABB_HOST = 'careers.abb';

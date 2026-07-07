@@ -1785,6 +1785,12 @@ function assembleExpiredJobs() {
     return null;
   }
 
+  // Keyed by companyKey+slug, not bare slug — this aggregates EVERY
+  // crawler's expired slice into one Map, and two companies' jobs sharing a
+  // computed slug would silently drop one company's expired-job record here
+  // (same collision class fixed in scatter-jobs-to-slices.mjs /
+  // reconcile-job-slugs.mjs for issue #3734).
+  const expiredKey = (entry) => `${entry.companyKey || ''}::${entry.slug}`;
   const bySlug = new Map();
   let totalSliceEntries = 0;
   const malformedExpired = [];
@@ -1798,10 +1804,11 @@ function assembleExpiredJobs() {
     totalSliceEntries += entries.length;
     for (const entry of entries) {
       if (!entry.slug) continue;
-      const existing = bySlug.get(entry.slug);
+      const key = expiredKey(entry);
+      const existing = bySlug.get(key);
       // Keep the most recently expired entry for each slug
       if (!existing || (entry.expiredAt || '') >= (existing.expiredAt || '')) {
-        bySlug.set(entry.slug, entry);
+        bySlug.set(key, entry);
       }
     }
   }
@@ -1818,9 +1825,10 @@ function assembleExpiredJobs() {
   if (Array.isArray(existingAgg)) {
     for (const entry of existingAgg) {
       if (!entry.slug) continue;
-      const existing = bySlug.get(entry.slug);
+      const key = expiredKey(entry);
+      const existing = bySlug.get(key);
       if (!existing || (entry.expiredAt || '') >= (existing.expiredAt || '')) {
-        bySlug.set(entry.slug, entry);
+        bySlug.set(key, entry);
       }
     }
   }

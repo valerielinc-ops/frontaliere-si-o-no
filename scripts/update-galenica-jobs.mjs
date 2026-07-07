@@ -51,15 +51,21 @@ import { getCompanyDefaults, SWISS_CANTONS } from './lib/crawler-location-config
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const GALENICA_KEY = 'galenica';
+// Per-crawler-scoped scratch path — this crawler does its own fetch+merge
+// (no runDedicatedBaseCrawler call), but still runs as one of ~25 sibling
+// background steps sharing a filesystem checkout in CI, so writing straight
+// to the shared, gitignored, CI-absent data/jobs.json is the same
+// cross-process-racy write pattern behind #3769/#3770. Scope it per-company.
+const DATA_JOBS = crawlerScratchPathFor(GALENICA_KEY);
+const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const DEFAULT_CANTON = getCompanyDefaults(GALENICA_KEY)?.canton || 'TI';
 const GALENICA_COMPANY_NAME = 'Galenica AG';
 const GALENICA_HOST = 'jobs.galenica.com';

@@ -41,13 +41,19 @@ import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const POST_KEY = 'posta-svizzera-centro-regionale';
+// Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
+// defaults to internally for a single-key run, so this script's own
+// pre/post-crawl reads see the shared engine's actual output instead of the
+// gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
+// of #3775/#3768).
+const DATA_JOBS = crawlerScratchPathFor(POST_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 /**

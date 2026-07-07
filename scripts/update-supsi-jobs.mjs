@@ -48,14 +48,23 @@ import { parseSupsiJobDetail } from './lib/supsi-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const SUPSI_KEY = 'supsi-dti';
+// Same per-crawler-scoped scratch path that runDedicatedBaseCrawler defaults
+// to internally (crawlerScratchPathFor(companyKeys.join('_'))) for a
+// single-key run. Pointing this script's own DATA_JOBS at that path (instead
+// of the shared data/jobs.json, which CI's slice-only mode never populates
+// and which ~25 sibling crawler-group steps would otherwise race on) means
+// postProcessSupsiJobs/fillMissingLocaleDescriptions/validateDedicatedLocaleCoverage
+// see the shared engine's actual freshly-crawled+localized output instead of
+// silently no-op'ing (or, worse, wiping the committed slice — issue #3775).
+const DATA_JOBS = crawlerScratchPathFor(SUPSI_KEY);
+const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const HQ = getCompanyDefaults('supsi');
 const SUPSI_COMPANY_NAME = 'SUPSI / DTI';
 const SUPSI_COMPANY_DOMAIN = 'supsi.ch';

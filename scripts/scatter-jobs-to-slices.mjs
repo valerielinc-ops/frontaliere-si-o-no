@@ -17,6 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { addPreviousSlugForLocale } from './lib/dedicated-crawler-common.mjs';
+import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -37,10 +38,16 @@ if (!Array.isArray(jobs)) {
   process.exit(0);
 }
 
-// Index assembled jobs by companyKey + slug for lookup
+// Index assembled jobs by stable diff key (id / url / slug fallback — see
+// resolveJobDiffKey) — NOT bare .slug. Bare-slug keying collides across
+// companies whenever two jobs compute the same slug (463 live collisions
+// confirmed in data/jobs/by-crawler/*.json, e.g. klinik-sonnenhalde vs.
+// allianz-suisse), silently merging wrong-company locale/slug data into a
+// slice (previousSlugs writer regression, issue #3734).
 const jobIndex = new Map();
 for (const job of jobs) {
-  if (job.slug) jobIndex.set(job.slug, job);
+  const key = resolveJobDiffKey(job);
+  if (key) jobIndex.set(key, job);
 }
 
 // Read each slice, update jobs with matching slugs, write back if changed
@@ -80,8 +87,9 @@ for (const file of sliceFiles) {
 
   let sliceChanged = false;
   const updatedSliceJobs = slice.jobs.map((sliceJob) => {
-    if (!sliceJob.slug) return sliceJob;
-    const assembled = jobIndex.get(sliceJob.slug);
+    const sliceKey = resolveJobDiffKey(sliceJob);
+    if (!sliceKey) return sliceJob;
+    const assembled = jobIndex.get(sliceKey);
     if (!assembled) return sliceJob;
 
     // Compare locale fields — only update if they changed

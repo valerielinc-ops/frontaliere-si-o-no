@@ -66,14 +66,20 @@ import { normalizeFederalJobLocation } from './lib/federal-job-normalization.mjs
 import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'confederazione-ticino.json');
 
 const COMPANY_KEY = 'confederazione-ticino';
+// Per-crawler-scoped scratch path — this crawler does its own fetch+merge
+// (no runDedicatedBaseCrawler call), but still runs as one of ~25 sibling
+// background steps sharing a filesystem checkout in CI, so writing straight
+// to the shared, gitignored, CI-absent data/jobs.json is the same
+// cross-process-racy write pattern behind #3769/#3770. Scope it per-company.
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Confederazione Svizzera';
 const COMPANY_HOST = 'jobs.admin.ch';

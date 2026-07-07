@@ -58,13 +58,21 @@ import { parseSbbDetailPage, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mj
 import { getCompanyDefaults, getCantonDisplayName, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const SBB_KEY = 'ffs-officine-ferrovie-federali';
+// This script never calls runDedicatedBaseCrawler (it owns its own
+// fetch+merge cycle end-to-end across two sources), but it still runs as
+// one of ~25 sibling background:true steps in the same CI job, all racing
+// to read-merge-write the same shared, gitignored, CI-absent
+// data/jobs.json — the same clobber bug class confirmed by #3769/#3770.
+// Scope this script's own read/write target to a private per-company
+// scratch path so it can no longer race with siblings.
+const DATA_JOBS = crawlerScratchPathFor(SBB_KEY);
+const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const DEFAULT_CANTON = getCompanyDefaults(SBB_KEY)?.canton || 'TI';
 /**
  * SBB AEM JSON API endpoint.

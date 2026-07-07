@@ -25,7 +25,6 @@
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
@@ -54,17 +53,22 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-// Per-crawler-scoped scratch path (never shared with sibling crawlers in the
-// same crawler-group CI job -- no cross-process race possible by construction).
-const SCRATCH_KEY = path.basename(fileURLToPath(import.meta.url), '.mjs');
-const DATA_JOBS = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${SCRATCH_KEY}.json`);
-const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const HESSO_KEY = 'hes-so-valais';
+// The old script-filename-derived scratch key (SCRATCH_KEY = basename) was
+// unique per-script but did NOT match what runDedicatedBaseCrawler resolves
+// internally (crawlerScratchPathFor(companyKeys.join('_'))) when no
+// dataJobsPath is passed — so this script's own pre/post-crawl reads/writes
+// were still blind to the engine's real output (bug class of #3775/#3768,
+// confirmed cause of #3769/#3770). Use the exact same key it passes as
+// companyKeys below so both sides agree on one path.
+const DATA_JOBS = crawlerScratchPathFor(HESSO_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const HESSO_COMPANY_NAME = 'HES-SO Valais-Wallis';
 const HESSO_HOST = 'www.hevs.ch';
 const HESSO_COMPANY_DOMAIN = 'hevs.ch';

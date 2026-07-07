@@ -35,14 +35,17 @@ import { isTargetSwissLocation, inferAnyCanton } from './lib/target-swiss-locati
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
-const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'axpo-group.json');
-
 const COMPANY_KEY = 'axpo-group';
+// Per-crawler-scoped scratch path so sibling background-step crawlers in the
+// same CI job never clobber each other by racing to merge into the shared,
+// gitignored data/jobs.json (bug class of #3775/#3768, ref #3769/#3770).
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
+const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'axpo-group.json');
 const COMPANY_NAME = 'Axpo Group';
 const COMPANY_DOMAIN = 'axpo.com';
 const RSS_URL = 'https://careers.axpo.com/jobs.rss';

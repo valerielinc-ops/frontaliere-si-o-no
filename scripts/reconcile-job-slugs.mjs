@@ -34,6 +34,7 @@ import {
   DEFAULT_PREV_SLUG_CAP,
   LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
+import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -947,7 +948,11 @@ export function reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, opti
     }
 
     index.allSlugSet.add(orphanSlug);
-    updatedJobs.set(job.slug || job.slugByLocale?.it, job);
+    // Keyed by resolveJobDiffKey, not bare slug — activeJobs spans every
+    // company, and two jobs sharing a computed slug would silently drop one
+    // company's update from this Map (same collision class fixed in
+    // scatter-jobs-to-slices.mjs for issue #3734).
+    updatedJobs.set(resolveJobDiffKey(job), job);
     mergedCount++;
 
     const prefix = dryRun ? '⏭️ [dry-run]' : '✅';
@@ -1089,7 +1094,7 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
     }
 
     for (const s of uniqueNew) index.allSlugSet.add(s);
-    updatedJobs.set(job.slug || job.slugByLocale?.it, job);
+    updatedJobs.set(resolveJobDiffKey(job), job);
     reconciledIds.add(ej.slug || ej.id || JSON.stringify(ej.slugByLocale));
     mergedCount++;
 

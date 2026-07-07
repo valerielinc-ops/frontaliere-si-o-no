@@ -124,7 +124,13 @@ jobs:
           # actor (confirmed with both a human and a bot actor on the broken side).
           # Falling back to scoped --allowedTools (read-only audit: no Edit/Write
           # needed) until the upstream root cause is understood.
-          claude_args: "--max-turns 40 --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob'"
+          # max-turns raised 40→65 after run 28790742227 hit error_max_turns
+          # without reaching a finding: 2 denied compound Bash calls (cd+redirect,
+          # xargs -I{} — Claude Code rejects compound patterns regardless of an
+          # allowlisted leading binary) plus a self-inflicted import error burned
+          # turns before any real audit work (issue #3679). Not a cost-cut lower,
+          # AGENTS.md permits raising turns for legitimate complexity.
+          claude_args: "--max-turns 65 --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob'"
           prompt: |
             Audit qualità dati crawler, settimanale. Finestra lookback: ${{ env.WINDOW_DAYS }} giorni.
 
@@ -138,7 +144,7 @@ jobs:
 
             1. **Slug stability / previousSlugs correctness**: esegui `node scripts/decontaminate-prev-slugs.mjs` (SENZA `--apply`, dry-run) contro `data/jobs/by-crawler/*.json` corrente. Se riporta contaminazioni (`moved > 0`) → REGRESSIONE del bug fixato in #3245: è evidenza concreta, la decontaminazione post-merge dovrebbe aver riportato tutto a 0. Ispeziona anche a campione se `previousSlugs` flat e `previousSlugsByLocale` per-locale restano coerenti tra loro (stesso schema del bug flat-array fixato dopo #3245).
             2. **Translation system**: campiona job con `needsTranslation: true` — quanti sono più vecchi di 72h (`crawledAt`/`updatedAt`) senza traduzione risolta? Un accumulo crescente indica una pipeline di traduzione bloccata (non copiato da nessun health-check esistente).
-            3. **Crawling / merge system**: verifica a campione la correttezza del merge by-stable-id (`extractStableJobId(job.url)`) — job duplicati con lo stesso id-stabile ma slug diversi non collassati, o entries orfane dopo un merge.
+            3. **Crawling / merge system**: verifica a campione la correttezza del merge by-stable-id (`extractStableJobId(job.url)`, import da `scripts/lib/job-match-key.mjs` — NON da `dedicated-crawler-common.mjs`) — job duplicati con lo stesso id-stabile ma slug diversi non collassati, o entries orfane dopo un merge.
             4. **Slug regeneration correctness**: campiona slug troncati — verifica che `truncateSlugAtWordBoundary` non abbia prodotto tronconi a metà parola o slug regenerati senza motivo (title wording minore che NON dovrebbe produrre nuovo slug, vedi `docs/CRAWLERS.md` riga 32).
             5. **Housekeeping**: `previousSlugs`/`previousSlugsByLocale` che puntano a target inesistenti nel dataset corrente, oggetti locale vuoti, `crawledAt` molto vecchio su un job ancora marcato attivo.
 
@@ -157,6 +163,7 @@ jobs:
             - Read-only sul codice/dati: NIENTE `git commit`/`push`/edit di file. L'unica scrittura ammessa è `gh issue create`/`gh issue comment` (e la lettura via `gh issue list`).
             - Non tentare fix — questo audit trova, non ripara.
             - Incerto se qualcosa è un vero difetto → non aprire issue; se borderline ma degno di attenzione umana, apri comunque MA marca chiaramente "da verificare" nel body.
+            - Bash qui è allowlisted per binario ma NON accetta comandi composti: niente `cd ... && ...`/redirect (`> file`), niente `xargs -I{}`. Un comando per invocazione, output letto via tool separato — i pattern composti vengono negati a prescindere dal binario in testa e sprecano turni (causa di #3679).
 
       - name: Claude usage metrics
         if: always()

@@ -49,15 +49,21 @@ mergeLocaleTextMap,
 import { parseListingPage, parseDetailPage, buildJob, buildFallbackDescription, stripHtml } from './lib/ferrovia-retica-job-parser.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'ferrovia-retica';
+// Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
+// defaults to internally for a single-key run, so this script's own
+// pre/post-crawl reads see the shared engine's actual output instead of the
+// gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
+// of #3775/#3768).
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'Ferrovia Retica (RhB)';
 const COMPANY_HOST = 'www.rhb.ch';
 const CAREERS_URL = 'https://www.rhb.ch/it/lavoro-carriera/candidatura-posti-vacanti/job-uebersicht/';

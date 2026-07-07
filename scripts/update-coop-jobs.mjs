@@ -57,12 +57,18 @@ import { detectLanguage } from './lib/detect-language.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const COOP_KEY = 'coop-ticino';
+// Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
+// defaults to internally for a single-key run, so this script's own
+// pre/post-crawl reads see the shared engine's actual output instead of the
+// gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
+// of #3775/#3768).
+const DATA_JOBS = crawlerScratchPathFor(COOP_KEY);
 
 /**
  * Lightweight translation cache that persists Coop locale data across runs,
@@ -487,7 +493,7 @@ function runBaseCrawler() {
 // Post-processing: validate & repair Coop jobs against JSON-LD
 // ──────────────────────────────────────────────────────────────
 
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 
 async function postProcessCoopJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
