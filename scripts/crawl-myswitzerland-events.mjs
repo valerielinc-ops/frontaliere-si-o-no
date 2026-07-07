@@ -68,6 +68,7 @@ import {
   resolveComuneNationwide,
   resolveItalianFrontierComuni,
   mirrorEventImage,
+  normalizeText,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 
@@ -328,19 +329,42 @@ export function extractPrice(ld) {
   return undefined;
 }
 
-/** {street, postalCode} from JSON-LD `location.address` (PostalAddress), or undefined. */
+/**
+ * {street, postalCode, locality, region} from JSON-LD `location.address`
+ * (PostalAddress), or undefined. `locality`/`region` (issue #3739) surface
+ * `addressLocality`/`addressRegion` so the caller can pass the region as a
+ * high-confidence canton hint into `resolveComuneNationwide` instead of
+ * relying solely on venue/title text-matching.
+ */
 export function extractAddress(ld) {
   const addr = ld?.location?.address;
   if (!addr || typeof addr !== 'object') return undefined;
   const street = typeof addr.streetAddress === 'string' && addr.streetAddress.trim() ? addr.streetAddress.trim() : undefined;
   const postalCode = typeof addr.postalCode === 'string' && addr.postalCode.trim() ? addr.postalCode.trim() : undefined;
-  if (!street && !postalCode) return undefined;
-  return { street, postalCode };
+  const locality = typeof addr.addressLocality === 'string' && addr.addressLocality.trim() ? addr.addressLocality.trim() : undefined;
+  const region = typeof addr.addressRegion === 'string' && addr.addressRegion.trim() ? addr.addressRegion.trim() : undefined;
+  if (!street && !postalCode && !locality && !region) return undefined;
+  return { street, postalCode, locality, region };
 }
 
 function extractVenue(ld, fallbackPlace) {
   const name = ld?.location?.name;
-  if (typeof name === 'string' && name.trim()) return name.trim();
+  if (typeof name === 'string' && name.trim()) {
+    const trimmed = name.trim();
+    // #3743: `location.name` sometimes just duplicates the performer's or
+    // organizer's name (a person, not a venue) — e.g. "Khaled Madi" leaking
+    // into the venue field. When that happens prefer the actual street
+    // address as a plausible venue label instead of shipping a person's name.
+    const performerName = typeof ld?.performer?.name === 'string' ? ld.performer.name.trim() : '';
+    const organizerName = typeof ld?.organizer?.name === 'string' ? ld.organizer.name.trim() : '';
+    const isPersonNameLeak =
+      (performerName && normalizeText(trimmed) === normalizeText(performerName)) ||
+      (organizerName && normalizeText(trimmed) === normalizeText(organizerName));
+    if (!isPersonNameLeak) return trimmed;
+    const addr = extractAddress(ld);
+    const addressLabel = addr?.street || addr?.locality;
+    if (addressLabel) return addressLabel;
+  }
   return fallbackPlace || undefined;
 }
 
@@ -497,9 +521,15 @@ async function main() {
     const mapped = mapEventRecord(rec.objectID, rec.perLocaleHits, enrichment || {});
     if (mapped) {
       const { event, imageSourceUrl, place } = mapped;
+      // #3739: myswitzerland's own JSON-LD ships a clean 2-letter canton code
+      // as `location.address.addressRegion` (e.g. "SZ") — pass it as the
+      // high-confidence cantonHint instead of relying solely on venue/title
+      // text-matching against the current BFS comune list, which misses
+      // fused post-2011 comuni (Niederurnen -> Glarus Nord) and non-comune
+      // toponyms (Petersplatz, a square inside Basel).
       const { comune, canton } = resolveComuneNationwide(
         { venue: [event.venue, place].filter(Boolean).join(' '), title: event.title, region: undefined },
-        undefined,
+        event.address?.region,
       );
       event.comune = comune || undefined;
       event.canton = canton || '';
