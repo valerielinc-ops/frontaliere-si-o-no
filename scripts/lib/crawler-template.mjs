@@ -134,6 +134,7 @@
  */
 import fs from 'node:fs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
+import crypto from 'node:crypto';
 import os from 'node:os';
 import path from 'node:path';
 import {
@@ -736,10 +737,22 @@ export async function verifyUrlNoRedirect(url, options = {}) {
 
 /* ── Pipeline ───────────────────────────────────────────────────────── */
 
-const JOBS_JSON_LOCK_PATH = path.join(os.tmpdir(), 'frontaliere-jobs-json.lock');
 const JOBS_JSON_LOCK_STALE_MS = 30_000;
 const JOBS_JSON_LOCK_MAX_WAIT_MS = 60_000;
 const JOBS_JSON_LOCK_POLL_MS = 50;
+
+/**
+ * Derive the lock file path from the target data/jobs.json path itself
+ * (short hash, so it stays a valid filename) rather than a single hardcoded
+ * global path. Production only ever has one `root`/DATA_JOBS per job, so
+ * this is equivalent in practice to a fixed path there — but it means two
+ * independent roots (e.g. concurrent test suites, or a future second
+ * dataset) never contend on the same lock file.
+ */
+function jobsJsonLockPathFor(dataJobsPath) {
+  const hash = crypto.createHash('sha1').update(path.resolve(dataJobsPath)).digest('hex').slice(0, 16);
+  return path.join(os.tmpdir(), `frontaliere-jobs-json-${hash}.lock`);
+}
 
 /**
  * Acquire a cross-process advisory lock guarding read-modify-write access to
@@ -756,19 +769,20 @@ const JOBS_JSON_LOCK_POLL_MS = 50;
  * addon or extra dependency. Staleness force-release guards against a dead
  * sibling (uncaught exception, OOM) leaving the whole group deadlocked.
  */
-function acquireJobsJsonLock() {
+export function acquireJobsJsonLock(dataJobsPath) {
+  const lockPath = jobsJsonLockPathFor(dataJobsPath);
   const deadline = Date.now() + JOBS_JSON_LOCK_MAX_WAIT_MS;
   const sleepBuf = new Int32Array(new SharedArrayBuffer(4));
   for (;;) {
     try {
-      fs.closeSync(fs.openSync(JOBS_JSON_LOCK_PATH, 'wx'));
+      fs.closeSync(fs.openSync(lockPath, 'wx'));
       return;
     } catch (err) {
       if (err?.code !== 'EEXIST') throw err;
       try {
-        const age = Date.now() - fs.statSync(JOBS_JSON_LOCK_PATH).mtimeMs;
+        const age = Date.now() - fs.statSync(lockPath).mtimeMs;
         if (age > JOBS_JSON_LOCK_STALE_MS) {
-          fs.unlinkSync(JOBS_JSON_LOCK_PATH);
+          fs.unlinkSync(lockPath);
           continue;
         }
       } catch {
@@ -778,7 +792,7 @@ function acquireJobsJsonLock() {
         console.warn(
           `⚠️  jobs.json lock held >${JOBS_JSON_LOCK_MAX_WAIT_MS}ms — force-breaking to avoid group deadlock.`,
         );
-        try { fs.unlinkSync(JOBS_JSON_LOCK_PATH); } catch { /* already gone */ }
+        try { fs.unlinkSync(lockPath); } catch { /* already gone */ }
         continue;
       }
       Atomics.wait(sleepBuf, 0, 0, JOBS_JSON_LOCK_POLL_MS);
@@ -786,9 +800,9 @@ function acquireJobsJsonLock() {
   }
 }
 
-function releaseJobsJsonLock() {
+export function releaseJobsJsonLock(dataJobsPath) {
   try {
-    fs.unlinkSync(JOBS_JSON_LOCK_PATH);
+    fs.unlinkSync(jobsJsonLockPathFor(dataJobsPath));
   } catch {
     /* already released/force-broken by a staleness check — fine */
   }
@@ -907,7 +921,7 @@ export async function runStandardCrawlerPipeline(config) {
   // before Step 6 validates, surfacing as a false "No X jobs found" failure).
   // The lock serializes the read-merge-write cycle across all siblings so no
   // concurrently-running crawler's contribution is ever dropped.
-  acquireJobsJsonLock();
+  acquireJobsJsonLock(DATA_JOBS);
   let final;
   try {
     let currentAll = [];
@@ -926,7 +940,7 @@ export async function runStandardCrawlerPipeline(config) {
       writeJsonAtomic(PUBLIC_DATA_JOBS, final);
     }
   } finally {
-    releaseJobsJsonLock();
+    releaseJobsJsonLock(DATA_JOBS);
   }
 
   // ─── Step 4: Diff reporting ─────────────────────────────────
