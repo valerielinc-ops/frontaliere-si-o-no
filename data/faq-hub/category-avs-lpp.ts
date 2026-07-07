@@ -28,7 +28,12 @@ export const FAQ_avsLpp: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/avs-lpp-frontalieri/',
+        href: {
+          it: '/tasse-e-pensione/calcola-previdenza/',
+          en: '/en/taxes-and-pension/calculate-retirement/',
+          de: '/de/steuern-und-vorsorge/rente-berechnen/',
+          fr: '/fr/impots-et-retraite/calculer-pension/',
+        },
         label: {
           it: 'Guida AVS/LPP frontalieri',
           en: 'AVS/LPP cross-border guide',

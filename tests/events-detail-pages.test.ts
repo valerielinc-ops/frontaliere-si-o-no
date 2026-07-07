@@ -17,6 +17,8 @@ import {
   renderComunePage,
   renderDigestPage,
   DIGESTS,
+  assignEventSlugs,
+  reserveLiveSiblingSlugs,
 } from '../build-plugins/eventsSeoPagesPlugin';
 import { SITE_LICENSE_PAGE } from '../services/seo/imageObjectLd';
 import { MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
@@ -720,5 +722,86 @@ describe('events schema data quality (#3508)', () => {
     expect(names).not.toContain('Chilbi Vecchia');
     // Markup-only filter: the stale event must still be visible in the HTML list.
     expect(page.html).toContain('Chilbi Vecchia');
+  });
+});
+
+describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => {
+  it('assigns the bare slugifyEvent() base when there is no collision', () => {
+    const list = [{ ...EVENT, id: 'a', title: 'Sagra', startDate: '2026-08-01' }];
+    const slugs = assignEventSlugs(list as never);
+    expect(slugs.get('a')).toBe('sagra-2026-08-01');
+  });
+
+  it('same title+date collision within the list gets a stable -2 suffix, id order breaks the tie', () => {
+    const evA = { ...EVENT, id: 'tio-agenda:100', title: 'Sagra', startDate: '2026-08-01' };
+    const evB = { ...EVENT, id: 'tio-agenda:200', title: 'Sagra', startDate: '2026-08-01' };
+    // Feed both orders — callers (upcomingEvents/recentlyEndedEvents) already
+    // sort ties on id, so assignEventSlugs itself must not depend on the
+    // caller's insertion order beyond what it's given; here we assert the
+    // *given* order determines the suffix (matches how the caller's
+    // pre-sorted list drives it).
+    const forward = assignEventSlugs([evA, evB] as never);
+    expect(forward.get('tio-agenda:100')).toBe('sagra-2026-08-01');
+    expect(forward.get('tio-agenda:200')).toBe('sagra-2026-08-01-2');
+  });
+
+  it('reservedBaseSlugs forces the decorated suffix even with zero in-list collisions (the actual #3700 gap)', () => {
+    // The past-bridge loop calls assignEventSlugs(pastList, reservedBaseSlugs)
+    // where reservedBaseSlugs is seeded from the STILL-LIVE siblings in the
+    // same comune. A still-live multi-day event (later endDate, so it never
+    // entered the past list at all) must not have its bare/indexed slug
+    // silently reused by a same-title+date event that just became past.
+    const pastEvent = { ...EVENT, id: 'tio-agenda:300', title: 'Mercatino di Natale', startDate: '2026-12-01' };
+    const liveSiblingBase = 'mercatino-di-natale-2026-12-01'; // slugifyEvent() of the still-live sibling
+    const slugs = assignEventSlugs([pastEvent] as never, new Set([liveSiblingBase]));
+    expect(slugs.get('tio-agenda:300')).not.toBe(liveSiblingBase);
+    expect(slugs.get('tio-agenda:300')).toBe('mercatino-di-natale-2026-12-01-2');
+  });
+
+  it('reservedBaseSlugs does not affect events whose base slug does not collide', () => {
+    const pastEvent = { ...EVENT, id: 'tio-agenda:400', title: 'Concerto', startDate: '2026-05-01' };
+    const slugs = assignEventSlugs([pastEvent] as never, new Set(['some-other-event-2026-01-01']));
+    expect(slugs.get('tio-agenda:400')).toBe('concerto-2026-05-01');
+  });
+});
+
+describe('reserveLiveSiblingSlugs (issue #3715 — reviewer-found collision)', () => {
+  it('reserves the ACTUAL assigned slug for each live sibling, not the collapsed raw base', () => {
+    // Two still-live events sharing title+date in the same comune: assignEventSlugs
+    // gives them 'base' and 'base-2'. Reserving raw slugifyEvent() bases would
+    // collapse both to the same 'base' string, leaving the second sibling's real
+    // URL ('base-2') completely unprotected against a same-title+date past-bridge
+    // page landing on it.
+    const liveA = { ...EVENT, id: 'tio-agenda:500', title: 'Mercato di Natale', startDate: '2026-12-05' };
+    const liveB = { ...EVENT, id: 'tio-agenda:600', title: 'Mercato di Natale', startDate: '2026-12-05' };
+    const slugs = assignEventSlugs([liveA, liveB] as never);
+    expect(slugs.get('tio-agenda:500')).toBe('mercato-di-natale-2026-12-05');
+    expect(slugs.get('tio-agenda:600')).toBe('mercato-di-natale-2026-12-05-2');
+
+    // `reserveLiveSiblingSlugs` reads from the real `detailSlugs` shape
+    // (Map<string, { canton, comune, slug }>), not the bare slug-string map
+    // `assignEventSlugs` returns.
+    const detailSlugs = new Map(
+      [liveA, liveB].map((ev) => [ev.id, { canton: 'TI', comune: 'Lugano', slug: slugs.get(ev.id)! }]),
+    );
+    const reserved = reserveLiveSiblingSlugs([liveA, liveB] as never, detailSlugs);
+    expect(reserved.has('mercato-di-natale-2026-12-05')).toBe(true);
+    expect(reserved.has('mercato-di-natale-2026-12-05-2')).toBe(true);
+    expect(reserved.size).toBe(2);
+  });
+
+  it('a past-bridge event colliding with the SECOND live sibling still gets pushed to a free slug', () => {
+    const liveA = { ...EVENT, id: 'tio-agenda:500', title: 'Mercato di Natale', startDate: '2026-12-05' };
+    const liveB = { ...EVENT, id: 'tio-agenda:600', title: 'Mercato di Natale', startDate: '2026-12-05' };
+    const slugs = assignEventSlugs([liveA, liveB] as never);
+    const detailSlugs = new Map(
+      [liveA, liveB].map((ev) => [ev.id, { canton: 'TI', comune: 'Lugano', slug: slugs.get(ev.id)! }]),
+    );
+    const reserved = reserveLiveSiblingSlugs([liveA, liveB] as never, detailSlugs);
+
+    const pastEvent = { ...EVENT, id: 'tio-agenda:700', title: 'Mercato di Natale', startDate: '2026-12-05' };
+    const pastSlugs = assignEventSlugs([pastEvent] as never, reserved);
+    // Must land on a third slug — neither live sibling's real URL is reused.
+    expect(pastSlugs.get('tio-agenda:700')).toBe('mercato-di-natale-2026-12-05-3');
   });
 });

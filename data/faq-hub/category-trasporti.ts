@@ -28,7 +28,12 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/trasferimento-auto/',
+        href: {
+          it: '/guida-frontaliere/trasferire-auto-svizzera/',
+          en: '/en/cross-border-guide/transfer-car-to-switzerland/',
+          de: '/de/grenzgaenger-ratgeber/auto-in-schweiz-ummelden/',
+          fr: '/fr/guide-frontalier/transferer-voiture-suisse/',
+        },
         label: {
           it: 'Trasferimento auto CH-IT',
           en: 'CH-IT car transfer',
@@ -224,7 +229,12 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/traffico-valichi/',
+        href: {
+          it: '/guida-frontaliere/tempi-attesa-dogana/',
+          en: '/en/cross-border-guide/border-waiting-times/',
+          de: '/de/grenzgaenger-ratgeber/wartezeiten-grenze/',
+          fr: '/fr/guide-frontalier/temps-attente-douane/',
+        },
         label: {
           it: 'Tempi di attesa ai valichi',
           en: 'Border crossing times',

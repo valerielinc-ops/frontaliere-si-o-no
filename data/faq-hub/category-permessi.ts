@@ -28,7 +28,12 @@ export const FAQ_permessi: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/permessi-lavoro/',
+        href: {
+          it: '/guida-frontaliere/permessi-di-lavoro/',
+          en: '/en/cross-border-guide/work-permits-guide/',
+          de: '/de/grenzgaenger-ratgeber/arbeitsbewilligungen/',
+          fr: '/fr/guide-frontalier/permis-de-travail/',
+        },
         label: {
           it: 'Guida ai permessi di lavoro',
           en: 'Work permits guide',
@@ -203,7 +208,12 @@ export const FAQ_permessi: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/disoccupazione-frontalieri/',
+        href: {
+          it: '/guida-frontaliere/disoccupazione-transfrontaliera/',
+          en: '/en/cross-border-guide/unemployment-benefits/',
+          de: '/de/grenzgaenger-ratgeber/arbeitslosengeld/',
+          fr: '/fr/guide-frontalier/allocations-chomage/',
+        },
         label: {
           it: 'Disoccupazione frontalieri',
           en: 'Cross-border unemployment',
