@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-07-06T22:38:18.265Z",
+  "generatedAt": "2026-07-07T22:34:27.884Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4796,
-  "avgDurationMs": 4796,
+  "durationMs": 4465,
+  "avgDurationMs": 4465,
   "durationHistory": [
-    4796
+    4465
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,13 +28,14 @@
       "source": "company-website",
       "slug": "banca-del-sempione-responsabile-compliance-e-am-banca-del-sempione-milano-branch",
       "sourceLang": "it",
+      "id": "banca-sempione-f74739997e11",
+      "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 52,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 2,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -52,13 +53,15 @@
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
+      "id": "banca-sempione-f9feccc2fb3b",
+      "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 54,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 23,
         "completeness": 11
       }
     },
@@ -76,13 +79,15 @@
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
+      "id": "banca-sempione-a117dec221e9",
+      "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 54,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 23,
         "completeness": 11
       }
     },
@@ -100,13 +105,15 @@
       "source": "company-website",
       "slug": "banca-del-sempione-private-banking-assistant",
       "sourceLang": "en",
+      "id": "banca-sempione-f45acac33926",
+      "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 54,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 11
       }
     }
