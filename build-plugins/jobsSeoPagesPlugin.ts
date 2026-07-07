@@ -1242,10 +1242,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // index emitter + sitemap-shard pipeline below, not by this editorial copy.
  const EDITORIAL_PRIMARY_CANTONS = ['TI', 'GR', 'VS'] as const;
  const targetCantonsDisplay: Record<'it' | 'en' | 'de' | 'fr', string> = {
- it: EDITORIAL_PRIMARY_CANTONS.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' e $1'),
- en: EDITORIAL_PRIMARY_CANTONS.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' and $1'),
- de: EDITORIAL_PRIMARY_CANTONS.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' und $1'),
- fr: EDITORIAL_PRIMARY_CANTONS.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' et $1'),
+ it: EDITORIAL_PRIMARY_CANTONS.map(c => getCantonDisplayLabel(c, 'it')).join(', ').replace(/, ([^,]+)$/, ' e $1'),
+ en: EDITORIAL_PRIMARY_CANTONS.map(c => getCantonDisplayLabel(c, 'en')).join(', ').replace(/, ([^,]+)$/, ' and $1'),
+ de: EDITORIAL_PRIMARY_CANTONS.map(c => getCantonDisplayLabel(c, 'de')).join(', ').replace(/, ([^,]+)$/, ' und $1'),
+ fr: EDITORIAL_PRIMARY_CANTONS.map(c => getCantonDisplayLabel(c, 'fr')).join(', ').replace(/, ([^,]+)$/, ' et $1'),
  };
 
  if (!fs.existsSync(jobsPath)) {
@@ -2567,13 +2567,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // locale pass × every active job. The full prose IIFE further down uses
  // most of these via closure (co/cat/contractKey/dc/deCantonPrep/...).
  const __tPh_perJob = phaseTimer();
- const perJob_dc = CANTON_DISPLAY[String(job.canton || DEFAULT_CANTON)] || String(job.canton || DEFAULT_CANTON);
+ // Canton CODE is job-invariant and stays hoisted; the DISPLAY NAME is not
+ // (e.g. GR → "Grigioni" it/en, "Graubünden" de, "Grisons" fr) — resolved
+ // per-locale below (`dc` in the locale loop), not here.
+ const perJob_cantonCode = String(job.canton || DEFAULT_CANTON);
  const perJob_jobLocation = String(job.location || '').trim();
  const perJob_co = String(job.company || '');
  const perJob_cat = String(job.category || '').toLowerCase();
  const perJob_contractKey = String(job.contract || '').toLowerCase();
- const perJob_deCantonPrep = germanCantonPrep(perJob_dc);
- const perJob_frCantonPrep = frenchCantonPrep(perJob_dc);
  const perJob_matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
  const perJob_matchedSector = SECTOR_HUB_KEYS.find((s) => jobMatchesSector(job as never, s));
  const perJob_logoUrl = companyLogo(job);
@@ -2640,7 +2641,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
  const localizedTitle = stripLiteralMarkdownFromTitle(String(job?.titleByLocale?.[locale] || job.title || ''));
  const jobLocation = perJob_jobLocation;
- const dc = perJob_dc;
+ const dc = getCantonDisplayLabel(perJob_cantonCode, locale);
  // City-aware title: always includes location when available, then truncates
  // the core before appending the fixed brand suffix. This prevents duplicate
  // titles on multi-sede jobs (same role × N cities) — the city differentiates
@@ -3189,11 +3190,11 @@ ${staticAnalyticsHtml}
  ${recentArticlesHtmlFor(locale)}
  ${(() => {
  const __tPh_prose = phaseTimer();
- // loc/co/cat/contractKey/deCantonPrep/frCantonPrep are job-invariant —
- // sourced from the perJob block hoisted above the locale loop. Only
- // safeTitle/slugHash/variant/contractLabelLocal/sectorName/taxUrl are
- // genuinely locale-dependent and stay local.
- const loc = esc(perJob_jobLocation || perJob_dc);
+ // loc/co/cat/contractKey are job-invariant — sourced from the perJob
+ // block hoisted above the locale loop. deCantonPrep/frCantonPrep derive
+ // from `dc`, which IS locale-dependent (canton display name), so they're
+ // computed per-locale below, not hoisted.
+ const loc = esc(perJob_jobLocation || dc);
  const co = esc(perJob_co);
  // Relative URL — appears in <a href> within prose; resolves against canonical.
  const taxUrl = locale === 'it' ? '/' : `/${locale}/`;
@@ -3212,8 +3213,8 @@ ${staticAnalyticsHtml}
  // Deterministic variant picker — stable across rebuilds, varies across slugs.
  const slugHash = stableHash(String(perLocaleSlug[locale] || job.slug || job.id || ''));
  const variant = slugHash % 3; // 3 rotating templates
- const deCantonPrep = perJob_deCantonPrep;
- const frCantonPrep = perJob_frCantonPrep;
+ const deCantonPrep = germanCantonPrep(dc);
+ const frCantonPrep = frenchCantonPrep(dc);
 
  // --- Frontalier info, per-locale, with 3 template variants each ---
  // Each variant injects title, company, city, sector, contract so ~60-70% of
@@ -3528,9 +3529,11 @@ ${staticAnalyticsHtml}
  sectionName: string;
  editorial: string;
  };
- const getCompanyCopy = (cantonDisplay: string): Record<'it' | 'en' | 'de' | 'fr', CompanyCopyEntry> => {
- const frPrep = frenchCantonPrep(cantonDisplay);
- const dePrep = germanCantonPrep(cantonDisplay);
+ const getCompanyCopy = (cantonCode: string): Record<'it' | 'en' | 'de' | 'fr', CompanyCopyEntry> => {
+ const itDisplay = getCantonDisplayLabel(cantonCode, 'it');
+ const enDisplay = getCantonDisplayLabel(cantonCode, 'en');
+ const frPrep = frenchCantonPrep(getCantonDisplayLabel(cantonCode, 'fr'));
+ const dePrep = germanCantonPrep(getCantonDisplayLabel(cantonCode, 'de'));
  // F3a — title delegates to buildEmployerHubTitle (50-60 visible chars).
  // description delegates to buildEmployerHubMeta (140-160 visible chars).
  // Heading / viewAll / editorial stay unchanged (used on-page, not in head).
@@ -3543,20 +3546,20 @@ ${staticAnalyticsHtml}
  it: {
  title: ctrTitle('it'),
  description: ctrDesc('it'),
- heading: (companyName: string) => `${companyName} — posizioni aperte in ${cantonDisplay}`,
+ heading: (companyName: string) => `${companyName} — posizioni aperte in ${itDisplay}`,
  viewAll: 'Vedi tutte le offerte',
- allJobsLink: `Tutte le offerte di lavoro in ${cantonDisplay}`,
- sectionName: `Cerca lavoro in ${cantonDisplay}`,
- editorial: `Questa pagina raccoglie le posizioni aperte pubblicate direttamente sul sito aziendale. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico e collegano alla pagina di candidatura ufficiale. Se non trovi posizioni attive, l'azienda potrebbe non avere ruoli aperti in ${cantonDisplay} al momento — salva la pagina per ricevere aggiornamenti.`,
+ allJobsLink: `Tutte le offerte di lavoro in ${itDisplay}`,
+ sectionName: `Cerca lavoro in ${itDisplay}`,
+ editorial: `Questa pagina raccoglie le posizioni aperte pubblicate direttamente sul sito aziendale. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico e collegano alla pagina di candidatura ufficiale. Se non trovi posizioni attive, l'azienda potrebbe non avere ruoli aperti in ${itDisplay} al momento — salva la pagina per ricevere aggiornamenti.`,
  },
  en: {
  title: ctrTitle('en'),
  description: ctrDesc('en'),
- heading: (companyName: string) => `${companyName} jobs in ${cantonDisplay}`,
+ heading: (companyName: string) => `${companyName} jobs in ${enDisplay}`,
  viewAll: 'View all jobs',
- allJobsLink: `All job offers in ${cantonDisplay}`,
- sectionName: `Find jobs in ${cantonDisplay}`,
- editorial: `This page lists positions published directly on the company's career portal. Listings are refreshed daily by our automated crawler and link to the official application page. If no roles are shown, the company may not have open positions in ${cantonDisplay} right now — bookmark this page to stay updated.`,
+ allJobsLink: `All job offers in ${enDisplay}`,
+ sectionName: `Find jobs in ${enDisplay}`,
+ editorial: `This page lists positions published directly on the company's career portal. Listings are refreshed daily by our automated crawler and link to the official application page. If no roles are shown, the company may not have open positions in ${enDisplay} right now — bookmark this page to stay updated.`,
  },
  de: {
  title: ctrTitle('de'),
@@ -3841,8 +3844,8 @@ ${staticAnalyticsHtml}
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${fullSlug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const companyPrimaryCanton = [...new Set(companyJobs.map((j: any) => String(j.canton || DEFAULT_CANTON)).filter(Boolean))][0] || DEFAULT_CANTON;
- const companyDisplayCanton = CANTON_DISPLAY[companyPrimaryCanton] || companyPrimaryCanton;
- const copy = getCompanyCopy(companyDisplayCanton)[locale];
+ const companyDisplayCanton = getCantonDisplayLabel(companyPrimaryCanton, locale);
+ const copy = getCompanyCopy(companyPrimaryCanton)[locale];
  // Tentative defaults — overridden below if a curated brand is registered.
  // F3a: title + description come from the shared CTR-optimized helpers so
  // the live job count is baked into both.
@@ -4894,7 +4897,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  isPartOf: sectionRootUrl,
  breadcrumbs: [
  { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
+ { name: cantonSectionName(locale, getCantonDisplayLabel(editorialCanton, locale)), item: sectionRootUrl },
  { name: model.heading, item: canonicalUrl },
  ],
  items: [...model.sections.last24Hours.jobs, ...model.sections.last3Days.jobs, ...model.sections.partTime.jobs],
@@ -4962,7 +4965,7 @@ ${staticAnalyticsHtml}
  <h2 class="s-iEVPhz">${esc(model.sections.partTime.label)}</h2>
  ${renderJobList(model.sections.partTime.jobs)}
  </section>
- ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-today' }))}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: getCantonDisplayLabel(editorialCanton, locale), omitCommute: true, cantonDisplay: getCantonDisplayLabel(editorialCanton, locale), cantonSlot: 'editorial-today' }))}
  </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -5213,7 +5216,7 @@ ${staticAnalyticsHtml}
  isPartOf: sectionRootUrl,
  breadcrumbs: [
  { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
+ { name: cantonSectionName(locale, getCantonDisplayLabel(editorialCanton, locale)), item: sectionRootUrl },
  { name: model.heading, item: canonicalUrl },
  ],
  items: [...model.feed.jobs, ...model.latestJobs],
@@ -5303,7 +5306,7 @@ ${staticAnalyticsHtml}
  <h2 class="s-iEVPhz">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
  <div class="s-bRaq8r">${faqHtml}</div>
  </section>
- ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-nursing' }))}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: getCantonDisplayLabel(editorialCanton, locale), omitCommute: true, cantonDisplay: getCantonDisplayLabel(editorialCanton, locale), cantonSlot: 'editorial-nursing' }))}
  </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -5401,7 +5404,7 @@ ${staticAnalyticsHtml}
  isPartOf: sectionRootUrl,
  breadcrumbs: [
  { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
+ { name: cantonSectionName(locale, getCantonDisplayLabel(editorialCanton, locale)), item: sectionRootUrl },
  { name: model.heading, item: canonicalUrl },
  ],
  items: [...model.feed.jobs, ...model.latestJobs],
@@ -5487,7 +5490,7 @@ ${staticAnalyticsHtml}
  <h2 class="s-iEVPhz">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
  <div class="s-bRaq8r">${faqHtml}</div>
  </section>
- ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-part-time' }))}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: getCantonDisplayLabel(editorialCanton, locale), omitCommute: true, cantonDisplay: getCantonDisplayLabel(editorialCanton, locale), cantonSlot: 'editorial-part-time' }))}
  </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -5607,13 +5610,13 @@ ${staticAnalyticsHtml}
  isPartOf: model.parentHubHref,
  breadcrumbs: [
  { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
- { name: locale === 'it' ? `Sanità in ${CANTON_DISPLAY[editorialCanton] || editorialCanton}` : locale === 'en' ? `Healthcare jobs in ${CANTON_DISPLAY[editorialCanton] || editorialCanton}` : locale === 'de' ? `Gesundheits-Jobs ${germanCantonPrep(CANTON_DISPLAY[editorialCanton] || editorialCanton)}` : `Santé ${frenchCantonPrep(CANTON_DISPLAY[editorialCanton] || editorialCanton)}`, item: model.parentHubHref },
+ { name: cantonSectionName(locale, getCantonDisplayLabel(editorialCanton, locale)), item: sectionRootUrl },
+ { name: locale === 'it' ? `Sanità in ${getCantonDisplayLabel(editorialCanton, locale)}` : locale === 'en' ? `Healthcare jobs in ${getCantonDisplayLabel(editorialCanton, locale)}` : locale === 'de' ? `Gesundheits-Jobs ${germanCantonPrep(getCantonDisplayLabel(editorialCanton, locale))}` : `Santé ${frenchCantonPrep(getCantonDisplayLabel(editorialCanton, locale))}`, item: model.parentHubHref },
  { name: model.heading, item: canonicalUrl },
  ],
  items: [...model.feed.jobs, ...model.latestJobs],
  });
- const edc = CANTON_DISPLAY[editorialCanton] || editorialCanton;
+ const edc = getCantonDisplayLabel(editorialCanton, locale);
  // The parent hub covers the whole care cluster (nurses, OSS, educators,
  // clinics, care homes), so the back-link must say "healthcare hub", not
  // "nurses" - on the educators page "Torna all'hub infermieri" was wrong.
@@ -5682,7 +5685,7 @@ ${staticAnalyticsHtml}
  <h2 class="s-iEVPhz">${esc(locale === 'it' ? 'Altri percorsi sanitari' : locale === 'en' ? 'Other care paths' : locale === 'de' ? 'Weitere Pflegepfade' : 'Autres parcours sante')}</h2>
  <div class="s-J2fKgL">${siblingLinks}</div>
  </section>
- ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, sectorOrType: locale === 'it' ? 'sanità' : locale === 'en' ? 'healthcare' : locale === 'de' ? 'Gesundheitswesen' : 'santé', cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-clinics' }))}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: getCantonDisplayLabel(editorialCanton, locale), omitCommute: true, sectorOrType: locale === 'it' ? 'sanità' : locale === 'en' ? 'healthcare' : locale === 'de' ? 'Gesundheitswesen' : 'santé', cantonDisplay: getCantonDisplayLabel(editorialCanton, locale), cantonSlot: 'editorial-clinics' }))}
  </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -6487,10 +6490,7 @@ ${staticAnalyticsHtml}
  cantonLatestJobs.set(canton, flat);
  }
  const cantonDisplayLocalCity = (canton: string, locale: typeof localeList[number]): string => {
- const dn = CANTON_DISPLAY?.[canton];
- if (dn) return dn;
- const section = sharedResolveCantonSection(locale, canton);
- return section.replace(/^(cerca-lavoro-|find-jobs-|jobs-im-|jobs-in-der-|trouver-emploi-)/, '');
+ return getCantonDisplayLabel(canton, locale);
  };
  const cityHubSitemapEntries: string[] = [];
  let cityHubCantonPagesCount = 0;
@@ -6911,11 +6911,7 @@ ${staticAnalyticsHtml}
  }
  // Display names for the canton in body copy (use canton URL slug as fallback).
  const cantonDisplayLocal = (canton: string, locale: typeof localeList[number]): string => {
- const dn = CANTON_DISPLAY?.[canton];
- if (dn) return dn;
- // Fallback to capitalised URL slug from cantonSection (rare).
- const section = sharedResolveCantonSection(locale, canton);
- return section.replace(/^(cerca-lavoro-|find-jobs-|jobs-im-|jobs-in-der-|trouver-emploi-)/, '');
+ return getCantonDisplayLabel(canton, locale);
  };
  for (const canton of SHARED_ALL_CANTON_CODES) {
  if (canton === 'TI') continue; // TI handled by legacy block above
@@ -7212,10 +7208,7 @@ ${staticAnalyticsHtml}
  byCat.get(cat)!.push(job);
  }
  const cantonDisplayLocalCat = (canton: string, locale: typeof localeList[number]): string => {
- const dn = CANTON_DISPLAY?.[canton];
- if (dn) return dn;
- const section = sharedResolveCantonSection(locale, canton);
- return section.replace(/^(cerca-lavoro-|find-jobs-|jobs-im-|jobs-in-der-|trouver-emploi-)/, '');
+ return getCantonDisplayLabel(canton, locale);
  };
  for (const canton of SHARED_ALL_CANTON_CODES) {
  if (canton === 'TI') continue;
@@ -7394,10 +7387,7 @@ ${staticAnalyticsHtml}
  }
  }
  const cantonDisplayLocalSec = (canton: string, locale: typeof localeList[number]): string => {
- const dn = CANTON_DISPLAY?.[canton];
- if (dn) return dn;
- const section = sharedResolveCantonSection(locale, canton);
- return section.replace(/^(cerca-lavoro-|find-jobs-|jobs-im-|jobs-in-der-|trouver-emploi-)/, '');
+ return getCantonDisplayLabel(canton, locale);
  };
  const sectorHubSitemapEntries: string[] = [];
  let sectorHubPagesCount = 0;
@@ -7676,10 +7666,7 @@ ${staticAnalyticsHtml}
  byCompany.get(canonical)!.jobs.push(job);
  }
  const cantonDisplayLocalComp = (canton: string, locale: typeof localeList[number]): string => {
- const dn = CANTON_DISPLAY?.[canton];
- if (dn) return dn;
- const section = sharedResolveCantonSection(locale, canton);
- return section.replace(/^(cerca-lavoro-|find-jobs-|jobs-im-|jobs-in-der-|trouver-emploi-)/, '');
+ return getCantonDisplayLabel(canton, locale);
  };
  const companyCantonSitemapEntries: string[] = [];
  let companyCantonPagesCount = 0;
@@ -7909,10 +7896,7 @@ ${staticAnalyticsHtml}
  byCity.get(citySlug)!.jobs.push(job);
  }
  const cantonDisplayLocalCC = (canton: string, locale: typeof localeList[number]): string => {
- const dn = CANTON_DISPLAY?.[canton];
- if (dn) return dn;
- const section = sharedResolveCantonSection(locale, canton);
- return section.replace(/^(cerca-lavoro-|find-jobs-|jobs-im-|jobs-in-der-|trouver-emploi-)/, '');
+ return getCantonDisplayLabel(canton, locale);
  };
  const companyCitySitemapEntries: string[] = [];
  let companyCityPagesCount = 0;
@@ -11462,7 +11446,6 @@ ${staticAnalyticsHtml}
  const jobContract = String(ejData?.contract || '');
  const jobDatePosted = String(ejData?.datePosted || '');
  const jobExpiredAt = String(ejData?.expiredAt || '');
- const displayCanton = CANTON_DISPLAY[jobCanton] || jobCanton;
  const sameCompanyActiveJobs = jobCompany
  ? (companyActiveJobsMap.get(jobCompany.toLowerCase()) || [])
  : [];
@@ -11474,11 +11457,11 @@ ${staticAnalyticsHtml}
  );
  const tailPretty = _tailTokens.join(' ');
  const cityForSignal = jobLocation || (slugInfo?.location ?? '');
- const cantonForSignal = jobCanton && cityForSignal ? displayCanton : '';
  const countryHint = cityForSignal && !jobCanton ? cityForSignal : '';
  const hasRealTitle = !!(ejData?.title || gscInfo?.title || slugInfo?.title);
- // Pre-escaped canton (used in many template literals across all locales).
- const escDisplayCanton = esc(displayCanton);
+ // displayCanton/escDisplayCanton/cantonForSignal are NOT hoisted here:
+ // the canton display name varies by locale (e.g. GR → "Grigioni" it,
+ // "Graubünden" de/en, "Grisons" fr) — resolved per-locale in the loop below.
 
  for (const locale of localeList) {
  const relPath = paths[locale];
@@ -11505,10 +11488,15 @@ ${staticAnalyticsHtml}
  const selfUrl = `${BASE_URL}${withSlash(relPath)}`;
  const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/`.replace(/\/+/g, '/');
  const copy = expiredBannerCopy[locale] ?? expiredBannerCopy.it;
+ // Canton display name resolved per-locale (see hoisting note above).
+ const displayCanton = getCantonDisplayLabel(jobCanton, locale);
+ const cantonForSignal = jobCanton && cityForSignal ? displayCanton : '';
+ const escDisplayCanton = esc(displayCanton);
 
  // Rich content fallback chain: expired-jobs.json → orphan enriched data → slug extraction
- // jobCompany/jobLocation/jobCanton/displayCanton/etc. are hoisted above
- // the for-locale loop (per-slug invariants).
+ // jobCompany/jobLocation/jobCanton/etc. are hoisted above the for-locale
+ // loop (per-slug invariants); displayCanton/escDisplayCanton/cantonForSignal
+ // are NOT (they vary by locale — see note above the loop).
  const jobTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || copy.title);
  const jobDescription = stripLeadingSectionLabel(String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || ''));
  // SERP title via the shared role>city>company>brand cascade — same
@@ -11679,7 +11667,8 @@ ${staticAnalyticsHtml}
  const __tEjpBody = phaseTimer();
  // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
  // Enriched template ensures >100 words per page for every expired job.
- // (jobCanton, displayCanton, sameCompanyActiveJobs, etc. are hoisted above.)
+ // (jobCanton, sameCompanyActiveJobs, etc. are hoisted above; displayCanton
+ // is resolved per-locale earlier in this loop iteration, not hoisted.)
  const staticBodyParts: string[] = [];
 
  // --- H1 + expired notice ---
