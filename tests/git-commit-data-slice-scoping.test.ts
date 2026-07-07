@@ -30,7 +30,14 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
     const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
 
     try {
-      execFileSync('git', ['init', '-q', '--bare', originDir]);
+      // --initial-branch=main: for an empty repo, git's smart-protocol symref
+      // advertisement means the SERVER's (origin's) default-branch name wins
+      // on clone, regardless of the client's own init.defaultBranch config —
+      // so this must be set on the bare origin itself, not on the clone. Machine/
+      // CI-image default-branch naming varies (some default to 'master'), but
+      // the script below pushes explicitly to 'main', so origin's one real
+      // branch must actually be named 'main'.
+      execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
       execFileSync('git', ['clone', '-q', originDir, repoDir]);
       execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: repoDir });
       execFileSync('git', ['config', 'user.name', 'Test'], { cwd: repoDir });
@@ -101,7 +108,7 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
     const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
 
     try {
-      execFileSync('git', ['init', '-q', '--bare', originDir]);
+      execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
       execFileSync('git', ['clone', '-q', originDir, repoDir]);
       execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: repoDir });
       execFileSync('git', ['config', 'user.name', 'Test'], { cwd: repoDir });
