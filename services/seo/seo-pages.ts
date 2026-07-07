@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3093,
+ "numberOfItems": 3094,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7768,7 +7768,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3090, "name": "Gallarate-Rho: chiusura weekend 11-13 luglio 2026", "url": `${BASE_URL}/articoli-frontaliere/gallarate-rho-lavori-luglio-2026` },
           { "@type": "ListItem", "position": 3091, "name": "L'Accordo Italia-Svizzera del 2020 sulla tassaz...", "url": `${BASE_URL}/articoli-frontaliere/laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri` },
           { "@type": "ListItem", "position": 3092, "name": "Disoccupazione in Svizzera: i dati Seco di giugno", "url": `${BASE_URL}/articoli-frontaliere/seco-disoccupazione-giugno-2024` },
-          { "@type": "ListItem", "position": 3093, "name": "Mercato del lavoro svizzero in rallentamento: c...", "url": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-svizzera-rallenta-estate-2024` }
+          { "@type": "ListItem", "position": 3093, "name": "Mercato del lavoro svizzero in rallentamento: c...", "url": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-svizzera-rallenta-estate-2024` },
+          { "@type": "ListItem", "position": 3094, "name": "La nuova caissière di Migros a Vaud e il regime...", "url": `${BASE_URL}/articoli-frontaliere/caissiere-migros` }
  ]
  },
  {

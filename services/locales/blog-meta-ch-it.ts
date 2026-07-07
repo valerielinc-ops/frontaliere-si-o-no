@@ -928,6 +928,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.seco-disoccupazione-giugno-2024.title': 'Disoccupazione in Svizzera: i dati Seco di giugno',
     'blog.article.seco-disoccupazione-giugno-2024.excerpt': 'Il tasso di disoccupazione scende al 2,9% a giugno. La Seco conferma la stabilità al netto dei fattori stagionali al 3,1%. Ecco l\'analisi dei dati.',
     'blog.article.seco-disoccupazione-giugno-2024.imageAlt': 'Panorama di una città svizzera con uffici moderni',
+    'blog.article.caissiere-migros.title': 'La nuova caissière di Migros a Vaud e il regime transitorio per i frontalieri',
+    'blog.article.caissiere-migros.excerpt': 'La società cooperativa Migros Vaud ha annunciato la sostituzione della caissière, mentre i frontalieri saranno esenti dal regime transitorio fino al 2033',
+    'blog.article.caissiere-migros.imageAlt': 'Immagine di una caissière di Migros a Lugano, con sfondo della città e dei monti',
 };
 
 export default blogMetaChIt;

@@ -928,6 +928,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.seco-disoccupazione-giugno-2024.title': 'Chômage en Suisse : les chiffres secs de juin',
     'blog.article.seco-disoccupazione-giugno-2024.excerpt': 'Le taux de chômage tombe à 2,9% en juin. Le SECO confirme la stabilité nette des facteurs saisonniers à 3,1 %. Voici l\'analyse des données.',
     'blog.article.seco-disoccupazione-giugno-2024.imageAlt': 'Panorama d\'une ville suisse avec des bureaux modernes',
+    'blog.article.caissiere-migros.title': 'Migros Vaud: nuovo regime per frontalieri',
+    'blog.article.caissiere-migros.excerpt': 'La société coopérative Migros Vaud a annoncé le remplacement de la caissière, tandis que les frontaliers seront exemptés du régime transitoire jusqu\'en 2033',
+    'blog.article.caissiere-migros.imageAlt': 'Image d\'une caissière de Migros à Lugano, avec arrière-plan de la ville et des montagnes',
 };
 
 export default blogMetaChFr;
