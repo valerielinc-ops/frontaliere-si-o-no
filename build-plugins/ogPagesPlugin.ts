@@ -21,6 +21,7 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
+import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
  return {
@@ -146,19 +147,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  'How', 'What', 'When', 'Where', 'Who', 'Why', 'Which', 'Can', 'Should', 'Is', 'Are', 'Do', 'Does',
  'Wie', 'Was', 'Wann', 'Wo', 'Wer', 'Warum', 'Welche',
  'Comment', 'Quoi', 'Quand', 'Où', 'Qui', 'Pourquoi', 'Quel', 'Quelle', 'Est-ce'];
- const stripMarkdownForFaq = (text: string): string =>
- text
- .replace(/\*\*([^*]+)\*\*/g, '$1')
- .replace(/\*([^*]+)\*/g, '$1')
- .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
- .replace(/^#{1,6}\s+/gm, '')
- .replace(/^[-*+]\s+/gm, '')
- .replace(/^\d+\.\s+/gm, '')
- .replace(/`([^`]+)`/g, '$1')
- .replace(/\n{2,}/g, ' ')
- .replace(/\n/g, ' ')
- .replace(/\s{2,}/g, ' ')
- .trim();
+ const stripMarkdownForFaq = stripMarkdownPlain;
 
  const extractArticleFaqPairs = (bodyText: string): Array<{ question: string; answer: string }> => {
  const pairs: Array<{ question: string; answer: string }> = [];
