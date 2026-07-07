@@ -13,7 +13,6 @@
     "https://jobs.ruag.ch/offene-stellen/facility-manager-networks-betriebselektrikerin-schwachstrom/8e281827-5c3f-44d8-a754-cf6caf198437",
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965",
     "https://jobs.ruag.ch/offene-stellen/assistentin-construction-management-west/81b4936b-bb5a-4a41-9298-336b3dc084a5",
-    "https://jobs.ruag.ch/offene-stellen/technician-avionics/72f05998-d65d-450d-aa42-d21f8fb337da",
     "https://jobs.ruag.ch/offene-stellen/professional-ict-architect/d4302aa0-afaa-4a3c-81c4-e6e41ab1de92",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-automatiker-in-efz-2027/e5115d98-fabd-4c70-b86f-8ec2c4dd88bb",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-elektroniker-in-efz-2027/b10df6a2-4457-493a-8064-60fdb52f30b1",
@@ -37,7 +36,7 @@
     "https://jobs.ruag.ch/offene-stellen/gebaeudetechnikerin-sanitaer-heizungsinstallateurin/63ae7f4e-efa5-4ba3-ba28-f9dd8a26dbb7"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-06T22:34:56.021Z",
+  "updatedAt": "2026-07-07T08:24:02.144Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-networks-betriebselektrikerin-schwachstrom/8e281827-5c3f-44d8-a754-cf6caf198437": {
       "location": "Altdorf",
@@ -56,12 +55,6 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-06-29"
-    },
-    "https://jobs.ruag.ch/offene-stellen/technician-avionics/72f05998-d65d-450d-aa42-d21f8fb337da": {
-      "location": "Wilderswil",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2026-06-24"
     },
     "https://jobs.ruag.ch/offene-stellen/professional-ict-architect/d4302aa0-afaa-4a3c-81c4-e6e41ab1de92": {
       "location": "Bern",
