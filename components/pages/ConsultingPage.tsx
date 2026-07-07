@@ -29,7 +29,6 @@ function ensureCalendlyScript(): Promise<void> {
  const s = document.createElement('script');
  s.src = 'https://assets.calendly.com/assets/external/widget.js';
  s.async = true;
- s.crossOrigin = 'anonymous';
  s.onload = () => { calendlyScriptLoaded = true; resolve(); };
  document.head.appendChild(s);
  });
