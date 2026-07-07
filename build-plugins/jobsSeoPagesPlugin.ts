@@ -692,13 +692,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    return localised[code]?.[locale] ?? localised[code]?.it ?? code;
  }
 
- /**
-  * Legacy IT-only display map. Now derived from ALL_CANTON_CODES so it's
-  * complete by construction (was 26-entry hand-written list before P1.11).
-  */
- const CANTON_DISPLAY: Record<string, string> = Object.fromEntries(
-   ALL_CANTON_CODES.map((code) => [code, getCantonDisplayLabel(code, 'it')]),
- );
  const CANTON_FALLBACK_POSTAL: Record<string, string> = {
  'TI': '6900', 'GR': '7000', 'ZH': '8001', 'BE': '3001',
  'LU': '6003', 'BS': '4001', 'GE': '1201', 'VD': '1003',
@@ -2729,12 +2722,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
  // Build an SEO-friendly meta description with salary and CTA
  const metaIntro = locale === 'de'
- ? `${localizedTitle} bei ${job.company} in ${job.location || DEFAULT_CANTON_DISPLAY}.`
+ ? `${localizedTitle} bei ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'de')}.`
  : locale === 'fr'
- ? `${localizedTitle} chez ${job.company} à ${job.location || DEFAULT_CANTON_DISPLAY}.`
+ ? `${localizedTitle} chez ${job.company} à ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'fr')}.`
  : locale === 'en'
- ? `${localizedTitle} at ${job.company} in ${job.location || DEFAULT_CANTON_DISPLAY}.`
- : `${localizedTitle} presso ${job.company} a ${job.location || DEFAULT_CANTON_DISPLAY}.`;
+ ? `${localizedTitle} at ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'en')}.`
+ : `${localizedTitle} presso ${job.company} a ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'it')}.`;
  // Inline salary snippet for meta description (before salaryText is computed)
  const metaSalaryMin = Number(job.salaryMin);
  const metaSalaryMax = Number(job.salaryMax);
@@ -4284,7 +4277,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  return parts.join('\n');
  })()}
  ${curatedBodyHtml ? `<p class="s-DhzLIy">${esc(copy.editorial)}</p>` : ''}
- ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: primaryLocation || 'Ticino', omitCommute: !primaryLocation }))}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: primaryLocation || getCantonDisplayLabel(DEFAULT_CANTON, locale), omitCommute: !primaryLocation }))}
  </div>`;
 
  const companyHtml = buildSeoPageHtml({
@@ -5128,7 +5121,7 @@ ${staticAnalyticsHtml}
  <h2 class="s-iEVPhz">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
  <div class="s-bRaq8r">${faqHtml}</div>
  </section>
- ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true }))}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: getCantonDisplayLabel(DEFAULT_CANTON, locale), omitCommute: true }))}
  </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -6860,7 +6853,7 @@ ${staticAnalyticsHtml}
  hreflangHtml: `${pgAlternates}\n${pgXDefault}`,
  extraHeadHtml: `${pgPrevLink}${pgNextLink}`,
  jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
- bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n <p>${esc(pgDesc)}</p>\n <ul class="s-0WjlyL">${pgListHtml}</ul>\n ${renderJobBoardListingDensityProse(locale, { subject: pgListName, location: 'Ticino', resultCount: pgJobs.length, companyCount: pgCompanyCount, locationCount: pgLocationCount, pageLabel: String(pageNum) })}\n <nav class="s-HarBzc">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true }))}`,
+ bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n <p>${esc(pgDesc)}</p>\n <ul class="s-0WjlyL">${pgListHtml}</ul>\n ${renderJobBoardListingDensityProse(locale, { subject: pgListName, location: getCantonDisplayLabel(DEFAULT_CANTON, locale), resultCount: pgJobs.length, companyCount: pgCompanyCount, locationCount: pgLocationCount, pageLabel: String(pageNum) })}\n <nav class="s-HarBzc">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: getCantonDisplayLabel(DEFAULT_CANTON, locale), omitCommute: true }))}`,
  distDir,
  });
  const pgOutDir = np.join(distDir, pgCanonicalPath.slice(1));
@@ -7151,7 +7144,7 @@ ${staticAnalyticsHtml}
  title: catTitle,
  };
  const catH1 = formatSeoH1(catLocaleParts) + (catPage > 1 ? (locale === 'it' ? ` — Pagina ${catPage}` : locale === 'de' ? ` — Seite ${catPage}` : locale === 'fr' ? ` — Page ${catPage}` : ` — Page ${catPage}`) : '');
- return `<h1>${esc(catH1)}</h1>\n <p>${esc(catDescription)}</p>\n ${catIntro}\n <ul class="s-0WjlyL">${catListHtml}</ul>\n <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n ${catMarketSection}\n ${renderJobBoardListingDensityProse(locale, { subject: catLabel, location: 'Ticino', resultCount: catJobs.length, companyCount: catUniqueCompanies.length, locationCount: catUniqueLocations.length, pageLabel: catPage > 1 ? String(catPage) : undefined })}\n <nav class="s-_ZFTu5">${catNavLabel}: ${catOtherLinks.join(' \u00b7 ')}</nav>\n ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true, sectorOrType: catLabel }))}`;
+ return `<h1>${esc(catH1)}</h1>\n <p>${esc(catDescription)}</p>\n ${catIntro}\n <ul class="s-0WjlyL">${catListHtml}</ul>\n <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n ${catMarketSection}\n ${renderJobBoardListingDensityProse(locale, { subject: catLabel, location: getCantonDisplayLabel(DEFAULT_CANTON, locale), resultCount: catJobs.length, companyCount: catUniqueCompanies.length, locationCount: catUniqueLocations.length, pageLabel: catPage > 1 ? String(catPage) : undefined })}\n <nav class="s-_ZFTu5">${catNavLabel}: ${catOtherLinks.join(' \u00b7 ')}</nav>\n ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: getCantonDisplayLabel(DEFAULT_CANTON, locale), omitCommute: true, sectorOrType: catLabel }))}`;
  })(),
  });
  const catOutDir = np.join(distDir, catCanonicalPath.slice(1));
@@ -8195,7 +8188,7 @@ ${staticAnalyticsHtml}
  const kwQueryIntro = renderSearchQueryIntro(locale, _kwQuery, kwJobs.length, kwUniqueCompanies, kwUniqueLocations);
  const kwCommuterBlock = wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({
  locale,
- location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : 'Ticino',
+ location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : getCantonDisplayLabel(DEFAULT_CANTON, locale),
  sectorOrType: _kwQuery || null,
  omitCommute: !_kwCity,
  }));
@@ -8230,7 +8223,7 @@ ${staticAnalyticsHtml}
  }
  const __kwDecision = trafficFilter.decideMulti(__kwCandidatePaths, 'gsc-keyword-landing');
  const __kwAction: 'full' | 'thin' = __kwDecision.action === 'thin' ? 'thin' : 'full';
- const __kwFullBody = `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul class="s-0WjlyL">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${renderJobBoardListingDensityProse(locale, { subject: _kwQuery || kwQueryDisplay || itCopy.heading, location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : 'Ticino', resultCount: kwJobs.length, companyCount: kwUniqueCompanies.length, locationCount: kwUniqueLocations.length })}\n ${kwCommuterBlock}`;
+ const __kwFullBody = `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul class="s-0WjlyL">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${renderJobBoardListingDensityProse(locale, { subject: _kwQuery || kwQueryDisplay || itCopy.heading, location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : getCantonDisplayLabel(DEFAULT_CANTON, locale), resultCount: kwJobs.length, companyCount: kwUniqueCompanies.length, locationCount: kwUniqueLocations.length })}\n ${kwCommuterBlock}`;
  const __kwBody = __kwAction === 'thin'
  ? buildGscKeywordThinBody({ locale, query: String(kwQueryDisplay || _kwQuery || itCopy.heading || ''), listingUrl: kwSectionUrl, h1Title: esc(itCopy.heading) })
  : __kwFullBody;
@@ -8396,14 +8389,14 @@ ${staticAnalyticsHtml}
  searchBodyParts.unshift(renderSearchQueryIntro(locale, name, matchingJobs.length, uniqueCompanies, uniqueLocations));
  searchBodyParts.push(renderJobBoardListingDensityProse(locale, {
  subject: name,
- location: _isTicino ? name : 'Ticino',
+ location: _isTicino ? name : getCantonDisplayLabel(DEFAULT_CANTON, locale),
  resultCount: matchingJobs.length,
  companyCount: uniqueCompanies.length,
  locationCount: uniqueLocations.length,
  }));
  searchBodyParts.push(wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({
  locale,
- location: _isTicino ? name : 'Ticino',
+ location: _isTicino ? name : getCantonDisplayLabel(DEFAULT_CANTON, locale),
  sectorOrType: _isTicino ? null : name,
  omitCommute: !_isTicino,
  })));
@@ -8602,14 +8595,14 @@ ${staticAnalyticsHtml}
  comboBodyParts.unshift(renderSearchQueryIntro(locale, _comboQuery, matchingJobs.length, cUniqueCompanies, cUniqueLocations));
  comboBodyParts.push(renderJobBoardListingDensityProse(locale, {
  subject: _comboQuery || copy.heading,
- location: _comboCity ? _comboCity.charAt(0).toUpperCase() + _comboCity.slice(1) : 'Ticino',
+ location: _comboCity ? _comboCity.charAt(0).toUpperCase() + _comboCity.slice(1) : getCantonDisplayLabel(DEFAULT_CANTON, locale),
  resultCount: matchingJobs.length,
  companyCount: cUniqueCompanies.length,
  locationCount: cUniqueLocations.length,
  }));
  comboBodyParts.push(wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({
  locale,
- location: _comboCity ? _comboCity.charAt(0).toUpperCase() + _comboCity.slice(1) : 'Ticino',
+ location: _comboCity ? _comboCity.charAt(0).toUpperCase() + _comboCity.slice(1) : getCantonDisplayLabel(DEFAULT_CANTON, locale),
  sectorOrType: _comboQuery || null,
  omitCommute: !_comboCity,
  })));
