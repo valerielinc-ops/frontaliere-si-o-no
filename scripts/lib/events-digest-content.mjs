@@ -21,6 +21,8 @@ import {
   EVENTS_DIGEST_SLUGS,
   eventsBasePathForCanton,
   resolveCantonUrlKey,
+  UNRESOLVED_CANTON_KEY,
+  UNRESOLVED_CANTON_LABEL,
 } from './events-utils.mjs';
 
 /** Stable, evergreen identity — never changes (no date in id/slug → no flooding). */
@@ -97,6 +99,11 @@ function slugToLabel(slug) {
 
 /** Locale-correct display label for a canton, derived from its URL slug (§6 — one source, `eventsBasePathForCanton`, no second canton-name table here). */
 function cantonLabelForLocale(canton, locale) {
+  // #3739 round-2: the canton-neutral bucket's sentinel isn't a real BFS code
+  // — its slug ("altri-cantoni") would title-case into a plausible-looking
+  // but undeclared label, so route it through the shared copy instead, same
+  // as build-plugins/eventsSeoPagesPlugin.ts's `cantonDisplayLabel`.
+  if (canton === UNRESOLVED_CANTON_KEY) return UNRESOLVED_CANTON_LABEL[locale];
   const path = eventsBasePathForCanton(canton)[locale] || '';
   const slug = path.split('/').filter(Boolean).pop() || '';
   return slugToLabel(slug);
@@ -201,13 +208,15 @@ function renderOtherCantons(otherWeekend, locale) {
   const byCanton = new Map();
   for (const e of otherWeekend) {
     const canton = String(e?.canton || '').toUpperCase().trim();
-    if (!canton) continue;
     // Collapse half-cantons (AI/AR, BL/BS) onto their shared URL group key —
     // eventsBasePathForCanton('BL') and ('BS') resolve to the SAME landing
     // page, so grouping by the raw code would render two duplicate sections
     // linking to that one page. Same resolver eventsBasePathForCanton uses
     // internally, so the grouping key always matches the link it renders.
-    const groupKey = resolveCantonUrlKey(canton);
+    // A blank/unresolved canton (#3739 round-2) gets its own canton-neutral
+    // bucket instead of being dropped — matching eventsSeoPagesPlugin.ts's
+    // byCanton/pastEventsByCanton grouping and selectWeekendDigests above.
+    const groupKey = canton ? resolveCantonUrlKey(canton) : UNRESOLVED_CANTON_KEY;
     if (!byCanton.has(groupKey)) byCanton.set(groupKey, []);
     byCanton.get(groupKey).push(e);
   }
@@ -238,9 +247,13 @@ export function buildWeekendDigestArticle({ events, todayIso }) {
   // weekend events (nationwide sourcing, #3644/#3645) get their own "other
   // cantons" section below instead of silently inflating the Ticino count or
   // leaking non-TI comuni into the Ticino by-comune grouping (both were bugs
-  // in the pre-#3647 nationwide-unfiltered version).
-  const tiWeekend = weekend.filter((e) => !e?.canton || String(e.canton).toUpperCase() === 'TI');
-  const otherWeekend = weekend.filter((e) => e?.canton && String(e.canton).toUpperCase() !== 'TI');
+  // in the pre-#3647 nationwide-unfiltered version). A blank/unresolved
+  // canton (#3739 round-2) is NOT Ticino either — it now falls into
+  // `otherWeekend`'s canton-neutral bucket (`renderOtherCantons` above)
+  // instead of folding into `tiWeekend` and inflating the Ticino headline
+  // count/by-comune grouping with events that were never confirmed local.
+  const tiWeekend = weekend.filter((e) => String(e?.canton || '').toUpperCase() === 'TI');
+  const otherWeekend = weekend.filter((e) => String(e?.canton || '').toUpperCase() !== 'TI');
   const byComune = groupByComune(tiWeekend);
   const n = tiWeekend.length;
 

@@ -62,9 +62,13 @@ function tagWord(s) {
   return stripDiacritics(String(s || '')).replace(/[^A-Za-z0-9]/g, '');
 }
 
-/** Italian display name for a canton code, defaulting to Ticino (legacy MVP scope). */
+/** Italian display name for a canton code; blank/unresolved routes to the canton-neutral bucket's shared copy, never Ticino (#3739 round-2). */
 function cantonDisplayName(canton) {
-  const code = String(canton || '').toUpperCase();
+  // A blank canton is treated the same as the explicit sentinel below — the
+  // per-event poster (buildEventUrl/buildEventCaption) never resolves a
+  // canton hint before calling this, unlike selectWeekendDigests's callers,
+  // so blank must degrade to "altri cantoni", not silently become Ticino.
+  const code = String(canton || UNRESOLVED_CANTON_KEY).toUpperCase();
   // #3739: the weekend-digest canton-neutral bucket sentinel isn't a real BFS
   // code, so CANTON_NAME_BY_CODE would never resolve it — captioned as the
   // shared "altri cantoni" copy instead (captions here are Italian-only).
@@ -72,9 +76,9 @@ function cantonDisplayName(canton) {
   return CANTON_NAME_BY_CODE[code] || '';
 }
 
-/** Canonical IT events URL for an event: comune page when known, else the canton hub. */
+/** Canonical IT events URL for an event: comune page when known, else the canton hub — the canton-neutral hub when the canton itself is blank/unresolved (#3739 round-2), never Ticino's. */
 export function buildEventUrl(event) {
-  const base = eventsBasePathForCanton(event?.canton).it;
+  const base = eventsBasePathForCanton(event?.canton || UNRESOLVED_CANTON_KEY).it;
   if (event?.comune) return `${SITE_URL}${base}/${slugifyComune(event.comune)}/`;
   return `${SITE_URL}${base}/`;
 }
