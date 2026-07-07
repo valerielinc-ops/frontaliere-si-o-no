@@ -134,9 +134,8 @@
  */
 import fs from 'node:fs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
-import crypto from 'node:crypto';
-import os from 'node:os';
 import path from 'node:path';
+import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -737,77 +736,6 @@ export async function verifyUrlNoRedirect(url, options = {}) {
 
 /* ── Pipeline ───────────────────────────────────────────────────────── */
 
-const JOBS_JSON_LOCK_STALE_MS = 30_000;
-const JOBS_JSON_LOCK_MAX_WAIT_MS = 60_000;
-const JOBS_JSON_LOCK_POLL_MS = 50;
-
-/**
- * Derive the lock file path from the target data/jobs.json path itself
- * (short hash, so it stays a valid filename) rather than a single hardcoded
- * global path. Production only ever has one `root`/DATA_JOBS per job, so
- * this is equivalent in practice to a fixed path there — but it means two
- * independent roots (e.g. concurrent test suites, or a future second
- * dataset) never contend on the same lock file.
- */
-function jobsJsonLockPathFor(dataJobsPath) {
-  const hash = crypto.createHash('sha1').update(path.resolve(dataJobsPath)).digest('hex').slice(0, 16);
-  return path.join(os.tmpdir(), `frontaliere-jobs-json-${hash}.lock`);
-}
-
-/**
- * Acquire a cross-process advisory lock guarding read-modify-write access to
- * the shared `data/jobs.json`. Since post-#3701 the crawler-group workflows
- * run ~25 dedicated crawlers concurrently as sibling `background: true` steps
- * in ONE job (one filesystem), a naive "read snapshot, filter, write" cycle in
- * Step 3 below is a classic lost-update race: whichever sibling's write lands
- * last wins, silently dropping every other concurrently-running sibling's
- * jobs from the shared file (root cause of "No X jobs found after crawl"
- * failures on crawlers whose own merge actually succeeded).
- *
- * `fs.openSync(path, 'wx')` is an atomic exclusive-create (EEXIST if another
- * holder already owns it), giving safe mutual exclusion without a native
- * addon or extra dependency. Staleness force-release guards against a dead
- * sibling (uncaught exception, OOM) leaving the whole group deadlocked.
- */
-export function acquireJobsJsonLock(dataJobsPath) {
-  const lockPath = jobsJsonLockPathFor(dataJobsPath);
-  const deadline = Date.now() + JOBS_JSON_LOCK_MAX_WAIT_MS;
-  const sleepBuf = new Int32Array(new SharedArrayBuffer(4));
-  for (;;) {
-    try {
-      fs.closeSync(fs.openSync(lockPath, 'wx'));
-      return;
-    } catch (err) {
-      if (err?.code !== 'EEXIST') throw err;
-      try {
-        const age = Date.now() - fs.statSync(lockPath).mtimeMs;
-        if (age > JOBS_JSON_LOCK_STALE_MS) {
-          fs.unlinkSync(lockPath);
-          continue;
-        }
-      } catch {
-        continue; // lock file vanished between openSync/statSync (holder just released it) — retry immediately
-      }
-      if (Date.now() > deadline) {
-        console.warn(
-          `⚠️  jobs.json lock held >${JOBS_JSON_LOCK_MAX_WAIT_MS}ms — force-breaking to avoid group deadlock.`,
-        );
-        try { fs.unlinkSync(lockPath); } catch { /* already gone */ }
-        continue;
-      }
-      Atomics.wait(sleepBuf, 0, 0, JOBS_JSON_LOCK_POLL_MS);
-    }
-  }
-}
-
-export function releaseJobsJsonLock(dataJobsPath) {
-  try {
-    fs.unlinkSync(jobsJsonLockPathFor(dataJobsPath));
-  } catch {
-    /* already released/force-broken by a staleness check — fine */
-  }
-}
-
 /**
  * Run the standard 7-step crawler pipeline.
  *
@@ -834,8 +762,7 @@ export async function runStandardCrawlerPipeline(config) {
     throw new Error('CrawlerConfig missing required fields: companyKey, companyLabel, fetchJobs, isCompanyJob');
   }
 
-  const DATA_JOBS = path.resolve(root, 'data', 'jobs.json');
-  const PUBLIC_DATA_JOBS = path.resolve(root, 'public', 'data', 'jobs.json');
+  const DATA_JOBS = crawlerScratchPathFor(companyKey);
 
   // ─── Step 0: Init ───────────────────────────────────────────
   setCrawlerStartTime();
@@ -909,39 +836,12 @@ export async function runStandardCrawlerPipeline(config) {
     String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
   );
 
-  // Write merged dataset (intermediate — Steps 5-6 modify in-place). `others`
-  // MUST come from a fresh, lock-protected re-read of the CURRENT on-disk
-  // data/jobs.json, NOT from `existingJobs` above: that snapshot is scoped to
-  // THIS crawler's own per-crawler slice (see readExistingCrawlerJobs), so an
-  // `others` derived from it is always empty in normal CI — which would make
-  // this write silently clobber every other company's jobs. With ~25 sibling
-  // crawlers now running concurrently in one crawler-group job (post-#3701),
-  // that clobbering became a constant lost-update race on the shared file
-  // (a crawler's own merge succeeds, but a sibling's write displaces it
-  // before Step 6 validates, surfacing as a false "No X jobs found" failure).
-  // The lock serializes the read-merge-write cycle across all siblings so no
-  // concurrently-running crawler's contribution is ever dropped.
-  acquireJobsJsonLock(DATA_JOBS);
-  let final;
-  try {
-    let currentAll = [];
-    if (fs.existsSync(DATA_JOBS)) {
-      try {
-        const parsed = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-        if (Array.isArray(parsed)) currentAll = parsed;
-      } catch {
-        currentAll = []; // writeJsonAtomic guarantees no torn reads; a parse failure here means an unrelated corruption, not our own concurrent write — fail safe rather than throw mid-lock
-      }
-    }
-    const others = currentAll.filter((job) => !isCompanyJob(job));
-    final = [...others, ...clean];
-    writeJsonAtomic(DATA_JOBS, final);
-    if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-      writeJsonAtomic(PUBLIC_DATA_JOBS, final);
-    }
-  } finally {
-    releaseJobsJsonLock(DATA_JOBS);
-  }
+  // Write merged dataset (intermediate — Steps 5-6 modify in-place). DATA_JOBS
+  // is a scratch path scoped to THIS crawler's own companyKey (see derivation
+  // above), so it never holds another company's jobs — no lock or
+  // merge-with-others read-back needed, unlike the shared data/jobs.json this
+  // replaced.
+  writeJsonAtomic(DATA_JOBS, clean);
 
   // ─── Step 4: Diff reporting ─────────────────────────────────
   const afterMergeSnapshot = snapshotJobSlugs(clean);
@@ -978,6 +878,7 @@ export async function runStandardCrawlerPipeline(config) {
     disableWorkdayForce: true,
     localizeExistingOnly: true,
     forceLocalizationWhenAiEnabledOnly: true,
+    dataJobsPath: DATA_JOBS,
     ...baseCrawlerOpts,
   });
 
