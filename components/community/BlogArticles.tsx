@@ -5,7 +5,7 @@ import type { Locale } from '@/services/i18n';
 import { buildPath, preloadBlogData } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { stripMarkdownPlain } from '@/build-plugins/shared/stripMarkdownPlain';
-import { FAQ_QUESTION_PREFIXES } from '@/build-plugins/shared/faqQuestionPrefixes';
+import { isFaqQuestionHeading } from '@/build-plugins/shared/faqQuestionPrefixes';
 import type { BlogArticleId, AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
@@ -807,8 +807,7 @@ export function extractFaqPairs(bodyText: string): Array<{ question: string; ans
  const nlIdx = trimmed.indexOf('\n');
  if (nlIdx === -1) continue;
  const heading = trimmed.slice(3, nlIdx).trim();
- const isQuestion = heading.includes('?') ||
- FAQ_QUESTION_PREFIXES.some(p => heading.startsWith(p));
+ const isQuestion = isFaqQuestionHeading(heading);
  if (!isQuestion) continue;
  const answerRaw = trimmed.slice(nlIdx + 1).trim();
  if (!answerRaw) continue;

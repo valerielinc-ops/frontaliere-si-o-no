@@ -22,7 +22,7 @@ import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
-import { FAQ_QUESTION_PREFIXES } from './shared/faqQuestionPrefixes';
+import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
  return {
@@ -155,8 +155,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const nlIdx = trimmed.indexOf('\n');
  if (nlIdx === -1) continue;
  const heading = trimmed.slice(3, nlIdx).trim();
- const isQuestion = heading.includes('?') ||
- FAQ_QUESTION_PREFIXES.some(p => heading.startsWith(p));
+ const isQuestion = isFaqQuestionHeading(heading);
  if (!isQuestion) continue;
  const answerRaw = trimmed.slice(nlIdx + 1).trim();
  if (!answerRaw) continue;

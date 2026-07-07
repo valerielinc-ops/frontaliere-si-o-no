@@ -16,3 +16,20 @@ export const FAQ_QUESTION_PREFIXES = [
   'Wie', 'Was', 'Wann', 'Wo', 'Wer', 'Warum', 'Welche',
   'Comment', 'Quoi', 'Quand', 'Où', 'Qui', 'Pourquoi', 'Quel', 'Quelle', 'Est-ce',
 ];
+
+const LETTER = /[A-Za-zÀ-ÿ]/;
+
+/**
+ * Whether a `## Heading` reads as a question eligible for FAQPage JSON-LD.
+ * Requires a word boundary after a matched prefix so short words like `Do`/
+ * `Wo`/`Chi` don't false-positive on real headings (`Documents`, `Wohnsitz`,
+ * `Chiffres`) that merely start with the same letters.
+ */
+export function isFaqQuestionHeading(heading: string): boolean {
+  if (heading.includes('?')) return true;
+  return FAQ_QUESTION_PREFIXES.some(p => {
+    if (!heading.startsWith(p)) return false;
+    const nextChar = heading[p.length];
+    return nextChar === undefined || !LETTER.test(nextChar);
+  });
+}
