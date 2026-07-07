@@ -265,6 +265,28 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
  const pageIndexSection = buildPageIndex(allUrls, 'it');
  const pageIndexSummarySection = buildPageIndexSummary(allUrls);
 
+ /**
+  * Inject dynamic job board stats (job count + employer count) from the
+  * assembled dataset. jobs.json is nationwide (all Swiss cantons, not just
+  * Ticino — see cathedral migration #1275+), so the employer count must be
+  * labelled accordingly rather than hardcoded to "Ticino employers".
+  */
+ function injectJobBoardStats(content: string, dir: string): string {
+ const jobsDataPath = path.join(dir, 'data', 'jobs.json');
+ if (!fs.existsSync(jobsDataPath)) return content;
+ try {
+ const jobsRaw = JSON.parse(fs.readFileSync(jobsDataPath, 'utf-8'));
+ const activeJobs = Array.isArray(jobsRaw) ? jobsRaw : (jobsRaw.jobs ?? []);
+ const jobCount = activeJobs.length;
+ const companyCount = new Set(activeJobs.map((j: any) => j.company).filter(Boolean)).size;
+ if (jobCount > 0) {
+ content = content.replace(/1[,.]?500\+?\s*(?:active\s+)?(?:job\s+)?(?:listings|offerte|posizioni)/gi, `${jobCount.toLocaleString('en-US')}+ job listings`);
+ content = content.replace(/100\+?\s*(?:companies|aziende|employers|Ticino employers)/gi, `${companyCount}+ Swiss employers`);
+ }
+ } catch { /* jobs.json not parseable, keep static counts */ }
+ return content;
+ }
+
  // Update llms.txt
  const llmsPath = path.join(distDir, 'llms.txt');
  if (fs.existsSync(llmsPath)) {
@@ -280,19 +302,7 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
  );
  }
  // Inject dynamic job board statistics from actual data
- const jobsDataPathForSummary = path.join(distDir, 'data', 'jobs.json');
- if (fs.existsSync(jobsDataPathForSummary)) {
- try {
- const jobsRaw = JSON.parse(fs.readFileSync(jobsDataPathForSummary, 'utf-8'));
- const activeJobs = Array.isArray(jobsRaw) ? jobsRaw : (jobsRaw.jobs ?? []);
- const jobCount = activeJobs.length;
- const companyCount = new Set(activeJobs.map((j: any) => j.company).filter(Boolean)).size;
- if (jobCount > 0) {
- content = content.replace(/1[,.]?500\+?\s*(?:active\s+)?(?:job\s+)?(?:listings|offerte|posizioni)/gi, `${jobCount.toLocaleString('en-US')}+ job listings`);
- content = content.replace(/100\+?\s*(?:companies|aziende|employers|Ticino employers)/gi, `${companyCount}+ Ticino employers`);
- }
- } catch { /* jobs.json not parseable, keep static counts */ }
- }
+ content = injectJobBoardStats(content, distDir);
  // Append auto-generated page-index SUMMARY (#3527) — replace an existing
  // summary or a legacy full index (old marker) if present, idempotently.
  const summaryMarker = '## Page Index (Auto-Generated Summary)';
@@ -334,19 +344,7 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
  `verified as of ${monthYear}`
  );
  // Inject dynamic job board statistics from actual data
- const jobsDataPath = path.join(distDir, 'data', 'jobs.json');
- if (fs.existsSync(jobsDataPath)) {
- try {
- const jobsRaw = JSON.parse(fs.readFileSync(jobsDataPath, 'utf-8'));
- const activeJobs = Array.isArray(jobsRaw) ? jobsRaw : (jobsRaw.jobs ?? []);
- const jobCount = activeJobs.length;
- const companyCount = new Set(activeJobs.map((j: any) => j.company).filter(Boolean)).size;
- if (jobCount > 0) {
- content = content.replace(/1[,.]?500\+?\s*(?:active\s+)?(?:job\s+)?(?:listings|offerte|posizioni)/gi, `${jobCount.toLocaleString('en-US')}+ job listings`);
- content = content.replace(/100\+?\s*(?:companies|aziende|employers|Ticino employers)/gi, `${companyCount}+ Ticino employers`);
- }
- } catch { /* jobs.json not parseable, keep static counts */ }
- }
+ content = injectJobBoardStats(content, distDir);
  // Append page index to llms-full.txt as well
  const autoGenMarker = '## Complete Page Index (Auto-Generated)';
  const markerIdx = content.indexOf(autoGenMarker);
