@@ -1,53 +1,51 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-07-07T12:13:19.841Z",
-  "total": 28,
+  "generatedAt": "2026-07-07T22:28:19.979Z",
+  "total": 27,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 18392,
-  "avgDurationMs": 18392,
+  "unchangedCount": 0,
+  "durationMs": 15302,
+  "avgDurationMs": 15302,
   "durationHistory": [
-    18392
+    15302
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "etat-de-vaud-5319",
-      "slug": "gestore-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "id": "etat-de-vaud-5496",
+      "slug": "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
-      "title": "Gestionnaire administratif-ve",
+      "title": "Responsable financier·ère",
       "location": "Lausanne",
       "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5319",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5496",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-06T14:24:33.549Z",
+      "crawledAt": "2026-07-07T12:13:12.633Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "1000",
       "streetAddress": "Place du Château 1",
-      "category": "Amministrazione",
+      "category": "Finanza",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5319",
-      "firstSeenAt": "2026-07-05T11:43:26.280Z",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5496",
+      "firstSeenAt": "2026-07-05T11:43:20.864Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,5 +54,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
