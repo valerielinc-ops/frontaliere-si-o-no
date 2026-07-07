@@ -12069,6 +12069,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-private-spitex-stellenangebote-basel': {
+    title: 'Private Spitex a Basilea: nuove opportunità di lavoro',
+    description: 'Le cliniche private di Basilea cercano infermiere e infermieri per coprire le ore di lavoro. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, private, spitex, basilea, nuove',
+    ogTitle: 'Private Spitex a Basilea: nuove opportunità di lavoro',
+    ogDescription: 'Le cliniche private di Basilea cercano infermiere e infermieri per coprire le ore di lavoro',
+    canonicalPath: '/articoli-svizzera/private-spitex-stellenangebote-basel/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Private Spitex a Basilea: nuove opportunità di lavoro",
+      "description": "Le cliniche private di Basilea cercano infermiere e infermieri per coprire le ore di lavoro. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/private-spitex-stellenangebote-basel.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di una clinica privata a Basilea"
+      },
+      "datePublished": "2026-07-07T06:43:35+00:00",
+      "dateModified": "2026-07-07T06:43:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/private-spitex-stellenangebote-basel/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pflegefachfrau-frontalieri-basel': {
+    title: 'Pflegefachfrau a Basel: cosa devi sapere sei frontaliera',
+    description: 'Nuovo accordo frontalieri attivo dal 2024. Franchigia €10\'000, credito d\'imposta e regole fiscali per lavoratori italiani in Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pflegefachfrau, basel, cosa, devi',
+    ogTitle: 'Pflegefachfrau a Basel: fiscalità frontalieri 2024',
+    ogDescription: 'Scopri le nuove regole fiscali per i frontalieri italiani in Svizzera: franchigia €10\'000, credito d\'imposta e contributi obbligatori',
+    canonicalPath: '/articoli-svizzera/pflegefachfrau-frontalieri-basel/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pflegefachfrau a Basel: cosa devi sapere sei frontaliera",
+      "description": "Nuovo accordo frontalieri attivo dal 2024. Franchigia €10'000, credito d'imposta e regole fiscali per lavoratori italiani in Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pflegefachfrau-frontalieri-basel.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infermiere che assiste paziente in struttura sanitaria svizzera"
+      },
+      "datePublished": "2026-07-07T07:20:47+00:00",
+      "dateModified": "2026-07-07T07:20:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pflegefachfrau-frontalieri-basel/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ascensori-steinach-lavoro-svizzera': {
+    title: 'Cerca lavoro ascensori a Steinach: opportunità in Svizzera',
+    description: 'Scopri opportunità di lavoro per tecnici ascensori a Steinach. Conosci requisiti, normative fiscali e procedure per accedere al mercato svizzero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cerca, lavoro, ascensori, steinach',
+    ogTitle: 'Cerca lavoro ascensori a Steinach: opportunità in Svizzera',
+    ogDescription: 'Scopri opportunità di lavoro per tecnici ascensori a Steinach. Conosci requisiti, normative fiscali e procedure per accedere al mercato svizzero.',
+    canonicalPath: '/articoli-svizzera/ascensori-steinach-lavoro-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cerca lavoro ascensori a Steinach: opportunità in Svizzera",
+      "description": "Scopri opportunità di lavoro per tecnici ascensori a Steinach. Conosci requisiti, normative fiscali e procedure per accedere al mercato svizzero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ascensori-steinach-lavoro-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori installano un ascensore in Svizzera"
+      },
+      "datePublished": "2026-07-07T07:48:05+00:00",
+      "dateModified": "2026-07-07T07:48:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ascensori-steinach-lavoro-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

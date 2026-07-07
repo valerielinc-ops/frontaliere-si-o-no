@@ -4,6 +4,8 @@ import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18n
 import type { Locale } from '@/services/i18n';
 import { buildPath, preloadBlogData } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
+import { stripMarkdownPlain } from '@/build-plugins/shared/stripMarkdownPlain';
+import { isFaqQuestionHeading } from '@/build-plugins/shared/faqQuestionPrefixes';
 import type { BlogArticleId, AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
@@ -127,8 +129,9 @@ export { NAV_ACTION_ROUTES } from '@/services/internalLinks';
 
 /** Inject [keyword](nav:action) markers into text for the first occurrence of each keyword.
  * Strips bold/italic markers before matching so patterns work even when keywords
- * span formatting boundaries (e.g. `cambio **franco-euro**`). */
-function autoLinkKeywords(text: string, navigators: NavigatorMap): string {
+ * span formatting boundaries (e.g. `cambio **franco-euro**`).
+ * Exported for regression testing (see tests/markdown-lite-formatting.test.ts). */
+export function autoLinkKeywords(text: string, navigators: NavigatorMap): string {
  if (!text) return text;
 
  // 1. Build a stripped copy (no * chars) with a position map back to the original
@@ -141,9 +144,13 @@ function autoLinkKeywords(text: string, navigators: NavigatorMap): string {
  }
  }
 
- // 2. Find all formatting spans (**bold** / *italic*) in the original text
+ // 2. Find all formatting spans (**bold** / *italic*) in the original text.
+ // Delimiters must not cross a newline — otherwise a stray unpaired `*` (e.g. a
+ // `* ` list bullet marker on one line) pairs with an unrelated `*` many lines
+ // later, producing a bogus span thousands of characters long that then inflates
+ // an unrelated keyword-link match in step 4.
  const fmtSpans: Array<[number, number]> = [];
- const fmtRe = /(\*\*(.+?)\*\*)|(\*([^*]+?)\*)/g;
+ const fmtRe = /(\*\*([^\n]+?)\*\*)|(\*([^*\n]+?)\*)/g;
  let fm: RegExpExecArray | null;
  while ((fm = fmtRe.exec(text)) !== null) {
  fmtSpans.push([fm.index, fm.index + fm[0].length]);
@@ -328,9 +335,23 @@ function tryRenderMdTable(text: string, keyPrefix: string, navigators?: Navigato
  );
 }
 
-/** True when every non-blank line in a block is a `- ` markdown list item. */
+/** Matches a `- ` or `* ` markdown list item marker at line start. AI-generated
+ *  body copy frequently emits `* ` bullets (pdfWhitepapersPlugin's parser already
+ *  accepts both) — without this, a bulleted block collapses into one run-on
+ *  paragraph with stray asterisks instead of a list. */
+const LIST_ITEM_RE = /^[-*]\s+/;
+
+/** True when every non-blank line in a block is a markdown list item. */
 function isListBlock(value: string): boolean {
- return value.split('\n').every(line => line.trim().startsWith('- ') || line.trim() === '');
+ return value.split('\n').every(line => LIST_ITEM_RE.test(line.trim()) || line.trim() === '');
+}
+
+/** AI-generated body copy sometimes tacks a decorative 📊/💡/⚠️ marker onto the
+ *  end of a sentence instead of using it as a leading callout-box marker (the
+ *  only place the renderer treats it as one) — strip the stray trailing glyph
+ *  so it doesn't render as noise. */
+function stripTrailingDecorativeEmoji(text: string): string {
+ return text.replace(/[ \t]*(?:📊|💡|⚠️|⚠)+\s*$/, '');
 }
 
 /** Render a heading's inline body as a table, a bullet list, or a plain paragraph —
@@ -342,7 +363,7 @@ function renderInlineBodyContent(inlineBody: string, keyPrefix: string, navigato
  const tableEl = tryRenderMdTable(inlineBody, `${keyPrefix}-tbl`, navigators);
  if (tableEl) return tableEl;
  if (isListBlock(inlineBody)) {
- const items = inlineBody.split('\n').filter(l => l.trim().startsWith('- ')).map(l => l.trim().slice(2));
+ const items = inlineBody.split('\n').filter(l => LIST_ITEM_RE.test(l.trim())).map(l => stripTrailingDecorativeEmoji(l.trim().replace(LIST_ITEM_RE, '')));
  return (
  <ul key={`${keyPrefix}-list`} className="space-y-2 pl-1">
  {items.map((item, i) => (
@@ -356,7 +377,7 @@ function renderInlineBodyContent(inlineBody: string, keyPrefix: string, navigato
  }
  return (
  <p key={`${keyPrefix}-p`} className="text-body leading-relaxed">
- {renderInlineFormatting(inlineBody, navigators)}
+ {renderInlineFormatting(stripTrailingDecorativeEmoji(inlineBody), navigators)}
  </p>
  );
 }
@@ -405,12 +426,13 @@ function renderFormattedContent(
 
  // If no block separators, render as a single paragraph.
  if (!processed.includes('\n\n') && !processed.includes('\n')) {
+  const cleanedSolo = stripTrailingDecorativeEmoji(processed);
   renderedBlocks.push(
    <p key="p-solo" className="text-body leading-relaxed">
-    {renderInlineFormatting(processed, navigators)}
+    {renderInlineFormatting(cleanedSolo, navigators)}
    </p>,
   );
-  markContent(countWordsIn(processed));
+  markContent(countWordsIn(cleanedSolo));
   tryEmitAd('post-solo');
   return <div className="space-y-5">{renderedBlocks}</div>;
  }
@@ -605,9 +627,9 @@ function renderFormattedContent(
  continue;
  }
 
- // List: lines starting with -
+ // List: lines starting with - or *
  if (isListBlock(trimmed)) {
- const items = trimmed.split('\n').filter(l => l.trim().startsWith('- ')).map(l => l.trim().slice(2));
+ const items = trimmed.split('\n').filter(l => LIST_ITEM_RE.test(l.trim())).map(l => stripTrailingDecorativeEmoji(l.trim().replace(LIST_ITEM_RE, '')));
  renderedBlocks.push(
  <ul key={`list-${idx}`} className="space-y-2 pl-1">
  {items.map((item, i) => (
@@ -623,12 +645,13 @@ function renderFormattedContent(
  }
 
  // Plain paragraph (default) — no mid-paragraph splitting (conservative profile).
+ const cleanedParagraph = stripTrailingDecorativeEmoji(trimmed);
  renderedBlocks.push(
  <p key={`p-${idx}`} className="text-body leading-relaxed">
- {renderInlineFormatting(trimmed, navigators)}
+ {renderInlineFormatting(cleanedParagraph, navigators)}
  </p>
  );
- markContent(countWordsIn(trimmed));
+ markContent(countWordsIn(cleanedParagraph));
  }
 
  // Final ad slot — the last section gets its own breakpoint at end-of-segment.
@@ -771,22 +794,8 @@ export function estimateReadingMinutes(articleId: string, t: (key: string) => st
 /* ─── FAQ schema extraction for evergreen articles ─── */
 
 const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
-const QUESTION_PREFIXES = ['Come', 'Cosa', 'Quando', 'Quanto', 'Dove', 'Chi', 'Perché', 'Quale'];
 
-function stripMarkdown(text: string): string {
- return text
- .replace(/\*\*([^*]+)\*\*/g, '$1')
- .replace(/\*([^*]+)\*/g, '$1')
- .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
- .replace(/^#{1,6}\s+/gm, '')
- .replace(/^[-*+]\s+/gm, '')
- .replace(/^\d+\.\s+/gm, '')
- .replace(/`([^`]+)`/g, '$1')
- .replace(/\n{2,}/g, ' ')
- .replace(/\n/g, ' ')
- .replace(/\s{2,}/g, ' ')
- .trim();
-}
+const stripMarkdown = stripMarkdownPlain;
 
 export function extractFaqPairs(bodyText: string): Array<{ question: string; answer: string }> {
  const pairs: Array<{ question: string; answer: string }> = [];
@@ -798,8 +807,7 @@ export function extractFaqPairs(bodyText: string): Array<{ question: string; ans
  const nlIdx = trimmed.indexOf('\n');
  if (nlIdx === -1) continue;
  const heading = trimmed.slice(3, nlIdx).trim();
- const isQuestion = heading.includes('?') ||
- QUESTION_PREFIXES.some(p => heading.startsWith(p));
+ const isQuestion = isFaqQuestionHeading(heading);
  if (!isQuestion) continue;
  const answerRaw = trimmed.slice(nlIdx + 1).trim();
  if (!answerRaw) continue;

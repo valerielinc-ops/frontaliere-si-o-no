@@ -2807,6 +2807,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'private-spitex-stellenangebote-basel',
+    category: 'pratico',
+    date: '2026-07-07T06:43:35.015Z',
+    image: '/images/blog/private-spitex-stellenangebote-basel.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'pflegefachfrau-frontalieri-basel',
+    category: 'pratico',
+    date: '2026-07-07T07:20:47.530Z',
+    image: '/images/blog/pflegefachfrau-frontalieri-basel.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'ascensori-steinach-lavoro-svizzera',
+    category: 'pratico',
+    date: '2026-07-07T07:48:05.323Z',
+    image: '/images/blog/ascensori-steinach-lavoro-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

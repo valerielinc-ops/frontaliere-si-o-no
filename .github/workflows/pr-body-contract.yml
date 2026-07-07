@@ -71,6 +71,63 @@ jobs:
             if (!hasImpl) missing.push('`## Implementato`');
             if (!hasNon)  missing.push('`## Non implementato (ancora)`');
 
+            // --- 1b) Section CONTENT quality (escalation #3250, bucket
+            // `reviewer-finding/pr-body-contract` 6x/14d) -------------------------
+            // Header PRESENCE alone isn't enough: the PR template leaves bare `- `
+            // placeholder bullets in both sections, and a fixer that submits
+            // without filling them passes this gate but still draws a reviewer
+            // 🔴 finding — wasting a review cycle. Mirrors
+            // scripts/lib/pr-body-sections-check.mjs (own unit tests); keep the
+            // two in sync on rule changes.
+            const extractSection = (text, headerRe) => {
+              const m = headerRe.exec(text);
+              if (!m) return null;
+              const rest = text.slice(m.index + m[0].length);
+              const nextHeading = /\n(?=#{1,6}[ \t])/.exec(rest);
+              return nextHeading ? rest.slice(0, nextHeading.index) : rest;
+            };
+            const stripNonContent = (t) => String(t ?? '')
+              .replace(/```[\s\S]*?```/g, ' ')
+              .replace(/<!--[\s\S]*?-->/g, ' ');
+            const isSubstantiveBullet = (line) => line.replace(/^[ \t]*[-*+][ \t]*/, '').trim().length > 0;
+            const hasMeaningfulContent = (raw) => stripNonContent(raw).split('\n').some((line) => {
+              const t = line.trim();
+              if (!t) return false;
+              if (/^#{1,6}[ \t]/.test(t)) return false;
+              if (/^[-*+](?:[ \t]|$)/.test(t)) return isSubstantiveBullet(t);
+              return true;
+            });
+            const hasOnlyBareBullets = (raw) => {
+              const lines = stripNonContent(raw).split('\n').filter((l) => l.trim().length > 0);
+              if (lines.length === 0) return false;
+              return lines.every((line) => {
+                const t = line.trim();
+                if (/^#{1,6}[ \t]/.test(t)) return true;
+                if (/^[-*+][ \t]?$/.test(t)) return true;
+                if (/^[-*+][ \t]/.test(t)) return false;
+                return true;
+              });
+            };
+            const hasNessuno = (raw) => /\bnessun[oa]?\b/i.test(stripNonContent(raw));
+
+            const sectionViolations = [];
+            if (hasImpl) {
+              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
+              if (!hasMeaningfulContent(c)) {
+                sectionViolations.push(hasOnlyBareBullets(c)
+                  ? '`## Implementato` contiene solo bullet placeholder vuoti (`- `) non compilati.'
+                  : '`## Implementato` è vuota.');
+              }
+            }
+            if (hasNon) {
+              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Non implementato[^\n]*/im) ?? '';
+              if (!hasNessuno(c) && !hasMeaningfulContent(c)) {
+                sectionViolations.push(hasOnlyBareBullets(c)
+                  ? '`## Non implementato (ancora)` contiene solo bullet placeholder vuoti (`- `) non compilati.'
+                  : '`## Non implementato (ancora)` è vuota.');
+              }
+            }
+
             // --- 2) Multi-issue Closes on one line (GitHub closes only the first) ----
             // Mirror of scripts/lib/pr-body-closes-check.mjs (see tests). A closing
             // keyword governing the first ref, then ≥1 MORE refs chained by list
@@ -163,11 +220,11 @@ jobs:
             };
 
             // --- All-clear ----------------------------------------------------------
-            if (missing.length === 0 && closesViolations.length === 0 && aggregateCloseViolations.length === 0) {
+            if (missing.length === 0 && sectionViolations.length === 0 && closesViolations.length === 0 && aggregateCloseViolations.length === 0) {
               if (prior) {
                 await github.rest.issues.updateComment({
                   owner, repo, comment_id: prior.id,
-                  body: `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti, nessun \`Closes\` multi-issue su una riga, nessun \`Closes\` su follow-up aggregata.`,
+                  body: `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessun \`Closes\` su follow-up aggregata.`,
                 });
               }
               core.info('PR body contract satisfied.');
@@ -185,6 +242,16 @@ jobs:
                 `Header alternativi (\`## Fix\`, \`## Verify\`, \`## Effetto\`) non contano.`,
               );
               fails.push(`missing section(s): ${missing.join(', ')}`);
+            }
+            if (sectionViolations.length) {
+              parts.push(
+                `🔴 **Sezione presente ma vuota** (escalation #3250, bucket \`reviewer-finding/pr-body-contract\`) — ` +
+                `header letterale trovato ma senza contenuto sostanziale (solo bullet placeholder \`- \` del template):\n\n` +
+                sectionViolations.map((m) => `- ${m}`).join('\n') + '\n\n' +
+                `Scrivi almeno un bullet concreto in \`## Implementato\`; in \`## Non implementato (ancora)\` scrivi ` +
+                `"Nessuno" (task completo, AGENTS.md #8) oppure elenca gli item residui con stato/next-step.`,
+              );
+              fails.push(`empty section(s): ${sectionViolations.length}`);
             }
             if (closesViolations.length) {
               const lines = closesViolations
@@ -291,6 +358,81 @@ jobs:
               `Per ciascuno: stesso antipattern? → fix nella STESSA PR, oppure giustifica in \`## Non implementato\`.`,
               rows + more,
               `_Candidati ≠ verdetto: il token-match surfaca, non conferma. Ricalcolato a ogni push._`,
+            ].join('\n\n');
+
+            if (prior) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
+
+      # Below-floor-bridge surfacer (zero-Claude, ADVISORY — never fails; issue
+      # #3659, escalated bucket reviewer-finding/canonical-sitemap). The ONE
+      # sub-pattern of that bucket with a proven, prose-didn't-prevent-it
+      # recurrence (#3594's own reviewer found 5 more untouched sibling loops
+      # in the same file after the fix pattern was introduced): a canton-scoped
+      # SSG generation loop that `continue`s past a job-count floor/threshold
+      # without emitting the documented noindex bridge (AGENTS.md § Static SEO
+      # Pages). check-below-floor-bridge.mjs surfaces candidates deterministically
+      # (scans the FULL current content of touched build-plugins/*.ts files, not
+      # just the diff hunk — the recurrence was caught in untouched siblings of a
+      # touched file) plus a self-map drift check (new bridge call added without
+      # touching searchConsoleCompat.ts).
+      - name: Surface below-floor-bridge candidates
+        id: bfb
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          set -euo pipefail
+          git fetch origin "$BASE_REF" --quiet || true
+          node scripts/ci/check-below-floor-bridge.mjs --base "origin/$BASE_REF" --json > below-floor-bridge-report.json
+          node -e "
+            const r = JSON.parse(require('fs').readFileSync('below-floor-bridge-report.json','utf8'));
+            console.log('gapFiles=' + r.gapsByFile.length);
+          " >> "$GITHUB_OUTPUT"
+      - name: Post below-floor-bridge comment (advisory)
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const STICKY = '<!-- below-floor-bridge-check -->';
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('below-floor-bridge-report.json', 'utf8'));
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100,
+            });
+            const prior = comments.find(c => (c.body || '').includes(STICKY));
+
+            const hasGaps = report.gapsByFile && report.gapsByFile.length > 0;
+            const selfMap = report.selfMap;
+
+            if (!hasGaps && !selfMap) {
+              if (prior) {
+                await github.rest.issues.updateComment({
+                  owner, repo, comment_id: prior.id,
+                  body: `${STICKY}\n✅ **Below-floor-bridge check OK** — nessun loop canton-scoped con floor/soglia + \`continue\` senza bridge, nessun nuovo bridge senza tocco a \`searchConsoleCompat.ts\`.`,
+                });
+              }
+              core.info('No below-floor-bridge candidates.');
+              return;
+            }
+
+            const gapRows = (report.gapsByFile || []).map(f =>
+              `- \`${f.file}\`\n${f.gaps.map(g => `  - L${g.line}: \`${g.guard}\``).join('\n')}`
+            ).join('\n');
+            const selfMapRow = selfMap ? `\n\n⚠️ ${selfMap.message}` : '';
+            const body = [
+              STICKY,
+              `⚠️ **Below-floor-bridge check** (advisory, euristico — AGENTS.md § Static SEO Pages / issue #3659): ` +
+              (hasGaps ? `${report.gapsByFile.length} file con possibile below-floor-bridge omission.` : ''),
+              gapRows + selfMapRow,
+              `Il guard salta la pagina senza emettere un bridge noindex? → estendi renderBelowFloorBridge/emit*BelowFloorBridge ` +
+              `+ il self-map in \`searchConsoleCompat.ts\` nella STESSA PR, oppure giustifica in \`## Non implementato\`.`,
+              `_Candidato ≠ verdetto: regex-match, non AST. Ricalcolato a ogni push._`,
             ].join('\n\n');
 
             if (prior) {

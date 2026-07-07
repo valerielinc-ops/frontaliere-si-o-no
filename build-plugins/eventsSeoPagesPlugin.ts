@@ -67,6 +67,9 @@ import {
   OTHER_EVENTS_COMUNE_KEY,
   eventReferralUrl,
   recentlyEndedEvents,
+  resolveCantonUrlKey,
+  UNRESOLVED_CANTON_KEY,
+  UNRESOLVED_CANTON_LABEL,
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
@@ -129,7 +132,10 @@ const SOURCE = EVENT_SOURCES['tio-agenda'];
 // constant it replaces (see tests/events-nationwide-sources.test.ts).
 const basePathCache = new Map<string, Record<Locale, string>>();
 function basePathFor(canton: string): Record<Locale, string> {
-  const code = String(canton || 'TI').toUpperCase();
+  // #3739: internal callers already resolve `canton` before reaching here
+  // (never blank) — this default only fires if that ever regresses, so it
+  // must degrade to the canton-neutral bucket, not silently mislabel Ticino.
+  const code = String(canton || UNRESOLVED_CANTON_KEY).toUpperCase();
   let cached = basePathCache.get(code);
   if (!cached) {
     cached = eventsBasePathForCanton(code) as Record<Locale, string>;
@@ -406,8 +412,20 @@ const COPY: Record<Locale, Copy> = {
 // idiomatic polish (irregular per-canton demonyms/genitives, e.g. German
 // "Zürcher"/"Walliser", are out of scope — a full 26-canton declension table
 // is not worth building) for text that is always correct.
+// #3739: display copy for the canton-neutral bucket (`UNRESOLVED_CANTON_KEY`)
+// — `getCantonLabel` only knows the 26 real BFS codes, so it would otherwise
+// echo the raw sentinel string back into rendered HTML/copy. Label copy
+// itself lives in events-utils.mjs (`UNRESOLVED_CANTON_LABEL`), shared with
+// the FB events poster (AGENTS.md §6 — single source, no copy-paste).
+
+/** `getCantonLabel`, but canton-neutral-bucket-aware (see `UNRESOLVED_CANTON_KEY`). */
+function cantonDisplayLabel(canton: string, locale: Locale): string {
+  if (canton.toUpperCase() === UNRESOLVED_CANTON_KEY) return UNRESOLVED_CANTON_LABEL[locale];
+  return getCantonLabel(canton, locale as CantonLocale);
+}
+
 function cantonSubstitutionRules(canton: string, locale: Locale): Array<[RegExp, string]> {
-  const display = getCantonLabel(canton, locale as CantonLocale);
+  const display = cantonDisplayLabel(canton, locale);
   switch (locale) {
     case 'it':
       return [
@@ -1226,7 +1244,7 @@ export function renderHubPage(params: {
       ${otherCantons
         .map(
           (c) =>
-            `<a class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-xs font-semibold text-heading hover:border-accent-border" href="${pathFor(locale, c)}">${esc(getCantonLabel(c, locale as CantonLocale))}</a>`,
+            `<a class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-xs font-semibold text-heading hover:border-accent-border" href="${pathFor(locale, c)}">${esc(cantonDisplayLabel(c, locale))}</a>`,
         )
         .join('')}
     </section>`;
@@ -1360,7 +1378,7 @@ export function renderEventsIndexPage(params: {
       ({ canton, eventCount }) =>
         `<a class="group flex items-center justify-between gap-2 rounded-lg border border-edge bg-surface p-4 shadow-stripe-sm transition-all hover:-translate-y-0.5 hover:border-accent-border hover:shadow-stripe-md" href="${pathFor(locale, canton)}">
           <span class="min-w-0">
-            <span class="block truncate text-sm font-semibold text-heading">${esc(getCantonLabel(canton, locale as CantonLocale))}</span>
+            <span class="block truncate text-sm font-semibold text-heading">${esc(cantonDisplayLabel(canton, locale))}</span>
             <span class="mt-1 block text-xs text-muted">${eventCount} ${esc(COPY[locale].eventsWord)}</span>
           </span>
           <span class="shrink-0 text-lg text-subtle transition-transform group-hover:translate-x-0.5 group-hover:text-accent" aria-hidden="true">→</span>
@@ -2098,7 +2116,9 @@ export function renderEventDetailPage(params: {
   isPast?: boolean;
 }): { urlPath: string; html: string; wordCount: number } {
   const { locale, event, comune, eventSlug, sameComuneEvents, dateStamp, distDir, detailHref, isPast = false } = params;
-  const canton = (event.canton || 'TI').toUpperCase();
+  // #3739: an unresolved canton must route to the canton-neutral bucket, not
+  // silently mislabel the event as Ticino.
+  const canton = (event.canton || UNRESOLVED_CANTON_KEY).toUpperCase();
   const title = localizedTitle(event, locale);
   const copy = copyFor(canton, locale);
   const dc = detailCopyFor(canton, locale);
@@ -2110,7 +2130,7 @@ export function renderEventDetailPage(params: {
   // (OTHER_EVENTS_SEGMENT, via pathFor/pathForEventDetail above), but every
   // user-visible string below must show an honest label — the canton's
   // display name — never the raw internal sentinel string.
-  const displayComune = comune === OTHER_EVENTS_COMUNE_KEY ? getCantonLabel(canton, locale as CantonLocale) : comune;
+  const displayComune = comune === OTHER_EVENTS_COMUNE_KEY ? cantonDisplayLabel(canton, locale) : comune;
   const when = humanDate(event.startDate, locale);
   const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
   const cat = categoryLabel(event.category, locale);
@@ -2595,6 +2615,55 @@ function patchInboundLink(distDir: string, relIndex: string, locale: Locale): bo
   return true;
 }
 
+/**
+ * Assign a stable, collision-free detail slug to every event in `list`
+ * (already scoped to one canton+comune peer group). `slugifyEvent(ev)` is
+ * the base; ties (same title+date) are broken with a plain incrementing
+ * suffix (`-2`, `-3`, ...) in list order. `list` must already be
+ * deterministically ordered on ties — both `upcomingEvents` and
+ * `recentlyEndedEvents` (scripts/lib/events-utils.mjs) sort ties on
+ * `.title` then `.id`, so two colliding events always land in the same
+ * relative order regardless of crawl/dataset insertion order or which of
+ * the two functions produced `list`.
+ *
+ * `reservedBaseSlugs` marks base slugs already claimed by a sibling OUTSIDE
+ * `list` — used so a "recently ended" bridge-page slug can never silently
+ * reuse a base slug that is still the CURRENT live/indexed slug for a
+ * same-title+date sibling in the same comune (issue #3700: a multi-day
+ * event sharing the exact title+startDate as one that already ended keeps
+ * its live bare slug; the ending one gets the decorated fallback instead of
+ * fighting over the same URL).
+ */
+export function assignEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlySet<string> = new Set()): Map<string, string> {
+  const used = new Set<string>(reservedBaseSlugs);
+  const slugFor = new Map<string, string>();
+  for (const ev of list) {
+    const base = slugifyEvent(ev);
+    let slug = base;
+    let n = 2;
+    while (used.has(slug)) slug = `${base}-${n++}`;
+    used.add(slug);
+    slugFor.set(ev.id, slug);
+  }
+  return slugFor;
+}
+
+/**
+ * Build the `reservedBaseSlugs` set for a past-bridge `assignEventSlugs` call:
+ * the ACTUAL assigned slug (post-dedup, e.g. `base-2` for a second
+ * same-title+date sibling) for every still-live event in the same comune —
+ * never the raw `slugifyEvent(ev)` base. Two live siblings sharing
+ * title+date collapse to the same raw base, so reserving the raw base only
+ * ever protects the FIRST one and leaves the disambiguated sibling's real
+ * URL unprotected against a past-bridge page landing on it (issue #3715).
+ */
+export function reserveLiveSiblingSlugs(
+  liveSameComune: readonly SiteEvent[],
+  detailSlugs: ReadonlyMap<string, { slug: string }>,
+): Set<string> {
+  return new Set(liveSameComune.map((ev) => detailSlugs.get(ev.id)!.slug));
+}
+
 export function eventsSeoPagesPlugin(rootDir: string): Plugin {
   return {
     name: 'events-seo-pages',
@@ -2625,12 +2694,24 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // Every downstream loop iterates `cantons`, not a hardcoded 'TI'.
       const byCanton = new Map<string, SiteEvent[]>();
       for (const ev of all) {
-        const canton = (ev.canton || 'TI').toUpperCase();
+        // #3715: resolve to the shared URL group key (BL/BS -> BASILEA,
+        // AI/AR -> APPENZELLO) BEFORE grouping — otherwise both halves of a
+        // half-canton pair render at the identical hub URL and the second
+        // one silently clobbers the first via WriteCollector's last-write-
+        // wins dedup (raw canton codes differ, but their emitted path does
+        // not).
+        // #3739: an unresolved canton must route to the canton-neutral
+        // bucket, not silently mislabel the event as Ticino.
+        const canton = ev.canton ? resolveCantonUrlKey(ev.canton) : UNRESOLVED_CANTON_KEY;
         const arr = byCanton.get(canton) ?? [];
         arr.push(ev);
         byCanton.set(canton, arr);
       }
-      const cantons = [...byCanton.keys()].sort((a, b) => (a === 'TI' ? -1 : b === 'TI' ? 1 : a.localeCompare(b)));
+      // #3739: keep the canton-neutral bucket last regardless of locale
+      // collation of its sentinel string (deterministic sitemap/hub order).
+      const cantons = [...byCanton.keys()].sort((a, b) =>
+        a === 'TI' ? -1 : b === 'TI' ? 1 : a === UNRESOLVED_CANTON_KEY ? 1 : b === UNRESOLVED_CANTON_KEY ? -1 : a.localeCompare(b),
+      );
 
       // Stable, collision-free detail slug per event, scoped to (canton, comune)
       // so two different cantons sharing a comune name never share a dedup
@@ -2649,28 +2730,18 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const byComune = groupByComune(byCanton.get(canton)!) as Map<string, SiteEvent[]>;
         byCantonComune.set(canton, byComune);
         for (const [comune, list] of byComune) {
-          const used = new Set<string>();
+          const slugs = assignEventSlugs(list);
           for (const ev of list) {
-            const base = slugifyEvent(ev);
-            let slug = base;
-            let n = 2;
-            while (used.has(slug)) slug = `${base}-${n++}`;
-            used.add(slug);
-            detailSlugs.set(ev.id, { canton, comune, slug });
+            detailSlugs.set(ev.id, { canton, comune, slug: slugs.get(ev.id)! });
           }
         }
 
         const otherEvents = byCanton.get(canton)!.filter((e) => !e.comune);
         if (otherEvents.length > 0) {
           otherEventsByCanton.set(canton, otherEvents);
-          const used = new Set<string>();
+          const slugs = assignEventSlugs(otherEvents);
           for (const ev of otherEvents) {
-            const base = slugifyEvent(ev);
-            let slug = base;
-            let n = 2;
-            while (used.has(slug)) slug = `${base}-${n++}`;
-            used.add(slug);
-            detailSlugs.set(ev.id, { canton, comune: OTHER_EVENTS_COMUNE_KEY, slug });
+            detailSlugs.set(ev.id, { canton, comune: OTHER_EVENTS_COMUNE_KEY, slug: slugs.get(ev.id)! });
           }
         }
       }
@@ -2794,7 +2865,14 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       const pastEvents = recentlyEndedEvents(dataset.events, dateStamp) as SiteEvent[];
       const pastEventsByCanton = new Map<string, SiteEvent[]>();
       for (const ev of pastEvents) {
-        const canton = (ev.canton || 'TI').toUpperCase();
+        // #3715: same group-key resolution as the live `byCanton` pass above
+        // — keeps this bridge-page grouping keyed identically to
+        // `byCantonComune` (used just below for `liveSameComune`), otherwise
+        // a half-canton pair's past events would fail to look up their live
+        // siblings entirely.
+        // #3739: an unresolved canton must route to the canton-neutral
+        // bucket, not silently mislabel the event as Ticino.
+        const canton = ev.canton ? resolveCantonUrlKey(ev.canton) : UNRESOLVED_CANTON_KEY;
         if (!ev.comune) continue; // comune-less past events: not worth a bridge page (rare, no stable bucket to land on)
         pastEventsByCanton.set(canton, [...(pastEventsByCanton.get(canton) ?? []), ev]);
       }
@@ -2802,17 +2880,17 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const byComune = groupByComune(events) as Map<string, SiteEvent[]>;
         const liveByComune = byCantonComune.get(canton);
         for (const [comune, list] of byComune) {
-          const used = new Set<string>();
-          const pastSlugFor = new Map<string, string>();
-          for (const ev of list) {
-            const base = slugifyEvent(ev);
-            let slug = base;
-            let n = 2;
-            while (used.has(slug)) slug = `${base}-${n++}`;
-            used.add(slug);
-            pastSlugFor.set(ev.id, slug);
-          }
           const liveSameComune = liveByComune?.get(comune) ?? [];
+          // #3700/#3715: reserve base slugs already claimed by a still-live
+          // sibling in this comune (e.g. a multi-day event sharing the
+          // exact same title+startDate as a now-past one, still "upcoming"
+          // via a later endDate). Without this, the past-bridge slug is
+          // assigned from `list` alone and can collide with — or even
+          // reuse — the slug that is still the CURRENT live/indexed URL
+          // for that sibling. See reserveLiveSiblingSlugs() doc for why this
+          // must use the actual assigned slug, not the raw base.
+          const reservedBaseSlugs = reserveLiveSiblingSlugs(liveSameComune, detailSlugs);
+          const pastSlugFor = assignEventSlugs(list, reservedBaseSlugs);
           for (const locale of LOCALES) {
             const detailHref = detailHrefFor(locale);
             for (const ev of list) {

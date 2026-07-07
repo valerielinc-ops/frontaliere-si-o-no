@@ -21,6 +21,7 @@
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
@@ -56,8 +57,11 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+// Per-crawler-scoped scratch path (never shared with sibling crawlers in the
+// same crawler-group CI job -- no cross-process race possible by construction).
+const SCRATCH_KEY = path.basename(fileURLToPath(import.meta.url), '.mjs');
+const DATA_JOBS = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${SCRATCH_KEY}.json`);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const GROUPE_MUTUEL_KEY = 'groupe-mutuel';

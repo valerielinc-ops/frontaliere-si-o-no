@@ -135,6 +135,7 @@
 import fs from 'node:fs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import path from 'node:path';
+import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -761,8 +762,7 @@ export async function runStandardCrawlerPipeline(config) {
     throw new Error('CrawlerConfig missing required fields: companyKey, companyLabel, fetchJobs, isCompanyJob');
   }
 
-  const DATA_JOBS = path.resolve(root, 'data', 'jobs.json');
-  const PUBLIC_DATA_JOBS = path.resolve(root, 'public', 'data', 'jobs.json');
+  const DATA_JOBS = crawlerScratchPathFor(companyKey);
 
   // ─── Step 0: Init ───────────────────────────────────────────
   setCrawlerStartTime();
@@ -830,20 +830,18 @@ export async function runStandardCrawlerPipeline(config) {
   // mergePreserveLocaleData preserves translations, slugByLocale, and previousSlugs
   // from previous crawl runs. This is the KEY to slug stability — without it,
   // every crawl would regenerate slugs and orphan indexed URLs.
-  const allJobs = Array.isArray(existingJobs) ? existingJobs : [];
-  const others = allJobs.filter((job) => !isCompanyJob(job));
   const mergeOpts = matchKey ? { matchKey } : {};
   const merged = mergePreserveLocaleData(companyExisting, parsedJobs, mergeOpts);
   const clean = merged.sort((a, b) =>
     String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
   );
 
-  // Write merged dataset (intermediate — Steps 5-6 modify in-place)
-  const final = [...others, ...clean];
-  writeJsonAtomic(DATA_JOBS, final);
-  if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-    writeJsonAtomic(PUBLIC_DATA_JOBS, final);
-  }
+  // Write merged dataset (intermediate — Steps 5-6 modify in-place). DATA_JOBS
+  // is a scratch path scoped to THIS crawler's own companyKey (see derivation
+  // above), so it never holds another company's jobs — no lock or
+  // merge-with-others read-back needed, unlike the shared data/jobs.json this
+  // replaced.
+  writeJsonAtomic(DATA_JOBS, clean);
 
   // ─── Step 4: Diff reporting ─────────────────────────────────
   const afterMergeSnapshot = snapshotJobSlugs(clean);
@@ -880,6 +878,7 @@ export async function runStandardCrawlerPipeline(config) {
     disableWorkdayForce: true,
     localizeExistingOnly: true,
     forceLocalizationWhenAiEnabledOnly: true,
+    dataJobsPath: DATA_JOBS,
     ...baseCrawlerOpts,
   });
 

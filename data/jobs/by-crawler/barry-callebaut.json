@@ -1,6 +1,6 @@
 {
   "crawlerKey": "barry-callebaut",
-  "assembledAt": "2026-07-06T22:35:58.390Z",
+  "assembledAt": "2026-07-07T08:25:25.082Z",
   "jobs": [
     {
       "id": "barry-callebaut-9d49e2b2a306",
@@ -33,7 +33,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Executive-Assistant-CPCO-8005/1405562000/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:35:54.519Z",
+      "crawledAt": "2026-07-07T08:25:22.841Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -70,7 +70,6 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
       "addressRegion": "ZH"
     },
     {
@@ -104,7 +103,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Pricing-&-Position-Manager-8005/1397975700/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:35:54.518Z",
+      "crawledAt": "2026-07-07T08:25:22.840Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -133,7 +132,6 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
       "addressRegion": "ZH"
     },
     {
@@ -167,7 +165,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Investor-Relations-Manager-8005/1392936000/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:35:54.513Z",
+      "crawledAt": "2026-07-07T08:25:22.839Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -209,7 +207,6 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
       "addressRegion": "ZH"
     },
     {
@@ -243,7 +240,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Category-Manager-Packaging-8005/1379038700/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:35:54.512Z",
+      "crawledAt": "2026-07-07T08:25:22.838Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -284,7 +281,6 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
       "addressRegion": "ZH"
     },
     {
@@ -294,7 +290,7 @@
         "it": "assistente-alla-gestione-del-vp-delle-comunicazioni-aziendali-e-degli-affari-pubblici-part-time-barry-callebaut-zurich",
         "en": "management-assistant-to-vp-corporate-communications-public-affairs-part-time-barry",
         "de": "management-assistent-to-vp-corporate-communications-public-affairs-teilzeit-barry-callebaut-zurich",
-        "fr": "management-assistant-to-vp-corporate-communications-public-affairs-part-time-barry-callebaut-zurich"
+        "fr": "assistante-de-gestion-a-la-vice-presidente-communications-ministerielles-et-affaires-publiques-a-temps-partiel-barry"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
@@ -318,7 +314,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Management-Assistant-to-VP%2C-Corporate-Communications-&-Public-Affairs-part-time-8005/1399310700/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:35:54.507Z",
+      "crawledAt": "2026-07-07T08:25:22.836Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -335,21 +331,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "management-assistant-to-vp-corporate-communications-public-affairs-part-time-barry",
-        "assistante-de-gestion-a-la-vice-presidente-communications-ministerielles-et-affaires-publiques-a-temps-partiel-barry"
+        "management-assistant-to-vp-corporate-communications-public-affairs-part-time-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "management-assistant-to-vp-corporate-communications-public-affairs-part-time-barry"
         ],
-        "fr": [
-          "management-assistant-to-vp-corporate-communications-public-affairs-part-time-barry",
-          "assistante-de-gestion-a-la-vice-presidente-communications-ministerielles-et-affaires-publiques-a-temps-partiel-barry"
-        ],
         "de": [
           "management-assistant-to-vp-corporate-communications-public-affairs-part-time-barry"
+        ],
+        "fr": [
+          "management-assistant-to-vp-corporate-communications-public-affairs-part-time-barry",
+          "management-assistant-to-vp-corporate-communications-public-affairs-part-time-barry-callebaut-zurich"
         ]
       },
       "firstSeenAt": "2026-07-03T21:24:25.539Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -362,8 +359,6 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
-      "needsRetranslation": true,
       "addressRegion": "ZH"
     },
     {
@@ -397,7 +392,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Head-of-Global-Media-&-Content-8005/1399298700/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:35:54.504Z",
+      "crawledAt": "2026-07-07T08:25:22.834Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -439,7 +434,6 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
       "addressRegion": "ZH"
     },
     {
@@ -473,7 +467,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Manager%2C-Group-Accounting-&-Reporting-8005/1399308500/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:35:54.501Z",
+      "crawledAt": "2026-07-07T08:25:22.832Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -513,7 +507,6 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
       "addressRegion": "ZH"
     },
     {
@@ -547,7 +540,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Commercial-Excellence-Manager-FM-&-Specialties-8005/1387640800/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:35:54.494Z",
+      "crawledAt": "2026-07-07T08:25:22.826Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -576,7 +569,6 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
       "addressRegion": "ZH"
     }
   ]

@@ -28,7 +28,12 @@ export const FAQ_famiglia: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/assegni-familiari-frontalieri/',
+        href: {
+          it: '/guida-frontaliere/',
+          en: '/en/cross-border-guide/',
+          de: '/de/grenzgaenger-ratgeber/',
+          fr: '/fr/guide-frontalier/',
+        },
         label: {
           it: 'Assegni familiari frontalieri',
           en: 'Cross-border family allowances',

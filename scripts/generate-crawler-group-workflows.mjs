@@ -208,25 +208,35 @@ function indentBlock(text, spaces) {
  * captured only from the CRAWL step, before the commit step ever runs —
  * silently discarded the commit's exit code entirely: a crawler could scrape
  * successfully, fail to commit/push, and still report full success with no
- * failure issue and no data persisted. `set -uo pipefail` (not `set -e`) is
- * used deliberately for this whole script, so a bare non-zero exit from the
- * flock command would NOT have aborted the script anyway — the `|| true`
- * was never load-bearing for that, and has been REMOVED: the commit
- * invocation's own exit code is now captured directly into
+ * failure issue and no data persisted. `set -uo pipefail` plus an explicit
+ * `set +e` (see below) is used deliberately for this whole script, so a bare
+ * non-zero exit from the flock command would NOT abort the script anyway —
+ * the `|| true` was never load-bearing for that, and has been REMOVED: the
+ * commit invocation's own exit code is now captured directly into
  * `git_commit_exit` via `$?` on the line immediately after it runs (an
  * `|| true` on that same line would make `$?` always read as 0 — the exit
  * code of the `true`, not of `flock` — so removing it is required for the
- * capture to work, not just cosmetic). Since no `set -e` is in effect, nothing
- * aborts the script early even without `|| true`. `git_commit_exit` is then
+ * capture to work, not just cosmetic). With `set +e` explicitly cancelling
+ * GitHub Actions' own `bash -e {0}` default, nothing aborts the script early
+ * even without `|| true`. `git_commit_exit` is then
  * treated as equally significant as `crawler_exit` for both the
  * failure-report gate and this background step's own final exit code.
  */
 export function buildCrawlerShellBody(crawler) {
   const lines = [];
   lines.push('set -uo pipefail');
+  // GitHub Actions invokes `run:` steps as `bash -e {0}` by default (errexit
+  // ON) — confirmed from a real run's `shell: /usr/bin/bash -e {0}` log line.
+  // Without this explicit `set +e`, the FIRST non-zero exit anywhere below
+  // (e.g. the crawler's own `run:` command failing) aborts this whole
+  // composite script immediately: `crawler_exit=$?` is never reached, the
+  // failure-report `if` block never runs, and no GitHub Issue gets created.
+  // This was the root cause of zero "Crawler Failure" issues being filed
+  // despite ~160 real crawler failures overnight post-#3701 — every failing
+  // crawler killed its own background step's script before the report gate.
+  lines.push('set +e');
   lines.push('');
   lines.push(`# ---- ${crawler.slug}: run crawler (verbatim from original workflow) ----`);
-  lines.push(renderEnvExports(crawler.runStep.env));
   lines.push(crawler.runStep.run.trimEnd());
   lines.push(`crawler_exit=$?`);
   // Default to 0 (no commit attempted / not yet run): if the crawl step
@@ -275,7 +285,6 @@ export function buildCrawlerShellBody(crawler) {
         .join(crawlerWorkflowId);
       lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----`);
       lines.push('if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then');
-      lines.push(indentBlock(renderEnvExports(step.env), 2));
       lines.push(indentBlock(literalizedRun.trimEnd(), 2));
       lines.push('fi');
       lines.push('');
@@ -292,7 +301,6 @@ export function buildCrawlerShellBody(crawler) {
     // reproduce that here: both steps are gated on `crawler_exit -eq 0`.
     lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim, only if crawler succeeded) ----`);
     lines.push('if [ "$crawler_exit" -eq 0 ]; then');
-    lines.push(indentBlock(renderEnvExports(step.env), 2));
 
     if (isCommitStep) {
       // HAZARD FIX 2: serialize the local git index mutation across
@@ -304,7 +312,7 @@ export function buildCrawlerShellBody(crawler) {
       // invocation ITSELF on the very next line — appending `|| true` to
       // this line would make `$?` always read as 0 (the exit code of the
       // `true` that just ran), silently re-swallowing the failure one line
-      // later than before. This script only sets `-uo pipefail` (no `-e`),
+      // later than before. This script explicitly runs `set +e` (see top),
       // so a non-zero exit here does not abort the rest of the body; the
       // `git_commit_exit=$?` capture on the next line is what makes the
       // failure-report gate and this step's final `exit` (below) see it.
@@ -339,32 +347,33 @@ function shellQuote(s) {
 }
 
 /**
- * Render `export KEY=value` lines for a step's env map, preserving each
- * value's original quoting semantics from the source workflow YAML.
+ * Merge a crawler's runStep + postSteps env maps into one map for the
+ * step's own YAML `env:` mapping (plus the per-crawler SLUG_HISTORY_SUMMARY_FILE).
  *
- * Values containing a GitHub Actions expression (`${{ ... }}`) are emitted
- * double-quoted, NOT single-quoted: GitHub substitutes `${{ ... }}` with its
- * final literal text BEFORE the shell ever parses the line (exactly as it
- * already does for every step-level YAML `env:` value in the original 581
- * workflows) — a hand-escaped single-quote wrapper would corrupt any
- * single-quoted fallback literal already inside the expression itself (e.g.
- * `${{ github.event.inputs.timeout_ms || '' }}`). Double-quoting is safe
- * here because these expressions only ever resolve to plain identifiers,
- * booleans, or simple strings (crawler slugs, "0"/"1", empty string) with no
- * embedded double-quotes or un-escaped `$`/backticks.
+ * Root-cause fix for #3713: values containing a GitHub Actions expression
+ * (`${{ ... }}`) must never be text-spliced into the shell script body as
+ * `export KEY="${{ ... }}"` — GitHub substitutes `${{ ... }}` with its
+ * resolved literal text BEFORE the shell parses the line, so a resolved
+ * value containing `"` or a backtick (e.g. a dispatch input an actor
+ * controls, like `skip_ai_translation`) breaks out of the quoting and the
+ * rest of the line re-executes as shell (injection). Declaring the same
+ * value in the step's YAML `env:` map instead means GitHub assigns it
+ * directly as a process env var — never re-parsed by any shell — exactly
+ * how step-level `env:` already worked in each of the 581 original
+ * per-crawler workflows before consolidation.
  *
- * Plain literal values (no `${{ }}`) are single-quoted as usual.
+ * The 3 crawlers (hoch-health, hopital-de-lavaux, spital-lachen) where a key
+ * appears in more than one source step (`GH_TOKEN` via both
+ * `secrets.GITHUB_TOKEN` and `github.token`) are safe to merge: both
+ * expressions resolve to the identical runtime token value.
  */
-function renderEnvExports(env) {
-  if (!env) return '';
-  const lines = Object.entries(env).map(([k, v]) => {
-    const value = String(v);
-    if (value.includes('${{')) {
-      return `export ${k}="${value}"`;
-    }
-    return `export ${k}=${shellQuote(value)}`;
-  });
-  return lines.join('\n');
+function buildCrawlerStepEnv(crawler, summaryFile) {
+  const merged = { SLUG_HISTORY_SUMMARY_FILE: summaryFile };
+  Object.assign(merged, crawler.runStep.env || {});
+  for (const step of crawler.postSteps) {
+    Object.assign(merged, step.env || {});
+  }
+  return merged;
 }
 
 /** Build the YAML object (as a JS object, serialized via `yaml` lib) for one group workflow. */
@@ -442,12 +451,11 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       name: `Run ${crawler.slug}`,
       id: stepId,
       background: true,
-      env: {
-        // HAZARD FIX 1: unique per-crawler telemetry file so concurrent
-        // background steps sharing this job's /tmp can never steal or
-        // delete a sibling's slug-history summary. See file header.
-        SLUG_HISTORY_SUMMARY_FILE: summaryFile,
-      },
+      // HAZARD FIX 1 (SLUG_HISTORY_SUMMARY_FILE) + #3713 root-cause fix: every
+      // env value the crawler's runStep/postSteps declared lives here, in the
+      // step's own YAML env: map, instead of being text-spliced into the
+      // shell body — see buildCrawlerStepEnv().
+      env: buildCrawlerStepEnv(crawler, summaryFile),
       run: buildCrawlerShellBody(crawler),
     });
   }
