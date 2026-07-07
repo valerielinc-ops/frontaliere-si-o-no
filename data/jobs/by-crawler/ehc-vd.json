@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "ehc-vd-b2032000ed70",
-      "slug": "medecins-anesthesistes-agrees-f-h-ehc-vd-morges",
+      "slug": "anestetisti-certificati-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "medecins-anesthesistes-agrees-f-h-ehc-vd-morges",
-        "it": "medecins-anesthesistes-agrees-f-h-ehc-vd-morges",
-        "en": "medecins-anesthesistes-agrees-f-h-ehc-vd-morges",
-        "de": "medecins-anesthesistes-agrees-f-h-ehc-vd-morges"
+        "it": "anestetisti-certificati-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "certified-anaesthetists-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "zertifizierte-anasthesisten-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -49,7 +49,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "fr": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecins-anesthesistes-agrees-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "medecins-anesthesistes-agrees-f-h-ehc-vd-morges"
+        ],
+        "de": [
+          "medecins-anesthesistes-agrees-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "medecins-anesthesistes-agrees-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-e1a466d01e2f",

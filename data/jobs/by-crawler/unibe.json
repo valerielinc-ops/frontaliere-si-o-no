@@ -785,12 +785,12 @@
     },
     {
       "id": "unibe-f962f8c604c9",
-      "slug": "postdoctoral-fellow-position-in-artificial-intelligence-for-healthcare-unibe-bern",
+      "slug": "posizione-post-dottorale-in-intelligenza-artificiale-per-l-assistenza-sanitaria-universitat-bern-bern",
       "slugByLocale": {
         "en": "postdoctoral-fellow-position-in-artificial-intelligence-for-healthcare-unibe-bern",
-        "it": "postdoctoral-fellow-position-in-artificial-intelligence-for-healthcare-unibe-bern",
-        "de": "postdoctoral-fellow-position-in-artificial-intelligence-for-healthcare-unibe-bern",
-        "fr": "postdoctoral-fellow-position-in-artificial-intelligence-for-healthcare-unibe-bern"
+        "it": "posizione-post-dottorale-in-intelligenza-artificiale-per-l-assistenza-sanitaria-universitat-bern-bern",
+        "de": "postdoc-stipendium-in-kunstlicher-intelligenz-fur-das-gesundheitswesen-universitat-bern-bern",
+        "fr": "poste-de-boursier-postdoctoral-en-intelligence-artificielle-pour-la-sante-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -846,7 +846,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-06T22:34:23.536Z"
+      "firstSeenAt": "2026-07-06T22:34:23.536Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-fellow-position-in-artificial-intelligence-for-healthcare-unibe-bern"
+        ],
+        "de": [
+          "postdoctoral-fellow-position-in-artificial-intelligence-for-healthcare-unibe-bern"
+        ],
+        "fr": [
+          "postdoctoral-fellow-position-in-artificial-intelligence-for-healthcare-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-fellow-position-in-artificial-intelligence-for-healthcare-unibe-bern"
+      ]
     },
     {
       "id": "unibe-6130cc5b671a",
@@ -4085,8 +4099,8 @@
       "slugByLocale": {
         "de": "administrative-mitarbeit-direktion-und-weiterbildung-unibe-bern",
         "it": "administrative-mitarbeit-direktion-e-weiterbildung-universitat-bern",
-        "en": "administrative-mitarbeit-direktion-und-weiterbildung-unibe-bern",
-        "fr": "administrative-mitarbeit-direktion-und-weiterbildung-unibe-bern"
+        "en": "administrative-cooperation-directorate-and-training-universitat-bern-bern",
+        "fr": "cooperation-administrative-direction-et-formation-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4132,6 +4146,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "administrative-mitarbeit-direktion-und-weiterbildung-unibe-bern"
+        ],
+        "en": [
+          "administrative-mitarbeit-direktion-und-weiterbildung-unibe-bern"
+        ],
+        "fr": [
           "administrative-mitarbeit-direktion-und-weiterbildung-unibe-bern"
         ]
       },

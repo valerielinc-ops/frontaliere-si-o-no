@@ -4478,12 +4478,12 @@
     },
     {
       "id": "kanton-zuerich-d4f477238bac",
-      "slug": "leitung-projekt-qualitatsmanagement-kantonale-verwaltung-zurich-zurich-altstetten",
+      "slug": "capo-di-project-quality-management-kantonale-verwaltung-zurich-zurich-altstetten",
       "slugByLocale": {
         "de": "leitung-projekt-qualitatsmanagement-kanton-zuerich-zurich-altstetten",
-        "it": "leitung-projekt-qualitatsmanagement-kantonale-verwaltung-zurich-zurich-altstetten",
-        "en": "leitung-projekt-qualitatsmanagement-kantonale-verwaltung-zurich-zurich-altstetten",
-        "fr": "leitung-projekt-qualitatsmanagement-kantonale-verwaltung-zurich-zurich-altstetten"
+        "it": "capo-di-project-quality-management-kantonale-verwaltung-zurich-zurich-altstetten",
+        "en": "head-of-project-quality-management-kantonale-verwaltung-zurich-zurich-altstetten",
+        "fr": "chef-de-projet-et-gestion-de-la-qualite-kantonale-verwaltung-zurich-zurich-altstetten"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4532,11 +4532,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "leitung-projekt-qualitatsmanagement-kanton-zuerich-zurich-altstetten"
+          "leitung-projekt-qualitatsmanagement-kanton-zuerich-zurich-altstetten",
+          "leitung-projekt-qualitatsmanagement-kantonale-verwaltung-zurich-zurich-altstetten"
+        ],
+        "en": [
+          "leitung-projekt-qualitatsmanagement-kantonale-verwaltung-zurich-zurich-altstetten"
+        ],
+        "fr": [
+          "leitung-projekt-qualitatsmanagement-kantonale-verwaltung-zurich-zurich-altstetten"
         ]
       },
       "previousSlugs": [
-        "leitung-projekt-qualitatsmanagement-kanton-zuerich-zurich-altstetten"
+        "leitung-projekt-qualitatsmanagement-kanton-zuerich-zurich-altstetten",
+        "leitung-projekt-qualitatsmanagement-kantonale-verwaltung-zurich-zurich-altstetten"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -6735,8 +6743,7 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "medizincontroller-in-kanton-zuerich-zurich",
-        "medical-controller-kantonale-verwaltung-zurich-zurich",
-        "controllore-medico-kantonale-verwaltung-zurich-zurich"
+        "medical-controller-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [

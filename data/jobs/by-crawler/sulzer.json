@@ -22235,12 +22235,12 @@
     },
     {
       "id": "sulzer-1465a1484344",
-      "slug": "strategic-projects-manager-sulzer-ch",
+      "slug": "responsabile-progetti-strategici-sulzer-madrid",
       "slugByLocale": {
         "en": "strategic-projects-manager-sulzer-ch",
-        "it": "strategic-projects-manager-sulzer-ch",
-        "de": "strategic-projects-manager-sulzer-ch",
-        "fr": "strategic-projects-manager-sulzer-ch"
+        "it": "responsabile-progetti-strategici-sulzer-madrid",
+        "de": "strategischer-projektmanager-sulzer-madrid",
+        "fr": "gestionnaire-de-projets-strategiques-sulzer-madrid"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22295,16 +22295,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-06T22:32:53.634Z"
+      "firstSeenAt": "2026-07-06T22:32:53.634Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-projects-manager-sulzer-ch"
+        ],
+        "de": [
+          "strategic-projects-manager-sulzer-ch"
+        ],
+        "fr": [
+          "strategic-projects-manager-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-projects-manager-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-47f678c4888f",
-      "slug": "mechanic-sulzer-ch-7",
+      "slug": "meccanica-sulzer-pasadena-0de108",
       "slugByLocale": {
         "en": "mechanic-sulzer-ch",
-        "it": "mechanic-sulzer-ch-7",
-        "de": "mechanic-sulzer-ch-7",
-        "fr": "mechanic-sulzer-ch-7"
+        "it": "meccanica-sulzer-pasadena-0de108",
+        "de": "mechanik-sulzer-pasadena-0de108",
+        "fr": "mecanicien-sulzer-pasadena"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22362,21 +22376,29 @@
       "firstSeenAt": "2026-07-06T22:32:52.944Z",
       "previousSlugsByLocale": {
         "it": [
-          "mechanic-sulzer-ch"
+          "mechanic-sulzer-ch",
+          "mechanic-sulzer-ch-7"
+        ],
+        "de": [
+          "mechanic-sulzer-ch-7"
+        ],
+        "fr": [
+          "mechanic-sulzer-ch-7"
         ]
       },
       "previousSlugs": [
-        "mechanic-sulzer-ch"
+        "mechanic-sulzer-ch",
+        "mechanic-sulzer-ch-7"
       ]
     },
     {
       "id": "sulzer-9b9a7fbdfa43",
-      "slug": "mechanic-night-shift-sulzer-ch",
+      "slug": "meccanico-shift-notturno-sulzer-pasadena",
       "slugByLocale": {
         "en": "mechanic-night-shift-sulzer-ch",
-        "it": "mechanic-night-shift-sulzer-ch",
-        "de": "mechanic-night-shift-sulzer-ch",
-        "fr": "mechanic-night-shift-sulzer-ch"
+        "it": "meccanico-shift-notturno-sulzer-pasadena",
+        "de": "mechaniker-nachtschaltung-sulzer-pasadena",
+        "fr": "mecanicien-sulzer-pasadena-55ad69"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22431,7 +22453,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-06T22:32:52.246Z"
+      "firstSeenAt": "2026-07-06T22:32:52.246Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanic-night-shift-sulzer-ch"
+        ],
+        "de": [
+          "mechanic-night-shift-sulzer-ch"
+        ],
+        "fr": [
+          "mechanic-night-shift-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechanic-night-shift-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-34b5b486cb2f",
@@ -22592,10 +22628,10 @@
     },
     {
       "id": "sulzer-e6e06924ea13",
-      "slug": "ingeniero-tendering-sulzer-ch",
+      "slug": "ingeniero-tendenze-sulzer-santiago",
       "slugByLocale": {
         "fr": "ingeniero-tendering-sulzer-ch",
-        "it": "ingeniero-tendering-sulzer-ch",
+        "it": "ingeniero-tendenze-sulzer-santiago",
         "en": "ingeniero-tendering-sulzer-ch",
         "de": "ingeniero-tendering-sulzer-santiago"
       },
@@ -22652,7 +22688,15 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-06T22:32:49.771Z"
+      "firstSeenAt": "2026-07-06T22:32:49.771Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingeniero-tendering-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingeniero-tendering-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-741815aaa4a1",

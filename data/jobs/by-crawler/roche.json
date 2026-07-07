@@ -90574,7 +90574,7 @@
         "en": "senior-safety-director-roche-ch",
         "it": "senior-safety-director-roche-ch",
         "de": "senior-safety-director-roche-ch",
-        "fr": "senior-safety-director-roche-ch"
+        "fr": "directeur-principal-de-la-securite-roche-mississauga"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90638,7 +90638,7 @@
         "en": "senior-safety-medical-director-roche-ch",
         "it": "senior-safety-medical-director-roche-ch",
         "de": "senior-safety-medical-director-roche-ch",
-        "fr": "senior-safety-medical-director-roche-ch"
+        "fr": "directeur-medical-principal-de-la-securite-roche-mississauga"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90697,12 +90697,12 @@
     },
     {
       "id": "roche-963948e84955",
-      "slug": "project-leader-roche-ch",
+      "slug": "leader-del-progetto-roche-rm",
       "slugByLocale": {
         "en": "project-leader-roche-ch",
-        "it": "project-leader-roche-ch",
-        "de": "project-leader-roche-ch",
-        "fr": "project-leader-roche-ch"
+        "it": "leader-del-progetto-roche-rm",
+        "de": "projektleiter-roche-rm",
+        "fr": "chef-de-projet-roche-rm"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90757,14 +90757,28 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-06T22:25:55.791Z"
+      "firstSeenAt": "2026-07-06T22:25:55.791Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-leader-roche-ch"
+        ],
+        "de": [
+          "project-leader-roche-ch"
+        ],
+        "fr": [
+          "project-leader-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-leader-roche-ch"
+      ]
     },
     {
       "id": "roche-6c964cff9e45",
-      "slug": "local-quality-responsible-roche-ch",
+      "slug": "responsabile-della-qualita-locale-roche-nairobi",
       "slugByLocale": {
         "en": "local-quality-responsible-roche-ch",
-        "it": "local-quality-responsible-roche-ch",
+        "it": "responsabile-della-qualita-locale-roche-nairobi",
         "de": "local-quality-responsible-roche-ch",
         "fr": "local-quality-responsible-roche-ch"
       },
@@ -90821,14 +90835,22 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-06T22:25:55.001Z"
+      "firstSeenAt": "2026-07-06T22:25:55.001Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "local-quality-responsible-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "local-quality-responsible-roche-ch"
+      ]
     },
     {
       "id": "roche-2a7ecb8ca449",
-      "slug": "quality-compliance-expert-roche-ch",
+      "slug": "esperto-di-qualita-e-conformita-roche-indianapolis",
       "slugByLocale": {
         "en": "quality-compliance-expert-roche-ch",
-        "it": "quality-compliance-expert-roche-ch",
+        "it": "esperto-di-qualita-e-conformita-roche-indianapolis",
         "de": "quality-compliance-expert-roche-ch",
         "fr": "quality-compliance-expert-roche-ch"
       },
@@ -90885,7 +90907,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-06T22:25:54.159Z"
+      "firstSeenAt": "2026-07-06T22:25:54.159Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-compliance-expert-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-compliance-expert-roche-ch"
+      ]
     },
     {
       "id": "roche-b1837d00da00",
@@ -91017,12 +91047,12 @@
     },
     {
       "id": "roche-f16031c55ec7",
-      "slug": "global-study-lead-roche-ch",
+      "slug": "piombo-di-studio-globale-roche-basel-981eb8",
       "slugByLocale": {
         "en": "global-study-lead-roche-ch",
-        "it": "global-study-lead-roche-ch",
-        "de": "global-study-lead-roche-ch",
-        "fr": "global-study-lead-roche-ch"
+        "it": "piombo-di-studio-globale-roche-basel-981eb8",
+        "de": "globaler-studienleiter-roche-basel-981eb8",
+        "fr": "etude-mondiale-chef-de-file-roche-basel-981eb8"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91077,7 +91107,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-06T22:25:51.571Z"
+      "firstSeenAt": "2026-07-06T22:25:51.571Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-study-lead-roche-ch"
+        ],
+        "de": [
+          "global-study-lead-roche-ch"
+        ],
+        "fr": [
+          "global-study-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-study-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-d36053045c21",
