@@ -234,4 +234,45 @@ describe('mapEventRecord', () => {
     expect(event.price).toEqual({ amount: 25, currency: 'CHF', isFree: false });
     expect(event.url).toBe('https://www.myswitzerland.com/it-ch/eventi/festival-della-musica');
   });
+
+  it('rejects venue name that matches performer.name and falls back to addressLocality', () => {
+    const detailLd = {
+      '@type': 'MusicEvent',
+      location: {
+        name: 'Khaled Madi',
+        address: { streetAddress: 'Hauptstrasse 1', postalCode: '8840', addressLocality: 'Einsiedeln' },
+      },
+      performer: { name: 'Khaled Madi' },
+    };
+    const mapped = mapEventRecord('xyz999', { it: { ...hitIt, place: 'Schwyz' } }, { detailLd });
+    const event = mapped?.event as never as Record<string, unknown>;
+    // performer name must not leak as venue
+    expect(event.venue).not.toBe('Khaled Madi');
+    // addressLocality is the preferred fallback when performer collision is detected
+    expect(event.venue).toBe('Einsiedeln');
+  });
+
+  it('rejects venue name that matches organizer name and falls back to index place when no addressLocality', () => {
+    const detailLd = {
+      '@type': 'Event',
+      location: { name: 'Acme Events GmbH' },
+      organizer: [{ '@type': 'Organization', name: 'Acme Events GmbH' }],
+    };
+    const mapped = mapEventRecord('xyz998', { it: { ...hitIt, place: 'Berna' } }, { detailLd });
+    const event = mapped?.event as never as Record<string, unknown>;
+    expect(event.venue).not.toBe('Acme Events GmbH');
+    expect(event.venue).toBe('Berna'); // falls back to Algolia index place
+  });
+
+  it('keeps a legitimate venue name that happens to share a substring with an organizer', () => {
+    const detailLd = {
+      '@type': 'Event',
+      location: { name: 'Kongresshaus Zürich' },
+      organizer: { name: 'Zürich Events AG' },
+    };
+    const mapped = mapEventRecord('xyz997', { it: hitIt }, { detailLd });
+    const event = mapped?.event as never as Record<string, unknown>;
+    // Substring match alone must NOT discard the venue — only exact match counts
+    expect(event.venue).toBe('Kongresshaus Zürich');
+  });
 });
