@@ -31,7 +31,12 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/nuova-legge-frontalieri-2024/',
+        href: {
+          it: '/guida-frontaliere/',
+          en: '/en/cross-border-guide/',
+          de: '/de/grenzgaenger-ratgeber/',
+          fr: '/fr/guide-frontalier/',
+        },
         label: {
           it: 'Guida alla nuova legge frontalieri 2024',
           en: 'Guide to the 2024 cross-border law',
@@ -40,7 +45,12 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
         },
       },
       {
-        href: '/fisco-frontalieri/',
+        href: {
+          it: '/tasse-e-pensione/',
+          en: '/en/taxes-and-pension/',
+          de: '/de/steuern-und-vorsorge/',
+          fr: '/fr/impots-et-retraite/',
+        },
         label: {
           it: 'Hub fiscale frontalieri',
           en: 'Cross-border tax hub',
@@ -76,7 +86,12 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/nuova-legge-frontalieri-2024/',
+        href: {
+          it: '/guida-frontaliere/',
+          en: '/en/cross-border-guide/',
+          de: '/de/grenzgaenger-ratgeber/',
+          fr: '/fr/guide-frontalier/',
+        },
         label: {
           it: 'Nuova legge frontalieri 2024',
           en: 'New 2024 cross-border law',
@@ -111,7 +126,12 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/fisco-frontalieri/',
+        href: {
+          it: '/tasse-e-pensione/',
+          en: '/en/taxes-and-pension/',
+          de: '/de/steuern-und-vorsorge/',
+          fr: '/fr/impots-et-retraite/',
+        },
         label: {
           it: 'Hub fiscale',
           en: 'Tax hub',
@@ -275,7 +295,12 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/secondo-pilastro-frontalieri/',
+        href: {
+          it: '/tasse-e-pensione/calcola-previdenza/',
+          en: '/en/taxes-and-pension/calculate-retirement/',
+          de: '/de/steuern-und-vorsorge/rente-berechnen/',
+          fr: '/fr/impots-et-retraite/calculer-pension/',
+        },
         label: {
           it: 'Guida al 2° pilastro',
           en: '2nd pillar guide',
