@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-lengg",
-  "assembledAt": "2026-07-07T12:19:20.011Z",
+  "assembledAt": "2026-07-07T16:10:12.151Z",
   "jobs": [
     {
       "id": "klinik-lengg-e51f8cfa178a",
@@ -34,7 +34,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/studierende-studierender-hf-fh-pflege-akut-somatik-a/70b0b145-c264-46c2-9724-755b6cabc071",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.831Z",
+      "crawledAt": "2026-07-07T16:10:08.153Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,15 +80,17 @@
           "Fort sens des responsabilités et orientation vers le service"
         ]
       },
-      "firstSeenAt": "2026-05-19T12:22:17.547Z",
+      "previousSlugs": [
+        "studierende-studierender-hf-fh-pflege-akut-somatik-a-klinik-lengg-zurich",
+        "studente-i-hf-fh-infermieristica-acuta-somatica-a-klinik-lengg-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-studierender-hf-fh-pflege-akut-somatik-a-klinik-lengg-zurich"
+          "studierende-studierender-hf-fh-pflege-akut-somatik-a-klinik-lengg-zurich",
+          "studente-i-hf-fh-infermieristica-acuta-somatica-a-klinik-lengg-zurich"
         ]
       },
-      "previousSlugs": [
-        "studierende-studierender-hf-fh-pflege-akut-somatik-a-klinik-lengg-zurich"
-      ],
+      "firstSeenAt": "2026-05-19T12:22:17.547Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -134,7 +136,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a/441f7e8a-f768-4396-b9fe-c886ef55e55c",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.828Z",
+      "crawledAt": "2026-07-07T16:10:08.152Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -174,15 +176,17 @@
           "Curriculum vitae et lettre de motivation"
         ]
       },
-      "firstSeenAt": "2026-05-19T12:22:17.545Z",
+      "previousSlugs": [
+        "eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a-klinik-lengg",
+        "stage-di-selezione-per-il-corso-di-studi-hf-per-dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-lengg-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a-klinik-lengg"
+          "eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a-klinik-lengg",
+          "stage-di-selezione-per-il-corso-di-studi-hf-per-dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-lengg-zurich"
         ]
       },
-      "previousSlugs": [
-        "eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a-klinik-lengg"
-      ],
+      "firstSeenAt": "2026-05-19T12:22:17.545Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -228,7 +232,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/ad835304-93b3-48f4-8dc1-26ace217e71e",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.827Z",
+      "crawledAt": "2026-07-07T16:10:08.151Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -268,15 +272,17 @@
           "Bonnes compétences organisationnelles et plaisir de collaborer de manière interdisciplinaire"
         ]
       },
-      "firstSeenAt": "2026-05-19T12:22:17.538Z",
+      "previousSlugs": [
+        "berufsbildner-in-dipl-pflegefachperson-hf-fh-a-klinik-lengg-zurich",
+        "formatore-a-professionale-dipl-infermiere-a-hf-fh-klinik-lengg-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-dipl-pflegefachperson-hf-fh-a-klinik-lengg-zurich"
+          "berufsbildner-in-dipl-pflegefachperson-hf-fh-a-klinik-lengg-zurich",
+          "formatore-a-professionale-dipl-infermiere-a-hf-fh-klinik-lengg-zurich"
         ]
       },
-      "previousSlugs": [
-        "berufsbildner-in-dipl-pflegefachperson-hf-fh-a-klinik-lengg-zurich"
-      ],
+      "firstSeenAt": "2026-05-19T12:22:17.538Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -322,7 +328,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/quereinsteiger-in-neurophysiologie-im-tagdienst/328a1ae3-3bc1-4591-bf90-d3e3f626a20f",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.826Z",
+      "crawledAt": "2026-07-07T16:10:08.143Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -340,15 +346,17 @@
       "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/quereinsteiger-in-neurophysiologie-im-tagdienst/328a1ae3-3bc1-4591-bf90-d3e3f626a20f",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-05T12:05:44.589Z",
+      "previousSlugs": [
+        "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
+        "candidato-a-in-riqualificazione-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
+          "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
+          "candidato-a-in-riqualificazione-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
         ]
       },
-      "previousSlugs": [
-        "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
-      ],
+      "firstSeenAt": "2026-06-05T12:05:44.589Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -394,7 +402,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/psychotherapeutin-psychotherapeut-fuer-vielseitige-taetigkeit-mit-schwerpunkt-neuropsychosomatik/08c1c891-1321-45a2-89d3-0ccdda477dd6",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.820Z",
+      "crawledAt": "2026-07-07T16:10:08.139Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -476,7 +484,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/ernaehrungsberaterin-ernaehrungsberater-svde-a/f8083361-6422-45d9-ba7d-c2387dabdfb3",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.816Z",
+      "crawledAt": "2026-07-07T16:10:08.133Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -496,14 +504,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "nutritionist-nutritionist-svde-a-klinik-lengg-zurich",
-        "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
+        "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
+        "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
+          "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich"
+        ],
         "en": [
           "nutritionist-nutritionist-svde-a-klinik-lengg-zurich"
-        ],
-        "it": [
-          "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:22:05.303Z",
@@ -552,7 +562,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/assistenzaerztin-assistenzarzt-neurorehabilitation-a/0415652b-0903-4688-b7a3-4b1e42110871",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.815Z",
+      "crawledAt": "2026-07-07T16:10:08.132Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -570,15 +580,17 @@
       "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/assistenzaerztin-assistenzarzt-neurorehabilitation-a/0415652b-0903-4688-b7a3-4b1e42110871",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-18T12:35:53.568Z",
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich",
+        "assistente-medico-neuroriabilitazione-a-klinik-lengg-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
+          "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich",
+          "assistente-medico-neuroriabilitazione-a-klinik-lengg-zurich"
         ]
       },
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
-      ],
+      "firstSeenAt": "2026-06-18T12:35:53.568Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -624,7 +636,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-fachfrau-fachmann-gesundheit-a/bd031dc3-88d9-4cd2-a2ae-aa4d8512d16b",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.814Z",
+      "crawledAt": "2026-07-07T16:10:08.130Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -642,15 +654,17 @@
       "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-fachfrau-fachmann-gesundheit-a/bd031dc3-88d9-4cd2-a2ae-aa4d8512d16b",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-18T12:35:53.562Z",
+      "previousSlugs": [
+        "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich",
+        "formazione-professionale-in-specializzazione-professionale-sanitario-a-klinik-lengg-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich"
+          "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich",
+          "formazione-professionale-in-specializzazione-professionale-sanitario-a-klinik-lengg-zurich"
         ]
       },
-      "previousSlugs": [
-        "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich"
-      ],
+      "firstSeenAt": "2026-06-18T12:35:53.562Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -696,7 +710,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/fachpersonen-pflege-im-flexiblen-pflegepool-a/31f1983f-5f09-4c1c-a1a0-a19e99be9210",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.810Z",
+      "crawledAt": "2026-07-07T16:10:08.129Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -714,15 +728,17 @@
       "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/fachpersonen-pflege-im-flexiblen-pflegepool-a/31f1983f-5f09-4c1c-a1a0-a19e99be9210",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-03T14:10:02.864Z",
+      "previousSlugs": [
+        "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich",
+        "cura-nel-pool-di-assistenza-flessibile-a-klinik-lengg-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich"
+          "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich",
+          "cura-nel-pool-di-assistenza-flessibile-a-klinik-lengg-zurich"
         ]
       },
-      "previousSlugs": [
-        "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich"
-      ],
+      "firstSeenAt": "2026-06-03T14:10:02.864Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -768,7 +784,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-frueh-und-spaetdienst/1f5cb508-e2d2-4603-b4c6-85b05333f7f9",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.809Z",
+      "crawledAt": "2026-07-07T16:10:08.124Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -846,7 +862,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/94592149-ddbf-40a6-bcd2-d389e3b37d4c",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.808Z",
+      "crawledAt": "2026-07-07T16:10:08.123Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -921,7 +937,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/b5a23cc0-f4a0-4bb9-a084-1e424a28cbde",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.801Z",
+      "crawledAt": "2026-07-07T16:10:08.122Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1003,7 +1019,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/parkinson-nurse-dipl-pflegefachperson-a/8d548bde-6b77-4823-a117-cf1903618621",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.792Z",
+      "crawledAt": "2026-07-07T16:10:08.109Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1021,15 +1037,17 @@
       "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/parkinson-nurse-dipl-pflegefachperson-a/8d548bde-6b77-4823-a117-cf1903618621",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-15T14:39:57.852Z",
+      "previousSlugs": [
+        "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich",
+        "infermiera-di-parkinson-a-klinik-lengg-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich"
+          "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich",
+          "infermiera-di-parkinson-a-klinik-lengg-zurich"
         ]
       },
-      "previousSlugs": [
-        "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich"
-      ],
+      "firstSeenAt": "2026-06-15T14:39:57.852Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1075,7 +1093,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/012fc645-391a-4a4c-a0f4-0b34fa06e1e0",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.791Z",
+      "crawledAt": "2026-07-07T16:10:08.107Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1106,6 +1124,7 @@
           "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich"
         ]
       },
+      "firstSeenAt": "2026-07-07T12:19:15.791Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1117,8 +1136,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-07T12:19:15.791Z"
+      }
     },
     {
       "id": "klinik-lengg-069cde8a1e5e",
@@ -1152,7 +1170,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/qualitaets-und-prozessmanager-a/165883ba-acbe-4705-81d3-02cbb566d9b4",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.781Z",
+      "crawledAt": "2026-07-07T16:10:08.097Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1230,7 +1248,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027/8c55a1bd-f7c3-473a-9f54-ed90d5badbc3",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.779Z",
+      "crawledAt": "2026-07-07T16:10:08.083Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1248,15 +1266,17 @@
       "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027/8c55a1bd-f7c3-473a-9f54-ed90d5badbc3",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-01T12:18:15.327Z",
+      "previousSlugs": [
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027-klinik-lengg-zurich",
+        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-a-2027-klinik-lengg-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027-klinik-lengg-zurich"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027-klinik-lengg-zurich",
+          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-a-2027-klinik-lengg-zurich"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027-klinik-lengg-zurich"
-      ],
+      "firstSeenAt": "2026-07-01T12:18:15.327Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1302,7 +1322,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/leiterin-leiter-ergotherapie/1e62fa80-792e-4654-8db8-847b2938de89",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.774Z",
+      "crawledAt": "2026-07-07T16:10:08.078Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1320,15 +1340,17 @@
       "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/leiterin-leiter-ergotherapie/1e62fa80-792e-4654-8db8-847b2938de89",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-30T22:38:16.308Z",
+      "previousSlugs": [
+        "leiterin-leiter-ergotherapie-klinik-lengg-zurich",
+        "capo-della-terapia-occupazionale-klinik-lengg-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "leiterin-leiter-ergotherapie-klinik-lengg-zurich"
+          "leiterin-leiter-ergotherapie-klinik-lengg-zurich",
+          "capo-della-terapia-occupazionale-klinik-lengg-zurich"
         ]
       },
-      "previousSlugs": [
-        "leiterin-leiter-ergotherapie-klinik-lengg-zurich"
-      ],
+      "firstSeenAt": "2026-06-30T22:38:16.308Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1374,7 +1396,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-im-frueh-und-spaetdienst/7c141e72-d48e-4c1c-8115-e1c841c6db9e",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.769Z",
+      "crawledAt": "2026-07-07T16:10:08.071Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1452,7 +1474,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache/01fa115e-9d01-46d2-ac0f-f6e257fd73e5",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.755Z",
+      "crawledAt": "2026-07-07T16:10:08.065Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1532,7 +1554,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik/16bdbeec-3cd8-4dec-8935-ae3083ab64a3",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:19:15.726Z",
+      "crawledAt": "2026-07-07T16:10:08.041Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
