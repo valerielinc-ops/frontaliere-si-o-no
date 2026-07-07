@@ -31,6 +31,44 @@ set -euo pipefail
 # follow-up). Local config, idempotent; harmless if the files aren't touched.
 git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B' || true
 
+# ── Clear orphaned .git/index.lock left by a crashed prior git operation ────
+# In the grouped crawler-group-*.yml workflows (post-#3701 consolidation),
+# every crawler in a group runs as a concurrent `background: true` step
+# sharing ONE job's working directory and ONE `.git`. Each crawler's
+# commit-and-push invocation of THIS script is wrapped by the callsite in
+# `flock /tmp/crawler-group-git.lock -c '... git-commit-data.sh ...'`
+# (scripts/generate-crawler-group-workflows.mjs), so only one crawler's git
+# operations run at a time within a group.
+#
+# That flock guarantees serialization of live processes, but it does NOT
+# guarantee a clean `.git/index.lock` file: git creates that file at the
+# start of an index-mutating operation (add/commit/stash/...) and removes it
+# on normal completion. If the process holding the flock is killed mid
+# operation (OOM, step timeout, runner termination), the flock itself is
+# released automatically by the kernel (flocks are tied to the process/fd,
+# not to explicit cleanup) — but `.git/index.lock` is a plain file with no
+# such lifecycle binding, so it survives the crash and is NEVER cleaned up.
+# Every subsequent crawler that then acquires the (now-free) flock and tries
+# a git operation hits git's own guard ("Another git process seems to be
+# running... fatal: Unable to create '.../.git/index.lock': File exists")
+# and fails too — a cascading failure across the rest of the group, even
+# though each of those later crawlers did nothing wrong themselves.
+#
+# It is safe to remove `.git/index.lock` unconditionally here: by
+# construction, this line only ever executes while we hold
+# /tmp/crawler-group-git.lock, so no OTHER live process in this job can
+# legitimately be mid-git-operation right now. Any index.lock still present
+# at this point can only be a leftover from a previous holder that crashed
+# without cleaning up after itself — never a real concurrent lock. Doing
+# this unconditionally at the very start of every invocation (rather than
+# reactively after a failure) is cheap (a single stat+unlink) and correct
+# under the flock invariant on every call, including the very first crawler
+# in a fresh job (where the file simply won't exist and `rm -f` is a no-op).
+if [ -f ".git/index.lock" ]; then
+  echo "⚠️ Found stale .git/index.lock (leftover from a crashed prior git operation in this group) — removing before proceeding."
+  rm -f ".git/index.lock"
+fi
+
 # ── Parse --slice-only flag ──────────────────────────────────────────────────
 SLICE_ONLY=false
 if [ "${1:-}" = "--slice-only" ]; then
