@@ -1,21 +1,18 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-07-07T12:00:11.370Z",
+  "generatedAt": "2026-07-07T22:15:30.816Z",
   "total": 3,
-  "newCount": 0,
-  "updatedCount": 0,
+  "newCount": 1,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 5202,
-  "avgDurationMs": 5202,
+  "unchangedCount": 0,
+  "durationMs": 5255,
+  "avgDurationMs": 5255,
   "durationHistory": [
-    5202
+    5255
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "newJobs": [
     {
       "id": "giardino-f99cad5a4ded",
       "slug": "marketing-pr-manager-giardino-group-ascona",
@@ -28,7 +25,7 @@
       "url": "https://giardinohotels.ch/en/jobs/marketing-pr-manager-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:00:09.115Z",
+      "crawledAt": "2026-07-07T22:15:28.764Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -41,16 +38,18 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-06",
+      "postedDate": "2026-07-07",
       "applyUrl": "https://giardinohotels.ch/en/jobs/marketing-pr-manager-m-w/",
-      "_qualityScore": 92,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 4,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "giardino-ce15b53b765a",
       "slug": "marketing-pr-manager-giardino-group-ascona",
@@ -63,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/marketing-pr-manager/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:00:09.118Z",
+      "crawledAt": "2026-07-07T22:15:28.768Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -99,7 +98,7 @@
       "url": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:00:09.117Z",
+      "crawledAt": "2026-07-07T22:15:28.767Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -135,7 +134,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:00:09.118Z",
+      "crawledAt": "2026-07-07T22:15:28.768Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -159,5 +158,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
