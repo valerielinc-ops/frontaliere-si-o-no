@@ -2,10 +2,10 @@
   "jobs": [
     {
       "id": "pfister-abc68212ffe2",
-      "slug": "mitarbeiterin-kasse-w-m-d-befristet-pfister-emmen",
+      "slug": "cassiere-dipendenti-f-m-d-mobel-pfister-ag-emmen",
       "slugByLocale": {
         "de": "mitarbeiterin-kasse-w-m-d-befristet-pfister-emmen",
-        "it": "mitarbeiterin-kasse-m-w-d-befristet-mobel-pfister-ag-emmen",
+        "it": "cassiere-dipendenti-f-m-d-mobel-pfister-ag-emmen",
         "en": "employee-cashier-f-m-d-mobel-pfister-ag-emmen",
         "fr": "caissier-employe-f-m-d-mobel-pfister-ag-emmen"
       },
@@ -55,8 +55,15 @@
       "pensumMax": 40,
       "pensum": "40%",
       "previousSlugs": [
-        "mitarbeiterin-kasse-w-m-d-befristet-pfister-emmen"
-      ]
+        "mitarbeiterin-kasse-w-m-d-befristet-pfister-emmen",
+        "mitarbeiterin-kasse-m-w-d-befristet-mobel-pfister-ag-emmen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-kasse-m-w-d-befristet-mobel-pfister-ag-emmen",
+          "mitarbeiterin-kasse-w-m-d-befristet-pfister-emmen"
+        ]
+      }
     },
     {
       "id": "pfister-155a51044856",
@@ -291,19 +298,6 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "previousSlugs": [
-        "online-customer-consultant-w-m-d-pfister-suhr",
-        "online-customer-consulente-w-m-d-mobel-pfister-ag-suhr"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "online-customer-consultant-w-m-d-pfister-suhr",
-          "online-customer-consulente-w-m-d-mobel-pfister-ag-suhr"
-        ],
-        "fr": [
-          "online-customer-consultant-w-m-d-pfister-suhr"
-        ]
-      },
       "firstSeenAt": "2026-07-04T12:18:12.693Z"
     },
     {
@@ -1898,19 +1892,6 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "previousSlugs": [
-        "analytics-engineer-w-m-d-pfister-suhr",
-        "analytics-ingegnere-w-m-d-mobel-pfister-ag-suhr"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "analytics-engineer-w-m-d-pfister-suhr",
-          "analytics-ingegnere-w-m-d-mobel-pfister-ag-suhr"
-        ],
-        "fr": [
-          "analytics-engineer-w-m-d-pfister-suhr"
-        ]
-      },
       "firstSeenAt": "2026-07-04T12:18:24.852Z"
     },
     {

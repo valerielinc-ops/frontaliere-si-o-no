@@ -791,7 +791,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-infermiere-a-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
-        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
         "infermiera-diplomata-ic-fh-lunedi-f-d-50-100-universitatsklinik-balgrist-zurich",
         "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
         "dipl-nurse-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
@@ -802,18 +801,15 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-infermiere-a-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
           "infermiera-diplomata-ic-fh-lunedi-f-d-50-100-universitatsklinik-balgrist-zurich",
           "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
           "dipl-nurse-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
           "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
         ],
         "fr": [
           "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
           "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
         ]
       },
@@ -1263,10 +1259,10 @@
       "id": "balgrist-d79b9afb12fa",
       "slug": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
       "slugByLocale": {
-        "it": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa",
-        "en": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-3",
+        "it": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
+        "en": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-        "fr": "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa"
+        "fr": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -1310,27 +1306,27 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
         "dipl-infermiere-a-hf-fh-sorveglianza-infermieristica-m-f-d-80-100-universitatsklinik-balgrist-zurich",
         "dipl-nursing-professional-hf-fh-post-operative-care-m-f-d-80-100-universitatsklinik-balgrist-zurich",
         "dipl-pflegefachperson-hf-fh-uberwachungspflege-m-w-d-80-100-balgrist-zurich",
         "diplome-e-en-soins-infirmiers-hf-fh-surveillance-post-operatoire-h-f-80-100-universitatsklinik-balgrist-zurich",
         "diplome-e-en-soins-infirmiers-hf-fh-h-f-50-100-universitatsklinik-balgrist-zurich",
         "diplomato-a-della-cura-infermieristica-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
-        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
+        "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa",
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-3",
+        "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
           "diplomato-a-della-cura-infermieristica-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
+          "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa"
         ],
         "fr": [
           "diplome-e-en-soins-infirmiers-hf-fh-h-f-50-100-universitatsklinik-balgrist-zurich",
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
+          "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-3"
         ]
       },
       "firstSeenAt": "2026-05-19T21:36:39.702Z"
@@ -1649,10 +1645,10 @@
       "id": "balgrist-34e82788b204",
       "slug": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
       "slugByLocale": {
-        "it": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa",
+        "it": "dipl-infermiere-a-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
         "en": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-3",
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-        "fr": "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa"
+        "fr": "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -1721,26 +1717,23 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
         "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
         "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-96208f",
-        "dipl-infermiere-a-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
         "dipl-nurse-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
-        "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
+        "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa",
+        "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-          "dipl-infermiere-a-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
+          "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
           "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
           "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-96208f",
           "dipl-nurse-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
         ],
         "fr": [
-          "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
+          "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:10.419Z"
@@ -2592,18 +2585,11 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "zivildiensteinsatze-balgrist-zurich",
           "zivildiensteinsatze-universitatsklinik-balgrist-zurich"
-        ],
-        "it": [
-          "zivildiensteinsatze-balgrist-zurich",
-          "servizio-civile-universitatsklinik-balgrist-zurich"
         ]
       },
       "previousSlugs": [
-        "zivildiensteinsatze-balgrist-zurich",
-        "zivildiensteinsatze-universitatsklinik-balgrist-zurich",
-        "servizio-civile-universitatsklinik-balgrist-zurich"
+        "zivildiensteinsatze-universitatsklinik-balgrist-zurich"
       ],
       "firstSeenAt": "2026-05-19T13:47:10.450Z"
     },
@@ -3217,16 +3203,6 @@
         ],
         "fr": [
           "Formation professionnelle de 3 ans avec diplôme fédéral ou qualification générale (carte FMS ou maturité)"
-        ]
-      },
-      "previousSlugs": [
-        "ausbildung-pflegefachfrau-pflegefachmann-hf-balgrist-zurich",
-        "formazione-infermiere-i-infermiere-i-specialisti-hf-universitatsklinik-balgrist-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ausbildung-pflegefachfrau-pflegefachmann-hf-balgrist-zurich",
-          "formazione-infermiere-i-infermiere-i-specialisti-hf-universitatsklinik-balgrist-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:10.464Z"

@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "ipw-ea3a273c38eb",
-      "slug": "assistenzarztin-assistenzarzt-ipw-winterthur",
+      "slug": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "it": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "en": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "fr": "assistenzarztin-assistenzarzt-ipw-winterthur"
+        "it": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -53,16 +53,30 @@
       "externalId": "4018554",
       "pensumMin": 100,
       "pensumMax": 100,
-      "pensum": "100%"
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-7bb6b5a91900",
-      "slug": "assistenzarztin-assistenzarzt-ipw-winterthur",
+      "slug": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-b4b78c",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "it": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "en": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "fr": "assistenzarztin-assistenzarzt-ipw-winterthur"
+        "it": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-b4b78c",
+        "en": "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur-b4b78c",
+        "fr": "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-b4b78c"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -108,16 +122,30 @@
       "externalId": "4027600",
       "pensumMin": 80,
       "pensumMax": 100,
-      "pensum": "80 - 100%"
+      "pensum": "80 - 100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-2c9afaa80e56",
-      "slug": "pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur",
+      "slug": "infermieristica-professionale-hf-o-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur",
-        "it": "pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur",
-        "en": "pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur",
-        "fr": "pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur"
+        "it": "infermieristica-professionale-hf-o-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "nursing-professional-hf-or-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-8e865d",
+        "fr": "soins-infirmiers-professionnels-hf-ou-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-8e865d"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -163,16 +191,30 @@
       "externalId": "4024986",
       "pensumMin": 80,
       "pensumMax": 100,
-      "pensum": "80 - 100%"
+      "pensum": "80 - 100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-d1d734279509",
-      "slug": "psychologin-psychologe-ipw-winterthur",
+      "slug": "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "psychologin-psychologe-ipw-winterthur",
-        "it": "psychologin-psychologe-ipw-winterthur",
-        "en": "psychologin-psychologe-ipw-winterthur",
-        "fr": "psychologin-psychologe-ipw-winterthur"
+        "it": "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "psychologist-psychologist-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "psychologue-psychologue-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -218,7 +260,21 @@
       "externalId": "4028949",
       "pensumMin": 70,
       "pensumMax": 70,
-      "pensum": "70%"
+      "pensum": "70%",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-ipw-winterthur"
+        ],
+        "en": [
+          "psychologin-psychologe-ipw-winterthur"
+        ],
+        "fr": [
+          "psychologin-psychologe-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-0fe93f7f70da",
@@ -332,12 +388,12 @@
     },
     {
       "id": "ipw-a9397a616db0",
-      "slug": "psychologin-psychologe-ipw-winterthur",
+      "slug": "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur-f1261f",
       "slugByLocale": {
-        "it": "psychologin-psychologe-ipw-winterthur",
-        "en": "psychologin-psychologe-ipw-winterthur",
+        "it": "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur-f1261f",
+        "en": "psychologist-psychologist-integrierte-psychiatrie-winterthur-ipw-winterthur-f1261f",
         "de": "psychologin-psychologe-ipw-winterthur",
-        "fr": "psychologin-psychologe-ipw-winterthur"
+        "fr": "psychologue-psychologue-integrierte-psychiatrie-winterthur-ipw-winterthur-f1261f"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -407,12 +463,12 @@
     },
     {
       "id": "ipw-7a00440957ce",
-      "slug": "assistenzarztin-assistenzarzt-ipw-winterthur",
+      "slug": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-2380fa",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "en": "assistenzarztin-assistenzarzt-ipw-winterthur",
+        "it": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-2380fa",
+        "en": "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur-2380fa",
         "de": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "fr": "assistenzarztin-assistenzarzt-ipw-winterthur"
+        "fr": "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-2380fa"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
