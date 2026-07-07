@@ -12069,6 +12069,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-private-spitex-stellenangebote-basel': {
+    title: 'Private Spitex a Basilea: nuove opportunità di lavoro',
+    description: 'Le cliniche private di Basilea cercano infermiere e infermieri per coprire le ore di lavoro. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, private, spitex, basilea, nuove',
+    ogTitle: 'Private Spitex a Basilea: nuove opportunità di lavoro',
+    ogDescription: 'Le cliniche private di Basilea cercano infermiere e infermieri per coprire le ore di lavoro',
+    canonicalPath: '/articoli-svizzera/private-spitex-stellenangebote-basel/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Private Spitex a Basilea: nuove opportunità di lavoro",
+      "description": "Le cliniche private di Basilea cercano infermiere e infermieri per coprire le ore di lavoro. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/private-spitex-stellenangebote-basel.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di una clinica privata a Basilea"
+      },
+      "datePublished": "2026-07-07T06:43:35+00:00",
+      "dateModified": "2026-07-07T06:43:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/private-spitex-stellenangebote-basel/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
