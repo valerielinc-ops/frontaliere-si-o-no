@@ -236,6 +236,33 @@ describe('posthog-error-issue-sync.mjs', () => {
     delete process.env.POSTHOG_PERSONAL_API_KEY;
     delete process.env.POSTHOG_PROJECT_ID;
   });
+
+  it('does not create a GitHub issue for "Importing a module script failed" even above threshold (#3762)', async () => {
+    process.env.POSTHOG_PERSONAL_API_KEY = 'k';
+    process.env.POSTHOG_PROJECT_ID = 'p';
+    issueListEmptyThenCreate(202);
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        results: [
+          // Denied: kept in PostHog for chunk-load dashboards but not a backlog ticket.
+          ['Importing a module script failed.', 'TypeError', 13, 10, 'https://frontaliereticino.ch/en/find-jobs-ticino/'],
+          // Real actionable error — must still be synced.
+          ['Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'],
+        ],
+      }),
+    }));
+
+    await posthogSync.main();
+
+    const calls = createCalls();
+    expect(calls).toHaveLength(1);
+    const title = calls[0][calls[0].indexOf('--title') + 1];
+    expect(title).toContain('Cannot read properties');
+    expect(title).not.toContain('Importing a module script');
+    delete process.env.POSTHOG_PERSONAL_API_KEY;
+    delete process.env.POSTHOG_PROJECT_ID;
+  });
 });
 
 describe('cf-5xx-issue-sync.mjs', () => {
