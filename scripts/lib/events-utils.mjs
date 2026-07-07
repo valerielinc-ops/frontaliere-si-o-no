@@ -272,6 +272,21 @@ export const UNRESOLVED_CANTON_SEGMENT = {
   fr: 'autres-cantons',
 };
 
+/**
+ * Localized display copy for the canton-neutral bucket (issue #3739) — the
+ * getCantonLabel()/CANTON_NAME_BY_CODE lookups every caller normally uses
+ * only know the 26 real BFS codes, so they'd otherwise echo the raw
+ * `UNRESOLVED_CANTON_KEY` sentinel back into rendered HTML/copy. Shared
+ * between the build plugin and the FB events poster (AGENTS.md §6 — single
+ * source instead of a copy-pasted literal per caller).
+ */
+export const UNRESOLVED_CANTON_LABEL = {
+  it: 'altri cantoni',
+  en: 'other cantons',
+  de: 'weiteren Kantonen',
+  fr: 'autres cantons',
+};
+
 // ── Ticino agenda regions → representative comune ────────────
 // tio.ch tags every event with a tourism region adjective ("Luganese",
 // "Locarnese", …). When no exact comune name is found in the venue/title we

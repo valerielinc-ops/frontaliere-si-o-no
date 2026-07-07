@@ -29,7 +29,7 @@
 
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow, weekendEvents, eventsBasePathForCanton, resolveCantonUrlKey } from './lib/events-utils.mjs';
+import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow, weekendEvents, eventsBasePathForCanton, resolveCantonUrlKey, UNRESOLVED_CANTON_KEY, UNRESOLVED_CANTON_LABEL } from './lib/events-utils.mjs';
 import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive, CANTON_NAME_BY_CODE } from './lib/social-post-utils.mjs';
 import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-jobs-daily.mjs';
 
@@ -64,7 +64,12 @@ function tagWord(s) {
 
 /** Italian display name for a canton code, defaulting to Ticino (legacy MVP scope). */
 function cantonDisplayName(canton) {
-  return CANTON_NAME_BY_CODE[String(canton || '').toUpperCase()] || '';
+  const code = String(canton || '').toUpperCase();
+  // #3739: the weekend-digest canton-neutral bucket sentinel isn't a real BFS
+  // code, so CANTON_NAME_BY_CODE would never resolve it — captioned as the
+  // shared "altri cantoni" copy instead (captions here are Italian-only).
+  if (code === UNRESOLVED_CANTON_KEY) return UNRESOLVED_CANTON_LABEL.it;
+  return CANTON_NAME_BY_CODE[code] || '';
 }
 
 /** Canonical IT events URL for an event: comune page when known, else the canton hub. */
@@ -191,14 +196,17 @@ export function selectWeekendDigests(events, todayIso, postedSet, maxCantons = M
 
   const byCanton = new Map();
   for (const e of weekend) {
-    const raw = String(e?.canton || 'TI').toUpperCase().trim() || 'TI';
-    // Collapse half-cantons (AI/AR, BL/BS) onto their shared URL group key —
-    // buildWeekendDigestUrl('BL') and ('BS') resolve to the SAME landing
-    // page, so grouping by the raw code would post two duplicate roundups
-    // to that one page in the same run. Same resolver buildWeekendDigestUrl
-    // (via eventsBasePathForCanton) uses internally, so the grouping key
-    // always matches the page it links to.
-    const canton = resolveCantonUrlKey(raw);
+    // #3739: an event with no resolved canton must NOT fold into Ticino's
+    // bucket (that mislabels it and posts it to the Ticino weekend roundup)
+    // — it gets its own canton-neutral bucket instead, matching
+    // eventsSeoPagesPlugin.ts's byCanton/pastEventsByCanton grouping loops.
+    // resolveCantonUrlKey also collapses half-cantons (AI/AR, BL/BS) onto
+    // their shared URL group key — buildWeekendDigestUrl('BL') and ('BS')
+    // resolve to the SAME landing page, so grouping by the raw code would
+    // post two duplicate roundups to that one page in the same run. Same
+    // resolver buildWeekendDigestUrl (via eventsBasePathForCanton) uses
+    // internally, so the grouping key always matches the page it links to.
+    const canton = e?.canton ? resolveCantonUrlKey(e.canton) : UNRESOLVED_CANTON_KEY;
     if (!byCanton.has(canton)) byCanton.set(canton, []);
     byCanton.get(canton).push(e);
   }

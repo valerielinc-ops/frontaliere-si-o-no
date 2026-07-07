@@ -69,6 +69,7 @@ import {
   recentlyEndedEvents,
   resolveCantonUrlKey,
   UNRESOLVED_CANTON_KEY,
+  UNRESOLVED_CANTON_LABEL,
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
@@ -413,13 +414,9 @@ const COPY: Record<Locale, Copy> = {
 // is not worth building) for text that is always correct.
 // #3739: display copy for the canton-neutral bucket (`UNRESOLVED_CANTON_KEY`)
 // — `getCantonLabel` only knows the 26 real BFS codes, so it would otherwise
-// echo the raw sentinel string back into rendered HTML/copy.
-const UNRESOLVED_CANTON_LABEL: Record<Locale, string> = {
-  it: 'altri cantoni',
-  en: 'other cantons',
-  de: 'weiteren Kantonen',
-  fr: 'autres cantons',
-};
+// echo the raw sentinel string back into rendered HTML/copy. Label copy
+// itself lives in events-utils.mjs (`UNRESOLVED_CANTON_LABEL`), shared with
+// the FB events poster (AGENTS.md §6 — single source, no copy-paste).
 
 /** `getCantonLabel`, but canton-neutral-bucket-aware (see `UNRESOLVED_CANTON_KEY`). */
 function cantonDisplayLabel(canton: string, locale: Locale): string {
