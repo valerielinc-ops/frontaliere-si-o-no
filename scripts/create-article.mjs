@@ -8633,6 +8633,19 @@ async function main() {
           console.error(`⏱️  Budget wall-clock (${Math.round(RUN_WALL_BUDGET_MS / 60000)}min) superato — interrompo i tentativi evergreen; l'articolo è deferito al prossimo run.`);
           break;
         }
+        // Cross-headline local-fallback reserve: same guard as the news-pool
+        // loop (~L8273). Without it, a new evergreen keyword attempt can start
+        // in the run's dying minutes, exhaust the cloud cascade, and leave the
+        // local LLM with too little time to finish — the exact failure mode of
+        // incident run 28850309199, reached precisely when the news-pool fails.
+        {
+          const remainingForNewAttemptMs = RUN_WALL_BUDGET_MS - (Date.now() - RUN_START_MS);
+          if (remainingForNewAttemptMs < LOCAL_MIN_VIABLE_MS) {
+            console.error(`⏱️  Restano ${Math.round(remainingForNewAttemptMs / 60_000)}min (< ${LOCAL_MIN_VIABLE_MS / 60_000}min necessari per un eventuale fallback locale) — interrompo i tentativi evergreen invece di avviare un candidato che rischia di non completare; l'articolo è deferito al prossimo run.`);
+            RUN_REPORT.notes.push(`Retry loop stopped early: cross-headline local-fallback reserve (pool=evergreen, attempt=${attempt}, remainingMin=${Math.round(remainingForNewAttemptMs / 60_000)})`);
+            break;
+          }
+        }
         try {
           const topic = selectedTopic;
           const isStaticTopic = PRIORITY_EVERGREEN_TOPICS.includes(topic);
