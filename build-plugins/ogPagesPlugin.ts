@@ -22,6 +22,7 @@ import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
+import { FAQ_QUESTION_PREFIXES } from './shared/faqQuestionPrefixes';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
  return {
@@ -143,10 +144,6 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  } catch { /* non-fatal */ }
 
  /* ── FAQ extraction for article-specific FAQPage schema ─────── */
- const FAQ_QUESTION_PREFIXES = ['Come', 'Cosa', 'Quando', 'Quanto', 'Dove', 'Chi', 'Perché', 'Quale',
- 'How', 'What', 'When', 'Where', 'Who', 'Why', 'Which', 'Can', 'Should', 'Is', 'Are', 'Do', 'Does',
- 'Wie', 'Was', 'Wann', 'Wo', 'Wer', 'Warum', 'Welche',
- 'Comment', 'Quoi', 'Quand', 'Où', 'Qui', 'Pourquoi', 'Quel', 'Quelle', 'Est-ce'];
  const stripMarkdownForFaq = stripMarkdownPlain;
 
  const extractArticleFaqPairs = (bodyText: string): Array<{ question: string; answer: string }> => {
