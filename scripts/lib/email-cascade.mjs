@@ -113,7 +113,13 @@ function recordRealSent(providerId) {
 function remainingQuota(providerId) {
   const provider = PROVIDERS.find(p => p.id === providerId);
   if (!provider) return 0;
-  return Math.max(0, provider.dailyLimit - getCounter(providerId));
+  // dailyLimit can be Infinity (e.g. resend, no self-imposed floor); once a
+  // provider with an Infinity limit gets its counter force-bumped to
+  // Infinity too (rate-limited branch in sendSingle), Infinity - Infinity is
+  // NaN, and `NaN <= 0` is false — that would defeat the exhaustion guard
+  // and let a genuinely rate-limited provider get hammered again this run.
+  const remaining = provider.dailyLimit - getCounter(providerId);
+  return Number.isNaN(remaining) ? 0 : Math.max(0, remaining);
 }
 
 // ── Real quota sync via provider APIs ────────────────────────
@@ -1009,7 +1015,14 @@ function campaignIdTag(email) {
  * change, instead of a second hardcoded total drifting from the array.
  */
 export function getCascadeDailyCapacity() {
-  return PROVIDERS.reduce((sum, p) => sum + p.dailyLimit, 0);
+  // A provider with dailyLimit=Infinity (resend, no self-imposed floor) must
+  // not turn this sum into Infinity — callers like send-newsletter.mjs use
+  // it as DAILY_SEND_LIMIT to pace per-run sends ("send N today, rest
+  // tomorrow"); Infinity would silently disable that pacing for ALL
+  // providers, not just resend. Substitute a finite monthly-average estimate
+  // for any non-finite limit instead.
+  return PROVIDERS.reduce((sum, p) =>
+    sum + (Number.isFinite(p.dailyLimit) ? p.dailyLimit : Math.floor((p.monthlyLimit || 0) / 30)), 0);
 }
 
 export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage };
