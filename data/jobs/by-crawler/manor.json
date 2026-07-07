@@ -42,7 +42,6 @@
         ]
       },
       "id": "manor-b9076329ad2c",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -97,7 +96,6 @@
       },
       "sourceLang": "it",
       "id": "manor-8c8d23e9484b",
-      "needsRetranslation": true,
       "salaryMin": 13100,
       "salaryMax": 16500,
       "currency": "CHF",
@@ -152,7 +150,6 @@
       },
       "sourceLang": "it",
       "id": "manor-c84fa17668c1",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -250,14 +247,14 @@
       "slug": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
       "slugByLocale": {
         "it": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
-        "en": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
+        "en": "cuisinier-isre-100-manor-ag-vevey-cuisinierere-100",
         "de": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
         "fr": "manor-cuisinier-ere-100-vevey-cuisinierere-100"
       },
       "titleByLocale": {
         "it": "Cuisinier/ère 100%",
         "fr": "Cuisinier/ère 100%",
-        "en": "Cuisinier/ère 100%",
+        "en": "Cuisinier / isre 100%",
         "de": "Cuisinier/ère 100%"
       },
       "sourceLang": "it",
@@ -317,7 +314,6 @@
       },
       "sourceLang": "it",
       "id": "manor-9efa7eac56c1",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -372,7 +368,6 @@
       },
       "sourceLang": "it",
       "id": "manor-63d09053d946",
-      "needsRetranslation": true,
       "salaryMin": 14400,
       "salaryMax": 22200,
       "currency": "CHF",
@@ -420,7 +415,7 @@
         "fr": "manor-visual-merchandising-manager-100-vevey-visual-merchandising-manager"
       },
       "titleByLocale": {
-        "it": "Visual Merchandising Manager 100%",
+        "it": "Visual Merchandising Manager al 100%",
         "en": "Visual Merchandising Manager 100%",
         "fr": "Visual Merchandising Manager 100%",
         "de": "Visual Merchandising Manager 100%"
@@ -482,7 +477,6 @@
       },
       "sourceLang": "it",
       "id": "manor-0f428fbd0da4",
-      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "currency": "CHF",
@@ -584,9 +578,9 @@
       },
       "postedDate": "2026-06-10",
       "source": "company-website",
-      "slug": "dipendenti-in-servizio-50-manor-ag-thun-mitarbeiterin-service-50",
+      "slug": "collaboratore-trice-in-service-50-manor-ag-thun-mitarbeiterin-service-50",
       "slugByLocale": {
-        "it": "dipendenti-in-servizio-50-manor-ag-thun-mitarbeiterin-service-50",
+        "it": "collaboratore-trice-in-service-50-manor-ag-thun-mitarbeiterin-service-50",
         "en": "employee-in-service-50-manor-ag-thun-mitarbeiterin-service-50",
         "fr": "employe-en-service-50-manor-ag-thun-mitarbeiterin-service-50",
         "de": "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50"
@@ -599,11 +593,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50"
+        "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50",
+        "dipendenti-in-servizio-50-manor-ag-thun-mitarbeiterin-service-50"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50"
+          "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50",
+          "dipendenti-in-servizio-50-manor-ag-thun-mitarbeiterin-service-50"
         ]
       },
       "id": "manor-1a10ead92783",
@@ -661,7 +657,6 @@
       },
       "sourceLang": "it",
       "id": "manor-9fff11f74503",
-      "needsRetranslation": true,
       "salaryMin": 29600,
       "salaryMax": 45400,
       "currency": "CHF",
@@ -716,7 +711,6 @@
       },
       "sourceLang": "it",
       "id": "manor-244e4cd16fe3",
-      "needsRetranslation": true,
       "salaryMin": 14800,
       "salaryMax": 22700,
       "currency": "CHF",
@@ -766,12 +760,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita Parfümerie 30%",
         "en": "Mitarbeiter*in Sales Parfümerie 30%",
-        "de": "Mitarbeiter*in Verkauf Parfümerie 30%",
+        "de": "Mitarbeiter in Verkauf Parfümerie 30%",
         "fr": "Mitarbeiter*in Vente Parfümerie 30%"
       },
       "sourceLang": "it",
       "id": "manor-886039770bdd",
-      "needsRetranslation": true,
       "salaryMin": 22200,
       "salaryMax": 34100,
       "currency": "CHF",
@@ -826,7 +819,6 @@
       },
       "sourceLang": "it",
       "id": "manor-76d0921da059",
-      "needsRetranslation": true,
       "salaryMin": 14400,
       "salaryMax": 22200,
       "currency": "CHF",
@@ -869,13 +861,13 @@
       "slug": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires",
-        "en": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires",
+        "en": "current-collaborator-accessoires-dames-60-manor-ag-monthey-collaborateurtrice-vente-accessoires",
         "de": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires",
         "fr": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice vente (Accessoires Dames) 60%",
-        "en": "Collaborateur/trice vente (Accessoires Dames) 60%",
+        "en": "Current collaborator (Accessoires Dames) 60%",
         "de": "Collaborateur/trice vente (Accessoires Dames) 60%",
         "fr": "Collaborateur/trice vente (Accessoires Dames) 60%"
       },
@@ -993,7 +985,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 30-100%",
         "de": "Mitarbeiter*in Logistik 30-100%",
-        "en": "Mitarbeiter*in Logistik 30-100%",
+        "en": "Mitarbeiter*in Logistik 30-100%.",
         "fr": "Mitarbeiter*in Logistik 30-100%"
       },
       "sourceLang": "it",
@@ -1038,9 +1030,9 @@
       },
       "postedDate": "2026-06-26",
       "source": "company-website",
-      "slug": "dipendenti-in-logistica-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
+      "slug": "collaboratore-trice-in-logistik-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
       "slugByLocale": {
-        "it": "dipendenti-in-logistica-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
+        "it": "collaboratore-trice-in-logistik-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
         "en": "employee-in-logistics-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
         "fr": "employe-en-logistique-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
         "de": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
@@ -1053,15 +1045,16 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
+        "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
+        "dipendenti-in-logistica-100-manor-ag-mohlin-mitarbeiterin-logistik-100"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
+          "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
+          "dipendenti-in-logistica-100-manor-ag-mohlin-mitarbeiterin-logistik-100"
         ]
       },
       "id": "manor-9f05adb8b7a3",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -1111,7 +1104,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 100%",
         "de": "Mitarbeiter*in Logistik 100%",
-        "en": "Mitarbeiter*in Logistik 100%",
+        "en": "Mitarbeiter * in Logistik 100%",
         "fr": "Mitarbeiter*in Logistik 100%"
       },
       "sourceLang": "it",
@@ -1295,7 +1288,6 @@
       },
       "sourceLang": "it",
       "id": "manor-818497abe6ad",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "currency": "CHF",
@@ -1343,7 +1335,7 @@
         "fr": "manor-collaborateur-trice-supermarche-food-60-nyon-collaborateurtrice-supermarche-food"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice supermarché (Food) 60%",
+        "it": "Collaboratore (Food) 60%",
         "en": "Collaborator (Food) 60%",
         "de": "Mitarbeiter (Lebensmittel) 60%",
         "fr": "Collaborateur/trice supermarché (Food) 60%"
@@ -1376,7 +1368,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -1413,7 +1404,6 @@
       },
       "sourceLang": "it",
       "id": "manor-359c30d7863f",
-      "needsRetranslation": true,
       "salaryMin": 14400,
       "salaryMax": 22200,
       "currency": "CHF",
@@ -1468,7 +1458,6 @@
       },
       "sourceLang": "it",
       "id": "manor-8d39a39704cb",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -1516,7 +1505,7 @@
         "fr": "manor-collaborateur-trice-service-vente-appunto-self-50-nyon-collaborateurtrice-service-vente"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice service (Vente Appunto Self) 50%",
+        "it": "Servizio partner (Vente Appunto Self) 50%",
         "en": "Partner service (Vente Appunto Self) 50%",
         "de": "Partnerservice (Vente Appunto Self) 50%",
         "fr": "Collaborateur/trice service (Vente Appunto Self) 50%"
@@ -1549,7 +1538,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -1648,7 +1636,6 @@
       },
       "sourceLang": "it",
       "id": "manor-0e934d5ccbbc",
-      "needsRetranslation": true,
       "salaryMin": 16600,
       "salaryMax": 25500,
       "currency": "CHF",
@@ -1703,7 +1690,6 @@
       },
       "sourceLang": "it",
       "id": "manor-482805491115",
-      "needsRetranslation": true,
       "salaryMin": 44400,
       "salaryMax": 68100,
       "currency": "CHF",
@@ -1743,15 +1729,15 @@
       },
       "postedDate": "2026-06-24",
       "source": "company-website",
-      "slug": "manor-retail-media-sales-manager-100-basel-retail-media-sales",
+      "slug": "responsabile-vendite-media-al-dettaglio-al-100-manor-ag-basel-retail-media-sales",
       "slugByLocale": {
-        "it": "manor-retail-media-sales-manager-100-basel-retail-media-sales",
+        "it": "responsabile-vendite-media-al-dettaglio-al-100-manor-ag-basel-retail-media-sales",
         "en": "manor-retail-media-sales-manager-100-basel-retail-media-sales",
         "de": "manor-retail-media-sales-manager-100-basel-retail-media-sales",
         "fr": "manor-retail-media-sales-manager-100-basel-retail-media-sales"
       },
       "titleByLocale": {
-        "it": "Retail Media Sales Manager 100%",
+        "it": "Responsabile Vendite Media al Dettaglio al 100%",
         "en": "Retail Media Sales Manager 100%",
         "de": "Retail Media Sales Manager 100%",
         "fr": "Retail Media Sales Manager 100%"
@@ -1777,7 +1763,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "firstSeenAt": "2026-07-07T12:11:24.549Z"
+      "firstSeenAt": "2026-07-07T12:11:24.549Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-retail-media-sales-manager-100-basel-retail-media-sales"
+        ]
+      },
+      "previousSlugs": [
+        "manor-retail-media-sales-manager-100-basel-retail-media-sales"
+      ]
     },
     {
       "title": "System Engineer Windows & Azure 100%",
@@ -1867,7 +1861,6 @@
       },
       "sourceLang": "it",
       "id": "manor-635b303fb0bc",
-      "needsRetranslation": true,
       "salaryMin": 67500,
       "salaryMax": 84500,
       "currency": "CHF",
@@ -1907,9 +1900,9 @@
       },
       "postedDate": "2026-06-18",
       "source": "company-website",
-      "slug": "dipendenti-in-visual-merchandising-80-manor-ag-zug-mitarbeiterin-visual-merchandising",
+      "slug": "collaboratore-trice-in-visual-merchandising-80-manor-ag-zug-mitarbeiterin-visual-merchandising",
       "slugByLocale": {
-        "it": "dipendenti-in-visual-merchandising-80-manor-ag-zug-mitarbeiterin-visual-merchandising",
+        "it": "collaboratore-trice-in-visual-merchandising-80-manor-ag-zug-mitarbeiterin-visual-merchandising",
         "en": "employee-in-visual-merchandising-80-manor-ag-zug-mitarbeiterin-visual-merchandising",
         "fr": "employe-dans-le-commerce-visuel-80-manor-ag-zug-mitarbeiterin-visual-merchandising",
         "de": "manor-mitarbeiter-in-visual-merchandising-80-zug-mitarbeiterin-visual-merchandising"
@@ -1922,15 +1915,16 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "manor-mitarbeiter-in-visual-merchandising-80-zug-mitarbeiterin-visual-merchandising"
+        "manor-mitarbeiter-in-visual-merchandising-80-zug-mitarbeiterin-visual-merchandising",
+        "dipendenti-in-visual-merchandising-80-manor-ag-zug-mitarbeiterin-visual-merchandising"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-visual-merchandising-80-zug-mitarbeiterin-visual-merchandising"
+          "manor-mitarbeiter-in-visual-merchandising-80-zug-mitarbeiterin-visual-merchandising",
+          "dipendenti-in-visual-merchandising-80-manor-ag-zug-mitarbeiterin-visual-merchandising"
         ]
       },
       "id": "manor-2063a95eaa39",
-      "needsRetranslation": true,
       "salaryMin": 55600,
       "salaryMax": 84800,
       "currency": "CHF",
@@ -1979,13 +1973,12 @@
       },
       "titleByLocale": {
         "it": "Drogist*in CFC Derma Center 80%",
-        "de": "Drogist*in EFZ Derma Center 80%",
+        "de": "Drogist*in im EFZ Derma Center 80%",
         "fr": "Drogiste* dans EFZ Derma Center 80%",
         "en": "Drogist*in EFZ Derma Center 80%"
       },
       "sourceLang": "it",
       "id": "manor-20da51270318",
-      "needsRetranslation": true,
       "salaryMin": 69200,
       "salaryMax": 96400,
       "currency": "CHF",
@@ -2034,13 +2027,12 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Supermarkt Epicerie 50%",
-        "de": "Mitarbeiter*in Supermarkt Epicerie 50%",
+        "de": "Mitarbeiter*in im Supermarkt Epicerie 50%",
         "fr": "Mitarbeiter* dans Supermarkt Epicerie 50%",
         "en": "Mitarbeiter*in Supermarkt Epicerie 50%"
       },
       "sourceLang": "it",
       "id": "manor-9cf95065ce6c",
-      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52500,
       "currency": "CHF",
@@ -2144,12 +2136,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Service 20%, per sofort bis 31.08.2026",
         "en": "Mitarbeiter*in Service 20% for sofort bis 31.08.2026",
-        "de": "Mitarbeiter*in Service 20%, per sofort bis 31.08.2026",
+        "de": "Mitarbeiter*in Service 20% für sofort bis 31.08.2026",
         "fr": "Mitarbeiter*in Service 20% pour le confort bis 31.08.2026"
       },
       "sourceLang": "it",
       "id": "manor-4cb196e3a394",
-      "needsRetranslation": true,
       "salaryMin": 13800,
       "salaryMax": 17300,
       "currency": "CHF",
@@ -2212,7 +2203,6 @@
         ]
       },
       "id": "manor-eff23418f097",
-      "needsRetranslation": true,
       "salaryMin": 31600,
       "salaryMax": 48600,
       "currency": "CHF",
@@ -2346,7 +2336,6 @@
       "addressRegion": "BL",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -2378,7 +2367,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 100%",
         "de": "Mitarbeiter*in Logistik 100%",
-        "en": "Mitarbeiter*in Logistik 100%",
+        "en": "Mitarbeiter * in Logistik 100%",
         "fr": "Mitarbeiter*in Logistik 100%"
       },
       "sourceLang": "it",
@@ -2426,14 +2415,14 @@
       "slug": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
-        "en": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
+        "en": "employee-logistics-provision-of-goods-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
         "de": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
         "fr": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik Warenbereitstellung 100%",
         "de": "Mitarbeiter*in Logistik Warenbereitstellung 100%",
-        "en": "Mitarbeiter*in Logistik Warenbereitstellung 100%",
+        "en": "Employee logistics provision of goods 100%",
         "fr": "Mitarbeiter*in Logistik Warenbereitstellung 100%"
       },
       "sourceLang": "it",
@@ -2488,7 +2477,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik VZ 20%",
         "de": "Mitarbeiter*in Logistik VZ 20%",
-        "en": "Mitarbeiter*in Logistik VZ 20%",
+        "en": "Mitarbeiter*in Logistik VZ 20%.",
         "fr": "Mitarbeiter*in Logistik VZ 20%"
       },
       "sourceLang": "it",
@@ -2566,7 +2555,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -2598,12 +2586,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita Parfümerie 30%",
         "en": "Mitarbeiter*in Sales Parfümerie 30%",
-        "de": "Mitarbeiter*in Verkauf Parfümerie 30%",
+        "de": "Mitarbeiter in Verkauf Parfümerie 30%",
         "fr": "Mitarbeiter*in Vente Parfümerie 30%"
       },
       "sourceLang": "it",
       "id": "manor-fdfcea239d31",
-      "needsRetranslation": true,
       "salaryMin": 24900,
       "salaryMax": 38300,
       "currency": "CHF",
@@ -2652,13 +2639,12 @@
       },
       "titleByLocale": {
         "it": "Assistant Floor Manager 100%",
-        "en": "Assistant Floor Manager (Confection Messieurs) 100%",
+        "en": "Assistant Floor Manager 100%",
         "de": "Assistent Floor Manager (Confection Messieurs) 100%",
         "fr": "Assistant Floor Manager (Confection Messieurs) 100%"
       },
       "sourceLang": "fr",
       "id": "manor-0ec0d7e9ad16",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -2713,7 +2699,6 @@
       },
       "sourceLang": "it",
       "id": "manor-3911e04d3d38",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -2768,7 +2753,6 @@
       },
       "sourceLang": "it",
       "id": "manor-f2f756843fc8",
-      "needsRetranslation": true,
       "salaryMin": 33200,
       "salaryMax": 51000,
       "currency": "CHF",
@@ -2818,12 +2802,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Visual Merchandising 40%",
         "en": "Mitarbeiter in Visual Merchandising 40%",
-        "de": "Mitarbeiter*in Visual Merchandising 40%",
+        "de": "Mitarbeiter in Visual Merchandising 40%",
         "fr": "Mitarbeiter en marchandisation visuelle 40%"
       },
       "sourceLang": "it",
       "id": "manor-143a7e68f58f",
-      "needsRetranslation": true,
       "salaryMin": 23000,
       "salaryMax": 34800,
       "currency": "CHF",
@@ -2872,7 +2855,7 @@
       },
       "titleByLocale": {
         "it": "Droguiste (Dermacenter) 60%",
-        "de": "Droguiste (Dermacenter) 60%",
+        "de": "Drogistinnen (Dermacenter) 60%",
         "en": "Droguiste (Dermacenter) 60%",
         "fr": "Droguiste (Dermacenter) 60%"
       },
@@ -2987,7 +2970,6 @@
       },
       "sourceLang": "it",
       "id": "manor-1ad39e528dc4",
-      "needsRetranslation": true,
       "salaryMin": 43200,
       "salaryMax": 66600,
       "currency": "CHF",
@@ -3036,13 +3018,12 @@
       },
       "titleByLocale": {
         "it": "Conseillère de vente (Confection Dames) 60%",
-        "fr": "Conseillère de vente (Confection Dames) 60%",
+        "fr": "Conseil de vente 60%",
         "en": "Conseillère de vente (Confection Dames) 60%",
         "de": "Conseillère de vente (Confection Dames) 60%"
       },
       "sourceLang": "it",
       "id": "manor-82863ccab186",
-      "needsRetranslation": true,
       "salaryMin": 43200,
       "salaryMax": 66600,
       "currency": "CHF",
@@ -3097,7 +3078,6 @@
       },
       "sourceLang": "it",
       "id": "manor-a6413e1b53b7",
-      "needsRetranslation": true,
       "salaryMin": 19700,
       "salaryMax": 24800,
       "currency": "CHF",
@@ -3207,7 +3187,6 @@
       },
       "sourceLang": "it",
       "id": "manor-1f149640f4ac",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -3256,13 +3235,12 @@
       },
       "titleByLocale": {
         "it": "Assistant Floor Manager (Beauty) 100%",
-        "en": "Assistant/e Floor Manager (Beauty) 100%",
+        "en": "Assistant Floor Manager (Beauty) 100%",
         "de": "Assistant Floor Manager (Schönheit) 100%",
         "fr": "Assistant/e Floor Manager (Beauty) 100%"
       },
       "sourceLang": "fr",
       "id": "manor-7c4d54be71da",
-      "needsRetranslation": true,
       "salaryMin": 116500,
       "salaryMax": 162500,
       "currency": "CHF",
@@ -3311,13 +3289,12 @@
       },
       "titleByLocale": {
         "it": "Assistant Floor Manager 100%",
-        "en": "Assistant/e Floor Manager (Confection dames) 100%",
+        "en": "Assistant Floor Manager 100%",
         "de": "Assistent/e Floor Manager (Confection dames) 100%",
         "fr": "Assistant/e Floor Manager (Confection dames) 100%"
       },
       "sourceLang": "fr",
       "id": "manor-cb9884010e77",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -3426,7 +3403,6 @@
       },
       "sourceLang": "it",
       "id": "manor-d8275113ce81",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -3481,7 +3457,6 @@
       },
       "sourceLang": "it",
       "id": "manor-17b8dea31b60",
-      "needsRetranslation": true,
       "salaryMin": 14400,
       "salaryMax": 22200,
       "currency": "CHF",
@@ -3531,12 +3506,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Service 60%",
         "en": "Mitarbeiter in Service 60%",
-        "de": "Mitarbeiter*in Service 60%",
+        "de": "Mitarbeiter im Service 60%",
         "fr": "Mitarbeiter en service 60%"
       },
       "sourceLang": "it",
       "id": "manor-035fb3c4d347",
-      "needsRetranslation": true,
       "salaryMin": 41400,
       "salaryMax": 51900,
       "currency": "CHF",
@@ -3576,9 +3550,9 @@
       },
       "postedDate": "2026-06-30",
       "source": "company-website",
-      "slug": "dipendenti-in-servizio-60-manor-ag-emmen-mitarbeiterin-service-60",
+      "slug": "collaboratore-trice-in-service-60-manor-ag-emmen-mitarbeiterin-service-60",
       "slugByLocale": {
-        "it": "dipendenti-in-servizio-60-manor-ag-emmen-mitarbeiterin-service-60",
+        "it": "collaboratore-trice-in-service-60-manor-ag-emmen-mitarbeiterin-service-60",
         "en": "employee-in-service-60-manor-ag-emmen-mitarbeiterin-service-60",
         "fr": "employe-en-service-60-manor-ag-emmen-mitarbeiterin-service-60",
         "de": "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60"
@@ -3591,11 +3565,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60"
+        "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60",
+        "dipendenti-in-servizio-60-manor-ag-emmen-mitarbeiterin-service-60"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60"
+          "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60",
+          "dipendenti-in-servizio-60-manor-ag-emmen-mitarbeiterin-service-60"
         ]
       },
       "id": "manor-a22c22cd3c62",
@@ -3641,14 +3617,14 @@
       "slug": "manor-koch-kochin-100-emmen-kochkochin-100",
       "slugByLocale": {
         "it": "manor-koch-kochin-100-emmen-kochkochin-100",
-        "en": "manor-koch-kochin-100-emmen-kochkochin-100",
+        "en": "koch-kin-manor-ag-emmen-kochkochin-100",
         "de": "manor-koch-kochin-100-emmen-kochkochin-100",
         "fr": "manor-koch-kochin-100-emmen-kochkochin-100"
       },
       "titleByLocale": {
         "it": "Koch/Köchin 100%",
         "de": "Koch/Köchin 100%",
-        "en": "Koch/Köchin 100%",
+        "en": "Koch / Kin%",
         "fr": "Koch/Köchin 100%"
       },
       "sourceLang": "it",
@@ -3708,7 +3684,6 @@
       },
       "sourceLang": "it",
       "id": "manor-4e2801c81c12",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -3758,7 +3733,7 @@
       "titleByLocale": {
         "it": "Kassierer*in Spielwaren, Sport, Papeterie, Herren- e Kinderkonfektion 20%",
         "en": "Kassier*in Spielwaren, Sport, Papeterie, Herren- und Kinderkonfektion 20%",
-        "de": "Kassierer*in Spielwaren, Sport, Papeterie, Herren- und Kinderkonfektion 20%",
+        "de": "Kassier*in Spielwaren, Sport, Papeterie, Herren- und Kinderkonfektion 20%",
         "fr": "Kassier*in Spielwaren, Sport, Papeterie, Herren- und Kinderkonfektion 20%"
       },
       "sourceLang": "it",
@@ -3781,7 +3756,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -3818,7 +3792,6 @@
       },
       "sourceLang": "it",
       "id": "manor-eef8c519b49b",
-      "needsRetranslation": true,
       "salaryMin": 47400,
       "salaryMax": 72900,
       "currency": "CHF",
@@ -3928,7 +3901,7 @@
         "fr": "manor-collaborateur-trice-service-clients-50-delemont-collaborateurtrice-service-clients"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice (Service Clients) 50%",
+        "it": "Collaboratore (Servizio Clienti) 50%",
         "en": "Collaborator (Customer Service) 50%",
         "de": "Mitarbeiter (Kundendienst) 50%",
         "fr": "Collaborateur/trice (Service Clients) 50%"
@@ -3943,7 +3916,6 @@
         ]
       },
       "id": "manor-bdc2f43f9e7d",
-      "needsRetranslation": true,
       "salaryMin": 32800,
       "salaryMax": 41300,
       "currency": "CHF",
@@ -4005,7 +3977,6 @@
         ]
       },
       "id": "manor-3c8f749b15ee",
-      "needsRetranslation": true,
       "salaryMin": 20600,
       "salaryMax": 31500,
       "currency": "CHF",
@@ -4045,9 +4016,9 @@
       },
       "postedDate": "2026-06-25",
       "source": "company-website",
-      "slug": "dipendenti-al-supermarket-bakers-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei",
+      "slug": "collaboratore-trice-in-supermarkt-backerei-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei",
       "slugByLocale": {
-        "it": "dipendenti-al-supermarket-bakers-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei",
+        "it": "collaboratore-trice-in-supermarkt-backerei-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei",
         "en": "employee-at-supermarket-bakery-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei",
         "fr": "employe-chez-supermarket-bakery-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei",
         "de": "manor-mitarbeiter-in-supermarkt-backerei-40-chur-mitarbeiterin-supermarkt-backerei"
@@ -4060,11 +4031,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "manor-mitarbeiter-in-supermarkt-backerei-40-chur-mitarbeiterin-supermarkt-backerei"
+        "manor-mitarbeiter-in-supermarkt-backerei-40-chur-mitarbeiterin-supermarkt-backerei",
+        "dipendenti-al-supermarket-bakers-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-supermarkt-backerei-40-chur-mitarbeiterin-supermarkt-backerei"
+          "manor-mitarbeiter-in-supermarkt-backerei-40-chur-mitarbeiterin-supermarkt-backerei",
+          "dipendenti-al-supermarket-bakers-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei"
         ]
       },
       "id": "manor-f007b3b6df1e",
@@ -4117,12 +4090,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Service 50%",
         "en": "Mitarbeiter in Service 50%",
-        "de": "Mitarbeiter*in Service 50%",
+        "de": "Mitarbeiter im Service 50%",
         "fr": "Mitarbeiter en service 50%"
       },
       "sourceLang": "it",
       "id": "manor-96c0c5cef12e",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 39000,
       "currency": "CHF",
@@ -4239,7 +4211,6 @@
       },
       "sourceLang": "de",
       "id": "manor-5487a3fd4c3d",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -4288,7 +4259,7 @@
       },
       "titleByLocale": {
         "it": "Gestione del pavimento 100%",
-        "en": "Floor Manager*in 100%",
+        "en": "Floor Manager 100%",
         "fr": "Gestionnaire d'étage 100%",
         "de": "Floor Manager*in 100%"
       },
@@ -4320,7 +4291,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "7000",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -4352,7 +4322,7 @@
       "titleByLocale": {
         "it": "Droguiste CFC (Dermacenter) 50-80%",
         "de": "Droguiste CFC (Dermacenter) 50-80%",
-        "en": "Droguiste CFC (Dermacenter) 50-80%",
+        "en": "Droguiste CFC (Dermacenter) 50-80%.",
         "fr": "Droguiste CFC (Dermacenter) 50-80%"
       },
       "sourceLang": "it",
@@ -4412,7 +4382,6 @@
       },
       "sourceLang": "it",
       "id": "manor-5772f9031c59",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 95200,
       "currency": "CHF",
@@ -4467,7 +4436,6 @@
       },
       "sourceLang": "it",
       "id": "manor-37bee72912f9",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -4516,7 +4484,7 @@
       },
       "titleByLocale": {
         "it": "Store Visual Merchandiser 100% 100%",
-        "en": "Store Visual Merchandiser 100% 100%",
+        "en": "Visual Merchandiser 100%",
         "de": "Visual Merchandiser 100%",
         "fr": "Marchandiser visuel 100%"
       },
@@ -4540,7 +4508,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -4634,7 +4601,7 @@
       "titleByLocale": {
         "it": "Dormitore/in (Weinfachhändler/in) 100%",
         "en": "Sleeper/in (Weinfachhändler/in) 100%",
-        "de": "Sommelier/in (Weinfachhändler/in) 100%",
+        "de": "Sleeper/in (Weinfachhändler/in) 100%",
         "fr": "Sommelier/in (Weinfachhändler/in) 100%"
       },
       "sourceLang": "fr",
@@ -4665,7 +4632,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -4690,9 +4656,9 @@
       "slug": "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie",
-        "en": "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie",
+        "en": "sales-associate-parfumerie-60-80-manor-ag-biel-mitarbeiterin-verkauf-parfumerie",
         "de": "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie",
-        "fr": "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie"
+        "fr": "vendeur-se-parfumerie-60-80-manor-ag-biel-mitarbeiterin-verkauf-parfumerie"
       },
       "titleByLocale": {
         "it": "Addetto/a alle vendite (Parfümerie) 60-80%",
@@ -4702,7 +4668,6 @@
       },
       "sourceLang": "it",
       "id": "manor-dfabe098294f",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94800,
       "currency": "CHF",
@@ -4757,7 +4722,6 @@
       },
       "sourceLang": "it",
       "id": "manor-e228a441724e",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94800,
       "currency": "CHF",
@@ -4812,7 +4776,6 @@
       },
       "sourceLang": "en",
       "id": "manor-37dc131a7091",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "currency": "CHF",
@@ -4852,15 +4815,15 @@
       },
       "postedDate": "2026-06-26",
       "source": "company-website",
-      "slug": "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food",
+      "slug": "cibo-per-acquirenti-juniori-lunedi-mercoledi-d-50-100-manor-ag-basel-junior-buyer-food",
       "slugByLocale": {
-        "it": "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food",
+        "it": "cibo-per-acquirenti-juniori-lunedi-mercoledi-d-50-100-manor-ag-basel-junior-buyer-food",
         "en": "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food",
         "de": "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food",
         "fr": "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food"
       },
       "titleByLocale": {
-        "it": "Junior Buyer Food (m/w/d) 50-100%",
+        "it": "Cibo per acquirenti juniori (lunedì/mercoledì/d) 50-100%",
         "fr": "Junior Buyer Food (m/w/d) 50-100%",
         "en": "Junior Buyer Food (m/w/d) 50-100%",
         "de": "Junior Buyer Food (m/w/d) 50-100%"
@@ -4886,7 +4849,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "firstSeenAt": "2026-07-07T12:11:24.549Z"
+      "firstSeenAt": "2026-07-07T12:11:24.549Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food"
+        ]
+      },
+      "previousSlugs": [
+        "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food"
+      ]
     },
     {
       "title": "Assistant Product Manager 100%",
@@ -4922,7 +4893,6 @@
       },
       "sourceLang": "it",
       "id": "manor-f9b1d467e293",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "currency": "CHF",
@@ -4985,7 +4955,6 @@
         ]
       },
       "id": "manor-0bd185d30549",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "currency": "CHF",
@@ -5040,7 +5009,6 @@
       },
       "sourceLang": "it",
       "id": "manor-81ac708866e7",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "currency": "CHF",
@@ -5095,7 +5063,6 @@
       },
       "sourceLang": "it",
       "id": "manor-00a1652aa7ef",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -5198,7 +5165,7 @@
       },
       "titleByLocale": {
         "it": "Senior Project Manager 100%",
-        "en": "Senior Project Manager*in 100%",
+        "en": "Senior Project Manager 100%",
         "fr": "Gestionnaire de projet principal 100 %",
         "de": "Senior Project Manager*in 100%"
       },
@@ -5222,7 +5189,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -5277,7 +5243,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -5310,7 +5275,7 @@
         "it": "Boulanger/ère 70%",
         "en": "Boulanger and 70%",
         "de": "Boulanger und 70%",
-        "fr": "Boulanger/ère 70%"
+        "fr": "Boulanger et 70%"
       },
       "sourceLang": "it",
       "id": "manor-d2e0948ddd2a",
@@ -5332,7 +5297,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -5364,7 +5328,7 @@
       "titleByLocale": {
         "it": "Bäcker/in (Brot & Patisserie) 70%",
         "de": "Bäcker/in (Brot & Patisserie) 70%",
-        "en": "Bäcker/in (Brot & Patisserie) 70%",
+        "en": "Bäcker/in (Brot & Patisserie) 70%.",
         "fr": "Bäcker/in (Brot & Patisserie) 70%"
       },
       "sourceLang": "it",
@@ -5424,7 +5388,6 @@
       },
       "sourceLang": "it",
       "id": "manor-4dda2fc76917",
-      "needsRetranslation": true,
       "salaryMin": 20600,
       "salaryMax": 31200,
       "currency": "CHF",
@@ -5467,13 +5430,13 @@
       "slug": "manor-collaborateur-trice-vente-home-menage-70-lausanne-collaborateurtrice-vente-home",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-vente-home-menage-70-lausanne-collaborateurtrice-vente-home",
-        "en": "manor-collaborateur-trice-vente-home-menage-70-lausanne-collaborateurtrice-vente-home",
+        "en": "current-collaborator-home-menage-70-manor-ag-lausanne-collaborateurtrice-vente-home",
         "de": "manor-collaborateur-trice-vente-home-menage-70-lausanne-collaborateurtrice-vente-home",
         "fr": "manor-collaborateur-trice-vente-home-menage-70-lausanne-collaborateurtrice-vente-home"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice vente (Home & Ménage) 70%",
-        "en": "Collaborateur/trice vente (Home & Ménage) 70%",
+        "en": "Current collaborator (Home & Ménage) 70%",
         "de": "Collaborateur/trice vente (Home & Ménage) 70%",
         "fr": "Collaborateur/trice vente (Home & Ménage) 70%"
       },
@@ -5534,7 +5497,6 @@
       },
       "sourceLang": "it",
       "id": "manor-68262212c046",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -5589,7 +5551,6 @@
       },
       "sourceLang": "it",
       "id": "manor-f7cc4f0fd937",
-      "needsRetranslation": true,
       "salaryMin": 21600,
       "salaryMax": 33300,
       "currency": "CHF",
@@ -5644,7 +5605,6 @@
       },
       "sourceLang": "it",
       "id": "manor-b97e3480eb8d",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -5741,13 +5701,13 @@
       "slug": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
-        "en": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
+        "en": "visual-merchandising-collaborator-100-manor-ag-lausanne-collaborateurtrice-visual-merchandising",
         "de": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
         "fr": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice Visual Merchandising 100%",
-        "en": "Collaborateur/trice Visual Merchandising 100%",
+        "en": "Visual Merchandising Collaborator 100%",
         "de": "Collaborateur/trice Visual Merchandising 100%",
         "fr": "Collaborateur/trice Visual Merchandising 100%"
       },
@@ -5802,7 +5762,7 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice vente (Parfumerie) 100% de suite",
-        "en": "Collaborateur/trice vente (Parfumerie) 100% de suite",
+        "en": "Collaborateur/trice vente (Parfumerie) 100% suite",
         "de": "Collaborateur/trice vente (Parfumerie) 100% de suite",
         "fr": "Collaborateur/trice vente (Parfumerie) 100% de suite"
       },
@@ -6026,7 +5986,7 @@
         "fr": "manor-collaborateur-trice-caisse-confection-enfants-etudiant-e-20-morges-collaborateurtrice-caisse-confection"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice caisse (Confection Enfants), Etudiant/e 20%",
+        "it": "Collaboratore caisse (Confection Enfants), Student 20%",
         "en": "Collaborator caisse (Confection Enfants), Student 20%",
         "de": "Mitarbeiter Caisse (Confection Enfants), Student 20%",
         "fr": "Collaborateur/trice caisse (Confection Enfants), Etudiant/e 20%"
@@ -6041,7 +6001,6 @@
         ]
       },
       "id": "manor-e3e932473d54",
-      "needsRetranslation": true,
       "salaryMin": 14400,
       "salaryMax": 22200,
       "currency": "CHF",
@@ -6089,7 +6048,7 @@
         "fr": "manor-collaborateur-trice-visual-merchandising-fashion-60-80-morges-collaborateurtrice-visual-merchandising"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice Visual Merchandising (Fashion) 60-80%",
+        "it": "Collaboratore Visual Merchandising (Fashion) 60-80%",
         "en": "Collaborator Visual Merchandising (Fashion) 60-80%",
         "de": "Mitarbeiter Visual Merchandising (Mode) 60-80%",
         "fr": "Collaborateur/trice Visual Merchandising (Fashion) 60-80%"
@@ -6122,7 +6081,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -6153,7 +6111,7 @@
       },
       "titleByLocale": {
         "it": "Assistant/e visual merchandiser manager 100%",
-        "en": "Assistant/e visual merchandiser manager 100%",
+        "en": "Assistant/e visual merchandiser 100%",
         "de": "Assistent/e Visual Merchandiser 100%",
         "fr": "Assistant/e marchand visuel 100%"
       },
@@ -6177,7 +6135,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1950",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -6207,7 +6164,7 @@
         "fr": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50%",
+        "it": "Vendite dei collaboratori (Lancôme/L'Oréal Prestige), 50%",
         "en": "Collaborator sales (Lancôme/L'Oréal Prestige), 50%",
         "de": "Verkäufe von Mitarbeitern (Lancôme/L'Oréal Prestige), 50%",
         "fr": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50%"
@@ -6240,7 +6197,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -6295,7 +6251,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -6332,7 +6287,6 @@
       },
       "sourceLang": "it",
       "id": "manor-c85c28f4ab1c",
-      "needsRetranslation": true,
       "salaryMin": 54800,
       "salaryMax": 83200,
       "currency": "CHF",
@@ -6382,12 +6336,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Visual Merchandising 60%",
         "en": "Mitarbeiter in Visual Merchandising 60%",
-        "de": "Mitarbeiter*in Visual Merchandising 60%",
+        "de": "Mitarbeiter in Visual Merchandising 60%",
         "fr": "Mitarbeiter en marchandisation visuelle 60%"
       },
       "sourceLang": "it",
       "id": "manor-4d96974d96bc",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400,
       "currency": "CHF",
@@ -6489,9 +6442,9 @@
       },
       "postedDate": "2026-06-20",
       "source": "company-website",
-      "slug": "vendita-di-dipendenti-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop",
+      "slug": "collaboratore-trice-in-vendita-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop",
       "slugByLocale": {
-        "it": "vendita-di-dipendenti-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop",
+        "it": "collaboratore-trice-in-vendita-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop",
         "en": "employee-sales-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop",
         "fr": "vente-des-employes-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop",
         "de": "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop"
@@ -6504,11 +6457,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop"
+        "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop",
+        "vendita-di-dipendenti-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop"
+          "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop",
+          "vendita-di-dipendenti-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop"
         ]
       },
       "id": "manor-9828dca9e6a1",
@@ -6561,12 +6516,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita Parfümerie 60%",
         "en": "Mitarbeiter*in Sales Parfümerie 60%",
-        "de": "Mitarbeiter*in Verkauf Parfümerie 60%",
+        "de": "Mitarbeiter in Verkauf Parfümerie 60%",
         "fr": "Mitarbeiter*in Vente Parfümerie 60%"
       },
       "sourceLang": "it",
       "id": "manor-60f131ac4b11",
-      "needsRetranslation": true,
       "salaryMin": 49800,
       "salaryMax": 76500,
       "currency": "CHF",
@@ -6621,7 +6575,6 @@
       },
       "sourceLang": "it",
       "id": "manor-d1b59c2e3fca",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 47000,
       "currency": "CHF",
@@ -6676,7 +6629,6 @@
       },
       "sourceLang": "it",
       "id": "manor-879e07774b89",
-      "needsRetranslation": true,
       "salaryMin": 39300,
       "salaryMax": 49500,
       "currency": "CHF",
@@ -6781,14 +6733,14 @@
       "slug": "manor-koch-kochin-80-schaffhausen-kochkochin-80",
       "slugByLocale": {
         "it": "manor-koch-kochin-80-schaffhausen-kochkochin-80",
-        "en": "manor-koch-kochin-80-schaffhausen-kochkochin-80",
+        "en": "koch-kin-manor-ag-schaffhausen-kochkochin-80",
         "de": "manor-koch-kochin-80-schaffhausen-kochkochin-80",
         "fr": "manor-koch-kochin-80-schaffhausen-kochkochin-80"
       },
       "titleByLocale": {
         "it": "Koch/Köchin 80%",
         "de": "Koch/Köchin 80%",
-        "en": "Koch/Köchin 80%",
+        "en": "Koch / Kin%",
         "fr": "Koch/Köchin 80%"
       },
       "sourceLang": "it",
@@ -6833,9 +6785,9 @@
       },
       "postedDate": "2026-06-09",
       "source": "company-website",
-      "slug": "vendita-dipendenti-moda-cashier-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
+      "slug": "collaboratore-trice-in-vendita-fashion-kasse-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
       "slugByLocale": {
-        "it": "vendita-dipendenti-moda-cashier-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
+        "it": "collaboratore-trice-in-vendita-fashion-kasse-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
         "en": "employee-sales-fashion-cashier-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
         "fr": "mode-de-vente-et-caisse-des-employes-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
         "de": "manor-mitarbeiter-in-verkauf-fashion-kasse-5-10-langenthal-mitarbeiterin-verkauf-fashion"
@@ -6848,11 +6800,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-fashion-kasse-5-10-langenthal-mitarbeiterin-verkauf-fashion"
+        "manor-mitarbeiter-in-verkauf-fashion-kasse-5-10-langenthal-mitarbeiterin-verkauf-fashion",
+        "vendita-dipendenti-moda-cashier-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-fashion-kasse-5-10-langenthal-mitarbeiterin-verkauf-fashion"
+          "manor-mitarbeiter-in-verkauf-fashion-kasse-5-10-langenthal-mitarbeiterin-verkauf-fashion",
+          "vendita-dipendenti-moda-cashier-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion"
         ]
       },
       "id": "manor-c64b552e5e2d",
@@ -6904,7 +6858,7 @@
       },
       "titleByLocale": {
         "it": "Assistant Back Office Manager 80%",
-        "en": "Assistant Backoffice Manager 80%",
+        "en": "Assistant Back Office Manager 80%",
         "fr": "Gestionnaire adjoint de back office 80%",
         "de": "Assistent Backoffice Manager 80%"
       },
@@ -6918,7 +6872,6 @@
         ]
       },
       "id": "manor-82d8574f7f11",
-      "needsRetranslation": true,
       "salaryMin": 75600,
       "salaryMax": 114400,
       "currency": "CHF",
@@ -6958,9 +6911,9 @@
       },
       "postedDate": "2026-06-25",
       "source": "company-website",
-      "slug": "dipendenti-in-vendita-moda-60-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
+      "slug": "collaboratore-trice-in-vendita-fashion-60-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
       "slugByLocale": {
-        "it": "dipendenti-in-vendita-moda-60-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
+        "it": "collaboratore-trice-in-vendita-fashion-60-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
         "en": "employees-in-sales-fashion-60-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
         "fr": "employes-en-mode-de-vente-60-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
         "de": "manor-mitarbeiter-in-verkauf-fashion-60-langenthal-mitarbeiterin-verkauf-fashion"
@@ -6973,15 +6926,16 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-fashion-60-langenthal-mitarbeiterin-verkauf-fashion"
+        "manor-mitarbeiter-in-verkauf-fashion-60-langenthal-mitarbeiterin-verkauf-fashion",
+        "dipendenti-in-vendita-moda-60-manor-ag-langenthal-mitarbeiterin-verkauf-fashion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-fashion-60-langenthal-mitarbeiterin-verkauf-fashion"
+          "manor-mitarbeiter-in-verkauf-fashion-60-langenthal-mitarbeiterin-verkauf-fashion",
+          "dipendenti-in-vendita-moda-60-manor-ag-langenthal-mitarbeiterin-verkauf-fashion"
         ]
       },
       "id": "manor-c1b100998a3a",
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71100,
       "currency": "CHF",
@@ -7099,7 +7053,6 @@
       },
       "sourceLang": "it",
       "id": "manor-7d526ee79b4f",
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71100,
       "currency": "CHF",
@@ -7149,12 +7102,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita Parfümerie 40%",
         "en": "Mitarbeiter*in Sales Parfümerie 40%",
-        "de": "Mitarbeiter*in Verkauf Parfümerie 40%",
+        "de": "Mitarbeiter in Verkauf Parfümerie 40%",
         "fr": "Mitarbeiter*in Vente Parfümerie 40%"
       },
       "sourceLang": "it",
       "id": "manor-16d9a6fda457",
-      "needsRetranslation": true,
       "salaryMin": 29600,
       "salaryMax": 45400,
       "currency": "CHF",
@@ -7279,7 +7231,6 @@
         ]
       },
       "id": "manor-78e29222cfbc",
-      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52500,
       "currency": "CHF",
@@ -7319,9 +7270,9 @@
       },
       "postedDate": "2026-06-10",
       "source": "company-website",
-      "slug": "dipendenti-in-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
+      "slug": "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
       "slugByLocale": {
-        "it": "dipendenti-in-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
+        "it": "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
         "en": "employees-in-logistics-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
         "fr": "employes-en-logistique-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
         "de": "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40"
@@ -7334,15 +7285,16 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40"
+        "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40",
+        "dipendenti-in-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40"
+          "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40",
+          "dipendenti-in-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
         ]
       },
       "id": "manor-93314cb78ff1",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "currency": "CHF",
@@ -7505,7 +7457,6 @@
       },
       "sourceLang": "it",
       "id": "manor-e7a3c87ae136",
-      "needsRetranslation": true,
       "salaryMin": 14400,
       "salaryMax": 22200,
       "currency": "CHF",
@@ -7560,7 +7511,6 @@
       },
       "sourceLang": "it",
       "id": "manor-885ce64a18a4",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -7608,7 +7558,7 @@
         "fr": "manor-collaborateur-trice-supermarche-produits-frais-80-nyon-collaborateurtrice-supermarche-produits"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice supermarché (Produits Frais) 80%",
+        "it": "Collaboratore di Supermercato (Frequent Products) 80%",
         "en": "Supermarket Collaborator (Frequent Products) 80%",
         "de": "Supermarket Collaborator (Häufige Produkte) 80%",
         "fr": "Collaborateur/trice supermarché (Produits Frais) 80%"
@@ -7641,7 +7591,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -7671,7 +7620,7 @@
         "fr": "manor-collaborateur-trice-vente-home-menage-70-monthey-collaborateurtrice-vente-home"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice vente (Home & Ménage) 70%",
+        "it": "Collaboratore di vendita (Home & Household) 70%",
         "en": "Sales Collaborator (Home & Household) 70%",
         "de": "Vertriebsmitarbeiter (Home & Household) 70%",
         "fr": "Collaborateur/trice vente (Home & Ménage) 70%"
@@ -7686,7 +7635,6 @@
         ]
       },
       "id": "manor-5b17fb92a999",
-      "needsRetranslation": true,
       "salaryMin": 50400,
       "salaryMax": 77700,
       "currency": "CHF",
@@ -7736,7 +7684,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 50-100%",
         "de": "Mitarbeiter*in Logistik 50-100%",
-        "en": "Mitarbeiter*in Logistik 50-100%",
+        "en": "Mitarbeiter * in Logistik 50-100%",
         "fr": "Mitarbeiter*in Logistik 50-100%"
       },
       "sourceLang": "it",
@@ -7796,7 +7744,6 @@
       },
       "sourceLang": "it",
       "id": "manor-7dc836ee1de3",
-      "needsRetranslation": true,
       "salaryMin": 28800,
       "salaryMax": 44400,
       "currency": "CHF",
@@ -7895,17 +7842,16 @@
         "it": "manor-collaborateur-trice-visual-merchandising-60-la-chaux-de-fonds",
         "en": "manor-collaborateur-trice-visual-merchandising-60-la-chaux-de-fonds",
         "de": "manor-collaborateur-trice-visual-merchandising-60-la-chaux-de-fonds",
-        "fr": "manor-collaborateur-trice-visual-merchandising-60-la-chaux-de-fonds"
+        "fr": "collaborateur-mecanicien-visuel-60-manor-ag-la-chaux-de-fonds"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice visual merchandising 60%",
         "en": "Collaborateur/trice visual merchandising 60%",
         "de": "Collaborateur/trice visual merchandising 60%",
-        "fr": "Collaborateur/trice visual merchandising 60%"
+        "fr": "Collaborateur/mécanicien visuel 60 %"
       },
       "sourceLang": "it",
       "id": "manor-9a6944460a86",
-      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "currency": "CHF",
@@ -7953,7 +7899,7 @@
         "fr": "manor-collaborateur-trice-cuisine-fresh-to-go-nyon-collaborateurtrice-cuisine-fresh"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice cuisine (Fresh to go)",
+        "it": "Cucina operaia (Fresh to go)",
         "en": "Kitchen worker (Fresh to go)",
         "de": "Küchenarbeiter (Fresh to go)",
         "fr": "Collaborateur/trice cuisine (Fresh to go)"
@@ -7968,7 +7914,6 @@
         ]
       },
       "id": "manor-205a908a07b1",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "currency": "CHF",
@@ -8042,7 +7987,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1204",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -8135,7 +8079,6 @@
       "sourceLang": "it",
       "crawlerMissStreak": 1,
       "id": "manor-46cf414ffac9",
-      "needsRetranslation": true,
       "salaryMin": 14400,
       "salaryMax": 22200,
       "currency": "CHF",
@@ -8185,7 +8128,7 @@
       "titleByLocale": {
         "it": "Boulanger/ère 100%",
         "en": "Boulanger 100%",
-        "fr": "Boulanger/ère 100%",
+        "fr": "Boulanger 100%",
         "de": "Boulanger 100%"
       },
       "sourceLang": "it",
@@ -8209,7 +8152,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1204",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
@@ -8234,14 +8176,14 @@
       "slug": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
       "slugByLocale": {
         "it": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
-        "en": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
+        "en": "lehrstelle-polign-manor-ag-emmen-lehrstelle-polydesigner-in",
         "de": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
         "fr": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in"
       },
       "titleByLocale": {
         "it": "Apprendistato Polydesigner/-in 3D CFC Styling",
         "de": "Lehrstelle Polydesigner/-in 3D EFZ Styling",
-        "en": "Lehrstelle Polydesigner/-in 3D EFZ Styling",
+        "en": "Lehrstelle Polign",
         "fr": "Lehrstelle Polydesigner/-in 3D EFZ Styling"
       },
       "sourceLang": "it",
@@ -8303,7 +8245,6 @@
       "sourceLang": "it",
       "crawlerMissStreak": 1,
       "id": "manor-24de628260ac",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -8346,13 +8287,13 @@
       "slug": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
-        "en": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
+        "en": "supermarket-collaborator-boulangerie-0-manor-ag-biel-collaborateurtrice-supermarche-boulangerie",
         "de": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
         "fr": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice supermarché (boulangerie) 0%",
-        "en": "Collaborateur/trice supermarché (boulangerie) 0%",
+        "en": "Supermarket collaborator (boulangerie) 0%",
         "de": "Collaborateur/trice supermarché (boulangerie) 0%",
         "fr": "Collaborateur/trice supermarché (boulangerie) 0%"
       },
@@ -8415,7 +8356,6 @@
       "sourceLang": "it",
       "crawlerMissStreak": 1,
       "id": "manor-f57ff7710bcd",
-      "needsRetranslation": true,
       "salaryMin": 15500,
       "salaryMax": 23700,
       "currency": "CHF",
