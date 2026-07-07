@@ -99,13 +99,15 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Commit gate (#1658): the enrich step above runs under
-          # `continue-on-error: true`, so its in-writer size check (process.exit 1)
-          # is swallowed. Re-assert the push-safety ceiling HERE, before `git add`,
-          # so an oversize related-search file is never staged/pushed (the #1576
-          # failure mode). No `|| true` — `set -e` aborts the commit on overflow.
-          node scripts/lib/assert-file-size-ceiling.mjs data/related-search-enriched.json data/related-search-candidates.json
-          git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json data/related-search-candidates.json data/related-search-enriched.json 2>/dev/null || true
+          # Stage core snapshot/delta/footer files unconditionally + gate the
+          # related-search corpus files on their OWN push-safety ceiling
+          # individually (#1658/#1576) — never lets an oversize
+          # related-search-candidates.json abort the unrelated core commits
+          # (issue #3663). See scripts/lib/stage-weekly-snapshot-files.sh
+          # header comment. Shared by BOTH this step and the
+          # --regenerate-cmd rebase-retry regeneration below so the two
+          # staging code paths can never drift out of sync.
+          bash scripts/lib/stage-weekly-snapshot-files.sh
           if git diff --cached --quiet; then
             echo "No changes to snapshot — nothing to commit."
             exit 0
@@ -118,7 +120,7 @@ jobs:
           # other scheduled workflows. On rebase conflict, regenerate the
           # snapshot + delta + footer pairs + cluster data on top of the new base.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; node scripts/ingest-gsc-orphans-into-candidates.mjs || true; node scripts/lib/assert-file-size-ceiling.mjs data/related-search-enriched.json data/related-search-candidates.json; git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json data/related-search-candidates.json data/related-search-enriched.json 2>/dev/null || true"
+            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; node scripts/ingest-gsc-orphans-into-candidates.mjs || true; bash scripts/lib/stage-weekly-snapshot-files.sh"
 
       - name: Report failure to GitHub Issues
         if: failure()
