@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "eth-zurich-d2d7b0f27e5d",
-      "slug": "ict-system-spezialist-in-m-w-d-eth-zurich-ch",
+      "slug": "specialista-del-sistema-ict-in-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "ict-system-spezialist-in-m-w-d-eth-zurich-ch",
-        "it": "ict-system-spezialist-in-m-w-d-eth-zurich-ch",
+        "it": "specialista-del-sistema-ict-in-m-f-d-eth-zurich-zurich",
         "en": "ict-system-spezialist-in-m-w-d-eth-zurich-ch",
-        "fr": "ict-system-spezialist-in-m-w-d-eth-zurich-ch"
+        "fr": "specialiste-des-systemes-informatiques-en-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -47,16 +47,27 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-system-spezialist-in-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "ict-system-spezialist-in-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-system-spezialist-in-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-39cbdb741952",
-      "slug": "platform-engineer-hpc-ai-infrastructure-eth-zurich-ch",
+      "slug": "ingegnere-della-piattaforma-hpc-ai-infrastructure-eth-zurich-zurich",
       "slugByLocale": {
         "en": "platform-engineer-hpc-ai-infrastructure-eth-zurich-ch",
-        "it": "platform-engineer-hpc-ai-infrastructure-eth-zurich-ch",
+        "it": "ingegnere-della-piattaforma-hpc-ai-infrastructure-eth-zurich-zurich",
         "de": "platform-engineer-hpc-ai-infrastructure-eth-zurich-ch",
-        "fr": "platform-engineer-hpc-ai-infrastructure-eth-zurich-ch"
+        "fr": "ingenieur-plate-forme-hpc-et-infrastructure-ai-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -96,16 +107,27 @@
       "requirements": [],
       "requirementsByLocale": {
         "en": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "platform-engineer-hpc-ai-infrastructure-eth-zurich-ch"
+        ],
+        "fr": [
+          "platform-engineer-hpc-ai-infrastructure-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "platform-engineer-hpc-ai-infrastructure-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-76edd98e5ec7",
-      "slug": "hr-business-partner-in-schulleitungsbereiche-m-w-d-eth-zurich-ch",
+      "slug": "hr-business-partner-nelle-aree-di-gestione-della-scuola-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "hr-business-partner-in-schulleitungsbereiche-m-w-d-eth-zurich-ch",
-        "it": "hr-business-partner-in-schulleitungsbereiche-m-w-d-eth-zurich-ch",
-        "en": "hr-business-partner-in-schulleitungsbereiche-m-w-d-eth-zurich-ch",
-        "fr": "hr-business-partner-in-schulleitungsbereiche-m-w-d-eth-zurich-ch"
+        "it": "hr-business-partner-nelle-aree-di-gestione-della-scuola-m-f-d-eth-zurich-zurich",
+        "en": "hr-business-partner-in-school-management-areas-m-f-d-eth-zurich-zurich",
+        "fr": "partenaire-d-affaires-rh-dans-les-zones-de-gestion-scolaire-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -145,7 +167,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-business-partner-in-schulleitungsbereiche-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "hr-business-partner-in-schulleitungsbereiche-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "hr-business-partner-in-schulleitungsbereiche-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-business-partner-in-schulleitungsbereiche-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-0883357c3721",
@@ -193,22 +229,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_HQwMb8G4HV6Vs6FAyR",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "innovation-catalyst-eth-zurich-ch",
-        "innovazione-catalizzatore-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "innovation-catalyst-eth-zurich-ch",
-          "innovazione-catalizzatore-eth-zurich-zurich"
-        ],
-        "de": [
-          "innovation-catalyst-eth-zurich-ch"
-        ],
-        "fr": [
-          "innovation-catalyst-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-06T13:42:40.681Z"
     },
     {
@@ -305,22 +325,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_fV3FNoofTG427Xo88T",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-modeling-and-control-of-nonlinear-dynamical-systems-from-data-eth-zurich",
-        "posizione-del-dottorato-in-modellazione-e-controllo-di-sistemi-dinamici-non-lineari-da-dati-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-modeling-and-control-of-nonlinear-dynamical-systems-from-data-eth-zurich",
-          "posizione-del-dottorato-in-modellazione-e-controllo-di-sistemi-dinamici-non-lineari-da-dati-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-in-modeling-and-control-of-nonlinear-dynamical-systems-from-data-eth-zurich"
-        ],
-        "fr": [
-          "phd-position-in-modeling-and-control-of-nonlinear-dynamical-systems-from-data-eth-zurich"
-        ]
-      },
       "firstSeenAt": "2026-07-06T13:42:41.705Z"
     },
     {
@@ -369,22 +373,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_xTMCuHM9PjTTsrVRN6",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "scientific-assistant-eth-zurich-ch",
-        "assistente-scientifico-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "scientific-assistant-eth-zurich-ch",
-          "assistente-scientifico-eth-zurich-zurich"
-        ],
-        "de": [
-          "scientific-assistant-eth-zurich-ch"
-        ],
-        "fr": [
-          "scientific-assistant-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-06T13:42:42.211Z"
     },
     {
@@ -495,22 +483,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_qDQkbNBtYII2OKLXG6",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "group-lead-advanced-mechatronic-systems-eth-zurich-ch",
-        "gruppo-lead-sistemi-mechatronic-avanzati-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "group-lead-advanced-mechatronic-systems-eth-zurich-ch",
-          "gruppo-lead-sistemi-mechatronic-avanzati-eth-zurich-zurich"
-        ],
-        "de": [
-          "group-lead-advanced-mechatronic-systems-eth-zurich-ch"
-        ],
-        "fr": [
-          "group-lead-advanced-mechatronic-systems-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-06T13:42:43.220Z"
     },
     {
@@ -607,22 +579,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_J9xGaOpqKFyghevOXG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "doctoral-position-in-earth-observation-and-remote-sensing-eth-zurich-ch",
-        "posizione-dottorale-nell-osservazione-della-terra-e-nel-rilevamento-remoto-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "doctoral-position-in-earth-observation-and-remote-sensing-eth-zurich-ch",
-          "posizione-dottorale-nell-osservazione-della-terra-e-nel-rilevamento-remoto-eth-zurich-zurich"
-        ],
-        "de": [
-          "doctoral-position-in-earth-observation-and-remote-sensing-eth-zurich-ch"
-        ],
-        "fr": [
-          "doctoral-position-in-earth-observation-and-remote-sensing-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-06T22:15:46.579Z"
     },
     {
@@ -671,22 +627,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_7zqu3cCMAvTqNdOg7e",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-kommunikation-eventorganisation-im-projektteam-medizin-m-w-d-eth-zurich-ch",
-        "collaboratore-trice-kommunikation-eventorganisation-im-projektteam-medizin-m-w-d-eth-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-kommunikation-eventorganisation-im-projektteam-medizin-m-w-d-eth-zurich-ch",
-          "collaboratore-trice-kommunikation-eventorganisation-im-projektteam-medizin-m-w-d-eth-zurich"
-        ],
-        "en": [
-          "mitarbeiter-in-kommunikation-eventorganisation-im-projektteam-medizin-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "mitarbeiter-in-kommunikation-eventorganisation-im-projektteam-medizin-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-04T11:02:51.833Z"
     },
     {
@@ -735,22 +675,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_GKANxJLTNzBgeIzW5k",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "student-assistant-in-macroeconomic-forecasting-and-data-science-eth-zurich-ch",
-        "assistente-studente-nella-previsione-macroeconomica-e-nella-scienza-dei-dati-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "student-assistant-in-macroeconomic-forecasting-and-data-science-eth-zurich-ch",
-          "assistente-studente-nella-previsione-macroeconomica-e-nella-scienza-dei-dati-eth-zurich-zurich"
-        ],
-        "de": [
-          "student-assistant-in-macroeconomic-forecasting-and-data-science-eth-zurich-ch"
-        ],
-        "fr": [
-          "student-assistant-in-macroeconomic-forecasting-and-data-science-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-03T21:45:58.005Z"
     },
     {
@@ -861,22 +785,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_pXtsrJbKMxwsQawOIG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachspezialist-in-studienadministration-w-m-d-eth-zurich-ch",
-        "specialista-in-amministrazione-di-studio-f-m-d-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-studienadministration-w-m-d-eth-zurich-ch",
-          "specialista-in-amministrazione-di-studio-f-m-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "fachspezialist-in-studienadministration-w-m-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "fachspezialist-in-studienadministration-w-m-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-03T21:45:58.966Z"
     },
     {
@@ -925,22 +833,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_zABS2w3av3jvVewVb9",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachdidaktiker-in-biologie-m-w-d-eth-zurich-ch",
-        "didattico-esperto-in-biologia-m-f-d-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachdidaktiker-in-biologie-m-w-d-eth-zurich-ch",
-          "didattico-esperto-in-biologia-m-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "fachdidaktiker-in-biologie-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "fachdidaktiker-in-biologie-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-02T21:50:18.629Z"
     },
     {
@@ -990,7 +882,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "architekt-in-m-w-d-eth-zurich-ch",
         "bibliotecario-lun-f-d-eth-zurich-zurich",
         "librarian-in-m-f-d-eth-zurich-zurich",
         "bibliothekar-in-m-w-d-eth-zurich-ch",
@@ -998,12 +889,10 @@
         "ombudsman-m-p-d-eth-zurich-zurich",
         "ombudsperson-m-w-d-eth-zurich-ch",
         "mediateur-m-m-j-eth-zurich-zurich",
-        "architetto-in-m-f-d-eth-zurich-zurich",
-        "architetto-m-f-d-eth-zurich-zurich"
+        "architetto-in-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "architekt-in-m-w-d-eth-zurich-ch",
           "bibliotecario-lun-f-d-eth-zurich-zurich",
           "librarian-in-m-f-d-eth-zurich-zurich",
           "bibliothekar-in-m-w-d-eth-zurich-ch",
@@ -1011,14 +900,7 @@
           "ombudsman-m-p-d-eth-zurich-zurich",
           "ombudsperson-m-w-d-eth-zurich-ch",
           "mediateur-m-m-j-eth-zurich-zurich",
-          "architetto-in-m-f-d-eth-zurich-zurich",
-          "architetto-m-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "architekt-in-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "architekt-in-m-w-d-eth-zurich-ch"
+          "architetto-in-m-f-d-eth-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-07-02T11:06:41.047Z"
@@ -1069,22 +951,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_HWURgWr0zhn0vhHkTh",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "landwirtschaftliche-r-mitarbeiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch",
-        "landwirtschaftliche-r-collaboratore-trice-forschungsstation-fruebuel-m-w-d-eth-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "landwirtschaftliche-r-mitarbeiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch",
-          "landwirtschaftliche-r-collaboratore-trice-forschungsstation-fruebuel-m-w-d-eth-zurich"
-        ],
-        "en": [
-          "landwirtschaftliche-r-mitarbeiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "landwirtschaftliche-r-mitarbeiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-02T11:06:41.581Z"
     },
     {
@@ -1134,21 +1000,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch",
-        "direttore-operativo-nella-stazione-di-ricerca-fruebuel-m-f-d-eth-zurich-zurich",
-        "responsabile-operativo-stazione-di-ricerca-fruebuel-f-f-d-eth-zurich-zurich"
+        "direttore-operativo-nella-stazione-di-ricerca-fruebuel-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch",
-          "direttore-operativo-nella-stazione-di-ricerca-fruebuel-m-f-d-eth-zurich-zurich",
-          "responsabile-operativo-stazione-di-ricerca-fruebuel-f-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch"
+          "direttore-operativo-nella-stazione-di-ricerca-fruebuel-m-f-d-eth-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-07-02T11:06:42.112Z"
@@ -1200,21 +1056,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch",
-        "scienziato-fondatore-anticorpo-nanobody-drug-discovery-eth-zurich-basel",
-        "scienziato-fondatore-scoperta-di-anticorpi-nanobody-farmaco-nanone-eth-zurich-basel"
+        "scienziato-fondatore-anticorpo-nanobody-drug-discovery-eth-zurich-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch",
-          "scienziato-fondatore-anticorpo-nanobody-drug-discovery-eth-zurich-basel",
-          "scienziato-fondatore-scoperta-di-anticorpi-nanobody-farmaco-nanone-eth-zurich-basel"
-        ],
-        "de": [
-          "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch"
-        ],
-        "fr": [
-          "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch"
+          "scienziato-fondatore-anticorpo-nanobody-drug-discovery-eth-zurich-basel"
         ]
       },
       "firstSeenAt": "2026-07-01T11:34:36.959Z"
@@ -1265,22 +1111,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_Z5I9yqQ4vhLPoBUFau",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "research-engineer-interactive-ai-characters-platform-eth-zurich-ch",
-        "ricerca-ingegnere-interactive-ai-characters-platform-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "research-engineer-interactive-ai-characters-platform-eth-zurich-ch",
-          "ricerca-ingegnere-interactive-ai-characters-platform-eth-zurich-zurich"
-        ],
-        "de": [
-          "research-engineer-interactive-ai-characters-platform-eth-zurich-ch"
-        ],
-        "fr": [
-          "research-engineer-interactive-ai-characters-platform-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-01T11:34:37.469Z"
     },
     {
@@ -1395,22 +1225,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_plf7cLVn00JCgxyDSL",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-toxicology-eth-zurich-ch",
-        "phd-posizione-in-tossicologia-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-toxicology-eth-zurich-ch",
-          "phd-posizione-in-tossicologia-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-in-toxicology-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-position-in-toxicology-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-01T22:17:05.212Z"
     },
     {
@@ -1520,22 +1334,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-in-biotechnology-of-non-saccharomyces-yeast-eth-zurich-ch",
-        "postdoctoral-researcher-in-biotechnology-of-non-saccharomyces-yeast-eth-zurich-lausanne",
-        "ricercatore-post-dottorato-in-biotecnologia-del-lievito-non-saccharomyces-eth-zurich-lausanne"
+        "postdoctoral-researcher-in-biotechnology-of-non-saccharomyces-yeast-eth-zurich-lausanne"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoctoral-researcher-in-biotechnology-of-non-saccharomyces-yeast-eth-zurich-ch",
-          "ricercatore-post-dottorato-in-biotecnologia-del-lievito-non-saccharomyces-eth-zurich-lausanne"
-        ],
-        "de": [
-          "postdoctoral-researcher-in-biotechnology-of-non-saccharomyces-yeast-eth-zurich-ch"
-        ],
-        "fr": [
-          "postdoctoral-researcher-in-biotechnology-of-non-saccharomyces-yeast-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-30T22:15:43.944Z"
     },
     {
@@ -1584,22 +1384,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_xpOmzLaAVjq5m0O8YT",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "software-engineer-secure-inter-domain-networking-eth-zurich-ch",
-        "software-ingegnere-secure-inter-domain-networking-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "software-engineer-secure-inter-domain-networking-eth-zurich-ch",
-          "software-ingegnere-secure-inter-domain-networking-eth-zurich-zurich"
-        ],
-        "de": [
-          "software-engineer-secure-inter-domain-networking-eth-zurich-ch"
-        ],
-        "fr": [
-          "software-engineer-secure-inter-domain-networking-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-30T12:07:23.809Z"
     },
     {
@@ -1649,20 +1433,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spatial-single-cell-genomics-expert-eth-zurich-ch",
-        "expert-en-genomique-spatiale-a-cellule-unique-eth-zurich-basel",
-        "esperto-di-genomica-spaziale-a-singola-cellula-eth-zurich-basel"
+        "expert-en-genomique-spatiale-a-cellule-unique-eth-zurich-basel"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "spatial-single-cell-genomics-expert-eth-zurich-ch",
-          "esperto-di-genomica-spaziale-a-singola-cellula-eth-zurich-basel"
-        ],
-        "de": [
-          "spatial-single-cell-genomics-expert-eth-zurich-ch"
-        ],
         "fr": [
-          "spatial-single-cell-genomics-expert-eth-zurich-ch",
           "expert-en-genomique-spatiale-a-cellule-unique-eth-zurich-basel"
         ]
       },
@@ -1714,22 +1488,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_OvY2NXzkQUTV1t7GwY",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-predicting-thermodynamics-and-processes-for-circular-carbon-plastics-eth",
-        "posizione-del-phd-nella-predizione-della-termodinamica-e-dei-processi-per-la-plastica-del-carbonio-circolare-eth-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-predicting-thermodynamics-and-processes-for-circular-carbon-plastics-eth",
-          "posizione-del-phd-nella-predizione-della-termodinamica-e-dei-processi-per-la-plastica-del-carbonio-circolare-eth-zurich"
-        ],
-        "de": [
-          "phd-position-in-predicting-thermodynamics-and-processes-for-circular-carbon-plastics-eth"
-        ],
-        "fr": [
-          "phd-position-in-predicting-thermodynamics-and-processes-for-circular-carbon-plastics-eth"
-        ]
-      },
       "firstSeenAt": "2026-06-29T22:08:55.143Z"
     },
     {
@@ -1778,22 +1536,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_itjl3I5FPoAN98mLxA",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "postdoc-position-in-towards-a-circular-plastics-economy-within-the-planetary-boundaries",
-        "posizione-postdoc-verso-un-economia-di-plastica-circolare-all-interno-dei-confini-planetari-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoc-position-in-towards-a-circular-plastics-economy-within-the-planetary-boundaries",
-          "posizione-postdoc-verso-un-economia-di-plastica-circolare-all-interno-dei-confini-planetari-eth-zurich-zurich"
-        ],
-        "de": [
-          "postdoc-position-in-towards-a-circular-plastics-economy-within-the-planetary-boundaries"
-        ],
-        "fr": [
-          "postdoc-position-in-towards-a-circular-plastics-economy-within-the-planetary-boundaries"
-        ]
-      },
       "firstSeenAt": "2026-06-29T22:08:55.686Z"
     },
     {
@@ -1842,22 +1584,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_osa8qSuR129SxGMALD",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-support-m-w-d-eth-zurich-ch",
-        "personale-in-supporto-m-f-d-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-support-m-w-d-eth-zurich-ch",
-          "personale-in-supporto-m-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "sachbearbeiter-in-support-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "sachbearbeiter-in-support-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-29T22:08:56.213Z"
     },
     {
@@ -1906,22 +1632,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_7oUtjwnVoYxd8NGYgj",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-electrocatalysis-and-operando-electrochemical-characterization-eth-zurich",
-        "posizione-dottorato-in-elettrocatalisi-e-caratterizzazione-elettrochimica-operando-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-electrocatalysis-and-operando-electrochemical-characterization-eth-zurich",
-          "posizione-dottorato-in-elettrocatalisi-e-caratterizzazione-elettrochimica-operando-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-in-electrocatalysis-and-operando-electrochemical-characterization-eth-zurich"
-        ],
-        "fr": [
-          "phd-position-in-electrocatalysis-and-operando-electrochemical-characterization-eth-zurich"
-        ]
-      },
       "firstSeenAt": "2026-06-29T13:16:56.059Z"
     },
     {
@@ -2018,22 +1728,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_h7WGV6ng0qAOOoyyvj",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-automated-laboratory-for-plastic-recycling-eth-zurich-ch",
-        "posizione-del-dottorato-in-laboratorio-automatizzato-per-il-riciclaggio-di-plastica-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-automated-laboratory-for-plastic-recycling-eth-zurich-ch",
-          "posizione-del-dottorato-in-laboratorio-automatizzato-per-il-riciclaggio-di-plastica-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-in-automated-laboratory-for-plastic-recycling-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-position-in-automated-laboratory-for-plastic-recycling-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-29T22:08:57.789Z"
     },
     {
@@ -2083,22 +1777,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "administrative-assistenz-im-departement-mathematik-m-w-d-eth-zurich-ch",
-        "administrative-assistenz-im-departement-mathematik-m-w-d-eth-zurich-zurich",
-        "assistente-amministrativo-nel-dipartimento-di-matematica-m-f-d-eth-zurich-zurich"
+        "administrative-assistenz-im-departement-mathematik-m-w-d-eth-zurich-zurich"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "administrative-assistenz-im-departement-mathematik-m-w-d-eth-zurich-ch",
-          "assistente-amministrativo-nel-dipartimento-di-matematica-m-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "administrative-assistenz-im-departement-mathematik-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "administrative-assistenz-im-departement-mathematik-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-29T13:16:56.538Z"
     },
     {
@@ -2148,20 +1828,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teilprojektleitung-digital-twin-plattform-m-w-d-eth-zurich-ch",
-        "gestion-de-projet-plateforme-numerique-jumelee-m-f-d-eth-zurich-zurich",
-        "direzione-progetto-parziale-digital-twin-platform-m-f-d-eth-zurich-zurich"
+        "gestion-de-projet-plateforme-numerique-jumelee-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "teilprojektleitung-digital-twin-plattform-m-w-d-eth-zurich-ch",
-          "direzione-progetto-parziale-digital-twin-platform-m-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "teilprojektleitung-digital-twin-plattform-m-w-d-eth-zurich-ch"
-        ],
         "fr": [
-          "teilprojektleitung-digital-twin-plattform-m-w-d-eth-zurich-ch",
           "gestion-de-projet-plateforme-numerique-jumelee-m-f-d-eth-zurich-zurich"
         ]
       },
@@ -2213,19 +1883,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_p3cf52HPyjOiWAIcAm",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-outgoing-student-exchange-team-m-w-d-eth-zurich-ch",
-        "squadra-di-scambio-per-studenti-in-uscita-m-f-d-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-outgoing-student-exchange-team-m-w-d-eth-zurich-ch",
-          "squadra-di-scambio-per-studenti-in-uscita-m-f-d-eth-zurich-zurich"
-        ],
-        "fr": [
-          "sachbearbeiter-in-outgoing-student-exchange-team-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-26T21:53:03.665Z"
     },
     {
@@ -2274,22 +1931,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_ru7RpFRzKZm3MClgKG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "pmo-lead-leitung-projektmanagement-office-m-w-d-eth-zurich-ch",
-        "ufficio-di-gestione-del-progetto-m-f-d-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pmo-lead-leitung-projektmanagement-office-m-w-d-eth-zurich-ch",
-          "ufficio-di-gestione-del-progetto-m-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "pmo-lead-leitung-projektmanagement-office-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "pmo-lead-leitung-projektmanagement-office-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-26T11:22:09.120Z"
     },
     {
@@ -2338,22 +1979,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/11834",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "postdoctoral-researcher-iterative-learning-control-of-industrial-systems-eth-zurich-ch",
-        "ricercatore-post-dottorato-controllo-di-apprendimento-iterativo-dei-sistemi-industriali-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoctoral-researcher-iterative-learning-control-of-industrial-systems-eth-zurich-ch",
-          "ricercatore-post-dottorato-controllo-di-apprendimento-iterativo-dei-sistemi-industriali-eth-zurich-zurich"
-        ],
-        "de": [
-          "postdoctoral-researcher-iterative-learning-control-of-industrial-systems-eth-zurich-ch"
-        ],
-        "fr": [
-          "postdoctoral-researcher-iterative-learning-control-of-industrial-systems-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-26T21:53:04.626Z"
     },
     {
@@ -2403,24 +2028,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-research-development-engineer-eth-zurich-ch",
         "software-ingegnere-eth-zurich-singapore",
         "software-engineer-eth-zurich-ch",
-        "software-ingenieur-eth-zurich-singapore",
-        "software-ricerca-development-ingegnere-eth-zurich-zurich"
+        "software-ingenieur-eth-zurich-singapore"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "software-research-development-engineer-eth-zurich-ch",
-          "software-ricerca-development-ingegnere-eth-zurich-zurich"
-        ],
-        "de": [
-          "software-research-development-engineer-eth-zurich-ch"
-        ],
-        "fr": [
-          "software-research-development-engineer-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-25T11:13:45.222Z"
     },
     {
@@ -2469,22 +2080,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_JYD685xNuBZ4Ds3FgG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth",
-        "posizione-di-dottorato-per-lo-sviluppo-di-modelli-multi-fisici-di-induttori-planari-e-trasformatori-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth",
-          "posizione-di-dottorato-per-lo-sviluppo-di-modelli-multi-fisici-di-induttori-planari-e-trasformatori-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth"
-        ],
-        "fr": [
-          "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth"
-        ]
-      },
       "firstSeenAt": "2026-06-25T11:13:45.713Z"
     },
     {
@@ -2533,22 +2128,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_8mKiqyt08ncBT4Vjmf",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch",
-        "apertura-del-dottorato-in-scienze-materiali-di-conservazione-della-pietra-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch",
-          "apertura-del-dottorato-in-scienze-materiali-di-conservazione-della-pietra-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-24T21:57:04.655Z"
     },
     {
@@ -2597,22 +2176,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_seiUd0JDwczn2SLb4k",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-on-atomic-scale-structure-function-relationships-in-separation-materials-for",
-        "posizione-phd-sulle-relazioni-tra-struttura-e-frequenza-atomica-nei-materiali-di-separazione-per-processi-sostenibili"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-on-atomic-scale-structure-function-relationships-in-separation-materials-for",
-          "posizione-phd-sulle-relazioni-tra-struttura-e-frequenza-atomica-nei-materiali-di-separazione-per-processi-sostenibili"
-        ],
-        "de": [
-          "phd-position-on-atomic-scale-structure-function-relationships-in-separation-materials-for"
-        ],
-        "fr": [
-          "phd-position-on-atomic-scale-structure-function-relationships-in-separation-materials-for"
-        ]
-      },
       "firstSeenAt": "2026-06-24T21:57:05.119Z"
     },
     {
@@ -2661,22 +2224,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_0ZAkW6S2JIQMm2zZZQ",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-student-for-high-resolutiontime-resolved-microstructural-evolution-under-ion",
-        "studente-di-dottorato-per-alta-risoluzione-evoluzione-microstrutturale-risolta-a-tempo-nell-irradiazione-ionica-tramite"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-student-for-high-resolutiontime-resolved-microstructural-evolution-under-ion",
-          "studente-di-dottorato-per-alta-risoluzione-evoluzione-microstrutturale-risolta-a-tempo-nell-irradiazione-ionica-tramite"
-        ],
-        "de": [
-          "phd-student-for-high-resolutiontime-resolved-microstructural-evolution-under-ion"
-        ],
-        "fr": [
-          "phd-student-for-high-resolutiontime-resolved-microstructural-evolution-under-ion"
-        ]
-      },
       "firstSeenAt": "2026-06-24T21:57:05.582Z"
     },
     {
@@ -2726,21 +2273,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture",
-        "posizione-del-phd-sull-ingegneria-delle-piattaforme-di-perfusione-della-macchina-per-la-cultura-dell-organo-e-del",
-        "posizione-di-dottorato-in-ingegneria-delle-piattaforme-di-perfusione-di-macchine-per-la-coltura-di-organi-e-tessuti-eth"
+        "posizione-del-phd-sull-ingegneria-delle-piattaforme-di-perfusione-della-macchina-per-la-cultura-dell-organo-e-del"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture",
-          "posizione-del-phd-sull-ingegneria-delle-piattaforme-di-perfusione-della-macchina-per-la-cultura-dell-organo-e-del",
-          "posizione-di-dottorato-in-ingegneria-delle-piattaforme-di-perfusione-di-macchine-per-la-coltura-di-organi-e-tessuti-eth"
-        ],
-        "de": [
-          "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture"
-        ],
-        "fr": [
-          "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture"
+          "posizione-del-phd-sull-ingegneria-delle-piattaforme-di-perfusione-della-macchina-per-la-cultura-dell-organo-e-del"
         ]
       },
       "firstSeenAt": "2026-06-23T11:27:22.489Z"
@@ -2791,22 +2328,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_LeUhF2WveK4IuFRTxh",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "architekt-in-projektleiter-in-planung-m-w-d-eth-zurich-ch",
-        "architekt-in-responsabile-di-progetto-planung-m-w-d-eth-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "architekt-in-projektleiter-in-planung-m-w-d-eth-zurich-ch",
-          "architekt-in-responsabile-di-progetto-planung-m-w-d-eth-zurich"
-        ],
-        "en": [
-          "architekt-in-projektleiter-in-planung-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "architekt-in-projektleiter-in-planung-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:27:22.987Z"
     },
     {
@@ -2855,22 +2376,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_EvLC9fvRCMCVvNKGRU",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch",
-        "architetto-a-responsabile-di-progetto-parziale-di-pianificazione-m-f-d-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch",
-          "architetto-a-responsabile-di-progetto-parziale-di-pianificazione-m-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:27:23.468Z"
     },
     {
@@ -2919,22 +2424,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_LMaEP9jVrQC9cDD4NU",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch",
-        "gestore-in-abitazioni-dormitorio-ospiti-m-p-d-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch",
-          "gestore-in-abitazioni-dormitorio-ospiti-m-p-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:27:23.950Z"
     },
     {
@@ -2983,22 +2472,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_VDe7HVKqNZVZdvUAmt",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch",
-        "ricercatore-post-dottorato-in-modelli-di-ragionamento-multimodale-per-oncologia-eth-zurich-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch",
-          "ricercatore-post-dottorato-in-modelli-di-ragionamento-multimodale-per-oncologia-eth-zurich-basel"
-        ],
-        "de": [
-          "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch"
-        ],
-        "fr": [
-          "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-22T22:38:51.892Z"
     },
     {
@@ -3048,21 +2521,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch",
-        "dottorato-di-ricerca-su-quantum-computing-ai-per-l-ottimizzazione-eth-zurich-zurich",
-        "dottorato-di-ricerca-in-calcolo-quantico-ai-per-l-ottimizzazione-eth-zurich-zurich"
+        "dottorato-di-ricerca-su-quantum-computing-ai-per-l-ottimizzazione-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch",
-          "dottorato-di-ricerca-su-quantum-computing-ai-per-l-ottimizzazione-eth-zurich-zurich",
-          "dottorato-di-ricerca-in-calcolo-quantico-ai-per-l-ottimizzazione-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch"
+          "dottorato-di-ricerca-su-quantum-computing-ai-per-l-ottimizzazione-eth-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-22T14:45:56.366Z"
@@ -3114,21 +2577,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch",
-        "polimeccanico-in-produzione-ricerca-e-sviluppo-m-f-d-eth-zurich-zurich",
-        "polimeccanico-nella-produzione-ricerca-e-sviluppo-m-p-d-eth-zurich-zurich"
+        "polimeccanico-in-produzione-ricerca-e-sviluppo-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch",
-          "polimeccanico-in-produzione-ricerca-e-sviluppo-m-f-d-eth-zurich-zurich",
-          "polimeccanico-nella-produzione-ricerca-e-sviluppo-m-p-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch"
+          "polimeccanico-in-produzione-ricerca-e-sviluppo-m-f-d-eth-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-22T14:45:56.922Z"
@@ -3179,22 +2632,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_aht8giABx12UGrPMMZ",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-ai-for-materials-modeling-eth-zurich-ch",
-        "posizione-di-dottorato-in-ia-per-la-modellazione-dei-materiali-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-ai-for-materials-modeling-eth-zurich-ch",
-          "posizione-di-dottorato-in-ia-per-la-modellazione-dei-materiali-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-in-ai-for-materials-modeling-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-position-in-ai-for-materials-modeling-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-19T12:31:04.131Z"
     },
     {
@@ -3243,19 +2680,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/11810",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "administrative-assistant-eth-zurich-ch",
-        "assistente-amministrativo-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "administrative-assistant-eth-zurich-ch",
-          "assistente-amministrativo-eth-zurich-zurich"
-        ],
-        "fr": [
-          "administrative-assistant-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-19T12:31:04.659Z"
     },
     {
@@ -3305,22 +2729,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-assistant-in-digital-health-technologies-eth-zurich-ch",
         "assistente-di-ricerca-in-tecnologie-della-salute-digitale-eth-zurich-zurich",
-        "forschungsassistent-fur-digitale-gesundheitstechnologien-eth-zurich-zurich",
-        "assistente-di-ricerca-nelle-tecnologie-della-salute-digitale-eth-zurich-zurich"
+        "forschungsassistent-fur-digitale-gesundheitstechnologien-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-assistant-in-digital-health-technologies-eth-zurich-ch",
-          "assistente-di-ricerca-in-tecnologie-della-salute-digitale-eth-zurich-zurich",
-          "assistente-di-ricerca-nelle-tecnologie-della-salute-digitale-eth-zurich-zurich"
+          "assistente-di-ricerca-in-tecnologie-della-salute-digitale-eth-zurich-zurich"
         ],
         "de": [
           "forschungsassistent-fur-digitale-gesundheitstechnologien-eth-zurich-zurich"
-        ],
-        "fr": [
-          "research-assistant-in-digital-health-technologies-eth-zurich-ch"
         ]
       },
       "firstSeenAt": "2026-06-18T12:15:57.572Z"
@@ -3372,24 +2789,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on",
         "assistente-di-ricerca-didattica-per-l-innovazione-pedagogica-e-i-laboratori-di-lavoro-manuale-su-materiali-regenerativi",
         "forschungs-lehrassistent-fur-padagogische-innovation-und-hand-on-workshops-zu-regenerativen-materialien-eth-zurich",
-        "assistant-de-recherche-enseignement-pour-l-innovation-pedagogique-et-les-ateliers-pratiques-sur-les-materiaux",
-        "assistente-alla-ricerca-didattica-per-l-innovazione-pedagogica-e-workshop-pratici-sui-materiali-rigeneranti-eth-zurich"
+        "assistant-de-recherche-enseignement-pour-l-innovation-pedagogique-et-les-ateliers-pratiques-sur-les-materiaux"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on",
-          "assistente-di-ricerca-didattica-per-l-innovazione-pedagogica-e-i-laboratori-di-lavoro-manuale-su-materiali-regenerativi",
-          "assistente-alla-ricerca-didattica-per-l-innovazione-pedagogica-e-workshop-pratici-sui-materiali-rigeneranti-eth-zurich"
+          "assistente-di-ricerca-didattica-per-l-innovazione-pedagogica-e-i-laboratori-di-lavoro-manuale-su-materiali-regenerativi"
         ],
         "de": [
-          "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on",
           "forschungs-lehrassistent-fur-padagogische-innovation-und-hand-on-workshops-zu-regenerativen-materialien-eth-zurich"
         ],
         "fr": [
-          "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on",
           "assistant-de-recherche-enseignement-pour-l-innovation-pedagogique-et-les-ateliers-pratiques-sur-les-materiaux"
         ]
       },
@@ -3441,22 +2852,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_GeYPRCNq6dSw5Yawqm",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "research-assistants-access-to-justice-eth-zurich-ch",
-        "assistenti-di-ricerca-accesso-alla-giustizia-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "research-assistants-access-to-justice-eth-zurich-ch",
-          "assistenti-di-ricerca-accesso-alla-giustizia-eth-zurich-zurich"
-        ],
-        "de": [
-          "research-assistants-access-to-justice-eth-zurich-ch"
-        ],
-        "fr": [
-          "research-assistants-access-to-justice-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-18T12:15:58.525Z"
     },
     {
@@ -3505,22 +2900,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_TjHEAJOI8dRecXyJlK",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "postdoctoral-researchers-for-3-year-projects-on-quantum-networks-and-quantum-sensing-eth",
-        "ricercatori-post-dottorali-per-progetti-triennali-su-reti-quantiche-e-rilevamento-quantistico-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoctoral-researchers-for-3-year-projects-on-quantum-networks-and-quantum-sensing-eth",
-          "ricercatori-post-dottorali-per-progetti-triennali-su-reti-quantiche-e-rilevamento-quantistico-eth-zurich-zurich"
-        ],
-        "de": [
-          "postdoctoral-researchers-for-3-year-projects-on-quantum-networks-and-quantum-sensing-eth"
-        ],
-        "fr": [
-          "postdoctoral-researchers-for-3-year-projects-on-quantum-networks-and-quantum-sensing-eth"
-        ]
-      },
       "firstSeenAt": "2026-06-18T22:44:51.493Z"
     },
     {
@@ -3569,19 +2948,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_1WDN4B33ZTBogBfOlq",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "teaching-assistant-position-eth-zurich-ch",
-        "posizione-assistente-didattica-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teaching-assistant-position-eth-zurich-ch",
-          "posizione-assistente-didattica-eth-zurich-zurich"
-        ],
-        "fr": [
-          "teaching-assistant-position-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-17T12:49:04.140Z"
     },
     {
@@ -3630,22 +2996,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_skSPdBEzYODyF54wNv",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch",
-        "scientifico-r-editore-in-m-f-d-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch",
-          "scientifico-r-editore-in-m-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-17T12:49:04.664Z"
     },
     {
@@ -3694,22 +3044,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_aQLv7zXxlJ4yxdZDqC",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch",
-        "responsabile-del-dipartimento-in-stv-management-m-f-d-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch",
-          "responsabile-del-dipartimento-in-stv-management-m-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-17T12:49:05.169Z"
     },
     {
@@ -3759,15 +3093,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch",
-        "phd-position-in-computational-earthquake-rupture-mechanics-eth-zurich-ch",
-        "posizione-del-dottorato-meccanica-di-rottura-del-terremoto-computazionale-eth-zurich-zurich"
+        "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch",
-          "phd-position-in-computational-earthquake-rupture-mechanics-eth-zurich-ch",
-          "posizione-del-dottorato-meccanica-di-rottura-del-terremoto-computazionale-eth-zurich-zurich"
+          "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch"
         ],
         "de": [
           "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch"
@@ -3824,22 +3154,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_dRUoCoJuD0wwF7pMvO",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-administration-und-kommunikation-m-w-d-eth-zurich-ch",
-        "collaboratore-trice-administration-e-kommunikation-m-w-d-eth-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-administration-und-kommunikation-m-w-d-eth-zurich-ch",
-          "collaboratore-trice-administration-e-kommunikation-m-w-d-eth-zurich"
-        ],
-        "en": [
-          "mitarbeiter-in-administration-und-kommunikation-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "mitarbeiter-in-administration-und-kommunikation-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-17T12:49:06.687Z"
     },
     {
@@ -3967,22 +3281,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport",
         "promotionsstelle-in-ki-unterstutzter-resilienzbewertung-klimaneutraler-verkehrsinfrastruktur-eth-zurich-zurich",
-        "poste-de-phd-dans-l-evaluation-de-la-resilience-soutenue-par-l-ia-des-infrastructures-de-transport-climat-neutral-eth",
-        "posizione-di-dottorato-in-valutazione-della-resilienza-supportata-dall-ia-delle-infrastrutture-di-trasporto"
+        "poste-de-phd-dans-l-evaluation-de-la-resilience-soutenue-par-l-ia-des-infrastructures-de-transport-climat-neutral-eth"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport",
-          "posizione-di-dottorato-in-valutazione-della-resilienza-supportata-dall-ia-delle-infrastrutture-di-trasporto"
-        ],
         "de": [
-          "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport",
           "promotionsstelle-in-ki-unterstutzter-resilienzbewertung-klimaneutraler-verkehrsinfrastruktur-eth-zurich-zurich"
         ],
         "fr": [
-          "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport",
           "poste-de-phd-dans-l-evaluation-de-la-resilience-soutenue-par-l-ia-des-infrastructures-de-transport-climat-neutral-eth"
         ]
       },
@@ -4034,22 +3340,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_nHicNeceEMLPYD8dxs",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch",
-        "posizione-di-dottorato-in-commercio-globale-catene-di-approvvigionamento-e-shock-climatici-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch",
-          "posizione-di-dottorato-in-commercio-globale-catene-di-approvvigionamento-e-shock-climatici-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-15T14:48:31.144Z"
     },
     {
@@ -4099,15 +3389,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ricercatore-post-dottorato-in-cattura-co2-light-driven-eth-zurich-zurich",
-        "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
-        "ricercatore-post-dottorato-in-cattura-co2-leggera-eth-zurich-zurich"
+        "ricercatore-post-dottorato-in-cattura-co2-light-driven-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ricercatore-post-dottorato-in-cattura-co2-light-driven-eth-zurich-zurich",
-          "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
-          "ricercatore-post-dottorato-in-cattura-co2-leggera-eth-zurich-zurich"
+          "ricercatore-post-dottorato-in-cattura-co2-light-driven-eth-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-15T14:48:31.631Z"
@@ -4158,22 +3444,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_aJeRfAu7OJpnwc2GuJ",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch",
-        "specialista-in-reportistica-progetti-finanziari-m-f-d-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch",
-          "specialista-in-reportistica-progetti-finanziari-m-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-15T14:48:32.104Z"
     },
     {
@@ -4223,25 +3493,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-alarmorganisation-m-w-d-eth-zurich-ch",
         "responsabile-del-programma-eth-zurich-zurich",
         "programme-manager-eth-zurich-ch",
         "programmleiter-eth-zurich-zurich",
-        "gestionnaire-de-programme-eth-zurich-zurich",
-        "responsabile-alarmorganisation-m-w-d-eth-zurich"
+        "gestionnaire-de-programme-eth-zurich-zurich"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-alarmorganisation-m-w-d-eth-zurich-ch",
-          "responsabile-alarmorganisation-m-w-d-eth-zurich"
-        ],
-        "en": [
-          "leiter-in-alarmorganisation-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "leiter-in-alarmorganisation-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-15T14:48:32.581Z"
     },
     {
@@ -4290,22 +3546,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_HWRxww6Wu4Fng2tJ0A",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "map-executive-director-eth-zurich-ch",
-        "map-executive-direttore-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "map-executive-director-eth-zurich-ch",
-          "map-executive-direttore-eth-zurich-zurich"
-        ],
-        "de": [
-          "map-executive-director-eth-zurich-ch"
-        ],
-        "fr": [
-          "map-executive-director-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-12T12:05:39.283Z"
     },
     {
@@ -4402,22 +3642,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_AY3hccIricAb6VIQkw",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "marie-sk-odowska-curie-doctoral-training-network-coupled-problems-for-decarbonization-in",
-        "marie-sk-odowska-curie-doctoral-training-network-problemi-accoppiati-per-la-decarbonizzazione-nell-industria-e-nella"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "marie-sk-odowska-curie-doctoral-training-network-coupled-problems-for-decarbonization-in",
-          "marie-sk-odowska-curie-doctoral-training-network-problemi-accoppiati-per-la-decarbonizzazione-nell-industria-e-nella"
-        ],
-        "de": [
-          "marie-sk-odowska-curie-doctoral-training-network-coupled-problems-for-decarbonization-in"
-        ],
-        "fr": [
-          "marie-sk-odowska-curie-doctoral-training-network-coupled-problems-for-decarbonization-in"
-        ]
-      },
       "firstSeenAt": "2026-06-10T12:03:38.693Z"
     },
     {
@@ -4467,21 +3691,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
-        "ricercatore-post-dottorato-organoidi-ossei-eth-zurich-singapore",
-        "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore"
+        "ricercatore-post-dottorato-organoidi-ossei-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
-          "ricercatore-post-dottorato-organoidi-ossei-eth-zurich-singapore",
-          "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore"
-        ],
-        "de": [
-          "postdoctoral-researcher-bone-organoids-eth-zurich-ch"
-        ],
-        "fr": [
-          "postdoctoral-researcher-bone-organoids-eth-zurich-ch"
+          "ricercatore-post-dottorato-organoidi-ossei-eth-zurich-singapore"
         ]
       },
       "needsRetranslation": false,
@@ -4533,22 +3747,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_3PYobqeoP1vcrJ9tI6",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-researcher-micro-multiphysics-eth-zurich-ch",
-        "ricercatore-di-dottorato-micro-multifisica-eth-zurich-singapore"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-researcher-micro-multiphysics-eth-zurich-ch",
-          "ricercatore-di-dottorato-micro-multifisica-eth-zurich-singapore"
-        ],
-        "de": [
-          "phd-researcher-micro-multiphysics-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-researcher-micro-multiphysics-eth-zurich-ch"
-        ]
-      },
       "needsRetranslation": false,
       "firstSeenAt": "2026-06-09T22:21:27.525Z"
     },
@@ -4599,21 +3797,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-researcher-bone-organoids-eth-zurich-ch",
-        "ricercatore-di-dottorato-organoidi-ossei-eth-zurich-singapore",
-        "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore"
+        "ricercatore-di-dottorato-organoidi-ossei-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-researcher-bone-organoids-eth-zurich-ch",
-          "ricercatore-di-dottorato-organoidi-ossei-eth-zurich-singapore",
-          "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore"
-        ],
-        "de": [
-          "phd-researcher-bone-organoids-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-researcher-bone-organoids-eth-zurich-ch"
+          "ricercatore-di-dottorato-organoidi-ossei-eth-zurich-singapore"
         ]
       },
       "needsRetranslation": false,
@@ -4665,22 +3853,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/11779",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "hochschulabsolvent-in-der-sozialwissenschaften-an-der-dozentur-militarsoziologie-m-w-d-eth",
-        "laureato-in-scienze-sociali-presso-la-cattedra-di-sociologia-militare-m-f-d-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hochschulabsolvent-in-der-sozialwissenschaften-an-der-dozentur-militarsoziologie-m-w-d-eth",
-          "laureato-in-scienze-sociali-presso-la-cattedra-di-sociologia-militare-m-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "hochschulabsolvent-in-der-sozialwissenschaften-an-der-dozentur-militarsoziologie-m-w-d-eth"
-        ],
-        "fr": [
-          "hochschulabsolvent-in-der-sozialwissenschaften-an-der-dozentur-militarsoziologie-m-w-d-eth"
-        ]
-      },
       "firstSeenAt": "2026-06-09T22:21:28.470Z"
     },
     {
@@ -4729,19 +3901,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_55peH7GaneuaeqBmVT",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-storage-data-engineer-eth-zurich-ch",
-        "senior-storage-data-ingegnere-eth-zurich-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-storage-data-engineer-eth-zurich-ch",
-          "senior-storage-data-ingegnere-eth-zurich-lugano"
-        ],
-        "de": [
-          "senior-storage-data-engineer-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-09T22:21:29.412Z"
     },
     {
@@ -4838,22 +3997,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_T4LAy013cx6DIjFsXP",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-soft-robotics-systems-eth-zurich-ch",
-        "posizione-di-dottorato-in-sistemi-di-robotica-morbida-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-soft-robotics-systems-eth-zurich-ch",
-          "posizione-di-dottorato-in-sistemi-di-robotica-morbida-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-in-soft-robotics-systems-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-position-in-soft-robotics-systems-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-08T22:23:22.768Z"
     },
     {
@@ -4902,19 +4045,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_YUctWn3aOHyvwf4ytr",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-biohybrid-robotics-eth-zurich-ch",
-        "posizione-di-dottorato-in-robotica-bioibrida-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-biohybrid-robotics-eth-zurich-ch",
-          "posizione-di-dottorato-in-robotica-bioibrida-eth-zurich-zurich"
-        ],
-        "fr": [
-          "phd-position-in-biohybrid-robotics-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-05T11:48:31.359Z"
     },
     {
@@ -4963,19 +4093,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_hkSa6WxM6WZBjeh5nk",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-multi-state-programmable-robotic-matter-eth-zurich-ch",
-        "posizione-di-dottorato-in-materia-robotica-programmabile-multistato-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-multi-state-programmable-robotic-matter-eth-zurich-ch",
-          "posizione-di-dottorato-in-materia-robotica-programmabile-multistato-eth-zurich-zurich"
-        ],
-        "fr": [
-          "phd-position-in-multi-state-programmable-robotic-matter-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-05T11:48:31.826Z"
     },
     {
@@ -5024,22 +4141,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_jx3UwD48qVWE5Vz6j6",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth",
-        "phd-posizione-nell-infrastruttura-analisi-dell-efficacia-dell-intervento-per-la-sicurezza-stradale-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth",
-          "phd-posizione-nell-infrastruttura-analisi-dell-efficacia-dell-intervento-per-la-sicurezza-stradale-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth"
-        ],
-        "fr": [
-          "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth"
-        ]
-      },
       "firstSeenAt": "2026-06-03T13:32:29.533Z"
     },
     {
@@ -5088,22 +4189,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_Afh8kTDkVYogvWKaOy",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch",
-        "posizione-del-phd-nel-sensore-del-veicolo-e-analisi-di-rilevamento-remoto-per-la-sicurezza-stradale-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch",
-          "posizione-del-phd-nel-sensore-del-veicolo-e-analisi-di-rilevamento-remoto-per-la-sicurezza-stradale-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-03T13:32:30.059Z"
     },
     {
@@ -5152,22 +4237,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_q1xafmrUknvNXzCXuI",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch",
-        "assistente-di-laboratorio-in-chimica-generale-m-w-d-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch",
-          "assistente-di-laboratorio-in-chimica-generale-m-w-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
-          "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-02T23:26:06.839Z"
     },
     {
@@ -5310,18 +4379,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "doktorand-in-in-rechtswissenschaften-eth-zurich-ch",
-        "doktorand-in-in-rechtswissenschaften-m-w-d-eth-zurich-ch",
         "dottorato-di-ricerca-in-diritto-eth-zurich-zurich",
         "phd-student-in-law-eth-zurich-ch",
         "doktorandin-im-recht-eth-zurich-zurich",
-        "doctorat-en-droit-eth-zurich-zurich",
-        "dottorato-di-ricerca-in-diritto-eth-zurich-zurich-d6a685"
+        "doctorat-en-droit-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doktorand-in-in-rechtswissenschaften-eth-zurich-ch",
-          "doktorand-in-in-rechtswissenschaften-m-w-d-eth-zurich-ch",
-          "dottorato-di-ricerca-in-diritto-eth-zurich-zurich-d6a685"
+          "doktorand-in-in-rechtswissenschaften-eth-zurich-ch"
         ],
         "en": [
           "doktorand-in-in-rechtswissenschaften-eth-zurich-ch"
@@ -5378,22 +4443,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_oztBIyJMFkzrazCjEl",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-computer-vision-applied-to-natural-hazards-eth-zurich-ch",
-        "phd-position-in-computer-vision-applicato-ai-pericoli-naturali-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-computer-vision-applied-to-natural-hazards-eth-zurich-ch",
-          "phd-position-in-computer-vision-applicato-ai-pericoli-naturali-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-in-computer-vision-applied-to-natural-hazards-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-position-in-computer-vision-applied-to-natural-hazards-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-05-28T12:29:51.367Z"
     },
     {
@@ -5442,22 +4491,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_zGGXXq1toaJBr0smZv",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-numerical-modelling-of-debris-flows-eth-zurich-ch",
-        "phd-posizione-nella-modellazione-numerica-dei-flussi-di-debito-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-numerical-modelling-of-debris-flows-eth-zurich-ch",
-          "phd-posizione-nella-modellazione-numerica-dei-flussi-di-debito-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-in-numerical-modelling-of-debris-flows-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-position-in-numerical-modelling-of-debris-flows-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-05-28T12:29:52.315Z"
     },
     {
@@ -5506,22 +4539,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_WutDHRW09osQjhn0JB",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "systems-engineer-platform-automation-eth-zurich-ch",
-        "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "systems-engineer-platform-automation-eth-zurich-ch",
-          "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano"
-        ],
-        "de": [
-          "systems-engineer-platform-automation-eth-zurich-ch"
-        ],
-        "fr": [
-          "systems-engineer-platform-automation-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-05-28T12:29:52.777Z"
     },
     {
@@ -5570,22 +4587,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_pPQbOEVFpuNEe6dwGQ",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "devops-engineer-eth-zurich-ch",
-        "devops-ingegnere-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "devops-engineer-eth-zurich-ch",
-          "devops-ingegnere-eth-zurich-zurich"
-        ],
-        "de": [
-          "devops-engineer-eth-zurich-ch"
-        ],
-        "fr": [
-          "devops-engineer-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-05-27T12:30:48.588Z"
     },
     {
@@ -5634,22 +4635,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_uEJAWCTRpKZ0n7NYUt",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-on-sleep-stress-and-arousal-in-humans-eth-zurich-ch",
-        "phd-posizione-sul-sonno-stress-e-eccitazione-negli-esseri-umani-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-on-sleep-stress-and-arousal-in-humans-eth-zurich-ch",
-          "phd-posizione-sul-sonno-stress-e-eccitazione-negli-esseri-umani-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-on-sleep-stress-and-arousal-in-humans-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-position-on-sleep-stress-and-arousal-in-humans-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-05-27T12:30:49.061Z"
     },
     {
@@ -5698,16 +4683,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_VMgBwTKkf0UDtee8nX",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "doctoral-position-in-ai-assisted-bridge-assessment-for-special-road-transports-eth-zurich",
-        "posizione-di-dottorato-in-ai-assisted-bridge-assessment-for-special-road-transports-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "doctoral-position-in-ai-assisted-bridge-assessment-for-special-road-transports-eth-zurich",
-          "posizione-di-dottorato-in-ai-assisted-bridge-assessment-for-special-road-transports-eth-zurich-zurich"
-        ]
-      },
       "firstSeenAt": "2026-05-26T22:46:56.981Z"
     },
     {
@@ -5756,22 +4731,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_MVTPqKOtjeJV6vKE6h",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "financial-and-administrative-officer-eth-zurich-ch",
-        "funzionario-finanziario-e-amministrativo-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "financial-and-administrative-officer-eth-zurich-ch",
-          "funzionario-finanziario-e-amministrativo-eth-zurich-zurich"
-        ],
-        "de": [
-          "financial-and-administrative-officer-eth-zurich-ch"
-        ],
-        "fr": [
-          "financial-and-administrative-officer-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-05-22T22:07:41.505Z"
     },
     {
@@ -5820,22 +4779,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_gOISO85dB3E3Vs2Lj4",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production",
-        "phd-posizione-in-microfluidics-per-l-assemblaggio-di-celle-sintetiche-per-la-produzione-di-energia-il-metabolismo"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production",
-          "phd-posizione-in-microfluidics-per-l-assemblaggio-di-celle-sintetiche-per-la-produzione-di-energia-il-metabolismo"
-        ],
-        "de": [
-          "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production"
-        ],
-        "fr": [
-          "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production"
-        ]
-      },
       "firstSeenAt": "2026-05-21T11:52:05.887Z"
     },
     {
@@ -6165,22 +5108,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_CUbwMUIvGTpM608m4g",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "teaching-and-research-assistant-at-the-institute-of-design-and-architecture-eth-zurich-ch",
-        "insegnamento-e-ricerca-assistente-presso-l-istituto-di-design-e-architettura-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teaching-and-research-assistant-at-the-institute-of-design-and-architecture-eth-zurich-ch",
-          "insegnamento-e-ricerca-assistente-presso-l-istituto-di-design-e-architettura-eth-zurich-zurich"
-        ],
-        "de": [
-          "teaching-and-research-assistant-at-the-institute-of-design-and-architecture-eth-zurich-ch"
-        ],
-        "fr": [
-          "teaching-and-research-assistant-at-the-institute-of-design-and-architecture-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-05-15T10:57:03.495Z"
     },
     {
@@ -6303,22 +5230,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_nRbDb7Pw2j3k7p38Fa",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-on-quantum-computing-eth-zurich-ch",
-        "posizione-del-dottorato-sul-calcolo-quantistico-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-on-quantum-computing-eth-zurich-ch",
-          "posizione-del-dottorato-sul-calcolo-quantistico-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-on-quantum-computing-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-position-on-quantum-computing-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-05-10T21:32:36.920Z"
     },
     {
@@ -6435,22 +5346,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_mlRP2d7pXqRQcS4l5r",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "postdoc-position-in-soft-optical-fiber-based-artificial-muscle-for-biomedical-applications",
-        "posizione-postdoc-in-morbido-muscolo-artificiale-a-fibra-ottica-per-applicazioni-biomediche-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoc-position-in-soft-optical-fiber-based-artificial-muscle-for-biomedical-applications",
-          "posizione-postdoc-in-morbido-muscolo-artificiale-a-fibra-ottica-per-applicazioni-biomediche-eth-zurich-zurich"
-        ],
-        "de": [
-          "postdoc-position-in-soft-optical-fiber-based-artificial-muscle-for-biomedical-applications"
-        ],
-        "fr": [
-          "postdoc-position-in-soft-optical-fiber-based-artificial-muscle-for-biomedical-applications"
-        ]
-      },
       "firstSeenAt": "2026-05-10T21:32:51.992Z"
     },
     {
@@ -6499,22 +5394,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_7GGGGkSQy7VMoVr4ho",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-light-controlled-variable-stiffness-for-soft-robotics-eth-zurich-ch",
-        "posizione-di-dottorato-in-rigidita-variabile-controllata-dalla-luce-per-la-robotica-morbida-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-light-controlled-variable-stiffness-for-soft-robotics-eth-zurich-ch",
-          "posizione-di-dottorato-in-rigidita-variabile-controllata-dalla-luce-per-la-robotica-morbida-eth-zurich-zurich"
-        ],
-        "de": [
-          "phd-position-in-light-controlled-variable-stiffness-for-soft-robotics-eth-zurich-ch"
-        ],
-        "fr": [
-          "phd-position-in-light-controlled-variable-stiffness-for-soft-robotics-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-05-10T21:32:53.498Z"
     },
     {
@@ -6563,22 +5442,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_opiPoY6wNmVdhqPzn8",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "postdoc-position-in-experimental-quantum-engineering-eqe-group-eth-zurich-ch",
-        "posizione-postdoc-in-ingegneria-quantistica-sperimentale-eqe-gruppo-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoc-position-in-experimental-quantum-engineering-eqe-group-eth-zurich-ch",
-          "posizione-postdoc-in-ingegneria-quantistica-sperimentale-eqe-gruppo-eth-zurich-zurich"
-        ],
-        "de": [
-          "postdoc-position-in-experimental-quantum-engineering-eqe-group-eth-zurich-ch"
-        ],
-        "fr": [
-          "postdoc-position-in-experimental-quantum-engineering-eqe-group-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-05-10T21:33:04.079Z"
     },
     {
@@ -6627,22 +5490,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_lbxiZpaZyPtM481Z2F",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "systems-engineer-cloud-and-platform-services-eth-zurich-ch",
-        "systems-ingegnere-cloud-and-platform-services-eth-zurich-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "systems-engineer-cloud-and-platform-services-eth-zurich-ch",
-          "systems-ingegnere-cloud-and-platform-services-eth-zurich-lugano"
-        ],
-        "de": [
-          "systems-engineer-cloud-and-platform-services-eth-zurich-ch"
-        ],
-        "fr": [
-          "systems-engineer-cloud-and-platform-services-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-05-10T21:33:04.080Z"
     },
     {
@@ -6692,15 +5539,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient-",
-        "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient",
-        "posizione-dottorale-degli-studenti-valutazione-di-nuove-fonti-minerali-per-il-trattamento-delle-carenze-micronutrienti-n"
+        "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient-"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient-",
-          "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient",
-          "posizione-dottorale-degli-studenti-valutazione-di-nuove-fonti-minerali-per-il-trattamento-delle-carenze-micronutrienti-n"
+          "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient-"
         ],
         "de": [
           "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient-"
@@ -6757,22 +5600,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_pQp7llgQZUJrmY5FzE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "doctoral-researcher-in-food-processing-for-planetary-and-human-health-eth-zurich-ch",
-        "ricercatore-medico-nella-lavorazione-degli-alimenti-per-la-salute-planetaria-e-umana-eth-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "doctoral-researcher-in-food-processing-for-planetary-and-human-health-eth-zurich-ch",
-          "ricercatore-medico-nella-lavorazione-degli-alimenti-per-la-salute-planetaria-e-umana-eth-zurich-zurich"
-        ],
-        "de": [
-          "doctoral-researcher-in-food-processing-for-planetary-and-human-health-eth-zurich-ch"
-        ],
-        "fr": [
-          "doctoral-researcher-in-food-processing-for-planetary-and-human-health-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-05-10T21:33:04.085Z"
     }
   ]

@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "galliker-a9750c425584",
-      "slug": "chauffeur-c-ce-a-galliker-landquart",
+      "slug": "autista-c-ce-a-galliker-transport-ag-landquart",
       "slugByLocale": {
-        "it": "chauffeur-c-ce-a-galliker-landquart",
+        "it": "autista-c-ce-a-galliker-transport-ag-landquart",
         "en": "chauffeur-c-ce-a-galliker-landquart",
         "de": "chauffeur-c-ce-a-galliker-landquart",
         "fr": "chauffeur-c-ce-a-galliker-landquart"
@@ -65,7 +65,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-c-ce-a-galliker-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-c-ce-a-galliker-landquart"
+      ]
     },
     {
       "id": "galliker-5a6cba9ccf45",
@@ -118,13 +126,11 @@
       "requirementsByLocale": {},
       "externalId": "0442",
       "previousSlugs": [
-        "sachbearbeiter-tauschgerate-verkauf-innendienst-a-galliker-altishofen",
-        "sachbearbeiter-tauschgerate-vendita-servizio-interno-a-galliker-transport-ag-altishofen"
+        "sachbearbeiter-tauschgerate-verkauf-innendienst-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-tauschgerate-verkauf-innendienst-a-galliker-altishofen",
-          "sachbearbeiter-tauschgerate-vendita-servizio-interno-a-galliker-transport-ag-altishofen"
+          "sachbearbeiter-tauschgerate-verkauf-innendienst-a-galliker-altishofen"
         ],
         "en": [
           "sachbearbeiter-tauschgerate-verkauf-innendienst-a-galliker-altishofen"
@@ -263,14 +269,12 @@
       "externalId": "0056",
       "previousSlugs": [
         "logistiker-a-galliker-altishofen",
-        "logistiker-a-galliker-transport-ag-altishofen",
-        "logistico-a-galliker-transport-ag-altishofen"
+        "logistiker-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-a-galliker-altishofen",
-          "logistiker-a-galliker-transport-ag-altishofen",
-          "logistico-a-galliker-transport-ag-altishofen"
+          "logistiker-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "logistiker-a-galliker-transport-ag-altishofen"
@@ -345,13 +349,11 @@
       "requirementsByLocale": {},
       "externalId": "0441",
       "previousSlugs": [
-        "stv-teamleiter-logistik-a-galliker-altishofen",
-        "vice-capo-squadra-logistica-a-galliker-transport-ag-altishofen"
+        "stv-teamleiter-logistik-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-teamleiter-logistik-a-galliker-altishofen",
-          "vice-capo-squadra-logistica-a-galliker-transport-ag-altishofen"
+          "stv-teamleiter-logistik-a-galliker-altishofen"
         ],
         "en": [
           "stv-teamleiter-logistik-a-galliker-altishofen"
@@ -425,13 +427,11 @@
       "requirementsByLocale": {},
       "externalId": "0397",
       "previousSlugs": [
-        "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen",
-        "application-manager-infrastruttura-flotta-80-100-a-galliker-transport-ag-altishofen"
+        "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen",
-          "application-manager-infrastruttura-flotta-80-100-a-galliker-transport-ag-altishofen"
+          "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen"
         ],
         "fr": [
           "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen"
@@ -503,13 +503,11 @@
       "requirementsByLocale": {},
       "externalId": "0439",
       "previousSlugs": [
-        "mitarbeiter-technischer-unterhalt-logistikanlagen-a-galliker-altishofen",
-        "collaboratore-trice-technischer-unterhalt-logistikanlagen-a-galliker-transport-ag-altishofen"
+        "mitarbeiter-technischer-unterhalt-logistikanlagen-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-technischer-unterhalt-logistikanlagen-a-galliker-altishofen",
-          "collaboratore-trice-technischer-unterhalt-logistikanlagen-a-galliker-transport-ag-altishofen"
+          "mitarbeiter-technischer-unterhalt-logistikanlagen-a-galliker-altishofen"
         ],
         "en": [
           "mitarbeiter-technischer-unterhalt-logistikanlagen-a-galliker-altishofen"
@@ -584,14 +582,12 @@
       "externalId": "0438",
       "previousSlugs": [
         "logisticien-cfc-h-f-d-galliker-aclens",
-        "logistico-efz-lun-f-d-galliker-transport-ag-aclens",
-        "logisticista-cfc-h-f-d-galliker-transport-ag-aclens"
+        "logistico-efz-lun-f-d-galliker-transport-ag-aclens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logisticien-cfc-h-f-d-galliker-aclens",
-          "logistico-efz-lun-f-d-galliker-transport-ag-aclens",
-          "logisticista-cfc-h-f-d-galliker-transport-ag-aclens"
+          "logistico-efz-lun-f-d-galliker-transport-ag-aclens"
         ],
         "en": [
           "logisticien-cfc-h-f-d-galliker-aclens"
@@ -666,13 +662,11 @@
       "requirementsByLocale": {},
       "externalId": "0437",
       "previousSlugs": [
-        "technischer-sachbearbeiter-rucklauf-a-galliker-altishofen",
-        "dichiarazione-tecnica-del-impiegato-a-galliker-transport-ag-altishofen"
+        "technischer-sachbearbeiter-rucklauf-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technischer-sachbearbeiter-rucklauf-a-galliker-altishofen",
-          "dichiarazione-tecnica-del-impiegato-a-galliker-transport-ag-altishofen"
+          "technischer-sachbearbeiter-rucklauf-a-galliker-altishofen"
         ],
         "en": [
           "technischer-sachbearbeiter-rucklauf-a-galliker-altishofen"
@@ -748,14 +742,12 @@
       "externalId": "0436",
       "previousSlugs": [
         "fahrzeugbewerter-a-galliker-altishofen",
-        "fahrzeugbewerter-a-galliker-transport-ag-altishofen",
-        "valutatore-del-veicolo-a-galliker-transport-ag-altishofen"
+        "fahrzeugbewerter-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrzeugbewerter-a-galliker-altishofen",
-          "fahrzeugbewerter-a-galliker-transport-ag-altishofen",
-          "valutatore-del-veicolo-a-galliker-transport-ag-altishofen"
+          "fahrzeugbewerter-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "fahrzeugbewerter-a-galliker-transport-ag-altishofen"
@@ -830,13 +822,11 @@
       "requirementsByLocale": {},
       "externalId": "0426",
       "previousSlugs": [
-        "leitstandmitarbeiter-customizing-a-galliker-altishofen",
-        "personalizzazione-dei-dipendenti-del-centro-di-controllo-a-galliker-transport-ag-altishofen"
+        "leitstandmitarbeiter-customizing-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitstandmitarbeiter-customizing-a-galliker-altishofen",
-          "personalizzazione-dei-dipendenti-del-centro-di-controllo-a-galliker-transport-ag-altishofen"
+          "leitstandmitarbeiter-customizing-a-galliker-altishofen"
         ],
         "en": [
           "leitstandmitarbeiter-customizing-a-galliker-altishofen"
@@ -974,13 +964,11 @@
       "requirementsByLocale": {},
       "externalId": "0434",
       "previousSlugs": [
-        "business-data-analyst-80-100-a-galliker-altishofen",
-        "business-data-analista-80-100-a-galliker-transport-ag-altishofen"
+        "business-data-analyst-80-100-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-data-analyst-80-100-a-galliker-altishofen",
-          "business-data-analista-80-100-a-galliker-transport-ag-altishofen"
+          "business-data-analyst-80-100-a-galliker-altishofen"
         ],
         "fr": [
           "business-data-analyst-80-100-a-galliker-altishofen"
@@ -1131,13 +1119,11 @@
       "requirementsByLocale": {},
       "externalId": "0204",
       "previousSlugs": [
-        "chauffeur-c-ce-m-w-d-staad-galliker-staad",
-        "autista-c-ce-lunedi-vendedi-staad-galliker-transport-ag-staad"
+        "chauffeur-c-ce-m-w-d-staad-galliker-staad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-c-ce-m-w-d-staad-galliker-staad",
-          "autista-c-ce-lunedi-vendedi-staad-galliker-transport-ag-staad"
+          "chauffeur-c-ce-m-w-d-staad-galliker-staad"
         ],
         "en": [
           "chauffeur-c-ce-m-w-d-staad-galliker-staad"
@@ -1212,13 +1198,11 @@
       "requirementsByLocale": {},
       "externalId": "0416",
       "previousSlugs": [
-        "mitarbeiter-gebaudetechnik-galliker-altishofen",
-        "collaboratore-trice-gebaudetechnik-galliker-transport-ag-altishofen"
+        "mitarbeiter-gebaudetechnik-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-gebaudetechnik-galliker-altishofen",
-          "collaboratore-trice-gebaudetechnik-galliker-transport-ag-altishofen"
+          "mitarbeiter-gebaudetechnik-galliker-altishofen"
         ],
         "en": [
           "mitarbeiter-gebaudetechnik-galliker-altishofen"
@@ -1293,13 +1277,11 @@
       "requirementsByLocale": {},
       "externalId": "0380",
       "previousSlugs": [
-        "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
-        "collaboratore-trice-ersatzteillager-lkw-a-galliker-transport-ag-altishofen"
+        "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
-          "collaboratore-trice-ersatzteillager-lkw-a-galliker-transport-ag-altishofen"
+          "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen"
         ],
         "en": [
           "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen"
@@ -1374,13 +1356,11 @@
       "requirementsByLocale": {},
       "externalId": "0150",
       "previousSlugs": [
-        "lkw-diagnostiker-a-galliker-altishofen",
-        "diagnostico-per-camion-a-galliker-transport-ag-altishofen"
+        "lkw-diagnostiker-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lkw-diagnostiker-a-galliker-altishofen",
-          "diagnostico-per-camion-a-galliker-transport-ag-altishofen"
+          "lkw-diagnostiker-a-galliker-altishofen"
         ],
         "en": [
           "lkw-diagnostiker-a-galliker-altishofen"
@@ -1456,14 +1436,12 @@
       "externalId": "0225",
       "previousSlugs": [
         "lastwagenreiniger-a-galliker-altishofen",
-        "lastwagenreiniger-a-galliker-transport-ag-altishofen",
-        "pulitore-per-camion-a-galliker-transport-ag-altishofen"
+        "lastwagenreiniger-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenreiniger-a-galliker-altishofen",
-          "lastwagenreiniger-a-galliker-transport-ag-altishofen",
-          "pulitore-per-camion-a-galliker-transport-ag-altishofen"
+          "lastwagenreiniger-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "lastwagenreiniger-a-galliker-transport-ag-altishofen"
@@ -1618,14 +1596,12 @@
       "externalId": "0403",
       "previousSlugs": [
         "fahrzeugschlosser-a-galliker-altishofen",
-        "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
-        "installatore-di-veicoli-a-galliker-transport-ag-altishofen"
+        "fahrzeugschlosser-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrzeugschlosser-a-galliker-altishofen",
-          "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
-          "installatore-di-veicoli-a-galliker-transport-ag-altishofen"
+          "fahrzeugschlosser-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "fahrzeugschlosser-a-galliker-transport-ag-altishofen"
@@ -1778,13 +1754,11 @@
       "requirementsByLocale": {},
       "externalId": "0411",
       "previousSlugs": [
-        "carrosserielackierer-nfz-a-galliker-altishofen",
-        "carrozzeria-veicolo-commerciale-a-galliker-transport-ag-altishofen"
+        "carrosserielackierer-nfz-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "carrosserielackierer-nfz-a-galliker-altishofen",
-          "carrozzeria-veicolo-commerciale-a-galliker-transport-ag-altishofen"
+          "carrosserielackierer-nfz-a-galliker-altishofen"
         ],
         "en": [
           "carrosserielackierer-nfz-a-galliker-altishofen"
@@ -1859,14 +1833,12 @@
       "externalId": "0382",
       "previousSlugs": [
         "betriebselektriker-a-galliker-altishofen",
-        "betriebselektriker-a-galliker-transport-ag-altishofen",
-        "elettricista-di-impianto-a-galliker-transport-ag-altishofen"
+        "betriebselektriker-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-a-galliker-altishofen",
-          "betriebselektriker-a-galliker-transport-ag-altishofen",
-          "elettricista-di-impianto-a-galliker-transport-ag-altishofen"
+          "betriebselektriker-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "betriebselektriker-a-galliker-transport-ag-altishofen"
@@ -1941,13 +1913,11 @@
       "requirementsByLocale": {},
       "externalId": "0046",
       "previousSlugs": [
-        "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen",
-        "automobilfachmann-nf-candidato-a-in-riqualificazione-a-galliker-transport-ag-altishofen"
+        "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen",
-          "automobilfachmann-nf-candidato-a-in-riqualificazione-a-galliker-transport-ag-altishofen"
+          "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen"
         ],
         "en": [
           "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen"
@@ -2021,13 +1991,11 @@
       "requirementsByLocale": {},
       "externalId": "0415",
       "previousSlugs": [
-        "allrounder-waschanlage-und-car-logistics-galliker-altishofen",
-        "allrounder-waschanlage-e-car-logistica-galliker-transport-ag-altishofen"
+        "allrounder-waschanlage-und-car-logistics-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-waschanlage-und-car-logistics-galliker-altishofen",
-          "allrounder-waschanlage-e-car-logistica-galliker-transport-ag-altishofen"
+          "allrounder-waschanlage-und-car-logistics-galliker-altishofen"
         ],
         "en": [
           "allrounder-waschanlage-und-car-logistics-galliker-altishofen"
@@ -2102,13 +2070,11 @@
       "requirementsByLocale": {},
       "externalId": "0430",
       "previousSlugs": [
-        "junior-chauffeur-quereinsteiger-a-galliker-mohlin",
-        "junior-chauffeur-candidato-a-in-riqualificazione-a-galliker-transport-ag-mohlin"
+        "junior-chauffeur-quereinsteiger-a-galliker-mohlin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-chauffeur-quereinsteiger-a-galliker-mohlin",
-          "junior-chauffeur-candidato-a-in-riqualificazione-a-galliker-transport-ag-mohlin"
+          "junior-chauffeur-quereinsteiger-a-galliker-mohlin"
         ],
         "en": [
           "junior-chauffeur-quereinsteiger-a-galliker-mohlin"
@@ -2182,13 +2148,11 @@
       "requirementsByLocale": {},
       "externalId": "0431",
       "previousSlugs": [
-        "gruppenverantwortlicher-waschanlage-und-mitarbeit-in-der-car-logistics-a-galliker",
-        "gruppenverantwortlicher-waschanlage-e-mitarbeit-in-der-car-logistica-a-galliker-transport-ag-altishofen"
+        "gruppenverantwortlicher-waschanlage-und-mitarbeit-in-der-car-logistics-a-galliker"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gruppenverantwortlicher-waschanlage-und-mitarbeit-in-der-car-logistics-a-galliker",
-          "gruppenverantwortlicher-waschanlage-e-mitarbeit-in-der-car-logistica-a-galliker-transport-ag-altishofen"
+          "gruppenverantwortlicher-waschanlage-und-mitarbeit-in-der-car-logistics-a-galliker"
         ],
         "en": [
           "gruppenverantwortlicher-waschanlage-und-mitarbeit-in-der-car-logistics-a-galliker"
@@ -2262,13 +2226,11 @@
       "requirementsByLocale": {},
       "externalId": "0425",
       "previousSlugs": [
-        "serviceberater-kundendienstberater-neuwagen-a-galliker-altishofen",
-        "consulente-di-assistenza-consulente-di-assistenza-clienti-auto-nuove-a-galliker-transport-ag-altishofen"
+        "serviceberater-kundendienstberater-neuwagen-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "serviceberater-kundendienstberater-neuwagen-a-galliker-altishofen",
-          "consulente-di-assistenza-consulente-di-assistenza-clienti-auto-nuove-a-galliker-transport-ag-altishofen"
+          "serviceberater-kundendienstberater-neuwagen-a-galliker-altishofen"
         ],
         "en": [
           "serviceberater-kundendienstberater-neuwagen-a-galliker-altishofen"
@@ -2343,13 +2305,11 @@
       "requirementsByLocale": {},
       "externalId": "0420",
       "previousSlugs": [
-        "teamleiter-logistik-a-galliker-altishofen",
-        "capo-squadra-logistica-a-galliker-transport-ag-altishofen"
+        "teamleiter-logistik-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-logistik-a-galliker-altishofen",
-          "capo-squadra-logistica-a-galliker-transport-ag-altishofen"
+          "teamleiter-logistik-a-galliker-altishofen"
         ],
         "en": [
           "teamleiter-logistik-a-galliker-altishofen"
@@ -2424,13 +2384,11 @@
       "requirementsByLocale": {},
       "externalId": "0424",
       "previousSlugs": [
-        "sachbearbeiter-vid-a-galliker-altishofen",
-        "vid-del-cancelliere-a-galliker-transport-ag-altishofen"
+        "sachbearbeiter-vid-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-vid-a-galliker-altishofen",
-          "vid-del-cancelliere-a-galliker-transport-ag-altishofen"
+          "sachbearbeiter-vid-a-galliker-altishofen"
         ],
         "en": [
           "sachbearbeiter-vid-a-galliker-altishofen"
@@ -2504,13 +2462,11 @@
       "requirementsByLocale": {},
       "externalId": "0314",
       "previousSlugs": [
-        "junior-driver-kat-b-a-schachen-galliker-schachen",
-        "junior-driver-cat-b-a-schachen-galliker-transport-ag-schachen"
+        "junior-driver-kat-b-a-schachen-galliker-schachen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-driver-kat-b-a-schachen-galliker-schachen",
-          "junior-driver-cat-b-a-schachen-galliker-transport-ag-schachen"
+          "junior-driver-kat-b-a-schachen-galliker-schachen"
         ]
       },
       "firstSeenAt": "2026-07-04T10:54:45.536Z",
@@ -2657,14 +2613,12 @@
       "externalId": "0126",
       "previousSlugs": [
         "carrosseriespengler-pw-a-galliker-altishofen",
-        "carrosseriespengler-pw-a-galliker-transport-ag-altishofen",
-        "idraulico-carrozzeria-pw-a-galliker-transport-ag-altishofen"
+        "carrosseriespengler-pw-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "carrosseriespengler-pw-a-galliker-altishofen",
-          "carrosseriespengler-pw-a-galliker-transport-ag-altishofen",
-          "idraulico-carrozzeria-pw-a-galliker-transport-ag-altishofen"
+          "carrosseriespengler-pw-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-07-04T10:54:44.807Z",
@@ -2734,14 +2688,12 @@
       "externalId": "0032",
       "previousSlugs": [
         "carrosserielackierer-pw-a-galliker-altishofen",
-        "carrosserielackierer-pw-a-galliker-transport-ag-altishofen",
-        "pittore-di-carrozzeria-pw-a-galliker-transport-ag-altishofen"
+        "carrosserielackierer-pw-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "carrosserielackierer-pw-a-galliker-altishofen",
-          "carrosserielackierer-pw-a-galliker-transport-ag-altishofen",
-          "pittore-di-carrozzeria-pw-a-galliker-transport-ag-altishofen"
+          "carrosserielackierer-pw-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "carrosserielackierer-pw-a-galliker-transport-ag-altishofen"
@@ -2816,13 +2768,11 @@
       "requirementsByLocale": {},
       "externalId": "0407",
       "previousSlugs": [
-        "betriebsmitarbeiter-technischer-ablieferservice-a-galliker-altishofen",
-        "servizio-di-consegna-tecnica-per-dipendenti-operativi-a-galliker-transport-ag-altishofen"
+        "betriebsmitarbeiter-technischer-ablieferservice-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmitarbeiter-technischer-ablieferservice-a-galliker-altishofen",
-          "servizio-di-consegna-tecnica-per-dipendenti-operativi-a-galliker-transport-ag-altishofen"
+          "betriebsmitarbeiter-technischer-ablieferservice-a-galliker-altishofen"
         ],
         "en": [
           "betriebsmitarbeiter-technischer-ablieferservice-a-galliker-altishofen"
@@ -2897,13 +2847,11 @@
       "requirementsByLocale": {},
       "externalId": "0219",
       "previousSlugs": [
-        "automobilfachmann-mechatroniker-pw-a-galliker-altishofen",
-        "specialista-automobilistico-tecnico-di-mecatronica-pw-a-galliker-transport-ag-altishofen"
+        "automobilfachmann-mechatroniker-pw-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automobilfachmann-mechatroniker-pw-a-galliker-altishofen",
-          "specialista-automobilistico-tecnico-di-mecatronica-pw-a-galliker-transport-ag-altishofen"
+          "automobilfachmann-mechatroniker-pw-a-galliker-altishofen"
         ],
         "en": [
           "automobilfachmann-mechatroniker-pw-a-galliker-altishofen"
@@ -2977,13 +2925,11 @@
       "requirementsByLocale": {},
       "externalId": "0378",
       "previousSlugs": [
-        "system-engineer-senior-80-100-a-galliker-altishofen",
-        "system-ingegnere-senior-80-100-a-galliker-transport-ag-altishofen"
+        "system-engineer-senior-80-100-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-senior-80-100-a-galliker-altishofen",
-          "system-ingegnere-senior-80-100-a-galliker-transport-ag-altishofen"
+          "system-engineer-senior-80-100-a-galliker-altishofen"
         ],
         "fr": [
           "system-engineer-senior-80-100-a-galliker-altishofen"
@@ -3118,13 +3064,11 @@
       "requirementsByLocale": {},
       "externalId": "0376",
       "previousSlugs": [
-        "devops-engineer-professional-senior-a-galliker-altishofen",
-        "devops-ingegnere-professional-senior-a-galliker-transport-ag-altishofen"
+        "devops-engineer-professional-senior-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-professional-senior-a-galliker-altishofen",
-          "devops-ingegnere-professional-senior-a-galliker-transport-ag-altishofen"
+          "devops-engineer-professional-senior-a-galliker-altishofen"
         ],
         "fr": [
           "devops-engineer-professional-senior-a-galliker-altishofen"
@@ -3196,13 +3140,11 @@
       "requirementsByLocale": {},
       "externalId": "0158",
       "previousSlugs": [
-        "chauffeur-ce-nachttouren-a-galliker-mohlin",
-        "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin"
+        "chauffeur-ce-nachttouren-a-galliker-mohlin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-ce-nachttouren-a-galliker-mohlin",
-          "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin"
+          "chauffeur-ce-nachttouren-a-galliker-mohlin"
         ],
         "en": [
           "chauffeur-ce-nachttouren-a-galliker-mohlin"
@@ -3278,14 +3220,12 @@
       "externalId": "0220",
       "previousSlugs": [
         "strassentransport-disponent-a-galliker-mohlin",
-        "strassentransport-disponent-a-galliker-transport-ag-mohlin",
-        "trasporto-su-strada-dispatcher-a-galliker-transport-ag-mohlin"
+        "strassentransport-disponent-a-galliker-transport-ag-mohlin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strassentransport-disponent-a-galliker-mohlin",
-          "strassentransport-disponent-a-galliker-transport-ag-mohlin",
-          "trasporto-su-strada-dispatcher-a-galliker-transport-ag-mohlin"
+          "strassentransport-disponent-a-galliker-transport-ag-mohlin"
         ],
         "en": [
           "strassentransport-disponent-a-galliker-mohlin"
@@ -3360,13 +3300,11 @@
       "requirementsByLocale": {},
       "externalId": "0418",
       "previousSlugs": [
-        "mitarbeiter-felgencenter-a-galliker-altishofen",
-        "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen"
+        "mitarbeiter-felgencenter-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-felgencenter-a-galliker-altishofen",
-          "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen"
+          "mitarbeiter-felgencenter-a-galliker-altishofen"
         ],
         "en": [
           "mitarbeiter-felgencenter-a-galliker-altishofen"
@@ -3441,14 +3379,12 @@
       "externalId": "0417",
       "previousSlugs": [
         "junior-projektleiter-gebaudetechnik-a-galliker-altishofen",
-        "junior-projektleiter-gebaudetechnik-a-galliker-transport-ag-altishofen",
-        "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen"
+        "junior-projektleiter-gebaudetechnik-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "junior-projektleiter-gebaudetechnik-a-galliker-altishofen",
-          "junior-projektleiter-gebaudetechnik-a-galliker-transport-ag-altishofen",
-          "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen"
+          "junior-projektleiter-gebaudetechnik-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "junior-projektleiter-gebaudetechnik-a-galliker-altishofen"
@@ -3523,13 +3459,11 @@
       "requirementsByLocale": {},
       "externalId": "0405",
       "previousSlugs": [
-        "autoglas-techniker-a-galliker-altishofen",
-        "tecnico-vetri-per-auto-a-galliker-transport-ag-altishofen"
+        "autoglas-techniker-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "autoglas-techniker-a-galliker-altishofen",
-          "tecnico-vetri-per-auto-a-galliker-transport-ag-altishofen"
+          "autoglas-techniker-a-galliker-altishofen"
         ],
         "en": [
           "autoglas-techniker-a-galliker-altishofen"
@@ -3604,13 +3538,11 @@
       "requirementsByLocale": {},
       "externalId": "0211",
       "previousSlugs": [
-        "chauffeur-ce-ruckfuhrungen-von-pannenfahrzeugen-galliker-altishofen",
-        "autista-ce-rimpatrio-dei-veicoli-in-guasto-galliker-transport-ag-altishofen"
+        "chauffeur-ce-ruckfuhrungen-von-pannenfahrzeugen-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-ce-ruckfuhrungen-von-pannenfahrzeugen-galliker-altishofen",
-          "autista-ce-rimpatrio-dei-veicoli-in-guasto-galliker-transport-ag-altishofen"
+          "chauffeur-ce-ruckfuhrungen-von-pannenfahrzeugen-galliker-altishofen"
         ],
         "en": [
           "chauffeur-ce-ruckfuhrungen-von-pannenfahrzeugen-galliker-altishofen"
@@ -3685,13 +3617,11 @@
       "requirementsByLocale": {},
       "externalId": "0039",
       "previousSlugs": [
-        "junior-chauffeur-quereinsteiger-a-galliker-altishofen",
-        "junior-chauffeur-candidato-a-in-riqualificazione-a-galliker-transport-ag-altishofen"
+        "junior-chauffeur-quereinsteiger-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-chauffeur-quereinsteiger-a-galliker-altishofen",
-          "junior-chauffeur-candidato-a-in-riqualificazione-a-galliker-transport-ag-altishofen"
+          "junior-chauffeur-quereinsteiger-a-galliker-altishofen"
         ],
         "en": [
           "junior-chauffeur-quereinsteiger-a-galliker-altishofen"
@@ -3766,13 +3696,11 @@
       "requirementsByLocale": {},
       "externalId": "0042",
       "previousSlugs": [
-        "chauffeure-c-ce-a-galliker-altishofen",
-        "autisti-c-ce-a-galliker-transport-ag-altishofen"
+        "chauffeure-c-ce-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeure-c-ce-a-galliker-altishofen",
-          "autisti-c-ce-a-galliker-transport-ag-altishofen"
+          "chauffeure-c-ce-a-galliker-altishofen"
         ],
         "en": [
           "chauffeure-c-ce-a-galliker-altishofen"
@@ -3846,13 +3774,11 @@
       "requirementsByLocale": {},
       "externalId": "0043",
       "previousSlugs": [
-        "chauffeur-ce-autotransporte-a-galliker-altishofen",
-        "trasporti-auto-con-autista-ce-a-galliker-transport-ag-altishofen"
+        "chauffeur-ce-autotransporte-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-ce-autotransporte-a-galliker-altishofen",
-          "trasporti-auto-con-autista-ce-a-galliker-transport-ag-altishofen"
+          "chauffeur-ce-autotransporte-a-galliker-altishofen"
         ]
       },
       "firstSeenAt": "2026-07-04T10:54:39.337Z",

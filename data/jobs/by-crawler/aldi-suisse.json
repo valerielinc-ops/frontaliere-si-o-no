@@ -1250,7 +1250,6 @@
       "country": "CH",
       "firstSeenAt": "2026-07-07T12:23:41.107Z",
       "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen"
       ],
       "previousSlugsByLocale": {
@@ -1264,9 +1263,9 @@
       "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "en": "sales-associate-m-w-d-aldi-suisse-meilen",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "fr": "vendeur-se-m-w-d-aldi-suisse-meilen"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -1343,6 +1342,12 @@
       "crawledAt": "2026-07-07T12:23:43.822Z",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ]
       },
