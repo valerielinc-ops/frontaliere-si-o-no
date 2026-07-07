@@ -1,16 +1,16 @@
 {
   "key": "cordenpharma",
   "label": "CordenPharma",
-  "generatedAt": "2026-07-06T22:17:27.083Z",
+  "generatedAt": "2026-07-07T12:00:21.902Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6841,
-  "avgDurationMs": 6841,
+  "unchangedCount": 1,
+  "durationMs": 7630,
+  "avgDurationMs": 7630,
   "durationHistory": [
-    6841
+    7630
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:17:21.827Z",
+      "crawledAt": "2026-07-07T12:00:17.211Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -63,7 +63,7 @@
       "url": "https://career.cordenpharma.com/en/p/liestal/jobs/20921/it-site-lead-europe-multi-site-mfd-switzerland-france-portugal",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:17:23.977Z",
+      "crawledAt": "2026-07-07T12:00:19.418Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -100,7 +100,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20885/mitarbeiter-logistik-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:17:25.018Z",
+      "crawledAt": "2026-07-07T12:00:20.127Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -137,7 +137,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20861/analytical-scientist-100-mwd-abteilung-qc-analytics",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:17:22.859Z",
+      "crawledAt": "2026-07-07T12:00:17.802Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -174,7 +174,7 @@
       "url": "https://career.cordenpharma.com/en/p/liestal/jobs/20846/head-of-development-mfd-innovative-synthesis-dual-role",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:17:23.336Z",
+      "crawledAt": "2026-07-07T12:00:18.533Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -198,7 +198,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "cordenpharma-40473d5471e3",
       "slug": "betriebsmechaniker-produktions-e-gebaudetechnik-m-w-d-cordenpharma-ettingen",
@@ -228,15 +231,16 @@
       "postedDate": "2026-03-27",
       "applyUrl": "https://career.cordenpharma.com/de/p/ettingen/jobs/20851/betriebsmechaniker-produktions-und-gebaudetechnik-mwd",
       "firstSeenAt": "2026-07-04T10:47:50.294Z",
-      "_qualityScore": 90,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
