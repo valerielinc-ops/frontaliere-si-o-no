@@ -448,10 +448,10 @@
       "id": "psgn-e2a366a79fc3",
       "slug": "cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg",
+        "it": "pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "en": "pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "de": "pflegefachperson-hf-fh-psgn-wil-sg",
-        "fr": "soins-professionnels-hf-fh-psychiatrie-st-gallen-wil-sg"
+        "fr": "pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -494,18 +494,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-fh-psgn-wil-sg",
-        "pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
-        "cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg",
         "soins-professionnels-hf-fh-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-psgn-wil-sg",
-          "pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
-          "cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg"
+          "pflegefachperson-hf-fh-psgn-wil-sg"
         ],
         "fr": [
-          "pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
           "soins-professionnels-hf-fh-psychiatrie-st-gallen-wil-sg"
         ]
       },
@@ -602,12 +597,12 @@
     },
     {
       "id": "psgn-a6a455c7e61b",
-      "slug": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psychiatrie-st-gallen-wil-sg",
+      "slug": "responsabile-della-formazione-specialista-responsabile-della-formazione-salute-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psgn",
-        "it": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psychiatrie-st-gallen-wil-sg",
-        "en": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psychiatrie-st-gallen-wil-sg",
-        "fr": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psychiatrie-st-gallen-wil-sg"
+        "it": "responsabile-della-formazione-specialista-responsabile-della-formazione-salute-psychiatrie-st-gallen-wil-sg",
+        "en": "training-responsible-training-responsible-nursing-specialist-health-psychiatrie-st-gallen-wil-sg",
+        "fr": "formation-responsable-formation-responsable-specialiste-de-la-sante-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -652,11 +647,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psgn"
+          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psgn",
+          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psychiatrie-st-gallen-wil-sg"
+        ],
+        "en": [
+          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psychiatrie-st-gallen-wil-sg"
+        ],
+        "fr": [
+          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psgn"
+        "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psgn",
+        "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-fachperson-gesundheit-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

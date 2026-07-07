@@ -2297,13 +2297,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufer-in-baustoffe-hornbach-galgenen",
-        "venditore-in-materiali-da-costruzione-hornbach-galgenen"
+        "verkaufer-in-baustoffe-hornbach-galgenen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-baustoffe-hornbach-galgenen",
-          "venditore-in-materiali-da-costruzione-hornbach-galgenen"
+          "verkaufer-in-baustoffe-hornbach-galgenen"
         ],
         "en": [
           "verkaufer-in-baustoffe-hornbach-galgenen"
@@ -2332,8 +2330,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-warenausgabe-hornbach-affoltern-am-albis",
         "it": "collaboratore-trice-warenausgabe-hornbach-affoltern-am-albis",
-        "en": "mitarbeiter-in-warenausgabe-hornbach-affoltern-am-albis",
-        "fr": "mitarbeiter-in-warenausgabe-hornbach-affoltern-am-albis"
+        "en": "associate-warenausgabe-hornbach-affoltern-am-albis",
+        "fr": "collaborateur-trice-warenausgabe-hornbach-affoltern-am-albis"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -2379,6 +2377,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-warenausgabe-hornbach-affoltern-am-albis"
+        ],
+        "en": [
+          "mitarbeiter-in-warenausgabe-hornbach-affoltern-am-albis"
+        ],
+        "fr": [
           "mitarbeiter-in-warenausgabe-hornbach-affoltern-am-albis"
         ]
       },

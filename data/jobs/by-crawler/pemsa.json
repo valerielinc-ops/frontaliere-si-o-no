@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "installatore-esperto-di-canaline-per-cavi-pemsa-geneve",
-        "en": "installatore-esperto-di-canaline-per-cavi-pemsa-geneve",
-        "de": "installatore-esperto-di-canaline-per-cavi-pemsa-geneve",
-        "fr": "installatore-esperto-di-canaline-per-cavi-pemsa-geneve"
+        "en": "expert-cable-channel-installer-pemsa-geneve",
+        "de": "experte-kabelkanal-installateur-pemsa-geneve",
+        "fr": "installateur-de-canaux-cables-expert-pemsa-geneve"
       },
       "id": "pemsa-259d1d5af3ad",
       "needsRetranslation": true,
@@ -98,7 +98,7 @@
       },
       "slugByLocale": {
         "it": "cofra-hussor-pemsa-fribourg",
-        "en": "cofra-hussor-pemsa-fribourg",
+        "en": "cofra-husssor-pemsa-fribourg",
         "de": "cofra-hussor-pemsa-fribourg",
         "fr": "cofra-hussor-pemsa-fribourg"
       },
@@ -157,9 +157,9 @@
       },
       "slugByLocale": {
         "it": "muratore-e-formatore-di-casseforme-pemsa-fribourg",
-        "en": "muratore-e-formatore-di-casseforme-pemsa-fribourg",
-        "de": "muratore-e-formatore-di-casseforme-pemsa-fribourg",
-        "fr": "muratore-e-formatore-di-casseforme-pemsa-fribourg"
+        "en": "wall-and-form-former-pemsa-fribourg",
+        "de": "wand-und-form-ex-pemsa-fribourg",
+        "fr": "mur-et-forme-ancien-pemsa-fribourg"
       },
       "id": "pemsa-54e5c5848af5",
       "needsRetranslation": true,
@@ -216,9 +216,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-pemsa-lugano",
-        "en": "idraulico-pemsa-lugano",
-        "de": "idraulico-pemsa-lugano",
-        "fr": "idraulico-pemsa-lugano"
+        "en": "hydraulic-pemsa-lugano",
+        "de": "hydraulik-pemsa-lugano",
+        "fr": "hydraulique-pemsa-lugano"
       },
       "id": "pemsa-52a84b201a90",
       "needsRetranslation": true,
@@ -275,9 +275,9 @@
       },
       "slugByLocale": {
         "it": "installatore-impianti-sprinkler-pemsa-lugano",
-        "en": "installatore-impianti-sprinkler-pemsa-lugano",
-        "de": "installatore-impianti-sprinkler-pemsa-lugano",
-        "fr": "installatore-impianti-sprinkler-pemsa-lugano"
+        "en": "installer-sprinkler-systems-pemsa-lugano",
+        "de": "installateur-sprinklersysteme-pemsa-lugano",
+        "fr": "systemes-d-arrosage-d-installateur-pemsa-lugano"
       },
       "id": "pemsa-0a15f39b7d69",
       "needsRetranslation": true,
@@ -334,9 +334,9 @@
       },
       "slugByLocale": {
         "it": "muratore-e-formatore-di-casseforme-pemsa-geneve",
-        "en": "muratore-e-formatore-di-casseforme-pemsa-geneve",
-        "de": "muratore-e-formatore-di-casseforme-pemsa-geneve",
-        "fr": "muratore-e-formatore-di-casseforme-pemsa-geneve"
+        "en": "wall-and-form-former-pemsa-geneve",
+        "de": "wand-und-form-ex-pemsa-geneve",
+        "fr": "mur-et-forme-ancien-pemsa-geneve"
       },
       "id": "pemsa-481abbd9999b",
       "needsRetranslation": true,
@@ -2362,17 +2362,7 @@
       },
       "postalCode": "4001",
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
-      "retranslationAttempts": 0,
-      "previousSlugsByLocale": {
-        "it": [
-          "stuccatore-efz-eba-m-f-d-pemsa-basel",
-          "stuccatore-cfc-afp-m-f-d-pemsa-basel"
-        ]
-      },
-      "previousSlugs": [
-        "stuccatore-efz-eba-m-f-d-pemsa-basel",
-        "stuccatore-cfc-afp-m-f-d-pemsa-basel"
-      ]
+      "retranslationAttempts": 0
     },
     {
       "title": "Installatore elettrico AFC / AEC (m/f/d)",
@@ -12637,7 +12627,7 @@
         "it": "impianti-idraulici-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
         "de": "durchfuhrungen-pemsa-torricella",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
+        "fr": "mise-en-uvre-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -12661,13 +12651,11 @@
           "idraulico-impianti-riscaldamento-pemsa-torricella"
         ],
         "fr": [
-          "mise-en-uvre-pemsa-torricella",
           "idraulico-impianti-riscaldamento-pemsa-torricella"
         ]
       },
       "previousSlugs": [
-        "idraulico-impianti-riscaldamento-pemsa-torricella",
-        "mise-en-uvre-pemsa-torricella"
+        "idraulico-impianti-riscaldamento-pemsa-torricella"
       ]
     },
     {

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-2bdd052b736b",
-      "slug": "verkaufer-in-denner-zurich",
+      "slug": "venditore-denner-zurich",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-zurich",
-        "en": "verkaufer-in-denner-zurich",
+        "it": "venditore-denner-zurich",
+        "en": "seller-denner-zurich",
         "de": "verkaufer-in-denner-zurich",
-        "fr": "verkaufer-in-denner-zurich"
+        "fr": "vendeur-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -68,11 +68,19 @@
       "crawledAt": "2026-07-07T12:13:37.685Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-zurich"
+        ],
+        "en": [
+          "verkaufer-in-denner-zurich"
+        ],
+        "fr": [
+          "verkaufer-in-denner-zurich"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -265,12 +273,12 @@
     },
     {
       "id": "denner-1114804c8531",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-buchs-sg",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner",
+        "it": "assistente-nella-gestione-delle-branche-denner-buchs-sg",
+        "en": "assistant-in-branch-management-denner-buchs-sg",
         "de": "assistent-in-filialleitung-denner-buchs-sg",
-        "fr": "assistent-in-filialleitung-denner"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-buchs-sg"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -340,7 +348,21 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-07-07T12:13:37.688Z"
+      "firstSeenAt": "2026-07-07T12:13:37.688Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner"
+      ]
     },
     {
       "id": "denner-884406e1f0a8",
@@ -620,7 +642,7 @@
       "slug": "stv-branch-manager-in-denner-ag-zurich",
       "slugByLocale": {
         "it": "stv-branch-manager-in-denner-ag-zurich",
-        "en": "stv-filialleiter-in-denner-ag-zurich-z8lf10",
+        "en": "stv-branch-manager-in-denner-zurich",
         "de": "stv-filialleiter-in-denner-ag-zurich-z8lf10",
         "fr": "directeur-de-succursale-stv-in-denner-ag-zurich"
       },
@@ -683,7 +705,8 @@
         "stv-filialleiter-in-denner-zurich",
         "stv-filialleiter-in-denner-2",
         "directeur-de-succursale-stv-in-denner-zurich",
-        "stv-branch-manager-in-denner-zurich"
+        "stv-branch-manager-in-denner-zurich",
+        "stv-filialleiter-in-denner-ag-zurich-z8lf10"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -693,7 +716,7 @@
         ],
         "en": [
           "stv-filialleiter-in-denner-zurich",
-          "stv-branch-manager-in-denner-zurich"
+          "stv-filialleiter-in-denner-ag-zurich-z8lf10"
         ],
         "fr": [
           "stv-filialleiter-in-denner-zurich",
@@ -2002,7 +2025,7 @@
       "slug": "stv-branch-manager-in-denner-ag-sursee",
       "slugByLocale": {
         "it": "stv-branch-manager-in-denner-ag-sursee",
-        "en": "stv-filialleiter-in-denner-ag-sursee-whvjnl",
+        "en": "stv-branch-manager-in-denner-sursee",
         "de": "stv-filialleiter-in-denner-ag-sursee-whvjnl",
         "fr": "directeur-de-succursale-stv-in-denner-ag-sursee"
       },
@@ -2066,12 +2089,14 @@
           "stv-filialleiter-in-denner"
         ],
         "en": [
-          "stv-filialleiter-in-denner-sursee"
+          "stv-filialleiter-in-denner-sursee",
+          "stv-filialleiter-in-denner-ag-sursee-whvjnl"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-sursee"
+        "stv-filialleiter-in-denner-sursee",
+        "stv-filialleiter-in-denner-ag-sursee-whvjnl"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -2539,7 +2564,7 @@
       "slug": "stv-branch-manager-in-denner-ag-zug",
       "slugByLocale": {
         "it": "stv-branch-manager-in-denner-ag-zug",
-        "en": "stv-filialleiter-in-denner-ag-zug-15ags6",
+        "en": "stv-branch-manager-in-denner-zug",
         "de": "stv-filialleiter-in-denner-ag-zug-15ags6",
         "fr": "directeur-de-succursale-stv-in-denner-ag-zug"
       },
@@ -2603,12 +2628,14 @@
           "stv-filialleiter-in-denner"
         ],
         "en": [
-          "stv-filialleiter-in-denner-zug"
+          "stv-filialleiter-in-denner-zug",
+          "stv-filialleiter-in-denner-ag-zug-15ags6"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-zug"
+        "stv-filialleiter-in-denner-zug",
+        "stv-filialleiter-in-denner-ag-zug-15ags6"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
