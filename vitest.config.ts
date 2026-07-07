@@ -202,7 +202,13 @@ export default defineConfig({
  // the bare specifier does prefix replacement and breaks subpaths resolved
  // via the package's `exports` map (e.g. `firebase-admin/remote-config`)
  // once rewritten to a plain filesystem path.
- dedupe: ['firebase-admin'],
+ // `stripe` is the same construct — functions-only dependency (not in root
+ // package.json at all), only vi.mock'd in tests/stripe-reader-core.test.ts.
+ // With functions/node_modules present (post `npm ci` in functions/, as
+ // deploy-cloud-functions.yml does), functions/src/stripeReaderCore.js's
+ // `require('stripe')` resolves to functions/node_modules/stripe, bypassing
+ // the mock and hitting the real SDK with the fake test key.
+ dedupe: ['firebase-admin', 'stripe'],
  },
  test: {
  projects: [
