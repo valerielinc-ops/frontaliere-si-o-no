@@ -233,6 +233,32 @@ function buildCommuterParagraph(locale: CommuterLocale, location: string, row: C
   return `${loc} se trouve à ${fromComo} km de Côme et ${fromVarese} km de Varèse, avec un temps de trajet en voiture d\'environ ${drive} minutes hors pointe (pointes 06:30-07:30 et 16:30-19:00) et ${train} minutes en train régional TILO (ligne Côme-Chiasso-${row.display}). Les passages les plus rapides pour les frontaliers vers ${loc} sont ${crossings || 'Brogeda, Stabio, Ponte Tresa'} : aux heures de pointe, les files à Brogeda peuvent dépasser 25 minutes, tandis que Stabio est plus fluide après 07:15. L\'économie locale s\'appuie sur ${anchorsList || 'banques, santé et services'} : dans ces secteurs, les travailleurs trouvent un marché dense avec rotation fréquente et conventions collectives bien structurées. Le permis G requis est demandé par l\'employeur suisse gratuitement et reste valable jusqu\'à la fin du contrat ; le renouvellement est automatique tant que l\'emploi, la résidence dans la zone des 20 km et le retour hebdomadaire au domicile italien sont maintenus.`;
 }
 
+/**
+ * `omitCommute:true` paragraph — used by canton-hub / category-listing pages
+ * that describe an entire canton rather than one commute-data city. Ticino
+ * keeps its original, byte-identical wording (HARD INVARIANT, same as the
+ * `cantonBlock` guard below); every other canton gets the same structure
+ * with the canton name substituted in and the Ticino-specific city list
+ * (Lugano, Mendrisio, Chiasso, Bellinzona, Locarno, Stabio) dropped, since
+ * those towns are meaningless — and factually wrong — on a non-TI page.
+ */
+function buildOmitCommuteParagraph(locale: CommuterLocale, location: string): string {
+  const displayLower = location.trim().toLowerCase();
+  const isTicino = displayLower === 'ticino' || displayLower === 'tessin';
+  if (isTicino) {
+    if (locale === 'it') return 'Le offerte di questa pagina coprono tutto il Cantone Ticino. La "zona di frontiera" del Nuovo Accordo Italia-Svizzera 2024 si applica a tutti i comuni italiani entro 20 km dal confine svizzero, indipendentemente dalla città di lavoro: Lugano, Mendrisio, Chiasso, Bellinzona, Locarno e Stabio. Il Permesso G richiesto al datore svizzero è gratuito; la sua emissione richiede 2-6 settimane dopo la firma del contratto, poi è rinnovato annualmente fino al limite contrattuale. Il rientro al domicilio italiano almeno una volta a settimana è obbligatorio per mantenere lo status.';
+    if (locale === 'en') return 'The listings on this page cover the whole Canton of Ticino. The "border zone" of the 2024 Italy-Switzerland fiscal agreement applies to all Italian municipalities within 20 km of the Swiss border, regardless of work city: Lugano, Mendrisio, Chiasso, Bellinzona, Locarno and Stabio. The G permit filed by the Swiss employer is free of charge; issuance takes 2-6 weeks after contract signature, then yearly renewal up to the contract end. Weekly return to the Italian residence is required to keep the status.';
+    if (locale === 'de') return 'Die Stellen dieser Seite decken den gesamten Kanton Tessin ab. Die "Grenzzone" des Steuerabkommens 2024 gilt für alle italienischen Gemeinden innerhalb 20 km zur Schweizer Grenze, unabhängig vom Arbeitsort: Lugano, Mendrisio, Chiasso, Bellinzona, Locarno und Stabio. Die vom Schweizer Arbeitgeber beantragte G-Bewilligung ist kostenlos; die Ausstellung dauert 2-6 Wochen nach Vertragsunterzeichnung, danach jährliche Verlängerung bis Vertragsende. Eine wöchentliche Rückkehr ins italienische Zuhause ist Pflicht.';
+    return 'Les offres de cette page couvrent tout le canton du Tessin. La « zone frontalière » de l\'accord fiscal 2024 s\'applique à toutes les communes italiennes dans les 20 km de la frontière suisse, indépendamment de la ville de travail : Lugano, Mendrisio, Chiasso, Bellinzona, Locarno et Stabio. Le permis G demandé par l\'employeur suisse est gratuit ; la délivrance prend 2-6 semaines après signature, puis renouvellement annuel jusqu\'à la fin du contrat. Retour hebdomadaire au domicile italien obligatoire.';
+  }
+
+  const canton = location.trim();
+  if (locale === 'it') return `Le offerte di questa pagina coprono tutto il Canton ${canton}. La "zona di frontiera" del Nuovo Accordo Italia-Svizzera 2024 si applica a tutti i comuni italiani entro 20 km dal confine svizzero, indipendentemente dalla città di lavoro nel canton ${canton}. Il Permesso G richiesto al datore svizzero è gratuito; la sua emissione richiede 2-6 settimane dopo la firma del contratto, poi è rinnovato annualmente fino al limite contrattuale. Il rientro al domicilio italiano almeno una volta a settimana è obbligatorio per mantenere lo status.`;
+  if (locale === 'en') return `The listings on this page cover the whole Canton of ${canton}. The "border zone" of the 2024 Italy-Switzerland fiscal agreement applies to all Italian municipalities within 20 km of the Swiss border, regardless of work city within Canton ${canton}. The G permit filed by the Swiss employer is free of charge; issuance takes 2-6 weeks after contract signature, then yearly renewal up to the contract end. Weekly return to the Italian residence is required to keep the status.`;
+  if (locale === 'de') return `Die Stellen dieser Seite decken den gesamten Kanton ${canton} ab. Die "Grenzzone" des Steuerabkommens 2024 gilt für alle italienischen Gemeinden innerhalb 20 km zur Schweizer Grenze, unabhängig vom Arbeitsort im Kanton ${canton}. Die vom Schweizer Arbeitgeber beantragte G-Bewilligung ist kostenlos; die Ausstellung dauert 2-6 Wochen nach Vertragsunterzeichnung, danach jährliche Verlängerung bis Vertragsende. Eine wöchentliche Rückkehr ins italienische Zuhause ist Pflicht.`;
+  return `Les offres de cette page couvrent tout le canton ${canton}. La « zone frontalière » de l\'accord fiscal 2024 s\'applique à toutes les communes italiennes dans les 20 km de la frontière suisse, indépendamment de la ville de travail dans le canton ${canton}. Le permis G demandé par l\'employeur suisse est gratuit ; la délivrance prend 2-6 semaines après signature, puis renouvellement annuel jusqu\'à la fin du contrat. Retour hebdomadaire au domicile italien obligatoire.`;
+}
+
 function buildSalaryParagraph(locale: CommuterLocale, row: CityCommuteRow | null): string {
   const spread = row?.grossSpreadKChf ?? [60, 110];
   if (locale === 'it') {
@@ -521,13 +547,7 @@ export function renderJobBoardCommuterContext(
   const copy = COPY[locale];
 
   const commuterParagraph = omitCommute
-    ? (locale === 'it'
-        ? 'Le offerte di questa pagina coprono tutto il Cantone Ticino. La "zona di frontiera" del Nuovo Accordo Italia-Svizzera 2024 si applica a tutti i comuni italiani entro 20 km dal confine svizzero, indipendentemente dalla città di lavoro: Lugano, Mendrisio, Chiasso, Bellinzona, Locarno e Stabio. Il Permesso G richiesto al datore svizzero è gratuito; la sua emissione richiede 2-6 settimane dopo la firma del contratto, poi è rinnovato annualmente fino al limite contrattuale. Il rientro al domicilio italiano almeno una volta a settimana è obbligatorio per mantenere lo status.'
-        : locale === 'en'
-        ? 'The listings on this page cover the whole Canton of Ticino. The "border zone" of the 2024 Italy-Switzerland fiscal agreement applies to all Italian municipalities within 20 km of the Swiss border, regardless of work city: Lugano, Mendrisio, Chiasso, Bellinzona, Locarno and Stabio. The G permit filed by the Swiss employer is free of charge; issuance takes 2-6 weeks after contract signature, then yearly renewal up to the contract end. Weekly return to the Italian residence is required to keep the status.'
-        : locale === 'de'
-        ? 'Die Stellen dieser Seite decken den gesamten Kanton Tessin ab. Die "Grenzzone" des Steuerabkommens 2024 gilt für alle italienischen Gemeinden innerhalb 20 km zur Schweizer Grenze, unabhängig vom Arbeitsort: Lugano, Mendrisio, Chiasso, Bellinzona, Locarno und Stabio. Die vom Schweizer Arbeitgeber beantragte G-Bewilligung ist kostenlos; die Ausstellung dauert 2-6 Wochen nach Vertragsunterzeichnung, danach jährliche Verlängerung bis Vertragsende. Eine wöchentliche Rückkehr ins italienische Zuhause ist Pflicht.'
-        : 'Les offres de cette page couvrent tout le canton du Tessin. La « zone frontalière » de l\'accord fiscal 2024 s\'applique à toutes les communes italiennes dans les 20 km de la frontière suisse, indépendamment de la ville de travail : Lugano, Mendrisio, Chiasso, Bellinzona, Locarno et Stabio. Le permis G demandé par l\'employeur suisse est gratuit ; la délivrance prend 2-6 semaines après signature, puis renouvellement annuel jusqu\'à la fin du contrat. Retour hebdomadaire au domicile italien obligatoire.')
+    ? buildOmitCommuteParagraph(locale, location)
     : buildCommuterParagraph(locale, location, row);
   const salaryParagraph = buildSalaryParagraph(locale, row);
   const scenarioCallout = buildScenarioCallout(locale, location, row);
