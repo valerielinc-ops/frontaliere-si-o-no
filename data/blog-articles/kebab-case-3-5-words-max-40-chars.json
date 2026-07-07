@@ -1,0 +1,19 @@
+{
+  "id": "kebab-case-3-5-words-max-40-chars",
+  "slug": "kebab-case-3-5-words-max-40-chars",
+  "publishedAt": "2026-07-07T02:20:42.600Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 152.87480978000002,
+    "confidence": 1,
+    "finalScore": 152.87480978000002,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 76.43740489000001,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

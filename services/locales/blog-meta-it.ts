@@ -8303,6 +8303,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.axa-manno.title': 'Axa Manno: consulente assicurativo per frontalieri',
     'blog.article.axa-manno.excerpt': 'Axa Manno è un consulente assicurativo specializzato in servizi per frontalieri.',
     'blog.article.axa-manno.imageAlt': 'Una strada a Lugano con un frontaliere che guarda il suo smartphone.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Nuovo accordo frontalieri: cosa cambia per i frontalieri in Ticino?',
+    'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Il nuovo accordo frontalieri entra in vigore dal 1° gennaio 2024. Ecco cosa cambia per i frontalieri in Ticino.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Un frontaliere in stazione a Chiasso',
 };
 
 export default blogMetaIt;

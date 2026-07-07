@@ -24947,6 +24947,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'kebab-case-3-5-words-max-40-chars',
+ category: 'pratico',
+ date: '2026-07-07T02:20:38.837Z',
+ image: '/images/blog/kebab-case-3-5-words-max-40-chars.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
