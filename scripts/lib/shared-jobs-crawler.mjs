@@ -172,8 +172,17 @@ const execFileAsync = promisify(execFile);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
 const COMPANIES_TSX = path.resolve(ROOT, 'components', 'vita', 'TicinoCompanies.tsx');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+// A dedicated caller (runDedicatedBaseCrawler / crawler-template.mjs) may
+// override these with a per-crawler-scoped scratch path via
+// JOBS_CRAWLER_DATA_JOBS_PATH, so this module never touches the shared
+// data/jobs.json when running as one of ~25 concurrent sibling crawlers in a
+// crawler-group CI job.
+const DATA_JOBS = process.env.JOBS_CRAWLER_DATA_JOBS_PATH
+  ? path.resolve(process.env.JOBS_CRAWLER_DATA_JOBS_PATH)
+  : path.resolve(ROOT, 'data', 'jobs.json');
+const PUBLIC_JOBS = process.env.JOBS_CRAWLER_DATA_JOBS_PATH
+  ? `${DATA_JOBS}.public.json`
+  : path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const META_PATH = path.resolve(ROOT, 'data', 'jobs-meta.json');
 const CRAWLER_CONFIG_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-config.json');
 const AUDIT_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-audit.json');

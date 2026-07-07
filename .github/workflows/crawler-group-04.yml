@@ -72,6 +72,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- lidl: run crawler (verbatim from original workflow) ----
           npm run jobs:update:lidl
@@ -121,6 +122,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- spital-limmattal: run crawler (verbatim from original workflow) ----
           node scripts/update-spital-limmattal-jobs.mjs
@@ -170,6 +172,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- nant: run crawler (verbatim from original workflow) ----
           node scripts/update-nant-jobs.mjs
@@ -219,6 +222,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- volksschule-luzern: run crawler (verbatim from original workflow) ----
           node scripts/update-volksschule-luzern-jobs.mjs
@@ -268,6 +272,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- pemsa: run crawler (verbatim from original workflow) ----
           npm run jobs:update:pemsa
@@ -313,6 +318,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- tarchini-group: run crawler (verbatim from original workflow) ----
           node scripts/update-tarchini-group-jobs.mjs
@@ -362,6 +368,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- puk-zuerich: run crawler (verbatim from original workflow) ----
           node scripts/update-puk-zuerich-jobs.mjs
@@ -411,6 +418,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- pole-sante-pays-enhaut: run crawler (verbatim from original workflow) ----
           node scripts/update-pole-sante-pays-enhaut-jobs.mjs
@@ -460,6 +468,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- zurzach-care: run crawler (verbatim from original workflow) ----
           node scripts/update-zurzach-care-jobs.mjs
@@ -505,6 +514,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- hitachi-energy: run crawler (verbatim from original workflow) ----
           node scripts/update-hitachi-energy-jobs.mjs
@@ -554,6 +564,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- google-switzerland: run crawler (verbatim from original workflow) ----
           node scripts/update-google-switzerland-jobs.mjs
@@ -603,6 +614,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- suedhang: run crawler (verbatim from original workflow) ----
           node scripts/update-suedhang-jobs.mjs
@@ -652,6 +664,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- honegger: run crawler (verbatim from original workflow) ----
           node scripts/update-honegger-jobs.mjs
@@ -701,6 +714,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- goline: run crawler (verbatim from original workflow) ----
           npm run jobs:update:goline
@@ -751,6 +765,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- sune-egge: run crawler (verbatim from original workflow) ----
           node scripts/update-sune-egge-jobs.mjs
@@ -800,6 +815,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- klinik-susenberg: run crawler (verbatim from original workflow) ----
           node scripts/update-klinik-susenberg-jobs.mjs
@@ -849,6 +865,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- integra-biosciences: run crawler (verbatim from original workflow) ----
           node scripts/update-integra-biosciences-jobs.mjs
@@ -898,6 +915,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- forel-klinik: run crawler (verbatim from original workflow) ----
           node scripts/update-forel-klinik-jobs.mjs
@@ -947,6 +965,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- hfr-hopital-fribourgeois: run crawler (verbatim from original workflow) ----
           node scripts/update-hfr-hopital-fribourgeois-jobs.mjs
@@ -996,6 +1015,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- institution-lavigny: run crawler (verbatim from original workflow) ----
           node scripts/update-institution-lavigny-jobs.mjs
@@ -1046,6 +1066,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- buergenstock-hotels: run crawler (verbatim from original workflow) ----
           node scripts/update-buergenstock-hotels-jobs.mjs
@@ -1095,6 +1116,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- capri-holdings: run crawler (verbatim from original workflow) ----
           npm run jobs:update:capri-holdings
@@ -1144,6 +1166,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- bcvs: run crawler (verbatim from original workflow) ----
           node scripts/update-bcvs-jobs.mjs
@@ -1193,6 +1216,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- hrc: run crawler (verbatim from original workflow) ----
           node scripts/update-hrc-jobs.mjs
@@ -1242,6 +1266,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- arxada: run crawler (verbatim from original workflow) ----
           node scripts/update-arxada-jobs.mjs
@@ -1292,6 +1317,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
+          set +e
 
           # ---- adus-klinik: run crawler (verbatim from original workflow) ----
           node scripts/update-adus-klinik-jobs.mjs

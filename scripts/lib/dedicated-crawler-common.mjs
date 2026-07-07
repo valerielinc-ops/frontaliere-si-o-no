@@ -25,6 +25,7 @@ import { WORKDAY_HOST_RE, workdayReqFromLeaf } from './job-url-key.mjs';
 import { recordSlugMutation, capSlugArray } from './slug-history-journal.mjs';
 import { isAcceptableTranslation, hasConcatenatedWords } from './translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -3780,11 +3781,19 @@ export async function runDedicatedBaseCrawler({
   disableWorkdayForce = false,
   forceLocalizationWhenAiEnabledOnly = false,
   localizeExistingOnly = false,
+  dataJobsPath,
 }) {
   const scopedCompanyKeys = toNormalizedSet(companyKeys);
   if (scopedCompanyKeys.length === 0) {
     throw new Error('runDedicatedBaseCrawler requires at least one company key');
   }
+
+  // Default to a per-crawler-scoped scratch path when the caller doesn't
+  // supply one explicitly, so EVERY dedicated crawler that goes through this
+  // function — not just callers that opt in — is immune to the cross-process
+  // race on a shared data/jobs.json when run as a sibling `background: true`
+  // step alongside ~25+ other crawlers in one crawler-group CI job.
+  const resolvedDataJobsPath = dataJobsPath || crawlerScratchPathFor(scopedCompanyKeys.join('_'));
 
   const localizeOnlyKeys = toNormalizedSet(
     localizeOnlyCompanyKeys === undefined ? scopedCompanyKeys : localizeOnlyCompanyKeys
@@ -3831,6 +3840,12 @@ export async function runDedicatedBaseCrawler({
     env.JOBS_CRAWLER_LOCALIZE_EXISTING_ONLY = '1';
   }
 
+  // Override shared-jobs-crawler.mjs's own DATA_JOBS/PUBLIC_JOBS module-level
+  // consts with the (explicit-or-defaulted) per-crawler-scoped scratch path,
+  // so the shared crawler reads/writes THIS crawler's own file — no
+  // cross-process race with sibling crawlers.
+  env.JOBS_CRAWLER_DATA_JOBS_PATH = resolvedDataJobsPath;
+
   // Seed each scoped crawler's slice from the freshly-merged data/jobs.json
   // BEFORE the shared crawler runs. In slice-only CI mode the shared crawler
   // reads each crawler's jobs back via its committed slice, which is still the
@@ -3838,7 +3853,7 @@ export async function runDedicatedBaseCrawler({
   // stale subset and collapse a freshly-expanded crawl (e.g. UBS merged 44 →
   // localized 4). Centralised here so every dedicated runner (interroll,
   // lafonte, … and the standard template) is covered without per-script seeds.
-  seedCrawlerSlicesFromDataJobs(root, scopedCompanyKeys);
+  seedCrawlerSlicesFromDataJobs(root, scopedCompanyKeys, resolvedDataJobsPath);
 
   await runSharedCrawlerInProcess({ root, env });
 }
@@ -3854,13 +3869,13 @@ export async function runDedicatedBaseCrawler({
  * so #3089 items 2/3 (empty-slice warn, failure rethrow) are directly unit-
  * testable without spinning up a full crawler run.
  */
-export function seedCrawlerSlicesFromDataJobs(root, companyKeys) {
+export function seedCrawlerSlicesFromDataJobs(root, companyKeys, dataJobsPath) {
   try {
     const keySet = new Set((companyKeys || []).map((k) => String(k).toLowerCase()));
     if (keySet.size === 0) return;
-    const dataJobsPath = path.join(root, 'data', 'jobs.json');
-    if (!fs.existsSync(dataJobsPath)) return;
-    const all = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+    const resolvedDataJobsPath = dataJobsPath || path.join(root, 'data', 'jobs.json');
+    if (!fs.existsSync(resolvedDataJobsPath)) return;
+    const all = JSON.parse(fs.readFileSync(resolvedDataJobsPath, 'utf-8'));
     if (!Array.isArray(all)) return;
     const sliceDir = path.join(root, 'data', 'jobs', 'by-crawler');
     fs.mkdirSync(sliceDir, { recursive: true });

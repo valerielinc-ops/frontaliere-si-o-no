@@ -208,22 +208,33 @@ function indentBlock(text, spaces) {
  * captured only from the CRAWL step, before the commit step ever runs —
  * silently discarded the commit's exit code entirely: a crawler could scrape
  * successfully, fail to commit/push, and still report full success with no
- * failure issue and no data persisted. `set -uo pipefail` (not `set -e`) is
- * used deliberately for this whole script, so a bare non-zero exit from the
- * flock command would NOT have aborted the script anyway — the `|| true`
- * was never load-bearing for that, and has been REMOVED: the commit
- * invocation's own exit code is now captured directly into
+ * failure issue and no data persisted. `set -uo pipefail` plus an explicit
+ * `set +e` (see below) is used deliberately for this whole script, so a bare
+ * non-zero exit from the flock command would NOT abort the script anyway —
+ * the `|| true` was never load-bearing for that, and has been REMOVED: the
+ * commit invocation's own exit code is now captured directly into
  * `git_commit_exit` via `$?` on the line immediately after it runs (an
  * `|| true` on that same line would make `$?` always read as 0 — the exit
  * code of the `true`, not of `flock` — so removing it is required for the
- * capture to work, not just cosmetic). Since no `set -e` is in effect, nothing
- * aborts the script early even without `|| true`. `git_commit_exit` is then
+ * capture to work, not just cosmetic). With `set +e` explicitly cancelling
+ * GitHub Actions' own `bash -e {0}` default, nothing aborts the script early
+ * even without `|| true`. `git_commit_exit` is then
  * treated as equally significant as `crawler_exit` for both the
  * failure-report gate and this background step's own final exit code.
  */
 export function buildCrawlerShellBody(crawler) {
   const lines = [];
   lines.push('set -uo pipefail');
+  // GitHub Actions invokes `run:` steps as `bash -e {0}` by default (errexit
+  // ON) — confirmed from a real run's `shell: /usr/bin/bash -e {0}` log line.
+  // Without this explicit `set +e`, the FIRST non-zero exit anywhere below
+  // (e.g. the crawler's own `run:` command failing) aborts this whole
+  // composite script immediately: `crawler_exit=$?` is never reached, the
+  // failure-report `if` block never runs, and no GitHub Issue gets created.
+  // This was the root cause of zero "Crawler Failure" issues being filed
+  // despite ~160 real crawler failures overnight post-#3701 — every failing
+  // crawler killed its own background step's script before the report gate.
+  lines.push('set +e');
   lines.push('');
   lines.push(`# ---- ${crawler.slug}: run crawler (verbatim from original workflow) ----`);
   lines.push(crawler.runStep.run.trimEnd());
@@ -301,7 +312,7 @@ export function buildCrawlerShellBody(crawler) {
       // invocation ITSELF on the very next line — appending `|| true` to
       // this line would make `$?` always read as 0 (the exit code of the
       // `true` that just ran), silently re-swallowing the failure one line
-      // later than before. This script only sets `-uo pipefail` (no `-e`),
+      // later than before. This script explicitly runs `set +e` (see top),
       // so a non-zero exit here does not abort the rest of the body; the
       // `git_commit_exit=$?` capture on the next line is what makes the
       // failure-report gate and this step's final `exit` (below) see it.
