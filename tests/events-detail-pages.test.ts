@@ -19,6 +19,8 @@ import {
   DIGESTS,
   assignEventSlugs,
   reserveLiveSiblingSlugs,
+  categoryLabel,
+  normalizeCategoryKey,
 } from '../build-plugins/eventsSeoPagesPlugin';
 import { SITE_LICENSE_PAGE } from '../services/seo/imageObjectLd';
 import { MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
@@ -59,6 +61,78 @@ describe('pathForEventDetail', () => {
     expect(pathForEventDetail('en', 'Lugano', slug)).toBe(`/en/events/ticino/lugano/${slug}/`);
     expect(pathForEventDetail('de', 'Lugano', slug)).toBe(`/de/veranstaltungen/tessin/lugano/${slug}/`);
     expect(pathForEventDetail('fr', 'Lugano', slug)).toBe(`/fr/evenements/tessin/lugano/${slug}/`);
+  });
+});
+
+// Issue #3742: myswitzerland ships English schema.org-derived categories
+// ("Event", "Music", "Sports", "Theater", "Food", "Exhibition", "Festival")
+// and guidle ships free-text German/Italian sub-genres ("Rock generalmente",
+// "Teatro: improvisazione", …) — neither matches the IT taxonomy keys, so
+// both used to fall through to a raw, wrong-language passthrough. Verified
+// live: 667/1084 (61.5%) events landed in the generic bucket, most literally
+// showing the English word "Event" on every locale.
+describe('normalizeCategoryKey', () => {
+  it('is a no-op for an already-valid taxonomy key (tio-agenda categories)', () => {
+    for (const key of ['arte', 'musica', 'teatro', 'cinema', 'feste', 'musei', 'conferenze', 'sport', 'appuntamenti', 'sociale', 'altro']) {
+      expect(normalizeCategoryKey(key)).toBe(key);
+    }
+  });
+
+  it('maps every myswitzerland humanizeCategory() output seen live', () => {
+    expect(normalizeCategoryKey('Event')).toBe('altro'); // 778/1006 (77%) — the highest-impact case
+    expect(normalizeCategoryKey('Music')).toBe('musica');
+    expect(normalizeCategoryKey('Sports')).toBe('sport');
+    expect(normalizeCategoryKey('Theater')).toBe('teatro');
+    expect(normalizeCategoryKey('Food')).toBe('feste');
+    expect(normalizeCategoryKey('Exhibition')).toBe('musei');
+    expect(normalizeCategoryKey('Festival')).toBe('feste');
+  });
+
+  it('maps guidle free-text sub-genres seen live', () => {
+    expect(normalizeCategoryKey('Rock generalmente')).toBe('musica');
+    expect(normalizeCategoryKey('Pop generalmente')).toBe('musica');
+    expect(normalizeCategoryKey('Teatro: improvisazione')).toBe('teatro');
+    expect(normalizeCategoryKey('Sperimentale')).toBe('musica');
+    expect(normalizeCategoryKey('Ambient / Electronica')).toBe('musica');
+    expect(normalizeCategoryKey('Barocco')).toBe('musica');
+    expect(normalizeCategoryKey("L'arte in generale")).toBe('arte');
+    expect(normalizeCategoryKey('Festival del teatro')).toBe('teatro');
+    expect(normalizeCategoryKey('Commedia')).toBe('teatro');
+    expect(normalizeCategoryKey('Musical')).toBe('teatro'); // overlaps "music" but must resolve to teatro
+    expect(normalizeCategoryKey('Film festival')).toBe('cinema');
+    expect(normalizeCategoryKey('Escursionismo')).toBe('sport');
+  });
+
+  it('leaves genuinely ambiguous long-tail categories unmapped (caller falls back to raw passthrough)', () => {
+    expect(normalizeCategoryKey('Contemplazione / Meditazione')).toBeUndefined();
+    expect(normalizeCategoryKey('Danza libera')).toBeUndefined();
+    expect(normalizeCategoryKey('Assistanza nella vita quotidiana')).toBeUndefined();
+  });
+
+  it('returns undefined for missing/blank input', () => {
+    expect(normalizeCategoryKey(undefined)).toBeUndefined();
+    expect(normalizeCategoryKey('')).toBeUndefined();
+    expect(normalizeCategoryKey('   ')).toBeUndefined();
+  });
+});
+
+describe('categoryLabel', () => {
+  it('renders the correct per-locale label for a normalized myswitzerland/guidle category', () => {
+    expect(categoryLabel('Event', 'it')).toBe('Eventi');
+    expect(categoryLabel('Event', 'en')).toBe('Events');
+    expect(categoryLabel('Music', 'it')).toBe('Musica');
+    expect(categoryLabel('Music', 'de')).toBe('Musik');
+    expect(categoryLabel('Rock generalmente', 'fr')).toBe('Musique');
+    expect(categoryLabel('Teatro: improvisazione', 'en')).toBe('Theatre');
+  });
+
+  it('still title-cases a genuinely unmapped raw category (unchanged pre-existing fallback)', () => {
+    expect(categoryLabel('Contemplazione / Meditazione', 'it')).toBe('Contemplazione / Meditazione');
+  });
+
+  it('falls back to the "altro" label for missing/blank category, in every locale', () => {
+    expect(categoryLabel(undefined, 'it')).toBe('Eventi');
+    expect(categoryLabel(undefined, 'en')).toBe('Events');
   });
 });
 

@@ -68,6 +68,9 @@ import {
   resolveComuneNationwide,
   resolveItalianFrontierComuni,
   mirrorEventImage,
+  loadEventTitleTranslationCache,
+  saveEventTitleTranslationCache,
+  enrichEventsWithLocaleFallbackTranslations,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 
@@ -555,13 +558,23 @@ async function main() {
       `detail-page enrichment ${detailOk} ok / ${detailFail} fallback (index-only fields) — comune resolved ${resolved}/${events.length}`,
   );
 
+  // #3741: the Algolia per-locale search index very often ships the SAME
+  // title/description text across it/en/de/fr (the organizer never
+  // translated it) instead of a missing locale — fill those gaps via the
+  // free-translate.mjs cascade, same disk cache as crawl-tio-agenda.mjs.
+  const translationCache = loadEventTitleTranslationCache();
+  const translatedEvents = await enrichEventsWithLocaleFallbackTranslations(events, translationCache);
+  const titleFilled = translatedEvents.filter((e) => e.titleByLocale && LOCALES.every((l) => e.titleByLocale[l])).length;
+  console.log(`[myswitzerland] locale-fallback translation: ${titleFilled}/${translatedEvents.length} event(s) now have title in all ${LOCALES.length} locales`);
+
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
-    console.log(JSON.stringify(events.slice(0, 3), null, 2));
+    console.log(JSON.stringify(translatedEvents.slice(0, 3), null, 2));
     return;
   }
 
   if (!limit && records.length > 0) saveCursor(SOURCE.key, cursor, crawledAt);
+  saveEventTitleTranslationCache(translationCache);
 
   if (events.length === 0) {
     // Never overwrite a good slice with an empty run. Distinguish three causes:
@@ -592,7 +605,7 @@ async function main() {
     slicePath,
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
-    freshEvents: events,
+    freshEvents: translatedEvents,
     goneIds: [],
     crawledAt,
   });

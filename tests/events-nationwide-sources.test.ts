@@ -20,6 +20,8 @@ import {
   haversineKm,
   resolveItalianFrontierComuni,
   mirrorEventImage,
+  localesNeedingTranslation,
+  enrichEventsWithLocaleFallbackTranslations,
 } from '../scripts/lib/events-utils.mjs';
 
 describe('EVENT_SOURCES nationwide registry', () => {
@@ -253,5 +255,101 @@ describe('mirrorEventImage', () => {
   it('returns null when fetch throws', async () => {
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('network down')));
     expect(await mirrorEventImage('https://example.com/x.jpg', 'test:mirror-fixture')).toBeNull();
+  });
+});
+
+// Issue #3741: guidle/myswitzerland ship real per-locale text but very often
+// duplicate it verbatim across locales instead of translating — these two
+// helpers generalize crawl-tio-agenda.mjs's enrichEventsWithTranslations to
+// detect + fill that gap for both nationwide crawlers.
+describe('localesNeedingTranslation', () => {
+  it('flags every locale as missing when the map is empty/undefined', () => {
+    expect(localesNeedingTranslation({})).toEqual(['it', 'en', 'de', 'fr']);
+    expect(localesNeedingTranslation(undefined)).toEqual(['it', 'en', 'de', 'fr']);
+  });
+
+  it('flags only the missing locales when the present ones are all distinct', () => {
+    expect(localesNeedingTranslation({ it: 'Concerto', en: 'Concert' })).toEqual(['de', 'fr']);
+  });
+
+  it('flags a present locale that is a verbatim duplicate of another present locale', () => {
+    // it/en/de/fr all ship the exact same text — the myswitzerland/guidle
+    // "organizer never translated it" case (699/854 + 89/97 events live).
+    expect(
+      localesNeedingTranslation({ it: 'Festival della Musica', en: 'Festival della Musica', de: 'Festival della Musica', fr: 'Festival della Musica' }),
+    ).toEqual(['it', 'en', 'de', 'fr']);
+  });
+
+  it('treats accent/case/whitespace-only differences as a duplicate, not a real translation', () => {
+    expect(localesNeedingTranslation({ it: 'Città Vecchia', en: 'citta   vecchia' })).toEqual(['it', 'en', 'de', 'fr']);
+  });
+
+  it('does not flag genuinely distinct present locales even when short', () => {
+    expect(localesNeedingTranslation({ it: 'Festa', en: 'Feast', de: 'Fest', fr: 'Fête' })).toEqual([]);
+  });
+});
+
+describe('enrichEventsWithLocaleFallbackTranslations', () => {
+  it('fills missing locales from the first present locale via translateFn, memoized in cache', async () => {
+    const events = [{ id: 'guidle:1', titleByLocale: { it: 'Concerto in piazza' } }];
+    const cache = {};
+    const translateFn = vi.fn(async ({ targetLang }: { targetLang: string }) => `[${targetLang}] Concerto in piazza`);
+
+    const out = await enrichEventsWithLocaleFallbackTranslations(events, cache, { translateFn, delayMs: 0 });
+    expect(out).not.toBe(events); // new array, not mutated in place
+    expect(out[0].titleByLocale).toEqual({
+      it: 'Concerto in piazza',
+      en: '[en] Concerto in piazza',
+      de: '[de] Concerto in piazza',
+      fr: '[fr] Concerto in piazza',
+    });
+    expect(translateFn).toHaveBeenCalledTimes(3);
+    expect(Object.keys(cache).length).toBeGreaterThan(0);
+
+    // Second run: same source text, cache hit — translateFn must NOT be called again.
+    const translateFn2 = vi.fn();
+    await enrichEventsWithLocaleFallbackTranslations(
+      [{ id: 'guidle:2', titleByLocale: { it: 'Concerto in piazza' } }],
+      cache,
+      { translateFn: translateFn2, delayMs: 0 },
+    );
+    expect(translateFn2).not.toHaveBeenCalled();
+  });
+
+  it('re-translates a locale that is a verbatim duplicate of the source, from the first non-duplicate present locale', async () => {
+    // myswitzerland/guidle shape: it+en both carry the untranslated IT text,
+    // de/fr are missing entirely.
+    const events = [{ id: 'myswitzerland:1', titleByLocale: { it: 'Festival della Musica', en: 'Festival della Musica' } }];
+    const cache = {};
+    const translateFn = vi.fn(async ({ sourceLang, targetLang }: { sourceLang: string; targetLang: string }) => `${sourceLang}->${targetLang}`);
+
+    const out = await enrichEventsWithLocaleFallbackTranslations(events, cache, { translateFn, delayMs: 0 });
+    expect(out[0].titleByLocale.it).toBe('Festival della Musica'); // source untouched
+    expect(out[0].titleByLocale.en).toBe('it->en'); // duplicate slot re-translated from it
+    expect(out[0].titleByLocale.de).toBe('it->de');
+    expect(out[0].titleByLocale.fr).toBe('it->fr');
+  });
+
+  it('enriches descriptionByLocale independently of titleByLocale, and leaves events with neither field untouched', async () => {
+    const events = [
+      { id: 'guidle:3', descriptionByLocale: { de: 'Ein tolles Konzert.' } },
+      { id: 'guidle:4', title: 'No locale maps at all' },
+    ];
+    const cache = {};
+    const translateFn = vi.fn(async ({ targetLang }: { targetLang: string }) => `de->${targetLang}`);
+
+    const out = await enrichEventsWithLocaleFallbackTranslations(events, cache, { translateFn, delayMs: 0 });
+    expect(out[0].descriptionByLocale).toEqual({ de: 'Ein tolles Konzert.', it: 'de->it', en: 'de->en', fr: 'de->fr' });
+    expect(out[0].titleByLocale).toBeUndefined();
+    expect(out[1]).toEqual(events[1]); // no locale maps present — passthrough
+  });
+
+  it('leaves a slot untranslated (no crash) when translateFn returns empty', async () => {
+    const events = [{ id: 'guidle:5', titleByLocale: { it: 'Solo italiano' } }];
+    const cache = {};
+    const translateFn = vi.fn(async () => '');
+
+    const out = await enrichEventsWithLocaleFallbackTranslations(events, cache, { translateFn, delayMs: 0 });
+    expect(out[0].titleByLocale).toEqual({ it: 'Solo italiano' });
   });
 });
