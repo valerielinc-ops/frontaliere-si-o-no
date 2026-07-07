@@ -57,6 +57,11 @@ export const THIRD_PARTY_STACK_ORIGINS: readonly RegExp[] = [
   // Browser extension content scripts (Chrome / Firefox / Safari) — #3673.
   // They run in page context but are entirely third-party; no fix possible.
   /^(?:chrome|moz|safari)-extension:\/\//i,
+  // Microsoft Clarity session recording — #3760.
+  // Injected lazily by services/clarity.ts; all frames from clarity.ms are
+  // third-party. Companion to the `standardSelectors` message pattern added
+  // to UNIVERSAL_BENIGN_PATTERNS (covers cross-origin, no-frame case).
+  /^https:\/\/www\.clarity\.ms\//i,
 ];
 
 /**

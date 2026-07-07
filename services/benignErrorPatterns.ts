@@ -94,6 +94,15 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   /__firefox__/,
   /__gCrWeb/,
   /TrackerStorageType/,
+
+  // ── Microsoft Clarity internal selector crash — #3760 ──
+  // Clarity (clarity.ms) uses `standardSelectors` internally for its element
+  // capture. It can throw when accessing that property on an undefined object
+  // (race condition in their code). Cross-origin policy hides the stack frames
+  // so `isThirdPartyStackOnly` cannot filter it — matching the message here
+  // is the only viable catch. `standardSelectors` is not used anywhere in this
+  // codebase, so any error mentioning it is unambiguously Clarity noise.
+  /\bstandardSelectors\b/,
 ];
 
 /**
