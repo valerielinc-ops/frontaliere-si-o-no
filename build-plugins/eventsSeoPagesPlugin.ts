@@ -70,6 +70,7 @@ import {
   resolveCantonUrlKey,
   UNRESOLVED_CANTON_KEY,
   UNRESOLVED_CANTON_LABEL,
+  normalizeText,
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
@@ -675,9 +676,83 @@ const CATEGORY_LABEL: Record<string, Record<Locale, string>> = {
   altro: { it: 'Eventi', en: 'Events', de: 'Anlässe', fr: 'Événements' },
 };
 
-function categoryLabel(category: string | undefined, locale: Locale): string {
+// Source→taxonomy normalization (issue #3742): tio-agenda's own categories
+// already ARE the taxonomy keys above (verified live: every tio-agenda
+// event.category is one of arte/musica/teatro/cinema/feste/musei/conferenze/
+// sport/appuntamenti/sociale/altro), so the lookup below is a no-op for that
+// source. The two nationwide sources are not: myswitzerland derives its
+// category from a humanized schema.org Event `@type` (English — "Music",
+// "Sports", "Theater", "Food", "Exhibition", "Festival", or the generic
+// "Event" for 77% of its events), and guidle scrapes a free-text German/
+// Italian sub-genre from its "Kategorie" accordion (e.g. "Rock generalmente",
+// "Teatro: improvisazione", "Ambient / Electronica" — 47 distinct values,
+// none of them a taxonomy key). Left as-is, BOTH fell through to the raw
+// title-cased passthrough below, showing the wrong language on non-source
+// locales and, for the "Event" default alone, misclassifying 667/1084 (61.5%)
+// of ALL crawled events into the generic bucket under the literal English
+// word "Event". Normalizing HERE (at label-lookup time, not crawl time) fixes
+// every already-crawled event retroactively, not just future crawls.
+const SOURCE_CATEGORY_ALIASES: Record<string, string> = {
+  // myswitzerland: `humanizeCategory()` output (scripts/crawl-myswitzerland-events.mjs)
+  // — one entry per schema.org Event `@type` actually seen live in
+  // data/events/by-source/myswitzerland.json (verified 2026-07-07: Event 778,
+  // Music 98, Sports 50, Theater 43, Food 22, Exhibition 8, Festival 7).
+  event: 'altro',
+  music: 'musica',
+  sports: 'sport',
+  theater: 'teatro',
+  food: 'feste',
+  exhibition: 'musei',
+  festival: 'feste',
+};
+
+// guidle: free-text sub-genre keyword rules, checked in order (most specific
+// first) so an overlapping word (e.g. "Musical" containing "music") resolves
+// to the intended bucket. Matched against the accent-stripped/lowercased
+// category (see `normalizeCategoryKey`), so accented variants need no
+// duplicate entry. Deliberately conservative: a handful of genuinely
+// ambiguous long-tail categories (e.g. "Contemplazione / Meditazione",
+// "Salute / Medicina", "Danza libera", "Assistanza nella vita quotidiana")
+// are NOT covered and fall through to the `altro` default below — same
+// "no confident signal, don't guess" policy as everywhere else in this file.
+const CATEGORY_KEYWORD_RULES: Array<[RegExp, string]> = [
+  [/teatro|theater|theatre|comm?edia|improvisazion|musical/, 'teatro'],
+  [/cinema|\bfilm\b|kino/, 'cinema'],
+  [
+    /\brock\b|\bpop\b|jazz|classica|klassik|\bfolk\b|\bmusic\w*|musik|ambient|electronica|elettronica|barocco|cantautore|sperimentale|hip.?hop|\blatin\b|metal|hardcore|salsa|reggae|dancehall|industrial|\bnoise\b/,
+    'musica',
+  ],
+  [/festa|festival|\bparty\b|\bcibo\b|sagra/, 'feste'],
+  [/\barte\b|kunst|mostra|esposizione|ausstellung/, 'arte'],
+  [/museo|museum/, 'musei'],
+  [/\bsport\w*|escursionismo|equestre|nautic/, 'sport'],
+  [/conferenza|vortrag|\btalk\b/, 'conferenze'],
+];
+
+/**
+ * Resolve a raw source category to one of `CATEGORY_LABEL`'s taxonomy keys,
+ * or `undefined` when nothing matches (caller falls back to the raw
+ * passthrough, same as before this normalization existed). Pure, no i18n —
+ * exported for direct unit testing.
+ */
+export function normalizeCategoryKey(category: string | undefined): string | undefined {
+  if (!category) return undefined;
+  const trimmed = category.trim();
+  if (!trimmed) return undefined;
+  if (CATEGORY_LABEL[trimmed]) return trimmed; // already a valid taxonomy key
+  const normalized = normalizeText(trimmed);
+  if (SOURCE_CATEGORY_ALIASES[normalized]) return SOURCE_CATEGORY_ALIASES[normalized];
+  for (const [rx, key] of CATEGORY_KEYWORD_RULES) {
+    if (rx.test(normalized)) return key;
+  }
+  return undefined;
+}
+
+export function categoryLabel(category: string | undefined, locale: Locale): string {
   if (!category) return CATEGORY_LABEL.altro[locale];
-  return CATEGORY_LABEL[category]?.[locale] ?? category.charAt(0).toUpperCase() + category.slice(1);
+  const normalized = normalizeCategoryKey(category);
+  if (normalized) return CATEGORY_LABEL[normalized][locale];
+  return category.charAt(0).toUpperCase() + category.slice(1);
 }
 
 type CategoryTone = 'accent' | 'info' | 'success' | 'warning' | 'neutral';

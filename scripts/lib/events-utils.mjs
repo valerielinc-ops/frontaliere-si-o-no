@@ -20,6 +20,7 @@ import path from 'node:path';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import CANTON_URL_SLUGS from '../../data/canton-url-slugs.json' with { type: 'json' };
 import { MUNICIPALITIES } from '../../data/municipalities.ts';
+import { freeTranslateWithRetry } from './free-translate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -752,6 +753,116 @@ export function loadEventTitleTranslationCache() {
 /** Persist the title translation cache back to disk (pretty-printed, stable diffs). */
 export function saveEventTitleTranslationCache(cache) {
   writeFileSync(TRANSLATION_CACHE_PATH, `${JSON.stringify(cache, null, 2)}\n`, 'utf-8');
+}
+
+// ── Cross-locale fallback translation (issue #3741) ──────────────────────
+// tio-agenda (crawl-tio-agenda.mjs `enrichEventsWithTranslations`) already
+// runs the free-translate.mjs cascade for its own locale-less IT-only cards.
+// The two nationwide sources (guidle, myswitzerland) DO ship real per-locale
+// `titleByLocale`/`descriptionByLocale` text, but the organizer very often
+// leaves it duplicated verbatim across locales instead of translating it —
+// verified live: 699/854 myswitzerland events and 89/97 guidle events carry
+// identical text in every present locale (vs 0/133 for tio-agenda). A locale
+// slot counts as "untranslated" when it is missing OR its normalized text
+// collides with another present locale's normalized text; those slots get
+// machine-translated from the first present, non-colliding locale (in
+// `locales` priority order), or from the first present locale if ALL of them
+// collide. Shared here (not copy-pasted into both crawlers, AGENTS.md §6) and
+// reuses the SAME on-disk cache as `loadEventTitleTranslationCache` — a
+// compound key (`fieldType::sourceLocale::normalizedSourceText`) keeps new
+// entries collision-free against tio-agenda's own bare-title keys.
+const LOCALE_FALLBACK_DELAY_MS = 200;
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Which locales in `byLocale` (a `titleByLocale`/`descriptionByLocale`-shaped
+ * map) need a machine translation: missing, or textually identical (after
+ * accent/case/whitespace normalization) to another present locale. Pure — no
+ * network, no mutation. Exported for direct unit testing.
+ */
+export function localesNeedingTranslation(byLocale, locales = ['it', 'en', 'de', 'fr']) {
+  const present = locales.filter((l) => typeof byLocale?.[l] === 'string' && byLocale[l].trim());
+  const normalized = new Map();
+  const counts = new Map();
+  for (const l of present) {
+    const n = normalizeText(byLocale[l]).replace(/\s+/g, ' ');
+    normalized.set(l, n);
+    counts.set(n, (counts.get(n) || 0) + 1);
+  }
+  const needing = [];
+  for (const l of locales) {
+    if (!present.includes(l)) {
+      needing.push(l);
+    } else if ((counts.get(normalized.get(l)) || 0) > 1) {
+      needing.push(l); // duplicate of another present locale — treat as untranslated
+    }
+  }
+  return needing;
+}
+
+/**
+ * Fill in missing/duplicate locales of ONE `titleByLocale`/
+ * `descriptionByLocale` map via the free translation cascade, memoized on
+ * disk in `cache` (caller loads/saves once per run, same convention as
+ * `loadEventTitleTranslationCache`). Returns a NEW map — never mutates
+ * `byLocale` — or the SAME reference when nothing needs translating.
+ */
+async function fillLocaleGaps(byLocale, cache, { fieldType, locales, delayMs, translateFn }) {
+  const needing = localesNeedingTranslation(byLocale, locales);
+  if (needing.length === 0) return byLocale;
+
+  const present = locales.filter((l) => typeof byLocale?.[l] === 'string' && byLocale[l].trim());
+  if (present.length === 0) return byLocale;
+  const sourceLocale = present.find((l) => !needing.includes(l)) || present[0];
+  const sourceText = byLocale[sourceLocale];
+  const normalizedSource = normalizeText(sourceText).replace(/\s+/g, ' ');
+
+  const updated = { ...byLocale };
+  for (const target of needing) {
+    if (target === sourceLocale) continue;
+    const cacheKey = `${fieldType}::${sourceLocale}::${normalizedSource}`;
+    const entry = cache[cacheKey] || {};
+    let translated = entry[target];
+    if (!translated) {
+      translated = await translateFn({ text: sourceText, sourceLang: sourceLocale, targetLang: target, fieldType, maxRetries: 1 });
+      if (translated) {
+        cache[cacheKey] = { ...entry, [target]: translated };
+        if (translateFn === freeTranslateWithRetry) await sleep(delayMs);
+      }
+    }
+    if (translated) updated[target] = translated;
+  }
+  return updated;
+}
+
+/**
+ * Enrich a batch of SiteEvent-shaped records — fills gaps in both
+ * `titleByLocale` and `descriptionByLocale` for every event, memoized via
+ * `cache` (load once, mutate, save once — see
+ * `loadEventTitleTranslationCache`/`saveEventTitleTranslationCache`). Returns
+ * a NEW array; events are shallow-copied, never mutated in place. Used by
+ * `crawl-myswitzerland-events.mjs` and `crawl-guidle-events.mjs`; `translateFn`
+ * is injectable so tests never hit the network.
+ */
+export async function enrichEventsWithLocaleFallbackTranslations(events, cache, options = {}) {
+  const { locales = ['it', 'en', 'de', 'fr'], delayMs = LOCALE_FALLBACK_DELAY_MS, translateFn = freeTranslateWithRetry } = options;
+  const out = [];
+  for (const event of events) {
+    const next = { ...event };
+    if (event.titleByLocale) {
+      next.titleByLocale = await fillLocaleGaps(event.titleByLocale, cache, { fieldType: 'title', locales, delayMs, translateFn });
+    }
+    if (event.descriptionByLocale) {
+      next.descriptionByLocale = await fillLocaleGaps(event.descriptionByLocale, cache, {
+        fieldType: 'description',
+        locales,
+        delayMs,
+        translateFn,
+      });
+    }
+    out.push(next);
+  }
+  return out;
 }
 
 // ── Stable identity ──────────────────────────────────────────
