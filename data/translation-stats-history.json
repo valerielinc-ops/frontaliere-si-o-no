@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-06-20T15:41:44.623Z",
-    "label": "after",
-    "total": 17348,
-    "needsRetranslation": 2818,
-    "suppressed": 613,
-    "incomplete": 1372,
-    "complete": 15976,
-    "missingByLocale": {
-      "it": 622,
-      "en": 355,
-      "de": 746,
-      "fr": 226
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 957
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 96
-      },
-      {
-        "company": "UBS",
-        "pending": 48
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "Implenia",
-        "pending": 14
-      },
-      {
-        "company": "Decathlon",
-        "pending": 11
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 8
-      },
-      {
-        "company": "Ensemble hospitalier de la Côte (EHC)",
-        "pending": 6
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-20T23:07:06.157Z",
-    "label": "before",
-    "total": 17313,
-    "needsRetranslation": 8404,
-    "suppressed": 613,
-    "incomplete": 1455,
-    "complete": 15858,
-    "missingByLocale": {
-      "it": 646,
-      "en": 436,
-      "de": 733,
-      "fr": 307
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 880
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "Cartier",
-        "pending": 102
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 96
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Geberit",
-        "pending": 21
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 21
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "Implenia",
-        "pending": 15
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-21T00:17:50.385Z",
-    "label": "after",
-    "total": 17313,
-    "needsRetranslation": 2758,
-    "suppressed": 613,
-    "incomplete": 1301,
-    "complete": 16012,
-    "missingByLocale": {
-      "it": 556,
-      "en": 357,
-      "de": 710,
-      "fr": 219
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 880
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 96
-      },
-      {
-        "company": "UBS",
-        "pending": 46
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "Implenia",
-        "pending": 15
-      },
-      {
-        "company": "Cartier",
-        "pending": 13
-      },
-      {
-        "company": "Decathlon",
-        "pending": 11
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 8
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-21T05:09:30.619Z",
-    "label": "before",
-    "total": 17319,
-    "needsRetranslation": 2863,
-    "suppressed": 613,
-    "incomplete": 1049,
-    "complete": 16270,
-    "missingByLocale": {
-      "it": 402,
-      "en": 301,
-      "de": 635,
-      "fr": 132
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 971
-      },
-      {
-        "company": "Manor AG",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 14
-      },
-      {
-        "company": "IKEA",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Baden (KSB)",
-        "pending": 3
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 3
-      },
-      {
-        "company": "Roche",
-        "pending": 3
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-21T05:52:28.044Z",
     "label": "after",
     "total": 17319,
@@ -11510,6 +11282,120 @@
       {
         "company": "Die Schweizerische Post",
         "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-07T16:15:39.472Z",
+    "label": "before",
+    "total": 23340,
+    "needsRetranslation": 6334,
+    "suppressed": 234,
+    "incomplete": 323,
+    "complete": 23017,
+    "missingByLocale": {
+      "it": 264,
+      "en": 251,
+      "de": 40,
+      "fr": 248
+    },
+    "topPending": [
+      {
+        "company": "Two Spice AG",
+        "pending": 220
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 13
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "IKEA",
+        "pending": 4
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-07T16:21:10.165Z",
+    "label": "after",
+    "total": 23340,
+    "needsRetranslation": 2992,
+    "suppressed": 236,
+    "incomplete": 323,
+    "complete": 23017,
+    "missingByLocale": {
+      "it": 264,
+      "en": 251,
+      "de": 40,
+      "fr": 248
+    },
+    "topPending": [
+      {
+        "company": "Two Spice AG",
+        "pending": 220
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 13
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "IKEA",
+        "pending": 4
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
       }
     ]
   }
