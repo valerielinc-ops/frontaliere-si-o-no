@@ -8293,6 +8293,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.title': 'The 2020 Italy-Switzerland Agreement on the Taxation of Frontier Workers',
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.excerpt': 'The Italy-Switzerland Agreement of 2020 introduces a new tax regime for frontier workers, replacing the 1974 framework. The analysis evaluates the',
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.imageAlt': 'Editorial image related to: L\'Accordo Italia-Svizzera del 2020 sulla tassazione dei lavoratori frontalieri',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.title': 'Slowing Swiss labour market: what\'s changing for frontier workers',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.excerpt': 'Swiss unemployment rate stable at 3.1% seasonally adjusted in June. The estimate for 2026 and 2027 has been revised upwards due to energy prices.',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.imageAlt': 'Cross-border commuters stuck at the Brogeda checkpoint in Lugano at sunset, heading towards the Italian border.',
 };
 
 export default blogMetaEn;
