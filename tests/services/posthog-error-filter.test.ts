@@ -146,6 +146,38 @@ describe('createExceptionFilter()', () => {
     expect(filter(event)).toBe(event);
   });
 
+  // Issue #3760 — Microsoft Clarity internal `standardSelectors` crash.
+  // Covered via UNIVERSAL_BENIGN_PATTERNS (message) + THIRD_PARTY_STACK_ORIGINS (stack).
+  it('drops Microsoft Clarity standardSelectors crash by message (#3760)', () => {
+    // Cross-origin case: browser hides stack, filter must match message.
+    const event = makeExceptionEvent(
+      "TypeError: undefined is not an object (evaluating 'n.standardSelectors')",
+    );
+    expect(filter(event)).toBeNull();
+  });
+
+  it('drops Microsoft Clarity error when entire stack is from clarity.ms (#3760)', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'some clarity error' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'some clarity error',
+            stacktrace: {
+              frames: [
+                { filename: 'https://www.clarity.ms/tag/abc123', lineno: 1, colno: 1 },
+                { filename: 'https://www.clarity.ms/tag/abc123', lineno: 2, colno: 100 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(filter(event)).toBeNull();
+  });
+
   it('supports junk_drawer.raw_frame.filename fallback for unresolved frames', () => {
     const event = {
       event: '$exception',
