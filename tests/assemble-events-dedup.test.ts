@@ -211,6 +211,45 @@ describe('dedupeFuzzy', () => {
     expect(mergedAway).toBe(1);
   });
 
+  it('does not chain unrelated same-source venues past the geo tolerance (diameter must stay bounded, not just consecutive links)', () => {
+    // Regression for a chain-based clustering bug (caught in PR review): three
+    // same-source records spaced ~40m apart along a line — A-B ~40m,
+    // B-C ~40m, but A-C ~80m, past the 50m tolerance. A clustering rule that
+    // only requires "close to ANY existing cluster member" would incorrectly
+    // chain all three into one record even though the two endpoints are
+    // clearly two different venues — exactly the false-positive this
+    // same-source path exists to avoid.
+    const latPerMeter = 1 / 111194.926645; // matches haversineKm's R=6371km model
+    const base = 46.0;
+    const a = ev({
+      id: 'myswitzerland:a',
+      sourceKey: 'myswitzerland',
+      title: 'Mercatino di Primavera',
+      comune: 'Bellinzona',
+      geo: { lat: base, lng: 8.9 },
+    });
+    const b = ev({
+      id: 'myswitzerland:b',
+      sourceKey: 'myswitzerland',
+      title: 'Mercatino di Primavera',
+      comune: 'Bellinzona',
+      geo: { lat: base + 40 * latPerMeter, lng: 8.9 },
+    });
+    const c = ev({
+      id: 'myswitzerland:c',
+      sourceKey: 'myswitzerland',
+      title: 'Mercatino di Primavera',
+      comune: 'Bellinzona',
+      geo: { lat: base + 80 * latPerMeter, lng: 8.9 },
+    });
+    const { events, mergedAway } = dedupeFuzzy([a, b, c]);
+    // A and B (40m apart) collapse; C (80m from A, past tolerance) must NOT
+    // be swept in just because it is within tolerance of B alone.
+    expect(events).toHaveLength(2);
+    expect(mergedAway).toBe(1);
+    expect(events.some((e) => e.id === 'myswitzerland:c')).toBe(true);
+  });
+
   it('leaves a singleton group untouched', () => {
     const only = ev();
     const { events, mergedAway } = dedupeFuzzy([only]);

@@ -160,13 +160,22 @@ function hasGeo(ev) {
 
 /**
  * Partition a same-`sourceKey` fuzzy-dedup group (already collided on
- * title+startDate+comune) into geo-match clusters — 2+ members within
- * `SAME_SOURCE_GEO_TOLERANCE_KM` of each other, chained transitively so a
- * rare 3-way same-source duplicate still collapses to one cluster — plus the
- * leftover singles (events with no `geo`, or whose `geo` doesn't match anyone
- * else in the group). Reuses the shared `haversineKm` helper
- * (scripts/lib/events-utils.mjs) rather than re-implementing great-circle
- * distance here (AGENTS.md §6).
+ * title+startDate+comune) into geo-match clusters — 2+ members MUTUALLY
+ * within `SAME_SOURCE_GEO_TOLERANCE_KM` of every OTHER member of the same
+ * cluster (a clique, not a chain) — plus the leftover singles (events with no
+ * `geo`, or whose `geo` doesn't clique-match anyone else in the group).
+ *
+ * Deliberately a clique check (`cluster.every(...)`), not a "some existing
+ * member is close enough" chain check: a chain check lets a cluster's
+ * diameter grow past the tolerance transitively (e.g. A-B 45m, B-C 45m would
+ * chain A-B-C together even though A-C is 90m, well past the ~50m same-venue
+ * assumption) — exactly the false-positive risk this same-source path exists
+ * to avoid (see `dedupeFuzzy` docstring below). Requiring every new member to
+ * already be within tolerance of every current member keeps every accepted
+ * cluster's own diameter bounded by `SAME_SOURCE_GEO_TOLERANCE_KM`.
+ *
+ * Reuses the shared `haversineKm` helper (scripts/lib/events-utils.mjs)
+ * rather than re-implementing great-circle distance here (AGENTS.md §6).
  */
 function clusterBySameGeo(group) {
   const withGeo = group.filter(hasGeo);
@@ -182,12 +191,12 @@ function clusterBySameGeo(group) {
       grew = false;
       for (let j = 0; j < withGeo.length; j += 1) {
         if (assigned.has(j)) continue;
-        const withinTolerance = cluster.some(
+        const withinToleranceOfEveryMember = cluster.every(
           (member) =>
             haversineKm(member.geo.lat, member.geo.lng, withGeo[j].geo.lat, withGeo[j].geo.lng) <=
             SAME_SOURCE_GEO_TOLERANCE_KM,
         );
-        if (withinTolerance) {
+        if (withinToleranceOfEveryMember) {
           cluster.push(withGeo[j]);
           assigned.add(j);
           grew = true;
