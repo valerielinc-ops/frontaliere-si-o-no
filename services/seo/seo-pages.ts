@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3100,
+ "numberOfItems": 3101,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7775,7 +7775,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3097, "name": "Axa Manno: consulente assicurativo per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/axa-manno` },
           { "@type": "ListItem", "position": 3098, "name": "Legge di Bilancio 2025: lavoro, previdenza e fisco", "url": `${BASE_URL}/articoli-frontaliere/gazzetta-ufficiale-legge-30-dicembre-2024-n-207` },
           { "@type": "ListItem", "position": 3099, "name": "Nuovo accordo frontalieri: cosa cambia per i fr...", "url": `${BASE_URL}/articoli-frontaliere/kebab-case-3-5-words-max-40-chars` },
-          { "@type": "ListItem", "position": 3100, "name": "Posta Chiasso: novità per i frontalieri", "url": `${BASE_URL}/articoli-frontaliere/posta-chiasso` }
+          { "@type": "ListItem", "position": 3100, "name": "Posta Chiasso: novità per i frontalieri", "url": `${BASE_URL}/articoli-frontaliere/posta-chiasso` },
+          { "@type": "ListItem", "position": 3101, "name": "Private Spitex a Basilea: nuove opportunità di ...", "url": `${BASE_URL}/articoli-frontaliere/private-spitex-stellenangebote-basel` }
  ]
  },
  {

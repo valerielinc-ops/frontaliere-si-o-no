@@ -937,6 +937,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.title': 'Loi de finances 2025 : travail, prévoyance et fiscalité',
     'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.excerpt': 'La loi de finances 2025 prévoit des modifications importantes pour les frontaliers, notamment une augmentation des franchises pour les revenus du travail.',
     'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.imageAlt': 'Image d\'une scène suisse à niveau national.',
+    'blog.article.private-spitex-stellenangebote-basel.title': 'Private Spitex à Bâle : nouvelles opportunités d\'emploi',
+    'blog.article.private-spitex-stellenangebote-basel.excerpt': 'Les cliniques privées de Bâle recherchent des infirmières et des infirmiers pour couvrir les heures de travail',
+    'blog.article.private-spitex-stellenangebote-basel.imageAlt': 'Une scène d\'une clinique privée à Bâle',
 };
 
 export default blogMetaChFr;

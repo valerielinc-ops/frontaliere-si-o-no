@@ -4407,6 +4407,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gazzetta-ufficiale-legge-30-dicembre-2024-n-207': { name: 'Legge di Bilancio 2025', path: '/articoli-svizzera/gazzetta-ufficiale-legge-30-dicembre-2024-n-207/', parent: 'blog' },
     'blog-kebab-case-3-5-words-max-40-chars': { name: 'Nuovo accordo frontalieri', path: '/articoli-frontaliere/kebab-case-3-5-words-max-40-chars', parent: 'blog' },
     'blog-posta-chiasso': { name: 'posta Chiasso', path: '/articoli-frontaliere/posta-chiasso', parent: 'blog' },
+    'blog-private-spitex-stellenangebote-basel': { name: 'Private Spitex a Basilea', path: '/articoli-svizzera/private-spitex-stellenangebote-basel/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -937,6 +937,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.title': 'Legge di Bilancio 2025: lavoro, previdenza e fisco',
     'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.excerpt': 'La Legge di Bilancio 2025 prevede modifiche importanti per i frontalieri, tra cui un aumento delle franchigie per i redditi da lavoro.',
     'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.imageAlt': 'Immagine fotorealistica di una scena svizzera a livello nazionale.',
+    'blog.article.private-spitex-stellenangebote-basel.title': 'Private Spitex a Basilea: nuove opportunità di lavoro',
+    'blog.article.private-spitex-stellenangebote-basel.excerpt': 'Le cliniche private di Basilea cercano infermiere e infermieri per coprire le ore di lavoro',
+    'blog.article.private-spitex-stellenangebote-basel.imageAlt': 'Una scena di una clinica privata a Basilea',
 };
 
 export default blogMetaChIt;
