@@ -234,9 +234,25 @@ export function buildTitleWithBrand(
  * regressing audit:title-length). If even the shortest candidate
  * overflows — an implausibly long place name — falls back to
  * {@link truncateHeadline} on it as a last resort so the cap always holds.
+ *
+ * @param measureLength  Length function used for the fit check on each
+ *                    candidate. Default raw `.length`. Callers whose token
+ *                    is crawler-derived free text rather than a curated
+ *                    gazetteer name (e.g. a company `displayName`, which can
+ *                    contain `&`/`<`/`>`/`"` — "Rossi & Figli Sagl") and
+ *                    whose composed title is emitted through a render layer
+ *                    that HTML-escapes it exactly once must pass
+ *                    `(s) => esc(s).length`, mirroring
+ *                    {@link buildTitleWithBrand}'s `measureLength` param —
+ *                    otherwise a candidate that fits pre-escape can still
+ *                    overflow the cap post-escape.
  */
-export function composePlaceTitle(candidates: string[], maxChars: number = TITLE_MAX_CHARS): string {
-  const fitting = candidates.find((c) => c.length <= maxChars);
+export function composePlaceTitle(
+  candidates: string[],
+  maxChars: number = TITLE_MAX_CHARS,
+  measureLength: (s: string) => number = (s) => s.length,
+): string {
+  const fitting = candidates.find((c) => measureLength(c) <= maxChars);
   if (fitting) return fitting;
   const shortest = candidates[candidates.length - 1] ?? '';
   return truncateHeadline(shortest, maxChars);
