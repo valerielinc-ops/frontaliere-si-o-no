@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "zuger-kantonsspital-1422ab05e2f1",
-      "slug": "pflegefachperson-hf-onkologie-40-100-zuger-kantonsspital-baar",
+      "slug": "professionista-hf-oncology-40-100-zuger-kantonsspital-baar",
       "slugByLocale": {
         "de": "pflegefachperson-hf-onkologie-40-100-zuger-kantonsspital-baar",
-        "it": "pflegefachperson-hf-onkologie-40-100-zuger-kantonsspital-baar",
-        "en": "pflegefachperson-hf-onkologie-40-100-zuger-kantonsspital-baar",
-        "fr": "pflegefachperson-hf-onkologie-40-100-zuger-kantonsspital-baar"
+        "it": "professionista-hf-oncology-40-100-zuger-kantonsspital-baar",
+        "en": "care-professional-hf-oncology-40-100-zuger-kantonsspital-baar",
+        "fr": "soins-professionnels-hf-oncologie-40-100-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
       "companyKey": "zuger-kantonsspital",
@@ -62,7 +62,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-06T15:32:24.441Z"
+      "firstSeenAt": "2026-07-06T15:32:24.441Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-onkologie-40-100-zuger-kantonsspital-baar"
+        ],
+        "en": [
+          "pflegefachperson-hf-onkologie-40-100-zuger-kantonsspital-baar"
+        ],
+        "fr": [
+          "pflegefachperson-hf-onkologie-40-100-zuger-kantonsspital-baar"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-onkologie-40-100-zuger-kantonsspital-baar"
+      ]
     },
     {
       "id": "zuger-kantonsspital-7407b7af1aa1",
@@ -113,8 +127,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-onkologie-mit-fachverantwortung-40-100-zuger-kantonsspital-baar",
         "it": "pflegefachperson-hf-fh-onkologie-mit-fachverantwortung-40-100-zuger-kantonsspital-baar",
-        "en": "pflegefachperson-hf-fh-onkologie-mit-fachverantwortung-40-100-zuger-kantonsspital-baar",
-        "fr": "pflegefachperson-hf-fh-onkologie-mit-fachverantwortung-40-100-zuger-kantonsspital-baar"
+        "en": "nursing-professional-hf-fh-oncology-with-professional-responsibility-40-100-zuger-kantonsspital-baar",
+        "fr": "professionnels-des-soins-infirmiers-hf-fh-oncologie-avec-responsabilite-professionnelle-40-100-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
       "companyKey": "zuger-kantonsspital",
@@ -284,22 +298,6 @@
       "applyUrl": "https://jobs.zgks.ch/Pharma-Assistentin-80-100-mw-de-j854.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "pharma-assistentin-80-100-m-w-zuger-kantonsspital-baar",
-        "assistente-farmaceutico-80-100-m-w-zuger-kantonsspital-baar"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pharma-assistentin-80-100-m-w-zuger-kantonsspital-baar",
-          "assistente-farmaceutico-80-100-m-w-zuger-kantonsspital-baar"
-        ],
-        "en": [
-          "pharma-assistentin-80-100-m-w-zuger-kantonsspital-baar"
-        ],
-        "fr": [
-          "pharma-assistentin-80-100-m-w-zuger-kantonsspital-baar"
-        ]
-      },
       "firstSeenAt": "2026-07-01T13:01:17.166Z"
     },
     {
@@ -351,22 +349,6 @@
       "applyUrl": "https://jobs.zgks.ch/Gebaeudetechniker-HLKKS-100-mw-de-j855.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "gebaudetechniker-hlkks-100-m-w-zuger-kantonsspital-baar",
-        "tecnico-edile-hlkks-100-m-w-zuger-kantonsspital-baar"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gebaudetechniker-hlkks-100-m-w-zuger-kantonsspital-baar",
-          "tecnico-edile-hlkks-100-m-w-zuger-kantonsspital-baar"
-        ],
-        "en": [
-          "gebaudetechniker-hlkks-100-m-w-zuger-kantonsspital-baar"
-        ],
-        "fr": [
-          "gebaudetechniker-hlkks-100-m-w-zuger-kantonsspital-baar"
-        ]
-      },
       "firstSeenAt": "2026-07-01T13:01:17.736Z"
     },
     {
@@ -480,22 +462,6 @@
       "applyUrl": "https://jobs.zgks.ch/Zivildienstleistenden-Pflegeassistenz-Notfallzentrum-de-j857.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "zivildienstleistenden-pflegeassistenz-notfallzentrum-zuger-kantonsspital-baar",
-        "servizio-di-assistenza-sanitaria-centro-di-emergenza-zuger-kantonsspital-baar"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "zivildienstleistenden-pflegeassistenz-notfallzentrum-zuger-kantonsspital-baar",
-          "servizio-di-assistenza-sanitaria-centro-di-emergenza-zuger-kantonsspital-baar"
-        ],
-        "en": [
-          "zivildienstleistenden-pflegeassistenz-notfallzentrum-zuger-kantonsspital-baar"
-        ],
-        "fr": [
-          "zivildienstleistenden-pflegeassistenz-notfallzentrum-zuger-kantonsspital-baar"
-        ]
-      },
       "firstSeenAt": "2026-07-01T13:01:18.752Z"
     },
     {
@@ -547,13 +513,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hotelfachperson-restaurationsfachperson-80-100-m-w-zuger-kantonsspital-baar",
-        "professionista-dell-hotel-ristorazione-professionale-80-100-m-f-zuger-kantonsspital-baar"
+        "hotelfachperson-restaurationsfachperson-80-100-m-w-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hotelfachperson-restaurationsfachperson-80-100-m-w-zuger-kantonsspital-baar",
-          "professionista-dell-hotel-ristorazione-professionale-80-100-m-f-zuger-kantonsspital-baar"
+          "hotelfachperson-restaurationsfachperson-80-100-m-w-zuger-kantonsspital-baar"
         ],
         "en": [
           "hotelfachperson-restaurationsfachperson-80-100-m-w-zuger-kantonsspital-baar"
@@ -625,22 +589,6 @@
       "applyUrl": "https://jobs.zgks.ch/Fachspezialistin-Lohn-Projektmitarbeiterin-80-100-mw-de-j851.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachspezialistin-lohn-projektmitarbeiterin-80-100-m-w-zuger-kantonsspital-baar",
-        "specialista-payroll-dipendente-di-progetto-80-100-lunedi-f-zuger-kantonsspital-baar"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialistin-lohn-projektmitarbeiterin-80-100-m-w-zuger-kantonsspital-baar",
-          "specialista-payroll-dipendente-di-progetto-80-100-lunedi-f-zuger-kantonsspital-baar"
-        ],
-        "en": [
-          "fachspezialistin-lohn-projektmitarbeiterin-80-100-m-w-zuger-kantonsspital-baar"
-        ],
-        "fr": [
-          "fachspezialistin-lohn-projektmitarbeiterin-80-100-m-w-zuger-kantonsspital-baar"
-        ]
-      },
       "firstSeenAt": "2026-06-22T15:30:18.747Z"
     },
     {
@@ -757,22 +705,6 @@
       "applyUrl": "https://jobs.zgks.ch/Mitarbeiterin-Hauswirtschaft-OP-Bereich-70-wm-de-j849.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiterin-hauswirtschaft-op-bereich-70-w-m-zuger-kantonsspital-baar",
-        "pulizia-dipendenti-area-or-70-f-m-zuger-kantonsspital-baar"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-hauswirtschaft-op-bereich-70-w-m-zuger-kantonsspital-baar",
-          "pulizia-dipendenti-area-or-70-f-m-zuger-kantonsspital-baar"
-        ],
-        "en": [
-          "mitarbeiterin-hauswirtschaft-op-bereich-70-w-m-zuger-kantonsspital-baar"
-        ],
-        "fr": [
-          "mitarbeiterin-hauswirtschaft-op-bereich-70-w-m-zuger-kantonsspital-baar"
-        ]
-      },
       "firstSeenAt": "2026-06-16T14:47:41.223Z"
     },
     {
@@ -824,13 +756,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar",
-        "assistenza-di-emergenza-esperto-nds-hf-80-100-m-w-zuger-kantonsspital-baar"
+        "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar",
-          "assistenza-di-emergenza-esperto-nds-hf-80-100-m-w-zuger-kantonsspital-baar"
+          "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar"
         ],
         "en": [
           "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar"
@@ -902,22 +832,6 @@
       "applyUrl": "https://jobs.zgks.ch/Leitung-Pflege-OPS-100--de-j846.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "leitung-pflege-ops-100-zuger-kantonsspital-baar",
-        "cura-della-testa-ops-100-zuger-kantonsspital-baar"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leitung-pflege-ops-100-zuger-kantonsspital-baar",
-          "cura-della-testa-ops-100-zuger-kantonsspital-baar"
-        ],
-        "en": [
-          "leitung-pflege-ops-100-zuger-kantonsspital-baar"
-        ],
-        "fr": [
-          "leitung-pflege-ops-100-zuger-kantonsspital-baar"
-        ]
-      },
       "firstSeenAt": "2026-06-05T12:56:36.171Z"
     },
     {
@@ -969,13 +883,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-neurologie-60-100-zuger-kantonsspital-baar",
-        "medico-senior-neurologia-60-100-zuger-kantonsspital-baar"
+        "oberarztin-oberarzt-neurologie-60-100-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-neurologie-60-100-zuger-kantonsspital-baar",
-          "medico-senior-neurologia-60-100-zuger-kantonsspital-baar"
+          "oberarztin-oberarzt-neurologie-60-100-zuger-kantonsspital-baar"
         ],
         "en": [
           "oberarztin-oberarzt-neurologie-60-100-zuger-kantonsspital-baar"
@@ -1048,19 +960,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-praxisassistentin-rheumatologie-60-80-zuger-kantonsspital-baar",
         "assistente-di-medicina-di-medicina-generale-gastroenterologia-80-100-m-f-zuger-kantonsspital-baar",
         "medical-practice-assistant-gastroenterology-80-100-m-f-zuger-kantonsspital-baar",
         "medizinische-praxisassistentin-gastroenterologie-80-100-m-w-zuger-kantonsspital-baar",
-        "assistant-e-en-medecine-generale-gastroenterologie-80-100-h-f-zuger-kantonsspital-baar",
-        "assistente-di-medicina-di-medicina-rheumatologia-60-80-zuger-kantonsspital-baar"
+        "assistant-e-en-medecine-generale-gastroenterologie-80-100-h-f-zuger-kantonsspital-baar"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-praxisassistentin-rheumatologie-60-80-zuger-kantonsspital-baar",
-          "assistente-di-medicina-di-medicina-rheumatologia-60-80-zuger-kantonsspital-baar"
-        ]
-      },
       "firstSeenAt": "2026-05-19T13:03:25.184Z"
     }
   ]

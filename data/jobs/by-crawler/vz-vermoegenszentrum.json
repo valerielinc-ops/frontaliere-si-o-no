@@ -3656,14 +3656,12 @@
       },
       "previousSlugs": [
         "junior-investment-solutions-manager-100-vz-vermoegenszentrum-ch",
-        "responsabile-junior-delle-soluzioni-di-investimento-100-vz-vermogenszentrum-zug-zug",
-        "junior-investment-solutions-manager-100-vz-vermogenszentrum-zug"
+        "responsabile-junior-delle-soluzioni-di-investimento-100-vz-vermogenszentrum-zug-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "junior-investment-solutions-manager-100-vz-vermoegenszentrum-ch",
-          "responsabile-junior-delle-soluzioni-di-investimento-100-vz-vermogenszentrum-zug-zug",
-          "junior-investment-solutions-manager-100-vz-vermogenszentrum-zug"
+          "responsabile-junior-delle-soluzioni-di-investimento-100-vz-vermogenszentrum-zug-zug"
         ]
       },
       "needsRetranslation": true,
@@ -4207,8 +4205,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenempfang-40-vz-vermoegenszentrum-ch",
         "it": "collaboratore-trice-in-kundenempfang-40-vz-vermogenszentrum-basel",
-        "en": "mitarbeiter-in-kundenempfang-40-vz-vermogenszentrum-basel",
-        "fr": "mitarbeiter-in-kundenempfang-40-vz-vermogenszentrum-basel"
+        "en": "reception-of-employees-40-vz-vermogenszentrum-basel-basel-stadt",
+        "fr": "reception-des-salaries-40-vz-vermogenszentrum-basel-basel-stadt"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4266,10 +4264,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kundenempfang-40-vz-vermoegenszentrum-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenempfang-40-vz-vermogenszentrum-basel"
+        ],
+        "fr": [
+          "mitarbeiter-in-kundenempfang-40-vz-vermogenszentrum-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenempfang-40-vz-vermoegenszentrum-ch"
+        "mitarbeiter-in-kundenempfang-40-vz-vermoegenszentrum-ch",
+        "mitarbeiter-in-kundenempfang-40-vz-vermogenszentrum-basel"
       ],
       "salaryMin": 24800,
       "salaryMax": 37600,

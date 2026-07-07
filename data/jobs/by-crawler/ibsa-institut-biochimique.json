@@ -125,8 +125,8 @@
       "slugByLocale": {
         "it": "qc-analysis-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61",
         "en": "qc-analysis-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61",
-        "de": "qc-analysis-techniker-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61",
-        "fr": "qc-analysis-technicien-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61"
+        "de": "qc-analysis-techniker-ibsa-institut-biochimique-lugano-pazzallo",
+        "fr": "qc-analysis-technicien-ibsa-institut-biochimique-lugano-pazzallo"
       },
       "requirementsByLocale": {
         "it": [
@@ -141,10 +141,18 @@
       "previousSlugsByLocale": {
         "it": [
           "qc-analysis-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo"
+        ],
+        "de": [
+          "qc-analysis-techniker-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61"
+        ],
+        "fr": [
+          "qc-analysis-technicien-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61"
         ]
       },
       "previousSlugs": [
-        "qc-analysis-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo"
+        "qc-analysis-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo",
+        "qc-analysis-techniker-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61",
+        "qc-analysis-technicien-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -278,9 +286,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "dossier-compliance-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
-        "en": "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
-        "de": "dossier-compliance-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
-        "fr": "dossier-compliance-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
+        "en": "dossier-compliance-specialist-ibsa-institut-biochimique-collina-d",
+        "de": "dossier-compliance-spezialist-ibsa-institut-biochimique-collina-d",
+        "fr": "dossier-compliance-specialiste-ibsa-institut-biochimique-collina-d"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -290,23 +298,17 @@
           "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d"
         ],
         "en": [
-          "dossier-compliance-specialist-ibsa-institut-biochimique-collina-d",
           "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
         ],
         "de": [
-          "dossier-compliance-spezialist-ibsa-institut-biochimique-collina-d",
           "dossier-compliance-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
         ],
         "fr": [
-          "dossier-compliance-specialiste-ibsa-institut-biochimique-collina-d",
           "dossier-compliance-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
         ]
       },
       "previousSlugs": [
         "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d",
-        "dossier-compliance-specialist-ibsa-institut-biochimique-collina-d",
-        "dossier-compliance-spezialist-ibsa-institut-biochimique-collina-d",
-        "dossier-compliance-specialiste-ibsa-institut-biochimique-collina-d",
         "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
         "dossier-compliance-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
         "dossier-compliance-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
@@ -392,8 +394,7 @@
         ],
         "fr": [
           "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co-um2f7f",
-          "directeur-du-controle-industriel-ibsa-institut-biochimique-collina",
-          "industrial-controlling-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-industrial-controlling-manager"
+          "directeur-du-controle-industriel-ibsa-institut-biochimique-collina"
         ],
         "it": [
           "industrial-controlling-manager-ibsa-institut-biochimique-collina",

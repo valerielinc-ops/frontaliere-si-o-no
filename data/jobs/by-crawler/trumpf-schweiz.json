@@ -431,19 +431,26 @@
       },
       "slugByLocale": {
         "it": "servicetechniker-im-servizio-interno-per-lasermaschinen-m-w-d-trumpf-schweiz-ag-grusch",
-        "en": "servicetechniker-im-innendienst-fur-lasermaschinen-m-w-d-trumpf-schweiz-ag-grusch",
+        "en": "in-house-service-technician-for-laser-machines-m-f-d-trumpf-schweiz-ag-grusch",
         "de": "servicetechniker-im-innendienst-fur-lasermaschinen-m-w-d-trumpf-schweiz-ag-grusch",
-        "fr": "servicetechniker-im-innendienst-fur-lasermaschinen-m-w-d-trumpf-schweiz-ag-grusch"
+        "fr": "technicien-de-service-interne-pour-machines-laser-m-f-d-trumpf-schweiz-ag-grusch"
       },
       "crawledAt": "2026-07-06T15:46:38.679Z",
       "id": "trumpf-schweiz-ecc1e983e78d",
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-im-innendienst-fur-lasermaschinen-m-w-d-trumpf-r00039592"
+        ],
+        "en": [
+          "servicetechniker-im-innendienst-fur-lasermaschinen-m-w-d-trumpf-schweiz-ag-grusch"
+        ],
+        "fr": [
+          "servicetechniker-im-innendienst-fur-lasermaschinen-m-w-d-trumpf-schweiz-ag-grusch"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-im-innendienst-fur-lasermaschinen-m-w-d-trumpf-r00039592"
+        "servicetechniker-im-innendienst-fur-lasermaschinen-m-w-d-trumpf-r00039592",
+        "servicetechniker-im-innendienst-fur-lasermaschinen-m-w-d-trumpf-schweiz-ag-grusch"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -727,7 +734,7 @@
         "it": "senior-controller-finanza-business-partner-m-w-d-trumpf-schweiz-ag-grusch",
         "en": "senior-controller-finance-business-partner-m-f-d-trumpf-schweiz-ag-grusch",
         "de": "senior-controller-finanzen-business-partner-m-w-d-trumpf-schweiz-ag-grusch",
-        "fr": "senior-controller-finance-business-partner-m-w-d-trumpf-schweiz-ag-grusch"
+        "fr": "controleur-principal-associe-financier-m-f-d-trumpf-schweiz-ag-grusch"
       },
       "crawledAt": "2026-07-06T15:46:41.864Z",
       "id": "trumpf-schweiz-6c6e0efb29bc",
@@ -748,7 +755,6 @@
       "firstSeenAt": "2026-06-10T13:05:08.213Z",
       "previousSlugsByLocale": {
         "fr": [
-          "controleur-principal-associe-financier-m-f-d-trumpf-schweiz-ag-grusch",
           "senior-controller-finance-business-partner-m-w-d-trumpf-schweiz-ag-grusch"
         ],
         "it": [
@@ -763,7 +769,6 @@
       },
       "previousSlugs": [
         "senior-controller-finance-business-partner-m-w-d-trumpf-r00040662",
-        "controleur-principal-associe-financier-m-f-d-trumpf-schweiz-ag-grusch",
         "senior-controller-finance-business-partner-m-w-d-trumpf-schweiz-ag-grusch"
       ]
     },

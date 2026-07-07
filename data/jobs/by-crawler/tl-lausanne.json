@@ -2,11 +2,11 @@
   "jobs": [
     {
       "id": "tl-lausanne-38634709f562",
-      "slug": "responsable-de-marche-clientele-privee-b2c-tl-lausanne-lausanne",
+      "slug": "responsabile-del-mercato-dei-clienti-privato-b2c-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "responsable-de-marche-clientele-privee-b2c-tl-lausanne-lausanne",
-        "it": "responsable-de-marche-clientele-privee-b2c-tl-lausanne-lausanne",
-        "en": "responsable-de-marche-clientele-privee-b2c-tl-lausanne-lausanne",
+        "it": "responsabile-del-mercato-dei-clienti-privato-b2c-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "private-customer-market-manager-b2c-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "de": "responsable-de-marche-clientele-privee-b2c-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -50,7 +50,18 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "streetAddress": "Chemin du Closel 15-17"
+      "streetAddress": "Chemin du Closel 15-17",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-marche-clientele-privee-b2c-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "responsable-de-marche-clientele-privee-b2c-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-marche-clientele-privee-b2c-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-89a5b0ee385c",
@@ -102,22 +113,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
-      "previousSlugs": [
-        "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne",
-        "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne",
-          "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
-        ],
-        "en": [
-          "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne"
-        ],
-        "de": [
-          "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne"
-        ]
-      },
       "firstSeenAt": "2026-07-04T12:29:32.003Z"
     },
     {
@@ -171,21 +166,14 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-lausanne-lausanne",
-        "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-transports-publics-de-la-region-lausannoise",
-        "infrastrutture-e-progetti-di-costruzione-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-transports-publics-de-la-region-lausannoise"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-lausanne-lausanne",
-          "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-transports-publics-de-la-region-lausannoise",
-          "infrastrutture-e-progetti-di-costruzione-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-transports-publics-de-la-region-lausannoise"
         ],
         "en": [
           "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-transports-publics-de-la-region-lausannoise"
-        ],
-        "de": [
-          "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-lausanne-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-04T12:29:32.758Z"
@@ -240,22 +228,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
-      "previousSlugs": [
-        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-        "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-          "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne"
-        ],
-        "en": [
-          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
-        ],
-        "de": [
-          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
-        ]
-      },
       "firstSeenAt": "2026-07-04T12:29:33.535Z"
     },
     {
@@ -308,22 +280,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
-      "previousSlugs": [
-        "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne",
-        "tecnico-di-manutenzione-stradale-meccatronico-meccanico-tl-transports-publics-de-la-region-lausannoise-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne",
-          "tecnico-di-manutenzione-stradale-meccatronico-meccanico-tl-transports-publics-de-la-region-lausannoise-lausanne"
-        ],
-        "en": [
-          "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne"
-        ],
-        "de": [
-          "technicien-ne-maintenance-route-mecatronicien-ne-mecanicien-ne-tl-lausanne-lausanne"
-        ]
-      },
       "firstSeenAt": "2026-07-04T12:29:34.295Z"
     }
   ]
