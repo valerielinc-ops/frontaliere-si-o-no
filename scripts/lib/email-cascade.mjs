@@ -1009,20 +1009,25 @@ function campaignIdTag(email) {
 }
 
 /**
+ * A provider's dailyLimit can be Infinity (resend, no self-imposed floor).
+ * Any caller doing per-run send pacing ("send N today, rest tomorrow") needs
+ * a FINITE number to compare against — Infinity silently disables that
+ * pacing. Single source of truth for the finite-substitution so it can't
+ * drift between call sites (getCascadeDailyCapacity below, and
+ * send-newsletter.mjs's single-provider DAILY_SEND_LIMIT branch).
+ */
+export function finiteDailyLimit(provider) {
+  return Number.isFinite(provider.dailyLimit) ? provider.dailyLimit : Math.floor((provider.monthlyLimit || 0) / 30);
+}
+
+/**
  * Total theoretical daily send capacity across the whole cascade — the sum of
  * every provider's daily limit (see PROVIDERS above). Single source of truth
  * so callers (e.g. the newsletter per-run cap) stay in sync when providers
  * change, instead of a second hardcoded total drifting from the array.
  */
 export function getCascadeDailyCapacity() {
-  // A provider with dailyLimit=Infinity (resend, no self-imposed floor) must
-  // not turn this sum into Infinity — callers like send-newsletter.mjs use
-  // it as DAILY_SEND_LIMIT to pace per-run sends ("send N today, rest
-  // tomorrow"); Infinity would silently disable that pacing for ALL
-  // providers, not just resend. Substitute a finite monthly-average estimate
-  // for any non-finite limit instead.
-  return PROVIDERS.reduce((sum, p) =>
-    sum + (Number.isFinite(p.dailyLimit) ? p.dailyLimit : Math.floor((p.monthlyLimit || 0) / 30)), 0);
+  return PROVIDERS.reduce((sum, p) => sum + finiteDailyLimit(p), 0);
 }
 
 export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage };
