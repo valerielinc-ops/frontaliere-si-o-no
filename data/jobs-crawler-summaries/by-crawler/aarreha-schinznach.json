@@ -1,16 +1,16 @@
 {
   "key": "aarreha-schinznach",
   "label": "aarReha Schinznach",
-  "generatedAt": "2026-07-07T12:06:25.527Z",
-  "total": 9,
+  "generatedAt": "2026-07-07T22:17:34.409Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7079,
-  "avgDurationMs": 7079,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6731,
+  "avgDurationMs": 6731,
   "durationHistory": [
-    7079
+    6731
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-mitarbeiterin-mitarbeiter-restauration_540.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:06:19.398Z",
+      "crawledAt": "2026-07-07T22:17:29.007Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-stv-stationsleiterin-stv-stationsleiter-internistische-rehabilitation_539.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:06:21.897Z",
+      "crawledAt": "2026-07-07T22:17:31.363Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-dipl-med-masseurin-dipl-med-masseur_531.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:06:19.867Z",
+      "crawledAt": "2026-07-07T22:17:29.485Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-dipl-pflegefachfrau-dipl-pflegefachmann-mit-zusatzfunktion-als-berufsbildner-in-schwerpunkt-int_530.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:06:20.316Z",
+      "crawledAt": "2026-07-07T22:17:29.949Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-assistenzarzt-assistenzarztin_534.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:06:20.875Z",
+      "crawledAt": "2026-07-07T22:17:30.427Z",
       "addressLocality": "Schinznach-Bad und Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-fachfrau-fachmann-gesundheit-mit-zusatzfunktion-als-berufsbildner-in-schwerpunkt-int_532.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:06:21.439Z",
+      "crawledAt": "2026-07-07T22:17:30.907Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-unterassistentin-unterassistent_538.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:06:22.434Z",
+      "crawledAt": "2026-07-07T22:17:31.826Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-studierende-pflegefachfrau-studierender-pflegefachmann_377.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:06:23.064Z",
+      "crawledAt": "2026-07-07T22:17:32.287Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -311,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "aarreha-schinznach-159fbf350754",
       "slug": "responsabile-medicina-interna-e-riabilitazione-oncologica-aarreha-schinznach-schinznach-bad",
@@ -352,5 +351,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
