@@ -43,8 +43,9 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   detectLang,
-  mergeLocaleTextMap,
+  mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parsePostJobDetail } from './lib/postch-job-parser.mjs';
 import {  inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -607,6 +608,23 @@ function normalizeUrl(url = '') {
   }
 }
 
+// Stable match key: prefer the trailing requisition id extracted from
+// `url`, falling back to the one extracted from `applyUrl` (PostFinance's
+// own careers page sometimes exposes a generic listing `url` plus an
+// ATS-hosted `applyUrl` carrying the real id), then the normalized URL —
+// so a vendor title/slug rewrite doesn't orphan the job's
+// previousSlugs/previousSlugsByLocale/firstSeenAt history the way the
+// previous exact-URL-keyed merge did (issue #3699).
+function postFinanceMatchKey(job) {
+  return (
+    extractStableJobId(job?.url) ||
+    extractStableJobId(job?.applyUrl) ||
+    normalizeUrl(job?.url) ||
+    normalizeUrl(job?.applyUrl) ||
+    null
+  );
+}
+
 async function mergePostFinanceJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
@@ -614,68 +632,21 @@ async function mergePostFinanceJobs(discoveredJobs) {
   const nonPfJobs = allJobs.filter((j) => !isPostFinanceJob(j));
   const existingPfJobs = allJobs.filter(isPostFinanceJob);
 
-  // Build lookup by normalized URL
-  const existingByUrl = new Map();
-  for (const job of existingPfJobs) {
-    existingByUrl.set(normalizeUrl(job.url), job);
-    if (job.applyUrl) existingByUrl.set(normalizeUrl(job.applyUrl), job);
-  }
+  const existingKeys = new Set(existingPfJobs.map(postFinanceMatchKey).filter(Boolean));
+  const discoveredKeys = new Set(discoveredJobs.map(postFinanceMatchKey).filter(Boolean));
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
 
-  let added = 0;
-  let updated = 0;
-  let removed = 0;
-  const merged = [];
-  const discoveredUrlSet = new Set();
-
-  for (const discovered of discoveredJobs) {
-    const normUrl = normalizeUrl(discovered.url);
-    const normApplyUrl = normalizeUrl(discovered.applyUrl);
-    discoveredUrlSet.add(normUrl);
-    discoveredUrlSet.add(normApplyUrl);
-
-    const existingJob = existingByUrl.get(normUrl) || existingByUrl.get(normApplyUrl);
-
-    if (existingJob) {
-      const updatedJob = {
-        ...existingJob,
-        title: discovered.title || existingJob.title,
-        description: discovered.description || existingJob.description,
-        company: COMPANY_NAME,
-        companyKey: COMPANY_KEY,
-        location: discovered.location || existingJob.location,
-        canton: discovered.canton || existingJob.canton,
-        country: 'CH',
-        applyUrl: discovered.applyUrl || existingJob.applyUrl,
-        url: discovered.url || existingJob.url,
-        department: discovered.department || existingJob.department,
-        category: discovered.category || existingJob.category,
-        sector: discovered.sector || existingJob.sector,
-        source: 'postfinance-careers-crawler',
-        workload: discovered.workload || existingJob.workload,
-        titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
-        slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
-      };
-      // Preserve needsRetranslation only if still needed
-      if (discovered.needsRetranslation && !existingJob.descriptionByLocale?.en) {
-        updatedJob.needsRetranslation = true;
-      }
-      merged.push(updatedJob);
-      updated++;
-    } else {
-      merged.push(discovered);
-      added++;
-    }
-  }
-
-  // Count removed (existing PF jobs not in discovery)
-  for (const job of existingPfJobs) {
-    const normUrl = normalizeUrl(job.url);
-    const normApplyUrl = normalizeUrl(job.applyUrl);
-    if (!discoveredUrlSet.has(normUrl) && !discoveredUrlSet.has(normApplyUrl)) {
-      removed++;
-    }
-  }
+  const merged = mergePreserveLocaleData(existingPfJobs, discoveredJobs, {
+    matchKey: postFinanceMatchKey,
+  }).map((job) => ({
+    ...job,
+    company: COMPANY_NAME,
+    companyKey: COMPANY_KEY,
+    country: 'CH',
+    source: 'postfinance-careers-crawler',
+  }));
 
   const final = [...nonPfJobs, ...merged];
 
