@@ -5040,7 +5040,22 @@ export function loadSlugRegistry() {
 }
 
 export function saveSlugRegistry(registry) {
-  fs.writeFileSync(resolveSlugRegistryPath(), JSON.stringify(registry, null, 2) + '\n');
+  // Crawler-group jobs run ~25 sibling crawlers concurrently against one
+  // shared checkout, each independently loadSlugRegistry() → mutate →
+  // saveSlugRegistry() with no coordination between them. A direct
+  // writeFileSync to the final path is not atomic for a file this size, so a
+  // concurrent readFileSync elsewhere could observe a truncated write mid-
+  // flight, fail JSON.parse, and silently fall back to `{}` in
+  // loadSlugRegistry's catch — causing that crawler to treat every job as
+  // unregistered and mint a fresh (possibly different) slug for one that
+  // already has an immutable canonical slug pinned. Writing to a per-process
+  // temp file and renaming into place is atomic on the same filesystem (POSIX
+  // rename()), so any concurrent reader always sees either the pre- or
+  // post-write snapshot in full, never a partial one.
+  const registryPath = resolveSlugRegistryPath();
+  const tmpPath = `${registryPath}.tmp-${process.pid}`;
+  fs.writeFileSync(tmpPath, JSON.stringify(registry, null, 2) + '\n');
+  fs.renameSync(tmpPath, registryPath);
 }
 
 export function getRegisteredSlug(job, registry) {
