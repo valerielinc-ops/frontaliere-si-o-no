@@ -8295,6 +8295,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.title': 'Schweizer Arbeitsmarkt im Abschwung: Was ändert sich für Grenzgänger?',
     'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.excerpt': 'Schweizer Arbeitslosenquote stabil bei 3,1% saisonbereinigt im Juni. SECO revidierte die Schätzung für 2026 und 2027 aufgrund der Energiepreise nach oben.',
     'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.imageAlt': 'Grenzpendler stauen sich am Brogeda-Checkpoint in Lugano bei Sonnenuntergang, Richtung italienischer Grenze.',
+    'blog.article.gaggiolo-traffico.title': 'Verkehr am Gaggiolo-Pass',
+    'blog.article.gaggiolo-traffico.excerpt': 'Starker Verkehr am Gaggiolo-Pass aufgrund der Zunahme der Pendler',
+    'blog.article.gaggiolo-traffico.imageAlt': 'Bild eines Alpenpasses während der Rush Hour',
 };
 
 export default blogMetaDe;

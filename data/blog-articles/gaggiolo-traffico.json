@@ -1,0 +1,40 @@
+{
+  "id": "gaggiolo-traffico",
+  "slug": "gaggiolo-traffico",
+  "publishedAt": "2026-07-07T01:24:47.433Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 19.922127555598497,
+    "confidence": 0.8,
+    "finalScore": 15.937702044478797,
+    "topK": [
+      {
+        "slug": "fuga-ammoniaca-stabio-rapelli-allerta-ticino",
+        "cosine": 0.8408176274434929
+      },
+      {
+        "slug": "capre-dogana-gandria-intervento-30-marzo",
+        "cosine": 0.8315850618455047
+      },
+      {
+        "slug": "classifica-dogane-ticino",
+        "cosine": 0.8315702887851504
+      },
+      {
+        "slug": "fuoriuscita-ammoniaca-rapelli-stabio",
+        "cosine": 0.8314042598374394
+      },
+      {
+        "slug": "casa-artigianato-dongio-sostegno",
+        "cosine": 0.8311167379238161
+      }
+    ],
+    "score": 15.937702044478797,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}
