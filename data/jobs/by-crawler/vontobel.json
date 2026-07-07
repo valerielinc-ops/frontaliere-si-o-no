@@ -1838,7 +1838,19 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-06T15:45:35.834Z"
+      "firstSeenAt": "2026-07-06T15:45:35.834Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-entity-contabile-us-vontobel-zurich-gotthardstrasse-35"
+        ],
+        "de": [
+          "legal-entity-buchhalter-us-vontobel-zurich-gotthardstrasse-35"
+        ]
+      },
+      "previousSlugs": [
+        "legal-entity-contabile-us-vontobel-zurich-gotthardstrasse-35",
+        "legal-entity-buchhalter-us-vontobel-zurich-gotthardstrasse-35"
+      ]
     },
     {
       "id": "vontobel-651a7bde6346",
@@ -1903,7 +1915,23 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-06T15:45:35.042Z"
+      "firstSeenAt": "2026-07-06T15:45:35.042Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-avaloq-securities-accounting-specialista-vontobel-zurich-gotthardstrasse-35"
+        ],
+        "de": [
+          "senior-avaloq-securities-accounting-spezialist-vontobel-zurich-gotthardstrasse-35"
+        ],
+        "fr": [
+          "senior-avaloq-securities-accounting-specialiste-vontobel-zurich-gotthardstrasse-35"
+        ]
+      },
+      "previousSlugs": [
+        "senior-avaloq-securities-accounting-specialista-vontobel-zurich-gotthardstrasse-35",
+        "senior-avaloq-securities-accounting-spezialist-vontobel-zurich-gotthardstrasse-35",
+        "senior-avaloq-securities-accounting-specialiste-vontobel-zurich-gotthardstrasse-35"
+      ]
     },
     {
       "id": "vontobel-8ef4c2f965ac",

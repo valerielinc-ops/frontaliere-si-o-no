@@ -66,7 +66,23 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-06T22:32:42.678Z"
+      "firstSeenAt": "2026-07-06T22:32:42.678Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analista-new-builds-msc-group-geneva"
+        ],
+        "de": [
+          "business-analyst-neue-builds-msc-group-geneva"
+        ],
+        "fr": [
+          "business-analyste-new-builds-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "business-analista-new-builds-msc-group-geneva",
+        "business-analyst-neue-builds-msc-group-geneva",
+        "business-analyste-new-builds-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-50d293b9d6b0",
@@ -132,7 +148,23 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-06T22:32:41.888Z"
+      "firstSeenAt": "2026-07-06T22:32:41.888Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva"
+        ],
+        "de": [
+          "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva"
+        ],
+        "fr": [
+          "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva",
+        "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva",
+        "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-1b9354446e1f",
@@ -483,10 +515,14 @@
       "previousSlugsByLocale": {
         "it": [
           "digital-platforms-manager-msc-geneva"
+        ],
+        "fr": [
+          "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "digital-platforms-manager-msc-geneva"
+        "digital-platforms-manager-msc-geneva",
+        "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
       ],
       "needsRetranslation": true,
       "salaryMin": 92000,

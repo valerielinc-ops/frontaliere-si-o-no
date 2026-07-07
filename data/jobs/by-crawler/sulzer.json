@@ -22219,7 +22219,19 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-06T15:39:21.546Z"
+      "firstSeenAt": "2026-07-06T15:39:21.546Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-design-ingegnere-sulzer-mariestad"
+        ],
+        "de": [
+          "mechanical-design-ingenieur-sulzer-mariestad"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-design-ingegnere-sulzer-mariestad",
+        "mechanical-design-ingenieur-sulzer-mariestad"
+      ]
     },
     {
       "id": "sulzer-1465a1484344",
@@ -22472,11 +22484,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "machinery-mechanic-sulzer-ch",
-        "machinery-mechanic-sulzer-joliet"
+        "machinery-mechanic-sulzer-joliet",
+        "pump-mechanic-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "machinery-mechanic-sulzer-ch"
+          "machinery-mechanic-sulzer-ch",
+          "pump-mechanic-sulzer-ch"
         ],
         "de": [
           "machinery-mechanic-sulzer-joliet"
