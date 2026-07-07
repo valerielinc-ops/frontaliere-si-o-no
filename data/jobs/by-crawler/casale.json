@@ -1,6 +1,6 @@
 {
   "crawlerKey": "casale",
-  "assembledAt": "2026-07-06T22:20:33.399Z",
+  "assembledAt": "2026-07-07T12:04:50.315Z",
   "jobs": [
     {
       "url": "https://recruit.casale.ch/o/junior-software-engineer-internship-program",
@@ -61,6 +61,7 @@
         }
       },
       "firstSeenAt": "2026-06-29T21:57:33.193Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "junior-software-engineer-internship-program-casale-lugano"
@@ -138,9 +139,9 @@
         ]
       },
       "previousSlugs": [
-        "apprendistato-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-sa-lugano",
-        "apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-lugano"
-      ]
+        "apprendistato-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-sa-lugano"
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://recruit.casale.ch/o/expediter-1",
@@ -306,8 +307,7 @@
         ]
       },
       "previousSlugs": [
-        "home-office-construction-ingegnere-casale-sa-lugano",
-        "home-office-construction-engineer-casale-lugano"
+        "home-office-construction-ingegnere-casale-sa-lugano"
       ]
     }
   ]
