@@ -5551,8 +5551,8 @@ async function main() {
   if (strippedCount > 0) {
     console.log(`⚠️  stripCopyPasteLocales modified ${strippedCount}/${merged.length} jobs (titles/descriptions blanked)`);
   }
-  writeJson(DATA_JOBS, mergedEnriched);
-  writeJson(PUBLIC_JOBS, mergedEnriched);
+  writeJson(DATA_JOBS, mergedEnriched, { compact: true });
+  writeJson(PUBLIC_JOBS, mergedEnriched, { compact: true });
   updateMeta({ totalJobs: merged.length, companiesCrawled, extracted, inserted, refreshed, startedAt });
 
   const audit = {
