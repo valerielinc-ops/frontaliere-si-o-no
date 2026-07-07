@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-06-20T13:14:38.547Z",
-    "label": "after",
-    "total": 17274,
-    "needsRetranslation": 2745,
-    "suppressed": 613,
-    "incomplete": 1283,
-    "complete": 15991,
-    "missingByLocale": {
-      "it": 551,
-      "en": 351,
-      "de": 706,
-      "fr": 221
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 878
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 96
-      },
-      {
-        "company": "UBS",
-        "pending": 48
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "Implenia",
-        "pending": 14
-      },
-      {
-        "company": "Decathlon",
-        "pending": 11
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 8
-      },
-      {
-        "company": "Ensemble hospitalier de la Côte (EHC)",
-        "pending": 6
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-20T14:18:26.023Z",
-    "label": "before",
-    "total": 17348,
-    "needsRetranslation": 8761,
-    "suppressed": 614,
-    "incomplete": 1576,
-    "complete": 15772,
-    "missingByLocale": {
-      "it": 815,
-      "en": 545,
-      "de": 747,
-      "fr": 419
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1042
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 96
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 23
-      },
-      {
-        "company": "Geberit",
-        "pending": 21
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 21
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 15
-      },
-      {
-        "company": "Implenia",
-        "pending": 14
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-20T15:41:44.623Z",
     "label": "after",
     "total": 17348,
@@ -11469,6 +11355,120 @@
       "en": 384,
       "de": 175,
       "fr": 348
+    },
+    "topPending": [
+      {
+        "company": "Two Spice AG",
+        "pending": 237
+      },
+      {
+        "company": "Manor AG",
+        "pending": 133
+      },
+      {
+        "company": "On Running",
+        "pending": 35
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 13
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 7
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-07T10:18:03.202Z",
+    "label": "before",
+    "total": 23658,
+    "needsRetranslation": 2820,
+    "suppressed": 250,
+    "incomplete": 491,
+    "complete": 23167,
+    "missingByLocale": {
+      "it": 322,
+      "en": 384,
+      "de": 174,
+      "fr": 347
+    },
+    "topPending": [
+      {
+        "company": "Two Spice AG",
+        "pending": 237
+      },
+      {
+        "company": "Manor AG",
+        "pending": 133
+      },
+      {
+        "company": "On Running",
+        "pending": 35
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 13
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 7
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-07T11:49:56.548Z",
+    "label": "after",
+    "total": 23658,
+    "needsRetranslation": 2763,
+    "suppressed": 250,
+    "incomplete": 488,
+    "complete": 23170,
+    "missingByLocale": {
+      "it": 321,
+      "en": 382,
+      "de": 172,
+      "fr": 346
     },
     "topPending": [
       {

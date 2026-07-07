@@ -1,100 +1,19 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-07-06T22:20:33.399Z",
+  "generatedAt": "2026-07-07T12:04:50.316Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 2205,
-  "avgDurationMs": 2205,
+  "unchangedCount": 4,
+  "durationMs": 2056,
+  "avgDurationMs": 2056,
   "durationHistory": [
-    2205
+    2056
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "url": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc",
-      "applyUrl": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc/c/new",
-      "title": "Apprenticeship - Laboratory Technician in Chemistry AFC – Chemical and Pharmaceutical Technologist AFC",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-lugano",
-      "category": "engineering",
-      "datePosted": "2026-02-23",
-      "source": "casale-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 54500,
-      "salaryMax": 73500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "id": "casale-7e2513dafd4a",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://recruit.casale.ch/o/home-office-construction-engineer",
-      "applyUrl": "https://recruit.casale.ch/o/home-office-construction-engineer/c/new",
-      "title": "Home Office Construction Engineer",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "home-office-construction-engineer-casale-lugano",
-      "category": "engineering",
-      "datePosted": "2025-04-11",
-      "source": "casale-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "id": "casale-8e2b66d8ba74",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -128,12 +47,11 @@
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T21:57:33.193Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 0,
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 20
       }
     },

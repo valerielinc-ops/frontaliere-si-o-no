@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-07-07T08:24:02.574Z",
-  "total": 24,
+  "generatedAt": "2026-07-07T12:21:34.417Z",
+  "total": 26,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 25,
-  "durationMs": 98665,
-  "avgDurationMs": 98665,
+  "unchangedCount": 24,
+  "durationMs": 36992,
+  "avgDurationMs": 36992,
   "durationHistory": [
-    98665
+    36992
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -43,6 +43,7 @@
       "salaryMax": 146000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:02:14.767Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -78,6 +79,7 @@
       "salaryMax": 146000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:02:14.767Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -114,42 +116,7 @@
       "currency": "CHF",
       "postalCode": "3600",
       "firstSeenAt": "2026-06-29T23:02:14.767Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Technician Avionics 80 - 100% (w/m/d)",
-      "slug": "avionici-tecnici-80-100-f-m-d-ruag-ag-wilderswil",
-      "url": "https://jobs.ruag.ch/offene-stellen/technician-avionics/72f05998-d65d-450d-aa42-d21f8fb337da",
-      "applyUrl": "https://jobs.ruag.ch/apply/ats/72f05998-d65d-450d-aa42-d21f8fb337da",
-      "company": "RUAG AG",
-      "companyKey": "ruag-ag",
-      "companyDomain": "ruag.ch",
-      "location": "Wilderswil",
-      "addressLocality": "Wilderswil",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "other",
-      "sector": "Aerospazio e difesa",
-      "source": "ruag-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-24",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "validThrough": "2053-11-07",
-      "id": "ruag-ag-2c67d47e43fe",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-06-24T12:06:34.961Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -186,6 +153,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-24T12:06:34.961Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -438,6 +406,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-07-01T12:33:27.158Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -653,6 +622,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-07-01T23:08:13.002Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -725,6 +695,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-07-02T12:36:02.356Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -761,6 +732,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-07-02T12:36:02.356Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -797,6 +769,7 @@
       "currency": "CHF",
       "postalCode": "3600",
       "firstSeenAt": "2026-07-02T22:37:51.768Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,

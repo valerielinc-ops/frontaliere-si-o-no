@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sygnum",
-  "assembledAt": "2026-07-06T22:24:11.619Z",
+  "assembledAt": "2026-07-07T12:10:03.900Z",
   "jobs": [
     {
       "id": "sygnum-41bbb4b7e3e7",
@@ -33,7 +33,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN217",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T15:40:10.974Z",
+      "crawledAt": "2026-07-07T12:10:01.908Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -52,15 +52,17 @@
       "jobReqId": "VN217",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-06T00:35:41.076Z",
+      "previousSlugs": [
+        "internship-product-management-digital-assets-custody-wallets-sygnum-zurich",
+        "internship-product-management-digital-assets-custodia-e-portafogli-sygnum-bank-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-product-management-digital-assets-custody-wallets-sygnum-zurich"
+          "internship-product-management-digital-assets-custody-wallets-sygnum-zurich",
+          "internship-product-management-digital-assets-custodia-e-portafogli-sygnum-bank-zurich"
         ]
       },
-      "previousSlugs": [
-        "internship-product-management-digital-assets-custody-wallets-sygnum-zurich"
-      ],
+      "firstSeenAt": "2026-07-06T00:35:41.076Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -72,7 +74,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sygnum-10f16600957d",
@@ -105,7 +108,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN252",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:24:07.864Z",
+      "crawledAt": "2026-07-07T12:10:00.880Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -185,7 +188,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN259",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:24:06.687Z",
+      "crawledAt": "2026-07-07T12:10:00.056Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -265,7 +268,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN251",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:24:06.016Z",
+      "crawledAt": "2026-07-07T12:09:59.080Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -342,7 +345,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN258",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T15:40:07.262Z",
+      "crawledAt": "2026-07-07T12:09:58.288Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -372,6 +375,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:00.177Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -416,7 +420,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN262",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:24:04.044Z",
+      "crawledAt": "2026-07-07T12:09:57.057Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -493,7 +497,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN256",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T15:40:05.109Z",
+      "crawledAt": "2026-07-07T12:09:56.049Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -526,6 +530,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:42:58.344Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -570,7 +575,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN255",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:24:02.440Z",
+      "crawledAt": "2026-07-07T12:09:54.898Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -650,7 +655,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T15:40:03.063Z",
+      "crawledAt": "2026-07-07T12:09:53.711Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -670,6 +675,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:42:57.075Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -714,7 +720,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN192",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:24:00.552Z",
+      "crawledAt": "2026-07-07T12:09:52.541Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
