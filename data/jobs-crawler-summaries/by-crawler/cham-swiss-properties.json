@@ -1,21 +1,19 @@
 {
   "key": "cham-swiss-properties",
   "label": "Cham Swiss Properties",
-  "generatedAt": "2026-07-07T12:20:50.804Z",
+  "generatedAt": "2026-07-07T16:11:35.280Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2466,
-  "avgDurationMs": 2466,
+  "unchangedCount": 0,
+  "durationMs": 2833,
+  "avgDurationMs": 2833,
   "durationHistory": [
-    2466
+    2833
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "cham-swiss-properties-e28a20bd79e2",
       "slug": "fachspezialist-in-vertragsmanagement-80-100-cham-swiss-properties-cham",
@@ -28,7 +26,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/3c0276c4-c92c-4e6c-9fd5-06adef0ade09/",
       "source": "Cham Swiss Properties Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:20:49.182Z",
+      "crawledAt": "2026-07-07T16:11:33.582Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -54,5 +52,7 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
