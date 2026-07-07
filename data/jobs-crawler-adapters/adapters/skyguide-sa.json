@@ -11,8 +11,14 @@
     "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=&startrow=0"
   ],
   "notes": "Dedicated Skyguide crawler parses the national SuccessFactors listing (all cantons, paginated) and extracts full detail pages; canton derived per-job.",
-  "updatedAt": "2026-07-06T22:16:13.521Z",
+  "updatedAt": "2026-07-07T22:14:39.094Z",
   "seedMetaByUrl": {
+    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-Network-Architect-%2880-100%29/1399690633/": {
+      "location": "Wangen b. Dübendorf",
+      "canton": "ZH",
+      "company": "Skyguide",
+      "postedDate": "2026-07-07"
+    },
     "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-Technikerin-HLK-%2880-100%29/1372612733/": {
       "location": "Wangen b. Dübendorf",
       "canton": "ZH",
@@ -60,12 +66,6 @@
       "canton": "TI",
       "company": "Skyguide",
       "postedDate": "2026-06-21"
-    },
-    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-Network-Architect-%2880-100%29/1399690633/": {
-      "location": "Wangen b. Dübendorf",
-      "canton": "ZH",
-      "company": "Skyguide",
-      "postedDate": "2026-06-02"
     }
   }
 }
