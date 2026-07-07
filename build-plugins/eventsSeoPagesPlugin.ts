@@ -67,6 +67,7 @@ import {
   OTHER_EVENTS_COMUNE_KEY,
   eventReferralUrl,
   recentlyEndedEvents,
+  resolveCantonUrlKey,
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
@@ -2625,7 +2626,13 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // Every downstream loop iterates `cantons`, not a hardcoded 'TI'.
       const byCanton = new Map<string, SiteEvent[]>();
       for (const ev of all) {
-        const canton = (ev.canton || 'TI').toUpperCase();
+        // #3715: resolve to the shared URL group key (BL/BS -> BASILEA,
+        // AI/AR -> APPENZELLO) BEFORE grouping — otherwise both halves of a
+        // half-canton pair render at the identical hub URL and the second
+        // one silently clobbers the first via WriteCollector's last-write-
+        // wins dedup (raw canton codes differ, but their emitted path does
+        // not).
+        const canton = resolveCantonUrlKey(ev.canton || 'TI');
         const arr = byCanton.get(canton) ?? [];
         arr.push(ev);
         byCanton.set(canton, arr);
@@ -2794,7 +2801,12 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       const pastEvents = recentlyEndedEvents(dataset.events, dateStamp) as SiteEvent[];
       const pastEventsByCanton = new Map<string, SiteEvent[]>();
       for (const ev of pastEvents) {
-        const canton = (ev.canton || 'TI').toUpperCase();
+        // #3715: same group-key resolution as the live `byCanton` pass above
+        // — keeps this bridge-page grouping keyed identically to
+        // `byCantonComune` (used just below for `liveSameComune`), otherwise
+        // a half-canton pair's past events would fail to look up their live
+        // siblings entirely.
+        const canton = resolveCantonUrlKey(ev.canton || 'TI');
         if (!ev.comune) continue; // comune-less past events: not worth a bridge page (rare, no stable bucket to land on)
         pastEventsByCanton.set(canton, [...(pastEventsByCanton.get(canton) ?? []), ev]);
       }
