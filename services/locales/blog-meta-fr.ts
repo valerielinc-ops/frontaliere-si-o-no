@@ -8306,6 +8306,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Nouvel accord frontalier : qu\'est-ce qui change pour les frontaliers au Tessin ?',
     'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Le nouvel accord frontalier entre en vigueur le 1er janvier 2024. C\'est ce qui change pour les frontaliers au Tessin.',
     'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Un pendulaire à la gare de Chiasso',
+    'blog.article.posta-chiasso.title': 'Poste Chiasso : nouveauté pour les frontaliers',
+    'blog.article.posta-chiasso.excerpt': 'La poste Chiasso a annoncé avoir introduit un nouveau service pour les frontaliers.',
+    'blog.article.posta-chiasso.imageAlt': 'Une scène de bureau de poste en Suisse, avec un frontalière debout devant le bureau de poste.',
 };
 
 export default blogMetaFr;

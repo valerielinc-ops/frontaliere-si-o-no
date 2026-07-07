@@ -8305,6 +8305,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.kebab-case-3-5-words-max-40-chars.title': 'New border agreement: what changes for border workers in Ticino?',
     'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'The new border agreement enters into force on 1 January 2024. This is what changes for border workers in Ticino.',
     'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'A commuter at Chiasso train station',
+    'blog.article.posta-chiasso.title': 'Posta Chiasso: news for border crossers',
+    'blog.article.posta-chiasso.excerpt': 'Chiasso Mail has announced that it has introduced a new service for border crossers.',
+    'blog.article.posta-chiasso.imageAlt': 'A scene of a post office in Ticino, with a frontier worker standing in front of the post office.',
 };
 
 export default blogMetaEn;
