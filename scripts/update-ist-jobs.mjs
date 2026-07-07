@@ -53,9 +53,10 @@ import {
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
-  mergeLocaleTextMap,
+  mergePreserveLocaleData,
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { getCantonDisplayName, getCompanyDefaults } from './lib/crawler-location-config.mjs';
@@ -498,14 +499,6 @@ async function fetchIstJobs() {
 
 /* ── Merge into data/jobs.json ─────────────────────────────── */
 
-function canonicalizeUrl(url = '') {
-  try {
-    return new URL(url).href.replace(/\/$/, '').toLowerCase();
-  } catch {
-    return normalize(url);
-  }
-}
-
 function filterEmpty(obj = {}) {
   if (!obj || typeof obj !== 'object') return {};
   const out = {};
@@ -522,58 +515,28 @@ async function mergeIstJobs(discoveredJobs) {
   const nonIstJobs = allJobs.filter((j) => !isIstJob(j));
   const existingIstJobs = allJobs.filter(isIstJob);
 
-  const existingByUrl = new Map();
-  for (const job of existingIstJobs) {
-    existingByUrl.set(canonicalizeUrl(job.url), job);
-  }
+  const existingKeys = new Set(
+    existingIstJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
+  );
+  const discoveredKeys = new Set(
+    discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
+  );
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
 
-  const discoveredByUrl = new Map();
-  for (const job of discoveredJobs) {
-    discoveredByUrl.set(canonicalizeUrl(job.url), job);
-  }
-
-  let added = 0;
-  let updated = 0;
-  let removed = 0;
-  const merged = [];
-
-  for (const discovered of discoveredJobs) {
-    const key = canonicalizeUrl(discovered.url);
-    const existingJob = existingByUrl.get(key);
-
-    if (existingJob) {
-      const updatedJob = {
-        ...existingJob,
-        title: discovered.title || existingJob.title,
-        company: IST_COMPANY_NAME,
-        companyKey: IST_KEY,
-        location: discovered.location || existingJob.location,
-        canton: discovered.canton || existingJob.canton,
-        country: 'CH',
-        applyUrl: discovered.applyUrl || existingJob.applyUrl,
-        category: discovered.category || existingJob.category,
-        sector: discovered.sector || existingJob.sector,
-        source: 'ist-inspirededu-crawler',
-        titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
-        slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
-      };
-
-      if (discovered.description && discovered.description.length > (existingJob.description || '').length) {
-        updatedJob.description = discovered.description;
-      }
-
-      merged.push(updatedJob);
-      updated++;
-    } else {
-      merged.push(discovered);
-      added++;
-    }
-  }
-
-  for (const [url] of existingByUrl) {
-    if (!discoveredByUrl.has(url)) removed++;
-  }
+  // mergePreserveLocaleData matches on the stable trailing job id extracted
+  // from the URL (falls back to the normalized full URL when no stable
+  // token is found), so a vendor title/slug rewrite no longer orphans the
+  // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
+  // the previous exact-URL-keyed merge did (issue #3699).
+  const merged = mergePreserveLocaleData(existingIstJobs, discoveredJobs).map((job) => ({
+    ...job,
+    company: IST_COMPANY_NAME,
+    companyKey: IST_KEY,
+    country: 'CH',
+    source: 'ist-inspirededu-crawler',
+  }));
 
   const final = [...nonIstJobs, ...merged];
 

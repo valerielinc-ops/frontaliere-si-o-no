@@ -35,10 +35,11 @@ import { validateJobUrls } from './lib/validate-job-url.mjs';
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
-  mergeLocaleTextMap,
+  mergePreserveLocaleData,
   stableSlugHash,
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseSwisscomJobDescription } from './lib/swisscom-job-parser.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -476,34 +477,6 @@ async function fetchSwisscomJobs() {
 // Merge into data/jobs.json
 // ─────────────────────────────────────────────────────────────
 
-function canonicalizeUrl(url = '') {
-  try {
-    return new URL(url).href.replace(/\/$/, '').toLowerCase();
-  } catch {
-    return normalize(url);
-  }
-}
-
-function filterEmpty(obj = {}) {
-  if (!obj || typeof obj !== 'object') return {};
-  const out = {};
-  for (const [k, v] of Object.entries(obj)) {
-    if (v && String(v).trim()) out[k] = v;
-  }
-  return out;
-}
-
-function filterEmptyArraysMap(obj = {}) {
-  if (!obj || typeof obj !== 'object') return {};
-  const out = {};
-  for (const [k, v] of Object.entries(obj)) {
-    if (!Array.isArray(v)) continue;
-    const cleaned = v.map((item) => String(item || '').trim()).filter(Boolean);
-    if (cleaned.length > 0) out[k] = cleaned;
-  }
-  return out;
-}
-
 async function mergeSwisscomJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(SWISSCOM_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
@@ -511,68 +484,27 @@ async function mergeSwisscomJobs(discoveredJobs) {
   const nonSwisscomJobs = allJobs.filter((j) => !isSwisscomJob(j));
   const existingSwisscomJobs = allJobs.filter(isSwisscomJob);
 
-  const existingByUrl = new Map();
-  for (const job of existingSwisscomJobs) {
-    existingByUrl.set(canonicalizeUrl(job.url), job);
-  }
+  const existingKeys = new Set(existingSwisscomJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
 
-  const discoveredByUrl = new Map();
-  for (const job of discoveredJobs) {
-    discoveredByUrl.set(canonicalizeUrl(job.url), job);
-  }
-
-  let added = 0;
-  let updated = 0;
-  let removed = 0;
-  const merged = [];
-
-  for (const discovered of discoveredJobs) {
-    const key = canonicalizeUrl(discovered.url);
-    const existing = existingByUrl.get(key);
-
-    if (existing) {
-      const updatedJob = {
-        ...existing,
-        title: discovered.title || existing.title,
-        company: SWISSCOM_COMPANY_NAME,
-        companyKey: SWISSCOM_KEY,
-        location: discovered.location || existing.location,
-        canton: discovered.canton || existing.canton,
-        country: 'CH',
-        applyUrl: discovered.applyUrl || existing.applyUrl,
-        category: discovered.category || existing.category,
-        sector: discovered.sector || existing.sector,
-        source: 'swisscom-workday-crawler',
-        sourceLang: discovered.sourceLang || existing.sourceLang,
-        requirements: Array.isArray(discovered.requirements) && discovered.requirements.length > 0
-          ? discovered.requirements
-          : existing.requirements,
-        titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
-        requirementsByLocale: {
-          ...(existing.requirementsByLocale || {}),
-          ...filterEmptyArraysMap(discovered.requirementsByLocale),
-        },
-        slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
-      };
-
-      if (discovered.description) {
-        updatedJob.description = discovered.description;
-      }
-
-      merged.push(updatedJob);
-      updated++;
-    } else {
-      merged.push(discovered);
-      added++;
-    }
-  }
-
-  for (const [url] of existingByUrl) {
-    if (!discoveredByUrl.has(url)) {
-      removed++;
-    }
-  }
+  // mergePreserveLocaleData matches on the stable trailing job id extracted
+  // from the URL (falls back to the normalized full URL when no stable
+  // token is found), so a Workday title/slug rewrite no longer orphans the
+  // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
+  // the previous exact-URL-keyed merge did (issue #3699). It also already
+  // merges requirementsByLocale/titleByLocale/descriptionByLocale/
+  // slugByLocale generically, so the bespoke per-field merges below are
+  // superseded.
+  const merged = mergePreserveLocaleData(existingSwisscomJobs, discoveredJobs).map((job) => ({
+    ...job,
+    company: SWISSCOM_COMPANY_NAME,
+    companyKey: SWISSCOM_KEY,
+    country: 'CH',
+    source: 'swisscom-workday-crawler',
+  }));
 
   const final = [...nonSwisscomJobs, ...merged];
 

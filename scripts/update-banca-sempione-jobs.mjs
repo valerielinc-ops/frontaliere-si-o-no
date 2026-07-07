@@ -46,8 +46,9 @@ import {
   deriveLocalizedSlug,
   normalize,
   normalizeKey,
-  mergeLocaleTextMap,
+  mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, warnIfListingAtCap } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -333,67 +334,36 @@ async function fetchBancaSempioneJobs() {
 /* ── Merge into jobs.json ──────────────────────────────────── */
 
 function mergeBancaSempioneJobs(discoveredJobs) {
-  let allJobs = [];
-  if (fs.existsSync(DATA_JOBS)) {
-    allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-    if (!Array.isArray(allJobs)) allJobs = [];
-  }
+  // #3699 (2nd defect class): data/jobs.json is gitignored — on a fresh CI
+  // checkout it doesn't exist yet, so a raw fs.existsSync(DATA_JOBS) read
+  // would find ZERO existing jobs and treat every discovered job as brand
+  // new, silently dropping slug/locale history. readExistingCrawlerJobs
+  // reads the crawler's own COMMITTED slice
+  // (data/jobs/by-crawler/banca-sempione.json) first, falling back to
+  // DATA_JOBS only if that slice is empty/missing.
+  const allJobs = readExistingCrawlerJobs(BANCA_SEMPIONE_KEY, DATA_JOBS);
 
-  // Index existing jobs by URL
-  const existingByUrl = new Map();
-  for (const j of allJobs) {
-    if (isBancaSempioneJob(j)) {
-      const key = String(j.url || '').toLowerCase().replace(/\/+$/, '');
-      existingByUrl.set(key, j);
-    }
-  }
+  const nonCompanyJobs = allJobs.filter((j) => !isBancaSempioneJob(j));
+  const existingCompanyJobs = allJobs.filter(isBancaSempioneJob);
 
-  let added = 0;
-  let updated = 0;
-
-  for (const job of discoveredJobs) {
-    const key = String(job.url || '').toLowerCase().replace(/\/+$/, '');
-    const existing = existingByUrl.get(key);
-    if (existing) {
-      // Update fields but preserve locale data from AI
-      existing.title = job.title;
-      existing.company = job.company;
-      existing.companyKey = job.companyKey;
-      existing.location = job.location;
-      existing.canton = job.canton;
-      existing.country = job.country;
-      existing.category = job.category;
-      existing.description = job.description;
-      existing.descriptionIt = job.descriptionIt;
-      existing.postedDate = job.postedDate || existing.postedDate;
-      existing.source = job.source;
-      // Always merge locale data to preserve AI translations
-      existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, job.slugByLocale, 3);
-      existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, job.titleByLocale, 2);
-      existing.descriptionByLocale = mergeLocaleTextMap(existing.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang);
-      updated++;
-      existingByUrl.delete(key); // track processed
-    } else {
-      allJobs.push(job);
-      added++;
-    }
-  }
-
-  // Remove jobs no longer on the website
-  const discoveredUrls = new Set(
-    discoveredJobs.map((j) => String(j.url || '').toLowerCase().replace(/\/+$/, ''))
+  const existingKeys = new Set(
+    existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
   );
-  const removed = allJobs.filter(
-    (j) =>
-      isBancaSempioneJob(j) &&
-      !discoveredUrls.has(String(j.url || '').toLowerCase().replace(/\/+$/, ''))
-  ).length;
-
-  const finalJobs = allJobs.filter(
-    (j) =>
-      !isBancaSempioneJob(j) ||
-      discoveredUrls.has(String(j.url || '').toLowerCase().replace(/\/+$/, ''))
+  const discoveredKeys = new Set(
+    discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
   );
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
+
+  // mergePreserveLocaleData matches on the stable trailing job id extracted
+  // from the URL (falls back to the normalized full URL when no stable
+  // token is found), so a vendor title/slug rewrite no longer orphans the
+  // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
+  // the previous exact-URL-keyed merge did (issue #3699).
+  const mergedCompanyJobs = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+
+  const finalJobs = [...nonCompanyJobs, ...mergedCompanyJobs];
 
   writeJson(DATA_JOBS, finalJobs);
   if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJson(PUBLIC_DATA_JOBS, finalJobs);

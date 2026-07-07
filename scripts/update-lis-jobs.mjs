@@ -30,6 +30,7 @@ import {
   isSlugStable,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { callLLM, flushScores, isAnyModelAvailable } from './lib/ai-models.mjs';
 import {
   fetchLisJobUrls,
@@ -176,6 +177,24 @@ function normalizeLisUrlForDedup(rawUrl = '') {
   } catch {
     return normalizeKey(trimmed);
   }
+}
+
+/**
+ * Stable-id resolution for the existing↔fresh crawl merge (issue #3699).
+ * normalizeLisUrlForDedup keeps the raw `id=<num>-<title-slug>` query value
+ * verbatim, so an Arca24 title edit that rewrites the trailing slug in that
+ * value changes the merge key and silently drops the old record's
+ * previousSlugs/previousSlugsByLocale/firstSeenAt history. extractLisJobId
+ * already isolates just the leading numeric Arca24 job id (stable across
+ * that slug rewrite); fall back to the generic cross-crawler
+ * extractStableJobId, then to normalizeLisUrlForDedup, so any URL shape
+ * without the `id=<num>-...` pattern (e.g. a direct arca24.careers link)
+ * still matches exactly as it did before this fix.
+ */
+function lisMergeMatchKey(rawUrl = '') {
+  const lisId = extractLisJobId(rawUrl);
+  if (lisId) return `lis-id:${lisId}`;
+  return extractStableJobId(rawUrl) || normalizeLisUrlForDedup(rawUrl);
 }
 
 function getLisUrlLanguage(rawUrl = '') {
@@ -1021,7 +1040,7 @@ async function crawlArca24Direct() {
   const lisExisting = allExisting.filter(isLisJob);
   const existingByUrl = new Map();
   for (const j of lisExisting) {
-    const key = normalizeLisUrlForDedup(j.url);
+    const key = lisMergeMatchKey(j.url);
     if (key) existingByUrl.set(key, j);
   }
 
@@ -1029,7 +1048,7 @@ async function crawlArca24Direct() {
   let updated = 0;
   const seenUrlKeys = new Set();
   const mergedLis = deduplicated.map((job) => {
-    const key = normalizeLisUrlForDedup(job.url);
+    const key = lisMergeMatchKey(job.url);
     if (key) seenUrlKeys.add(key);
     const prev = existingByUrl.get(key);
     if (!prev) {
@@ -1060,7 +1079,7 @@ async function crawlArca24Direct() {
   const preservedExisting = [];
   if (partialDiscovery || detailFailedUrls.size > 0) {
     for (const prev of lisExisting) {
-      const key = normalizeLisUrlForDedup(prev.url);
+      const key = lisMergeMatchKey(prev.url);
       if (!key || seenUrlKeys.has(key)) continue;
       // Always preserve when listing was partial (job may exist on the
       // unfetched listing page). When listing was complete, preserve only

@@ -13,14 +13,14 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang, LEGACY_PREV_SLUGS_CAP } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/zambon-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -184,36 +184,42 @@ function parseZambonDate(dateStr) {
   return new Date().toISOString().split('T')[0];
 }
 
-function canonicalizeUrl(url = '') { try { return new URL(url).href.replace(/\/$/, '').toLowerCase(); } catch { return normalize(url); } }
-
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonCompanyJobs = (Array.isArray(existing) ? existing : []).filter((j) => !isCompanyJob(j));
-  const existingByUrl = new Map();
-  for (const job of (Array.isArray(existing) ? existing : []).filter(isCompanyJob)) existingByUrl.set(canonicalizeUrl(job.url), job);
-  const merged = []; let added = 0, updated = 0;
-  for (const d of discoveredJobs) {
-    const key = canonicalizeUrl(d.url); const old = existingByUrl.get(key);
-    if (old) {
-      const mergedDescByLocale = mergeLocaleTextMap(old.descriptionByLocale, d.descriptionByLocale, 30, d.sourceLang);
-      // Force-update Italian description when the new source is significantly richer
-      if (d.description && d.description.length > (old.description || '').length * 1.5) {
-        mergedDescByLocale.it = d.description;
-      }
-      merged.push({
-      ...old,
-      ...d,
-      titleByLocale: mergeLocaleTextMap(old.titleByLocale, d.titleByLocale, 3),
-      descriptionByLocale: mergedDescByLocale,
-      slugByLocale: mergeLocaleTextMap(old.slugByLocale, d.slugByLocale, 3),
-      needsRetranslation: true,
-      // cap explicit (issue #3630): flat previousSlugs is the same field
-      // dedicated-crawler-common.mjs manages elsewhere with LEGACY_PREV_SLUGS_CAP;
-      // the module default of 20 would re-collapse it on this crawler's next run.
-      previousSlugs: mergePreviousSlugsCapped(old.previousSlugs, d.previousSlugs, { jobId: old.id || d.id, source: 'update-zambon-jobs.mjs', cap: LEGACY_PREV_SLUGS_CAP }),
-    }); updated++; }
-    else { merged.push(d); added++; }
+  const existingCompanyJobs = (Array.isArray(existing) ? existing : []).filter(isCompanyJob);
+
+  const existingByKey = new Map();
+  for (const job of existingCompanyJobs) {
+    const key = extractStableJobId(job?.url);
+    if (key) existingByKey.set(key, job);
   }
+  const existingKeys = new Set(existingByKey.keys());
+  const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+
+  // mergePreserveLocaleData matches on the stable trailing job id extracted
+  // from the URL (falls back to the normalized full URL when no stable
+  // token is found), so a vendor title/slug rewrite no longer orphans the
+  // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
+  // the previous exact-URL-keyed merge did (issue #3699). The post-map below
+  // re-derives the matched pre-merge record (by the same stable key) to
+  // reapply Zambon's two bespoke rules that mergePreserveLocaleData doesn't
+  // know about: forcing needsRetranslation on every touched job, and
+  // force-updating the Italian description when the fresh source is
+  // significantly richer than what we had.
+  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs).map((job) => {
+    const key = extractStableJobId(job?.url);
+    const old = key ? existingByKey.get(key) : null;
+    if (!old) return job;
+    if (job.description && job.description.length > (old.description || '').length * 1.5) {
+      job.descriptionByLocale = { ...job.descriptionByLocale, it: job.description };
+    }
+    job.needsRetranslation = true;
+    return job;
+  });
+
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });

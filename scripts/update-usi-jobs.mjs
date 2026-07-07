@@ -41,9 +41,10 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
   ensureMinimumDescriptionWordCount, isSlugStable,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { extractDrupalNodeId, extractIrsolDetailPage, MIN_IRSOL_BODY_LENGTH } from './lib/irsol-html-parser.mjs';
 import { translateTextWithLocalPipeline } from './lib/job-localization-pipeline.mjs';
@@ -761,19 +762,6 @@ async function fetchUsiJobs() {
 // ──────────────────────────────────────────────────────────────
 
 /**
- * Canonical URL for deduplication.
- * Normalizes PDF URLs and website URLs.
- */
-function canonicalizeUrl(url = '') {
-  try {
-    const u = new URL(url);
-    return u.href.replace(/\/$/, '').toLowerCase();
-  } catch {
-    return normalize(url);
-  }
-}
-
-/**
  * Merge discovered USI jobs into the existing data/jobs.json.
  * - Adds new jobs not already present
  * - Updates existing USI jobs (refresh metadata)
@@ -787,73 +775,29 @@ async function mergeUsiJobs(discoveredJobs) {
   const nonUsiJobs = allJobs.filter((j) => !isUsiJob(j));
   const existingUsiJobs = allJobs.filter(isUsiJob);
 
-  // Build lookup for existing USI jobs by canonical URL
-  const existingByUrl = new Map();
-  for (const job of existingUsiJobs) {
-    existingByUrl.set(canonicalizeUrl(job.url), job);
-  }
+  const existingKeys = new Set(existingUsiJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  let added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
 
-  // Build lookup for discovered jobs
-  const discoveredByUrl = new Map();
-  for (const job of discoveredJobs) {
-    discoveredByUrl.set(canonicalizeUrl(job.url), job);
-  }
-
-  let added = 0;
-  let updated = 0;
-  let removed = 0;
-  const merged = [];
-
-  // Add/update discovered jobs
-  for (const discovered of discoveredJobs) {
-    const key = canonicalizeUrl(discovered.url);
-    const existing = existingByUrl.get(key);
-
-    if (existing) {
-      // Update existing: keep locale data, refresh core fields
-      const updatedJob = {
-        ...existing,
-        title: discovered.title || existing.title,
-        company: USI_COMPANY_NAME,
-        companyKey: USI_KEY,
-        location: discovered.location || existing.location,
-        canton: DEFAULT_CANTON,
-        country: 'CH',
-        applyUrl: discovered.applyUrl || existing.applyUrl,
-        department: discovered.department || existing.department,
-        category: discovered.category || existing.category,
-        sector: discovered.sector || existing.sector,
-        source: 'usi-drupal-crawler',
-        // Merge locale data (keep AI-localized content, update source locales)
-        titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
-        slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
-      };
-
-      // Update base description only if it's richer
-      if (discovered.description && discovered.description.length > (existing.description || '').length) {
-        updatedJob.description = discovered.description;
-      }
-
-      merged.push(updatedJob);
-      updated++;
-    } else {
-      // New job
-      merged.push(discovered);
-      added++;
-    }
-  }
-
-  // Count removed (existing USI jobs not in discovery)
-  for (const [url] of existingByUrl) {
-    if (!discoveredByUrl.has(url)) {
-      removed++;
-    }
-  }
+  // mergePreserveLocaleData matches on the stable trailing job id extracted
+  // from the URL (falls back to the normalized full URL when no stable
+  // token is found), so a Drupal title/slug rewrite no longer orphans the
+  // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
+  // the previous exact-URL-keyed merge did (issue #3699).
+  const merged = mergePreserveLocaleData(existingUsiJobs, discoveredJobs).map((job) => ({
+    ...job,
+    company: USI_COMPANY_NAME,
+    companyKey: USI_KEY,
+    canton: DEFAULT_CANTON,
+    country: 'CH',
+    source: 'usi-drupal-crawler',
+  }));
 
   // Validate URLs of newly added jobs before writing
   if (added > 0) {
-    const newJobs = merged.filter((j) => !existingByUrl.has(canonicalizeUrl(j.url)));
+    const newJobs = merged.filter((j) => !existingKeys.has(extractStableJobId(j?.url)));
     if (newJobs.length > 0) {
       console.log(`\n🔗 Validating URLs for ${newJobs.length} new USI jobs…`);
       const urlChecks = await validateJobUrls(

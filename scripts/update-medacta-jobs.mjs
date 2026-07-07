@@ -388,12 +388,40 @@ async function fetchJobDescription(detailUrl) {
 async function injectMedactaJobs(alliboJobs) {
   if (alliboJobs.length === 0) return 0;
 
-  // Read existing jobs
+  // Read existing jobs.
+  // #3699 (2nd defect class): data/jobs.json is gitignored — on a fresh CI
+  // checkout it doesn't exist yet, so a raw fs.existsSync(DATA_JOBS) read
+  // would find ZERO existing Medacta jobs and treat every discovered job as
+  // brand new below, silently dropping slug/locale history.
+  // readExistingCrawlerJobs reads the crawler's own COMMITTED slice
+  // (data/jobs/by-crawler/medacta-international.json) first, falling back
+  // to DATA_JOBS only if that slice is empty/missing. Since this function
+  // also injects into the full mixed-company dataset, non-Medacta jobs
+  // still need to come from DATA_JOBS when present.
   let jobs = [];
   if (fs.existsSync(DATA_JOBS)) {
     try { jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); } catch { jobs = []; }
   }
   if (!Array.isArray(jobs)) jobs = [];
+  if (!jobs.some(isMedactaJob)) {
+    const committed = readExistingCrawlerJobs(MEDACTA_KEY, DATA_JOBS).filter(isMedactaJob);
+    if (committed.length > 0) jobs = jobs.concat(committed);
+  }
+
+  // Index existing jobs by their stable Allibo id (`?ID=NNN` query param,
+  // already extracted upstream into `jobEntry.id = 'medacta-<alliboId>'`)
+  // FIRST — Allibo's DetailLink embeds a human title fragment ahead of the
+  // id, so a title edit on the vendor side rewrites the whole URL, and the
+  // urlIndex-only lookup below then missed the match, treating the job as
+  // brand new and silently dropping its previousSlugs/locale history
+  // (issue #3699). The id survives a URL-shape rewrite since it's derived
+  // from a stable per-job vendor field independent of the title text.
+  const idIndex = new Map();
+  for (let i = 0; i < jobs.length; i++) {
+    if (!isMedactaJob(jobs[i])) continue;
+    const id = String(jobs[i]?.id || '');
+    if (id) idIndex.set(id, i);
+  }
 
   // Index existing jobs by URL for dedup
   const urlIndex = new Map();
@@ -514,14 +542,20 @@ async function injectMedactaJobs(alliboJobs) {
       addressCountry: aj.country || 'CH',
     };
 
-    // Check for existing job by URL
-    const existingIdx = urlIndex.get(url.toLowerCase());
+    // Check for existing job by stable Allibo id first (survives a
+    // vendor title/URL rewrite), then by exact URL, then by title.
+    const idIdx = idIndex.get(jobEntry.id);
+    const existingIdx = idIdx !== undefined ? idIdx : urlIndex.get(url.toLowerCase());
     const titleKey = normalizeKey(`${aj.title}-medacta`);
     const titleIdx = titleIndex.get(titleKey);
 
     if (existingIdx !== undefined) {
       // Update existing job
       const existing = jobs[existingIdx];
+      // Matched via idIndex may carry a rewritten URL (Allibo's DetailLink
+      // embeds the title text ahead of the stable id) — refresh it so the
+      // stored record doesn't keep pointing at a stale vendor URL.
+      existing.url = url;
       existing.title = aj.title;
       existing.location = aj.location || existing.location;
       existing.canton = aj.canton || existing.canton;
@@ -561,6 +595,7 @@ async function injectMedactaJobs(alliboJobs) {
     } else {
       // New job — append
       jobs.push(jobEntry);
+      idIndex.set(jobEntry.id, jobs.length - 1);
       urlIndex.set(url.toLowerCase(), jobs.length - 1);
       titleIndex.set(titleKey, jobs.length - 1);
       injected++;

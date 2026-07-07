@@ -43,9 +43,10 @@ import {
   validateDedicatedLocaleCoverage,
   normalize,
   normalizeKey,
-mergeLocaleTextMap,
-detectLang,
+  mergePreserveLocaleData,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { isTargetSwissLocation, isKnownSwissCity, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
@@ -393,65 +394,41 @@ function extractTitleFromUrl(url) {
 /* ── Merge into jobs.json ──────────────────────────────────── */
 
 function mergeManorJobs(discoveredJobs) {
-  let allJobs = [];
-  if (fs.existsSync(DATA_JOBS)) {
-    allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-    if (!Array.isArray(allJobs)) allJobs = [];
-  }
+  // #3699 (2nd defect class): data/jobs.json is gitignored — on a fresh CI
+  // checkout it doesn't exist yet, so a raw fs.existsSync(DATA_JOBS) read
+  // would find ZERO existing Manor jobs and treat every discovered job as
+  // brand new, silently dropping slug/locale history. readExistingCrawlerJobs
+  // reads the crawler's own COMMITTED slice (data/jobs/by-crawler/manor.json)
+  // first, falling back to DATA_JOBS only if that slice is empty/missing.
+  const allJobs = readExistingCrawlerJobs(MANOR_KEY, DATA_JOBS);
 
-  // Index existing Manor jobs by URL
-  const existingByUrl = new Map();
-  for (const j of allJobs) {
-    if (isManorJob(j)) {
-      const key = String(j.url || '').toLowerCase().replace(/\/+$/, '');
-      existingByUrl.set(key, j);
-    }
-  }
+  const nonManorJobs = allJobs.filter((j) => !isManorJob(j));
+  const existingManorJobs = allJobs.filter(isManorJob);
 
-  let added = 0;
-  let updated = 0;
-
-  for (const job of discoveredJobs) {
-    const key = String(job.url || '').toLowerCase().replace(/\/+$/, '');
-    const existing = existingByUrl.get(key);
-    if (existing) {
-      existing.title = job.title;
-      existing.company = job.company;
-      existing.companyKey = job.companyKey;
-      existing.location = job.location;
-      existing.canton = job.canton;
-      existing.country = job.country;
-      existing.category = job.category;
-      existing.description = job.description;
-      existing.descriptionIt = job.descriptionIt;
-      existing.descriptionByLocale = mergeLocaleTextMap(existing.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang);
-      existing.postedDate = job.postedDate || existing.postedDate;
-      existing.source = job.source;
-      existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, job.slugByLocale, 3);
-      existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, job.titleByLocale, 2);
-      updated++;
-      existingByUrl.delete(key);
-    } else {
-      allJobs.push(job);
-      added++;
-    }
-  }
-
-  // Remove Manor jobs no longer in the feed
-  const discoveredUrls = new Set(
-    discoveredJobs.map((j) => String(j.url || '').toLowerCase().replace(/\/+$/, ''))
+  // Stats only — computed on the same stable key mergePreserveLocaleData
+  // matches on (extractStableJobId(url), i.e. the trailing numeric
+  // requisition id), NOT the raw URL. Manor's jobs2web URLs embed the
+  // human title before that id, so a title edit (e.g. adding a "*in"
+  // gender marker) rewrites the URL on every re-crawl.
+  const existingKeys = new Set(
+    existingManorJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
   );
-  const removed = allJobs.filter(
-    (j) =>
-      isManorJob(j) &&
-      !discoveredUrls.has(String(j.url || '').toLowerCase().replace(/\/+$/, ''))
-  ).length;
-
-  const finalJobs = allJobs.filter(
-    (j) =>
-      !isManorJob(j) ||
-      discoveredUrls.has(String(j.url || '').toLowerCase().replace(/\/+$/, ''))
+  const discoveredKeys = new Set(
+    discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
   );
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
+
+  // Delegate the actual old<->fresh reconciliation to the shared,
+  // stable-id-matching merge (issue #3699): matching by raw URL alone
+  // treated any vendor URL/title rewrite as delete+insert, silently
+  // dropping previousSlugs/previousSlugsByLocale/firstSeenAt for the
+  // "deleted" half instead of capturing the rename via
+  // addPreviousSlugForLocale/captureLostSlugs.
+  const mergedManorJobs = mergePreserveLocaleData(existingManorJobs, discoveredJobs);
+
+  const finalJobs = [...nonManorJobs, ...mergedManorJobs];
 
   writeJson(DATA_JOBS, finalJobs);
   if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJson(PUBLIC_DATA_JOBS, finalJobs);

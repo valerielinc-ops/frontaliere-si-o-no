@@ -60,6 +60,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { normalizeFederalJobLocation } from './lib/federal-job-normalization.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
@@ -479,13 +480,21 @@ function mergeJobs(discoveredJobs) {
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
-  const existingByUrl = new Map(targetExisting.map((job) => [String(job.url || '').trim().toLowerCase(), job]));
+  // Match on the stable id extracted from the URL (the jobs.admin.ch UUID
+  // leaf) rather than the raw lowercased URL, so a Prospective title/slug
+  // rewrite doesn't orphan the previousSlugs/previousSlugsByLocale history
+  // captured below via captureLostSlugs (issue #3699).
+  const existingByUrl = new Map();
+  for (const job of targetExisting) {
+    const key = extractStableJobId(job?.url);
+    if (key) existingByUrl.set(key, job);
+  }
 
   let added = 0;
   let updated = 0;
   const mergedTarget = newJobs.map((job) => {
-    const url = String(job.url || '').trim().toLowerCase();
-    const prev = existingByUrl.get(url);
+    const key = extractStableJobId(job?.url);
+    const prev = key ? existingByUrl.get(key) : null;
     if (!prev) {
       added += 1;
       return job;

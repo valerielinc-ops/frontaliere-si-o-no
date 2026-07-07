@@ -43,8 +43,9 @@ import {
   deriveLocalizedSlug,
   normalize,
   normalizeKey,
-mergeLocaleTextMap,
+  mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseYoustyApprenticeshipHtml } from './lib/yousty-job-parser.mjs';
 import { getCompanyDefaults, SWISS_CANTONS } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
@@ -357,66 +358,35 @@ async function fetchGalenicaJobs() {
 /* ── Merge into jobs.json ──────────────────────────────────── */
 
 function mergeGalenicaJobs(discoveredJobs) {
-  let allJobs = [];
-  if (fs.existsSync(DATA_JOBS)) {
-    allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-    if (!Array.isArray(allJobs)) allJobs = [];
-  }
+  // #3699 (2nd defect class): data/jobs.json is gitignored — on a fresh CI
+  // checkout it doesn't exist yet, so a raw fs.existsSync(DATA_JOBS) read
+  // would find ZERO existing jobs and treat every discovered job as brand
+  // new, silently dropping slug/locale history. readExistingCrawlerJobs
+  // reads the crawler's own COMMITTED slice (data/jobs/by-crawler/galenica.json)
+  // first, falling back to DATA_JOBS only if that slice is empty/missing.
+  const allJobs = readExistingCrawlerJobs(GALENICA_KEY, DATA_JOBS);
 
-  // Index existing Galenica jobs by URL
-  const existingByUrl = new Map();
-  for (const j of allJobs) {
-    if (isGalenicaJob(j)) {
-      const key = String(j.url || '').toLowerCase().replace(/\/+$/, '');
-      existingByUrl.set(key, j);
-    }
-  }
+  const nonGalenicaJobs = allJobs.filter((j) => !isGalenicaJob(j));
+  const existingGalenicaJobs = allJobs.filter(isGalenicaJob);
 
-  let added = 0;
-  let updated = 0;
-
-  for (const job of discoveredJobs) {
-    const key = String(job.url || '').toLowerCase().replace(/\/+$/, '');
-    const existing = existingByUrl.get(key);
-    if (existing) {
-      existing.title = job.title;
-      existing.company = job.company;
-      existing.companyKey = job.companyKey;
-      existing.location = job.location;
-      existing.canton = job.canton;
-      existing.country = job.country;
-      existing.category = job.category;
-      existing.description = job.description;
-      existing.descriptionIt = job.descriptionIt;
-      existing.descriptionByLocale = mergeLocaleTextMap(existing.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang);
-      existing.applyUrl = job.applyUrl || existing.applyUrl;
-      existing.postedDate = job.postedDate || existing.postedDate;
-      existing.source = job.source;
-      existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, job.slugByLocale, 3);
-      existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, job.titleByLocale, 2);
-      updated++;
-      existingByUrl.delete(key);
-    } else {
-      allJobs.push(job);
-      added++;
-    }
-  }
-
-  // Remove Galenica jobs no longer in the feed
-  const discoveredUrls = new Set(
-    discoveredJobs.map((j) => String(j.url || '').toLowerCase().replace(/\/+$/, ''))
+  const existingKeys = new Set(
+    existingGalenicaJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
   );
-  const removed = allJobs.filter(
-    (j) =>
-      isGalenicaJob(j) &&
-      !discoveredUrls.has(String(j.url || '').toLowerCase().replace(/\/+$/, ''))
-  ).length;
-
-  const finalJobs = allJobs.filter(
-    (j) =>
-      !isGalenicaJob(j) ||
-      discoveredUrls.has(String(j.url || '').toLowerCase().replace(/\/+$/, ''))
+  const discoveredKeys = new Set(
+    discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
   );
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
+
+  // mergePreserveLocaleData matches on the stable trailing job id extracted
+  // from the URL (falls back to the normalized full URL when no stable
+  // token is found), so a vendor title/slug rewrite no longer orphans the
+  // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
+  // the previous exact-URL-keyed merge did (issue #3699).
+  const mergedGalenicaJobs = mergePreserveLocaleData(existingGalenicaJobs, discoveredJobs);
+
+  const finalJobs = [...nonGalenicaJobs, ...mergedGalenicaJobs];
 
   writeJson(DATA_JOBS, finalJobs);
   if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJson(PUBLIC_DATA_JOBS, finalJobs);
