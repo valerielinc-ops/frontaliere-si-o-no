@@ -1068,6 +1068,17 @@ function duplicateReasonTag(errorMessage = '') {
   return 'motivo non riconosciuto';
 }
 
+// Extract candidate title + matched neighbour slug from a checkSemanticNearDuplicate
+// error so rejection logs are self-contained and auditable without extra tooling.
+// Returns '' for non-semantic rejections (no "Nuovo:"/"Esistente:" fields).
+function duplicateCandidateDetail(errorMessage = '') {
+  const msg = String(errorMessage || '');
+  const candidateMatch = msg.match(/Nuovo:\s*"([^"]+)"/);
+  const neighborMatch = msg.match(/Esistente:\s*\[([^\]]+)\]/);
+  if (!candidateMatch && !neighborMatch) return '';
+  return ` — candidato: "${candidateMatch?.[1] ?? '?'}" → vicino: ${neighborMatch?.[1] ?? '?'}`;
+}
+
 function finalizeRunReport(status, extra = {}) {
   if (REPORT_FINALIZED) return;
   REPORT_FINALIZED = true;
@@ -8436,12 +8447,12 @@ async function main() {
             const isDuplicate = e.message.includes('DUPLICATO');
             if (isDuplicate) captureDuplicateReasons(e.message);
             if (isDuplicate && attempt < MAX_DUPLICATE_RETRIES) {
-              console.error(`\n🔄 Duplicato rilevato (${duplicateReasonTag(e.message)}), riprovo con un altro articolo... (${attempt}/${MAX_DUPLICATE_RETRIES})\n`);
+              console.error(`\n🔄 Duplicato rilevato (${duplicateReasonTag(e.message)}${duplicateCandidateDetail(e.message)}), riprovo con un altro articolo... (${attempt}/${MAX_DUPLICATE_RETRIES})\n`);
               url = null; // Reset for next iteration
               continue;
             }
             if (isDuplicate && attempt >= MAX_DUPLICATE_RETRIES) {
-              console.error(`\n⚠️  ${MAX_DUPLICATE_RETRIES} tentativi ${pool.name} esauriti — tutti duplicati (ultimo: ${duplicateReasonTag(e.message)}).`);
+              console.error(`\n⚠️  ${MAX_DUPLICATE_RETRIES} tentativi ${pool.name} esauriti — tutti duplicati (ultimo: ${duplicateReasonTag(e.message)}${duplicateCandidateDetail(e.message)}).`);
               break; // try next pool, then evergreen
             }
             // Fact-check / quality failures → skip this article, try next.
@@ -8653,7 +8664,7 @@ async function main() {
           } else if (isQualityReject) {
             console.error(`\n⚠️  Articolo evergreen rigettato per qualità — cerco prossima keyword...\n`);
           } else {
-            console.error(`\n🔄 Duplicato post-generazione (${duplicateReasonTag(e.message)}), cerco prossima keyword sicura...\n`);
+            console.error(`\n🔄 Duplicato post-generazione (${duplicateReasonTag(e.message)}${duplicateCandidateDetail(e.message)}), cerco prossima keyword sicura...\n`);
           }
 
           // Find next safe keyword we haven't tried yet
