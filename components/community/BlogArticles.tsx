@@ -4,6 +4,7 @@ import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18n
 import type { Locale } from '@/services/i18n';
 import { buildPath, preloadBlogData } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
+import { stripMarkdownPlain } from '@/build-plugins/shared/stripMarkdownPlain';
 import type { BlogArticleId, AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
@@ -794,23 +795,7 @@ export function estimateReadingMinutes(articleId: string, t: (key: string) => st
 const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
 const QUESTION_PREFIXES = ['Come', 'Cosa', 'Quando', 'Quanto', 'Dove', 'Chi', 'Perché', 'Quale'];
 
-function stripMarkdown(text: string): string {
- return text
- // Delimiters excluded from crossing a newline — same rationale as autoLinkKeywords'
- // fmtRe: an unpaired `*` (list bullet marker) must not pair with an unrelated `*`
- // on a different line and swallow everything between.
- .replace(/\*\*([^*\n]+)\*\*/g, '$1')
- .replace(/\*([^*\n]+)\*/g, '$1')
- .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
- .replace(/^#{1,6}\s+/gm, '')
- .replace(/^[-*+]\s+/gm, '')
- .replace(/^\d+\.\s+/gm, '')
- .replace(/`([^`]+)`/g, '$1')
- .replace(/\n{2,}/g, ' ')
- .replace(/\n/g, ' ')
- .replace(/\s{2,}/g, ' ')
- .trim();
-}
+const stripMarkdown = stripMarkdownPlain;
 
 export function extractFaqPairs(bodyText: string): Array<{ question: string; answer: string }> {
  const pairs: Array<{ question: string; answer: string }> = [];

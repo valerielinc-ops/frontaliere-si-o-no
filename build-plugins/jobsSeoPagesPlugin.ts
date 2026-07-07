@@ -1451,7 +1451,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  let s = String(raw || '');
  // Strip markdown headings (at line start or inline after content)
  s = s.replace(/#{1,6}\s+/g, '');
- s = s.replace(/\*{1,3}([^*]+)\*{1,3}/g, '$1');
+ // Delimiters excluded from crossing a newline — a stray unpaired `*` (e.g. a
+ // `* ` list bullet marker below) must not pair with an unrelated `*` on a
+ // different line and swallow an unrelated run of text into the match.
+ s = s.replace(/\*{1,3}([^*\n]+)\*{1,3}/g, '$1');
  s = s.replace(/^[-*_]{3,}$/gm, '');
  // Strip markdown links/images but keep text
  s = s.replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1');
