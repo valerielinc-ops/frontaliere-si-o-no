@@ -925,6 +925,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prezzi-immobili-svizzera-giugno.title': 'Prezzi immobili in Svizzera: salita a giugno',
     'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'A giugno i prezzi delle case salgono del 3,1% e gli appartamenti del 4,5% su base annua, con forti differenze tra Zurigo, Ticino e le altre regioni.',
     'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Edifici residenziali moderni in Svizzera con montagne sullo sfondo',
+    'blog.article.seco-disoccupazione-giugno-2024.title': 'Disoccupazione in Svizzera: i dati Seco di giugno',
+    'blog.article.seco-disoccupazione-giugno-2024.excerpt': 'Il tasso di disoccupazione scende al 2,9% a giugno. La Seco conferma la stabilità al netto dei fattori stagionali al 3,1%. Ecco l\'analisi dei dati.',
+    'blog.article.seco-disoccupazione-giugno-2024.imageAlt': 'Panorama di una città svizzera con uffici moderni',
+    'blog.article.caissiere-migros.title': 'La nuova caissière di Migros a Vaud e il regime transitorio per i frontalieri',
+    'blog.article.caissiere-migros.excerpt': 'La società cooperativa Migros Vaud ha annunciato la sostituzione della caissière, mentre i frontalieri saranno esenti dal regime transitorio fino al 2033',
+    'blog.article.caissiere-migros.imageAlt': 'Immagine di una caissière di Migros a Lugano, con sfondo della città e dei monti',
+    'blog.article.lohn-denner-verkauf-2024.title': 'Loihn denner: Nuove regole per il commercio di bestiame',
+    'blog.article.lohn-denner-verkauf-2024.excerpt': 'Dal 1° gennaio 2024, nuove regole per il commercio di bestiame in Svizzera.',
+    'blog.article.lohn-denner-verkauf-2024.imageAlt': 'Un frontaliere in una caffetteria a Lugano.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.title': 'Legge di Bilancio 2025: lavoro, previdenza e fisco',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.excerpt': 'La Legge di Bilancio 2025 prevede modifiche importanti per i frontalieri, tra cui un aumento delle franchigie per i redditi da lavoro.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.imageAlt': 'Immagine fotorealistica di una scena svizzera a livello nazionale.',
 };
 
 export default blogMetaChIt;

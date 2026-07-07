@@ -2771,6 +2771,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'seco-disoccupazione-giugno-2024',
+    category: 'pratico',
+    date: '2026-07-07T00:21:36.341Z',
+    image: '/images/blog/seco-disoccupazione-giugno-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'caissiere-migros',
+    category: 'pratico',
+    date: '2026-07-07T01:01:38.213Z',
+    image: '/images/blog/caissiere-migros.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'lohn-denner-verkauf-2024',
+    category: 'pratico',
+    date: '2026-07-07T01:33:13.653Z',
+    image: '/images/blog/lohn-denner-verkauf-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'gazzetta-ufficiale-legge-30-dicembre-2024-n-207',
+    category: 'pratico',
+    date: '2026-07-07T02:08:26.726Z',
+    image: '/images/blog/gazzetta-ufficiale-legge-30-dicembre-2024-n-207.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

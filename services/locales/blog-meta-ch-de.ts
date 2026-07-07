@@ -925,6 +925,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prezzi-immobili-svizzera-giugno.title': 'Immobilienpreise in der Schweiz: Anstieg im Juni',
     'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'Im Juni steigen die Hauspreise um 3,1% und die Wohnungen um 4,5% gegenüber dem Vorjahr, wobei zwischen Zürich, Tessin und den anderen Regionen große Unterschiede bestehen.',
     'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Moderne Wohngebäude in der Schweiz mit Bergen im Hintergrund',
+    'blog.article.seco-disoccupazione-giugno-2024.title': 'Arbeitslosigkeit in der Schweiz: die Daten des Seco vom Juni',
+    'blog.article.seco-disoccupazione-giugno-2024.excerpt': 'Die Arbeitslosenquote sinkt im Juni auf 2,9%. Die Seco bestätigt die saisonbereinigte Stabilität bei 3,1%. Hier ist die Datenanalyse.',
+    'blog.article.seco-disoccupazione-giugno-2024.imageAlt': 'Schweizer Stadtpanorama mit modernen Büros',
+    'blog.article.caissiere-migros.title': 'Die neue Caissière der Migros in Waadt und die Übergangsregelung für Grenzgänger',
+    'blog.article.caissiere-migros.excerpt': 'Die Genossenschaft Migros Waadt hat den Ersatz der Caissière angekündigt, während Grenzgänger bis 2033 von der Übergangsregelung ausgenommen sind',
+    'blog.article.caissiere-migros.imageAlt': 'Bild einer Kassiererin bei Migros in Lugano, mit Stadt- und Berglandschaft',
+    'blog.article.lohn-denner-verkauf-2024.title': 'Loihn denner: Neue Regeln für den Viehhandel',
+    'blog.article.lohn-denner-verkauf-2024.excerpt': 'Ab dem 1. Januar 2024 neue Regeln für den Viehhandel in der Schweiz.',
+    'blog.article.lohn-denner-verkauf-2024.imageAlt': 'Ein Frontalier in einem Luganer Café.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.title': 'Haushaltsgesetz 2025: Arbeit, Vorsorge und Steuern',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.excerpt': 'Das Haushaltsgesetz 2025 sieht wichtige Änderungen für Grenzgänger vor, darunter eine Erhöhung der Selbstbehalte für Arbeitseinkommen.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.imageAlt': 'Bild einer schweizerischen nationalen Szene.',
 };
 
 export default blogMetaChDe;

@@ -30,6 +30,7 @@ import { handleRedazioneAdmin } from './src/redazioneAdminCore.js';
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { Resend } from 'resend';
 import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
+import { handleCreateReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
@@ -1009,6 +1010,58 @@ export const restorePublisherAd = onRequest(
  res.status(500).json({ ok: false, error: 'internal_error' });
  }
  },
+);
+
+// ── Reader no-ads subscription (#3655, part 2/2 of #2961) ─────────────────
+// Create a Stripe Checkout Session (subscription mode) for the CHF 2.99/month
+// reader ad-free plan. Authenticated reader only; fully separate from the
+// publisher checkout above (different price, different Firestore collection).
+export const createReaderCheckout = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleCreateReaderCheckout(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[createReaderCheckout]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Self-serve reader subscription management (cancel / payment method /
+// invoices) via Stripe's hosted Billing Portal.
+export const createReaderBillingPortal = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleCreateReaderBillingPortal(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[createReaderBillingPortal]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
 );
 
 // Stripe webhook — the ONLY path that flips a job to 'paid'. Needs the raw body

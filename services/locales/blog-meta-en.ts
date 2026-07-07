@@ -8293,6 +8293,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.title': 'The 2020 Italy-Switzerland Agreement on the Taxation of Frontier Workers',
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.excerpt': 'The Italy-Switzerland Agreement of 2020 introduces a new tax regime for frontier workers, replacing the 1974 framework. The analysis evaluates the',
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.imageAlt': 'Editorial image related to: L\'Accordo Italia-Svizzera del 2020 sulla tassazione dei lavoratori frontalieri',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.title': 'Slowing Swiss labour market: what\'s changing for frontier workers',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.excerpt': 'Swiss unemployment rate stable at 3.1% seasonally adjusted in June. The estimate for 2026 and 2027 has been revised upwards due to energy prices.',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.imageAlt': 'Cross-border commuters stuck at the Brogeda checkpoint in Lugano at sunset, heading towards the Italian border.',
+    'blog.article.gaggiolo-traffico.title': 'Traffic at the Gaggiolo crossing',
+    'blog.article.gaggiolo-traffico.excerpt': 'Heavy traffic at the Gaggiolo crossing due to the increase in commuters',
+    'blog.article.gaggiolo-traffico.imageAlt': 'Image of a mountain pass during rush hour',
+    'blog.article.axa-manno.title': 'Axa Manno: insurance consultant for border workers',
+    'blog.article.axa-manno.excerpt': 'Axa Manno is an insurance consultant specialising in border services.',
+    'blog.article.axa-manno.imageAlt': 'A street in Lugano with a commuter checking his smartphone.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.title': 'New border agreement: what changes for border workers in Ticino?',
+    'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'The new border agreement enters into force on 1 January 2024. This is what changes for border workers in Ticino.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'A commuter at Chiasso train station',
 };
 
 export default blogMetaEn;

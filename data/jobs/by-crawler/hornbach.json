@@ -49,22 +49,6 @@
       "jobReqId": "153726",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-warenbeschaffung-hornbach-sirnach",
-        "collaboratore-trice-warenbeschaffung-hornbach-sirnach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-warenbeschaffung-hornbach-sirnach",
-          "collaboratore-trice-warenbeschaffung-hornbach-sirnach"
-        ],
-        "en": [
-          "mitarbeiter-in-warenbeschaffung-hornbach-sirnach"
-        ],
-        "fr": [
-          "mitarbeiter-in-warenbeschaffung-hornbach-sirnach"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.898Z"
     },
     {
@@ -116,22 +100,6 @@
       "jobReqId": "153229",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-farben-hornbach-biel-bienne",
-        "colori-dei-venditori-hornbach-biel-bienne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-farben-hornbach-biel-bienne",
-          "colori-dei-venditori-hornbach-biel-bienne"
-        ],
-        "en": [
-          "verkaufer-in-farben-hornbach-biel-bienne"
-        ],
-        "fr": [
-          "verkaufer-in-farben-hornbach-biel-bienne"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.902Z"
     },
     {
@@ -183,22 +151,6 @@
       "jobReqId": "154067",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-elektro-hornbach-galgenen",
-        "assistente-alle-vendite-elettriche-hornbach-galgenen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-elektro-hornbach-galgenen",
-          "assistente-alle-vendite-elettriche-hornbach-galgenen"
-        ],
-        "en": [
-          "verkaufer-in-elektro-hornbach-galgenen"
-        ],
-        "fr": [
-          "verkaufer-in-elektro-hornbach-galgenen"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.893Z"
     },
     {
@@ -380,22 +332,6 @@
       "jobReqId": "154200",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-sanitar-hornbach-sirnach",
-        "assistente-sanitario-hornbach-sirnach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-sanitar-hornbach-sirnach",
-          "assistente-sanitario-hornbach-sirnach"
-        ],
-        "en": [
-          "verkaufer-in-sanitar-hornbach-sirnach"
-        ],
-        "fr": [
-          "verkaufer-in-sanitar-hornbach-sirnach"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.887Z"
     },
     {
@@ -447,16 +383,6 @@
       "jobReqId": "154185",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiter-in-verkauf-pflanzen-hornbach-sirnach",
-        "teamleiter-in-vendita-pflanzen-hornbach-sirnach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-verkauf-pflanzen-hornbach-sirnach",
-          "teamleiter-in-vendita-pflanzen-hornbach-sirnach"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.890Z"
     },
     {
@@ -508,22 +434,6 @@
       "jobReqId": "154143",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-holz-hornbach-luzern-littau",
-        "legno-del-venditore-hornbach-luzern-littau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-holz-hornbach-luzern-littau",
-          "legno-del-venditore-hornbach-luzern-littau"
-        ],
-        "en": [
-          "verkaufer-in-holz-hornbach-luzern-littau"
-        ],
-        "fr": [
-          "verkaufer-in-holz-hornbach-luzern-littau"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.891Z"
     },
     {
@@ -575,40 +485,33 @@
       "jobReqId": "154031",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "hausabwart-in-im-marktbetrieb-hornbach-luzern-littau",
-        "custode-nelle-operazioni-del-negozio-hornbach-luzern-littau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hausabwart-in-im-marktbetrieb-hornbach-luzern-littau",
-          "custode-nelle-operazioni-del-negozio-hornbach-luzern-littau"
-        ],
-        "en": [
-          "hausabwart-in-im-marktbetrieb-hornbach-luzern-littau"
-        ],
-        "fr": [
-          "hausabwart-in-im-marktbetrieb-hornbach-luzern-littau"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.892Z"
     },
     {
       "id": "hornbach-154279",
-      "slug": "verkaufer-in-baustoffe-hornbach-galgenen",
+      "slug": "venditore-in-materiali-da-costruzione-hornbach-galgenen",
       "slugByLocale": {
-        "de": "verkaufer-in-baustoffe-hornbach-galgenen"
+        "de": "verkaufer-in-baustoffe-hornbach-galgenen",
+        "it": "venditore-in-materiali-da-costruzione-hornbach-galgenen",
+        "en": "seller-in-building-materials-hornbach-galgenen",
+        "fr": "vendeur-dans-les-materiaux-de-construction-hornbach-galgenen"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
       "companyDomain": "hornbach.ch",
       "title": "Verkäufer:in Baustoffe",
       "titleByLocale": {
-        "de": "Verkäufer:in Baustoffe"
+        "de": "Verkäufer:in Baustoffe",
+        "en": "Seller:in building materials",
+        "it": "Venditore:in materiali da costruzione",
+        "fr": "Vendeur:dans les matériaux de construction"
       },
       "description": "Darauf kannst Du Dich freuen • 39-Stunden-Woche mit flexiblen Pausen • BVG-Anteil (Pensionskasse) von 65 % bezahlt • Fairer Mindestlohn ab CHF 4'400 • Mindestens 5 Wochen Ferien pro Jahr • Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun • Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte. • Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert. • Du unterstützt Dein Team, wo immer es was zu tun gibt. • Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament • Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle. • Du hast ein hohes Verantwortungsbewusstsein und auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen. • Deine guten Kenntnisse im Bereich Baustoffe sowie Deine Kollegialität zeichnen Dich aus. • Du besitzt idealerweise einen Staplerführerausweis und behältst in stressigen Situationen den Überblick. • Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Strassenbauer:in, Trockenbauer:in, Maurer:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
       "descriptionByLocale": {
-        "de": "Darauf kannst Du Dich freuen • 39-Stunden-Woche mit flexiblen Pausen • BVG-Anteil (Pensionskasse) von 65 % bezahlt • Fairer Mindestlohn ab CHF 4'400 • Mindestens 5 Wochen Ferien pro Jahr • Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun • Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte. • Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert. • Du unterstützt Dein Team, wo immer es was zu tun gibt. • Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament • Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle. • Du hast ein hohes Verantwortungsbewusstsein und auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen. • Deine guten Kenntnisse im Bereich Baustoffe sowie Deine Kollegialität zeichnen Dich aus. • Du besitzt idealerweise einen Staplerführerausweis und behältst in stressigen Situationen den Überblick. • Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Strassenbauer:in, Trockenbauer:in, Maurer:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel"
+        "de": "Darauf kannst Du Dich freuen • 39-Stunden-Woche mit flexiblen Pausen • BVG-Anteil (Pensionskasse) von 65 % bezahlt • Fairer Mindestlohn ab CHF 4'400 • Mindestens 5 Wochen Ferien pro Jahr • Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun • Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte. • Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert. • Du unterstützt Dein Team, wo immer es was zu tun gibt. • Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament • Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle. • Du hast ein hohes Verantwortungsbewusstsein und auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen. • Deine guten Kenntnisse im Bereich Baustoffe sowie Deine Kollegialität zeichnen Dich aus. • Du besitzt idealerweise einen Staplerführerausweis und behältst in stressigen Situationen den Überblick. • Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Strassenbauer:in, Trockenbauer:in, Maurer:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
+        "en": "You can look forward to that. • 39-hour week with flexible breaks • BVG share (pension fund) of 65% paid • Fair minimum wage from CHF 4,400 • At least 5 weeks of vacation per year • Generous maternity and paternity leave There is always something to do • You advise and inspire our customers in the realization of their projects. • Thanks to you, the shelves are filled and the products are presented attractively. • You support your team wherever there is something to do. • You actively use the online shop as a sales tool. Your Foundation • You bring heart and soul to customer advice and put customer satisfaction first. • You have a high sense of responsibility and we can rely on your flexibility within our opening hours. • Your good knowledge of building materials and your collegiality distinguish you. • Ideally, you have a forklift driver’s license and keep track of stressful situations. • You have completed an apprenticeship as a retail specialist:mann, Strassenbauer:in, Trockenbauer:in, Maurer:in or similar.\n\nArea: Sales / Retail Trade",
+        "it": "Non vedo l'ora. • 39 ore settimanali con pause flessibili • BVG quota (pension fund) del 65% pagato • Equo salario minimo da CHF 4.400 • Almeno 5 settimane di vacanza all'anno • Generoso congedo di maternità e di paternità C'è sempre qualcosa da fare • Si consiglia e ispira i nostri clienti nella realizzazione dei loro progetti. • Grazie a voi, gli scaffali sono riempiti e i prodotti sono presentati in modo attraente. • Sostieni la tua squadra ovunque ci sia qualcosa da fare. • Si utilizza attivamente il negozio online come strumento di vendita. La vostra Fondazione • Portate cuore e anima alla consulenza del cliente e mettete prima la soddisfazione del cliente. • Avete un elevato senso di responsabilità e possiamo contare sulla vostra flessibilità entro i nostri orari di apertura. • La vostra buona conoscenza dei materiali da costruzione e la vostra collegialità vi distinguono. • Idealmente, hai una patente di guida per carrelli elevatori e tieni traccia di situazioni stressanti. • Hai completato un apprendistato come specialista al dettaglio:mann, Strassenbauer:in, Trockenbauer:in, Maurer:in o simili.\n\nArea: Vendita / Commercio al dettaglio",
+        "fr": "Vous pouvez attendre avec impatience. • Semaine de 39 heures avec pauses flexibles • Part BVG (fonds de pension) de 65% payé • Salaire minimum équitable à partir de CHF 4 400 • Au moins 5 semaines de vacances par an • Congé de maternité et de paternité généreux Il y a toujours quelque chose à faire • Vous conseillez et inspirez nos clients dans la réalisation de leurs projets. • Grâce à vous, les étagères sont remplies et les produits sont présentés de manière attrayante. • Vous soutenez votre équipe partout où il y a quelque chose à faire. • Vous utilisez activement la boutique en ligne comme outil de vente. Votre Fondation • Vous apportez du cœur et de l'âme aux conseils du client et mettez la satisfaction du client en premier. • Vous avez un haut sens des responsabilités et nous pouvons compter sur votre flexibilité dans nos heures d'ouverture. • Votre bonne connaissance des matériaux de construction et votre collégialité vous distinguent. • Idéalement, vous avez un permis de conducteur de chariot élévateur et de garder une trace des situations stressantes. • Vous avez suivi un apprentissage en tant que spécialiste du commerce de détail:mann, Strassenbauer:in, Trockenbauer:in, Maurer:in ou similaire.\n\nDomaine: Vente / Commerce de détail"
       },
       "location": "Galgenen",
       "canton": "SZ",
@@ -634,7 +537,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-baustoffe-hornbach-galgenen"
+        ],
+        "en": [
+          "verkaufer-in-baustoffe-hornbach-galgenen"
+        ],
+        "fr": [
+          "verkaufer-in-baustoffe-hornbach-galgenen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-baustoffe-hornbach-galgenen"
+      ]
     },
     {
       "id": "hornbach-153986",
@@ -685,22 +602,6 @@
       "jobReqId": "153986",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-holz-bodenbelage-bauelemente-hornbach-sirnach",
-        "rivestimenti-in-legno-per-venditori-elementi-edilizi-hornbach-sirnach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-holz-bodenbelage-bauelemente-hornbach-sirnach",
-          "rivestimenti-in-legno-per-venditori-elementi-edilizi-hornbach-sirnach"
-        ],
-        "en": [
-          "verkaufer-in-holz-bodenbelage-bauelemente-hornbach-sirnach"
-        ],
-        "fr": [
-          "verkaufer-in-holz-bodenbelage-bauelemente-hornbach-sirnach"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.897Z"
     },
     {
@@ -753,13 +654,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-verkauf-pflanzen-hornbach-galgenen",
-        "teamleiter-in-vendita-pflanzen-hornbach-galgenen"
+        "teamleiter-in-verkauf-pflanzen-hornbach-galgenen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-verkauf-pflanzen-hornbach-galgenen",
-          "teamleiter-in-vendita-pflanzen-hornbach-galgenen"
+          "teamleiter-in-verkauf-pflanzen-hornbach-galgenen"
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.886Z",
@@ -826,22 +725,6 @@
       "jobReqId": "153609",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-fliesen-plattli-hornbach-luzern-littau",
-        "tessere-venditore-tessere-hornbach-luzern-littau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-fliesen-plattli-hornbach-luzern-littau",
-          "tessere-venditore-tessere-hornbach-luzern-littau"
-        ],
-        "en": [
-          "verkaufer-in-fliesen-plattli-hornbach-luzern-littau"
-        ],
-        "fr": [
-          "verkaufer-in-fliesen-plattli-hornbach-luzern-littau"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.889Z"
     },
     {
@@ -958,22 +841,6 @@
       "jobReqId": "153391",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis",
-        "vice-capo-squadra-cassa-hornbach-affoltern-am-albis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis",
-          "vice-capo-squadra-cassa-hornbach-affoltern-am-albis"
-        ],
-        "en": [
-          "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis"
-        ],
-        "fr": [
-          "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.899Z"
     },
     {
@@ -1025,22 +892,6 @@
       "jobReqId": "153381",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-holzzuschnitt-hornbach-luzern-littau",
-        "collaboratore-trice-holzzuschnitt-hornbach-luzern-littau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-holzzuschnitt-hornbach-luzern-littau",
-          "collaboratore-trice-holzzuschnitt-hornbach-luzern-littau"
-        ],
-        "en": [
-          "mitarbeiter-in-holzzuschnitt-hornbach-luzern-littau"
-        ],
-        "fr": [
-          "mitarbeiter-in-holzzuschnitt-hornbach-luzern-littau"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.902Z"
     },
     {
@@ -1092,22 +943,6 @@
       "jobReqId": "154280",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-holz-hornbach-galgenen",
-        "legno-del-venditore-hornbach-galgenen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-holz-hornbach-galgenen",
-          "legno-del-venditore-hornbach-galgenen"
-        ],
-        "en": [
-          "verkaufer-in-holz-hornbach-galgenen"
-        ],
-        "fr": [
-          "verkaufer-in-holz-hornbach-galgenen"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.881Z"
     },
     {
@@ -1160,13 +995,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-verkauf-hornbach-galgenen",
-        "teamleiter-in-vendita-hornbach-galgenen"
+        "teamleiter-in-verkauf-hornbach-galgenen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-verkauf-hornbach-galgenen",
-          "teamleiter-in-vendita-hornbach-galgenen"
+          "teamleiter-in-verkauf-hornbach-galgenen"
         ],
         "en": [
           "teamleiter-in-verkauf-hornbach-galgenen"
@@ -1291,22 +1124,6 @@
       "jobReqId": "153091",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-farben-tapeten-teppiche-hornbach-sirnach",
-        "venditore-vernici-carta-da-parati-e-tappeti-hornbach-sirnach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-farben-tapeten-teppiche-hornbach-sirnach",
-          "venditore-vernici-carta-da-parati-e-tappeti-hornbach-sirnach"
-        ],
-        "en": [
-          "verkaufer-in-farben-tapeten-teppiche-hornbach-sirnach"
-        ],
-        "fr": [
-          "verkaufer-in-farben-tapeten-teppiche-hornbach-sirnach"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.903Z"
     },
     {
@@ -1423,22 +1240,6 @@
       "jobReqId": "154260",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-garten-hartwaren-hornbach-affoltern-am-albis",
-        "assistente-alle-vendite-per-ferramenta-da-giardino-hornbach-affoltern-am-albis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-garten-hartwaren-hornbach-affoltern-am-albis",
-          "assistente-alle-vendite-per-ferramenta-da-giardino-hornbach-affoltern-am-albis"
-        ],
-        "en": [
-          "verkaufer-in-garten-hartwaren-hornbach-affoltern-am-albis"
-        ],
-        "fr": [
-          "verkaufer-in-garten-hartwaren-hornbach-affoltern-am-albis"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.883Z"
     },
     {
@@ -1490,22 +1291,6 @@
       "jobReqId": "154239",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-garten-hartwaren-hornbach-biel-bienne",
-        "assistente-alle-vendite-per-ferramenta-da-giardino-hornbach-biel-bienne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-garten-hartwaren-hornbach-biel-bienne",
-          "assistente-alle-vendite-per-ferramenta-da-giardino-hornbach-biel-bienne"
-        ],
-        "en": [
-          "verkaufer-in-garten-hartwaren-hornbach-biel-bienne"
-        ],
-        "fr": [
-          "verkaufer-in-garten-hartwaren-hornbach-biel-bienne"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.883Z"
     },
     {
@@ -1557,22 +1342,6 @@
       "jobReqId": "154257",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-pflanzen-hornbach-affoltern-am-albis",
-        "piante-venditori-hornbach-affoltern-am-albis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-pflanzen-hornbach-affoltern-am-albis",
-          "piante-venditori-hornbach-affoltern-am-albis"
-        ],
-        "en": [
-          "verkaufer-in-pflanzen-hornbach-affoltern-am-albis"
-        ],
-        "fr": [
-          "verkaufer-in-pflanzen-hornbach-affoltern-am-albis"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.884Z"
     },
     {
@@ -1624,22 +1393,6 @@
       "jobReqId": "154252",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-zoo-hornbach-galgenen",
-        "zoo-venditore-hornbach-galgenen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-zoo-hornbach-galgenen",
-          "zoo-venditore-hornbach-galgenen"
-        ],
-        "en": [
-          "verkaufer-in-zoo-hornbach-galgenen"
-        ],
-        "fr": [
-          "verkaufer-in-zoo-hornbach-galgenen"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.884Z"
     },
     {
@@ -1691,22 +1444,6 @@
       "jobReqId": "154186",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-logistik-hornbach-sirnach",
-        "addetto-a-alla-logistica-hornbach-sirnach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-logistik-hornbach-sirnach",
-          "addetto-a-alla-logistica-hornbach-sirnach"
-        ],
-        "en": [
-          "mitarbeiter-in-logistik-hornbach-sirnach"
-        ],
-        "fr": [
-          "mitarbeiter-in-logistik-hornbach-sirnach"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.885Z"
     },
     {
@@ -1758,22 +1495,6 @@
       "jobReqId": "152530",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach",
-        "strumenti-hardware-per-venditori-hornbach-sirnach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach",
-          "strumenti-hardware-per-venditori-hornbach-sirnach"
-        ],
-        "en": [
-          "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach"
-        ],
-        "fr": [
-          "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.901Z"
     },
     {
@@ -1825,22 +1546,6 @@
       "jobReqId": "152523",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-elektro-hornbach-luzern-littau",
-        "assistente-alle-vendite-elettriche-hornbach-luzern-littau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-elektro-hornbach-luzern-littau",
-          "assistente-alle-vendite-elettriche-hornbach-luzern-littau"
-        ],
-        "en": [
-          "verkaufer-in-elektro-hornbach-luzern-littau"
-        ],
-        "fr": [
-          "verkaufer-in-elektro-hornbach-luzern-littau"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.900Z"
     },
     {
@@ -1957,22 +1662,6 @@
       "jobReqId": "152450",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-baustoffe-hornbach-luzern-littau",
-        "assistente-vendita-materiali-da-costruzione-hornbach-luzern-littau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-baustoffe-hornbach-luzern-littau",
-          "assistente-vendita-materiali-da-costruzione-hornbach-luzern-littau"
-        ],
-        "en": [
-          "verkaufer-in-baustoffe-hornbach-luzern-littau"
-        ],
-        "fr": [
-          "verkaufer-in-baustoffe-hornbach-luzern-littau"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.906Z"
     },
     {
@@ -2024,22 +1713,6 @@
       "jobReqId": "149440",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-farben-hornbach-luzern-littau",
-        "colori-dei-venditori-hornbach-luzern-littau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-farben-hornbach-luzern-littau",
-          "colori-dei-venditori-hornbach-luzern-littau"
-        ],
-        "en": [
-          "verkaufer-in-farben-hornbach-luzern-littau"
-        ],
-        "fr": [
-          "verkaufer-in-farben-hornbach-luzern-littau"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.893Z"
     },
     {
@@ -2091,22 +1764,6 @@
       "jobReqId": "150286",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-bilderrahmen-sonnenschutz-hornbach-luzern-littau",
-        "venditore-di-cornici-e-protezione-solare-hornbach-luzern-littau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-bilderrahmen-sonnenschutz-hornbach-luzern-littau",
-          "venditore-di-cornici-e-protezione-solare-hornbach-luzern-littau"
-        ],
-        "en": [
-          "verkaufer-in-bilderrahmen-sonnenschutz-hornbach-luzern-littau"
-        ],
-        "fr": [
-          "verkaufer-in-bilderrahmen-sonnenschutz-hornbach-luzern-littau"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.905Z"
     },
     {
@@ -2158,22 +1815,6 @@
       "jobReqId": "150291",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-bodenbelage-dekoration-hornbach-luzern-littau",
-        "assistente-alle-vendite-di-rivestimenti-e-decorazioni-hornbach-luzern-littau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-bodenbelage-dekoration-hornbach-luzern-littau",
-          "assistente-alle-vendite-di-rivestimenti-e-decorazioni-hornbach-luzern-littau"
-        ],
-        "en": [
-          "verkaufer-in-bodenbelage-dekoration-hornbach-luzern-littau"
-        ],
-        "fr": [
-          "verkaufer-in-bodenbelage-dekoration-hornbach-luzern-littau"
-        ]
-      },
       "firstSeenAt": "2026-07-04T10:58:56.907Z"
     }
   ]

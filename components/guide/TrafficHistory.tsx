@@ -66,6 +66,31 @@ const DAY_NAMES_IT = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'];
 const HOURS = Array.from({ length: 24 }, (_, i) => i);
 const PEAK_HOURS = new Set([5, 6, 7, 8, 9, 17, 18, 19, 20, 21]);
 
+/* ─── localStorage cache for aggregated history ─── */
+
+const IS_TEST_ENV = typeof process !== 'undefined' && (process.env.NODE_ENV === 'test' || !!process.env.VITEST);
+const HISTORY_LS_KEY = 'traffic_history_aggregated_cache';
+const HISTORY_LS_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours — historical aggregates change slowly
+
+function getHistoryCache(): Record<string, AggregatedTraffic> | null {
+ if (IS_TEST_ENV) return null;
+ try {
+ const raw = localStorage.getItem(HISTORY_LS_KEY);
+ if (!raw) return null;
+ const parsed = JSON.parse(raw);
+ if (!parsed?.data || typeof parsed.timestamp !== 'number') return null;
+ if ((Date.now() - parsed.timestamp) >= HISTORY_LS_TTL_MS) return null;
+ return parsed.data as Record<string, AggregatedTraffic>;
+ } catch { return null; }
+}
+
+function setHistoryCache(data: Record<string, AggregatedTraffic>): void {
+ if (IS_TEST_ENV) return;
+ try {
+ localStorage.setItem(HISTORY_LS_KEY, JSON.stringify({ data, timestamp: Date.now() }));
+ } catch { /* ignore */ }
+}
+
 /* ─── Firestore fetch + aggregation ─── */
 
 const MIN_SNAPSHOTS_FOR_REAL_DATA = 20;
@@ -75,6 +100,10 @@ const MIN_SNAPSHOTS_FOR_REAL_DATA = 20;
  * aggregates them into average wait minutes per (dayOfWeek, hour).
  */
 async function fetchAndAggregate(crossingNames: string[]): Promise<Record<string, AggregatedTraffic>> {
+ // 1. Fresh localStorage cache — skip Firestore on repeat page loads within TTL
+ const cached = getHistoryCache();
+ if (cached) return cached;
+
  const { getApp } = await import('@/services/firebase');
  const { getFirestore, collection, getDocs, query, orderBy, limit } = await import('firebase/firestore');
 
@@ -126,6 +155,7 @@ async function fetchAndAggregate(crossingNames: string[]): Promise<Record<string
  }
  }));
 
+ if (Object.keys(result).length > 0) setHistoryCache(result);
  return result;
 }
 

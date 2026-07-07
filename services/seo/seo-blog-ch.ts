@@ -11913,6 +11913,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-seco-disoccupazione-giugno-2024': {
+    title: 'Disoccupazione in Svizzera: i dati Seco di giugno',
+    description: 'La Seco riporta la disoccupazione al 2,9% a giugno. Il tasso destagionalizzato resta al 3,1%. Analisi del rallentamento del mercato del lavoro svizzero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, dati, seco, giugno',
+    ogTitle: 'Disoccupazione in Svizzera: i dati Seco di giugno',
+    ogDescription: 'La Seco riporta la disoccupazione al 2,9% a giugno. Il tasso destagionalizzato resta al 3,1%. Analisi del rallentamento del mercato del lavoro svizzero.',
+    canonicalPath: '/articoli-svizzera/seco-disoccupazione-giugno-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione in Svizzera: i dati Seco di giugno",
+      "description": "La Seco riporta la disoccupazione al 2,9% a giugno. Il tasso destagionalizzato resta al 3,1%. Analisi del rallentamento del mercato del lavoro svizzero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/seco-disoccupazione-giugno-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di una città svizzera con uffici moderni"
+      },
+      "datePublished": "2026-07-07T00:21:36+00:00",
+      "dateModified": "2026-07-07T00:21:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/seco-disoccupazione-giugno-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-caissiere-migros': {
+    title: 'La nuova caissière di Migros a Vaud e il regime transitorio per i frontalieri',
+    description: 'La società cooperativa Migros Vaud ha annunciato la sostituzione della caissière, mentre i frontalieri saranno esenti dal regime transitorio fino al 2033',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, caissière, migros, vaud',
+    ogTitle: 'La nuova caissière di Migros a Vaud e il regime transitorio per i frontalieri',
+    ogDescription: 'La società cooperativa Migros Vaud ha annunciato la sostituzione della caissière, mentre i frontalieri saranno esenti dal regime transitorio fino al 2033',
+    canonicalPath: '/articoli-svizzera/caissiere-migros/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La nuova caissière di Migros a Vaud e il regime transitorio per i frontalieri",
+      "description": "La società cooperativa Migros Vaud ha annunciato la sostituzione della caissière, mentre i frontalieri saranno esenti dal regime transitorio fino al 2033",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caissiere-migros.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una caissière di Migros a Lugano, con sfondo della città e dei monti"
+      },
+      "datePublished": "2026-07-07T01:01:38+00:00",
+      "dateModified": "2026-07-07T01:01:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/caissiere-migros/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lohn-denner-verkauf-2024': {
+    title: 'Loihn denner: Nuove regole per il commercio di bestiame',
+    description: 'Dal 1° gennaio 2024, nuove regole per il commercio di bestiame in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, loihn, denner, nuove, regole',
+    ogTitle: 'Nuove regole per il commercio di bestiame in Svizzera',
+    ogDescription: 'Dal 1° gennaio 2024, nuove regole per il commercio di bestiame in Svizzera.',
+    canonicalPath: '/articoli-svizzera/lohn-denner-verkauf-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Loihn denner: Nuove regole per il commercio di bestiame",
+      "description": "Dal 1° gennaio 2024, nuove regole per il commercio di bestiame in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lohn-denner-verkauf-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in una caffetteria a Lugano."
+      },
+      "datePublished": "2026-07-07T01:33:13+00:00",
+      "dateModified": "2026-07-07T01:33:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lohn-denner-verkauf-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gazzetta-ufficiale-legge-30-dicembre-2024-n-207': {
+    title: 'Legge di Bilancio 2025: lavoro, previdenza e fisco',
+    description: 'La Legge di Bilancio 2025 prevede modifiche importanti per i frontalieri, tra cui un aumento delle franchigie per i redditi da lavoro. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, legge, bilancio, 2025, lavoro',
+    ogTitle: 'Gazzetta Ufficiale - Legge 30 dicembre 2024 n 207: Lavoro, previdenza e fisco nella Legge di Bilancio 2025',
+    ogDescription: 'La Legge di Bilancio 2025 prevede modifiche importanti per i frontalieri, tra cui un aumento delle franchigie per i redditi da lavoro.',
+    canonicalPath: '/articoli-svizzera/gazzetta-ufficiale-legge-30-dicembre-2024-n-207/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Legge di Bilancio 2025: lavoro, previdenza e fisco",
+      "description": "La Legge di Bilancio 2025 prevede modifiche importanti per i frontalieri, tra cui un aumento delle franchigie per i redditi da lavoro. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gazzetta-ufficiale-legge-30-dicembre-2024-n-207.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine fotorealistica di una scena svizzera a livello nazionale."
+      },
+      "datePublished": "2026-07-07T02:08:26+00:00",
+      "dateModified": "2026-07-07T02:08:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/gazzetta-ufficiale-legge-30-dicembre-2024-n-207/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

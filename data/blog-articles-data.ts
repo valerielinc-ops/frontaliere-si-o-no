@@ -24920,6 +24920,42 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'mercato-lavoro-svizzera-rallenta-estate-2024',
+ category: 'novita',
+ date: '2026-07-07T00:43:31.108Z',
+ image: '/images/blog/mercato-lavoro-svizzera-rallenta-estate-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'gaggiolo-traffico',
+ category: 'novita',
+ date: '2026-07-07T01:24:42.124Z',
+ image: '/images/blog/gaggiolo-traffico.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'axa-manno',
+ category: 'pratico',
+ date: '2026-07-07T01:46:15.262Z',
+ image: '/images/blog/axa-manno.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'kebab-case-3-5-words-max-40-chars',
+ category: 'pratico',
+ date: '2026-07-07T02:20:38.837Z',
+ image: '/images/blog/kebab-case-3-5-words-max-40-chars.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

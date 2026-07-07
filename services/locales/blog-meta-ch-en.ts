@@ -925,6 +925,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prezzi-immobili-svizzera-giugno.title': 'Swiss Property Prices: June Rise',
     'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'In June, house prices rose by 3.1% and apartments by 4.5% on an annual basis, with sharp differences between Zurich, Ticino and the other regions.',
     'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Modern residential buildings in Switzerland with mountains in the background',
+    'blog.article.seco-disoccupazione-giugno-2024.title': 'Unemployment in Switzerland: Seco data for June',
+    'blog.article.seco-disoccupazione-giugno-2024.excerpt': 'The unemployment rate drops to 2.9% in June. Seco confirms stability net of seasonal factors at 3.1%. Here\'s the data analysis.',
+    'blog.article.seco-disoccupazione-giugno-2024.imageAlt': 'Swiss city panorama with modern offices',
+    'blog.article.caissiere-migros.title': 'Migros Vaud: nuova caissière e regime transitorio',
+    'blog.article.caissiere-migros.excerpt': 'The cooperative Migros Vaud has announced the replacement of the caissière, while border workers will be exempt from the transitional regime until 2033',
+    'blog.article.caissiere-migros.imageAlt': 'Image of a Migros cashier at Lugano, with city and mountain background',
+    'blog.article.lohn-denner-verkauf-2024.title': 'Loihn denner: New rules for livestock trade',
+    'blog.article.lohn-denner-verkauf-2024.excerpt': 'From 1 January 2024, new rules for livestock trade in Switzerland.',
+    'blog.article.lohn-denner-verkauf-2024.imageAlt': 'A frontalier in a Lugano café.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.title': 'Budget Law 2025: employment, social security and taxation',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.excerpt': 'The 2025 Budget Law provides for important changes for frontier workers, including an increase in deductibles for employment income.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.imageAlt': 'Image of a Swiss national scene.',
 };
 
 export default blogMetaChEn;

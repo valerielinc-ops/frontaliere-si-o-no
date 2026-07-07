@@ -8294,6 +8294,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.title': 'L\'Accord Italie-Suisse de 2020 sur la taxation des travailleurs frontaliers',
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.excerpt': 'L\'accord Italie-Suisse de 2020 introduit un nouveau régime de taxation pour les travailleurs frontaliers, remplaçant le cadre de 1974. L\'analyse évalue le',
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.imageAlt': 'Image éditoriale relative à: L\'Accordo Italia-Svizzera del 2020 sulla tassazione dei lavoratori frontalieri',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.title': 'Marché du travail suisse en ralentissement : ce qui change pour les frontaliers',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.excerpt': 'Taux de chômage suisse stable à 3,1 % corrigé des variations saisonnières en juin. SECO révise à la hausse son estimation pour 2026 et 2027 en raison des prix de l\'énergie.',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.imageAlt': 'Pendulaires bloqués au poste frontalier de Brogeda à Lugano au coucher du soleil, en direction de la frontière italienne.',
+    'blog.article.gaggiolo-traffico.title': 'Trafic au col de Gaggiolo',
+    'blog.article.gaggiolo-traffico.excerpt': 'Trafic intense au passage de Gaggiolo en raison de l\'augmentation du nombre de navetteurs',
+    'blog.article.gaggiolo-traffico.imageAlt': 'Image d\'un col de montagne pendant l\'heure de pointe',
+    'blog.article.axa-manno.title': 'Axa Manno : conseiller en assurance pour les frontaliers',
+    'blog.article.axa-manno.excerpt': 'Axa Manno est un conseiller en assurance spécialisé dans les services aux frontaliers.',
+    'blog.article.axa-manno.imageAlt': 'Une rue à Lugano avec un pendulaire qui vérifie son smartphone.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Nouvel accord frontalier : qu\'est-ce qui change pour les frontaliers au Tessin ?',
+    'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Le nouvel accord frontalier entre en vigueur le 1er janvier 2024. C\'est ce qui change pour les frontaliers au Tessin.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Un pendulaire à la gare de Chiasso',
 };
 
 export default blogMetaFr;

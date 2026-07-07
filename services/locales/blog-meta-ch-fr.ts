@@ -925,6 +925,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prezzi-immobili-svizzera-giugno.title': 'Prix de l\'immobilier en Suisse : hausse en juin',
     'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'En juin, les prix des maisons augmentent de 3,1% et les appartements de 4,5% sur une base annuelle, avec de fortes différences entre Zurich, le Tessin et les autres régions.',
     'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Immeubles résidentiels modernes en Suisse avec montagnes en arrière-plan',
+    'blog.article.seco-disoccupazione-giugno-2024.title': 'Chômage en Suisse : les chiffres secs de juin',
+    'blog.article.seco-disoccupazione-giugno-2024.excerpt': 'Le taux de chômage tombe à 2,9% en juin. Le SECO confirme la stabilité nette des facteurs saisonniers à 3,1 %. Voici l\'analyse des données.',
+    'blog.article.seco-disoccupazione-giugno-2024.imageAlt': 'Panorama d\'une ville suisse avec des bureaux modernes',
+    'blog.article.caissiere-migros.title': 'Migros Vaud: nuovo regime per frontalieri',
+    'blog.article.caissiere-migros.excerpt': 'La société coopérative Migros Vaud a annoncé le remplacement de la caissière, tandis que les frontaliers seront exemptés du régime transitoire jusqu\'en 2033',
+    'blog.article.caissiere-migros.imageAlt': 'Image d\'une caissière de Migros à Lugano, avec arrière-plan de la ville et des montagnes',
+    'blog.article.lohn-denner-verkauf-2024.title': 'Loihn denner : Nouvelles règles pour le commerce du bétail',
+    'blog.article.lohn-denner-verkauf-2024.excerpt': 'A partir du 1er janvier 2024, nouvelles règles pour le commerce du bétail en Suisse.',
+    'blog.article.lohn-denner-verkauf-2024.imageAlt': 'Un frontalier dans un café de Lugano.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.title': 'Loi de finances 2025 : travail, prévoyance et fiscalité',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.excerpt': 'La loi de finances 2025 prévoit des modifications importantes pour les frontaliers, notamment une augmentation des franchises pour les revenus du travail.',
+    'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.imageAlt': 'Image d\'une scène suisse à niveau national.',
 };
 
 export default blogMetaChFr;

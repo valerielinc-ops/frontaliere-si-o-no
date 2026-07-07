@@ -4398,6 +4398,14 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-prezzi-immobili-svizzera-giugno': { name: 'Prezzi Immobili', path: '/articoli-svizzera/prezzi-immobili-svizzera-giugno/', parent: 'blog' },
     'blog-gallarate-rho-lavori-luglio-2026': { name: 'Mobilità', path: '/articoli-frontaliere/gallarate-rho-lavori-luglio-2026', parent: 'blog' },
     'blog-laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri': { name: 'L\'Accordo Italia-Svizzera del 2020 sulla', path: '/articoli-frontaliere/laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri', parent: 'blog' },
+    'blog-seco-disoccupazione-giugno-2024': { name: 'Disoccupazione Svizzera', path: '/articoli-svizzera/seco-disoccupazione-giugno-2024/', parent: 'blog' },
+    'blog-mercato-lavoro-svizzera-rallenta-estate-2024': { name: 'Mercato del lavoro svizzero in rallentam', path: '/articoli-frontaliere/mercato-lavoro-svizzera-rallenta-estate-2024', parent: 'blog' },
+    'blog-caissiere-migros': { name: 'La nuova caissière di Migros a Vaud e il', path: '/articoli-svizzera/caissiere-migros/', parent: 'blog' },
+    'blog-gaggiolo-traffico': { name: 'Traffico al valico di Gaggiolo', path: '/articoli-frontaliere/gaggiolo-traffico', parent: 'blog' },
+    'blog-lohn-denner-verkauf-2024': { name: 'Commercio di bestiame', path: '/articoli-svizzera/lohn-denner-verkauf-2024/', parent: 'blog' },
+    'blog-axa-manno': { name: 'Axa Manno', path: '/articoli-frontaliere/axa-manno', parent: 'blog' },
+    'blog-gazzetta-ufficiale-legge-30-dicembre-2024-n-207': { name: 'Legge di Bilancio 2025', path: '/articoli-svizzera/gazzetta-ufficiale-legge-30-dicembre-2024-n-207/', parent: 'blog' },
+    'blog-kebab-case-3-5-words-max-40-chars': { name: 'Nuovo accordo frontalieri', path: '/articoli-frontaliere/kebab-case-3-5-words-max-40-chars', parent: 'blog' },
  };
 
  const info = sectionNames[section];

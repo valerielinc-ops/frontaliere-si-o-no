@@ -32,6 +32,29 @@ export interface ArticleAuthorOverride {
   authorName: string;
 }
 
+const PROFILES_LS_KEY = 'author_profiles_cache';
+const OVERRIDES_LS_KEY = 'article_author_overrides_cache';
+const LS_TTL_MS = 60 * 60 * 1000; // 1 hour — admin changes are visible on the next fetch past TTL
+
+function readLocalMap<T>(key: string): Map<string, T> | null {
+  if (IS_TEST_ENV) return null;
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed?.data || typeof parsed.timestamp !== 'number') return null;
+    if ((Date.now() - parsed.timestamp) >= LS_TTL_MS) return null;
+    return new Map<string, T>(Object.entries(parsed.data) as [string, T][]);
+  } catch { return null; }
+}
+
+function writeLocalMap<T>(key: string, map: Map<string, T>): void {
+  if (IS_TEST_ENV) return;
+  try {
+    localStorage.setItem(key, JSON.stringify({ data: Object.fromEntries(map), timestamp: Date.now() }));
+  } catch { /* ignore */ }
+}
+
 let profilesCache: Map<string, AuthorProfilePatch> | null = null;
 let profilesPromise: Promise<Map<string, AuthorProfilePatch>> | null = null;
 let overridesCache: Map<string, ArticleAuthorOverride> | null = null;
@@ -51,10 +74,21 @@ async function getDb() {
 
 async function loadProfiles(): Promise<Map<string, AuthorProfilePatch>> {
   if (profilesCache) return profilesCache;
+
+  // 2. localStorage cache (skip Firestore on repeat page loads within TTL)
+  const local = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY);
+  if (local) {
+    profilesCache = local;
+    return local;
+  }
+
   if (!profilesPromise) {
     profilesPromise = (async () => {
       const map = new Map<string, AuthorProfilePatch>();
-      if (IS_TEST_ENV) return map;
+      if (IS_TEST_ENV) {
+        profilesCache = map;
+        return map;
+      }
       try {
         const { collection, getDocs } = await resilientImport(
           () => import('firebase/firestore'),
@@ -63,6 +97,7 @@ async function loadProfiles(): Promise<Map<string, AuthorProfilePatch>> {
         const db = await getDb();
         const snap = await getDocs(collection(db, 'author_profiles'));
         snap.forEach((doc) => map.set(doc.id, doc.data() as AuthorProfilePatch));
+        writeLocalMap(PROFILES_LS_KEY, map);
       } catch {
         // Offline / permission edge cases — fall back to the static registry only.
       }
@@ -75,10 +110,21 @@ async function loadProfiles(): Promise<Map<string, AuthorProfilePatch>> {
 
 async function loadOverrides(): Promise<Map<string, ArticleAuthorOverride>> {
   if (overridesCache) return overridesCache;
+
+  // 2. localStorage cache (skip Firestore on repeat page loads within TTL)
+  const local = readLocalMap<ArticleAuthorOverride>(OVERRIDES_LS_KEY);
+  if (local) {
+    overridesCache = local;
+    return local;
+  }
+
   if (!overridesPromise) {
     overridesPromise = (async () => {
       const map = new Map<string, ArticleAuthorOverride>();
-      if (IS_TEST_ENV) return map;
+      if (IS_TEST_ENV) {
+        overridesCache = map;
+        return map;
+      }
       try {
         const { collection, getDocs } = await resilientImport(
           () => import('firebase/firestore'),
@@ -90,6 +136,7 @@ async function loadOverrides(): Promise<Map<string, ArticleAuthorOverride>> {
           const d = doc.data() as ArticleAuthorOverride;
           if (d?.authorSlug && d?.authorName) map.set(doc.id, d);
         });
+        writeLocalMap(OVERRIDES_LS_KEY, map);
       } catch {
         // Offline / permission edge cases — fall back to the static byline only.
       }

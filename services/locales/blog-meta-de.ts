@@ -8292,6 +8292,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.title': 'Abkommen 2020: Besteuerung von Grenzgängern',
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.excerpt': 'Das Abkommen Italien-Schweiz von 2020 führt ein neues Steuersystem für Grenzgänger ein und ersetzt den Rahmen von 1974. Die Analyse beurteilt den',
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.imageAlt': 'Redaktionelles Bild zu: L\'Accordo Italia-Svizzera del 2020 sulla tassazione dei lavoratori frontalieri',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.title': 'Schweizer Arbeitsmarkt im Abschwung: Was ändert sich für Grenzgänger?',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.excerpt': 'Schweizer Arbeitslosenquote stabil bei 3,1% saisonbereinigt im Juni. SECO revidierte die Schätzung für 2026 und 2027 aufgrund der Energiepreise nach oben.',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.imageAlt': 'Grenzpendler stauen sich am Brogeda-Checkpoint in Lugano bei Sonnenuntergang, Richtung italienischer Grenze.',
+    'blog.article.gaggiolo-traffico.title': 'Verkehr am Gaggiolo-Pass',
+    'blog.article.gaggiolo-traffico.excerpt': 'Starker Verkehr am Gaggiolo-Pass aufgrund der Zunahme der Pendler',
+    'blog.article.gaggiolo-traffico.imageAlt': 'Bild eines Alpenpasses während der Rush Hour',
+    'blog.article.axa-manno.title': 'Axa Manno: Versicherungsberater für Grenzgänger',
+    'blog.article.axa-manno.excerpt': 'Axa Manno ist ein Versicherungsberater, der sich auf Dienstleistungen für Grenzgänger spezialisiert hat.',
+    'blog.article.axa-manno.imageAlt': 'Eine Straße in Lugano mit einem Pendler, der sein Smartphone überprüft.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Neues Grenzabkommen: Was ändert sich für Grenzgänger im Tessin?',
+    'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Das neue Grenzabkommen tritt am 1. Januar 2024 in Kraft. Das ändert sich für Grenzgänger im Tessin.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Ein Pendler an der Bahnstation Chiasso',
 };
 
 export default blogMetaDe;
