@@ -925,6 +925,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prezzi-immobili-svizzera-giugno.title': 'Prezzi immobili in Svizzera: salita a giugno',
     'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'A giugno i prezzi delle case salgono del 3,1% e gli appartamenti del 4,5% su base annua, con forti differenze tra Zurigo, Ticino e le altre regioni.',
     'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Edifici residenziali moderni in Svizzera con montagne sullo sfondo',
+    'blog.article.seco-disoccupazione-giugno-2024.title': 'Disoccupazione in Svizzera: i dati Seco di giugno',
+    'blog.article.seco-disoccupazione-giugno-2024.excerpt': 'Il tasso di disoccupazione scende al 2,9% a giugno. La Seco conferma la stabilità al netto dei fattori stagionali al 3,1%. Ecco l\'analisi dei dati.',
+    'blog.article.seco-disoccupazione-giugno-2024.imageAlt': 'Panorama di una città svizzera con uffici moderni',
 };
 
 export default blogMetaChIt;

@@ -925,6 +925,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prezzi-immobili-svizzera-giugno.title': 'Swiss Property Prices: June Rise',
     'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'In June, house prices rose by 3.1% and apartments by 4.5% on an annual basis, with sharp differences between Zurich, Ticino and the other regions.',
     'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Modern residential buildings in Switzerland with mountains in the background',
+    'blog.article.seco-disoccupazione-giugno-2024.title': 'Unemployment in Switzerland: Seco data for June',
+    'blog.article.seco-disoccupazione-giugno-2024.excerpt': 'The unemployment rate drops to 2.9% in June. Seco confirms stability net of seasonal factors at 3.1%. Here\'s the data analysis.',
+    'blog.article.seco-disoccupazione-giugno-2024.imageAlt': 'Swiss city panorama with modern offices',
 };
 
 export default blogMetaChEn;
