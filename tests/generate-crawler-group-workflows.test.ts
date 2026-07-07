@@ -456,4 +456,53 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(exitCode, 'background step must exit non-zero when the "Commit updated data" step fails').not.toBe(0);
     expect(stdout).toContain('REPORTED_FAILURE');
   });
+
+  // GitHub Actions invokes `run:` steps as `bash -e {0}` (errexit ON) — a
+  // real run's log line confirms `shell: /usr/bin/bash -e {0}`. The tests
+  // above all use `runBody()`, which shells out via plain `bash -c` (no
+  // `-e`) — that never enables errexit, so it could not have caught the
+  // actual root cause of zero "Crawler Failure" issues being filed despite
+  // ~160 real overnight failures post-#3701. These two tests specifically
+  // invoke the body the way GitHub Actions really does (`bash -e <file>`)
+  // to prove the `set +e` fix, and to pin down the defect it closes.
+  function runBodyStrict(body: string): { exitCode: number; stdout: string } {
+    const scriptPath = path.join(tmpDir, 'body.sh');
+    fs.writeFileSync(scriptPath, body);
+    try {
+      const stdout = execFileSync('bash', ['-e', scriptPath], { encoding: 'utf8' });
+      return { exitCode: 0, stdout };
+    } catch (err: any) {
+      return { exitCode: err.status ?? 1, stdout: err.stdout ?? '' };
+    }
+  }
+
+  it('crawl fails -> under real bash -e invocation (GitHub Actions default), the fix still reaches the failure-report gate', () => {
+    const crawler = crawlerFixture({ runCommand: 'false' });
+    const body = buildCrawlerShellBody(crawler);
+
+    expect(body).toMatch(/^set -uo pipefail\nset \+e\n/);
+
+    const { exitCode, stdout } = runBodyStrict(body);
+
+    expect(exitCode, 'background step must exit non-zero when the crawl fails').not.toBe(0);
+    expect(stdout, 'failure-report step must fire even under real bash -e semantics').toContain('REPORTED_FAILURE');
+  });
+
+  it('documents the defect: WITHOUT `set +e`, the same body aborts before crawler_exit is even captured under bash -e — the actual overnight root cause', () => {
+    const crawler = crawlerFixture({ runCommand: 'false' });
+    const body = buildCrawlerShellBody(crawler);
+    // Reconstruct the exact pre-fix shape by stripping the injected `set +e`
+    // line from the real generator output, rather than hand-building a
+    // parallel body that could drift from what the generator actually emits.
+    const oldStyleBody = body.replace(/^set \+e\n/m, '');
+    expect(oldStyleBody).not.toContain('set +e');
+
+    const { stdout } = runBodyStrict(oldStyleBody);
+
+    // Under real bash -e, the crawl command's own non-zero exit aborts the
+    // script immediately: `crawler_exit=$?` is never reached, so the
+    // failure-report gate never fires. This is the mechanism that silenced
+    // ~160 "Crawler Failure" issues overnight post-#3701.
+    expect(stdout).not.toContain('REPORTED_FAILURE');
+  });
 });

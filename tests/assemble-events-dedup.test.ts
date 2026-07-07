@@ -4,7 +4,9 @@
  * per-source slices (data/events/by-source/<key>.json) by `event.id`
  * (last-write-wins), then this SECOND pass collapses the same physical event
  * when two or more different sources (tio-agenda / guidle / myswitzerland)
- * index it independently under a different id.
+ * index it independently under a different id — OR (issue #3744) when the
+ * SAME source indexes its own event twice under a different raw id/URL, as
+ * long as the two records also carry near-identical `geo` coordinates.
  */
 import { describe, it, expect } from 'vitest';
 import {
@@ -116,16 +118,136 @@ describe('dedupeFuzzy', () => {
     expect(mergedAway).toBe(0);
   });
 
-  it('does NOT collapse a same-source collision (only cross-source groups are merged)', () => {
+  it('does NOT collapse a same-source collision without a geo match (only cross-source or geo-matched same-source groups are merged)', () => {
     // Real observed shape: two DIFFERENT events from the same crawler share a
-    // generic title and both region-resolved to the same fallback comune.
-    // Merging these would silently drop a genuine event, so same-source
-    // groups are left untouched even when the fuzzy key collides.
+    // generic title and both region-resolved to the same fallback comune,
+    // with no geo on either side. Merging these would silently drop a
+    // genuine event, so a same-source group without a geo match is left
+    // untouched even when the fuzzy key collides.
     const first = ev({ id: 'tio-agenda:1', sourceKey: 'tio-agenda', venue: 'Piazza A' });
     const second = ev({ id: 'tio-agenda:2', sourceKey: 'tio-agenda', venue: 'Piazza B' });
     const { events, mergedAway } = dedupeFuzzy([first, second]);
     expect(events).toHaveLength(2);
     expect(mergedAway).toBe(0);
+  });
+
+  it('does NOT collapse a same-source collision when only one side has geo', () => {
+    const first = ev({
+      id: 'tio-agenda:1',
+      sourceKey: 'tio-agenda',
+      venue: 'Piazza A',
+      geo: { lat: 46.0037, lng: 8.9511 },
+    });
+    const second = ev({ id: 'tio-agenda:2', sourceKey: 'tio-agenda', venue: 'Piazza B' });
+    const { events, mergedAway } = dedupeFuzzy([first, second]);
+    expect(events).toHaveLength(2);
+    expect(mergedAway).toBe(0);
+  });
+
+  it('does NOT collapse a same-source collision when geo coordinates are far apart (> tolerance)', () => {
+    const first = ev({
+      id: 'tio-agenda:1',
+      sourceKey: 'tio-agenda',
+      venue: 'Piazza A',
+      geo: { lat: 46.0037, lng: 8.9511 }, // Lugano
+    });
+    const second = ev({
+      id: 'tio-agenda:2',
+      sourceKey: 'tio-agenda',
+      venue: 'Piazza B',
+      geo: { lat: 46.1712, lng: 8.7955 }, // Bellinzona, ~20km away
+    });
+    const { events, mergedAway } = dedupeFuzzy([first, second]);
+    expect(events).toHaveLength(2);
+    expect(mergedAway).toBe(0);
+  });
+
+  it('collapses a same-source collision when geo coordinates match exactly (issue #3744)', () => {
+    // Real observed shape: myswitzerland indexed "Heididorf Saisoneröffnung"
+    // twice under two different objectIDs, same startDate/comune and EXACT
+    // geo coordinates — the by-id merge never catches it (different ids) and
+    // the cross-source condition never catches it either (same sourceKey).
+    const geo = { lat: 47.017265, lng: 9.5443047 };
+    const first = ev({
+      id: 'myswitzerland:objA',
+      sourceKey: 'myswitzerland',
+      title: 'Heididorf Saisoneröffnung',
+      comune: 'Maienfeld',
+      geo,
+    });
+    const second = ev({
+      id: 'myswitzerland:objB',
+      sourceKey: 'myswitzerland',
+      title: 'Heididorf Saisoneröffnung',
+      comune: 'Maienfeld',
+      geo: { ...geo },
+      description: 'Richer description on this duplicate.',
+    });
+    const { events, mergedAway } = dedupeFuzzy([first, second]);
+    expect(events).toHaveLength(1);
+    expect(mergedAway).toBe(1);
+    // Richer (has description) record wins.
+    expect(events[0].id).toBe('myswitzerland:objB');
+  });
+
+  it('collapses a same-source collision when geo coordinates are within the ~50m tolerance but not exact', () => {
+    const first = ev({
+      id: 'myswitzerland:objA',
+      sourceKey: 'myswitzerland',
+      title: 'Heididorf Saisoneröffnung',
+      comune: 'Maienfeld',
+      geo: { lat: 47.017265, lng: 9.5443047 },
+    });
+    // ~10m latitude offset — same physical venue, minor geocoding jitter.
+    const second = ev({
+      id: 'myswitzerland:objB',
+      sourceKey: 'myswitzerland',
+      title: 'Heididorf Saisoneröffnung',
+      comune: 'Maienfeld',
+      geo: { lat: 47.017355, lng: 9.5443047 },
+    });
+    const { events, mergedAway } = dedupeFuzzy([first, second]);
+    expect(events).toHaveLength(1);
+    expect(mergedAway).toBe(1);
+  });
+
+  it('does not chain unrelated same-source venues past the geo tolerance (diameter must stay bounded, not just consecutive links)', () => {
+    // Regression for a chain-based clustering bug (caught in PR review): three
+    // same-source records spaced ~40m apart along a line — A-B ~40m,
+    // B-C ~40m, but A-C ~80m, past the 50m tolerance. A clustering rule that
+    // only requires "close to ANY existing cluster member" would incorrectly
+    // chain all three into one record even though the two endpoints are
+    // clearly two different venues — exactly the false-positive this
+    // same-source path exists to avoid.
+    const latPerMeter = 1 / 111194.926645; // matches haversineKm's R=6371km model
+    const base = 46.0;
+    const a = ev({
+      id: 'myswitzerland:a',
+      sourceKey: 'myswitzerland',
+      title: 'Mercatino di Primavera',
+      comune: 'Bellinzona',
+      geo: { lat: base, lng: 8.9 },
+    });
+    const b = ev({
+      id: 'myswitzerland:b',
+      sourceKey: 'myswitzerland',
+      title: 'Mercatino di Primavera',
+      comune: 'Bellinzona',
+      geo: { lat: base + 40 * latPerMeter, lng: 8.9 },
+    });
+    const c = ev({
+      id: 'myswitzerland:c',
+      sourceKey: 'myswitzerland',
+      title: 'Mercatino di Primavera',
+      comune: 'Bellinzona',
+      geo: { lat: base + 80 * latPerMeter, lng: 8.9 },
+    });
+    const { events, mergedAway } = dedupeFuzzy([a, b, c]);
+    // A and B (40m apart) collapse; C (80m from A, past tolerance) must NOT
+    // be swept in just because it is within tolerance of B alone.
+    expect(events).toHaveLength(2);
+    expect(mergedAway).toBe(1);
+    expect(events.some((e) => e.id === 'myswitzerland:c')).toBe(true);
   });
 
   it('leaves a singleton group untouched', () => {

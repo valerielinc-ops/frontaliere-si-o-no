@@ -940,6 +940,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.private-spitex-stellenangebote-basel.title': 'Private Spitex in Basel: Neue Beschäftigungsmöglichkeiten',
     'blog.article.private-spitex-stellenangebote-basel.excerpt': 'Privatkliniken in Basel suchen Krankenschwestern und Krankenpfleger, um die Arbeitszeit abzudecken',
     'blog.article.private-spitex-stellenangebote-basel.imageAlt': 'Eine Szene einer privaten Klinik in Basel',
+    'blog.article.pflegefachfrau-frontalieri-basel.title': 'Pflegefachfrau in Basel: Was Sie als Grenzgängerin wissen müssen',
+    'blog.article.pflegefachfrau-frontalieri-basel.excerpt': 'Neues Grenzabkommen 2024, € 10\'000-Franchise und Steuervorschriften für italienische Arbeitnehmer in der Schweiz',
+    'blog.article.pflegefachfrau-frontalieri-basel.imageAlt': 'Pflegefrau betreut Patientin in Schweizer Einrichtung',
+    'blog.article.ascensori-steinach-lavoro-svizzera.title': 'Lift-Jobsuche in Steinach: Chancen in der Schweiz',
+    'blog.article.ascensori-steinach-lavoro-svizzera.excerpt': 'Entdecken Sie die Stellenangebote für Aufzugsmonteure und -wartungen in Steinach und in der ganzen Schweiz. Daten zu Gehältern, technischen Vorschriften und kantonalen Verfahren.',
+    'blog.article.ascensori-steinach-lavoro-svizzera.imageAlt': 'Schweizer Arbeiter installieren einen Aufzug',
 };
 
 export default blogMetaChDe;

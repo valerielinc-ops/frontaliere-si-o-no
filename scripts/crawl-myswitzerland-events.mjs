@@ -346,9 +346,30 @@ export function extractAddress(ld) {
   return { street, postalCode, locality, region };
 }
 
+/** Returns true if `name` matches any name in a schema.org performer/organizer value (string | object | array). */
+function matchesPersonField(name, field) {
+  if (!field) return false;
+  const lower = name.toLowerCase();
+  const entries = Array.isArray(field) ? field : [field];
+  for (const entry of entries) {
+    const n = typeof entry === 'string' ? entry : (typeof entry?.name === 'string' ? entry.name : null);
+    if (n && n.trim().toLowerCase() === lower) return true;
+  }
+  return false;
+}
+
 function extractVenue(ld, fallbackPlace) {
   const name = ld?.location?.name;
-  if (typeof name === 'string' && name.trim()) return name.trim();
+  if (typeof name === 'string' && name.trim()) {
+    const trimmed = name.trim();
+    // Reject location.name that matches a performer or organizer name — implausible as a venue
+    if (!matchesPersonField(trimmed, ld?.performer) && !matchesPersonField(trimmed, ld?.organizer)) {
+      return trimmed;
+    }
+    // Implausible: fall back to addressLocality as a useful venue label
+    const locality = ld?.location?.address?.addressLocality;
+    if (typeof locality === 'string' && locality.trim()) return locality.trim();
+  }
   return fallbackPlace || undefined;
 }
 
