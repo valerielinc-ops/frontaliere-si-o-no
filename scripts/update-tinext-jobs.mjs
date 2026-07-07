@@ -46,15 +46,21 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'tinext.json');
 
 const COMPANY_KEY = 'tinext';
+// Per-crawler-scoped scratch path — isolates this script's own merge writes
+// from the shared, gitignored, CI-absent data/jobs.json that ~25 sibling
+// dedicated crawlers also target as `background: true` steps in one CI job;
+// writing directly to the shared path races and silently clobbers sibling
+// output (confirmed bug class of #3769/#3770, crash-class #3775/#3768).
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const HQ = getCompanyDefaults('tinext');
 const COMPANY_NAME = 'Tinext SA';
 const COMPANY_HOST = 'tinext.kenjo.io';

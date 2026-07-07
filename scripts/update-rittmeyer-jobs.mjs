@@ -36,14 +36,22 @@ import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'rittmeyer-ag.json');
 
 const COMPANY_KEY = 'rittmeyer-ag';
+// This script never calls runDedicatedBaseCrawler (it owns its own
+// fetch+merge cycle end-to-end), but it still runs as one of ~25 sibling
+// background:true steps in the same CI job, all racing to read-merge-write
+// the same shared, gitignored, CI-absent data/jobs.json — the same clobber
+// bug class confirmed by #3769/#3770. Scope this script's own read/write
+// target to a private per-company scratch path so it can no longer race
+// with siblings.
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'Rittmeyer AG';
 const COMPANY_HOST = 'karriere.rittmeyer.com';
 const COMPANY_DOMAIN = 'rittmeyer.com';

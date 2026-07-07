@@ -41,13 +41,21 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const LIS_KEY = 'lis-lugano-istituti-sociali';
+// Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
+// defaults to internally for a single-key run. crawlArca24Direct()'s own
+// merge-write and runBaseCrawler()'s AI-localization pass both need to land
+// on the SAME file this script later reads back; the shared, gitignored,
+// CI-absent data/jobs.json raced against ~25 sibling crawler-group steps
+// each overwriting it with their own company's jobs (bug class of
+// #3775/#3768, confirmed cause of #3769's silent 13-job loss).
+const DATA_JOBS = crawlerScratchPathFor(LIS_KEY);
+const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const LIS_SALARY_STRATEGY_VERSION = 'lis_salary_v2';
 const LIS_SALARY_LLM_FALLBACK_ENABLED = String(process.env.JOBS_LIS_SALARY_LLM_FALLBACK || '1') !== '0';

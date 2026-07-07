@@ -108,6 +108,15 @@ function writeSummaryStore(filePath, payload) {
 }
 
 function persistCrawlChangeSummary(diff, label = '') {
+  // In CRAWLER_SLICE_ONLY CI mode (~25 sibling crawlers as background steps
+  // in one crawler-group job, sharing one filesystem) this shared, non-atomic
+  // read-modify-write races across processes and throws "Unexpected end of
+  // JSON input" on a torn read (issue #3771). assembleJobsDataset() already
+  // skips rebuilding this same file in that mode (deferred to deploy time,
+  // rebuilt from the safe per-crawler writeSummaryCrawlerSlice() slices) —
+  // so this write is pure wasted race exposure there. Skip it; the per-crawler
+  // slice already captures the same data safely.
+  if (String(process.env.CRAWLER_SLICE_ONLY || '0') === '1') return;
   const key = normalizeSummaryKey(label);
   const cleanLabel = label || 'Generic Crawler';
   const total = diff.newJobs.length + diff.updatedJobs.length + diff.removedJobs.length + diff.unchangedCount;

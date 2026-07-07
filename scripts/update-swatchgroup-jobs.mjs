@@ -17,11 +17,18 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
+// Fixed per-script scratch key (not the dynamic companyKeys array — that's
+// loaded from adapter files at runtime, after this module-scope const runs).
+// Passed explicitly as dataJobsPath below so runDedicatedBaseCrawler agrees
+// on the same path regardless of how it would resolve companyKeys.join('_')
+// internally (bug class #3775/#3768, confirmed cause #3769/#3770).
+const SWATCHGROUP_SCRATCH_KEY = 'swatchgroup';
+const DATA_JOBS = crawlerScratchPathFor(SWATCHGROUP_SCRATCH_KEY);
 const SWATCH_FALLBACK_KEYS = [
   'comadur-swatch-group',
   'eta-sa-swatch-group',
@@ -84,6 +91,7 @@ function runBaseCrawler(companyKeys) {
     companyKeys,
     localizeOnlyCompanyKeys: companyKeys,
     forceLocalizeKeys: companyKeys,
+    dataJobsPath: DATA_JOBS,
   });
 }
 
