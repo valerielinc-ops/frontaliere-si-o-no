@@ -299,6 +299,81 @@ jobs:
               await github.rest.issues.createComment({ owner, repo, issue_number, body });
             }
 
+      # Below-floor-bridge surfacer (zero-Claude, ADVISORY — never fails; issue
+      # #3659, escalated bucket reviewer-finding/canonical-sitemap). The ONE
+      # sub-pattern of that bucket with a proven, prose-didn't-prevent-it
+      # recurrence (#3594's own reviewer found 5 more untouched sibling loops
+      # in the same file after the fix pattern was introduced): a canton-scoped
+      # SSG generation loop that `continue`s past a job-count floor/threshold
+      # without emitting the documented noindex bridge (AGENTS.md § Static SEO
+      # Pages). check-below-floor-bridge.mjs surfaces candidates deterministically
+      # (scans the FULL current content of touched build-plugins/*.ts files, not
+      # just the diff hunk — the recurrence was caught in untouched siblings of a
+      # touched file) plus a self-map drift check (new bridge call added without
+      # touching searchConsoleCompat.ts).
+      - name: Surface below-floor-bridge candidates
+        id: bfb
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          set -euo pipefail
+          git fetch origin "$BASE_REF" --quiet || true
+          node scripts/ci/check-below-floor-bridge.mjs --base "origin/$BASE_REF" --json > below-floor-bridge-report.json
+          node -e "
+            const r = JSON.parse(require('fs').readFileSync('below-floor-bridge-report.json','utf8'));
+            console.log('gapFiles=' + r.gapsByFile.length);
+          " >> "$GITHUB_OUTPUT"
+      - name: Post below-floor-bridge comment (advisory)
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const STICKY = '<!-- below-floor-bridge-check -->';
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('below-floor-bridge-report.json', 'utf8'));
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100,
+            });
+            const prior = comments.find(c => (c.body || '').includes(STICKY));
+
+            const hasGaps = report.gapsByFile && report.gapsByFile.length > 0;
+            const selfMap = report.selfMap;
+
+            if (!hasGaps && !selfMap) {
+              if (prior) {
+                await github.rest.issues.updateComment({
+                  owner, repo, comment_id: prior.id,
+                  body: `${STICKY}\n✅ **Below-floor-bridge check OK** — nessun loop canton-scoped con floor/soglia + \`continue\` senza bridge, nessun nuovo bridge senza tocco a \`searchConsoleCompat.ts\`.`,
+                });
+              }
+              core.info('No below-floor-bridge candidates.');
+              return;
+            }
+
+            const gapRows = (report.gapsByFile || []).map(f =>
+              `- \`${f.file}\`\n${f.gaps.map(g => `  - L${g.line}: \`${g.guard}\``).join('\n')}`
+            ).join('\n');
+            const selfMapRow = selfMap ? `\n\n⚠️ ${selfMap.message}` : '';
+            const body = [
+              STICKY,
+              `⚠️ **Below-floor-bridge check** (advisory, euristico — AGENTS.md § Static SEO Pages / issue #3659): ` +
+              (hasGaps ? `${report.gapsByFile.length} file con possibile below-floor-bridge omission.` : ''),
+              gapRows + selfMapRow,
+              `Il guard salta la pagina senza emettere un bridge noindex? → estendi renderBelowFloorBridge/emit*BelowFloorBridge ` +
+              `+ il self-map in \`searchConsoleCompat.ts\` nella STESSA PR, oppure giustifica in \`## Non implementato\`.`,
+              `_Candidato ≠ verdetto: regex-match, non AST. Ricalcolato a ogni push._`,
+            ].join('\n\n');
+
+            if (prior) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
+
       # Blocking gate (escalation #1954, bucket reviewer-finding/cls-layout 6×/14d):
       # forbid hard-coded AdSense <ins> in build-plugins. Only adSlotHtml() may emit
       # the raw ad markup; its min-height/format come from the registry
