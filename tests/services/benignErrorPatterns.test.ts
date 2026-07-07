@@ -31,6 +31,9 @@ describe('isBenignErrorMessage()', () => {
       "TypeError: undefined is not an object (evaluating 'window.ethereum.selectedAddress = undefined')",
       'i: Failed to connect to MetaMask',
       'TrackerStorageType is not defined',
+      // Microsoft Clarity internal crash (#3760)
+      "TypeError: undefined is not an object (evaluating 'n.standardSelectors')",
+      "Cannot read properties of undefined (reading 'standardSelectors')",
     ])('drops: %s', (msg) => {
       expect(isBenignErrorMessage(msg)).toBe(true);
     });
