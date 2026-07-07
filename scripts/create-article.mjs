@@ -1068,6 +1068,17 @@ function duplicateReasonTag(errorMessage = '') {
   return 'motivo non riconosciuto';
 }
 
+// Extract candidate title + matched neighbour slug from a checkSemanticNearDuplicate
+// error so rejection logs are self-contained and auditable without extra tooling.
+// Returns '' for non-semantic rejections (no "Nuovo:"/"Esistente:" fields).
+function duplicateCandidateDetail(errorMessage = '') {
+  const msg = String(errorMessage || '');
+  const candidateMatch = msg.match(/Nuovo:\s*"([^"]+)"/);
+  const neighborMatch = msg.match(/Esistente:\s*\[([^\]]+)\]/);
+  if (!candidateMatch && !neighborMatch) return '';
+  return ` — candidato: "${candidateMatch?.[1] ?? '?'}" → vicino: ${neighborMatch?.[1] ?? '?'}`;
+}
+
 function finalizeRunReport(status, extra = {}) {
   if (REPORT_FINALIZED) return;
   REPORT_FINALIZED = true;
@@ -8246,6 +8257,27 @@ async function main() {
             console.error(`⏱️  Budget wall-clock (${Math.round(RUN_WALL_BUDGET_MS / 60000)}min) superato — interrompo i tentativi ${pool.name}; l'articolo è deferito al prossimo run.`);
             break;
           }
+          // Cross-headline local-fallback reserve (2026-07-07, incident run
+          // 28850309199): LOCAL_MIN_VIABLE_MS below already guards a SECOND
+          // local/fallback attempt on the SAME headline, but does nothing for
+          // the FIRST attempt on a BRAND NEW headline picked with the run's
+          // dying minutes. That run burned ~50min on 4 semantic-dedup rejects
+          // (each paying the full generation+fact-check cost before the dedup
+          // check even runs), leaving ~7min for candidate 5 — whose cloud
+          // cascade exhausted (~5min) before falling to local with ~2.3min
+          // left, truncated mid-inference by _callLocal's own deadline cap.
+          // Zero output, wasted GH Actions minutes. Stop picking NEW
+          // candidates below this same floor instead; an in-flight generation
+          // (started before the floor was crossed) still runs to completion
+          // untouched — same clean-deferral disposition as the guard below.
+          {
+            const remainingForNewAttemptMs = RUN_WALL_BUDGET_MS - (Date.now() - RUN_START_MS);
+            if (remainingForNewAttemptMs < LOCAL_MIN_VIABLE_MS) {
+              console.error(`⏱️  Restano ${Math.round(remainingForNewAttemptMs / 60_000)}min (< ${LOCAL_MIN_VIABLE_MS / 60_000}min necessari per un eventuale fallback locale) — interrompo i tentativi ${pool.name} invece di avviare un candidato che rischia di non completare; l'articolo è deferito al prossimo run.`);
+              RUN_REPORT.notes.push(`Retry loop stopped early: cross-headline local-fallback reserve (pool=${pool.name}, attempt=${attempt}, remainingMin=${Math.round(remainingForNewAttemptMs / 60_000)})`);
+              break;
+            }
+          }
           try {
             // Filter out already-tried URLs.
             const availableHeadlines = pool.headlines.filter(h => !triedUrls.has(h.url));
@@ -8436,12 +8468,12 @@ async function main() {
             const isDuplicate = e.message.includes('DUPLICATO');
             if (isDuplicate) captureDuplicateReasons(e.message);
             if (isDuplicate && attempt < MAX_DUPLICATE_RETRIES) {
-              console.error(`\n🔄 Duplicato rilevato (${duplicateReasonTag(e.message)}), riprovo con un altro articolo... (${attempt}/${MAX_DUPLICATE_RETRIES})\n`);
+              console.error(`\n🔄 Duplicato rilevato (${duplicateReasonTag(e.message)}${duplicateCandidateDetail(e.message)}), riprovo con un altro articolo... (${attempt}/${MAX_DUPLICATE_RETRIES})\n`);
               url = null; // Reset for next iteration
               continue;
             }
             if (isDuplicate && attempt >= MAX_DUPLICATE_RETRIES) {
-              console.error(`\n⚠️  ${MAX_DUPLICATE_RETRIES} tentativi ${pool.name} esauriti — tutti duplicati (ultimo: ${duplicateReasonTag(e.message)}).`);
+              console.error(`\n⚠️  ${MAX_DUPLICATE_RETRIES} tentativi ${pool.name} esauriti — tutti duplicati (ultimo: ${duplicateReasonTag(e.message)}${duplicateCandidateDetail(e.message)}).`);
               break; // try next pool, then evergreen
             }
             // Fact-check / quality failures → skip this article, try next.
@@ -8601,6 +8633,19 @@ async function main() {
           console.error(`⏱️  Budget wall-clock (${Math.round(RUN_WALL_BUDGET_MS / 60000)}min) superato — interrompo i tentativi evergreen; l'articolo è deferito al prossimo run.`);
           break;
         }
+        // Cross-headline local-fallback reserve: same guard as the news-pool
+        // loop (~L8273). Without it, a new evergreen keyword attempt can start
+        // in the run's dying minutes, exhaust the cloud cascade, and leave the
+        // local LLM with too little time to finish — the exact failure mode of
+        // incident run 28850309199, reached precisely when the news-pool fails.
+        {
+          const remainingForNewAttemptMs = RUN_WALL_BUDGET_MS - (Date.now() - RUN_START_MS);
+          if (remainingForNewAttemptMs < LOCAL_MIN_VIABLE_MS) {
+            console.error(`⏱️  Restano ${Math.round(remainingForNewAttemptMs / 60_000)}min (< ${LOCAL_MIN_VIABLE_MS / 60_000}min necessari per un eventuale fallback locale) — interrompo i tentativi evergreen invece di avviare un candidato che rischia di non completare; l'articolo è deferito al prossimo run.`);
+            RUN_REPORT.notes.push(`Retry loop stopped early: cross-headline local-fallback reserve (pool=evergreen, attempt=${attempt}, remainingMin=${Math.round(remainingForNewAttemptMs / 60_000)})`);
+            break;
+          }
+        }
         try {
           const topic = selectedTopic;
           const isStaticTopic = PRIORITY_EVERGREEN_TOPICS.includes(topic);
@@ -8653,7 +8698,7 @@ async function main() {
           } else if (isQualityReject) {
             console.error(`\n⚠️  Articolo evergreen rigettato per qualità — cerco prossima keyword...\n`);
           } else {
-            console.error(`\n🔄 Duplicato post-generazione (${duplicateReasonTag(e.message)}), cerco prossima keyword sicura...\n`);
+            console.error(`\n🔄 Duplicato post-generazione (${duplicateReasonTag(e.message)}${duplicateCandidateDetail(e.message)}), cerco prossima keyword sicura...\n`);
           }
 
           // Find next safe keyword we haven't tried yet
