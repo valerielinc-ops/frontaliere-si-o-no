@@ -1,21 +1,19 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-07-07T11:59:18.207Z",
+  "generatedAt": "2026-07-07T22:15:28.678Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 51657,
-  "avgDurationMs": 51657,
+  "unchangedCount": 0,
+  "durationMs": 51970,
+  "avgDurationMs": 51970,
   "durationHistory": [
-    51657
+    51970
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "galderma-09b2bf38ae6c",
       "slug": "global-head-of-consumer-dermatological-skincare-global-consumer-skincare-marketing-head",
@@ -29,7 +27,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Global-Head-of-Dermatological-Skincare_JR018459-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T11:59:14.646Z",
+      "crawledAt": "2026-07-07T22:15:25.431Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -53,5 +51,7 @@
         "completeness": 14
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
