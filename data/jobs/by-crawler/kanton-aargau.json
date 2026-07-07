@@ -14483,8 +14483,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-empfang-kasse-shop-60-kanton-aargau-ch",
         "it": "collaboratore-trice-empfang-kasse-shop-60-kanton-aargau-aarau",
-        "en": "mitarbeiter-in-empfang-kasse-shop-60-kanton-aargau-ch",
-        "fr": "mitarbeiter-in-empfang-kasse-shop-60-kanton-aargau-ch"
+        "en": "employee-reception-cashier-shop-60-kanton-aargau-aarau",
+        "fr": "reception-des-employes-caissier-magasin-60-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -14532,6 +14532,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-empfang-kasse-shop-60-kanton-aargau-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-empfang-kasse-shop-60-kanton-aargau-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-empfang-kasse-shop-60-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
@@ -14557,8 +14563,8 @@
       "slugByLocale": {
         "de": "leiter-in-finanzen-und-personal-80-kanton-aargau-ch",
         "it": "responsabile-finanzen-e-personal-80-kanton-aargau-aarau",
-        "en": "leiter-in-finanzen-und-personal-80-kanton-aargau-ch",
-        "fr": "leiter-in-finanzen-und-personal-80-kanton-aargau-ch"
+        "en": "head-of-finance-and-personnel-80-kanton-aargau-aarau",
+        "fr": "responsable-des-finances-et-du-personnel-80-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -14605,6 +14611,12 @@
       "referenceNumber": "2442",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-finanzen-und-personal-80-kanton-aargau-ch"
+        ],
+        "en": [
+          "leiter-in-finanzen-und-personal-80-kanton-aargau-ch"
+        ],
+        "fr": [
           "leiter-in-finanzen-und-personal-80-kanton-aargau-ch"
         ]
       },
@@ -16437,9 +16449,9 @@
       "slug": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -16491,21 +16503,17 @@
           "fachperson-information-und-dokumentation-50-kanton-aargau-ch"
         ],
         "en": [
-          "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "fachperson-information-und-dokumentation-50-kanton-aargau-ch",
         "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
         "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "firstSeenAt": "2026-07-04T11:08:20.233Z",
       "salaryMin": 31000,
