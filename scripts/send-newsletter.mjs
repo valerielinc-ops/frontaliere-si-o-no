@@ -46,7 +46,7 @@ import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
 import { makeUnsubscribeUrl, makeResubscribeUrl, generateAutologinCode } from '../services/newsletterUrls.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
-import { getCascadeDailyCapacity, PROVIDERS as EMAIL_PROVIDERS } from './lib/email-cascade.mjs';
+import { getCascadeDailyCapacity, finiteDailyLimit, PROVIDERS as EMAIL_PROVIDERS } from './lib/email-cascade.mjs';
 import { normalizeEmailAddress } from './lib/parseEmailField.mjs';
 import { subscriberFromFirestoreRow } from './lib/subscriberFromFirestoreRow.mjs';
 import { JOB_BOARD_SECTION_RX, JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
@@ -90,7 +90,7 @@ const IS_SINGLE_PROVIDER = SINGLE_PROVIDERS.includes(EMAIL_PROVIDER);
 // CAVEAT: on days a provider is down (mailjet "fetch failed" on 05-28..30; 05-29 delivered only
 // 98/350) provider reliability — not this cap — is the binding constraint, and the cap is moot.
 const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend'
-  ? EMAIL_PROVIDERS.find(p => p.id === 'resend').dailyLimit
+  ? finiteDailyLimit(EMAIL_PROVIDERS.find(p => p.id === 'resend'))
   : getCascadeDailyCapacity();
 
 /**

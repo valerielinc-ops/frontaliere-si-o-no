@@ -41,10 +41,17 @@
 
 const PROVIDERS = [
   { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000  },
-  // resend: paid plan activated 2026-07-06 (50000/mo, owner request) — this is
-  // now the bulk workhorse of the cascade, not a fallback. dailyLimit = 50000/30
-  // months-average, floored.
-  { id: 'resend',   dailyLimit: 1666, monthlyLimit: 50000 },
+  // resend: paid plan activated 2026-07-06 (50000/mo, owner request), bulk
+  // workhorse of the cascade. No self-imposed dailyLimit (owner request
+  // 2026-07-07): the 1666/day floor (50000/30, months-average) was OUR OWN
+  // accounting, not a Resend-side cap, and it starved job-alerts on 2026-07-07
+  // — newsletter + ad-blast alone had already pushed the in-run counter to
+  // 1672/1666 by 11:06, so job-alerts found resend (and mailjet, separately
+  // maxed at its real 200/day free-tier cap) already "exhausted" for the rest
+  // of the day even though Resend's real monthly ceiling (50000) had ample
+  // room left. Real protection still stands: a genuine Resend-side 429/403
+  // still trips isRateLimitedError below and benches it for the run.
+  { id: 'resend',   dailyLimit: Infinity, monthlyLimit: 50000 },
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
   // maileroo: free tier (100/day). DKIM selector mta._domainkey.frontaliereticino.ch
@@ -68,6 +75,14 @@ const PROVIDERS = [
 
 // In-memory daily counters (reset on new UTC day)
 const _counters = {};
+// Real successful-send counts, tracked separately from `_counters` — the latter
+// also gets force-incremented to full quota when a provider is detected as
+// rate-limited/exhausted (see incrementCounter call in sendSingle's catch
+// branch), so it reflects "quota consumed" not "emails actually delivered".
+// Conflating the two made the provider summary table (logProviderSummary)
+// show e.g. "Sent: 100" for a provider that failed on its very first attempt
+// and delivered zero emails this run (2026-07-07 incident).
+const _realSentCounts = {};
 let _counterDate = '';
 let _quotasSynced = false;
 
@@ -79,7 +94,7 @@ function getCounter(providerId) {
   const today = getTodayUTC();
   if (_counterDate !== today) {
     _counterDate = today;
-    for (const p of PROVIDERS) _counters[p.id] = 0;
+    for (const p of PROVIDERS) { _counters[p.id] = 0; _realSentCounts[p.id] = 0; }
     _quotasSynced = false;
   }
   return _counters[providerId] || 0;
@@ -90,10 +105,21 @@ function incrementCounter(providerId, count) {
   _counters[providerId] = (_counters[providerId] || 0) + count;
 }
 
+function recordRealSent(providerId) {
+  getCounter(providerId); // ensure initialized (shares the day-rollover check)
+  _realSentCounts[providerId] = (_realSentCounts[providerId] || 0) + 1;
+}
+
 function remainingQuota(providerId) {
   const provider = PROVIDERS.find(p => p.id === providerId);
   if (!provider) return 0;
-  return Math.max(0, provider.dailyLimit - getCounter(providerId));
+  // dailyLimit can be Infinity (e.g. resend, no self-imposed floor); once a
+  // provider with an Infinity limit gets its counter force-bumped to
+  // Infinity too (rate-limited branch in sendSingle), Infinity - Infinity is
+  // NaN, and `NaN <= 0` is false — that would defeat the exhaustion guard
+  // and let a genuinely rate-limited provider get hammered again this run.
+  const remaining = provider.dailyLimit - getCounter(providerId);
+  return Number.isNaN(remaining) ? 0 : Math.max(0, remaining);
 }
 
 // ── Real quota sync via provider APIs ────────────────────────
@@ -742,6 +768,14 @@ function isSoftThrottleError(msg) {
 // Short cooldown for soft-throttled providers (mirrors the AI-model
 // provider cooldown in ai-models.mjs) — provider skipped for a bit,
 // quota counter left untouched so it resumes once the burst window clears.
+// Deliberately NOT retried-with-wait even when it's the sole remaining
+// provider with quota left (2026-07-07 review): waiting out the cooldown
+// and re-hitting the same endpoint is exactly the hammering behaviour this
+// cooldown was introduced to stop, and CF's REST error body carries no
+// Retry-After we could honor instead of guessing — see
+// tests/email-cascade-burst.test.ts "cools down cloudflare after a code=10004
+// soft throttle" for the invariant this preserves (skip immediately, no
+// retry within the same run).
 const PROVIDER_COOLDOWN_MS = 30_000;
 const _providerCooldownUntil = {};
 
@@ -761,9 +795,13 @@ async function sendSingle(email, forceProvider, finalizeForProvider) {
     : PROVIDERS;
 
   for (const provider of providers) {
-    if (!isProviderConfigured(provider.id)) continue;
-    if (remainingQuota(provider.id) <= 0) continue;
-    if (isProviderCoolingDown(provider.id)) continue;
+    if (!isProviderConfigured(provider.id)) { errors.push(`[${provider.id}] not configured`); continue; }
+    if (remainingQuota(provider.id) <= 0) { errors.push(`[${provider.id}] quota exhausted (${getCounter(provider.id)}/${provider.dailyLimit})`); continue; }
+    if (isProviderCoolingDown(provider.id)) {
+      const waitMs = (_providerCooldownUntil[provider.id] || 0) - Date.now();
+      errors.push(`[${provider.id}] cooling down${waitMs > 0 ? ` (${Math.ceil(waitMs / 1000)}s left)` : ''}`);
+      continue;
+    }
 
     try {
       // Optional hook: let the caller finalize the payload for the provider that
@@ -774,6 +812,7 @@ async function sendSingle(email, forceProvider, finalizeForProvider) {
       }
       const result = await SEND_FNS[provider.id](email);
       incrementCounter(provider.id, 1);
+      recordRealSent(provider.id);
       return result;
     } catch (err) {
       errors.push(`[${provider.id}] ${err.message}`);
@@ -781,7 +820,7 @@ async function sendSingle(email, forceProvider, finalizeForProvider) {
         cooldownProvider(provider.id);
       } else if (isRateLimitedError(err.message)) {
         incrementCounter(provider.id, remainingQuota(provider.id));
-        console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run`);
+        console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run: ${err.message.slice(0, 150)}`);
       }
     }
   }
@@ -914,7 +953,13 @@ export function getProviderStats() {
     id: p.id,
     configured: isProviderConfigured(p.id),
     dailyLimit: p.dailyLimit,
-    sent: getCounter(p.id),
+    sent: _realSentCounts[p.id] || 0,
+    // Quota marked used-up without a matching real send — happens when a
+    // provider is detected as rate-limited/exhausted (its quota jumps to the
+    // daily cap in one step so the cascade stops retrying it) rather than
+    // consumed one real send at a time. Non-zero here means "Sent" alone
+    // undercounts why Remaining is low.
+    benched: Math.max(0, getCounter(p.id) - (_realSentCounts[p.id] || 0)),
     remaining: remainingQuota(p.id),
   }));
 }
@@ -924,11 +969,11 @@ export function getProviderStats() {
  */
 export function logProviderSummary() {
   console.log('\n📊 Email Provider Summary:');
-  console.log('   Provider     | Configured | Sent | Remaining | Daily Limit');
-  console.log('   -------------|------------|------|-----------|-----------');
+  console.log('   Provider     | Configured | Sent | Benched | Remaining | Daily Limit');
+  console.log('   -------------|------------|------|---------|-----------|-----------');
   for (const stat of getProviderStats()) {
     const cfg = stat.configured ? '✅' : '❌';
-    console.log(`   ${stat.id.padEnd(12)} | ${cfg.padEnd(10)} | ${String(stat.sent).padEnd(4)} | ${String(stat.remaining).padEnd(9)} | ${stat.dailyLimit}`);
+    console.log(`   ${stat.id.padEnd(12)} | ${cfg.padEnd(10)} | ${String(stat.sent).padEnd(4)} | ${String(stat.benched).padEnd(7)} | ${String(stat.remaining).padEnd(9)} | ${stat.dailyLimit}`);
   }
 }
 
@@ -964,13 +1009,25 @@ function campaignIdTag(email) {
 }
 
 /**
+ * A provider's dailyLimit can be Infinity (resend, no self-imposed floor).
+ * Any caller doing per-run send pacing ("send N today, rest tomorrow") needs
+ * a FINITE number to compare against — Infinity silently disables that
+ * pacing. Single source of truth for the finite-substitution so it can't
+ * drift between call sites (getCascadeDailyCapacity below, and
+ * send-newsletter.mjs's single-provider DAILY_SEND_LIMIT branch).
+ */
+export function finiteDailyLimit(provider) {
+  return Number.isFinite(provider.dailyLimit) ? provider.dailyLimit : Math.floor((provider.monthlyLimit || 0) / 30);
+}
+
+/**
  * Total theoretical daily send capacity across the whole cascade — the sum of
  * every provider's daily limit (see PROVIDERS above). Single source of truth
  * so callers (e.g. the newsletter per-run cap) stay in sync when providers
  * change, instead of a second hardcoded total drifting from the array.
  */
 export function getCascadeDailyCapacity() {
-  return PROVIDERS.reduce((sum, p) => sum + p.dailyLimit, 0);
+  return PROVIDERS.reduce((sum, p) => sum + finiteDailyLimit(p), 0);
 }
 
 export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage };
