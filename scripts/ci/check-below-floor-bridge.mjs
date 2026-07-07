@@ -303,7 +303,11 @@ function main() {
 
   if (changedAll.length === 0) {
     const msg = `check-below-floor-bridge: nessun file cambiato vs ${base} — niente da analizzare.`;
-    if (JSON_OUT) console.log(JSON.stringify({ base, gaps: [], selfMap: null }, null, 2));
+    // Must match the shape of the populated-path JSON below (`gapsByFile`, not
+    // `gaps`) — the workflow's inline parser reads `r.gapsByFile.length`
+    // unconditionally under `set -euo pipefail`; a key mismatch here throws
+    // and kills the advisory step (found by reviewer on PR #3749).
+    if (JSON_OUT) console.log(JSON.stringify({ base, changedTargets: [], gapsByFile: [], selfMap: null }, null, 2));
     else console.log(msg);
     process.exit(0);
   }
