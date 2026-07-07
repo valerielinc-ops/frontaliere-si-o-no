@@ -1,16 +1,16 @@
 {
   "key": "pole-sante-pays-enhaut",
   "label": "Pôle Santé Pays-d'Enhaut",
-  "generatedAt": "2026-07-06T22:15:09.969Z",
-  "total": 4,
+  "generatedAt": "2026-07-07T11:57:17.243Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4248,
-  "avgDurationMs": 4248,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4457,
+  "avgDurationMs": 4457,
   "durationHistory": [
-    4248
+    4457
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e0889e22-11c2-43af-b05b-cadca08bf0af/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-06T22:15:07.018Z",
+      "crawledAt": "2026-07-07T11:57:13.880Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/db0d9725-687b-47d8-837d-480050981678/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-06T22:15:07.336Z",
+      "crawledAt": "2026-07-07T11:57:14.237Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-06T22:15:07.616Z",
+      "crawledAt": "2026-07-07T11:57:14.532Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -126,8 +126,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "pole-sante-pays-enhaut-bc6dc9b489c7",
       "slug": "apprendista-agente-di-gestione-cfc-pole-sante-pays-d-enhaut-chateau-d-oex",
@@ -168,5 +167,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
