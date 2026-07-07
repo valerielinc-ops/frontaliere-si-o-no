@@ -1524,10 +1524,10 @@
       "id": "stadt-bern-bd88a4d4be75",
       "slug": "bereichsleiter-in-entwicklung-stadt-bern-bern",
       "slugByLocale": {
-        "it": "division-manager-in-sviluppo-stadt-bern-bern-596d9f",
-        "en": "division-manager-in-development-stadt-bern-bern-596d9f",
+        "it": "division-manager-in-sviluppo-stadt-bern-bern",
+        "en": "division-manager-in-development-stadt-bern-bern",
         "de": "bereichsleiter-in-entwicklung-stadt-bern-bern",
-        "fr": "directeur-de-division-en-developpement-stadt-bern-bern-596d9f"
+        "fr": "directeur-de-division-en-developpement-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1571,17 +1571,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bereichsleiter-in-entwicklung-stadt-bern-bern-2"
+        "bereichsleiter-in-entwicklung-stadt-bern-bern-2",
+        "division-manager-in-sviluppo-stadt-bern-bern-596d9f",
+        "division-manager-in-development-stadt-bern-bern-596d9f",
+        "directeur-de-division-en-developpement-stadt-bern-bern-596d9f"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bereichsleiter-in-entwicklung-stadt-bern-bern-2"
+          "bereichsleiter-in-entwicklung-stadt-bern-bern-2",
+          "division-manager-in-sviluppo-stadt-bern-bern-596d9f"
         ],
         "en": [
-          "bereichsleiter-in-entwicklung-stadt-bern-bern-2"
+          "bereichsleiter-in-entwicklung-stadt-bern-bern-2",
+          "division-manager-in-development-stadt-bern-bern-596d9f"
         ],
         "fr": [
-          "bereichsleiter-in-entwicklung-stadt-bern-bern-2"
+          "bereichsleiter-in-entwicklung-stadt-bern-bern-2",
+          "directeur-de-division-en-developpement-stadt-bern-bern-596d9f"
         ]
       },
       "firstSeenAt": "2026-07-04T12:31:55.736Z"

@@ -8312,6 +8312,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stabio-dogana-nuovo-accordo-fiscale.title': 'Stabio dogana: le novità fiscali per i frontalieri',
     'blog.article.stabio-dogana-nuovo-accordo-fiscale.excerpt': 'Dal 1° gennaio 2024, il Nuovo Accordo Frontalieri modifica l\'imposta alla fonte e le franchigie per chi transita dal confine di Stabio verso il Canton Ticino.',
     'blog.article.stabio-dogana-nuovo-accordo-fiscale.imageAlt': 'Il valico doganale di Stabio, un punto di transito cruciale per i frontalieri tra Svizzera e Italia, con automobili in coda.',
+    'blog.article.ascensori-ticino-frontalieri.title': 'Ascensori Ticino: opportunità di lavoro per frontalieri',
+    'blog.article.ascensori-ticino-frontalieri.excerpt': 'Ricerca lavoro per addetti agli ascensori in Ticino. Scopri requisiti, stipendi e imposte per i frontalieri che lavorano in Svizzera italiana',
+    'blog.article.ascensori-ticino-frontalieri.imageAlt': 'Ascensori a Locarno che collegano le aree residenziali al centro città',
 };
 
 export default blogMetaIt;

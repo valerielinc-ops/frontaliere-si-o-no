@@ -49,7 +49,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pflege",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T15:22:26.698Z",
       "previousSlugsByLocale": {
         "it": [
@@ -64,7 +64,8 @@
       },
       "previousSlugs": [
         "pflegefachperson-60-100-chirurgie-spital-uster-ch"
-      ]
+      ],
+      "retranslationAttempts": 0
     },
     {
       "id": "spital-uster-e8a48d4bd970",
@@ -292,7 +293,10 @@
       "requirementsByLocale": {},
       "department": "Spezialpflege",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-06-26T22:59:53.150Z"
+      "firstSeenAt": "2026-06-26T22:59:53.150Z",
+      "previousSlugs": [
+        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster"
+      ]
     },
     {
       "id": "spital-uster-862158f119df",
@@ -344,7 +348,10 @@
       "requirementsByLocale": {},
       "department": "Administration/Management/Stab",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-06-23T23:10:39.121Z"
+      "firstSeenAt": "2026-06-23T23:10:39.121Z",
+      "previousSlugs": [
+        "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-uster"
+      ]
     },
     {
       "id": "spital-uster-8edd8d2226fd",
@@ -527,7 +534,8 @@
       "requirementsByLocale": {},
       "department": "Pflege",
       "previousSlugs": [
-        "leitung-pflegeentwicklung-spital-uster-ch"
+        "leitung-pflegeentwicklung-spital-uster-ch",
+        "leitung-pflegeentwicklung-80-100-spital-uster-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -591,7 +599,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Administration/Management/Stab",
-      "firstSeenAt": "2026-06-12T13:01:43.025Z"
+      "firstSeenAt": "2026-06-12T13:01:43.025Z",
+      "previousSlugs": [
+        "leiter-in-human-resources-80-100-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-e815db3adc47",
@@ -642,7 +653,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Ärztliches Personal",
-      "firstSeenAt": "2026-06-10T13:01:54.072Z"
+      "firstSeenAt": "2026-06-10T13:01:54.072Z",
+      "previousSlugs": [
+        "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-976d72df1448",
@@ -693,7 +707,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Dienste (Infrastruktur/Gastronomie)",
-      "firstSeenAt": "2026-06-10T13:01:54.095Z"
+      "firstSeenAt": "2026-06-10T13:01:54.095Z",
+      "previousSlugs": [
+        "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-983f2fde9546",
@@ -744,7 +761,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Ärztliches Personal",
-      "firstSeenAt": "2026-06-09T23:13:01.769Z"
+      "firstSeenAt": "2026-06-09T23:13:01.769Z",
+      "previousSlugs": [
+        "oberarzt-oberarztin-oder-oa-i-v-80-100-orthopadie-und-traumatologie-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-f43fd96af3ea",
@@ -982,7 +1002,8 @@
       },
       "previousSlugs": [
         "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital",
-        "professionisti-della-cura-50-100-agopuntura-geriatrica-servizio-tardo-e-notte-spital-uster-uster"
+        "professionisti-della-cura-50-100-agopuntura-geriatrica-servizio-tardo-e-notte-spital-uster-uster",
+        "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster"
       ],
       "firstSeenAt": "2026-05-29T14:03:17.567Z"
     },
@@ -1052,7 +1073,8 @@
       },
       "previousSlugs": [
         "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital",
-        "salute-50-100-agopuntura-geriatrica-servizio-notturno-spital-uster-uster"
+        "salute-50-100-agopuntura-geriatrica-servizio-notturno-spital-uster-uster",
+        "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital"
       ],
       "firstSeenAt": "2026-05-29T14:03:17.591Z"
     },
@@ -1120,7 +1142,8 @@
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-und-oder-arztsekretar-in-spital-uster-ch"
+        "medizinische-r-praxisassistent-in-und-oder-arztsekretar-in-spital-uster-ch",
+        "mpa-und-oder-arztsekretar-in-im-stundenlohn-spital-uster-ch"
       ],
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-27T13:58:14.102Z"
@@ -1200,7 +1223,10 @@
       },
       "department": "Administration/Management/Stab",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.911Z"
+      "firstSeenAt": "2026-05-26T14:04:22.911Z",
+      "previousSlugs": [
+        "arztsekretar-in-kardiologie-med-ambulatorium-70-100-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-8d5595ebcce6",
@@ -1268,7 +1294,10 @@
       },
       "department": "Ärztliches Personal",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.920Z"
+      "firstSeenAt": "2026-05-26T14:04:22.920Z",
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-80-100-altersmedizin-mit-ausbildungsziel-schwerpunkt"
+      ]
     },
     {
       "id": "spital-uster-96b426d8ba26",
@@ -1338,7 +1367,10 @@
       },
       "department": "Ärztliches Personal",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.922Z"
+      "firstSeenAt": "2026-05-26T14:04:22.922Z",
+      "previousSlugs": [
+        "oberarztin-oberarzt-80-100-kardiologie-innere-medizin-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-6a24ebdf3e79",
@@ -1496,7 +1528,10 @@
       },
       "department": "Dienste (Infrastruktur/Gastronomie)",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.928Z"
+      "firstSeenAt": "2026-05-26T14:04:22.928Z",
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-spezialreinigung-80-100-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-c7fa81bde4ea",
@@ -1569,7 +1604,10 @@
       },
       "department": "Spezialpflege",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.930Z"
+      "firstSeenAt": "2026-05-26T14:04:22.930Z",
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-60-100-akutspital-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-d2bf0f070081",
@@ -1655,7 +1693,8 @@
         "dipl-caregiver-60-100-endoscopy-spital-uster-uster",
         "dipl-infermiere-hf-70-100-clinica-femminile-spital-uster-uster",
         "dipl-pflegefachperson-hf-70-100-frauenklinik-spital-uster-ch",
-        "dipl-infirmiere-hf-70-100-clinique-feminine-spital-uster-uster"
+        "dipl-infirmiere-hf-70-100-clinique-feminine-spital-uster-uster",
+        "dipl-pflegefachperson-60-100-endoskopie-spital-uster-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -1737,7 +1776,8 @@
       },
       "department": "Pflege",
       "previousSlugs": [
-        "fachperson-gesundheit-80-100-chirurgie-privatstation-spital-uster-uster"
+        "fachperson-gesundheit-80-100-chirurgie-privatstation-spital-uster-uster",
+        "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -1825,7 +1865,10 @@
       },
       "department": "Spezialpflege",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.939Z"
+      "firstSeenAt": "2026-05-26T14:04:22.939Z",
+      "previousSlugs": [
+        "dipl-fachexpertin-fachexperten-anasthesiepflege-nds-hf-80-100-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-58b9559df447",
@@ -1905,7 +1948,10 @@
       },
       "department": "Pflege",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.943Z"
+      "firstSeenAt": "2026-05-26T14:04:22.943Z",
+      "previousSlugs": [
+        "dipl-pflegefachperson-50-100-medizin-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-a46a97cdde33",
@@ -1981,7 +2027,8 @@
         ]
       },
       "previousSlugs": [
-        "oberarzt-oberarztin-100-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie-spital-uster"
+        "oberarzt-oberarztin-100-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie-spital-uster",
+        "oberarzt-oberarztin-oder-leitender-arzt-leitende-arztin-80-100-allgemeine-innere-medizin"
       ],
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-26T14:04:22.946Z"
@@ -2064,7 +2111,10 @@
       },
       "department": "Spezialpflege",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.948Z"
+      "firstSeenAt": "2026-05-26T14:04:22.948Z",
+      "previousSlugs": [
+        "studierende-nds-hf-intensivpflege-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-e70a3f90d25e",
@@ -2135,7 +2185,10 @@
       },
       "department": "Lernende/Studierende/Praktikanten",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.949Z"
+      "firstSeenAt": "2026-05-26T14:04:22.949Z",
+      "previousSlugs": [
+        "praktikum-80-100-pflege-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-ca00e83ee0b8",
@@ -2209,7 +2262,10 @@
       },
       "department": "Ärztliches Personal",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.951Z"
+      "firstSeenAt": "2026-05-26T14:04:22.951Z",
+      "previousSlugs": [
+        "oberarztin-oberarzt-frauenklinik-zuri-ost-50-100-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-4d836fa70c88",
@@ -2283,7 +2339,10 @@
       },
       "department": "Pflege",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.952Z"
+      "firstSeenAt": "2026-05-26T14:04:22.952Z",
+      "previousSlugs": [
+        "fachpersonen-gesundheit-50-100-medizin-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-6add59201030",
@@ -2454,7 +2513,10 @@
       },
       "department": "Ärztliches Personal",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.955Z"
+      "firstSeenAt": "2026-05-26T14:04:22.955Z",
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-onkologie-60-100-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-80c844387920",
@@ -2684,7 +2746,10 @@
       },
       "department": "Lernende/Studierende/Praktikanten",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.962Z"
+      "firstSeenAt": "2026-05-26T14:04:22.962Z",
+      "previousSlugs": [
+        "studierende-nds-hf-anasthesiepflege-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-ec8c0d49cdb0",
@@ -2749,7 +2814,10 @@
       },
       "department": "Lernende/Studierende/Praktikanten",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.964Z"
+      "firstSeenAt": "2026-05-26T14:04:22.964Z",
+      "previousSlugs": [
+        "unterassistent-in-100-frauenklinik-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-512282578a57",
@@ -2832,7 +2900,8 @@
       },
       "department": "Lernende/Studierende/Praktikanten",
       "previousSlugs": [
-        "unterassistent-in-100-orthopala-spital-uster-uster"
+        "unterassistent-in-100-orthopala-spital-uster-uster",
+        "unterassistent-in-100-orthopadie-spital-uster-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2911,7 +2980,10 @@
       },
       "department": "Lernende/Studierende/Praktikanten",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.967Z"
+      "firstSeenAt": "2026-05-26T14:04:22.967Z",
+      "previousSlugs": [
+        "unterassistent-in-100-anasthesie-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-b1da149f4c5b",
@@ -2994,7 +3066,10 @@
       },
       "department": "Lernende/Studierende/Praktikanten",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.968Z"
+      "firstSeenAt": "2026-05-26T14:04:22.968Z",
+      "previousSlugs": [
+        "studium-hf-pflege-kjff-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-ffc6eeaeabbd",
@@ -3068,7 +3143,10 @@
       },
       "department": "Lernende/Studierende/Praktikanten",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.969Z"
+      "firstSeenAt": "2026-05-26T14:04:22.969Z",
+      "previousSlugs": [
+        "studium-hf-pflege-somatik-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-fb9a504e22ec",
@@ -3142,7 +3220,10 @@
       },
       "department": "Lernende/Studierende/Praktikanten",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.971Z"
+      "firstSeenAt": "2026-05-26T14:04:22.971Z",
+      "previousSlugs": [
+        "unterassistent-in-100-chirurgie-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-31176716a75b",
@@ -3225,7 +3306,10 @@
       },
       "department": "Lernende/Studierende/Praktikanten",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.972Z"
+      "firstSeenAt": "2026-05-26T14:04:22.972Z",
+      "previousSlugs": [
+        "unterassistent-in-100-medizin-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-772090f363ef",
@@ -3299,7 +3383,10 @@
       },
       "department": "Lernende/Studierende/Praktikanten",
       "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.974Z"
+      "firstSeenAt": "2026-05-26T14:04:22.974Z",
+      "previousSlugs": [
+        "zivildienstler-ersatz-militardienst-spital-uster-ch"
+      ]
     }
   ]
 }

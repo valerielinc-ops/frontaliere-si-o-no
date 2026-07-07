@@ -4409,6 +4409,8 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-posta-chiasso': { name: 'posta Chiasso', path: '/articoli-frontaliere/posta-chiasso', parent: 'blog' },
     'blog-private-spitex-stellenangebote-basel': { name: 'Private Spitex a Basilea', path: '/articoli-svizzera/private-spitex-stellenangebote-basel/', parent: 'blog' },
     'blog-stabio-dogana-nuovo-accordo-fiscale': { name: 'Dogana Stabio Frontalieri', path: '/articoli-frontaliere/stabio-dogana-nuovo-accordo-fiscale', parent: 'blog' },
+    'blog-pflegefachfrau-frontalieri-basel': { name: 'Frontalieri fiscalità', path: '/articoli-svizzera/pflegefachfrau-frontalieri-basel/', parent: 'blog' },
+    'blog-ascensori-ticino-frontalieri': { name: 'Ascensori Ticino', path: '/articoli-frontaliere/ascensori-ticino-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];
