@@ -937,6 +937,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.title': 'Haushaltsgesetz 2025: Arbeit, Vorsorge und Steuern',
     'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.excerpt': 'Das Haushaltsgesetz 2025 sieht wichtige Änderungen für Grenzgänger vor, darunter eine Erhöhung der Selbstbehalte für Arbeitseinkommen.',
     'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.imageAlt': 'Bild einer schweizerischen nationalen Szene.',
+    'blog.article.private-spitex-stellenangebote-basel.title': 'Private Spitex in Basel: Neue Beschäftigungsmöglichkeiten',
+    'blog.article.private-spitex-stellenangebote-basel.excerpt': 'Privatkliniken in Basel suchen Krankenschwestern und Krankenpfleger, um die Arbeitszeit abzudecken',
+    'blog.article.private-spitex-stellenangebote-basel.imageAlt': 'Eine Szene einer privaten Klinik in Basel',
 };
 
 export default blogMetaChDe;
