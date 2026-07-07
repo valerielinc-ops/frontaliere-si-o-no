@@ -88,9 +88,14 @@ describe('git-commit-data.sh stale .git/index.lock recovery (group-06 incident)'
     expect(GIT_COMMIT_DATA).toMatch(/if \[ -f "\.git\/index\.lock" \]; then[\s\S]*?rm -f "\.git\/index\.lock"/);
 
     // Runs early (right after set -euo pipefail / merge-driver registration),
-    // strictly before any later index-mutating git call in the retry loop
-    // (git stash / git add / git commit as actual shell commands, not the
-    // word appearing in a comment or usage docblock earlier in the file).
+    // strictly before the first executable `git stash`/`add`/`commit`
+    // statement anywhere in the file — including inside function bodies
+    // (e.g. `git stash pop`/`git stash drop` in
+    // restore_stashed_changes_with_safe_merge()), not just the retry loop's
+    // own top-level calls further down. A regex over source text can't tell
+    // "function body" from "retry loop", so this asserts the stronger
+    // property: the guard precedes every such call site in the script, not
+    // merely the ones after its own function definition.
     const indexMutatingOpPattern = /^\s*git (stash|add|commit)\b/m;
     const firstOpMatch = indexMutatingOpPattern.exec(GIT_COMMIT_DATA);
     expect(firstOpMatch, 'no executable git stash/add/commit call found').not.toBeNull();
