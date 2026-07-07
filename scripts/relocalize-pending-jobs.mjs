@@ -865,7 +865,7 @@ async function main() {
   // Fast-path: clear flags for jobs that are already complete (no AI call needed).
   const preCleared = clearRetranslationFlags(jobs);
   if (preCleared > 0) {
-    writeJsonAtomic(DATA_JOBS_PATH, jobs);
+    writeJsonAtomic(DATA_JOBS_PATH, jobs, { compact: true });
     console.log(`⚡ Pre-cleared ${preCleared} flags for already-complete jobs in assembled dataset`);
     console.log('');
 
@@ -979,7 +979,7 @@ async function main() {
       if (Array.isArray(currentJobs)) {
         const cleared = clearRetranslationFlags(currentJobs);
         if (cleared > 0) {
-          writeJsonAtomic(DATA_JOBS_PATH, currentJobs);
+          writeJsonAtomic(DATA_JOBS_PATH, currentJobs, { compact: true });
           totalFixed += cleared;
           console.log(`   ✅ ${key}: ${cleared} jobs translated, progress saved`);
         } else {
@@ -1071,7 +1071,7 @@ async function main() {
           if (Array.isArray(afterRetry)) {
             const cleared = clearRetranslationFlags(afterRetry);
             if (cleared > 0) {
-              writeJsonAtomic(DATA_JOBS_PATH, afterRetry);
+              writeJsonAtomic(DATA_JOBS_PATH, afterRetry, { compact: true });
               totalFixed += cleared;
               console.log(`   ✅ ${key} retry: ${cleared} more jobs translated`);
               const retryAttempted = changedSlugsSince(preRetrySig, afterRetry, key);

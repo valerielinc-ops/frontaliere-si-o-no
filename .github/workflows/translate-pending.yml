@@ -43,7 +43,11 @@ permissions:
   issues: write     # for github-issue-creator on failure
 
 env:
-  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
+  # --max-old-space-size=12288: ubuntu-latest standard runner has 16GB RAM;
+  # Phase 2b's per-company loop touches the full jobs.json (~25k jobs) many
+  # times per run, so give Node headroom above its ~4GB implicit default
+  # while leaving ~4GB for the OS/git/npm subprocesses (issue #3767 OOM).
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288'
 
 jobs:
   translate:
