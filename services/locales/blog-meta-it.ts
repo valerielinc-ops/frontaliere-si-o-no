@@ -8300,6 +8300,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gaggiolo-traffico.title': 'Traffico al valico di Gaggiolo',
     'blog.article.gaggiolo-traffico.excerpt': 'Traffico intenso al valico di Gaggiolo a causa dell\'aumento dei pendolari',
     'blog.article.gaggiolo-traffico.imageAlt': 'Immagine di un valico alpino durante l\'ora di punta',
+    'blog.article.axa-manno.title': 'Axa Manno: consulente assicurativo per frontalieri',
+    'blog.article.axa-manno.excerpt': 'Axa Manno è un consulente assicurativo specializzato in servizi per frontalieri.',
+    'blog.article.axa-manno.imageAlt': 'Una strada a Lugano con un frontaliere che guarda il suo smartphone.',
 };
 
 export default blogMetaIt;

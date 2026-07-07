@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3096,
+ "numberOfItems": 3097,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7771,7 +7771,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3093, "name": "Mercato del lavoro svizzero in rallentamento: c...", "url": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-svizzera-rallenta-estate-2024` },
           { "@type": "ListItem", "position": 3094, "name": "La nuova caissière di Migros a Vaud e il regime...", "url": `${BASE_URL}/articoli-frontaliere/caissiere-migros` },
           { "@type": "ListItem", "position": 3095, "name": "Traffico al valico di Gaggiolo", "url": `${BASE_URL}/articoli-frontaliere/gaggiolo-traffico` },
-          { "@type": "ListItem", "position": 3096, "name": "Loihn denner: Nuove regole per il commercio di ...", "url": `${BASE_URL}/articoli-frontaliere/lohn-denner-verkauf-2024` }
+          { "@type": "ListItem", "position": 3096, "name": "Loihn denner: Nuove regole per il commercio di ...", "url": `${BASE_URL}/articoli-frontaliere/lohn-denner-verkauf-2024` },
+          { "@type": "ListItem", "position": 3097, "name": "Axa Manno: consulente assicurativo per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/axa-manno` }
  ]
  },
  {
