@@ -8298,6 +8298,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gaggiolo-traffico.title': 'Verkehr am Gaggiolo-Pass',
     'blog.article.gaggiolo-traffico.excerpt': 'Starker Verkehr am Gaggiolo-Pass aufgrund der Zunahme der Pendler',
     'blog.article.gaggiolo-traffico.imageAlt': 'Bild eines Alpenpasses während der Rush Hour',
+    'blog.article.axa-manno.title': 'Axa Manno: Versicherungsberater für Grenzgänger',
+    'blog.article.axa-manno.excerpt': 'Axa Manno ist ein Versicherungsberater, der sich auf Dienstleistungen für Grenzgänger spezialisiert hat.',
+    'blog.article.axa-manno.imageAlt': 'Eine Straße in Lugano mit einem Pendler, der sein Smartphone überprüft.',
 };
 
 export default blogMetaDe;

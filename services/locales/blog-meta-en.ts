@@ -8299,6 +8299,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gaggiolo-traffico.title': 'Traffic at the Gaggiolo crossing',
     'blog.article.gaggiolo-traffico.excerpt': 'Heavy traffic at the Gaggiolo crossing due to the increase in commuters',
     'blog.article.gaggiolo-traffico.imageAlt': 'Image of a mountain pass during rush hour',
+    'blog.article.axa-manno.title': 'Axa Manno: insurance consultant for border workers',
+    'blog.article.axa-manno.excerpt': 'Axa Manno is an insurance consultant specialising in border services.',
+    'blog.article.axa-manno.imageAlt': 'A street in Lugano with a commuter checking his smartphone.',
 };
 
 export default blogMetaEn;

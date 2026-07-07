@@ -8300,6 +8300,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gaggiolo-traffico.title': 'Trafic au col de Gaggiolo',
     'blog.article.gaggiolo-traffico.excerpt': 'Trafic intense au passage de Gaggiolo en raison de l\'augmentation du nombre de navetteurs',
     'blog.article.gaggiolo-traffico.imageAlt': 'Image d\'un col de montagne pendant l\'heure de pointe',
+    'blog.article.axa-manno.title': 'Axa Manno : conseiller en assurance pour les frontaliers',
+    'blog.article.axa-manno.excerpt': 'Axa Manno est un conseiller en assurance spécialisé dans les services aux frontaliers.',
+    'blog.article.axa-manno.imageAlt': 'Une rue à Lugano avec un pendulaire qui vérifie son smartphone.',
 };
 
 export default blogMetaFr;
