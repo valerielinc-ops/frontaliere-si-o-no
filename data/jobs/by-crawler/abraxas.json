@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-07-07T12:02:33.894Z",
+  "assembledAt": "2026-07-07T22:14:59.335Z",
   "jobs": [
     {
       "id": "abraxas-5dc4f61fd5f2",
@@ -17,7 +17,7 @@
       "title": "System Engineer – DevOps (Deutsch) 80–100 %",
       "titleByLocale": {
         "it": "System Ingegnere – DevOps (Deutsch) 80–100 %",
-        "en": "System Engineer – DevOps (German) 80-100%",
+        "en": "System Engineer – DevOps (Deutsch) 80–100 %",
         "de": "System Ingenieur – DevOps (Deutsch) 80–100 %",
         "fr": "System Ingénieur – DevOps (Deutsch) 80–100 %"
       },
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-devops-deutsch-80-100-2472",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:31.269Z",
+      "crawledAt": "2026-07-07T22:14:56.856Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -56,11 +57,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "system-engineer-devops-deutsch-80-100-abraxas-bern"
+        "system-engineer-devops-deutsch-80-100-abraxas-bern",
+        "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-devops-deutsch-80-100-abraxas-bern"
+          "system-engineer-devops-deutsch-80-100-abraxas-bern",
+          "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern"
         ],
         "fr": [
           "system-engineer-devops-deutsch-80-100-abraxas-bern"
@@ -95,7 +98,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software Engineer 80-100%",
+        "en": "Software-Engineer 80–100 %",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -111,7 +114,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-9347",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:30.805Z",
+      "crawledAt": "2026-07-07T22:14:56.388Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -134,11 +138,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-engineer-80-100-abraxas-st-gallen"
+        "software-engineer-80-100-abraxas-st-gallen",
+        "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-80-100-abraxas-st-gallen"
+          "software-engineer-80-100-abraxas-st-gallen",
+          "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "software-engineer-80-100-abraxas-st-gallen"
@@ -173,7 +179,7 @@
       "title": "Software Engineer C#/.net 80–100 %",
       "titleByLocale": {
         "it": "Software Ingegnere C#/.net 80–100 %",
-        "en": "Software Engineer C#/.net 80-100%",
+        "en": "Software Engineer C#/.net 80–100 %",
         "de": "Software Ingenieur C#/.net 80–100 %",
         "fr": "Software Ingénieur C#/.net 80–100 %"
       },
@@ -189,7 +195,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-cnet-80-100-8664",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:30.339Z",
+      "crawledAt": "2026-07-07T22:14:55.881Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -212,11 +219,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-engineer-c-net-80-100-abraxas-st-gallen"
+        "software-engineer-c-net-80-100-abraxas-st-gallen",
+        "software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-c-net-80-100-abraxas-st-gallen"
+          "software-engineer-c-net-80-100-abraxas-st-gallen",
+          "software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "software-engineer-c-net-80-100-abraxas-st-gallen"
@@ -250,7 +259,7 @@
       "companyDomain": "abraxas.ch",
       "title": "Software Architekt:in 80–100 %",
       "titleByLocale": {
-        "it": "Software Architetto: in 80-100%",
+        "it": "Software Architekt:in 80–100 %",
         "en": "Software Architect: in 80-100%",
         "de": "Software Architekt:in 80–100 %",
         "fr": "Architecte logiciel: en 80-100%"
@@ -267,7 +276,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-80-100-4606",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:29.878Z",
+      "crawledAt": "2026-07-07T22:14:55.413Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -318,7 +328,7 @@
       "title": "ServiceNow Engineer KI & Automation 80-100%",
       "titleByLocale": {
         "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer KI & Automation 80-100 %",
+        "en": "ServiceNow Engineer KI & Automation 80-100%",
         "de": "ServiceNow Ingenieur KI & Automation 80-100%",
         "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
       },
@@ -334,7 +344,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-engineer-ki-amp-automation-80-100-3223",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:29.416Z",
+      "crawledAt": "2026-07-07T22:14:54.922Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -357,11 +368,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
+        "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen",
+        "servicenow-ingegnere-ki-automation-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
+          "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen",
+          "servicenow-ingegnere-ki-automation-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
@@ -412,7 +425,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-7406",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:28.942Z",
+      "crawledAt": "2026-07-07T22:14:54.417Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -436,11 +449,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
+        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+        "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
+          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+          "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
@@ -478,7 +493,7 @@
       "title": "Senior OpenStack Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior OpenStack Ingegnere 80–100 %",
-        "en": "Senior OpenStack Engineer 80-100%",
+        "en": "Senior OpenStack Engineer 80–100 %",
         "de": "Senior OpenStack Ingenieur 80–100 %",
         "fr": "Senior OpenStack Ingénieur 80–100 %"
       },
@@ -494,7 +509,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-1267",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:28.468Z",
+      "crawledAt": "2026-07-07T22:14:53.954Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -517,11 +533,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
@@ -556,7 +574,7 @@
       "title": "Senior Cyber Security Analyst / Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior Cyber Security Analista / Ingegnere 80–100 %",
-        "en": "Senior Cyber Security Analyst / Engineer 80-100%",
+        "en": "Senior Cyber Security Analyst / Engineer 80–100 %",
         "de": "Senior Cyber Security Analyst / Ingenieur 80–100 %",
         "fr": "Senior Cyber Security Analyste / Ingénieur 80–100 %"
       },
@@ -572,7 +590,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-cyber-security-analyst-engineer-80-100-9650",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:27.981Z",
+      "crawledAt": "2026-07-07T22:14:53.493Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -595,11 +614,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+        "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
@@ -623,9 +644,9 @@
       "id": "abraxas-860636d19004",
       "slug": "responsabile-della-gestione-dei-progetti-pmo-in-dgf-40-60-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
-        "de": "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen",
         "it": "responsabile-della-gestione-dei-progetti-pmo-in-dgf-40-60-abraxas-informatik-ag-st-gallen",
-        "en": "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen",
+        "en": "project-management-officer-pmo-in-dgf-40-60-abraxas-informatik-ag-st-gallen",
+        "de": "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen",
         "fr": "agent-de-gestion-de-projet-agp-en-dgf-40-60-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
@@ -633,24 +654,25 @@
       "companyDomain": "abraxas.ch",
       "title": "Projekt Management Officer (PMO) im Bereich DGF 40–60 %",
       "titleByLocale": {
-        "de": "Projekt Management Officer (PMO) im Bereich DGF 40–60 %",
         "it": "Responsabile della gestione dei progetti (PMO) in DGF 40-60%",
         "en": "Project Management Officer (PMO) in DGF 40-60%",
+        "de": "Projekt Management Officer (PMO) im Bereich DGF 40–60 %",
         "fr": "Agent de gestion de projet (AGP) en DGF 40-60%"
       },
       "description": "Du möchtest nicht nur Projekte unterstützen, sondern Projektmanagement aktiv mitgestalten? In dieser vielseitigen PMO-Rolle im Bereich Digital Government & Fachlösungen (DGF) unterstützt du Projektleitende sowie die Leiterin Projekte im Tagesgeschäft und treibst gleichzeitig die Standardisierung, Digitalisierung und kontinuierliche Verbesserung der Projektarbeit voran. So leistest du einen direkten Beitrag zu mehr Qualität, Transparenz und Effizienz in unseren Projekten.\nDeine Rolle\n• Unterstützung in administrativen, organisatorischen und methodischen Belangen sowie Unterstützung im Projektalltag\n• Koordination und Nachverfolgung von Terminen, Pendenzen, Massnahmen, Beschlüssen und Projektdokumentationen\n• Sicherstellung der Einhaltung von Projektmanagement-Standards, Vorlagen und Governance-Vorgaben sowie formelle Prüfung von Projektunterlagen\n• Konsolidierung, Aufbereitung und Pflege von Projektinformationen, Kennzahlen sowie Status- und Entscheidungsgrundlagen für Gremien und Ausschüsse\n• Beratung der Projektleitenden bei der Anwendung von Projektmanagement-Methoden und -Tools sowie Erstellung von Anleitungen, Hilfsmitteln und Best Practices\n• Organisation und Koordination von Schulungen, Workshops und Wissensaustauschformaten zur Förderung eines professionellen Projektmanagements\n• Mitwirkung bei der kontinuierlichen Verbesserung, Standardisierung und Digitalisierung von Projektprozessen, inklusive Automatisierungspotenzialen, KI-gestützten Arbeitsweisen und Optimierung der Datenqualität in Projektmanagement-Tools\nDein Profil\n• Laufende Ausbildung (FH / Uni) in Wirtschaftsinformatik, Informatik, Betriebswirtschaft, Data Science oder einer vergleichbaren Fachrichtung\n• Mindestens noch 1.5 Jahre ab Stellenantritt immatrikuliert\n• Interesse an Projektmanagement, Organisationsentwicklung sowie an der Weiterentwicklung von Prozessen und Arbeitsweisen\n• Erste Erfahrungen mit Power BI, Power Automate, KI-Anwendungen, Projektmanagement-Methoden oder Grundkenntnisse in Programmierung bzw. Skripting\n• Sehr gute Kenntnisse der Microsoft-365-Welt sowie eine hohe Affinität zu Digitalisierung, Daten und modernen Technologien\n• Analytische Denkweise sowie Freude daran, Abläufe zu hinterfragen, Optimierungspotenziale zu identifizieren und Lösungen umzusetzen\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise verbunden mit hoher Eigeninitiative und einem ausgeprägten Qualitätsbewusstsein\n• Ausgeprägte Kommunikationsfähigkeiten in deutscher Sprache sowie Freude an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "de": "Du möchtest nicht nur Projekte unterstützen, sondern Projektmanagement aktiv mitgestalten? In dieser vielseitigen PMO-Rolle im Bereich Digital Government & Fachlösungen (DGF) unterstützt du Projektleitende sowie die Leiterin Projekte im Tagesgeschäft und treibst gleichzeitig die Standardisierung, Digitalisierung und kontinuierliche Verbesserung der Projektarbeit voran. So leistest du einen direkten Beitrag zu mehr Qualität, Transparenz und Effizienz in unseren Projekten.\nDeine Rolle\n• Unterstützung in administrativen, organisatorischen und methodischen Belangen sowie Unterstützung im Projektalltag\n• Koordination und Nachverfolgung von Terminen, Pendenzen, Massnahmen, Beschlüssen und Projektdokumentationen\n• Sicherstellung der Einhaltung von Projektmanagement-Standards, Vorlagen und Governance-Vorgaben sowie formelle Prüfung von Projektunterlagen\n• Konsolidierung, Aufbereitung und Pflege von Projektinformationen, Kennzahlen sowie Status- und Entscheidungsgrundlagen für Gremien und Ausschüsse\n• Beratung der Projektleitenden bei der Anwendung von Projektmanagement-Methoden und -Tools sowie Erstellung von Anleitungen, Hilfsmitteln und Best Practices\n• Organisation und Koordination von Schulungen, Workshops und Wissensaustauschformaten zur Förderung eines professionellen Projektmanagements\n• Mitwirkung bei der kontinuierlichen Verbesserung, Standardisierung und Digitalisierung von Projektprozessen, inklusive Automatisierungspotenzialen, KI-gestützten Arbeitsweisen und Optimierung der Datenqualität in Projektmanagement-Tools\nDein Profil\n• Laufende Ausbildung (FH / Uni) in Wirtschaftsinformatik, Informatik, Betriebswirtschaft, Data Science oder einer vergleichbaren Fachrichtung\n• Mindestens noch 1.5 Jahre ab Stellenantritt immatrikuliert\n• Interesse an Projektmanagement, Organisationsentwicklung sowie an der Weiterentwicklung von Prozessen und Arbeitsweisen\n• Erste Erfahrungen mit Power BI, Power Automate, KI-Anwendungen, Projektmanagement-Methoden oder Grundkenntnisse in Programmierung bzw. Skripting\n• Sehr gute Kenntnisse der Microsoft-365-Welt sowie eine hohe Affinität zu Digitalisierung, Daten und modernen Technologien\n• Analytische Denkweise sowie Freude daran, Abläufe zu hinterfragen, Optimierungspotenziale zu identifizieren und Lösungen umzusetzen\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise verbunden mit hoher Eigeninitiative und einem ausgeprägten Qualitätsbewusstsein\n• Ausgeprägte Kommunikationsfähigkeiten in deutscher Sprache sowie Freude an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "it": "Non solo vuoi sostenere i progetti, ma partecipare attivamente alla gestione dei progetti? In questo versatile ruolo PMO nell'area di Digital Government & Specialist Solutions (DGF), supporti project manager e project manager nel loro business quotidiano e allo stesso tempo guida la standardizzazione, la digitalizzazione e il miglioramento continuo del lavoro di progetto. In questo modo si contribuisce direttamente a una maggiore qualità, trasparenza ed efficienza nei nostri progetti.\nIl tuo ruolo\n• Sostegno in materia amministrativa, organizzativa e metodologica, nonché sostegno al lavoro di progetto quotidiano\n• Coordinamento e follow-up delle date, date in sospeso, misure, decisioni e documentazione del progetto\n• Garantire la conformità con gli standard di gestione del progetto, i modelli e i requisiti di governance e la revisione formale dei documenti di progetto\n• Consolidamento, preparazione e manutenzione delle informazioni di progetto, dei dati chiave e delle basi decisionali per enti e comitati\n• Consultare i responsabili del progetto sull'applicazione di metodi e strumenti di gestione del progetto, nonché la preparazione di linee guida, strumenti e best practice\n• Organizzazione e coordinamento di formazione, workshop e formati di scambio di conoscenze per promuovere la gestione dei progetti professionali\n• Partecipazione al continuo miglioramento, standardizzazione e digitalizzazione dei processi di progetto, tra cui il potenziale di automazione, i metodi di lavoro supportati dall'IA e l'ottimizzazione della qualità dei dati negli strumenti di gestione dei progetti\nIl tuo profilo\n• Formazione continua (FH / università) in informatica aziendale, informatica, amministrazione aziendale, scienza dei dati o una disciplina comparabile\n• Matricolato per almeno 1,5 anni dopo aver iniziato il tuo lavoro\n• Interessi nella gestione dei progetti, nello sviluppo organizzativo e nell'ulteriore sviluppo dei processi e dei metodi di lavoro\n• Le prime esperienze con Power BI, Power Automate, applicazioni AI, metodi di gestione del progetto o conoscenze di base nella programmazione o scrittura\n• Ottima conoscenza del mondo Microsoft 365 e un'alta affinità per la digitalizzazione, i dati e le tecnologie moderne\n• Il pensiero analitico e il piacere nel mettere in discussione i processi, identificare il potenziale di ottimizzazione e implementare soluzioni\n• Metodi di lavoro indipendenti, strutturati e affidabili combinati con un alto livello di iniziativa e un elevato livello di consapevolezza della qualità\n• Forte capacità di comunicazione in tedesco e godere di lavorare con diversi stakeholder.\nI tuoi vantaggi\n• Fino al 60% home office possibile con una pensione 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "Do you not only want to support projects, but actively participate in project management? In this versatile PMO role in the area of Digital Government & Specialist Solutions (DGF), you support project managers and project managers in their day-to-day business and at the same time drive the standardization, digitalization and continuous improvement of project work. This way you make a direct contribution to more quality, transparency and efficiency in our projects.\nYour role\n• Support in administrative, organisational and methodological matters as well as support in everyday project work\n• Coordination and follow-up of dates, pending dates, measures, decisions and project documentation\n• Ensuring compliance with project management standards, templates and governance requirements and formal review of project documents\n• Consolidation, preparation and maintenance of project information, key figures and status and decision-making basis for bodies and committees\n• Advising project leaders on the application of project management methods and tools as well as the preparation of guidelines, tools and best practices\n• Organisation and coordination of training, workshops and knowledge exchange formats to promote professional project management\n• Participation in the continuous improvement, standardization and digitalization of project processes, including automation potential, AI-supported working methods and optimization of data quality in project management tools\nYour profile\n• Ongoing training (FH / university) in business informatics, computer science, business administration, data science or a comparable discipline\n• Matriculated for at least 1.5 years after starting your job\n• Interest in project management, organizational development and the further development of processes and working methods\n• First experiences with Power BI, Power Automate, AI applications, project management methods or basic knowledge in programming or Scripting\n• Very good knowledge of the Microsoft 365 world as well as a high affinity for digitization, data and modern technologies\n• Analytical thinking and pleasure in questioning processes, identifying optimization potential and implementing solutions\n• Independent, structured and reliable working methods combined with a high level of initiative and a high level of quality awareness\n• Strong communication skills in German as well as enjoy working with different stakeholders.\nYour Benefits\n• Up to 60% home office possible with a 100% pension\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "fr": "Voulez-vous non seulement soutenir des projets, mais participer activement à la gestion de projets? Dans ce rôle polyvalent de BGP dans le domaine des solutions numériques gouvernementales et spécialisées (DGF), vous aidez les gestionnaires de projets et les gestionnaires de projets dans leurs activités quotidiennes tout en favorisant la normalisation, la numérisation et l'amélioration continue du travail de projet. Ainsi, vous contribuez directement à une meilleure qualité, transparence et efficacité de nos projets.\nVotre rôle\n• Soutien aux questions administratives, organisationnelles et méthodologiques ainsi qu'au travail quotidien des projets\n• Coordination et suivi des dates, des dates en suspens, des mesures, des décisions et de la documentation du projet\n• Veiller au respect des normes de gestion de projet, des modèles et des exigences de gouvernance et examiner officiellement les documents de projet\n• Consolidation, préparation et tenue à jour de l ' information sur les projets, des chiffres clefs et de l ' état et de la base de décision des organes et comités\n• Conseiller les chefs de projet sur l'application des méthodes et outils de gestion de projet ainsi que sur l'élaboration de lignes directrices, d'outils et de meilleures pratiques\n• Organisation et coordination de formations, d'ateliers et de formats d'échange de connaissances pour promouvoir la gestion professionnelle des projets\n• Participation à l'amélioration continue, à la normalisation et à la numérisation des processus de projet, y compris le potentiel d'automatisation, les méthodes de travail appuyées par l'IA et l'optimisation de la qualité des données dans les outils de gestion de projet\nVotre profil\n• Formation continue (FH / université) en informatique des affaires, informatique, administration des affaires, sciences des données ou une discipline comparable\n• Matriculé pendant au moins 1,5 ans après avoir commencé votre emploi\n• Intérêt pour la gestion des projets, le développement organisationnel et le développement des processus et des méthodes de travail\n• Premières expériences avec Power BI, Power Automate, applications AI, méthodes de gestion de projet ou connaissances de base en programmation ou en Scripting\n• Très bonne connaissance du monde Microsoft 365 ainsi qu'une grande affinité pour la numérisation, les données et les technologies modernes\n• Pensée analytique et plaisir à interroger les processus, à identifier le potentiel d'optimisation et à mettre en œuvre des solutions\n• Méthodes de travail indépendantes, structurées et fiables associées à un haut niveau d'initiative et à un haut niveau de sensibilisation à la qualité\n• Fortes compétences en communication en allemand ainsi que profiter de travailler avec différentes parties prenantes.\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une pension de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
+        "it": "Non solo vuoi sostenere i progetti, ma partecipare attivamente alla gestione dei progetti? In questo versatile ruolo PMO nell'area di Digital Government & Specialist Solutions (DGF), supporti project manager e project manager nel loro business quotidiano e allo stesso tempo guida la standardizzazione, la digitalizzazione e il miglioramento continuo del lavoro di progetto. In questo modo si contribuisce direttamente a una maggiore qualità, trasparenza ed efficienza nei nostri progetti. Il tuo ruolo\n• Sostegno in materia amministrativa, organizzativa e metodologica, nonché sostegno al lavoro di progetto quotidiano\n• Coordinamento e follow-up delle date, date in sospeso, misure, decisioni e documentazione del progetto\n• Garantire la conformità con gli standard di gestione del progetto, i modelli e i requisiti di governance e la revisione formale dei documenti di progetto\n• Consolidamento, preparazione e manutenzione delle informazioni di progetto, dei dati chiave e delle basi decisionali per enti e comitati\n• Consultare i responsabili del progetto sull'applicazione di metodi e strumenti di gestione del progetto, nonché la preparazione di linee guida, strumenti e best practice\n• Organizzazione e coordinamento di formazione, workshop e formati di scambio di conoscenze per promuovere la gestione dei progetti professionali\n• Partecipazione al continuo miglioramento, standardizzazione e digitalizzazione dei processi di progetto, tra cui il potenziale di automazione, i metodi di lavoro supportati dall'IA e l'ottimizzazione della qualità dei dati negli strumenti di gestione dei progetti Il tuo profilo\n• Formazione continua (FH / università) in informatica aziendale, informatica, amministrazione aziendale, scienza dei dati o una disciplina comparabile\n• Matricolato per almeno 1,5 anni dopo aver iniziato il tuo lavoro\n• Interessi nella gestione dei progetti, nello sviluppo organizzativo e nell'ulteriore sviluppo dei processi e dei metodi di lavoro\n• Le prime esperienze con Power BI, Power Automate, applicazioni AI, metodi di gestione del progetto o conoscenze di base nella programmazione o scrittura\n• Ottima conoscenza del mondo Microsoft 365 e un'alta affinità per la digitalizzazione, i dati e le tecnologie moderne\n• Il pensiero analitico e il piacere nel mettere in discussione i processi, identificare il potenziale di ottimizzazione e implementare soluzioni\n• Metodi di lavoro indipendenti, strutturati e affidabili combinati con un alto livello di iniziativa e un elevato livello di consapevolezza della qualità\n• Forte capacità di comunicazione in tedesco e godere di lavorare con diversi stakeholder. I tuoi vantaggi\n• Fino al 60% home office possibile con una pensione 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
+        "en": "Do you not only want to support projects, but actively participate in project management? In this versatile PMO role in the area of Digital Government & Specialist Solutions (DGF), you support project managers and project managers in their day-to-day business and at the same time drive the standardization, digitalization and continuous improvement of project work. This way you make a direct contribution to more quality, transparency and efficiency in our projects. Your role\n• Support in administrative, organisational and methodological matters as well as support in everyday project work\n• Coordination and follow-up of dates, pending dates, measures, decisions and project documentation\n• Ensuring compliance with project management standards, templates and governance requirements and formal review of project documents\n• Consolidation, preparation and maintenance of project information, key figures and status and decision-making basis for bodies and committees\n• Advising project leaders on the application of project management methods and tools as well as the preparation of guidelines, tools and best practices\n• Organisation and coordination of training, workshops and knowledge exchange formats to promote professional project management\n• Participation in the continuous improvement, standardization and digitalization of project processes, including automation potential, AI-supported working methods and optimization of data quality in project management tools Your profile\n• Ongoing training (FH / university) in business informatics, computer science, business administration, data science or a comparable discipline\n• Matriculated for at least 1.5 years after starting your job\n• Interest in project management, organizational development and the further development of processes and working methods\n• First experiences with Power BI, Power Automate, AI applications, project management methods or basic knowledge in programming or Scripting\n• Very good knowledge of the Microsoft 365 world as well as a high affinity for digitization, data and modern technologies\n• Analytical thinking and pleasure in questioning processes, identifying optimization potential and implementing solutions\n• Independent, structured and reliable working methods combined with a high level of initiative and a high level of quality awareness\n• Strong communication skills in German as well as enjoy working with different stakeholders. Your Benefits\n• Up to 60% home office possible with a 100% pension\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "de": "Du möchtest nicht nur Projekte unterstützen, sondern Projektmanagement aktiv mitgestalten? In dieser vielseitigen PMO-Rolle im Bereich Digital Government & Fachlösungen (DGF) unterstützt du Projektleitende sowie die Leiterin Projekte im Tagesgeschäft und treibst gleichzeitig die Standardisierung, Digitalisierung und kontinuierliche Verbesserung der Projektarbeit voran. So leistest du einen direkten Beitrag zu mehr Qualität, Transparenz und Effizienz in unseren Projekten. Deine Rolle\n• Unterstützung in administrativen, organisatorischen und methodischen Belangen sowie Unterstützung im Projektalltag\n• Koordination und Nachverfolgung von Terminen, Pendenzen, Massnahmen, Beschlüssen und Projektdokumentationen\n• Sicherstellung der Einhaltung von Projektmanagement-Standards, Vorlagen und Governance-Vorgaben sowie formelle Prüfung von Projektunterlagen\n• Konsolidierung, Aufbereitung und Pflege von Projektinformationen, Kennzahlen sowie Status- und Entscheidungsgrundlagen für Gremien und Ausschüsse\n• Beratung der Projektleitenden bei der Anwendung von Projektmanagement-Methoden und -Tools sowie Erstellung von Anleitungen, Hilfsmitteln und Best Practices\n• Organisation und Koordination von Schulungen, Workshops und Wissensaustauschformaten zur Förderung eines professionellen Projektmanagements\n• Mitwirkung bei der kontinuierlichen Verbesserung, Standardisierung und Digitalisierung von Projektprozessen, inklusive Automatisierungspotenzialen, KI-gestützten Arbeitsweisen und Optimierung der Datenqualität in Projektmanagement-Tools Dein Profil\n• Laufende Ausbildung (FH / Uni) in Wirtschaftsinformatik, Informatik, Betriebswirtschaft, Data Science oder einer vergleichbaren Fachrichtung\n• Mindestens noch 1.5 Jahre ab Stellenantritt immatrikuliert\n• Interesse an Projektmanagement, Organisationsentwicklung sowie an der Weiterentwicklung von Prozessen und Arbeitsweisen\n• Erste Erfahrungen mit Power BI, Power Automate, KI-Anwendungen, Projektmanagement-Methoden oder Grundkenntnisse in Programmierung bzw. Skripting\n• Sehr gute Kenntnisse der Microsoft-365-Welt sowie eine hohe Affinität zu Digitalisierung, Daten und modernen Technologien\n• Analytische Denkweise sowie Freude daran, Abläufe zu hinterfragen, Optimierungspotenziale zu identifizieren und Lösungen umzusetzen\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise verbunden mit hoher Eigeninitiative und einem ausgeprägten Qualitätsbewusstsein\n• Ausgeprägte Kommunikationsfähigkeiten in deutscher Sprache sowie Freude an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen. Deine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden Wir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Voulez-vous non seulement soutenir des projets, mais participer activement à la gestion de projets? Dans ce rôle polyvalent de BGP dans le domaine des solutions numériques gouvernementales et spécialisées (DGF), vous aidez les gestionnaires de projets et les gestionnaires de projets dans leurs activités quotidiennes tout en favorisant la normalisation, la numérisation et l'amélioration continue du travail de projet. Ainsi, vous contribuez directement à une meilleure qualité, transparence et efficacité de nos projets. Votre rôle\n• Soutien aux questions administratives, organisationnelles et méthodologiques ainsi qu'au travail quotidien des projets\n• Coordination et suivi des dates, des dates en suspens, des mesures, des décisions et de la documentation du projet\n• Veiller au respect des normes de gestion de projet, des modèles et des exigences de gouvernance et examiner officiellement les documents de projet\n• Consolidation, préparation et tenue à jour de l ' information sur les projets, des chiffres clefs et de l ' état et de la base de décision des organes et comités\n• Conseiller les chefs de projet sur l'application des méthodes et outils de gestion de projet ainsi que sur l'élaboration de lignes directrices, d'outils et de meilleures pratiques\n• Organisation et coordination de formations, d'ateliers et de formats d'échange de connaissances pour promouvoir la gestion professionnelle des projets\n• Participation à l'amélioration continue, à la normalisation et à la numérisation des processus de projet, y compris le potentiel d'automatisation, les méthodes de travail appuyées par l'IA et l'optimisation de la qualité des données dans les outils de gestion de projet Votre profil\n• Formation continue (FH / université) en informatique des affaires, informatique, administration des affaires, sciences des données ou une discipline comparable\n• Matriculé pendant au moins 1,5 ans après avoir commencé votre emploi\n• Intérêt pour la gestion des projets, le développement organisationnel et le développement des processus et des méthodes de travail\n• Premières expériences avec Power BI, Power Automate, applications AI, méthodes de gestion de projet ou connaissances de base en programmation ou en Scripting\n• Très bonne connaissance du monde Microsoft 365 ainsi qu'une grande affinité pour la numérisation, les données et les technologies modernes\n• Pensée analytique et plaisir à interroger les processus, à identifier le potentiel d'optimisation et à mettre en œuvre des solutions\n• Méthodes de travail indépendantes, structurées et fiables associées à un haut niveau d'initiative et à un haut niveau de sensibilisation à la qualité\n• Fortes compétences en communication en allemand ainsi que profiter de travailler avec différentes parties prenantes. Vos avantages\n• Jusqu'à 60% bureau à domicile possible avec une pension de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
       },
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/projekt-management-officer-pmo-im-bereich-dgf-40-60-2400",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:27.511Z",
+      "crawledAt": "2026-07-07T22:14:53.034Z",
+      "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -667,37 +689,40 @@
       "postedDate": "2026-07-07",
       "applyUrl": "https://apply.refline.ch/215876/2495/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "215876-2495",
       "pensumMin": 40,
       "pensumMax": 60,
       "pensum": "40 - 60%",
-      "salaryMin": 34500,
-      "salaryMax": 52200,
+      "previousSlugs": [
+        "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen",
+        "responsabile-della-gestione-dei-progetti-pmo-in-dgf-40-60-abraxas-informatik-ag-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen",
+          "responsabile-della-gestione-dei-progetti-pmo-in-dgf-40-60-abraxas-informatik-ag-st-gallen"
+        ],
+        "fr": [
+          "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen"
+        ],
+        "en": [
+          "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen"
+        ]
+      },
+      "firstSeenAt": "2026-07-07T12:02:27.511Z",
+      "salaryMin": 47400,
+      "salaryMax": 72000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 34500,
-          "maxValue": 52200,
+          "minValue": 47400,
+          "maxValue": 72000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-07T12:02:27.511Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen"
-        ],
-        "fr": [
-          "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen"
-        ]
-      },
-      "previousSlugs": [
-        "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen"
-      ]
+      }
     },
     {
       "id": "abraxas-09aff185f8e4",
@@ -730,7 +755,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/kundenbetreuerin-fuer-applikationssupport-finanzen-80-100-4516",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:27.021Z",
+      "crawledAt": "2026-07-07T22:14:52.571Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -812,7 +837,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/junior-solution-architekt-80-100-9473",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:26.553Z",
+      "crawledAt": "2026-07-07T22:14:52.095Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -836,11 +861,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "junior-solution-architekt-80-100-abraxas-st-gallen"
+        "junior-solution-architekt-80-100-abraxas-st-gallen",
+        "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-solution-architekt-80-100-abraxas-st-gallen"
+          "junior-solution-architekt-80-100-abraxas-st-gallen",
+          "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "junior-solution-architekt-80-100-abraxas-st-gallen"
@@ -894,7 +921,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-services-engineer-windows-server-100-8548",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:26.083Z",
+      "crawledAt": "2026-07-07T22:14:51.594Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -945,7 +973,7 @@
       "title": "ICT-System Engineer 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere 80–100 %",
-        "en": "ICT System Engineer 80-100%",
+        "en": "ICT-System Engineer 80–100 %",
         "de": "ICT-System Ingenieur 80–100 %",
         "fr": "ICT-System Ingénieur 80–100 %"
       },
@@ -961,7 +989,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-3625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:25.600Z",
+      "crawledAt": "2026-07-07T22:14:51.114Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -984,11 +1013,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ict-system-engineer-80-100-abraxas-bern"
+        "ict-system-engineer-80-100-abraxas-bern",
+        "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-system-engineer-80-100-abraxas-bern"
+          "ict-system-engineer-80-100-abraxas-bern",
+          "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern"
         ],
         "fr": [
           "ict-system-engineer-80-100-abraxas-bern"
@@ -1023,7 +1054,7 @@
       "title": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere con Projektleitungserfahrung 80–100 %",
-        "en": "ICT System Engineer with project management experience 80-100%",
+        "en": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
         "de": "ICT System Ingenieur mit Projektleitungserfahrung 80–100 %",
         "fr": "ICT System Ingénieur mit Projektleitungserfahrung 80–100 %"
       },
@@ -1039,7 +1070,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-1145",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:25.099Z",
+      "crawledAt": "2026-07-07T22:14:50.622Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1106,7 +1138,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:24.612Z",
+      "crawledAt": "2026-07-07T22:14:50.147Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1157,7 +1190,7 @@
       "title": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere – IAM (WAF/IDP) 80%–100 %",
-        "en": "ICT System Engineer – IAM (WAF/IDP) 80%-100%",
+        "en": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
         "de": "ICT System Ingenieur – IAM (WAF/IDP) 80%–100 %",
         "fr": "ICT System Ingénieur – IAM (WAF/IDP) 80%–100 %"
       },
@@ -1173,7 +1206,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-7949",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:24.130Z",
+      "crawledAt": "2026-07-07T22:14:49.676Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1224,7 +1258,7 @@
       "title": "DevOps Engineer 80–100 %",
       "titleByLocale": {
         "it": "DevOps Ingegnere 80–100 %",
-        "en": "DevOps Engineer 80-100%",
+        "en": "DevOps Engineer 80–100 %",
         "de": "DevOps Ingenieur 80–100 %",
         "fr": "DevOps Ingénieur 80–100 %"
       },
@@ -1240,7 +1274,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/devops-engineer-80-100-7012",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:23.633Z",
+      "crawledAt": "2026-07-07T22:14:49.185Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1263,11 +1298,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "devops-engineer-80-100-abraxas-st-gallen"
+        "devops-engineer-80-100-abraxas-st-gallen",
+        "devops-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-80-100-abraxas-st-gallen"
+          "devops-engineer-80-100-abraxas-st-gallen",
+          "devops-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "devops-engineer-80-100-abraxas-st-gallen"
@@ -1318,7 +1355,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-1052",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:23.143Z",
+      "crawledAt": "2026-07-07T22:14:48.715Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1342,11 +1379,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+        "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+          "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
@@ -1397,7 +1436,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:22.647Z",
+      "crawledAt": "2026-07-07T22:14:48.250Z",
       "needsRetranslation": false,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1421,11 +1460,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
+        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+        "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
+          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+          "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
         ],
         "en": [
           "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
@@ -1463,7 +1504,7 @@
       "title": "AIOps Transformation Lead 80-100%",
       "titleByLocale": {
         "it": "AIOps Trasformazione Piombo 80-100 %",
-        "en": "AIOps Transformation Lead 80-100 %",
+        "en": "AIOps Transformation Lead 80-100%",
         "de": "AIOps Transformation Lead 80-100%",
         "fr": "AIOps Transformation plomb 80-100 %"
       },
@@ -1479,7 +1520,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/aiops-transformation-lead-80-100-7995",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:22.153Z",
+      "crawledAt": "2026-07-07T22:14:47.757Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1502,11 +1544,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "aiops-transformation-lead-80-100-abraxas-st-gallen"
+        "aiops-transformation-lead-80-100-abraxas-st-gallen",
+        "aiops-trasformazione-piombo-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aiops-transformation-lead-80-100-abraxas-st-gallen"
+          "aiops-transformation-lead-80-100-abraxas-st-gallen",
+          "aiops-trasformazione-piombo-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "aiops-transformation-lead-80-100-abraxas-st-gallen"
@@ -1557,7 +1601,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/agile-testmanagerin-80-100-2201",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:21.660Z",
+      "crawledAt": "2026-07-07T22:14:47.295Z",
       "needsRetranslation": false,
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
@@ -1581,11 +1625,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "agile-testmanager-in-80-100-abraxas-frauenfeld"
+        "agile-testmanager-in-80-100-abraxas-frauenfeld",
+        "agile-test-manager-in-80-100-abraxas-informatik-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agile-testmanager-in-80-100-abraxas-frauenfeld"
+          "agile-testmanager-in-80-100-abraxas-frauenfeld",
+          "agile-test-manager-in-80-100-abraxas-informatik-ag-frauenfeld"
         ],
         "en": [
           "agile-testmanager-in-80-100-abraxas-frauenfeld"
@@ -1639,7 +1685,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:21.150Z",
+      "crawledAt": "2026-07-07T22:14:46.829Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1663,11 +1709,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-teamleiter-in-80-100-abraxas-st-gallen"
+        "abacus-teamleiter-in-80-100-abraxas-st-gallen",
+        "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-teamleiter-in-80-100-abraxas-st-gallen"
+          "abacus-teamleiter-in-80-100-abraxas-st-gallen",
+          "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-teamleiter-in-80-100-abraxas-st-gallen"
@@ -1721,7 +1769,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:20.652Z",
+      "crawledAt": "2026-07-07T22:14:46.268Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1745,11 +1793,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+        "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+          "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
@@ -1803,7 +1853,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:20.071Z",
+      "crawledAt": "2026-07-07T22:14:45.707Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1827,11 +1877,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
+        "abacus-berater-in-finanzen-80-100-abraxas-st-gallen",
+        "consulente-abacus-in-finanza-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
+          "abacus-berater-in-finanzen-80-100-abraxas-st-gallen",
+          "consulente-abacus-in-finanza-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
