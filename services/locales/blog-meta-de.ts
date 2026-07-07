@@ -8292,6 +8292,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.title': 'Abkommen 2020: Besteuerung von Grenzgängern',
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.excerpt': 'Das Abkommen Italien-Schweiz von 2020 führt ein neues Steuersystem für Grenzgänger ein und ersetzt den Rahmen von 1974. Die Analyse beurteilt den',
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.imageAlt': 'Redaktionelles Bild zu: L\'Accordo Italia-Svizzera del 2020 sulla tassazione dei lavoratori frontalieri',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.title': 'Schweizer Arbeitsmarkt im Abschwung: Was ändert sich für Grenzgänger?',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.excerpt': 'Schweizer Arbeitslosenquote stabil bei 3,1% saisonbereinigt im Juni. SECO revidierte die Schätzung für 2026 und 2027 aufgrund der Energiepreise nach oben.',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.imageAlt': 'Grenzpendler stauen sich am Brogeda-Checkpoint in Lugano bei Sonnenuntergang, Richtung italienischer Grenze.',
 };
 
 export default blogMetaDe;

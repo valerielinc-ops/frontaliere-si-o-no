@@ -8294,6 +8294,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.title': 'L\'Accordo Italia-Svizzera del 2020 sulla tassazione dei lavoratori frontalieri',
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.excerpt': 'L\'Accordo Italia-Svizzera del 2020 introduce un nuovo regime di tassazione per i lavoratori frontalieri, sostituendo il quadro del 1974. L\'analisi valuta il',
     'blog.article.laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri.imageAlt': 'Immagine editoriale relativa a: L\'Accordo Italia-Svizzera del 2020 sulla tassazione dei lavoratori frontalieri',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.title': 'Mercato del lavoro svizzero in rallentamento: cosa cambia per i frontalieri',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.excerpt': 'Tasso disoccupazione svizzero stabile al 3,1% destagionalizzato a giugno. SECO rivista al rialzo la stima per il 2026 e 2027 a causa dei prezzi dell\'energia.',
+    'blog.article.mercato-lavoro-svizzera-rallenta-estate-2024.imageAlt': 'Pendolari in coda al valico di Brogeda a Lugano al tramonto, direzione confine italiano.',
 };
 
 export default blogMetaIt;

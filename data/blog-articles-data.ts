@@ -24920,6 +24920,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'mercato-lavoro-svizzera-rallenta-estate-2024',
+ category: 'novita',
+ date: '2026-07-07T00:43:31.108Z',
+ image: '/images/blog/mercato-lavoro-svizzera-rallenta-estate-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
