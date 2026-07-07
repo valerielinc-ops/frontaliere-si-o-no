@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "on-running-cb1d8d7784fe",
-      "slug": "head-of-business-process-excellence-on-running-ch",
+      "slug": "responsabile-dell-eccellenza-dei-processi-aziendali-on-running-zurich",
       "slugByLocale": {
         "en": "head-of-business-process-excellence-on-running-ch",
-        "it": "head-of-business-process-excellence-on-running-ch",
+        "it": "responsabile-dell-eccellenza-dei-processi-aziendali-on-running-zurich",
         "de": "head-of-business-process-excellence-on-running-ch",
-        "fr": "head-of-business-process-excellence-on-running-ch"
+        "fr": "chef-de-l-excellence-des-processus-operationnels-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -55,7 +55,18 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-business-process-excellence-on-running-ch"
+        ],
+        "fr": [
+          "head-of-business-process-excellence-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-business-process-excellence-on-running-ch"
+      ]
     },
     {
       "id": "on-running-0017eb7d2740",
@@ -230,9 +241,12 @@
     },
     {
       "id": "on-running-989399bf0a23",
-      "slug": "senior-specialist-lightspray-planning-on-running-ch",
+      "slug": "specialista-senior-pianificazione-lightspray-on-running-zurich",
       "slugByLocale": {
-        "en": "senior-specialist-lightspray-planning-on-running-ch"
+        "en": "senior-specialist-lightspray-planning-on-running-ch",
+        "it": "specialista-senior-pianificazione-lightspray-on-running-zurich",
+        "de": "senior-spezialist-lightspray-planung-on-running-zurich",
+        "fr": "specialiste-principal-planification-lightspray-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -277,7 +291,15 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-specialist-lightspray-planning-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-specialist-lightspray-planning-on-running-ch"
+      ]
     },
     {
       "id": "on-running-0fed81ac8713",
@@ -566,9 +588,12 @@
     },
     {
       "id": "on-running-46d520c6e087",
-      "slug": "lead-reverse-logistics-on-running-ch",
+      "slug": "piombo-reverse-logistics-on-running-zurich",
       "slugByLocale": {
-        "en": "lead-reverse-logistics-on-running-ch"
+        "en": "lead-reverse-logistics-on-running-ch",
+        "it": "piombo-reverse-logistics-on-running-zurich",
+        "de": "lead-reverse-logistik-on-running-zurich",
+        "fr": "plomb-logistique-inverse-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -613,7 +638,15 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-reverse-logistics-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-reverse-logistics-on-running-ch"
+      ]
     },
     {
       "id": "on-running-3a05a9c93f91",
@@ -674,9 +707,12 @@
     },
     {
       "id": "on-running-742a54ef54ac",
-      "slug": "head-of-product-management-tennis-on-running-ch",
+      "slug": "responsabile-della-gestione-dei-prodotti-tennis-on-running-zurich",
       "slugByLocale": {
-        "en": "head-of-product-management-tennis-on-running-ch"
+        "en": "head-of-product-management-tennis-on-running-ch",
+        "it": "responsabile-della-gestione-dei-prodotti-tennis-on-running-zurich",
+        "de": "leiter-produktmanagement-tennis-on-running-zurich",
+        "fr": "responsable-de-la-gestion-des-produits-tennis-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -721,7 +757,15 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-product-management-tennis-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-product-management-tennis-on-running-ch"
+      ]
     },
     {
       "id": "on-running-8d9dba57b5c9",
@@ -782,9 +826,12 @@
     },
     {
       "id": "on-running-2066a4a5c2b2",
-      "slug": "staff-engineer-ai-security-on-running-ch",
+      "slug": "staff-engineer-sicurezza-dell-ai-on-running-zurich",
       "slugByLocale": {
-        "en": "staff-engineer-ai-security-on-running-ch"
+        "en": "staff-engineer-ai-security-on-running-ch",
+        "it": "staff-engineer-sicurezza-dell-ai-on-running-zurich",
+        "de": "personalingenieur-ai-security-on-running-zurich",
+        "fr": "ingenieur-du-personnel-securite-ai-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -829,7 +876,15 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "staff-engineer-ai-security-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "staff-engineer-ai-security-on-running-ch"
+      ]
     },
     {
       "id": "on-running-c2690a6a8f5b",
@@ -890,9 +945,11 @@
     },
     {
       "id": "on-running-5dcc1d912d05",
-      "slug": "senior-specialist-sports-science-human-movement-and-performance-on-running-ch",
+      "slug": "specialista-senior-scienza-dello-sport-movimento-umano-e-prestazioni-on-running-zurich",
       "slugByLocale": {
-        "en": "senior-specialist-sports-science-human-movement-and-performance-on-running-ch"
+        "en": "senior-specialist-sports-science-human-movement-and-performance-on-running-ch",
+        "it": "specialista-senior-scienza-dello-sport-movimento-umano-e-prestazioni-on-running-zurich",
+        "fr": "specialiste-principal-sciences-du-sport-mouvement-humain-et-performance-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -937,13 +994,23 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-specialist-sports-science-human-movement-and-performance-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-specialist-sports-science-human-movement-and-performance-on-running-ch"
+      ]
     },
     {
       "id": "on-running-2661632c2d12",
       "slug": "senior-lead-process-engineering-lightspray-on-running-ch",
       "slugByLocale": {
-        "en": "senior-lead-process-engineering-lightspray-on-running-ch"
+        "en": "senior-lead-process-engineering-lightspray-on-running-ch",
+        "de": "senior-lead-prozesstechnik-lightspray-on-running-zurich",
+        "fr": "chef-principal-ingenierie-des-procedes-lightspray-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -1048,9 +1115,12 @@
     },
     {
       "id": "on-running-58a79c999eca",
-      "slug": "intern-software-engineer-commercial-technology-on-running-ch",
+      "slug": "ingegnere-di-software-intern-tecnologia-commerciale-on-running-zurich",
       "slugByLocale": {
-        "en": "intern-software-engineer-commercial-technology-on-running-ch"
+        "en": "intern-software-engineer-commercial-technology-on-running-ch",
+        "it": "ingegnere-di-software-intern-tecnologia-commerciale-on-running-zurich",
+        "de": "intern-software-engineer-kommerzielle-technologie-on-running-zurich",
+        "fr": "ingenieur-logiciel-stagiaire-technologie-commerciale-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -1095,13 +1165,24 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-software-engineer-commercial-technology-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "intern-software-engineer-commercial-technology-on-running-ch"
+      ]
     },
     {
       "id": "on-running-a080565f22d5",
-      "slug": "intern-software-engineer-product-technology-on-running-ch",
+      "slug": "ingegnere-di-software-intern-tecnologia-di-prodotto-on-running-zurich",
       "slugByLocale": {
-        "en": "intern-software-engineer-product-technology-on-running-ch"
+        "en": "intern-software-engineer-product-technology-on-running-ch",
+        "it": "ingegnere-di-software-intern-tecnologia-di-prodotto-on-running-zurich",
+        "de": "intern-software-engineer-produkttechnologie-on-running-zurich",
+        "fr": "ingenieur-logiciel-stagiaire-technologie-de-produit-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -1146,13 +1227,22 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-software-engineer-product-technology-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "intern-software-engineer-product-technology-on-running-ch"
+      ]
     },
     {
       "id": "on-running-adfb22d1d46e",
       "slug": "senior-director-distinguished-engineer-intelligence-infrastructure-on-running-ch",
       "slugByLocale": {
-        "en": "senior-director-distinguished-engineer-intelligence-infrastructure-on-running-ch"
+        "en": "senior-director-distinguished-engineer-intelligence-infrastructure-on-running-ch",
+        "fr": "directeur-principal-ingenieur-distingue-renseignement-et-infrastructure-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -1371,9 +1461,12 @@
     },
     {
       "id": "on-running-a56667da9c3f",
-      "slug": "senior-director-of-product-portfolio-strategy-on-running-ch",
+      "slug": "direttore-senior-della-strategia-portafoglio-prodotti-on-running-zurich",
       "slugByLocale": {
-        "en": "senior-director-of-product-portfolio-strategy-on-running-ch"
+        "en": "senior-director-of-product-portfolio-strategy-on-running-ch",
+        "it": "direttore-senior-della-strategia-portafoglio-prodotti-on-running-zurich",
+        "de": "senior-director-produktportfoliostrategie-on-running-zurich",
+        "fr": "directeur-principal-strategie-du-portefeuille-des-produits-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -1418,7 +1511,15 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-director-of-product-portfolio-strategy-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-director-of-product-portfolio-strategy-on-running-ch"
+      ]
     },
     {
       "id": "on-running-dddf47287cb4",
@@ -1479,9 +1580,11 @@
     },
     {
       "id": "on-running-f281112c18f5",
-      "slug": "senior-specialist-innovation-footwear-developer-on-running-ch",
+      "slug": "senior-specialist-innovazione-calzature-sviluppatore-on-running-zurich",
       "slugByLocale": {
-        "en": "senior-specialist-innovation-footwear-developer-on-running-ch"
+        "en": "senior-specialist-innovation-footwear-developer-on-running-ch",
+        "it": "senior-specialist-innovazione-calzature-sviluppatore-on-running-zurich",
+        "fr": "specialiste-principal-developpeur-de-chaussures-innovation-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -1526,13 +1629,23 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-specialist-innovation-footwear-developer-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-specialist-innovation-footwear-developer-on-running-ch"
+      ]
     },
     {
       "id": "on-running-ab77a53e0cf6",
       "slug": "lead-last-mile-excellence-on-running-ch",
       "slugByLocale": {
-        "en": "lead-last-mile-excellence-on-running-ch"
+        "en": "lead-last-mile-excellence-on-running-ch",
+        "de": "aktivitaten-in-der-nahe-von-last-mile-excellence-on-running-zurich",
+        "fr": "leader-l-excellence-du-dernier-mile-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -1638,9 +1751,12 @@
     },
     {
       "id": "on-running-d8cb3173591b",
-      "slug": "head-of-compensation-on-running-ch",
+      "slug": "capo-della-compensazione-on-running-zurich",
       "slugByLocale": {
-        "en": "head-of-compensation-on-running-ch"
+        "en": "head-of-compensation-on-running-ch",
+        "it": "capo-della-compensazione-on-running-zurich",
+        "de": "leiter-der-vergutung-on-running-zurich",
+        "fr": "chef-de-la-remuneration-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -1685,7 +1801,15 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-compensation-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-compensation-on-running-ch"
+      ]
     },
     {
       "id": "on-running-50f912a14fcf",
@@ -1860,9 +1984,12 @@
     },
     {
       "id": "on-running-e9e4d21bc4e9",
-      "slug": "senior-lead-accessories-material-development-on-running-ch",
+      "slug": "senior-lead-sviluppo-dei-materiali-accessori-on-running-zurich",
       "slugByLocale": {
-        "en": "senior-lead-accessories-material-development-on-running-ch"
+        "en": "senior-lead-accessories-material-development-on-running-ch",
+        "it": "senior-lead-sviluppo-dei-materiali-accessori-on-running-zurich",
+        "de": "senior-lead-zubehor-materialentwicklung-on-running-zurich",
+        "fr": "lead-senior-accessoires-developpement-du-materiel-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -1907,13 +2034,24 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lead-accessories-material-development-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-lead-accessories-material-development-on-running-ch"
+      ]
     },
     {
       "id": "on-running-43a0eb0d5e7f",
-      "slug": "lead-accessories-developer-technical-bags-on-running-ch",
+      "slug": "lead-accessori-sviluppatore-technical-borse-on-running-zurich",
       "slugByLocale": {
-        "en": "lead-accessories-developer-technical-bags-on-running-ch"
+        "en": "lead-accessories-developer-technical-bags-on-running-ch",
+        "it": "lead-accessori-sviluppatore-technical-borse-on-running-zurich",
+        "de": "lead-zubehor-entwickler-technische-taschen-on-running-zurich",
+        "fr": "lead-accessoires-developpeur-technique-sacs-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -1958,13 +2096,24 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-accessories-developer-technical-bags-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-accessories-developer-technical-bags-on-running-ch"
+      ]
     },
     {
       "id": "on-running-cb82a74b148a",
-      "slug": "specialist-material-quality-on-running-ch",
+      "slug": "specialista-qualita-dei-materiali-on-running-zurich",
       "slugByLocale": {
-        "en": "specialist-material-quality-on-running-ch"
+        "en": "specialist-material-quality-on-running-ch",
+        "it": "specialista-qualita-dei-materiali-on-running-zurich",
+        "de": "spezialist-materialqualitat-on-running-zurich",
+        "fr": "specialiste-qualite-des-materiaux-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -2009,13 +2158,24 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "specialist-material-quality-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialist-material-quality-on-running-ch"
+      ]
     },
     {
       "id": "on-running-256e34f7c374",
-      "slug": "senior-specialist-sports-science-on-running-ch",
+      "slug": "specialista-senior-scienza-dello-sport-on-running-zurich",
       "slugByLocale": {
-        "en": "senior-specialist-sports-science-on-running-ch"
+        "en": "senior-specialist-sports-science-on-running-ch",
+        "it": "specialista-senior-scienza-dello-sport-on-running-zurich",
+        "de": "senior-spezialist-sportwissenschaft-on-running-zurich",
+        "fr": "specialiste-principal-sciences-du-sport-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -2060,13 +2220,23 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-specialist-sports-science-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-specialist-sports-science-on-running-ch"
+      ]
     },
     {
       "id": "on-running-27d265fab1b6",
-      "slug": "senior-lead-distribution-center-network-design-planning-on-running-ch",
+      "slug": "senior-lead-progettazione-e-pianificazione-della-rete-del-centro-di-distribuzione-on-running-zurich",
       "slugByLocale": {
-        "en": "senior-lead-distribution-center-network-design-planning-on-running-ch"
+        "en": "senior-lead-distribution-center-network-design-planning-on-running-ch",
+        "it": "senior-lead-progettazione-e-pianificazione-della-rete-del-centro-di-distribuzione-on-running-zurich",
+        "fr": "responsable-principal-conception-et-planification-du-reseau-des-centres-de-distribution-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -2111,13 +2281,24 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lead-distribution-center-network-design-planning-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-lead-distribution-center-network-design-planning-on-running-ch"
+      ]
     },
     {
       "id": "on-running-6941df6a30b5",
-      "slug": "senior-lead-footwear-materials-on-running-ch",
+      "slug": "senior-lead-calzature-materiali-on-running-zurich",
       "slugByLocale": {
-        "en": "senior-lead-footwear-materials-on-running-ch"
+        "en": "senior-lead-footwear-materials-on-running-ch",
+        "it": "senior-lead-calzature-materiali-on-running-zurich",
+        "de": "senior-lead-schuhe-materialien-on-running-zurich",
+        "fr": "plomb-principal-materiel-de-chaussures-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -2162,7 +2343,15 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lead-footwear-materials-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-lead-footwear-materials-on-running-ch"
+      ]
     },
     {
       "id": "on-running-87933c90f271",
@@ -2478,9 +2667,12 @@
     },
     {
       "id": "on-running-858c7f4ed3e5",
-      "slug": "lead-footwear-material-designer-on-running-ch",
+      "slug": "piombo-calzature-materiale-designer-on-running-zurich",
       "slugByLocale": {
-        "en": "lead-footwear-material-designer-on-running-ch"
+        "en": "lead-footwear-material-designer-on-running-ch",
+        "it": "piombo-calzature-materiale-designer-on-running-zurich",
+        "de": "lead-designer-von-schuhen-on-running-zurich",
+        "fr": "plomb-createur-de-materiaux-de-chaussures-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -2525,7 +2717,15 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-footwear-material-designer-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-footwear-material-designer-on-running-ch"
+      ]
     },
     {
       "id": "on-running-02b33d028b50",
@@ -2586,9 +2786,11 @@
     },
     {
       "id": "on-running-6b7111c995a5",
-      "slug": "senior-lead-data-engineer-on-running-ch",
+      "slug": "senior-lead-ingegnere-dati-on-running-zurich",
       "slugByLocale": {
-        "en": "senior-lead-data-engineer-on-running-ch"
+        "en": "senior-lead-data-engineer-on-running-ch",
+        "it": "senior-lead-ingegnere-dati-on-running-zurich",
+        "fr": "chef-principal-ingenieur-des-donnees-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -2632,13 +2834,23 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lead-data-engineer-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-lead-data-engineer-on-running-ch"
+      ]
     },
     {
       "id": "on-running-9acec917b962",
-      "slug": "lead-data-scientist-supply-chain-forecasting-on-running-ch",
+      "slug": "scienziato-di-dati-di-piombo-previsione-della-catena-di-fornitura-on-running-zurich",
       "slugByLocale": {
-        "en": "lead-data-scientist-supply-chain-forecasting-on-running-ch"
+        "en": "lead-data-scientist-supply-chain-forecasting-on-running-ch",
+        "it": "scienziato-di-dati-di-piombo-previsione-della-catena-di-fornitura-on-running-zurich",
+        "fr": "scientifique-responsable-des-donnees-prevision-de-la-chaine-d-approvisionnement-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -2682,13 +2894,24 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-data-scientist-supply-chain-forecasting-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-data-scientist-supply-chain-forecasting-on-running-ch"
+      ]
     },
     {
       "id": "on-running-89699eb89aa1",
-      "slug": "senior-lead-sports-engineer-on-running-ch",
+      "slug": "senior-lead-ingegnere-sportivo-on-running-zurich",
       "slugByLocale": {
-        "en": "senior-lead-sports-engineer-on-running-ch"
+        "en": "senior-lead-sports-engineer-on-running-ch",
+        "it": "senior-lead-ingegnere-sportivo-on-running-zurich",
+        "de": "senior-lead-sportingenieur-on-running-zurich",
+        "fr": "chef-principal-ingenieur-sportif-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -2733,7 +2956,15 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lead-sports-engineer-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-lead-sports-engineer-on-running-ch"
+      ]
     },
     {
       "id": "on-running-78f0bc706344",
@@ -2908,9 +3139,12 @@
     },
     {
       "id": "on-running-58e659113a85",
-      "slug": "lead-archive-management-on-running-ch",
+      "slug": "lead-gestione-archivio-on-running-zurich",
       "slugByLocale": {
-        "en": "lead-archive-management-on-running-ch"
+        "en": "lead-archive-management-on-running-ch",
+        "it": "lead-gestione-archivio-on-running-zurich",
+        "de": "lead-archivverwaltung-on-running-zurich",
+        "fr": "responsable-gestion-des-archives-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -2955,7 +3189,15 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-archive-management-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-archive-management-on-running-ch"
+      ]
     },
     {
       "id": "on-running-0b32ecb97440",
@@ -3501,7 +3743,8 @@
       "id": "on-running-9032910a0cc3",
       "slug": "staff-data-scientist-supply-chain-optimisation-on-running-ch",
       "slugByLocale": {
-        "en": "staff-data-scientist-supply-chain-optimisation-on-running-ch"
+        "en": "staff-data-scientist-supply-chain-optimisation-on-running-ch",
+        "fr": "scientifique-des-donnees-du-personnel-optimisation-de-la-chaine-d-approvisionnement-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -3720,7 +3963,9 @@
       "id": "on-running-8b1b9a1ae408",
       "slug": "senior-lead-apparel-development-on-running-ch",
       "slugByLocale": {
-        "en": "senior-lead-apparel-development-on-running-ch"
+        "en": "senior-lead-apparel-development-on-running-ch",
+        "de": "senior-lead-bekleidungsentwicklung-on-running-zurich",
+        "fr": "chef-principal-developpement-des-vetements-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -3882,9 +4127,11 @@
     },
     {
       "id": "on-running-b9c1aecd321c",
-      "slug": "director-of-product-vertical-running-on-running-ch",
+      "slug": "direttore-del-prodotto-vertical-running-on-running-zurich",
       "slugByLocale": {
-        "en": "director-of-product-vertical-running-on-running-ch"
+        "en": "director-of-product-vertical-running-on-running-ch",
+        "it": "direttore-del-prodotto-vertical-running-on-running-zurich",
+        "fr": "directeur-du-produit-vertical-running-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -3929,13 +4176,23 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "director-of-product-vertical-running-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "director-of-product-vertical-running-on-running-ch"
+      ]
     },
     {
       "id": "on-running-006934c0e51f",
       "slug": "principal-engineer-operations-technology-on-running-ch",
       "slugByLocale": {
-        "en": "principal-engineer-operations-technology-on-running-ch"
+        "en": "principal-engineer-operations-technology-on-running-ch",
+        "de": "hauptingenieur-operations-technology-on-running-zurich",
+        "fr": "ingenieur-principal-technologie-des-operations-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -3985,7 +4242,9 @@
       "id": "on-running-35db6533bdb0",
       "slug": "senior-lead-footwear-costing-on-running-ch",
       "slugByLocale": {
-        "en": "senior-lead-footwear-costing-on-running-ch"
+        "en": "senior-lead-footwear-costing-on-running-ch",
+        "de": "senior-lead-schuhkosten-on-running-zurich",
+        "fr": "plomb-principal-cout-des-chaussures-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -4036,7 +4295,9 @@
       "id": "on-running-dc83e58b998c",
       "slug": "senior-lead-apparel-materials-development-performance-on-running-ch",
       "slugByLocale": {
-        "en": "senior-lead-apparel-materials-development-performance-on-running-ch"
+        "en": "senior-lead-apparel-materials-development-performance-on-running-ch",
+        "de": "senior-lead-bekleidungsmaterialentwicklung-performance-on-running-zurich",
+        "fr": "dirigeant-principal-developpement-des-materiaux-d-habillement-performance-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -4084,9 +4345,12 @@
     },
     {
       "id": "on-running-d7f8fda8e0f2",
-      "slug": "head-of-product-management-product-r-d-on-running-ch",
+      "slug": "responsabile-della-gestione-dei-prodotti-prodotto-r-d-on-running-zurich",
       "slugByLocale": {
-        "en": "head-of-product-management-product-r-d-on-running-ch"
+        "en": "head-of-product-management-product-r-d-on-running-ch",
+        "it": "responsabile-della-gestione-dei-prodotti-prodotto-r-d-on-running-zurich",
+        "de": "leiter-produktmanagement-produkt-r-d-on-running-zurich",
+        "fr": "chef-de-la-gestion-des-produits-et-de-la-recherche-developpement-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -4131,13 +4395,22 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-product-management-product-r-d-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-product-management-product-r-d-on-running-ch"
+      ]
     },
     {
       "id": "on-running-a056357266a5",
       "slug": "senior-lead-computational-designer-on-running-ch",
       "slugByLocale": {
-        "en": "senior-lead-computational-designer-on-running-ch"
+        "en": "senior-lead-computational-designer-on-running-ch",
+        "fr": "senior-lead-createur-informatique-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -4185,9 +4458,11 @@
     },
     {
       "id": "on-running-adaa237b398c",
-      "slug": "director-of-sports-science-on-running-ch",
+      "slug": "direttore-della-scienza-dello-sport-on-running-zurich",
       "slugByLocale": {
-        "fr": "director-of-sports-science-on-running-ch"
+        "fr": "director-of-sports-science-on-running-ch",
+        "it": "direttore-della-scienza-dello-sport-on-running-zurich",
+        "de": "direktor-sportwissenschaft-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -4231,13 +4506,23 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "director-of-sports-science-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "director-of-sports-science-on-running-ch"
+      ]
     },
     {
       "id": "on-running-d3a8c93175a0",
-      "slug": "senior-director-of-product-performance-verticals-on-running-ch",
+      "slug": "direttore-senior-del-prodotto-performance-verticals-on-running-zurich",
       "slugByLocale": {
-        "en": "senior-director-of-product-performance-verticals-on-running-ch"
+        "en": "senior-director-of-product-performance-verticals-on-running-ch",
+        "it": "direttore-senior-del-prodotto-performance-verticals-on-running-zurich",
+        "fr": "directeur-principal-du-produit-performance-verticals-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -4282,7 +4567,15 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-director-of-product-performance-verticals-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-director-of-product-performance-verticals-on-running-ch"
+      ]
     }
   ]
 }

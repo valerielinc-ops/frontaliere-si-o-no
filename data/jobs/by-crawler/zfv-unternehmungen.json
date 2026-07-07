@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "zfv-unternehmungen-e8680facfee8",
-      "slug": "office-mitarbeiter-in-40-zfv-unternehmungen-baden",
+      "slug": "personale-dell-ufficio-in-40-zfv-unternehmungen-baden",
       "slugByLocale": {
         "de": "office-mitarbeiter-in-40-zfv-unternehmungen-baden",
-        "it": "office-mitarbeiter-in-40-zfv-unternehmungen-baden",
-        "en": "office-mitarbeiter-in-40-zfv-unternehmungen-baden",
-        "fr": "office-mitarbeiter-in-40-zfv-unternehmungen-baden"
+        "it": "personale-dell-ufficio-in-40-zfv-unternehmungen-baden",
+        "en": "office-staff-in-40-zfv-unternehmungen-baden",
+        "fr": "personnel-de-bureau-en-40-zfv-unternehmungen-baden"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -49,16 +49,30 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "office-mitarbeiter-in-40-zfv-unternehmungen-baden"
+        ],
+        "en": [
+          "office-mitarbeiter-in-40-zfv-unternehmungen-baden"
+        ],
+        "fr": [
+          "office-mitarbeiter-in-40-zfv-unternehmungen-baden"
+        ]
+      },
+      "previousSlugs": [
+        "office-mitarbeiter-in-40-zfv-unternehmungen-baden"
+      ]
     },
     {
       "id": "zfv-unternehmungen-78f7225b4bd1",
-      "slug": "kochin-koch-40-60-zfv-unternehmungen-baden",
+      "slug": "cucinare-cucinare-40-60-zfv-unternehmungen-baden",
       "slugByLocale": {
         "de": "kochin-koch-40-60-zfv-unternehmungen-baden",
-        "it": "kochin-koch-40-60-zfv-unternehmungen-baden",
-        "en": "kochin-koch-40-60-zfv-unternehmungen-baden",
-        "fr": "kochin-koch-40-60-zfv-unternehmungen-baden"
+        "it": "cucinare-cucinare-40-60-zfv-unternehmungen-baden",
+        "en": "cook-cook-40-60-zfv-unternehmungen-baden",
+        "fr": "cuisson-cuisson-40-60-zfv-unternehmungen-baden"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -100,7 +114,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-40-60-zfv-unternehmungen-baden"
+        ],
+        "en": [
+          "kochin-koch-40-60-zfv-unternehmungen-baden"
+        ],
+        "fr": [
+          "kochin-koch-40-60-zfv-unternehmungen-baden"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-40-60-zfv-unternehmungen-baden"
+      ]
     },
     {
       "id": "zfv-unternehmungen-b466d3489ef9",
@@ -1515,12 +1543,12 @@
     },
     {
       "id": "zfv-unternehmungen-e21ae55acca4",
-      "slug": "kochin-koch-zfv-unternehmungen-basel",
+      "slug": "cucinare-cucinare-zfv-unternehmungen-basel",
       "slugByLocale": {
         "de": "kochin-koch-zfv-unternehmungen-basel",
-        "it": "kochin-koch-zfv-unternehmungen-basel",
-        "en": "kochin-koch-zfv-unternehmungen-basel",
-        "fr": "kochin-koch-zfv-unternehmungen-basel"
+        "it": "cucinare-cucinare-zfv-unternehmungen-basel",
+        "en": "cook-cook-zfv-unternehmungen-basel",
+        "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-basel"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -1562,7 +1590,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-zfv-unternehmungen-basel"
+        ],
+        "en": [
+          "kochin-koch-zfv-unternehmungen-basel"
+        ],
+        "fr": [
+          "kochin-koch-zfv-unternehmungen-basel"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-zfv-unternehmungen-basel"
+      ]
     },
     {
       "id": "zfv-unternehmungen-053b068fd92d",
@@ -1950,12 +1992,12 @@
     },
     {
       "id": "zfv-unternehmungen-86493092589f",
-      "slug": "kochin-koch-zfv-unternehmungen-basel",
+      "slug": "cucinare-cucinare-zfv-unternehmungen-basel-39bb96",
       "slugByLocale": {
-        "it": "kochin-koch-zfv-unternehmungen-basel",
-        "en": "kochin-koch-zfv-unternehmungen-basel",
+        "it": "cucinare-cucinare-zfv-unternehmungen-basel-39bb96",
+        "en": "cook-cook-zfv-unternehmungen-basel-39bb96",
         "de": "kochin-koch-zfv-unternehmungen-basel",
-        "fr": "kochin-koch-zfv-unternehmungen-basel"
+        "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-basel-39bb96"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2556,12 +2598,12 @@
     },
     {
       "id": "zfv-unternehmungen-4d7d60dfa3d3",
-      "slug": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
+      "slug": "personale-di-servizio-in-20-zfv-unternehmungen-bern",
       "slugByLocale": {
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-        "it": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-        "en": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-        "fr": "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
+        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern",
+        "en": "service-staff-in-20-zfv-unternehmungen-bern",
+        "fr": "personnel-des-services-en-20-zfv-unternehmungen-bern"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2603,7 +2645,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
+        ],
+        "en": [
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
+        ],
+        "fr": [
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
+      ]
     },
     {
       "id": "zfv-unternehmungen-76008c9d84b7",
@@ -2811,10 +2867,10 @@
     },
     {
       "id": "zfv-unternehmungen-8cfc3fb27510",
-      "slug": "front-office-praktikant-in-zfv-unternehmungen-zurich",
+      "slug": "interno-ufficio-anteriore-in-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "front-office-praktikant-in-zfv-unternehmungen-zurich",
-        "it": "front-office-praktikant-in-zfv-unternehmungen-zurich",
+        "it": "interno-ufficio-anteriore-in-zfv-unternehmungen-zurich",
         "en": "front-office-praktikant-in-zfv-unternehmungen-zurich",
         "fr": "front-office-praktikant-in-zfv-unternehmungen-zurich"
       },
@@ -2858,14 +2914,22 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-praktikant-in-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "front-office-praktikant-in-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-5117435ce54c",
-      "slug": "front-office-praktikant-in-zfv-unternehmungen-zurich",
+      "slug": "interno-ufficio-anteriore-in-zfv-unternehmungen-zurich-06c0bb",
       "slugByLocale": {
         "de": "front-office-praktikant-in-zfv-unternehmungen-zurich",
-        "it": "front-office-praktikant-in-zfv-unternehmungen-zurich",
+        "it": "interno-ufficio-anteriore-in-zfv-unternehmungen-zurich-06c0bb",
         "en": "front-office-praktikant-in-zfv-unternehmungen-zurich",
         "fr": "front-office-praktikant-in-zfv-unternehmungen-zurich"
       },
@@ -2909,7 +2973,15 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-praktikant-in-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "front-office-praktikant-in-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-629e9d004fa2",
@@ -2964,10 +3036,10 @@
     },
     {
       "id": "zfv-unternehmungen-25c5209c50bf",
-      "slug": "front-office-praktikant-in-zfv-unternehmungen-zurich",
+      "slug": "interno-ufficio-anteriore-in-zfv-unternehmungen-zurich-2b08dc",
       "slugByLocale": {
         "de": "front-office-praktikant-in-zfv-unternehmungen-zurich",
-        "it": "front-office-praktikant-in-zfv-unternehmungen-zurich",
+        "it": "interno-ufficio-anteriore-in-zfv-unternehmungen-zurich-2b08dc",
         "en": "front-office-praktikant-in-zfv-unternehmungen-zurich",
         "fr": "front-office-praktikant-in-zfv-unternehmungen-zurich"
       },
@@ -3011,13 +3083,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-praktikant-in-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "front-office-praktikant-in-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-b352f202d15e",
-      "slug": "front-office-praktikant-in-zfv-unternehmungen-zurich",
+      "slug": "interno-ufficio-anteriore-in-zfv-unternehmungen-zurich-5aba0e",
       "slugByLocale": {
-        "it": "front-office-praktikant-in-zfv-unternehmungen-zurich",
+        "it": "interno-ufficio-anteriore-in-zfv-unternehmungen-zurich-5aba0e",
         "en": "front-office-praktikant-in-zfv-unternehmungen-zurich",
         "de": "front-office-praktikant-in-zfv-unternehmungen-zurich",
         "fr": "front-office-praktikant-in-zfv-unternehmungen-zurich"
@@ -3778,12 +3858,12 @@
     },
     {
       "id": "zfv-unternehmungen-7e4f10d29cce",
-      "slug": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
+      "slug": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
       "slugByLocale": {
-        "it": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-        "en": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
+        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
+        "en": "service-staff-in-20-zfv-unternehmungen-bern-72427b",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-        "fr": "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
+        "fr": "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",

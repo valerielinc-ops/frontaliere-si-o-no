@@ -55,16 +55,6 @@
         "canton": "SO",
         "location": "Solothurn"
       },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-region-solothurn",
-        "automatenbetreuer-m-w-d-selecta-solothurn"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "automatenbetreuer-m-w-d-selecta-region-solothurn",
-          "automatenbetreuer-m-w-d-selecta-solothurn"
-        ]
-      },
       "firstSeenAt": "2026-07-04T11:56:45.264Z"
     },
     {
@@ -180,15 +170,11 @@
         "location": "Kirchberg BE"
       },
       "previousSlugs": [
-        "telesales-agent-m-w-d-selecta-kirchberg-be",
-        "telesales-agent-new-business-hunter-m-w-d-selecta-kirchberg-be",
-        "agente-telesales-m-f-d-selecta-kirchberg-be"
+        "telesales-agent-m-w-d-selecta-kirchberg-be"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "telesales-agent-m-w-d-selecta-kirchberg-be",
-          "telesales-agent-new-business-hunter-m-w-d-selecta-kirchberg-be",
-          "agente-telesales-m-f-d-selecta-kirchberg-be"
+          "telesales-agent-m-w-d-selecta-kirchberg-be"
         ],
         "fr": [
           "telesales-agent-m-w-d-selecta-kirchberg-be"
@@ -250,16 +236,6 @@
       "_targetScope": {
         "canton": "LU",
         "location": "Sursee"
-      },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-region-sursee",
-        "automatenbetreuer-m-w-d-selecta-sursee"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "automatenbetreuer-m-w-d-selecta-region-sursee",
-          "automatenbetreuer-m-w-d-selecta-sursee"
-        ]
       },
       "firstSeenAt": "2026-07-04T11:56:46.235Z"
     },
@@ -710,16 +686,6 @@
         "canton": "AR",
         "location": "Herisau"
       },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-region-herisau",
-        "automatenbetreuer-m-w-d-selecta-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "automatenbetreuer-m-w-d-selecta-region-herisau",
-          "automatenbetreuer-m-w-d-selecta-herisau"
-        ]
-      },
       "firstSeenAt": "2026-07-04T11:56:50.823Z"
     },
     {
@@ -776,22 +742,6 @@
       "_targetScope": {
         "canton": "VS",
         "location": "Wallis"
-      },
-      "previousSlugs": [
-        "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "account-manager-m-f-d-selecta-wallis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenbetreuer-m-w-d-selecta-region-wallis",
-          "account-manager-m-f-d-selecta-wallis"
-        ],
-        "en": [
-          "kundenbetreuer-m-w-d-selecta-region-wallis"
-        ],
-        "fr": [
-          "kundenbetreuer-m-w-d-selecta-region-wallis"
-        ]
       },
       "firstSeenAt": "2026-07-04T11:56:51.014Z"
     },
@@ -1185,12 +1135,12 @@
     },
     {
       "id": "selecta-2da14a0c9720",
-      "slug": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15",
+      "slug": "chauffeur-cat-c-ed-e-m-f-d-selecta-kirchberg-be",
       "slugByLocale": {
         "de": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15",
-        "it": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15",
-        "en": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15",
-        "fr": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
+        "it": "chauffeur-cat-c-ed-e-m-f-d-selecta-kirchberg-be",
+        "en": "chauffeur-cat-c-and-e-m-f-d-selecta-kirchberg-be-fbad9f",
+        "fr": "chauffeur-cat-c-et-e-m-f-d-selecta-kirchberg-be-fbad9f"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1239,7 +1189,21 @@
       "_targetScope": {
         "canton": "BE",
         "location": "Kirchberg BE -"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
+        ],
+        "en": [
+          "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
+        ],
+        "fr": [
+          "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
+      ]
     },
     {
       "id": "selecta-bf633bdef368",
@@ -1366,16 +1330,6 @@
       "_targetScope": {
         "canton": "ZH",
         "location": "Winterthur"
-      },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-region-winterthur-start-1-juni-2026-oder-nach-vereinbarung",
-        "automatenbetreuer-m-w-d-selecta-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "automatenbetreuer-m-w-d-selecta-region-winterthur-start-1-juni-2026-oder-nach-vereinbarung",
-          "automatenbetreuer-m-w-d-selecta-winterthur"
-        ]
       },
       "firstSeenAt": "2026-07-04T11:56:55.278Z"
     }
