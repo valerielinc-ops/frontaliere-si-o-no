@@ -2596,6 +2596,39 @@ function patchInboundLink(distDir: string, relIndex: string, locale: Locale): bo
   return true;
 }
 
+/**
+ * Assign a stable, collision-free detail slug to every event in `list`
+ * (already scoped to one canton+comune peer group). `slugifyEvent(ev)` is
+ * the base; ties (same title+date) are broken with a plain incrementing
+ * suffix (`-2`, `-3`, ...) in list order. `list` must already be
+ * deterministically ordered on ties — both `upcomingEvents` and
+ * `recentlyEndedEvents` (scripts/lib/events-utils.mjs) sort ties on
+ * `.title` then `.id`, so two colliding events always land in the same
+ * relative order regardless of crawl/dataset insertion order or which of
+ * the two functions produced `list`.
+ *
+ * `reservedBaseSlugs` marks base slugs already claimed by a sibling OUTSIDE
+ * `list` — used so a "recently ended" bridge-page slug can never silently
+ * reuse a base slug that is still the CURRENT live/indexed slug for a
+ * same-title+date sibling in the same comune (issue #3700: a multi-day
+ * event sharing the exact title+startDate as one that already ended keeps
+ * its live bare slug; the ending one gets the decorated fallback instead of
+ * fighting over the same URL).
+ */
+export function assignEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlySet<string> = new Set()): Map<string, string> {
+  const used = new Set<string>(reservedBaseSlugs);
+  const slugFor = new Map<string, string>();
+  for (const ev of list) {
+    const base = slugifyEvent(ev);
+    let slug = base;
+    let n = 2;
+    while (used.has(slug)) slug = `${base}-${n++}`;
+    used.add(slug);
+    slugFor.set(ev.id, slug);
+  }
+  return slugFor;
+}
+
 export function eventsSeoPagesPlugin(rootDir: string): Plugin {
   return {
     name: 'events-seo-pages',
@@ -2656,28 +2689,18 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const byComune = groupByComune(byCanton.get(canton)!) as Map<string, SiteEvent[]>;
         byCantonComune.set(canton, byComune);
         for (const [comune, list] of byComune) {
-          const used = new Set<string>();
+          const slugs = assignEventSlugs(list);
           for (const ev of list) {
-            const base = slugifyEvent(ev);
-            let slug = base;
-            let n = 2;
-            while (used.has(slug)) slug = `${base}-${n++}`;
-            used.add(slug);
-            detailSlugs.set(ev.id, { canton, comune, slug });
+            detailSlugs.set(ev.id, { canton, comune, slug: slugs.get(ev.id)! });
           }
         }
 
         const otherEvents = byCanton.get(canton)!.filter((e) => !e.comune);
         if (otherEvents.length > 0) {
           otherEventsByCanton.set(canton, otherEvents);
-          const used = new Set<string>();
+          const slugs = assignEventSlugs(otherEvents);
           for (const ev of otherEvents) {
-            const base = slugifyEvent(ev);
-            let slug = base;
-            let n = 2;
-            while (used.has(slug)) slug = `${base}-${n++}`;
-            used.add(slug);
-            detailSlugs.set(ev.id, { canton, comune: OTHER_EVENTS_COMUNE_KEY, slug });
+            detailSlugs.set(ev.id, { canton, comune: OTHER_EVENTS_COMUNE_KEY, slug: slugs.get(ev.id)! });
           }
         }
       }
@@ -2814,17 +2837,16 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const byComune = groupByComune(events) as Map<string, SiteEvent[]>;
         const liveByComune = byCantonComune.get(canton);
         for (const [comune, list] of byComune) {
-          const used = new Set<string>();
-          const pastSlugFor = new Map<string, string>();
-          for (const ev of list) {
-            const base = slugifyEvent(ev);
-            let slug = base;
-            let n = 2;
-            while (used.has(slug)) slug = `${base}-${n++}`;
-            used.add(slug);
-            pastSlugFor.set(ev.id, slug);
-          }
           const liveSameComune = liveByComune?.get(comune) ?? [];
+          // #3700: reserve base slugs already claimed by a still-live
+          // sibling in this comune (e.g. a multi-day event sharing the
+          // exact same title+startDate as a now-past one, still "upcoming"
+          // via a later endDate). Without this, the past-bridge slug is
+          // assigned from `list` alone and can collide with — or even
+          // reuse — the slug that is still the CURRENT live/indexed URL
+          // for that sibling.
+          const reservedBaseSlugs = new Set(liveSameComune.map((ev) => slugifyEvent(ev)));
+          const pastSlugFor = assignEventSlugs(list, reservedBaseSlugs);
           for (const locale of LOCALES) {
             const detailHref = detailHrefFor(locale);
             for (const ev of list) {
