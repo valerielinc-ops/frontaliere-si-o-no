@@ -25,7 +25,6 @@
     "https://jobs.ruag.ch/offene-stellen/technische-r-projektleiterin/813e247b-c8af-4618-b5b0-d520dfbbbd75",
     "https://jobs.ruag.ch/offene-stellen/devops-engineer-c5i/349979ee-d679-4dcf-acba-66662b0a1ecf",
     "https://jobs.ruag.ch/offene-stellen/senior-devops-kubernetes-engineer-c5i/2eef27f6-9546-499d-8492-c1cec22f548a",
-    "https://jobs.ruag.ch/offene-stellen/operations-consultant-c5i/b392d8d5-07a9-4acd-b30d-2ce0cfb1eea1",
     "https://jobs.ruag.ch/offene-stellen/project-management-officer-c5i/a1751097-1da7-4210-b0f1-c75d18fba7ca",
     "https://jobs.ruag.ch/offene-stellen/administrative-coordinator-c5i/df707189-3c2f-4308-ac9c-83f273f5f45a",
     "https://jobs.ruag.ch/offene-stellen/governance-risk-compliance-manager/cc9869df-903e-4fa1-8ab4-2cfe9a347963",
@@ -35,10 +34,11 @@
     "https://jobs.ruag.ch/offene-stellen/risk-management-assistant/6660c90c-99fd-4df4-9435-c85c586a76a6",
     "https://jobs.ruag.ch/offene-stellen/gebaeudetechnikerin-sanitaer-heizungsinstallateurin/63ae7f4e-efa5-4ba3-ba28-f9dd8a26dbb7",
     "https://jobs.ruag.ch/offene-stellen/technician-avionics/7d62a2cf-60ef-4069-b2fb-26df66e89671",
-    "https://jobs.ruag.ch/offene-stellen/principal-cyber-security-c5i/0a59f7e8-c226-4939-9dcb-e52d75ce0ab6"
+    "https://jobs.ruag.ch/offene-stellen/principal-cyber-security-c5i/0a59f7e8-c226-4939-9dcb-e52d75ce0ab6",
+    "https://jobs.ruag.ch/offene-stellen/operations-consultant-c5i/0f88429c-91c3-46f5-81e6-5e94b71a6d0d"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-07T12:21:33.936Z",
+  "updatedAt": "2026-07-07T22:29:42.890Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-networks-betriebselektrikerin-schwachstrom/8e281827-5c3f-44d8-a754-cf6caf198437": {
       "location": "Altdorf",
@@ -130,12 +130,6 @@
       "company": "RUAG AG",
       "postedDate": "2026-01-07"
     },
-    "https://jobs.ruag.ch/offene-stellen/operations-consultant-c5i/b392d8d5-07a9-4acd-b30d-2ce0cfb1eea1": {
-      "location": "Thun",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2025-12-16"
-    },
     "https://jobs.ruag.ch/offene-stellen/project-management-officer-c5i/a1751097-1da7-4210-b0f1-c75d18fba7ca": {
       "location": "Bern",
       "canton": "BE",
@@ -195,6 +189,12 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-03-27"
+    },
+    "https://jobs.ruag.ch/offene-stellen/operations-consultant-c5i/0f88429c-91c3-46f5-81e6-5e94b71a6d0d": {
+      "location": "Thun",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-07"
     }
   }
 }
