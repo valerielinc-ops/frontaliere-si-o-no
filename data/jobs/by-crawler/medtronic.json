@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "medtronic",
-  "assembledAt": "2026-07-07T12:12:11.675Z",
   "jobs": [
     {
       "id": "medtronic-89b59595faa5",
@@ -639,5 +637,7 @@
       },
       "firstSeenAt": "2026-07-07T12:12:01.753Z"
     }
-  ]
+  ],
+  "crawlerKey": "medtronic",
+  "assembledAt": "2026-07-07T13:13:45.261Z"
 }
