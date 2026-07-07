@@ -132,8 +132,15 @@ export async function handleCreatePublisherCheckout(req) {
 
     // Verify ownership of the jobs being published under the plan.
     const ownedJobIds = [];
-    for (const jobId of jobIds) {
-      const snap = await db().collection('publisher_jobs').doc(String(jobId)).get();
+    let aziendaJobSnaps;
+    try {
+      const aziendaRefs = jobIds.map(jobId => db().collection('publisher_jobs').doc(String(jobId)));
+      aziendaJobSnaps = await db().getAll(...aziendaRefs);
+    } catch (err) {
+      console.error('[createPublisherCheckout/azienda] batch job lookup failed', err instanceof Error ? err.message : String(err));
+      return { status: 503, body: { ok: false, error: 'job_lookup_failed' } };
+    }
+    for (const snap of aziendaJobSnaps) {
       if (!snap.exists) continue;
       if (snap.data().publisherUid !== uid) return { status: 403, body: { ok: false, error: 'not_owner' } };
       ownedJobIds.push(snap.id);
@@ -184,8 +191,15 @@ export async function handleCreatePublisherCheckout(req) {
   // Authoritative unit count: read the publisher's own jobs, sum distinct locations.
   let units = 0;
   const verifiedJobIds = [];
-  for (const jobId of jobIds) {
-    const snap = await db().collection('publisher_jobs').doc(String(jobId)).get();
+  let jobSnaps;
+  try {
+    const jobRefs = jobIds.map(jobId => db().collection('publisher_jobs').doc(String(jobId)));
+    jobSnaps = await db().getAll(...jobRefs);
+  } catch (err) {
+    console.error('[createPublisherCheckout] batch job lookup failed', err instanceof Error ? err.message : String(err));
+    return { status: 503, body: { ok: false, error: 'job_lookup_failed' } };
+  }
+  for (const snap of jobSnaps) {
     if (!snap.exists) continue;
     const job = snap.data();
     if (job.publisherUid !== uid) {
