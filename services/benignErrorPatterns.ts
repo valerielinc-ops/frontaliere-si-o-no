@@ -117,7 +117,9 @@ export const APP_ERROR_ONLY_PATTERNS: readonly RegExp[] = [
   /Failed to get document because the client is offline/i,
   // Module-script preload failure on flaky networks. The SW recovery path
   // (sw_cache_stale) + resilientImport() handle the visible cases; bare
-  // rejections without a recovery hook are noise. KEPT by the $exception filter.
+  // rejections without a recovery hook are noise. KEPT by the $exception filter
+  // for chunk-load dashboards; filtered from GitHub issue creation in
+  // scripts/posthog-error-issue-sync.mjs ISSUE_DENY_PATTERNS (#3762).
   /Importing a module script failed/i,
   // Twelve Data CHF/EUR exchange-rate fetch flake (~140/30d). Caller has a full
   // Firebase RC fallback, so this is recoverable noise.
