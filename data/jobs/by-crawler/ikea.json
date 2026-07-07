@@ -1399,7 +1399,7 @@
       "url": "https://jobs.ikea.com/en/job/st-gallen/mitarbeiter-in-ikea-kuche-20-40/24107/96190654992",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:20:16.476Z",
+      "crawledAt": "2026-07-06T13:56:14.343Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "Sankt Gallen",
@@ -1426,14 +1426,15 @@
         "collaboratore-trice-ikea-kuche-80-ikea-dietlikon",
         "mitarbeiter-in-ikea-kuche-80-ikea-dietlikon",
         "mitarbeiter-in-ikea-kuche-80-ikea-ch",
-        "dipendente-ikea-ristorante-cucina-60-ikea-spreitenbach",
-        "dipendenti-in-cucina-ikea-20-40-ikea-st-gallen"
+        "dipendenti-in-cucina-ikea-20-40-ikea-st-gallen",
+        "associate-ikea-kuche-20-40-ikea-st-gallen-sankt-gallen-switzerland",
+        "employe-ikea-kitchen-20-40-ikea-st-gallen",
+        "dipendente-ikea-ristorante-cucina-60-ikea-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-ikea-kuche-20-40-ikea-ch",
-          "dipendente-ikea-ristorante-cucina-60-ikea-spreitenbach",
-          "dipendenti-in-cucina-ikea-20-40-ikea-st-gallen"
+          "dipendente-ikea-ristorante-cucina-60-ikea-spreitenbach"
         ]
       },
       "firstSeenAt": "2026-07-03T22:23:34.001Z",
@@ -1705,7 +1706,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100/24107/96224165360",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:20:16.471Z",
+      "crawledAt": "2026-07-06T13:56:14.340Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "Bern",
@@ -1763,21 +1764,19 @@
         "employee-sales-self-service-hall-100-ikea-st-gallen",
         "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch",
         "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen",
-        "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
-        "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach"
+        "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach",
+        "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch",
-          "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
-          "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach"
+          "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland"
         ],
         "fr": [
           "vendeur-trice-en-marche-et-auto-service-100-ikea-lyssach"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.365Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
