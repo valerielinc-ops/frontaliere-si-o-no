@@ -11,26 +11,26 @@
   "seedUrls": [
     "https://www.alten.ch/career/jobs/?pagenum=1&per_page=100"
   ],
-  "notes": "Dedicated ALTEN Switzerland crawler uses a real browser session to bypass Cloudflare challenge and extracts TI/GR jobs from the ALTEN Switzerland job board.",
-  "updatedAt": "2026-03-19T02:45:34.744Z",
+  "notes": "Dedicated ALTEN Switzerland crawler uses a real browser session to bypass Cloudflare challenge and extracts CH-wide jobs (all 26 cantons) from the ALTEN Switzerland job board, keeping only rows whose location resolves to a Swiss canton.",
+  "updatedAt": "2026-07-07T12:22:26.521Z",
   "seedMetaByUrl": {
-    "https://www.alten.ch/jobs/875-it-generic-net-software-developer/": {
-      "location": "Ticino",
+    "https://www.alten.ch/jobs/903-pipe-project-manager-it/": {
+      "location": "Switzerland",
       "canton": "TI",
+      "company": "ALTEN Switzerland",
+      "postedDate": "2026-03-04"
+    },
+    "https://www.alten.ch/jobs/902-consultant-e-audit-qualite-processus/": {
+      "location": "Switzerland",
+      "canton": "BE",
       "company": "ALTEN Switzerland",
       "postedDate": "2026-03-04"
     },
     "https://www.alten.ch/jobs/879-google-cloud-platform/": {
-      "location": "Ticino",
+      "location": "Switzerland",
       "canton": "TI",
       "company": "ALTEN Switzerland",
-      "postedDate": "2026-03-03"
-    },
-    "https://www.alten.ch/jobs/890-java-viseca/": {
-      "location": "Ticino",
-      "canton": "TI",
-      "company": "ALTEN Switzerland",
-      "postedDate": "2026-03-04"
+      "postedDate": "2026-06-16"
     }
   }
 }
