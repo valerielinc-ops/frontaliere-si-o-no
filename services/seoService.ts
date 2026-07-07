@@ -4411,6 +4411,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stabio-dogana-nuovo-accordo-fiscale': { name: 'Dogana Stabio Frontalieri', path: '/articoli-frontaliere/stabio-dogana-nuovo-accordo-fiscale', parent: 'blog' },
     'blog-pflegefachfrau-frontalieri-basel': { name: 'Frontalieri fiscalità', path: '/articoli-svizzera/pflegefachfrau-frontalieri-basel/', parent: 'blog' },
     'blog-ascensori-ticino-frontalieri': { name: 'Ascensori Ticino', path: '/articoli-frontaliere/ascensori-ticino-frontalieri', parent: 'blog' },
+    'blog-ascensori-steinach-lavoro-svizzera': { name: 'Lavoro Ascensori', path: '/articoli-svizzera/ascensori-steinach-lavoro-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

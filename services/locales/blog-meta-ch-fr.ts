@@ -943,6 +943,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pflegefachfrau-frontalieri-basel.title': 'Pflegefachfrau à Bâle : ce que vous devez savoir sur vous êtes frontalier',
     'blog.article.pflegefachfrau-frontalieri-basel.excerpt': 'Nouvel accord frontalier 2024, franchise € 10\'000 et règles fiscales pour les travailleurs italiens en Suisse',
     'blog.article.pflegefachfrau-frontalieri-basel.imageAlt': 'Infirmière assiste patient dans établissement suisse',
+    'blog.article.ascensori-steinach-lavoro-svizzera.title': 'Recherche d\'emploi ascenseurs à Steinach : opportunités en Suisse',
+    'blog.article.ascensori-steinach-lavoro-svizzera.excerpt': 'Découvrez les opportunités d\'emploi pour les installateurs et les mainteneurs d\'ascenseurs à Steinach et dans toute la Suisse. Données sur les salaires, les réglementations techniques et les procédures cantonales.',
+    'blog.article.ascensori-steinach-lavoro-svizzera.imageAlt': 'Ouvriers suisses installent un ascenseur',
 };
 
 export default blogMetaChFr;

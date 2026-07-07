@@ -943,6 +943,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pflegefachfrau-frontalieri-basel.title': 'Pflegefachfrau in Basel: what you need to know you are border',
     'blog.article.pflegefachfrau-frontalieri-basel.excerpt': 'New border agreement 2024, €10,000 deductible and tax rules for Italian workers in Switzerland',
     'blog.article.pflegefachfrau-frontalieri-basel.imageAlt': 'Nurse assisting patient in Swiss healthcare facility',
+    'blog.article.ascensori-steinach-lavoro-svizzera.title': 'Search for elevator jobs in Steinach: opportunities in Switzerland',
+    'blog.article.ascensori-steinach-lavoro-svizzera.excerpt': 'Discover job opportunities for elevator installers and maintainers in Steinach and throughout Switzerland. Data on salaries, technical regulations and cantonal procedures.',
+    'blog.article.ascensori-steinach-lavoro-svizzera.imageAlt': 'Swiss workers install an elevator',
 };
 
 export default blogMetaChEn;

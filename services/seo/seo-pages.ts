@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3104,
+ "numberOfItems": 3105,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7779,7 +7779,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3101, "name": "Private Spitex a Basilea: nuove opportunità di ...", "url": `${BASE_URL}/articoli-frontaliere/private-spitex-stellenangebote-basel` },
           { "@type": "ListItem", "position": 3102, "name": "Stabio dogana: le novità fiscali per i frontalieri", "url": `${BASE_URL}/articoli-frontaliere/stabio-dogana-nuovo-accordo-fiscale` },
           { "@type": "ListItem", "position": 3103, "name": "Pflegefachfrau a Basel: cosa devi sapere sei fr...", "url": `${BASE_URL}/articoli-frontaliere/pflegefachfrau-frontalieri-basel` },
-          { "@type": "ListItem", "position": 3104, "name": "Ascensori Ticino: opportunità di lavoro per fro...", "url": `${BASE_URL}/articoli-frontaliere/ascensori-ticino-frontalieri` }
+          { "@type": "ListItem", "position": 3104, "name": "Ascensori Ticino: opportunità di lavoro per fro...", "url": `${BASE_URL}/articoli-frontaliere/ascensori-ticino-frontalieri` },
+          { "@type": "ListItem", "position": 3105, "name": "Cerca lavoro ascensori a Steinach: opportunità ...", "url": `${BASE_URL}/articoli-frontaliere/ascensori-steinach-lavoro-svizzera` }
  ]
  },
  {

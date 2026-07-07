@@ -337,6 +337,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'gazzetta-ufficiale-legge-30-dicembre-2024-n-207': { it: 'gazzetta-ufficiale-legge-30-dicembre-2024-n-207', en: 'gazzetta-ufficiale-legge-30-dicembre-2024-n-207', de: 'gazzetta-ufficiale-legge-30-dicembre-2024-n-207', fr: 'gazzetta-ufficiale-legge-30-dicembre-2024-n-207' },
  'private-spitex-stellenangebote-basel': { it: 'private-spitex-stellenangebote-basel', en: 'private-clinic-basel', de: 'private-klinik-basel', fr: 'clinique-privee-bale' },
  'pflegefachfrau-frontalieri-basel': { it: 'pflegefachfrau-frontalieri-basel', en: 'nursing-specialist-cross-border-workers-basel', de: 'pflegefachfrau-frontalieri-basel', fr: 'infirmiere-frontalier-basel' },
+ 'ascensori-steinach-lavoro-svizzera': { it: 'ascensori-steinach-lavoro-svizzera', en: 'elevators-steinach-swiss-jobs', de: 'aufzuege-steinach-schweiz-arbeit', fr: 'ascenseurs-steinach-travail-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
