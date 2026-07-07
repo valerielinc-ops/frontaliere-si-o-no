@@ -3,7 +3,7 @@
 # Survives concurrent pushes from other workflows that also write to main.
 #
 # Usage:
-#   bash scripts/lib/git-push-with-retry.sh [--branch main] [--max-attempts 5] \
+#   bash scripts/lib/git-push-with-retry.sh [--branch main] [--max-attempts 10] \
 #     [--regenerate-cmd "..."] [--in-place-resolver-cmd "..."] [--stash-dirty]
 #
 # Examples:
@@ -77,7 +77,7 @@ if [ -f ".git/index.lock" ]; then
 fi
 
 BRANCH="main"
-MAX_ATTEMPTS=5
+MAX_ATTEMPTS=10
 REGENERATE_CMD=""
 IN_PLACE_RESOLVER_CMD=""
 STASH_DIRTY=""
