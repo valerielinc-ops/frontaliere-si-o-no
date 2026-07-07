@@ -931,6 +931,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.caissiere-migros.title': 'Migros Vaud: nuova caissière e regime transitorio',
     'blog.article.caissiere-migros.excerpt': 'The cooperative Migros Vaud has announced the replacement of the caissière, while border workers will be exempt from the transitional regime until 2033',
     'blog.article.caissiere-migros.imageAlt': 'Image of a Migros cashier at Lugano, with city and mountain background',
+    'blog.article.lohn-denner-verkauf-2024.title': 'Loihn denner: New rules for livestock trade',
+    'blog.article.lohn-denner-verkauf-2024.excerpt': 'From 1 January 2024, new rules for livestock trade in Switzerland.',
+    'blog.article.lohn-denner-verkauf-2024.imageAlt': 'A frontalier in a Lugano café.',
 };
 
 export default blogMetaChEn;

@@ -931,6 +931,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.caissiere-migros.title': 'Die neue Caissière der Migros in Waadt und die Übergangsregelung für Grenzgänger',
     'blog.article.caissiere-migros.excerpt': 'Die Genossenschaft Migros Waadt hat den Ersatz der Caissière angekündigt, während Grenzgänger bis 2033 von der Übergangsregelung ausgenommen sind',
     'blog.article.caissiere-migros.imageAlt': 'Bild einer Kassiererin bei Migros in Lugano, mit Stadt- und Berglandschaft',
+    'blog.article.lohn-denner-verkauf-2024.title': 'Loihn denner: Neue Regeln für den Viehhandel',
+    'blog.article.lohn-denner-verkauf-2024.excerpt': 'Ab dem 1. Januar 2024 neue Regeln für den Viehhandel in der Schweiz.',
+    'blog.article.lohn-denner-verkauf-2024.imageAlt': 'Ein Frontalier in einem Luganer Café.',
 };
 
 export default blogMetaChDe;
