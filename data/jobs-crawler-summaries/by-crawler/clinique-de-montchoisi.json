@@ -1,16 +1,16 @@
 {
   "key": "clinique-de-montchoisi",
   "label": "Clinique de Montchoisi",
-  "generatedAt": "2026-07-07T11:57:23.785Z",
+  "generatedAt": "2026-07-07T22:14:30.099Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6683,
-  "avgDurationMs": 6683,
+  "durationMs": 5632,
+  "avgDurationMs": 5632,
   "durationHistory": [
-    6683
+    5632
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134770892--technicien-ne-en-radiologie-medicale-100-",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T11:57:21.597Z",
+      "crawledAt": "2026-07-07T22:14:28.415Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -53,47 +53,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "clinique-de-montchoisi-a8d424991922",
-      "slug": "tso-o-infermiere-strumentista-in-sala-operatoria-clinique-de-montchoisi-lausanne",
-      "company": "Clinique de Montchoisi",
-      "companyKey": "clinique-de-montchoisi",
-      "companyDomain": "swissmedical.net",
-      "title": "TSO ou infirmier(ère) instrumentiste au bloc opératoire",
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000111065880-tso-ou-infirmier-ere-instrumentiste-au-bloc-operatoire",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000111065880-tso-ou-infirmier-ere-instrumentiste-au-bloc-operatoire",
-      "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-05T22:27:57.853Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1006",
-      "streetAddress": "Chemin des Allinges 10, 1006 Lausanne",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "datePosted": "2026-05-26",
-      "firstSeenAt": "2026-05-26T14:04:41.731Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
