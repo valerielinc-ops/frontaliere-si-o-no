@@ -110,13 +110,37 @@ fi
 if [ "$SLICE_ONLY" = true ]; then
   # Slice-only mode: only commit per-crawler slice files + ai-cache.
   # Shared monolithic files are assembled during deploy, not per-crawler.
-  STANDARD_FILES=(
-    data/jobs/by-crawler/
-    data/jobs/expired/by-crawler/
-    data/jobs-crawler-summaries/by-crawler/
-    data/translation-cache/
-    data/jobs-ai-cache.json
-  )
+  #
+  # Crawler-group workflows run ~25 sibling crawlers concurrently against ONE
+  # shared checkout (#3701). A bare directory glob here would `git add` (and
+  # 3-way-merge) every sibling's currently-modified slice too — not just this
+  # invocation's own — misattributing their data under this crawler's commit.
+  # Confirmed live: run 28852047487 committed 5 siblings' slices (lindt-
+  # spruengli, sonarsource, stadt-luzern, usz, vista) under "Auto-update
+  # SPITEX BASEL jobs". The group workflow generator already exports
+  # JOBS_SLICE_FILE (this crawler's own slice path) for the crawler's own
+  # pipeline; reuse it to scope staging to exactly this crawler's own files.
+  # Falls back to the old directory-wide behavior when unset (non-grouped
+  # callers, e.g. translate-pending.yml, which legitimately touches every
+  # crawler's slice in one sequential job).
+  if [ -n "${JOBS_SLICE_FILE:-}" ]; then
+    SLICE_BASENAME="$(basename "$JOBS_SLICE_FILE")"
+    STANDARD_FILES=(
+      "data/jobs/by-crawler/${SLICE_BASENAME}"
+      "data/jobs/expired/by-crawler/${SLICE_BASENAME}"
+      "data/jobs-crawler-summaries/by-crawler/${SLICE_BASENAME}"
+      "data/translation-cache/${SLICE_BASENAME}"
+      data/jobs-ai-cache.json
+    )
+  else
+    STANDARD_FILES=(
+      data/jobs/by-crawler/
+      data/jobs/expired/by-crawler/
+      data/jobs-crawler-summaries/by-crawler/
+      data/translation-cache/
+      data/jobs-ai-cache.json
+    )
+  fi
 else
   # Legacy mode: commit all shared files (used by non-migrated crawlers).
   STANDARD_FILES=(
@@ -842,10 +866,17 @@ NODE
 node scripts/validate-crawler-summaries.mjs
 fi  # end SLICE_ONLY=false validation block
 
-# Filter out gitignored paths before staging (e.g. data/jobs.json is in .gitignore)
+# Filter out gitignored paths before staging (e.g. data/jobs.json is in .gitignore).
+# Also drop non-existent paths: STANDARD_FILES now includes per-crawler file
+# paths (e.g. data/jobs/expired/by-crawler/<slug>.json) that legitimately
+# don't exist for every crawler (e.g. one that has never had an expired job) —
+# `git add` fails its ENTIRE invocation on any single unmatched pathspec, which
+# would otherwise abort staging of files that DO exist alongside it.
 STAGEABLE_FILES=()
 for _sf in "${ALL_FILES[@]}"; do
-  if git check-ignore -q "$_sf" 2>/dev/null; then
+  if [[ ! -e "$_sf" && "$_sf" != */ ]]; then
+    continue
+  elif git check-ignore -q "$_sf" 2>/dev/null; then
     echo "ℹ️ Skipping gitignored path: $_sf"
   else
     STAGEABLE_FILES+=("$_sf")
@@ -886,7 +917,9 @@ if ! git rebase origin/main 2>/dev/null; then
 
   STAGEABLE_FILES=()
   for _sf in "${ALL_FILES[@]}"; do
-    if git check-ignore -q "$_sf" 2>/dev/null; then
+    if [[ ! -e "$_sf" && "$_sf" != */ ]]; then
+      continue
+    elif git check-ignore -q "$_sf" 2>/dev/null; then
       echo "ℹ️ Skipping gitignored path: $_sf"
     else
       STAGEABLE_FILES+=("$_sf")

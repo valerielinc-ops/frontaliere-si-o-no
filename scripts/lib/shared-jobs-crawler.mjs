@@ -193,7 +193,14 @@ const SLUG_REGISTRY_PATH = path.resolve(ROOT, 'data', 'slug-registry.json');
 const ADAPTERS_REGISTRY_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'registry.json');
 const ADAPTERS_BASE_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters');
 const CRAWLER_FIRESTORE_DOC = 'admin_config/jobsCrawler';
-const AI_CACHE_PATH = path.resolve(ROOT, 'data', 'jobs-ai-cache.json');
+const AI_CACHE_PATH_DEFAULT = path.resolve(ROOT, 'data', 'jobs-ai-cache.json');
+
+// Resolved at call time so tests can point load/persist at a controlled fixture
+// via AI_CACHE_PATH_OVERRIDE. Unset in all prod/CI paths → identical behavior.
+function resolveAiCachePath() {
+  const override = process.env.AI_CACHE_PATH_OVERRIDE;
+  return override ? path.resolve(override) : AI_CACHE_PATH_DEFAULT;
+}
 
 function loadLocalEnvFile(filePath) {
   if (!fs.existsSync(filePath)) return;
@@ -415,7 +422,7 @@ function deleteCachedAiResponse(cacheKey) {
 function loadPersistentAiCache() {
   if (!AI_CACHE_PERSIST_ENABLED || aiCacheLoaded) return aiCacheLoadedEntries;
   aiCacheLoaded = true;
-  const raw = readJson(AI_CACHE_PATH, null);
+  const raw = readJson(resolveAiCachePath(), null);
   if (!raw || typeof raw !== 'object') return aiCacheLoadedEntries;
 
   let entries = [];
@@ -450,14 +457,44 @@ function persistAiCacheToDisk({ force = false } = {}) {
   if (!AI_CACHE_PERSIST_ENABLED || !aiCacheLoaded) return;
   if (!force && !aiCacheDirty) return;
   trimAiCache(Math.min(AI_CACHE_MAX_ENTRIES, AI_CACHE_DISK_MAX_ENTRIES));
-  const entries = [...aiResponseCache.entries()]
-    .slice(-AI_CACHE_DISK_MAX_ENTRIES)
-    .map(([key, entry]) => ({
+
+  const merged = new Map(
+    [...aiResponseCache.entries()].map(([key, entry]) => [
       key,
-      touchedAt: Number(entry?.touchedAt || Date.now()),
-      value: cloneCacheValue(entry?.value),
-    }));
-  writeJson(AI_CACHE_PATH, {
+      { touchedAt: Number(entry?.touchedAt || Date.now()), value: cloneCacheValue(entry?.value) },
+    ]),
+  );
+
+  // Crawler-group jobs run ~25 sibling processes concurrently against one
+  // shared checkout, each loading this cache once at startup then writing a
+  // full snapshot back at exit. Without merging, whichever process persists
+  // last clobbers every key a sibling added or refreshed after this
+  // process's own load — a last-write-wins race (self-healing: a dropped
+  // entry just costs one extra LLM call next run, not permanent data loss —
+  // but wasteful at ~25x scale, every run). Re-read the current on-disk
+  // snapshot right before writing and fold in any key with a newer
+  // touchedAt than what this process already holds, so concurrent siblings'
+  // additions merge by actual recency instead of clobbering each other.
+  const onDisk = readJson(resolveAiCachePath(), null);
+  const onDiskEntries = onDisk && typeof onDisk === 'object' && Array.isArray(onDisk.entries)
+    ? onDisk.entries
+    : [];
+  for (const entry of onDiskEntries) {
+    const key = normalizeSpace(entry?.key || '');
+    if (!key) continue;
+    const diskTouchedAt = Number(entry?.touchedAt || 0);
+    const existing = merged.get(key);
+    if (!existing || diskTouchedAt > existing.touchedAt) {
+      merged.set(key, { touchedAt: diskTouchedAt, value: cloneCacheValue(entry?.value) });
+    }
+  }
+
+  const entries = [...merged.entries()]
+    .sort(([, a], [, b]) => a.touchedAt - b.touchedAt)
+    .slice(-AI_CACHE_DISK_MAX_ENTRIES)
+    .map(([key, entry]) => ({ key, touchedAt: entry.touchedAt, value: entry.value }));
+
+  writeJson(resolveAiCachePath(), {
     version: AI_CACHE_FILE_VERSION,
     savedAt: new Date().toISOString(),
     entries,
@@ -5695,6 +5732,21 @@ export const __testables = {
   aiValidateJobDetailPage,
   setCrawlerConfigForTests(cfg) { crawlerConfigGlobal = cfg; },
   clearAiResponseCacheForTests() { aiResponseCache.clear(); },
+  persistAiCacheToDisk,
+  loadPersistentAiCache,
+  seedAiCacheForTests(entries) {
+    aiCacheLoaded = true;
+    aiCacheDirty = true;
+    for (const { key, touchedAt, value } of entries) {
+      aiResponseCache.set(key, { touchedAt, value });
+    }
+  },
+  resetAiCacheStateForTests() {
+    aiResponseCache.clear();
+    aiCacheLoaded = false;
+    aiCacheDirty = false;
+    aiCacheLoadedEntries = 0;
+  },
 };
 
 // Auto-run only when executed directly (not imported as module)

@@ -3,6 +3,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { applyGlossaryCorrections } from './translation-glossary.mjs';
+import { writeJsonAtomic } from './atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
@@ -84,14 +85,42 @@ function ensureStoreLoaded() {
 function persistStore() {
   const { memoryPath, memoryMaxEntries } = getConfig();
   ensureStoreLoaded();
-  while (loadedStore.size > memoryMaxEntries) {
-    const oldestKey = loadedStore.keys().next().value;
-    if (!oldestKey) break;
-    loadedStore.delete(oldestKey);
+
+  // Crawler-group jobs run ~25 sibling processes concurrently against one
+  // shared checkout, each loading this memory once at startup then persisting
+  // on every setMemoryEntry() call — the same last-write-wins race as
+  // data/jobs-ai-cache.json (see persistAiCacheToDisk in shared-jobs-crawler.mjs).
+  // Re-read the on-disk snapshot right before writing and fold in any entry
+  // with a newer touchedAt than what this process already holds, so concurrent
+  // siblings' translations merge by actual recency instead of clobbering
+  // each other.
+  let onDiskEntries = [];
+  try {
+    if (fs.existsSync(memoryPath)) {
+      const raw = JSON.parse(fs.readFileSync(memoryPath, 'utf-8'));
+      if (raw && raw.version === FILE_VERSION && Array.isArray(raw.entries)) {
+        onDiskEntries = raw.entries;
+      }
+    }
+  } catch {
+    onDiskEntries = [];
   }
-  const entries = Array.from(loadedStore.values());
-  fs.mkdirSync(path.dirname(memoryPath), { recursive: true });
-  fs.writeFileSync(memoryPath, `${JSON.stringify({ version: FILE_VERSION, entries }, null, 2)}\n`, 'utf-8');
+  for (const entry of onDiskEntries) {
+    if (!entry?.key) continue;
+    const existing = loadedStore.get(entry.key);
+    const diskTouchedAt = Number(entry.touchedAt || 0);
+    const existingTouchedAt = Number(existing?.touchedAt || 0);
+    if (!existing || diskTouchedAt > existingTouchedAt) {
+      loadedStore.set(entry.key, entry);
+    }
+  }
+
+  const merged = Array.from(loadedStore.values())
+    .sort((a, b) => Number(a.touchedAt || 0) - Number(b.touchedAt || 0));
+  const entries = merged.slice(-memoryMaxEntries);
+  loadedStore = new Map(entries.map((entry) => [entry.key, entry]));
+
+  writeJsonAtomic(memoryPath, { version: FILE_VERSION, entries });
 }
 
 function buildMemoryKey({ text, sourceLang, targetLang, kind, context = {} }) {
