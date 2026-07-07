@@ -49,6 +49,19 @@ describe('eventsBasePathForCanton', () => {
     expect(ai.it).toBe('/eventi/appenzello');
   });
 
+  // Issue #3715: the SSG emit loop groups events by this canton key before
+  // rendering one hub page per key. BL and BS resolving to the exact same
+  // base path (not just the same `.it` slug) is the precondition the fix
+  // relies on — if they ever diverged, grouping by the resolved key would
+  // stop being equivalent to grouping by the emitted URL.
+  it('BL and BS resolve to the byte-identical base path object (same emitted hub URL)', () => {
+    expect(eventsBasePathForCanton('BL')).toEqual(eventsBasePathForCanton('BS'));
+  });
+
+  it('AI and AR resolve to the byte-identical base path object (same emitted hub URL)', () => {
+    expect(eventsBasePathForCanton('AI')).toEqual(eventsBasePathForCanton('AR'));
+  });
+
   it('degrades to the TI fallback for an unknown/blank canton', () => {
     expect(eventsBasePathForCanton('')).toEqual(EVENTS_BASE_PATH);
     expect(eventsBasePathForCanton('XX')).toEqual(EVENTS_BASE_PATH);
