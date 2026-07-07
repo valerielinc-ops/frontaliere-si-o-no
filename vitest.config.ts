@@ -189,6 +189,20 @@ export default defineConfig({
  // resolution succeeds and the mock can take over at module-load time.
  '@google-cloud/recaptcha-enterprise': path.resolve(__dirname, 'tests/stubs/recaptcha-enterprise.ts'),
  },
+ // `functions/src/*.js` has its own nested node_modules (separate deploy
+ // bundle, same pinned firebase-admin version — see package.json /
+ // functions/package.json). Node's resolution algorithm walks up from the
+ // importer, so any `firebase-admin` (or subpath, e.g. `firebase-admin/auth`)
+ // import inside functions/src resolves to functions/node_modules/firebase-admin
+ // — a different absolute module id than the root copy tests/*.test.ts
+ // resolve to. vi.mock('firebase-admin'[/subpath]) intercepts by resolved
+ // id, so without forcing a single instance the mock silently misses every
+ // functions/src import and the real (uninitialized) SDK runs instead.
+ // `dedupe` (not a per-subpath alias) is required here: an alias keyed on
+ // the bare specifier does prefix replacement and breaks subpaths resolved
+ // via the package's `exports` map (e.g. `firebase-admin/remote-config`)
+ // once rewritten to a plain filesystem path.
+ dedupe: ['firebase-admin'],
  },
  test: {
  projects: [
