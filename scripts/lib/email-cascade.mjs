@@ -41,10 +41,17 @@
 
 const PROVIDERS = [
   { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000  },
-  // resend: paid plan activated 2026-07-06 (50000/mo, owner request) — this is
-  // now the bulk workhorse of the cascade, not a fallback. dailyLimit = 50000/30
-  // months-average, floored.
-  { id: 'resend',   dailyLimit: 1666, monthlyLimit: 50000 },
+  // resend: paid plan activated 2026-07-06 (50000/mo, owner request), bulk
+  // workhorse of the cascade. No self-imposed dailyLimit (owner request
+  // 2026-07-07): the 1666/day floor (50000/30, months-average) was OUR OWN
+  // accounting, not a Resend-side cap, and it starved job-alerts on 2026-07-07
+  // — newsletter + ad-blast alone had already pushed the in-run counter to
+  // 1672/1666 by 11:06, so job-alerts found resend (and mailjet, separately
+  // maxed at its real 200/day free-tier cap) already "exhausted" for the rest
+  // of the day even though Resend's real monthly ceiling (50000) had ample
+  // room left. Real protection still stands: a genuine Resend-side 429/403
+  // still trips isRateLimitedError below and benches it for the run.
+  { id: 'resend',   dailyLimit: Infinity, monthlyLimit: 50000 },
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
   // maileroo: free tier (100/day). DKIM selector mta._domainkey.frontaliereticino.ch
