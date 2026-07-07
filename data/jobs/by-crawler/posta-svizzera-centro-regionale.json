@@ -24,12 +24,12 @@
         "en": "Delivery:in packages",
         "fr": "Livraison:en paquets"
       },
-      "slug": "zusteller-in-pakete-post",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-sirnach",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-post",
-        "en": "zusteller-in-pakete-post",
+        "it": "consegna-in-pacchetti-die-schweizerische-post-sirnach",
+        "en": "delivery-in-packages-die-schweizerische-post-sirnach",
         "de": "zusteller-in-pakete-die-schweizerische-post-sirnach",
-        "fr": "zusteller-in-pakete-post"
+        "fr": "livraison-en-paquets-die-schweizerische-post-sirnach"
       },
       "sourceLang": "de",
       "department": "",
@@ -64,7 +64,21 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "postalCode": "8500",
-      "firstSeenAt": "2026-07-06T15:19:00.145Z"
+      "firstSeenAt": "2026-07-06T15:19:00.145Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74253-de_DE",
@@ -91,9 +105,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-buochs",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-buochs",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-buochs",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-buochs"
       },
       "sourceLang": "de",
       "department": "",
@@ -131,6 +145,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
@@ -162,9 +182,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-zurich-mulligen",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-zurich-mulligen",
-        "en": "zusteller-in-briefe-und-pakete-post-2",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-zurich-mulligen",
         "de": "zusteller-in-briefe-und-pakete-post-2",
-        "fr": "zusteller-in-briefe-und-pakete-post-2"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -186,6 +206,12 @@
         "it": [
           "zusteller-in-briefe-und-pakete-post-2",
           "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post-2"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post-2"
         ]
       },
       "previousSlugs": [
@@ -305,12 +331,12 @@
         "en": "Personnel: in disposition control center center",
         "fr": "Personnel: dans le centre de contrôle de disposition"
       },
-      "slug": "sachbearbeiter-in-disposition-leitstelle-mitte-post",
+      "slug": "personale-nel-centro-di-controllo-di-disposizione-postauto-spiez",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-disposition-leitstelle-mitte-post",
-        "en": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
+        "it": "personale-nel-centro-di-controllo-di-disposizione-postauto-spiez",
+        "en": "personnel-in-disposition-control-center-center-postauto-spiez",
         "de": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-        "fr": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez"
+        "fr": "personnel-dans-le-centre-de-controle-de-disposition-postauto-spiez"
       },
       "sourceLang": "de",
       "department": "",
@@ -345,7 +371,22 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "postalCode": "3700",
-      "firstSeenAt": "2026-07-06T15:19:00.145Z"
+      "firstSeenAt": "2026-07-06T15:19:00.145Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-disposition-leitstelle-mitte-post"
+        ],
+        "en": [
+          "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez"
+        ],
+        "fr": [
+          "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-disposition-leitstelle-mitte-post",
+        "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73703-de_DE",
@@ -515,9 +556,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-basel",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-basel",
-        "en": "zusteller-in-briefe-und-pakete-post-3",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-basel",
         "de": "zusteller-in-briefe-und-pakete-post-3",
-        "fr": "zusteller-in-briefe-und-pakete-post-3"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-basel"
       },
       "sourceLang": "de",
       "department": "",
@@ -539,6 +580,12 @@
         "it": [
           "zusteller-in-briefe-und-pakete-post-3",
           "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post-3"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post-3"
         ]
       },
       "previousSlugs": [
@@ -589,9 +636,9 @@
       "slug": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans",
       "slugByLocale": {
         "it": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans",
-        "en": "quereinsteiger-in-als-postauto-fahrer-in-post",
+        "en": "lateral-entrant-in-as-postbus-driver-in-postauto-stans",
         "de": "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
-        "fr": "quereinsteiger-in-als-postauto-fahrer-in-post"
+        "fr": "entree-laterale-in-comme-pilote-postbus-in-postauto-stans"
       },
       "sourceLang": "de",
       "department": "",
@@ -628,6 +675,12 @@
       "firstSeenAt": "2026-07-06T15:19:00.145Z",
       "previousSlugsByLocale": {
         "it": [
+          "quereinsteiger-in-als-postauto-fahrer-in-post"
+        ],
+        "en": [
+          "quereinsteiger-in-als-postauto-fahrer-in-post"
+        ],
+        "fr": [
           "quereinsteiger-in-als-postauto-fahrer-in-post"
         ]
       },

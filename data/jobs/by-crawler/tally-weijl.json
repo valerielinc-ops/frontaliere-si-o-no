@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "tally-weijl-1aea5f50c780",
-      "slug": "teilzeit-modeberaterin-50-80-m-w-d-tally-weijl-thun",
+      "slug": "modello-del-tempo-partiale-50-80-m-f-d-tally-weijl-thun",
       "slugByLocale": {
         "de": "teilzeit-modeberaterin-50-80-m-w-d-tally-weijl-thun",
-        "it": "teilzeit-modeberaterin-50-80-m-w-d-tally-weijl-thun",
-        "en": "teilzeit-modeberaterin-50-80-m-w-d-tally-weijl-thun",
-        "fr": "teilzeit-modeberaterin-50-80-m-w-d-tally-weijl-thun"
+        "it": "modello-del-tempo-partiale-50-80-m-f-d-tally-weijl-thun",
+        "en": "partial-time-modeberaterin-50-80-m-f-d-tally-weijl-thun",
+        "fr": "modeberaterine-partiel-50-80-m-f-j-tally-weijl-thun"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -64,16 +64,30 @@
       },
       "postalCode": "3600",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-07-06T15:31:52.455Z"
+      "firstSeenAt": "2026-07-06T15:31:52.455Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teilzeit-modeberaterin-50-80-m-w-d-tally-weijl-thun"
+        ],
+        "en": [
+          "teilzeit-modeberaterin-50-80-m-w-d-tally-weijl-thun"
+        ],
+        "fr": [
+          "teilzeit-modeberaterin-50-80-m-w-d-tally-weijl-thun"
+        ]
+      },
+      "previousSlugs": [
+        "teilzeit-modeberaterin-50-80-m-w-d-tally-weijl-thun"
+      ]
     },
     {
       "id": "tally-weijl-cbee61b44bde",
-      "slug": "teilzeit-modeberaterin-40-m-w-d-tally-weijl-schaffhausen",
+      "slug": "parte-time-modeberaterin-40-m-w-d-tally-weijl-schaffhausen",
       "slugByLocale": {
         "de": "teilzeit-modeberaterin-40-m-w-d-tally-weijl-schaffhausen",
-        "it": "teilzeit-modeberaterin-40-m-w-d-tally-weijl-schaffhausen",
-        "en": "teilzeit-modeberaterin-40-m-w-d-tally-weijl-schaffhausen",
-        "fr": "teilzeit-modeberaterin-40-m-w-d-tally-weijl-schaffhausen"
+        "it": "parte-time-modeberaterin-40-m-w-d-tally-weijl-schaffhausen",
+        "en": "part-time-modeberaterin-40-m-w-d-tally-weijl-schaffhausen",
+        "fr": "modeberaterien-a-temps-partiel-40-m-p-j-tally-weijl-schaffhausen"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -128,7 +142,21 @@
       },
       "postalCode": "8200",
       "addressRegion": "SH",
-      "firstSeenAt": "2026-07-06T15:31:51.748Z"
+      "firstSeenAt": "2026-07-06T15:31:51.748Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teilzeit-modeberaterin-40-m-w-d-tally-weijl-schaffhausen"
+        ],
+        "en": [
+          "teilzeit-modeberaterin-40-m-w-d-tally-weijl-schaffhausen"
+        ],
+        "fr": [
+          "teilzeit-modeberaterin-40-m-w-d-tally-weijl-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "teilzeit-modeberaterin-40-m-w-d-tally-weijl-schaffhausen"
+      ]
     },
     {
       "id": "tally-weijl-acd4bfc45a27",
@@ -508,13 +536,11 @@
         "teilzeit-modeberaterin-20-40-m-w-d-tally-weijl-frauenfeld",
         "conseillere-mode-temps-partiel-20-40-h-f-d-tally-weijl-frauenfeld",
         "consulente-moda-a-tempo-parziale-20-40-m-w-d-tally-weijl-frauenfeld",
-        "consulente-moda-a-tempo-parziale-50-m-w-d-a-frauenfeld-tally-weijl-frauenfeld",
-        "consulente-di-moda-part-time-m-f-d-50-tally-weijl-chur"
+        "consulente-moda-a-tempo-parziale-50-m-w-d-a-frauenfeld-tally-weijl-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teilzeit-modeberaterin-m-w-d-50-tally-weijl-chur",
-          "consulente-di-moda-part-time-m-f-d-50-tally-weijl-chur"
+          "teilzeit-modeberaterin-m-w-d-50-tally-weijl-chur"
         ],
         "en": [
           "teilzeit-modeberaterin-m-w-d-50-tally-weijl-chur"
@@ -1211,7 +1237,7 @@
         "de": "filialleiter-store-manager-w-m-d-tw-thun-tally-weijl-thun",
         "en": "filialleiter-store-manager-w-m-d-tw-thun-tally-weijl-thun",
         "it": "filialleiter-store-manager-w-m-d-tw-thun-tally-weijl-thun",
-        "fr": "filialleiter-store-manager-w-m-d-tw-thun-tally-weijl-thun"
+        "fr": "gestionnaire-de-branche-gestionnaire-de-magasin-f-m-d-tw-thun-tally-weijl-thun"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -1595,14 +1621,12 @@
       "previousSlugs": [
         "operations-intern-tally-weijl-basel",
         "operazioni-intern-tally-weijl-basel",
-        "operationen-intern-tally-weijl-basel",
-        "operations-tirocinante-tally-weijl-basel"
+        "operationen-intern-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operations-intern-tally-weijl-basel",
-          "operazioni-intern-tally-weijl-basel",
-          "operations-tirocinante-tally-weijl-basel"
+          "operazioni-intern-tally-weijl-basel"
         ],
         "de": [
           "operations-intern-tally-weijl-basel",
@@ -1949,13 +1973,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseillere-de-vente-50-tally-weijl-sierre",
-        "consulente-commerciale-50-tally-weijl-sierre"
+        "conseillere-de-vente-50-tally-weijl-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseillere-de-vente-50-tally-weijl-sierre",
-          "consulente-commerciale-50-tally-weijl-sierre"
+          "conseillere-de-vente-50-tally-weijl-sierre"
         ],
         "en": [
           "conseillere-de-vente-50-tally-weijl-sierre"
@@ -2027,13 +2049,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseilere-de-vente-30-tally-weijl-sion",
-        "consulente-commerciale-30-tally-weijl-sion"
+        "conseilere-de-vente-30-tally-weijl-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseilere-de-vente-30-tally-weijl-sion",
-          "consulente-commerciale-30-tally-weijl-sion"
+          "conseilere-de-vente-30-tally-weijl-sion"
         ],
         "en": [
           "conseilere-de-vente-30-tally-weijl-sion"
@@ -2105,13 +2125,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "allocator-intern-tally-weijl-basel",
-        "interno-legante-tally-weijl-basel"
+        "allocator-intern-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allocator-intern-tally-weijl-basel",
-          "interno-legante-tally-weijl-basel"
+          "allocator-intern-tally-weijl-basel"
         ],
         "de": [
           "allocator-intern-tally-weijl-basel"
