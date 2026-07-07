@@ -218,6 +218,47 @@ export function buildTitleWithBrand(
 }
 
 /**
+ * Compose a <title> around a variable-length local-SEO token (comune/city
+ * name) that must never be truncated — same "never drop the place, shrink
+ * the boilerplate around it" policy as {@link composeSerpJobTitle}'s city
+ * handling, but for callers whose variable token sits mid-string rather
+ * than in a fixed tail.
+ *
+ * `candidates` must be supplied longest/most-descriptive first, each one
+ * embedding the same token so word count degrades but the place name
+ * never does. The first candidate that fits `maxChars` wins.
+ *
+ * Guards against unbounded place names outgrowing a fixed boilerplate
+ * budget (#3772: nationwide comune expansion pulled in longer FR/DE
+ * municipality names than the curated Ticino set the copy was tuned for,
+ * regressing audit:title-length). If even the shortest candidate
+ * overflows — an implausibly long place name — falls back to
+ * {@link truncateHeadline} on it as a last resort so the cap always holds.
+ *
+ * @param measureLength  Length function used for the fit check on each
+ *                    candidate. Default raw `.length`. Callers whose token
+ *                    is crawler-derived free text rather than a curated
+ *                    gazetteer name (e.g. a company `displayName`, which can
+ *                    contain `&`/`<`/`>`/`"` — "Rossi & Figli Sagl") and
+ *                    whose composed title is emitted through a render layer
+ *                    that HTML-escapes it exactly once must pass
+ *                    `(s) => esc(s).length`, mirroring
+ *                    {@link buildTitleWithBrand}'s `measureLength` param —
+ *                    otherwise a candidate that fits pre-escape can still
+ *                    overflow the cap post-escape.
+ */
+export function composePlaceTitle(
+  candidates: string[],
+  maxChars: number = TITLE_MAX_CHARS,
+  measureLength: (s: string) => number = (s) => s.length,
+): string {
+  const fitting = candidates.find((c) => measureLength(c) <= maxChars);
+  if (fitting) return fitting;
+  const shortest = candidates[candidates.length - 1] ?? '';
+  return truncateHeadline(shortest, maxChars);
+}
+
+/**
  * Connector that places the offer's city in the SERP <title> tail, per locale.
  * Mirrors `CITY_CONNECTOR` in build-plugins/jobsSeoPagesPlugin.ts so the static
  * SSG job pages and the SPA runtime emit the SAME city-bearing title.
