@@ -333,6 +333,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'prezzi-immobili-svizzera-giugno': { it: 'prezzi-immobili-svizzera-giugno', en: 'property-prices-switzerland-june', de: 'immobilienpreise-schweiz-juni', fr: 'prix-immobilier-suisse-juin' },
  'seco-disoccupazione-giugno-2024': { it: 'seco-disoccupazione-giugno-2024', en: 'seco-unemployment-june-2024', de: 'seco-arbeitslosigkeit-juni-2024', fr: 'seco-chomage-juin-2024' },
  'caissiere-migros': { it: 'caissiere-migros', en: 'migros-caissiere-ticino', de: 'migros-kassiererin-ticino', fr: 'caissiere-migros-ticino' },
+ 'lohn-denner-verkauf-2024': { it: 'lohn-denner-verkauf-2024', en: 'lohn-denner-sale-2024', de: 'lohn-denner-verkauf-2024', fr: 'lohn-denner-vente-2024' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

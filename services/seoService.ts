@@ -4402,6 +4402,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mercato-lavoro-svizzera-rallenta-estate-2024': { name: 'Mercato del lavoro svizzero in rallentam', path: '/articoli-frontaliere/mercato-lavoro-svizzera-rallenta-estate-2024', parent: 'blog' },
     'blog-caissiere-migros': { name: 'La nuova caissière di Migros a Vaud e il', path: '/articoli-svizzera/caissiere-migros/', parent: 'blog' },
     'blog-gaggiolo-traffico': { name: 'Traffico al valico di Gaggiolo', path: '/articoli-frontaliere/gaggiolo-traffico', parent: 'blog' },
+    'blog-lohn-denner-verkauf-2024': { name: 'Commercio di bestiame', path: '/articoli-svizzera/lohn-denner-verkauf-2024/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

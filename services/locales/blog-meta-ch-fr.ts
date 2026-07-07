@@ -931,6 +931,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.caissiere-migros.title': 'Migros Vaud: nuovo regime per frontalieri',
     'blog.article.caissiere-migros.excerpt': 'La société coopérative Migros Vaud a annoncé le remplacement de la caissière, tandis que les frontaliers seront exemptés du régime transitoire jusqu\'en 2033',
     'blog.article.caissiere-migros.imageAlt': 'Image d\'une caissière de Migros à Lugano, avec arrière-plan de la ville et des montagnes',
+    'blog.article.lohn-denner-verkauf-2024.title': 'Loihn denner : Nouvelles règles pour le commerce du bétail',
+    'blog.article.lohn-denner-verkauf-2024.excerpt': 'A partir du 1er janvier 2024, nouvelles règles pour le commerce du bétail en Suisse.',
+    'blog.article.lohn-denner-verkauf-2024.imageAlt': 'Un frontalier dans un café de Lugano.',
 };
 
 export default blogMetaChFr;
