@@ -33,10 +33,12 @@
     "https://jobs.ruag.ch/offene-stellen/head-of-strategic-project-pocurement-real-estate/933cf3f7-d49e-4d23-820a-08b64a9c31f4",
     "https://jobs.ruag.ch/offene-stellen/strategische-r-einkaeuferin-immobilien-bauleistungen-generalplaner-generalunternehmer/ca1d5908-4c07-4867-b18c-55448e525188",
     "https://jobs.ruag.ch/offene-stellen/risk-management-assistant/6660c90c-99fd-4df4-9435-c85c586a76a6",
-    "https://jobs.ruag.ch/offene-stellen/gebaeudetechnikerin-sanitaer-heizungsinstallateurin/63ae7f4e-efa5-4ba3-ba28-f9dd8a26dbb7"
+    "https://jobs.ruag.ch/offene-stellen/gebaeudetechnikerin-sanitaer-heizungsinstallateurin/63ae7f4e-efa5-4ba3-ba28-f9dd8a26dbb7",
+    "https://jobs.ruag.ch/offene-stellen/technician-avionics/7d62a2cf-60ef-4069-b2fb-26df66e89671",
+    "https://jobs.ruag.ch/offene-stellen/principal-cyber-security-c5i/0a59f7e8-c226-4939-9dcb-e52d75ce0ab6"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-07T08:24:02.144Z",
+  "updatedAt": "2026-07-07T12:21:33.936Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-networks-betriebselektrikerin-schwachstrom/8e281827-5c3f-44d8-a754-cf6caf198437": {
       "location": "Altdorf",
@@ -181,6 +183,18 @@
       "canton": "LU",
       "company": "RUAG AG",
       "postedDate": "2026-04-21"
+    },
+    "https://jobs.ruag.ch/offene-stellen/technician-avionics/7d62a2cf-60ef-4069-b2fb-26df66e89671": {
+      "location": "Wilderswil",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-07"
+    },
+    "https://jobs.ruag.ch/offene-stellen/principal-cyber-security-c5i/0a59f7e8-c226-4939-9dcb-e52d75ce0ab6": {
+      "location": "Thun",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-03-27"
     }
   }
 }
