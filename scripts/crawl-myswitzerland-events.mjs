@@ -68,7 +68,6 @@ import {
   resolveComuneNationwide,
   resolveItalianFrontierComuni,
   mirrorEventImage,
-  normalizeText,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 
@@ -349,22 +348,7 @@ export function extractAddress(ld) {
 
 function extractVenue(ld, fallbackPlace) {
   const name = ld?.location?.name;
-  if (typeof name === 'string' && name.trim()) {
-    const trimmed = name.trim();
-    // #3743: `location.name` sometimes just duplicates the performer's or
-    // organizer's name (a person, not a venue) — e.g. "Khaled Madi" leaking
-    // into the venue field. When that happens prefer the actual street
-    // address as a plausible venue label instead of shipping a person's name.
-    const performerName = typeof ld?.performer?.name === 'string' ? ld.performer.name.trim() : '';
-    const organizerName = typeof ld?.organizer?.name === 'string' ? ld.organizer.name.trim() : '';
-    const isPersonNameLeak =
-      (performerName && normalizeText(trimmed) === normalizeText(performerName)) ||
-      (organizerName && normalizeText(trimmed) === normalizeText(organizerName));
-    if (!isPersonNameLeak) return trimmed;
-    const addr = extractAddress(ld);
-    const addressLabel = addr?.street || addr?.locality;
-    if (addressLabel) return addressLabel;
-  }
+  if (typeof name === 'string' && name.trim()) return name.trim();
   return fallbackPlace || undefined;
 }
 
