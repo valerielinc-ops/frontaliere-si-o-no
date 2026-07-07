@@ -762,6 +762,29 @@ ensure_git_auth() {
   fi
 }
 
+# `git fetch` inside the retry loop below is otherwise unguarded under
+# `set -e` — a transient network blip (e.g. "Connection reset by peer" under
+# ~24 concurrent crawler-group jobs) kills the whole script instantly instead
+# of going through the backoff/retry path that exists precisely for this kind
+# of race. Retry fetch itself before letting set -e propagate a real failure.
+MAX_FETCH_ATTEMPTS=5
+git_fetch_retry() {
+  local attempts=0
+  while true; do
+    attempts=$((attempts + 1))
+    if git fetch origin main; then
+      return 0
+    fi
+    if [ "$attempts" -ge "$MAX_FETCH_ATTEMPTS" ]; then
+      echo "❌ git fetch origin main failed after ${MAX_FETCH_ATTEMPTS} attempts"
+      return 1
+    fi
+    local delay=$(( attempts * 5 + RANDOM % 6 ))
+    echo "⚠️ git fetch origin main failed (attempt ${attempts}/${MAX_FETCH_ATTEMPTS}) — waiting ${delay}s before retry..."
+    sleep "$delay"
+  done
+}
+
 # ── 3+4 loop: Sync, align, commit, push (with retry on race conditions) ────
 MAX_PUSH_ATTEMPTS=8
 push_attempt=0
@@ -770,7 +793,7 @@ while true; do
 
 # ── 3. Sync with remote (stash → rebase → pop → merge if needed) ──────────
 ensure_git_auth
-git fetch origin main
+git_fetch_retry
 LOCAL=$(git rev-parse HEAD)
 REMOTE=$(git rev-parse origin/main)
 
@@ -897,7 +920,7 @@ git commit -m "$COMMIT_MSG"
 
 # Last-moment rebase: fetch latest remote right before push to minimise race window
 ensure_git_auth
-git fetch origin main
+git_fetch_retry
 if ! git rebase origin/main 2>/dev/null; then
   echo "⚠️ Last-moment rebase conflict — resolving with 3-way JSON merge..."
   git rebase --abort 2>/dev/null || true

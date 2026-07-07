@@ -55,15 +55,18 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
-const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'centiel.json');
-
 const COMPANY_KEY = 'centiel';
+// Per-crawler-scoped scratch path so sibling background-step crawlers in the
+// same CI job never clobber each other by racing to merge into the shared,
+// gitignored data/jobs.json (bug class of #3775/#3768, ref #3769/#3770).
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
+const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'centiel.json');
 const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_NAME = 'Centiel';
 const COMPANY_HOST = 'www.centiel.com';

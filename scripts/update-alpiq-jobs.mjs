@@ -19,12 +19,18 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, d
 import { fetchAlpiqListingPages, slugify, inferEmploymentType } from './lib/alpiq-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const COMPANY_KEY = 'alpiq';
+// Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
+// defaults to internally for a single-key run, so this script's own
+// pre/post-crawl reads see the shared engine's actual output instead of the
+// gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
+// of #3775/#3768).
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'Alpiq';
 
 /** Alpiq location → postal code map (Swiss locations, Ticino focus) */

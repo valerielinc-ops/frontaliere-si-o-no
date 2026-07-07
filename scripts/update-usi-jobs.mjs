@@ -52,13 +52,21 @@ import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const USI_KEY = 'usi-universita-della-svizzera-italiana';
+// Per-crawler-scoped scratch path. This script does its own Drupal-listing
+// discovery + merge (no runDedicatedBaseCrawler pass) but still wrote
+// straight to the literal data/jobs.json path — shared across ~25 sibling
+// `background: true` crawler-group steps on one filesystem, gitignored and
+// absent in CI (CRAWLER_SLICE_ONLY=1). Scoping the path per company avoids
+// racing/clobbering siblings writing the same file (bug class of
+// #3775/#3768, confirmed cause of #3769/#3770).
+const DATA_JOBS = crawlerScratchPathFor(USI_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const HQ = getCompanyDefaults('usi');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 

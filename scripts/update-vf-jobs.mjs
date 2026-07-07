@@ -22,11 +22,19 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const VF_KEY = 'vf-international-the-north-face-timberland';
+// Same per-crawler-scoped scratch path runDedicatedBaseCrawler defaults to
+// internally for a single-key run. The shared data/jobs.json is absent under
+// CI's slice-only mode (assembly deferred to deploy time) and would otherwise
+// race across ~25 sibling crawler-group steps sharing one filesystem —
+// pointing this script's own DATA_JOBS at the scratch path means it sees the
+// shared engine's actual freshly-crawled+localized output instead of
+// crashing on the unguarded read below (issue #3768).
+const DATA_JOBS = crawlerScratchPathFor(VF_KEY);
 
 function normalizeKey(value = '') {
   return String(value || '')
@@ -117,7 +125,7 @@ async function main() {
   });
   // Crawl change summary (new/updated/removed)
   {
-    const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
     const jobs = (Array.isArray(raw) ? raw : []).filter(isVfJob);
     const afterSnapshot = snapshotJobSlugs(jobs);
     const crawlDiff = computeCrawlDiff(_beforeSnapshot, afterSnapshot);

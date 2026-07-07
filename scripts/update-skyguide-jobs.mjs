@@ -38,14 +38,22 @@ import {
 } from './lib/skyguide-job-parser.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'skyguide-sa.json');
 
 const COMPANY_KEY = 'skyguide-sa';
+// This script never calls runDedicatedBaseCrawler (it owns its own
+// fetch+merge cycle end-to-end), but it still runs as one of ~26 sibling
+// background:true steps in crawler-group-08.yml, all racing to
+// read-merge-write the same shared, gitignored, CI-absent data/jobs.json —
+// the same clobber bug class confirmed by #3769/#3770. Scope this script's
+// own read/write target to a private per-company scratch path so it can no
+// longer race with siblings.
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'Skyguide';
 const COMPANY_HOST = 'jobs.skyguide.ch';
 const COMPANY_DOMAIN = 'skyguide.ch';

@@ -42,14 +42,20 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { parseTplListingPage, inferEmploymentType } from './lib/tpl-lugano-job-parser.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const TPL_KEY = 'tpl-lugano';
+// Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
+// defaults to internally for a single-key run, so this script's own
+// pre/post-crawl reads see the shared engine's actual output instead of the
+// gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
+// of #3775/#3768).
+const DATA_JOBS = crawlerScratchPathFor(TPL_KEY);
 const TPL_COMPANY_NAME = 'TPL - Trasporti Pubblici Luganesi';
 const TPL_HOST = 'www.tplsa.ch';
 const TPL_LISTING_URL = 'https://www.tplsa.ch/2/50/tpl-lavora-con-noi.html';
