@@ -42,8 +42,9 @@ import {
   detectLang,
   normalize,
   normalizeKey,
-  mergeLocaleTextMap,
+  mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -364,10 +365,6 @@ async function fetchCapriHoldingsJobs() {
 
 /* ── Merge ─────────────────────────────────────────────────── */
 
-function canonicalizeUrl(url = '') {
-  try { return new URL(url).href.replace(/\/$/, '').toLowerCase(); } catch { return normalize(url); }
-}
-
 function filterEmpty(obj = {}) {
   if (!obj || typeof obj !== 'object') return {};
   const out = {};
@@ -381,41 +378,30 @@ async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(CAPRI_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCapriJobs = allJobs.filter((j) => !isCapriJob(j));
-  const existingByUrl = new Map();
-  for (const job of allJobs.filter(isCapriJob)) existingByUrl.set(canonicalizeUrl(job.url), job);
-  const discoveredByUrl = new Map();
-  for (const job of discoveredJobs) discoveredByUrl.set(canonicalizeUrl(job.url), job);
+  const existingCapriJobs = allJobs.filter(isCapriJob);
 
-  let added = 0, updated = 0, removed = 0;
-  const merged = [];
+  const existingKeys = new Set(
+    existingCapriJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
+  );
+  const discoveredKeys = new Set(
+    discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
+  );
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
 
-  for (const d of discoveredJobs) {
-    const key = canonicalizeUrl(d.url);
-    const ex = existingByUrl.get(key);
-    if (ex) {
-      merged.push({
-        ...ex,
-        title: d.title || ex.title,
-        company: CAPRI_COMPANY_NAME,
-        companyKey: CAPRI_KEY,
-        location: d.location || ex.location,
-        canton: d.canton || ex.canton,
-        country: 'CH',
-        source: 'capri-holdings-workday-crawler',
-        titleByLocale: mergeLocaleTextMap(ex.titleByLocale, d.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, d.descriptionByLocale, 30, d.sourceLang),
-        slugByLocale: mergeLocaleTextMap(ex.slugByLocale, d.slugByLocale, 3),
-      });
-      updated++;
-    } else {
-      merged.push(d);
-      added++;
-    }
-  }
-
-  for (const [url] of existingByUrl) {
-    if (!discoveredByUrl.has(url)) removed++;
-  }
+  // mergePreserveLocaleData matches on the stable trailing job id extracted
+  // from the URL (falls back to the normalized full URL when no stable
+  // token is found), so a vendor title/slug rewrite no longer orphans the
+  // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
+  // the previous exact-URL-keyed merge did (issue #3699).
+  const merged = mergePreserveLocaleData(existingCapriJobs, discoveredJobs).map((job) => ({
+    ...job,
+    company: CAPRI_COMPANY_NAME,
+    companyKey: CAPRI_KEY,
+    country: 'CH',
+    source: 'capri-holdings-workday-crawler',
+  }));
 
   const final = [...nonCapriJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);

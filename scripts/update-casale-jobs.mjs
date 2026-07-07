@@ -6,7 +6,6 @@
  * API endpoint: https://casale.recruitee.com/api/offers
  * Fallback HTML: https://recruit.casale.ch/
  */
-import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -16,7 +15,8 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap, LEGACY_PREV_SLUGS_CAP } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseApiResponse, buildJobFromApi, parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/casale-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -85,29 +85,23 @@ async function fetchJobs() {
   });
 }
 
-function canonicalizeUrl(url = '') { try { return new URL(url).href.replace(/\/$/, '').toLowerCase(); } catch { return normalize(url); } }
-
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonCompanyJobs = (Array.isArray(existing) ? existing : []).filter((j) => !isCompanyJob(j));
-  const existingByUrl = new Map();
-  for (const job of (Array.isArray(existing) ? existing : []).filter(isCompanyJob)) existingByUrl.set(canonicalizeUrl(job.url), job);
-  const merged = []; let added = 0, updated = 0;
-  for (const d of discoveredJobs) {
-    const key = canonicalizeUrl(d.url); const old = existingByUrl.get(key);
-    if (old) { merged.push({
-      ...old,
-      ...d,
-      titleByLocale: mergeLocaleTextMap(old.titleByLocale, d.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(old.descriptionByLocale, d.descriptionByLocale, 30, d.sourceLang),
-      slugByLocale: mergeLocaleTextMap(old.slugByLocale, d.slugByLocale, 3),
-      // cap explicit (issue #3630): flat previousSlugs is the same field
-      // dedicated-crawler-common.mjs manages elsewhere with LEGACY_PREV_SLUGS_CAP;
-      // the module default of 20 would re-collapse it on this crawler's next run.
-      previousSlugs: mergePreviousSlugsCapped(old.previousSlugs, d.previousSlugs, { jobId: old.id || d.id, source: 'update-casale-jobs.mjs', cap: LEGACY_PREV_SLUGS_CAP }),
-    }); updated++; }
-    else { merged.push(d); added++; }
-  }
+  const existingCompanyJobs = (Array.isArray(existing) ? existing : []).filter(isCompanyJob);
+
+  const existingKeys = new Set(existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+
+  // mergePreserveLocaleData matches on the stable trailing job id extracted
+  // from the URL (falls back to the normalized full URL when no stable
+  // token is found), so a vendor title/slug rewrite no longer orphans the
+  // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
+  // the previous exact-URL-keyed merge did (issue #3699).
+  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });

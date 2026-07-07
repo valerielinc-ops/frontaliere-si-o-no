@@ -27,6 +27,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { detectLang } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { parseKsgrJobsPage } from './lib/ksgr-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
@@ -141,7 +142,13 @@ function slugify(value = '') {
 }
 
 function buildJobFromApiData(apiJob, existingByUrl) {
-  const existing = existingByUrl.get(String(apiJob.detailUrl || '').toLowerCase());
+  // Match on the stable id extracted from the detail URL (the UUID trailing
+  // segment, e.g. .../offene-stellen/<title-slug>/<uuid>) rather than the
+  // raw lowercased URL, so a Prospective title/slug rewrite doesn't orphan
+  // the previousSlugs/previousSlugsByLocale/translations preserved below
+  // (issue #3699). Same approach as the other Prospective/SmartRecruiters
+  // API-based dedicated crawlers (mikron, swiss-medical-network).
+  const existing = existingByUrl.get(extractStableJobId(apiJob.detailUrl));
   const title = apiJob.title;
   const description = apiJob.description || '';
   // Guard the slug location token so a literal "undefined"/"null" from the API
@@ -194,10 +201,15 @@ async function main() {
   const beforeTargetJobs = Array.isArray(beforeJobs) ? beforeJobs.filter(isKsgrJob) : [];
   const beforeSlugs = snapshotJobSlugs(beforeTargetJobs);
 
-  // Build URL→job map for slug/translation preservation
-  const existingByUrl = new Map(
-    beforeTargetJobs.map((job) => [String(job.url || '').toLowerCase(), job])
-  );
+  // Build stable-id→job map for slug/translation preservation (issue #3699:
+  // keying by raw lowercased URL missed a match whenever Prospective
+  // rewrote the title-derived slug portion of detailUrl, silently
+  // orphaning previousSlugs/previousSlugsByLocale/translations).
+  const existingByUrl = new Map();
+  for (const job of beforeTargetJobs) {
+    const key = extractStableJobId(job?.url);
+    if (key) existingByUrl.set(key, job);
+  }
 
   // Discover all jobs from Prospective API (no detail page scraping needed)
   const discoveredJobs = await fetchAllKsgrJobs();

@@ -47,13 +47,12 @@ import {
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
-  mergeLocaleTextMap,
+  mergePreserveLocaleData,
   detectLang,
-  addPreviousSlugForLocale,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ } from './lib/crawler-location-config.mjs';
-import { isSlugStable } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -491,14 +490,6 @@ async function fetchHessoJobs() {
 
 /* ── Merge into data/jobs.json ─────────────────────────────── */
 
-function canonicalizeUrl(url = '') {
-  try {
-    return new URL(url).href.replace(/\/$/, '').toLowerCase();
-  } catch {
-    return normalize(url);
-  }
-}
-
 async function mergeHessoJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(HESSO_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
@@ -506,93 +497,27 @@ async function mergeHessoJobs(discoveredJobs) {
   const nonHessoJobs = allJobs.filter((j) => !isHessoJob(j));
   const existingHessoJobs = allJobs.filter(isHessoJob);
 
-  const existingByUrl = new Map();
-  for (const job of existingHessoJobs) {
-    existingByUrl.set(canonicalizeUrl(job.url), job);
-  }
+  // Stats only — computed on the same stable key mergePreserveLocaleData
+  // matches on (extractStableJobId(url)), NOT the raw URL. A vendor
+  // title/slug rewrite otherwise made the raw-URL match miss, so the old
+  // record's previousSlugs/previousSlugsByLocale/firstSeenAt was dropped
+  // as "no longer in the feed" while the fresh job was pushed as new
+  // (issue #3699).
+  const existingKeys = new Set(existingHessoJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
 
-  const discoveredByUrl = new Map();
-  for (const job of discoveredJobs) {
-    discoveredByUrl.set(canonicalizeUrl(job.url), job);
-  }
+  // Delegate the actual old<->fresh reconciliation (incl. slug-rename
+  // protection via isSlugStable/addPreviousSlugForLocale, already keyed
+  // correctly by stable id) to the shared merge helper. company/companyKey/
+  // country/canton force-normalization and the location default are
+  // handled independently by postProcessHessoJobs() right after this
+  // function runs, so no constant-field overrides need to be reapplied here.
+  const mergedHessoJobs = mergePreserveLocaleData(existingHessoJobs, discoveredJobs);
 
-  let added = 0;
-  let updated = 0;
-  let removed = 0;
-  const merged = [];
-
-  for (const discovered of discoveredJobs) {
-    const key = canonicalizeUrl(discovered.url);
-    const existingJob = existingByUrl.get(key);
-
-    if (existingJob) {
-      const updatedJob = {
-        ...existingJob,
-        title: discovered.title || existingJob.title,
-        company: HESSO_COMPANY_NAME,
-        companyKey: HESSO_KEY,
-        location: discovered.location || existingJob.location,
-        canton: 'VS',
-        country: 'CH',
-        applyUrl: discovered.applyUrl || existingJob.applyUrl,
-        category: discovered.category || existingJob.category,
-        sector: discovered.sector || existingJob.sector,
-        source: 'hes-so-valais-crawler',
-        titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
-        slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
-      };
-
-      // Protect slugs from churn when job title language changes
-      if (existingJob.slug && discovered.slug && existingJob.slug !== discovered.slug) {
-        const locHints = {
-          existingLocation: existingJob.location || '',
-          newLocation: discovered.location || '',
-        };
-        if (isSlugStable(existingJob.slug, discovered.slug, locHints)) {
-          updatedJob.slug = existingJob.slug;
-        } else {
-          updatedJob.slug = discovered.slug;
-          addPreviousSlugForLocale(updatedJob, 'it', existingJob.slug, 20, 'update-hes-so-valais-jobs/master-rename');
-        }
-      }
-
-      // Protect per-locale slugs
-      if (existingJob.slugByLocale && updatedJob.slugByLocale) {
-        for (const locale of ['it', 'en', 'de', 'fr']) {
-          const oldSlug = existingJob.slugByLocale[locale];
-          const newSlug = updatedJob.slugByLocale[locale];
-          if (oldSlug && newSlug && oldSlug !== newSlug) {
-            const locHints = {
-              existingLocation: existingJob.location || '',
-              newLocation: discovered.location || '',
-            };
-            if (isSlugStable(oldSlug, newSlug, locHints)) {
-              updatedJob.slugByLocale[locale] = oldSlug;
-            } else {
-              addPreviousSlugForLocale(updatedJob, locale, oldSlug, 20, 'update-hes-so-valais-jobs/locale-rename');
-            }
-          }
-        }
-      }
-
-      if (discovered.description && discovered.description.length > (existingJob.description || '').length) {
-        updatedJob.description = discovered.description;
-      }
-
-      merged.push(updatedJob);
-      updated++;
-    } else {
-      merged.push(discovered);
-      added++;
-    }
-  }
-
-  for (const [url] of existingByUrl) {
-    if (!discoveredByUrl.has(url)) removed++;
-  }
-
-  const final = [...nonHessoJobs, ...merged];
+  const final = [...nonHessoJobs, ...mergedHessoJobs];
 
   writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });

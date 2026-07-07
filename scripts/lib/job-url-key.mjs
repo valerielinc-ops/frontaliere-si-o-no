@@ -94,6 +94,42 @@ const CLER_HOST_RE = /(?:^|\/\/)(?:www\.)?cler\.ch(?:[:/]|$)/;
 // whole-URL keys (#3497). Host-gated so no other crawler's key changes.
 const ETA_HOST_RE = /(?:^|\/\/)(?:www\.)?eta\.ch(?:[:/]|$)/;
 
+// apply.refline.ch (host-gated). Detail urls are `/<companyId>/<posId>/pub/<rev>`,
+// optionally suffixed `/index.html`. Some tenants (e.g. ZKB, refline tenant
+// 792841 — see scripts/lib/zkb-job-parser.mjs) resolve the BARE form with no
+// `/index.html` leaf, so Rule A's GENERIC_LEAF_RE never fires (the leaf is
+// just the trailing revision number, e.g. `2`) and the per-job posId — one
+// ancestor segment further up — is too short/absent from the leaf for Rule B.
+// Falling through to Rule C's blind leftmost-in-URL scan then grabs the
+// LEFTMOST ≥6-digit run, which is the shared companyId (`792841`), not the
+// per-job posId — colliding every job at that tenant onto ONE merge key
+// (#3699). Host-gated so no other crawler's key changes; the already-tested
+// `/index.html`-suffixed form is unaffected (Rule A returns first).
+const REFLINE_HOST_RE = /(?:^|\/\/)(?:www\.)?apply\.refline\.ch(?:[:/]|$)/;
+// Matches `/<companyId>/<posId>/pub/<rev>` with no trailing path segment
+// after `<rev>` (i.e. no `/index.html`) — the shape Rule A does not catch.
+const REFLINE_BARE_PATH_RE = /^https?:\/\/[^/]+\/([a-z0-9]+)\/([a-z0-9]+)\/pub\/\d+$/i;
+
+// rexx systems ATS (vendor-signature-gated, NOT host-gated: ~19+ tenants each
+// publish under their OWN hostname — jobs.zkb.ch has nothing to do with this,
+// see e.g. jobs.emilfrey.ch, jobs.globus.ch, jobs.newyorker.de — there is no
+// shared registrable domain to key a *_HOST_RE constant on). Detail urls end
+// `…-j<digits>.html`, optionally followed by a per-REQUEST `?sid=<32-hex>`
+// session token (scripts/lib/rexx-systems-job-parser-common.mjs's own
+// `parseRexxListing` extracts the SAME `-j(\d+)\.html` id for its purposes,
+// but that stable id is never threaded into mergeUrlKey — this re-derives it
+// independently from the raw URL). Two failure modes without this rule:
+//  - short ids (New Yorker: 5 digits, e.g. `j27003`) fall below Rule B's
+//    ≥6-digit leaf threshold and are invisible to Rule A (leaf isn't a
+//    literal `index.html`/`default.html`), so nothing intercepts them before
+//    Rule C's blind scan.
+//  - Rule C's blind leftmost-in-URL scan then finds the volatile `sid=` hex
+//    token (which happens to satisfy HEX_TOKEN_RE) BEFORE it would ever reach
+//    the stable `-j<digits>` leaf token — so the merge key changes on every
+//    single crawl (a fresh session id each request), and the job looks new
+//    every time (#3699).
+const REXX_DETAIL_LEAF_RE = /-j(\d+)\.html?$/i;
+
 /**
  * Trailing digit run of a path leaf (`…-w-m-2589` → `2589`, `…/detail/3719` →
  * `3719`). Returns '' when the leaf has no trailing digit run. Shared by the
@@ -212,6 +248,11 @@ export function lowerStripTrailingSlash(url) {
  *      is a shared folder/company id or a `%20`+year artifact).
  *   B. leaf carries its own UUID/num/hex token → use it (per-job id beats the
  *      shared ancestor id, e.g. cseb's second UUID, hotelcareer's trailing job id).
+ *   R. apply.refline.ch bare `/<companyId>/<posId>/pub/<rev>` leaf (no
+ *      `/index.html`, host-gated) → per-job posId, not the companyId (#3699).
+ *   X. rexx systems `-j<digits>.html` leaf (vendor-signature-gated, not
+ *      host-gated — ~19+ tenants, no shared hostname) → stable detail id,
+ *      ahead of a volatile `?sid=` session token later in the URL (#3699).
  *   C. legacy leftmost whole-URL scan (unchanged) — id in query/fragment/ancestor.
  *
  * @param {string} url
@@ -299,6 +340,25 @@ export function mergeUrlKey(url) {
   if (ETA_HOST_RE.test(u)) {
     const req = trailingDigitRunFromLeaf(leaf);
     if (req) return `req:eta.ch:${req}`;
+  }
+
+  // Rule R — apply.refline.ch bare `/<companyId>/<posId>/pub/<rev>` leaf, no
+  // `/index.html` (host-gated). See REFLINE_HOST_RE/REFLINE_BARE_PATH_RE above
+  // for why Rule A/B never catch this shape. Extract the per-job posId
+  // explicitly instead of falling through to Rule C's companyId-colliding scan.
+  if (REFLINE_HOST_RE.test(u)) {
+    const pathOnly = u.split(/[?#]/)[0];
+    const m = pathOnly.match(REFLINE_BARE_PATH_RE);
+    if (m && m[2]) return `req:refline.ch:${m[2]}`;
+  }
+
+  // Rule X — rexx systems detail-page id (vendor-signature-gated via leaf
+  // shape, not host — see REXX_DETAIL_LEAF_RE above). Extract the stable
+  // `-j<digits>` id from the leaf BEFORE Rule C's blind scan can reach a
+  // volatile `?sid=` session token later in the same URL.
+  if (leaf) {
+    const rexx = leaf.match(REXX_DETAIL_LEAF_RE);
+    if (rexx) return `req:rexx:${rexx[1]}`;
   }
 
   // Rule C — legacy leftmost whole-URL scan (unchanged).

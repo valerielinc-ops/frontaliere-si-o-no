@@ -23,8 +23,9 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API, inferEmploymentType } from './lib/vir-biotechnology-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -137,27 +138,29 @@ function buildJobFromGreenhouse(parsed) {
   };
 }
 
-function canonicalizeUrl(url = '') { try { return new URL(url).href.replace(/\/$/, '').toLowerCase(); } catch { return normalize(url); } }
-function filterEmpty(obj = {}) { if (!obj || typeof obj !== 'object') return {}; const out = {}; for (const [k, v] of Object.entries(obj)) { if (v && String(v).trim()) out[k] = v; } return out; }
-
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isVirJob(j));
-  const existingByUrl = new Map();
-  for (const job of allJobs.filter(isVirJob)) existingByUrl.set(canonicalizeUrl(job.url), job);
-  const discoveredByUrl = new Map();
-  for (const job of discoveredJobs) discoveredByUrl.set(canonicalizeUrl(job.url), job);
+  const existingCompanyJobs = allJobs.filter(isVirJob);
 
-  let added = 0, updated = 0, removed = 0;
-  const merged = [];
-  for (const discovered of discoveredJobs) {
-    const key = canonicalizeUrl(discovered.url);
-    const ex = existingByUrl.get(key);
-    if (ex) { merged.push({ ...ex, title: discovered.title || ex.title, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'vir-greenhouse-crawler', sourceLang: discovered.sourceLang || ex.sourceLang, titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3), descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang), slugByLocale: mergeLocaleTextMap(ex.slugByLocale, discovered.slugByLocale, 3) }); updated++; }
-    else { merged.push(discovered); added++; }
-  }
-  for (const [url] of existingByUrl) { if (!discoveredByUrl.has(url)) removed++; }
+  const existingKeys = new Set(existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
+
+  // mergePreserveLocaleData matches on the stable trailing job id extracted
+  // from the URL (falls back to the normalized full URL when no stable
+  // token is found), so a Greenhouse title/slug rewrite no longer orphans
+  // the job's previousSlugs/previousSlugsByLocale/firstSeenAt history the
+  // way the previous exact-URL-keyed merge did (issue #3699).
+  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs).map((job) => ({
+    ...job,
+    company: COMPANY_NAME,
+    companyKey: COMPANY_KEY,
+    source: 'vir-greenhouse-crawler',
+  }));
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);

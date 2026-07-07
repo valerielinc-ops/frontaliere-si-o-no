@@ -36,8 +36,9 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   normalizeSpace,
   htmlToText,
@@ -308,14 +309,6 @@ function buildDescription(parsed, locale = 'en') {
 // Merge into data/jobs.json
 // ─────────────────────────────────────────────────────────────
 
-function canonicalizeUrl(url = '') {
-  try {
-    return new URL(url).href.replace(/\/$/, '').toLowerCase();
-  } catch {
-    return normalize(url);
-  }
-}
-
 function filterEmpty(obj = {}) {
   if (!obj || typeof obj !== 'object') return {};
   const out = {};
@@ -332,60 +325,29 @@ async function mergeDxtJobs(discoveredJobs) {
   const nonDxtJobs = allJobs.filter((j) => !isDxtJob(j));
   const existingDxtJobs = allJobs.filter(isDxtJob);
 
-  const existingByUrl = new Map();
-  for (const job of existingDxtJobs) {
-    existingByUrl.set(canonicalizeUrl(job.url), job);
-  }
+  const existingKeys = new Set(
+    existingDxtJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
+  );
+  const discoveredKeys = new Set(
+    discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
+  );
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
 
-  const discoveredByUrl = new Map();
-  for (const job of discoveredJobs) {
-    discoveredByUrl.set(canonicalizeUrl(job.url), job);
-  }
-
-  let added = 0;
-  let updated = 0;
-  let removed = 0;
-  const merged = [];
-
-  for (const discovered of discoveredJobs) {
-    const key = canonicalizeUrl(discovered.url);
-    const existing = existingByUrl.get(key);
-
-    if (existing) {
-      const updatedJob = {
-        ...existing,
-        title: discovered.title || existing.title,
-        company: DXT_COMPANY_NAME,
-        companyKey: DXT_KEY,
-        location: discovered.location || existing.location,
-        canton: DEFAULT_CANTON,
-        country: 'CH',
-        applyUrl: discovered.applyUrl || existing.applyUrl,
-        category: discovered.category || existing.category,
-        sector: discovered.sector || existing.sector,
-        source: 'dxt-careers-crawler',
-        titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
-        slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
-      };
-
-      if (discovered.description && discovered.description.length > (existing.description || '').length) {
-        updatedJob.description = discovered.description;
-      }
-
-      merged.push(updatedJob);
-      updated++;
-    } else {
-      merged.push(discovered);
-      added++;
-    }
-  }
-
-  for (const [url] of existingByUrl) {
-    if (!discoveredByUrl.has(url)) {
-      removed++;
-    }
-  }
+  // mergePreserveLocaleData matches on the stable trailing job id extracted
+  // from the URL (falls back to the normalized full URL when no stable
+  // token is found), so a vendor title/slug rewrite no longer orphans the
+  // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
+  // the previous exact-URL-keyed merge did (issue #3699).
+  const merged = mergePreserveLocaleData(existingDxtJobs, discoveredJobs).map((job) => ({
+    ...job,
+    company: DXT_COMPANY_NAME,
+    companyKey: DXT_KEY,
+    canton: DEFAULT_CANTON,
+    country: 'CH',
+    source: 'dxt-careers-crawler',
+  }));
 
   // Combine non-DXT jobs with merged DXT jobs
   const final = [...nonDxtJobs, ...merged];
