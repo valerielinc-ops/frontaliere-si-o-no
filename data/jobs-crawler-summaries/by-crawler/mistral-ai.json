@@ -1,21 +1,19 @@
 {
   "key": "mistral-ai",
   "label": "Mistral AI",
-  "generatedAt": "2026-07-07T12:21:10.334Z",
+  "generatedAt": "2026-07-07T22:23:41.732Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 5181,
-  "avgDurationMs": 5181,
+  "unchangedCount": 0,
+  "durationMs": 6444,
+  "avgDurationMs": 6444,
   "durationHistory": [
-    5181
+    6444
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "mistral-ai-d2114b0f22f4",
       "slug": "ai-scientist-zurich-mistral-ai-ch",
@@ -28,7 +26,7 @@
       "url": "https://jobs.lever.co/mistral/bedfc2aa-f1b6-4136-bd17-b3abe4c06120",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:21:06.995Z",
+      "crawledAt": "2026-07-07T22:23:38.721Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -62,7 +60,7 @@
       "url": "https://jobs.lever.co/mistral/a93b2891-9aaa-4c18-855e-37ef159d4eed",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:21:07.375Z",
+      "crawledAt": "2026-07-07T22:23:39.057Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -96,7 +94,7 @@
       "url": "https://jobs.lever.co/mistral/071a5491-ea01-413f-ad78-f85b5e4c2215",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:21:07.710Z",
+      "crawledAt": "2026-07-07T22:23:39.383Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -130,7 +128,7 @@
       "url": "https://jobs.lever.co/mistral/07447e1d-7900-46d4-b61b-186f2f76847f",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:21:08.018Z",
+      "crawledAt": "2026-07-07T22:23:39.688Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -152,5 +150,7 @@
         "completeness": 14
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
