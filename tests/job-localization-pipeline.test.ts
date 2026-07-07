@@ -135,4 +135,50 @@ describe('job localization pipeline', () => {
     expect(result?.en?.requirements).toEqual(['Knowledge of REST APIs']);
     expect(result?.de?.requirements).toEqual(['Kenntnisse von REST-APIs']);
   });
+
+  it('merges a sibling crawler process\'s concurrent write instead of clobbering it on persist', async () => {
+    const fetchMock = vi.fn(async () => ({
+      ok: true,
+      json: async () => ({ translatedText: 'Software Engineer' }),
+    }));
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    await translateTextWithLocalPipeline({
+      text: 'Ingegnere software',
+      sourceLang: 'it',
+      targetLang: 'en',
+      kind: 'title',
+      minChars: 2,
+    });
+
+    // Simulate a sibling process persisting a different key to the SAME shared
+    // memory file while this process's in-memory store (loaded once above) has
+    // no knowledge of it yet — the exact race in a ~25-sibling crawler-group run.
+    const onDisk = JSON.parse(fs.readFileSync(memoryPath, 'utf-8'));
+    onDisk.entries.push({
+      key: 'sibling-injected-key',
+      value: 'Sibling translation',
+      provider: 'nllb',
+      kind: 'title',
+      sourceLang: 'it',
+      targetLang: 'en',
+      sourceHash: 'deadbeef',
+      createdAt: Date.now(),
+      touchedAt: Date.now() + 10_000,
+    });
+    fs.writeFileSync(memoryPath, `${JSON.stringify(onDisk, null, 2)}\n`, 'utf-8');
+
+    await translateTextWithLocalPipeline({
+      text: 'Sviluppatore backend',
+      sourceLang: 'it',
+      targetLang: 'en',
+      kind: 'title',
+      minChars: 2,
+    });
+
+    const saved = JSON.parse(fs.readFileSync(memoryPath, 'utf-8'));
+    const keys = saved.entries.map((entry: { key: string }) => entry.key);
+    expect(keys).toContain('sibling-injected-key');
+    expect(saved.entries.length).toBe(3);
+  });
 });
