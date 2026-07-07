@@ -925,6 +925,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prezzi-immobili-svizzera-giugno.title': 'Immobilienpreise in der Schweiz: Anstieg im Juni',
     'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'Im Juni steigen die Hauspreise um 3,1% und die Wohnungen um 4,5% gegenüber dem Vorjahr, wobei zwischen Zürich, Tessin und den anderen Regionen große Unterschiede bestehen.',
     'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Moderne Wohngebäude in der Schweiz mit Bergen im Hintergrund',
+    'blog.article.seco-disoccupazione-giugno-2024.title': 'Arbeitslosigkeit in der Schweiz: die Daten des Seco vom Juni',
+    'blog.article.seco-disoccupazione-giugno-2024.excerpt': 'Die Arbeitslosenquote sinkt im Juni auf 2,9%. Die Seco bestätigt die saisonbereinigte Stabilität bei 3,1%. Hier ist die Datenanalyse.',
+    'blog.article.seco-disoccupazione-giugno-2024.imageAlt': 'Schweizer Stadtpanorama mit modernen Büros',
 };
 
 export default blogMetaChDe;

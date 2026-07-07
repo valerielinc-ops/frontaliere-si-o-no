@@ -925,6 +925,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prezzi-immobili-svizzera-giugno.title': 'Prix de l\'immobilier en Suisse : hausse en juin',
     'blog.article.prezzi-immobili-svizzera-giugno.excerpt': 'En juin, les prix des maisons augmentent de 3,1% et les appartements de 4,5% sur une base annuelle, avec de fortes différences entre Zurich, le Tessin et les autres régions.',
     'blog.article.prezzi-immobili-svizzera-giugno.imageAlt': 'Immeubles résidentiels modernes en Suisse avec montagnes en arrière-plan',
+    'blog.article.seco-disoccupazione-giugno-2024.title': 'Chômage en Suisse : les chiffres secs de juin',
+    'blog.article.seco-disoccupazione-giugno-2024.excerpt': 'Le taux de chômage tombe à 2,9% en juin. Le SECO confirme la stabilité nette des facteurs saisonniers à 3,1 %. Voici l\'analyse des données.',
+    'blog.article.seco-disoccupazione-giugno-2024.imageAlt': 'Panorama d\'une ville suisse avec des bureaux modernes',
 };
 
 export default blogMetaChFr;

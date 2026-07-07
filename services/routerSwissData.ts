@@ -331,6 +331,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'credito-imposta-frontalieri-2026': { it: 'credito-imposta-frontalieri-2026', en: 'tax-credit-cross-border-2026', de: 'steuer-gutschrift-grenzarbeiter-2026', fr: 'credit-dimpot-frontalier-2026' },
  'credito-imposta-frontaliere-2026': { it: 'credito-imposta-frontaliere-2026', en: 'frontalier-tax-credit-2026-within-20km', de: 'grenzganger-steuerguthaben-2026-20km', fr: 'frontaliers-credit-impot-2026-20km' },
  'prezzi-immobili-svizzera-giugno': { it: 'prezzi-immobili-svizzera-giugno', en: 'property-prices-switzerland-june', de: 'immobilienpreise-schweiz-juni', fr: 'prix-immobilier-suisse-juin' },
+ 'seco-disoccupazione-giugno-2024': { it: 'seco-disoccupazione-giugno-2024', en: 'seco-unemployment-june-2024', de: 'seco-arbeitslosigkeit-juni-2024', fr: 'seco-chomage-juin-2024' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
