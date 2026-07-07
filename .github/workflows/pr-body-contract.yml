@@ -71,6 +71,63 @@ jobs:
             if (!hasImpl) missing.push('`## Implementato`');
             if (!hasNon)  missing.push('`## Non implementato (ancora)`');
 
+            // --- 1b) Section CONTENT quality (escalation #3250, bucket
+            // `reviewer-finding/pr-body-contract` 6x/14d) -------------------------
+            // Header PRESENCE alone isn't enough: the PR template leaves bare `- `
+            // placeholder bullets in both sections, and a fixer that submits
+            // without filling them passes this gate but still draws a reviewer
+            // 🔴 finding — wasting a review cycle. Mirrors
+            // scripts/lib/pr-body-sections-check.mjs (own unit tests); keep the
+            // two in sync on rule changes.
+            const extractSection = (text, headerRe) => {
+              const m = headerRe.exec(text);
+              if (!m) return null;
+              const rest = text.slice(m.index + m[0].length);
+              const nextHeading = /\n(?=#{1,6}[ \t])/.exec(rest);
+              return nextHeading ? rest.slice(0, nextHeading.index) : rest;
+            };
+            const stripNonContent = (t) => String(t ?? '')
+              .replace(/```[\s\S]*?```/g, ' ')
+              .replace(/<!--[\s\S]*?-->/g, ' ');
+            const isSubstantiveBullet = (line) => line.replace(/^[ \t]*[-*+][ \t]*/, '').trim().length > 0;
+            const hasMeaningfulContent = (raw) => stripNonContent(raw).split('\n').some((line) => {
+              const t = line.trim();
+              if (!t) return false;
+              if (/^#{1,6}[ \t]/.test(t)) return false;
+              if (/^[-*+](?:[ \t]|$)/.test(t)) return isSubstantiveBullet(t);
+              return true;
+            });
+            const hasOnlyBareBullets = (raw) => {
+              const lines = stripNonContent(raw).split('\n').filter((l) => l.trim().length > 0);
+              if (lines.length === 0) return false;
+              return lines.every((line) => {
+                const t = line.trim();
+                if (/^#{1,6}[ \t]/.test(t)) return true;
+                if (/^[-*+][ \t]?$/.test(t)) return true;
+                if (/^[-*+][ \t]/.test(t)) return false;
+                return true;
+              });
+            };
+            const hasNessuno = (raw) => /\bnessun[oa]?\b/i.test(stripNonContent(raw));
+
+            const sectionViolations = [];
+            if (hasImpl) {
+              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
+              if (!hasMeaningfulContent(c)) {
+                sectionViolations.push(hasOnlyBareBullets(c)
+                  ? '`## Implementato` contiene solo bullet placeholder vuoti (`- `) non compilati.'
+                  : '`## Implementato` è vuota.');
+              }
+            }
+            if (hasNon) {
+              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Non implementato[^\n]*/im) ?? '';
+              if (!hasNessuno(c) && !hasMeaningfulContent(c)) {
+                sectionViolations.push(hasOnlyBareBullets(c)
+                  ? '`## Non implementato (ancora)` contiene solo bullet placeholder vuoti (`- `) non compilati.'
+                  : '`## Non implementato (ancora)` è vuota.');
+              }
+            }
+
             // --- 2) Multi-issue Closes on one line (GitHub closes only the first) ----
             // Mirror of scripts/lib/pr-body-closes-check.mjs (see tests). A closing
             // keyword governing the first ref, then ≥1 MORE refs chained by list
@@ -163,11 +220,11 @@ jobs:
             };
 
             // --- All-clear ----------------------------------------------------------
-            if (missing.length === 0 && closesViolations.length === 0 && aggregateCloseViolations.length === 0) {
+            if (missing.length === 0 && sectionViolations.length === 0 && closesViolations.length === 0 && aggregateCloseViolations.length === 0) {
               if (prior) {
                 await github.rest.issues.updateComment({
                   owner, repo, comment_id: prior.id,
-                  body: `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti, nessun \`Closes\` multi-issue su una riga, nessun \`Closes\` su follow-up aggregata.`,
+                  body: `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessun \`Closes\` su follow-up aggregata.`,
                 });
               }
               core.info('PR body contract satisfied.');
@@ -185,6 +242,16 @@ jobs:
                 `Header alternativi (\`## Fix\`, \`## Verify\`, \`## Effetto\`) non contano.`,
               );
               fails.push(`missing section(s): ${missing.join(', ')}`);
+            }
+            if (sectionViolations.length) {
+              parts.push(
+                `🔴 **Sezione presente ma vuota** (escalation #3250, bucket \`reviewer-finding/pr-body-contract\`) — ` +
+                `header letterale trovato ma senza contenuto sostanziale (solo bullet placeholder \`- \` del template):\n\n` +
+                sectionViolations.map((m) => `- ${m}`).join('\n') + '\n\n' +
+                `Scrivi almeno un bullet concreto in \`## Implementato\`; in \`## Non implementato (ancora)\` scrivi ` +
+                `"Nessuno" (task completo, AGENTS.md #8) oppure elenca gli item residui con stato/next-step.`,
+              );
+              fails.push(`empty section(s): ${sectionViolations.length}`);
             }
             if (closesViolations.length) {
               const lines = closesViolations
