@@ -8309,6 +8309,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.posta-chiasso.title': 'Posta Chiasso: novità per i frontalieri',
     'blog.article.posta-chiasso.excerpt': 'La posta Chiasso ha annunciato di aver introdotto un nuovo servizio per i frontalieri.',
     'blog.article.posta-chiasso.imageAlt': 'Una scena di una posta in Ticino, con un frontaliere in piedi davanti all\'ufficio postale.',
+    'blog.article.stabio-dogana-nuovo-accordo-fiscale.title': 'Stabio dogana: le novità fiscali per i frontalieri',
+    'blog.article.stabio-dogana-nuovo-accordo-fiscale.excerpt': 'Dal 1° gennaio 2024, il Nuovo Accordo Frontalieri modifica l\'imposta alla fonte e le franchigie per chi transita dal confine di Stabio verso il Canton Ticino.',
+    'blog.article.stabio-dogana-nuovo-accordo-fiscale.imageAlt': 'Il valico doganale di Stabio, un punto di transito cruciale per i frontalieri tra Svizzera e Italia, con automobili in coda.',
 };
 
 export default blogMetaIt;
