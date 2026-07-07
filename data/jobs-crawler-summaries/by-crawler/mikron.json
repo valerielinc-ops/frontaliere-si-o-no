@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-07-06T22:32:27.817Z",
+  "generatedAt": "2026-07-07T12:05:32.476Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 17121,
-  "avgDurationMs": 17121,
+  "durationMs": 20509,
+  "avgDurationMs": 20509,
   "durationHistory": [
-    17121
+    20509
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -84,6 +84,7 @@
       "salaryMax": 107500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T22:57:28.302Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
