@@ -1,21 +1,19 @@
 {
   "key": "cds-savognin",
   "label": "Center da Sanadad Savognin",
-  "generatedAt": "2026-07-07T12:12:06.193Z",
+  "generatedAt": "2026-07-07T22:22:27.696Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 4448,
-  "avgDurationMs": 4448,
+  "unchangedCount": 0,
+  "durationMs": 3471,
+  "avgDurationMs": 3471,
   "durationHistory": [
-    4448
+    3471
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "cds-savognin-259-f4c73bc7743b",
       "slug": "mitarbeiter-in-lingerie-und-bistro-cds-savognin-savognin",
@@ -29,7 +27,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/259.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:12:03.334Z",
+      "crawledAt": "2026-07-07T22:22:25.715Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -66,7 +64,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/256.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:12:03.398Z",
+      "crawledAt": "2026-07-07T22:22:25.769Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -103,7 +101,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:12:03.379Z",
+      "crawledAt": "2026-07-07T22:22:25.751Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -140,7 +138,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/402.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:12:03.384Z",
+      "crawledAt": "2026-07-07T22:22:25.755Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -177,7 +175,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/410.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:12:03.388Z",
+      "crawledAt": "2026-07-07T22:22:25.758Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -214,7 +212,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/405.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:12:03.392Z",
+      "crawledAt": "2026-07-07T22:22:25.762Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -238,5 +236,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
