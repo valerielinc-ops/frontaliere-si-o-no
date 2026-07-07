@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sophia-genetics",
-  "assembledAt": "2026-07-07T12:11:19.777Z",
+  "assembledAt": "2026-07-07T22:16:00.867Z",
   "jobs": [
     {
       "id": "sophia-genetics-a85899187eab",
@@ -33,7 +33,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:11:14.897Z",
+      "crawledAt": "2026-07-07T22:15:55.423Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -53,6 +53,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:25:48.314Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -97,7 +98,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/E4102E5646/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:11:14.786Z",
+      "crawledAt": "2026-07-07T22:15:55.307Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -161,7 +162,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/D92BC8459B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:11:14.667Z",
+      "crawledAt": "2026-07-07T22:15:55.199Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -181,11 +182,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
+        "senior-manager-accounting-contract-november-april-sophia-genetics-rolle",
+        "senior-manager-contabilita-contratto-novembre-aprile-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
+          "senior-manager-accounting-contract-november-april-sophia-genetics-rolle",
+          "senior-manager-contabilita-contratto-novembre-aprile-sophia-genetics-rolle"
         ],
         "de": [
           "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
@@ -239,7 +242,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/F52E4089C5/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:11:14.405Z",
+      "crawledAt": "2026-07-07T22:15:54.981Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -258,6 +261,21 @@
       "jobReqId": "F52E4089C5",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle",
+        "senior-ai-software-engineer-sophia-genetics-rolle",
+        "senior-ai-software-ingegnere-sophia-genetics-rolle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle",
+          "senior-ai-software-engineer-sophia-genetics-rolle",
+          "senior-ai-software-ingegnere-sophia-genetics-rolle"
+        ],
+        "de": [
+          "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle"
+        ]
+      },
       "firstSeenAt": "2026-07-04T12:25:48.116Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -270,70 +288,61 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle"
-        ],
-        "de": [
-          "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle"
-        ]
-      },
-      "previousSlugs": [
-        "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle"
-      ]
+      }
     },
     {
-      "id": "sophia-genetics-18205de0c204",
-      "slug": "ngs-lab-technician-12m-contract-sophia-genetics-rolle",
+      "id": "sophia-genetics-9b137c6f79b4",
+      "slug": "sales-development-representative-german-speaking-sophia-genetics-rolle",
       "slugByLocale": {
-        "it": "ngs-lab-technician-12m-contract-sophia-genetics-rolle",
-        "en": "ngs-lab-technician-12m-contract-sophia-genetics-rolle",
-        "de": "ngs-lab-technician-12m-contract-sophia-genetics-rolle",
-        "fr": "ngs-lab-technician-12m-contract-sophia-genetics-rolle"
+        "en": "sales-development-representative-german-speaking-sophia-genetics-rolle",
+        "it": "sales-development-representative-german-speaking-sophia-genetics-rolle",
+        "de": "sales-development-representative-german-speaking-sophia-genetics-rolle",
+        "fr": "sales-development-representative-german-speaking-sophia-genetics-rolle"
       },
       "company": "SOPHiA GENETICS",
       "companyKey": "sophia-genetics",
       "companyDomain": "sophiagenetics.com",
-      "title": "NGS Lab Technician - 12M Contract",
+      "title": "Sales Development Representative - German Speaking",
       "titleByLocale": {
-        "it": "NGS Lab Technician - Contratto 12M",
-        "en": "NGS Lab Technician - 12M Contract",
-        "de": "NGS Lab Techniker - 12M Contract",
-        "fr": "NGS Lab Technicien - 12M Contract"
+        "en": "Sales Development Representative - German Speaking",
+        "it": "Sales Development Representative - German Speaking",
+        "de": "Sales Development Representative - German Speaking",
+        "fr": "Sales Development Representative - German Speaking"
       },
-      "description": "Do you bring hands on experience working within an NGS Laboratory? Are you comfortable managing samples through the sequencing process, and taking responsibility for laboratory procedures?\n If this sounds like you and you are driven by purpose, Join the SOPHiA GENETICS Research & Development Team as an NGS Lab Technician, and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n The nature of this role means you can expect to be in the office up to 5 days PW, connected to our Rolle site, so you will need to be in a commutable proximity.\n This is a 1 Year contract. There is possibility for permanent outcome or extension, but it can't be guaranteed at the start.\n Our mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n Reporting to the Senior Director, Genomic Research you will play a crucial role in supporting our next-generation sequencing (NGS) activities by performing various laboratory tasks and procedures. This position offers a great opportunity for growth and professional development in the field of genomic research.\n The value you bring:\n\n• Conducting sample preparation for NGS experiments, including DNA and RNA extraction, quantification, and quality control.\n\n• Performing NGS library preparation, including DNA fragmentation, adapter ligation, and PCR amplification.\n\n• Operating and maintaining NGS instruments, such as sequencers and sequencer robots.\n\n• Performing routine maintenance and troubleshooting of laboratory equipment.\n\n• Maintaining accurate and detailed records of experimental procedures, results, and observations.\n\n• Collaborating with other team members to optimize and troubleshoot experimental protocols.\n\n• Ensuring compliance with laboratory safety and quality control standards.",
+      "description": "Are you looking for an exciting opportunity to develop or kick-start your career in sales? Do you want to be part of a global health-tech company that is making a difference in the world?\n If this sounds like you and you are driven by purpose, Join the SOPHiA GENETICS sales Development Team as a Sales Development Representative, and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n This opportunity is likely best suited to someone with energy and passion looking to progress their early-sales career, or an individual with technical knowledge of Diagnostics/Genomics looking to make a move into sales. Based upon the territories you will support, you should be confident working and communicating in German.\n Our mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your mission\n Reporting into the Senior Manager - EMEA Field Marketing, you will play a crucial role in the sales process by prospecting, qualifying, and generating opportunities to support the overall growth of the business.\n What you’ll achieve\n\n• Generate new sales opportunities through inbound management and outbound outreach (calls, email, use of Salesforce CRM and other enablement software)\n\n• Proactively seek new business opportunities in the market and identify the needs of prospects, and suggest appropriate products or services\n\n• Developing sales outreach strategies to draw in potential buyers or to solicit new potential customers.\n\n• Creating relationships with customers to identify their potential needs and qualify their interests and viability to drive sales.\n\n• Presenting product information to customers once you have identified their needs.\n\n• Partner with Field Sales Executives, providing them with a volume of qualified leads to drive through to successful sales opportunities",
       "descriptionByLocale": {
-        "it": "Porti mani sull'esperienza di lavoro all'interno di un NGS Laboratory? Sei comodo gestire i campioni attraverso il processo di sequenziamento, e assumersi la responsabilità per le procedure di laboratorio? Se questo suona come voi e siete guidati di proposito, Unisciti al SOPHiA GENETICS Research & Development Team come un NGS Lab Technician, e ci permette di fare un impatto positivo sui risultati per i pazienti affetti da cancro e malattie rare in tutto il mondo. La natura di questo ruolo significa che ci si può aspettare di essere in ufficio fino a 5 giorni PW, collegati al nostro sito Rolle, in modo da sarà necessario essere in una vicinanza commutabile. Questo è un contratto di 1 anno. C'è possibilità di esito permanente o di estensione, ma non può essere garantito all'inizio. La nostra missione Crediamo che ci sia un modo più intelligente e più orientato ai dati per prendere decisioni nel settore sanitario e la nostra piattaforma DDM alimentata da AI cloud SOPHiA rende questa visione una realtà quotidiana. Avrete un input diretto alla nostra missione di democratizzare la medicina basata sui dati per il beneficio finale del cancro e dei pazienti affetti da malattie rare in tutto il mondo. La tua missione Segnalando al Direttore Senior, Genomic Research svolgerai un ruolo cruciale nel sostenere le nostre attività di sequenziamento di nuova generazione (NGS) eseguendo vari compiti e procedure di laboratorio. Questa posizione offre una grande opportunità per la crescita e lo sviluppo professionale nel campo della ricerca genomica. Il valore che porti:\n• Condurre la preparazione del campione per gli esperimenti NGS, tra cui l'estrazione del DNA e del RNA, la quantificazione e il controllo della qualità.\n• Eseguire la preparazione della libreria NGS, tra cui la frammentazione del DNA, la ligation dell'adattatore e l'amplificazione del PCR.\n• Funzionamento e mantenimento di strumenti NGS, come sequencer e robot sequencer.\n• Eseguire la manutenzione di routine e la risoluzione dei problemi di attrezzature di laboratorio.\n• Mantenere registrazioni accurate e dettagliate di procedure, risultati e osservazioni sperimentali.\n• Collaborare con altri membri del team per ottimizzare e risolvere i protocolli sperimentali.\n• Garantire il rispetto degli standard di sicurezza e controllo della qualità del laboratorio.",
-        "en": "Do you bring hands on experience working within an NGS Laboratory? Are you comfortable managing samples through the sequencing process, and taking responsibility for laboratory procedures? If this sounds like you and you are driven by purpose, Join the SOPHiA GENETICS Research & Development Team as an NGS Lab Technician, and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide. The nature of this role means you can expect to be in the office up to 5 days PW, connected to our Rolle site, so you will need to be in a commutable proximity. This is a 1 Year contract. There is possibility for permanent outcome or extension, but it can't be guaranteed at the start. Our mission We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe. Your Mission Reporting to the Senior Director, Genomic Research you will play a crucial role in supporting our next-generation sequencing (NGS) activities by performing various laboratory tasks and procedures. This position offers a great opportunity for growth and professional development in the field of genomic research. The value you bring:\n• Conducting sample preparation for NGS experiments, including DNA and RNA extraction, quantification, and quality control.\n• Performing NGS library preparation, including DNA fragmentation, adapter ligation, and PCR amplification.\n• Operating and maintaining NGS instruments, such as sequencers and sequencer robots.\n• Performing routine maintenance and troubleshooting of laboratory equipment.\n• Maintaining accurate and detailed records of experimental procedures, results, and observations.\n• Collaborating with other team members to optimize and troubleshoot experimental protocols.\n• Ensuring compliance with laboratory safety and quality control standards.",
-        "de": "Bringen Sie praktische Erfahrungen in einem NGS-Labor mit? Sind Sie damit zufrieden, Proben durch den Sequenzierungsprozess zu verwalten und die Verantwortung für Laborverfahren zu übernehmen? Wenn dies nach Ihnen klingt und Sie von Ihrem Ziel bestimmt sind, treten Sie dem SOPHiA GENETICS Research & Development Team als NGS Lab-Techniker bei und ermöglichen Sie es uns, die Ergebnisse von Krebspatienten und Patienten mit seltenen Krankheiten weltweit positiv zu beeinflussen. Die art dieser rolle bedeutet, dass sie erwarten können, bis zu 5 tage pw im büro zu sein, verbunden mit unserer rolle website, so dass sie in einer kommutierbaren nähe sein müssen. Dies ist ein 1-Jahres-Vertrag. Es gibt die Möglichkeit für ein dauerhaftes Ergebnis oder eine Verlängerung, aber es kann am Anfang nicht garantiert werden. Unsere Mission Wir glauben, dass es einen intelligenteren, datengestützten Weg gibt, um Entscheidungen im Gesundheitswesen zu treffen, und unsere Cloud-native KI-basierte SOPHiA DDM-Plattform macht diese Vision täglich Realität. Sie werden direkten Input zu unserer Mission haben, datengesteuerte Medizin für den ultimativen Nutzen von Krebs und Patienten mit seltenen Krankheiten auf der ganzen Welt zu demokratisieren. Deine Mission Berichterstattung an den Senior Director, Genomic Research werden Sie eine entscheidende Rolle bei der Unterstützung unserer Next-Generation-Sequenzierung (NGS) Aktivitäten durch die Durchführung verschiedener Laboraufgaben und Verfahren spielen. Diese Position bietet eine große Chance für Wachstum und berufliche Entwicklung im Bereich der Genomforschung. Der Wert, den Sie bringen:\n• Durchführung der Probenvorbereitung für NGS-Experimente, einschließlich DNA- und RNA-Extraktion, Quantifizierung und Qualitätskontrolle.\n• Durchführung der Vorbereitung der NGS-Bibliothek, einschließlich DNA-Fragmentierung, Adapterligation und PCR-Amplifikation.\n• Betrieb und Wartung von NGS-Instrumenten wie Sequenzern und Sequenzer-Robotern.\n• Durchführung einer routinemäßigen Wartung und Fehlerbehebung von Laborgeräten.\n• Aufrechterhaltung genauer und detaillierter Aufzeichnungen über experimentelle Verfahren, Ergebnisse und Beobachtungen.\n• Zusammenarbeit mit anderen Teammitgliedern, um experimentelle Protokolle zu optimieren und zu beheben.\n• Gewährleistung der Einhaltung der Normen für Laborsicherheit und Qualitätskontrolle.",
-        "fr": "Apportez-vous de l'expérience au sein d'un laboratoire de NGS? Êtes-vous à l'aise de gérer les échantillons par le séquençage et de prendre la responsabilité des procédures de laboratoire? Si cela vous ressemble et que vous êtes animés par le but, rejoignez l'équipe de recherche et de développement de SOPHiA GENETICS en tant que technicien de laboratoire de NGS, et nous permettent d'avoir un impact positif sur les résultats pour les patients atteints de cancer et de maladies rares dans le monde entier. La nature de ce rôle signifie que vous pouvez vous attendre à être dans le bureau jusqu'à 5 jours PW, connecté à notre site Rolle, de sorte que vous devrez être dans une proximité commutable. C'est un contrat de 1 an. Il y a possibilité de résultat permanent ou d'extension, mais il ne peut pas être garanti au début. Notre mission Nous croyons qu'il existe une façon plus intelligente et plus axée sur les données de prendre des décisions dans le domaine des soins de santé, et notre plate-forme SOPHiA DDM, alimentée par le cloud, fait de cette vision une réalité quotidienne. Vous aurez une contribution directe à notre mission de démocratisation de la médecine axée sur les données pour le bénéfice ultime des patients atteints de cancer et de maladies rares dans le monde entier. Votre mission Sous l'autorité du directeur principal de la recherche génomique, vous jouerez un rôle crucial en appuyant nos activités de séquençage de la prochaine génération (SNG) en effectuant diverses tâches et procédures de laboratoire. Ce poste offre une excellente occasion de croissance et de perfectionnement professionnel dans le domaine de la recherche génomique. La valeur que vous apportez :\n• Préparation d'échantillons pour les expériences de NGS, y compris l'extraction de l'ADN et de l'ARN, la quantification et le contrôle de la qualité.\n• Effectuer la préparation de la bibliothèque NGS, y compris la fragmentation de l'ADN, la ligation de l'adaptateur et l'amplification PCR.\n• Fonctionnement et entretien des instruments NGS, tels que les séquenceurs et les robots séquenceurs.\n• Effectuer l'entretien de routine et le dépannage des équipements de laboratoire.\n• Tenir des registres précis et détaillés des procédures expérimentales, des résultats et des observations.\n• Collaborer avec d'autres membres de l'équipe pour optimiser et dépanner les protocoles expérimentaux.\n• Assurer le respect des normes de sécurité et de contrôle de la qualité en laboratoire."
+        "en": "Are you looking for an exciting opportunity to develop or kick-start your career in sales? Do you want to be part of a global health-tech company that is making a difference in the world?\n If this sounds like you and you are driven by purpose, Join the SOPHiA GENETICS sales Development Team as a Sales Development Representative, and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n This opportunity is likely best suited to someone with energy and passion looking to progress their early-sales career, or an individual with technical knowledge of Diagnostics/Genomics looking to make a move into sales. Based upon the territories you will support, you should be confident working and communicating in German.\n Our mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your mission\n Reporting into the Senior Manager - EMEA Field Marketing, you will play a crucial role in the sales process by prospecting, qualifying, and generating opportunities to support the overall growth of the business.\n What you’ll achieve\n\n• Generate new sales opportunities through inbound management and outbound outreach (calls, email, use of Salesforce CRM and other enablement software)\n\n• Proactively seek new business opportunities in the market and identify the needs of prospects, and suggest appropriate products or services\n\n• Developing sales outreach strategies to draw in potential buyers or to solicit new potential customers.\n\n• Creating relationships with customers to identify their potential needs and qualify their interests and viability to drive sales.\n\n• Presenting product information to customers once you have identified their needs.\n\n• Partner with Field Sales Executives, providing them with a volume of qualified leads to drive through to successful sales opportunities",
+        "it": "Are you looking for an exciting opportunity to develop or kick-start your career in sales? Do you want to be part of a global health-tech company that is making a difference in the world?\n If this sounds like you and you are driven by purpose, Join the SOPHiA GENETICS sales Development Team as a Sales Development Representative, and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n This opportunity is likely best suited to someone with energy and passion looking to progress their early-sales career, or an individual with technical knowledge of Diagnostics/Genomics looking to make a move into sales. Based upon the territories you will support, you should be confident working and communicating in German.\n Our mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your mission\n Reporting into the Senior Manager - EMEA Field Marketing, you will play a crucial role in the sales process by prospecting, qualifying, and generating opportunities to support the overall growth of the business.\n What you’ll achieve\n\n• Generate new sales opportunities through inbound management and outbound outreach (calls, email, use of Salesforce CRM and other enablement software)\n\n• Proactively seek new business opportunities in the market and identify the needs of prospects, and suggest appropriate products or services\n\n• Developing sales outreach strategies to draw in potential buyers or to solicit new potential customers.\n\n• Creating relationships with customers to identify their potential needs and qualify their interests and viability to drive sales.\n\n• Presenting product information to customers once you have identified their needs.\n\n• Partner with Field Sales Executives, providing them with a volume of qualified leads to drive through to successful sales opportunities",
+        "de": "Are you looking for an exciting opportunity to develop or kick-start your career in sales? Do you want to be part of a global health-tech company that is making a difference in the world?\n If this sounds like you and you are driven by purpose, Join the SOPHiA GENETICS sales Development Team as a Sales Development Representative, and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n This opportunity is likely best suited to someone with energy and passion looking to progress their early-sales career, or an individual with technical knowledge of Diagnostics/Genomics looking to make a move into sales. Based upon the territories you will support, you should be confident working and communicating in German.\n Our mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your mission\n Reporting into the Senior Manager - EMEA Field Marketing, you will play a crucial role in the sales process by prospecting, qualifying, and generating opportunities to support the overall growth of the business.\n What you’ll achieve\n\n• Generate new sales opportunities through inbound management and outbound outreach (calls, email, use of Salesforce CRM and other enablement software)\n\n• Proactively seek new business opportunities in the market and identify the needs of prospects, and suggest appropriate products or services\n\n• Developing sales outreach strategies to draw in potential buyers or to solicit new potential customers.\n\n• Creating relationships with customers to identify their potential needs and qualify their interests and viability to drive sales.\n\n• Presenting product information to customers once you have identified their needs.\n\n• Partner with Field Sales Executives, providing them with a volume of qualified leads to drive through to successful sales opportunities",
+        "fr": "Are you looking for an exciting opportunity to develop or kick-start your career in sales? Do you want to be part of a global health-tech company that is making a difference in the world?\n If this sounds like you and you are driven by purpose, Join the SOPHiA GENETICS sales Development Team as a Sales Development Representative, and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n This opportunity is likely best suited to someone with energy and passion looking to progress their early-sales career, or an individual with technical knowledge of Diagnostics/Genomics looking to make a move into sales. Based upon the territories you will support, you should be confident working and communicating in German.\n Our mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your mission\n Reporting into the Senior Manager - EMEA Field Marketing, you will play a crucial role in the sales process by prospecting, qualifying, and generating opportunities to support the overall growth of the business.\n What you’ll achieve\n\n• Generate new sales opportunities through inbound management and outbound outreach (calls, email, use of Salesforce CRM and other enablement software)\n\n• Proactively seek new business opportunities in the market and identify the needs of prospects, and suggest appropriate products or services\n\n• Developing sales outreach strategies to draw in potential buyers or to solicit new potential customers.\n\n• Creating relationships with customers to identify their potential needs and qualify their interests and viability to drive sales.\n\n• Presenting product information to customers once you have identified their needs.\n\n• Partner with Field Sales Executives, providing them with a volume of qualified leads to drive through to successful sales opportunities"
       },
       "location": "Rolle",
       "canton": "VD",
-      "url": "https://apply.workable.com/sophia-genetics/j/28887796D7/",
+      "url": "https://apply.workable.com/sophia-genetics/j/0D9E533066/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:11:13.665Z",
+      "crawledAt": "2026-07-07T22:15:54.577Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
       "postalCode": "1180",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Ricerca",
+      "category": "Ingegneria",
       "contract": "full-time",
-      "employmentType": "OTHER",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Health-Tech / Genomica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-20",
-      "applyUrl": "https://apply.workable.com/sophia-genetics/j/28887796D7/",
-      "jobReqId": "28887796D7",
+      "postedDate": "2026-06-19",
+      "applyUrl": "https://apply.workable.com/sophia-genetics/j/0D9E533066/",
+      "jobReqId": "0D9E533066",
       "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T12:25:47.534Z",
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -345,7 +354,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-07T22:15:54.577Z"
     },
     {
       "id": "sophia-genetics-c95859987d12",
@@ -378,7 +388,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/A5F8F7F93B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:11:13.562Z",
+      "crawledAt": "2026-07-07T22:15:54.235Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -398,6 +408,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:25:47.424Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -442,7 +453,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/892266C223/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:11:12.977Z",
+      "crawledAt": "2026-07-07T22:15:53.636Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -506,7 +517,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/39F1F5A7B1/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:11:12.689Z",
+      "crawledAt": "2026-07-07T22:15:53.251Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zurich",
       "streetAddress": "",
@@ -537,7 +548,73 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "sophia-genetics-18205de0c204",
+      "slug": "ngs-lab-technician-12m-contract-sophia-genetics-rolle",
+      "slugByLocale": {
+        "it": "ngs-lab-technician-12m-contract-sophia-genetics-rolle",
+        "en": "ngs-lab-technician-12m-contract-sophia-genetics-rolle",
+        "de": "ngs-lab-technician-12m-contract-sophia-genetics-rolle",
+        "fr": "ngs-lab-technician-12m-contract-sophia-genetics-rolle"
+      },
+      "company": "SOPHiA GENETICS",
+      "companyKey": "sophia-genetics",
+      "companyDomain": "sophiagenetics.com",
+      "title": "NGS Lab Technician - 12M Contract",
+      "titleByLocale": {
+        "it": "NGS Lab Technician - Contratto 12M",
+        "en": "NGS Lab Technician - 12M Contract",
+        "de": "NGS Lab Techniker - 12M Contract",
+        "fr": "NGS Lab Technicien - 12M Contract"
+      },
+      "description": "Do you bring hands on experience working within an NGS Laboratory? Are you comfortable managing samples through the sequencing process, and taking responsibility for laboratory procedures?\n If this sounds like you and you are driven by purpose, Join the SOPHiA GENETICS Research & Development Team as an NGS Lab Technician, and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n The nature of this role means you can expect to be in the office up to 5 days PW, connected to our Rolle site, so you will need to be in a commutable proximity.\n This is a 1 Year contract. There is possibility for permanent outcome or extension, but it can't be guaranteed at the start.\n Our mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n Reporting to the Senior Director, Genomic Research you will play a crucial role in supporting our next-generation sequencing (NGS) activities by performing various laboratory tasks and procedures. This position offers a great opportunity for growth and professional development in the field of genomic research.\n The value you bring:\n\n• Conducting sample preparation for NGS experiments, including DNA and RNA extraction, quantification, and quality control.\n\n• Performing NGS library preparation, including DNA fragmentation, adapter ligation, and PCR amplification.\n\n• Operating and maintaining NGS instruments, such as sequencers and sequencer robots.\n\n• Performing routine maintenance and troubleshooting of laboratory equipment.\n\n• Maintaining accurate and detailed records of experimental procedures, results, and observations.\n\n• Collaborating with other team members to optimize and troubleshoot experimental protocols.\n\n• Ensuring compliance with laboratory safety and quality control standards.",
+      "descriptionByLocale": {
+        "it": "Porti mani sull'esperienza di lavoro all'interno di un NGS Laboratory? Sei comodo gestire i campioni attraverso il processo di sequenziamento, e assumersi la responsabilità per le procedure di laboratorio? Se questo suona come voi e siete guidati di proposito, Unisciti al SOPHiA GENETICS Research & Development Team come un NGS Lab Technician, e ci permette di fare un impatto positivo sui risultati per i pazienti affetti da cancro e malattie rare in tutto il mondo. La natura di questo ruolo significa che ci si può aspettare di essere in ufficio fino a 5 giorni PW, collegati al nostro sito Rolle, in modo da sarà necessario essere in una vicinanza commutabile. Questo è un contratto di 1 anno. C'è possibilità di esito permanente o di estensione, ma non può essere garantito all'inizio. La nostra missione Crediamo che ci sia un modo più intelligente e più orientato ai dati per prendere decisioni nel settore sanitario e la nostra piattaforma DDM alimentata da AI cloud SOPHiA rende questa visione una realtà quotidiana. Avrete un input diretto alla nostra missione di democratizzare la medicina basata sui dati per il beneficio finale del cancro e dei pazienti affetti da malattie rare in tutto il mondo. La tua missione Segnalando al Direttore Senior, Genomic Research svolgerai un ruolo cruciale nel sostenere le nostre attività di sequenziamento di nuova generazione (NGS) eseguendo vari compiti e procedure di laboratorio. Questa posizione offre una grande opportunità per la crescita e lo sviluppo professionale nel campo della ricerca genomica. Il valore che porti:\n• Condurre la preparazione del campione per gli esperimenti NGS, tra cui l'estrazione del DNA e del RNA, la quantificazione e il controllo della qualità.\n• Eseguire la preparazione della libreria NGS, tra cui la frammentazione del DNA, la ligation dell'adattatore e l'amplificazione del PCR.\n• Funzionamento e mantenimento di strumenti NGS, come sequencer e robot sequencer.\n• Eseguire la manutenzione di routine e la risoluzione dei problemi di attrezzature di laboratorio.\n• Mantenere registrazioni accurate e dettagliate di procedure, risultati e osservazioni sperimentali.\n• Collaborare con altri membri del team per ottimizzare e risolvere i protocolli sperimentali.\n• Garantire il rispetto degli standard di sicurezza e controllo della qualità del laboratorio.",
+        "en": "Do you bring hands on experience working within an NGS Laboratory? Are you comfortable managing samples through the sequencing process, and taking responsibility for laboratory procedures? If this sounds like you and you are driven by purpose, Join the SOPHiA GENETICS Research & Development Team as an NGS Lab Technician, and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide. The nature of this role means you can expect to be in the office up to 5 days PW, connected to our Rolle site, so you will need to be in a commutable proximity. This is a 1 Year contract. There is possibility for permanent outcome or extension, but it can't be guaranteed at the start. Our mission We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe. Your Mission Reporting to the Senior Director, Genomic Research you will play a crucial role in supporting our next-generation sequencing (NGS) activities by performing various laboratory tasks and procedures. This position offers a great opportunity for growth and professional development in the field of genomic research. The value you bring:\n• Conducting sample preparation for NGS experiments, including DNA and RNA extraction, quantification, and quality control.\n• Performing NGS library preparation, including DNA fragmentation, adapter ligation, and PCR amplification.\n• Operating and maintaining NGS instruments, such as sequencers and sequencer robots.\n• Performing routine maintenance and troubleshooting of laboratory equipment.\n• Maintaining accurate and detailed records of experimental procedures, results, and observations.\n• Collaborating with other team members to optimize and troubleshoot experimental protocols.\n• Ensuring compliance with laboratory safety and quality control standards.",
+        "de": "Bringen Sie praktische Erfahrungen in einem NGS-Labor mit? Sind Sie damit zufrieden, Proben durch den Sequenzierungsprozess zu verwalten und die Verantwortung für Laborverfahren zu übernehmen? Wenn dies nach Ihnen klingt und Sie von Ihrem Ziel bestimmt sind, treten Sie dem SOPHiA GENETICS Research & Development Team als NGS Lab-Techniker bei und ermöglichen Sie es uns, die Ergebnisse von Krebspatienten und Patienten mit seltenen Krankheiten weltweit positiv zu beeinflussen. Die art dieser rolle bedeutet, dass sie erwarten können, bis zu 5 tage pw im büro zu sein, verbunden mit unserer rolle website, so dass sie in einer kommutierbaren nähe sein müssen. Dies ist ein 1-Jahres-Vertrag. Es gibt die Möglichkeit für ein dauerhaftes Ergebnis oder eine Verlängerung, aber es kann am Anfang nicht garantiert werden. Unsere Mission Wir glauben, dass es einen intelligenteren, datengestützten Weg gibt, um Entscheidungen im Gesundheitswesen zu treffen, und unsere Cloud-native KI-basierte SOPHiA DDM-Plattform macht diese Vision täglich Realität. Sie werden direkten Input zu unserer Mission haben, datengesteuerte Medizin für den ultimativen Nutzen von Krebs und Patienten mit seltenen Krankheiten auf der ganzen Welt zu demokratisieren. Deine Mission Berichterstattung an den Senior Director, Genomic Research werden Sie eine entscheidende Rolle bei der Unterstützung unserer Next-Generation-Sequenzierung (NGS) Aktivitäten durch die Durchführung verschiedener Laboraufgaben und Verfahren spielen. Diese Position bietet eine große Chance für Wachstum und berufliche Entwicklung im Bereich der Genomforschung. Der Wert, den Sie bringen:\n• Durchführung der Probenvorbereitung für NGS-Experimente, einschließlich DNA- und RNA-Extraktion, Quantifizierung und Qualitätskontrolle.\n• Durchführung der Vorbereitung der NGS-Bibliothek, einschließlich DNA-Fragmentierung, Adapterligation und PCR-Amplifikation.\n• Betrieb und Wartung von NGS-Instrumenten wie Sequenzern und Sequenzer-Robotern.\n• Durchführung einer routinemäßigen Wartung und Fehlerbehebung von Laborgeräten.\n• Aufrechterhaltung genauer und detaillierter Aufzeichnungen über experimentelle Verfahren, Ergebnisse und Beobachtungen.\n• Zusammenarbeit mit anderen Teammitgliedern, um experimentelle Protokolle zu optimieren und zu beheben.\n• Gewährleistung der Einhaltung der Normen für Laborsicherheit und Qualitätskontrolle.",
+        "fr": "Apportez-vous de l'expérience au sein d'un laboratoire de NGS? Êtes-vous à l'aise de gérer les échantillons par le séquençage et de prendre la responsabilité des procédures de laboratoire? Si cela vous ressemble et que vous êtes animés par le but, rejoignez l'équipe de recherche et de développement de SOPHiA GENETICS en tant que technicien de laboratoire de NGS, et nous permettent d'avoir un impact positif sur les résultats pour les patients atteints de cancer et de maladies rares dans le monde entier. La nature de ce rôle signifie que vous pouvez vous attendre à être dans le bureau jusqu'à 5 jours PW, connecté à notre site Rolle, de sorte que vous devrez être dans une proximité commutable. C'est un contrat de 1 an. Il y a possibilité de résultat permanent ou d'extension, mais il ne peut pas être garanti au début. Notre mission Nous croyons qu'il existe une façon plus intelligente et plus axée sur les données de prendre des décisions dans le domaine des soins de santé, et notre plate-forme SOPHiA DDM, alimentée par le cloud, fait de cette vision une réalité quotidienne. Vous aurez une contribution directe à notre mission de démocratisation de la médecine axée sur les données pour le bénéfice ultime des patients atteints de cancer et de maladies rares dans le monde entier. Votre mission Sous l'autorité du directeur principal de la recherche génomique, vous jouerez un rôle crucial en appuyant nos activités de séquençage de la prochaine génération (SNG) en effectuant diverses tâches et procédures de laboratoire. Ce poste offre une excellente occasion de croissance et de perfectionnement professionnel dans le domaine de la recherche génomique. La valeur que vous apportez :\n• Préparation d'échantillons pour les expériences de NGS, y compris l'extraction de l'ADN et de l'ARN, la quantification et le contrôle de la qualité.\n• Effectuer la préparation de la bibliothèque NGS, y compris la fragmentation de l'ADN, la ligation de l'adaptateur et l'amplification PCR.\n• Fonctionnement et entretien des instruments NGS, tels que les séquenceurs et les robots séquenceurs.\n• Effectuer l'entretien de routine et le dépannage des équipements de laboratoire.\n• Tenir des registres précis et détaillés des procédures expérimentales, des résultats et des observations.\n• Collaborer avec d'autres membres de l'équipe pour optimiser et dépanner les protocoles expérimentaux.\n• Assurer le respect des normes de sécurité et de contrôle de la qualité en laboratoire."
+      },
+      "location": "Rolle",
+      "canton": "VD",
+      "url": "https://apply.workable.com/sophia-genetics/j/28887796D7/",
+      "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-07T12:11:13.665Z",
+      "addressLocality": "Rolle",
+      "addressRegion": "Vaud",
+      "streetAddress": "La Pièce 12",
+      "postalCode": "1180",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Health-Tech / Genomica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "applyUrl": "https://apply.workable.com/sophia-genetics/j/28887796D7/",
+      "jobReqId": "28887796D7",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-04T12:25:47.534Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
