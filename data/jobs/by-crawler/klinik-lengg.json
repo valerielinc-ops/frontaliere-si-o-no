@@ -370,12 +370,12 @@
     },
     {
       "id": "klinik-lengg-33f251d83464",
-      "slug": "dipl-carriera-come-uccello-precoce-o-gufo-notturno-a-klinik-lengg-zurich",
+      "slug": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
-        "it": "dipl-carriera-come-uccello-precoce-o-gufo-notturno-a-klinik-lengg-zurich",
+        "it": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
         "en": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
-        "fr": "diplome-aidant-en-tant-qu-oiseau-precoce-ou-hiboux-de-nuit-a-klinik-lengg-zurich-db5eb8"
+        "fr": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -418,18 +418,7 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich"
-      ]
+      }
     },
     {
       "id": "klinik-lengg-e43874e036a4",
@@ -896,6 +885,19 @@
       "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/quereinsteiger-in-neurophysiologie-im-tagdienst/328a1ae3-3bc1-4591-bf90-d3e3f626a20f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
+        "candidato-a-in-riqualificazione-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
+          "candidato-a-in-riqualificazione-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
+        ],
+        "en": [
+          "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
+        ]
+      },
       "firstSeenAt": "2026-06-05T12:05:44.589Z"
     },
     {

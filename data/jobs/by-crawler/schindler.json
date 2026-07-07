@@ -499,9 +499,9 @@
       "id": "schindler-5ce0113bb788",
       "slug": "gestionnaire-de-consentements-pour-les-cookies-schindler-sion",
       "slugByLocale": {
-        "it": "cookie-consent-manager-schindler-sion",
+        "it": "responsabile-del-consenso-ai-cookie-schindler-sion",
         "en": "cookie-consent-manager-schindler-sion",
-        "de": "cookie-consent-manager-schindler-sion",
+        "de": "cookie-einwilligungsmanager-schindler-sion",
         "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-sion"
       },
       "company": "Schindler",
@@ -548,19 +548,22 @@
         "responsabile-del-consenso-ai-cookie-schindler-bussigny",
         "cookie-consent-manager-schindler-bussigny",
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
-        "cookie-einwilligungsmanager-schindler-sion"
+        "cookie-einwilligungsmanager-schindler-sion",
+        "cookie-consent-manager-schindler-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-del-consenso-ai-cookie-schindler-sion",
-          "responsabile-del-consenso-ai-cookie-schindler-bussigny"
+          "responsabile-del-consenso-ai-cookie-schindler-bussigny",
+          "cookie-consent-manager-schindler-sion"
         ],
         "en": [
           "cookie-consent-manager-schindler-bussigny"
         ],
         "de": [
           "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
-          "cookie-einwilligungsmanager-schindler-sion"
+          "cookie-einwilligungsmanager-schindler-sion",
+          "cookie-consent-manager-schindler-sion"
         ]
       },
       "firstSeenAt": "2026-07-01T23:01:27.320Z"
@@ -1494,7 +1497,7 @@
         "de": "manager-fur-cookie-einwilligungen-schindler-zurich",
         "it": "manager-per-cookie-einwilligungen-schindler-zurich",
         "en": "manager-fur-cookie-einwilligungen-schindler-zurich",
-        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich"
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich-733ce3"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -1539,11 +1542,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich-733ce3"
+          "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich-733ce3"
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich"
       ]
     },
     {
@@ -2037,9 +2040,9 @@
       "id": "schindler-e35bef1626a1",
       "slug": "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
       "slugByLocale": {
-        "it": "titolo-a-le-mont-sur-loussanne-schindler-le-mont-sur-lausanne",
+        "it": "titolo-a-le-mont-sur-loussanne-schindler-le-mont-sur-lausanne-a7fbf1",
         "en": "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2",
-        "de": "titel-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
+        "de": "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2",
         "fr": "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
       },
       "company": "Schindler",
@@ -2083,14 +2086,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "titolo-a-le-mont-sur-loussanne-schindler-le-mont-sur-lausanne-a7fbf1",
-        "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2"
+        "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2",
+        "titolo-a-le-mont-sur-loussanne-schindler-le-mont-sur-lausanne",
+        "titel-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "titolo-a-le-mont-sur-loussanne-schindler-le-mont-sur-lausanne-a7fbf1"
+          "titolo-a-le-mont-sur-loussanne-schindler-le-mont-sur-lausanne-a7fbf1",
+          "titolo-a-le-mont-sur-loussanne-schindler-le-mont-sur-lausanne"
         ],
         "de": [
-          "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2"
+          "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2",
+          "titel-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:47.711Z"
@@ -2885,8 +2892,8 @@
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "it": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
-        "en": "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-        "fr": "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
+        "en": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-oberentfelden"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2930,12 +2937,15 @@
         "de": []
       },
       "previousSlugsByLocale": {
+        "en": [
+          "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
+        ],
         "fr": [
-          "gestionnaire-pour-les-consentements-de-cookies-schindler-oberentfelden"
+          "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-oberentfelden"
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
       ]
     },
     {
@@ -4336,10 +4346,10 @@
       "id": "schindler-1085922c4581",
       "slug": "manager-fur-cookie-einwilligungen-schindler-st-gallen",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
-        "en": "manager-for-cookie-permissions-schindler-st-gallen",
+        "it": "manager-per-cookie-einwilligungen-schindler-st-gallen",
+        "en": "manager-fur-cookie-einwilligungen-schindler-st-gallen",
         "de": "manager-fur-cookie-einwilligungen-schindler-st-gallen",
-        "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern"
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -4411,14 +4421,17 @@
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
         "manager-per-cookie-einwilligungen-schindler-basel-qcm1tp",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-bussigny",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
+        "manager-for-cookie-permissions-schindler-st-gallen",
+        "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny",
           "manager-per-cookie-einwilligungen-schindler-ebikon",
           "manager-per-cookie-einwilligungen-schindler-st-gallen",
-          "manager-per-cookie-einwilligungen-schindler-basel"
+          "manager-per-cookie-einwilligungen-schindler-basel",
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-bern"
         ],
         "en": [
           "manager-per-cookie-einwilligungen-schindler-bern-8f3fzf",
@@ -4438,14 +4451,15 @@
           "manager-fur-cookie-einwilligungen-schindler-ebikon",
           "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz",
           "manager-fur-cookie-einwilligungen-schindler-basel",
-          "manager-fur-cookie-einwilligungen-schindler-st-gallen-2"
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen-2",
+          "manager-for-cookie-permissions-schindler-st-gallen"
         ],
         "de": [
           "manager-fur-cookie-einwilligungen-schindler-bern"
         ],
         "fr": [
           "gestionnaire-pour-les-autorisations-de-cookies-schindler-bussigny",
-          "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen"
+          "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern"
         ]
       },
       "firstSeenAt": "2026-05-21T13:13:32.560Z"
