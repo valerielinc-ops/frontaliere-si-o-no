@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "manor",
-  "assembledAt": "2026-07-07T12:11:32.203Z",
   "jobs": [
     {
       "title": "Mitarbeiter*in Logistik Warenausgang 100%",
@@ -6590,60 +6588,6 @@
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
-      "title": "Head of Retail Media 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Basel-Head-of-Retail-Media-100/1355566055/",
-      "location": "Basel Head of Retail",
-      "canton": "BS",
-      "country": "CH",
-      "category": "retail",
-      "description": "Head of Retail Media 100% presso Manor, con sede a Basel Head of Retail, Canton Basilea Città, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Head of Retail Media 100% presso Manor, con sede a Basel Head of Retail, Canton Basilea Città, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Head of Retail Media 100% presso Manor, con sede a Basel Head of Retail, Canton Basilea Città, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Head of Retail Media 100% at Manor, located in Basel Head of Retail, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Head of Retail Media 100% bei Manor, gelegen in Basel Head of Retail, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Head of Retail Media 100% chez Manor, situé à Basel Head of Retail, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-06-16",
-      "source": "company-website",
-      "slug": "manor-head-of-retail-media-100-basel-head-of-retail",
-      "slugByLocale": {
-        "it": "manor-head-of-retail-media-100-basel-head-of-retail",
-        "fr": "responsable-des-medias-de-detail-100-manor-ag-basel-head-of-retail",
-        "en": "manor-head-of-retail-media-100-basel-head-of-retail",
-        "de": "manor-head-of-retail-media-100-basel-head-of-retail"
-      },
-      "titleByLocale": {
-        "it": "Responsabile Retail Media 100%",
-        "de": "Leiter Retail Media 100%",
-        "fr": "Responsable des médias de détail 100%",
-        "en": "Head of Retail Media 100%"
-      },
-      "sourceLang": "it",
-      "id": "manor-058539e1dc91",
-      "salaryMin": 103500,
-      "salaryMax": 159500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 103500,
-          "maxValue": 159500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Basel Head of Retail",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "4001",
-      "firstSeenAt": "2026-07-07T12:11:24.549Z"
-    },
-    {
       "title": "Mitarbeiter*in Merchandising Fashion 50%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -8492,5 +8436,7 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-07-07T12:11:24.549Z"
     }
-  ]
+  ],
+  "crawlerKey": "manor",
+  "assembledAt": "2026-07-07T13:13:25.452Z"
 }
