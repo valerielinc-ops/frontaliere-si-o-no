@@ -8312,6 +8312,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stabio-dogana-nuovo-accordo-fiscale.title': 'Stade douanier : les nouveautés fiscales pour les frontaliers',
     'blog.article.stabio-dogana-nuovo-accordo-fiscale.excerpt': 'Depuis le 1er janvier 2024, le nouvel accord frontalier modifie l\'impôt à la source et les franchises pour ceux qui transitent de la frontière de Stabio vers le canton du Tessin.',
     'blog.article.stabio-dogana-nuovo-accordo-fiscale.imageAlt': 'Le poste douanier de Stabio, un point de transit crucial pour les travailleurs frontaliers entre la Suisse et l\'Italie, avec des voitures en file d\'attente.',
+    'blog.article.ascensori-ticino-frontalieri.title': 'Ascenseurs Tessin : opportunités d\'emploi pour les frontaliers',
+    'blog.article.ascensori-ticino-frontalieri.excerpt': 'Recherche d\'emploi pour les ascenseurs au Tessin. Découvrez les exigences, les salaires et les taxes pour les frontaliers qui travaillent en Suisse italienne',
+    'blog.article.ascensori-ticino-frontalieri.imageAlt': 'Ascenseurs à Locarno reliant les zones résidentielles au centre-ville',
 };
 
 export default blogMetaFr;

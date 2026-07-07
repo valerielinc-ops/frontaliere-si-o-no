@@ -8311,6 +8311,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stabio-dogana-nuovo-accordo-fiscale.title': 'Stabio customs: tax news for border workers',
     'blog.article.stabio-dogana-nuovo-accordo-fiscale.excerpt': 'From 1 January 2024, the New Frontier Agreement modifies the tax at source and the deductibles for those who transit from the border of Stabio to the Canton of Ticino.',
     'blog.article.stabio-dogana-nuovo-accordo-fiscale.imageAlt': 'The Stabio customs crossing, a crucial transit point for cross-border commuters between Switzerland and Italy, with cars queuing.',
+    'blog.article.ascensori-ticino-frontalieri.title': 'Ticino lifts: job opportunities for border workers',
+    'blog.article.ascensori-ticino-frontalieri.excerpt': 'Job search for elevator operators in Ticino. Discover requirements, salaries and taxes for border workers working in Italian Switzerland',
+    'blog.article.ascensori-ticino-frontalieri.imageAlt': 'Elevators in Locarno connecting residential areas to city center',
 };
 
 export default blogMetaEn;

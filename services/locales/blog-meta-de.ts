@@ -8310,6 +8310,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stabio-dogana-nuovo-accordo-fiscale.title': 'Stabio Customs: die steuerlichen Neuerungen für Grenzgänger',
     'blog.article.stabio-dogana-nuovo-accordo-fiscale.excerpt': 'Ab dem 1. Januar 2024 ändert die Neue Frontalieri-Vereinbarung die Quellensteuer und die Selbstbehalte für diejenigen, die die Grenze von Stabio in den Kanton Tessin passieren.',
     'blog.article.stabio-dogana-nuovo-accordo-fiscale.imageAlt': 'Der Grenzübergang Stabio, ein wichtiger Transitpunkt für Grenzgänger zwischen der Schweiz und Italien, mit Autos in der Warteschlange.',
+    'blog.article.ascensori-ticino-frontalieri.title': 'Aufzüge Tessin: Beschäftigungsmöglichkeiten für Grenzgänger',
+    'blog.article.ascensori-ticino-frontalieri.excerpt': 'Jobsuche für Liftmitarbeiter im Tessin. Entdecken Sie Anforderungen, Gehälter und Steuern für Grenzgänger, die in der italienischen Schweiz arbeiten',
+    'blog.article.ascensori-ticino-frontalieri.imageAlt': 'Aufzüge in Locarno die Wohngegenden mit der Stadtmitte verbinden',
 };
 
 export default blogMetaDe;
