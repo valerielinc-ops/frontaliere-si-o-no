@@ -18,6 +18,7 @@ import {
   renderDigestPage,
   DIGESTS,
   assignEventSlugs,
+  reserveLiveSiblingSlugs,
 } from '../build-plugins/eventsSeoPagesPlugin';
 import { SITE_LICENSE_PAGE } from '../services/seo/imageObjectLd';
 import { MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
@@ -761,5 +762,46 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     const pastEvent = { ...EVENT, id: 'tio-agenda:400', title: 'Concerto', startDate: '2026-05-01' };
     const slugs = assignEventSlugs([pastEvent] as never, new Set(['some-other-event-2026-01-01']));
     expect(slugs.get('tio-agenda:400')).toBe('concerto-2026-05-01');
+  });
+});
+
+describe('reserveLiveSiblingSlugs (issue #3715 — reviewer-found collision)', () => {
+  it('reserves the ACTUAL assigned slug for each live sibling, not the collapsed raw base', () => {
+    // Two still-live events sharing title+date in the same comune: assignEventSlugs
+    // gives them 'base' and 'base-2'. Reserving raw slugifyEvent() bases would
+    // collapse both to the same 'base' string, leaving the second sibling's real
+    // URL ('base-2') completely unprotected against a same-title+date past-bridge
+    // page landing on it.
+    const liveA = { ...EVENT, id: 'tio-agenda:500', title: 'Mercato di Natale', startDate: '2026-12-05' };
+    const liveB = { ...EVENT, id: 'tio-agenda:600', title: 'Mercato di Natale', startDate: '2026-12-05' };
+    const slugs = assignEventSlugs([liveA, liveB] as never);
+    expect(slugs.get('tio-agenda:500')).toBe('mercato-di-natale-2026-12-05');
+    expect(slugs.get('tio-agenda:600')).toBe('mercato-di-natale-2026-12-05-2');
+
+    // `reserveLiveSiblingSlugs` reads from the real `detailSlugs` shape
+    // (Map<string, { canton, comune, slug }>), not the bare slug-string map
+    // `assignEventSlugs` returns.
+    const detailSlugs = new Map(
+      [liveA, liveB].map((ev) => [ev.id, { canton: 'TI', comune: 'Lugano', slug: slugs.get(ev.id)! }]),
+    );
+    const reserved = reserveLiveSiblingSlugs([liveA, liveB] as never, detailSlugs);
+    expect(reserved.has('mercato-di-natale-2026-12-05')).toBe(true);
+    expect(reserved.has('mercato-di-natale-2026-12-05-2')).toBe(true);
+    expect(reserved.size).toBe(2);
+  });
+
+  it('a past-bridge event colliding with the SECOND live sibling still gets pushed to a free slug', () => {
+    const liveA = { ...EVENT, id: 'tio-agenda:500', title: 'Mercato di Natale', startDate: '2026-12-05' };
+    const liveB = { ...EVENT, id: 'tio-agenda:600', title: 'Mercato di Natale', startDate: '2026-12-05' };
+    const slugs = assignEventSlugs([liveA, liveB] as never);
+    const detailSlugs = new Map(
+      [liveA, liveB].map((ev) => [ev.id, { canton: 'TI', comune: 'Lugano', slug: slugs.get(ev.id)! }]),
+    );
+    const reserved = reserveLiveSiblingSlugs([liveA, liveB] as never, detailSlugs);
+
+    const pastEvent = { ...EVENT, id: 'tio-agenda:700', title: 'Mercato di Natale', startDate: '2026-12-05' };
+    const pastSlugs = assignEventSlugs([pastEvent] as never, reserved);
+    // Must land on a third slug — neither live sibling's real URL is reused.
+    expect(pastSlugs.get('tio-agenda:700')).toBe('mercato-di-natale-2026-12-05-3');
   });
 });

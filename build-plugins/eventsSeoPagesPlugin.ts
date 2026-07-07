@@ -2629,6 +2629,22 @@ export function assignEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlyS
   return slugFor;
 }
 
+/**
+ * Build the `reservedBaseSlugs` set for a past-bridge `assignEventSlugs` call:
+ * the ACTUAL assigned slug (post-dedup, e.g. `base-2` for a second
+ * same-title+date sibling) for every still-live event in the same comune —
+ * never the raw `slugifyEvent(ev)` base. Two live siblings sharing
+ * title+date collapse to the same raw base, so reserving the raw base only
+ * ever protects the FIRST one and leaves the disambiguated sibling's real
+ * URL unprotected against a past-bridge page landing on it (issue #3715).
+ */
+export function reserveLiveSiblingSlugs(
+  liveSameComune: readonly SiteEvent[],
+  detailSlugs: ReadonlyMap<string, { slug: string }>,
+): Set<string> {
+  return new Set(liveSameComune.map((ev) => detailSlugs.get(ev.id)!.slug));
+}
+
 export function eventsSeoPagesPlugin(rootDir: string): Plugin {
   return {
     name: 'events-seo-pages',
@@ -2838,14 +2854,15 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const liveByComune = byCantonComune.get(canton);
         for (const [comune, list] of byComune) {
           const liveSameComune = liveByComune?.get(comune) ?? [];
-          // #3700: reserve base slugs already claimed by a still-live
+          // #3700/#3715: reserve base slugs already claimed by a still-live
           // sibling in this comune (e.g. a multi-day event sharing the
           // exact same title+startDate as a now-past one, still "upcoming"
           // via a later endDate). Without this, the past-bridge slug is
           // assigned from `list` alone and can collide with — or even
           // reuse — the slug that is still the CURRENT live/indexed URL
-          // for that sibling.
-          const reservedBaseSlugs = new Set(liveSameComune.map((ev) => slugifyEvent(ev)));
+          // for that sibling. See reserveLiveSiblingSlugs() doc for why this
+          // must use the actual assigned slug, not the raw base.
+          const reservedBaseSlugs = reserveLiveSiblingSlugs(liveSameComune, detailSlugs);
           const pastSlugFor = assignEventSlugs(list, reservedBaseSlugs);
           for (const locale of LOCALES) {
             const detailHref = detailHrefFor(locale);
