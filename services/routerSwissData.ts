@@ -335,6 +335,8 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'caissiere-migros': { it: 'caissiere-migros', en: 'migros-caissiere-ticino', de: 'migros-kassiererin-ticino', fr: 'caissiere-migros-ticino' },
  'lohn-denner-verkauf-2024': { it: 'lohn-denner-verkauf-2024', en: 'lohn-denner-sale-2024', de: 'lohn-denner-verkauf-2024', fr: 'lohn-denner-vente-2024' },
  'gazzetta-ufficiale-legge-30-dicembre-2024-n-207': { it: 'gazzetta-ufficiale-legge-30-dicembre-2024-n-207', en: 'gazzetta-ufficiale-legge-30-dicembre-2024-n-207', de: 'gazzetta-ufficiale-legge-30-dicembre-2024-n-207', fr: 'gazzetta-ufficiale-legge-30-dicembre-2024-n-207' },
+ 'private-spitex-stellenangebote-basel': { it: 'private-spitex-stellenangebote-basel', en: 'private-clinic-basel', de: 'private-klinik-basel', fr: 'clinique-privee-bale' },
+ 'pflegefachfrau-frontalieri-basel': { it: 'pflegefachfrau-frontalieri-basel', en: 'nursing-specialist-cross-border-workers-basel', de: 'pflegefachfrau-frontalieri-basel', fr: 'infirmiere-frontalier-basel' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

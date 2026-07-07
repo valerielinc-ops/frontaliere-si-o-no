@@ -46833,6 +46833,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-posta-chiasso': {
+    title: 'Posta Chiasso: novità per i frontalieri | Frontaliere Ticino',
+    description: 'La posta Chiasso ha annunciato di aver introdotto un nuovo servizio per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, posta, chiasso, novità, annunciato',
+    ogTitle: 'Posta Chiasso: novità per i frontalieri',
+    ogDescription: 'La posta Chiasso ha annunciato di aver introdotto un nuovo servizio per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/posta-chiasso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Posta Chiasso: novità per i frontalieri",
+      "description": "La posta Chiasso ha annunciato di aver introdotto un nuovo servizio per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/posta-chiasso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di una posta in Ticino, con un frontaliere in piedi davanti all'ufficio postale."
+      },
+      "datePublished": "2026-07-07T06:31:44+00:00",
+      "dateModified": "2026-07-07T06:31:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/posta-chiasso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stabio-dogana-nuovo-accordo-fiscale': {
+    title: 'Stabio dogana: le novità fiscali per i frontalieri',
+    description: 'Scopri come il Nuovo Accordo Frontalieri 2024 impatta i lavoratori che transitano dalla dogana di Stabio. Guida a imposta alla fonte, franchigie e credito',
+    keywords: 'frontalieri, ticino, svizzera, italia, stabio, dogana, novità, fiscali',
+    ogTitle: 'Stabio Dogana: Imposte Frontalieri e Nuovo Accordo 2024',
+    ogDescription: 'Scopri come il Nuovo Accordo Frontalieri 2024 impatta i lavoratori che transitano dalla dogana di Stabio. Guida a imposta alla fonte, franchigie e credito',
+    canonicalPath: '/articoli-frontaliere/stabio-dogana-nuovo-accordo-fiscale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stabio dogana: le novità fiscali per i frontalieri",
+      "description": "Scopri come il Nuovo Accordo Frontalieri 2024 impatta i lavoratori che transitano dalla dogana di Stabio. Guida a imposta alla fonte, franchigie e credito",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stabio-dogana-nuovo-accordo-fiscale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il valico doganale di Stabio, un punto di transito cruciale per i frontalieri tra Svizzera e Italia, con automobili in coda."
+      },
+      "datePublished": "2026-07-07T06:55:38+00:00",
+      "dateModified": "2026-07-07T06:55:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stabio-dogana-nuovo-accordo-fiscale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -226,7 +226,6 @@ export function buildCrawlerShellBody(crawler) {
   lines.push('set -uo pipefail');
   lines.push('');
   lines.push(`# ---- ${crawler.slug}: run crawler (verbatim from original workflow) ----`);
-  lines.push(renderEnvExports(crawler.runStep.env));
   lines.push(crawler.runStep.run.trimEnd());
   lines.push(`crawler_exit=$?`);
   // Default to 0 (no commit attempted / not yet run): if the crawl step
@@ -275,7 +274,6 @@ export function buildCrawlerShellBody(crawler) {
         .join(crawlerWorkflowId);
       lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----`);
       lines.push('if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then');
-      lines.push(indentBlock(renderEnvExports(step.env), 2));
       lines.push(indentBlock(literalizedRun.trimEnd(), 2));
       lines.push('fi');
       lines.push('');
@@ -292,7 +290,6 @@ export function buildCrawlerShellBody(crawler) {
     // reproduce that here: both steps are gated on `crawler_exit -eq 0`.
     lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim, only if crawler succeeded) ----`);
     lines.push('if [ "$crawler_exit" -eq 0 ]; then');
-    lines.push(indentBlock(renderEnvExports(step.env), 2));
 
     if (isCommitStep) {
       // HAZARD FIX 2: serialize the local git index mutation across
@@ -339,32 +336,33 @@ function shellQuote(s) {
 }
 
 /**
- * Render `export KEY=value` lines for a step's env map, preserving each
- * value's original quoting semantics from the source workflow YAML.
+ * Merge a crawler's runStep + postSteps env maps into one map for the
+ * step's own YAML `env:` mapping (plus the per-crawler SLUG_HISTORY_SUMMARY_FILE).
  *
- * Values containing a GitHub Actions expression (`${{ ... }}`) are emitted
- * double-quoted, NOT single-quoted: GitHub substitutes `${{ ... }}` with its
- * final literal text BEFORE the shell ever parses the line (exactly as it
- * already does for every step-level YAML `env:` value in the original 581
- * workflows) — a hand-escaped single-quote wrapper would corrupt any
- * single-quoted fallback literal already inside the expression itself (e.g.
- * `${{ github.event.inputs.timeout_ms || '' }}`). Double-quoting is safe
- * here because these expressions only ever resolve to plain identifiers,
- * booleans, or simple strings (crawler slugs, "0"/"1", empty string) with no
- * embedded double-quotes or un-escaped `$`/backticks.
+ * Root-cause fix for #3713: values containing a GitHub Actions expression
+ * (`${{ ... }}`) must never be text-spliced into the shell script body as
+ * `export KEY="${{ ... }}"` — GitHub substitutes `${{ ... }}` with its
+ * resolved literal text BEFORE the shell parses the line, so a resolved
+ * value containing `"` or a backtick (e.g. a dispatch input an actor
+ * controls, like `skip_ai_translation`) breaks out of the quoting and the
+ * rest of the line re-executes as shell (injection). Declaring the same
+ * value in the step's YAML `env:` map instead means GitHub assigns it
+ * directly as a process env var — never re-parsed by any shell — exactly
+ * how step-level `env:` already worked in each of the 581 original
+ * per-crawler workflows before consolidation.
  *
- * Plain literal values (no `${{ }}`) are single-quoted as usual.
+ * The 3 crawlers (hoch-health, hopital-de-lavaux, spital-lachen) where a key
+ * appears in more than one source step (`GH_TOKEN` via both
+ * `secrets.GITHUB_TOKEN` and `github.token`) are safe to merge: both
+ * expressions resolve to the identical runtime token value.
  */
-function renderEnvExports(env) {
-  if (!env) return '';
-  const lines = Object.entries(env).map(([k, v]) => {
-    const value = String(v);
-    if (value.includes('${{')) {
-      return `export ${k}="${value}"`;
-    }
-    return `export ${k}=${shellQuote(value)}`;
-  });
-  return lines.join('\n');
+function buildCrawlerStepEnv(crawler, summaryFile) {
+  const merged = { SLUG_HISTORY_SUMMARY_FILE: summaryFile };
+  Object.assign(merged, crawler.runStep.env || {});
+  for (const step of crawler.postSteps) {
+    Object.assign(merged, step.env || {});
+  }
+  return merged;
 }
 
 /** Build the YAML object (as a JS object, serialized via `yaml` lib) for one group workflow. */
@@ -442,12 +440,11 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       name: `Run ${crawler.slug}`,
       id: stepId,
       background: true,
-      env: {
-        // HAZARD FIX 1: unique per-crawler telemetry file so concurrent
-        // background steps sharing this job's /tmp can never steal or
-        // delete a sibling's slug-history summary. See file header.
-        SLUG_HISTORY_SUMMARY_FILE: summaryFile,
-      },
+      // HAZARD FIX 1 (SLUG_HISTORY_SUMMARY_FILE) + #3713 root-cause fix: every
+      // env value the crawler's runStep/postSteps declared lives here, in the
+      // step's own YAML env: map, instead of being text-spliced into the
+      // shell body — see buildCrawlerStepEnv().
+      env: buildCrawlerStepEnv(crawler, summaryFile),
       run: buildCrawlerShellBody(crawler),
     });
   }

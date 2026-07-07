@@ -8305,6 +8305,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.kebab-case-3-5-words-max-40-chars.title': 'New border agreement: what changes for border workers in Ticino?',
     'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'The new border agreement enters into force on 1 January 2024. This is what changes for border workers in Ticino.',
     'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'A commuter at Chiasso train station',
+    'blog.article.posta-chiasso.title': 'Posta Chiasso: news for border crossers',
+    'blog.article.posta-chiasso.excerpt': 'Chiasso Mail has announced that it has introduced a new service for border crossers.',
+    'blog.article.posta-chiasso.imageAlt': 'A scene of a post office in Ticino, with a frontier worker standing in front of the post office.',
+    'blog.article.stabio-dogana-nuovo-accordo-fiscale.title': 'Stabio customs: tax news for border workers',
+    'blog.article.stabio-dogana-nuovo-accordo-fiscale.excerpt': 'From 1 January 2024, the New Frontier Agreement modifies the tax at source and the deductibles for those who transit from the border of Stabio to the Canton of Ticino.',
+    'blog.article.stabio-dogana-nuovo-accordo-fiscale.imageAlt': 'The Stabio customs crossing, a crucial transit point for cross-border commuters between Switzerland and Italy, with cars queuing.',
 };
 
 export default blogMetaEn;

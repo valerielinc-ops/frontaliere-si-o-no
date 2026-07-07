@@ -24956,6 +24956,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'posta-chiasso',
+ category: 'pratico',
+ date: '2026-07-07T06:31:44.809Z',
+ image: '/images/blog/posta-chiasso.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'stabio-dogana-nuovo-accordo-fiscale',
+ category: 'fiscale',
+ date: '2026-07-07T06:55:38.164Z',
+ image: '/images/blog/stabio-dogana-nuovo-accordo-fiscale.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

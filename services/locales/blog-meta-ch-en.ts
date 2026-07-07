@@ -937,6 +937,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.title': 'Budget Law 2025: employment, social security and taxation',
     'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.excerpt': 'The 2025 Budget Law provides for important changes for frontier workers, including an increase in deductibles for employment income.',
     'blog.article.gazzetta-ufficiale-legge-30-dicembre-2024-n-207.imageAlt': 'Image of a Swiss national scene.',
+    'blog.article.private-spitex-stellenangebote-basel.title': 'Private Spitex in Basel: new job opportunities',
+    'blog.article.private-spitex-stellenangebote-basel.excerpt': 'Private clinics in Basel are looking for nurses and nurses to cover working hours',
+    'blog.article.private-spitex-stellenangebote-basel.imageAlt': 'A scene of a private clinic in Basel',
+    'blog.article.pflegefachfrau-frontalieri-basel.title': 'Pflegefachfrau in Basel: what you need to know you are border',
+    'blog.article.pflegefachfrau-frontalieri-basel.excerpt': 'New border agreement 2024, €10,000 deductible and tax rules for Italian workers in Switzerland',
+    'blog.article.pflegefachfrau-frontalieri-basel.imageAlt': 'Nurse assisting patient in Swiss healthcare facility',
 };
 
 export default blogMetaChEn;

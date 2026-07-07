@@ -35,6 +35,8 @@
  * Zero dipendenze, solo git in PATH. Cerca solo file tracked (git grep).
  */
 import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 
 const argv = process.argv.slice(2);
 const STRICT = argv.includes('--strict');
@@ -131,15 +133,21 @@ function resolveBase() {
 
 /**
  * Estrae token distintivi da un blocco di righe diff (contenuto +/-).
- * Tre classi, ciascuna scelta perché identifica un costrutto CONDIVISIBILE tra
- * gemelli (non rumore generico):
+ * Quattro classi, ciascuna scelta perché identifica un costrutto CONDIVISIBILE
+ * tra gemelli (non rumore generico):
  *   - COST SCREAMING_SNAKE (≥1 underscore): es. SPA_BUNDLE_RX, POST_WALK_WORKERS.
  *   - helper camelCase/PascalCase distintivi (≥8 char, mixedCase): es.
  *     truncateSlugAtWordBoundary, resolveSearchConsoleCompatTarget.
  *   - basename kebab-case in import/require (≥1 hyphen): es.
  *     compat-paths-floor-guard, slug-truncate (idiomi condivisi via modulo).
+ *   - literal kebab-case string VALUE (non solo import path — issue #3658:
+ *     un id/slug condiviso come valore letterale, es. `'anna-keller-wyss'` in
+ *     un registro AUTHORS mirrorato in due script, non veniva mai estratto
+ *     perché non compare dentro un path di import). Soglia lunghezza ≥10 per
+ *     escludere parole composte comuni corte (es. `'max-age'`); MAX_FILES a
+ *     valle scarta comunque i match troppo diffusi.
  */
-function extractTokens(text) {
+export function extractTokens(text) {
   const tokens = new Set();
 
   // SCREAMING_SNAKE_CASE con almeno un underscore, lunghezza ≥5.
@@ -160,6 +168,13 @@ function extractTokens(text) {
   for (const m of text.matchAll(/['"`][^'"`]*?\/([a-z0-9]+(?:-[a-z0-9]+)+)(?:\.[a-z]+)?['"`]/g)) {
     const t = m[1];
     if (t.length >= 5) tokens.add(t);
+  }
+
+  // Valore letterale kebab-case standalone (l'intera stringa quotata, non un
+  // segmento di path): un id/slug condiviso come valore, non come import.
+  for (const m of text.matchAll(/['"`]([a-z0-9]+(?:-[a-z0-9]+)+)['"`]/g)) {
+    const t = m[1];
+    if (t.length >= 10 && !t.includes('/')) tokens.add(t);
   }
 
   return tokens;
@@ -273,4 +288,8 @@ function main() {
   process.exit(STRICT ? 1 : 0);
 }
 
-main();
+// Only run when executed directly (e.g. as a PreToolUse hook), not on import.
+const isMain = process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
+if (isMain) {
+  main();
+}
