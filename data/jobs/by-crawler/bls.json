@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-07-07T12:02:33.121Z",
+  "assembledAt": "2026-07-07T22:14:57.749Z",
   "jobs": [
     {
       "id": "bls-3c1a6283641e",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/flottenmanager-in/543ebd37-5d31-43f4-9610-f564e7a54c75",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:30.503Z",
+      "crawledAt": "2026-07-07T22:14:55.296Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -67,10 +67,14 @@
           "Souveränes Auftreten in Deutsch und Englisch sowie Reisebereitschaft runden dein Profil ab"
         ]
       },
+      "previousSlugs": [
+        "expert-in-flottenmanagement-bls-ch",
+        "expert-in-flottenmanagement-bls-ag-bern",
+        "esperto-nella-gestione-della-flotta-bls-ag-bern",
+        "flottenmanager-in-bls-ch",
+        "gestione-esperta-della-flotta-bls-ag-bern"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "expert-in-flottenmanagement-bls-ch"
-        ],
         "it": [
           "expert-in-flottenmanagement-bls-ch",
           "expert-in-flottenmanagement-bls-ag-bern",
@@ -81,18 +85,15 @@
         "en": [
           "expert-in-flottenmanagement-bls-ag-bern"
         ],
+        "de": [
+          "expert-in-flottenmanagement-bls-ch"
+        ],
         "fr": [
           "expert-in-flottenmanagement-bls-ag-bern"
         ]
       },
-      "previousSlugs": [
-        "expert-in-flottenmanagement-bls-ch",
-        "expert-in-flottenmanagement-bls-ag-bern",
-        "esperto-nella-gestione-della-flotta-bls-ag-bern",
-        "flottenmanager-in-bls-ch",
-        "gestione-esperta-della-flotta-bls-ag-bern"
-      ],
       "firstSeenAt": "2026-07-01T11:16:23.691Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -138,7 +139,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/sachbearbeiter-in-avor-fahrzeuge/b5914380-f9b2-4ed1-a2e6-8b2e582bf103",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:29.645Z",
+      "crawledAt": "2026-07-07T22:14:54.558Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -186,6 +187,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:34:16.156Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -231,7 +233,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-immobilienentwicklung/877f2218-456f-42eb-949f-8c7acbeb3544",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:28.822Z",
+      "crawledAt": "2026-07-07T22:14:53.810Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -278,6 +280,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T12:57:20.047Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -323,7 +326,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-wartung-lokomotiven/da2e6d50-dcd7-433c-9f30-f9661964fad8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:28.144Z",
+      "crawledAt": "2026-07-07T22:14:53.143Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -374,6 +377,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.999Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -419,7 +423,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:27.467Z",
+      "crawledAt": "2026-07-07T22:14:52.479Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -470,6 +474,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -515,7 +520,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/03bb9b0a-c98f-45e9-a0f0-ecd6aef3ec53",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:26.678Z",
+      "crawledAt": "2026-07-07T22:14:51.743Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -557,6 +562,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:43.024Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -602,7 +608,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/48785895-2971-4c93-b40a-c433dc99a34a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:25.899Z",
+      "crawledAt": "2026-07-07T22:14:51.051Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -650,6 +656,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:42.288Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -695,7 +702,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/bc80ac8b-54e4-4703-8c22-df0dae662c39",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:24.984Z",
+      "crawledAt": "2026-07-07T22:14:50.318Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -747,6 +754,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T22:14:02.185Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -792,7 +800,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/3519fa54-3e07-4f66-8a1a-80329d4a5b4c",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:24.092Z",
+      "crawledAt": "2026-07-07T22:14:49.582Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -826,6 +834,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:46:27.174Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -871,7 +880,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-beschriftung-und-grafik/b2005728-e8ef-4493-9545-57ddfb0dcb8a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:19.467Z",
+      "crawledAt": "2026-07-07T22:14:48.812Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -919,6 +928,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:16:16.079Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -928,93 +938,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68500,
           "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "bls-66235e28a81f",
-      "slug": "senior-sap-application-manager-in-bw-bls-ag-bern",
-      "slugByLocale": {
-        "it": "senior-sap-application-manager-in-bw-bls-ag-bern",
-        "en": "senior-sap-applikations-manager-in-bw-bls-ch",
-        "de": "senior-sap-applikations-manager-in-bw-bls-ch",
-        "fr": "gestionnaire-principal-des-applications-sap-en-bw-bls-ag-bern"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Senior SAP Applikations-Manager:in BW",
-      "titleByLocale": {
-        "it": "Senior SAP Application Manager: in BW",
-        "en": "Senior SAP Application Manager: in BW",
-        "de": "Senior SAP Applikations-Manager:in BW",
-        "fr": "Gestionnaire principal des applications SAP : en BW"
-      },
-      "description": "Die BLS setzt voll auf SAP und somit voll auf dich! Als Senior SAP Applikations-Manager:in BW hast du Einfluss auf das gesamte Unternehmen. Egal ob in den Zügen, den Werkstätten oder den Geschäftsprozessen. Dank deiner Arbeit schaffen wir es Tag für Tag, unsere Fahrgäste sicher und pünktlich an ihr Ziel zu bringen. Überall steckt deine Arbeit drin – ein tolles Gefühl!\n\nDas wartet auf dich:\n\n• Unsere Geschäftsbereiche zu neuen SAP Analytics- und Planungslösungen auf der Basis von SAP Business Warehouse (BW/4HANA), der SAP Analytics Cloud und Analysis for Office beraten und diese in enger Zusammenarbeit mit den Geschäftsbereichen umsetzen\n\n• (Teil-)Leitung und Betreuung von SAP-Analytics- & Planungsprojekten über den kompletten Lebenszyklus - von der Analyse, über die Konzeption bis hin zur Realisierung und dem Betrieb (Front- & Backend)\n\n• Analytics- und Planungslösungen modellieren und Coding Aufgaben übernehmen\n\n• Workshops und Schulungen durchführen\n\n• In interdisziplinären Teams arbeiten\n\nDas bringst du mit:\n\n• Abgeschlossenes Studium (FH, Universität) in Informatik, Wirtschaftsinformatik oder ein vergleichbares Studium\n\n• Mehrjährige, fundierte Erfahrung in der Konzeption und bei der Implementierung von SAP Analytics (BW4, AFO, SAC) und Planungs-Lösungen (SAC)\n\n• Sehr gute Programmierkenntnisse in ABAP und SQL, Kenntnisse in JavaScript von Vorteil\n\n• Analytisches Denken, Eigeninitiative, Kommunikationsstärke gepaart mit Flair für die Gestaltung intuitiver, moderner und visuell ansprechender Analytics- und Planungslösungen\n\n• Fliessende Deutsch- und gute Englisch-Kenntnisse in Wort und Schrift\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "BLS si basa pienamente su SAP e quindi completamente su di voi! Come Senior SAP Applications Manager: in BW hai un'influenza sull'intera azienda. Che si tratti di treni, workshop o processi aziendali. Grazie al vostro lavoro, siamo in grado di portare i nostri passeggeri a destinazione in modo sicuro e in tempo ogni giorno. Il vostro lavoro è ovunque – una grande sensazione! Ti aspetta:\n• Consultare le nostre business unit sulle nuove soluzioni SAP Analytics e di pianificazione basate su SAP Business Warehouse (BW/4HANA), SAP Analytics Cloud e Analisi per Office e implementarle in stretta collaborazione con le business unit\n• (Partial) gestione e supporto dei progetti di analisi e pianificazione SAP su tutto il ciclo di vita - dall'analisi, dal concepimento all'implementazione e al funzionamento (front & backend)\n• Modelli di analisi e soluzioni di pianificazione e prendere le attività di codifica\n• Condurre workshop e formazione\n• Lavorare in team interdisciplinari Questo è ciò che portate con voi:\n• Studi completi (FH, università) in informatica, informatica aziendale o studi comparabili\n• Diversi anni di profonda esperienza nella concezione e realizzazione di SAP Analytics (BW4, AFO, SAC) e soluzioni di pianificazione (SAC)\n• Conoscenza di programmazione molto buona in ABAP e SQL, la conoscenza in JavaScript è vantaggioso\n• Il pensiero analitico, l'iniziativa, la forza di comunicazione accoppiata con il tocco per la progettazione di soluzioni di analisi e pianificazione intuitive, moderne e visivamente accattivanti\n• Flusso tedesco e buone abilità inglesi in parola e scrittura I vostri vantaggi – si può aspettare a:\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota\n• Lavora dove ti si addice meglio. Sia in ufficio o in ufficio\n• Condividi il tuo tempo di lavoro liberamente. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno e prendere un sabbatico di 40 giorni lavorativi ogni sette anni.\n• Con eventi stagionali e corsi sosteniamo la vostra salute.\n• Supporto finanziario per la formazione esterna, un programma di sviluppo di leadership e un'emozionante offerta di apprendimento interno e corso sono a vostra disposizione. Con quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
-        "en": "BLS relies fully on SAP and therefore fully on you! As Senior SAP Applications Manager: in BW you have an influence on the entire company. Whether on trains, workshops or business processes. Thanks to your work, we manage to get our passengers to their destination safely and on time every day. Your work is everywhere – a great feeling! This is waiting for you:\n• Advise our business units on new SAP Analytics and planning solutions based on SAP Business Warehouse (BW/4HANA), SAP Analytics Cloud and Analysis for Office and implement them in close cooperation with the business units\n• (Partial) management and support of SAP analytics & planning projects over the entire life cycle - from analysis, conception to implementation and operation (front & backend)\n• Model analytics and planning solutions and take on coding tasks\n• Conducting workshops and training\n• Working in interdisciplinary teams This is what you bring with you:\n• Completed studies (FH, university) in computer science, business informatics or comparable studies\n• Several years of profound experience in the conception and implementation of SAP Analytics (BW4, AFO, SAC) and planning solutions (SAC)\n• Very good programming knowledge in ABAP and SQL, knowledge in JavaScript is advantageous\n• Analytical thinking, initiative, communication strength paired with flair for the design of intuitive, modern and visually appealing analytics and planning solutions\n• Flowing German and good English skills in word and writing Your advantages – you can look forward to:\n• Get a GA 2nd class, a GA 1st class. Class or half-tax subscription\n• Work where it suits you best. Whether at home office or office\n• Share your working time freely. We promote part-time work, top and job sharing\n• It is possible to buy an additional five to ten days of holiday per year and to take a sabbatical of 40 working days every seven years.\n• With seasonal events and courses we support your health.\n• Financial support for external training, a leadership development program and an exciting internal learning and course offer are at your disposal. With almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
-        "de": "Die BLS setzt voll auf SAP und somit voll auf dich! Als Senior SAP Applikations-Manager:in BW hast du Einfluss auf das gesamte Unternehmen. Egal ob in den Zügen, den Werkstätten oder den Geschäftsprozessen. Dank deiner Arbeit schaffen wir es Tag für Tag, unsere Fahrgäste sicher und pünktlich an ihr Ziel zu bringen. Überall steckt deine Arbeit drin – ein tolles Gefühl! Das wartet auf dich:\n• Unsere Geschäftsbereiche zu neuen SAP Analytics- und Planungslösungen auf der Basis von SAP Business Warehouse (BW/4HANA), der SAP Analytics Cloud und Analysis for Office beraten und diese in enger Zusammenarbeit mit den Geschäftsbereichen umsetzen\n• (Teil-)Leitung und Betreuung von SAP-Analytics- & Planungsprojekten über den kompletten Lebenszyklus - von der Analyse, über die Konzeption bis hin zur Realisierung und dem Betrieb (Front- & Backend)\n• Analytics- und Planungslösungen modellieren und Coding Aufgaben übernehmen\n• Workshops und Schulungen durchführen\n• In interdisziplinären Teams arbeiten Das bringst du mit:\n• Abgeschlossenes Studium (FH, Universität) in Informatik, Wirtschaftsinformatik oder ein vergleichbares Studium\n• Mehrjährige, fundierte Erfahrung in der Konzeption und bei der Implementierung von SAP Analytics (BW4, AFO, SAC) und Planungs-Lösungen (SAC)\n• Sehr gute Programmierkenntnisse in ABAP und SQL, Kenntnisse in JavaScript von Vorteil\n• Analytisches Denken, Eigeninitiative, Kommunikationsstärke gepaart mit Flair für die Gestaltung intuitiver, moderner und visuell ansprechender Analytics- und Planungslösungen\n• Fliessende Deutsch- und gute Englisch-Kenntnisse in Wort und Schrift Deine Vorteile – darauf kannst du dich freuen:\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung. Mit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "BLS s'appuie entièrement sur SAP et donc sur vous ! En tant que Senior SAP Applications Manager : en BW vous avez une influence sur toute l'entreprise. Qu'il s'agisse de trains, d'ateliers ou de processus opérationnels. Grâce à votre travail, nous parvenons à amener nos passagers à destination en toute sécurité et à temps tous les jours. Votre travail est partout – un grand sentiment! Ceci vous attend :\n• Conseiller nos unités d'affaires sur les nouvelles solutions SAP Analytics et de planification basées sur SAP Business Warehouse (BW/4HANA), SAP Analytics Cloud et Analysis for Office et les mettre en œuvre en étroite collaboration avec les unités d'affaires\n• Gestion (partielle) et soutien des projets d'analyse et de planification SAP tout au long du cycle de vie - de l'analyse, de la conception à la mise en œuvre et à l'exploitation (avant et arrière-plan)\n• Solutions d'analyse et de planification des modèles et des tâches de codage\n• Organisation d ' ateliers et de formations\n• Travail en équipes interdisciplinaires C'est ce que vous apportez avec vous :\n• Études complétées (FH, université) en informatique, informatique des entreprises ou études comparables\n• Plusieurs années d'expérience profonde dans la conception et la mise en œuvre de SAP Analytics (BW4, AFO, SAC) et de solutions de planification (SAC)\n• Très bonne connaissance de la programmation en ABAP et SQL, connaissance en JavaScript est avantageux\n• Pensée analytique, initiative, force de communication jumelée au style pour la conception de solutions analytiques et de planification intuitives, modernes et visuellement attrayantes\n• L'allemand et les bonnes compétences en anglais dans la parole et l'écriture Vos avantages – vous pouvez vous attendre à:\n• Obtenez un GA 2ème classe, un GA 1ère classe. Abonnement classe ou demi-taxe\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau ou au bureau\n• Partagez votre temps de travail librement. Nous encourageons le travail à temps partiel, le top et le partage de l'emploi\n• Il est possible d'acheter un supplément de cinq à dix jours de vacances par an et de prendre un sabbat de 40 jours ouvrables tous les sept ans.\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.\n• Un soutien financier pour la formation externe, un programme de perfectionnement en leadership et une offre de cours et d'apprentissage interne passionnante sont à votre disposition. Avec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/senior-sap-applikations-manager-in-bw/ae3debbe-b632-4a7a-be55-cb3ee8ce5dd4",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:02:13.616Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3008",
-      "streetAddress": "Europaplatz",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "validThrough": "2026-07-24",
-      "pensum": "80-100%",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/ae3debbe-b632-4a7a-be55-cb3ee8ce5dd4",
-      "requirements": [
-        "Abgeschlossenes Studium (FH, Universität) in Informatik, Wirtschaftsinformatik oder ein vergleichbares Studium",
-        "Mehrjährige, fundierte Erfahrung in der Konzeption und bei der Implementierung von SAP Analytics (BW4, AFO, SAC) und Planungs-Lösungen (SAC)",
-        "Sehr gute Programmierkenntnisse in ABAP und SQL, Kenntnisse in JavaScript von Vorteil",
-        "Analytisches Denken, Eigeninitiative, Kommunikationsstärke gepaart mit Flair für die Gestaltung intuitiver, moderner und visuell ansprechender Analytics- und Planungslösungen",
-        "Fliessende Deutsch- und gute Englisch-Kenntnisse in Wort und Schrift"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Abgeschlossenes Studium (FH, Universität) in Informatik, Wirtschaftsinformatik oder ein vergleichbares Studium",
-          "Sehr gute Programmierkenntnisse in ABAP und SQL, Kenntnisse in JavaScript von Vorteil",
-          "Fliessende Deutsch- und gute Englisch-Kenntnisse in Wort und Schrift"
-        ]
-      },
-      "previousSlugs": [
-        "senior-sap-applikations-manager-in-bw-bls-ch",
-        "senior-sap-application-manager-in-bw-bls-ag-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-sap-applikations-manager-in-bw-bls-ch",
-          "senior-sap-application-manager-in-bw-bls-ag-bern"
-        ]
-      },
-      "firstSeenAt": "2026-06-25T21:56:35.717Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -1051,7 +974,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/systemingenieur-in-plattformentwicklung/26107236-837f-4c94-8876-f62f2920f44d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:17:48.115Z",
+      "crawledAt": "2026-07-07T22:14:48.136Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1094,6 +1017,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:46:25.700Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1106,8 +1030,95 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "crawlerMissStreak": 1
+      "addressRegion": "BE"
+    },
+    {
+      "id": "bls-66235e28a81f",
+      "slug": "senior-sap-application-manager-in-bw-bls-ag-bern",
+      "slugByLocale": {
+        "it": "senior-sap-application-manager-in-bw-bls-ag-bern",
+        "en": "senior-sap-applikations-manager-in-bw-bls-ch",
+        "de": "senior-sap-applikations-manager-in-bw-bls-ch",
+        "fr": "gestionnaire-principal-des-applications-sap-en-bw-bls-ag-bern"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Senior SAP Applikations-Manager:in BW",
+      "titleByLocale": {
+        "it": "Senior SAP Application Manager: in BW",
+        "en": "Senior SAP Applikations-Manager:in BW",
+        "de": "Senior SAP Applikations-Manager:in BW",
+        "fr": "Gestionnaire principal des applications SAP : en BW"
+      },
+      "description": "Die BLS setzt voll auf SAP und somit voll auf dich! Als Senior SAP Applikations-Manager:in BW hast du Einfluss auf das gesamte Unternehmen. Egal ob in den Zügen, den Werkstätten oder den Geschäftsprozessen. Dank deiner Arbeit schaffen wir es Tag für Tag, unsere Fahrgäste sicher und pünktlich an ihr Ziel zu bringen. Überall steckt deine Arbeit drin – ein tolles Gefühl!\n\nDas wartet auf dich:\n\n• Unsere Geschäftsbereiche zu neuen SAP Analytics- und Planungslösungen auf der Basis von SAP Business Warehouse (BW/4HANA), der SAP Analytics Cloud und Analysis for Office beraten und diese in enger Zusammenarbeit mit den Geschäftsbereichen umsetzen\n\n• (Teil-)Leitung und Betreuung von SAP-Analytics- & Planungsprojekten über den kompletten Lebenszyklus - von der Analyse, über die Konzeption bis hin zur Realisierung und dem Betrieb (Front- & Backend)\n\n• Analytics- und Planungslösungen modellieren und Coding Aufgaben übernehmen\n\n• Workshops und Schulungen durchführen\n\n• In interdisziplinären Teams arbeiten\n\nDas bringst du mit:\n\n• Abgeschlossenes Studium (FH, Universität) in Informatik, Wirtschaftsinformatik oder ein vergleichbares Studium\n\n• Mehrjährige, fundierte Erfahrung in der Konzeption und bei der Implementierung von SAP Analytics (BW4, AFO, SAC) und Planungs-Lösungen (SAC)\n\n• Sehr gute Programmierkenntnisse in ABAP und SQL, Kenntnisse in JavaScript von Vorteil\n\n• Analytisches Denken, Eigeninitiative, Kommunikationsstärke gepaart mit Flair für die Gestaltung intuitiver, moderner und visuell ansprechender Analytics- und Planungslösungen\n\n• Fliessende Deutsch- und gute Englisch-Kenntnisse in Wort und Schrift\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "it": "BLS si basa pienamente su SAP e quindi completamente su di voi! Come Senior SAP Applications Manager: in BW hai un'influenza sull'intera azienda. Che si tratti di treni, workshop o processi aziendali. Grazie al vostro lavoro, siamo in grado di portare i nostri passeggeri a destinazione in modo sicuro e in tempo ogni giorno. Il vostro lavoro è ovunque – una grande sensazione! Ti aspetta:\n• Consultare le nostre business unit sulle nuove soluzioni SAP Analytics e di pianificazione basate su SAP Business Warehouse (BW/4HANA), SAP Analytics Cloud e Analisi per Office e implementarle in stretta collaborazione con le business unit\n• (Partial) gestione e supporto dei progetti di analisi e pianificazione SAP su tutto il ciclo di vita - dall'analisi, dal concepimento all'implementazione e al funzionamento (front & backend)\n• Modelli di analisi e soluzioni di pianificazione e prendere le attività di codifica\n• Condurre workshop e formazione\n• Lavorare in team interdisciplinari Questo è ciò che portate con voi:\n• Studi completi (FH, università) in informatica, informatica aziendale o studi comparabili\n• Diversi anni di profonda esperienza nella concezione e realizzazione di SAP Analytics (BW4, AFO, SAC) e soluzioni di pianificazione (SAC)\n• Conoscenza di programmazione molto buona in ABAP e SQL, la conoscenza in JavaScript è vantaggioso\n• Il pensiero analitico, l'iniziativa, la forza di comunicazione accoppiata con il tocco per la progettazione di soluzioni di analisi e pianificazione intuitive, moderne e visivamente accattivanti\n• Flusso tedesco e buone abilità inglesi in parola e scrittura I vostri vantaggi – si può aspettare a:\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota\n• Lavora dove ti si addice meglio. Sia in ufficio o in ufficio\n• Condividi il tuo tempo di lavoro liberamente. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno e prendere un sabbatico di 40 giorni lavorativi ogni sette anni.\n• Con eventi stagionali e corsi sosteniamo la vostra salute.\n• Supporto finanziario per la formazione esterna, un programma di sviluppo di leadership e un'emozionante offerta di apprendimento interno e corso sono a vostra disposizione. Con quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
+        "en": "BLS relies fully on SAP and therefore fully on you! As Senior SAP Applications Manager: in BW you have an influence on the entire company. Whether on trains, workshops or business processes. Thanks to your work, we manage to get our passengers to their destination safely and on time every day. Your work is everywhere – a great feeling! This is waiting for you:\n• Advise our business units on new SAP Analytics and planning solutions based on SAP Business Warehouse (BW/4HANA), SAP Analytics Cloud and Analysis for Office and implement them in close cooperation with the business units\n• (Partial) management and support of SAP analytics & planning projects over the entire life cycle - from analysis, conception to implementation and operation (front & backend)\n• Model analytics and planning solutions and take on coding tasks\n• Conducting workshops and training\n• Working in interdisciplinary teams This is what you bring with you:\n• Completed studies (FH, university) in computer science, business informatics or comparable studies\n• Several years of profound experience in the conception and implementation of SAP Analytics (BW4, AFO, SAC) and planning solutions (SAC)\n• Very good programming knowledge in ABAP and SQL, knowledge in JavaScript is advantageous\n• Analytical thinking, initiative, communication strength paired with flair for the design of intuitive, modern and visually appealing analytics and planning solutions\n• Flowing German and good English skills in word and writing Your advantages – you can look forward to:\n• Get a GA 2nd class, a GA 1st class. Class or half-tax subscription\n• Work where it suits you best. Whether at home office or office\n• Share your working time freely. We promote part-time work, top and job sharing\n• It is possible to buy an additional five to ten days of holiday per year and to take a sabbatical of 40 working days every seven years.\n• With seasonal events and courses we support your health.\n• Financial support for external training, a leadership development program and an exciting internal learning and course offer are at your disposal. With almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
+        "de": "Die BLS setzt voll auf SAP und somit voll auf dich! Als Senior SAP Applikations-Manager:in BW hast du Einfluss auf das gesamte Unternehmen. Egal ob in den Zügen, den Werkstätten oder den Geschäftsprozessen. Dank deiner Arbeit schaffen wir es Tag für Tag, unsere Fahrgäste sicher und pünktlich an ihr Ziel zu bringen. Überall steckt deine Arbeit drin – ein tolles Gefühl! Das wartet auf dich:\n• Unsere Geschäftsbereiche zu neuen SAP Analytics- und Planungslösungen auf der Basis von SAP Business Warehouse (BW/4HANA), der SAP Analytics Cloud und Analysis for Office beraten und diese in enger Zusammenarbeit mit den Geschäftsbereichen umsetzen\n• (Teil-)Leitung und Betreuung von SAP-Analytics- & Planungsprojekten über den kompletten Lebenszyklus - von der Analyse, über die Konzeption bis hin zur Realisierung und dem Betrieb (Front- & Backend)\n• Analytics- und Planungslösungen modellieren und Coding Aufgaben übernehmen\n• Workshops und Schulungen durchführen\n• In interdisziplinären Teams arbeiten Das bringst du mit:\n• Abgeschlossenes Studium (FH, Universität) in Informatik, Wirtschaftsinformatik oder ein vergleichbares Studium\n• Mehrjährige, fundierte Erfahrung in der Konzeption und bei der Implementierung von SAP Analytics (BW4, AFO, SAC) und Planungs-Lösungen (SAC)\n• Sehr gute Programmierkenntnisse in ABAP und SQL, Kenntnisse in JavaScript von Vorteil\n• Analytisches Denken, Eigeninitiative, Kommunikationsstärke gepaart mit Flair für die Gestaltung intuitiver, moderner und visuell ansprechender Analytics- und Planungslösungen\n• Fliessende Deutsch- und gute Englisch-Kenntnisse in Wort und Schrift Deine Vorteile – darauf kannst du dich freuen:\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung. Mit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "BLS s'appuie entièrement sur SAP et donc sur vous ! En tant que Senior SAP Applications Manager : en BW vous avez une influence sur toute l'entreprise. Qu'il s'agisse de trains, d'ateliers ou de processus opérationnels. Grâce à votre travail, nous parvenons à amener nos passagers à destination en toute sécurité et à temps tous les jours. Votre travail est partout – un grand sentiment! Ceci vous attend :\n• Conseiller nos unités d'affaires sur les nouvelles solutions SAP Analytics et de planification basées sur SAP Business Warehouse (BW/4HANA), SAP Analytics Cloud et Analysis for Office et les mettre en œuvre en étroite collaboration avec les unités d'affaires\n• Gestion (partielle) et soutien des projets d'analyse et de planification SAP tout au long du cycle de vie - de l'analyse, de la conception à la mise en œuvre et à l'exploitation (avant et arrière-plan)\n• Solutions d'analyse et de planification des modèles et des tâches de codage\n• Organisation d ' ateliers et de formations\n• Travail en équipes interdisciplinaires C'est ce que vous apportez avec vous :\n• Études complétées (FH, université) en informatique, informatique des entreprises ou études comparables\n• Plusieurs années d'expérience profonde dans la conception et la mise en œuvre de SAP Analytics (BW4, AFO, SAC) et de solutions de planification (SAC)\n• Très bonne connaissance de la programmation en ABAP et SQL, connaissance en JavaScript est avantageux\n• Pensée analytique, initiative, force de communication jumelée au style pour la conception de solutions analytiques et de planification intuitives, modernes et visuellement attrayantes\n• L'allemand et les bonnes compétences en anglais dans la parole et l'écriture Vos avantages – vous pouvez vous attendre à:\n• Obtenez un GA 2ème classe, un GA 1ère classe. Abonnement classe ou demi-taxe\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau ou au bureau\n• Partagez votre temps de travail librement. Nous encourageons le travail à temps partiel, le top et le partage de l'emploi\n• Il est possible d'acheter un supplément de cinq à dix jours de vacances par an et de prendre un sabbat de 40 jours ouvrables tous les sept ans.\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.\n• Un soutien financier pour la formation externe, un programme de perfectionnement en leadership et une offre de cours et d'apprentissage interne passionnante sont à votre disposition. Avec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/senior-sap-applikations-manager-in-bw/ae3debbe-b632-4a7a-be55-cb3ee8ce5dd4",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-07T22:14:47.456Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3008",
+      "streetAddress": "Europaplatz",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "validThrough": "2026-07-24",
+      "pensum": "80-100%",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/ae3debbe-b632-4a7a-be55-cb3ee8ce5dd4",
+      "requirements": [
+        "Abgeschlossenes Studium (FH, Universität) in Informatik, Wirtschaftsinformatik oder ein vergleichbares Studium",
+        "Mehrjährige, fundierte Erfahrung in der Konzeption und bei der Implementierung von SAP Analytics (BW4, AFO, SAC) und Planungs-Lösungen (SAC)",
+        "Sehr gute Programmierkenntnisse in ABAP und SQL, Kenntnisse in JavaScript von Vorteil",
+        "Analytisches Denken, Eigeninitiative, Kommunikationsstärke gepaart mit Flair für die Gestaltung intuitiver, moderner und visuell ansprechender Analytics- und Planungslösungen",
+        "Fliessende Deutsch- und gute Englisch-Kenntnisse in Wort und Schrift"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Abgeschlossenes Studium (FH, Universität) in Informatik, Wirtschaftsinformatik oder ein vergleichbares Studium",
+          "Sehr gute Programmierkenntnisse in ABAP und SQL, Kenntnisse in JavaScript von Vorteil",
+          "Fliessende Deutsch- und gute Englisch-Kenntnisse in Wort und Schrift"
+        ]
+      },
+      "previousSlugs": [
+        "senior-sap-applikations-manager-in-bw-bls-ch",
+        "senior-sap-application-manager-in-bw-bls-ag-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-sap-applikations-manager-in-bw-bls-ch",
+          "senior-sap-application-manager-in-bw-bls-ag-bern"
+        ]
+      },
+      "firstSeenAt": "2026-06-25T21:56:35.717Z",
+      "needsRetranslation": true,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE"
     },
     {
       "id": "bls-530186efc0c5",
@@ -1140,7 +1151,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/marketing-manager-in-experience/b3f3e48e-c03e-41f9-be66-ff6d42d597b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:17:46.506Z",
+      "crawledAt": "2026-07-07T22:14:46.707Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1187,6 +1198,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:34:06.426Z",
+      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "baseSalary": {
@@ -1199,8 +1211,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "crawlerMissStreak": 1
+      "addressRegion": "BE"
     }
   ]
 }
