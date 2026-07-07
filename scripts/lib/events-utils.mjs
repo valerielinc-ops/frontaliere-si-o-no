@@ -174,6 +174,16 @@ export function resolveCantonUrlKey(canton) {
 
 export function eventsBasePathForCanton(canton) {
   const code = String(canton || '').toUpperCase().trim();
+  // Additive-only (issue #3739): a brand-new sentinel none of this function's
+  // existing callers (FB poster, job/events crosslink, digest content) ever
+  // pass — every pre-existing branch below is untouched.
+  if (code === UNRESOLVED_CANTON_KEY) {
+    const out = {};
+    for (const locale of Object.keys(EVENTS_LOCALIZED_SEGMENT)) {
+      out[locale] = EVENTS_LOCALIZED_SEGMENT[locale](UNRESOLVED_CANTON_SEGMENT[locale]);
+    }
+    return out;
+  }
   if (!code) return EVENTS_BASE_PATH;
   const urlKey = resolveCantonUrlKey(code);
   const record = CANTON_URL_SLUGS.cantons?.[urlKey];
@@ -240,6 +250,42 @@ export const OTHER_EVENTS_SEGMENT = {
  * `OTHER_EVENTS_SEGMENT` (routing) or a canton display name (copy).
  */
 export const OTHER_EVENTS_COMUNE_KEY = '__other-events__';
+
+// ── Canton-neutral bucket (issue #3739) ────────────────────────
+// Sentinel canton key used ONLY by the build plugin's grouping/routing layer
+// when a nationwide-source event's canton could not be resolved at all
+// (`event.canton === ''`). Before this existed, every unresolved-canton event
+// was silently folded into the Ticino hub via `event.canton || 'TI'` — a real
+// event with an unknown location got mislabeled as a Ticino one. Never
+// written into the dataset itself (crawlers leave `event.canton` blank when
+// unresolved) and never rendered raw — always mapped through
+// `UNRESOLVED_CANTON_SEGMENT` (routing) or a dedicated display label (copy).
+// Already uppercase so every `.toUpperCase()` call in the canton-resolution
+// chain is a no-op on it.
+export const UNRESOLVED_CANTON_KEY = '__UNRESOLVED-CANTON__';
+
+/** Localized URL segment for the canton-neutral bucket's hub page. */
+export const UNRESOLVED_CANTON_SEGMENT = {
+  it: 'altri-cantoni',
+  en: 'other-cantons',
+  de: 'weitere-kantone',
+  fr: 'autres-cantons',
+};
+
+/**
+ * Localized display copy for the canton-neutral bucket (issue #3739) — the
+ * getCantonLabel()/CANTON_NAME_BY_CODE lookups every caller normally uses
+ * only know the 26 real BFS codes, so they'd otherwise echo the raw
+ * `UNRESOLVED_CANTON_KEY` sentinel back into rendered HTML/copy. Shared
+ * between the build plugin and the FB events poster (AGENTS.md §6 — single
+ * source instead of a copy-pasted literal per caller).
+ */
+export const UNRESOLVED_CANTON_LABEL = {
+  it: 'altri cantoni',
+  en: 'other cantons',
+  de: 'weiteren Kantonen',
+  fr: 'autres cantons',
+};
 
 // ── Ticino agenda regions → representative comune ────────────
 // tio.ch tags every event with a tourism region adjective ("Luganese",
@@ -455,11 +501,27 @@ export function loadAllComuni() {
  *   3. TI region fallback — only applies when `cantonHint === 'TI'` (or no
  *      hint) and the region string is a known tio.ch-style adjective; region
  *      vocabulary is TI-specific, not meaningful for other cantons.
- *   4. null — no confident attribution.
+ *   4. Canton-hint retention (issue #3739) — comune text-matching found
+ *      nothing at all, but `cantonHint` is itself a real, recognized canton
+ *      code (e.g. myswitzerland's `addressRegion`, exact for fused post-2011
+ *      comuni like "Niederurnen" or non-comune toponyms like "Petersplatz"
+ *      that never text-match a municipality name) — keep that known-good
+ *      canton signal instead of discarding it to null.
+ *   5. null — no confident attribution at all.
  *
  * Returns `{ comune, canton, method }`, method one of
- * 'exact' | 'exact-nationwide' | 'region' | null.
+ * 'exact' | 'exact-nationwide' | 'region' | 'canton-hint' | null.
  */
+let _validCantonCodesCache = null;
+
+/** True when `code` is one of the 26 real canton BFS codes in data/canton-municipalities.json. */
+function isValidCantonCode(code) {
+  if (!_validCantonCodesCache) {
+    _validCantonCodesCache = new Set(loadAllComuni().map((entry) => entry.canton));
+  }
+  return _validCantonCodesCache.has(code);
+}
+
 export function resolveComuneNationwide({ venue, title, region }, cantonHint) {
   const hint = String(cantonHint || '').toUpperCase().trim();
   if (hint) {
@@ -482,6 +544,15 @@ export function resolveComuneNationwide({ venue, title, region }, cantonHint) {
       const mapped = REGION_TO_COMUNE[regionKey];
       if (loadCantonComuni('TI').includes(mapped)) return { comune: mapped, canton: 'TI', method: 'region' };
     }
+  }
+  // #3739: comune text-matching failed entirely, but the caller supplied a
+  // high-confidence canton signal that IS a real canton — keep it rather
+  // than discarding a known-good signal (previously this fell all the way
+  // through to canton: null too, so a resolvable canton with just an
+  // unmatched venue string still hit the SSG plugin's `|| 'TI'` default and
+  // got mislabeled as a Ticino event).
+  if (hint && isValidCantonCode(hint)) {
+    return { comune: null, canton: hint, method: 'canton-hint' };
   }
   return { comune: null, canton: null, method: null };
 }

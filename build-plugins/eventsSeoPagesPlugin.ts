@@ -68,6 +68,8 @@ import {
   eventReferralUrl,
   recentlyEndedEvents,
   resolveCantonUrlKey,
+  UNRESOLVED_CANTON_KEY,
+  UNRESOLVED_CANTON_LABEL,
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
@@ -130,7 +132,10 @@ const SOURCE = EVENT_SOURCES['tio-agenda'];
 // constant it replaces (see tests/events-nationwide-sources.test.ts).
 const basePathCache = new Map<string, Record<Locale, string>>();
 function basePathFor(canton: string): Record<Locale, string> {
-  const code = String(canton || 'TI').toUpperCase();
+  // #3739: internal callers already resolve `canton` before reaching here
+  // (never blank) — this default only fires if that ever regresses, so it
+  // must degrade to the canton-neutral bucket, not silently mislabel Ticino.
+  const code = String(canton || UNRESOLVED_CANTON_KEY).toUpperCase();
   let cached = basePathCache.get(code);
   if (!cached) {
     cached = eventsBasePathForCanton(code) as Record<Locale, string>;
@@ -407,8 +412,20 @@ const COPY: Record<Locale, Copy> = {
 // idiomatic polish (irregular per-canton demonyms/genitives, e.g. German
 // "Zürcher"/"Walliser", are out of scope — a full 26-canton declension table
 // is not worth building) for text that is always correct.
+// #3739: display copy for the canton-neutral bucket (`UNRESOLVED_CANTON_KEY`)
+// — `getCantonLabel` only knows the 26 real BFS codes, so it would otherwise
+// echo the raw sentinel string back into rendered HTML/copy. Label copy
+// itself lives in events-utils.mjs (`UNRESOLVED_CANTON_LABEL`), shared with
+// the FB events poster (AGENTS.md §6 — single source, no copy-paste).
+
+/** `getCantonLabel`, but canton-neutral-bucket-aware (see `UNRESOLVED_CANTON_KEY`). */
+function cantonDisplayLabel(canton: string, locale: Locale): string {
+  if (canton.toUpperCase() === UNRESOLVED_CANTON_KEY) return UNRESOLVED_CANTON_LABEL[locale];
+  return getCantonLabel(canton, locale as CantonLocale);
+}
+
 function cantonSubstitutionRules(canton: string, locale: Locale): Array<[RegExp, string]> {
-  const display = getCantonLabel(canton, locale as CantonLocale);
+  const display = cantonDisplayLabel(canton, locale);
   switch (locale) {
     case 'it':
       return [
@@ -1227,7 +1244,7 @@ export function renderHubPage(params: {
       ${otherCantons
         .map(
           (c) =>
-            `<a class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-xs font-semibold text-heading hover:border-accent-border" href="${pathFor(locale, c)}">${esc(getCantonLabel(c, locale as CantonLocale))}</a>`,
+            `<a class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-xs font-semibold text-heading hover:border-accent-border" href="${pathFor(locale, c)}">${esc(cantonDisplayLabel(c, locale))}</a>`,
         )
         .join('')}
     </section>`;
@@ -1361,7 +1378,7 @@ export function renderEventsIndexPage(params: {
       ({ canton, eventCount }) =>
         `<a class="group flex items-center justify-between gap-2 rounded-lg border border-edge bg-surface p-4 shadow-stripe-sm transition-all hover:-translate-y-0.5 hover:border-accent-border hover:shadow-stripe-md" href="${pathFor(locale, canton)}">
           <span class="min-w-0">
-            <span class="block truncate text-sm font-semibold text-heading">${esc(getCantonLabel(canton, locale as CantonLocale))}</span>
+            <span class="block truncate text-sm font-semibold text-heading">${esc(cantonDisplayLabel(canton, locale))}</span>
             <span class="mt-1 block text-xs text-muted">${eventCount} ${esc(COPY[locale].eventsWord)}</span>
           </span>
           <span class="shrink-0 text-lg text-subtle transition-transform group-hover:translate-x-0.5 group-hover:text-accent" aria-hidden="true">→</span>
@@ -2099,7 +2116,9 @@ export function renderEventDetailPage(params: {
   isPast?: boolean;
 }): { urlPath: string; html: string; wordCount: number } {
   const { locale, event, comune, eventSlug, sameComuneEvents, dateStamp, distDir, detailHref, isPast = false } = params;
-  const canton = (event.canton || 'TI').toUpperCase();
+  // #3739: an unresolved canton must route to the canton-neutral bucket, not
+  // silently mislabel the event as Ticino.
+  const canton = (event.canton || UNRESOLVED_CANTON_KEY).toUpperCase();
   const title = localizedTitle(event, locale);
   const copy = copyFor(canton, locale);
   const dc = detailCopyFor(canton, locale);
@@ -2111,7 +2130,7 @@ export function renderEventDetailPage(params: {
   // (OTHER_EVENTS_SEGMENT, via pathFor/pathForEventDetail above), but every
   // user-visible string below must show an honest label — the canton's
   // display name — never the raw internal sentinel string.
-  const displayComune = comune === OTHER_EVENTS_COMUNE_KEY ? getCantonLabel(canton, locale as CantonLocale) : comune;
+  const displayComune = comune === OTHER_EVENTS_COMUNE_KEY ? cantonDisplayLabel(canton, locale) : comune;
   const when = humanDate(event.startDate, locale);
   const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
   const cat = categoryLabel(event.category, locale);
@@ -2681,12 +2700,18 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         // one silently clobbers the first via WriteCollector's last-write-
         // wins dedup (raw canton codes differ, but their emitted path does
         // not).
-        const canton = resolveCantonUrlKey(ev.canton || 'TI');
+        // #3739: an unresolved canton must route to the canton-neutral
+        // bucket, not silently mislabel the event as Ticino.
+        const canton = ev.canton ? resolveCantonUrlKey(ev.canton) : UNRESOLVED_CANTON_KEY;
         const arr = byCanton.get(canton) ?? [];
         arr.push(ev);
         byCanton.set(canton, arr);
       }
-      const cantons = [...byCanton.keys()].sort((a, b) => (a === 'TI' ? -1 : b === 'TI' ? 1 : a.localeCompare(b)));
+      // #3739: keep the canton-neutral bucket last regardless of locale
+      // collation of its sentinel string (deterministic sitemap/hub order).
+      const cantons = [...byCanton.keys()].sort((a, b) =>
+        a === 'TI' ? -1 : b === 'TI' ? 1 : a === UNRESOLVED_CANTON_KEY ? 1 : b === UNRESOLVED_CANTON_KEY ? -1 : a.localeCompare(b),
+      );
 
       // Stable, collision-free detail slug per event, scoped to (canton, comune)
       // so two different cantons sharing a comune name never share a dedup
@@ -2845,7 +2870,9 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         // `byCantonComune` (used just below for `liveSameComune`), otherwise
         // a half-canton pair's past events would fail to look up their live
         // siblings entirely.
-        const canton = resolveCantonUrlKey(ev.canton || 'TI');
+        // #3739: an unresolved canton must route to the canton-neutral
+        // bucket, not silently mislabel the event as Ticino.
+        const canton = ev.canton ? resolveCantonUrlKey(ev.canton) : UNRESOLVED_CANTON_KEY;
         if (!ev.comune) continue; // comune-less past events: not worth a bridge page (rare, no stable bucket to land on)
         pastEventsByCanton.set(canton, [...(pastEventsByCanton.get(canton) ?? []), ev]);
       }

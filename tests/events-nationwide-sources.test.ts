@@ -152,7 +152,10 @@ describe('resolveComuneNationwide', () => {
     expect(withoutHint).toEqual({ comune: 'Lugano', canton: 'TI', method: 'region' });
 
     const otherCantonHint = resolveComuneNationwide({ venue: '', title: '', region: 'Luganese' }, 'ZH');
-    expect(otherCantonHint.comune).toBeNull();
+    // #3739: text-match fails (region text is Ticino-specific) but the hint is
+    // still a valid canton code — retained via the canton-hint fallback tier
+    // instead of being discarded to `canton: null`.
+    expect(otherCantonHint).toEqual({ comune: null, canton: 'ZH', method: 'canton-hint' });
   });
 
   it('returns null comune when nothing matches', () => {

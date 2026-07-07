@@ -12,11 +12,16 @@ import {
 import { EVENTS_BASE_PATH, eventsBasePathForCanton } from '../scripts/lib/events-utils.mjs';
 
 const TODAY = '2027-01-01'; // Friday → weekend window = 2027-01-02 (Sat) .. 2027-01-03 (Sun)
+// canton: 'TI' on every fixture below matches the real dataset shape — the
+// tio-agenda source (EVENT_SOURCES['tio-agenda'].canton) always stamps 'TI'
+// explicitly (scripts/crawl-tio-agenda.mjs), it never ships blank. A blank
+// canton in production only ever comes from an unresolved nationwide source
+// (guidle/myswitzerland, #3739 round-2) and must NOT be treated as Ticino.
 const EVENTS = [
-  { id: 'a', title: 'Concerto al LAC', comune: 'Lugano', startDate: '2027-01-02', startTime: '20:00', category: 'musica' },
-  { id: 'b', title: "Mercatino dell'usato", comune: 'Bellinzona', startDate: '2027-01-02', category: 'mercato' },
-  { id: 'c', title: 'Mostra Hodler', comune: 'Lugano', startDate: '2027-01-03', category: 'cultura' },
-  { id: 'far', title: 'Fuori weekend', comune: 'Locarno', startDate: '2027-02-10' },
+  { id: 'a', title: 'Concerto al LAC', comune: 'Lugano', startDate: '2027-01-02', startTime: '20:00', category: 'musica', canton: 'TI' },
+  { id: 'b', title: "Mercatino dell'usato", comune: 'Bellinzona', startDate: '2027-01-02', category: 'mercato', canton: 'TI' },
+  { id: 'c', title: 'Mostra Hodler', comune: 'Lugano', startDate: '2027-01-03', category: 'cultura', canton: 'TI' },
+  { id: 'far', title: 'Fuori weekend', comune: 'Locarno', startDate: '2027-02-10', canton: 'TI' },
 ];
 
 describe('buildWeekendDigestArticle', () => {
