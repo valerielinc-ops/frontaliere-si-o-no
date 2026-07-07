@@ -928,6 +928,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.seco-disoccupazione-giugno-2024.title': 'Unemployment in Switzerland: Seco data for June',
     'blog.article.seco-disoccupazione-giugno-2024.excerpt': 'The unemployment rate drops to 2.9% in June. Seco confirms stability net of seasonal factors at 3.1%. Here\'s the data analysis.',
     'blog.article.seco-disoccupazione-giugno-2024.imageAlt': 'Swiss city panorama with modern offices',
+    'blog.article.caissiere-migros.title': 'Migros Vaud: nuova caissière e regime transitorio',
+    'blog.article.caissiere-migros.excerpt': 'The cooperative Migros Vaud has announced the replacement of the caissière, while border workers will be exempt from the transitional regime until 2033',
+    'blog.article.caissiere-migros.imageAlt': 'Image of a Migros cashier at Lugano, with city and mountain background',
 };
 
 export default blogMetaChEn;

@@ -928,6 +928,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.seco-disoccupazione-giugno-2024.title': 'Arbeitslosigkeit in der Schweiz: die Daten des Seco vom Juni',
     'blog.article.seco-disoccupazione-giugno-2024.excerpt': 'Die Arbeitslosenquote sinkt im Juni auf 2,9%. Die Seco bestätigt die saisonbereinigte Stabilität bei 3,1%. Hier ist die Datenanalyse.',
     'blog.article.seco-disoccupazione-giugno-2024.imageAlt': 'Schweizer Stadtpanorama mit modernen Büros',
+    'blog.article.caissiere-migros.title': 'Die neue Caissière der Migros in Waadt und die Übergangsregelung für Grenzgänger',
+    'blog.article.caissiere-migros.excerpt': 'Die Genossenschaft Migros Waadt hat den Ersatz der Caissière angekündigt, während Grenzgänger bis 2033 von der Übergangsregelung ausgenommen sind',
+    'blog.article.caissiere-migros.imageAlt': 'Bild einer Kassiererin bei Migros in Lugano, mit Stadt- und Berglandschaft',
 };
 
 export default blogMetaChDe;
