@@ -1,212 +1,7 @@
 {
+  "crawlerKey": "spital-zollikerberg",
+  "assembledAt": "2026-07-07T22:12:09.931Z",
   "jobs": [
-    {
-      "id": "spital-zollikerberg-5f4f57464f13",
-      "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg",
-      "slugByLocale": {
-        "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
-        "it": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg",
-        "en": "dipl-radiology-specialist-radiology-specialist-hf-in-medical-engineering-training-spital-zollikerberg-zollikerberg",
-        "fr": "dipl-specialiste-de-radiologie-specialiste-de-radiologie-hf-en-formation-en-genie-medical-spital-zollikerberg"
-      },
-      "company": "Spital Zollikerberg",
-      "companyKey": "spital-zollikerberg",
-      "companyDomain": "spitalzollikerberg.ch",
-      "title": "Dipl. Radiologiefachfrau / Radiologiefachmann HF in Ausbildung Medizintechnische Bereiche",
-      "titleByLocale": {
-        "de": "Dipl. Radiologiefachfrau / Radiologiefachmann HF in Ausbildung Medizintechnische Bereiche",
-        "it": "Dipl. Specialista di radiologia / Specialista di radiologia HF nella formazione di ingegneria medica",
-        "en": "Dipl. Radiology specialist / Radiology specialist HF in medical engineering training",
-        "fr": "Dipl. Spécialiste de radiologie / Spécialiste de radiologie HF en formation en génie médical"
-      },
-      "description": "Dipl. Radiologiefachfrau / Radiologiefachmann HF in Ausbildung Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-      "descriptionByLocale": {
-        "de": "Dipl. Radiologiefachfrau / Radiologiefachmann HF in Ausbildung Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "it": "Dipl. Specialista di radiologia HF in formazione Medical Engineering Areas – Spital Zollikerberg, Zollikerberg (ZH).\n\nSpital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale.\n\nDescrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Dipl. Radiology specialist HF in training Medical Engineering Areas – Spital Zollikerberg, Zollikerberg (ZH).\n\nSpital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories.\n\nFull job description and application via the external applicant platform.",
-        "fr": "Dipl. Spécialiste de radiologie HF en formation Domaines de génie médical – Spital Zollikerberg, Zollikerberg (ZH).\n\nSpital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales.\n\nDescription de travail complète et demande via la plateforme externe des candidats."
-      },
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f2f99803-dec0-4daf-bd51-d299119aa212,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:38:24.357Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f2f99803-dec0-4daf-bd51-d299119aa212,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
-        ],
-        "en": [
-          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
-        ],
-        "fr": [
-          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
-      ]
-    },
-    {
-      "id": "spital-zollikerberg-87fc3c711281",
-      "slug": "pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
-      "slugByLocale": {
-        "de": "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem",
-        "it": "pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
-        "en": "nursing-assistant-or-assistant-health-social-care-on-an-emergency-spital-zollikerberg-zollikerberg",
-        "fr": "assistante-infirmiere-ou-assistante-de-sante-et-de-soins-sociaux-en-cas-d-urgence-spital-zollikerberg-zollikerberg"
-      },
-      "company": "Spital Zollikerberg",
-      "companyKey": "spital-zollikerberg",
-      "companyDomain": "spitalzollikerberg.ch",
-      "title": "Pflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall",
-      "titleByLocale": {
-        "de": "Pflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall",
-        "it": "Pflegeassistent / Pflegeassistentin o Assistent / Assistentin Gesundheit & Soziales auf dem Notfall",
-        "en": "Nursing assistant or assistant health & social care on an emergency",
-        "fr": "Assistante infirmière ou assistante de santé et de soins sociaux en cas d'urgence"
-      },
-      "description": "Pflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-      "descriptionByLocale": {
-        "de": "Pflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "it": "Assistente di infermieristica / assistente sanitario o assistente assistenza sociale all'emergenza – Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Infermieristica professioni.\n\nSpital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale.\n\nDescrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Nursing assistant / nursing assistant or assistant health & social care on the emergency – Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Nursing professions.\n\nSpital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories.\n\nFull job description and application via the external applicant platform.",
-        "fr": "Assistant de soins infirmiers / assistant de soins infirmiers ou assistant de santé et de soins sociaux en cas d'urgence – Spital Zollikerberg, Zollikerberg (ZH).\n\nDomaine: professions infirmières.\n\nSpital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales.\n\nDescription de travail complète et demande via la plateforme externe des candidats."
-      },
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0dbf4359-7a70-442d-9870-cf4b7cf2b3ad,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:38:24.359Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0dbf4359-7a70-442d-9870-cf4b7cf2b3ad,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
-        ],
-        "en": [
-          "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
-        ],
-        "fr": [
-          "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
-        ]
-      },
-      "previousSlugs": [
-        "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
-    },
-    {
-      "id": "spital-zollikerberg-6d49853568b7",
-      "slug": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital",
-      "slugByLocale": {
-        "it": "specialista-certificato-in-tecnologia-chirurgica-medica-spital-zollikerberg-zollikerberg",
-        "en": "dipl-specialist-dipl-specialist-in-surgical-technology-medical-engineering-spital-zollikerberg-zollikerberg",
-        "de": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital",
-        "fr": "dipl-specialiste-dipl-specialiste-en-technologie-chirurgicale-genie-medical-spital-zollikerberg-zollikerberg"
-      },
-      "company": "Spital Zollikerberg",
-      "companyKey": "spital-zollikerberg",
-      "companyDomain": "spitalzollikerberg.ch",
-      "title": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik Medizintechnische Bereiche",
-      "titleByLocale": {
-        "it": "Specialista Certificato in Tecnologia Chirurgica Medica",
-        "en": "Dipl. Specialist / Dipl. Specialist in surgical technology Medical engineering",
-        "de": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik Medizintechnische Bereiche",
-        "fr": "Dipl. Spécialiste / Dipl. Spécialiste en technologie chirurgicale Génie médical"
-      },
-      "description": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-      "descriptionByLocale": {
-        "it": "Specialista / Dipl. Specialista in ingegneria chirurgica Aree di ingegneria medica — Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Dipl. Specialist / Dipl. Specialist in surgical engineering Medical engineering areas — Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
-        "de": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "fr": "Dipl. Spécialiste / Dipl. Spécialiste en génie chirurgical Domaines de génie médical — Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
-      },
-      "needsRetranslation": false,
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0bc225d4-9c0d-4ea5-a3ef-d3d20fbba737,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:23:15.187Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0bc225d4-9c0d-4ea5-a3ef-d3d20fbba737,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
-    },
     {
       "id": "spital-zollikerberg-bb1a289bbd04",
       "slug": "assistente-infermieristico-nel-reparto-privato-1-spital-zollikerberg-zollikerberg",
@@ -224,7 +19,7 @@
         "it": "Assistente infermieristico nel reparto privato 1",
         "en": "Nursing assistant / nursing assistant in the private station 1",
         "de": "Pflegehelferin / Pflegehelfer in der Privatstation 1",
-        "fr": "Assistant infirmier / assistant infirmier au poste privé 1"
+        "fr": "Pflegehelferin / Pflegehelfer in der Privatstation 1"
       },
       "description": "Pflegehelferin / Pflegehelfer in der Privatstation 1 — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
       "descriptionByLocale": {
@@ -233,12 +28,13 @@
         "de": "Pflegehelferin / Pflegehelfer in der Privatstation 1 — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
         "fr": "Assistant infirmier au poste privé 1 — Spital Zollikerberg, Zollikerberg (ZH). Domaine: professions infirmières. Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
       },
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=68c54407-f26a-48c1-85aa-cbb63a8c9c65,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T15:38:24.360Z",
+      "crawledAt": "2026-07-07T22:12:06.645Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -256,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg"
+        "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg",
+        "assistente-infermieristico-nel-reparto-privato-1-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg"
+          "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg",
+          "assistente-infermieristico-nel-reparto-privato-1-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "pflegehelferin-pflegehelfer-in-der-privatstation-1-spital-zollikerberg-zollikerberg"
@@ -285,7 +83,7 @@
     },
     {
       "id": "spital-zollikerberg-6ba7d05b9b04",
-      "slug": "fachfrau-fachmann-gesundheit-pool-in-festanstellung-spital-zollikerberg-zollikerberg",
+      "slug": "specialista-del-pool-sanitario-per-l-impiego-permanente-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "it": "specialista-del-pool-sanitario-per-l-impiego-permanente-spital-zollikerberg-zollikerberg",
         "en": "professional-professional-health-pool-in-permanent-employment-spital-zollikerberg-zollikerberg",
@@ -315,7 +113,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=2db94135-e692-41e7-8d61-41b5aee9eeba,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:23:15.188Z",
+      "crawledAt": "2026-07-07T22:12:06.645Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -332,11 +130,31 @@
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=2db94135-e692-41e7-8d61-41b5aee9eeba,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-pool-in-festanstellung-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-pool-in-festanstellung-spital-zollikerberg-zollikerberg"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "spital-zollikerberg-4abe9912c223",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-spital",
+      "slug": "infermiera-diplomatica-visita-spital-zollikerberg-zuhause-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "it": "infermiera-diplomatica-visita-spital-zollikerberg-zuhause-spital-zollikerberg-zollikerberg",
         "en": "dipl-nursing-professional-dipl-nursing-specialist-visit-spital-zollikerberg-at-home-spital-zollikerberg-zollikerberg",
@@ -366,7 +184,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=6e550bef-a1ba-421c-9c94-a3e726a58e15,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:23:15.188Z",
+      "crawledAt": "2026-07-07T22:12:06.645Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -383,41 +201,61 @@
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=6e550bef-a1ba-421c-9c94-a3e726a58e15,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-spital"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-spital"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
-      "id": "spital-zollikerberg-1f2c44befc6f",
-      "slug": "specialist-health-private-station-2-spital-zollikerberg-zollikerberg",
+      "id": "spital-zollikerberg-6d49853568b7",
+      "slug": "specialista-certificato-in-tecnologia-chirurgica-medica-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "specialist-health-private-station-2-spital-zollikerberg-zollikerberg",
-        "en": "specialist-health-private-station-2-spital-zollikerberg-zollikerberg",
-        "de": "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
-        "fr": "station-privee-de-sante-specialisee-2-spital-zollikerberg-zollikerberg"
+        "it": "specialista-certificato-in-tecnologia-chirurgica-medica-spital-zollikerberg-zollikerberg",
+        "en": "dipl-specialist-dipl-specialist-in-surgical-technology-medical-engineering-spital-zollikerberg-zollikerberg",
+        "de": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital",
+        "fr": "dipl-specialiste-dipl-specialiste-en-technologie-chirurgicale-genie-medical-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Fachfrau / Fachmann Gesundheit Privatstation 2",
+      "title": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik Medizintechnische Bereiche",
       "titleByLocale": {
-        "it": "Specialist Health Private Station 2",
-        "en": "Specialist Health Private Station 2",
-        "de": "Fachfrau / Fachmann Gesundheit Privatstation 2",
-        "fr": "Station privée de santé spécialisée 2"
+        "it": "Specialista Certificato in Tecnologia Chirurgica Medica",
+        "en": "Dipl. Specialist / Dipl. Specialist in surgical technology Medical engineering",
+        "de": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik Medizintechnische Bereiche",
+        "fr": "Dipl. Spécialiste / Dipl. Spécialiste en technologie chirurgicale Génie médical"
       },
-      "description": "Fachfrau / Fachmann Gesundheit Privatstation 2 — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+      "description": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
       "descriptionByLocale": {
-        "it": "Specialist Health Private Station 2 — Spital Zollikerberg, Zollikerberg (ZH). Area: Infermieristica professioni. Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Specialist Health Private Station 2 — Spital Zollikerberg, Zollikerberg (ZH). Area: Nursing professions. Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
-        "de": "Fachfrau / Fachmann Gesundheit Privatstation 2 — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "fr": "Station privée de santé spécialisée 2 — Spital Zollikerberg, Zollikerberg (ZH). Domaine: professions infirmières. Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
+        "it": "Specialista / Dipl. Specialista in ingegneria chirurgica Aree di ingegneria medica — Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
+        "en": "Dipl. Specialist / Dipl. Specialist in surgical engineering Medical engineering areas — Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
+        "de": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Dipl. Spécialiste / Dipl. Spécialiste en génie chirurgical Domaines de génie médical — Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
       },
       "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b8568310-faca-4394-96a6-34e0c9c1c417,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0bc225d4-9c0d-4ea5-a3ef-d3d20fbba737,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T00:12:07.641Z",
+      "crawledAt": "2026-07-07T22:12:06.644Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -431,21 +269,92 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b8568310-faca-4394-96a6-34e0c9c1c417,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0bc225d4-9c0d-4ea5-a3ef-d3d20fbba737,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-zollikerberg-87fc3c711281",
+      "slug": "pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
+      "slugByLocale": {
+        "it": "pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
+        "en": "nursing-assistant-or-assistant-health-social-care-on-an-emergency-spital-zollikerberg-zollikerberg",
+        "de": "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem",
+        "fr": "assistante-infirmiere-ou-assistante-de-sante-et-de-soins-sociaux-en-cas-d-urgence-spital-zollikerberg-zollikerberg"
+      },
+      "company": "Spital Zollikerberg",
+      "companyKey": "spital-zollikerberg",
+      "companyDomain": "spitalzollikerberg.ch",
+      "title": "Pflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall",
+      "titleByLocale": {
+        "it": "Pflegeassistent / Pflegeassistentin o Assistent / Assistentin Gesundheit & Soziales auf dem Notfall",
+        "en": "Nursing assistant or assistant health & social care on an emergency",
+        "de": "Pflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall",
+        "fr": "Assistante infirmière ou assistante de santé et de soins sociaux en cas d'urgence"
+      },
+      "description": "Pflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+      "descriptionByLocale": {
+        "it": "Assistente di infermieristica / assistente sanitario o assistente assistenza sociale all'emergenza – Spital Zollikerberg, Zollikerberg (ZH). Area: Infermieristica professioni. Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
+        "en": "Nursing assistant / nursing assistant or assistant health & social care on the emergency – Spital Zollikerberg, Zollikerberg (ZH). Area: Nursing professions. Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
+        "de": "Pflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Assistant de soins infirmiers / assistant de soins infirmiers ou assistant de santé et de soins sociaux en cas d'urgence – Spital Zollikerberg, Zollikerberg (ZH). Domaine: professions infirmières. Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
+      },
+      "needsRetranslation": true,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0dbf4359-7a70-442d-9870-cf4b7cf2b3ad,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-07T22:12:06.642Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0dbf4359-7a70-442d-9870-cf4b7cf2b3ad,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
+        "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
+          "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
         ],
         "en": [
-          "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
+          "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
         ],
         "fr": [
-          "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
+          "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
@@ -460,42 +369,41 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 2
+      }
     },
     {
-      "id": "spital-zollikerberg-60e7cb04eb98",
-      "slug": "formazione-professionale-formazione-professionale-maternite-spital-zollikerberg-zollikerberg",
+      "id": "spital-zollikerberg-5f4f57464f13",
+      "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg",
       "slugByLocale": {
-        "it": "formazione-professionale-formazione-professionale-maternite-spital-zollikerberg-zollikerberg",
-        "en": "vocational-trainer-vocational-trainer-maternite-spital-zollikerberg-zollikerberg",
-        "de": "berufsbildnerin-berufsbildner-maternite-spital-zollikerberg-zollikerberg",
-        "fr": "formateur-professionnel-formateur-professionnel-maternite-spital-zollikerberg-zollikerberg"
+        "it": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg",
+        "en": "dipl-radiology-specialist-radiology-specialist-hf-in-medical-engineering-training-spital-zollikerberg-zollikerberg",
+        "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
+        "fr": "dipl-specialiste-de-radiologie-specialiste-de-radiologie-hf-en-formation-en-genie-medical-spital-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Berufsbildnerin / Berufsbildner Maternité",
+      "title": "Dipl. Radiologiefachfrau / Radiologiefachmann HF in Ausbildung Medizintechnische Bereiche",
       "titleByLocale": {
-        "it": "Formazione professionale/formazione professionale Maternité",
-        "en": "Vocational trainer/vocational trainer Maternité",
-        "de": "Berufsbildnerin / Berufsbildner Maternité",
-        "fr": "Formateur professionnel/formateur professionnel Maternité"
+        "it": "Dipl. Specialista di radiologia / Specialista di radiologia HF nella formazione di ingegneria medica",
+        "en": "Dipl. Radiology specialist / Radiology specialist HF in medical engineering training",
+        "de": "Dipl. Radiologiefachfrau / Radiologiefachmann HF in Ausbildung Medizintechnische Bereiche",
+        "fr": "Dipl. Spécialiste de radiologie / Spécialiste de radiologie HF en formation en génie médical"
       },
-      "description": "Berufsbildnerin / Berufsbildner Maternité — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+      "description": "Dipl. Radiologiefachfrau / Radiologiefachmann HF in Ausbildung Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
       "descriptionByLocale": {
-        "it": "Formazione professionale Maternité — Spital Zollikerberg, Zollikerberg (ZH). Area: Infermieristica professioni. Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Vocational trainer Maternité — Spital Zollikerberg, Zollikerberg (ZH). Area: Nursing professions. Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
-        "de": "Berufsbildnerin / Berufsbildner Maternité — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "fr": "Entraîneur professionnel Maternité — Spital Zollikerberg, Zollikerberg (ZH). Domaine: professions infirmières. Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
+        "it": "Dipl. Specialista di radiologia HF in formazione Medical Engineering Areas – Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
+        "en": "Dipl. Radiology specialist HF in training Medical Engineering Areas – Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
+        "de": "Dipl. Radiologiefachfrau / Radiologiefachmann HF in Ausbildung Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Dipl. Spécialiste de radiologie HF en formation Domaines de génie médical – Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
       },
       "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=13c68f5e-2740-4239-854d-6abfc112cc18,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f2f99803-dec0-4daf-bd51-d299119aa212,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T00:12:07.641Z",
+      "crawledAt": "2026-07-07T22:12:06.638Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -509,21 +417,23 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=13c68f5e-2740-4239-854d-6abfc112cc18,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f2f99803-dec0-4daf-bd51-d299119aa212,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildnerin-berufsbildner-maternite-spital-zollikerberg-zollikerberg"
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
+        "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildnerin-berufsbildner-maternite-spital-zollikerberg-zollikerberg"
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
+          "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg"
         ],
         "en": [
-          "berufsbildnerin-berufsbildner-maternite-spital-zollikerberg-zollikerberg"
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
         ],
         "fr": [
-          "berufsbildnerin-berufsbildner-maternite-spital-zollikerberg-zollikerberg"
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
@@ -538,8 +448,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }
