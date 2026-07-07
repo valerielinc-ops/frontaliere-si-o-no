@@ -15,6 +15,7 @@
  */
 
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -58,8 +59,11 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+// Per-crawler-scoped scratch path (never shared with sibling crawlers in the
+// same crawler-group CI job -- no cross-process race possible by construction).
+const SCRATCH_KEY = path.basename(fileURLToPath(import.meta.url), '.mjs');
+const DATA_JOBS = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${SCRATCH_KEY}.json`);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'axa-svizzera.json');
 
 const COMPANY_KEY = 'axa-svizzera';
