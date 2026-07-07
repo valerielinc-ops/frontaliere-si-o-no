@@ -8306,6 +8306,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Nuovo accordo frontalieri: cosa cambia per i frontalieri in Ticino?',
     'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Il nuovo accordo frontalieri entra in vigore dal 1° gennaio 2024. Ecco cosa cambia per i frontalieri in Ticino.',
     'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Un frontaliere in stazione a Chiasso',
+    'blog.article.posta-chiasso.title': 'Posta Chiasso: novità per i frontalieri',
+    'blog.article.posta-chiasso.excerpt': 'La posta Chiasso ha annunciato di aver introdotto un nuovo servizio per i frontalieri.',
+    'blog.article.posta-chiasso.imageAlt': 'Una scena di una posta in Ticino, con un frontaliere in piedi davanti all\'ufficio postale.',
 };
 
 export default blogMetaIt;

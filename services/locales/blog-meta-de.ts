@@ -8304,6 +8304,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Neues Grenzabkommen: Was ändert sich für Grenzgänger im Tessin?',
     'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Das neue Grenzabkommen tritt am 1. Januar 2024 in Kraft. Das ändert sich für Grenzgänger im Tessin.',
     'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Ein Pendler an der Bahnstation Chiasso',
+    'blog.article.posta-chiasso.title': 'Posta Chiasso: Neuheit für Grenzgänger',
+    'blog.article.posta-chiasso.excerpt': 'Die Post Chiasso hat angekündigt, einen neuen Dienst für Grenzgänger eingeführt zu haben.',
+    'blog.article.posta-chiasso.imageAlt': 'Eine Szene einer Poststelle in Tessin, mit einem Grenzgänger, der vor der Poststelle steht.',
 };
 
 export default blogMetaDe;
