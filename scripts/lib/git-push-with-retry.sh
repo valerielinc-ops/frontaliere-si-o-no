@@ -56,6 +56,26 @@ set -euo pipefail
 # follow-up). Local config, idempotent; harmless if the files aren't touched.
 git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B' || true
 
+# ── Clear orphaned .git/index.lock left by a crashed prior git operation ────
+# Same class of bug as scripts/lib/git-commit-data.sh (see that file's header
+# comment for the full incident writeup: group-06 production failure,
+# 2026-07-06). This script has no flock wrapper of its own — but it doesn't
+# need one to hit the same hazard: crawl-events.yml invokes this script
+# TWICE in one job (once per source, both steps `continue-on-error: true`),
+# sharing one working directory and one `.git`. If the first invocation
+# crashes mid `git commit`/rebase (OOM, step timeout) and leaves
+# `.git/index.lock` behind, the second invocation's `git fetch`/`rebase`/
+# `stash`/`reset` calls would all hit git's "Another git process seems to be
+# running..." guard and fail too — silently, since both steps swallow errors.
+# By the time THIS script starts running, any prior invocation in the same
+# job has already fully exited (steps run sequentially, never concurrently),
+# so a leftover `.git/index.lock` here can only be a stale crash artifact,
+# never a live lock — safe to clear unconditionally before any operation.
+if [ -f ".git/index.lock" ]; then
+  echo "⚠️ Found stale .git/index.lock (leftover from a crashed earlier git operation in this job) — removing before proceeding."
+  rm -f ".git/index.lock"
+fi
+
 BRANCH="main"
 MAX_ATTEMPTS=5
 REGENERATE_CMD=""
