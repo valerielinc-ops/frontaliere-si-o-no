@@ -1,21 +1,19 @@
 {
   "key": "clinique-la-source",
   "label": "Clinique de La Source",
-  "generatedAt": "2026-07-07T12:03:41.215Z",
+  "generatedAt": "2026-07-07T22:17:30.952Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 6569,
-  "avgDurationMs": 6569,
+  "unchangedCount": 0,
+  "durationMs": 6865,
+  "avgDurationMs": 6865,
   "durationHistory": [
-    6569
+    6865
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "clinique-la-source-87772a13da31",
       "slug": "infirmier-ere-au-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne",
@@ -29,7 +27,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=767",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:03:37.059Z",
+      "crawledAt": "2026-07-07T22:17:26.448Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -67,7 +65,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=769",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:03:38.739Z",
+      "crawledAt": "2026-07-07T22:17:28.031Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -105,7 +103,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=764",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:03:36.487Z",
+      "crawledAt": "2026-07-07T22:17:25.905Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -143,7 +141,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=762",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:03:39.292Z",
+      "crawledAt": "2026-07-07T22:17:28.601Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -181,7 +179,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=750",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:03:37.619Z",
+      "crawledAt": "2026-07-07T22:17:26.962Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -219,7 +217,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=746",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:03:38.191Z",
+      "crawledAt": "2026-07-07T22:17:27.503Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -244,5 +242,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
