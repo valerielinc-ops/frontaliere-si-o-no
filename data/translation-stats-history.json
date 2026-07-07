@@ -11398,5 +11398,119 @@
         "pending": 4
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-07T09:53:23.309Z",
+    "label": "before",
+    "total": 23658,
+    "needsRetranslation": 4550,
+    "suppressed": 252,
+    "incomplete": 493,
+    "complete": 23165,
+    "missingByLocale": {
+      "it": 324,
+      "en": 386,
+      "de": 175,
+      "fr": 350
+    },
+    "topPending": [
+      {
+        "company": "Two Spice AG",
+        "pending": 239
+      },
+      {
+        "company": "Manor AG",
+        "pending": 133
+      },
+      {
+        "company": "On Running",
+        "pending": 35
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 13
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 7
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-07T10:00:06.824Z",
+    "label": "after",
+    "total": 23658,
+    "needsRetranslation": 2820,
+    "suppressed": 250,
+    "incomplete": 491,
+    "complete": 23167,
+    "missingByLocale": {
+      "it": 322,
+      "en": 384,
+      "de": 175,
+      "fr": 348
+    },
+    "topPending": [
+      {
+        "company": "Two Spice AG",
+        "pending": 237
+      },
+      {
+        "company": "Manor AG",
+        "pending": 133
+      },
+      {
+        "company": "On Running",
+        "pending": 35
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 13
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 7
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Valora Group",
+        "pending": 5
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      }
+    ]
   }
 ]

@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "geomatico-pemsa-bulle",
-        "en": "geomatics-pemsa-bulle",
-        "de": "geomatik-pemsa-bulle",
-        "fr": "geomatique-pemsa-bulle"
+        "en": "geomatico-pemsa-bulle",
+        "de": "geomatico-pemsa-bulle",
+        "fr": "geomatico-pemsa-bulle"
       },
       "id": "pemsa-004126cc99bb",
       "needsRetranslation": true,
@@ -98,9 +98,9 @@
       },
       "slugByLocale": {
         "it": "geomatico-pemsa-moudon",
-        "en": "geomatics-pemsa-moudon",
-        "de": "geomatik-pemsa-moudon",
-        "fr": "geomatique-pemsa-moudon"
+        "en": "geomatico-pemsa-moudon",
+        "de": "geomatico-pemsa-moudon",
+        "fr": "geomatico-pemsa-moudon"
       },
       "id": "pemsa-bf4dcb21556a",
       "needsRetranslation": true,
@@ -157,9 +157,9 @@
       },
       "slugByLocale": {
         "it": "installatore-di-impianti-di-riscaldamento-pemsa-geneve",
-        "en": "installer-of-heating-systems-pemsa-geneve",
-        "de": "einbau-von-heizungsanlagen-pemsa-geneve",
-        "fr": "installateur-de-systemes-de-chauffage-pemsa-geneve"
+        "en": "installatore-di-impianti-di-riscaldamento-pemsa-geneve",
+        "de": "installatore-di-impianti-di-riscaldamento-pemsa-geneve",
+        "fr": "installatore-di-impianti-di-riscaldamento-pemsa-geneve"
       },
       "id": "pemsa-7fdb1ede88a4",
       "needsRetranslation": true,
@@ -2020,7 +2020,17 @@
       },
       "postalCode": "4001",
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "previousSlugsByLocale": {
+        "it": [
+          "stuccatore-efz-eba-m-f-d-pemsa-basel",
+          "stuccatore-cfc-afp-m-f-d-pemsa-basel"
+        ]
+      },
+      "previousSlugs": [
+        "stuccatore-efz-eba-m-f-d-pemsa-basel",
+        "stuccatore-cfc-afp-m-f-d-pemsa-basel"
+      ]
     },
     {
       "title": "Installatore elettrico AFC / AEC (m/f/d)",
@@ -11124,7 +11134,7 @@
       "slugByLocale": {
         "it": "meccanico-di-macchine-agricole-efz-m-f-d-pemsa-basel",
         "en": "agricultural-machinery-mechanic-efz-m-f-d-pemsa-basel",
-        "de": "landwirtschaftliche-maschinen-efz-m-w-d-pemsa-basel",
+        "de": "meccanico-di-macchine-agricole-efz-m-f-d-pemsa-basel",
         "fr": "mecanicien-de-machines-agricoles-efz-m-f-d-pemsa-basel"
       },
       "id": "pemsa-319f21eb49c8",
@@ -11142,7 +11152,15 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z"
+      "firstSeenAt": "2026-06-29T12:00:35.324Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "landwirtschaftliche-maschinen-efz-m-w-d-pemsa-basel"
+        ]
+      },
+      "previousSlugs": [
+        "landwirtschaftliche-maschinen-efz-m-w-d-pemsa-basel"
+      ]
     },
     {
       "title": "Capocantiere elettricista",
@@ -12419,7 +12437,7 @@
         "it": "impianti-idraulici-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
         "de": "durchfuhrungen-pemsa-torricella",
-        "fr": "mise-en-uvre-pemsa-torricella"
+        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -12443,11 +12461,13 @@
           "idraulico-impianti-riscaldamento-pemsa-torricella"
         ],
         "fr": [
+          "mise-en-uvre-pemsa-torricella",
           "idraulico-impianti-riscaldamento-pemsa-torricella"
         ]
       },
       "previousSlugs": [
-        "idraulico-impianti-riscaldamento-pemsa-torricella"
+        "idraulico-impianti-riscaldamento-pemsa-torricella",
+        "mise-en-uvre-pemsa-torricella"
       ]
     },
     {
