@@ -407,6 +407,15 @@ step_push_cdn() {
   for d in brands insurers providers logos authors publisher events; do
     [ -d "public/images/$d" ] && mkdir -p "$stage/images" && cp -r "public/images/$d" "$stage/images/$d"
   done
+  # Build-time generated per-category "catalog" fallback SVGs (#3740,
+  # writeCatalogImages() in build-plugins/eventsSeoPagesPlugin.ts): unlike the
+  # mirrored real event photos above (git-tracked under public/images/events/),
+  # these 11 deterministic SVGs are emitted straight into dist/images/events/catalog/
+  # at build time and are NOT git-tracked, so the public/images/$d loop above
+  # never picks them up. Without this stage copy, offload-generated-images-cdn.mjs
+  # still rewrote the HTML refs to the CDN and deleted the dist copies, leaving
+  # cdn.frontaliereticino.ch/images/events/catalog/*.svg permanently 404.
+  [ -d dist/images/events/catalog ] && mkdir -p "$stage/images/events" && cp -r dist/images/events/catalog "$stage/images/events/catalog"
   # Strip junk the recursive copies drag in: macOS .DS_Store files and the
   # internal build-telemetry assets/.hash-age.json (chunk first-seen/last-access
   # timestamps — not a runtime asset, must not be published).
