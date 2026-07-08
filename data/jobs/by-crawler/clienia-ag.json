@@ -7945,12 +7945,12 @@
     },
     {
       "id": "clienia-ag-eac708e569d7",
-      "slug": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon",
+      "slug": "dipl-cura-professionale-hf-fh-in-servizio-notturno-m-f-d-30-90-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-zurich",
-        "it": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon",
-        "en": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon",
-        "fr": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon"
+        "it": "dipl-cura-professionale-hf-fh-in-servizio-notturno-m-f-d-30-90-clienia-ag-pfaffikon-zh",
+        "en": "dipl-care-professional-hf-fh-on-night-duty-m-f-d-30-90-clienia-ag-pfaffikon-zh",
+        "fr": "dipl-professionnels-de-la-sante-en-service-de-nuit-m-f-j-30-90-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7995,11 +7995,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-zurich",
+          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-zurich",
+        "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon"
       ],
       "salaryMin": 66200,
       "salaryMax": 100400,
@@ -8017,12 +8025,12 @@
     },
     {
       "id": "clienia-ag-fdb05d1d4b22",
-      "slug": "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-pfaffikon",
+      "slug": "infermiera-hf-fh-m-f-d-60-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-zurich",
-        "it": "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-pfaffikon",
-        "en": "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-pfaffikon",
-        "fr": "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-pfaffikon"
+        "it": "infermiera-hf-fh-m-f-d-60-clienia-ag-pfaffikon-zh",
+        "en": "dipl-nurse-hf-fh-m-f-d-60-clienia-ag-pfaffikon-zh",
+        "fr": "infirmiere-diplomee-hf-fh-m-f-j-60-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8067,11 +8075,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-zurich",
+          "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-zurich",
+        "dipl-pflegefachperson-hf-fh-m-w-d-60-clienia-ag-pfaffikon"
       ],
       "salaryMin": 44100,
       "salaryMax": 66900,

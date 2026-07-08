@@ -3791,7 +3791,7 @@
         "it": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
         "en": "postdoc-epfl-lausanne",
         "de": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
-        "fr": "postdoc-epfl-lausanne"
+        "fr": "postdoctorant-en-finance-quantitative-a-l-epfl-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3843,7 +3843,8 @@
         "poste-postdoctoral-en-finance-quantitative-a-l-epfl-epfl-lausanne",
         "poste-de-postdoctorat-en-finance-quantitative-a-l-epfl-epfl-lausanne",
         "postdoctorat-en-finance-quantitative-a-l-epfl-epfl-lausanne",
-        "poste-de-postdoctorant-en-finance-quantitative-a-l-epfl-epfl-lausanne"
+        "poste-de-postdoctorant-en-finance-quantitative-a-l-epfl-epfl-lausanne",
+        "postdoc-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-29T13:42:50.059Z",
       "salaryMin": 60500,
@@ -3858,7 +3859,12 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "fr": [
+          "postdoc-epfl-lausanne"
+        ]
+      }
     },
     {
       "id": "epfl-70e72cd21e28",
@@ -3866,7 +3872,7 @@
       "slugByLocale": {
         "it": "assistente-scientifico-nei-materiali-da-costruzione-di-ispirazione-bio-epfl-fribourg",
         "en": "scientific-assistant-in-bio-inspired-construction-materials-epfl-fribourg",
-        "de": "scientific-assistant-in-bio-inspired-construction-materials-epfl-fribourg",
+        "de": "wissenschaftlicher-assistent-in-bio-inspirierten-baustoffen-epfl-fribourg",
         "fr": "assistant-scientifique-en-materiaux-de-construction-d-inspiration-biologique-epfl-fribourg"
       },
       "company": "EPFL",
@@ -3915,6 +3921,9 @@
           "scientific-assistant-in-bio-inspired-construction-materials-epfl-fribourg"
         ],
         "fr": [
+          "scientific-assistant-in-bio-inspired-construction-materials-epfl-fribourg"
+        ],
+        "de": [
           "scientific-assistant-in-bio-inspired-construction-materials-epfl-fribourg"
         ]
       },
@@ -5518,8 +5527,7 @@
       "externalId": "1164200455",
       "previousSlugs": [
         "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne",
-        "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne-255f45",
-        "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
+        "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne-255f45"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -5631,9 +5639,6 @@
         "administrative-assistant-professor-s-secretary-60-80-epfl-sion",
         "administrative-r-assistent-in-sekretar-in-des-professors-60-80-epfl-sion",
         "adjoint-administratif-secretaire-du-professeur-60-80-epfl-sion",
-        "assistente-amministrativo-60-80-epfl-sion",
-        "administrative-assistant-sekretar-des-professors-60-80-epfl-sion",
-        "verwaltungsassistent-60-80-epfl-sion",
         "assistente-amministrativo-segretario-del-professore-60-80-epfl-sion"
       ],
       "firstSeenAt": "2026-06-09T11:22:26.360Z",
