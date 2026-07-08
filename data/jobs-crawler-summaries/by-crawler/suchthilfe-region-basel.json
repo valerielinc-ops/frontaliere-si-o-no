@@ -1,19 +1,56 @@
 {
   "key": "suchthilfe-region-basel",
   "label": "Suchthilfe Region Basel",
-  "generatedAt": "2026-07-08T04:45:24.669Z",
+  "generatedAt": "2026-07-08T10:54:46.534Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 7455,
-  "avgDurationMs": 7455,
+  "unchangedCount": 0,
+  "durationMs": 7108,
+  "avgDurationMs": 7108,
   "durationHistory": [
-    7455
+    7108
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "suchthilfe-region-basel-8da406480c73",
+      "slug": "mitarbeiter-in-betreuung-k-a-60-70-suchthilfe-region-basel-basel",
+      "company": "Suchthilfe Region Basel",
+      "companyKey": "suchthilfe-region-basel",
+      "companyDomain": "suchthilfe.ch",
+      "title": "Mitarbeiter*in Betreuung K+A 60-70%",
+      "needsRetranslation": false,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/06/Stelleninserat_MA-Betreuung-260320.pdf",
+      "source": "Suchthilfe Region Basel Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-08T10:54:41.829Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4051",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-04",
+      "applyUrl": "https://www.suchthilfe.ch/jobs/",
+      "firstSeenAt": "2026-06-04T13:51:32.937Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
     {
       "id": "suchthilfe-region-basel-3d2b9f3534e6",
       "slug": "psycholog-in-psychotherapeut-in-60-100-in-der-esta-klinik-suchthilfe-region-basel-reinach",
@@ -27,7 +64,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/05/Psychologie_ESTA_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T04:45:22.087Z",
+      "crawledAt": "2026-07-08T10:54:44.032Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/05/PflegeHF_ESTA_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T04:45:18.961Z",
+      "crawledAt": "2026-07-08T10:54:40.979Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -87,46 +124,6 @@
         "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "suchthilfe-region-basel-8da406480c73",
-      "slug": "mitarbeiter-in-betreuung-k-a-60-70-suchthilfe-region-basel-basel",
-      "company": "Suchthilfe Region Basel",
-      "companyKey": "suchthilfe-region-basel",
-      "companyDomain": "suchthilfe.ch",
-      "title": "Mitarbeiter*in Betreuung K+A 60-70%",
-      "needsRetranslation": false,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/06/Stelleninserat_MA-Betreuung-260320.pdf",
-      "source": "Suchthilfe Region Basel Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T04:45:19.796Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4051",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-04",
-      "applyUrl": "https://www.suchthilfe.ch/jobs/",
-      "firstSeenAt": "2026-06-04T13:51:32.937Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
     },
     {
       "id": "suchthilfe-region-basel-22d6801388b3",
@@ -141,7 +138,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/02/Pflege-Fachp-Nacht_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T04:45:20.368Z",
+      "crawledAt": "2026-07-08T10:54:42.391Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -178,7 +175,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2020/09/Gastfamilien_2020.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T04:45:20.927Z",
+      "crawledAt": "2026-07-08T10:54:42.938Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -215,7 +212,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/05/Stellenausschreibung_Hauswirtschaft_07.05.26.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T04:45:21.529Z",
+      "crawledAt": "2026-07-08T10:54:43.497Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -239,5 +236,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
