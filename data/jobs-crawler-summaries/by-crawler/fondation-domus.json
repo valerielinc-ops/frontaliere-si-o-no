@@ -1,21 +1,19 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-07-08T11:28:14.501Z",
+  "generatedAt": "2026-07-08T22:27:08.233Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5039,
-  "avgDurationMs": 5039,
+  "unchangedCount": 0,
+  "durationMs": 4684,
+  "avgDurationMs": 4684,
   "durationHistory": [
-    5039
+    4684
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "fondation-domus-c7035e55eb7f",
       "slug": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
@@ -28,7 +26,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7b82cc50-8baf-45ac-af38-d733661d06d0/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:28:12.476Z",
+      "crawledAt": "2026-07-08T22:27:06.252Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -63,7 +61,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/0cb2112b-171a-455f-a551-3dbca11a1885/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:28:12.814Z",
+      "crawledAt": "2026-07-08T22:27:06.593Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -86,5 +84,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
