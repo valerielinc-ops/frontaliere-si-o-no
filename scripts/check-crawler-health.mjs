@@ -301,18 +301,32 @@ async function readJsonSafe(filePath) {
   }
 }
 
-/** List `*.json` files in by-crawler dir, return slugs. */
-async function listCrawlerSlugs() {
+/** List `*.json` slugs in a dir (best-effort; empty array on read failure). */
+async function listJsonSlugs(dir) {
   try {
-    const entries = await fs.readdir(BY_CRAWLER_DIR);
+    const entries = await fs.readdir(dir);
     return entries
       .filter((name) => name.endsWith('.json'))
-      .map((name) => name.replace(/\.json$/, ''))
-      .sort();
+      .map((name) => name.replace(/\.json$/, ''));
   } catch (err) {
-    console.error(`[health] Cannot read ${BY_CRAWLER_DIR}: ${err.message}`);
+    console.error(`[health] Cannot read ${dir}: ${err.message}`);
     return [];
   }
+}
+
+/**
+ * List all known crawler slugs: union of `data/jobs/by-crawler/*.json` and
+ * `data/jobs-crawler-summaries/by-crawler/*.json`. A crawler that has never
+ * produced an active-jobs shard (e.g. `earlyExit: true` on every run) only
+ * ever writes the summary slice — reading BY_CRAWLER_DIR alone made those
+ * crawlers permanently invisible to this monitor (issue #3797).
+ */
+async function listCrawlerSlugs() {
+  const [byCrawler, summaries] = await Promise.all([
+    listJsonSlugs(BY_CRAWLER_DIR),
+    listJsonSlugs(SUMMARIES_DIR),
+  ]);
+  return [...new Set([...byCrawler, ...summaries])].sort();
 }
 
 /**
@@ -322,9 +336,10 @@ async function listCrawlerSlugs() {
  *   - `data/jobs/by-crawler/{slug}.json`            → activeJobCount + fallback timestamp
  *   - `data/jobs-crawler-summaries/by-crawler/{slug}.json` → primary timestamp
  *
- * Returns null if the by-crawler slice cannot be read/parsed (caller logs +
- * skips). The summary slice is optional — when missing we fall back to
- * `assembledAt`.
+ * The by-crawler slice is optional — a crawler that has never produced an
+ * active-jobs shard (e.g. every run exits early with `earlyExit: true`,
+ * issue #3797) is tracked via the summary slice alone instead of being
+ * skipped. `activeJobCount` and `assembledAt` degrade to 0/null in that case.
  *
  * Returns `{ slug, freshnessAt, freshnessSource, assembledAt, generatedAt,
  * jobCount, activeJobCount }`:
@@ -336,8 +351,7 @@ async function inspectCrawler(slug) {
   const sliceFilePath = path.join(BY_CRAWLER_DIR, `${slug}.json`);
   const data = await readJsonSafe(sliceFilePath);
   if (data === null) {
-    console.warn(`[health] ${slug}: cannot read/parse slice; skipping`);
-    return null;
+    console.warn(`[health] ${slug}: no active-jobs shard (never produced or unparseable) — tracking via summary only`);
   }
 
   // Tolerate any shape: array of jobs OR { jobs: [...] } OR { entries: [...] }.
@@ -585,7 +599,7 @@ async function main() {
 }
 
 // Exported for tests. `main()` only runs when the script is invoked directly.
-export { nextCrawlerState, inspectCrawler };
+export { nextCrawlerState, inspectCrawler, listCrawlerSlugs };
 
 const isMain = (() => {
   try {
