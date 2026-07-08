@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Sibling-patterns gate (issue #3809 / AGENTS.md #6).
+#
+# Structural enforcement for the recurring reviewer-finding/sibling-class-fix
+# bucket: fixers must inspect untouched sibling files BEFORE pushing, not after
+# the reviewer fires 🔴 post-PR-open (which costs an extra review cycle).
+#
+# Runs check-sibling-patterns.mjs --strict: exits 1 if any untouched file shares
+# a distinctive construct with the diff (SCREAMING_SNAKE, camelCase helper,
+# kebab import, literal slug).  Advisory output + exit 0 if the diff touches
+# only non-code paths (data/, public/, reports/).
+#
+# To bypass (AGENTS.md § Workflow — sibling-hook exception):
+#   Allowed ONLY when ALL surfaced candidates have been individually assessed:
+#   • Real sibling found → fix it in this branch, then push normally.
+#   • False positive → document it in ## Non implementato with justification
+#     (per-file, not a blanket "tutti falsi positivi"), then:
+#       git push --no-verify
+#   A blanket dismiss without per-file justification is not a bypass; the
+#   reviewer will still fire 🔴 sibling-class-fix on the opened PR.
+set -euo pipefail
+node scripts/ci/check-sibling-patterns.mjs --strict

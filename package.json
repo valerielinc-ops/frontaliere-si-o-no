@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "prepare": "git config core.hooksPath .githooks || true",
     "dev": "vite",
     "predev": "node scripts/assemble-jobs-dataset.mjs --stats",
     "prebuild": "node scripts/generate-image-thumbnails.mjs && node scripts/prebuild-webp.mjs && node scripts/assemble-jobs-dataset.mjs --stats",
