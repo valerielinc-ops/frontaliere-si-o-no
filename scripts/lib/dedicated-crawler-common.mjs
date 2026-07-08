@@ -843,7 +843,19 @@ const THIN_SOURCE_METADATA_LINE_RE =
   /^(luogo di lavoro|work location|settore|sector|ruolo|role|data di scadenza|expiry date|data ultimo aggiornamento|date of last update)\s*:/i;
 
 function classifyThinSource(job, minSourceDescriptionCharsForHardValidation) {
-  const source = String(job?.description || '').trim();
+  let source = String(job?.description || '').trim();
+  if (!source && job && typeof job.descriptionByLocale === 'object' && job.descriptionByLocale) {
+    // The legacy top-level `description` scratch field can be empty by the
+    // time this guard runs — AI localization (enrichJobLocalesDCC) writes its
+    // output into descriptionByLocale and does not always keep description in
+    // sync. Without this fallback, a fully-localized job with real content is
+    // indistinguishable from a genuine parser break (empty everywhere), and
+    // gets quarantined out of the dataset every run (issue #3797: Bucherer's
+    // 3 real jobs were wiped to zero on every crawl because of exactly this).
+    const byLocale = job.descriptionByLocale;
+    const sourceLangText = job.sourceLang ? String(byLocale[job.sourceLang] || '').trim() : '';
+    source = sourceLangText || Object.values(byLocale).map((v) => String(v || '').trim()).find(Boolean) || '';
+  }
   const sourceLen = source.length;
   const reasons = [];
   if (sourceLen === 0) reasons.push('empty_source_description');
