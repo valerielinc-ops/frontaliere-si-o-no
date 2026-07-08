@@ -3540,6 +3540,10 @@ Regole:
   'survey.feature.thanks.title': 'Grazie!',
   'survey.feature.thanks.body': 'Il tuo parere ci aiuta a migliorare.',
 
+  'whatsNew.v3590.title': 'Abbonamento senza pubblicità rinnovato',
+  'whatsNew.v3590.subscribeRedesign.title': 'Nuovo design abbonamento e popup AdBlock',
+  'whatsNew.v3590.subscribeRedesign.desc': 'Pagina abbonamento e popup AdBlock ridisegnati: accesso standard (email, Google, LinkedIn), grafica coerente col resto del sito e tracciamento completo delle interazioni.',
+
   'whatsNew.v3580.title': 'Nuova guida fiscale frontalieri',
   'whatsNew.v3580.taxHub.title': 'Guida fiscale completa per frontalieri',
   'whatsNew.v3580.taxHub.desc': 'Nuova pagina /guida-frontaliere/fiscalita/ con imposta alla fonte, il Nuovo Accordo fiscale Italia-Svizzera, differenze tra vecchi e nuovi frontalieri, doppia imposizione e detrazioni deducibili.',
