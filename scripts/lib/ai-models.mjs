@@ -342,6 +342,15 @@ export const AI_MODELS = Object.freeze({
   // the bottom of every chain by sortChainByScore so it never displaces a working
   // remote API — it only runs when all remote providers are exhausted.
   LOCAL_FALLBACK:      'local/fallback',
+
+  // ── Claude CLI Haiku fallback (opt-in via Remote Config, absolute last
+  // resort) ── Routed through the local `claude` CLI subprocess using the
+  // existing CLAUDE_CODE_OAUTH_TOKEN (Max subscription — $0 marginal cost,
+  // same auth already used by pr-review-loop.yml/issue-fix.yml). Inert unless
+  // ENABLE_HAIKU_ARTICLE_FALLBACK is set (see load-rc-env.mjs) AND the token
+  // is present. Pinned even below LOCAL_FALLBACK by sortChainByScore — only
+  // reached when every free-tier cloud model AND local/fallback have failed.
+  CLAUDE_CLI_HAIKU:    'claude-cli/claude-haiku-4-5-20251001',
 });
 
 /**
@@ -570,6 +579,12 @@ export const DEFAULT_CHAIN = [
   // and skipped entirely unless LOCAL_LLM_ENABLED — so when every remote provider
   // above is daily-exhausted, generation still produces instead of deferring.
   AI_MODELS.LOCAL_FALLBACK,
+
+  // Absolute last resort. Always sorted below LOCAL_FALLBACK (sortChainByScore)
+  // and skipped unless ENABLE_HAIKU_ARTICLE_FALLBACK (RC) + CLAUDE_CODE_OAUTH_TOKEN
+  // are both present — so a run only ever reaches it once every free-tier cloud
+  // model AND the local CPU fallback have already failed.
+  AI_MODELS.CLAUDE_CLI_HAIKU,
 ];
 
 // ── Provider constants ───────────────────────────────────────
@@ -596,6 +611,9 @@ const PROVIDER = Object.freeze({
   // would otherwise produce 0 articles for that window. A local open-source model
   // (e.g. Qwen2.5) keeps the funnel producing at $0/zero-quota. See _callLocal.
   LOCAL:       'local',
+  // Claude CLI subprocess (Haiku), opt-in via Remote Config, absolute last
+  // resort below LOCAL. See AI_MODELS.CLAUDE_CLI_HAIKU / _callClaudeCli.
+  CLAUDE_CLI:  'claude_cli',
 });
 
 // ── Endpoints ────────────────────────────────────────────────
@@ -639,6 +657,19 @@ function getLocalLlmTimeoutMs() {
   const v = parseInt((process.env.LOCAL_LLM_TIMEOUT_MS || '').trim(), 10);
   return Number.isFinite(v) && v > 0 ? v : 1_500_000; // 25 min default — see comment above
 }
+
+// ── Claude CLI Haiku fallback (opt-in via RC, absolute last resort) ──
+// ENABLE_HAIKU_ARTICLE_FALLBACK is loaded from Firebase Remote Config by
+// load-rc-env.mjs (default unset → OFF). Gated on BOTH the flag and the OAuth
+// token so a flag flipped on without the workflow secret wired doesn't attempt
+// (and fail) every run.
+function isClaudeCliFallbackEnabled() {
+  return /^(1|true|yes|on)$/i.test((process.env.ENABLE_HAIKU_ARTICLE_FALLBACK || '').trim());
+}
+function hasClaudeCodeOauthToken() {
+  return !!(process.env.CLAUDE_CODE_OAUTH_TOKEN || '').trim();
+}
+const CLAUDE_CLI_BIN = (process.env.CLAUDE_CLI_BIN || 'claude').trim();
 
 // ── API keys (lazy-loaded from environment) ──────────────────
 function getGhModelsPat()       { return (process.env.GH_MODELS_PAT || '').trim(); }
@@ -719,6 +750,7 @@ function getProvider(model) {
   if (model.startsWith('chutes/'))     return PROVIDER.CHUTES;
   if (model.startsWith('zai/'))        return PROVIDER.ZAI;
   if (model.startsWith('local/'))      return PROVIDER.LOCAL;
+  if (model.startsWith('claude-cli/')) return PROVIDER.CLAUDE_CLI;
   return PROVIDER.GITHUB;
 }
 
@@ -752,6 +784,7 @@ function getApiModelId(model) {
   if (model.startsWith('chutes/'))     return model.slice(7);   // 7 chars: "chutes/"
   if (model.startsWith('zai/'))        return model.slice(4);   // 4 chars: "zai/"
   if (model.startsWith('local/'))      return getLocalLlmModelId(); // served-model label is runtime-configured
+  if (model.startsWith('claude-cli/')) return model.slice(11);  // 11 chars: "claude-cli/"
   return model;
 }
 
@@ -783,8 +816,26 @@ function getApiKeyForProvider(provider) {
     // a sentinel marks local/* available so the chain can reach it as last resort
     // (and '' when disabled → every local/* model is skipped). Mirrors Cloudflare.
     case PROVIDER.LOCAL:       return isLocalLlmEnabled() ? 'local-no-key' : '';
+    // No real key — auth is the CLAUDE_CODE_OAUTH_TOKEN env var, read directly
+    // by the `claude` CLI subprocess. Gate on RC flag + token presence so the
+    // chain only offers this model when both are actually usable. Mirrors Local.
+    case PROVIDER.CLAUDE_CLI:  return (isClaudeCliFallbackEnabled() && hasClaudeCodeOauthToken()) ? 'claude-cli-no-key' : '';
     default: return '';
   }
+}
+
+/**
+ * True for opt-in, no-external-quota, absolute-last-resort providers (local
+ * CPU fallback, Claude CLI Haiku — see AI_MODELS.LOCAL_FALLBACK /
+ * AI_MODELS.CLAUDE_CLI_HAIKU). Neither has a daily-quota concept, so
+ * exhausting/banning them mid-run (or persisting a ban across runs) just
+ * guarantees zero output for the rest of the budget — there's nothing left to
+ * fall back to. Centralizes what were several separate `!== PROVIDER.LOCAL`
+ * checks so adding a second last-resort tier didn't require touching each one.
+ */
+function _isLastResortProvider(modelId) {
+  const p = getProvider(modelId);
+  return p === PROVIDER.LOCAL || p === PROVIDER.CLAUDE_CLI;
 }
 
 // Backward-compatible helpers (kept for external code)
@@ -1621,7 +1672,7 @@ export async function initScoreStore() {
       // nothing about whether the local server will fail again right now.
       // Skip restoring any persisted ban for it so it's always eligible as
       // last resort every run. See markModelExhausted / _persistScoresToFirestore.
-      if (data.exhaustedUntil && getProvider(modelId) !== PROVIDER.LOCAL) {
+      if (data.exhaustedUntil && !_isLastResortProvider(modelId)) {
         const resetTime = data.exhaustedUntil.toDate
           ? data.exhaustedUntil.toDate()   // Firestore Timestamp
           : new Date(data.exhaustedUntil); // ISO string fallback
@@ -1706,7 +1757,7 @@ async function _persistScoresToFirestore() {
     // Local CPU fallback is exempt: it has no daily-quota concept, so a
     // content/timeout failure must never survive past this process — see
     // the matching restore-path guard above (initScoreStore).
-    if (_exhaustedModels.has(modelId) && getProvider(modelId) !== PROVIDER.LOCAL) {
+    if (_exhaustedModels.has(modelId) && !_isLastResortProvider(modelId)) {
       const tomorrow = new Date();
       tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
       tomorrow.setUTCHours(0, 0, 0, 0);
@@ -1836,7 +1887,7 @@ export function recordModelContentFailure(modelId) {
   recordModelFailure(modelId);
   const count = (_consecutiveContentFailures.get(modelId) || 0) + 1;
   _consecutiveContentFailures.set(modelId, count);
-  if (getProvider(modelId) === PROVIDER.LOCAL) return;
+  if (_isLastResortProvider(modelId)) return;
   if (count >= MAX_CONSECUTIVE_CONTENT_FAILURES) {
     markModelExhausted(modelId, 'content');
     _stats.exhausted++;
@@ -1876,16 +1927,23 @@ export function getScoreBoard() {
  * Models with higher scores come first.
  * Within equal scores, the original chain order is preserved (stable sort).
  */
+// Last-resort tiering for sortChainByScore: higher tier always sinks below
+// lower tier regardless of score. Local CPU fallback sinks below every real
+// remote API; Claude CLI Haiku sinks even below local — it's the absolute
+// last resort, only reached once local has ALSO failed.
+function _lastResortTier(model) {
+  if (model.startsWith('claude-cli/')) return 2;
+  if (model.startsWith('local/')) return 1;
+  return 0;
+}
+
 function sortChainByScore(chain) {
   // Build index map for tiebreaker (lower index = better in original order)
   const indexMap = new Map(chain.map((m, i) => [m, i]));
   return [...chain].sort((a, b) => {
-    // Local CPU fallback always sinks to the bottom regardless of score — slow
-    // local inference must never be score-promoted above a working remote API;
-    // it exists only for when every remote provider is exhausted.
-    const la = a.startsWith('local/') ? 1 : 0;
-    const lb = b.startsWith('local/') ? 1 : 0;
-    if (la !== lb) return la - lb;
+    const ta = _lastResortTier(a);
+    const tb = _lastResortTier(b);
+    if (ta !== tb) return ta - tb;
     const sa = _modelScores.get(a) || 0;
     const sb = _modelScores.get(b) || 0;
     if (sb !== sa) return sb - sa; // higher score first
@@ -3075,6 +3133,103 @@ async function _callLocal(model, messages, opts) {
 }
 
 /**
+ * Call Claude Haiku via the `claude` CLI subprocess (RC-gated, absolute
+ * last resort — reuses CLAUDE_CODE_OAUTH_TOKEN, same zero-cost Max-plan auth
+ * already wired for pr-review-loop.yml/issue-fix.yml, never a raw
+ * ANTHROPIC_API_KEY). `--bare` deliberately NOT used: it requires
+ * ANTHROPIC_API_KEY/apiKeyHelper and ignores OAuth. Tool access is disabled
+ * via `--tools ""` (per `claude --help`: "Use \"\" to disable all tools") —
+ * NOT `--allowedTools`/`--disallowedTools`, which only gate the permission
+ * *prompt* for tools that remain available and don't remove them from the
+ * built-in set. `--permission-mode bypassPermissions` is kept alongside so
+ * the (now empty) tool set never blocks on an interactive prompt in CI; with
+ * zero tools available it has nothing else to bypass. This subprocess
+ * processes externally-sourced headline/news content and inherits the full
+ * CI env (`env: process.env` below, incl. secrets) — `--tools ""` is the
+ * flag that actually matters for keeping this a plain one-shot completion
+ * with no agentic/tool-call capability, regardless of permission mode.
+ */
+async function _callClaudeCli(model, messages, opts) {
+  const apiModel = getApiModelId(model); // e.g. 'claude-haiku-4-5-20251001'
+  const systemPrompt = messages.filter((m) => m.role === 'system').map((m) => m.content).join('\n\n');
+  const userPrompt = messages.filter((m) => m.role !== 'system').map((m) => m.content).join('\n\n');
+
+  const args = [
+    '-p', userPrompt,
+    '--model', apiModel,
+    '--output-format', 'json',
+    '--tools', '',
+    '--permission-mode', 'bypassPermissions',
+  ];
+  if (systemPrompt) args.push('--system-prompt', systemPrompt);
+  if (opts.jsonSchema) args.push('--json-schema', JSON.stringify(opts.jsonSchema.schema || opts.jsonSchema));
+
+  // Same deadline-capping rationale as _callLocal above — cap to the caller's
+  // remaining wall-clock budget so a last-resort call can't outlive the run.
+  let timeoutMs = Math.max(opts.timeout || 0, 60_000);
+  if (opts.deadlineMs) {
+    const remaining = opts.deadlineMs - Date.now();
+    timeoutMs = Math.max(15_000, Math.min(timeoutMs, remaining));
+  }
+
+  const { code, stdout, stderr } = await _runClaudeCliProcess(args, timeoutMs);
+
+  let parsed;
+  try {
+    parsed = JSON.parse(stdout);
+  } catch {
+    throw new Error(`[${model}] claude CLI non-JSON output (exit ${code}): ${(stdout || stderr).slice(0, 300)}`);
+  }
+  if (code !== 0 || parsed.is_error) {
+    throw new Error(`[${model}] claude CLI error: ${String(parsed.result || stderr || 'unknown').slice(0, 300)}`);
+  }
+  return parsed.result;
+}
+
+/**
+ * Spawn the `claude` CLI with stdin closed (its default stdin-wait-then-read
+ * behavior adds ~3s latency when nothing is piped in — confirmed via live
+ * test) and a hard kill-timeout so a hung subprocess can't outlive the run.
+ */
+async function _runClaudeCliProcess(args, timeoutMs) {
+  const { spawn } = await import('node:child_process');
+  return new Promise((resolve, reject) => {
+    let child;
+    try {
+      child = spawn(CLAUDE_CLI_BIN, args, { stdio: ['ignore', 'pipe', 'pipe'], env: process.env });
+    } catch (err) {
+      reject(err);
+      return;
+    }
+    let stdout = '';
+    let stderr = '';
+    let settled = false;
+    const timer = setTimeout(() => {
+      if (settled) return;
+      settled = true;
+      child.kill('SIGKILL');
+      const err = new Error(`claude CLI timed out after ${timeoutMs}ms`);
+      err.name = 'TimeoutError';
+      reject(err);
+    }, timeoutMs);
+    child.stdout.on('data', (d) => { stdout += d; });
+    child.stderr.on('data', (d) => { stderr += d; });
+    child.on('error', (err) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      reject(err);
+    });
+    child.on('close', (code) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolve({ code, stdout, stderr });
+    });
+  });
+}
+
+/**
  * Call a single Gemini model with retry.
  * Returns the text content on success.
  */
@@ -3223,6 +3378,7 @@ function _callModel(model, messages, opts) {
     case PROVIDER.CHUTES:      return _callChutes(model, messages, opts);
     case PROVIDER.ZAI:         return _callZai(model, messages, opts);
     case PROVIDER.LOCAL:       return _callLocal(model, messages, opts);
+    case PROVIDER.CLAUDE_CLI:  return _callClaudeCli(model, messages, opts);
     default: throw new Error(`[${model}] Unknown provider: ${provider}`);
   }
 }
@@ -3471,7 +3627,7 @@ export async function callLLM(messages, opts = {}) {
       if (o.modelUsedRef && typeof o.modelUsedRef === 'object') {
         o.modelUsedRef.model = model;
       }
-      if (_cacheOn && _cacheKey !== null && model !== AI_MODELS.LOCAL_FALLBACK) {
+      if (_cacheOn && _cacheKey !== null && !_isLastResortProvider(model)) {
         if (_responseCache.size >= RESPONSE_CACHE_MAX) {
           const oldest = _responseCache.keys().next().value;
           if (oldest !== undefined) _responseCache.delete(oldest);
@@ -3508,7 +3664,7 @@ export async function callLLM(messages, opts = {}) {
         // PROVIDER.LOCAL carve-out on recordModelContentFailure above: no
         // external quota, so exhausting it mid-run just guarantees zero
         // output for the rest of the wall-clock budget.
-        if (count >= MAX_CONSECUTIVE_429 && getProvider(model) !== PROVIDER.LOCAL) {
+        if (count >= MAX_CONSECUTIVE_429 && !_isLastResortProvider(model)) {
           markModelExhausted(model);
           _stats.exhausted++;
           console.warn(`🚫 [${model}] Exhausted after ${count} consecutive 429s`);
@@ -3523,7 +3679,7 @@ export async function callLLM(messages, opts = {}) {
       // intentionally raises the timeout floor for slow CPU inference, so a
       // timeout there is expected load, not a dead provider.
       const isTimeoutFailure = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(msg);
-      if (isTimeoutFailure && getProvider(model) !== PROVIDER.LOCAL) {
+      if (isTimeoutFailure && !_isLastResortProvider(model)) {
         markModelExhausted(model, 'timeout');
         _stats.exhausted++;
       }

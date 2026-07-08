@@ -22,10 +22,16 @@ describe('local LLM fallback provider', () => {
     expect(AI_MODELS.LOCAL_FALLBACK).toBe('local/fallback');
   });
 
-  it('is the LAST entry in the default chain (true last-resort)', () => {
-    expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 1]).toBe(AI_MODELS.LOCAL_FALLBACK);
-    // It must appear exactly once.
+  it('sits below every remote API, with only the opt-in Claude CLI Haiku fallback below it', () => {
+    // AI_MODELS.CLAUDE_CLI_HAIKU (RC-gated, see ai-models-claude-cli-fallback.test.ts)
+    // is now the true final entry — an absolute last resort below even local
+    // CPU inference — but local/fallback must still sit below every real
+    // remote API, which is the invariant this test guards.
+    expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 1]).toBe(AI_MODELS.CLAUDE_CLI_HAIKU);
+    expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 2]).toBe(AI_MODELS.LOCAL_FALLBACK);
+    // Each must appear exactly once.
     expect(DEFAULT_CHAIN.filter((m) => m === AI_MODELS.LOCAL_FALLBACK)).toHaveLength(1);
+    expect(DEFAULT_CHAIN.filter((m) => m === AI_MODELS.CLAUDE_CLI_HAIKU)).toHaveLength(1);
   });
 
   it('is unavailable (skipped) when LOCAL_LLM_ENABLED is unset', () => {
