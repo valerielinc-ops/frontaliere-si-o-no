@@ -11,8 +11,56 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-07-08T04:55:13.624Z",
+  "updatedAt": "2026-07-08T11:21:09.989Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/metalcostruttore-serramentista-2682391/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-08"
+    },
+    "https://www.pemsa.ch/it/job/autista-di-camion-2682388/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-08"
+    },
+    "https://www.pemsa.ch/it/job/addetto-a-alle-pulizie-m-f-2682385/": {
+      "location": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-08"
+    },
+    "https://www.pemsa.ch/it/job/falegname-installatore-m-f-2682382/": {
+      "location": "Fontaines NE",
+      "canton": "NE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-08"
+    },
+    "https://www.pemsa.ch/it/job/carpentiere-m-f-2682379/": {
+      "location": "Fontaines NE",
+      "canton": "NE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-08"
+    },
+    "https://www.pemsa.ch/it/job/carpentiere-con-grande-esperienza-2682359/": {
+      "location": "Fribourg",
+      "canton": "FR",
+      "company": "PEMSA",
+      "postedDate": "2026-07-08"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-2682354/": {
+      "location": "Fribourg",
+      "canton": "FR",
+      "company": "PEMSA",
+      "postedDate": "2026-07-08"
+    },
+    "https://www.pemsa.ch/it/job/costruttore-di-casseforme-2682351/": {
+      "location": "Fribourg",
+      "canton": "FR",
+      "company": "PEMSA",
+      "postedDate": "2026-07-08"
+    },
     "https://www.pemsa.ch/it/job/installatore-di-tende-e-tapparelle-m-f-d-2682288/": {
       "location": "Basel",
       "canton": "BS",
@@ -1155,12 +1203,6 @@
     },
     "https://www.pemsa.ch/it/job/specialista-in-falegnameria-da-laboratorio-m-f-2680124/": {
       "location": "Le Locle",
-      "canton": "NE",
-      "company": "PEMSA",
-      "postedDate": "2026-06-23"
-    },
-    "https://www.pemsa.ch/it/job/addetto-a-alle-pulizie-m-f-2680110/": {
-      "location": "La Chaux-de-Fonds",
       "canton": "NE",
       "company": "PEMSA",
       "postedDate": "2026-06-23"
