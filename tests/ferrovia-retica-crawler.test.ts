@@ -141,6 +141,27 @@ describe('parseDetailPage', () => {
     expect(parseDetailPage('')).toBeNull();
     expect(parseDetailPage(null as unknown as string)).toBeNull();
   });
+
+  it('discards degenerate repeated-token content (photo-gallery pagination widget leak)', () => {
+    const paginationSpam = Array.from({ length: 400 }, () => '2 / 2').join(' ');
+    const html = `
+<html><body><main><article>
+  <h1>Bauleiter/in Kabelanlagen 80-100%</h1>
+  <div class="content">
+    <p>${paginationSpam}</p>
+    <h2>Wir bieten</h2>
+    <ul><li>Attraktive Anstellungsbedingungen</li></ul>
+  </div>
+</article></main></body></html>`;
+    const result = parseDetailPage(html);
+    expect(result).not.toBeNull();
+    expect(result!.description).toBe('');
+  });
+
+  it('keeps genuine long-form description with naturally repeated common words', () => {
+    const result = parseDetailPage(DETAIL_HTML);
+    expect(result!.description.length).toBeGreaterThan(50);
+  });
 });
 
 // ═══════════════════════════════════════════════════════════════

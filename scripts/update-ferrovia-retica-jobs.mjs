@@ -171,6 +171,12 @@ function mergeJobs(discoveredJobs) {
       return job;
     }
     updated += 1;
+    // buildJob() never sets descriptionByLocale (this crawler has no
+    // per-locale localization step, unlike siblings such as update-axa-jobs.mjs) —
+    // synthesize it from the freshly parsed description so the source-locale
+    // slot below actually receives fresh data instead of comparing against
+    // an always-empty `b` side and silently keeping stale/garbled prev text.
+    const freshDescriptionByLocale = job.sourceLang ? { [job.sourceLang]: job.description } : job.descriptionByLocale;
     // Preserve existing translations and slugs from prior runs
     const merged = {
       ...prev,
@@ -178,13 +184,15 @@ function mergeJobs(discoveredJobs) {
       // Keep existing postedDate if discovered one is missing
       postedDate: job.postedDate || prev.postedDate,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, freshDescriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
-      // Preserve salary data, sourceLang, etc. from previous runs
+      // Preserve salary data from previous runs; sourceLang is deterministically
+      // derived from the job URL on every parse, so the freshly discovered value
+      // is authoritative and must win over a stale/pre-fix prev.sourceLang.
       salaryMin: prev.salaryMin || job.salaryMin,
       salaryMax: prev.salaryMax || job.salaryMax,
       currency: prev.currency || job.currency,
-      sourceLang: prev.sourceLang || job.sourceLang,
+      sourceLang: job.sourceLang || prev.sourceLang,
       // Only set needsRetranslation if prev had it, not on every merge
       needsRetranslation: prev.needsRetranslation ?? job.needsRetranslation,
     };

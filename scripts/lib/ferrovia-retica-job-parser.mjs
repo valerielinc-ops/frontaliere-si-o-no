@@ -195,6 +195,23 @@ export function parseListingPage(html) {
 /* ── Detail page parser ────────────────────────────────────── */
 
 /**
+ * Detect degenerate extracted text: a photo-gallery pagination widget
+ * (e.g. "2 / 2 / 2 / 2 ...") occasionally lands inside the content div and
+ * dwarfs the real description in token count, but still passes a plain
+ * word-count gate. Flag text where one token accounts for an implausibly
+ * large share of all tokens.
+ */
+function isDegenerateRepeatedText(text = '') {
+  const tokens = String(text || '').trim().split(/\s+/).filter(Boolean);
+  if (tokens.length < 50) return false;
+  const counts = new Map();
+  for (const token of tokens) counts.set(token, (counts.get(token) || 0) + 1);
+  let maxCount = 0;
+  for (const count of counts.values()) if (count > maxCount) maxCount = count;
+  return maxCount / tokens.length > 0.25;
+}
+
+/**
  * Extract the job content div from an RhB detail page.
  * Targets the specific `JobDetailsPage_text` container which holds only
  * the job description, requirements, and benefits — excluding navigation,
@@ -271,9 +288,11 @@ export function parseDetailPage(html) {
     .filter((s) => /anforderung|profil|voraussetz|mitbring|qualifikat|requisit|competen/i.test(s.heading))
     .flatMap((s) => s.items);
 
+  const usableDescription = description.length > 50 && !isDegenerateRepeatedText(description);
+
   return {
     title,
-    description: description.length > 50 ? description : '',
+    description: usableDescription ? description : '',
     location,
     canton,
     sections,
