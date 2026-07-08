@@ -6686,9 +6686,6 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       // revert real translations (e.g. AI-derived IT slug) back to the source
       // (DE) slug — worse than the drift we're fixing.
       const srcLang = job.sourceLang || null;
-      const regSrcSlug = srcLang && registered.slugByLocale
-        ? normalizeSpace(String(registered.slugByLocale[srcLang] || ''))
-        : '';
       const prevSlugByLocale = job.slugByLocale ? { ...job.slugByLocale } : {};
       const prevSlug = job.slug || '';
       if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
@@ -6702,14 +6699,20 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
           if (pinned) job.slugByLocale[loc] = pinned;
         }
       }
-      // Master slug is used by the IT path on canton sections. Only enforce
-      // when registry value looks like a real IT slug (registered IT slug
-      // differs from source-locale slug or no source-locale slug is recorded).
-      const enforceMaster = !srcLang
-        || !regSrcSlug
-        || normalizeSpace(String(registered.canonicalSlug)) !== regSrcSlug;
-      if (enforceMaster) {
-        job.slug = registered.canonicalSlug;
+      // Master slug is used by the IT path on canton sections
+      // (regenerate-slugs-by-locale.mjs keeps job.slug in sync with
+      // slugByLocale.it), so pin it through the SAME registryPinnedLocaleSlug
+      // source-copy guard used for every other locale above instead of
+      // comparing raw registered.canonicalSlug against
+      // registered.slugByLocale[srcLang] — those two registry fields can
+      // legitimately differ (e.g. a disambiguator hash present on one but not
+      // the other) even when both were frozen pre-translation, which silently
+      // defeated the old equality check and re-pinned an untranslated master
+      // slug over a real IT translation on every subsequent run (issues
+      // #3785 / #3794).
+      const pinnedMasterSlug = registryPinnedLocaleSlug(registered, 'it', srcLang);
+      if (pinnedMasterSlug) {
+        job.slug = pinnedMasterSlug;
       }
       // Backfill any locale the registry is still missing a REAL translation
       // for. Early entries (registered before AI localization finished) hold
