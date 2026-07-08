@@ -53,7 +53,7 @@ export const MIGROS_HQ_COMPANY_NAME = 'Migros HQ Zürich';
 export const MIGROS_HQ_COMPANY_DOMAIN = 'migros.ch';
 
 const CAREER_HOST = 'jobs.migros.ch';
-const LISTING_URL = `https://${CAREER_HOST}/en/our-companies/migros-group/vacancies`;
+const LISTING_URL = `https://${CAREER_HOST}/en/our-companies/migros-group/vacancies`; // locale-segment-ok: source site jobs.migros.ch only serves this listing at /en/, independent of our own site locale
 const MAX_PAGES = 60; // safety cap; ~1200 postings / ~32 per page ≈ 38 pages expected
 const DETAIL_CONCURRENCY = Number(process.env.JOBS_CRAWLER_DETAIL_CONCURRENCY) || 5;
 const DETAIL_DELAY_MS = Number(process.env.JOBS_CRAWLER_DETAIL_DELAY_MS) || 150;

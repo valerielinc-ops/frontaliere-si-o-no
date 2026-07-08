@@ -261,7 +261,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_baronie_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No Baronie jobs found after dedicated crawl.',
-    detectSourceLang: () => 'en',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'en'),
   });
 }
 
