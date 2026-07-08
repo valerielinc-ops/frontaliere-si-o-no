@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-07-07T08:25:26.564Z",
+  "assembledAt": "2026-07-08T22:18:10.472Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,8 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T08:25:23.800Z",
+      "crawledAt": "2026-07-08T22:18:08.053Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -147,7 +148,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T08:25:23.799Z",
+      "crawledAt": "2026-07-08T22:18:08.052Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -251,7 +253,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T08:25:23.798Z",
+      "crawledAt": "2026-07-08T22:18:08.051Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -328,7 +330,8 @@
       "applyUrl": "https://app.beehire.com/invite/j92t_xzbO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T08:25:23.797Z",
+      "crawledAt": "2026-07-08T22:18:08.050Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Descrizione GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle."
@@ -416,7 +419,8 @@
       "applyUrl": "https://app.beehire.com/invite/SAEhDyjSq",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T08:25:23.796Z",
+      "crawledAt": "2026-07-08T22:18:08.049Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -492,7 +496,7 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T08:25:23.795Z",
+      "crawledAt": "2026-07-08T22:18:08.045Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -569,7 +573,8 @@
       "applyUrl": "https://app.beehire.com/invite/B-qFH1Hv4Y",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T08:25:23.793Z",
+      "crawledAt": "2026-07-08T22:18:08.044Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest",
         "assistente-medico-dr-barriol-urologia-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -645,7 +650,7 @@
       "applyUrl": "https://app.beehire.com/invite/iMHZFWFWX",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T08:25:23.791Z",
+      "crawledAt": "2026-07-08T22:18:08.039Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -724,7 +729,7 @@
       "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T08:25:23.790Z",
+      "crawledAt": "2026-07-08T22:18:08.038Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -801,7 +806,7 @@
       "applyUrl": "https://app.beehire.com/invite/Hx8j9fccF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T08:25:23.788Z",
+      "crawledAt": "2026-07-08T22:18:08.037Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -832,6 +837,128 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ghol-c445fde639cc",
+      "slug": "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "fr": "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "it": "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Infirmier·ère au service privé - mi-privé",
+      "titleByLocale": {
+        "fr": "Infirmier·ère au service privé - mi-privé",
+        "it": "Infirmier·ère au service privé - mi-privé",
+        "en": "Infirmier·ère au service privé - mi-privé",
+        "de": "Infirmier·ère au service privé - mi-privé"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à,\n\n• développer une offre en soins personnalisée et individualisée en pré et post opératoire pour des patients·es adultes étant au bénéfice d’une assurance privée ou ½ privée dans les spécialités de chirurgie viscérale ; orthopédiques et traumatologiques\n\n• développer une offre en soins personnalisée et individualisée pour des patients·es adultes dans les spécialités de Médecine Interne générale\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Une expérience au préalable dans un service de soins aigus de 2 années MINIMUM\n\n• Capacité à faire une évaluation clinique pertinente\n\n• Autonomie\n\n• Capacité à travailler en binôme (aide/ASSC) et d’assurer le leadership de cette équipe\n\n• Dynamisme et pro-activité\n\n• Résistance physique\n\n• Intérêt marqué pour des soins techniques\n Niveau de formation :\n\n• Bachelor of Science HES-SO en Soins infirmiers exigé ou titre équivalent reconnu par La Croix-Rouge Suisse\n Avantages :\n\n• Locaux agréables, organisation en petits secteurs de 10 lits avec salle de soins et pharmacie dédiées\n\n• Activité variée et stimulante par la prise en charge de toutes les spécialités\n\n• Travail en collaboration étroite avec les Médecins-Chef·fes des différentes spécialités\n\n• Parcours d’intégration documenté et évolutif pour faciliter l’adaptation au sein du service\n\n• Accès à une offre de formation continue interne variée et attractive",
+      "descriptionByLocale": {
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à,\n\n• développer une offre en soins personnalisée et individualisée en pré et post opératoire pour des patients·es adultes étant au bénéfice d’une assurance privée ou ½ privée dans les spécialités de chirurgie viscérale ; orthopédiques et traumatologiques\n\n• développer une offre en soins personnalisée et individualisée pour des patients·es adultes dans les spécialités de Médecine Interne générale\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Une expérience au préalable dans un service de soins aigus de 2 années MINIMUM\n\n• Capacité à faire une évaluation clinique pertinente\n\n• Autonomie\n\n• Capacité à travailler en binôme (aide/ASSC) et d’assurer le leadership de cette équipe\n\n• Dynamisme et pro-activité\n\n• Résistance physique\n\n• Intérêt marqué pour des soins techniques\n Niveau de formation :\n\n• Bachelor of Science HES-SO en Soins infirmiers exigé ou titre équivalent reconnu par La Croix-Rouge Suisse\n Avantages :\n\n• Locaux agréables, organisation en petits secteurs de 10 lits avec salle de soins et pharmacie dédiées\n\n• Activité variée et stimulante par la prise en charge de toutes les spécialités\n\n• Travail en collaboration étroite avec les Médecins-Chef·fes des différentes spécialités\n\n• Parcours d’intégration documenté et évolutif pour faciliter l’adaptation au sein du service\n\n• Accès à une offre de formation continue interne variée et attractive",
+        "it": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à,\n\n• développer une offre en soins personnalisée et individualisée en pré et post opératoire pour des patients·es adultes étant au bénéfice d’une assurance privée ou ½ privée dans les spécialités de chirurgie viscérale ; orthopédiques et traumatologiques\n\n• développer une offre en soins personnalisée et individualisée pour des patients·es adultes dans les spécialités de Médecine Interne générale\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Une expérience au préalable dans un service de soins aigus de 2 années MINIMUM\n\n• Capacité à faire une évaluation clinique pertinente\n\n• Autonomie\n\n• Capacité à travailler en binôme (aide/ASSC) et d’assurer le leadership de cette équipe\n\n• Dynamisme et pro-activité\n\n• Résistance physique\n\n• Intérêt marqué pour des soins techniques\n Niveau de formation :\n\n• Bachelor of Science HES-SO en Soins infirmiers exigé ou titre équivalent reconnu par La Croix-Rouge Suisse\n Avantages :\n\n• Locaux agréables, organisation en petits secteurs de 10 lits avec salle de soins et pharmacie dédiées\n\n• Activité variée et stimulante par la prise en charge de toutes les spécialités\n\n• Travail en collaboration étroite avec les Médecins-Chef·fes des différentes spécialités\n\n• Parcours d’intégration documenté et évolutif pour faciliter l’adaptation au sein du service\n\n• Accès à une offre de formation continue interne variée et attractive",
+        "en": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à,\n\n• développer une offre en soins personnalisée et individualisée en pré et post opératoire pour des patients·es adultes étant au bénéfice d’une assurance privée ou ½ privée dans les spécialités de chirurgie viscérale ; orthopédiques et traumatologiques\n\n• développer une offre en soins personnalisée et individualisée pour des patients·es adultes dans les spécialités de Médecine Interne générale\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Une expérience au préalable dans un service de soins aigus de 2 années MINIMUM\n\n• Capacité à faire une évaluation clinique pertinente\n\n• Autonomie\n\n• Capacité à travailler en binôme (aide/ASSC) et d’assurer le leadership de cette équipe\n\n• Dynamisme et pro-activité\n\n• Résistance physique\n\n• Intérêt marqué pour des soins techniques\n Niveau de formation :\n\n• Bachelor of Science HES-SO en Soins infirmiers exigé ou titre équivalent reconnu par La Croix-Rouge Suisse\n Avantages :\n\n• Locaux agréables, organisation en petits secteurs de 10 lits avec salle de soins et pharmacie dédiées\n\n• Activité variée et stimulante par la prise en charge de toutes les spécialités\n\n• Travail en collaboration étroite avec les Médecins-Chef·fes des différentes spécialités\n\n• Parcours d’intégration documenté et évolutif pour faciliter l’adaptation au sein du service\n\n• Accès à une offre de formation continue interne variée et attractive",
+        "de": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à,\n\n• développer une offre en soins personnalisée et individualisée en pré et post opératoire pour des patients·es adultes étant au bénéfice d’une assurance privée ou ½ privée dans les spécialités de chirurgie viscérale ; orthopédiques et traumatologiques\n\n• développer une offre en soins personnalisée et individualisée pour des patients·es adultes dans les spécialités de Médecine Interne générale\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Une expérience au préalable dans un service de soins aigus de 2 années MINIMUM\n\n• Capacité à faire une évaluation clinique pertinente\n\n• Autonomie\n\n• Capacité à travailler en binôme (aide/ASSC) et d’assurer le leadership de cette équipe\n\n• Dynamisme et pro-activité\n\n• Résistance physique\n\n• Intérêt marqué pour des soins techniques\n Niveau de formation :\n\n• Bachelor of Science HES-SO en Soins infirmiers exigé ou titre équivalent reconnu par La Croix-Rouge Suisse\n Avantages :\n\n• Locaux agréables, organisation en petits secteurs de 10 lits avec salle de soins et pharmacie dédiées\n\n• Activité variée et stimulante par la prise en charge de toutes les spécialités\n\n• Travail en collaboration étroite avec les Médecins-Chef·fes des différentes spécialités\n\n• Parcours d’intégration documenté et évolutif pour faciliter l’adaptation au sein du service\n\n• Accès à une offre de formation continue interne variée et attractive"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-nursing",
+      "sector": "Salute / Ospedale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "url": "https://app.beehire.com/invite/8zFgXWDML",
+      "applyUrl": "https://app.beehire.com/invite/8zFgXWDML",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-08T22:18:08.035Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-08T22:18:08.035Z"
+    },
+    {
+      "id": "ghol-a998fee1b50b",
+      "slug": "secretaire-medicale-cabinet-prive-du-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique",
+      "slugByLocale": {
+        "fr": "secretaire-medicale-cabinet-prive-du-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique",
+        "it": "secretaire-medicale-cabinet-prive-du-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique",
+        "en": "secretaire-medicale-cabinet-prive-du-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique",
+        "de": "secretaire-medicale-cabinet-prive-du-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Secrétaire médicale cabinet privé du Dr Bloch",
+      "titleByLocale": {
+        "fr": "Secrétaire médicale cabinet privé du Dr Bloch",
+        "it": "Secrétaire médicale cabinet privé du Dr Bloch",
+        "en": "Secrétaire médicale cabinet privé du Dr Bloch",
+        "de": "Secrétaire médicale cabinet privé du Dr Bloch"
+      },
+      "description": "Installé à Nyon depuis 2021, le Dr Bloch est médecin spécialiste en hématologie. Dans le cadre du départ à la retraite de sa collaboratrice, nous recherchons sa future secrétaire médicale afin d’assurer la continuité des activités du cabinet.\n Vous contribuerez activement à la qualité de la prise en charge des patients.\n Descriptif du poste :\n Dans votre nouveau rôle, vos tâches consisteront notamment à :\n\n• Assurer l’accueil physique et téléphonique de la patientèle\n\n• Gérer l’agenda médical et la prise de rendez-vous\n\n• Constituer et tenir à jour les dossiers médicaux\n\n• Organiser les examens complémentaires et les rendez-vous externes\n\n• Assurer la correspondance médicale et administrative\n\n• Réviser et effectuer les envois des rapports de consultation et courriers médicaux\n\n• Effectuer la facturation et le suivi administratif des dossiers\n\n• Assurer les échanges avec les assurances, les médecins traitants et les autres partenaires de santé\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre / vos :\n\n• Excellentes aptitudes relationnelles et sens de l’accueil\n\n• Sens de l’organisation, autonomie, rigueur et capacité à gérer les priorités\n\n• Grande capacité d’empathie et aptitude à gérer avec tact et professionnalisme les situations complexes\n\n• Première expérience professionnelle réussie\n\n• Excellente maîtrise du français oral et écrit ainsi que de la terminologie médicale\n\n• Bonne maîtrise de l'anglais permettant de communiquer avec une patientèle anglophone\n\n• Bonne maîtrise des outils informatiques et des logiciels de secrétariat médical\n\n• Connaissances de la facturation médicale suisse, un atout\n\n• Capacité à instaurer une relation de confiance avec les patients\n\n• Discrétion, professionnalisme et respect strict de la confidentialité\n Passionnée par votre métier, votre motivation guide vos actes vers l’excellence. Bienveillante avec les patients, votre empathie est reconnue par vos précédents employeurs. Vous faites preuve d'un excellent sens de l'organisation et disposez de l'expérience nécessaire pour assurer, en toute autonomie, la gestion d'un secrétariat médical.\n Habile avec les outils informatiques, vous êtes ouverte au changement, la mise en place des nouveaux outils informatiques prévue pour l’ensemble de la profession ne vous fait pas peur. Enfin, votre stabilité émotionnelle vous permet d'évoluer sereinement dans une spécialité confrontée à des situations parfois délicates.\n Niveau de formation :\n\n• Diplôme de secrétaire médicale\n Avantages :\n Vous assurez, en toute autonomie, la gestion administrative du cabinet du Dr Bloch, Médecin spécialiste en hématologie. Votre bureau est situé au sein de l’Hôpital de Nyon, dans un cadre de travail appréciable et vous collaborez au quotidien avec les équipes des autres cabinets privés ainsi qu’avec l’équipe infirmière. Enfin, en rejoignant le cabinet médical privé du Dr Bloch, vous bénéficierez des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San), ainsi que des avantages proposés aux collaborateurs et collaboratrices du GHOL : restaurant du personnel, événements institutionnels, rabais auprès de différents prestataires de la région etc…\n Vous vous reconnaissez dans ce profil et souhaitez rejoindre un cabinet à taille humaine offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature.",
+      "descriptionByLocale": {
+        "fr": "Installé à Nyon depuis 2021, le Dr Bloch est médecin spécialiste en hématologie. Dans le cadre du départ à la retraite de sa collaboratrice, nous recherchons sa future secrétaire médicale afin d’assurer la continuité des activités du cabinet.\n Vous contribuerez activement à la qualité de la prise en charge des patients.\n Descriptif du poste :\n Dans votre nouveau rôle, vos tâches consisteront notamment à :\n\n• Assurer l’accueil physique et téléphonique de la patientèle\n\n• Gérer l’agenda médical et la prise de rendez-vous\n\n• Constituer et tenir à jour les dossiers médicaux\n\n• Organiser les examens complémentaires et les rendez-vous externes\n\n• Assurer la correspondance médicale et administrative\n\n• Réviser et effectuer les envois des rapports de consultation et courriers médicaux\n\n• Effectuer la facturation et le suivi administratif des dossiers\n\n• Assurer les échanges avec les assurances, les médecins traitants et les autres partenaires de santé\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre / vos :\n\n• Excellentes aptitudes relationnelles et sens de l’accueil\n\n• Sens de l’organisation, autonomie, rigueur et capacité à gérer les priorités\n\n• Grande capacité d’empathie et aptitude à gérer avec tact et professionnalisme les situations complexes\n\n• Première expérience professionnelle réussie\n\n• Excellente maîtrise du français oral et écrit ainsi que de la terminologie médicale\n\n• Bonne maîtrise de l'anglais permettant de communiquer avec une patientèle anglophone\n\n• Bonne maîtrise des outils informatiques et des logiciels de secrétariat médical\n\n• Connaissances de la facturation médicale suisse, un atout\n\n• Capacité à instaurer une relation de confiance avec les patients\n\n• Discrétion, professionnalisme et respect strict de la confidentialité\n Passionnée par votre métier, votre motivation guide vos actes vers l’excellence. Bienveillante avec les patients, votre empathie est reconnue par vos précédents employeurs. Vous faites preuve d'un excellent sens de l'organisation et disposez de l'expérience nécessaire pour assurer, en toute autonomie, la gestion d'un secrétariat médical.\n Habile avec les outils informatiques, vous êtes ouverte au changement, la mise en place des nouveaux outils informatiques prévue pour l’ensemble de la profession ne vous fait pas peur. Enfin, votre stabilité émotionnelle vous permet d'évoluer sereinement dans une spécialité confrontée à des situations parfois délicates.\n Niveau de formation :\n\n• Diplôme de secrétaire médicale\n Avantages :\n Vous assurez, en toute autonomie, la gestion administrative du cabinet du Dr Bloch, Médecin spécialiste en hématologie. Votre bureau est situé au sein de l’Hôpital de Nyon, dans un cadre de travail appréciable et vous collaborez au quotidien avec les équipes des autres cabinets privés ainsi qu’avec l’équipe infirmière. Enfin, en rejoignant le cabinet médical privé du Dr Bloch, vous bénéficierez des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San), ainsi que des avantages proposés aux collaborateurs et collaboratrices du GHOL : restaurant du personnel, événements institutionnels, rabais auprès de différents prestataires de la région etc…\n Vous vous reconnaissez dans ce profil et souhaitez rejoindre un cabinet à taille humaine offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature.",
+        "it": "Installé à Nyon depuis 2021, le Dr Bloch est médecin spécialiste en hématologie. Dans le cadre du départ à la retraite de sa collaboratrice, nous recherchons sa future secrétaire médicale afin d’assurer la continuité des activités du cabinet.\n Vous contribuerez activement à la qualité de la prise en charge des patients.\n Descriptif du poste :\n Dans votre nouveau rôle, vos tâches consisteront notamment à :\n\n• Assurer l’accueil physique et téléphonique de la patientèle\n\n• Gérer l’agenda médical et la prise de rendez-vous\n\n• Constituer et tenir à jour les dossiers médicaux\n\n• Organiser les examens complémentaires et les rendez-vous externes\n\n• Assurer la correspondance médicale et administrative\n\n• Réviser et effectuer les envois des rapports de consultation et courriers médicaux\n\n• Effectuer la facturation et le suivi administratif des dossiers\n\n• Assurer les échanges avec les assurances, les médecins traitants et les autres partenaires de santé\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre / vos :\n\n• Excellentes aptitudes relationnelles et sens de l’accueil\n\n• Sens de l’organisation, autonomie, rigueur et capacité à gérer les priorités\n\n• Grande capacité d’empathie et aptitude à gérer avec tact et professionnalisme les situations complexes\n\n• Première expérience professionnelle réussie\n\n• Excellente maîtrise du français oral et écrit ainsi que de la terminologie médicale\n\n• Bonne maîtrise de l'anglais permettant de communiquer avec une patientèle anglophone\n\n• Bonne maîtrise des outils informatiques et des logiciels de secrétariat médical\n\n• Connaissances de la facturation médicale suisse, un atout\n\n• Capacité à instaurer une relation de confiance avec les patients\n\n• Discrétion, professionnalisme et respect strict de la confidentialité\n Passionnée par votre métier, votre motivation guide vos actes vers l’excellence. Bienveillante avec les patients, votre empathie est reconnue par vos précédents employeurs. Vous faites preuve d'un excellent sens de l'organisation et disposez de l'expérience nécessaire pour assurer, en toute autonomie, la gestion d'un secrétariat médical.\n Habile avec les outils informatiques, vous êtes ouverte au changement, la mise en place des nouveaux outils informatiques prévue pour l’ensemble de la profession ne vous fait pas peur. Enfin, votre stabilité émotionnelle vous permet d'évoluer sereinement dans une spécialité confrontée à des situations parfois délicates.\n Niveau de formation :\n\n• Diplôme de secrétaire médicale\n Avantages :\n Vous assurez, en toute autonomie, la gestion administrative du cabinet du Dr Bloch, Médecin spécialiste en hématologie. Votre bureau est situé au sein de l’Hôpital de Nyon, dans un cadre de travail appréciable et vous collaborez au quotidien avec les équipes des autres cabinets privés ainsi qu’avec l’équipe infirmière. Enfin, en rejoignant le cabinet médical privé du Dr Bloch, vous bénéficierez des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San), ainsi que des avantages proposés aux collaborateurs et collaboratrices du GHOL : restaurant du personnel, événements institutionnels, rabais auprès de différents prestataires de la région etc…\n Vous vous reconnaissez dans ce profil et souhaitez rejoindre un cabinet à taille humaine offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature.",
+        "en": "Installé à Nyon depuis 2021, le Dr Bloch est médecin spécialiste en hématologie. Dans le cadre du départ à la retraite de sa collaboratrice, nous recherchons sa future secrétaire médicale afin d’assurer la continuité des activités du cabinet.\n Vous contribuerez activement à la qualité de la prise en charge des patients.\n Descriptif du poste :\n Dans votre nouveau rôle, vos tâches consisteront notamment à :\n\n• Assurer l’accueil physique et téléphonique de la patientèle\n\n• Gérer l’agenda médical et la prise de rendez-vous\n\n• Constituer et tenir à jour les dossiers médicaux\n\n• Organiser les examens complémentaires et les rendez-vous externes\n\n• Assurer la correspondance médicale et administrative\n\n• Réviser et effectuer les envois des rapports de consultation et courriers médicaux\n\n• Effectuer la facturation et le suivi administratif des dossiers\n\n• Assurer les échanges avec les assurances, les médecins traitants et les autres partenaires de santé\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre / vos :\n\n• Excellentes aptitudes relationnelles et sens de l’accueil\n\n• Sens de l’organisation, autonomie, rigueur et capacité à gérer les priorités\n\n• Grande capacité d’empathie et aptitude à gérer avec tact et professionnalisme les situations complexes\n\n• Première expérience professionnelle réussie\n\n• Excellente maîtrise du français oral et écrit ainsi que de la terminologie médicale\n\n• Bonne maîtrise de l'anglais permettant de communiquer avec une patientèle anglophone\n\n• Bonne maîtrise des outils informatiques et des logiciels de secrétariat médical\n\n• Connaissances de la facturation médicale suisse, un atout\n\n• Capacité à instaurer une relation de confiance avec les patients\n\n• Discrétion, professionnalisme et respect strict de la confidentialité\n Passionnée par votre métier, votre motivation guide vos actes vers l’excellence. Bienveillante avec les patients, votre empathie est reconnue par vos précédents employeurs. Vous faites preuve d'un excellent sens de l'organisation et disposez de l'expérience nécessaire pour assurer, en toute autonomie, la gestion d'un secrétariat médical.\n Habile avec les outils informatiques, vous êtes ouverte au changement, la mise en place des nouveaux outils informatiques prévue pour l’ensemble de la profession ne vous fait pas peur. Enfin, votre stabilité émotionnelle vous permet d'évoluer sereinement dans une spécialité confrontée à des situations parfois délicates.\n Niveau de formation :\n\n• Diplôme de secrétaire médicale\n Avantages :\n Vous assurez, en toute autonomie, la gestion administrative du cabinet du Dr Bloch, Médecin spécialiste en hématologie. Votre bureau est situé au sein de l’Hôpital de Nyon, dans un cadre de travail appréciable et vous collaborez au quotidien avec les équipes des autres cabinets privés ainsi qu’avec l’équipe infirmière. Enfin, en rejoignant le cabinet médical privé du Dr Bloch, vous bénéficierez des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San), ainsi que des avantages proposés aux collaborateurs et collaboratrices du GHOL : restaurant du personnel, événements institutionnels, rabais auprès de différents prestataires de la région etc…\n Vous vous reconnaissez dans ce profil et souhaitez rejoindre un cabinet à taille humaine offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature.",
+        "de": "Installé à Nyon depuis 2021, le Dr Bloch est médecin spécialiste en hématologie. Dans le cadre du départ à la retraite de sa collaboratrice, nous recherchons sa future secrétaire médicale afin d’assurer la continuité des activités du cabinet.\n Vous contribuerez activement à la qualité de la prise en charge des patients.\n Descriptif du poste :\n Dans votre nouveau rôle, vos tâches consisteront notamment à :\n\n• Assurer l’accueil physique et téléphonique de la patientèle\n\n• Gérer l’agenda médical et la prise de rendez-vous\n\n• Constituer et tenir à jour les dossiers médicaux\n\n• Organiser les examens complémentaires et les rendez-vous externes\n\n• Assurer la correspondance médicale et administrative\n\n• Réviser et effectuer les envois des rapports de consultation et courriers médicaux\n\n• Effectuer la facturation et le suivi administratif des dossiers\n\n• Assurer les échanges avec les assurances, les médecins traitants et les autres partenaires de santé\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre / vos :\n\n• Excellentes aptitudes relationnelles et sens de l’accueil\n\n• Sens de l’organisation, autonomie, rigueur et capacité à gérer les priorités\n\n• Grande capacité d’empathie et aptitude à gérer avec tact et professionnalisme les situations complexes\n\n• Première expérience professionnelle réussie\n\n• Excellente maîtrise du français oral et écrit ainsi que de la terminologie médicale\n\n• Bonne maîtrise de l'anglais permettant de communiquer avec une patientèle anglophone\n\n• Bonne maîtrise des outils informatiques et des logiciels de secrétariat médical\n\n• Connaissances de la facturation médicale suisse, un atout\n\n• Capacité à instaurer une relation de confiance avec les patients\n\n• Discrétion, professionnalisme et respect strict de la confidentialité\n Passionnée par votre métier, votre motivation guide vos actes vers l’excellence. Bienveillante avec les patients, votre empathie est reconnue par vos précédents employeurs. Vous faites preuve d'un excellent sens de l'organisation et disposez de l'expérience nécessaire pour assurer, en toute autonomie, la gestion d'un secrétariat médical.\n Habile avec les outils informatiques, vous êtes ouverte au changement, la mise en place des nouveaux outils informatiques prévue pour l’ensemble de la profession ne vous fait pas peur. Enfin, votre stabilité émotionnelle vous permet d'évoluer sereinement dans une spécialité confrontée à des situations parfois délicates.\n Niveau de formation :\n\n• Diplôme de secrétaire médicale\n Avantages :\n Vous assurez, en toute autonomie, la gestion administrative du cabinet du Dr Bloch, Médecin spécialiste en hématologie. Votre bureau est situé au sein de l’Hôpital de Nyon, dans un cadre de travail appréciable et vous collaborez au quotidien avec les équipes des autres cabinets privés ainsi qu’avec l’équipe infirmière. Enfin, en rejoignant le cabinet médical privé du Dr Bloch, vous bénéficierez des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San), ainsi que des avantages proposés aux collaborateurs et collaboratrices du GHOL : restaurant du personnel, événements institutionnels, rabais auprès de différents prestataires de la région etc…\n Vous vous reconnaissez dans ce profil et souhaitez rejoindre un cabinet à taille humaine offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "url": "https://app.beehire.com/invite/Q6HqoOgej",
+      "applyUrl": "https://app.beehire.com/invite/Q6HqoOgej",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-08T22:18:08.034Z",
+      "needsRetranslation": true,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-08T22:18:08.034Z"
     }
   ]
 }
