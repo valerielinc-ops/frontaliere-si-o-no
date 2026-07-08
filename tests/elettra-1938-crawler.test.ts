@@ -25,7 +25,7 @@ describe('Elettra 1938 crawler parser', () => {
     });
 
     it('matches by URL domain', () => {
-      expect(isElettra1938Job({ url: 'https://elettra1938.ch/jobs/123' })).toBe(true);
+      expect(isElettra1938Job({ url: 'https://inrecruiting.intervieweb.it/fiammcomponents/it/job/123' })).toBe(true);
     });
 
     it('rejects unrelated jobs', () => {
@@ -42,11 +42,11 @@ describe('Elettra 1938 crawler parser', () => {
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
     it('trusts primary domain', () => {
-      expect(isTrustedDomain('https://elettra1938.ch/careers/job-123')).toBe(true);
+      expect(isTrustedDomain('https://inrecruiting.intervieweb.it/fiammcomponents/it/career/job-123')).toBe(true);
     });
 
-    it('trusts subdomains', () => {
-      expect(isTrustedDomain('https://careers.elettra1938.ch/job/456')).toBe(true);
+    it('trusts other locale paths under fiammcomponents', () => {
+      expect(isTrustedDomain('https://inrecruiting.intervieweb.it/fiammcomponents/en/career/456')).toBe(true);
     });
 
     it('rejects other domains', () => {

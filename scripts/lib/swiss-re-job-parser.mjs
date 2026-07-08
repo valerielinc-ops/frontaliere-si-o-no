@@ -26,9 +26,11 @@ export const SWISS_RE_KEY = 'swiss-re';
 export const SWISS_RE_COMPANY_NAME = 'Swiss Re';
 export const SWISS_RE_COMPANY_DOMAIN = 'swissre.com';
 
-// SuccessFactors tenant: careers.swissre.com (jobs2web / html-jobreq overlay).
-// detectSuccessFactorsKind('https://careers.swissre.com') → 'html-jobreq'
-const CAREER_URL = 'https://careers.swissre.com';
+// SuccessFactors CSB tenant, "JobTeaserList" card overlay (#3797).
+// detectSuccessFactorsKind('https://www.swissre.com/careers/jobSearch.html') → 'html-jobreq'
+// Note: careers.swissre.com (the old seed) is a dead redirect target — the
+// real listing lives on www.swissre.com, not the careers. subdomain.
+const CAREER_URL = 'https://www.swissre.com/careers/jobSearch.html';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
