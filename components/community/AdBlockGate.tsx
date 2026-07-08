@@ -87,7 +87,7 @@ const COPY: Record<GateLocale, {
     instructionsBody: 'Apri l’icona dell’estensione AdBlock/uBlock nella barra degli strumenti del browser e scegli "Disattiva su questo sito" o "Metti in pausa". Poi premi "Ricontrolla" qui sotto.',
     recheck: 'Ricontrolla AdBlock',
     rechecking: 'Verifica in corso…',
-    subscribeCta: 'Abbonati — CHF 2.99/mese',
+    subscribeCta: 'Attiva l’abbonamento — CHF 2.99/mese',
   },
   en: {
     title: 'We noticed an active ad blocker',
