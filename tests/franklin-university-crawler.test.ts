@@ -25,7 +25,7 @@ describe('Franklin University Switzerland crawler parser', () => {
     });
 
     it('matches by URL domain', () => {
-      expect(isFranklinUniversityJob({ url: 'https://franklin.edu.ch/jobs/123' })).toBe(true);
+      expect(isFranklinUniversityJob({ url: 'https://www.fus.edu/jobs/123' })).toBe(true);
     });
 
     it('rejects unrelated jobs', () => {
@@ -42,11 +42,11 @@ describe('Franklin University Switzerland crawler parser', () => {
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
     it('trusts primary domain', () => {
-      expect(isTrustedDomain('https://franklin.edu.ch/careers/job-123')).toBe(true);
+      expect(isTrustedDomain('https://www.fus.edu/careers/job-123')).toBe(true);
     });
 
     it('trusts subdomains', () => {
-      expect(isTrustedDomain('https://careers.franklin.edu.ch/job/456')).toBe(true);
+      expect(isTrustedDomain('https://careers.fus.edu/job/456')).toBe(true);
     });
 
     it('rejects other domains', () => {

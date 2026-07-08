@@ -56,4 +56,39 @@ describe('SuccessFactors client', () => {
     expect(fetchMock).toHaveBeenNthCalledWith(1, 'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland', expect.any(Object));
     expect(fetchMock).toHaveBeenNthCalledWith(2, 'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland&startrow=10', expect.any(Object));
   });
+
+  it('classifies the Swiss Re CSB "JobTeaserList" career page as html-jobreq (#3797)', () => {
+    expect(detectSuccessFactorsKind('https://www.swissre.com/careers/jobSearch.html')).toBe('html-jobreq');
+    expect(detectSuccessFactorsKind('https://www.swissre.com/careers/job/underwriting-manager/700123')).toBe('html-jobreq');
+  });
+
+  it('falls back to JobTeaserList card scraping when the jobs2web table-row parser finds nothing (#3797)', async () => {
+    const cardHtml = `
+      <ul>
+        <li class="JobTeaserList--item">
+          <div class="JobTeaser--title">Underwriting Manager</div>
+          <div class="JobTeaser--location"><span>Zurich, CH</span></div>
+          <a class="JobTeaser--link" href="/careers/job/underwriting-manager/700123">View</a>
+        </li>
+      </ul>
+    `;
+    const fetchMock = vi.fn().mockResolvedValueOnce(new Response(cardHtml, { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://www.swissre.com/careers/jobSearch.html',
+      { maxPages: 1, minDelayMs: 0, company: 'Swiss Re' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      jobReqId: '700123',
+      title: 'Underwriting Manager',
+      location: 'Zurich, CH',
+      applyUrl: 'https://www.swissre.com/careers/job/underwriting-manager/700123',
+    });
+  });
 });

@@ -301,7 +301,10 @@ function extractNextPvp(html = '') {
  */
 function extractVacancyRows(html = '') {
   const rows = [];
-  const rx = /vacancyNo=(VN\d+)(?:&amp;portal=Global)?"[^>]*>([^<]+)<\/a><\/span><\/td><td[^>]*><span[^>]*><span[^>]*>([^<]*)<\/span>/g;
+  // The portal's href query string is not always HTML-entity-escaped (seen
+  // live as literal "&portal=Global" rather than "&amp;portal=Global") — match
+  // up to the closing quote instead of a specific literal suffix (#3797).
+  const rx = /vacancyNo=(VN\d+)[^"]*"[^>]*>([^<]+)<\/a><\/span><\/td><td[^>]*><span[^>]*><span[^>]*>([^<]*)<\/span>/g;
   let m;
   while ((m = rx.exec(html))) {
     rows.push({

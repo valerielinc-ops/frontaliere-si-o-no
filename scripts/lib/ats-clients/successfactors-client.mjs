@@ -76,7 +76,7 @@
  */
 
 import { fetchWithRetry } from '../transient-fetch.mjs';
-import { rescueHtmlIfChallenged } from '../jina-proxy.mjs';
+import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from '../jina-proxy.mjs';
 import { assertJsonListShapeMultiKey } from '../assert-json-list-shape.mjs';
 
 /* ── Errors ────────────────────────────────────────────────────────────── */
@@ -196,6 +196,11 @@ export function detectSuccessFactorsKind(url) {
   if (host === 'jobs.h-och.ch') return 'html-jobreq';
   // Nestlé global careers moved from Workday to SuccessFactors Career Site Builder.
   if (host === 'jobdetails.nestle.com' && (/\/(?:search|job)\b/i.test(path) || path === '/')) {
+    return 'html-jobreq';
+  }
+  // Swiss Re CSB overlay: www.swissre.com/careers/jobSearch.html (listing),
+  // detail pages at /careers/job/{slug}/{id} (#3797).
+  if (host === 'www.swissre.com' && /^\/careers\/job/i.test(path)) {
     return 'html-jobreq';
   }
 
@@ -471,6 +476,19 @@ async function fetchOnceRaw(url, { timeoutMs, userAgent, accept, authHeader } = 
     });
     clearTimeout(timer);
     if (res.status === 401 || res.status === 403) {
+      // 403 on an HTML page is often the same IP-reputation WAF class Jina
+      // already rescues for soft 200-challenge responses (jina-proxy.mjs) —
+      // worth one rescue attempt before giving up (Swiss Re, #3797). 401 is
+      // left alone: that's real auth, not an egress-IP block Jina can fix.
+      if (res.status === 403 && String(accept || '').includes('text/html')) {
+        const rescuedHtml = await fetchHtmlViaJinaWithRetry(url, { timeoutMs });
+        if (rescuedHtml) {
+          return new Response(rescuedHtml, {
+            status: 200,
+            headers: { 'content-type': 'text/html' },
+          });
+        }
+      }
       // Auth / anti-bot — NOT retryable from the same runner.
       throw new SuccessFactorsAuthError(
         `SuccessFactors auth failure: HTTP ${res.status}`,
@@ -694,7 +712,12 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
         if (matchesLocation(job.location)) yield job;
         return;
       }
-      const rows = parseJobs2WebSearchRows(html, pageUrl);
+      // Classic jobs2web overlay uses <tr>/<td> search rows; the newer CSB
+      // "JobTeaserList" card template (Swiss Re, #3797) has no table at all —
+      // fall back to card scraping when the row parser finds nothing (an
+      // `[]` from either is truthy, so check .length, not the array itself).
+      let rows = parseJobs2WebSearchRows(html, pageUrl);
+      if (rows.length === 0) rows = parseJobTeaserListCards(html, pageUrl);
       if (rows.length === 0) return;
       for (const row of rows) {
         const job = extractSuccessFactorsJobIdentity(row, { company });
@@ -875,6 +898,63 @@ function parseJobs2WebSearchRows(html = '', pageUrl = '') {
       location: cells[2] || '',
       postedAt: parseSuccessFactorsPostedDate(cells[3] || ''),
     });
+  }
+  return rows;
+}
+
+/**
+ * Parse the newer SF Career Site Builder "JobTeaserList" card template
+ * (Swiss Re, #3797) — `<li class="JobTeaserList--item">` cards, no table.
+ * Each card holds a `.JobTeaser--title` div, a `.JobTeaser--location` div,
+ * and a `.JobTeaser--link` anchor to `/careers/job/{slug}/{id}`.
+ *
+ * @param {string} html
+ * @param {string} pageUrl Used to resolve relative links.
+ * @returns {Array<{title:string, url:string, jobId:string, location:string, postedAt:string|null}>}
+ */
+function parseJobTeaserListCards(html = '', pageUrl = '') {
+  if (!html) return [];
+  const rows = [];
+  const seen = new Set();
+  let base = '';
+  try {
+    base = new URL(pageUrl).origin;
+  } catch {
+    base = '';
+  }
+  const itemRe = /<li[^>]*class="[^"]*JobTeaserList--item[^"]*"[^>]*>([\s\S]*?)<\/li>/gi;
+  let im;
+  while ((im = itemRe.exec(html)) !== null) {
+    const itemHtml = im[1];
+    const link = itemHtml.match(
+      /<a[^>]+class="[^"]*JobTeaser--link[^"]*"[^>]+href="([^"]+)"/i
+    );
+    if (!link) continue;
+    const hrefRaw = link[1].replace(/&amp;/g, '&');
+    const url = hrefRaw.startsWith('http') ? hrefRaw : `${base}${hrefRaw}`;
+    const idMatch = hrefRaw.match(/\/(\d+)\/?(?:[?#].*)?$/);
+    const jobId = idMatch ? idMatch[1] : hrefRaw;
+    if (seen.has(jobId)) continue;
+    seen.add(jobId);
+
+    const titleM = itemHtml.match(
+      /<div[^>]*class="[^"]*JobTeaser--title[^"]*"[^>]*>([\s\S]*?)<\/div>/i
+    );
+    const title = titleM ? normalizeSpace(stripTags(titleM[1])) : '';
+    if (!title || title.length < 3) continue;
+
+    const locBlockM = itemHtml.match(
+      /<div[^>]*class="[^"]*JobTeaser--location[^"]*"[^>]*>([\s\S]*?)<\/div>\s*<a/i
+    );
+    let location = '';
+    if (locBlockM) {
+      const plainSpans = [...locBlockM[1].matchAll(/<span>([^<]+)<\/span>/gi)].map((m) =>
+        normalizeSpace(m[1])
+      );
+      location = plainSpans.find((s) => s) || '';
+    }
+
+    rows.push({ title, url, jobId, location, postedAt: null });
   }
   return rows;
 }
