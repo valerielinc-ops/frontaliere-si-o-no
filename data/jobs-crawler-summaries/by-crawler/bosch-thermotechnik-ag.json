@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-07-07T22:19:34.915Z",
+  "generatedAt": "2026-07-08T11:20:29.332Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17340,
-  "avgDurationMs": 17340,
+  "durationMs": 20451,
+  "avgDurationMs": 20451,
   "durationHistory": [
-    17340
+    20451
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,9 +42,9 @@
       "currency": "CHF",
       "postalCode": "4500",
       "firstSeenAt": "2026-07-07T12:08:34.267Z",
-      "_qualityScore": 89,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 22,
         "translation": 25,
         "completeness": 22
