@@ -336,6 +336,14 @@ const EMPTY_OK_CRAWLERS = new Set([
   // no open postings on this ATS right now. Parser is healthy and will pick
   // up real jobs (CH-filtered) the moment any are published.
   'bally',
+  // KONE (elevators/escalators, Swiss entity KONE (Schweiz) AG, Zürich):
+  // the crawler pulls from the real, live SmartRecruiters tenant "KONE1"
+  // (https://api.smartrecruiters.com/v1/companies/KONE1/postings). Verified
+  // live 2026-07-08: `totalFound:0` for `country=CH`, and only 1 posting
+  // worldwide (Technicien de Maintenance, Charleroi, Belgium) — KONE
+  // genuinely has no open Swiss postings on this ATS right now. Parser is
+  // healthy and will pick up real jobs the moment any CH ones are published.
+  'kone',
 ]);
 
 /** Read JSON file, return null on any error. */
