@@ -1,58 +1,25 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-07-08T11:14:56.641Z",
+  "generatedAt": "2026-07-08T22:09:14.889Z",
   "total": 4,
-  "newCount": 4,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 43894,
-  "avgDurationMs": 43894,
+  "unchangedCount": 1,
+  "durationMs": 68840,
+  "avgDurationMs": 68840,
   "durationHistory": [
-    43894
+    68840
   ],
-  "newJobs": [
-    {
-      "id": "company-kbhp6",
-      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
-      "company": "CambiaValute.ch",
-      "title": "Senior Backend developer",
-      "location": "2026 CambiaValute.ch. All Rights Reserved. Cambi",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "url": "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Chiasso",
-        "canton": "TI"
-      },
-      "companyKey": "cambiavalute",
-      "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-08T11:14:55.248Z",
-      "firstSeenAt": "2026-07-08T11:14:55.248Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "it",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 15,
-        "completeness": 14
-      }
-    },
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-viaqie",
-      "slug": "legal-compliance-officer-cambiavalute-ch-2026-cambiavalute-ch-all-rights-reserved-cambi",
+      "slug": "legal-compliance-officer-cambiavalute-ch-2026-cambiavalute-ch-all-rights-reserved-cambi-viaqie",
       "company": "CambiaValute.ch",
       "title": "Legal & Compliance Officer",
-      "location": "2026 CambiaValute.ch. All Rights Reserved. Cambi",
+      "location": "2026 CambiaValute",
       "canton": "TI",
       "category": "finance",
       "contract": "part-time",
@@ -70,15 +37,21 @@
       "companyDomain": "cambiavalute.ch",
       "crawledAt": "2026-07-08T11:14:55.248Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 62,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "addressLocality": "2026 CambiaValute",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 2,
-        "completeness": 14
+        "translation": 23,
+        "completeness": 19
       }
     },
     {
@@ -86,7 +59,7 @@
       "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
-      "location": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
+      "location": "Ticino",
       "canton": "TI",
       "category": "tech",
       "contract": "part-time",
@@ -104,15 +77,21 @@
       "companyDomain": "cambiavalute.ch",
       "crawledAt": "2026-07-08T11:14:55.248Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 64,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "addressLocality": "Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
-        "completeness": 14
+        "translation": 23,
+        "completeness": 19
       }
     },
     {
@@ -120,7 +99,7 @@
       "slug": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Francese)",
-      "location": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
+      "location": "Ticino",
       "canton": "TI",
       "category": "tech",
       "contract": "part-time",
@@ -138,19 +117,65 @@
       "companyDomain": "cambiavalute.ch",
       "crawledAt": "2026-07-08T11:14:55.248Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 64,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "addressLocality": "Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
-        "completeness": 14
+        "translation": 23,
+        "completeness": 19
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "company-kbhp6",
+      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
+      "company": "CambiaValute.ch",
+      "title": "Senior Backend developer",
+      "location": "2026 CambiaValute",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "url": "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "cambiavalute",
+      "companyDomain": "cambiavalute.ch",
+      "crawledAt": "2026-07-08T11:14:55.248Z",
+      "firstSeenAt": "2026-07-08T11:14:55.248Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "addressLocality": "2026 CambiaValute",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ]
 }
