@@ -245,7 +245,18 @@ async function fetchMigrosJobDetailUrls() {
     await browser.close();
   }
 
-  const absoluteUrls = [...allUrls].map((p) => `https://jobs.migros.ch${p}`);
+  // Exclude Migros-Genossenschafts-Bund (HQ) postings — owned exclusively by
+  // the dedicated `migros-hq` crawler (scripts/lib/migros-hq-job-parser.mjs)
+  // since #3797. Without this filter the same job URL gets crawled here too
+  // (this nationwide listing has no per-company filter — see LISTING_URL
+  // above) and re-tagged under company="Migros Ticino", producing a literal
+  // duplicate posting: assemble-jobs-dataset.mjs's dedup key is the raw URL
+  // (scripts/lib/job-url-key.mjs:assembleUrlKey), which does not normalize
+  // away the locale-prefix differences between the two crawlers' URLs, so
+  // the two copies would not collapse into one.
+  const absoluteUrls = [...allUrls]
+    .map((p) => `https://jobs.migros.ch${p}`)
+    .filter((u) => !u.includes('/job/migros-genossenschafts-bund/'));
   console.log(`✅ Total unique Migros detail URLs discovered: ${absoluteUrls.length}`);
   return absoluteUrls;
 }

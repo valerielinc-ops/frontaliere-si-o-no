@@ -32,6 +32,12 @@ describe('Migros HQ Zürich crawler parser', () => {
       expect(isMigrosHqJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
     });
 
+    it('matches jobs.migros.ch URLs (live source since #3797)', () => {
+      expect(
+        isMigrosHqJob({ url: 'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/x/uuid' }),
+      ).toBe(true);
+    });
+
     it('handles null/undefined gracefully', () => {
       expect(isMigrosHqJob(null)).toBe(false);
       expect(isMigrosHqJob(undefined)).toBe(false);
@@ -49,8 +55,21 @@ describe('Migros HQ Zürich crawler parser', () => {
       expect(isTrustedDomain('https://careers.migros.ch/job/456')).toBe(true);
     });
 
+    it('trusts the live jobs.migros.ch source domain (#3797)', () => {
+      expect(
+        isTrustedDomain(
+          'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b',
+        ),
+      ).toBe(true);
+    });
+
     it('rejects other domains', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
+    });
+
+    it('no longer trusts the dead SmartRecruiters tenant (#3797)', () => {
+      expect(isTrustedDomain('https://jobs.smartrecruiters.com/Migros/some-posting')).toBe(false);
+      expect(isTrustedDomain('https://api.smartrecruiters.com/v1/companies/Migros/postings')).toBe(false);
     });
 
     it('handles invalid URLs', () => {

@@ -1,24 +1,26 @@
 #!/usr/bin/env node
 /**
- * Migros HQ Zürich job parser — SmartRecruiters API consumer.
+ * Migros HQ Zürich job parser — jobs.migros.ch sitemap + JSON-LD consumer.
  *
- * Source: https://api.smartrecruiters.com/v1/companies/Migros/postings?limit=100&offset=0
+ * Source: https://jobs.migros.ch/de/sitemap.xml
  *
- * Pagination + detail-fetch concurrency are delegated to the shared
- * SmartRecruiters client (`scripts/lib/ats-clients/smartrecruiters-client.mjs`).
- * This file only owns Migros-HQ-specific concerns:
- *   - HQ-only location filter (Zürich + nearby ZH municipalities, scoping out
- *     of regional postings handled by the sibling `migros` Ticino crawler)
- *   - Markdown-formatted description (jobAd → markdown with "## Qualifiche" /
- *     "## Informazioni aggiuntive" section headings — preserved verbatim from
- *     the pre-extraction implementation for byte-identical output)
- *   - Canton inference + ParsedJob assembly
+ * Migros-Genossenschafts-Bund (the HQ / national holding entity, Limmatstrasse
+ * 152, 8005 Zürich) publishes its openings on the same Nuxt SSR portal as every
+ * other Migros group company, under the `/unsere-unternehmen/job/
+ * migros-genossenschafts-bund/<title-slug>/<uuid>` path. We scope to that one
+ * company slug so this crawler stays HQ-only (#3797).
  *
- * NOTE: 'Migros' is the parent-group SR tenant. It aggregates postings from
- * all Migros group companies (Migros Industrie, Migros-Genossenschafts-Bund,
- * Denner, Migros Bank, Galaxus, etc.). This crawler scopes to HQ-relevant
- * postings via city filter (Zürich + nearby ZH municipalities) so it does
- * not collide with the existing Migros Ticino crawler (jobs.migros.ch).
+ * NOTE (2026-07): the previous SmartRecruiters tenant
+ * (api.smartrecruiters.com/v1/companies/Migros) is dead — `totalFound: 0` on
+ * every query, and jobs.smartrecruiters.com/Migros 30x-redirects to the
+ * generic SmartRecruiters homepage (the confirmed dead-tenant signature in
+ * this codebase). This file now sources live data from jobs.migros.ch instead.
+ *
+ * The JSON-LD `description` field on jobs.migros.ch detail pages is only a
+ * brief overview teaser (~400 chars observed) — the full responsibilities /
+ * requirements / benefits content lives in HTML `<section>` blocks. We reuse
+ * `./migros-job-parser.mjs`'s `extractMigrosStructuredData()` (already built
+ * for exactly this on the same portal) rather than duplicating that parsing.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllMigrosHqJobs()  — Fetch and parse all jobs
@@ -28,12 +30,9 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
-import {
-  fetchSmartRecruitersJobs,
-  SmartRecruitersApiError,
-} from './ats-clients/smartrecruiters-client.mjs';
+import { extractMigrosStructuredData } from './migros-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -41,11 +40,25 @@ export const MIGROS_HQ_KEY = 'migros-hq';
 export const MIGROS_HQ_COMPANY_NAME = 'Migros HQ Zürich';
 export const MIGROS_HQ_COMPANY_DOMAIN = 'migros.ch';
 
-const SR_TENANT = 'Migros';
-const SR_API = `https://api.smartrecruiters.com/v1/companies/${SR_TENANT}/postings`;
-const CAREER_URL = `${SR_API}?limit=100&offset=0`;
-const SR_FETCH_TIMEOUT_MS = 20000;
-const SR_DETAIL_CONCURRENCY = 5;
+const SITEMAP_URL = 'https://jobs.migros.ch/de/sitemap.xml';
+// Company slug segment that scopes this crawler to Migros-Genossenschafts-Bund
+// (HQ) only — every other slug in the sitemap (genossenschaft-migros-zurich,
+// denner-ag, galaxus, …) belongs to a different group company/co-op and is
+// out of scope here (some are covered by the sibling `migros-ticino` crawler,
+// see scripts/update-migros-jobs.mjs).
+const COMPANY_PATH_SEGMENT = '/job/migros-genossenschafts-bund/';
+// A trailing UUID-shaped segment is the reliable signal of an actual job
+// posting — non-job company/brand pages (e.g. "arbeiten-bei-uns") don't have
+// one.
+const JOB_URL_RE = /\/unsere-unternehmen\/job\/migros-genossenschafts-bund\/[^/]+\/[0-9a-f-]{20,}\/?$/i;
+
+// HQ fallback (Impressum: Limmatstrasse 152, CH-8005 Zürich, canton ZH).
+const HQ = {
+  city: 'Zürich',
+  canton: 'ZH',
+  postalCode: '8005',
+  addressRegion: 'Zürich',
+};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -77,47 +90,23 @@ export function isMigrosHqJob(job) {
     key.startsWith('migros-hq') ||
     company.includes('migros hq') ||
     url.includes('migros.ch') ||
-    url.includes('migros.com') ||
-    url.includes('jobs.smartrecruiters.com/migros') ||
-    url.includes('api.smartrecruiters.com/v1/companies/migros')
+    url.includes('migros.com')
   );
 }
 
 /**
  * Validate that a URL belongs to Migros HQ Zürich's domain.
- * Migros HQ is published via the SmartRecruiters tenant (jobs.smartrecruiters.com/Migros)
- * — distinct from jobs.migros.ch which is the regional/Ticino portal handled by the
- * existing 'migros' crawler.
+ * Migros HQ is published on jobs.migros.ch, the same Nuxt SSR portal used by
+ * every Migros group company — this crawler scopes to the
+ * migros-genossenschafts-bund company slug (see COMPANY_PATH_SEGMENT above).
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return (
-      host === 'jobs.smartrecruiters.com' ||
-      host === 'api.smartrecruiters.com' ||
-      host === 'migros.ch' ||
-      host.endsWith('.migros.ch')
-    );
+    return host === 'migros.ch' || host.endsWith('.migros.ch');
   } catch {
     return false;
   }
-}
-
-/* ── Location Filter ───────────────────────────────────────── */
-
-/**
- * Keep every posting located in Switzerland (nationwide crawl). Foreign
- * postings are still dropped; the canton is no longer restricted to ZH.
- *
- * Used as the `options.filter` predicate passed to the shared SR client.
- */
-function isHqLocation(loc = {}) {
-  const country = normalize(loc.country || '');
-  if (country && country !== 'ch' && country !== 'switzerland' && country !== 'svizzera') return false;
-  const city = normalize(loc.city || '');
-  const region = normalize(loc.region || '');
-  if (!city && !region) return false;
-  return true;
 }
 
 /* ── Category Detection ────────────────────────────────────── */
@@ -154,60 +143,90 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── Description Formatting ────────────────────────────────── */
-
-/**
- * Convert SmartRecruiters HTML section content into compact markdown.
- *
- * Preserved verbatim from the pre-extraction implementation. The shared
- * client offers a concatenated `descriptionHtml` field, but Migros HQ uses
- * its own markdown formatter to keep "## Qualifiche" / "## Informazioni
- * aggiuntive" section headings consistent with downstream localisation.
- */
-function htmlToMarkdown(html = '') {
-  return String(html || '')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n• ')
-    .replace(/<\/(p|div|li|h2|h3|h4)>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&#39;/g, '\'')
-    .replace(/\n{3,}/g, '\n\n')
-    .replace(/[ \t]+\n/g, '\n')
-    .replace(/\n[ \t]+/g, '\n')
-    .replace(/[ \t]{2,}/g, ' ')
-    .trim();
-}
-
-/**
- * Map a SmartRecruiters posting into the loose listing shape consumed by the
- * loop below.
- */
-function postingToListing(posting) {
-  const loc = posting?.location || {};
-  const sections = [];
-  const jobDesc = (posting?.jobAd?.sections?.jobDescription?.text || '').trim();
-  const qualif = (posting?.jobAd?.sections?.qualifications?.text || '').trim();
-  const addInfo = (posting?.jobAd?.sections?.additionalInformation?.text || '').trim();
-  if (jobDesc) sections.push(htmlToMarkdown(jobDesc));
-  if (qualif) sections.push(`## Qualifiche\n\n${htmlToMarkdown(qualif)}`);
-  if (addInfo) sections.push(`## Informazioni aggiuntive\n\n${htmlToMarkdown(addInfo)}`);
-  return {
-    id: posting?.id || '',
-    title: normalizeSpace(posting?.name || ''),
-    description: sections.join('\n\n').trim(),
-    location: normalizeSpace(loc.city || ''),
-    region: normalizeSpace(loc.region || ''),
-    postalCode: normalizeSpace(loc.postalCode || ''),
-    country: normalizeSpace(loc.country || 'CH'),
-    url: posting?.applyUrl || (posting?.id ? `https://jobs.smartrecruiters.com/${SR_TENANT}/${posting.id}` : CAREER_URL),
-    timeType: posting?.typeOfEmployment?.label || '',
-    postedDate: (posting?.releasedDate || posting?.createdOn || '').slice(0, 10),
-  };
-}
-
 /* ── Fetch + Parse ─────────────────────────────────────────── */
+
+/**
+ * Fetch the sitemap and extract distinct Migros-Genossenschafts-Bund job
+ * detail URLs.
+ *
+ * The sitemap lists every job across every Migros group company; we filter
+ * to the `/job/migros-genossenschafts-bund/` path segment (present regardless
+ * of locale prefix — some sitemap entries omit the leading `/de/`) and to
+ * URLs ending in a UUID-shaped id, which excludes non-job company/brand pages
+ * (e.g. "arbeiten-bei-uns", "karrieremoeglichkeiten").
+ */
+async function fetchHqJobUrls() {
+  console.log(`  📄 Fetching sitemap: ${SITEMAP_URL}`);
+  const xml = await fetchHtml(SITEMAP_URL, { headers: { Accept: 'application/xml,text/xml,*/*' } });
+
+  const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((m) => m[1].trim());
+  const jobUrls = [...new Set(allUrls.filter((url) => url.includes(COMPANY_PATH_SEGMENT) && JOB_URL_RE.test(url)))];
+
+  console.log(`  📦 Migros HQ (migros-genossenschafts-bund) job URLs in sitemap: ${jobUrls.length}`);
+  return jobUrls;
+}
+
+/** Parse the first JobPosting JSON-LD block from a detail page's HTML. */
+function extractJobPosting(html = '') {
+  const re = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    let data;
+    try {
+      data = JSON.parse(m[1]);
+    } catch {
+      continue;
+    }
+    const items = Array.isArray(data) ? data : data?.['@graph'] || [data];
+    for (const item of items) {
+      if (item?.['@type'] === 'JobPosting') return item;
+    }
+  }
+  return null;
+}
+
+async function fetchJobListings(jobUrls) {
+  const listings = [];
+
+  for (const url of jobUrls) {
+    let html = '';
+    try {
+      html = await fetchHtml(url);
+    } catch (err) {
+      console.warn(`  ⚠️ Failed to fetch ${url}: ${err.message}`);
+      continue;
+    }
+
+    const posting = extractJobPosting(html);
+    if (!posting?.title) {
+      console.warn(`  ⚠️ No JobPosting JSON-LD found: ${url}`);
+      continue;
+    }
+
+    const address = posting.jobLocation?.address || {};
+    // The JSON-LD `description` is a brief overview teaser only — prefer the
+    // fuller HTML section content (responsibilities/requirements/benefits)
+    // extracted by the shared migros-job-parser.mjs helper, falling back to
+    // the JSON-LD description when the page doesn't expose those sections.
+    const structured = extractMigrosStructuredData(html);
+    const description = structured?.description || posting.description || '';
+
+    listings.push({
+      title: posting.title,
+      url,
+      description,
+      postedAt: posting.datePosted || '',
+      employmentType: posting.employmentType || '',
+      streetAddress: address.streetAddress ? normalizeSpace(address.streetAddress) : '',
+      postalCode: address.postalCode || '',
+      addressLocality: address.addressLocality || '',
+    });
+
+    await new Promise((r) => setTimeout(r, 300)); // polite rate limit
+  }
+
+  return listings;
+}
 
 /**
  * Fetch all Migros HQ Zürich jobs.
@@ -218,107 +237,91 @@ function postingToListing(posting) {
  */
 export async function fetchAllMigrosHqJobs() {
   console.log(`🔍 Fetching Migros HQ Zürich jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
-  console.log(`   Fetching from: ${CAREER_URL}`);
+  console.log(`   Source: ${SITEMAP_URL}\n`);
 
-  const jobs = [];
-  let yielded = 0;
-
-  try {
-    // Filter at the SR-client level: built-in `locationCountryCodes` is too
-    // coarse (we want ZH only); pass `isHqLocation` as the custom predicate
-    // applied per-posting BEFORE the optional detail-fetch — so we save
-    // detail calls on out-of-scope postings.
-    const iter = fetchSmartRecruitersJobs(SR_TENANT, {
-      company: MIGROS_HQ_COMPANY_NAME,
-      filter: (posting) => isHqLocation(posting?.location || {}),
-      fetchDetail: true,
-      detailConcurrency: SR_DETAIL_CONCURRENCY,
-      // Listing pagination: original used no inter-page delay; keep parity.
-      minDelayMs: 0,
-      maxPages: 100000,
-      timeoutMs: SR_FETCH_TIMEOUT_MS,
-      // Original UA distinguished crawler version; preserve verbatim.
-      userAgent: 'FrontaliereTicino-JobCrawler/2.0',
-    });
-
-    for await (const normalized of iter) {
-      yielded += 1;
-      const posting = normalized.rawPosting || {};
-      const listing = postingToListing(posting);
-
-      const title = normalizeSpace(listing.title || '');
-      if (!title || title.length < 3) continue;
-
-      // Location-first: resolve the specific location before the broader region.
-      // inferAnyCanton already checks target cantons first internally, so a
-      // separate inferSwissTargetCanton pass is redundant; splitting the fields
-      // keeps the specific location winning over array-order sensitivity.
-      const realLocationText = normalizeSpace(listing.location || '');
-      const realRegionText = normalizeSpace(listing.region || '');
-      const inferredCanton = inferAnyCanton(realLocationText) || inferAnyCanton(realRegionText) || null;
-      if ((realLocationText || realRegionText) && !inferredCanton) {
-        console.warn(`  ⚠️ Migros HQ: skipping unresolvable location "${realLocationText || realRegionText}" (${title})`);
-        continue;
-      }
-      // Default to Zürich (Migros HQ) only when SR returned no location text at all.
-      const location = realLocationText || 'Zürich';
-      const canton = inferredCanton || 'ZH';
-      const descriptionText = stripHtml(listing.description || '');
-      const publicUrl = listing.url || CAREER_URL;
-
-      const sourceLang = detectLang(descriptionText || title, 'de');
-      const jobSlug = slugify(`${title} migros-hq ch`);
-      const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
-      const job = {
-        // ── Required fields ──
-        id: `migros-hq-${urlHash}`,
-        slug: jobSlug,
-        slugByLocale: { [sourceLang]: jobSlug },
-        company: MIGROS_HQ_COMPANY_NAME,
-        companyKey: MIGROS_HQ_KEY,
-        companyDomain: MIGROS_HQ_COMPANY_DOMAIN,
-        title,
-        titleByLocale: { [sourceLang]: title },
-        description: descriptionText || `${title} — Migros HQ Zürich`,
-        descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Migros HQ Zürich` },
-        location,
-        canton,
-        url: publicUrl,
-        source: 'Migros HQ Zürich Dedicated Parser',
-        sourceLang,
-        crawledAt: new Date().toISOString(),
-
-        // ── Recommended fields ──
-        addressLocality: location,
-        addressCountry: 'CH',
-        country: 'CH',
-        postalCode: listing.postalCode || '',
-        category: detectCategory(title),
-        contract: 'full-time',
-        employmentType: detectEmploymentType(listing.timeType || title),
-        experienceLevel: detectExperienceLevel(title),
-        sector: 'Retail',
-        currency: 'CHF',
-        featured: false,
-        postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
-        applyUrl: publicUrl,
-        requirements: [],
-        requirementsByLocale: { [sourceLang]: [] },
-      };
-
-      jobs.push(job);
-    }
-  } catch (err) {
-    if (err instanceof SmartRecruitersApiError) {
-      console.warn(`  ⚠️ SmartRecruiters API error: ${err.message} (status=${err.statusCode ?? 'n/a'})`);
-    }
-    throw err;
+  const jobUrls = await fetchHqJobUrls();
+  if (!jobUrls || jobUrls.length === 0) {
+    console.warn('⚠️ No Migros HQ job URLs found in sitemap.');
+    return [];
   }
 
-  console.log(`   HQ-scoped postings: ${yielded}`);
-  console.log(`  📋 Listings (post-filter): ${yielded}`);
+  const listings = await fetchJobListings(jobUrls);
+  if (!listings || listings.length === 0) {
+    console.warn('⚠️ No job listings parsed.');
+    return [];
+  }
+
+  console.log(`  📋 Listings found: ${listings.length}`);
+
+  const jobs = [];
+  for (const listing of listings) {
+    const title = normalizeSpace(listing.title || '');
+    if (!title || title.length < 3) continue;
+
+    const locality = normalizeSpace(listing.addressLocality || '');
+    // All migros-genossenschafts-bund postings are HQ Zürich; prefer resolving
+    // canton from the JSON-LD locality, falling back to the HQ default.
+    const canton = (locality && inferAnyCanton(locality)) || HQ.canton;
+    const location = locality || HQ.city;
+    const descriptionText = stripHtml(listing.description || '');
+    const publicUrl = listing.url;
+
+    const sourceLang = detectLang(descriptionText || title, 'de');
+    const jobSlug = slugify(`${title} migros-hq ch`);
+    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+
+    const rawEmp = (listing.employmentType || '').toUpperCase();
+    const employmentType = rawEmp.includes('PART')
+      ? 'PART_TIME'
+      : rawEmp.includes('FULL') || rawEmp.includes('FESTANSTELLUNG')
+        ? 'FULL_TIME'
+        : detectEmploymentType(listing.employmentType || title);
+
+    const job = {
+      // ── Required fields ──
+      id: `migros-hq-${urlHash}`,
+      slug: jobSlug,
+      slugByLocale: { [sourceLang]: jobSlug },
+      company: MIGROS_HQ_COMPANY_NAME,
+      companyKey: MIGROS_HQ_KEY,
+      companyDomain: MIGROS_HQ_COMPANY_DOMAIN,
+      title,
+      titleByLocale: { [sourceLang]: title },
+      description: descriptionText || `${title} — ${MIGROS_HQ_COMPANY_NAME}`,
+      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — ${MIGROS_HQ_COMPANY_NAME}` },
+      location,
+      canton,
+      url: publicUrl,
+      source: 'Migros HQ Zürich Dedicated Parser',
+      sourceLang,
+      crawledAt: new Date().toISOString(),
+
+      // ── Recommended fields ──
+      addressLocality: location,
+      streetAddress: listing.streetAddress || '',
+      postalCode: listing.postalCode || HQ.postalCode,
+      addressRegion: HQ.addressRegion,
+      addressCountry: 'CH',
+      country: 'CH',
+      category: detectCategory(title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
+      experienceLevel: detectExperienceLevel(title),
+      sector: 'Retail',
+      currency: 'CHF',
+      featured: false,
+      postedDate: (listing.postedAt || new Date().toISOString()).slice(0, 10),
+      applyUrl: publicUrl,
+      requirements: [],
+      requirementsByLocale: { [sourceLang]: [] },
+      // baseSalary: no numeric value at source (JSON-LD only sets currency +
+      // unitText, no `value`) → safe default is to omit rather than fabricate,
+      // same convention as scripts/lib/globus-job-parser.mjs.
+    };
+
+    jobs.push(job);
+  }
+
   console.log(`\n📋 Total Migros HQ Zürich jobs discovered: ${jobs.length}`);
   return jobs;
 }
