@@ -4,18 +4,22 @@
       "id": "liebherr-694763ed3a4a",
       "slug": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
       "slugByLocale": {
-        "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden"
+        "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
       "companyDomain": "liebherr.com",
       "title": "Initialbewerbung Liebherr-Baumaschinen AG",
       "titleByLocale": {
-        "en": "Initialbewerbung Liebherr-Baumaschinen AG"
+        "en": "Initialbewerbung Liebherr-Baumaschinen AG",
+        "it": "Primaritorno a Liebherr-Baumaschinen AG"
       },
       "description": "Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Susanne Sulzer. One Passion. Many Opportunities. The company Liebherr-Baumaschinen AG based in Reiden (Switzerland) is responsible for the sales and service of earthmoving machines, material handling technology, tower cranes, concrete technology, deep foundation machines as well as mobile- and crawler cranes in Switzerland.​ Location Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Switzerland (CH) Contact Susanne Sulzer 062 785 82 00",
       "descriptionByLocale": {
-        "en": "Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Susanne Sulzer. One Passion. Many Opportunities. The company Liebherr-Baumaschinen AG based in Reiden (Switzerland) is responsible for the sales and service of earthmoving machines, material handling technology, tower cranes, concrete technology, deep foundation machines as well as mobile- and crawler cranes in Switzerland.​ Location Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Switzerland (CH) Contact Susanne Sulzer 062 785 82 00"
+        "en": "Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Susanne Sulzer. One Passion. Many Opportunities. The company Liebherr-Baumaschinen AG based in Reiden (Switzerland) is responsible for the sales and service of earthmoving machines, material handling technology, tower cranes, concrete technology, deep foundation machines as well as mobile- and crawler cranes in Switzerland.​ Location Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Switzerland (CH) Contact Susanne Sulzer 062 785 82 00",
+        "it": "Abbiamo risvegliato il vostro interesse? Allora non vediamo l'ora di ricevere la vostra applicazione online. Se avete domande, si prega di contattare Susanne Sulzer. Una Passione. Molte opportunità. La società Liebherr-Baumaschinen AG con sede a Reiden (Svizzera) è responsabile per le vendite e il servizio di macchine movimento terra, tecnologia di movimentazione dei materiali, gru a torre, tecnologia di cemento, macchine di fondazione profonde e gru mobili e crawler in Svizzera. Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Svizzera (CH) Contatta Susanne Sulzer 062 785 82 00",
+        "de": "Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre Online-Bewerbung. Wenn Sie Fragen haben, kontaktieren Sie bitte Susanne Sulzer. Eine Leidenschaft. Viele Möglichkeiten. Die Firma Liebherr-Baumaschinen AG mit Sitz in Reiden (Schweiz) ist für den Vertrieb und Service von Erdbewegungsmaschinen, Materialfördertechnik, Turmdrehkranen, Betontechnik, Tiefbaumaschinen sowie Mobil- und Raupenkranen in der Schweiz verantwortlich. Standort Liebherr-Baumaschinen AG Industriestraße 18 6260 Reiden Schweiz (CH) Kontakt Susanne Sulzer 062 785 82 00",
+        "fr": "Avons-nous réveillé votre intérêt ? Ensuite, nous nous réjouissons de recevoir votre demande en ligne. Si vous avez des questions, veuillez contacter Susanne Sulzer. Une passion. De nombreuses possibilités. La société Liebherr-Baumaschinen AG, basée à Reiden (Suisse), est responsable de la vente et du service des machines de terrassement, de la technologie de manutention des matériaux, des grues à tour, de la technologie du béton, des machines de fondation profondes ainsi que des grues mobiles et rampeuses en Suisse. Lieu Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Suisse (CH) Contacter Susanne Sulzer 062 785 82 00"
       },
       "location": "Reiden",
       "canton": "LU",
@@ -40,7 +44,9 @@
       "requirements": [],
       "requirementsByLocale": {
         "en": []
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "liebherr-80754efea8a1",
@@ -163,7 +169,12 @@
       "previousSlugs": [
         "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle",
         "giovani-talenti-preparazione-del-lavoro-motori-di-combustione-m-f-x-liebherr-bulle",
-        "giovani-talenti-preparazione-al-lavoro-motori-a-combustione-m-f-x-liebherr-bulle"
+        "giovani-talenti-preparazione-al-lavoro-motori-a-combustione-m-f-x-liebherr-bulle",
+        "young-talent-acquisisci-motori-di-combustione-m-w-x-liebherr-bulle",
+        "young-talent-purchasing-combustion-engines-m-w-x-liebherr-bulle",
+        "young-talent-einkauf-von-verbrennungsmotoren-m-w-x-liebherr-bulle",
+        "giovani-talenti-acquisizione-di-motori-di-combustione-m-w-x-liebherr-bulle",
+        "jeunes-talents-achat-de-moteurs-a-combustion-m-w-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -319,7 +330,7 @@
       "slugByLocale": {
         "it": "meccanico-diagnostico-m-f-x-liebherr-bulle",
         "en": "diagnostic-mechanic-m-f-x-liebherr-bulle",
-        "de": "diagnostiker-mechaniker-m-f-x-liebherr-bulle",
+        "de": "warranty-investigation-technician-m-w-d-liebherr-bulle",
         "fr": "mecanicien-de-diagnostic-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -389,7 +400,7 @@
       "slug": "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle",
       "slugByLocale": {
         "it": "diagnostica-meccatronica-tecnica-m-f-x-liebherr-bulle",
-        "en": "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle",
+        "en": "warranty-investigation-technician-m-f-x-liebherr-bulle",
         "de": "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle",
         "fr": "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle"
       },
@@ -696,7 +707,10 @@
       "jobReqId": "1406546633",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-19T22:09:42.724Z"
+      "firstSeenAt": "2026-06-19T22:09:42.724Z",
+      "previousSlugs": [
+        "head-of-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-d7d6f506f853",
@@ -748,7 +762,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-of-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle",
-        "capo-del-governo-della-sicurezza-dell-informazione-del-rischio-e-della-conformita-m-w-d-liebherr-bulle"
+        "capo-del-governo-della-sicurezza-dell-informazione-del-rischio-e-della-conformita-m-w-d-liebherr-bulle",
+        "responsable-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1014,7 +1029,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle",
-        "team-leader-validazione-della-funzione-m-f-x-liebherr-bulle"
+        "team-leader-validazione-della-funzione-m-f-x-liebherr-bulle",
+        "team-leader-testing-m-f-x-liebherr-bulle",
+        "team-leader-function-validation-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1170,7 +1187,7 @@
       "slug": "team-leader-testing-m-f-x-liebherr-bulle",
       "slugByLocale": {
         "it": "capo-squadra-function-validation-m-f-x-liebherr-bulle",
-        "en": "team-leader-testing-m-f-x-liebherr-bulle",
+        "en": "team-leader-function-validation-m-f-x-liebherr-bulle",
         "de": "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle",
         "fr": "chef-d-equipe-validation-des-fonctions-m-f-x-liebherr-bulle"
       },
@@ -1233,7 +1250,8 @@
       "previousSlugs": [
         "team-leader-testing-m-f-x-liebherr-bulle",
         "team-leader-function-validation-m-f-x-liebherr-bulle",
-        "capo-squadra-function-validation-m-f-x-liebherr-bulle"
+        "capo-squadra-function-validation-m-f-x-liebherr-bulle",
+        "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-15T14:48:44.629Z"
     },
@@ -1485,7 +1503,10 @@
           "You have good skills in TIG / MAG welding / as well as brazing"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:08.317Z"
+      "firstSeenAt": "2026-06-10T09:03:08.317Z",
+      "previousSlugs": [
+        "serrurier-constructeur-metallique-h-f-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-907dde86c03b",
@@ -3453,7 +3474,8 @@
       },
       "previousSlugs": [
         "ingenieur-de-production-dmu-h-f-x-liebherr-bulle",
-        "ingegnere-di-produzione-dmu-h-f-x-liebherr-bulle"
+        "ingegnere-di-produzione-dmu-h-f-x-liebherr-bulle",
+        "ingegnere-di-produzione-dmu-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
