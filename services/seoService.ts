@@ -4414,6 +4414,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ascensori-steinach-lavoro-svizzera': { name: 'Lavoro Ascensori', path: '/articoli-svizzera/ascensori-steinach-lavoro-svizzera/', parent: 'blog' },
     'blog-prezzi-pizza-italia-implicazioni': { name: 'Analisi prezzi', path: '/articoli-svizzera/prezzi-pizza-italia-implicazioni/', parent: 'blog' },
     'blog-pemsa-lugano-servizi-frontalieri': { name: 'Pemsa Lugano', path: '/articoli-frontaliere/pemsa-lugano-servizi-frontalieri', parent: 'blog' },
+    'blog-autovelox-ticino-introiti-frontalieri': { name: 'Autovelox Ticino', path: '/articoli-svizzera/autovelox-ticino-introiti-frontalieri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

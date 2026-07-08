@@ -949,6 +949,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prezzi-pizza-italia-implicazioni.title': 'Pizzapreise in Italien: Analyse und Auswirkungen auf die Lebenshaltungskosten',
     'blog.article.prezzi-pizza-italia-implicazioni.excerpt': 'Analyse der Entwicklung der Pizzapreise in Italien und der Auswirkungen für diejenigen, die ihr Budget zwischen der Schweiz und Italien verwalten.',
     'blog.article.prezzi-pizza-italia-implicazioni.imageAlt': 'Traditionelle italienische Pizza serviert in einem Restaurant.',
+    'blog.article.autovelox-ticino-introiti-frontalieri.title': 'Tessiner Blitzer: Einnahmen verzehnfacht, 60% sind Italiener',
+    'blog.article.autovelox-ticino-introiti-frontalieri.excerpt': 'Die Straßensanktionen im Tessin verzeichnen einen deutlichen Anstieg der Einnahmen: 60% der bestraften Fahrer sind in Italien ansässig.',
+    'blog.article.autovelox-ticino-introiti-frontalieri.imageAlt': 'Blitzer-Anlage an einer Tessiner Straße',
 };
 
 export default blogMetaChDe;

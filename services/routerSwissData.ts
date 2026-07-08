@@ -339,6 +339,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'pflegefachfrau-frontalieri-basel': { it: 'pflegefachfrau-frontalieri-basel', en: 'nursing-specialist-cross-border-workers-basel', de: 'pflegefachfrau-frontalieri-basel', fr: 'infirmiere-frontalier-basel' },
  'ascensori-steinach-lavoro-svizzera': { it: 'ascensori-steinach-lavoro-svizzera', en: 'elevators-steinach-swiss-jobs', de: 'aufzuege-steinach-schweiz-arbeit', fr: 'ascenseurs-steinach-travail-suisse' },
  'prezzi-pizza-italia-implicazioni': { it: 'prezzi-pizza-italia-implicazioni', en: 'pizza-prices-italy-analysis', de: 'pizzapreise-italien-analyse', fr: 'prix-pizza-italie-analyse' },
+ 'autovelox-ticino-introiti-frontalieri': { it: 'autovelox-ticino-introiti-frontalieri', en: 'ticino-speed-cameras-revenue', de: 'tessin-blitzer-einnahmen', fr: 'tessin-radars-recettes' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

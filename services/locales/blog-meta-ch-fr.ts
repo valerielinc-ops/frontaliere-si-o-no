@@ -949,6 +949,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prezzi-pizza-italia-implicazioni.title': 'Prix des pizzas en Italie : analyse et impact sur le coût de la vie',
     'blog.article.prezzi-pizza-italia-implicazioni.excerpt': 'Analyse de l\'évolution des prix de la pizza en Italie et des implications pour ceux qui gèrent leur budget entre la Suisse et l\'Italie.',
     'blog.article.prezzi-pizza-italia-implicazioni.imageAlt': 'Pizza italienne traditionnelle servie dans un restaurant.',
+    'blog.article.autovelox-ticino-introiti-frontalieri.title': 'Radars tessinois : revenus décuplés, 60 % sont italiens',
+    'blog.article.autovelox-ticino-introiti-frontalieri.excerpt': 'Les sanctions routières au Tessin enregistrent une nette augmentation des revenus : 60 % des conducteurs sanctionnés résident en Italie.',
+    'blog.article.autovelox-ticino-introiti-frontalieri.imageAlt': 'Radar de contrôle de vitesse sur une route tessinoise',
 };
 
 export default blogMetaChFr;

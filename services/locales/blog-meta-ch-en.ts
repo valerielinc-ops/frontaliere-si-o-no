@@ -949,6 +949,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prezzi-pizza-italia-implicazioni.title': 'Pizza prices in Italy: analysis and impact on the cost of living',
     'blog.article.prezzi-pizza-italia-implicazioni.excerpt': 'Analysis of the trend of pizza prices in Italy and the implications for those who manage their budget between Switzerland and Italy.',
     'blog.article.prezzi-pizza-italia-implicazioni.imageAlt': 'Traditional Italian pizza served in a restaurant.',
+    'blog.article.autovelox-ticino-introiti-frontalieri.title': 'Ticino speed cameras: tenfold revenue, 60% are Italian',
+    'blog.article.autovelox-ticino-introiti-frontalieri.excerpt': 'Traffic fines in Ticino show a clear increase in revenues: 60% of the drivers fined are resident in Italy.',
+    'blog.article.autovelox-ticino-introiti-frontalieri.imageAlt': 'Speed camera installation on a Ticino road',
 };
 
 export default blogMetaChEn;
