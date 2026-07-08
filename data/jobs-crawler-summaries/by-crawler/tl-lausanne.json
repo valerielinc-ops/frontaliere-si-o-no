@@ -1,18 +1,57 @@
 {
   "key": "tl-lausanne",
   "label": "tl (Transports publics de la région lausannoise)",
-  "generatedAt": "2026-07-07T12:00:11.369Z",
+  "generatedAt": "2026-07-08T11:21:43.558Z",
   "total": 5,
-  "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 6659,
-  "avgDurationMs": 6659,
+  "newCount": 1,
+  "updatedCount": 4,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6996,
+  "avgDurationMs": 6996,
   "durationHistory": [
-    6659
+    6996
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "tl-lausanne-a5136e497189",
+      "slug": "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-lausanne-lausanne",
+      "company": "tl (Transports publics de la région lausannoise)",
+      "companyKey": "tl-lausanne",
+      "companyDomain": "t-l.ch",
+      "title": "Spécialiste planification des projets d'infrastructures et bâtiments",
+      "needsRetranslation": false,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://carrieres.t-l.ch/job/Lausanne-Sp%C3%A9cialiste-planification-des-projets-d&apos;infrastructures-et-b%C3%A2timents/1409785733/",
+      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-08T11:21:39.877Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1020",
+      "category": "Trasporto pubblico urbano (TPL)",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Trasporto pubblico urbano (TPL)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-30",
+      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1409785733/?locale=fr_FR",
+      "streetAddress": "Chemin du Closel 15-17",
+      "firstSeenAt": "2026-07-04T12:29:32.758Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "tl-lausanne-38634709f562",
@@ -27,7 +66,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Responsable-de-march%C3%A9-client%C3%A8le-priv%C3%A9e-%28B2C%29/1411888033/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:00:06.709Z",
+      "crawledAt": "2026-07-08T11:21:38.688Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -43,6 +82,7 @@
       "postedDate": "2026-07-06",
       "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1411888033/?locale=fr_FR",
       "streetAddress": "Chemin du Closel 15-17",
+      "firstSeenAt": "2026-07-07T12:00:06.709Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -50,10 +90,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "tl-lausanne-89a5b0ee385c",
       "slug": "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne",
@@ -67,7 +104,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Conductrices-et-conducteurs-de-bus-et-trolleybus/1281245901/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:00:07.396Z",
+      "crawledAt": "2026-07-08T11:21:39.291Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -93,44 +130,6 @@
       }
     },
     {
-      "id": "tl-lausanne-a5136e497189",
-      "slug": "specialiste-planification-des-projets-d-infrastructures-et-batiments-tl-lausanne-lausanne",
-      "company": "tl (Transports publics de la région lausannoise)",
-      "companyKey": "tl-lausanne",
-      "companyDomain": "t-l.ch",
-      "title": "Spécialiste planification des projets d'infrastructures et bâtiments",
-      "needsRetranslation": false,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://carrieres.t-l.ch/job/Lausanne-Sp%C3%A9cialiste-planification-des-projets-d&apos;infrastructures-et-b%C3%A2timents/1409785733/",
-      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:00:08.168Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1020",
-      "category": "Trasporto pubblico urbano (TPL)",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Trasporto pubblico urbano (TPL)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-30",
-      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1409785733/?locale=fr_FR",
-      "streetAddress": "Chemin du Closel 15-17",
-      "firstSeenAt": "2026-07-04T12:29:32.758Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
       "id": "tl-lausanne-420730b1cc49",
       "slug": "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
       "company": "tl (Transports publics de la région lausannoise)",
@@ -143,7 +142,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-M%C3%A9canicien%C2%B7ne%C2%B7s-de-train-pour-la-ligne-du-LEB/1409361233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:00:08.801Z",
+      "crawledAt": "2026-07-08T11:21:40.456Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -181,7 +180,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Technicien%C2%B7ne-maintenance-route-%28M%C3%A9catronicien%C2%B7ne-M%C3%A9canicien%C2%B7ne%29/1402725233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:00:09.561Z",
+      "crawledAt": "2026-07-08T11:21:41.038Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -206,5 +205,48 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "removedJobs": [
+    {
+      "id": "tl-lausanne-a5136e497189",
+      "slug": "infrastrutture-e-progetti-di-costruzione-tl-transports-publics-de-la-region-lausannoise-lausanne",
+      "company": "tl (Transports publics de la région lausannoise)",
+      "companyKey": "tl-lausanne",
+      "companyDomain": "t-l.ch",
+      "title": "Spécialiste planification des projets d'infrastructures et bâtiments",
+      "needsRetranslation": false,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://carrieres.t-l.ch/job/Lausanne-Sp%C3%A9cialiste-planification-des-projets-d'infrastructures-et-b%C3%A2timents/1409785733/",
+      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-07T12:00:08.168Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1020",
+      "category": "Trasporto pubblico urbano (TPL)",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Trasporto pubblico urbano (TPL)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-30",
+      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1409785733/?locale=fr_FR",
+      "streetAddress": "Chemin du Closel 15-17",
+      "firstSeenAt": "2026-07-04T12:29:32.758Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "unchangedJobs": []
 }
