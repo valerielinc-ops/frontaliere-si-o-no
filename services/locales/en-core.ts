@@ -3450,6 +3450,10 @@ Rules:
   'survey.feature.thanks.title': 'Thank you!',
   'survey.feature.thanks.body': 'Your feedback helps us improve.',
 
+  'whatsNew.v3590.title': 'Ad-free subscription revamped',
+  'whatsNew.v3590.subscribeRedesign.title': 'New subscription page and AdBlock popup design',
+  'whatsNew.v3590.subscribeRedesign.desc': 'Redesigned subscription page and AdBlock popup: standard sign-in (email, Google, LinkedIn), consistent site-wide look, and full interaction tracking.',
+
   'whatsNew.v3580.title': 'New cross-border tax guide',
   'whatsNew.v3580.taxHub.title': 'Complete tax guide for cross-border workers',
   'whatsNew.v3580.taxHub.desc': 'New /en/cross-border-guide/taxation/ page covering withholding tax, the new Italy-Switzerland tax agreement, old vs new cross-border worker differences, double taxation and deductible allowances.',

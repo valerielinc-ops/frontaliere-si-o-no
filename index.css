@@ -854,6 +854,26 @@ input[type=number] { -moz-appearance: textfield; }
     70%  { opacity: 1; transform: translateY(2px); }
     100% { opacity: 0; transform: translateY(8px); }
   }
+
+  /* Premium gate/panel entrance (AdBlockGate popup, #3654 redesign) — slide-up
+     + scale + fade with an ease-out-expo curve. Reads as "spring" (fast start,
+     soft settle) without the overshoot/bounce of a real spring/elastic easing,
+     which the site's design guidelines flag as dated. */
+  --animate-gate-in: gate-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes gate-in {
+    0%   { opacity: 0; transform: translateY(24px) scale(0.97); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* Primary CTA pulse (subscribe buttons) — a slow, low-amplitude glow pulse
+     that draws the eye without feeling like a spinner or an alert. */
+  --animate-cta-pulse: cta-pulse 2.4s ease-in-out infinite;
+
+  @keyframes cta-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 45%, transparent); }
+    50%      { box-shadow: 0 0 0 10px color-mix(in srgb, var(--color-accent) 0%, transparent); }
+  }
 }
 
 /* Print styles */
@@ -906,6 +926,50 @@ input[type=number] { -moz-appearance: textfield; }
 @keyframes job-loader-shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+}
+
+/* ── Primary subscribe CTA sheen (AdBlockGate + SubscribePage, #3654/#3655
+   redesign) — same sweep technique as job-loader-shimmer, applied to the
+   "Abbonati" buttons so the primary action reads as alive/premium rather
+   than a flat filled rectangle. Needs `position: relative; overflow: hidden`
+   on the button itself; this pseudo-element carries the sweep. */
+.cta-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.cta-sheen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    color-mix(in srgb, white 35%, transparent) 50%,
+    transparent 80%
+  );
+  transform: translateX(-100%);
+  animation: job-loader-shimmer 3.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-sheen::after { animation: none; }
+}
+
+/* ── Scroll-reveal (SubscribePage redesign, #3655) — fade+rise on entering
+   viewport, class toggled by an IntersectionObserver in the component
+   (falls back to immediately visible if IO is unavailable, so content is
+   never permanently hidden by a JS failure). Reduced-motion: no transform,
+   fade only. */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scroll-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal { transform: none; transition: opacity 0.3s ease-out; }
 }
 
 /* ── SEO card atoms (job-card + employer-card) ──
