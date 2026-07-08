@@ -2413,11 +2413,26 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
     // body. Let HEAD fall through to the generic proxied fetch below, which keeps
     // the original method.
     if (canRetry && upperMethod === 'GET') {
-      return await fetchViaJinaWithRetry(url, { timeoutMs: REQUEST_TIMEOUT_MS });
+      const jinaRes = await fetchViaJinaWithRetry(url, { timeoutMs: REQUEST_TIMEOUT_MS });
+      if (jinaRes.ok) return jinaRes;
+      // Every Jina egress IP tried was still blocked/erroring (#3797 recurrence,
+      // 2026-07-07: all 4 cambiavalute.ch detail pages silently dropped this way
+      // in one CI run — zero log trace, even though a plain direct fetch worked
+      // fine for discovery in that SAME run and reproduced locally afterwards).
+      // A degraded/rate-limited proxy pool must not be a harder failure mode than
+      // no proxy at all, so fall through to the direct-fetch retry loop below
+      // (targetUrl/proxyHeaders are left at their unproxied defaults — do NOT
+      // route this fallback through jinaProxiedRequest, or it just re-hits the
+      // same exhausted proxy path). Logged so a future recurrence is diagnosable
+      // from CI output alone (previously this path was completely silent — the
+      // caller's `if (!res.ok) continue` masked it entirely).
+      const jinaFailReason = jinaRes.headers.get('x-jina-retry-reason') || `HTTP ${jinaRes.status}`;
+      console.warn(`⚠️ Jina proxy exhausted for ${url} (${jinaFailReason}) — falling back to direct fetch.`);
+    } else {
+      const proxied = jinaProxiedRequest(url);
+      targetUrl = proxied.url;
+      proxyHeaders = proxied.headers;
     }
-    const proxied = jinaProxiedRequest(url);
-    targetUrl = proxied.url;
-    proxyHeaders = proxied.headers;
   }
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
@@ -5738,6 +5753,7 @@ export { main as runSharedCrawlerPipeline };
 // in-memory Map that must be reset between test cases (#3080).
 export const __testables = {
   aiValidateJobDetailPage,
+  fetchWithTimeout,
   setCrawlerConfigForTests(cfg) { crawlerConfigGlobal = cfg; },
   clearAiResponseCacheForTests() { aiResponseCache.clear(); },
   persistAiCacheToDisk,
