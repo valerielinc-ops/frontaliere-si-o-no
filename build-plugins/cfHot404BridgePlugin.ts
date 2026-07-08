@@ -53,16 +53,21 @@ const SEARCH_CLUSTER_LEGACY_SET = new Set(
 // real CF-confirmed 404 universe — a time-sliced sweep (build-cf-hot-404s.mjs,
 // 48×1h windows summed) measures ~50k accumulated ≥2-hit paths and ~134k
 // distinct ever-swept, so 40k left tens of thousands of real-traffic 404s
-// unrecovered. The emit is STREAMING (mkdir + writeFileSync per path, no HTML
-// in heap; only the {path,hits} array is retained), so the real cost is inode
-// count (~2 per bridge): even the full ~134k universe ≈ 268k inodes on top of
+// unrecovered. The 250k cap that replaced it hit the SAME failure mode by
+// 2026-07-07 (accumulator grew 181k→236k in 6 days, ~11-14k/day and
+// accelerating — real job-market churn, not a runaway) — ~13.6k headroom left
+// against ~13k/day growth meant the next daily sweep would start silently
+// dropping fresh orphans. The emit is STREAMING (mkdir + writeFileSync per
+// path, no HTML in heap; only the {path,hits} array is retained), so the real
+// cost is inode count (~2 per bridge): even 500k paths ≈ 1M inodes on top of
 // the ~327k-file IT shard, far under the ~2.3M Pages disk ceiling. So this rail
 // is raised to a ceiling that sits ABOVE the measured universe (a true cap only
 // against a degraded/hand-edited data file or a runaway), env-tunable for
 // backfill. Kept in lockstep with scripts/build-cf-hot-404s.mjs's MAX_PATHS —
 // change BOTH together. SSG-memory is not measurable pre-merge: revert-trigger
 // declared in the PR body (revert if the next deploy OOMs or wall-time regresses).
-const MAX_EMIT = Number(process.env.CF_HOT_404_MAX) || 250000;
+// Revisit if growth doesn't taper (this rail will bite again).
+const MAX_EMIT = Number(process.env.CF_HOT_404_MAX) || 500000;
 
 const withSlash = (p: string): string => (p.endsWith('/') ? p : `${p}/`);
 
