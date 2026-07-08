@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "novelis-c7cf8d2f877c",
-      "slug": "electricien-automaticien-novelis-ch",
+      "slug": "elettricista-automatico-novelis-sierre",
       "slugByLocale": {
         "fr": "electricien-automaticien-novelis-ch",
-        "it": "electricien-automaticien-novelis-ch",
-        "en": "electricien-automaticien-novelis-ch",
-        "de": "electricien-automaticien-novelis-ch"
+        "it": "elettricista-automatico-novelis-sierre",
+        "en": "electrician-automatician-novelis-sierre",
+        "de": "elektriker-automatiker-novelis-sierre"
       },
       "company": "Novelis",
       "companyKey": "novelis",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:23:15.394Z"
+      "firstSeenAt": "2026-07-08T11:23:15.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "electricien-automaticien-novelis-ch"
+        ],
+        "en": [
+          "electricien-automaticien-novelis-ch"
+        ],
+        "de": [
+          "electricien-automaticien-novelis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "electricien-automaticien-novelis-ch"
+      ]
     },
     {
       "id": "novelis-2194e46864f0",
@@ -260,12 +274,12 @@
     },
     {
       "id": "novelis-5aef95504fa2",
-      "slug": "site-manager-novelis-ch",
+      "slug": "responsabile-del-sito-novelis-sierre",
       "slugByLocale": {
         "en": "site-manager-novelis-ch",
-        "it": "site-manager-novelis-ch",
+        "it": "responsabile-del-sito-novelis-sierre",
         "de": "site-manager-novelis-ch",
-        "fr": "site-manager-novelis-ch"
+        "fr": "gestionnaire-de-site-novelis-sierre"
       },
       "company": "Novelis",
       "companyKey": "novelis",
@@ -320,14 +334,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:23:12.859Z"
+      "firstSeenAt": "2026-07-08T11:23:12.859Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "site-manager-novelis-ch"
+        ],
+        "fr": [
+          "site-manager-novelis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "site-manager-novelis-ch"
+      ]
     },
     {
       "id": "novelis-bb9e1719bb7d",
-      "slug": "site-ehs-manager-novelis-ch",
+      "slug": "responsabile-del-sito-ehs-novelis-sierre",
       "slugByLocale": {
         "en": "site-ehs-manager-novelis-ch",
-        "it": "site-ehs-manager-novelis-ch",
+        "it": "responsabile-del-sito-ehs-novelis-sierre",
         "de": "site-ehs-manager-novelis-ch",
         "fr": "site-ehs-manager-novelis-ch"
       },
@@ -384,7 +409,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:23:12.256Z"
+      "firstSeenAt": "2026-07-08T11:23:12.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "site-ehs-manager-novelis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "site-ehs-manager-novelis-ch"
+      ]
     },
     {
       "id": "novelis-a1e0b3dd23e1",
@@ -452,12 +485,12 @@
     },
     {
       "id": "novelis-530b52d7a59c",
-      "slug": "stagiaire-novelis-ch",
+      "slug": "allenatore-novelis-sierre",
       "slugByLocale": {
         "fr": "stagiaire-novelis-ch",
-        "it": "stagiaire-novelis-ch",
-        "en": "stagiaire-novelis-ch",
-        "de": "stagiaire-novelis-ch"
+        "it": "allenatore-novelis-sierre",
+        "en": "trainee-novelis-sierre",
+        "de": "auszubildende-novelis-sierre"
       },
       "company": "Novelis",
       "companyKey": "novelis",
@@ -512,16 +545,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:23:10.893Z"
+      "firstSeenAt": "2026-07-08T11:23:10.893Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-novelis-ch"
+        ],
+        "en": [
+          "stagiaire-novelis-ch"
+        ],
+        "de": [
+          "stagiaire-novelis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-novelis-ch"
+      ]
     },
     {
       "id": "novelis-5b757d99709d",
-      "slug": "internship-m-f-d-human-resources-60-80-novelis-ch",
+      "slug": "internship-m-f-d-risorse-umane-60-80-novelis-kusnacht",
       "slugByLocale": {
         "en": "internship-m-f-d-human-resources-60-80-novelis-ch",
-        "it": "internship-m-f-d-human-resources-60-80-novelis-ch",
-        "de": "internship-m-f-d-human-resources-60-80-novelis-ch",
-        "fr": "internship-m-f-d-human-resources-60-80-novelis-ch"
+        "it": "internship-m-f-d-risorse-umane-60-80-novelis-kusnacht",
+        "de": "internship-m-f-d-personalwesen-60-80-novelis-kusnacht",
+        "fr": "internship-m-f-d-ressources-humaines-60-80-novelis-kusnacht"
       },
       "company": "Novelis",
       "companyKey": "novelis",
@@ -576,7 +623,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:23:10.202Z"
+      "firstSeenAt": "2026-07-08T11:23:10.202Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-m-f-d-human-resources-60-80-novelis-ch"
+        ],
+        "de": [
+          "internship-m-f-d-human-resources-60-80-novelis-ch"
+        ],
+        "fr": [
+          "internship-m-f-d-human-resources-60-80-novelis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-m-f-d-human-resources-60-80-novelis-ch"
+      ]
     },
     {
       "id": "novelis-718525816dcd",
@@ -585,7 +646,7 @@
         "en": "manager-m-f-d-finance-digital-transformation-business-projects-novelis-ch",
         "it": "manager-m-f-d-finance-digital-transformation-business-projects-novelis-ch",
         "de": "manager-m-f-d-finance-digital-transformation-business-projects-novelis-ch",
-        "fr": "manager-m-f-d-finance-digital-transformation-business-projects-novelis-ch"
+        "fr": "gestionnaire-m-f-d-finances-transformation-numerique-et-projets-operationnels-novelis-kusnacht"
       },
       "company": "Novelis",
       "companyKey": "novelis",
@@ -644,12 +705,12 @@
     },
     {
       "id": "novelis-afad27588e25",
-      "slug": "stagiaire-communication-visuelle-novelis-ch",
+      "slug": "intern-comunicazione-visiva-novelis-sierre",
       "slugByLocale": {
         "fr": "stagiaire-communication-visuelle-novelis-ch",
-        "it": "stagiaire-communication-visuelle-novelis-ch",
-        "en": "stagiaire-communication-visuelle-novelis-ch",
-        "de": "stagiaire-communication-visuelle-novelis-ch"
+        "it": "intern-comunicazione-visiva-novelis-sierre",
+        "en": "intern-visual-communication-novelis-sierre",
+        "de": "interne-visuelle-kommunikation-novelis-sierre"
       },
       "company": "Novelis",
       "companyKey": "novelis",
@@ -704,7 +765,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:23:08.808Z"
+      "firstSeenAt": "2026-07-08T11:23:08.808Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-communication-visuelle-novelis-ch"
+        ],
+        "en": [
+          "stagiaire-communication-visuelle-novelis-ch"
+        ],
+        "de": [
+          "stagiaire-communication-visuelle-novelis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-communication-visuelle-novelis-ch"
+      ]
     }
   ]
 }

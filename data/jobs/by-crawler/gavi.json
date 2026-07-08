@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "gavi-b31ca3ea2bb5",
-      "slug": "head-financial-planning-analysis-gavi-le-grand-saconnex",
+      "slug": "capo-pianificazione-finanziaria-e-analisi-gavi-the-vaccine-alliance-le-grand-saconnex",
       "slugByLocale": {
         "en": "head-financial-planning-analysis-gavi-le-grand-saconnex",
-        "it": "head-financial-planning-analysis-gavi-le-grand-saconnex",
-        "de": "head-financial-planning-analysis-gavi-le-grand-saconnex",
-        "fr": "head-financial-planning-analysis-gavi-le-grand-saconnex"
+        "it": "capo-pianificazione-finanziaria-e-analisi-gavi-the-vaccine-alliance-le-grand-saconnex",
+        "de": "leiter-finanzplanung-analyse-gavi-the-vaccine-alliance-le-grand-saconnex",
+        "fr": "chef-planification-financiere-et-analyse-gavi-the-vaccine-alliance-le-grand-saconnex"
       },
       "company": "Gavi, the Vaccine Alliance",
       "companyKey": "gavi",
@@ -66,16 +66,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T10:55:29.444Z"
+      "firstSeenAt": "2026-07-08T10:55:29.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-financial-planning-analysis-gavi-le-grand-saconnex"
+        ],
+        "de": [
+          "head-financial-planning-analysis-gavi-le-grand-saconnex"
+        ],
+        "fr": [
+          "head-financial-planning-analysis-gavi-le-grand-saconnex"
+        ]
+      },
+      "previousSlugs": [
+        "head-financial-planning-analysis-gavi-le-grand-saconnex"
+      ]
     },
     {
       "id": "gavi-616f3fe1ac51",
-      "slug": "general-counsel-gavi-le-grand-saconnex",
+      "slug": "consigliere-generale-gavi-the-vaccine-alliance-le-grand-saconnex",
       "slugByLocale": {
         "en": "general-counsel-gavi-le-grand-saconnex",
-        "it": "general-counsel-gavi-le-grand-saconnex",
+        "it": "consigliere-generale-gavi-the-vaccine-alliance-le-grand-saconnex",
         "de": "general-counsel-gavi-le-grand-saconnex",
-        "fr": "general-counsel-gavi-le-grand-saconnex"
+        "fr": "conseiller-general-gavi-the-vaccine-alliance-le-grand-saconnex"
       },
       "company": "Gavi, the Vaccine Alliance",
       "companyKey": "gavi",
@@ -132,7 +146,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T10:55:28.582Z"
+      "firstSeenAt": "2026-07-08T10:55:28.582Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "general-counsel-gavi-le-grand-saconnex"
+        ],
+        "fr": [
+          "general-counsel-gavi-le-grand-saconnex"
+        ]
+      },
+      "previousSlugs": [
+        "general-counsel-gavi-le-grand-saconnex"
+      ]
     },
     {
       "id": "gavi-796684fbd1de",
@@ -141,7 +166,7 @@
         "en": "chief-ethics-risk-compliance-officer-gavi-le-grand-saconnex",
         "it": "chief-ethics-risk-compliance-officer-gavi-le-grand-saconnex",
         "de": "chief-ethics-risk-compliance-officer-gavi-le-grand-saconnex",
-        "fr": "chief-ethics-risk-compliance-officer-gavi-le-grand-saconnex"
+        "fr": "chef-de-l-ethique-des-risques-et-de-la-conformite-gavi-the-vaccine-alliance-le-grand-saconnex"
       },
       "company": "Gavi, the Vaccine Alliance",
       "companyKey": "gavi",

@@ -398,8 +398,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kauffrau-mann-efz-stgag-munsterlingen",
         "it": "apprendistato-come-kauffrau-mann-cfc-spital-thurgau-stgag-munsterlingen",
-        "en": "lehrstelle-als-kauffrau-mann-efz-stgag-munsterlingen",
-        "fr": "lehrstelle-als-kauffrau-mann-efz-stgag-munsterlingen"
+        "en": "apprenticeship-as-a-businesswoman-man-efz-spital-thurgau-stgag-munsterlingen",
+        "fr": "apprentissage-en-tant-que-femme-d-affaires-homme-efz-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -444,6 +444,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-kauffrau-mann-efz-stgag-munsterlingen"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-mann-efz-stgag-munsterlingen"
+        ],
+        "fr": [
           "lehrstelle-als-kauffrau-mann-efz-stgag-munsterlingen"
         ]
       },
@@ -548,8 +554,8 @@
       "slugByLocale": {
         "de": "oberarzt-arztin-mit-facharzttitel-fur-psychiatrie-und-psychotherapie-stgag-munsterlingen",
         "it": "oberarzt-arztin-con-facharzttitel-per-psychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen",
-        "en": "oberarzt-arztin-mit-facharzttitel-fur-psychiatrie-und-psychotherapie-stgag-munsterlingen",
-        "fr": "oberarzt-arztin-mit-facharzttitel-fur-psychiatrie-und-psychotherapie-stgag-munsterlingen"
+        "en": "senior-physician-with-specialist-title-for-psychiatry-and-psychotherapy-spital-thurgau-stgag-munsterlingen",
+        "fr": "medecin-principal-ayant-le-titre-de-specialiste-en-psychiatrie-et-en-psychotherapie-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -595,6 +601,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-arztin-mit-facharzttitel-fur-psychiatrie-und-psychotherapie-stgag-munsterlingen"
+        ],
+        "en": [
+          "oberarzt-arztin-mit-facharzttitel-fur-psychiatrie-und-psychotherapie-stgag-munsterlingen"
+        ],
+        "fr": [
+          "oberarzt-arztin-mit-facharzttitel-fur-psychiatrie-und-psychotherapie-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
@@ -616,12 +628,12 @@
     },
     {
       "id": "stgag-5d8390aef8eb",
-      "slug": "fachmann-frau-gesundheit-fage-spital-thurgau-stgag-munsterlingen",
+      "slug": "professionista-della-salute-fage-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "fachmann-frau-gesundheit-fage-stgag-munsterlingen",
-        "it": "fachmann-frau-gesundheit-fage-spital-thurgau-stgag-munsterlingen",
-        "en": "fachmann-frau-gesundheit-fage-stgag-munsterlingen",
-        "fr": "fachmann-frau-gesundheit-fage-stgag-munsterlingen"
+        "it": "professionista-della-salute-fage-spital-thurgau-stgag-munsterlingen",
+        "en": "health-professional-fage-spital-thurgau-stgag-munsterlingen",
+        "fr": "professionnels-de-la-sante-fage-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -666,11 +678,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachmann-frau-gesundheit-fage-stgag-munsterlingen",
+          "fachmann-frau-gesundheit-fage-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-fage-stgag-munsterlingen"
+        ],
+        "fr": [
           "fachmann-frau-gesundheit-fage-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "fachmann-frau-gesundheit-fage-stgag-munsterlingen"
+        "fachmann-frau-gesundheit-fage-stgag-munsterlingen",
+        "fachmann-frau-gesundheit-fage-spital-thurgau-stgag-munsterlingen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

@@ -2039,9 +2039,9 @@
     },
     {
       "id": "eth-zurich-662c18b07c5c",
-      "slug": "phd-researcher-bone-organoids-eth-zurich-singapore",
+      "slug": "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore",
       "slugByLocale": {
-        "it": "phd-researcher-bone-organoids-eth-zurich-singapore",
+        "it": "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore",
         "en": "phd-researcher-bone-organoids-eth-zurich-ch",
         "de": "phd-forscher-knochenorganoide-eth-zurich-singapore",
         "fr": "chercheur-au-doctorat-organoides-oses-eth-zurich-singapore"
@@ -2086,13 +2086,13 @@
       "previousSlugs": [
         "ricercatore-di-dottorato-organoidi-ossei-eth-zurich-singapore",
         "phd-researcher-bone-organoids-eth-zurich-ch",
-        "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore"
+        "phd-researcher-bone-organoids-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-di-dottorato-organoidi-ossei-eth-zurich-singapore",
           "phd-researcher-bone-organoids-eth-zurich-ch",
-          "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore"
+          "phd-researcher-bone-organoids-eth-zurich-singapore"
         ]
       },
       "needsRetranslation": true,
@@ -6414,7 +6414,7 @@
         "it": "assistente-scientifico-eth-zurich-zurich",
         "en": "scientific-assistant-eth-zurich-ch",
         "de": "scientific-assistent-eth-zurich-zurich",
-        "fr": "scientific-assistant-eth-zurich-zurich"
+        "fr": "assistant-scientifique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -6455,14 +6455,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "scientific-assistant-eth-zurich-ch",
-        "assistant-scientifique-eth-zurich-zurich"
+        "scientific-assistant-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "scientific-assistant-eth-zurich-ch"
         ],
         "fr": [
-          "assistant-scientifique-eth-zurich-zurich"
+          "scientific-assistant-eth-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-07-06T13:42:42.211Z",
@@ -7202,12 +7202,12 @@
     },
     {
       "id": "eth-zurich-dead153f3ae4",
-      "slug": "postdoctoral-researcher-forest-management-and-economics-eth-zurich-ch",
+      "slug": "ricercatore-post-dottorato-gestione-forestale-ed-economia-eth-zurich-zurich",
       "slugByLocale": {
         "en": "postdoctoral-researcher-forest-management-and-economics-eth-zurich-ch",
-        "it": "postdoctoral-researcher-forest-management-and-economics-eth-zurich-ch",
-        "de": "postdoctoral-researcher-forest-management-and-economics-eth-zurich-ch",
-        "fr": "postdoctoral-researcher-forest-management-and-economics-eth-zurich-ch"
+        "it": "ricercatore-post-dottorato-gestione-forestale-ed-economia-eth-zurich-zurich",
+        "de": "postdoktorandin-forstwirtschaft-und-wirtschaft-eth-zurich-zurich",
+        "fr": "chercheur-postdoctoral-gestion-forestiere-et-economie-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7261,16 +7261,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-08T11:21:58.011Z"
+      "firstSeenAt": "2026-07-08T11:21:58.011Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-forest-management-and-economics-eth-zurich-ch"
+        ],
+        "de": [
+          "postdoctoral-researcher-forest-management-and-economics-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoctoral-researcher-forest-management-and-economics-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-forest-management-and-economics-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-2e0b90433016",
-      "slug": "koordinator-in-forschungs-industrieintegration-m-w-d-eth-zurich-ch",
+      "slug": "coordinatore-in-ricerca-integrazione-industriale-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "koordinator-in-forschungs-industrieintegration-m-w-d-eth-zurich-ch",
-        "it": "koordinator-in-forschungs-industrieintegration-m-w-d-eth-zurich-ch",
-        "en": "koordinator-in-forschungs-industrieintegration-m-w-d-eth-zurich-ch",
-        "fr": "koordinator-in-forschungs-industrieintegration-m-w-d-eth-zurich-ch"
+        "it": "coordinatore-in-ricerca-integrazione-industriale-m-f-d-eth-zurich-zurich",
+        "en": "coordinator-in-research-industrial-integration-m-f-d-eth-zurich-zurich",
+        "fr": "coordinateur-recherche-et-integration-industrielle-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7324,13 +7338,27 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-08T11:21:57.538Z"
+      "firstSeenAt": "2026-07-08T11:21:57.538Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koordinator-in-forschungs-industrieintegration-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "koordinator-in-forschungs-industrieintegration-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "koordinator-in-forschungs-industrieintegration-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "koordinator-in-forschungs-industrieintegration-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-ecd9fd3077f4",
-      "slug": "postdoctoral-researcher-bone-organoids-eth-zurich-singapore",
+      "slug": "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore",
       "slugByLocale": {
-        "it": "postdoctoral-researcher-bone-organoids-eth-zurich-singapore",
+        "it": "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore",
         "en": "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
         "de": "postdoktorandin-knochenorganoide-eth-zurich-singapore",
         "fr": "chercheur-postdoctoral-organoides-osseux-eth-zurich-singapore"
@@ -7375,13 +7403,13 @@
       "previousSlugs": [
         "ricercatore-post-dottorato-organoidi-ossei-eth-zurich-singapore",
         "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
-        "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore"
+        "postdoctoral-researcher-bone-organoids-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-organoidi-ossei-eth-zurich-singapore",
           "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
-          "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore"
+          "postdoctoral-researcher-bone-organoids-eth-zurich-singapore"
         ]
       },
       "firstSeenAt": "2026-06-09T22:21:27.031Z",

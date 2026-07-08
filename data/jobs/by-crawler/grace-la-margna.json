@@ -41,7 +41,7 @@
         "it": "assistente-cameriere-cameriera-m-w-sii-l-eroe-del-ristorante-grace-la-margna-st-moritz-st-moritz",
         "en": "assistant-waiter-waitress-m-w-be-the-hero-in-the-restaurant",
         "de": "assistent-waiter-waitress-m-w-be-the-hero-in-the-restaurant-grace-la-margna-st-moritz-st-moritz",
-        "fr": "assistant-waiter-waitress-m-w-be-the-hero-in-the-restaurant"
+        "fr": "assistant-serveur-serveuse-m-w-etre-le-heros-dans-le-restaurant-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
       "crawledAt": "2026-07-08T11:20:25.119Z",
@@ -64,15 +64,13 @@
       "firstSeenAt": "2026-05-27T08:26:43.300Z",
       "previousSlugs": [
         "assistente-cameriere-cameriera-m-w-essere-l-eroe-nel-ristorante-grace-la-margna-st-moritz-st-moritz",
-        "assistant-waiter-waitress-m-w-be-the-hero-in-the-restaurant",
-        "assistant-serveur-serveuse-m-w-etre-le-heros-dans-le-restaurant-grace-la-margna-st-moritz-st-moritz"
+        "assistant-waiter-waitress-m-w-be-the-hero-in-the-restaurant"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-waiter-waitress-m-w-be-the-hero-in-the-restaurant"
         ],
         "fr": [
-          "assistant-serveur-serveuse-m-w-etre-le-heros-dans-le-restaurant-grace-la-margna-st-moritz-st-moritz",
           "assistant-waiter-waitress-m-w-be-the-hero-in-the-restaurant"
         ],
         "de": [
@@ -193,7 +191,7 @@
       "slugByLocale": {
         "it": "chef-de-partie-m-w-when-you-call-kitchen-home",
         "en": "chef-de-partie-m-w-when-you-call-kitchen-home",
-        "de": "chef-de-partie-m-w-when-you-call-kitchen-home-grace-la-margna-st-moritz-st-moritz",
+        "de": "chef-de-partie-m-w-wenn-sie-die-kuche-zu-hause-anrufen-grace-la-margna-st-moritz-st-moritz",
         "fr": "chef-de-partie-m-w-when-you-call-kitchen-home"
       },
       "source": "dedicated-crawler",
@@ -217,18 +215,16 @@
       "firstSeenAt": "2026-06-25T11:15:17.409Z",
       "previousSlugsByLocale": {
         "de": [
-          "chef-de-partie-m-w-wenn-sie-die-kuche-zu-hause-anrufen-grace-la-margna-st-moritz-st-moritz",
           "chef-de-partie-m-w-when-you-call-kitchen-home-grace-la-margna-st-moritz-st-moritz"
         ]
       },
       "previousSlugs": [
-        "chef-de-partie-m-w-wenn-sie-die-kuche-zu-hause-anrufen-grace-la-margna-st-moritz-st-moritz",
         "chef-de-partie-m-w-when-you-call-kitchen-home-grace-la-margna-st-moritz-st-moritz"
       ]
     },
     {
       "title": "Chef Pastry - be the sugar wizard",
-      "slug": "chef-pastry-be-the-sugar-wizard",
+      "slug": "chef-pastry-sii-il-mago-dello-zucchero-grace-la-margna-st-moritz-st-moritz",
       "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/chef-pastry-be-the-sugar-wizard-4006499",
       "applyUrl": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/chef-pastry-be-the-sugar-wizard-4006499",
       "company": "Grace La Margna St. Moritz",
@@ -263,9 +259,9 @@
       },
       "slugByLocale": {
         "en": "chef-pastry-be-the-sugar-wizard",
-        "it": "chef-pastry-be-the-sugar-wizard",
-        "de": "chef-pastry-be-the-sugar-wizard",
-        "fr": "chef-pastry-be-the-sugar-wizard"
+        "it": "chef-pastry-sii-il-mago-dello-zucchero-grace-la-margna-st-moritz-st-moritz",
+        "de": "kochgeback-sei-der-zuckerzauberer-grace-la-margna-st-moritz-st-moritz",
+        "fr": "chef-patissier-soyez-le-magicien-du-sucre-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
       "crawledAt": "2026-07-08T11:20:40.096Z",
@@ -285,7 +281,21 @@
       },
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
-      "firstSeenAt": "2026-07-08T11:20:40.096Z"
+      "firstSeenAt": "2026-07-08T11:20:40.096Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-pastry-be-the-sugar-wizard"
+        ],
+        "de": [
+          "chef-pastry-be-the-sugar-wizard"
+        ],
+        "fr": [
+          "chef-pastry-be-the-sugar-wizard"
+        ]
+      },
+      "previousSlugs": [
+        "chef-pastry-be-the-sugar-wizard"
+      ]
     },
     {
       "title": "Concierge (m/w) - creator of unique experiences",

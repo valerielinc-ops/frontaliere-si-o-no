@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "metalcostruttore-serramentista-pemsa-lugano",
-        "en": "metalcostruttore-serramentista-pemsa-lugano",
-        "de": "metalcostruttore-serramentista-pemsa-lugano",
-        "fr": "metalcostruttore-serramentista-pemsa-lugano"
+        "en": "metal-constructor-struder-pemsa-lugano",
+        "de": "metallkonstruktor-struder-pemsa-lugano",
+        "fr": "constructeur-strude-metallique-pemsa-lugano"
       },
       "id": "pemsa-154321db9e20",
       "needsRetranslation": true,
@@ -97,9 +97,9 @@
       },
       "slugByLocale": {
         "it": "autista-di-camion-pemsa-lugano",
-        "en": "autista-di-camion-pemsa-lugano",
-        "de": "autista-di-camion-pemsa-lugano",
-        "fr": "autista-di-camion-pemsa-lugano"
+        "en": "driver-of-truck-pemsa-lugano",
+        "de": "fahrer-von-lkw-pemsa-lugano",
+        "fr": "conducteur-de-camion-pemsa-lugano"
       },
       "id": "pemsa-9adf27e0bbc9",
       "needsRetranslation": true,
@@ -214,7 +214,7 @@
       },
       "slugByLocale": {
         "it": "falegname-installatore-m-f-pemsa-fontaines-ne",
-        "en": "falegname-installatore-m-f-pemsa-fontaines-ne",
+        "en": "installer-carpenter-m-f-pemsa-fontaines-ne",
         "de": "falegname-installatore-m-f-pemsa-fontaines-ne",
         "fr": "falegname-installatore-m-f-pemsa-fontaines-ne"
       },
@@ -272,9 +272,9 @@
       },
       "slugByLocale": {
         "it": "carpentiere-m-f-pemsa-fontaines-ne",
-        "en": "carpentiere-m-f-pemsa-fontaines-ne",
-        "de": "carpentiere-m-f-pemsa-fontaines-ne",
-        "fr": "carpentiere-m-f-pemsa-fontaines-ne"
+        "en": "chapter-m-f-pemsa-fontaines-ne",
+        "de": "kapitel-m-f-pemsa-fontaines-ne",
+        "fr": "chapitre-m-f-pemsa-fontaines-ne"
       },
       "id": "pemsa-aeba843c15e0",
       "needsRetranslation": true,
@@ -330,9 +330,9 @@
       },
       "slugByLocale": {
         "it": "carpentiere-con-grande-esperienza-pemsa-fribourg",
-        "en": "carpentiere-con-grande-esperienza-pemsa-fribourg",
-        "de": "carpentiere-con-grande-esperienza-pemsa-fribourg",
-        "fr": "carpentiere-con-grande-esperienza-pemsa-fribourg"
+        "en": "carpenters-with-great-experience-pemsa-fribourg",
+        "de": "schreiner-mit-gro-er-erfahrung-pemsa-fribourg",
+        "fr": "charpentiers-avec-une-grande-experience-pemsa-fribourg"
       },
       "id": "pemsa-d1611c6a1bdc",
       "needsRetranslation": true,
@@ -388,9 +388,9 @@
       },
       "slugByLocale": {
         "it": "installatore-di-impianti-di-ventilazione-pemsa-fribourg",
-        "en": "installatore-di-impianti-di-ventilazione-pemsa-fribourg",
-        "de": "installatore-di-impianti-di-ventilazione-pemsa-fribourg",
-        "fr": "installatore-di-impianti-di-ventilazione-pemsa-fribourg"
+        "en": "installation-of-ventilation-systems-pemsa-fribourg",
+        "de": "installation-von-luftungssystemen-pemsa-fribourg",
+        "fr": "installation-des-systemes-de-ventilation-pemsa-fribourg"
       },
       "id": "pemsa-74e91774968d",
       "needsRetranslation": true,
@@ -446,9 +446,9 @@
       },
       "slugByLocale": {
         "it": "costruttore-di-casseforme-pemsa-fribourg",
-        "en": "costruttore-di-casseforme-pemsa-fribourg",
-        "de": "costruttore-di-casseforme-pemsa-fribourg",
-        "fr": "costruttore-di-casseforme-pemsa-fribourg"
+        "en": "formwork-manufacturer-pemsa-fribourg",
+        "de": "schalungshersteller-pemsa-fribourg",
+        "fr": "fabricant-de-coffrage-pemsa-fribourg"
       },
       "id": "pemsa-62e2211f4776",
       "needsRetranslation": true,
@@ -4301,17 +4301,7 @@
       },
       "postalCode": "4001",
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
-      "retranslationAttempts": 0,
-      "previousSlugsByLocale": {
-        "it": [
-          "stuccatore-efz-eba-m-f-d-pemsa-basel",
-          "stuccatore-cfc-afp-m-f-d-pemsa-basel"
-        ]
-      },
-      "previousSlugs": [
-        "stuccatore-efz-eba-m-f-d-pemsa-basel",
-        "stuccatore-cfc-afp-m-f-d-pemsa-basel"
-      ]
+      "retranslationAttempts": 0
     },
     {
       "title": "Installatore elettrico AFC / AEC (m/f/d)",
@@ -9983,8 +9973,8 @@
       },
       "slugByLocale": {
         "it": "caposquadra-muratura-m-f-pemsa-tavannes",
-        "en": "caposquadra-muratura-m-f-pemsa-tavannes",
-        "de": "caposquadra-muratura-m-f-pemsa-tavannes",
+        "en": "lead-bricklayer-masonry-m-f-pemsa-tavannes",
+        "de": "vorarbeiter-maurerarbeiten-m-f-pemsa-tavannes",
         "fr": "siege-mur-m-f-pemsa-tavannes"
       },
       "id": "pemsa-ac0652767ae9",
@@ -10003,18 +9993,6 @@
       },
       "postalCode": "3001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "lead-bricklayer-masonry-m-f-pemsa-tavannes"
-        ],
-        "de": [
-          "vorarbeiter-maurerarbeiten-m-f-pemsa-tavannes"
-        ]
-      },
-      "previousSlugs": [
-        "lead-bricklayer-masonry-m-f-pemsa-tavannes",
-        "vorarbeiter-maurerarbeiten-m-f-pemsa-tavannes"
-      ],
       "needsRetranslation": true
     },
     {
@@ -13814,7 +13792,7 @@
         "it": "impianti-idraulici-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
         "de": "durchfuhrungen-pemsa-torricella",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
+        "fr": "mise-en-uvre-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -13838,13 +13816,11 @@
           "idraulico-impianti-riscaldamento-pemsa-torricella"
         ],
         "fr": [
-          "mise-en-uvre-pemsa-torricella",
           "idraulico-impianti-riscaldamento-pemsa-torricella"
         ]
       },
       "previousSlugs": [
-        "idraulico-impianti-riscaldamento-pemsa-torricella",
-        "mise-en-uvre-pemsa-torricella"
+        "idraulico-impianti-riscaldamento-pemsa-torricella"
       ]
     },
     {
