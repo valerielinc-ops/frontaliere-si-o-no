@@ -1,18 +1,19 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-07-08T11:32:45.928Z",
+  "generatedAt": "2026-07-08T22:23:40.365Z",
   "total": 56,
-  "newCount": 1,
-  "updatedCount": 42,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 43,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 94094,
-  "avgDurationMs": 94094,
+  "durationMs": 86408,
+  "avgDurationMs": 86408,
   "durationHistory": [
-    94094
+    86408
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "HR Business Partner",
       "slug": "hr-business-partner-agie-charmilles-losone",
@@ -36,16 +37,21 @@
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 77,
+      "id": "agie-charmilles-d2a4e8f5b99f",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Goldau 7",
+      "postalCode": "6616",
+      "firstSeenAt": "2026-07-08T11:32:45.917Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Mechaniker (w/m/d)",
       "slug": "mechaniker-w-m-d-agie-charmilles-biel-bienne",
@@ -1125,84 +1131,8 @@
         "translation": 25,
         "completeness": 25
       }
-    },
-    {
-      "title": "Automatiker EFZ",
-      "slug": "automatiker-efz-agie-charmilles-biel",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-automatiker-efz/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/aa8f1b79db5359121c63d5d4045e63a8ce506bacaae52a123edcbdd40e667c7491dcce74f7b9a4929af9beb8e118ccaebbb144c641d289c6b761f16fde4497",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel",
-      "addressLocality": "Biel",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-08",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-9dc89a54b496",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "2501",
-      "firstSeenAt": "2026-05-28T11:32:12.458Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Operativer Einkäufer",
-      "slug": "acquirente-operativo-agie-charmilles-sa-langnau-im-emmental",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-operativer-einkaufer/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/383fa96b97c3fa783dff934bb6dfbaa6cde93a6f143dbd2ed9c51437c7e0bc078b013e36a4a25fedd4051200cae4e7a951d0e532352e737d4eb046b9ea4548",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Langnau im Emmental",
-      "addressLocality": "Langnau im Emmental",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-64439dcc841b",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-07-02T10:31:03.815Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
