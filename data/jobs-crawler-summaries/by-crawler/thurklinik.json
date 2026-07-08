@@ -1,21 +1,19 @@
 {
   "key": "thurklinik",
   "label": "Thurklinik",
-  "generatedAt": "2026-07-07T22:14:18.063Z",
+  "generatedAt": "2026-07-08T22:07:54.536Z",
   "total": 9,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 11143,
-  "avgDurationMs": 11143,
+  "unchangedCount": 0,
+  "durationMs": 12701,
+  "avgDurationMs": 12701,
   "durationHistory": [
-    11143
+    12701
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "thurklinik-f683cb8cdc9d",
       "slug": "lehrstelle-als-fachperson-gesundheit-efz-ab-08-2027-thurklinik-niederuzwil",
@@ -29,7 +27,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/05/Lehrstelle-als-Fachfrau-oder-Fachmann-Gesundheit-EFZ_FAGE_2027.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:14:13.825Z",
+      "crawledAt": "2026-07-08T22:07:49.394Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -66,7 +64,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/07/Gynaekologie-Urologie-HNO-Orthopaedie-Viszeralchirurgie-und-Handchirurgie.-Anaesthesie-und-Schmerztherapie-.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:14:08.827Z",
+      "crawledAt": "2026-07-08T22:07:43.884Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -103,7 +101,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/11/Dipl.-Anaesthesiepflegerin-oder-Anaesthesiepfleger-60-–-80.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:14:09.592Z",
+      "crawledAt": "2026-07-08T22:07:44.900Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -140,7 +138,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/10/Dipl.-Fachfrau-oder-Fachmann-Operatioinstechnik-HF-oder-TOA_Thurklinik_UZWIL.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:14:10.301Z",
+      "crawledAt": "2026-07-08T22:07:45.691Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -177,7 +175,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/03/Dipl.-Pflegefachperson-HF-20–80-_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:14:10.999Z",
+      "crawledAt": "2026-07-08T22:07:46.507Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -214,7 +212,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-GYN.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:14:11.709Z",
+      "crawledAt": "2026-07-08T22:07:47.277Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -251,7 +249,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/02/Stellenbeschreibung-Hausarzt_Praxis.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:14:12.421Z",
+      "crawledAt": "2026-07-08T22:07:48.024Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -288,7 +286,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/03/Lagerungspflege-Springer-m_w_d-20-80_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:14:13.119Z",
+      "crawledAt": "2026-07-08T22:07:48.795Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -325,7 +323,7 @@
       "url": "https://test.thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-SChmerz.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:14:15.431Z",
+      "crawledAt": "2026-07-08T22:07:51.196Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -349,5 +347,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
