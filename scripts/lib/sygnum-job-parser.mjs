@@ -286,7 +286,7 @@ function extractNextPvp(html = '') {
 
 function extractVacancyRows(html = '') {
   const rows = [];
-  const rx = /vacancyNo=(VN\d+)"[^>]*>([^<]+)/g;
+  const rx = /vacancyNo=(VN\d+)[^"]*"[^>]*>([^<]+)/g;
   let m;
   while ((m = rx.exec(html))) {
     rows.push({ vacancyNo: m[1], title: normalizeSpace(decodeEntities(m[2])) });

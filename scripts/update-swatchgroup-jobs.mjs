@@ -205,10 +205,12 @@ async function main() {
   // (not a single per-crawler slice) to get all sub-company jobs for slicing.
   const _allJobsRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _allJobs = Array.isArray(_allJobsRaw) ? _allJobsRaw : [];
+  let _aggregateTotal = 0;
   for (const ck of companyKeys) {
     const _ckNorm = normalizeKey(ck);
     const _ckJobs = _allJobs.filter((j) => normalizeKey(j?.companyKey || '') === _ckNorm);
     if (_ckJobs.length === 0) continue;
+    _aggregateTotal += _ckJobs.length;
     writeJobsCrawlerSlice(ck, _ckJobs);
     writeSummaryCrawlerSlice({
       key: ck,
@@ -228,6 +230,33 @@ async function main() {
       unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
     });
   }
+  // registerCrawlerSummaryGuard() above registers its exit-fallback under the
+  // 'swatchgroup' key, but the per-brand loop only ever writes the *brand*
+  // keys (rado, swatch-group-assembly, ...) — never 'swatchgroup' itself.
+  // Those brand writes still flip the module-level _summaryWritten flag in
+  // assemble-jobs-dataset.mjs, so the exit guard's own fallback never fires
+  // either. Net effect: by-crawler/swatchgroup.json was frozen at whatever
+  // it last held (often a stale/empty stub), which health checks and #3797's
+  // audit misread as "silently empty" despite the brand files getting fresh
+  // jobs every run. Write the aggregate under 'swatchgroup' explicitly so
+  // the audit sees real, current data for this key too.
+  writeSummaryCrawlerSlice({
+    key: 'swatchgroup',
+    label: 'Swatch Group',
+    generatedAt: new Date().toISOString(),
+    total: _aggregateTotal,
+    newCount: crawlDiff.newJobs.length,
+    updatedCount: crawlDiff.updatedJobs.length,
+    removedCount: crawlDiff.removedJobs.length,
+    unchangedCount: crawlDiff.unchangedCount,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: crawlDiff.newJobs.slice(0, 30),
+    updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
+    removedJobs: crawlDiff.removedJobs.slice(0, 30),
+    unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
+  });
   await assembleJobsDataset();
 }
 

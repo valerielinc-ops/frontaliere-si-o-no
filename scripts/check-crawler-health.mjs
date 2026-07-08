@@ -289,6 +289,43 @@ const EMPTY_OK_CRAWLERS = new Set([
   // real hiring lull, not a selector break. Parser is healthy and re-arms
   // automatically when AXA republishes openings.
   'axa-svizzera',
+  // Browser-verified #3797 batch (2026-07-08) — 17 companies confirmed
+  // genuinely at 0 open Swiss postings, not a crawler defect. Each entry's
+  // evidence lives in the #3797 issue comment; one-line summary here.
+  // Workable API confirms `total:0`; page states "no job openings".
+  'answerconsulting',
+  // e-lavoro.ch/node/91 explicit empty state, no listed vacancies.
+  'cerbios-pharma',
+  // No jobs/careers page exists anywhere on chiccodoro.com.
+  'chicco-doro',
+  // jobs.ch profile shows "Jobs (0)"; no jobs/career page on citypop.com.
+  'city-pop',
+  // Official page states "Al momento non sono disponibili offerte di lavoro".
+  'csc-costruzioni',
+  // TUTTOJOB.ch "0 annunci"; official ATS also empty; last known ref inactive.
+  'faulhaber',
+  // Workday API: 101 total postings, Switzerland absent from every facet.
+  'ferring',
+  // e-lavoro.ch/node/76 zero listings; jobopportunity.ch subdomain is dead
+  // (same defunct AITI e-recruiting platform migration as imerys).
+  'helsinn',
+  // Phenom People JSON embeds `"totalHits":0,"jobs":[]` for location=Coldrerio.
+  'hugo-boss',
+  // Official careers 403-blocked but corroborated zero via TuttoJob.ch,
+  // LinkedIn, and RSI news reporting active layoffs at the Bodio site.
+  'imerys',
+  // 38 real postings exist but Switzerland isn't even a location-filter option.
+  'interroll',
+  // Greenhouse API: 21 active postings, all San Francisco/Remote-US, none CH.
+  'vir-biotechnology',
+  // Recruitee API: 84 open roles across 9 countries, none in Switzerland.
+  'boggi-milano',
+  // Careers page 404s; jobs.ch confirms no current postings.
+  'rivopharm',
+  // DACH intervieweb feed: 2 openings, both Saarbrücken DE, none CH.
+  'zucchetti-switzerland',
+  // e-lavoro.ch/node/104: "Purtroppo non ci sono offerte di lavoro".
+  'has-healthcare',
   // Bally (Swiss luxury leather-goods house, HQ Caslano TI): the crawler was
   // fixed (#3797) to pull from the real source — the SmartRecruiters tenant
   // "Bally" (https://jobs.smartrecruiters.com/Bally), replacing the 4 dead

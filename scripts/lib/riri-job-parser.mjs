@@ -2,28 +2,55 @@
 /**
  * Riri Group job parser — Fetcher and job builder.
  *
- * Source: https://www.rfriri.com/en/careers/
+ * Source: https://careers.oerlikon.com/search/?q=riri (RSS feed:
+ * https://careers.oerlikon.com/services/rss/job/?locale=en_US&keywords=(riri))
+ *
+ * ── Root cause (#3797) ─────────────────────────────────────────────────
+ * The old seed, https://www.rfriri.com/en/careers/, is NXDOMAIN — a typo
+ * baked into the original seed (an extra "rf" prefix on the real, live
+ * brand domain riri.com). Riri Group (luxury zipper manufacturer, HQ
+ * Mendrisio TI) was acquired by Oerlikon and now recruits exclusively
+ * through the parent group's SAP SuccessFactors Career Site Builder at
+ * careers.oerlikon.com. That tenant exposes a classic jobs2web RSS 2.0
+ * feed (one <item> per requisition, filterable via ?keywords=) — far more
+ * reliable than scraping the JS-rendered search-results page (confirmed:
+ * the page's own <link rel="alternate" type="application/rss+xml"> tag
+ * advertises this exact feed URL for a "riri" keyword search).
+ *
+ * Confirmed live: the "riri" keyword feed returns 9 requisitions across
+ * the wider Riri Group manufacturing network (Italy, France, Switzerland)
+ * — only one is Swiss: "Customer Service Specialist - Riri Zippers" in
+ * Mendrisio TI. Since this job board is Ticino/Switzerland-focused, we
+ * filter to Swiss postings only.
+ *
+ * The feed carries no separate location field (unlike some other
+ * jobs2web tenants in this codebase, e.g. Komax) — every title instead
+ * ends in a "(City[, Region], CountryCode, Postal)" suffix, which we
+ * parse to recover structured location + a Swiss/non-Swiss flag.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllRiriJobs()  — Fetch and parse all jobs
  *   - isRiriJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()           — Validate URLs belong to this company
+ *   - isTrustedDomain()   — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, buildJobSlug, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
+import { decodeHtmlEntities } from './decode-html-entities.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const RIRI_KEY = 'riri';
 export const RIRI_COMPANY_NAME = 'Riri Group';
-export const RIRI_COMPANY_DOMAIN = 'rfriri.com';
+// riri.com is the real, live brand domain (confirmed HTTP 200). The old
+// seed's host, rfriri.com, is a typo (extra "rf" prefix) — NXDOMAIN, never
+// a real Riri Group domain.
+export const RIRI_COMPANY_DOMAIN = 'riri.com';
 
-const BASE_URL = 'https://www.rfriri.com';
-const CAREER_URL = 'https://www.rfriri.com/en/careers/';
+const CAREER_URL = 'https://careers.oerlikon.com/search/?q=riri';
+const FEED_URL = 'https://careers.oerlikon.com/services/rss/job/?locale=en_US&keywords=(riri)';
 const HQ = getCompanyDefaults('riri');
 
 export const MIN_DESC_LENGTH = 100;
@@ -43,7 +70,7 @@ function normalize(value = '') {
 export function isRiriJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
@@ -53,7 +80,11 @@ export function isRiriJob(job) {
     key === RIRI_KEY ||
     key.startsWith('riri') ||
     company.includes('riri group') ||
-    url.includes('rfriri.com')
+    url.includes('riri.com') ||
+    // Riri's real postings are hosted on the parent Oerlikon Group's shared
+    // ATS tenant — match only Oerlikon URLs that are actually Riri postings
+    // (distinguishable by "riri" in the job-req slug), not every Oerlikon job.
+    (url.includes('oerlikon.com') && url.includes('riri'))
   );
 }
 
@@ -63,7 +94,12 @@ export function isRiriJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'rfriri.com' || host.endsWith('.rfriri.com');
+    // Riri Group's own brand domain, plus the parent Oerlikon Group's shared
+    // SuccessFactors ATS tenant, where the real job postings live.
+    return (
+      host === 'riri.com' || host.endsWith('.riri.com') ||
+      host === 'oerlikon.com' || host.endsWith('.oerlikon.com')
+    );
   } catch {
     return false;
   }
@@ -76,7 +112,7 @@ function detectCategory(title = '') {
   if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
   if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
   if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
-  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
+  if (/\b(vendita|sales|verkauf|commerce|customer service|servizio clienti)/.test(t)) return 'Commerciale';
   if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
   if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
   if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
@@ -103,138 +139,58 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── HTML Parsing ─────────────────────────────────────────── */
+/* ── Feed Parsing ─────────────────────────────────────────── */
 
-/**
- * Parse the Riri Group careers page.
- * Riri (rfriri.com) is a luxury zipper manufacturer. Their careers page
- * may list open positions as cards, list items, or simple text blocks.
- * The URL is /en/careers/ but the company is Italian-speaking (Mendrisio, TI).
- * Returns an array of { title, url, snippet, location } objects.
- */
-function parseListingPage(html = '') {
-  if (!html) return [];
-  const { document } = new JSDOM(html).window;
-  const jobs = [];
-  const seen = new Set();
+function extractTag(itemXml, tag) {
+  const m = itemXml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)</${tag}>`, 'i'));
+  return m ? m[1] : '';
+}
 
-  // Strategy 1: Look for structured job cards/entries
-  const CARD_SELECTORS = [
-    '.job-listing', '.job-item', '.job-entry', '.job-card',
-    '.vacancy', '.career-item', '.position-item',
-    '[class*="job"]', '[class*="career"]', '[class*="position"]',
-    '.listing_entry', '.content-item', '.wp-block-post',
-  ];
-
-  for (const sel of CARD_SELECTORS) {
-    const entries = document.querySelectorAll(sel);
-    for (const entry of entries) {
-      const titleEl = entry.querySelector('h2 a, h3 a, h4 a, a.title, a[class*="title"]') ||
-                       entry.querySelector('h2, h3, h4');
-      const title = normalizeSpace(titleEl?.textContent || '');
-      if (!title || title.length < 3 || seen.has(title.toLowerCase())) continue;
-
-      const linkEl = entry.querySelector('a[href]') || titleEl?.closest('a') || titleEl?.querySelector('a');
-      const href = linkEl?.getAttribute('href') || '';
-      const url = href ? (href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`) : '';
-
-      const descEl = entry.querySelector('p, .description, .text, .excerpt, .content');
-      const snippet = normalizeSpace(descEl?.textContent || '');
-
-      let location = HQ.city;
-      const locationEl = entry.querySelector('.location, [class*="location"], [class*="sede"]');
-      if (locationEl) {
-        location = normalizeSpace(locationEl.textContent || '') || HQ.city;
-      }
-
-      seen.add(title.toLowerCase());
-      jobs.push({ title, url, snippet, location });
-    }
-    if (jobs.length > 0) break;
-  }
-
-  // Strategy 2: Look for links with job-related text in main content
-  if (jobs.length === 0) {
-    const mainContent = document.querySelector('main, #content, .content, article, [role="main"]') || document.body;
-    const links = mainContent.querySelectorAll('a[href]');
-    for (const link of links) {
-      const href = link.getAttribute('href') || '';
-      const text = normalizeSpace(link.textContent || '');
-      if (!text || text.length < 5 || seen.has(text.toLowerCase())) continue;
-
-      const combinedCheck = `${text} ${href}`.toLowerCase();
-      if (/posizion|lavoro|career|job|vacan|candidat|assunzion|offert/i.test(combinedCheck) &&
-          !/(contatt|privacy|cookie|login|register|newsletter|home)/i.test(combinedCheck)) {
-        const url = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
-        if (href === '#' || href === '' || url === CAREER_URL) continue;
-
-        seen.add(text.toLowerCase());
-        jobs.push({ title: text, url, snippet: '', location: HQ.city });
-      }
-    }
-  }
-
-  // Strategy 3: Look for headings that could be job titles
-  if (jobs.length === 0) {
-    const headings = document.querySelectorAll('h2, h3, h4');
-    for (const heading of headings) {
-      const text = normalizeSpace(heading.textContent || '');
-      if (!text || text.length < 5 || text.length > 200 || seen.has(text.toLowerCase())) continue;
-      if (/^(menu|nav|footer|header|contact|contatt|about|chi siamo)/i.test(text)) continue;
-
-      const linkEl = heading.querySelector('a[href]') || heading.closest('a');
-      const href = linkEl?.getAttribute('href') || '';
-      const url = href ? (href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`) : '';
-
-      const nextEl = heading.nextElementSibling;
-      const snippet = nextEl ? normalizeSpace(nextEl.textContent || '').slice(0, 500) : '';
-
-      if (/\b(m\/f|m\/w|posizione|operai|tecnic|ingegner|responsabil|addett|impiegat|manager|assistant|operator|quality|produzion|magazzin|manutenzion)\b/i.test(text) ||
-          (snippet && /\b(requisit|mansion|competen|esperien|contratt|sede|candidat)\b/i.test(snippet))) {
-        seen.add(text.toLowerCase());
-        jobs.push({ title: text, url, snippet, location: HQ.city });
-      }
-    }
-  }
-
-  return jobs;
+function extractCdataOrText(itemXml, tag) {
+  const cdata = itemXml.match(new RegExp(`<${tag}[^>]*><!\\[CDATA\\[([\\s\\S]*?)\\]\\]></${tag}>`, 'i'));
+  if (cdata) return cdata[1];
+  return extractTag(itemXml, tag);
 }
 
 /**
- * Parse a detail page for full job description.
+ * Oerlikon's jobs2web RSS feed appends a "(City[, Region], CountryCode,
+ * [Postal])" suffix to every job title — e.g. "(Mendrisio, TI, CH, 6850)"
+ * or "(Tirano, IT, 23037)". We use it to recover structured location data
+ * and a reliable Swiss/non-Swiss flag, since the feed carries no separate
+ * location field (unlike some other jobs2web tenants in this codebase,
+ * e.g. Komax's <g:location>).
  */
-function parseDetailPage(html = '') {
-  if (!html) return '';
-  const { document } = new JSDOM(html).window;
+function parseTitleLocation(rawTitle = '') {
+  const m = rawTitle.match(/\(([^()]+)\)\s*$/);
+  if (!m) return { title: rawTitle.trim(), city: '', canton: '', postalCode: '', isSwiss: false };
+  const title = rawTitle.slice(0, m.index).trim() || rawTitle.trim();
+  const parts = m[1].split(',').map((p) => p.trim()).filter(Boolean);
+  const isSwiss = parts.some((p) => /^ch$/i.test(p));
+  const city = parts[0] || '';
+  const canton = parts.find((p) => /^[a-z]{2}$/i.test(p) && !/^ch$/i.test(p)) || '';
+  const postalCode = parts.find((p) => /^\d[\d-]*$/.test(p)) || '';
+  return { title, city, canton: canton.toUpperCase(), postalCode, isSwiss };
+}
 
-  const BODY_SELECTORS = [
-    '.job-detail', '.job-description', '.career-detail',
-    '.entry-content', '.post-content', '.page-content',
-    'article', 'main', '#content', '.content',
-  ];
-
-  let body = '';
-  for (const sel of BODY_SELECTORS) {
-    const el = document.querySelector(sel);
-    if (!el) continue;
-    const candidate = stripHtml(el.innerHTML || '');
-    if (candidate.length > body.length) body = candidate;
-    if (candidate.length >= MIN_DESC_LENGTH) break;
+function parseFeedItems(xml = '') {
+  const items = [];
+  const itemRe = /<item>([\s\S]*?)<\/item>/gi;
+  let m;
+  while ((m = itemRe.exec(xml)) !== null) {
+    const itemXml = m[1];
+    const rawTitle = decodeHtmlEntities(normalizeSpace(extractCdataOrText(itemXml, 'title')));
+    const descriptionHtml = decodeHtmlEntities(extractCdataOrText(itemXml, 'description'));
+    const url = decodeHtmlEntities(normalizeSpace(extractTag(itemXml, 'link')));
+    const guid = decodeHtmlEntities(normalizeSpace(extractTag(itemXml, 'guid')));
+    if (!rawTitle || !url) continue;
+    items.push({ rawTitle, descriptionHtml, url, guid });
   }
+  return items;
+}
 
-  if (body.length < MIN_DESC_LENGTH) {
-    let best = null;
-    let bestLen = 0;
-    for (const el of document.querySelectorAll('div, section, article')) {
-      const len = (el.textContent || '').trim().length;
-      if (len > bestLen) { best = el; bestLen = len; }
-    }
-    if (best && bestLen > body.length) {
-      body = stripHtml(best.innerHTML || '');
-    }
-  }
-
-  return body;
+async function fetchJobListings() {
+  const xml = await fetchHtml(FEED_URL, { headers: { Accept: 'application/rss+xml,text/xml,*/*' } });
+  return parseFeedItems(xml);
 }
 
 /* ── Main fetch function ──────────────────────────────────── */
@@ -243,38 +199,33 @@ function parseDetailPage(html = '') {
  * Fetch all Riri Group jobs. Returns ParsedJob[] (source locale only).
  */
 export async function fetchAllRiriJobs() {
-  console.log(`  Fetching Riri Group jobs from ${CAREER_URL}`);
+  console.log(`  Fetching Riri Group jobs from ${FEED_URL}`);
 
-  let html = '';
+  let listings = [];
   try {
-    html = await fetchHtml(CAREER_URL, { timeoutMs: 25000 });
+    listings = await fetchJobListings();
   } catch (err) {
-    console.warn(`  Failed to fetch ${CAREER_URL}: ${err.message}`);
+    console.warn(`  Failed to fetch ${FEED_URL}: ${err.message}`);
     return [];
   }
-  const listings = parseListingPage(html);
-  console.log(`  Jobs found on listing page: ${listings.length}`);
+  console.log(`  Listings found (all Riri Group manufacturing sites): ${listings.length}`);
   if (!listings.length) return [];
 
   const jobs = [];
   for (const listing of listings) {
-    let description = listing.snippet || '';
-    if (listing.url) {
-      try {
-        const detailHtml = await fetchHtml(listing.url, { timeoutMs: 25000 });
-        const detailBody = parseDetailPage(detailHtml);
-        if (detailBody && detailBody.length > description.length) {
-          description = detailBody;
-        }
-      } catch (err) {
-        console.warn(`  Detail fetch failed for ${listing.url}: ${err.message}`);
-      }
-    }
+    const { title, city, canton: parsedCanton, postalCode: feedPostalCode, isSwiss } = parseTitleLocation(listing.rawTitle);
+    // This job board is Ticino/Switzerland-focused — the "riri" keyword
+    // feed also returns Riri Group's Italy/France manufacturing sites,
+    // which we intentionally skip.
+    if (!isSwiss) continue;
+    if (!title || title.length < 3) continue;
 
-    const location = listing.location || HQ.city;
-    const sourceLang = detectLang(listing.title + ' ' + description, 'it');
-    const jobSlug = buildJobSlug(`${listing.title} ${location}`, 'riri');
-    const urlHash = createHash('sha1').update(listing.url || listing.title).digest('hex').slice(0, 12);
+    const descriptionText = stripHtml(listing.descriptionHtml || '');
+    const location = city || HQ.city;
+    const canton = parsedCanton || HQ.canton;
+    const sourceLang = detectLang(title + ' ' + descriptionText, 'it');
+    const jobSlug = buildJobSlug(`${title} ${location}`, 'riri');
+    const urlHash = createHash('sha1').update(listing.url || listing.guid || title).digest('hex').slice(0, 12);
 
     jobs.push({
       id: `${RIRI_KEY}-${urlHash}`,
@@ -283,22 +234,22 @@ export async function fetchAllRiriJobs() {
       company: RIRI_COMPANY_NAME,
       companyKey: RIRI_KEY,
       companyDomain: RIRI_COMPANY_DOMAIN,
-      title: listing.title,
-      titleByLocale: { [sourceLang]: listing.title },
-      description: description || `${listing.title} — Riri Group`,
-      descriptionByLocale: { [sourceLang]: description || `${listing.title} — Riri Group` },
+      title,
+      titleByLocale: { [sourceLang]: title },
+      description: descriptionText || `${title} — Riri Group`,
+      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Riri Group` },
       location,
-      canton: HQ.canton,
-      addressLocality: location.split('/')[0].trim(),
+      canton,
+      addressLocality: location,
       addressRegion: HQ.addressRegion,
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: HQ.postalCode,
-      category: detectCategory(listing.title),
+      postalCode: feedPostalCode || HQ.postalCode,
+      category: detectCategory(title),
       sector: 'Manifatturiero / Moda',
-      contract: detectEmploymentType(listing.title + ' ' + description) === 'PART_TIME' ? 'part-time' : 'full-time',
-      employmentType: detectEmploymentType(listing.title + ' ' + description),
-      experienceLevel: detectExperienceLevel(listing.title),
+      contract: detectEmploymentType(title + ' ' + descriptionText) === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType: detectEmploymentType(title + ' ' + descriptionText),
+      experienceLevel: detectExperienceLevel(title),
       featured: false,
       postedDate: new Date().toISOString().slice(0, 10),
       url: listing.url || CAREER_URL,
@@ -307,10 +258,8 @@ export async function fetchAllRiriJobs() {
       sourceLang,
       crawledAt: new Date().toISOString(),
     });
-
-    await new Promise((r) => setTimeout(r, 300));
   }
 
-  console.log(`  Total Riri Group jobs discovered: ${jobs.length}`);
+  console.log(`  Total Riri Group jobs discovered (Switzerland only): ${jobs.length}`);
   return jobs;
 }

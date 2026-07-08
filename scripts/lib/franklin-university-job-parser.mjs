@@ -2,7 +2,13 @@
 /**
  * Franklin University Switzerland job parser — Fetcher and job builder.
  *
- * Source: https://www.franklin.edu.ch/about-franklin/job-opportunities
+ * Source: https://www.fus.edu/about-franklin/job-opportunities
+ * (franklin.edu.ch is dead — DNS NOERROR/NODATA. The university's current
+ * domain is fus.edu; job-opportunities is a Drupal page built from nested
+ * "single-accordion" paragraphs: a top-level category accordion — e.g.
+ * ACADEMIC POSITIONS, ADMINISTRATIVE POSITIONS — that either states there
+ * are no open positions, or nests one leaf accordion per open role. See
+ * #3797.)
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllFranklinUniversityJobs()  — Fetch and parse all jobs
@@ -13,20 +19,20 @@
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, buildJobSlug, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
+import { buildJobSlug, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const FRANKLIN_UNIVERSITY_KEY = 'franklin-university';
 export const FRANKLIN_UNIVERSITY_COMPANY_NAME = 'Franklin University Switzerland';
-export const FRANKLIN_UNIVERSITY_COMPANY_DOMAIN = 'franklin.edu.ch';
+export const FRANKLIN_UNIVERSITY_COMPANY_DOMAIN = 'fus.edu';
 
-const BASE_URL = 'https://www.franklin.edu.ch';
-const CAREER_URL = 'https://www.franklin.edu.ch/about-franklin/job-opportunities';
+const CAREER_URL = 'https://www.fus.edu/about-franklin/job-opportunities';
 const HQ = getCompanyDefaults('franklin-university');
 
-export const MIN_DESC_LENGTH = 100;
+const SWISS_LOCATION_RE = /switzerland|svizzera|schweiz|suisse|ticino|lugano|sorengo|mendrisio|bellinzona/i;
+const NO_OPENINGS_RE = /no open positions|no current openings|currently no open/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -43,7 +49,7 @@ function normalize(value = '') {
 export function isFranklinUniversityJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
@@ -53,7 +59,7 @@ export function isFranklinUniversityJob(job) {
     key === FRANKLIN_UNIVERSITY_KEY ||
     key.startsWith('franklin-university') ||
     company.includes('franklin university switzerland') ||
-    url.includes('franklin.edu.ch')
+    url.includes('fus.edu')
   );
 }
 
@@ -63,7 +69,7 @@ export function isFranklinUniversityJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'franklin.edu.ch' || host.endsWith('.franklin.edu.ch');
+    return host === 'fus.edu' || host.endsWith('.fus.edu');
   } catch {
     return false;
   }
@@ -75,7 +81,7 @@ function detectCategory(title = '') {
   const t = normalize(title);
   if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
   if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
-  if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
+  if (/\b(admin|segret|contab|buchhalt|account|admission)/.test(t)) return 'Amministrazione';
   if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
   if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
   if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
@@ -106,167 +112,52 @@ function detectEmploymentType(text = '') {
 /* ── HTML Parsing ─────────────────────────────────────────── */
 
 /**
- * Parse the Franklin University Switzerland job opportunities page.
- * This is a university website with a simple HTML page listing positions.
- * Common patterns: job titles as headings, sometimes with links to detail
- * pages or PDF descriptions. May also use accordion/collapsible sections.
+ * Extract the "Location:" field (if any) from a job's rendered body text.
+ * Returns '' when no explicit Location field is present.
+ */
+function extractLocationField(bodyText = '') {
+  const m = bodyText.match(/Location:\s*([^.\n]{3,120})/i);
+  return m ? normalizeSpace(m[1]) : '';
+}
+
+/**
+ * Parse the fus.edu job-opportunities page (Drupal nested accordions).
+ * Category-level accordions (ACADEMIC POSITIONS, ADMINISTRATIVE POSITIONS)
+ * either state there are no open positions, or nest one leaf accordion per
+ * open role. Only leaf accordions (no further nested accordion inside) that
+ * aren't a "no openings" placeholder are real jobs. Postings explicitly
+ * located outside Switzerland (e.g. US remote admissions roles) are
+ * out of scope for this Ticino/Switzerland job board and are skipped.
  * Returns an array of { title, url, snippet, location } objects.
  */
 function parseListingPage(html = '') {
   if (!html) return [];
   const { document } = new JSDOM(html).window;
   const jobs = [];
-  const seen = new Set();
 
-  // Strategy 1: Look for structured job cards/entries
-  const CARD_SELECTORS = [
-    '.job-listing', '.job-item', '.job-entry', '.job-card',
-    '.vacancy', '.career-item', '.position-item',
-    '[class*="job"]', '[class*="career"]', '[class*="position"]',
-    '[class*="vacancy"]', '[class*="opening"]',
-    '.accordion-item', '.toggle-item', '.collapse-item',
-    '.listing_entry', '.content-item',
-  ];
+  const accordions = document.querySelectorAll('.paragraph--type-single-accordion, [class*="paragraph--type-single-accordion"], [class*="single-accordion"]');
+  for (const node of accordions) {
+    // Leaf = no further nested accordion inside this one.
+    if (node.querySelector('[class*="single-accordion"]')) continue;
 
-  for (const sel of CARD_SELECTORS) {
-    const entries = document.querySelectorAll(sel);
-    for (const entry of entries) {
-      const titleEl = entry.querySelector('h2 a, h3 a, h4 a, a.title, a[class*="title"]') ||
-                       entry.querySelector('h2, h3, h4, .title, .heading');
-      const title = normalizeSpace(titleEl?.textContent || '');
-      if (!title || title.length < 3 || seen.has(title.toLowerCase())) continue;
+    const titleEl = node.querySelector('[class*="fus_para_accordion_title"]');
+    const title = normalizeSpace(titleEl?.textContent || '');
+    if (!title || title.length < 3) continue;
+    // Category headers render in all caps ("ACADEMIC POSITIONS"); real job
+    // titles are natural-case.
+    if (title === title.toUpperCase() && /[A-Z]/.test(title)) continue;
 
-      const linkEl = entry.querySelector('a[href]') || titleEl?.closest('a') || titleEl?.querySelector('a');
-      const href = linkEl?.getAttribute('href') || '';
-      const url = href ? (href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`) : '';
+    const bodyEl = node.querySelector('[class*="fus_para_accordion_text"]');
+    const bodyText = normalizeSpace(bodyEl?.textContent || '');
+    if (!bodyText || NO_OPENINGS_RE.test(bodyText)) continue;
 
-      const descEl = entry.querySelector('p, .description, .text, .content, .excerpt, .summary');
-      const snippet = normalizeSpace(descEl?.textContent || '');
+    const location = extractLocationField(bodyText);
+    if (location && !SWISS_LOCATION_RE.test(location)) continue; // out-of-scope (e.g. US remote)
 
-      seen.add(title.toLowerCase());
-      jobs.push({ title, url, snippet, location: HQ.city });
-    }
-    if (jobs.length > 0) break;
-  }
-
-  // Strategy 2: Look for headings that are job titles (university style)
-  // University job pages often list positions as h2/h3 headings with
-  // description paragraphs below them
-  if (jobs.length === 0) {
-    const mainContent = document.querySelector('main, #content, .content, article, [role="main"], .field--body, .node__content') || document.body;
-    const headings = mainContent.querySelectorAll('h2, h3, h4');
-    for (const heading of headings) {
-      const text = normalizeSpace(heading.textContent || '');
-      if (!text || text.length < 5 || text.length > 200 || seen.has(text.toLowerCase())) continue;
-      if (/^(menu|navigation|footer|header|contact|about|mission|vision|overview|breadcrumb|main navigation)/i.test(text)) continue;
-
-      const linkEl = heading.querySelector('a[href]') || heading.closest('a');
-      const href = linkEl?.getAttribute('href') || '';
-      const url = href ? (href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`) : '';
-
-      // Gather description from subsequent siblings
-      let snippet = '';
-      let sibling = heading.nextElementSibling;
-      while (sibling && !['H1', 'H2', 'H3', 'H4'].includes(sibling.tagName)) {
-        const sibText = normalizeSpace(sibling.textContent || '');
-        if (sibText) snippet += (snippet ? ' ' : '') + sibText;
-        if (snippet.length > 500) break;
-        sibling = sibling.nextElementSibling;
-      }
-      snippet = snippet.slice(0, 500);
-
-      // Check if it looks like a job/position listing
-      if (/\b(professor|lecturer|instructor|faculty|dean|coordinator|advisor|assistant|associate|director|manager|officer|specialist|analyst|librarian|admissions|registrar|researcher|postdoc|adjunct|tenure|visiting)\b/i.test(text) ||
-          /\b(position|opening|opportunity|role|vacancy|hire|employ|recruit|applicant|candidate|full[- ]time|part[- ]time)\b/i.test(text) ||
-          (snippet && /\b(qualifications|requirements|responsibilities|duties|apply|application|deadline|submit|resume|cv|salary|contract|experience)\b/i.test(snippet))) {
-        seen.add(text.toLowerCase());
-        jobs.push({ title: text, url, snippet, location: HQ.city });
-      }
-    }
-  }
-
-  // Strategy 3: Look for links with job-related text
-  if (jobs.length === 0) {
-    const mainContent = document.querySelector('main, #content, .content, article, [role="main"]') || document.body;
-    const links = mainContent.querySelectorAll('a[href]');
-    for (const link of links) {
-      const href = link.getAttribute('href') || '';
-      const text = normalizeSpace(link.textContent || '');
-      if (!text || text.length < 5 || seen.has(text.toLowerCase())) continue;
-
-      const combinedCheck = `${text} ${href}`.toLowerCase();
-      if (/position|opening|opportunit|job|vacanc|faculty|professor|lecturer|hire|employ|recruit/i.test(combinedCheck) &&
-          !/(privacy|cookie|login|student|alumni|admission|program|course|event|news|blog)/i.test(combinedCheck)) {
-        const url = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
-        if (href === '#' || href === '' || url === CAREER_URL) continue;
-
-        seen.add(text.toLowerCase());
-        jobs.push({ title: text, url, snippet: '', location: HQ.city });
-      }
-    }
-  }
-
-  // Strategy 4: Check for PDF links that might be job descriptions
-  if (jobs.length === 0) {
-    const pdfLinks = document.querySelectorAll('a[href$=".pdf"]');
-    for (const link of pdfLinks) {
-      const href = link.getAttribute('href') || '';
-      const text = normalizeSpace(link.textContent || '');
-      if (!text || text.length < 5 || seen.has(text.toLowerCase())) continue;
-
-      const combinedCheck = `${text} ${href}`.toLowerCase();
-      if (/position|job|faculty|opening|vacanc|professor|lecturer/i.test(combinedCheck)) {
-        const url = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
-
-        // Try to get context from surrounding elements
-        const parent = link.parentElement;
-        const context = parent ? normalizeSpace(parent.textContent || '').slice(0, 300) : '';
-
-        seen.add(text.toLowerCase());
-        jobs.push({ title: text, url: CAREER_URL, snippet: context, location: HQ.city });
-      }
-    }
+    jobs.push({ title, url: CAREER_URL, snippet: bodyText, location: location || HQ.city });
   }
 
   return jobs;
-}
-
-/**
- * Parse a detail page for full job description.
- */
-function parseDetailPage(html = '') {
-  if (!html) return '';
-  const { document } = new JSDOM(html).window;
-
-  const BODY_SELECTORS = [
-    '.job-detail', '.job-description', '.position-detail',
-    '.field--body', '.node__content', '.page-content',
-    '.entry-content', '.post-content',
-    'article', 'main', '#content', '.content',
-  ];
-
-  let body = '';
-  for (const sel of BODY_SELECTORS) {
-    const el = document.querySelector(sel);
-    if (!el) continue;
-    const candidate = stripHtml(el.innerHTML || '');
-    if (candidate.length > body.length) body = candidate;
-    if (candidate.length >= MIN_DESC_LENGTH) break;
-  }
-
-  if (body.length < MIN_DESC_LENGTH) {
-    let best = null;
-    let bestLen = 0;
-    for (const el of document.querySelectorAll('div, section, article')) {
-      const len = (el.textContent || '').trim().length;
-      if (len > bestLen) { best = el; bestLen = len; }
-    }
-    if (best && bestLen > body.length) {
-      body = stripHtml(best.innerHTML || '');
-    }
-  }
-
-  return body;
 }
 
 /* ── Main fetch function ──────────────────────────────────── */
@@ -289,23 +180,11 @@ export async function fetchAllFranklinUniversityJobs() {
 
   const jobs = [];
   for (const listing of listings) {
-    let description = listing.snippet || '';
-    if (listing.url && listing.url !== CAREER_URL) {
-      try {
-        const detailHtml = await fetchHtml(listing.url, { timeoutMs: 25000 });
-        const detailBody = parseDetailPage(detailHtml);
-        if (detailBody && detailBody.length > description.length) {
-          description = detailBody;
-        }
-      } catch (err) {
-        console.warn(`  Detail fetch failed for ${listing.url}: ${err.message}`);
-      }
-    }
-
+    const description = listing.snippet || '';
     const location = listing.location || HQ.city;
     const sourceLang = detectLang(listing.title + ' ' + description, 'en');
     const jobSlug = buildJobSlug(`${listing.title} ${location}`, 'franklin-university');
-    const urlHash = createHash('sha1').update(listing.url || listing.title).digest('hex').slice(0, 12);
+    const urlHash = createHash('sha1').update(`${listing.url}#${listing.title}`).digest('hex').slice(0, 12);
 
     jobs.push({
       id: `${FRANKLIN_UNIVERSITY_KEY}-${urlHash}`,

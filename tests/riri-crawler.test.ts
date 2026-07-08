@@ -42,11 +42,11 @@ describe('Riri Group crawler parser', () => {
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
     it('trusts primary domain', () => {
-      expect(isTrustedDomain('https://rfriri.com/careers/job-123')).toBe(true);
+      expect(isTrustedDomain('https://riri.com/careers/job-123')).toBe(true);
     });
 
     it('trusts subdomains', () => {
-      expect(isTrustedDomain('https://careers.rfriri.com/job/456')).toBe(true);
+      expect(isTrustedDomain('https://careers.oerlikon.com/job/456')).toBe(true);
     });
 
     it('rejects other domains', () => {
