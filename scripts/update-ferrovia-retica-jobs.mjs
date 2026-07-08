@@ -176,7 +176,13 @@ function mergeJobs(discoveredJobs) {
     // synthesize it from the freshly parsed description so the source-locale
     // slot below actually receives fresh data instead of comparing against
     // an always-empty `b` side and silently keeping stale/garbled prev text.
-    const freshDescriptionByLocale = job.sourceLang ? { [job.sourceLang]: job.description } : job.descriptionByLocale;
+    // Only do this when the detail-page scrape actually succeeded: on a
+    // transient fetch failure buildJob() falls back to generic boilerplate
+    // (job.descriptionIsFallback), which is long enough to pass minChars and
+    // would otherwise overwrite a perfectly good existing description.
+    const freshDescriptionByLocale = job.sourceLang && !job.descriptionIsFallback
+      ? { [job.sourceLang]: job.description }
+      : undefined;
     // Preserve existing translations and slugs from prior runs
     const merged = {
       ...prev,

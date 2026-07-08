@@ -369,7 +369,8 @@ export function buildJob(raw) {
 
   // Use detail description if available and >50 words, otherwise use rich fallback
   let description = '';
-  if (raw.description && raw.description.split(/\s+/).length >= 50) {
+  const descriptionIsFallback = !(raw.description && raw.description.split(/\s+/).length >= 50);
+  if (!descriptionIsFallback) {
     description = raw.description;
   } else {
     description = buildFallbackDescription(title, location, raw.percentage);
@@ -400,6 +401,7 @@ export function buildJob(raw) {
     employmentType,
     category: detectCategory(title, description),
     description,
+    descriptionIsFallback,
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
     source: 'company-website',
     sourceLang: deriveSourceLang(raw.url),

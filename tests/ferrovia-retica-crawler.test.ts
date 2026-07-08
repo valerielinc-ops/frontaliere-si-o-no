@@ -312,6 +312,17 @@ describe('buildJob', () => {
     const job = buildJob({ title: 'Test Job', location: 'Chur' });
     expect(job!.sourceLang).toBe('de');
   });
+
+  it('flags descriptionIsFallback=true when no usable detail description is available', () => {
+    const job = buildJob({ title: 'Lokführer/in', location: 'Poschiavo' });
+    expect(job!.descriptionIsFallback).toBe(true);
+  });
+
+  it('flags descriptionIsFallback=false when a genuine detail description (>=50 words) is used', () => {
+    const longDesc = Array(60).fill('word').join(' ');
+    const job = buildJob({ title: 'Test Job', location: 'Chur', description: longDesc });
+    expect(job!.descriptionIsFallback).toBe(false);
+  });
 });
 
 // ═══════════════════════════════════════════════════════════════
