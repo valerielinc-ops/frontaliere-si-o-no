@@ -3453,6 +3453,10 @@ Règles :
   'survey.feature.thanks.title': 'Merci !',
   'survey.feature.thanks.body': 'Votre avis nous aide à nous améliorer.',
 
+  'whatsNew.v3590.title': 'Abonnement sans publicité repensé',
+  'whatsNew.v3590.subscribeRedesign.title': 'Nouveau design pour la page d’abonnement et le popup AdBlock',
+  'whatsNew.v3590.subscribeRedesign.desc': 'Page d’abonnement et popup AdBlock repensés : connexion standard (email, Google, LinkedIn), apparence cohérente avec le site et suivi complet des interactions.',
+
   'whatsNew.v3580.title': 'Nouveau guide fiscal frontaliers',
   'whatsNew.v3580.taxHub.title': 'Guide fiscal complet pour frontaliers',
   'whatsNew.v3580.taxHub.desc': 'Nouvelle page /fr/guide-frontalier/fiscalite/ sur l\'impôt à la source, le nouvel accord fiscal Italie-Suisse, les différences entre anciens et nouveaux frontaliers, la double imposition et les déductions fiscales.',

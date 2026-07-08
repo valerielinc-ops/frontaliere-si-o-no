@@ -3453,6 +3453,10 @@ Regeln:
   'survey.feature.thanks.title': 'Danke!',
   'survey.feature.thanks.body': 'Dein Feedback hilft uns, besser zu werden.',
 
+  'whatsNew.v3590.title': 'Werbefreies Abo überarbeitet',
+  'whatsNew.v3590.subscribeRedesign.title': 'Neues Design für Abo-Seite und AdBlock-Popup',
+  'whatsNew.v3590.subscribeRedesign.desc': 'Abo-Seite und AdBlock-Popup neu gestaltet: Standard-Login (E-Mail, Google, LinkedIn), einheitliches Erscheinungsbild und vollständiges Interaktions-Tracking.',
+
   'whatsNew.v3580.title': 'Neuer Grenzgänger-Steuerratgeber',
   'whatsNew.v3580.taxHub.title': 'Vollständiger Steuerratgeber für Grenzgänger',
   'whatsNew.v3580.taxHub.desc': 'Neue Seite /de/grenzgaenger-ratgeber/besteuerung/ zu Quellensteuer, dem neuen Steuerabkommen Italien-Schweiz, Unterschieden zwischen alten und neuen Grenzgängern, Doppelbesteuerung und abzugsfähigen Abzügen.',
