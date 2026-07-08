@@ -22,6 +22,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00024261EXTERNALENGLOBAL/R-D-Senior-Engineer-Firmware--80--100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00024574EXTERNALENGLOBAL/Test-Engineer--80---100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00028955EXTERNALENGLOBAL/Test-Engineering-Specialist--80---100",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00028963EXTERNALENGLOBAL/Maintenance-Specialist",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00031928EXTERNALENGLOBAL/Material-Planner",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00033622EXTERNALENGLOBAL/XMLNAME--Senior--Scientist-for-EMC-in-Power-Electronics",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00033647EXTERNALENGLOBAL/Technical-Service-Specialist",
@@ -53,7 +54,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040474EXTERNALENGLOBAL/DACH-Sales-Manager-CI"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-07-08T11:26:44.012Z",
+  "updatedAt": "2026-07-08T22:17:23.916Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040367EXTERNALENGLOBAL/Global-Sales-Manager-Business-Line-Mining---Materials_JR00040367-1": {
       "location": "Baden, Aargau, Switzerland",
@@ -130,6 +131,14 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040380EXTERNALENGLOBAL/Business---Market-Intelligence-Analyst": {
       "location": "Zurich, Zurich, Switzerland",
       "canton": "ZH",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00028963EXTERNALENGLOBAL/Maintenance-Specialist": {
+      "location": "Baden, Aargau, Switzerland",
+      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
