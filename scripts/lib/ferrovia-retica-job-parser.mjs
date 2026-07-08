@@ -329,6 +329,16 @@ export function buildFallbackDescription(title, location, percentage) {
 
 /* ── Job builder ───────────────────────────────────────────── */
 
+// RhB publishes job detail pages under a locale path segment
+// (/it/job/, /de/job/, /en/job/, /fr/job/ — see jobLinkRe above), so the
+// source language must be read from the URL rather than assumed.
+const URL_LOCALE_RE = /^https?:\/\/[^/]+\/(it|de|en|fr)\//i;
+
+export function deriveSourceLang(url = '') {
+  const match = String(url || '').match(URL_LOCALE_RE);
+  return match ? match[1].toLowerCase() : 'de';
+}
+
 export function buildJob(raw) {
   if (!raw || !raw.title) return null;
 
@@ -373,7 +383,7 @@ export function buildJob(raw) {
     description,
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
     source: 'company-website',
-    sourceLang: 'de',
+    sourceLang: deriveSourceLang(raw.url),
     slug: baseSlug,
     slugByLocale: { it: baseSlug, en: baseSlug, de: baseSlug, fr: baseSlug },
     titleByLocale: { de: title },

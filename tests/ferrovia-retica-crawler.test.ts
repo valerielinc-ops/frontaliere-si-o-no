@@ -11,6 +11,7 @@ import {
   parseDetailPage,
   buildJob,
   buildFallbackDescription,
+  deriveSourceLang,
   getLocationAddress,
   isGrigioniItalianoJob,
   inferLocation,
@@ -248,6 +249,74 @@ describe('buildJob', () => {
     const longDesc = Array(60).fill('word').join(' ');
     const job = buildJob({ title: 'Test Job', location: 'Chur', description: longDesc });
     expect(job!.description).toBe(longDesc);
+  });
+
+  it('derives sourceLang from an /it/job/ URL', () => {
+    const job = buildJob({
+      title: 'Macchinista',
+      url: 'https://www.rhb.ch/it/job/macchinista-poschiavo_2026-0001',
+      location: 'Poschiavo',
+    });
+    expect(job!.sourceLang).toBe('it');
+  });
+
+  it('derives sourceLang from a /de/job/ URL', () => {
+    const job = buildJob({
+      title: 'Lokführer/in',
+      url: 'https://www.rhb.ch/de/job/lokfuehrer-poschiavo_2026-0002',
+      location: 'Poschiavo',
+    });
+    expect(job!.sourceLang).toBe('de');
+  });
+
+  it('derives sourceLang from an /en/job/ URL', () => {
+    const job = buildJob({
+      title: 'Train driver',
+      url: 'https://www.rhb.ch/en/job/train-driver-chur_2026-0003',
+      location: 'Chur',
+    });
+    expect(job!.sourceLang).toBe('en');
+  });
+
+  it('derives sourceLang from a /fr/job/ URL', () => {
+    const job = buildJob({
+      title: 'Mécanicien de locomotive',
+      url: 'https://www.rhb.ch/fr/job/mecanicien-chur_2026-0004',
+      location: 'Chur',
+    });
+    expect(job!.sourceLang).toBe('fr');
+  });
+
+  it('falls back to de sourceLang when the URL has no locale segment', () => {
+    const job = buildJob({ title: 'Test Job', location: 'Chur' });
+    expect(job!.sourceLang).toBe('de');
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// deriveSourceLang
+// ═══════════════════════════════════════════════════════════════
+
+describe('deriveSourceLang', () => {
+  it('reads the locale segment from /it/job/ URLs', () => {
+    expect(deriveSourceLang('https://www.rhb.ch/it/job/some-title_2026-0001')).toBe('it');
+  });
+
+  it('reads the locale segment from /de/job/ URLs', () => {
+    expect(deriveSourceLang('https://www.rhb.ch/de/job/some-title_2026-0001')).toBe('de');
+  });
+
+  it('reads the locale segment from /en/job/ URLs', () => {
+    expect(deriveSourceLang('https://www.rhb.ch/en/job/some-title_2026-0001')).toBe('en');
+  });
+
+  it('reads the locale segment from /fr/job/ URLs', () => {
+    expect(deriveSourceLang('https://www.rhb.ch/fr/job/some-title_2026-0001')).toBe('fr');
+  });
+
+  it('defaults to de for unrecognized or missing locale segments', () => {
+    expect(deriveSourceLang('https://www.rhb.ch/karriere/stellen/lokfuehrer')).toBe('de');
+    expect(deriveSourceLang('')).toBe('de');
   });
 });
 
