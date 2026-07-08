@@ -16,6 +16,7 @@ import {
   renderHubPage,
   renderComunePage,
   renderDigestPage,
+  renderOtherEventsPage,
   DIGESTS,
   assignEventSlugs,
   reserveLiveSiblingSlugs,
@@ -377,6 +378,30 @@ describe('renderEventDetailPage', () => {
     expect(titleTag).not.toContain(EVENT.title);
     expect(titleTag).toContain(`${longComune} (Ticino) | Eventi`);
   });
+
+  it('keeps <title> within the 66-char cap for a non-TI canton with a long display name (regression: issue #3772 recurrence — validate-dist still failing on `eventi` after PR #3786)', () => {
+    // The old `detailCopyFor.metaTitle` substituted the real canton name
+    // into the string `eventDetailMetaTitle` had ALREADY budgeted/truncated
+    // assuming the short "Ticino"/"Tessin" placeholder — with no re-check.
+    // fr/AR ("Appenzell Rhodes-Extérieures", 28 chars vs "Tessin"'s 6) is
+    // the worst observed case, pushing the pre-fix <title> ~20 chars over
+    // budget for every event in that canton, nationwide.
+    const arEvent = { ...EVENT, id: 'guidle:ar1', canton: 'AR', comune: 'Herisau' };
+    const page = renderEventDetailPage({
+      locale: 'fr',
+      event: arEvent as never,
+      comune: 'Herisau',
+      eventSlug: slugifyEvent(arEvent),
+      sameComuneEvents: [arEvent] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const titleTag = /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '';
+    expect(titleTag.length).toBeGreaterThan(0);
+    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag).toContain('Appenzell Rhodes-Extérieures');
+  });
 });
 
 describe('router recognises per-event detail URLs (staticOverlay)', () => {
@@ -666,6 +691,64 @@ describe('renderHubPage / renderComunePage generalize to a non-TI canton (#3125 
     expect(tiPage.urlPath).toBe('/eventi/ticino/lugano/');
     expect(tiPage.html).toContain('in Ticino');
   });
+
+  it('hub-page <title> stays within the 66-char cap for a long-name canton in every locale (regression: issue #3772 recurrence — validate-dist still failing on `eventi` after PR #3786)', () => {
+    // AR ("Appenzell Rhodes-Extérieures" in fr, 28 chars) is the worst case
+    // vs. the short "Ticino"/"Tessin" (6 chars) the old code budgeted for.
+    const arEvent = { ...EVENT, id: 'guidle:ar-hub', canton: 'AR', comune: 'Herisau' };
+    const arByComune = new Map([['Herisau', [arEvent]]]);
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const page = renderHubPage({
+        locale,
+        canton: 'AR',
+        events: [arEvent] as never,
+        byComune: arByComune as never,
+        dateStamp: '2026-06-30',
+        weekendDays: new Set(),
+        distDir,
+      });
+      const titleTag = /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '';
+      expect(titleTag.length).toBeGreaterThan(0);
+      expect(titleTag.length).toBeLessThanOrEqual(66);
+    }
+  });
+});
+
+describe('digest-page <title> budget for a long-name canton (regression: issue #3772 recurrence)', () => {
+  const distDir = mkdtempSync(path.join(os.tmpdir(), 'events-digest-title-'));
+  // Saturday 2026-07-04 falls inside both the weekend window and the
+  // this-week window when todayIso is 2026-07-01 (Wednesday).
+  const arEvent = { ...EVENT, id: 'guidle:ar-digest', canton: 'AR', comune: 'Herisau', startDate: '2026-07-04' };
+  const weekendDef = DIGESTS.find((d) => d.key === 'weekend')!;
+  const weekDef = DIGESTS.find((d) => d.key === 'week')!;
+
+  it('keeps both the weekend and this-week digest <title> within the 66-char cap, distinct from each other, for every locale', () => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const weekendPage = renderDigestPage({
+        def: weekendDef,
+        locale,
+        canton: 'AR',
+        events: [arEvent] as never,
+        dateStamp: '2026-07-01',
+        distDir,
+      });
+      const weekPage = renderDigestPage({
+        def: weekDef,
+        locale,
+        canton: 'AR',
+        events: [arEvent] as never,
+        dateStamp: '2026-07-01',
+        distDir,
+      });
+      const weekendTitle = /<title>([^<]*)<\/title>/.exec(weekendPage.html)?.[1] ?? '';
+      const weekTitle = /<title>([^<]*)<\/title>/.exec(weekPage.html)?.[1] ?? '';
+      expect(weekendTitle.length).toBeGreaterThan(0);
+      expect(weekendTitle.length).toBeLessThanOrEqual(66);
+      expect(weekTitle.length).toBeGreaterThan(0);
+      expect(weekTitle.length).toBeLessThanOrEqual(66);
+      expect(weekendTitle).not.toBe(weekTitle);
+    }
+  });
 });
 
 // #3141 item 2: the tio-agenda MVP source never crawls a real per-event
@@ -877,5 +960,27 @@ describe('reserveLiveSiblingSlugs (issue #3715 — reviewer-found collision)', (
     const pastSlugs = assignEventSlugs([pastEvent] as never, reserved);
     // Must land on a third slug — neither live sibling's real URL is reused.
     expect(pastSlugs.get('tio-agenda:700')).toBe('mercato-di-natale-2026-12-05-3');
+  });
+});
+
+describe('other-events-page <title> budget for a long-name canton (regression: issue #3772 recurrence)', () => {
+  it('keeps <title> within the 66-char cap for a long-name canton in every locale', () => {
+    const distDir = mkdtempSync(path.join(os.tmpdir(), 'events-other-title-'));
+    // de/AR ("Appenzell Ausserrhoden") was the confirmed overflow instance
+    // (67 chars) for otherEventsCopyFor.metaTitle before this fix.
+    const arEvent = { ...EVENT, id: 'guidle:ar-other', canton: 'AR', comune: 'Herisau' };
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const page = renderOtherEventsPage({
+        locale,
+        canton: 'AR',
+        events: [arEvent] as never,
+        dateStamp: '2026-06-30',
+        weekendDays: new Set(),
+        distDir,
+      });
+      const titleTag = /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '';
+      expect(titleTag.length).toBeGreaterThan(0);
+      expect(titleTag.length).toBeLessThanOrEqual(66);
+    }
   });
 });
