@@ -74602,7 +74602,7 @@
       "companyDomain": "roche.com",
       "title": "Especialista Jurídico e de Privacidade de Dados",
       "titleByLocale": {
-        "it": "Especialista Jurídico e de Privacidade de Dados",
+        "it": "Specialist Jurídico e de Privacidade de Dados",
         "en": "Especialista Jurídico e de Privacidade de Dados",
         "de": "Especialista Jurídico e de Privacidade de Dados",
         "fr": "Especialista Jurídico e de Privacidade de Dados"
@@ -74619,7 +74619,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Sao-Paulo/Especialista-Jurdico-e-de-Privacidade-de-Dados_202606-116340-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:18:52.036Z",
+      "crawledAt": "2026-07-07T12:03:05.468Z",
       "addressLocality": "Sao Paulo",
       "addressCountry": "CH",
       "country": "CH",
@@ -74634,7 +74634,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Sao-Paulo/Especialista-Jurdico-e-de-Privacidade-de-Dados_202606-116340-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-01T23:08:21.819Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -88715,7 +88714,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Sao-Paulo/Gerente-de-Acesso-e-Avaliao-de-Tecnologias-em-Sade_202607-117516-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:15:58.142Z",
+      "crawledAt": "2026-07-07T11:59:46.258Z",
       "addressLocality": "Sao Paulo",
       "addressCountry": "CH",
       "country": "CH",
@@ -88730,31 +88729,28 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Sao-Paulo/Gerente-de-Acesso-e-Avaliao-de-Tecnologias-em-Sade_202607-117516-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "gerente-de-acesso-e-avaliacao-de-tecnologias-em-saude-roche-ch",
-        "responsabile-dell-accesso-e-dell-avaliacao-de-tecnologias-em-saude-roche-sao-paulo"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gerente-de-acesso-e-avaliacao-de-tecnologias-em-saude-roche-ch",
-          "responsabile-dell-accesso-e-dell-avaliacao-de-tecnologias-em-saude-roche-sao-paulo"
-        ]
-      },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:25:50.713Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "gerente-de-acesso-e-avaliacao-de-tecnologias-em-saude-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gerente-de-acesso-e-avaliacao-de-tecnologias-em-saude-roche-ch"
+      ]
     },
     {
       "id": "roche-e6d0bbc8b995",
@@ -96617,7 +96613,7 @@
       "companyDomain": "roche.com",
       "title": "Pasante de Comunicación Interna",
       "titleByLocale": {
-        "it": "Pasante de Comunicación Interna",
+        "it": "Rete di comunicazione internazionale",
         "en": "Pasante de Comunicación Interna",
         "de": "Pasante de Comunicación Interna",
         "fr": "Pasante de Comunicación Interna"
@@ -96657,7 +96653,6 @@
           "pasante-de-comunicacion-interna-roche-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T23:23:46.544Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -96673,7 +96668,7 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-93de9f715a1e",

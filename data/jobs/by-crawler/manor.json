@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "manor",
-  "assembledAt": "2026-07-07T22:36:44.542Z",
   "jobs": [
     {
       "title": "Collaborateur/trice visual merchandising 60%",
@@ -394,9 +392,6 @@
       },
       "sourceLang": "it",
       "id": "manor-399b6fc4ff44",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
       "salaryMin": 50400,
       "salaryMax": 77700,
       "currency": "CHF",
@@ -413,7 +408,9 @@
       "addressLocality": "Lausanne Collaborateurtrice vente (Home",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Collaborateur/trice supermarché (poissonnerie) 60%",
@@ -615,15 +612,12 @@
       },
       "titleByLocale": {
         "it": "Bäcker/in (Brot & Patisserie) 70%",
-        "en": "Bäcker/in (Brot & Patisserie) 70%.",
         "de": "Bäcker/in (Brot & Patisserie) 70%",
+        "en": "Bäcker/in (Brot & Patisserie) 70%.",
         "fr": "Bäcker/in (Brot & Patisserie) 70%"
       },
       "sourceLang": "it",
       "id": "manor-f90894c58e9d",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
       "salaryMin": 54300,
       "salaryMax": 83000,
       "currency": "CHF",
@@ -640,7 +634,9 @@
       "addressLocality": "Biel Bäckerin (Brot &",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Collaborateur/trice caisse (papeterie) 50%",
@@ -891,15 +887,12 @@
       },
       "titleByLocale": {
         "it": "Cuisinier/ère 100%",
+        "fr": "Cuisinier/ère 100%",
         "en": "Cuisinier / isre 100%",
-        "de": "Cuisinier/ère 100%",
-        "fr": "Cuisinier/ère 100%"
+        "de": "Cuisinier/ère 100%"
       },
       "sourceLang": "it",
       "id": "manor-fb015ed8a6f9",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
       "salaryMin": 65500,
       "salaryMax": 82500,
       "currency": "CHF",
@@ -916,7 +909,9 @@
       "addressLocality": "Vevey Cuisinierère 100",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Collaborateur/trice vente (Confection Dames) 50% du 31.08.2026 au 12.09.2026",
@@ -1166,32 +1161,21 @@
       },
       "postedDate": "2026-07-04",
       "source": "company-website",
-      "slug": "collaboratore-trice-in-logistik-50-100-manor-ag-hochdorf-mitarbeiterin-logistik-50",
+      "slug": "manor-mitarbeiter-in-logistik-50-100-hochdorf-mitarbeiterin-logistik-50",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-logistik-50-100-manor-ag-hochdorf-mitarbeiterin-logistik-50",
+        "it": "manor-mitarbeiter-in-logistik-50-100-hochdorf-mitarbeiterin-logistik-50",
         "en": "manor-mitarbeiter-in-logistik-50-100-hochdorf-mitarbeiterin-logistik-50",
         "de": "manor-mitarbeiter-in-logistik-50-100-hochdorf-mitarbeiterin-logistik-50",
         "fr": "manor-mitarbeiter-in-logistik-50-100-hochdorf-mitarbeiterin-logistik-50"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 50-100%",
-        "en": "Mitarbeiter * in Logistik 50-100%",
         "de": "Mitarbeiter*in Logistik 50-100%",
+        "en": "Mitarbeiter * in Logistik 50-100%",
         "fr": "Mitarbeiter*in Logistik 50-100%"
       },
       "sourceLang": "it",
       "id": "manor-faa55edac52a",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-logistik-50-100-hochdorf-mitarbeiterin-logistik-50"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-50-100-hochdorf-mitarbeiterin-logistik-50"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -1208,7 +1192,9 @@
       "addressLocality": "Hochdorf Mitarbeiterin Logistik 50",
       "addressRegion": "LU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "6003",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Collaborateur/trice supermarché (boulangerie) 0%",
@@ -1243,9 +1229,8 @@
         "fr": "Collaborateur/trice supermarché (boulangerie) 0%"
       },
       "sourceLang": "it",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "id": "manor-603b63f7c4f9",
-      "needsRetranslation": true,
       "salaryMin": 67500,
       "salaryMax": 84500,
       "currency": "CHF",
@@ -1264,8 +1249,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": ""
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Mitarbeiter*in Logistik Warenausgang 100%",
@@ -2726,32 +2710,21 @@
       },
       "postedDate": "2026-07-01",
       "source": "company-website",
-      "slug": "collaboratore-trice-in-logistik-vz-20-manor-ag-hochdorf-mitarbeiterin-logistik-vz",
+      "slug": "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-logistik-vz-20-manor-ag-hochdorf-mitarbeiterin-logistik-vz",
+        "it": "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz",
         "en": "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz",
         "de": "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz",
         "fr": "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik VZ 20%",
-        "en": "Mitarbeiter*in Logistik VZ 20%.",
         "de": "Mitarbeiter*in Logistik VZ 20%",
+        "en": "Mitarbeiter*in Logistik VZ 20%.",
         "fr": "Mitarbeiter*in Logistik VZ 20%"
       },
       "sourceLang": "it",
       "id": "manor-ddf0e8f2dd41",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz"
-      ],
       "salaryMin": 13900,
       "salaryMax": 21200,
       "currency": "CHF",
@@ -2768,7 +2741,9 @@
       "addressLocality": "Hochdorf Mitarbeiterin Logistik VZ",
       "addressRegion": "LU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "6003",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Assistant/e Floor Manager (Confection dames) 100%",
@@ -3392,15 +3367,12 @@
       },
       "titleByLocale": {
         "it": "Koch/Köchin 100%",
-        "en": "Koch / Kin%",
         "de": "Koch/Köchin 100%",
+        "en": "Koch / Kin%",
         "fr": "Koch/Köchin 100%"
       },
       "sourceLang": "it",
       "id": "manor-29999019ec94",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
       "salaryMin": 69000,
       "salaryMax": 86500,
       "currency": "CHF",
@@ -3417,7 +3389,9 @@
       "addressLocality": "Emmen KochKöchin 100",
       "addressRegion": "LU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "6003",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Boulanger/ère 100%",
@@ -3495,32 +3469,21 @@
       },
       "postedDate": "2026-06-27",
       "source": "company-website",
-      "slug": "collaboratore-trice-in-logistik-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
+      "slug": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-logistik-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
+        "it": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
         "en": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
         "de": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
         "fr": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 100%",
-        "en": "Mitarbeiter * in Logistik 100%",
         "de": "Mitarbeiter*in Logistik 100%",
+        "en": "Mitarbeiter * in Logistik 100%",
         "fr": "Mitarbeiter*in Logistik 100%"
       },
       "sourceLang": "it",
       "id": "manor-07100ac0ef92",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -3537,7 +3500,9 @@
       "addressLocality": "Möhlin Mitarbeiterin Logistik 100",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "5000",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Mitarbeiter*in Warenbewirtschaftung Spielwaren 20%",
@@ -3786,32 +3751,21 @@
       },
       "postedDate": "2026-06-26",
       "source": "company-website",
-      "slug": "collaboratore-trice-in-logistik-warenbereitstellung-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
+      "slug": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-logistik-warenbereitstellung-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
+        "it": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
         "en": "employee-logistics-provision-of-goods-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
         "de": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
         "fr": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik Warenbereitstellung 100%",
-        "en": "Employee logistics provision of goods 100%",
         "de": "Mitarbeiter*in Logistik Warenbereitstellung 100%",
+        "en": "Employee logistics provision of goods 100%",
         "fr": "Mitarbeiter*in Logistik Warenbereitstellung 100%"
       },
       "sourceLang": "it",
       "id": "manor-24ef08c3a316",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -3828,7 +3782,9 @@
       "addressLocality": "Hochdorf Mitarbeiterin Logistik Warenbereitstellung",
       "addressRegion": "LU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "6003",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Polydesigner 3D (Food) 60%",
@@ -3952,7 +3908,7 @@
       "description": "• Très bonnes connaissances linguistiques en allemand et en français\n• Connaissance des produits et air pour les tendances\n• Orienté vers le client et le marché\n• Connaissance des systèmes\n• Méthode de travail organisée\n• Bonnes capacités de communication et esprit d'initiative",
       "descriptionIt": "Très bonnes connaissances linguistiques en allemand et en français \nConnaissance des produits et air pour les tendances \nOrienté vers le client et le marché\nConnaissance des systèmes\nMéthode de travail organisée\nBonnes capacités de communication et esprit d'initiative",
       "descriptionByLocale": {
-        "it": "## Junior Buyer Food (m/w/d) 50-100% **Manor AG** — Basel Junior Buyer Food (BS) Conoscenza di lingue molto buona in tedesco e francese Conoscenza del prodotto e aria per le tendenze Regia al cliente e al mercato Conoscenze di sistemi Metodo di lavoro organizzato Buone capacità di comunicazione e leadership Manor AG è una delle principali catene di grandi magazzini in Svizzera, con attività nei settori moda, beauty, casa, food e ristorazione Manora. Le sedi ticinesi offrono ruoli operativi e commerciali in contesti retail dinamici e orientati al servizio. \n• Offriamo formazione sul posto, benefit aziendali, opportunità di sviluppo interno e un ambiente di lavoro strutturato a diretto contatto con la clientela.",
+        "it": "## Junior Buyer Food (m/w/d) 50-100%\n\n**Manor AG** — Basel Junior Buyer Food (BS)\n\nConoscenza di lingue molto buona in tedesco e francese Conoscenza del prodotto e aria per le tendenze Regia al cliente e al mercato Conoscenze di sistemi Metodo di lavoro organizzato Buone capacità di comunicazione e leadership\n\nManor AG è una delle principali catene di grandi magazzini in Svizzera, con attività nei settori moda, beauty, casa, food e ristorazione Manora. Le sedi ticinesi offrono ruoli operativi e commerciali in contesti retail dinamici e orientati al servizio.\n\nOffriamo formazione sul posto, benefit aziendali, opportunità di sviluppo interno e un ambiente di lavoro strutturato a diretto contatto con la clientela.",
         "en": "Junior Buyer Food (m/w/d) 50-100% at Manor, located in Basel Junior Buyer Food, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Junior Buyer Food (m/w/d) 50-100% bei Manor, gelegen in Basel Junior Buyer Food, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "Junior Buyer Food (m/w/d) 50-100% chez Manor, situé à Basel Junior Buyer Food, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -3968,23 +3924,12 @@
       },
       "titleByLocale": {
         "it": "Cibo per acquirenti juniori (lunedì/mercoledì/d) 50-100%",
+        "fr": "Junior Buyer Food (m/w/d) 50-100%",
         "en": "Junior Buyer Food (m/w/d) 50-100%",
-        "de": "Junior Buyer Food (m/w/d) 50-100%",
-        "fr": "Junior Buyer Food (m/w/d) 50-100%"
+        "de": "Junior Buyer Food (m/w/d) 50-100%"
       },
       "sourceLang": "fr",
       "id": "manor-e4ff39060e8e",
-      "previousSlugs": [
-        "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
       "salaryMin": 58500,
       "salaryMax": 89500,
       "currency": "CHF",
@@ -4001,7 +3946,17 @@
       "addressLocality": "Basel Junior Buyer Food",
       "addressRegion": "BS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "4001",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food"
+        ]
+      },
+      "previousSlugs": [
+        "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food"
+      ]
     },
     {
       "title": "Assistant Product Manager 100%",
@@ -5473,32 +5428,21 @@
       },
       "postedDate": "2026-06-22",
       "source": "company-website",
-      "slug": "collaboratore-trice-in-logistik-100-manor-ag-hochdorf-mitarbeiterin-logistik-100",
+      "slug": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-logistik-100-manor-ag-hochdorf-mitarbeiterin-logistik-100",
+        "it": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
         "en": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
         "de": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
         "fr": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 100%",
-        "en": "Mitarbeiter * in Logistik 100%",
         "de": "Mitarbeiter*in Logistik 100%",
+        "en": "Mitarbeiter * in Logistik 100%",
         "fr": "Mitarbeiter*in Logistik 100%"
       },
       "sourceLang": "it",
       "id": "manor-4bc046df64c6",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -5515,7 +5459,9 @@
       "addressLocality": "Hochdorf Mitarbeiterin Logistik 100",
       "addressRegion": "LU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "6003",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Mitarbeiter*in Verkauf Kinderkonfektion 40%",
@@ -5671,15 +5617,12 @@
       },
       "titleByLocale": {
         "it": "Droguiste (Dermacenter) 60%",
+        "de": "Drogistinnen (Dermacenter) 60%",
         "en": "Droguiste (Dermacenter) 60%",
-        "de": "Droguiste (Dermacenter) 60%",
         "fr": "Droguiste (Dermacenter) 60%"
       },
       "sourceLang": "it",
       "id": "manor-249745891a2c",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
       "salaryMin": 51900,
       "salaryMax": 72300,
       "currency": "CHF",
@@ -5696,7 +5639,9 @@
       "addressLocality": "Chavannes de Bogis Droguiste",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Mitarbeiter*in Supermarkt Weinabteilung 20%,",
@@ -5840,7 +5785,7 @@
       "description": "Leadership, capacité à apprendre rapidement, forte capacité de s'organiser et d'organiser son équipe, résistance au stress, gros volume de travail.",
       "descriptionIt": "Leadership, capacité à apprendre rapidement, forte capacité de s'organiser et d'organiser son équipe, résistance au stress, gros volume de travail.",
       "descriptionByLocale": {
-        "it": "## Visual Merchandising Manager 100% **Manor AG** — Vevey Visual Merchandising Manager (VD) Leadership, capacità di imparare rapidamente, forte capacità di organizzare e organizzare il vostro team, resistenza allo stress, grande carico di lavoro. Manor AG è una delle principali catene di grandi magazzini in Svizzera, con attività nei settori moda, beauty, casa, food e ristorazione Manora. Le sedi ticinesi offrono ruoli operativi e commerciali in contesti retail dinamici e orientati al servizio. \n• Offriamo formazione sul posto, benefit aziendali, opportunità di sviluppo interno e un ambiente di lavoro strutturato a diretto contatto con la clientela.",
+        "it": "## Visual Merchandising Manager 100%\n\n**Manor AG** — Vevey Visual Merchandising Manager (VD)\n\nLeadership, capacità di imparare rapidamente, forte capacità di organizzare e organizzare il vostro team, resistenza allo stress, grande carico di lavoro.\n\nManor AG è una delle principali catene di grandi magazzini in Svizzera, con attività nei settori moda, beauty, casa, food e ristorazione Manora. Le sedi ticinesi offrono ruoli operativi e commerciali in contesti retail dinamici e orientati al servizio.\n\nOffriamo formazione sul posto, benefit aziendali, opportunità di sviluppo interno e un ambiente di lavoro strutturato a diretto contatto con la clientela.",
         "en": "Visual Merchandising Manager 100% at Manor, located in Vevey Visual Merchandising Manager, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Visual Merchandising Manager 100% bei Manor, gelegen in Vevey Visual Merchandising Manager, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "Visual Merchandising Manager 100% chez Manor, situé à Vevey Visual Merchandising Manager, Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -5857,14 +5802,11 @@
       "titleByLocale": {
         "it": "Visual Merchandising Manager al 100%",
         "en": "Visual Merchandising Manager 100%",
-        "de": "Visual Merchandising Manager 100%",
-        "fr": "Visual Merchandising Manager 100%"
+        "fr": "Visual Merchandising Manager 100%",
+        "de": "Visual Merchandising Manager 100%"
       },
       "sourceLang": "fr",
       "id": "manor-19934496adb1",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -5881,7 +5823,9 @@
       "addressLocality": "Vevey Visual Merchandising Manager",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Mitarbeiter*in Logistik 30-100%",
@@ -5902,32 +5846,21 @@
       },
       "postedDate": "2026-06-19",
       "source": "company-website",
-      "slug": "collaboratore-trice-in-logistik-30-100-manor-ag-mohlin-mitarbeiterin-logistik-30",
+      "slug": "manor-mitarbeiter-in-logistik-30-100-mohlin-mitarbeiterin-logistik-30",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-logistik-30-100-manor-ag-mohlin-mitarbeiterin-logistik-30",
+        "it": "manor-mitarbeiter-in-logistik-30-100-mohlin-mitarbeiterin-logistik-30",
         "en": "manor-mitarbeiter-in-logistik-30-100-mohlin-mitarbeiterin-logistik-30",
         "de": "manor-mitarbeiter-in-logistik-30-100-mohlin-mitarbeiterin-logistik-30",
         "fr": "manor-mitarbeiter-in-logistik-30-100-mohlin-mitarbeiterin-logistik-30"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 30-100%",
-        "en": "Mitarbeiter*in Logistik 30-100%.",
         "de": "Mitarbeiter*in Logistik 30-100%",
+        "en": "Mitarbeiter*in Logistik 30-100%.",
         "fr": "Mitarbeiter*in Logistik 30-100%"
       },
       "sourceLang": "it",
       "id": "manor-e23a20d76d9b",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-logistik-30-100-mohlin-mitarbeiterin-logistik-30"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-30-100-mohlin-mitarbeiterin-logistik-30"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -5944,7 +5877,9 @@
       "addressLocality": "Möhlin Mitarbeiterin Logistik 30",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "5000",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Mitarbeiter*in Logistik 100%",
@@ -6257,9 +6192,9 @@
       },
       "postedDate": "2026-06-18",
       "source": "company-website",
-      "slug": "apprendistato-polydesigner-in-3d-cfc-styling-manor-ag-emmen-lehrstelle-polydesigner-in",
+      "slug": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
       "slugByLocale": {
-        "it": "apprendistato-polydesigner-in-3d-cfc-styling-manor-ag-emmen-lehrstelle-polydesigner-in",
+        "it": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
         "en": "lehrstelle-polign-manor-ag-emmen-lehrstelle-polydesigner-in",
         "de": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
         "fr": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in"
@@ -6271,9 +6206,8 @@
         "fr": "Lehrstelle Polydesigner/-in 3D EFZ Styling"
       },
       "sourceLang": "it",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "id": "manor-93c757b9e7b9",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "currency": "CHF",
@@ -6292,16 +6226,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in"
-        ]
-      },
-      "previousSlugs": [
-        "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in"
-      ]
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Assistant Floor Manager (Confection Messieurs) 100%",
@@ -7164,15 +7089,12 @@
       },
       "titleByLocale": {
         "it": "Koch/Köchin 80%",
-        "en": "Koch / Kin%",
         "de": "Koch/Köchin 80%",
+        "en": "Koch / Kin%",
         "fr": "Koch/Köchin 80%"
       },
       "sourceLang": "it",
       "id": "manor-9d57a9e3a2f8",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
       "salaryMin": 49600,
       "salaryMax": 62400,
       "currency": "CHF",
@@ -7189,7 +7111,9 @@
       "addressLocality": "Schaffhausen KochKöchin 80",
       "addressRegion": "SH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "8200",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Collaborateur/trice supermarché (Fruits & Légumes) Etudiant/e 20%",
@@ -7590,9 +7514,6 @@
       },
       "sourceLang": "it",
       "id": "manor-3e0aad57cf64",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -7609,7 +7530,9 @@
       "addressLocality": "Lausanne Collaborateurtrice Visual Merchandising",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Mitarbeiter*in Verkauf Damenkonfektion 20%",
@@ -7894,9 +7817,6 @@
       },
       "sourceLang": "it",
       "id": "manor-e998536175d3",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
       "salaryMin": 43200,
       "salaryMax": 66600,
       "currency": "CHF",
@@ -7913,7 +7833,9 @@
       "addressLocality": "Monthey Collaborateurtrice vente (Accessoires",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "1950",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Store Manager 100%",
@@ -8613,15 +8535,12 @@
       },
       "titleByLocale": {
         "it": "Droguiste CFC (Dermacenter) 50-80%",
-        "en": "Droguiste CFC (Dermacenter) 50-80%.",
         "de": "Droguiste CFC (Dermacenter) 50-80%",
+        "en": "Droguiste CFC (Dermacenter) 50-80%.",
         "fr": "Droguiste CFC (Dermacenter) 50-80%"
       },
       "sourceLang": "it",
       "id": "manor-a309ddeb2d82",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
       "salaryMin": 68000,
       "salaryMax": 95200,
       "currency": "CHF",
@@ -8638,7 +8557,9 @@
       "addressLocality": "Biel Droguiste CFC (Dermacenter)",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z"
     },
     {
       "title": "Drogist*in EFZ (Dermacenter) 50-80%",
@@ -9004,5 +8925,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME"
     }
-  ]
+  ],
+  "crawlerKey": "manor",
+  "assembledAt": "2026-07-07T22:36:44.542Z"
 }
