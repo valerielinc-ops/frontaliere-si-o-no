@@ -1,16 +1,16 @@
 {
   "key": "talan",
   "label": "Talan",
-  "generatedAt": "2026-07-08T11:11:31.431Z",
-  "total": 8,
+  "generatedAt": "2026-07-08T22:06:57.642Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 14064,
-  "avgDurationMs": 14064,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 15166,
+  "avgDurationMs": 15166,
   "durationHistory": [
-    14064
+    15166
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000136176174-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:11:29.142Z",
+      "crawledAt": "2026-07-08T22:06:54.755Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -66,7 +66,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:11:29.158Z",
+      "crawledAt": "2026-07-08T22:06:54.778Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -105,7 +105,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126720720-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:11:29.159Z",
+      "crawledAt": "2026-07-08T22:06:54.779Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -144,7 +144,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:11:29.160Z",
+      "crawledAt": "2026-07-08T22:06:54.797Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -183,7 +183,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126720699-developpeur-fiori-sapui5-btp?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:11:29.161Z",
+      "crawledAt": "2026-07-08T22:06:54.798Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -222,7 +222,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126257121-senior-consultant-e-dba-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:11:29.171Z",
+      "crawledAt": "2026-07-08T22:06:54.796Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -261,7 +261,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000112844097-consultant-e-fonctionnel-le-sap-fi-co?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:11:29.172Z",
+      "crawledAt": "2026-07-08T22:06:54.799Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -288,8 +288,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "talan-c13e3e89e300",
       "slug": "microsoft-fabric-architetto-talan-geneva",
@@ -332,5 +331,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
