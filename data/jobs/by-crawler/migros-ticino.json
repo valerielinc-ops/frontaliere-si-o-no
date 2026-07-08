@@ -4006,10 +4006,6 @@
         "seller-denner-ag-wetzikon-8e6f7a",
         "vendeur-denner-ag-wetzikon-8e6f7a",
         "venditore-denner-ag-wetzikon-8q0wha",
-        "venditore-denner-ag-frauenfeld",
-        "seller-denner-ag-frauenfeld",
-        "verkaufer-in-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld",
         "venditore-denner-ag-zurich-1ed56c"
       ]
     },
@@ -9457,7 +9453,6 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-zurich-z8lf10",
         "stv-filialleiter-in-denner-ag-zurich-2zbait",
-        "stv-branch-manager-in-denner-ag-zurich",
         "stv-branch-manager-in-denner-ag-zurich-3e601b"
       ]
     },
@@ -9512,7 +9507,7 @@
       "firstSeenAt": "2026-07-06T15:33:09.040Z",
       "slugByLocale": {
         "de": "stv-filialleiter-in-denner-ag-zurich-2zbait",
-        "en": "stv-branch-manager-in-denner-ag-zurich",
+        "en": "assistant-store-manager-denner-ag-zurich",
         "fr": "directeur-de-succursale-stv-in-denner-ag-zurich-3e601b",
         "it": "stv-branch-manager-in-denner-ag-zurich-3e601b"
       },
@@ -9565,7 +9560,8 @@
           "stv-filialleiter-in-denner-ag-zurich-2zbait"
         ],
         "en": [
-          "stv-filialleiter-in-denner-ag-zurich-2zbait"
+          "stv-filialleiter-in-denner-ag-zurich-2zbait",
+          "stv-branch-manager-in-denner-ag-zurich"
         ],
         "fr": [
           "stv-filialleiter-in-denner-ag-zurich-2zbait"
@@ -16950,7 +16946,6 @@
         "seller-denner-ag-wetzikon-8e6f7a",
         "vendeur-denner-ag-wetzikon-8e6f7a",
         "venditore-denner-ag-wetzikon-8q0wha",
-        "venditore-denner-ag-rubigen",
         "venditore-denner-ag-zurich-1ed56c"
       ],
       "salaryMin": 68500,
@@ -17277,7 +17272,6 @@
         "seller-denner-ag-wetzikon-8e6f7a",
         "vendeur-denner-ag-wetzikon-8e6f7a",
         "venditore-denner-ag-wetzikon-8q0wha",
-        "venditore-denner-ag-stein-ag",
         "venditore-denner-ag-zurich-1ed56c"
       ],
       "salaryMin": 62000,
@@ -18373,8 +18367,6 @@
         "seller-denner-ag-wetzikon-8e6f7a",
         "vendeur-denner-ag-wetzikon-8e6f7a",
         "venditore-denner-ag-wetzikon-8q0wha",
-        "venditore-denner-ag-wetzikon-e6382f",
-        "verkaufer-in-denner-ag-wetzikon",
         "venditore-denner-ag-zurich-1ed56c"
       ],
       "previousSlugsByLocale": {
@@ -18562,9 +18554,6 @@
         "vendeur-denner-ag-wattwil",
         "venditore-denner-ag-wattwil-8129f7",
         "venditore-denner-ag-wattwil",
-        "seller-denner-ag-wetzikon-8e6f7a",
-        "vendeur-denner-ag-wetzikon-8e6f7a",
-        "venditore-denner-ag-wetzikon",
         "venditore-denner-ag-zurich-1ed56c"
       ],
       "salaryMin": 73500,
@@ -19549,7 +19538,6 @@
         "stv-filialleiter-in-denner-ag-basel-2",
         "assistant-store-manager-denner-ag-basel",
         "stv-filialleiter-in-denner-ag-basel-hokisc",
-        "stv-branch-manager-in-denner-ag-basel",
         "stv-branch-manager-in-denner-ag-basel-e6a673",
         "stv-branch-manager-in-denner-basel"
       ],
@@ -31195,7 +31183,6 @@
         "seller-denner-ag-wetzikon-8e6f7a",
         "vendeur-denner-ag-wetzikon-8e6f7a",
         "venditore-denner-ag-wetzikon-8q0wha",
-        "venditore-denner-ag-gossau-sg",
         "venditore-denner-ag-rubigen",
         "venditore-denner-ag-zurich-1ed56c"
       ],
@@ -38389,8 +38376,6 @@
         "vendeur-denner-ag-wattwil",
         "venditore-denner-ag-wattwil-8129f7",
         "venditore-denner-ag-wattwil",
-        "verkaufer-in-denner-ag-langenthal",
-        "venditore-denner-ag-langenthal",
         "venditore-denner-ag-zurich-1ed56c"
       ],
       "previousSlugsByLocale": {
@@ -39067,7 +39052,6 @@
         "seller-denner-ag-wetzikon-8e6f7a",
         "vendeur-denner-ag-wetzikon-8e6f7a",
         "venditore-denner-ag-wetzikon-8q0wha",
-        "venditore-denner-ag-wattwil",
         "venditore-denner-ag-zurich-1ed56c"
       ]
     },
@@ -39739,7 +39723,6 @@
         "venditore-denner-ag-langenthal",
         "verkaufer-in-denner-ag-rubigen",
         "seller-denner-ag-langenthal",
-        "venditore-denner-ag-urdorf",
         "vendeur-denner-ag-wetzikon",
         "verkaufer-in-denner-ag-mohlin",
         "seller-denner-ag-wattwil",
@@ -45658,7 +45641,6 @@
         "vendeur-a-salaire-horaire-denner-ag-schiers-b2shd8",
         "verkaufer-in-im-stundenlohn-denner-ag-schiers",
         "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach",
-        "venditore-nel-salario-orario-denner-ag-spreitenbach",
         "venditore-con-salario-orario-denner-ag-binningen"
       ],
       "salaryMin": 62000,
@@ -77629,7 +77611,6 @@
         "enseignement-de-l-adequation-du-groupe-au-salaire-horaire-genossenschaft-migros-ostschweiz-chur",
         "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona",
-        "riformatore-di-pilates-insegnante-con-un-salario-orario-genossenschaft-migros-ostschweiz-chur",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-chur"
       ],
       "salaryMin": 57500,
