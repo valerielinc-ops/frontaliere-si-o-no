@@ -8315,6 +8315,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ascensori-ticino-frontalieri.title': 'Ascenseurs Tessin : opportunités d\'emploi pour les frontaliers',
     'blog.article.ascensori-ticino-frontalieri.excerpt': 'Recherche d\'emploi pour les ascenseurs au Tessin. Découvrez les exigences, les salaires et les taxes pour les frontaliers qui travaillent en Suisse italienne',
     'blog.article.ascensori-ticino-frontalieri.imageAlt': 'Ascenseurs à Locarno reliant les zones résidentielles au centre-ville',
+    'blog.article.pemsa-lugano-servizi-frontalieri.title': 'Pemsa Lugano : Services pour les travailleurs au Tessin',
+    'blog.article.pemsa-lugano-servizi-frontalieri.excerpt': 'Analyse des services offerts par Pemsa à Lugano pour ceux qui travaillent dans le canton du Tessin, dans le contexte du marché du travail transfrontalier.',
+    'blog.article.pemsa-lugano-servizi-frontalieri.imageAlt': 'Vue panoramique des bureaux à Lugano',
 };
 
 export default blogMetaFr;

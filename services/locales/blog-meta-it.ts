@@ -8315,6 +8315,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ascensori-ticino-frontalieri.title': 'Ascensori Ticino: opportunità di lavoro per frontalieri',
     'blog.article.ascensori-ticino-frontalieri.excerpt': 'Ricerca lavoro per addetti agli ascensori in Ticino. Scopri requisiti, stipendi e imposte per i frontalieri che lavorano in Svizzera italiana',
     'blog.article.ascensori-ticino-frontalieri.imageAlt': 'Ascensori a Locarno che collegano le aree residenziali al centro città',
+    'blog.article.pemsa-lugano-servizi-frontalieri.title': 'Pemsa Lugano: Servizi per i lavoratori in Ticino',
+    'blog.article.pemsa-lugano-servizi-frontalieri.excerpt': 'Analisi dei servizi offerti da Pemsa a Lugano per chi lavora in Canton Ticino, inquadrati nel contesto del mercato del lavoro transfrontaliero.',
+    'blog.article.pemsa-lugano-servizi-frontalieri.imageAlt': 'Vista panoramica degli uffici a Lugano',
 };
 
 export default blogMetaIt;
