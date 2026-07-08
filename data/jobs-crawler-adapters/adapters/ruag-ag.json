@@ -35,10 +35,13 @@
     "https://jobs.ruag.ch/offene-stellen/gebaeudetechnikerin-sanitaer-heizungsinstallateurin/63ae7f4e-efa5-4ba3-ba28-f9dd8a26dbb7",
     "https://jobs.ruag.ch/offene-stellen/technician-avionics/7d62a2cf-60ef-4069-b2fb-26df66e89671",
     "https://jobs.ruag.ch/offene-stellen/principal-cyber-security-c5i/0a59f7e8-c226-4939-9dcb-e52d75ce0ab6",
-    "https://jobs.ruag.ch/offene-stellen/operations-consultant-c5i/0f88429c-91c3-46f5-81e6-5e94b71a6d0d"
+    "https://jobs.ruag.ch/offene-stellen/operations-consultant-c5i/0f88429c-91c3-46f5-81e6-5e94b71a6d0d",
+    "https://jobs.ruag.ch/offene-stellen/technische-r-redaktorin/517c6a48-e036-4916-a626-9f636afdb19c",
+    "https://jobs.ruag.ch/offene-stellen/messtechnik-spezialist-dms/45bffd3d-d924-4c32-8f74-bd8715980e7d",
+    "https://jobs.ruag.ch/offene-stellen/senior-sales-manager-air/48b9ccef-cc10-4b4c-8f29-89d44e0b12fa"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-07T22:29:42.890Z",
+  "updatedAt": "2026-07-08T11:35:48.478Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-networks-betriebselektrikerin-schwachstrom/8e281827-5c3f-44d8-a754-cf6caf198437": {
       "location": "Altdorf",
@@ -195,6 +198,24 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-07-07"
+    },
+    "https://jobs.ruag.ch/offene-stellen/technische-r-redaktorin/517c6a48-e036-4916-a626-9f636afdb19c": {
+      "location": "Thun",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-08"
+    },
+    "https://jobs.ruag.ch/offene-stellen/messtechnik-spezialist-dms/45bffd3d-d924-4c32-8f74-bd8715980e7d": {
+      "location": "Emmen",
+      "canton": "LU",
+      "company": "RUAG AG",
+      "postedDate": "2026-05-12"
+    },
+    "https://jobs.ruag.ch/offene-stellen/senior-sales-manager-air/48b9ccef-cc10-4b4c-8f29-89d44e0b12fa": {
+      "location": "Emmen",
+      "canton": "LU",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-08"
     }
   }
 }
