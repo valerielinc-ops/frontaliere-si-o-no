@@ -4412,6 +4412,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pflegefachfrau-frontalieri-basel': { name: 'Frontalieri fiscalità', path: '/articoli-svizzera/pflegefachfrau-frontalieri-basel/', parent: 'blog' },
     'blog-ascensori-ticino-frontalieri': { name: 'Ascensori Ticino', path: '/articoli-frontaliere/ascensori-ticino-frontalieri', parent: 'blog' },
     'blog-ascensori-steinach-lavoro-svizzera': { name: 'Lavoro Ascensori', path: '/articoli-svizzera/ascensori-steinach-lavoro-svizzera/', parent: 'blog' },
+    'blog-prezzi-pizza-italia-implicazioni': { name: 'Analisi prezzi', path: '/articoli-svizzera/prezzi-pizza-italia-implicazioni/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
