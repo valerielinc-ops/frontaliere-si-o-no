@@ -8317,6 +8317,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pemsa-lugano-servizi-frontalieri.title': 'Pemsa Lugano: Services for workers in Ticino',
     'blog.article.pemsa-lugano-servizi-frontalieri.excerpt': 'Analysis of the services offered by Pemsa in Lugano for those working in Canton Ticino, framed in the context of the cross-border labour market.',
     'blog.article.pemsa-lugano-servizi-frontalieri.imageAlt': 'Panoramic view of offices in Lugano',
+    'blog.article.pizza-price-italy-implications.title': 'Pizza prices in Italy: what changes for border workers',
+    'blog.article.pizza-price-italy-implications.excerpt': 'The increase in the cost of living in Italy is also reflected in the prices of pizza, a key element of spending for many Ticino border workers.',
+    'blog.article.pizza-price-italy-implications.imageAlt': 'Pizza price in Naples, Italy: implications for Ticino cross-border workers',
 };
 
 export default blogMetaEn;

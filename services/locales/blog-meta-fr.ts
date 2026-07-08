@@ -8318,6 +8318,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pemsa-lugano-servizi-frontalieri.title': 'Pemsa Lugano : Services pour les travailleurs au Tessin',
     'blog.article.pemsa-lugano-servizi-frontalieri.excerpt': 'Analyse des services offerts par Pemsa à Lugano pour ceux qui travaillent dans le canton du Tessin, dans le contexte du marché du travail transfrontalier.',
     'blog.article.pemsa-lugano-servizi-frontalieri.imageAlt': 'Vue panoramique des bureaux à Lugano',
+    'blog.article.pizza-price-italy-implications.title': 'Prix des pizzas en Italie : ce qui change pour les frontaliers',
+    'blog.article.pizza-price-italy-implications.excerpt': 'L\'augmentation du coût de la vie en Italie se reflète également dans les prix de la pizza, un élément clé des dépenses de nombreux frontaliers tessinois.',
+    'blog.article.pizza-price-italy-implications.imageAlt': 'Prix de la pizza à Naples, Italie : implications pour les travailleurs transfrontaliers tessinois',
 };
 
 export default blogMetaFr;

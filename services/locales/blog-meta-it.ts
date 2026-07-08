@@ -8318,6 +8318,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pemsa-lugano-servizi-frontalieri.title': 'Pemsa Lugano: Servizi per i lavoratori in Ticino',
     'blog.article.pemsa-lugano-servizi-frontalieri.excerpt': 'Analisi dei servizi offerti da Pemsa a Lugano per chi lavora in Canton Ticino, inquadrati nel contesto del mercato del lavoro transfrontaliero.',
     'blog.article.pemsa-lugano-servizi-frontalieri.imageAlt': 'Vista panoramica degli uffici a Lugano',
+    'blog.article.pizza-price-italy-implications.title': 'Prezzi pizza in Italia: cosa cambia per i frontalieri',
+    'blog.article.pizza-price-italy-implications.excerpt': 'L\'aumento del costo della vita in Italia si riflette anche sui prezzi della pizza, un elemento chiave della spesa per molti frontalieri ticinesi.',
+    'blog.article.pizza-price-italy-implications.imageAlt': 'Prezzo pizza a Napoli, Italia: implicazioni per i frontalieri ticinesi',
 };
 
 export default blogMetaIt;
