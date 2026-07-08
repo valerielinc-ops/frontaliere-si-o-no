@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-07-08T11:17:47.543Z",
+  "savedAt": "2026-07-08T11:48:47.922Z",
   "entries": [
     {
       "key": "d75719e12bc559369b74abd12b1a133042ef5e67255856876010887a99333ff9",
@@ -95135,42 +95135,6 @@
       }
     },
     {
-      "key": "845c7d2ad45ee0001d7bb3e84ef158f2b020b65ce77ad3c3904155f555a84bfb",
-      "touchedAt": 1783426451732,
-      "value": {
-        "isJob": true,
-        "confidence": 95,
-        "reason": "The page contains a concrete role title ('Fachspezialist Einzelleben Neugeschäft (DE/FR) (m/w/d) 80 - 100%'), responsibilities ('bearbeitest selbstständig alle Anliegen anspruchsvoller Kunden von der Antragstellung bis zur Policierung im telefonischen und schriftlichen Kontakt'), and application context ('Werde auch du Teil davon und bewirb dich als Professional Fachspezialist Einzelleben Neugeschäft')."
-      }
-    },
-    {
-      "key": "6289932eaed5a616a76a60b9daaa14c495c3fc12c16b469bda787c9c2c3c6c55",
-      "touchedAt": 1783426451983,
-      "value": {
-        "isJob": true,
-        "confidence": 95,
-        "reason": "The page contains a concrete role title (Leiter Center of Competence Schaden Sach und Haft), responsibilities (leading a team, developing innovative solutions, improving processes), and application context (application instructions and contact information)."
-      }
-    },
-    {
-      "key": "eadd718d7c983cf7f6c39471b4f49106fedbe964b0763363e6d0819b027c75ba",
-      "touchedAt": 1783426452245,
-      "value": {
-        "isJob": true,
-        "confidence": 95,
-        "reason": "The page contains a concrete role title, responsibilities, and application context, making it a real single job detail page."
-      }
-    },
-    {
-      "key": "ecdd483dc68673ced8ed56eadc67beb1294d177d43f4792c74b22270775dfada",
-      "touchedAt": 1783426464752,
-      "value": {
-        "isJob": true,
-        "confidence": 95,
-        "reason": "The page contains a concrete role title ('Senior Group Employee Benefits Underwriter'), responsibilities ('Using a disciplined approach to risk assessment...'), and application context ('Apply now')."
-      }
-    },
-    {
       "key": "aeb719b621f1ad85e49acb1c8e962706afc6e73873ed842c56fd41e354030177",
       "touchedAt": 1783426508564,
       "value": {
@@ -112201,6 +112165,402 @@
         "isJob": true,
         "confidence": 95,
         "reason": "The page contains a concrete role title ('Analyste DSI'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "95ba3d3959d382c9f230618cf12d2d6c73afabcc90397b036f8915a180b617eb",
+      "touchedAt": 1783511092907,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "The page contains a specific job title (Junior AI Engineer), detailed responsibilities and requirements, and application context, indicating it is a concrete job listing."
+      }
+    },
+    {
+      "key": "5ea385b5a23a92cb1c6346a51a05107057f58b376247026cfe0063fed9ece49e",
+      "touchedAt": 1783511104706,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "The page provides a concrete job title ('Pricing Analyst - Zurich Asuransi Indonesia'), detailed responsibilities and requirements (including experience, skills, and accountabilities), and clear application context with 'Apply now' options. This matches the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "da07befc5e0cbabdbd1bc373ac06a09ee0eb29172067aa9b5259fb745d63bea6",
+      "touchedAt": 1783511165361,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "The page contains a specific job title (CIENTISTA DADOS III), detailed job responsibilities (e.g., 'Traduzir problemas de negócio...', 'Desenvolver modelos preditivos...'), and application context (e.g., 'Candidatar-se agora', 'Venha ser um Zuricher e faça parte de nosso time!')."
+      }
+    },
+    {
+      "key": "1fd8a590a13f92e79ee39cdbe50e5a14871cc6df19900d7f0c4b4fed9d2f5972",
+      "touchedAt": 1783511167411,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "The page contains a specific job title (Senior Property Risk Engineering Consultant), detailed responsibilities and requirements, and application context, including a job description, qualifications, and salary range."
+      }
+    },
+    {
+      "key": "e0ec06269aa55f8775c156a1ce8f67979f1ae9b8faf176792f3cb22354b8a24f",
+      "touchedAt": 1783511247144,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Trainee en Investigación y Análisis del Fraude'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "8808163d627c9ec9b6cbbd0ea230d9441c8a005bea1a68363794e35466adc845",
+      "touchedAt": 1783511247429,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Senior Officer, Compliance (one-year contract)'), detailed job responsibilities, and application context."
+      }
+    },
+    {
+      "key": "42a599b5e2d95d585373ab9f1fb58879df47170796fa8a1c88e70b262f2ff4df",
+      "touchedAt": 1783511247699,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Underwriter OR Underwriting Specialist, Construction Casualty'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "f01f859b016e546ff884f3b1bb71b05ac2ae84df65d2dde4aa2d51f2efd08974",
+      "touchedAt": 1783511248004,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Banca Reporting and Capabilities, Senior Executive (6-months contract)'), responsibilities ('Defines and manages the processes and management systems within operational functions to support transaction processing and other administrative activities to ensure goals are in alignment with the organizations objectives'), and application context ('Apply now')."
+      }
+    },
+    {
+      "key": "389970ead106ed43be4fe390efde9eab4aa1f31d394b9f8e9e2ee2ee40656730",
+      "touchedAt": 1783511248270,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Design Specialist'), responsibilities ('Creative Design & Visual Communication', 'Creative Advisory', 'Trend Awareness & Innovation', 'Project Management & Continuous Improvement'), and application context ('Apply now')."
+      }
+    },
+    {
+      "key": "6e645a311e857902d3667fbf3cf6fb47fc30d765d0ee783155949f25dc036e85",
+      "touchedAt": 1783511248533,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Senior Construction Specialties Risk Engineering Consultant'), responsibilities/requirements (e.g., 'leveraging Zurich’s risk engineering tools and services', 'managing business partner relationships', 'remote and onsite surveys and risk assessments'), and application context (e.g., 'Apply now', 'Create Alert')."
+      }
+    },
+    {
+      "key": "bb972813c4a28dd765eb6c38c91acc9b4ca45bacdbcb90237a002f5c126eae65",
+      "touchedAt": 1783511248852,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Business Development Manager - AI Sales (m/w/d)'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "745f5151b4522b1826b68efbea50343210a9c0120ab4a9db8242517fd9118468",
+      "touchedAt": 1783511249666,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('ZICTT Business Specialist Internship'), responsibilities ('Plan and execute internal controls testing activities...'), and application context ('Available for at least a 6-month part-time/internship program.')."
+      }
+    },
+    {
+      "key": "cf51a0c22bf5642e4a4e6e7e2634e72da5f988c62c65aa75d58954b7bedcd8ed",
+      "touchedAt": 1783511249975,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (Abteilungsleitung Risk Management General Insurance (m/w/d)), responsibilities (responsibilities for reporting, leading, and managing risk), and application context (application process and benefits)."
+      }
+    },
+    {
+      "key": "845c7d2ad45ee0001d7bb3e84ef158f2b020b65ce77ad3c3904155f555a84bfb",
+      "touchedAt": 1783511256973,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Fachspezialist Einzelleben Neugeschäft (DE/FR) (m/w/d) 80 - 100%'), responsibilities ('bearbeitest selbstständig alle Anliegen anspruchsvoller Kunden von der Antragstellung bis zur Policierung im telefonischen und schriftlichen Kontakt'), and application context ('Werde auch du Teil davon und bewirb dich als Professional Fachspezialist Einzelleben Neugeschäft')."
+      }
+    },
+    {
+      "key": "6289932eaed5a616a76a60b9daaa14c495c3fc12c16b469bda787c9c2c3c6c55",
+      "touchedAt": 1783511257238,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (Leiter Center of Competence Schaden Sach und Haft), responsibilities (leading a team, developing innovative solutions, improving processes), and application context (application instructions and contact information)."
+      }
+    },
+    {
+      "key": "eadd718d7c983cf7f6c39471b4f49106fedbe964b0763363e6d0819b027c75ba",
+      "touchedAt": 1783511257509,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, making it a real single job detail page."
+      }
+    },
+    {
+      "key": "ee235033f3dee57dda319fac4e3dd454c1799d42a1154b7f35a9b292173ff3c5",
+      "touchedAt": 1783511257814,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Senior Compliance Expert - Dealing in Securities, Anti-Trust and Fair Competition'), responsibilities ('Supporting the maintenance and continuous enhancement of a robust and effective compliance framework, providing expert compliance advice, developing and enhancing guidance, reporting, assessment approaches, training and awareness materials, collaborating closely with other assurance and control functions, acting as a trusted partner to local and regional Compliance officers, engaging with senior stakeholders, contributing to oversight, monitoring and assurance activities, participating in and supporting strategic projects'), and application context ('Apply now')."
+      }
+    },
+    {
+      "key": "c7701ffcc11cef2257d8d7bc9f66b3bd623b499f151bf55fa02aaaca5905fc6a",
+      "touchedAt": 1783511258096,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Legal Counsel - Trade Sanctions 80-100%'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "ecdd483dc68673ced8ed56eadc67beb1294d177d43f4792c74b22270775dfada",
+      "touchedAt": 1783511269380,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Senior Group Employee Benefits Underwriter'), responsibilities ('Using a disciplined approach to risk assessment...'), and application context ('Apply now')."
+      }
+    },
+    {
+      "key": "eb409259a2ed625b4154004eda507343abb996fb84366a709140e33300ea3e39",
+      "touchedAt": 1783511311612,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Trainee en Investigación y Análisis del Fraude'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "b88ca662708b849dc60f1e918d4fa6077a5c621f62b19638c639c94a3102961c",
+      "touchedAt": 1783511312049,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Senior Officer, Compliance (one-year contract)'), detailed responsibilities, and application context."
+      }
+    },
+    {
+      "key": "674f1914cfee5e1047fee4b9b7f7be2b278beb5c820ac1e91dfb76b3482521c5",
+      "touchedAt": 1783511312466,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Underwriter OR Underwriting Specialist, Construction Casualty'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "6208610b2817faf1174b1f154d5e15537d01a42a2227163ea92e831659f51b17",
+      "touchedAt": 1783511312944,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Banca Reporting and Capabilities, Senior Executive (6-months contract)'), responsibilities ('Defines and manages the processes and management systems within operational functions to support transaction processing and other administrative activities to ensure goals are in alignment with the organizations objectives'), and application context ('Apply now')."
+      }
+    },
+    {
+      "key": "709c3aacbb63c7c03bfd2a5a78c95fe36d13ba36086d18f87365e6bde6ef2e48",
+      "touchedAt": 1783511313399,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Spezialist Kundenteam KTG (m/w/d) 80 - 100%'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "7479f748091730b90fa1d6a38160405aeb9de5d7fa34b4f9347549320cf0c7a4",
+      "touchedAt": 1783511313811,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Design Specialist'), responsibilities ('Creative Design & Visual Communication', 'Creative Advisory', 'Trend Awareness & Innovation', 'Project Management & Continuous Improvement'), and application context ('Apply now')."
+      }
+    },
+    {
+      "key": "19c267cb13ff7fad69e45308da3189ce6d96595f0e6889ecfa62fbd17d881d0e",
+      "touchedAt": 1783511314244,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Senior Construction Specialties Risk Engineering Consultant'), responsibilities/requirements (e.g., 'leveraging Zurich’s risk engineering tools and services', 'managing business partner relationships', 'remote and onsite surveys and risk assessments'), and application context (e.g., 'Apply now', 'Create Alert')."
+      }
+    },
+    {
+      "key": "2f58555505e37f28d5ecacb11ae9fa9208ac51652cdcd6670ab599cbd9ca2d6d",
+      "touchedAt": 1783511314715,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Business Development Manager - AI Sales (m/w/d)'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "bc0b2c3cdc2412b00c6e5807c0da8ed3dc18c471ab0344065503067b57372d7a",
+      "touchedAt": 1783511315121,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Junior AI Engineer'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "f06ef4eb253c5a78a5d237f345c0618f934e40f7977ca9e254f770061202532a",
+      "touchedAt": 1783511315543,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Pricing Aktuar Special Lines'), responsibilities ('Developing complex and customized insurance solutions, working with underwriting, creating pricing tools, etc.') and application context ('Bachelor or Master degree in a quantitative field, experience in pricing, etc.')."
+      }
+    },
+    {
+      "key": "c4156cda4a951db944dd535cc3691848061e66fa89a110c67efd82a7c89c01d2",
+      "touchedAt": 1783511315982,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Pricing Analyst'), responsibilities/requirements (experience, skills, job accountabilities), and an application context ('Apply now')."
+      }
+    },
+    {
+      "key": "c1515c91265bbb0adf8cb0737b1772a64c0f2d01577070c139fbdb45e3006423",
+      "touchedAt": 1783511316395,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('ZICTT Business Specialist Internship'), responsibilities ('Plan and execute internal controls testing activities...'), and application context ('Available for at least a 6-month part-time/internship program.')."
+      }
+    },
+    {
+      "key": "8e961a8857ce28f93f2c73d681d8a99ae323027aeea089b587fc0c4e492028e8",
+      "touchedAt": 1783511316870,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (Abteilungsleitung Risk Management General Insurance (m/w/d)), responsibilities (responsibilities for reporting, leading, and managing risk), and application context (application process and benefits)."
+      }
+    },
+    {
+      "key": "b1a5770bb9309ae7e64262483db864a09c39584e59cc3051ad13f80284eff99a",
+      "touchedAt": 1783511317300,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('CIENTISTA DADOS III'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "f06dbe9466acad596e01b931638f400a176223d02e77c8fcc057b9d527639ff9",
+      "touchedAt": 1783511317806,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Senior Property Risk Engineering Consultant'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "a95badbf8ac00585b760998c8d5881ef0cb91c6d6f5d7b72c1eedb95a6e50107",
+      "touchedAt": 1783511318256,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Pricing Analyst'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "fcd39a0568936efd1330125740b81098573e2c34ac88dd452b93884cdf4a75be",
+      "touchedAt": 1783511318681,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('IFRS17 & Modelling, Assistant Manager'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "9ecbf08eb5748239dae69563400609e7cc6386127f98deb46da90b0ed24eeea4",
+      "touchedAt": 1783511319105,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Banca Administration Senior Executive (6-months contract)'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "095a5734d8b175e20fd55bed0ce8844f9ee8b22c644fa803430f49caf88e2b48",
+      "touchedAt": 1783511319514,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Fachspezialist Leistungen BVG (m/w/d) 80-100%'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "47ccf6b0ecf8bbc564a21f1137c6202322657824410d0cfc5cf79ec7e51df9bf",
+      "touchedAt": 1783511319973,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Trainee Business Analytics'), responsibilities ('Extracción, manipulación y análisis de datos. Elaboración de reportes y cuadros de mando, con distinta periodicidad, para el seguimiento de clientes y ventas. Analizar y proponer mejoras para la eficiencia comercial de los equipos de ventas...'), and application context ('Se requiere poder realizar un convenio de colaboración con la Universidad y/o Escuela de Negocios de un mínimo de 6 meses con posibilidad de extensión.')."
+      }
+    },
+    {
+      "key": "62a894f8a6be01f07cf335a361d958e33f6e7856b5c58bee1c6bcd279eee71d1",
+      "touchedAt": 1783511320428,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('RCIS UA Analyst - Crop Policy'), responsibilities ('review and evaluate crop insurance policies, adhere to company policies, state, and federal guidelines'), and application context ('apply with LinkedIn', 'create alert', 'apply now')."
+      }
+    },
+    {
+      "key": "b3d559ac93d39d9f1f9559bd092cd9e5668c727ef0b2699ed54f1b5262f99144",
+      "touchedAt": 1783511320829,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('RCIS Crop Claims Field Adjuster II (KS Virtual)'), responsibilities ('field inspections, reading maps, measuring fields, discussing findings of crop loss, conveying complex regulations, performing fact finding, completing claim reviews, ensuring legal compliance'), requirements ('High School Diploma or Equivalent, 2 or more years of experience, CAPP certification, reliable personal transportation, travel within territory, physical requirements'), and application context ('Apply now', 'Start apply with LinkedIn', 'Create Alert')."
+      }
+    },
+    {
+      "key": "9c0f4da17ee5d6a40f4507e4a837b4d4b7e3ac1a5aab496312473915102e9f76",
+      "touchedAt": 1783511321287,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Crop Field Service Representative'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "e53158844fbc3475361ed835c2ee72601aa3e51bd40e6bd7f84b94ef36e8e8f5",
+      "touchedAt": 1783511321748,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Trainee Actuarial Vida'), responsibilities ('Cálculo y validación de provisiones locales, IFRS, SII. Proyección de flujos de pasivo. Cálculo de MCEV, RBC, SCR. Tareas propias de Reaseguro'), and application context ('Se requiere poder realizar un convenio de colaboración con la Universidad y/o Escuela de Negocios de un mínimo de 6 meses con posibilidad de extensión')."
+      }
+    },
+    {
+      "key": "ca882daff29be3e21d31d7543efeb24a6c812af40e56f822883a828932aad45d",
+      "touchedAt": 1783511322185,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Juristische/r Mitarbeiter/in Rechtsschutzversicherung (mensch*)'), responsibilities ('Eigenverantwortliches Erledigen von Leistungsfällen in der Sparte Rechtsschutz, nach entsprechender Einschulung Erstauskunft am Telefon zu juristischen Fragen und Fragen zum Versicherungsschutz (Bedingungen)'), and application context ('Bewerbung starten mit LinkedIn')."
       }
     }
   ]
