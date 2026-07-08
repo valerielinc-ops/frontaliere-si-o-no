@@ -1,19 +1,62 @@
 {
   "key": "veeam",
   "label": "Veeam Software",
-  "generatedAt": "2026-07-07T12:09:51.586Z",
+  "generatedAt": "2026-07-08T22:12:20.140Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3082,
-  "avgDurationMs": 3082,
+  "unchangedCount": 0,
+  "durationMs": 3402,
+  "avgDurationMs": 3402,
   "durationHistory": [
-    3082
+    3402
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "veeam-d366ba0cf23b",
+      "slug": "sales-specialist-data-ai-security-veeam-ch",
+      "company": "Veeam Software",
+      "companyKey": "veeam",
+      "companyDomain": "veeam.com",
+      "title": "Sales Specialist - Data & AI Security",
+      "location": "Baar",
+      "canton": "ZG",
+      "url": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4781641101",
+      "source": "Veeam Software Dedicated Parser (Greenhouse)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-08T22:12:17.472Z",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "streetAddress": "Lindenstrasse 16",
+      "postalCode": "6340",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Software (backup, data resilience & AI security)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4781641101",
+      "department": "",
+      "jobReqId": "4781641101",
+      "_targetScope": {
+        "canton": "ZG",
+        "location": "Baar"
+      },
+      "firstSeenAt": "2026-07-04T12:23:02.853Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
     {
       "id": "veeam-3c560a68fc1b",
       "slug": "senior-sales-engineer-data-ai-security-veeam-ch",
@@ -26,7 +69,7 @@
       "url": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4781639101",
       "source": "Veeam Software Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:09:49.186Z",
+      "crawledAt": "2026-07-08T22:12:17.561Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "streetAddress": "Lindenstrasse 16",
@@ -59,49 +102,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "veeam-d366ba0cf23b",
-      "slug": "sales-specialist-data-ai-security-veeam-ch",
-      "company": "Veeam Software",
-      "companyKey": "veeam",
-      "companyDomain": "veeam.com",
-      "title": "Sales Specialist - Data & AI Security",
-      "location": "Baar",
-      "canton": "ZG",
-      "url": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4781641101",
-      "source": "Veeam Software Dedicated Parser (Greenhouse)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:09:49.119Z",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "streetAddress": "Lindenstrasse 16",
-      "postalCode": "6340",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / Software (backup, data resilience & AI security)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4781641101",
-      "department": "",
-      "jobReqId": "4781641101",
-      "_targetScope": {
-        "canton": "ZG",
-        "location": "Baar"
-      },
-      "firstSeenAt": "2026-07-04T12:23:02.853Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
