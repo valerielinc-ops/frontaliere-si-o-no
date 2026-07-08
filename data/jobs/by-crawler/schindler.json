@@ -211,8 +211,7 @@
           "service-techniker-in-region-walensee-m-w-d-80-100-schindler-steinach"
         ],
         "de": [
-          "service-techniker-in-region-walensee-m-w-d-80-100-schindler-steinach",
-          "service-techniker-in-region-zuri-oberland-m-w-d-80-100-schindler-steinach"
+          "service-techniker-in-region-walensee-m-w-d-80-100-schindler-steinach"
         ]
       },
       "firstSeenAt": "2026-06-30T12:15:02.979Z",
@@ -792,12 +791,12 @@
     },
     {
       "id": "schindler-bd906bff3804",
-      "slug": "servicetechniker-in-m-w-d-80-100-schindler-wettswil",
+      "slug": "servizio-tecnico-m-f-d-80-100-schindler-wettswil",
       "slugByLocale": {
         "de": "servicetechniker-in-m-w-d-80-100-schindler-wettswil",
-        "it": "servicetechniker-in-m-w-d-80-100-schindler-wettswil",
-        "en": "servicetechniker-in-m-w-d-80-100-schindler-wettswil",
-        "fr": "servicetechniker-in-m-w-d-80-100-schindler-wettswil"
+        "it": "servizio-tecnico-m-f-d-80-100-schindler-wettswil",
+        "en": "service-technician-m-f-d-80-100-schindler-wettswil",
+        "fr": "technicien-des-services-m-f-j-80-100-schindler-wettswil"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -852,7 +851,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-07T22:16:02.327Z"
+      "firstSeenAt": "2026-07-07T22:16:02.327Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-m-w-d-80-100-schindler-wettswil"
+        ],
+        "en": [
+          "servicetechniker-in-m-w-d-80-100-schindler-wettswil"
+        ],
+        "fr": [
+          "servicetechniker-in-m-w-d-80-100-schindler-wettswil"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-m-w-d-80-100-schindler-wettswil"
+      ]
     },
     {
       "id": "schindler-9a46569d7838",
@@ -4098,8 +4111,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in",
         "it": "apprendistato-come-anlagen-e-apparatebauer-in-cfc-con-schwerpunkt-liftmontage-per-2027-in-wettswil-schindler-wettswil",
-        "en": "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in-2",
-        "fr": "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in-2"
+        "en": "apprenticeship-as-plant-and-apparatus-manufacturer-in-efz-with-focus-on-lift-assembly-for-2027-in-wettswil-schindler",
+        "fr": "apprentissage-en-tant-que-fabricant-d-installations-et-d-appareils-dans-efz-avec-accent-sur-le-montage-de-levage-pour"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -4144,6 +4157,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in-2"
+        ],
+        "en": [
+          "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in-2"
+        ],
+        "fr": [
           "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in-2"
         ]
       },
@@ -5329,8 +5348,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in",
         "it": "apprendistato-come-anlagen-e-apparatebauer-in-cfc-con-schwerpunkt-liftmontage-per-2027-in-schonbuhl-schindler-schonbuhl",
-        "en": "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in-3",
-        "fr": "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in-3"
+        "en": "apprenticeship-as-plant-and-apparatus-manufacturer-in-efz-with-focus-on-lift-assembly-for-2027-in-schonbuhl-schindler",
+        "fr": "apprentissage-en-tant-que-fabricant-d-installations-et-d-appareils-dans-efz-avec-accent-sur-l-assemblage-de-levage-pour"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -5375,6 +5394,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in-3"
+        ],
+        "en": [
+          "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in-3"
+        ],
+        "fr": [
           "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in-3"
         ]
       },

@@ -6819,8 +6819,8 @@
       "slugByLocale": {
         "de": "doktorand-in-fur-risikokommunikation-und-ki-eth-zurich-ch",
         "it": "doktorand-in-per-risikokommunikation-e-ki-eth-zurich",
-        "en": "doktorand-in-fur-risikokommunikation-und-ki-eth-zurich-ch",
-        "fr": "doktorand-in-fur-risikokommunikation-und-ki-eth-zurich-ch"
+        "en": "doctoral-student-in-risk-communication-and-ai-eth-zurich-zurich",
+        "fr": "etudiant-au-doctorat-en-communication-des-risques-et-en-ai-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -6863,6 +6863,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "doktorand-in-fur-risikokommunikation-und-ki-eth-zurich-ch"
+        ],
+        "en": [
+          "doktorand-in-fur-risikokommunikation-und-ki-eth-zurich-ch"
+        ],
+        "fr": [
           "doktorand-in-fur-risikokommunikation-und-ki-eth-zurich-ch"
         ]
       },
@@ -7040,8 +7046,8 @@
       "slugByLocale": {
         "de": "laboringenieur-in-leistungselektronik-und-antriebssysteme-m-w-d-eth-zurich-ch",
         "it": "laboringenieur-in-leistungselektronik-e-antriebssysteme-m-w-d-eth-zurich",
-        "en": "laboringenieur-in-leistungselektronik-und-antriebssysteme-m-w-d-eth-zurich-ch",
-        "fr": "laboringenieur-in-leistungselektronik-und-antriebssysteme-m-w-d-eth-zurich-ch"
+        "en": "laboratory-engineer-in-power-electronics-and-drive-systems-m-f-d-eth-zurich-zurich",
+        "fr": "ingenieur-de-laboratoire-en-electronique-de-puissance-et-systemes-d-entrainement-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7084,6 +7090,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "laboringenieur-in-leistungselektronik-und-antriebssysteme-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "laboringenieur-in-leistungselektronik-und-antriebssysteme-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "laboringenieur-in-leistungselektronik-und-antriebssysteme-m-w-d-eth-zurich-ch"
         ]
       },
@@ -7182,12 +7194,12 @@
     },
     {
       "id": "eth-zurich-34d5f0e0f4b1",
-      "slug": "data-manager-eth-zurich-ch",
+      "slug": "gestione-dei-dati-eth-zurich-zurich",
       "slugByLocale": {
         "en": "data-manager-eth-zurich-ch",
-        "it": "data-manager-eth-zurich-ch",
-        "de": "data-manager-eth-zurich-ch",
-        "fr": "data-manager-eth-zurich-ch"
+        "it": "gestione-dei-dati-eth-zurich-zurich",
+        "de": "datenmanager-eth-zurich-zurich",
+        "fr": "gestionnaire-de-donnees-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7241,7 +7253,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-07T22:13:58.623Z"
+      "firstSeenAt": "2026-07-07T22:13:58.623Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-manager-eth-zurich-ch"
+        ],
+        "de": [
+          "data-manager-eth-zurich-ch"
+        ],
+        "fr": [
+          "data-manager-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-manager-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-85437926670d",

@@ -54,13 +54,11 @@
       "previousSlugs": [
         "mitarbeiter-logistik-m-w-d-cordenpharma-ettingen",
         "employee-logistics-m-f-d-cordenpharma-ettingen",
-        "logistique-des-employes-m-f-d-cordenpharma-ettingen",
-        "addetto-a-alla-logistica-m-w-d-cordenpharma-ettingen"
+        "logistique-des-employes-m-f-d-cordenpharma-ettingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-logistik-m-w-d-cordenpharma-ettingen",
-          "addetto-a-alla-logistica-m-w-d-cordenpharma-ettingen"
+          "mitarbeiter-logistik-m-w-d-cordenpharma-ettingen"
         ],
         "en": [
           "mitarbeiter-logistik-m-w-d-cordenpharma-ettingen",
@@ -87,12 +85,12 @@
     },
     {
       "id": "cordenpharma-176c94a12519",
-      "slug": "laborant-100-m-w-d-cordenpharma-liestal",
+      "slug": "laboratorio-100-m-w-d-cordenpharma-liestal",
       "slugByLocale": {
         "de": "laborant-100-m-w-d-cordenpharma-liestal",
-        "it": "laborant-100-m-w-d-cordenpharma-liestal",
-        "en": "laborant-100-m-w-d-cordenpharma-liestal",
-        "fr": "laborant-100-m-w-d-cordenpharma-liestal"
+        "it": "laboratorio-100-m-w-d-cordenpharma-liestal",
+        "en": "laboratory-100-m-w-d-cordenpharma-liestal",
+        "fr": "laboratoire-100-m-w-d-cordenpharma-liestal"
       },
       "company": "CordenPharma",
       "companyKey": "cordenpharma",
@@ -148,7 +146,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-07T22:16:49.306Z"
+      "firstSeenAt": "2026-07-07T22:16:49.306Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laborant-100-m-w-d-cordenpharma-liestal"
+        ],
+        "en": [
+          "laborant-100-m-w-d-cordenpharma-liestal"
+        ],
+        "fr": [
+          "laborant-100-m-w-d-cordenpharma-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "laborant-100-m-w-d-cordenpharma-liestal"
+      ]
     },
     {
       "id": "cordenpharma-5b6d2f649db4",
@@ -326,13 +338,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "analytical-scientist-100-m-w-d-cordenpharma-liestal",
-        "scienziato-analitico-100-m-f-d-cordenpharma-liestal"
+        "analytical-scientist-100-m-w-d-cordenpharma-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analytical-scientist-100-m-w-d-cordenpharma-liestal",
-          "scienziato-analitico-100-m-f-d-cordenpharma-liestal"
+          "analytical-scientist-100-m-w-d-cordenpharma-liestal"
         ],
         "fr": [
           "analytical-scientist-100-m-w-d-cordenpharma-liestal"
@@ -402,13 +412,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal",
-        "capo-progetto-analitico-apl-100-lunedi-f-g-cordenpharma-liestal"
+        "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal",
-          "capo-progetto-analitico-apl-100-lunedi-f-g-cordenpharma-liestal"
+          "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
         ],
         "fr": [
           "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
