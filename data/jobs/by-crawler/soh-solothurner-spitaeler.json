@@ -14175,8 +14175,8 @@
       "slugByLocale": {
         "de": "stationsleiterin-stationsleiter-akutgeriatrie-und-innere-medizin-w-m-d-soh-solothurner",
         "it": "stationsleiterin-stationsleiter-akutgeriatrie-e-innere-medizin-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "stationsleiterin-stationsleiter-akutgeriatrie-und-innere-medizin-w-m-d-soh-solothurner",
-        "fr": "stationsleiterin-stationsleiter-akutgeriatrie-und-innere-medizin-w-m-d-soh-solothurner"
+        "en": "station-manager-station-manager-acute-medicine-and-internal-medicine-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "gestionnaire-de-station-gestionnaire-de-station-medecine-aigue-et-medecine-interne-f-m-d-solothurner-spitaler-ag-soh"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14221,6 +14221,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stationsleiterin-stationsleiter-akutgeriatrie-und-innere-medizin-w-m-d-soh-solothurner"
+        ],
+        "en": [
+          "stationsleiterin-stationsleiter-akutgeriatrie-und-innere-medizin-w-m-d-soh-solothurner"
+        ],
+        "fr": [
           "stationsleiterin-stationsleiter-akutgeriatrie-und-innere-medizin-w-m-d-soh-solothurner"
         ]
       },

@@ -317,12 +317,12 @@
     },
     {
       "id": "medtronic-5f3f849861f0",
-      "slug": "sales-representative-ii-medtronic-ch-2",
+      "slug": "rappresentante-delle-vendite-ii-medtronic-tolochenaz-999404",
       "slugByLocale": {
         "de": "sales-representative-ii-medtronic-ch",
-        "it": "sales-representative-ii-medtronic-ch-2",
+        "it": "rappresentante-delle-vendite-ii-medtronic-tolochenaz-999404",
         "en": "sales-representative-ii-medtronic-tolochenaz",
-        "fr": "sales-representative-ii-medtronic-ch-2"
+        "fr": "representant-des-ventes-ii-medtronic-tolochenaz-999404"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -377,7 +377,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-07T22:21:49.380Z"
+      "firstSeenAt": "2026-07-07T22:21:49.380Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-representative-ii-medtronic-ch-2"
+        ],
+        "fr": [
+          "sales-representative-ii-medtronic-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "sales-representative-ii-medtronic-ch-2"
+      ]
     },
     {
       "id": "medtronic-2a411d7c404c",
@@ -776,12 +787,12 @@
     },
     {
       "id": "medtronic-3b01ce924f2e",
-      "slug": "sales-representative-ii-medtronic-ch-3",
+      "slug": "rappresentante-delle-vendite-ii-medtronic-tolochenaz-bbd4e7",
       "slugByLocale": {
         "de": "sales-representative-ii-medtronic-ch",
-        "it": "sales-representative-ii-medtronic-ch-3",
+        "it": "rappresentante-delle-vendite-ii-medtronic-tolochenaz-bbd4e7",
         "en": "sales-representative-ii-medtronic-tolochenaz",
-        "fr": "sales-representative-ii-medtronic-ch-3"
+        "fr": "representant-des-ventes-ii-medtronic-tolochenaz-bbd4e7"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -836,7 +847,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-07T22:21:44.802Z"
+      "firstSeenAt": "2026-07-07T22:21:44.802Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-representative-ii-medtronic-ch-3"
+        ],
+        "fr": [
+          "sales-representative-ii-medtronic-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "sales-representative-ii-medtronic-ch-3"
+      ]
     }
   ]
 }

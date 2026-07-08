@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-0d3028b36c4a",
-      "slug": "demand-planer-hilcona-schaan",
+      "slug": "pianificatori-di-domanda-hilcona-ag-schaan",
       "slugByLocale": {
         "de": "demand-planer-hilcona-schaan",
-        "it": "demand-planer-hilcona-schaan",
-        "en": "demand-planer-hilcona-schaan",
-        "fr": "demand-planer-hilcona-schaan"
+        "it": "pianificatori-di-domanda-hilcona-ag-schaan",
+        "en": "demand-planners-hilcona-ag-schaan",
+        "fr": "planification-de-la-demande-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -60,7 +60,21 @@
       },
       "country": "CH",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-07T22:30:35.048Z"
+      "firstSeenAt": "2026-07-07T22:30:35.048Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "demand-planer-hilcona-schaan"
+        ],
+        "en": [
+          "demand-planer-hilcona-schaan"
+        ],
+        "fr": [
+          "demand-planer-hilcona-schaan"
+        ]
+      },
+      "previousSlugs": [
+        "demand-planer-hilcona-schaan"
+      ]
     },
     {
       "id": "hilcona-68bb1a589275",
