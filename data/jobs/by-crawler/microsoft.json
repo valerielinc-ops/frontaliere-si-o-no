@@ -1,6 +1,6 @@
 {
   "crawlerKey": "microsoft",
-  "assembledAt": "2026-07-07T22:18:10.480Z",
+  "assembledAt": "2026-07-08T11:19:34.360Z",
   "jobs": [
     {
       "id": "microsoft-200042292",
@@ -33,7 +33,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556924215",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:18:08.416Z",
+      "crawledAt": "2026-07-08T11:19:31.651Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556913974",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:18:08.413Z",
+      "crawledAt": "2026-07-08T11:19:31.638Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556625311",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:18:08.410Z",
+      "crawledAt": "2026-07-08T11:19:31.629Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -279,7 +279,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T11:45:55.897Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
