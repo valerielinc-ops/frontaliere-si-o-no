@@ -1,18 +1,19 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-07-07T22:18:50.328Z",
+  "generatedAt": "2026-07-08T22:17:10.042Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6944,
-  "avgDurationMs": 6944,
+  "durationMs": 8641,
+  "avgDurationMs": 8641,
   "durationHistory": [
-    6944
+    8641
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "alcon-015b82cef148",
       "slug": "director-corporate-strategy-business-development-alcon-ch",
@@ -20,13 +21,13 @@
       "companyKey": "alcon",
       "companyDomain": "alcon.com",
       "title": "Director, Corporate Strategy & Business Development",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Geneva",
       "canton": "GE",
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Corporate-Strategy---Business-Development_R-2026-48005-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:18:44.741Z",
+      "crawledAt": "2026-07-08T22:17:02.903Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "postedDate": "2026-07-07",
       "applyUrl": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Corporate-Strategy---Business-Development_R-2026-48005-1",
       "jobReqId": "R-2026-48005",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-07T22:18:44.741Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "alcon-7b70732d2937",
       "slug": "senior-associate-regulatory-affairs-strategy-alcon-ch",
@@ -64,7 +64,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Senior-Associate-Regulatory-Affairs-Strategy_R-2026-48146-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:18:45.480Z",
+      "crawledAt": "2026-07-08T22:17:05.243Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Schaffhausen-Switzerland/Regulatory-Strategy-Sr-Associate--m-f-d----Medical-Devices---German---English-speaking_R-2026-48088-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:18:46.693Z",
+      "crawledAt": "2026-07-08T22:17:05.973Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Associate--Inter-Company-Order---Invoice-Flow_R-2026-47978-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:18:48.408Z",
+      "crawledAt": "2026-07-08T22:17:07.712Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Territory-Sales-Manager--m-w-d----Medical-Devices--Ophthalmology--Switzerland-_R-2026-47026-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:18:47.519Z",
+      "crawledAt": "2026-07-08T22:17:06.769Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
