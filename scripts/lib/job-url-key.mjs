@@ -405,7 +405,7 @@ export function identityUrlKey(url) {
     // expired page (crawler-template.mjs Step 4b archival). Key on the numeric offer
     // id instead — same title/slug-proof stability rationale as the sibling fix in
     // extractJobIdentityFromUrl (dedicated-crawler-common.mjs, eHnv 15→1 incident).
-    const johdiSuiteMatch = parsed.hash.match(/^#offer\/(\d+)\//i);
+    const johdiSuiteMatch = parsed.hash.match(/^#offer\/(\d+)(?:\/|$)/i);
     parsed.hash = johdiSuiteMatch ? `#offer-${johdiSuiteMatch[1]}` : '';
     if ((parsed.protocol === 'https:' && parsed.port === '443') || (parsed.protocol === 'http:' && parsed.port === '80')) {
       parsed.port = '';

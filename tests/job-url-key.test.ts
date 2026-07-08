@@ -288,6 +288,12 @@ describe('identityUrlKey (stats/diff/firstSeenAt identity)', () => {
     const b = identityUrlKey('https://www.ehnv.ch/emplois#offer/3428/medecin-adjointe-renamed');
     expect(a).toBe(b);
   });
+  it('keys a Johdi Suite offer fragment with no slug segment (no trailing slash)', () => {
+    const a = identityUrlKey('https://www.ehnv.ch/emplois#offer/3428');
+    const b = identityUrlKey('https://www.ehnv.ch/emplois#offer/3428/une-medecin-adjointe-a-80');
+    expect(a).toBe('https://www.ehnv.ch/emplois#offer-3428');
+    expect(a).toBe(b);
+  });
 });
 
 describe('intentional divergence: hash handling', () => {

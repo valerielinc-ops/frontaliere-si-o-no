@@ -4966,7 +4966,7 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     // hash-stripped canonicalizeJobUrl fallback (eHnv 15→1). Key on the
     // numeric id (stable across title/slug edits), same precedence tier as
     // the other vendor-specific id rules above.
-    const johdiSuiteMatch = hashRaw.match(/^offer\/(\d+)\//i);
+    const johdiSuiteMatch = hashRaw.match(/^offer\/(\d+)(?:\/|$)/i);
     if (johdiSuiteMatch?.[1]) return `${registrableDomain(host)}|offer-${johdiSuiteMatch[1]}`;
     // SPA hash-router URLs nest the real per-job path INSIDE the fragment
     // (Oracle Recruiting Cloud: `#fr/sites/CX_1/job/12345`) — the flat-token
