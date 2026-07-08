@@ -135,7 +135,12 @@ async function fetchMailgunDailyUsage() {
     );
     if (!res.ok) return 0;
     const data = await res.json();
-    return data.stats?.[0]?.accepted?.outgoing || 0;
+    // duration=1d without an explicit start/end aligns buckets to UTC calendar
+    // days, so a rolling 24h window that straddles midnight UTC returns TWO
+    // entries in `stats[]` (yesterday's partial day + today's). Reading only
+    // stats[0] silently picked the older bucket and under-reported usage —
+    // sum every bucket in the window instead.
+    return (data.stats || []).reduce((sum, s) => sum + (s.accepted?.outgoing || 0), 0);
   } catch { return 0; }
 }
 
