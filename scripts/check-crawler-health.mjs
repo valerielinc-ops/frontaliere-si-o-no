@@ -294,8 +294,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // evidence lives in the #3797 issue comment; one-line summary here.
   // Workable API confirms `total:0`; page states "no job openings".
   'answerconsulting',
-  // jobs.ch profile shows "Jobs (0)"; own retail site has no listing.
-  'bally',
   // e-lavoro.ch/node/91 explicit empty state, no listed vacancies.
   'cerbios-pharma',
   // No jobs/careers page exists anywhere on chiccodoro.com.
