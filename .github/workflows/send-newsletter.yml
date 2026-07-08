@@ -2,10 +2,11 @@ name: Send Newsletter
 
 on:
   schedule:
-    # Daily 05:33 UTC (07:33 CEST) — chosen via PostHog click data: peak read hour is 06:00 UTC (34 clicks/90d).
-    # Lead of ~25 min covers npm ci + AI generation + email delivery so the email lands in inbox right before peak engagement.
+    # Daily 03:33 UTC (05:33 CEST) — moved up 2h from 05:33 UTC per explicit owner request (2026-07-08).
+    # Original 05:33 was tuned via PostHog click data to land ~25 min before peak read hour (06:00 UTC, 34 clicks/90d);
+    # this 2h shift widens that lead to ~2h25m, so the peak-alignment rationale no longer holds as-is.
     # Avoids :00/:15/:30/:45 minute slots which GitHub Actions cron deprioritizes under load (silent skips).
-    - cron: '33 5 * * *'
+    - cron: '33 3 * * *'
   workflow_dispatch:
     inputs:
       mode:
