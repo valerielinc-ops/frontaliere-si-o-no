@@ -2843,6 +2843,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'autovelox-ticino-introiti-frontalieri',
+    category: 'pratico',
+    date: '2026-07-08T01:41:27.592Z',
+    image: '/images/blog/autovelox-ticino-introiti-frontalieri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

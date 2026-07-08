@@ -949,6 +949,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prezzi-pizza-italia-implicazioni.title': 'Prezzi pizza in Italia: analisi e impatto sul costo della vita',
     'blog.article.prezzi-pizza-italia-implicazioni.excerpt': 'Analisi dell\'andamento dei prezzi della pizza in Italia e le implicazioni per chi gestisce il proprio budget tra Svizzera e Italia.',
     'blog.article.prezzi-pizza-italia-implicazioni.imageAlt': 'Pizza tradizionale italiana servita in un ristorante.',
+    'blog.article.autovelox-ticino-introiti-frontalieri.title': 'Autovelox ticinesi: introiti decuplicati, 60% sono italiani',
+    'blog.article.autovelox-ticino-introiti-frontalieri.excerpt': 'Le sanzioni stradali in Ticino registrano un netto incremento degli introiti: il 60% dei conducenti multati risulta residente in Italia.',
+    'blog.article.autovelox-ticino-introiti-frontalieri.imageAlt': 'Postazione autovelox su una strada ticinese',
 };
 
 export default blogMetaChIt;

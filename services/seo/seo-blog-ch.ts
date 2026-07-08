@@ -12225,6 +12225,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-autovelox-ticino-introiti-frontalieri': {
+    title: 'Autovelox ticinesi: introiti decuplicati, 60% sono italiani',
+    description: 'Gli introiti degli autovelox in Ticino decuplicano: il 60% dei multati è italiano. Analisi, procedure di pagamento e consigli pratici per chi guida in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, autovelox, ticinesi, introiti, decuplicati',
+    ogTitle: 'Autovelox ticinesi: introiti decuplicati, 60% sono italiani',
+    ogDescription: 'Gli introiti degli autovelox in Ticino decuplicano: il 60% dei multati è italiano. Analisi, procedure di pagamento e consigli pratici per chi guida in Svizzera.',
+    canonicalPath: '/articoli-svizzera/autovelox-ticino-introiti-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autovelox ticinesi: introiti decuplicati, 60% sono italiani",
+      "description": "Gli introiti degli autovelox in Ticino decuplicano: il 60% dei multati è italiano. Analisi, procedure di pagamento e consigli pratici per chi guida in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/autovelox-ticino-introiti-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Postazione autovelox su una strada ticinese"
+      },
+      "datePublished": "2026-07-08T01:41:27+00:00",
+      "dateModified": "2026-07-08T01:41:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/autovelox-ticino-introiti-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
