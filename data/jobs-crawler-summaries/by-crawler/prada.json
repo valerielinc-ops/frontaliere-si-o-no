@@ -1,18 +1,49 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-07-07T22:19:31.640Z",
-  "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "generatedAt": "2026-07-08T22:12:26.722Z",
+  "total": 3,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8505,
-  "avgDurationMs": 8505,
+  "durationMs": 6870,
+  "avgDurationMs": 6870,
   "durationHistory": [
-    8505
+    6870
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "prada-d065cc4cb285",
+      "slug": "outlet-merchandising-planning-intern-prada-group-terranuova-bracciolini-outlet-merchandising-planning-intern",
+      "company": "Prada Group",
+      "companyKey": "prada",
+      "companyDomain": "pradagroup.com",
+      "title": "Outlet Merchandising Planning Intern",
+      "location": "Terranuova Bracciolini Outlet Merchandising Planning Intern",
+      "canton": "TI",
+      "addressLocality": "Terranuova Bracciolini Outlet Merchandising Planning Intern",
+      "addressCountry": "CH",
+      "category": "fashion",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "url": "https://jobs.pradagroup.com/job/Terranuova-Bracciolini-Outlet-Merchandising-Planning-Intern/1412694533/",
+      "source": "Prada Group Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-08T22:12:22.946Z",
+      "firstSeenAt": "2026-07-08T11:37:30.408Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
     {
       "id": "prada-332f237b0ca4",
       "slug": "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
@@ -33,12 +64,13 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:19:25.934Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-08T22:12:22.039Z",
+      "firstSeenAt": "2026-07-07T22:19:25.934Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -62,17 +94,17 @@
       "url": "https://jobs.pradagroup.com/job/Honolulu-MIU-MIU-Client-Advisor-Honolulu-Kalakaua-HI/1401621933/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:19:28.219Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-08T22:12:23.374Z",
+      "firstSeenAt": "2026-07-07T22:19:28.219Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -95,17 +127,52 @@
       "url": "https://jobs.pradagroup.com/job/Honolulu-MIU-MIU-Client-Advisor-Honolulu-Kalakaua-HI/1401621933/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:19:28.219Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-07-08T22:12:23.374Z",
+      "firstSeenAt": "2026-07-07T22:19:28.219Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 83,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "prada-d065cc4cb285",
+      "slug": "outlet-merchandising-planning-intern-prada-group-terranuova-bracciolini-outlet-merchandising-planning-intern",
+      "company": "Prada Group",
+      "companyKey": "prada",
+      "companyDomain": "pradagroup.com",
+      "title": "Outlet Merchandising Planning Intern",
+      "location": "Terranuova Bracciolini Outlet Merchandising Planning Intern",
+      "canton": "TI",
+      "addressLocality": "Terranuova Bracciolini Outlet Merchandising Planning Intern",
+      "addressCountry": "CH",
+      "category": "fashion",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "url": "https://jobs.pradagroup.com/job/Terranuova-Bracciolini-Outlet-Merchandising-Planning-Intern/1412694533/",
+      "source": "Prada Group Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-08T22:12:22.946Z",
+      "firstSeenAt": "2026-07-08T11:37:30.408Z",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "country": "CH",
+      "addressRegion": "TI",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -129,17 +196,18 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:19:25.934Z",
+      "crawledAt": "2026-07-08T22:12:22.039Z",
+      "firstSeenAt": "2026-07-07T22:19:25.934Z",
       "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 78,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 19
       }
     }
