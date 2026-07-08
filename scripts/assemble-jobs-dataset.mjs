@@ -567,6 +567,17 @@ const BOILERPLATE_MIN_COUNT = Number(process.env.JOBS_BOILERPLATE_MIN_COUNT) || 
 const SHRINK_GUARD_MIN_BASELINE = 20;
 const SHRINK_GUARD_RATIO = 0.4;
 
+// Stricter ratio applied below SHRINK_GUARD_MIN_BASELINE. The full ratio is
+// deliberately skipped down there to let small crawlers churn freely (e.g.
+// 6 -> 3, a 50% drop, is normal noise for a small employer). But that same
+// permissiveness let a near-total (non-zero) wipeout sail through too: a
+// source degrading from 17 real jobs to 1 stray job (94% loss) is the same
+// failure mode as a total wipeout, just missing the "exactly zero" edge
+// (#3840, follow-up to the corner-banca incident #3838 fixed). This ratio is
+// intentionally much stricter than SHRINK_GUARD_RATIO so only genuinely
+// abnormal drops (>80% loss) are blocked below baseline, not ordinary churn.
+const SHRINK_GUARD_SMALL_BASELINE_RATIO = 0.2;
+
 /**
  * Whether writeJobsCrawlerSlice should refuse to persist a shrink from
  * priorCount to newCount jobs.
@@ -580,10 +591,16 @@ const SHRINK_GUARD_RATIO = 0.4;
  * 17 real jobs -> 0, below MIN_BASELINE, guard never even evaluated the
  * ratio). A total wipeout is caught unconditionally, regardless of
  * baseline size, before falling back to the baseline-gated ratio check.
+ *
+ * Below MIN_BASELINE, a near-total (non-zero) drop is caught too, via a much
+ * stricter ratio than the one used at/above baseline (#3840).
  */
 export function shouldBlockShrink(priorCount, newCount) {
   if (priorCount > 0 && newCount === 0) return true;
-  return priorCount >= SHRINK_GUARD_MIN_BASELINE && newCount < priorCount * SHRINK_GUARD_RATIO;
+  if (priorCount >= SHRINK_GUARD_MIN_BASELINE) {
+    return newCount < priorCount * SHRINK_GUARD_RATIO;
+  }
+  return priorCount > 0 && newCount < priorCount * SHRINK_GUARD_SMALL_BASELINE_RATIO;
 }
 
 /**
