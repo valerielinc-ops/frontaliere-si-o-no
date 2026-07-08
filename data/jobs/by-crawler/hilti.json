@@ -685,12 +685,12 @@
     },
     {
       "id": "hilti-19175-en",
-      "slug": "intern-it-controlling-m-f-x-hilti-ch",
+      "slug": "interno-controllo-it-m-f-x-hilti-buchs-st-gallen-switzerland",
       "slugByLocale": {
         "en": "intern-it-controlling-m-f-x-hilti-ch",
-        "it": "intern-it-controlling-m-f-x-hilti-ch",
+        "it": "interno-controllo-it-m-f-x-hilti-buchs-st-gallen-switzerland",
         "de": "intern-it-controlling-m-f-x-hilti-ch",
-        "fr": "intern-it-controlling-m-f-x-hilti-ch"
+        "fr": "stagiaire-controle-informatique-m-f-x-hilti-buchs-st-gallen-switzerland"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -732,16 +732,27 @@
       "requirements": [],
       "requirementsByLocale": {
         "en": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-it-controlling-m-f-x-hilti-ch"
+        ],
+        "fr": [
+          "intern-it-controlling-m-f-x-hilti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "intern-it-controlling-m-f-x-hilti-ch"
+      ]
     },
     {
       "id": "hilti-19155-de",
-      "slug": "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-100-oder-jobsharing-50-70-moglich",
+      "slug": "consulenti-di-vendita-nel-servizio-sul-campo-holzbau-grigioni-m-f-d-100-o-condivisione-di-lavoro-50-70-possibile-hilti",
       "slugByLocale": {
         "de": "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-100-oder-jobsharing-50-70-moglich",
-        "it": "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-100-oder-jobsharing-50-70-moglich",
-        "en": "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-100-oder-jobsharing-50-70-moglich",
-        "fr": "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-100-oder-jobsharing-50-70-moglich"
+        "it": "consulenti-di-vendita-nel-servizio-sul-campo-holzbau-grigioni-m-f-d-100-o-condivisione-di-lavoro-50-70-possibile-hilti",
+        "en": "sales-consultants-in-the-field-service-holzbau-graubunden-m-f-d-100-or-job-sharing-50-70-possible-hilti-chur-graubunden",
+        "fr": "consultants-en-ventes-dans-le-service-sur-le-terrain-holzbau-graubunden-m-f-d-100-ou-partage-d-emplois-50-70-possible"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -783,7 +794,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-100-oder-jobsharing-50-70-moglich"
+        ],
+        "en": [
+          "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-100-oder-jobsharing-50-70-moglich"
+        ],
+        "fr": [
+          "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-100-oder-jobsharing-50-70-moglich"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-100-oder-jobsharing-50-70-moglich"
+      ]
     },
     {
       "id": "hilti-16790-de",

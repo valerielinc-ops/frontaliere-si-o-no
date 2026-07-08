@@ -175,9 +175,9 @@
     },
     {
       "id": "marriott-e4a6d75e7454",
-      "slug": "thai-specialty-restaurant-f-b-service-expert-60-marriott-zurich",
+      "slug": "ristorante-speciale-thai-servizio-esperto-di-ristoranti-specializzati-60-marriott-international-zurich",
       "slugByLocale": {
-        "it": "thai-specialty-restaurant-f-b-service-expert-60-marriott-zurich",
+        "it": "ristorante-speciale-thai-servizio-esperto-di-ristoranti-specializzati-60-marriott-international-zurich",
         "en": "thai-specialty-restaurant-f-b-service-expert-60-marriott-zurich",
         "de": "thai-spezialitat-restaurant-f-b-service-experte-60-marriott-international-zurich",
         "fr": "thai-specialty-restaurant-f-b-service-expert-60-marriott-zurich"
@@ -243,7 +243,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "thai-specialty-restaurant-f-b-service-expert-60-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "thai-specialty-restaurant-f-b-service-expert-60-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-b88e0551e81a",
@@ -717,11 +725,11 @@
     },
     {
       "id": "marriott-e8e77f5edd4a",
-      "slug": "gouvernant-e-d-etage-marriott-geneva",
+      "slug": "governante-marriott-international-geneva",
       "slugByLocale": {
         "en": "gouvernant-e-d-etage-marriott-geneva",
-        "it": "gouvernant-e-d-etage-marriott-geneva",
-        "de": "gouvernant-e-d-etage-marriott-geneva",
+        "it": "governante-marriott-international-geneva",
+        "de": "haushalterin-marriott-international-geneva",
         "fr": "gouvernant-e-d-etage-marriott-international-geneva"
       },
       "company": "Marriott International",
@@ -791,10 +799,17 @@
       "previousSlugsByLocale": {
         "fr": [
           "gouvernement-e-d-etage-marriott-international-geneva"
+        ],
+        "it": [
+          "gouvernant-e-d-etage-marriott-geneva"
+        ],
+        "de": [
+          "gouvernant-e-d-etage-marriott-geneva"
         ]
       },
       "previousSlugs": [
-        "gouvernement-e-d-etage-marriott-international-geneva"
+        "gouvernement-e-d-etage-marriott-international-geneva",
+        "gouvernant-e-d-etage-marriott-geneva"
       ]
     },
     {
@@ -1161,9 +1176,9 @@
     },
     {
       "id": "marriott-55e7ecc28bcd",
-      "slug": "apprenti-e-specialiste-en-restauration-marriott-geneva",
+      "slug": "apprendista-specialista-in-ristorazione-marriott-international-geneva",
       "slugByLocale": {
-        "it": "apprenti-e-specialiste-en-restauration-marriott-geneva",
+        "it": "apprendista-specialista-in-ristorazione-marriott-international-geneva",
         "en": "apprenti-e-specialiste-en-restauration-1ere-annee-marriott-geneva",
         "de": "auszubildende-specialiste-en-restauration-marriott-international-geneva",
         "fr": "apprenti-e-specialiste-en-restauration-1ere-annee-marriott-geneva"
@@ -1229,7 +1244,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-specialiste-en-restauration-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-specialiste-en-restauration-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-a882cb0654a1",
@@ -1310,7 +1333,7 @@
       "slugByLocale": {
         "it": "agente-dell-esperienza-degli-ospiti-marriott-international-geneva",
         "en": "guest-experience-agent-marriott-geneva",
-        "de": "guest-experience-agent-marriott-geneva",
+        "de": "gasterlebnis-agent-marriott-international-geneva",
         "fr": "agent-d-experience-invite-marriott-international-geneva"
       },
       "company": "Marriott International",
@@ -1369,6 +1392,9 @@
           "guest-experience-agent-marriott-geneva"
         ],
         "fr": [
+          "guest-experience-agent-marriott-geneva"
+        ],
+        "de": [
           "guest-experience-agent-marriott-geneva"
         ]
       },

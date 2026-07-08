@@ -169,13 +169,19 @@
       },
       "slugByLocale": {
         "it": "direttore-trice-lavori-hochbau-gesamtplanung-80-100-zurich-afry-zurich",
-        "en": "bauleiter-in-hochbau-gesamtplanung-80-100-zurich-afry-zurich",
+        "en": "construction-manager-in-building-construction-overall-planning-80-100-zurich-afry-zurich",
         "de": "bauleiter-in-hochbau-gesamtplanung-80-100-zurich-afry-zurich",
-        "fr": "bauleiter-in-hochbau-gesamtplanung-80-100-zurich-afry-zurich"
+        "fr": "directeur-de-la-construction-dans-la-construction-la-planification-globale-80-100-zurich-afry-zurich"
       },
       "id": "afry-1c7e49b745d1",
       "previousSlugsByLocale": {
         "it": [
+          "bauleiter-in-hochbau-gesamtplanung-80-100-zurich-afry-zurich"
+        ],
+        "en": [
+          "bauleiter-in-hochbau-gesamtplanung-80-100-zurich-afry-zurich"
+        ],
+        "fr": [
           "bauleiter-in-hochbau-gesamtplanung-80-100-zurich-afry-zurich"
         ]
       },
@@ -236,7 +242,7 @@
         "it": "senior-consultant-asset-management-systems-m-f-d-80-100-zurich-basel-afry-basel",
         "en": "senior-consultant-asset-management-systems-m-f-d-80-100-zurich-basel-afry-basel",
         "de": "senior-consultant-asset-management-systems-m-f-d-80-100-zurich-basel-afry-basel",
-        "fr": "senior-consultant-asset-management-systems-m-f-d-80-100-zurich-basel-afry-basel"
+        "fr": "consultant-principal-systemes-de-gestion-d-actifs-m-f-d-80-100-zurich-basel-afry-basel"
       },
       "id": "afry-ac2f14be627c",
       "salaryMin": 85500,
@@ -3824,7 +3830,7 @@
       },
       "slugByLocale": {
         "it": "candidatura-spontanea-svizzera-afry-zurich",
-        "en": "candidatura-spontanea-svizzera-afry-zurich",
+        "en": "spontaneous-application-switzerland-afry-zurich",
         "de": "spontane-anwendung-schweiz-afry-zurich",
         "fr": "demande-spontanee-suisse-afry-zurich"
       },
@@ -3843,15 +3849,7 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-01T21:43:04.412Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "spontaneous-application-switzerland-afry-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "spontaneous-application-switzerland-afry-zurich"
-      ]
+      "firstSeenAt": "2026-07-01T21:43:04.412Z"
     },
     {
       "title": "Candidature spontanée - Suisse",
