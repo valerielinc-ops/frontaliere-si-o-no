@@ -49,6 +49,11 @@ describe('Bally crawler parser', () => {
       expect(isTrustedDomain('https://careers.bally.com/job/456')).toBe(true);
     });
 
+    it('trusts the SmartRecruiters ATS host serving the real postings (#3797)', () => {
+      expect(isTrustedDomain('https://jobs.smartrecruiters.com/Bally/789-title')).toBe(true);
+      expect(isTrustedDomain('https://api.smartrecruiters.com/v1/companies/Bally/postings/789')).toBe(true);
+    });
+
     it('rejects other domains', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
     });

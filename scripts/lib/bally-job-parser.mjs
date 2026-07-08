@@ -1,8 +1,21 @@
 #!/usr/bin/env node
 /**
- * Bally job parser — Fetcher and job builder.
+ * Bally job parser — SmartRecruiters (tenant "Bally") API.
  *
- * Source: https://www.bally.com/en-ch/careers.html
+ * Source: https://jobs.smartrecruiters.com/Bally
+ *
+ * Bally (Swiss luxury leather-goods house, HQ Caslano/TI) posts openings on
+ * its own SmartRecruiters tenant. The public REST API at
+ *   https://api.smartrecruiters.com/v1/companies/Bally/postings
+ * exposes every active posting worldwide; we filter to CH-located roles
+ * client-side via fetchSmartRecruitersJobs' locationCountryCodes option.
+ *
+ * The 4 legacy bally.com/en-ch/careers.html-style URLs this crawler used to
+ * probe are all dead (404) — Bally's own site has no job-listing page at
+ * all, only a static "/pages/careers" marketing/GDPR page that links out to
+ * this SmartRecruiters tenant (#3797).
+ *
+ * Public posting URLs are jobs.smartrecruiters.com/Bally/{id}-{slug}.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBallyJobs()  — Fetch and parse all jobs
@@ -11,11 +24,11 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { fetchSmartRecruitersJobs } from './ats-clients/smartrecruiters-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -23,20 +36,9 @@ export const BALLY_KEY = 'bally';
 export const BALLY_COMPANY_NAME = 'Bally';
 export const BALLY_COMPANY_DOMAIN = 'bally.com';
 
-const CAREER_URL = 'https://www.bally.com/en-ch/careers.html';
+const SR_TENANT = 'Bally';
+const CAREER_URL = 'https://jobs.smartrecruiters.com/Bally';
 const HQ = getCompanyDefaults('bally');
-
-/**
- * Bally's careers page may have moved or is intermittently 404.
- * We try multiple potential URLs: the original, a common alternative,
- * and the Bally Group careers page (parent company Regent since 2023).
- */
-const CAREER_URLS = [
-  'https://www.bally.com/en-ch/careers.html',
-  'https://www.bally.com/careers',
-  'https://www.bally.com/en-ch/careers',
-  'https://careers.bally.com/',
-];
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -72,12 +74,15 @@ export function isBallyJob(job) {
 }
 
 /**
- * Validate that a URL belongs to Bally's domain.
+ * Validate that a URL belongs to Bally's domain OR the SmartRecruiters
+ * ATS hosts that actually serve the postings (api/jobs/careers.smartrecruiters.com).
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'bally.com' || host.endsWith('.bally.com');
+    if (host === 'bally.com' || host.endsWith('.bally.com')) return true;
+    if (host === 'smartrecruiters.com' || host.endsWith('.smartrecruiters.com')) return true;
+    return false;
   } catch {
     return false;
   }
@@ -120,126 +125,88 @@ function detectEmploymentType(text = '') {
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
- * Parse a Bally careers page HTML for job listings.
- * Bally typically lists open positions as links or cards.
+ * Fetch the Switzerland-only Bally postings from the SmartRecruiters API
+ * (tenant "Bally", country=ch). Returns an array of raw listing objects
+ * {title, location, url, postedAt, description, jobReqId, rawLocation}.
  */
-function parseCareerPageHtml(html = '', baseUrl = '') {
-  if (!html) return [];
-  const { document } = new JSDOM(html).window;
-  const jobs = [];
-  const seen = new Set();
+async function fetchJobListings() {
+  console.log(`   Fetching SmartRecruiters tenant "${SR_TENANT}" (country=ch)`);
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
-  // Look for embedded JSON-LD or structured data
-  const jsonLdScripts = document.querySelectorAll('script[type="application/ld+json"]');
-  for (const script of jsonLdScripts) {
-    try {
-      const data = JSON.parse(script.textContent || '');
-      const postings = Array.isArray(data) ? data : data?.['@graph'] || [data];
-      for (const item of postings) {
-        if (item?.['@type'] === 'JobPosting') {
-          jobs.push({
-            title: item.title || '',
-            url: item.url || baseUrl,
-            location: item.jobLocation?.address?.addressLocality || 'Caslano',
-            description: item.description || '',
-          });
-        }
-      }
-      if (jobs.length > 0) return jobs;
-    } catch { /* not valid JSON-LD */ }
+  const listings = [];
+  try {
+    for await (const job of fetchSmartRecruitersJobs(SR_TENANT, {
+      company: BALLY_COMPANY_NAME,
+      locationCountryCodes: ['CH'],
+      fetchDetail: true,
+      timeoutMs,
+    })) {
+      const raw = job.rawPosting || {};
+      listings.push({
+        title: job.title,
+        location: job.location,
+        url: job.applyUrl,
+        postedAt: job.postedAt,
+        description: job.descriptionHtml || '',
+        jobReqId: job.jobReqId || raw.id || '',
+        rawLocation: raw.location || {},
+        employmentLabel: raw?.typeOfEmployment?.label || '',
+      });
+    }
+  } catch (err) {
+    console.warn(`⚠️ SmartRecruiters fetch failed: ${err?.message || err}`);
+    throw err;
   }
 
-  // Scrape job links from HTML
-  const JOB_SELECTORS = [
-    'a[href*="career"], a[href*="job"], a[href*="position"], a[href*="lavora"]',
-    '.job-listing a, .career-listing a, .position-card a',
-    '.vacancy a, .opening a',
-    'h2 a, h3 a, h4 a',
-    'li a, article a',
-  ];
-
-  for (const selector of JOB_SELECTORS) {
-    try {
-      const links = document.querySelectorAll(selector);
-      for (const link of links) {
-        const href = link.getAttribute('href') || '';
-        const title = normalizeSpace(link.textContent || '');
-
-        if (!title || title.length < 5) continue;
-        if (seen.has(title.toLowerCase())) continue;
-        // Filter out navigation/footer links
-        if (/login|privacy|cookie|newsletter|terms|contact|store|shop|collection/i.test(href)) continue;
-        if (/login|privacy|cookie|newsletter|terms|customer service/i.test(title.toLowerCase())) continue;
-
-        seen.add(title.toLowerCase());
-        const origin = baseUrl ? new URL(baseUrl).origin : 'https://www.bally.com';
-        const fullUrl = href.startsWith('http') ? href : `${origin}${href.startsWith('/') ? '' : '/'}${href}`;
-
-        jobs.push({ title, url: fullUrl, location: 'Caslano', description: '' });
-      }
-    } catch { /* selector not found */ }
-    if (jobs.length > 0) break;
-  }
-
-  return jobs;
+  return listings;
 }
 
 /**
  * Fetch all Bally jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
- * Strategy: Try multiple potential career page URLs since the page
- * may have moved. Parse whatever HTML comes back.
+ * IMPORTANT: Only set source-locale fields. Other locales are filled
+ * by the AI localization step and translate-pending pipeline.
  */
 export async function fetchAllBallyJobs() {
   console.log(`🔍 Fetching Bally jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  let listings = [];
-
-  // Try each potential careers URL
-  for (const url of CAREER_URLS) {
-    try {
-      console.log(`   Trying: ${url}`);      let html = '';
-  try {
-    html = await fetchHtml(url, { timeoutMs: 20000 });
-  } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
-  }
-      const found = parseCareerPageHtml(html, url);
-      if (found.length > 0) {
-        listings = found;
-        console.log(`   Found ${found.length} job links at ${url}`);
-        break;
-      }
-      console.log(`   No jobs found at ${url}`);
-    } catch (err) {
-      console.log(`   Fetch failed for ${url}: ${err.message}`);
-    }
-  }
-
+  const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No Bally job listings found (careers page may have moved or be temporarily unavailable).');
+    console.warn('⚠️ No job listings returned.');
     return [];
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  const seen = new Set();
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.location || '';
-    const location = normalizeSpace(rawLocation) || HQ?.city || 'Caslano';
-    const canton = inferAnyCanton(location) || HQ?.canton || '';
+    const rawLoc = listing.rawLocation || {};
+    const city = (rawLoc.city || rawLoc.fullLocation || '').trim();
+    const region = (rawLoc.region || '').trim();
+    const location = normalizeSpace(listing.location || city || HQ?.city || 'Caslano');
+    const canton =
+      inferSwissTargetCanton(location) ||
+      inferSwissTargetCanton(`${city} ${region}`) ||
+      HQ?.canton ||
+      'TI';
+
     const descriptionText = stripHtml(listing.description || '');
     const publicUrl = listing.url || CAREER_URL;
+    if (seen.has(publicUrl)) continue;
+    seen.add(publicUrl);
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} bally ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const employmentType = detectEmploymentType(listing.employmentLabel || title);
+    const postedDate = (listing.postedAt && String(listing.postedAt).slice(0, 10))
+      || new Date().toISOString().split('T')[0];
 
     const desc = descriptionText || `${title} — Position at Bally, ${location}. Bally is a Swiss luxury fashion house founded in 1851, headquartered in Caslano (Ticino), known for its leather goods and footwear.`;
 
@@ -257,29 +224,29 @@ export async function fetchAllBallyJobs() {
       location,
       canton,
       url: publicUrl,
-      source: 'Bally Dedicated Parser',
+      source: 'Bally Dedicated Parser (SmartRecruiters)',
       sourceLang,
       crawledAt: new Date().toISOString(),
-      addressLocality: location,
-      addressRegion: HQ?.addressRegion || 'TI',
+      addressLocality: city || location,
+      addressRegion: region || HQ?.addressRegion || canton,
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: HQ?.postalCode || '6987',
+      postalCode: rawLoc.postalCode || HQ?.postalCode || '6987',
       category: detectCategory(title),
-      contract: detectEmploymentType(listing.timeType || title) === 'PART_TIME' ? 'part-time' : 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Moda / Lusso',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      postedDate,
       applyUrl: publicUrl,
+      jobReqId: listing.jobReqId || null,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300));
   }
 
   console.log(`\n📋 Total Bally jobs discovered: ${jobs.length}`);
