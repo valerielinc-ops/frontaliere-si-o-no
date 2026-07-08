@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
@@ -241,7 +241,7 @@ function buildDescription(szas = {}, title = '', city = '') {
     return `${title} - Transgourmet/Prodega, ${city || 'Schweiz'}, Schweiz`;
   }
 
-  return sections.join('\n\n');
+  return normalizeDescriptionBullets(sections.join('\n\n'));
 }
 
 /**

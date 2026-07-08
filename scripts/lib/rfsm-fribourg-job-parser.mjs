@@ -23,7 +23,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -186,7 +186,12 @@ export function parseDetail(html = '') {
   const rawBody = extractBalancedJobDescription(html);
   let description = '';
   if (rawBody) {
-    description = normalizeSpace(htmlToText(rawBody).replace(/\n+/g, ' ')).slice(0, 7000);
+    const cleaned = htmlToText(rawBody)
+      .replace(/[ \t]+/g, ' ')
+      .replace(/[ \t]*\n[ \t]*/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    description = normalizeDescriptionBullets(cleaned).slice(0, 7000);
   }
   return { title, shiftType, location, description };
 }

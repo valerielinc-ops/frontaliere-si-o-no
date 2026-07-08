@@ -41,7 +41,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang, ensureMinimumDescriptionWordCount } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { getCompanyDefaults, normalizeAnyCantonCode, isTargetCanton } from './crawler-location-config.mjs';
 import { parseReflineDetail, parseReflineJobPostingJsonLd } from './refline-common.mjs';
@@ -352,6 +352,7 @@ export async function fetchAllSpruengliJobs() {
         `Confiserie Sprüngli AG ist ein 1836 gegründetes Schweizer Familienunternehmen und zählt mit seinem erlesenen Sortiment an Confiserie, Schokolade und Backwaren zu den renommiertesten Confiserien Europas. Das Unternehmen betreibt seine Manufaktur in Dietikon sowie zahlreiche Filialen, Cafés und Restaurants in der ganzen Schweiz und bietet Stellen in Produktion, Verkauf, Logistik und Administration.`,
       ].join('\n');
     }
+    description = normalizeDescriptionBullets(description);
 
     const resolvedTitle = normalizeSpace(jsonLd?.title || detailParsed.title || title);
     const sourceLang = detectLang(descriptionText || resolvedTitle, 'de');

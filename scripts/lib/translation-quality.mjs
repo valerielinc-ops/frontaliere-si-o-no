@@ -8,6 +8,17 @@
  * those clips, so a faithful translation must also stay within
  * MIN_TRANSLATION_RATIO of the source length. When the source length is unknown
  * (empty/falsy), only the char floor applies.
+ *
+ * Also the source of truth for a second anti-pattern: free-cascade providers
+ * routinely swallow the source text's newlines, returning a same-length
+ * candidate where a `\n• item` list got flattened into inline `. • item`
+ * running prose. Length/ratio checks alone don't catch this (the char count
+ * survives) — audit #3721 found this landed 14 crawlers' `descriptionByLocale`
+ * as "no structured content" even though the source-language `description`
+ * had proper bullets, because this gate never checked structure parity. Mirrors
+ * the equivalent check already in `job-localization-pipeline.mjs`'s
+ * `passesQualityGate` (local NLLB/Ollama path) — this gate is the free-cascade
+ * equivalent so both translation paths reject the same defect.
  */
 
 // A faithful translation stays within a reasonable band of the source length.
@@ -15,6 +26,14 @@ export const MIN_TRANSLATION_RATIO = 0.6;
 // Absolute character floor: anything shorter is too thin to be a real
 // translation regardless of the source length.
 export const MIN_TRANSLATION_CHARS = 100;
+// Source bullet count above which losing ALL bullets in the candidate is
+// treated as structure-flattening rather than a legitimately bullet-free
+// translation (mirrors job-localization-pipeline.mjs's passesQualityGate).
+const MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK = 3;
+
+export function countBullets(text = '') {
+  return (String(text || '').match(/^\s*[-*•]\s+/gm) || []).length;
+}
 
 /**
  * @param {string} source - original (source-language) text being translated
@@ -27,6 +46,10 @@ export function isAcceptableTranslation(source, translated) {
   if (candidate.length < MIN_TRANSLATION_CHARS) return false;
   const srcLen = (typeof source === 'string' ? source.trim() : '').length;
   if (srcLen > 0 && candidate.length < srcLen * MIN_TRANSLATION_RATIO) return false;
+  const sourceBullets = countBullets(source);
+  if (sourceBullets >= MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK && countBullets(candidate) === 0) {
+    return false;
+  }
   return true;
 }
 
