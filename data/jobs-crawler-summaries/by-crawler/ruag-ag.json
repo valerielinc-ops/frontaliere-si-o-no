@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-07-07T22:29:43.182Z",
-  "total": 26,
+  "generatedAt": "2026-07-08T22:14:21.931Z",
+  "total": 30,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 26,
-  "durationMs": 32850,
-  "avgDurationMs": 32850,
+  "durationMs": 34322,
+  "avgDurationMs": 34322,
   "durationHistory": [
-    32850
+    34322
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -554,42 +554,6 @@
       }
     },
     {
-      "title": "Operations Consultant C5I 100% (w/m/d)",
-      "slug": "operations-consultant-c5i-100-w-m-d-ruag-ag-thun",
-      "url": "https://jobs.ruag.ch/offene-stellen/operations-consultant-c5i/b392d8d5-07a9-4acd-b30d-2ce0cfb1eea1",
-      "applyUrl": "https://jobs.ruag.ch/apply/ats/b392d8d5-07a9-4acd-b30d-2ce0cfb1eea1",
-      "company": "RUAG AG",
-      "companyKey": "ruag-ag",
-      "companyDomain": "ruag.ch",
-      "location": "Thun",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "admin",
-      "sector": "Aerospazio e difesa",
-      "source": "ruag-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-12-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2053-05-02",
-      "id": "ruag-ag-8e22553fe1d8",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "postalCode": "3600",
-      "firstSeenAt": "2026-07-01T23:08:13.002Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Project Management Officer C5I 100 (w/m/d)",
       "slug": "project-management-officer-c5i-100-w-m-d-ruag-ag-bern",
       "url": "https://jobs.ruag.ch/offene-stellen/project-management-officer-c5i/a1751097-1da7-4210-b0f1-c75d18fba7ca",
@@ -947,6 +911,41 @@
         "richness": 24,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "title": "Operations Consultant C5I 100 (w/m/d)",
+      "slug": "operations-consultant-c5i-100-w-m-d-ruag-ag-thun",
+      "url": "https://jobs.ruag.ch/offene-stellen/operations-consultant-c5i/0f88429c-91c3-46f5-81e6-5e94b71a6d0d",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/0f88429c-91c3-46f5-81e6-5e94b71a6d0d",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Thun",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "admin",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-07",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2053-11-20",
+      "id": "ruag-ag-2e94717d8f9c",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-07T22:29:43.179Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
       }
     }
   ]
