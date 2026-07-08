@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-07-07T22:34:27.883Z",
   "jobs": [
     {
       "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
@@ -52,27 +50,7 @@
           "chef-de-la-banque-du-sempione-branche-milan-banca-del-sempione-lugano"
         ]
       },
-      "firstSeenAt": "2026-07-06T22:38:18.264Z",
-      "crawledAt": "",
-      "salaryMin": 87000,
-      "salaryMax": 149500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 87000,
-          "maxValue": 149500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via P. Peri 2",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "firstSeenAt": "2026-07-06T22:38:18.264Z"
     },
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -120,25 +98,7 @@
           "globales-vermogensmanagement-privatbanker-zurigo-banca-del-sempione-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-06T22:38:18.264Z",
-      "crawledAt": "",
-      "salaryMin": 113000,
-      "salaryMax": 198500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 198500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "firstSeenAt": "2026-07-06T22:38:18.264Z"
     },
     {
       "title": "Global Wealth Management – Private Banker (Lugano)",
@@ -200,27 +160,7 @@
           "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano"
         ]
       },
-      "firstSeenAt": "2026-07-06T22:38:18.264Z",
-      "crawledAt": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via P. Peri 2",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "firstSeenAt": "2026-07-06T22:38:18.264Z"
     },
     {
       "title": "Global Wealth Management – Private Banking Assistant (Zurich)",
@@ -274,25 +214,7 @@
           "gestion-globale-de-patrimoine-assistant-banque-privee-zurich-banca-del-sempione-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-06T22:38:18.264Z",
-      "crawledAt": "",
-      "salaryMin": 113000,
-      "salaryMax": 198500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 198500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "firstSeenAt": "2026-07-06T22:38:18.264Z"
     }
   ]
 }
