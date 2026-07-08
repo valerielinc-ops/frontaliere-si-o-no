@@ -50,7 +50,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { fetchHtml, decodeEntities } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -312,7 +312,7 @@ export async function fetchAllEtavisJobs(options = {}) {
 
     let descriptionText = '';
     if (detail?.description) {
-      descriptionText = normalizeSpace(stripHtml(String(detail.description)));
+      descriptionText = normalizeDescriptionBullets(normalizeSpace(stripHtml(String(detail.description))));
     }
     if (descriptionText.length >= 40) detailHits += 1;
     if (!descriptionText) {

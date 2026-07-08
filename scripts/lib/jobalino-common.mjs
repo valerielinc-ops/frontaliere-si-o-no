@@ -43,7 +43,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, classAttrRx } from './crawler-template.mjs';
+import { slugify, classAttrRx, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   decodeEntities,
@@ -196,7 +196,7 @@ export function jobalinoDescriptionToText(raw = '') {
   // Two passes: the JSON string is already HTML-escaped, and inner HTML
   // tags use `<br>` / real `<ul>` / `&lt;li&gt;` mixes. Decode + strip.
   const once = decodeEntities(String(raw));
-  return htmlToText(once);
+  return normalizeDescriptionBullets(htmlToText(once));
 }
 
 export async function fetchJobalinoListing({ company, additionalCompanies = '', filters = {}, locale = 'de' } = {}) {

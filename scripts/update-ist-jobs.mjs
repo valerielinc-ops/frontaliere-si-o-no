@@ -324,7 +324,7 @@ async function fetchJobDetail(url) {
   // paragraphs), so a naive non-greedy `[\s\S]*?</span>` regex stops at the
   // FIRST inner close tag and truncates to a short generic intro instead of
   // the real job-specific content — use the shared balanced-tag walker.
-  const descLoc = locateTagByAttribute(html, 'data-careersite-propertyid="description"');
+  const descLoc = locateTagByAttribute(html, 'data-careersite-propertyid="description"', { skipVoidTags: true });
   if (descLoc) {
     const descBlock = extractBalancedTagBlock(descLoc.rest, descLoc.tagName);
     if (descBlock) data.description = stripHtml(descBlock);

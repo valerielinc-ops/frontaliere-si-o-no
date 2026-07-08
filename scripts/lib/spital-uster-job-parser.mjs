@@ -24,7 +24,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -190,7 +190,7 @@ function buildDescription(job = {}) {
   if (reqs) parts.push(`Anforderungen:\n${reqs}`);
   const benefits = stripHtml(szas.sza_benefits || '');
   if (benefits) parts.push(`Wir bieten:\n${benefits}`);
-  return parts.join('\n\n');
+  return normalizeDescriptionBullets(parts.join('\n\n'));
 }
 
 function pickEmploymentType(job = {}) {

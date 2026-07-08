@@ -262,20 +262,22 @@ export function logCascadeSummary() {
   console.log(`   🔑 Google Cloud Translation: auth=${gcAuth}, ${_googleCloudDailyChars}/${GOOGLE_CLOUD_DAILY_LIMIT} daily chars used`);
 }
 
-function normalizeSpace(s) {
-  return String(s || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
-}
-
 /**
  * Normalize whitespace WITHOUT collapsing newlines.
  *
  * Job descriptions arrive here with structure already encoded as line
  * breaks ("## Section\n- bullet\n- bullet\n\n") via htmlToStructuredText
- * or by the dedicated parsers. The earlier `normalizeSpace(text)` call
+ * or by the dedicated parsers. The legacy `normalizeSpace(text)` call
  * before each translation request flattened all of that into a single
- * line, DeepL returned a single line, and the audit's no-structure
- * ratchet escalated VF (and others) to CRITICAL because the translated
- * output had zero `<li>`/bullet markers.
+ * line, every cascade tier returned a single line, and the audit's
+ * no-structure ratchet escalated 14 crawlers to CRITICAL (#3721) because
+ * the translated output had zero `<li>`/bullet markers even though the
+ * source text had proper structure. `normalizeSpace` was only ever
+ * migrated to this variant at the DeepL tier -- every other tier (and the
+ * top-level `freeTranslate` dispatcher that feeds all of them) still
+ * flattened structure before a single network call was made, so the
+ * DeepL-only fix had no effect for jobs served by any other tier. Now the
+ * only whitespace normalizer left in this cascade.
  *
  * This variant collapses runs of horizontal whitespace, normalizes CRLF,
  * trims trailing spaces around line breaks, and caps blank-line runs.
@@ -451,7 +453,7 @@ async function translateWithDeepL(text, sourceLang, targetLang) {
 
 // ── Google Translate (unofficial free, multi-endpoint) ──────────────────────
 async function translateChunkGoogle(text, sourceLang, targetLang) {
-  const q = normalizeSpace(text);
+  const q = normalizeBlock(text);
   if (!q) return '';
 
   for (const base of GOOGLE_TRANSLATE_ENDPOINTS) {
@@ -488,7 +490,7 @@ async function translateChunkGoogle(text, sourceLang, targetLang) {
           const segments = Array.isArray(parsed?.[0]) ? parsed[0] : [];
           translated = segments.map((seg) => (Array.isArray(seg) ? String(seg[0] || '') : '')).join('');
         }
-        const result = normalizeSpace(translated);
+        const result = normalizeBlock(translated);
         if (result && result.toLowerCase() !== q.toLowerCase()) return result;
       } catch { continue; }
     } catch { continue; }
@@ -555,7 +557,7 @@ async function raceInstances(instances, fetchFn) {
 
 // ── Lingva Translate (free Google Translate proxy) ───────────────────────────
 async function translateWithLingva(text, sourceLang, targetLang) {
-  const q = normalizeSpace(text);
+  const q = normalizeBlock(text);
   if (!q || sourceLang === targetLang) return '';
   const encoded = encodeURIComponent(q);
 
@@ -569,7 +571,7 @@ async function translateWithLingva(text, sourceLang, targetLang) {
     );
     if (!res.ok) return '';
     const data = await res.json();
-    const translated = normalizeSpace(data?.translation || '');
+    const translated = normalizeBlock(data?.translation || '');
     if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
     return '';
   });
@@ -577,7 +579,7 @@ async function translateWithLingva(text, sourceLang, targetLang) {
 
 // ── SimplyTranslate (another free Google Translate proxy) ────────────────────
 async function translateWithSimplyTranslate(text, sourceLang, targetLang) {
-  const q = normalizeSpace(text);
+  const q = normalizeBlock(text);
   if (!q || sourceLang === targetLang) return '';
 
   return raceInstances(SIMPLYTRANSLATE_INSTANCES, async (base, signal) => {
@@ -593,7 +595,7 @@ async function translateWithSimplyTranslate(text, sourceLang, targetLang) {
     });
     if (!res.ok) return '';
     const data = await res.json();
-    const translated = normalizeSpace(data?.translated_text || '');
+    const translated = normalizeBlock(data?.translated_text || '');
     if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
     return '';
   });
@@ -602,7 +604,7 @@ async function translateWithSimplyTranslate(text, sourceLang, targetLang) {
 // ── LibreTranslate self-hosted (CI service container) ──────────────────────
 async function translateWithLibreTranslateSelfHosted(text, sourceLang, targetLang) {
   if (!LIBRETRANSLATE_SELF_HOSTED) return '';
-  const q = normalizeSpace(text);
+  const q = normalizeBlock(text);
   if (!q || sourceLang === targetLang) return '';
 
   // First call uses a 30s warmup window regardless of LIBRETRANSLATE_TIMEOUT_MS.
@@ -620,7 +622,7 @@ async function translateWithLibreTranslateSelfHosted(text, sourceLang, targetLan
       return '';
     }
     const data = await res.json();
-    const translated = normalizeSpace(data?.translatedText || '');
+    const translated = normalizeBlock(data?.translatedText || '');
     if (translated && translated.toLowerCase() !== q.toLowerCase()) {
       _ltWarmupDone = true;
       return translated;
@@ -634,7 +636,7 @@ async function translateWithLibreTranslateSelfHosted(text, sourceLang, targetLan
 
 // ── LibreTranslate public instances ─────────────────────────────────────────
 async function translateWithLibreTranslate(text, sourceLang, targetLang) {
-  const q = normalizeSpace(text);
+  const q = normalizeBlock(text);
   if (!q || sourceLang === targetLang) return '';
 
   return raceInstances(LIBRETRANSLATE_PUBLIC, async (base, signal) => {
@@ -646,7 +648,7 @@ async function translateWithLibreTranslate(text, sourceLang, targetLang) {
     });
     if (!res.ok) return '';
     const data = await res.json();
-    const translated = normalizeSpace(data?.translatedText || '');
+    const translated = normalizeBlock(data?.translatedText || '');
     if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
     return '';
   });
@@ -654,7 +656,7 @@ async function translateWithLibreTranslate(text, sourceLang, targetLang) {
 
 // ── Mozhi (open-source proxy, supports: google, deepl, duckduckgo, yandex) ──
 async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = 'google') {
-  const q = normalizeSpace(text);
+  const q = normalizeBlock(text);
   if (!q || sourceLang === targetLang) return '';
 
   return raceInstances(MOZHI_INSTANCES, async (base, signal) => {
@@ -671,7 +673,7 @@ async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = '
     if (!res.ok) return '';
     const data = await res.json();
     // Mozhi uses 'translated-text' (hyphenated) in its response
-    const translated = normalizeSpace(data?.['translated-text'] || data?.translated_text || '');
+    const translated = normalizeBlock(data?.['translated-text'] || data?.translated_text || '');
     if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
     return '';
   });
@@ -680,7 +682,7 @@ async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = '
 // ── Azure Translator (F0 Free — 2M chars/month, near-DeepL quality) ────────
 async function translateWithAzure(text, sourceLang, targetLang) {
   if (AZURE_TRANSLATOR_KEYS.length === 0) return '';
-  const clean = normalizeSpace(text);
+  const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
 
   // Azure supports up to 50K chars per request, but we chunk at 5K for safety
@@ -750,7 +752,7 @@ async function translateWithAzure(text, sourceLang, targetLang) {
         translated.push(t);
         if (chunks.length > 1) await delay(100);
       }
-      const result = normalizeSpace(translated.join('\n\n'));
+      const result = normalizeBlock(translated.join('\n\n'));
       if (result && result.toLowerCase() !== clean.toLowerCase()) {
         _azureKeyIndex = idx;
         return result;
@@ -793,7 +795,7 @@ async function _getGoogleCloudAccessToken() {
 
 async function translateWithGoogleCloud(text, sourceLang, targetLang) {
   if (!_gcOAuthAvailable) return '';
-  const clean = normalizeSpace(text);
+  const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
   if (_googleCloudDailyChars + clean.length > GOOGLE_CLOUD_DAILY_LIMIT) return '';
 
@@ -814,7 +816,7 @@ async function translateWithGoogleCloud(text, sourceLang, targetLang) {
     if (res.status === 403 || res.status === 429) return ''; // quota exceeded
     if (!res.ok) return '';
     const data = await res.json();
-    const translated = normalizeSpace(data?.data?.translations?.[0]?.translatedText || '');
+    const translated = normalizeBlock(data?.data?.translations?.[0]?.translatedText || '');
     if (translated && translated.toLowerCase() !== clean.toLowerCase()) {
       _googleCloudDailyChars += clean.length;
       return translated;
@@ -828,7 +830,7 @@ async function translateWithGoogleCloud(text, sourceLang, targetLang) {
 // ── Hugging Face OPUS-MT (Helsinki-NLP open-source models) ─────────────────
 async function translateWithHuggingFace(text, sourceLang, targetLang) {
   if (!HF_TOKEN) return '';
-  const clean = normalizeSpace(text);
+  const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
 
   const modelKey = `${sourceLang}-${targetLang}`;
@@ -850,7 +852,7 @@ async function translateWithHuggingFace(text, sourceLang, targetLang) {
     });
     if (!res.ok) return '';
     const data = await res.json();
-    const translated = normalizeSpace(
+    const translated = normalizeBlock(
       Array.isArray(data) ? data[0]?.translation_text || '' : data?.translation_text || ''
     );
     if (translated && translated.toLowerCase() !== clean.toLowerCase()) return translated;
@@ -861,7 +863,7 @@ async function translateWithHuggingFace(text, sourceLang, targetLang) {
 }
 
 async function translateWithGoogle(text, sourceLang, targetLang) {
-  const clean = normalizeSpace(text);
+  const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
 
   const chunks = chunkText(clean, 1800);
@@ -879,14 +881,14 @@ async function translateWithGoogle(text, sourceLang, targetLang) {
     translated.push(result);
   }
 
-  const merged = normalizeSpace(translated.join('\n\n'));
+  const merged = normalizeBlock(translated.join('\n\n'));
   if (!merged || merged.toLowerCase() === clean.toLowerCase()) return '';
   return merged;
 }
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 function chunkText(text, maxChars = 1800) {
-  const clean = normalizeSpace(text);
+  const clean = normalizeBlock(text);
   if (!clean) return [];
   if (clean.length <= maxChars) return [clean];
 
@@ -1009,7 +1011,7 @@ export function balanceMarkdownMarkers(s) {
 }
 
 export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 'title' }) {
-  const clean = normalizeSpace(text);
+  const clean = normalizeBlock(text);
   if (!clean) return '';
   if (sourceLang === targetLang) return clean;
 
@@ -1097,7 +1099,7 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
       if (!mm) return '';
       // Check for quota warning in single-call path too (was only checked in chunked path)
       if (mm.includes('MYMEMORY WARNING') || mm.includes('PLEASE CONTACT')) return '';
-      if (normalizeSpace(mm).toLowerCase() !== clean.toLowerCase()) return normalizeSpace(mm);
+      if (normalizeBlock(mm).toLowerCase() !== clean.toLowerCase()) return normalizeBlock(mm);
       return '';
     }
     // Chunk long text at sentence/paragraph boundaries
@@ -1109,7 +1111,7 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
       if (!mm || mm.includes('MYMEMORY WARNING')) return ''; // quota hit mid-chunk, abort
       parts.push(mm);
     }
-    const joined = normalizeSpace(parts.join(' '));
+    const joined = normalizeBlock(parts.join(' '));
     if (joined && joined.toLowerCase() !== clean.toLowerCase()) return joined;
     return '';
   });
