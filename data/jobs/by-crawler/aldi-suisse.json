@@ -1148,7 +1148,6 @@
         "vendeur-se-m-w-d-aldi-suisse-uster",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach"
       ],
       "previousSlugsByLocale": {
@@ -2015,7 +2014,7 @@
       "id": "aldi-suisse-8015c5aa7dac",
       "slug": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
       "slugByLocale": {
-        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
+        "it": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "en": "sales-associate-m-w-d-aldi-suisse-uster",
         "fr": "vendeur-se-m-w-d-aldi-suisse-uster"
@@ -2108,8 +2107,13 @@
       "country": "CH",
       "firstSeenAt": "2026-07-07T22:32:17.723Z",
       "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-      ]
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen"
+        ]
+      }
     },
     {
       "id": "aldi-suisse-28f9221c32d7",
@@ -2208,7 +2212,6 @@
       "country": "CH",
       "firstSeenAt": "2026-07-07T12:23:41.107Z",
       "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
         "sales-associate-m-w-d-aldi-suisse-meilen",
         "vendeur-se-m-w-d-aldi-suisse-meilen"

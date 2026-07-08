@@ -88,12 +88,12 @@
     },
     {
       "id": "sro-2049f2aea8f9",
-      "slug": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
+      "slug": "stv-station-manager-80-100-reparto-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
-        "it": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
-        "en": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
-        "fr": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
+        "it": "stv-station-manager-80-100-reparto-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "stv-station-manager-80-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "stv-gestionnaire-de-station-80-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -153,7 +153,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:16:09.747Z"
+      "firstSeenAt": "2026-07-08T11:16:09.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
+        ],
+        "en": [
+          "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
+        ],
+        "fr": [
+          "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
+      ]
     },
     {
       "id": "sro-5b6a9189f99e",
@@ -292,13 +306,11 @@
       "department": "Gesundheitswesen",
       "previousSlugsByLocale": {
         "de": [
-          "psychotherapeut-in-schmerzklinik-80-sro-langenthal",
-          "teamleitung-schmerzpsychologie-80-sro-langenthal"
+          "psychotherapeut-in-schmerzklinik-80-sro-langenthal"
         ],
         "it": [
           "teamleitung-schmerzpsychologie-80-sro-langenthal",
-          "psychotherapeut-in-schmerzklinik-80-sro-langenthal",
-          "capo-squadra-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal"
+          "psychotherapeut-in-schmerzklinik-80-sro-langenthal"
         ],
         "en": [
           "team-leader-pain-psychology-80-sro-ag-spital-region-oberaargau-langenthal",
@@ -313,8 +325,7 @@
         "teamleitung-schmerzpsychologie-80-sro-langenthal",
         "team-leader-pain-psychology-80-sro-ag-spital-region-oberaargau-langenthal",
         "team-leader-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal",
-        "responsable-equipe-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal",
-        "capo-squadra-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal"
+        "responsable-equipe-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "firstSeenAt": "2026-06-22T15:23:13.268Z",
       "salaryMin": 75600,
@@ -384,13 +395,11 @@
       "validThrough": "2026-07-16",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
-        "psicologo-psicologo-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
-          "psicologo-psicologo-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
         ],
         "en": [
           "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
@@ -471,13 +480,11 @@
         "psychologist-psychologist-old-age-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "psicologa-psicologo-psichiatria-geriatrica-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "psychologue-therapeute-psychiatrie-geriatrique-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "psychologin-psychologen-fur-alterspsychiatrie-80-100-or-klinische-psychologin-klinische-psychologen-schwerpunkt",
-        "psicologo-psicologo-vecchio-eta-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "psychologin-psychologen-fur-alterspsychiatrie-80-100-or-klinische-psychologin-klinische-psychologen-schwerpunkt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal",
-          "psicologo-psicologo-vecchio-eta-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal"
         ],
         "en": [
           "psychologist-psychologist-old-age-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
@@ -555,13 +562,11 @@
       "validThrough": "2026-07-17",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
-        "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal"
+        "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
-          "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal"
+          "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
         ],
         "en": [
           "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
@@ -726,13 +731,11 @@
       "validThrough": "2026-07-08",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal",
-        "anestesiologia-medico-senior-100-sro-ag-spital-region-oberaargau-langenthal"
+        "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal",
-          "anestesiologia-medico-senior-100-sro-ag-spital-region-oberaargau-langenthal"
+          "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
         ],
         "en": [
           "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
@@ -757,12 +760,12 @@
     },
     {
       "id": "sro-3c07c8d5bcc9",
-      "slug": "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal",
+      "slug": "anestesiologia-medico-senior-100-sro-ag-spital-region-oberaargau-langenthal-21c90c",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal",
-        "it": "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal",
-        "en": "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal",
-        "fr": "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
+        "it": "anestesiologia-medico-senior-100-sro-ag-spital-region-oberaargau-langenthal-21c90c",
+        "en": "senior-physician-anesthesiology-100-sro-ag-spital-region-oberaargau-langenthal-21c90c",
+        "fr": "anesthesiologie-du-medecin-principal-100-sro-ag-spital-region-oberaargau-langenthal-21c90c"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -831,13 +834,16 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anestesiologia-medico-senior-100-sro-ag-spital-region-oberaargau-langenthal"
+          "anestesiologia-medico-senior-100-sro-ag-spital-region-oberaargau-langenthal",
+          "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
         ],
         "en": [
-          "senior-physician-anesthesiology-100-sro-ag-spital-region-oberaargau-langenthal"
+          "senior-physician-anesthesiology-100-sro-ag-spital-region-oberaargau-langenthal",
+          "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
         ],
         "fr": [
-          "anesthesiologie-du-medecin-principal-100-sro-ag-spital-region-oberaargau-langenthal"
+          "anesthesiologie-du-medecin-principal-100-sro-ag-spital-region-oberaargau-langenthal",
+          "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
         ]
       }
     },
@@ -896,13 +902,11 @@
       "validThrough": "2026-07-31",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "oberarzt-oberarztin-zesa-60-sro-langenthal",
-        "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
+        "oberarzt-oberarztin-zesa-60-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-oberarztin-zesa-60-sro-langenthal",
-          "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
+          "oberarzt-oberarztin-zesa-60-sro-langenthal"
         ],
         "en": [
           "oberarzt-oberarztin-zesa-60-sro-langenthal"
@@ -927,12 +931,12 @@
     },
     {
       "id": "sro-c61f143bf97f",
-      "slug": "oberarzt-oberarztin-zesa-60-sro-langenthal",
+      "slug": "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal-27f03a",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-zesa-60-sro-langenthal",
-        "it": "oberarzt-oberarztin-zesa-60-sro-langenthal",
-        "en": "oberarzt-oberarztin-zesa-60-sro-langenthal",
-        "fr": "oberarzt-oberarztin-zesa-60-sro-langenthal"
+        "it": "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal-27f03a",
+        "en": "senior-physician-zesa-60-sro-ag-spital-region-oberaargau-langenthal-27f03a",
+        "fr": "medecin-principal-zesa-60-sro-ag-spital-region-oberaargau-langenthal-27f03a"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -1001,13 +1005,16 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
+          "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
+          "oberarzt-oberarztin-zesa-60-sro-langenthal"
         ],
         "en": [
-          "senior-physician-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
+          "senior-physician-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
+          "oberarzt-oberarztin-zesa-60-sro-langenthal"
         ],
         "fr": [
-          "medecin-principal-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
+          "medecin-principal-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
+          "oberarzt-oberarztin-zesa-60-sro-langenthal"
         ]
       }
     },
@@ -1221,13 +1228,11 @@
       "validThrough": "2026-07-23",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal",
-        "studi-post-laurea-nds-dipl-emergenza-esperto-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal",
-          "studi-post-laurea-nds-dipl-emergenza-esperto-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal"
         ],
         "en": [
           "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal"
@@ -1304,13 +1309,11 @@
       "validThrough": "2026-07-08",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
-        "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
-          "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
         ],
         "en": [
           "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
@@ -1332,12 +1335,12 @@
     },
     {
       "id": "sro-6b886f849f61",
-      "slug": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
+      "slug": "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-0f1288",
       "slugByLocale": {
         "de": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
-        "it": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
-        "en": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
-        "fr": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
+        "it": "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-0f1288",
+        "en": "postgraduate-studies-nds-dipl-expert-expert-intensive-care-nds-hf-80-100-sro-ag-spital-region-oberaargau-0f1288",
+        "fr": "etudes-superieures-dnd-expert-expert-soins-intensifs-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -1405,10 +1408,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
         ],
         "en": [
-          "postgraduate-studies-nds-dipl-expert-expert-intensive-care-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "postgraduate-studies-nds-dipl-expert-expert-intensive-care-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
+        ],
+        "fr": [
+          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
         ]
       }
     },
@@ -2293,14 +2301,12 @@
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal",
-        "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2",
-        "specialista-specialista-generale-medicina-interna-emergenza-pratica-50-100-sro-ag-spital-region-oberaargau-75cf4a"
+        "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal",
-          "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2",
-          "specialista-specialista-generale-medicina-interna-emergenza-pratica-50-100-sro-ag-spital-region-oberaargau-75cf4a"
+          "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2"
@@ -2386,13 +2392,11 @@
         "specialiste-en-radiologie-diplome-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
         "infermiere-di-soccorso-diplomato-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-assistant-sanitaire-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-paramedici-di-salvataggio-hf-60-100-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
-          "dipl-paramedici-di-salvataggio-hf-60-100-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-rettungssanitater-in-hf-60-100-sro-langenthal"
         ],
         "en": [
           "dipl-rettungssanitater-in-hf-60-100-sro-langenthal"
@@ -2469,13 +2473,11 @@
       "validThrough": "2026-07-23",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
-        "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-4834a2"
+        "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
-          "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-4834a2"
+          "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
         ],
         "en": [
           "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
@@ -2634,13 +2636,11 @@
         "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
         "infermiera-professionale-diplomata-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
-        "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal"
+        "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
-          "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
@@ -2719,14 +2719,12 @@
         "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
         "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal",
         "infermiera-professionale-diplomata-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "infermiere-laureato-in-hf-fh-80-100-dipartimento-di-medicina-generale-riabilitazione-geriatrica-acuta-sro-ag-spital"
+        "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
-          "infermiere-laureato-in-hf-fh-80-100-dipartimento-di-medicina-generale-riabilitazione-geriatrica-acuta-sro-ag-spital"
+          "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
@@ -2808,13 +2806,11 @@
       "validThrough": "2026-07-14",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
-        "dipl-infermiera-ic-fh-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
-          "dipl-infermiera-ic-fh-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
@@ -2891,13 +2887,11 @@
       "validThrough": "2026-07-14",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
-        "dipl-infermiera-ic-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
-          "dipl-infermiera-ic-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
@@ -2926,8 +2920,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
         "it": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
-        "en": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
-        "fr": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal"
+        "en": "dipl-care-specialist-hf-fh-50-100-br-all-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "c-est-quoi-specialiste-des-soins-hf-fh-50-100-br-tous-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3043,13 +3037,11 @@
       "validThrough": "2026-08-04",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
-        "dipl-infermiera-hf-fh-40-100-assunzione-medicina-cura-pallitiva-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
-          "dipl-infermiera-hf-fh-40-100-assunzione-medicina-cura-pallitiva-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
@@ -3242,8 +3234,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
         "it": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal"
+        "en": "dipl-nursing-specialist-hf-fh-80-100-br-interdisciplinary-private-department-sro-ag-spital-region-oberaargau-cb3548",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-80-100-br-departement-prive-interdisciplinaire-sro-ag-spital-region-cb3548"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3295,11 +3287,16 @@
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
           "dipl-infermieristica-hf-fh-80-100-servizio-privato-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
-        "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infermieristica-hf-fh-80-100-servizio-privato-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "salaryMin": 68500,
@@ -3490,8 +3487,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
         "it": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal"
+        "en": "dipl-nursing-specialist-hf-fh-40-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal-170601",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-40-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau-170601"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3543,11 +3540,16 @@
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
           "dipl-infermieristica-hf-fh-40-100-dipartimento-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
-        "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infermieristica-hf-fh-40-100-dipartimento-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "salaryMin": 68500,
@@ -3811,8 +3813,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
         "it": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
-        "fr": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
+        "en": "dipl-nursing-professional-hf-operational-employment-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3859,6 +3861,12 @@
       "department": "Gesundheitswesen",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
         ]
       },
@@ -4015,13 +4023,11 @@
       "validThrough": "2026-07-23",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80",
-        "dipl-expert-expert-nds-in-emergenza-dipl-infermiera-hf-fh-emergency-center-80-100-sro-ag-spital-region-oberaargau"
+        "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80",
-          "dipl-expert-expert-nds-in-emergenza-dipl-infermiera-hf-fh-emergency-center-80-100-sro-ag-spital-region-oberaargau"
+          "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80"
         ],
         "en": [
           "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80"
@@ -4098,13 +4104,11 @@
       "validThrough": "2026-07-09",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
-        "dipl-expert-intensive-care-60-100-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
-          "dipl-expert-intensive-care-60-100-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-10T13:03:25.980Z",
@@ -4205,12 +4209,12 @@
     },
     {
       "id": "sro-9f4f98078c91",
-      "slug": "bildungsverantwortliche-pflege-80-100-sro-langenthal",
+      "slug": "cura-educativa-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "bildungsverantwortliche-pflege-80-100-sro-langenthal",
-        "it": "bildungsverantwortliche-pflege-80-100-sro-langenthal",
-        "en": "bildungsverantwortliche-pflege-80-100-sro-langenthal",
-        "fr": "bildungsverantwortliche-pflege-80-100-sro-langenthal"
+        "it": "cura-educativa-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "educational-care-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "soins-educatifs-80-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -4270,7 +4274,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:15:30.076Z"
+      "firstSeenAt": "2026-07-08T11:15:30.076Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bildungsverantwortliche-pflege-80-100-sro-langenthal"
+        ],
+        "en": [
+          "bildungsverantwortliche-pflege-80-100-sro-langenthal"
+        ],
+        "fr": [
+          "bildungsverantwortliche-pflege-80-100-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "bildungsverantwortliche-pflege-80-100-sro-langenthal"
+      ]
     },
     {
       "id": "sro-b9e602a298e6",
@@ -4577,13 +4595,11 @@
         "orthopedic-medical-secretary-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "secretaire-medical-e-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "medical-secretary-orthopedics-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "secretaire-medicale-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "segreteria-medica-ortopedia-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "secretaire-medicale-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-orthopadie-80-100-sro-langenthal",
-          "segreteria-medica-ortopedia-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "arztsekretar-in-orthopadie-80-100-sro-langenthal"
         ],
         "en": [
           "arztsekretar-in-orthopadie-80-100-sro-langenthal"
@@ -4742,13 +4758,11 @@
       "validThrough": "2026-07-24",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "arztsekretar-in-schmerzklinik-80-100-sro-langenthal",
-        "segreteria-medica-clinica-antidolorifico-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "arztsekretar-in-schmerzklinik-80-100-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-schmerzklinik-80-100-sro-langenthal",
-          "segreteria-medica-clinica-antidolorifico-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "arztsekretar-in-schmerzklinik-80-100-sro-langenthal"
         ],
         "en": [
           "arztsekretar-in-schmerzklinik-80-100-sro-langenthal"
@@ -4838,10 +4852,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "previousSlugs": [
-        "oberarzt-oberarztin-zesa-60-sro-langenthal"
-      ]
+      "crawlerMissStreak": 1
     },
     {
       "id": "sro-61f5acefef03",

@@ -549,7 +549,7 @@
         "it": "regolatore-di-gruppo-a-80-100-helsana-dubendorf",
         "en": "group-controller-a-80-100-helsana-dubendorf",
         "de": "group-controller-a-80-100-helsana-dubendorf",
-        "fr": "group-controller-a-80-100-helsana-dubendorf"
+        "fr": "controleur-de-groupe-a-80-100-helsana-dubendorf"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -591,15 +591,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-controller-a-80-100-helsana-dubendorf",
-        "controleur-de-groupe-a-80-100-helsana-dubendorf"
+        "group-controller-a-80-100-helsana-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-controller-a-80-100-helsana-dubendorf"
         ],
         "fr": [
-          "controleur-de-groupe-a-80-100-helsana-dubendorf"
+          "group-controller-a-80-100-helsana-dubendorf"
         ]
       },
       "firstSeenAt": "2026-06-23T11:42:58.513Z",
@@ -2349,7 +2348,7 @@
         "it": "it-security-architetto-a-secure-development-threat-vulnerability-management-80-100-helsana-dubendorf-stettbach-homeoff",
         "en": "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana",
         "de": "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana",
-        "fr": "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "architecte-de-la-securite-des-ti-a-gestion-securitaire-du-developpement-de-la-menace-et-de-la-vulnerabilite-80-100"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2392,7 +2391,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana",
-        "architecte-de-la-securite-des-ti-a-gestion-securitaire-du-developpement-de-la-menace-et-de-la-vulnerabilite-80-100"
+        "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana-dubendorf-stettbach-homeoff"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2400,7 +2399,7 @@
         ],
         "fr": [
           "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana",
-          "architecte-de-la-securite-des-ti-a-gestion-securitaire-du-developpement-de-la-menace-et-de-la-vulnerabilite-80-100"
+          "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana-dubendorf-stettbach-homeoff"
         ]
       },
       "firstSeenAt": "2026-06-23T11:43:23.917Z",
@@ -4873,9 +4872,9 @@
     },
     {
       "id": "helsana-8741069036c2",
-      "slug": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
+      "slug": "assicurazione-medico-d-i-a-40-60-helsana-ticino",
       "slugByLocale": {
-        "it": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
+        "it": "assicurazione-medico-d-i-a-40-60-helsana-ticino",
         "en": "insurance-physician-d-i-a-40-60-helsana-ticino",
         "de": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
         "fr": "medecin-d-assurance-d-i-a-40-60-helsana-ticino"
@@ -4920,11 +4919,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assicurazione-medico-d-i-a-40-60-helsana-ticino"
+        "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assicurazione-medico-d-i-a-40-60-helsana-ticino"
+          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
         ]
       },
       "firstSeenAt": "2026-06-23T11:43:05.339Z",
