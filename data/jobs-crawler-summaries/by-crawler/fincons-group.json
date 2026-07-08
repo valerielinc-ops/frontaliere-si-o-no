@@ -1,18 +1,56 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-07-07T22:19:36.245Z",
-  "total": 8,
-  "newCount": 0,
+  "generatedAt": "2026-07-08T11:37:53.923Z",
+  "total": 9,
+  "newCount": 1,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2191,
-  "avgDurationMs": 2191,
+  "durationMs": 1706,
+  "avgDurationMs": 1706,
   "durationHistory": [
-    2191
+    1706
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Senior DevOps Engineer (HashiCorp Vault)",
+      "slug": "senior-devops-engineer-hashicorp-vault-fincons-group-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/UzgDqa8ywx/Senior-DevOps-Engineer-HashiCorp-Vault",
+      "applyUrl": "https://fincons.applytojob.com/apply/UzgDqa8ywx/Senior-DevOps-Engineer-HashiCorp-Vault",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-08",
+      "validThrough": "2026-10-06",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260708080124_OUTHSNCVEW1PJVLS",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Angular Software Engineer",
