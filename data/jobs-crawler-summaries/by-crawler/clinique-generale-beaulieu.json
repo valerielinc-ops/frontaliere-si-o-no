@@ -1,16 +1,16 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-07-07T22:32:08.841Z",
-  "total": 3,
+  "generatedAt": "2026-07-08T11:36:33.824Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7985,
-  "avgDurationMs": 7985,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7604,
+  "avgDurationMs": 7604,
   "durationHistory": [
-    7985
+    7604
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135518323-infirmier-ere-instrumentiste",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:32:04.989Z",
+      "crawledAt": "2026-07-08T11:36:30.899Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135076878-aide-soignant-e-bloc-operatoire",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:32:06.007Z",
+      "crawledAt": "2026-07-08T11:36:31.870Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -91,8 +91,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "clinique-generale-beaulieu-289b6038a0d2",
       "slug": "apprendista-tecnologo-in-dispositivi-medici-clinique-generale-beaulieu-geneve",
@@ -133,5 +132,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
