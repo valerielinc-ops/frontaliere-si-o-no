@@ -97,8 +97,15 @@ describe('ai-models Claude CLI Haiku fallback', () => {
     expect(args).toContain('--model');
     expect(args[args.indexOf('--model') + 1]).toBe('claude-haiku-4-5-20251001');
     expect(args).toContain('--output-format');
-    expect(args).toContain('--allowedTools');
-    expect(args[args.indexOf('--allowedTools') + 1]).toBe('');
+    // --tools '' (not --allowedTools) is the flag that actually disables tool
+    // availability — --allowedTools only gates the permission prompt for
+    // tools that remain available, it doesn't remove them from the built-in
+    // set (confirmed via `claude --help` after a review flagged the
+    // difference: bypassPermissions + --allowedTools '' alone left every
+    // built-in tool available and auto-approved).
+    expect(args).toContain('--tools');
+    expect(args[args.indexOf('--tools') + 1]).toBe('');
+    expect(args).not.toContain('--allowedTools');
     expect(args).not.toContain('--bare');
   });
 

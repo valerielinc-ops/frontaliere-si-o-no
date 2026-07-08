@@ -3137,9 +3137,17 @@ async function _callLocal(model, messages, opts) {
  * last resort — reuses CLAUDE_CODE_OAUTH_TOKEN, same zero-cost Max-plan auth
  * already wired for pr-review-loop.yml/issue-fix.yml, never a raw
  * ANTHROPIC_API_KEY). `--bare` deliberately NOT used: it requires
- * ANTHROPIC_API_KEY/apiKeyHelper and ignores OAuth. `--allowedTools ""` +
- * `--permission-mode bypassPermissions` force plain one-shot text/schema
- * completion, no tool access, no agentic session.
+ * ANTHROPIC_API_KEY/apiKeyHelper and ignores OAuth. Tool access is disabled
+ * via `--tools ""` (per `claude --help`: "Use \"\" to disable all tools") —
+ * NOT `--allowedTools`/`--disallowedTools`, which only gate the permission
+ * *prompt* for tools that remain available and don't remove them from the
+ * built-in set. `--permission-mode bypassPermissions` is kept alongside so
+ * the (now empty) tool set never blocks on an interactive prompt in CI; with
+ * zero tools available it has nothing else to bypass. This subprocess
+ * processes externally-sourced headline/news content and inherits the full
+ * CI env (`env: process.env` below, incl. secrets) — `--tools ""` is the
+ * flag that actually matters for keeping this a plain one-shot completion
+ * with no agentic/tool-call capability, regardless of permission mode.
  */
 async function _callClaudeCli(model, messages, opts) {
   const apiModel = getApiModelId(model); // e.g. 'claude-haiku-4-5-20251001'
@@ -3150,7 +3158,7 @@ async function _callClaudeCli(model, messages, opts) {
     '-p', userPrompt,
     '--model', apiModel,
     '--output-format', 'json',
-    '--allowedTools', '',
+    '--tools', '',
     '--permission-mode', 'bypassPermissions',
   ];
   if (systemPrompt) args.push('--system-prompt', systemPrompt);
