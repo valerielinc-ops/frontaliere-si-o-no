@@ -2,9 +2,10 @@
   "jobs": [
     {
       "id": "liebherr-694763ed3a4a",
-      "slug": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
+      "slug": "primaritorno-a-liebherr-baumaschinen-ag-liebherr-reiden",
       "slugByLocale": {
-        "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
+        "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+        "it": "primaritorno-a-liebherr-baumaschinen-ag-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -46,7 +47,15 @@
         "en": []
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "previousSlugsByLocale": {
+        "it": [
+          "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden"
+        ]
+      },
+      "previousSlugs": [
+        "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden"
+      ]
     },
     {
       "id": "liebherr-80754efea8a1",
@@ -157,9 +166,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle",
         "giovani-talenti-preparazione-del-lavoro-motori-di-combustione-m-f-x-liebherr-bulle",
-        "giovani-talenti-preparazione-al-lavoro-motori-a-combustione-m-f-x-liebherr-bulle",
         "young-talent-acquisisci-motori-di-combustione-m-w-x-liebherr-bulle",
         "young-talent-purchasing-combustion-engines-m-w-x-liebherr-bulle",
         "young-talent-einkauf-von-verbrennungsmotoren-m-w-x-liebherr-bulle",
@@ -168,12 +175,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle",
-          "giovani-talenti-preparazione-del-lavoro-motori-di-combustione-m-f-x-liebherr-bulle",
-          "giovani-talenti-preparazione-al-lavoro-motori-a-combustione-m-f-x-liebherr-bulle"
-        ],
-        "de": [
-          "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle"
+          "giovani-talenti-preparazione-del-lavoro-motori-di-combustione-m-f-x-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-07-03T11:45:50.885Z"
@@ -342,27 +344,6 @@
       "jobReqId": "1364834733",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "diagnostiker-mechaniker-m-f-x-liebherr-bulle",
-          "warranty-investigation-technician-m-w-d-liebherr-bulle"
-        ],
-        "it": [
-          "diagnostiker-mechaniker-m-f-x-liebherr-bulle",
-          "meccanico-diagnostico-m-f-x-liebherr-bulle"
-        ],
-        "en": [
-          "diagnostiker-mechaniker-m-f-x-liebherr-bulle"
-        ],
-        "fr": [
-          "diagnostiker-mechaniker-m-f-x-liebherr-bulle"
-        ]
-      },
-      "previousSlugs": [
-        "diagnostiker-mechaniker-m-f-x-liebherr-bulle",
-        "warranty-investigation-technician-m-w-d-liebherr-bulle",
-        "meccanico-diagnostico-m-f-x-liebherr-bulle"
-      ],
       "firstSeenAt": "2026-07-01T22:41:15.857Z"
     },
     {
@@ -413,21 +394,6 @@
       "jobReqId": "1364834833",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle",
-          "warranty-investigation-technician-m-f-x-liebherr-bulle"
-        ],
-        "it": [
-          "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle",
-          "diagnostica-meccatronica-tecnica-m-f-x-liebherr-bulle"
-        ]
-      },
-      "previousSlugs": [
-        "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle",
-        "warranty-investigation-technician-m-f-x-liebherr-bulle",
-        "diagnostica-meccatronica-tecnica-m-f-x-liebherr-bulle"
-      ],
       "firstSeenAt": "2026-07-01T22:41:16.361Z"
     },
     {
@@ -647,10 +613,7 @@
       "jobReqId": "1406546633",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-19T22:09:42.724Z",
-      "previousSlugs": [
-        "head-of-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle"
-      ]
+      "firstSeenAt": "2026-06-19T22:09:42.724Z"
     },
     {
       "id": "liebherr-d7d6f506f853",
@@ -701,22 +664,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle",
-        "capo-del-governo-della-sicurezza-dell-informazione-del-rischio-e-della-conformita-m-w-d-liebherr-bulle",
         "responsable-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "head-of-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle",
-          "capo-del-governo-della-sicurezza-dell-informazione-del-rischio-e-della-conformita-m-w-d-liebherr-bulle"
-        ],
-        "de": [
-          "head-of-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle"
-        ],
-        "fr": [
-          "head-of-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle"
-        ]
-      },
       "firstSeenAt": "2026-06-19T22:10:12.940Z"
     },
     {
@@ -926,23 +875,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle",
-        "team-leader-validazione-della-funzione-m-f-x-liebherr-bulle",
         "team-leader-testing-m-f-x-liebherr-bulle",
         "team-leader-function-validation-m-f-x-liebherr-bulle"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle",
-          "team-leader-validazione-della-funzione-m-f-x-liebherr-bulle"
-        ],
-        "en": [
-          "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle"
-        ],
-        "fr": [
-          "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle"
-        ]
-      },
       "firstSeenAt": "2026-06-17T13:11:29.911Z"
     },
     {
@@ -1067,7 +1002,7 @@
       "slugByLocale": {
         "it": "capo-squadra-function-validation-m-f-x-liebherr-bulle",
         "en": "team-leader-function-validation-m-f-x-liebherr-bulle",
-        "de": "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle",
+        "de": "teamleiter-prufung-m-w-x-liebherr-bulle",
         "fr": "chef-d-equipe-validation-des-fonctions-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -1110,26 +1045,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "team-leader-testing-m-f-x-liebherr-bulle",
-          "team-leader-function-validation-m-f-x-liebherr-bulle"
-        ],
         "it": [
-          "team-leader-function-validation-m-f-x-liebherr-bulle",
-          "team-leader-testing-m-f-x-liebherr-bulle",
-          "capo-squadra-function-validation-m-f-x-liebherr-bulle"
+          "team-leader-function-validation-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "team-leader-function-validation-m-f-x-liebherr-bulle"
+          "team-leader-function-validation-m-f-x-liebherr-bulle",
+          "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle"
         ],
         "fr": [
           "team-leader-function-validation-m-f-x-liebherr-bulle"
         ]
       },
       "previousSlugs": [
-        "team-leader-testing-m-f-x-liebherr-bulle",
         "team-leader-function-validation-m-f-x-liebherr-bulle",
-        "capo-squadra-function-validation-m-f-x-liebherr-bulle",
         "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-15T14:48:44.629Z"
@@ -1340,10 +1268,7 @@
           "You have good skills in TIG / MAG welding / as well as brazing"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:08.317Z",
-      "previousSlugs": [
-        "serrurier-constructeur-metallique-h-f-x-liebherr-bulle"
-      ]
+      "firstSeenAt": "2026-06-10T09:03:08.317Z"
     },
     {
       "id": "liebherr-907dde86c03b",
@@ -3096,22 +3021,8 @@
         ]
       },
       "previousSlugs": [
-        "ingenieur-de-production-dmu-h-f-x-liebherr-bulle",
-        "ingegnere-di-produzione-dmu-h-f-x-liebherr-bulle",
         "ingegnere-di-produzione-dmu-m-w-d-liebherr-bulle"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ingenieur-de-production-dmu-h-f-x-liebherr-bulle",
-          "ingegnere-di-produzione-dmu-h-f-x-liebherr-bulle"
-        ],
-        "en": [
-          "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
-        ],
-        "de": [
-          "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
-        ]
-      },
       "firstSeenAt": "2026-06-10T09:03:08.379Z"
     },
     {
