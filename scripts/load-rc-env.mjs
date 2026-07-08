@@ -161,6 +161,11 @@ const RC_TO_ENV = {
 
   // Feature flags
   ENABLE_JOB_ALERTS:              ['ENABLE_JOB_ALERTS'],
+  // Near-duplicate embedding cosine override for create-article.mjs (see
+  // scripts/lib/scoring/constants.mjs EMBEDDING_NEAR_DUP_COSINE). Unset in RC
+  // by default — code falls back to the built-in 0.86 baseline. Lets a single
+  // test window relax the threshold without a code change or redeploy.
+  NEAR_DUP_COSINE:                ['NEAR_DUP_COSINE'],
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────
