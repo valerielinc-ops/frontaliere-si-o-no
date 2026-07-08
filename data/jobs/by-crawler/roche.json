@@ -22792,7 +22792,23 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-08T11:30:08.700Z"
+      "firstSeenAt": "2026-07-08T11:30:08.700Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "payroll-time-benefits-specialista-german-speaking-roche-budapest"
+        ],
+        "de": [
+          "payroll-time-benefits-spezialist-german-speaking-roche-budapest"
+        ],
+        "fr": [
+          "payroll-time-benefits-specialiste-german-speaking-roche-budapest"
+        ]
+      },
+      "previousSlugs": [
+        "payroll-time-benefits-specialista-german-speaking-roche-budapest",
+        "payroll-time-benefits-spezialist-german-speaking-roche-budapest",
+        "payroll-time-benefits-specialiste-german-speaking-roche-budapest"
+      ]
     },
     {
       "id": "roche-4c496263f313",
