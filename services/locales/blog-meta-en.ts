@@ -8314,6 +8314,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ascensori-ticino-frontalieri.title': 'Ticino lifts: job opportunities for border workers',
     'blog.article.ascensori-ticino-frontalieri.excerpt': 'Job search for elevator operators in Ticino. Discover requirements, salaries and taxes for border workers working in Italian Switzerland',
     'blog.article.ascensori-ticino-frontalieri.imageAlt': 'Elevators in Locarno connecting residential areas to city center',
+    'blog.article.pemsa-lugano-servizi-frontalieri.title': 'Pemsa Lugano: Services for workers in Ticino',
+    'blog.article.pemsa-lugano-servizi-frontalieri.excerpt': 'Analysis of the services offered by Pemsa in Lugano for those working in Canton Ticino, framed in the context of the cross-border labour market.',
+    'blog.article.pemsa-lugano-servizi-frontalieri.imageAlt': 'Panoramic view of offices in Lugano',
 };
 
 export default blogMetaEn;
