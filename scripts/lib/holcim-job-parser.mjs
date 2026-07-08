@@ -2,7 +2,41 @@
 /**
  * Holcim Group job parser — Fetcher and job builder.
  *
- * Source: https://careers.holcimgroup.com/
+ * Source: https://careers.holcimgroup.com/search/
+ *
+ * ISSUE #3797 FALSE-NEGATIVE FIX: the previous parser pointed the shared
+ * `successfactors-client.mjs` at `career2.successfactors.eu/career?company=
+ * holcimgrou` — the classic SAP UI5 "Recruiting Marketing" search widget.
+ * That page's listing index is populated by an `AjaxService`/`ASProxy` call
+ * gated behind a per-session CSRF-style token (`_s.crb`, tied to the page's
+ * own `jsessionid`) — genuinely not fetchable without executing the page's
+ * JS, which is exactly why the shared client's `html-career` branch bails
+ * out with "listing index requires Playwright" and the crawler always
+ * returned 0 jobs.
+ *
+ * However, Holcim's OWN public-facing career site (`careers.holcimgroup.com`)
+ * is a DIFFERENT, newer SAP SuccessFactors "Career Site Builder" tenant that
+ * (unlike Oerlikon's CSB tenant) still fully server-renders its search
+ * results — `careers.holcimgroup.com/search/?locationsearch=Switzerland`
+ * returns "Showing 1 to 25 of 34 Jobs" directly in the raw HTML (34 exactly
+ * matches the evidence), no Playwright needed at all. The `locationsearch`
+ * query param does a genuine server-side filter (confirmed: unfiltered
+ * `/search/` reports 410 jobs; `Switzerland`-filtered reports 34).
+ *
+ * Listing markup is a newer "tile" skin of the Jobs2Web family: each job is
+ * rendered 3x (desktop/tablet/mobile responsive variants), so results must
+ * be de-duplicated by URL. Location lives in a single field per tile
+ * (labelled "Other Locations" in the DOM, but it is in fact the job's own
+ * location — this tenant has no separate primary-location field):
+ *   <a class="jobTitle-link" href="/job/{slug}/">​{title}</a>
+ *   ...-multilocation-value">{City}[, {Canton}], {CountryCode}, {Postal}</div>
+ * Pagination via `&startrow=N` (25 rows/page), same as Benteler/Constellium.
+ *
+ * Detail pages carry schema.org microdata (`itemprop="streetAddress"
+ * content="{City}, CH, {Postal}"`, `itemprop="datePosted"`) plus a
+ * `<span class="jobdescription">...</span>` description block ending before
+ * a `<p id="job-location" ...>` marker — same description-extraction pattern
+ * as Benteler/Constellium, just a differently-attributed closing `<p>` tag.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllHolcimJobs()  — Fetch and parse all jobs
@@ -12,13 +46,8 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import {
-  detectSuccessFactorsKind,
-  fetchSuccessFactorsJobs,
-  SuccessFactorsAuthError,
-} from './ats-clients/successfactors-client.mjs';
+import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -26,12 +55,10 @@ export const HOLCIM_KEY = 'holcim';
 export const HOLCIM_COMPANY_NAME = 'Holcim Group';
 export const HOLCIM_COMPANY_DOMAIN = 'holcim.com';
 
-// Holcim Group runs an SF Career Site Builder front (careers.holcimgroup.com)
-// backed by the classic career2.successfactors.eu tenant `holcimgrou`.
-// We hit the SF host directly because detectSuccessFactorsKind only knows
-// the api*.successfactors / career*.successfactors / sapsf hosts.
-const CAREER_URL = 'https://career2.successfactors.eu/career?company=holcimgrou';
-const PUBLIC_CAREER_URL = 'https://careers.holcimgroup.com/';
+const CAREER_HOST = 'careers.holcimgroup.com';
+const CAREER_URL = `https://${CAREER_HOST}/search/?locationsearch=Switzerland&locale=en_US`;
+const PAGE_SIZE = 25;
+const MAX_PAGES = 20; // safety cap (500 rows) — real board is ~34 CH jobs
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -52,7 +79,7 @@ function normalizeSpace(s = '') {
 export function isHolcimJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
@@ -63,13 +90,12 @@ export function isHolcimJob(job) {
     key.startsWith('holcim') ||
     company.includes('holcim') ||
     url.includes('holcim.com') ||
-    url.includes('holcimgroup.com') ||
-    (url.includes('successfactors') && url.includes('holcimgrou'))
+    url.includes('holcimgroup.com')
   );
 }
 
 /**
- * Validate that a URL belongs to Holcim Group's domain or its SF tenant.
+ * Validate that a URL belongs to Holcim Group's domain.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
@@ -78,9 +104,7 @@ export function isTrustedDomain(rawUrl = '') {
       host === 'holcim.com' ||
       host.endsWith('.holcim.com') ||
       host === 'careers.holcimgroup.com' ||
-      host.endsWith('.holcimgroup.com') ||
-      /\.successfactors\.(eu|com)$/.test(host) ||
-      /\.sapsf\.(eu|com)$/.test(host)
+      host.endsWith('.holcimgroup.com')
     );
   } catch {
     return false;
@@ -88,32 +112,37 @@ export function isTrustedDomain(rawUrl = '') {
 }
 
 /**
- * Holcim's SF tenant returns global jobs; we filter client-side for CH.
+ * Parse the "{City}[, {Canton}], {CountryCode}, {Postal}" location string
+ * this tenant returns (e.g. "Zug, CH, 6300" or "Oberdorf, NW, CH, 6370").
+ * Country-code-first, same collision-safe pattern used for Benteler/
+ * Constellium: canton codes are NOT globally unique (e.g. Swiss "NW" =
+ * Nidwalden vs. German "NW" = Nordrhein-Westfalen), so only trust an
+ * explicit trailing country token, never a bare canton-looking token alone.
  */
-function isSwissLocation(locationsText = '') {
-  const loc = normalize(locationsText);
-  return (
-    loc.includes('switzerland') ||
-    loc.includes('schweiz') ||
-    loc.includes('suisse') ||
-    loc.includes('svizzera') ||
-    loc.startsWith('ch ') ||
-    loc.startsWith('ch-') ||
-    loc.includes(', ch') ||
-    loc.includes('zurich') ||
-    loc.includes('zürich') ||
-    loc.includes('zug') ||
-    loc.includes('basel') ||
-    loc.includes('bern') ||
-    loc.includes('geneva') ||
-    loc.includes('lausanne') ||
-    loc.includes('lugano') ||
-    loc.includes('eclepens') ||
-    loc.includes('siggenthal') ||
-    loc.includes('untervaz') ||
-    loc.includes('würenlingen') ||
-    loc.includes('wuerenlingen')
-  );
+function parseHolcimLocation(raw = '') {
+  // Strip soft hyphens (U+00AD) — seen glued onto a postal code in at
+  // least one real listing ("Zurich, CH, CH-­8050"), which otherwise
+  // breaks a naive "is the last token purely numeric" postal-code check.
+  const cleaned = String(raw || '').replace(/­/g, '');
+  const parts = cleaned.split(',').map((p) => p.trim()).filter(Boolean);
+  if (!parts.length) return { city: '', canton: '', country: '' };
+  const city = parts[0];
+  const tail = parts.slice(1);
+  const last = tail[tail.length - 1] || '';
+
+  // Country: look for an exact "CH" token anywhere after the city (position
+  // varies: "City, CH, Postal" vs "City, Canton, CH, Postal"), plus a guard
+  // for the postal-token-absorbed-country case above ("CH-8050").
+  const country = tail.some((p) => /^CH$/i.test(p)) || /^CH-/i.test(last) ? 'CH' : '';
+
+  // Canton: only trust a genuine 2-letter Swiss canton CODE (never a full
+  // canton NAME like "St. Gallen" or a misspelled one like "Shaffhausen" —
+  // both seen on this tenant — and never the "CH" token itself). Anything
+  // else is left for inferAnyCanton(city) to resolve by city name.
+  const middle = tail.slice(0, -1);
+  const explicitCanton = middle.find((p) => /^[A-Z]{2}$/.test(p) && p.toUpperCase() !== 'CH') || '';
+
+  return { city, canton: explicitCanton.toUpperCase(), country };
 }
 
 /* ── Category Detection ────────────────────────────────────── */
@@ -121,16 +150,16 @@ function isSwissLocation(locationsText = '') {
 function detectCategory(title = '') {
   const t = normalize(title);
   if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
-  if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
+  if (/\b(techni|tecnic|mecanic|elektr|install|installateur)/.test(t)) return 'Tecnica';
   if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
   if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
-  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
-  if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
+  if (/\b(logist|magazz|lager|warehouse|chauffeur|lastwagenführer|matros)/.test(t)) return 'Logistica';
+  if (/\b(produz|operat|operator|manufactur|baumaschin|betriebsstoff)/.test(t)) return 'Produzione';
   if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
   if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
   if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
   if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
-  if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
+  if (/\b(finanz|finance|financ|debitoren|cash)/.test(t)) return 'Finanza';
   if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
   return 'Altro';
 }
@@ -139,95 +168,169 @@ function detectExperienceLevel(title = '') {
   const t = normalize(title);
   if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
-  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
+  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab|manager)/.test(t)) return 'senior';
   return 'mid';
 }
 
-function detectEmploymentType(text = '') {
-  const t = normalize(text);
+/**
+ * Holcim titles commonly carry a workload-percentage suffix
+ * (e.g. "80-100%", "60-70%") rather than a plain part-time/full-time label.
+ */
+function detectEmploymentType(title = '') {
+  const pctMatch = title.match(/\((\d{1,3})\s*(?:-\s*(\d{1,3})\s*)?%\)|(\d{1,3})\s*(?:-\s*(\d{1,3})\s*)?%/);
+  if (pctMatch) {
+    const nums = [pctMatch[1], pctMatch[2], pctMatch[3], pctMatch[4]].filter(Boolean).map(Number);
+    if (nums.length && Math.max(...nums) < 100) return 'PART_TIME';
+    if (nums.length) return 'FULL_TIME';
+  }
+  const t = normalize(title);
   if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
   if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
   return 'OTHER';
 }
 
-/* ── SuccessFactors fetcher ───────────────────────────────────
- * Three flavors auto-detected from CAREER_URL:
- *   - 'odata-api'    → api{N}.successfactors.com/odata/v2/...
- *   - 'html-career'  → career5.successfactors.eu/career?company=...
- *   - 'html-jobreq'  → jobs2web / SSR overlay (jobs.sbb.ch, etc.)
- * For 'html-career' listing index you typically need Playwright
- * (re-scaffold with --playwright if so).
- */
-const SF_LOCATION_FILTERS = []; // TODO: e.g. ['Ticino', 'Lugano', 'Zurich']
+/* ── Fetch + Parse (Jobs2Web "tile" search + detail pages) ───── */
 
-async function fetchJobListings() {
-  const kind = detectSuccessFactorsKind(CAREER_URL);
-  if (!kind) {
-    console.warn(`⚠️ URL not recognised as SuccessFactors: ${CAREER_URL}`);
-    return [];
+/**
+ * Parse one search-results page: extract unique job tiles (each tile is
+ * rendered 3x for responsive breakpoints, so de-dupe by href) plus the
+ * "Showing X to Y of Z Jobs" total for pagination bookkeeping.
+ */
+function parseSearchPage(html = '') {
+  const rows = [];
+  const seen = new Set();
+  const tileRx = /class="jobTitle-link[^"]*"[^>]*href="([^"]+)"[^>]*>\s*([^<]*?)\s*</g;
+  let m;
+  while ((m = tileRx.exec(html)) !== null) {
+    const href = m[1];
+    if (seen.has(href)) continue;
+    seen.add(href);
+    rows.push({ href, title: normalizeSpace(m[2]) });
   }
-  const out = [];
-  try {
-    for await (const job of fetchSuccessFactorsJobs(CAREER_URL, {
-      locationFilters: SF_LOCATION_FILTERS,
-      company: HOLCIM_COMPANY_NAME,
-    })) {
-      // Tenant ships listings worldwide; ship only CH-located roles to frontaliere-ticino.
-      if (!isSwissLocation(job.location || '')) continue;
-      out.push({
-        title: job.title,
-        location: job.location,
-        url: job.applyUrl,
-        postedAt: job.postedAt,
-        jobReqId: job.jobReqId,
-        description: job.description || '',
-      });
-    }
-  } catch (err) {
-    if (err instanceof SuccessFactorsAuthError) {
-      console.error(`❌ SuccessFactors anti-bot block: ${err.message}`);
-      return [];
-    }
-    throw err;
-  }
-  return out;
+
+  // Attach the nearest following "-multilocation-value" location text to
+  // each row, in document order (tiles and their location blocks are
+  // emitted in the same relative order they appear in `rows`).
+  const locRx = /-multilocation-value">([^<]*)/g;
+  const locs = [];
+  let lm;
+  while ((lm = locRx.exec(html)) !== null) locs.push(normalizeSpace(lm[1]));
+  // Each unique row is followed by 3 responsive copies of its location block;
+  // take one location per unique href, in order.
+  const perRow = Math.max(1, Math.floor(locs.length / (rows.length || 1)));
+  rows.forEach((row, i) => {
+    row.locationText = locs[i * perRow] || locs[i] || '';
+  });
+
+  const totalMatch = html.match(/Showing\s+\d+\s+to\s+\d+\s+of\s+(\d+)\s+Jobs/i);
+  const total = totalMatch ? Number(totalMatch[1]) : 0;
+
+  return { rows, total };
 }
 
 /**
- * Fetch all Holcim Group jobs.
+ * Fetch every page of the Switzerland-filtered search results.
+ */
+async function listSwissJobs() {
+  const allRows = [];
+  let expectedTotal = 0;
+
+  for (let page = 0; page < MAX_PAGES; page += 1) {
+    const startrow = page * PAGE_SIZE;
+    const pageUrl = startrow === 0 ? CAREER_URL : `${CAREER_URL}&startrow=${startrow}`;
+    let html;
+    try {
+      html = await fetchHtml(pageUrl, { timeoutMs: 20000 });
+    } catch (err) {
+      if (page === 0) console.warn(`⚠️ Failed to fetch Holcim search page: ${err.message}`);
+      break;
+    }
+    const { rows, total } = parseSearchPage(html);
+    if (page === 0) expectedTotal = total;
+    if (rows.length === 0) break;
+    allRows.push(...rows);
+    if (rows.length < PAGE_SIZE) break;
+    if (expectedTotal > 0 && allRows.length >= expectedTotal) break;
+    await new Promise((r) => setTimeout(r, 500));
+  }
+
+  console.log(`  🎯 Swiss-filtered jobs found: ${allRows.length}`);
+  return allRows;
+}
+
+/**
+ * Fetch and parse a job detail page for its description + posted date.
+ * Description sits in a `<span class="jobdescription">...</span>` block
+ * that ends right before the `<p id="job-location" ...>` marker.
+ */
+async function fetchJobDetail(detailUrl) {
+  let html;
+  try {
+    html = await fetchHtml(detailUrl, { timeoutMs: 20000 });
+  } catch (err) {
+    console.warn(`⚠️ Detail fetch failed for ${detailUrl}: ${err.message}`);
+    return null;
+  }
+
+  const descStart = html.indexOf('<span class="jobdescription">');
+  const descEnd = html.indexOf('<p id="job-location"');
+  const descriptionHtml = descStart >= 0 && descEnd > descStart
+    ? html.slice(descStart, descEnd)
+    : '';
+
+  const dateM = html.match(/itemprop="datePosted"\s+content="([^"]+)"/);
+  let postedDate = '';
+  if (dateM) {
+    const d = new Date(dateM[1]);
+    if (!Number.isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
+  }
+
+  return { descriptionHtml, postedDate };
+}
+
+/**
+ * Fetch all Holcim Group jobs (Switzerland-filtered via the search page's
+ * own `locationsearch` server-side filter).
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
 export async function fetchAllHolcimJobs() {
-  console.log(`🔍 Fetching Holcim Group jobs`);
+  console.log(`🔍 Fetching ${HOLCIM_COMPANY_NAME} jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await listSwissJobs();
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
+    console.warn('⚠️ No Holcim Group job listings found.');
     return [];
   }
 
-  console.log(`  📋 Listings found: ${listings.length}`);
-
   const jobs = [];
   for (const listing of listings) {
-    // TODO: Extract fields from each listing.
-    // Adapt these field names to match the actual API response.
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Zug';
-    const canton = inferSwissTargetCanton(location) || 'ZG';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    const publicUrl = listing.url || CAREER_URL;
+    const publicUrl = new URL(listing.href, `https://${CAREER_HOST}/`).toString();
+    console.log(`  📄 Fetching detail: ${title}`);
+    const detail = await fetchJobDetail(publicUrl);
 
-    const sourceLang = detectLang(descriptionText || title, 'en');
+    // Server-side `locationsearch=Switzerland` already filters the board, so
+    // we trust every listing here is Swiss (same as Constellium/Oerlikon);
+    // parseHolcimLocation() only ever resolves an explicit "CH" or "" for
+    // `country` (never a foreign code), so it's not used as an admission
+    // gate here — only city/canton extraction.
+    const { city, canton: explicitCanton } = parseHolcimLocation(listing.locationText || '');
+
+    const location = city || 'Zug';
+    const canton = explicitCanton || inferAnyCanton(location) || 'ZG';
+    const descriptionText = detail ? stripHtml(detail.descriptionHtml || '') : '';
+    const description = descriptionText || `${title} — ${HOLCIM_COMPANY_NAME} a ${location}.`;
+
+    const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} holcim ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const employmentType = detectEmploymentType(title);
 
     const job = {
       // ── Required fields ──
@@ -239,8 +342,8 @@ export async function fetchAllHolcimJobs() {
       companyDomain: HOLCIM_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Holcim Group`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Holcim Group` },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton,
       url: publicUrl,
@@ -250,16 +353,17 @@ export async function fetchAllHolcimJobs() {
 
       // ── Recommended fields ──
       addressLocality: location,
+      addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Materiali da costruzione / Cemento',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      postedDate: (detail && detail.postedDate) || new Date().toISOString().split('T')[0],
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -269,6 +373,6 @@ export async function fetchAllHolcimJobs() {
     await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
-  console.log(`\n📋 Total Holcim Group jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total ${HOLCIM_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

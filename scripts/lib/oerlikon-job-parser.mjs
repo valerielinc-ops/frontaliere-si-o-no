@@ -4,6 +4,29 @@
  *
  * Source: https://careers.oerlikon.com/search/
  *
+ * ISSUE #3797 FALSE-NEGATIVE FIX: the previous parser guessed a
+ * SuccessFactors REST URL (`/api/apply/v2/jobs`) that doesn't exist (returns
+ * the search page's own HTML, not JSON), then fell back to a generic
+ * JSDOM link-scrape that found 0 results — Oerlikon's SAP SuccessFactors
+ * "Career Site Builder" (CSB) search page renders results via a client-side
+ * AJAX POST, so there is no static HTML to scrape at all.
+ *
+ * Reverse-engineered from the page's own `j2w.searchManager.min.js`: the
+ * search widget itself calls `POST /services/recruiting/v1/jobs` (relative
+ * to `careers.oerlikon.com`) with a small JSON body
+ * `{ keywords, locale, location, pageNumber, sortBy }` and gets back
+ * `{ totalJobs, jobSearchResult: [{ response: {...} }] }` — plain JSON, no
+ * auth needed, and the `location` field can be set server-side to
+ * `"Switzerland"` to get a pre-filtered result set directly (confirmed:
+ * unfiltered `totalJobs` is 144, matching evidence; CH-filtered is 8,
+ * including the Riri/Mendrisio TI subsidiary).
+ *
+ * Detail pages are server-rendered at `/job/{urlTitle}/{id}-{locale}` (the
+ * exact link format the search-results widget itself builds) and carry the
+ * job description split across up to 3 `itemprop="description"` blocks
+ * (intro image, main body, company footer) — no schema.org address
+ * microdata is present, so location/date come from the search API instead.
+ *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllOerlikonJobs()  — Fetch and parse all jobs
  *   - isOerlikonJob()         — Match jobs belonging to this company
@@ -11,12 +34,10 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
-import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -24,23 +45,14 @@ export const OERLIKON_KEY = 'oerlikon';
 export const OERLIKON_COMPANY_NAME = 'Oerlikon';
 export const OERLIKON_COMPANY_DOMAIN = 'oerlikon.com';
 
-const CAREER_URL = 'https://careers.oerlikon.com/search/';
-const HQ = getCompanyDefaults('oerlikon');
+const CAREER_HOST = 'careers.oerlikon.com';
+const CAREER_URL = `https://${CAREER_HOST}/search/`;
+const SEARCH_API_URL = `https://${CAREER_HOST}/services/recruiting/v1/jobs`;
+const LOCALE = 'en_US';
+const PAGE_SIZE = 10;
+const MAX_PAGES = 20; // safety cap (20 * 10 = 200 rows)
 
-/**
- * Oerlikon uses SAP SuccessFactors Career Site Builder (CSB).
- * The CSB sites typically expose a search API. Common patterns:
- *   - POST /career?_s.crb=...  (with JSON body for search)
- *   - GET  /api/apply/v2/jobs?location=...
- * We try the SuccessFactors API and fall back to HTML scraping.
- */
-const SF_SEARCH_URL = 'https://careers.oerlikon.com/api/apply/v2/jobs';
-const SF_SEARCH_PARAMS = {
-  domain: 'oerlikon.com',
-  start: 0,
-  num: 50,
-  location: 'Switzerland',
-};
+const HQ = getCompanyDefaults('oerlikon');
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -61,7 +73,7 @@ function normalizeSpace(s = '') {
 export function isOerlikonJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
@@ -108,7 +120,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti|lehrstelle)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
   return 'mid';
@@ -121,166 +133,139 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── Fetch + Parse ─────────────────────────────────────────── */
+/**
+ * Parse a US-style "M/D/YY" posting-date string (e.g. "6/1/26", "4/10/26")
+ * as returned by the search API's `unifiedStandardStart` field.
+ */
+function parsePostedDate(raw = '') {
+  const m = String(raw || '').trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/);
+  if (!m) return '';
+  const [, mo, day, yy] = m;
+  const year = 2000 + Number(yy);
+  const d = new Date(Date.UTC(year, Number(mo) - 1, Number(day)));
+  return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
+}
+
+/* ── Search API + detail page ─────────────────────────────── */
 
 /**
- * Try the SuccessFactors Career Site Builder search API.
- * CSB sites typically expose a REST endpoint for job search.
+ * Fetch one page of Swiss-filtered search results from the recruiting
+ * search servlet the site's own JS calls (`j2w.SearchManager.search`).
  */
-async function trySuccessFactorsSearch() {
-  const params = new URLSearchParams(SF_SEARCH_PARAMS);
-  const apiUrl = `${SF_SEARCH_URL}?${params}`;
-  try {
-    console.log(`   Trying SuccessFactors API: ${apiUrl}`);
-    const data = await fetchJson(apiUrl, { timeoutMs: 20000 });
-    const items = assertJsonListShapeMultiKey(data, {
-      keys: ['positions', 'jobs', 'results', 'requisitionList'],
-      allowBareArray: true,
-      source: OERLIKON_KEY,
-    });
-    if (items.length > 0) {
-      console.log(`   API returned ${items.length} jobs`);
-      return items;
-    }
-  } catch (err) {
-    console.log(`   API attempt failed: ${err.message}`);
-  }
-  return null;
+async function fetchSearchPage(pageNumber) {
+  const body = {
+    keywords: '',
+    locale: LOCALE,
+    location: 'Switzerland',
+    pageNumber,
+    sortBy: 'recent',
+  };
+  const data = await fetchJson(SEARCH_API_URL, {
+    method: 'POST',
+    timeoutMs: 20000,
+    body,
+  });
+  const rows = Array.isArray(data?.jobSearchResult)
+    ? data.jobSearchResult.map((item) => item?.response).filter(Boolean)
+    : [];
+  return { rows, total: Number(data?.totalJobs) || 0 };
 }
 
 /**
- * Parse the Oerlikon career search page HTML.
- * SuccessFactors CSB sites render job cards with links.
+ * Fetch every page of Swiss-filtered search results.
  */
-function parseSearchPageHtml(html = '') {
-  if (!html) return [];
-  const { document } = new JSDOM(html).window;
-  const jobs = [];
-  const seen = new Set();
+async function listSwissJobs() {
+  const allRows = [];
+  let expectedTotal = 0;
 
-  // Look for embedded JSON data
-  const scripts = document.querySelectorAll('script');
-  for (const script of scripts) {
-    const text = script.textContent || '';
-    // CSB often uses __NEXT_DATA__ or window.__DATA__
-    const dataMatch = text.match(/"(?:positions|jobs|requisitions)"\s*:\s*(\[[\s\S]*?\])/i);
-    if (dataMatch) {
-      try {
-        const parsed = JSON.parse(dataMatch[1]);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-      } catch { /* not valid JSON */ }
-    }
-  }
-
-  // Scrape job links from rendered HTML
-  const JOB_SELECTORS = [
-    'a[href*="job"], a[href*="requisition"], a[href*="position"]',
-    '.job-listing a, .job-card a, .search-result a',
-    '.results a, .position a',
-    'h2 a, h3 a, h4 a',
-  ];
-
-  for (const selector of JOB_SELECTORS) {
+  for (let page = 0; page < MAX_PAGES; page += 1) {
+    let result;
     try {
-      const links = document.querySelectorAll(selector);
-      for (const link of links) {
-        const href = link.getAttribute('href') || '';
-        const title = normalizeSpace(link.textContent || '');
-
-        if (!title || title.length < 5) continue;
-        if (seen.has(title.toLowerCase())) continue;
-        if (/login|privacy|cookie|about|imprint/i.test(href)) continue;
-
-        seen.add(title.toLowerCase());
-        const fullUrl = href.startsWith('http') ? href : `https://careers.oerlikon.com${href.startsWith('/') ? '' : '/'}${href}`;
-
-        // Check for location in surrounding text
-        const parent = link.closest('li, tr, div, article') || link.parentElement;
-        const parentText = (parent?.textContent || '').toLowerCase();
-        const locMatch = parentText.match(/(?:balzers|trübbach|pfäffikon|zürich|liechtenstein|switzerland|schweiz)/i);
-        const location = locMatch ? locMatch[0] : '';
-
-        jobs.push({
-          title,
-          url: fullUrl,
-          location,
-          description: '',
-        });
-      }
-    } catch { /* selector not found */ }
-    if (jobs.length > 0) break;
+      result = await fetchSearchPage(page);
+    } catch (err) {
+      if (page === 0) console.warn(`⚠️ Failed to fetch Oerlikon search API: ${err.message}`);
+      break;
+    }
+    if (page === 0) expectedTotal = result.total;
+    if (result.rows.length === 0) break;
+    allRows.push(...result.rows);
+    if (result.rows.length < PAGE_SIZE) break;
+    if (expectedTotal > 0 && allRows.length >= expectedTotal) break;
+    await new Promise((r) => setTimeout(r, 500));
   }
 
-  return jobs;
+  console.log(`  🎯 Swiss-filtered jobs found: ${allRows.length}`);
+  return allRows;
 }
 
 /**
- * Check if a location is near the GR border or Swiss.
+ * Fetch and parse a job detail page. Description is spread across up to 3
+ * `itemprop="description"` blocks (intro image, main body, company footer);
+ * concatenate and strip them. No address microdata on this tenant — location
+ * comes from the search API result instead.
  */
-function isRelevantLocation(location = '') {
-  const loc = location.toLowerCase();
-  return /balzers|trübbach|truebbach|pfäffikon|pfaffikon|schweiz|switzerland|suisse|svizzera|liechtenstein|ch\b|zürich|zurich|bern|basel/i.test(loc) || !loc;
+async function fetchJobDetail(detailUrl) {
+  let html;
+  try {
+    html = await fetchHtml(detailUrl, { timeoutMs: 20000 });
+  } catch (err) {
+    console.warn(`⚠️ Detail fetch failed for ${detailUrl}: ${err.message}`);
+    return null;
+  }
+
+  const blockRx = /itemprop="description"[^>]*>([\s\S]*?)<\/span>\s*<\/div>\s*<\/div>\s*<\/div>\s*<\/div>/g;
+  const parts = [];
+  let m;
+  while ((m = blockRx.exec(html)) !== null) {
+    parts.push(m[1]);
+  }
+  const descriptionHtml = parts.join('\n');
+
+  return { descriptionHtml };
 }
 
 /**
- * Fetch all Oerlikon jobs.
+ * Fetch all Oerlikon jobs (Switzerland-filtered via the search API).
  * Returns an array of ParsedJob objects (source-locale only).
- *
- * Strategy:
- *  1. Try SuccessFactors search API
- *  2. Fall back to HTML scraping of the career search page
- *  3. Filter for Swiss/Liechtenstein locations (near GR border)
  */
 export async function fetchAllOerlikonJobs() {
   console.log(`🔍 Fetching Oerlikon jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log(`   Source: ${SEARCH_API_URL} (location=Switzerland)\n`);
 
-  // Strategy 1: Try API
-  let listings = await trySuccessFactorsSearch();
-
-  // Strategy 2: Fall back to HTML scraping
+  const listings = await listSwissJobs();
   if (!listings || listings.length === 0) {
-    console.log('   SuccessFactors API did not return jobs, trying HTML scraping...');
-    try {
-      const html = await fetchHtml(CAREER_URL, { timeoutMs: 20000 });
-      listings = parseSearchPageHtml(html);
-      console.log(`   HTML scraping found ${listings?.length || 0} job links`);
-    } catch (err) {
-      console.warn(`   HTML fetch failed: ${err.message}`);
-      listings = [];
-    }
-  }
-
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No Oerlikon job listings found.');
+    console.warn('⚠️ No Oerlikon Swiss job listings found.');
     return [];
   }
 
-  // Filter for relevant locations
-  const relevantListings = listings.filter((l) => {
-    const loc = l.location || l.city || l.country || '';
-    return isRelevantLocation(loc);
-  });
-
-  console.log(`  📋 Total listings: ${listings.length}, Relevant: ${relevantListings.length}`);
-
   const jobs = [];
-  for (const listing of relevantListings) {
-    const title = normalizeSpace(listing.title || listing.name || listing.jobTitle || '');
-    if (!title || title.length < 3) continue;
+  for (const listing of listings) {
+    const title = normalizeSpace(listing.unifiedStandardTitle || '');
+    const urlTitle = listing.urlTitle || '';
+    const id = listing.id || '';
+    if (!title || !id) continue;
 
-    const rawLocation = listing.location || listing.city || '';
-    const location = normalizeSpace(rawLocation) || HQ?.city || 'Balzers';
-    const canton = inferAnyCanton(location) || HQ?.canton || 'GR';
-    const descriptionHtml = listing.description || listing.jobDescription || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    const publicUrl = listing.url || listing.link || CAREER_URL;
+    const publicUrl = `https://${CAREER_HOST}/job/${urlTitle}/${id}-${LOCALE}`;
+    console.log(`  📄 Fetching detail: ${title}`);
+    const detail = await fetchJobDetail(publicUrl);
+
+    const rawLocation = Array.isArray(listing.jobLocationShort) ? listing.jobLocationShort[0] : '';
+    const location = normalizeSpace(String(rawLocation || '').replace(/,?\s*(CHE|CH)\s*$/i, '')) || HQ?.city || 'Balzers';
+    // The API returns bare city names with no canton for most listings (e.g.
+    // "Wohlen, CHE"), and "Wohlen" alone is ambiguous (exists in both Aargau
+    // and Bern) so the generic inferAnyCanton() helper won't guess. Oerlikon's
+    // real site is Wohlen, Aargau (confirmed via this API's own per-job
+    // coordinates: 47.35°N 8.29°E), so disambiguate known bare city names here
+    // before falling back to the HQ default.
+    const KNOWN_CITY_CANTON = { wohlen: 'AG' };
+    const canton = inferAnyCanton(location) || KNOWN_CITY_CANTON[normalize(location)] || HQ?.canton || 'GR';
+    const descriptionText = detail ? stripHtml(detail.descriptionHtml || '') : '';
+    const desc = descriptionText || `${title} — Position at Oerlikon in ${location}, Switzerland. OC Oerlikon is a global technology group specializing in surface solutions, polymer processing, and additive manufacturing.`;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} oerlikon ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
-    const desc = descriptionText || `${title} — Position at Oerlikon in ${location}. OC Oerlikon is a global technology group specializing in surface solutions, polymer processing, and additive manufacturing.`;
+    const employmentType = detectEmploymentType(title);
 
     const job = {
       id: `oerlikon-${urlHash}`,
@@ -305,14 +290,14 @@ export async function fetchAllOerlikonJobs() {
       country: 'CH',
       postalCode: HQ?.postalCode || '9496',
       category: detectCategory(title),
-      contract: detectEmploymentType(listing.timeType || title) === 'PART_TIME' ? 'part-time' : 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || listing.type || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Tecnologia / Ingegneria di superficie',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || listing.datePosted || new Date().toISOString().split('T')[0],
-      applyUrl: listing.applyUrl || publicUrl,
+      postedDate: parsePostedDate(listing.unifiedStandardStart) || new Date().toISOString().split('T')[0],
+      applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };

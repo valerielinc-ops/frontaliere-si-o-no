@@ -225,10 +225,10 @@ describe('parseListingPage', () => {
   const sampleHtml = `
     <html><body>
     <ul>
-      <li><a href="/karriere-jobs/offene-stellen/Physiotherapeut-in-80-100-/"><h3>Physiotherapeut/in 80 - 100%</h3></a></li>
-      <li><a href="/karriere-jobs/offene-stellen/Assistenzaerztin-arzt-Chirurgie-80-100-/"><h3>Assistenzärztin/-arzt Chirurgie 80–100%</h3></a></li>
-      <li><a href="/karriere-jobs/offene-stellen/Mitarbeiter-in-Logistik-und-Einkauf-40-50-/"><h3>Mitarbeiter/in Logistik und Einkauf 40–50%</h3></a></li>
-      <li><a href="/karriere-jobs/offene-stellen/Initiativbewerbung/"><h3>Initiativbewerbung</h3></a></li>
+      <li><h2 class="teaserHeadline"><a href="/karriere-jobs/offene-stellen/Physiotherapeut-in-80-100-/">Physiotherapeut/in 80 - 100%</a></h2></li>
+      <li><h2 class="teaserHeadline"><a href="/karriere-jobs/offene-stellen/Assistenzaerztin-arzt-Chirurgie-80-100-/">Assistenzärztin/-arzt Chirurgie 80–100%</a></h2></li>
+      <li><h2 class="teaserHeadline"><a href="/karriere-jobs/offene-stellen/Mitarbeiter-in-Logistik-und-Einkauf-40-50-/">Mitarbeiter/in Logistik und Einkauf 40–50%</a></h2></li>
+      <li><h2 class="teaserHeadline"><a href="/karriere-jobs/offene-stellen/Initiativbewerbung/">Initiativbewerbung</a></h2></li>
     </ul>
     </body></html>
   `;

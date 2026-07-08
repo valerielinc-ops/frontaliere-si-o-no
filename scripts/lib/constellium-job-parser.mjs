@@ -2,7 +2,19 @@
 /**
  * Constellium Valais job parser — Fetcher and job builder.
  *
- * Source: https://jobs.constellium.com/
+ * Source: https://jobs.constellium.com/search/
+ *
+ * ISSUE #3797 FALSE-NEGATIVE FIX: the previous parser queried a guessed
+ * Workday CXS endpoint (`constellium.wd3.myworkdayjobs.com/wday/cxs/...`)
+ * that returns HTTP 422 — Constellium is NOT on Workday. The real board is
+ * `jobs.constellium.com/search/`, a server-rendered SAP SuccessFactors
+ * Jobs2Web career site (confirmed via `j2w.*.js` assets + `rmkcdn.successfactors.com`
+ * markers): the listing table (`<tr class="data-row">`, `jobTitle-link`,
+ * `jobLocation`, `jobFacility`) and detail pages (schema.org `JobPosting`
+ * microdata) are both plain server HTML, no JS/API needed. Pagination via
+ * `?startrow=N` (25 rows/page). `jobFacility` on this tenant holds the
+ * posting's COUNTRY (e.g. "Switzerland", "Germany"), used as the primary
+ * Swiss filter alongside the location text.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllConstelliumJobs()  — Fetch and parse all jobs
@@ -12,7 +24,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -21,11 +33,11 @@ export const CONSTELLIUM_KEY = 'constellium';
 export const CONSTELLIUM_COMPANY_NAME = 'Constellium Valais';
 export const CONSTELLIUM_COMPANY_DOMAIN = 'constellium.com';
 
-const WORKDAY_API_BASE = 'https://constellium.wd3.myworkdayjobs.com/wday/cxs/constellium/constellium';
-const WORKDAY_PUBLIC_BASE = 'https://constellium.wd3.myworkdayjobs.com/en/constellium';
-const WORKDAY_HOST = 'constellium.wd3.myworkdayjobs.com';
+const CAREER_HOST = 'jobs.constellium.com';
+const CAREER_URL = `https://${CAREER_HOST}/search/`;
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 25;
+const MAX_PAGES = 40; // safety cap (40 * 25 = 1000 rows)
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -52,8 +64,7 @@ export function isConstelliumJob(job) {
     key === CONSTELLIUM_KEY ||
     key.startsWith('constellium') ||
     company.includes('constellium valais') ||
-    url.includes('constellium.com') ||
-    url.includes(WORKDAY_HOST)
+    url.includes('constellium.com')
   );
 }
 
@@ -63,12 +74,7 @@ export function isConstelliumJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return (
-      host === 'constellium.com' ||
-      host.endsWith('.constellium.com') ||
-      host === WORKDAY_HOST ||
-      host.endsWith('.myworkdayjobs.com')
-    );
+    return host === 'constellium.com' || host.endsWith('.constellium.com');
   } catch {
     return false;
   }
@@ -108,126 +114,140 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── Workday API ──────────────────────────────────────────── */
+/* ── Jobs2Web listing + detail (server-rendered HTML) ─────── */
 
 /**
- * Call the Workday JSON API with timeout handling.
- */
-async function fetchJson(url, options = {}) {
-  const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    const res = await fetch(url, {
-      ...options,
-      signal: controller.signal,
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'Accept-Language': 'fr,en;q=0.9',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        ...options.headers,
-      },
-    });
-    clearTimeout(timer);
-    if (!res.ok) {
-      console.warn(`\u26a0\ufe0f HTTP ${res.status} for ${url}`);
-      return null;
-    }
-    return await res.json();
-  } catch (err) {
-    console.warn(`\u26a0\ufe0f Fetch failed for ${url}: ${err.message}`);
-    return null;
-  }
-}
-
-/**
- * Check if a listing's location text indicates a Swiss location.
+ * Check if a listing's location/facility text indicates a Swiss location.
+ *
+ * Jobs2Web location text is formatted "City, RegionCode, CountryCode" (e.g.
+ * "Sierre, Vala, CH" or "Neuf-Brisach, GES, FR"). A trailing 2/3-letter
+ * country code, when present, is authoritative and MUST be checked before
+ * any fuzzy city-name matching: naive substring checks (e.g. `includes('bern')`
+ * matching inside an unrelated foreign place name) risk false positives, and
+ * this tenant's `jobFacility` column already gives a full country name for
+ * an even more reliable primary signal.
  */
 function isSwissLocation(locationsText = '') {
   const loc = normalize(locationsText);
-  return (
-    loc.startsWith('ch ') ||
-    loc.startsWith('ch-') ||
-    loc.includes('switzerland') ||
-    loc.includes('schweiz') ||
-    loc.includes('suisse') ||
-    loc.includes('svizzera') ||
-    loc.includes('sierre') ||
-    loc.includes('sion') ||
-    loc.includes('visp') ||
-    loc.includes('valais') ||
-    loc.includes('wallis') ||
-    loc.includes('zurich') ||
-    loc.includes('zürich') ||
-    loc.includes('basel') ||
-    loc.includes('bern') ||
-    loc.includes('genev') ||
-    loc.includes('lausanne') ||
-    loc.includes('lugano') ||
-    loc.includes('bellinzona')
-  );
-}
-
-/**
- * Fetch all job listings from the Workday API with pagination,
- * then filter client-side for Swiss locations.
- */
-async function listSwissJobs() {
-  const allPostings = [];
-  let offset = 0;
-  let pages = 0;
-  const MAX_PAGES = 100;
-
-  while (true) {
-    const body = JSON.stringify({
-      appliedFacets: {},
-      limit: PAGE_SIZE,
-      offset,
-      searchText: '',
-    });
-
-    const data = await fetchJson(`${WORKDAY_API_BASE}/jobs`, {
-      method: 'POST',
-      body,
-    });
-
-    if (!data || !Array.isArray(data.jobPostings)) {
-      if (offset === 0) console.warn('\u26a0\ufe0f Failed to fetch Workday listings.');
-      break;
-    }
-
-    allPostings.push(...data.jobPostings);
-    pages += 1;
-
-    // Stop on a short/empty page (genuine end of results). Trust `total` as a
-    // positive upper bound ONLY: an unfiltered Workday query (appliedFacets:{})
-    // can echo total:0 with a full page, so `length >= 0` must not break here or
-    // every posting on pages 2+ is silently dropped.
-    if (data.jobPostings.length < PAGE_SIZE) break;
-    if ((data.total || 0) > 0 && allPostings.length >= data.total) break;
-    if (pages >= MAX_PAGES) {
-      console.warn(`\u26a0\ufe0f Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
-      break;
-    }
-    offset += PAGE_SIZE;
-
-    if (data.jobPostings.length === PAGE_SIZE) {
-      await new Promise((r) => setTimeout(r, 500));
+  if (!loc) return false;
+  if (loc === 'switzerland' || /\b(schweiz|suisse|svizzera)\b/.test(loc)) return true;
+  const parts = loc.split(',').map((p) => p.trim()).filter(Boolean);
+  if (parts.length >= 2) {
+    const last = parts[parts.length - 1];
+    if (/^[a-z]{2,3}$/.test(last)) {
+      return last === 'ch';
     }
   }
-
-  const swissPostings = allPostings.filter((p) => isSwissLocation(p.locationsText));
-  console.log(`  \ud83c\udfaf Filtered ${allPostings.length} total \u2192 ${swissPostings.length} Swiss jobs`);
-  return swissPostings;
+  return /\b(sierre|sion|visp|steg|chippis|valais|wallis|zurich|zürich|basel|bern|genev|lausanne|lugano|bellinzona)\b/.test(loc);
 }
 
 /**
- * Fetch full detail for a single job posting.
+ * Parse one Jobs2Web search-results page (server-rendered `<tr class="data-row">`
+ * table). Returns `{ rows, total }` where `total` is the "Results X to Y of
+ * TOTAL" count parsed from the page (0 if not found).
  */
-async function fetchJobDetail(externalPath) {
-  return fetchJson(`${WORKDAY_API_BASE}${externalPath}`);
+function parseSearchPage(html = '') {
+  const rows = [];
+  const blocks = String(html || '').split('<tr class="data-row">').slice(1);
+  for (const block of blocks) {
+    const titleM = block.match(/class="jobTitle-link">([^<]*)</);
+    const hrefM = block.match(/href="([^"]+)"\s*class="jobTitle-link"/);
+    const locM = block.match(/<span class="jobLocation">\s*([^<]*?)\s*<\/span>/);
+    const facM = block.match(/class="jobFacility">([^<]*)</);
+    if (!titleM || !hrefM) continue;
+    rows.push({
+      title: normalizeSpace(titleM[1]),
+      href: hrefM[1],
+      locationText: locM ? normalizeSpace(locM[1]) : '',
+      facility: facM ? normalizeSpace(facM[1]) : '',
+    });
+  }
+  const totalM = html.match(/Results\s+\d+\s+to\s+\d+\s+of\s+(\d+)/i);
+  return { rows, total: totalM ? Number(totalM[1]) : 0 };
+}
+
+/**
+ * Fetch every Jobs2Web search-results page, then filter client-side for
+ * Swiss locations (using both the `jobFacility` country column and the
+ * location text — some tenants only populate one of the two).
+ */
+async function listSwissJobs() {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const allRows = [];
+  let startrow = 0;
+  let expectedTotal = 0;
+
+  for (let page = 0; page < MAX_PAGES; page += 1) {
+    const url = `${CAREER_URL}?q=&sortColumn=referencedate&sortDirection=desc&startrow=${startrow}`;
+    let html;
+    try {
+      html = await fetchHtml(url, { timeoutMs });
+    } catch (err) {
+      if (startrow === 0) console.warn(`⚠️ Failed to fetch Jobs2Web listing: ${err.message}`);
+      break;
+    }
+    const { rows, total } = parseSearchPage(html);
+    if (page === 0) expectedTotal = total;
+    if (rows.length === 0) break;
+    allRows.push(...rows);
+    if (rows.length < PAGE_SIZE) break;
+    if (expectedTotal > 0 && allRows.length >= expectedTotal) break;
+    startrow += PAGE_SIZE;
+    await new Promise((r) => setTimeout(r, 500));
+  }
+
+  const swissRows = allRows.filter(
+    (r) => isSwissLocation(r.facility) || isSwissLocation(r.locationText),
+  );
+  console.log(`  🎯 Filtered ${allRows.length} total → ${swissRows.length} Swiss jobs`);
+  return swissRows;
+}
+
+/**
+ * Fetch and parse a job detail page (schema.org `JobPosting` microdata,
+ * server-rendered — no JS needed).
+ */
+async function fetchJobDetail(href) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const url = href.startsWith('http') ? href : `https://${CAREER_HOST}${href}`;
+  let html;
+  try {
+    html = await fetchHtml(url, { timeoutMs });
+  } catch (err) {
+    console.warn(`⚠️ Detail fetch failed for ${url}: ${err.message}`);
+    return null;
+  }
+
+  const addrM = html.match(
+    /itemprop="addressLocality" content="([^"]*)"[\s\S]{0,200}?itemprop="addressRegion" content="([^"]*)"[\s\S]{0,200}?itemprop="postalCode" content="([^"]*)"[\s\S]{0,200}?itemprop="addressCountry" content="([^"]*)"/,
+  );
+  const dateM = html.match(/itemprop="datePosted" content="([^"]*)"/);
+
+  let descriptionHtml = '';
+  const startMarker = '<span class="jobdescription">';
+  const start = html.indexOf(startMarker);
+  if (start !== -1) {
+    const from = start + startMarker.length;
+    const endMarker = '<p class="job-location">';
+    const end = html.indexOf(endMarker, from);
+    descriptionHtml = html.slice(from, end !== -1 ? end : from + 20000);
+  }
+
+  let postedDate = '';
+  if (dateM) {
+    const d = new Date(dateM[1]);
+    if (!Number.isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
+  }
+
+  return {
+    addressLocality: addrM ? addrM[1] : '',
+    addressRegion: addrM ? addrM[2] : '',
+    postalCode: addrM ? addrM[3] : '',
+    addressCountry: addrM ? addrM[4] : '',
+    postedDate,
+    descriptionHtml,
+    url,
+  };
 }
 
 /* ── Location & Canton ────────────────────────────────────── */
@@ -260,44 +280,40 @@ function inferCanton(location = '') {
  * Returns ParsedJob[] with source-locale fields only.
  */
 export async function fetchAllConstelliumJobs() {
-  console.log(`\ud83d\udd0d Fetching Constellium Valais jobs from Workday API`);
-  console.log(`   API: ${WORKDAY_API_BASE}/jobs`);
-  console.log(`   Filter: Switzerland (all Swiss locations)\n`);
+  console.log(`🔍 Fetching Constellium Valais jobs from ${CAREER_URL}`);
+  console.log(`   Filter: Switzerland (jobFacility country + location text)\n`);
 
   const listings = await listSwissJobs();
   if (!listings || listings.length === 0) {
-    console.warn('\u26a0\ufe0f No Swiss job listings returned from Workday API.');
+    console.warn('⚠️ No Swiss job listings found on the Jobs2Web board.');
     return [];
   }
 
-  console.log(`  \ud83d\udccb Swiss job listings found: ${listings.length}`);
+  console.log(`  📋 Swiss job listings found: ${listings.length}`);
 
   const jobs = [];
   for (const listing of listings) {
-    const externalPath = listing.externalPath;
-    if (!externalPath) continue;
+    if (!listing.href) continue;
 
-    console.log(`  \ud83d\udcc4 Fetching detail: ${listing.title}`);
-    const detail = await fetchJobDetail(externalPath);
+    console.log(`  📄 Fetching detail: ${listing.title}`);
+    const detail = await fetchJobDetail(listing.href);
+    if (!detail) continue;
 
-    const info = detail?.jobPostingInfo || {};
-    const title = normalizeSpace(info.title || listing.title || '');
+    const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) {
-      console.log(`  \u23ed\ufe0f  Skipped \u2014 empty title`);
+      console.log(`  ⏭️  Skipped — empty title`);
       continue;
     }
 
-    const locationRaw = info.location || listing.locationsText || '';
-    let city = parseWorkdayLocation(locationRaw);
+    const city = normalizeSpace(detail.addressLocality || parseWorkdayLocation(listing.locationText) || '');
     if (!city) {
-      console.log(` ⏭️ Skipped — unresolved Swiss city/canton: ${title}`);
+      console.log(`  ⏭️  Skipped — unresolved Swiss city: ${title}`);
       continue;
     }
 
-    const canton = inferCanton(city);
-    const descriptionHtml = info.jobDescription || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    const publicUrl = `${WORKDAY_PUBLIC_BASE}${externalPath}`;
+    const canton = inferCanton(`${city} ${detail.addressRegion || ''}`);
+    const descriptionText = stripHtml(detail.descriptionHtml || '');
+    const publicUrl = detail.url;
 
     const descText = descriptionText
       ? `${descriptionText}\n\nConstellium Valais SA is a global leader in aluminium products and solutions, with a major rolling and recycling facility in Sierre (Valais), Switzerland. The company serves aerospace, automotive, packaging, and defence markets.`.trim()
@@ -306,8 +322,7 @@ export async function fetchAllConstelliumJobs() {
     const sourceLang = detectLang(descriptionText || title, 'fr');
     const jobSlug = slugify(`${title} constellium ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const employmentType = detectEmploymentType(info.timeType || listing.timeType || '');
-    const jobReqId = info.jobReqId || (listing.bulletFields || [])[0] || '';
+    const employmentType = detectEmploymentType(title);
 
     const job = {
       id: `constellium-${urlHash}`,
@@ -325,6 +340,7 @@ export async function fetchAllConstelliumJobs() {
       location: city,
       canton,
       addressLocality: city,
+      postalCode: detail.postalCode || '',
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
@@ -334,20 +350,18 @@ export async function fetchAllConstelliumJobs() {
       sector: 'Metallurgia / Alluminio',
       currency: 'CHF',
       featured: false,
-      postedDate: info.startDate || new Date().toISOString().split('T')[0],
+      postedDate: detail.postedDate || new Date().toISOString().split('T')[0],
       url: publicUrl,
       applyUrl: publicUrl,
-      source: 'Constellium Valais Dedicated Parser (Workday)',
+      source: 'Constellium Valais Dedicated Parser (Jobs2Web)',
       sourceLang,
       crawledAt: new Date().toISOString(),
     };
-
-    if (jobReqId) job.jobReqId = jobReqId;
 
     jobs.push(job);
     await new Promise((r) => setTimeout(r, 300));
   }
 
-  console.log(`\n\ud83d\udccb Total unique Constellium Valais jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total unique Constellium Valais jobs discovered: ${jobs.length}`);
   return jobs;
 }

@@ -47,13 +47,23 @@
  * Description language follows the original posting's source language
  * (mixed DE/EN across postings), not the `/us/en_US/` URL locale prefix —
  * that locale segment is used here mainly because it matched investigation
- * output byte-for-byte. ANY page (including page 1) can intermittently
- * render an empty `joblist__list`/pagination via Jina — the client-side
- * widget's own data fetch hasn't hydrated the shell yet when Jina's
- * headless render snapshots it (not a WAF response, so `fetchHtml()`'s own
- * challenge-retry never sees it) — so `fetchListingPage()` below retries
- * on empty content with a short backoff before treating a page as genuinely
- * exhausted.
+ * output byte-for-byte.
+ *
+ * ISSUE #3797 FALSE-NEGATIVE FIX: the listing widget renders its job list via
+ * a client-side XHR that fires AFTER initial page load. A plain `fetchHtml()`
+ * (incl. its Jina Reader WAF-rescue path) returns HTTP 200 with the real page
+ * shell but an empty `.joblist__item` list whenever the snapshot is taken
+ * before that XHR resolves — confirmed by direct probing: a Jina render of
+ * BOTH the listing page and the widget's own `data-url` endpoint returned the
+ * static shell with zero job rows, with no WAF challenge to retry against.
+ * This is a hydration race, not a bot block, so retrying `fetchHtml()` alone
+ * (the previous approach) cannot reliably win it. The fix follows the same
+ * pattern already used for Hilti/Bucherer/Pictet/etc: render the listing with
+ * a real headless Chromium (`./ats-clients/playwright-runtime.mjs`) and wait
+ * for `.joblist__item` to attach before scraping — the widget's own XHR then
+ * has time to complete. Detail pages are still fetched via plain `fetchHtml()`
+ * (Jina-rescued on WAF 403) since they are per-job SSR pages, not the
+ * client-hydrated aggregate widget, and were not observed to have this issue.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBelimoJobs()   — Fetch and parse all Swiss jobs
@@ -65,6 +75,14 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {
+  createBrowser,
+  createPoliteContext,
+  fetchWithRateLimit,
+  closeAll,
+  AntiBotBlockError,
+  NavigationTimeout,
+} from './ats-clients/playwright-runtime.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -90,6 +108,13 @@ const HQ = {
 
 const SECTOR = 'Industria / Automazione edifici';
 
+// Realistic desktop Chrome UA — the WAF 403s the default bot UA / raw curl.
+const BROWSER_UA =
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
+  '(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
+
+const LISTING_WAIT_SELECTOR_MS = 25_000;
+
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -98,6 +123,10 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+async function safeClose(page) {
+  try { if (page) await page.close(); } catch { /* no-op */ }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -208,73 +237,65 @@ function detectEmploymentType(jobTypeLabel = '', title = '') {
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
-const ITEM_RX = /<div class="joblist__item">\s*<h3>\s*<a[^>]*href="([^"]+)"[^>]*>([^<]*)<\/a>\s*<\/h3>\s*<p>\s*<span>([^<]*)<\/span>\s*\|\s*([^<]*)<\/p>\s*<\/div>/g;
-
-function parseListingItems(html = '') {
-  const items = [];
-  const rx = new RegExp(ITEM_RX.source, 'g');
-  let m;
-  while ((m = rx.exec(html))) {
-    const [, href, title, locationText, employmentLabel] = m;
-    items.push({
-      href: (href || '').trim(),
-      title: normalizeSpace(title || ''),
-      locationText: normalizeSpace(locationText || ''),
-      employmentLabel: normalizeSpace(employmentLabel || ''),
-    });
-  }
-  return items;
-}
-
-function parseMaxPage(html = '') {
-  const pages = [...html.matchAll(/data-page="(\d+)"/g)].map((m) => Number(m[1]));
-  return pages.length ? Math.max(...pages) : 1;
-}
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
 /**
- * Fetch a single listing page. Page 1 MUST be the bare URL (an explicit
- * `?page=1` renders empty — a widget quirk).
+ * Render one listing page with a real headless browser and return its
+ * `.joblist__item` rows plus the max pagination page seen on the page.
+ * Page 1 MUST be the bare URL (an explicit `?page=1` renders empty — a
+ * widget quirk, unrelated to the hydration issue this fixes).
  *
- * ANY page can render an empty `joblist__list` (and empty filter dropdowns)
- * when Jina's headless render snapshots the page before the client-side
- * widget's own bootstrap data-fetch has resolved — this is a normal 200
- * with the real page shell, not a WAF response, so `fetchHtml()`'s own
- * challenge-retry never fires for it. Retry a few times with a short
- * backoff — a later Jina render (fresh egress IP each request) usually
- * lands after hydration.
- *
- * KNOWN LIMITATION (observed during implementation): the widget's bootstrap
- * fetch hydrated successfully during initial investigation (25/25 listing
- * items + full detail-page metadata captured and verified), but a
- * verification re-run ~20-50 minutes later returned an empty widget shell
- * on every one of 10+ attempts across ~30 minutes, including cache-busted
- * and longer-timeout Jina requests. The outer page navigation always
- * succeeds; only the widget's OWN internal data call fails to hydrate. Most
- * likely cause: Akamai Bot Manager applying a stricter check to the
- * widget's background fetch/XHR than to the initial page navigation, which
- * a headless render (even from a clean egress IP) can fail differently run
- * to run. If a scheduled run keeps returning 0 jobs, that is this class of
- * failure, not a parser regression — investigate Jina's rendering behavior
- * / consider a dedicated headless-browser fetch (Playwright) for this
- * source before assuming the site removed its Swiss postings.
+ * @param {import('playwright').BrowserContext} context
  */
-async function fetchListingPage(pageNum, timeoutMs) {
+async function fetchListingPageViaBrowser(context, pageNum) {
   const url = pageNum <= 1 ? LISTING_URL : `${LISTING_URL}?page=${pageNum}`;
-  const attempts = 4;
-  let html = '';
-  let items = [];
-  for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    html = await fetchHtml(url, { timeoutMs });
-    items = parseListingItems(html);
-    if (items.length > 0) break;
-    if (attempt < attempts) {
-      console.log(`   ⚠️ Page ${pageNum} rendered empty (attempt ${attempt}/${attempts}) — retrying…`);
-      await sleep(1500 * attempt);
+  let page;
+  try {
+    page = await fetchWithRateLimit(context, url, { minDelayMs: pageNum <= 1 ? 0 : 1500 });
+  } catch (err) {
+    if (err instanceof AntiBotBlockError) {
+      console.warn(`⚠️ Belimo listing anti-bot block (page ${pageNum}): ${err.message}`);
+      return { items: [], maxPage: pageNum };
     }
+    if (err instanceof NavigationTimeout) {
+      console.warn(`⚠️ Belimo listing navigation timeout (page ${pageNum}): ${err.message}`);
+      return { items: [], maxPage: pageNum };
+    }
+    throw err;
   }
-  return { html, items };
+
+  try {
+    await page.waitForSelector('.joblist__item', {
+      timeout: LISTING_WAIT_SELECTOR_MS,
+      state: 'attached',
+    });
+  } catch {
+    console.warn(`   Listing page ${pageNum}: no job items rendered within timeout`);
+    await safeClose(page);
+    return { items: [], maxPage: pageNum };
+  }
+
+  const { items, maxPage } = await page.evaluate(() => {
+    const cards = [...document.querySelectorAll('.joblist__item')];
+    const out = [];
+    for (const card of cards) {
+      const a = card.querySelector('h3 a');
+      const href = a?.getAttribute('href') || '';
+      const title = (a?.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!href || !title) continue;
+      const p = card.querySelector('p');
+      const pText = (p?.textContent || '').replace(/\s+/g, ' ').trim();
+      const pipeIdx = pText.indexOf('|');
+      const locationText = (pipeIdx >= 0 ? pText.slice(0, pipeIdx) : pText).trim();
+      const employmentLabel = (pipeIdx >= 0 ? pText.slice(pipeIdx + 1) : '').trim();
+      out.push({ href, title, locationText, employmentLabel });
+    }
+    const pageNums = [...document.querySelectorAll('[data-page]')]
+      .map((el) => Number(el.getAttribute('data-page')))
+      .filter((n) => Number.isFinite(n));
+    return { items: out, maxPage: pageNums.length ? Math.max(...pageNums) : 1 };
+  });
+
+  await safeClose(page);
+  return { items, maxPage };
 }
 
 /**
@@ -283,17 +304,27 @@ async function fetchListingPage(pageNum, timeoutMs) {
  * Returns an array of raw listing objects.
  */
 async function fetchJobListings() {
-  console.log('   Fetching Belimo job-listing widget (paginated, Switzerland-only filter)');
+  console.log('   Fetching Belimo job-listing widget (Playwright, paginated, Switzerland-only filter)');
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
-  const { html: page1Html, items: page1Items } = await fetchListingPage(1, timeoutMs);
-  const maxPage = parseMaxPage(page1Html);
-  console.log(`   Pages detected: ${maxPage}`);
+  let allItems = [];
+  let browser;
+  try {
+    browser = await createBrowser({ userAgent: BROWSER_UA });
+    const context = await createPoliteContext(browser, { userAgent: BROWSER_UA });
 
-  const allItems = [...page1Items];
-  for (let page = 2; page <= maxPage; page += 1) {
-    const { items } = await fetchListingPage(page, timeoutMs);
-    allItems.push(...items);
+    const { items: page1Items, maxPage } = await fetchListingPageViaBrowser(context, 1);
+    console.log(`   Pages detected: ${maxPage}`);
+
+    allItems = [...page1Items];
+    for (let page = 2; page <= maxPage; page += 1) {
+      const { items } = await fetchListingPageViaBrowser(context, page);
+      allItems.push(...items);
+    }
+  } catch (err) {
+    console.warn(`⚠️ Belimo listing fetch failed: ${err?.message || err}`);
+  } finally {
+    if (browser) await closeAll(browser);
   }
 
   const seenHrefs = new Set();

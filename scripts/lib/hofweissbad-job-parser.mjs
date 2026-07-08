@@ -1,40 +1,45 @@
 #!/usr/bin/env node
 /**
- * Resort Hof Weissbad job parser — Ostendis ATS via Vercel-hosted Next.js
- * landing page.
+ * Resort Hof Weissbad job parser — jobs.ch company-page scraper.
  *
- * Source:
- *   - Listing index: https://www.hofweissbad.ch/jobs   (Next.js, Vercel)
- *   - Detail pages:  https://link.ostendis.com/publication/{slug}/{token}
+ * STATUS (2026-07-08): the own hofweissbad.ch/jobs Next.js landing page
+ * (Vercel-hosted) sits behind a Vercel security checkpoint that 429s any
+ * plain HTTP client; the previous approach drove a real Playwright browser
+ * through the checkpoint to harvest `link.ostendis.com/publication/*`
+ * anchors. That works in isolation, but on this host the on-demand
+ * Chromium download/install races with every other worktree/agent sharing
+ * `~/Library/Caches/ms-playwright`, repeatedly evicting a still-in-use
+ * binary mid-crawl (observed: 100% download completes, browser launch never
+ * gets a chance to run before the cache is thrashed by a sibling process) —
+ * an environment-contention failure mode, not a bug in the Playwright logic
+ * itself, but heavy/fragile for what should be a simple listing scrape.
  *
- * STATUS (2026-05-20):
- *   The /jobs page sits behind a Vercel security checkpoint that 429s any
- *   plain HTTP client. Playwright with a realistic Chrome UA satisfies the
- *   challenge transparently. The listing page server-renders an anchor per
- *   open position pointing at `link.ostendis.com/publication/...`. Each
- *   Ostendis detail page is HTML with a single `application/ld+json`
- *   `JobPosting` block — we read title + description from JSON-LD when
- *   available and fall back to a DOM scrape otherwise.
+ * jobs.ch (TX Group), the public Swiss job board, publishes the same
+ * openings server-rendered with zero anti-bot friction — confirmed live
+ * 2026-07-08: company profile
+ * `4716a540-19be-4788-a896-6594e6f9a5d7-hof-weissbad-ag` (the older numeric
+ * `134218-hof-weissbad-ag` slug 301-redirects to it) lists "13 job offers"
+ * and its `/vacancies/` sub-page renders every `/en/vacancies/detail/{uuid}/`
+ * link with full `JobPosting` JSON-LD on each detail page (title,
+ * jobLocation.address, hiringOrganization.name, datePosted, employmentType)
+ * — same pattern already used by scripts/lib/visionapartments-job-parser.mjs
+ * and scripts/lib/saint-gobain-weber-isover-job-parser.mjs. Switching to
+ * this source drops the Playwright/Chromium dependency entirely for this
+ * company.
  *
  * Hof Weissbad is a 4*+ resort + Gesundheitszentrum in Weissbad/Appenzell
  * Innerrhoden (AI). All jobs are Swiss; no further geographic filter needed.
  *
- * Exports the 4 required functions for the crawler template:
- *   - fetchAllHofweissbadJobs()  — Fetch and parse all jobs
- *   - isHofweissbadJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()          — Validate URLs belong to this company
- *   - slugify() / stripHtml()    — Re-exported from crawler-template.mjs
+ * Exports the 4 functions required by the crawler template:
+ * - fetchAllHofweissbadJobs() — Fetch and parse all jobs
+ * - isHofweissbadJob() — Match jobs belonging to the company
+ * - isTrustedDomain() — Validate URLs belong to the company / jobs.ch
+ * - HOFWEISSBAD_KEY / HOFWEISSBAD_COMPANY_NAME / HOFWEISSBAD_COMPANY_DOMAIN
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
-import {
-  createBrowser,
-  createPoliteContext,
-  closeAll,
-  AntiBotBlockError,
-  NavigationTimeout,
-} from './ats-clients/playwright-runtime.mjs';
+import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { decodeEntities } from './hospital-custom-html-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -42,10 +47,18 @@ export const HOFWEISSBAD_KEY = 'hofweissbad';
 export const HOFWEISSBAD_COMPANY_NAME = 'Resort Hof Weissbad';
 export const HOFWEISSBAD_COMPANY_DOMAIN = 'hofweissbad.ch';
 
-const CAREER_URL = 'https://www.hofweissbad.ch/jobs';
-const REALISTIC_UA =
-  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
-  '(KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
+const JOBS_CH_BASE = 'https://www.jobs.ch';
+
+// Known jobs.ch company profile for Hof Weissbad AG. The older numeric
+// `134218-hof-weissbad-ag` slug 301-redirects to this canonical UUID one —
+// use the canonical path directly so the crawler doesn't depend on jobs.ch's
+// redirect behavior staying stable.
+const COMPANY_TARGETS = [
+  {
+    path: '4716a540-19be-4788-a896-6594e6f9a5d7-hof-weissbad-ag',
+    label: 'Hof Weissbad AG',
+  },
+];
 
 const DEFAULT_CITY = 'Weissbad';
 const DEFAULT_CANTON = 'AI';
@@ -57,11 +70,7 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
-
-/* ── Company Matchers ──────────────────────────────────────── */
+/* ── Company Matchers ────────────────────────────────────────── */
 
 export function isHofweissbadJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
@@ -87,8 +96,9 @@ export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
     if (host === 'hofweissbad.ch' || host.endsWith('.hofweissbad.ch')) return true;
-    // Ostendis hosts the canonical apply pages — first-party for our trust model
-    // because the listing page on hofweissbad.ch links directly there.
+    if (host === 'jobs.ch' || host === 'www.jobs.ch' || host.endsWith('.jobs.ch')) return true;
+    // Ostendis hosted the previous canonical apply pages — keep trusted in
+    // case any stale stored jobs still reference it.
     if (host === 'link.ostendis.com' || host === 'odm.ostendis.com') return true;
     return false;
   } catch {
@@ -96,306 +106,210 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-/* ── Category Detection ────────────────────────────────────── */
+/* ── Category detection ───────────────────────────────────────── */
 
 function detectCategory(title = '') {
   const t = normalize(title);
   if (/\b(koch|k[oö]chin|chef.?de.?partie|patissier|cuisine|kitchen|sous.?chef|kuchen)/.test(t)) return 'Ristorazione';
   if (/\b(service|sommelier|barkeeper|barista|restaurant|kellner|maitre)/.test(t)) return 'Ristorazione';
-  if (/\b(rezeption|reception|portier|concierge)/.test(t)) return 'Servizi alla persona';
-  if (/\b(etage|housekeep|reinigung|lingerie|wäscherei|laundry|hauswirtschaft)/.test(t)) return 'Servizi';
-  if (/\b(spa|wellness|massage|masseur|therapeut|kosmetik|beauty)/.test(t)) return 'Salute / Benessere';
-  if (/\b(pflege|fage|fagh|fa-?gesundheit|gesundheits|pfleger|nurse|krankenschwester|krankenpfleger|fachfrau|fachmann|efz|efa)/.test(t)) return 'Sanità';
-  if (/\b(arzt|aerztin|ärztin|medizin|physiotherap|ergotherap)/.test(t)) return 'Sanità';
-  if (/\b(verwalt|admin|sekretär|empfang|bookkeep|buchhalt|hr|personal)/.test(t)) return 'Amministrazione';
-  if (/\b(it|edv|netzwerk|system|software)/.test(t)) return 'IT';
-  if (/\b(markt|sales|verkauf|reservierung|reservation)/.test(t)) return 'Commerciale';
-  if (/\b(techni|haustech|handwerk|gärtner|gardener|garden)/.test(t)) return 'Tecnica';
-  if (/\b(lehrling|lernend|apprenti|praktik|intern)/.test(t)) return 'Formazione';
-  return 'Altro';
+  if (/\b(reinig|hauswirtschaft|housekeep|room attendant|zimmerm|hotelfach)/.test(t)) return 'Ospitalità';
+  if (/\b(reception|empfang|concierge|front office|guest relations)/.test(t)) return 'Ospitalità';
+  if (/\b(pflege|therap|physio|arzt|medizin|gesundheit|wellness|beauty|spa|kosmetik)/.test(t)) return 'Sanità';
+  if (/\b(technik|handwerk|elektrik|haustechnik|unterhalt|facility)/.test(t)) return 'Ingegneria';
+  if (/\b(verkauf|sales|marketing|kommunik)/.test(t)) return 'Marketing';
+  if (/\b(hr\b|human resources|personal|recruit)/.test(t)) return 'Risorse Umane';
+  if (/\b(admin|büro|office|assist|buchhalt|finanz)/.test(t)) return 'Amministrazione';
+  if (/\b(lehrling|lernend|apprenti|praktik|stage|trainee)/.test(t)) return 'Formazione';
+  return 'Ospitalità';
 }
 
-function detectExperienceLevel(title = '') {
+function detectEmploymentType(title = '') {
   const t = normalize(title);
-  if (/\b(lehrling|lernend|apprenti|praktik|intern|trainee|aushilfe)/.test(t)) return 'intern';
-  if (/\b(junior|jr)/.test(t)) return 'junior';
-  if (/\b(senior|chef|leiter|leitend|head|director|responsab|sous.?chef|demi.?chef)/.test(t)) return 'senior';
-  return 'mid';
-}
-
-function detectEmploymentType(text = '') {
-  const t = normalize(text);
-  // Look for percentage hints in the title (e.g. "60%", "100%", "40 - 90 %")
-  const pctMatch = t.match(/(\d{2,3})\s*%/);
+  const pctMatch = t.match(/(\d{1,3})\s*[-–]\s*(\d{1,3})\s*%/) || t.match(/(\d{1,3})\s*%/);
   if (pctMatch) {
-    const pct = Number(pctMatch[1]);
-    if (pct >= 90) return 'FULL_TIME';
-    if (pct > 0) return 'PART_TIME';
+    const maxPct = pctMatch[2] ? parseInt(pctMatch[2], 10) : parseInt(pctMatch[1], 10);
+    if (maxPct < 80) return 'PART_TIME';
   }
-  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
+  if (/\b(teilzeit|part.?time|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
   if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
   if (/\b(praktik|intern|stage|lehrling|lernend|apprenti)/.test(t)) return 'INTERN';
   if (/\b(aushilfe|temporary|tempor|befristet|fixed.?term)/.test(t)) return 'CONTRACTOR';
   return 'OTHER';
 }
 
-/* ── Playwright fetcher ─────────────────────────────────────── */
+function detectExperienceLevel(title = '') {
+  const t = normalize(title);
+  if (/praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti|ausbildung|trainee/i.test(t)) return 'intern';
+  if (/junior|jr\b/i.test(t)) return 'junior';
+  if (/senior|sr\b|lead|head|director|dirett|chef|verantwort|responsab|leiter|manager/i.test(t)) return 'senior';
+  return 'mid';
+}
 
-/**
- * Load the listing page and harvest every `link.ostendis.com/publication/*`
- * anchor along with its rendered title (the heading inside the card).
- *
- * @param {import('playwright').BrowserContext} context
- * @returns {Promise<Array<{title: string, url: string}>>}
- */
-async function discoverHofweissbadListings(context) {
-  const page = await context.newPage();
-  try {
-    const resp = await page.goto(CAREER_URL, { waitUntil: 'domcontentloaded' });
-    const status = resp ? resp.status() : 0;
-    if (status === 429 || status === 403 || status === 522) {
-      throw new AntiBotBlockError(
-        `Vercel anti-bot block on ${CAREER_URL} (status=${status})`,
-        { url: CAREER_URL, status },
-      );
-    }
-    // Vercel challenge runs JS and re-issues the request; give it time to
-    // settle before scraping anchors.
+/* ── Listing pages ─────────────────────────────────────────────── */
+
+export function parseVacancyLinks(html = '') {
+  if (!html) return [];
+  const urls = new Set();
+  const re = /href="(\/en\/vacancies\/detail\/[a-f0-9-]+\/)"/gi;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    urls.add(`${JOBS_CH_BASE}${m[1]}`);
+  }
+  return Array.from(urls);
+}
+
+/* ── Detail page parser ───────────────────────────────────────── */
+
+export function extractJobPostingJsonLd(html = '') {
+  if (!html) return null;
+  const re = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const raw = m[1].trim();
     try {
-      await page.waitForLoadState('networkidle', { timeout: 30_000 });
+      const obj = JSON.parse(raw);
+      if (obj && (obj['@type'] === 'JobPosting' || (Array.isArray(obj) && obj.find((o) => o && o['@type'] === 'JobPosting')))) {
+        return Array.isArray(obj) ? obj.find((o) => o && o['@type'] === 'JobPosting') : obj;
+      }
     } catch {
-      /* swallow — we'll inspect what's there */
+      // try next script block
     }
-
-    const tiles = await page.evaluate(() => {
-      const out = [];
-      const anchors = document.querySelectorAll('a[href*="link.ostendis.com/publication/"]');
-      for (const a of anchors) {
-        // Walk up to a card-like container that holds the title heading.
-        let card = a;
-        for (let i = 0; i < 5; i += 1) {
-          if (!card.parentElement) break;
-          card = card.parentElement;
-          if (card.querySelector('h1, h2, h3, h4')) break;
-        }
-        const headingEl = card.querySelector('h1, h2, h3, h4');
-        const title =
-          (headingEl?.textContent || '').trim() ||
-          (a.textContent || '').trim() ||
-          '';
-        out.push({ title, url: a.href });
-      }
-      return out;
-    });
-
-    // Deduplicate by URL (without query string).
-    const seen = new Set();
-    const unique = [];
-    for (const t of tiles) {
-      if (!t.url || !t.title) continue;
-      let key;
-      try {
-        const u = new URL(t.url);
-        key = `${u.origin}${u.pathname}`;
-      } catch {
-        continue;
-      }
-      if (seen.has(key)) continue;
-      seen.add(key);
-      unique.push({ title: t.title, url: t.url });
-    }
-    return unique;
-  } finally {
-    try { await page.close(); } catch { /* no-op */ }
   }
+  return null;
 }
+
+/* ── Main fetch function ────────────────────────────────────────── */
 
 /**
- * Fetch one Ostendis detail page and extract description from JSON-LD or DOM.
- * @param {import('playwright').BrowserContext} context
- * @param {string} url
- * @returns {Promise<{title: string, descriptionHtml: string, postedAt: string|null}>}
- */
-async function fetchHofweissbadDetail(context, url) {
-  const page = await context.newPage();
-  try {
-    await page.goto(url, { waitUntil: 'domcontentloaded' });
-    try { await page.waitForLoadState('networkidle', { timeout: 20_000 }); } catch { /* no-op */ }
-
-    const jsonLdRaw = await page.$$eval('script[type="application/ld+json"]', (els) =>
-      els.map((e) => e.textContent || ''),
-    );
-    let title = '';
-    let descriptionHtml = '';
-    let postedAt = null;
-
-    for (const raw of jsonLdRaw) {
-      try {
-        const parsed = JSON.parse(raw);
-        const arr = Array.isArray(parsed) ? parsed : [parsed];
-        for (const node of arr) {
-          if (!node || typeof node !== 'object') continue;
-          if (node['@type'] === 'JobPosting' || (Array.isArray(node['@type']) && node['@type'].includes('JobPosting'))) {
-            title = title || String(node.title || '').trim();
-            descriptionHtml = descriptionHtml || String(node.description || '');
-            postedAt = postedAt || node.datePosted || node.validThrough || null;
-          }
-        }
-      } catch {
-        /* malformed JSON-LD — ignore */
-      }
-    }
-
-    if (!title) {
-      title = await page.title();
-    }
-    if (!descriptionHtml) {
-      descriptionHtml = await page.evaluate(() => {
-        const main = document.querySelector('main, article, [role="main"], body');
-        return (main?.innerHTML || '').slice(0, 30_000);
-      });
-    }
-    return { title: normalizeSpace(title), descriptionHtml, postedAt };
-  } finally {
-    try { await page.close(); } catch { /* no-op */ }
-  }
-}
-
-/* ── ParsedJob builder ─────────────────────────────────────── */
-
-function buildParsedJob({ title, descriptionHtml, postedAt, publicUrl }) {
-  const cleanTitle = normalizeSpace(title || '');
-  if (!cleanTitle || cleanTitle.length < 3) return null;
-
-  const descriptionText = stripHtml(descriptionHtml);
-  const sourceLang = detectLang(descriptionText || cleanTitle, 'de');
-  const jobSlug = slugify(`${cleanTitle} hof weissbad ${DEFAULT_CITY}`);
-  const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
-  const fallbackDesc =
-    `${cleanTitle} — Stelle im Resort Hof Weissbad in ${DEFAULT_CITY} (AI), Schweiz. ` +
-    `Das 4-Sterne-Plus Resort Hof Weissbad ist ein innovatives Hotel- und Gesundheitszentrum mit rund 270 Mitarbeitenden im Appenzellerland.`;
-  const desc = descriptionText.length >= 80 ? descriptionText : fallbackDesc;
-
-  const postedDate = (() => {
-    if (!postedAt) return new Date().toISOString().slice(0, 10);
-    const d = new Date(postedAt);
-    if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-    return d.toISOString().slice(0, 10);
-  })();
-
-  return {
-    id: `hofweissbad-${urlHash}`,
-    slug: jobSlug,
-    slugByLocale: { [sourceLang]: jobSlug },
-    company: HOFWEISSBAD_COMPANY_NAME,
-    companyKey: HOFWEISSBAD_KEY,
-    companyDomain: HOFWEISSBAD_COMPANY_DOMAIN,
-    title: cleanTitle,
-    titleByLocale: { [sourceLang]: cleanTitle },
-    description: desc,
-    descriptionByLocale: { [sourceLang]: desc },
-    location: DEFAULT_CITY,
-    canton: DEFAULT_CANTON,
-    url: publicUrl,
-    source: 'Hof Weissbad Dedicated Parser (Ostendis via Playwright)',
-    sourceLang,
-    crawledAt: new Date().toISOString(),
-    addressLocality: DEFAULT_CITY,
-    addressRegion: DEFAULT_CANTON,
-    addressCountry: 'CH',
-    country: 'CH',
-    postalCode: DEFAULT_POSTAL,
-    category: detectCategory(cleanTitle),
-    contract: detectEmploymentType(cleanTitle) === 'PART_TIME' ? 'part-time' : 'full-time',
-    employmentType: detectEmploymentType(cleanTitle),
-    experienceLevel: detectExperienceLevel(cleanTitle),
-    sector: 'Hôtellerie / Sanità',
-    currency: 'CHF',
-    featured: false,
-    postedDate,
-    applyUrl: publicUrl,
-    requirements: [],
-    requirementsByLocale: { [sourceLang]: [] },
-    needsRetranslation: true,
-  };
-}
-
-/* ── Main fetcher ──────────────────────────────────────────── */
-
-/**
- * Fetch all Hof Weissbad jobs.
+ * Fetch all Hof Weissbad jobs published on jobs.ch.
  *
  * Pipeline:
- *   1. Launch Playwright with a realistic Chrome UA (the Vercel checkpoint
- *      rejects bot-flagged UAs).
- *   2. Render https://www.hofweissbad.ch/jobs and harvest every
- *      `link.ostendis.com/publication/{slug}/{token}` anchor + heading.
- *   3. For each detail URL, parse the JSON-LD `JobPosting` (preferred) or
- *      fall back to the rendered DOM for the description.
- *   4. Build ParsedJob per result (canton AI, city Weissbad).
+ *   1. GET the jobs.ch company `/vacancies/` sub-page and harvest every
+ *      `/en/vacancies/detail/{uuid}/` link.
+ *   2. GET each detail page and extract the `JobPosting` JSON-LD block.
+ *   3. Build a ParsedJob per result (default canton AI, city Weissbad,
+ *      overridden by the detail page's own address when present).
  *
- * IMPORTANT: Only set source-locale fields. Other locales are filled by the
- * AI localization step and translate-pending pipeline.
+ * IMPORTANT: Only source-locale (`de`) fields are populated here; other
+ * locales are filled by the shared AI localization step.
  */
 export async function fetchAllHofweissbadJobs() {
-  console.log(`🔍 Fetching Hof Weissbad jobs (Ostendis via Playwright)`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log('🏢 Fetching Hof Weissbad jobs from jobs.ch company page');
 
-  let browser;
-  try {
-    browser = await createBrowser({ userAgent: REALISTIC_UA });
-    const context = await createPoliteContext(browser, { userAgent: REALISTIC_UA });
-
-    let listings = [];
+  const vacancyUrls = new Set();
+  for (const target of COMPANY_TARGETS) {
+    // locale-segment-ok: '/en/' is jobs.ch's own external site-language path, not a site locale route
+    const vacanciesUrl = `${JOBS_CH_BASE}/en/companies/${target.path}/vacancies/`;
+    let html = '';
     try {
-      listings = await discoverHofweissbadListings(context);
+      html = await fetchHtml(vacanciesUrl);
     } catch (err) {
-      if (err instanceof AntiBotBlockError) {
-        console.warn(`⚠️ Vercel anti-bot block: ${err.message}`);
-        return [];
-      }
-      if (err instanceof NavigationTimeout) {
-        console.warn(`⚠️ Hof Weissbad listing navigation timeout: ${err.message}`);
-        return [];
-      }
-      throw err;
+      console.warn(`  ⚠️ Failed to fetch ${target.label} vacancies page: ${err?.message || err}`);
+      continue;
     }
-
-    console.log(`   Discovered ${listings.length} listing tiles`);
-    if (listings.length === 0) {
-      console.warn(`⚠️ Hof Weissbad listing yielded 0 jobs.`);
-      return [];
-    }
-
-    const jobs = [];
-    for (const listing of listings) {
-      try {
-        const detail = await fetchHofweissbadDetail(context, listing.url);
-        const detailTitle = detail.title || '';
-        const isExpired =
-          /publikation nicht vorhanden|nicht mehr verfügbar|no longer available|vom auftraggeber/i
-            .test(detail.descriptionHtml || '') ||
-          /^publikation$/i.test(detailTitle.trim());
-        if (isExpired) {
-          console.warn(`   Skipping expired publication: ${listing.url}`);
-          continue;
-        }
-        const job = buildParsedJob({
-          title: detail.title || listing.title,
-          descriptionHtml: detail.descriptionHtml,
-          postedAt: detail.postedAt,
-          publicUrl: listing.url,
-        });
-        if (job) jobs.push(job);
-      } catch (err) {
-        console.warn(`⚠️ Skipping ${listing.url}: ${err?.message || err}`);
-      }
-    }
-
-    console.log(`\n📋 Total Hof Weissbad jobs discovered: ${jobs.length}`);
-    return jobs;
-  } finally {
-    await closeAll(browser);
+    const links = parseVacancyLinks(html);
+    console.log(`  📋 ${target.label}: ${links.length} open vacancy link(s)`);
+    for (const link of links) vacancyUrls.add(link);
   }
+
+  if (!vacancyUrls.size) {
+    console.warn('⚠️ No Hof Weissbad vacancy URLs found on jobs.ch');
+    return [];
+  }
+
+  console.log(`  📋 Total unique vacancy URLs: ${vacancyUrls.size}\n`);
+
+  const jobs = [];
+  for (const jobUrl of vacancyUrls) {
+    let posting = null;
+    try {
+      const detailHtml = await fetchHtml(jobUrl);
+      posting = extractJobPostingJsonLd(detailHtml);
+    } catch (err) {
+      console.warn(`  ⚠️ Detail fetch failed for ${jobUrl}: ${err?.message || err}`);
+    }
+    if (!posting) continue;
+
+    const title = decodeEntities(posting.title || '').trim();
+    if (!title) continue;
+
+    const addr = posting.jobLocation?.address || {};
+    const city = decodeEntities(addr.addressLocality || addr.addressRegion || '').trim() || DEFAULT_CITY;
+    const postalCode = String(addr.postalCode || '').trim() || DEFAULT_POSTAL;
+    const canton = DEFAULT_CANTON;
+    const country = 'CH';
+
+    let description = stripHtml(posting.description || '');
+    if (description.length < 80) {
+      description =
+        `${title} — Stelle im Resort Hof Weissbad in ${city} (${canton}), Schweiz. ` +
+        `Das 4-Sterne-Plus Resort Hof Weissbad ist ein innovatives Hotel- und Gesundheitszentrum mit rund 270 Mitarbeitenden im Appenzellerland.`;
+    }
+
+    const hiringOrg = decodeEntities(posting.hiringOrganization?.name || '').trim();
+    const employmentTypeRaw = Array.isArray(posting.employmentType)
+      ? posting.employmentType[0]
+      : posting.employmentType;
+
+    const postedDate = (() => {
+      const raw = posting.datePosted;
+      if (!raw) return new Date().toISOString().slice(0, 10);
+      const d = new Date(raw);
+      return Number.isNaN(d.getTime()) ? new Date().toISOString().slice(0, 10) : d.toISOString().slice(0, 10);
+    })();
+
+    let validThrough;
+    if (posting.validThrough) {
+      const vd = new Date(posting.validThrough);
+      if (!Number.isNaN(vd.getTime())) validThrough = vd.toISOString().slice(0, 10);
+    }
+
+    const sourceLang = detectLang(`${title} ${description}`, 'de');
+    const urlHash = createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
+    const jobSlug = slugify(`${title} hof weissbad ${city}`);
+    const employmentType = String(employmentTypeRaw || '').toUpperCase() || detectEmploymentType(title);
+
+    jobs.push({
+      id: `${HOFWEISSBAD_KEY}-${urlHash}`,
+      slug: jobSlug,
+      slugByLocale: { [sourceLang]: jobSlug },
+      company: hiringOrg || HOFWEISSBAD_COMPANY_NAME,
+      companyKey: HOFWEISSBAD_KEY,
+      companyDomain: HOFWEISSBAD_COMPANY_DOMAIN,
+      title,
+      titleByLocale: { [sourceLang]: title },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
+      needsRetranslation: true,
+      location: city,
+      canton,
+      url: jobUrl,
+      source: 'Hof Weissbad Dedicated Parser (jobs.ch)',
+      sourceLang,
+      crawledAt: new Date().toISOString(),
+
+      addressLocality: city,
+      addressRegion: canton,
+      addressCountry: country,
+      country,
+      postalCode,
+      category: detectCategory(title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
+      experienceLevel: detectExperienceLevel(title),
+      sector: 'Hôtellerie / Sanità',
+      currency: 'CHF',
+      featured: false,
+      postedDate,
+      ...(validThrough ? { validThrough } : {}),
+      applyUrl: jobUrl,
+      requirements: [],
+      requirementsByLocale: { [sourceLang]: [] },
+    });
+
+    console.log(`  ✅ ${title.substring(0, 60)} — ${city}`);
+  }
+
+  console.log(`\n📋 Total unique Hof Weissbad jobs discovered: ${jobs.length}`);
+  return jobs;
 }
