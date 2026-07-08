@@ -187,8 +187,13 @@ export function parseKsaListingPage(html = '') {
   let rowMatch;
   while ((rowMatch = rowRegex.exec(html)) !== null) {
     const rowHtml = rowMatch[1];
+    // Umantis dropped the standalone `/Description/{n}` detail page for this
+    // tenant (now 404s) — the listing's title link now goes straight to
+    // `/Application/CheckLogin/{n}` (still 200, shows the job title/intro
+    // before the login wall). Match either shape so we don't silently drop
+    // every row when the ATS changes its link target again.
     const titleMatch = rowHtml.match(
-      /tableaslist_element_1152488[\s\S]*?<a\s[^>]*href="\/Vacancies\/(\d+)\/Description\/\d+"[^>]*>([^<]+)<\/a>/
+      /tableaslist_element_1152488[\s\S]*?<a\s[^>]*href="\/Vacancies\/(\d+)\/(?:Description|Application\/CheckLogin)\/\d+[^"]*"[^>]*>([^<]+)<\/a>/
     );
     if (!titleMatch) continue;
     const vacancyId = titleMatch[1];
@@ -210,7 +215,9 @@ export function parseKsaListingPage(html = '') {
       artText: normalizeSpace(artText),
       befristung: normalizeSpace(befristung),
       department: normalizeSpace(department),
-      detailUrl: `${BASE_URL}/Vacancies/${vacancyId}/Description/1?lang=ger`,
+      // `/Description/1` 404s on this tenant now (see titleMatch comment
+      // above) — point both URLs at the confirmed-working CheckLogin page.
+      detailUrl: `${BASE_URL}/Vacancies/${vacancyId}/Application/CheckLogin/1`,
       applyUrl: `${BASE_URL}/Vacancies/${vacancyId}/Application/CheckLogin/1`,
     });
   }

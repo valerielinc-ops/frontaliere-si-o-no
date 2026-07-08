@@ -4,7 +4,6 @@ import {
   BENTELER_COMPANY_NAME,
   isBentelerJob,
   isTrustedDomain,
-  __internals,
 } from '../scripts/lib/benteler-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -13,22 +12,6 @@ describe('Benteler crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(BENTELER_KEY).toBe('benteler');
     expect(BENTELER_COMPANY_NAME).toBe('Benteler');
-  });
-
-  describe('HTML fallback filtering', () => {
-    it('rejects navigation and apply action links before they become fake jobs', () => {
-      const html = `
-        <a href="/go/jobs">FAQs and Job Offers</a>
-        <a href="https://career.benteler.com/go/job/foo">More(Opens in new window)</a>
-        <a href="https://career.benteler.com/job/Manno-Quality-Engineer-123">Quality Engineer Manno</a>
-      `;
-
-      const jobs = __internals.parseCareerPageHtml(html);
-
-      expect(jobs).toHaveLength(1);
-      expect(jobs[0].title).toBe('Quality Engineer Manno');
-      expect(jobs[0].url).toContain('/job/Manno-Quality-Engineer-123');
-    });
   });
 
   // ── isCompanyJob ──

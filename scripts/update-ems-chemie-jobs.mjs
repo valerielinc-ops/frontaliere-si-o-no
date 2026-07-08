@@ -110,6 +110,39 @@ async function fetchHtml(url, timeoutMs = 15000) {
   return templateFetchHtml(url, { timeoutMs, headers: { Accept: 'text/html', 'User-Agent': UA } });
 }
 
+/**
+ * The jobs.ems-group.com "careercenter" portal paginates 10 jobs per page.
+ * The listing page has no page-2 GET URL — the pagination widget
+ * (`sendPagination(offset)`) self-submits `<form id="careercenter-form"
+ * method="post">` with a hidden `offset` field (0, 10, 20, ...). Without
+ * following this, only page 1 (10 jobs) is ever discovered even when more
+ * jobs exist on later pages (confirmed: page offset=10 returns 3 more jobs
+ * for a real total of 13).
+ */
+async function fetchEmsPage(offset, timeoutMs) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(CAREERS_URL, {
+      method: 'POST',
+      headers: {
+        Accept: 'text/html',
+        'User-Agent': UA,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `offset=${offset}`,
+      signal: controller.signal,
+    });
+    if (!res.ok) return '';
+    return await res.text();
+  } catch (err) {
+    console.warn(`  ⚠️ Failed to fetch offset=${offset}: ${err?.message || err}`);
+    return '';
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function fetchJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   console.log(`🔍 Fetching ${COMPANY_NAME} career page...`);
@@ -123,6 +156,21 @@ async function fetchJobs() {
       console.log(`  📋 ${url} → ${rawListings.length} listing(s)`);
       if (rawListings.length > 0) {
         allListings = rawListings;
+        // Follow pagination on the primary careercenter portal (see
+        // fetchEmsPage doc comment) so jobs beyond page 1 aren't lost.
+        if (url === CAREERS_URL) {
+          const seenUrls = new Set(allListings.map((j) => j.url));
+          for (let offset = 10; offset <= 200; offset += 10) {
+            const pageHtml = await fetchEmsPage(offset, timeoutMs);
+            if (!pageHtml) break;
+            const pageListings = parseListingPage(pageHtml);
+            const newOnes = pageListings.filter((j) => !seenUrls.has(j.url));
+            console.log(`  📋 ${url} (offset=${offset}) → ${newOnes.length} new listing(s)`);
+            if (newOnes.length === 0) break;
+            for (const j of newOnes) seenUrls.add(j.url);
+            allListings.push(...newOnes);
+          }
+        }
         break;
       }
     } catch (err) {

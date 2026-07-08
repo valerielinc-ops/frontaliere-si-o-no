@@ -91,6 +91,8 @@
     "jobs:update:zegna": "node scripts/update-zegna-jobs.mjs",
     "jobs:update:postch": "node scripts/update-postch-jobs.mjs",
     "jobs:update:postfinance": "node scripts/update-postfinance-jobs.mjs",
+    "jobs:update:pkb-private-bank": "node scripts/update-pkb-private-bank-jobs.mjs",
+    "jobs:update:mcdonalds": "node scripts/update-mcdonalds-jobs.mjs",
     "jobs:update:cambiavalute": "node scripts/update-cambiavalute-jobs.mjs",
     "jobs:update:dxt": "node scripts/update-dxt-jobs.mjs",
     "jobs:update:linnea": "node scripts/update-linnea-jobs.mjs",
