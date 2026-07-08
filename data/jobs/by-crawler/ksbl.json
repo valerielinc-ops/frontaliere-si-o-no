@@ -6662,12 +6662,12 @@
     },
     {
       "id": "ksbl-5b6b17f42777",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-9",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-f80ef1",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-9",
-        "en": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-9",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-9"
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal-f80ef1",
+        "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6725,11 +6725,19 @@
       "firstSeenAt": "2026-07-07T22:25:26.335Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
+          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-9"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-9"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-9"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-9"
       ]
     }
   ]

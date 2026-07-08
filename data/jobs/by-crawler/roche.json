@@ -72316,7 +72316,7 @@
       "slug": "marketing-tirocinante-roche-mexico-city",
       "slugByLocale": {
         "it": "marketing-tirocinante-roche-mexico-city",
-        "en": "marketing-intern-roche-mexico-city",
+        "en": "internal-marketing-roche-mexico-city",
         "de": "marketing-praktikant-roche-mexico-city",
         "fr": "marketing-intern-roche-ch"
       },
@@ -72360,7 +72360,7 @@
       "previousSlugs": [
         "marketing-intern-roche-ch-2",
         "marketing-intern-roche-ch",
-        "internal-marketing-roche-mexico-city"
+        "marketing-intern-roche-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -72368,7 +72368,7 @@
           "marketing-intern-roche-ch"
         ],
         "en": [
-          "internal-marketing-roche-mexico-city"
+          "marketing-intern-roche-mexico-city"
         ],
         "de": [
           "marketing-intern-roche-ch-2"
@@ -89629,7 +89629,7 @@
       "slugByLocale": {
         "en": "it-technical-analyst-roche-ch",
         "it": "it-technical-analista-roche-madrid",
-        "de": "it-technical-analyst-roche-ch",
+        "de": "it-technischer-analyst-roche-madrid",
         "fr": "it-technical-analyste-roche-madrid"
       },
       "company": "Roche",
@@ -89691,6 +89691,9 @@
         ],
         "fr": [
           "it-technical-analyst-roche-ch"
+        ],
+        "de": [
+          "it-technical-analyst-roche-ch"
         ]
       },
       "previousSlugs": [
@@ -89699,12 +89702,12 @@
     },
     {
       "id": "roche-404ad25973d5",
-      "slug": "technical-product-owner-servicenow-irm-roche-ch",
+      "slug": "titolare-del-prodotto-tecnico-servicenow-irm-roche-madrid",
       "slugByLocale": {
         "en": "technical-product-owner-servicenow-irm-roche-ch",
-        "it": "technical-product-owner-servicenow-irm-roche-ch",
+        "it": "titolare-del-prodotto-tecnico-servicenow-irm-roche-madrid",
         "de": "technical-product-owner-servicenow-irm-roche-ch",
-        "fr": "technical-product-owner-servicenow-irm-roche-ch"
+        "fr": "proprietaire-du-produit-technique-servicenow-irm-roche-madrid"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -89758,7 +89761,18 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-07T22:15:14.017Z"
+      "firstSeenAt": "2026-07-07T22:15:14.017Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-owner-servicenow-irm-roche-ch"
+        ],
+        "fr": [
+          "technical-product-owner-servicenow-irm-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-owner-servicenow-irm-roche-ch"
+      ]
     },
     {
       "id": "roche-f2f1871458f0",
@@ -89906,12 +89920,12 @@
     },
     {
       "id": "roche-b9e2426d1d08",
-      "slug": "facharbeiter-energieversorgung-m-w-d-roche-penzberg",
+      "slug": "approvvigionamento-energetico-specializzato-m-f-d-roche-penzberg",
       "slugByLocale": {
         "de": "facharbeiter-energieversorgung-m-w-d-roche-ch",
-        "it": "facharbeiter-energieversorgung-m-w-d-roche-penzberg",
-        "en": "facharbeiter-energieversorgung-m-w-d-roche-penzberg",
-        "fr": "facharbeiter-energieversorgung-m-w-d-roche-penzberg"
+        "it": "approvvigionamento-energetico-specializzato-m-f-d-roche-penzberg",
+        "en": "specialist-energy-supply-m-f-d-roche-penzberg",
+        "fr": "approvisionnement-energetique-specialise-m-f-d-roche-penzberg"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -89954,11 +89968,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "facharbeiter-energieversorgung-m-w-d-roche-ch"
+          "facharbeiter-energieversorgung-m-w-d-roche-ch",
+          "facharbeiter-energieversorgung-m-w-d-roche-penzberg"
+        ],
+        "en": [
+          "facharbeiter-energieversorgung-m-w-d-roche-penzberg"
+        ],
+        "fr": [
+          "facharbeiter-energieversorgung-m-w-d-roche-penzberg"
         ]
       },
       "previousSlugs": [
-        "facharbeiter-energieversorgung-m-w-d-roche-ch"
+        "facharbeiter-energieversorgung-m-w-d-roche-ch",
+        "facharbeiter-energieversorgung-m-w-d-roche-penzberg"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -90305,7 +90327,7 @@
         "en": "senior-principal-scientist-nmr-expert-roche-ch",
         "it": "senior-principal-scientist-nmr-expert-roche-ch",
         "de": "senior-principal-scientist-nmr-expert-roche-ch",
-        "fr": "senior-principal-scientist-nmr-expert-roche-ch"
+        "fr": "chercheur-principal-expert-en-rmn-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90363,12 +90385,12 @@
     },
     {
       "id": "roche-129090ed5175",
-      "slug": "medical-affairs-operations-lead-roche-ch",
+      "slug": "operazioni-di-affari-medici-piombo-roche-basel",
       "slugByLocale": {
         "en": "medical-affairs-operations-lead-roche-ch",
-        "it": "medical-affairs-operations-lead-roche-ch",
+        "it": "operazioni-di-affari-medici-piombo-roche-basel",
         "de": "medical-affairs-operations-lead-roche-ch",
-        "fr": "medical-affairs-operations-lead-roche-ch"
+        "fr": "chef-des-operations-des-affaires-medicales-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90422,16 +90444,27 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-07T22:15:05.532Z"
+      "firstSeenAt": "2026-07-07T22:15:05.532Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-affairs-operations-lead-roche-ch"
+        ],
+        "fr": [
+          "medical-affairs-operations-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-affairs-operations-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-db7bf0a9bfc9",
-      "slug": "clinical-development-lead-oncology-pathology-roche-ch",
+      "slug": "piombo-di-sviluppo-clinico-oncologia-patologia-roche-tucson",
       "slugByLocale": {
         "en": "clinical-development-lead-oncology-pathology-roche-ch",
-        "it": "clinical-development-lead-oncology-pathology-roche-ch",
-        "de": "clinical-development-lead-oncology-pathology-roche-ch",
-        "fr": "clinical-development-lead-oncology-pathology-roche-ch"
+        "it": "piombo-di-sviluppo-clinico-oncologia-patologia-roche-tucson",
+        "de": "klinischer-entwicklungsleiter-onkologie-pathologie-roche-tucson",
+        "fr": "responsable-du-developpement-clinique-oncologie-pathologie-roche-tucson"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90485,7 +90518,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-07T22:15:04.690Z"
+      "firstSeenAt": "2026-07-07T22:15:04.690Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-development-lead-oncology-pathology-roche-ch"
+        ],
+        "de": [
+          "clinical-development-lead-oncology-pathology-roche-ch"
+        ],
+        "fr": [
+          "clinical-development-lead-oncology-pathology-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-development-lead-oncology-pathology-roche-ch"
+      ]
     },
     {
       "id": "roche-050966f381c0",
@@ -90494,7 +90541,7 @@
         "en": "project-change-manager-roche-ch",
         "it": "project-change-manager-roche-ch",
         "de": "project-change-manager-roche-ch",
-        "fr": "project-change-manager-roche-ch"
+        "fr": "gestionnaire-de-changement-de-projet-roche-budapest"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90686,12 +90733,12 @@
     },
     {
       "id": "roche-95f4eb95e61e",
-      "slug": "strategy-value-partner-roche-ch",
+      "slug": "partner-del-valore-strategico-roche-basel",
       "slugByLocale": {
         "en": "strategy-value-partner-roche-ch",
-        "it": "strategy-value-partner-roche-ch",
+        "it": "partner-del-valore-strategico-roche-basel",
         "de": "strategy-value-partner-roche-ch",
-        "fr": "strategy-value-partner-roche-ch"
+        "fr": "strategie-partenaire-valeur-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90745,7 +90792,18 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-07T22:15:01.099Z"
+      "firstSeenAt": "2026-07-07T22:15:01.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategy-value-partner-roche-ch"
+        ],
+        "fr": [
+          "strategy-value-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strategy-value-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-3d916067e5cf",
@@ -90812,12 +90870,12 @@
     },
     {
       "id": "roche-5f4783aba702",
-      "slug": "medical-ecosystem-partner-roche-ch",
+      "slug": "partner-dell-ecosistema-medico-roche-santo-domingo",
       "slugByLocale": {
         "en": "medical-ecosystem-partner-roche-ch",
-        "it": "medical-ecosystem-partner-roche-ch",
-        "de": "medical-ecosystem-partner-roche-ch",
-        "fr": "medical-ecosystem-partner-roche-ch"
+        "it": "partner-dell-ecosistema-medico-roche-santo-domingo",
+        "de": "medizinisches-okosystem-partner-roche-santo-domingo",
+        "fr": "partenaire-de-l-ecosysteme-medical-roche-santo-domingo"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90871,7 +90929,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-07T22:14:59.054Z"
+      "firstSeenAt": "2026-07-07T22:14:59.054Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-ecosystem-partner-roche-ch"
+        ],
+        "de": [
+          "medical-ecosystem-partner-roche-ch"
+        ],
+        "fr": [
+          "medical-ecosystem-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-ecosystem-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-7ea23efeac4c",
@@ -90938,12 +91010,12 @@
     },
     {
       "id": "roche-0d5b869a1a1a",
-      "slug": "histology-process-lead-2nd-shift-roche-ch",
+      "slug": "processo-di-istologia-piombo-2o-turno-roche-tucson",
       "slugByLocale": {
         "en": "histology-process-lead-2nd-shift-roche-ch",
-        "it": "histology-process-lead-2nd-shift-roche-ch",
-        "de": "histology-process-lead-2nd-shift-roche-ch",
-        "fr": "histology-process-lead-2nd-shift-roche-ch"
+        "it": "processo-di-istologia-piombo-2o-turno-roche-tucson",
+        "de": "histologie-prozessfuhrung-2-schicht-roche-tucson",
+        "fr": "chef-du-processus-d-histologie-2e-quart-roche-tucson"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90997,7 +91069,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-07T22:14:57.209Z"
+      "firstSeenAt": "2026-07-07T22:14:57.209Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "histology-process-lead-2nd-shift-roche-ch"
+        ],
+        "de": [
+          "histology-process-lead-2nd-shift-roche-ch"
+        ],
+        "fr": [
+          "histology-process-lead-2nd-shift-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "histology-process-lead-2nd-shift-roche-ch"
+      ]
     },
     {
       "id": "roche-9f4ca58b8eeb",
@@ -91382,7 +91468,7 @@
         "en": "material-handler-fixed-duration-1st-shift-roche-ch",
         "it": "material-handler-fixed-duration-1st-shift-roche-ch",
         "de": "material-handler-fixed-duration-1st-shift-roche-ch",
-        "fr": "material-handler-fixed-duration-1st-shift-roche-ch"
+        "fr": "handler-materiel-duree-fixe-1er-poste-roche-indianapolis"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91440,12 +91526,12 @@
     },
     {
       "id": "roche-3560cea64a31",
-      "slug": "dam-technical-product-owner-roche-ch",
+      "slug": "dam-proprietario-del-prodotto-tecnico-roche-basel",
       "slugByLocale": {
         "en": "dam-technical-product-owner-roche-ch",
-        "it": "dam-technical-product-owner-roche-ch",
+        "it": "dam-proprietario-del-prodotto-tecnico-roche-basel",
         "de": "dam-technical-product-owner-roche-ch",
-        "fr": "dam-technical-product-owner-roche-ch"
+        "fr": "proprietaire-du-produit-technique-dam-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91499,7 +91585,18 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-07T22:14:50.066Z"
+      "firstSeenAt": "2026-07-07T22:14:50.066Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dam-technical-product-owner-roche-ch"
+        ],
+        "fr": [
+          "dam-technical-product-owner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dam-technical-product-owner-roche-ch"
+      ]
     },
     {
       "id": "roche-1146680313ea",
@@ -91507,8 +91604,8 @@
       "slugByLocale": {
         "en": "reshape-ai-technical-product-owner-roche-ch",
         "it": "reshape-ai-technical-product-owner-roche-ch",
-        "de": "reshape-ai-technical-product-owner-roche-ch",
-        "fr": "reshape-ai-technical-product-owner-roche-ch"
+        "de": "neugestaltung-des-ai-technical-product-owners-roche-basel",
+        "fr": "remodeler-le-proprietaire-du-produit-technique-ai-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91759,7 +91856,7 @@
       "slugByLocale": {
         "en": "financial-analyst-roche-ch",
         "it": "financial-analista-roche-almaty",
-        "de": "financial-analyst-roche-ch",
+        "de": "finanzanalyst-roche-almaty",
         "fr": "financial-analyste-roche-almaty"
       },
       "company": "Roche",
@@ -91821,6 +91918,9 @@
         ],
         "fr": [
           "financial-analyst-roche-ch"
+        ],
+        "de": [
+          "financial-analyst-roche-ch"
         ]
       },
       "previousSlugs": [
@@ -91833,8 +91933,8 @@
       "slugByLocale": {
         "en": "process-lead-1st-shift-roche-ch",
         "it": "process-lead-1st-shift-roche-ch",
-        "de": "process-lead-1st-shift-roche-ch",
-        "fr": "process-lead-1st-shift-roche-ch"
+        "de": "process-lead-1-schicht-roche-tucson",
+        "fr": "chef-de-processus-1er-quart-de-travail-roche-tucson"
       },
       "company": "Roche",
       "companyKey": "roche",

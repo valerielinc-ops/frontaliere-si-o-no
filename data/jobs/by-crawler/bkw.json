@@ -22329,8 +22329,8 @@
       "slugByLocale": {
         "de": "quereinstieg-netzelektriker-in-alle-bkw-ch",
         "it": "cambio-carriera-netzelektriker-in-alle-bkw-bern",
-        "en": "quereinstieg-netzelektriker-in-alle-bkw-ch",
-        "fr": "quereinstieg-netzelektriker-in-alle-bkw-ch"
+        "en": "cross-entry-grid-electrician-in-all-bkw-bern",
+        "fr": "electricien-du-reseau-d-entrees-croisees-en-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22389,6 +22389,12 @@
       "firstSeenAt": "2026-07-07T22:22:13.004Z",
       "previousSlugsByLocale": {
         "it": [
+          "quereinstieg-netzelektriker-in-alle-bkw-ch"
+        ],
+        "en": [
+          "quereinstieg-netzelektriker-in-alle-bkw-ch"
+        ],
+        "fr": [
           "quereinstieg-netzelektriker-in-alle-bkw-ch"
         ]
       },
