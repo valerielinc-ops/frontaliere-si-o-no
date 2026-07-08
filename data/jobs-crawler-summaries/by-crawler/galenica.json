@@ -1,37 +1,36 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-08T11:21:28.271Z",
+  "generatedAt": "2026-07-08T22:15:44.064Z",
   "total": 380,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 117525,
-  "avgDurationMs": 117525,
+  "unchangedCount": 0,
+  "durationMs": 109114,
+  "avgDurationMs": 109114,
   "durationHistory": [
-    117525
+    109114
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-      "company": "Galenica (Galenica)",
+      "title": "Assistante en pharmacie  (f/h/d)",
+      "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3109907.4014666",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3116107.4026364",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "descriptionIt": "Assistante en pharmacie  (f/h/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
-      "id": "galenica-306fc202b2d8",
+      "slug": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
+      "id": "galenica-8a75894cbcb0",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -41,15 +40,16 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 23,
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
