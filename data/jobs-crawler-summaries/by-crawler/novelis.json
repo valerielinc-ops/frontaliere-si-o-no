@@ -1,18 +1,19 @@
 {
   "key": "novelis",
   "label": "Novelis",
-  "generatedAt": "2026-07-08T11:23:17.404Z",
+  "generatedAt": "2026-07-08T22:12:03.964Z",
   "total": 11,
-  "newCount": 11,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10327,
-  "avgDurationMs": 10327,
+  "durationMs": 9979,
+  "avgDurationMs": 9979,
   "durationHistory": [
-    10327
+    9979
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "novelis-afad27588e25",
       "slug": "stagiaire-communication-visuelle-novelis-ch",
@@ -39,12 +40,13 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52701/stagiaire-communication-visuelle/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:23:08.808Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-07-08T22:11:55.097Z",
+      "firstSeenAt": "2026-07-08T11:23:08.808Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -74,12 +76,13 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52696/manager-%28m-f-d%29-finance-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:23:09.539Z",
-      "_qualityScore": 63,
+      "crawledAt": "2026-07-08T22:11:55.704Z",
+      "firstSeenAt": "2026-07-08T11:23:09.539Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -109,12 +112,13 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52695/internship-%28m-f-d%29-human-resources-%2860%25-80%26%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:23:10.202Z",
-      "_qualityScore": 63,
+      "crawledAt": "2026-07-08T22:11:56.300Z",
+      "firstSeenAt": "2026-07-08T11:23:10.202Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -144,12 +148,13 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52694/stagiaire/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:23:10.893Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-07-08T22:11:56.874Z",
+      "firstSeenAt": "2026-07-08T11:23:10.893Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -179,12 +184,13 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:23:11.600Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-07-08T22:11:57.451Z",
+      "firstSeenAt": "2026-07-08T11:23:11.600Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -214,12 +220,13 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52570/site-ehs-manager/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:23:12.256Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-07-08T22:11:58.075Z",
+      "firstSeenAt": "2026-07-08T11:23:12.256Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -249,12 +256,13 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52569/site-manager/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:23:12.859Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-07-08T22:11:58.746Z",
+      "firstSeenAt": "2026-07-08T11:23:12.859Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -284,12 +292,13 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52551/industrial-fluids-process-engineer/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:23:13.625Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-07-08T22:11:59.328Z",
+      "firstSeenAt": "2026-07-08T11:23:13.625Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -319,12 +328,13 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52531/lead-engineer-auto-product-%26-process-development/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:23:14.186Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-07-08T22:11:59.836Z",
+      "firstSeenAt": "2026-07-08T11:23:14.186Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -354,12 +364,13 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52471/molten-metal-treatment-engineer/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:23:14.761Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-07-08T22:12:00.344Z",
+      "firstSeenAt": "2026-07-08T11:23:14.761Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -389,17 +400,17 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52223/electricien---automaticien/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:23:15.394Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-07-08T22:12:00.836Z",
+      "firstSeenAt": "2026-07-08T11:23:15.394Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
