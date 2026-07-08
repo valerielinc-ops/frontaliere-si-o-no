@@ -24,7 +24,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
@@ -182,7 +182,7 @@ function buildDescription(job) {
   if (benefits) parts.push(`Wir bieten:\n${benefits}`);
   const profile = stripHtml(szas.sza_company_profil || '');
   if (profile) parts.push(profile);
-  return parts.join('\n\n');
+  return normalizeDescriptionBullets(parts.join('\n\n'));
 }
 
 // `fallbackCategory` lets non-healthcare tenants (e.g. a hospitality

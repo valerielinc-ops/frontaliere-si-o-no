@@ -76,7 +76,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, normalizeSpace, stripHtml, classAttrRx } from './crawler-template.mjs';
+import { slugify, normalizeSpace, stripHtml, classAttrRx, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   decodeEntities,
@@ -809,7 +809,7 @@ export function createSoliqueParser(config) {
       }
       if (tile.startDate) descParts.push(`Eintritt: ${tile.startDate}`);
       const description = descParts.length
-        ? descParts.join('\n\n')
+        ? normalizeDescriptionBullets(descParts.join('\n\n'))
         : `${title} — ${companyName} (${tile.location || defaultCity}).`;
 
       // Guard: if the Solique server renders a JS-error placeholder (e.g.

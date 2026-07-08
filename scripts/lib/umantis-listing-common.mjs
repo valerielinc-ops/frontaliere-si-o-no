@@ -36,7 +36,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchHtml as fetchHtmlResilient } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml as fetchHtmlResilient, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { isCrossHostRedirect } from './umantis-detail-helpers.mjs';
 
@@ -641,6 +641,7 @@ export function createUmantisListingParser(config) {
         bullets.push(`• Bewerbung über das Umantis-Karriereportal von ${companyName}`);
         description = `${intro}\n\n${bullets.join('\n')}`;
       }
+      description = normalizeDescriptionBullets(description);
 
       const sourceLang = detectLang(description || title, defaultSourceLang);
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);

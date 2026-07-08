@@ -25,7 +25,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   createBrowser,
@@ -317,7 +317,7 @@ async function fetchDetailPage(context, url) {
     if (!jp) return null;
 
     const addr = extractAddress(jp.jobLocation);
-    const description = normalizeSpace(stripHtml(jp.description || ''));
+    const description = normalizeDescriptionBullets(stripHtml(jp.description || ''));
 
     return {
       datePosted: toDateOnly(jp.datePosted || ''),

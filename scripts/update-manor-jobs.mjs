@@ -49,7 +49,8 @@ import {
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { isTargetSwissLocation, isKnownSwissCity, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, normalizeDescriptionBullets } from './lib/crawler-template.mjs';
+import { htmlToText } from './lib/hospital-custom-html-helpers.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -234,7 +235,7 @@ function parseJobPage(html, url) {
 
   // Extract description from <span class="jobdescription">
   const descMatch = html.match(/<span class="jobdescription">([\s\S]*?)<\/span>/);
-  const rawDesc = descMatch ? descMatch[1].replace(/<[^>]+>/g, '').trim() : '';
+  const rawDesc = descMatch ? normalizeDescriptionBullets(htmlToText(descMatch[1])) : '';
 
   // Extract posted date from itemprop="datePosted"
   const dateMatch = html.match(/itemprop="datePosted"\s+content="([^"]+)"/);

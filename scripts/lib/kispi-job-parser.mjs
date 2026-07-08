@@ -22,7 +22,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -190,7 +190,7 @@ export async function fetchAllKispiJobs() {
     // string and skip the `detail.metaDesc` tier (the raw HTML is truthy so the
     // `: metaDesc` branch never runs). `|| detail.metaDesc` preserves the
     // fallback hierarchy (same idiom fix as the Decathlon parser).
-    const descriptionText = normalizeSpace(htmlToText(descriptionHtml)).slice(0, 6000)
+    const descriptionText = normalizeDescriptionBullets(normalizeSpace(htmlToText(descriptionHtml))).slice(0, 6000)
       || detail.metaDesc;
     const description = descriptionText
       || `${title} — ${KISPI_COMPANY_NAME}, Zürich.`;

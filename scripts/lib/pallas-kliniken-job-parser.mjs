@@ -18,7 +18,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -146,7 +146,7 @@ function htmlDescriptionToText(htmlDescription = '') {
   // decode entities first, then strip tags.
   const decoded = decodeEntities(String(htmlDescription));
   const text = htmlToText(decoded);
-  return normalizeSpace(text);
+  return normalizeDescriptionBullets(normalizeSpace(text));
 }
 
 function mapEmploymentTypeLd(value, fallbackText) {
