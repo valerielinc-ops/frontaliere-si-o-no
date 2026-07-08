@@ -82,7 +82,7 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const UA = process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
 /* ── Matcher ───────────────────────────────────────────────── */
-function isCompanyJob(job) {
+export function isCompanyJob(job) {
   const key = normalizeKey(job?.companyKey || job?.company || '');
   const company = normalize(job?.company || '');
   const url = String(job?.url || '').trim();
@@ -98,12 +98,16 @@ function isCompanyJob(job) {
   );
 }
 
-function isTrustedDomain(rawUrl = '') {
+export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
     return host === COMPANY_HOST || host === 'ems-group.com' || host === 'jobs.ems-group.com';
   } catch { return false; }
 }
+
+// Exported for regression tests exercising the exact validateDedicatedLocaleCoverage()
+// call-site wiring below (locales list + strict env var name) without duplicating it.
+export { COMPANY_KEY, COMPANY_NAME, LOCALES };
 
 /* ── Fetch ─────────────────────────────────────────────────── */
 async function fetchHtml(url, timeoutMs = 15000) {

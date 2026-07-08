@@ -171,10 +171,21 @@ export async function fetchAllDicSaJobs() {
     if (seen.has(listing.id)) continue;
     seen.add(listing.id);
 
+    // Detail page locale MUST be 'en' — confirmed live (curl) that jobs.ch
+    // 404s on /fr/ and /de/ vacancy detail URLs for this company's posting
+    // (only /en/ resolves 200); content is served in the posting's original
+    // language regardless of the URL locale prefix (see jobs-ch-search-common.mjs
+    // header comment). Every sibling jobs.ch/jobup.ch parser (equans,
+    // city-pop, cham-swiss-properties) already uses 'en' here — this file was
+    // the sole outlier passing 'fr' (matching defaultSourceLang instead of
+    // the URL-prefix quirk), which made fetchJobsChJobPostingLd 404 on every
+    // run, leaving `ld` null and the job falling back to the thin
+    // title+company template below — the root cause of the empty by-crawler
+    // slice despite a genuine, live posting.
     let ld = null;
-    let detailUrl = jobsChDetailUrl(listing.id, 'fr');
+    let detailUrl = jobsChDetailUrl(listing.id, 'en');
     try {
-      const detail = await fetchJobsChJobPostingLd(listing.id, { locale: 'fr' });
+      const detail = await fetchJobsChJobPostingLd(listing.id, { locale: 'en' });
       ld = detail.ld;
       detailUrl = detail.url;
     } catch (err) {

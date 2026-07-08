@@ -1,12 +1,38 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import {
   DIC_SA_KEY,
   DIC_SA_COMPANY_NAME,
   isDicSaJob,
   isTrustedDomain,
+  fetchAllDicSaJobs,
 } from '../scripts/lib/dic-sa-job-parser.mjs';
 import { jobsChDetailUrl } from '../scripts/lib/jobs-ch-search-common.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+function jsonResponse(status: number, body: unknown) {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    statusText: String(status),
+    json: async () => body,
+    text: async () => JSON.stringify(body),
+  } as unknown as Response;
+}
+
+function htmlResponse(status: number, body: string) {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    statusText: String(status),
+    text: async () => body,
+    json: async () => JSON.parse(body),
+  } as unknown as Response;
+}
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+function daysAgoIso(days: number): string {
+  return new Date(Date.now() - days * DAY_MS).toISOString();
+}
 
 describe('DIC SA crawler parser', () => {
   // ── Constants ──
@@ -87,6 +113,80 @@ describe('DIC SA crawler parser', () => {
     });
   });
 
+  // ── fetchAllDicSaJobs (regression: locale-prefix 404 root cause, #3797) ──
+  // jobs.ch 404s on /fr/ and /de/ vacancy detail URLs (only /en/ resolves
+  // 200 — confirmed live via curl, 2026-07-08) while still serving the
+  // posting's ORIGINAL-language content regardless of the URL prefix. The
+  // parser previously requested the detail page with locale 'fr' (matching
+  // defaultSourceLang instead of the URL-prefix quirk), so every detail
+  // fetch 404'd, `ld` stayed null, and the job fell back to a thin
+  // title+company template — thin enough to be dropped by the pipeline's
+  // downstream content gates, leaving the committed by-crawler slice empty
+  // despite a genuine, live posting. This locks in the fix: the detail page
+  // MUST be requested with locale 'en'.
+  describe('fetchAllDicSaJobs', () => {
+    afterEach(() => {
+      vi.unstubAllGlobals();
+    });
+
+    it('requests the detail page with locale "en", not "fr"/"de" (404 root cause)', async () => {
+      const listing = {
+        id: '90aca745-50a2-46aa-ba78-f551572468cb',
+        title: 'Ingenieur civil EPF - Chef de projet (H/F)',
+        place: 'Aigle',
+        locations: [{ cantonCode: 'VD', city: 'Aigle', street: 'Les Glariers', postalCode: '1860' }],
+        initialPublicationDate: daysAgoIso(9),
+        company: { name: 'DIC SA' },
+        employmentGrades: [100],
+      };
+      const richDescription =
+        'Depuis plus de 40 ans, DIC SA ingenieurs s\'impose comme un bureau reconnu pour la qualite et la precision de ses ouvrages dans les domaines du genie civil, des ouvrages d\'art et des infrastructures routieres et ferroviaires. Notre equipe a taille humaine met un point d\'honneur a produire des projets techniquement exigeants, avec un haut niveau de responsabilite et une forte autonomie au sein du bureau base a Aigle dans le canton de Vaud.';
+      const detailLd = {
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: listing.title,
+        description: richDescription,
+        employmentType: 'Permanent position',
+        hiringOrganization: { '@type': 'Organization', name: 'DIC SA' },
+        datePosted: listing.initialPublicationDate,
+      };
+      const detailHtml = `<html><head><script type="application/ld+json">${JSON.stringify(detailLd)}</script></head><body></body></html>`;
+
+      const requestedUrls: string[] = [];
+      const fetchMock = vi.fn(async (url: string) => {
+        requestedUrls.push(url);
+        if (url.includes('job-search-api.jobs.ch/search')) {
+          return jsonResponse(200, { documents: [listing], numPages: 1, currentPage: 1, rows: 100, totalHits: 1 });
+        }
+        if (url.includes('/vacancies/detail/')) {
+          return htmlResponse(200, detailHtml);
+        }
+        return htmlResponse(404, 'not found');
+      });
+      vi.stubGlobal('fetch', fetchMock);
+
+      const jobs = await fetchAllDicSaJobs();
+
+      const detailRequests = requestedUrls.filter((u) => u.includes('/vacancies/detail/'));
+      expect(detailRequests.length).toBeGreaterThan(0);
+      for (const u of detailRequests) {
+        expect(u).toContain('/en/vacancies/detail/');
+        expect(u).not.toContain('/fr/vacancies/detail/');
+        expect(u).not.toContain('/de/vacancies/detail/');
+      }
+
+      expect(jobs).toHaveLength(1);
+      const [job] = jobs;
+      // Real JSON-LD description was used — NOT the thin fallback template
+      // ("<title> presso <company> a <city>.") that fired when the 404
+      // silently swallowed the detail fetch.
+      expect(job.description).not.toMatch(/presso DIC SA a/);
+      const wordCount = job.description.split(/\s+/).filter(Boolean).length;
+      expect(wordCount).toBeGreaterThanOrEqual(50);
+      expect(job.url).toContain('/en/vacancies/detail/');
+    });
+  });
+
   // ── Job Shape Validation ──
   describe('job shape', () => {
     const validJob = {
@@ -106,7 +206,7 @@ describe('DIC SA crawler parser', () => {
       },
       location: 'Aigle',
       canton: 'VD',
-      url: 'https://www.jobs.ch/fr/vacancies/detail/90aca745-50a2-46aa-ba78-f551572468cb/',
+      url: 'https://www.jobs.ch/en/vacancies/detail/90aca745-50a2-46aa-ba78-f551572468cb/',
       source: 'DIC SA Dedicated Parser (jobs.ch)',
       sourceLang: 'fr',
       crawledAt: new Date().toISOString(),
@@ -119,7 +219,7 @@ describe('DIC SA crawler parser', () => {
       country: 'CH',
       employmentType: 'FULL_TIME',
       postedDate: new Date().toISOString().slice(0, 10),
-      applyUrl: 'https://www.jobs.ch/fr/vacancies/detail/90aca745-50a2-46aa-ba78-f551572468cb/',
+      applyUrl: 'https://www.jobs.ch/en/vacancies/detail/90aca745-50a2-46aa-ba78-f551572468cb/',
       hiringOrganizationName: 'DIC SA',
     };
 

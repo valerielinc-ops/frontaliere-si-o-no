@@ -7,6 +7,14 @@
  * run because jobs.axa.ch returned a degraded 5-result page and the crawler
  * exited 0. shouldBlockShrink() is the pure predicate writeJobsCrawlerSlice
  * uses to refuse persisting that class of silent data loss.
+ *
+ * The MIN_BASELINE ratio-gate below deliberately lets small crawlers churn
+ * freely (e.g. 6 -> 3 is normal noise for a small employer). But that same
+ * gate had a blind spot: a small-baseline crawler dropping to exactly zero
+ * is never legitimate churn, and sailed through unguarded. Confirmed
+ * incident: corner-banca 17 -> 0 jobs in one run (2026-07-06), below
+ * MIN_BASELINE=20, so the ratio check never even evaluated. Total wipeouts
+ * are now blocked unconditionally, regardless of baseline size.
  */
 import { describe, it, expect } from 'vitest';
 import { shouldBlockShrink } from '../../scripts/assemble-jobs-dataset.mjs';
@@ -16,8 +24,18 @@ describe('shouldBlockShrink()', () => {
     expect(shouldBlockShrink(152, 5)).toBe(true);
   });
 
-  it('does not block below the minimum baseline (small crawlers churn freely)', () => {
-    expect(shouldBlockShrink(19, 0)).toBe(false);
+  it('blocks the corner-banca incident shape (17 -> 0, below MIN_BASELINE)', () => {
+    expect(shouldBlockShrink(17, 0)).toBe(true);
+  });
+
+  it('blocks any total wipeout regardless of baseline size', () => {
+    expect(shouldBlockShrink(1, 0)).toBe(true);
+    expect(shouldBlockShrink(5, 0)).toBe(true);
+    expect(shouldBlockShrink(19, 0)).toBe(true);
+  });
+
+  it('does not block a non-zero drop below the minimum baseline (small crawlers churn freely)', () => {
+    expect(shouldBlockShrink(19, 1)).toBe(false);
     expect(shouldBlockShrink(10, 1)).toBe(false);
   });
 

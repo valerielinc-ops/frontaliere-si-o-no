@@ -2,9 +2,13 @@
  * EMS-Chemie AG crawler parser tests
  *
  * Tests parseListingPage(), parseDetailPage(), buildJob(),
- * inferLocation(), isSwissJob().
+ * inferLocation(), isSwissJob(), and the validateDedicatedLocaleCoverage()
+ * call-site wiring (issue #3797 regression — see bottom describe block).
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import fs from 'fs';
+import os from 'os';
+import path from 'path';
 
 import {
   parseListingPage,
@@ -15,6 +19,14 @@ import {
   stripHtml,
   normalizeSpace,
 } from '@/scripts/lib/ems-chemie-job-parser.mjs';
+import { validateDedicatedLocaleCoverage } from '@/scripts/lib/dedicated-crawler-common.mjs';
+import {
+  isCompanyJob,
+  isTrustedDomain,
+  COMPANY_KEY,
+  COMPANY_NAME,
+  LOCALES,
+} from '@/scripts/update-ems-chemie-jobs.mjs';
 
 // ─── Fixture: Career listing page (legacy table) ──────────────────
 const LISTING_HTML = `
@@ -312,5 +324,159 @@ describe('buildJob', () => {
   it('returns null for empty title', () => {
     expect(buildJob({ title: '' })).toBeNull();
     expect(buildJob(null as any)).toBeNull();
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// validateDedicatedLocaleCoverage — ems-chemie call-site regression
+// (issue #3797: crawler dropped 9→0 on 2026-07-06 22:18 UTC, run
+// https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/28826969655.
+// Root cause: the SAME implicit-tolerance-0 gap fixed generically for
+// ~105 dedicated crawlers by FRO-628 (issue #3783 ALTEN, commit
+// 57cd8b55dc9 / #3788, 2026-07-07 17:24 UTC) — landed the DAY AFTER this
+// crawler's incident, so ems-chemie hit the bug in its pre-fix window.
+// A single newly-discovered job (no per-locale translation yet, e.g.
+// SKIP_AI_TRANSLATION=1) tripped `validateDedicatedLocaleCoverage`'s
+// blocking-issue path, and — pre-FRO-628 — that discarded the ENTIRE
+// 10-job batch instead of only the untranslated job. Verified empirically
+// (2026-07-08): re-running scripts/update-ems-chemie-jobs.mjs against the
+// live source with SKIP_AI_TRANSLATION=1 + JOBS_EMS_CHEMIE_STRICT=1 on
+// current main (which includes 57cd8b55dc9) keeps all 10 jobs, flagging
+// only the untranslated one with needsRetranslation:true. No crawler-
+// specific code change was needed; this test pins that behavior at
+// ems-chemie's OWN validateDedicatedLocaleCoverage() call-site wiring
+// (scripts/update-ems-chemie-jobs.mjs) so a future change to this
+// crawler's locales/strict-env/trust-domain params — or a regression in
+// the shared floor-tolerance logic — gets caught here instead of only
+// showing up as a silent 0-jobs production incident again. ═══════════════════════════════════════════════════════════════
+
+describe('validateDedicatedLocaleCoverage — ems-chemie call site (issue #3797 regression)', () => {
+  const STRICT_ENV = 'JOBS_EMS_CHEMIE_STRICT';
+  const PRIOR_STRICT = process.env[STRICT_ENV];
+  const PRIOR_SKIP_AI = process.env.SKIP_AI_TRANSLATION;
+
+  beforeEach(() => {
+    // orchestrate-crawlers.yml always dispatches crawler-group-*.yml with
+    // `-f skip_ai_translation=1` (.github/workflows/orchestrate-crawlers.yml),
+    // which the group workflow maps straight to SKIP_AI_TRANSLATION=1 for
+    // every dedicated-crawler step, including ems-chemie's. That is the
+    // real production condition that was in effect during the #3797
+    // incident (verified: triggering_actor was github-actions[bot] via
+    // workflow_dispatch, matching this dispatch path) — reproduce it here
+    // instead of a synthetic AI-key isolation trick.
+    process.env.SKIP_AI_TRANSLATION = '1';
+    process.env[STRICT_ENV] = '1';
+  });
+  afterEach(() => {
+    if (PRIOR_SKIP_AI === undefined) delete process.env.SKIP_AI_TRANSLATION;
+    else process.env.SKIP_AI_TRANSLATION = PRIOR_SKIP_AI;
+    if (PRIOR_STRICT === undefined) delete process.env[STRICT_ENV];
+    else process.env[STRICT_ENV] = PRIOR_STRICT;
+  });
+
+  const richDesc = (lang: string) =>
+    `Descrizione completa in lingua ${lang} per una posizione EMS-Chemie AG a Domat/Ems. ` +
+    'Il ruolo prevede responsabilita operative quotidiane, collaborazione con i colleghi ' +
+    'del team di produzione e sviluppo prodotto, con reali opportunita di crescita ' +
+    'professionale allinterno di unazienda leader nel settore chimico svizzero.';
+
+  function goodJob(n: number) {
+    const slug = `ems-chemie-good-job-${n}`;
+    return {
+      slug,
+      url: `https://jobs.ems-group.com/offene-stellen/good-job-${n}/${'0'.repeat(8)}-0000-0000-0000-${String(n).padStart(12, '0')}`,
+      title: `Test Position ${n} (m/w/d)`,
+      company: COMPANY_NAME,
+      companyKey: COMPANY_KEY,
+      description: richDesc('it'),
+      titleByLocale: {
+        it: `Posizione di Test ${n}`,
+        en: `Test Position ${n}`,
+        de: `Testposition ${n}`,
+        fr: `Poste de Test ${n}`,
+      },
+      descriptionByLocale: {
+        it: richDesc('it'),
+        en: richDesc('en'),
+        de: richDesc('de'),
+        fr: richDesc('fr'),
+      },
+      slugByLocale: { it: slug, en: `${slug}-en`, de: `${slug}-de`, fr: `${slug}-fr` },
+    };
+  }
+
+  /** Freshly-discovered job, source (IT) description only — no AI pass yet. */
+  function newUntranslatedJob() {
+    const slug = 'ems-chemie-area-sales-manager';
+    return {
+      slug,
+      url: 'https://jobs.ems-group.com/offene-stellen/area-sales-manager-m-w-d/9df1e07e-0005-43f8-9656-9f55cbbf18f2',
+      title: 'Area Sales Manager (m/w/d) 100%',
+      company: COMPANY_NAME,
+      companyKey: COMPANY_KEY,
+      description: richDesc('it'),
+      titleByLocale: { it: 'Area Sales Manager (m/w/d) 100%' },
+      descriptionByLocale: { it: richDesc('it') },
+      slugByLocale: {},
+    };
+  }
+
+  function writeScratchJobs(jobs: unknown[]): string {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-ems-chemie-locale-coverage-'));
+    const jobsPath = path.join(dir, 'jobs.json');
+    fs.writeFileSync(jobsPath, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+    return jobsPath;
+  }
+
+  function runValidation(jobsPath: string) {
+    return validateDedicatedLocaleCoverage({
+      strictEnvVar: STRICT_ENV,
+      label: COMPANY_NAME,
+      dataJobsPath: jobsPath,
+      isTargetJob: isCompanyJob,
+      locales: LOCALES,
+      isTrustedDomain,
+      untrustedDomainReason: 'url_not_ems_group_domain',
+      failWhenNoJobs: false,
+      noJobsMessage: `No ${COMPANY_NAME} jobs found — the company may not have active openings.`,
+    });
+  }
+
+  it('(#3797 repro) 9 translated jobs + 1 freshly-discovered untranslated job → all 10 survive, none silently dropped', () => {
+    const jobs = [...Array.from({ length: 9 }, (_, i) => goodJob(i)), newUntranslatedJob()];
+    const jobsPath = writeScratchJobs(jobs);
+
+    expect(() => runValidation(jobsPath)).not.toThrow();
+
+    // Slug hardening may regenerate the untranslated job's top-level slug
+    // (locale-derived), so assert on the stable source URL instead of the
+    // slug — the point under test is "no job silently disappears", not the
+    // exact slug value.
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as Array<{ url: string }>;
+    expect(after).toHaveLength(10);
+    expect(after.map((j) => j.url)).toContain(
+      'https://jobs.ems-group.com/offene-stellen/area-sales-manager-m-w-d/9df1e07e-0005-43f8-9656-9f55cbbf18f2'
+    );
+  });
+
+  it('a genuine non-translation problem (untrusted domain) still hard-fails even with SKIP_AI_TRANSLATION=1 — deferral only covers translation gaps, guard is not simply disabled', () => {
+    const untrustedJob = {
+      ...goodJob(99),
+      slug: 'ems-chemie-untrusted-domain-job',
+      url: 'https://not-ems-group.example.test/jobs/untrusted',
+    };
+    const jobs = [...Array.from({ length: 9 }, (_, i) => goodJob(i)), untrustedJob];
+    const jobsPath = writeScratchJobs(jobs);
+
+    expect(() => runValidation(jobsPath)).toThrow(/localization validation failed/i);
+  });
+
+  it('all-translated batch passes cleanly with no tolerance needed', () => {
+    const jobs = Array.from({ length: 3 }, (_, i) => goodJob(i));
+    const jobsPath = writeScratchJobs(jobs);
+
+    expect(() => runValidation(jobsPath)).not.toThrow();
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as unknown[];
+    expect(after).toHaveLength(3);
   });
 });

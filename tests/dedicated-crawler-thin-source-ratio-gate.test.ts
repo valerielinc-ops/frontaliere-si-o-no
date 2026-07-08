@@ -76,6 +76,28 @@ function makeThinJob(slug: string, n: number) {
   };
 }
 
+/**
+ * A job whose legacy top-level `description` scratch field is empty (as left
+ * behind post-AI-localization by enrichJobLocalesDCC) while the real content
+ * lives in descriptionByLocale — the exact shape that wiped Bucherer's 3 real
+ * jobs to zero on every run (issue #3797).
+ */
+function makeLocalizedOnlyJob(slug: string, n: number) {
+  const desc = richDescription();
+  const title = `Collaboratore Localizzato ${n}`;
+  return {
+    slug,
+    url: `https://example-source.test/jobs/${slug}/`,
+    title,
+    company: NO_BOILERPLATE_COMPANY,
+    description: '',
+    sourceLang: 'it',
+    titleByLocale: { it: title },
+    descriptionByLocale: { it: desc },
+    slugByLocale: { it: slug },
+  };
+}
+
 function writeJobs(jobs: unknown[]): { dir: string; jobsPath: string } {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-thin-ratio-'));
   const jobsPath = path.join(dir, 'jobs.json');
@@ -172,6 +194,18 @@ describe('validateDedicatedLocaleCoverage — ratio-gated thin-source abort', ()
     expect(() => runGuard(jobsPath)).not.toThrow();
     const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as unknown[];
     expect(after).toHaveLength(0);
+  });
+
+  it('(d2b) micro-source, 3 jobs with empty top-level description but rich descriptionByLocale (post-localization) → survives, NOT quarantined (issue #3797)', () => {
+    // Same job count/shape as (d2), but the content lives in descriptionByLocale
+    // (as left by AI localization) instead of the legacy top-level `description`
+    // scratch field. This must NOT be mistaken for a genuine parser break.
+    const jobs = Array.from({ length: 3 }, (_, i) => makeLocalizedOnlyJob(`localized-${i}`, i));
+    const { jobsPath } = writeJobs(jobs);
+
+    expect(() => runGuard(jobsPath)).not.toThrow();
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as unknown[];
+    expect(after).toHaveLength(3);
   });
 
   it('(d3) 4 jobs all thin (AT the floor) → still throws (parser-break signal restored)', () => {
