@@ -1,18 +1,56 @@
 {
   "key": "daler-hopital",
   "label": "Hôpital Daler",
-  "generatedAt": "2026-07-07T22:32:28.030Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-07-08T06:33:54.693Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3728,
-  "avgDurationMs": 3728,
+  "durationMs": 11293,
+  "avgDurationMs": 11293,
   "durationHistory": [
-    3728
+    11293
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "daler-hopital-fbda5667e1b2",
+      "slug": "gestionnaire-en-intendance-daler-hopital-fribourg",
+      "company": "Hôpital Daler",
+      "companyKey": "daler-hopital",
+      "companyDomain": "daler.ch",
+      "title": "Gestionnaire en intendance",
+      "needsRetranslation": true,
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://daler.ch/emplois#offer/4231/gestionnaire-en-intendance",
+      "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-08T06:33:44.056Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1700",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "applyUrl": "https://daler.ch/emplois#offer/4231/gestionnaire-en-intendance",
+      "externalId": "4231",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "daler-hopital-a6afc4bd3b99",
@@ -27,7 +65,7 @@
       "url": "https://daler.ch/emplois#offer/4197/assistante-en-pharmacie",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:32:26.476Z",
+      "crawledAt": "2026-07-08T06:33:44.588Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",

@@ -276,6 +276,18 @@ describe('identityUrlKey (stats/diff/firstSeenAt identity)', () => {
   it('returns empty string for empty input', () => {
     expect(identityUrlKey('')).toBe('');
   });
+  it('keys Johdi Suite offer fragments on the numeric id, not the shared page', () => {
+    const a = identityUrlKey('https://www.ehnv.ch/emplois#offer/3428/une-medecin-adjointe-a-80');
+    const b = identityUrlKey('https://www.ehnv.ch/emplois#offer/4220/un-infirmier');
+    expect(a).toBe('https://www.ehnv.ch/emplois#offer-3428');
+    expect(b).toBe('https://www.ehnv.ch/emplois#offer-4220');
+    expect(a).not.toBe(b);
+  });
+  it('Johdi Suite key is stable across a slug rename', () => {
+    const a = identityUrlKey('https://www.ehnv.ch/emplois#offer/3428/une-medecin-adjointe-a-80');
+    const b = identityUrlKey('https://www.ehnv.ch/emplois#offer/3428/medecin-adjointe-renamed');
+    expect(a).toBe(b);
+  });
 });
 
 describe('intentional divergence: hash handling', () => {

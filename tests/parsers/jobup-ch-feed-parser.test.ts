@@ -4,7 +4,11 @@
  * Covers Romandie employers that publish jobs via the jobup.ch mask endpoint
  * (used by the Jalios JCMS PluginJobUp integration and others):
  *   - Pôle Santé Pays-d'Enhaut (key `hpe`) — VD Château-d'Oex
- *   - eHnv (key `ehnv`) — VD Yverdon-les-Bains
+ *
+ * eHnv (key `ehnv`) moved off jobup.ch to a Johdi Suite ATS — see
+ * `tests/parsers/johdisuite-ehnv-parser.test.ts`. The jobup.ch mask `ehnv`
+ * returned 0 jobs for 5+ consecutive days while eHnv's real career page
+ * listed ~15 openings (stale/disconnected feed, confirmed 2026-07-08).
  *
  * Verifies:
  *   - Exported constants on each thin wrapper
@@ -29,22 +33,11 @@ import {
   isPoleSantePaysEnhautJob,
   isTrustedDomain as isPsTrusted,
 } from '../../scripts/lib/pole-sante-pays-enhaut-job-parser.mjs';
-import {
-  EHNV_KEY,
-  EHNV_COMPANY_NAME,
-  isEhnvJob,
-  isTrustedDomain as isEhnvTrusted,
-} from '../../scripts/lib/ehnv-job-parser.mjs';
 
 describe('jobup.ch employers — exported constants', () => {
   it('PSPE constants', () => {
     expect(POLE_SANTE_PAYS_ENHAUT_KEY).toBe('pole-sante-pays-enhaut');
     expect(POLE_SANTE_PAYS_ENHAUT_COMPANY_NAME).toMatch(/Pays-d'Enhaut/);
-  });
-
-  it('eHnv constants', () => {
-    expect(EHNV_KEY).toBe('ehnv');
-    expect(EHNV_COMPANY_NAME).toMatch(/Nord Vaudois/);
   });
 });
 
@@ -57,11 +50,6 @@ describe('isCompanyJob — matchers', () => {
   it('PSPE matches by corporate domain', () => {
     expect(isPoleSantePaysEnhautJob({ url: 'https://www.pspe.ch/jcms/x' })).toBe(true);
   });
-
-  it('eHnv matches by mask + corporate domain', () => {
-    expect(isEhnvJob({ url: 'https://www.jobup.ch/masks/ehnv/anything' })).toBe(true);
-    expect(isEhnvJob({ url: 'https://www.ehnv.ch/emplois' })).toBe(true);
-  });
 });
 
 describe('isTrustedDomain — jobup.ch is always trusted', () => {
@@ -70,11 +58,6 @@ describe('isTrustedDomain — jobup.ch is always trusted', () => {
     expect(isPsTrusted('https://jobup.ch/x')).toBe(true);
     expect(isPsTrusted('https://www.pspe.ch/x')).toBe(true);
     expect(isPsTrusted('https://malicious.example/x')).toBe(false);
-  });
-
-  it('eHnv trusts jobup.ch and ehnv.ch', () => {
-    expect(isEhnvTrusted('https://www.jobup.ch/x')).toBe(true);
-    expect(isEhnvTrusted('https://www.ehnv.ch/x')).toBe(true);
   });
 
   it('rejects malformed URLs', () => {
