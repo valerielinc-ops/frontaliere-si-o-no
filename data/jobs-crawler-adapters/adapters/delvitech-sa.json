@@ -1,7 +1,7 @@
 {
   "companyKey": "delvitech-sa",
   "companyName": "Delvitech SA",
-  "companyHost": "delvi.tech",
+  "companyHost": "legacy.delvi.tech",
   "enabled": true,
   "priority": 20,
   "crawlerModes": [
@@ -10,6 +10,68 @@
   "seedUrls": [
     "https://legacy.delvi.tech/career/"
   ],
-  "notes": "RE-ENABLED #3797 (2026-07-08): legacy.delvi.tech/career/ is live again and lists 12 open roles (11 Rancate CH + 1 Germany). The dedicated crawler (scripts/update-delvitech-jobs.mjs) rewrites this file on every successful run.",
-  "updatedAt": "2026-07-08T00:00:00.000Z"
+  "notes": "Dedicated Delvitech crawler parses the legacy WordPress career page and detail pages, excluding Germany roles and publishing TI + GR vacancies.",
+  "updatedAt": "2026-07-08T11:42:12.386Z",
+  "seedMetaByUrl": {
+    "https://legacy.delvi.tech/application-engineer-2/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Delvitech SA",
+      "postedDate": "2026-07-08"
+    },
+    "https://legacy.delvi.tech/back-office-specialist/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Delvitech SA",
+      "postedDate": "2026-07-08"
+    },
+    "https://legacy.delvi.tech/junior-project-manager/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Delvitech SA",
+      "postedDate": "2026-07-08"
+    },
+    "https://legacy.delvi.tech/front-end-sw-engineer/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Delvitech SA",
+      "postedDate": "2026-07-08"
+    },
+    "https://legacy.delvi.tech/firmware-embedded-developer/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Delvitech SA",
+      "postedDate": "2026-07-08"
+    },
+    "https://legacy.delvi.tech/devops-engineer-2/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Delvitech SA",
+      "postedDate": "2026-07-08"
+    },
+    "https://legacy.delvi.tech/e2e-test-engineer/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Delvitech SA",
+      "postedDate": "2026-07-08"
+    },
+    "https://legacy.delvi.tech/mechanical-engineer-2/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Delvitech SA",
+      "postedDate": "2026-07-08"
+    },
+    "https://legacy.delvi.tech/software-development-and-validation-engineer-2/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Delvitech SA",
+      "postedDate": "2026-07-08"
+    },
+    "https://legacy.delvi.tech/customer-support-manager/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Delvitech SA",
+      "postedDate": "2026-07-08"
+    }
+  }
 }
