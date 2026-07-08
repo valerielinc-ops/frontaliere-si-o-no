@@ -1,5 +1,54 @@
 [
   {
+    "slug": "internship-analytics-ingegnere-sika-baar",
+    "title": "Internship - Analytics Engineer",
+    "titleByLocale": {
+      "it": "Internship - Analytics Ingegnere",
+      "en": "Internship - Analytics Engineer",
+      "de": "Internship - Analytics Ingenieur",
+      "fr": "Internship - Analytics Ingénieur"
+    },
+    "company": "Sika",
+    "companyKey": "sika",
+    "location": "Baar, Canton of Zug, Switzerland",
+    "addressLocality": "Baar",
+    "descriptionByLocale": {
+      "it": "Progettazione, implementazione e manutenzione dei processi ETL per garantire una base dati strutturata e affidabile Automazione e ottimizzazione dei processi di dati e flussi di lavoro ricorrenti (ad esempio utilizzando Python e SQL) Una stretta collaborazione con gli stakeholder aziendali per tradurre i requisiti aziendali in soluzioni basate sui dati Supporto per la finanza e il controllo nell'analisi dei dati, reporting e monitoraggio delle prestazioni Sviluppo e miglioramento continuo dei cruscotti BI e soluzioni di report scalabili Identificazione e implementazione dei potenziali di ottimizzazione nei processi e sistemi esistenti Utilizzo di tecnologie moderne (compresi gli strumenti AI) per aumentare l'efficienza e sviluppare ulteriormente analisi e processi",
+      "en": "Design, implementation, and maintenance of ETL processes to ensure a structured and reliable data foundation Automation and optimization of data processes and recurring workflows (e.g. using Python and SQL) Close collaboration with business stakeholders to translate business requirements into data-driven solutions Support for Finance and Controlling in data analysis, reporting, and performance tracking Development and continuous improvement of BI dashboards as well as scalable reporting solutions Identification and implementation of optimization potentials in existing processes and systems Use of modern technologies (including AI tools) to increase efficiency and further develop analyses and processes",
+      "de": "Design, Implementierung und Wartung von ETL-Prozessen zur Gewährleistung einer strukturierten und zuverlässigen Datengrundlage Automatisierung und Optimierung von Datenprozessen und wiederkehrenden Workflows (z.B. mit Python und SQL) Enge Zusammenarbeit mit Business Stakeholdern zur Umsetzung von Geschäftsanforderungen in datengetriebene Lösungen Support for Finance and Controlling in Data Analysis, Reporting und Performance Tracking Entwicklung und kontinuierliche Verbesserung von BI-Dashboards sowie skalierbaren Reporting-Lösungen Identifikation und Umsetzung von Optimierungspotenzialen in bestehenden Prozessen und Systemen Nutzung moderner Technologien (einschließlich KI-Tools) zur Effizienzsteigerung und Weiterentwicklung von Analysen und Prozessen",
+      "fr": "Conception, mise en œuvre et maintenance des processus ETL pour assurer une base de données structurée et fiable Automatisation et optimisation des processus de données et des flux de travail récurrents (par exemple en utilisant Python et SQL) Collaboration étroite avec les intervenants commerciaux pour traduire les exigences opérationnelles en solutions axées sur les données Soutien au financement et au contrôle de l'analyse des données, de l'établissement de rapports et du suivi des performances Développement et amélioration continue des tableaux de bord BI ainsi que des solutions de rapport évolutives Identification et mise en oeuvre des potentiels d'optimisation dans les processus et systèmes existants Utilisation des technologies modernes (y compris les outils d'IA) pour accroître l'efficacité et développer les analyses et les processus"
+    },
+    "slugByLocale": {
+      "it": "internship-analytics-ingegnere-sika-baar",
+      "en": "internship-analytics-engineer-sika-ch",
+      "de": "internship-analytics-ingenieur-sika-baar",
+      "fr": "internship-analytics-ingenieur-sika-baar"
+    },
+    "sector": "Specialty chemicals (construction & industrial)",
+    "expiredAt": "2026-07-08T22:27:42.887Z",
+    "previousSlugs": [
+      "internship-analytics-engineer-sika-ch",
+      "internship-analytics-ingegnere-sika-baar"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "internship-analytics-engineer-sika-ch",
+        "internship-analytics-ingegnere-sika-baar"
+      ],
+      "de": [
+        "internship-analytics-engineer-sika-ch"
+      ],
+      "fr": [
+        "internship-analytics-engineer-sika-ch"
+      ]
+    },
+    "postalCode": "6341",
+    "salaryMin": 69500,
+    "salaryMax": 106000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "data-ingegnere-risorse-umane-data-analytics-sika-zurich-zurich-switzerland",
     "title": "Data Engineer - HR Data & Analytics",
     "titleByLocale": {
