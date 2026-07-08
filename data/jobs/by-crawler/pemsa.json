@@ -666,9 +666,9 @@
       },
       "slugByLocale": {
         "it": "pittore-pemsa-locarno",
-        "en": "pittore-pemsa-locarno",
-        "de": "pittore-pemsa-locarno",
-        "fr": "pittore-pemsa-locarno"
+        "en": "painter-pemsa-locarno",
+        "de": "malerei-pemsa-locarno",
+        "fr": "peintre-pemsa-locarno"
       },
       "id": "pemsa-a3fd6b84ee7f",
       "salaryMin": 49500,
@@ -780,9 +780,9 @@
       },
       "slugByLocale": {
         "it": "gruista-pemsa-locarno",
-        "en": "gruista-pemsa-locarno",
-        "de": "gruista-pemsa-locarno",
-        "fr": "gruista-pemsa-locarno"
+        "en": "gruist-pemsa-locarno",
+        "de": "grundter-pemsa-locarno",
+        "fr": "gruiste-pemsa-locarno"
       },
       "id": "pemsa-4c39033e590d",
       "salaryMin": 49500,
@@ -839,7 +839,7 @@
         "it": "muratore-carpentiere-pemsa-locarno",
         "en": "murder-pemsa-locarno",
         "de": "mord-pemsa-locarno",
-        "fr": "muratore-carpentiere-pemsa-locarno"
+        "fr": "macon-charpentier-pemsa-locarno"
       },
       "id": "pemsa-88b61ebb2f35",
       "salaryMin": 49500,
@@ -2814,9 +2814,9 @@
       },
       "slugByLocale": {
         "it": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-fribourg",
-        "en": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-fribourg",
-        "de": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-fribourg",
-        "fr": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-fribourg"
+        "en": "team-leader-industrial-infrastructure-railway-electrical-lines-pemsa-fribourg",
+        "de": "teamleiter-industrielle-infrastruktur-eisenbahn-elektroleitungen-pemsa-fribourg",
+        "fr": "chef-d-equipe-infrastructures-industrielles-lignes-electriques-ferroviaires-pemsa-fribourg"
       },
       "id": "pemsa-79fa079b383c",
       "salaryMin": 94500,
@@ -2833,23 +2833,7 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-07-03T22:39:11.228Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "team-leader-industrial-infrastructure-railway-electrical-lines-pemsa-fribourg"
-        ],
-        "de": [
-          "teamleiter-industrielle-infrastruktur-eisenbahn-elektroleitungen-pemsa-fribourg"
-        ],
-        "fr": [
-          "chef-d-equipe-infrastructures-industrielles-lignes-electriques-ferroviaires-pemsa-fribourg"
-        ]
-      },
-      "previousSlugs": [
-        "team-leader-industrial-infrastructure-railway-electrical-lines-pemsa-fribourg",
-        "teamleiter-industrielle-infrastruktur-eisenbahn-elektroleitungen-pemsa-fribourg",
-        "chef-d-equipe-infrastructures-industrielles-lignes-electriques-ferroviaires-pemsa-fribourg"
-      ]
+      "firstSeenAt": "2026-07-03T22:39:11.228Z"
     },
     {
       "title": "IDRAULICO",
@@ -3938,7 +3922,7 @@
       "slugByLocale": {
         "it": "imbianchino-afc-aec-m-f-d-pemsa-basel",
         "en": "imbianchino-afc-aec-m-f-d-pemsa-basel",
-        "de": "imbianchino-afc-aec-m-f-d-pemsa-basel",
+        "de": "anstrichmittel-und-oberflachenlackierer-afc-aec-m-w-d-pemsa-basel",
         "fr": "blanchiment-afc-aec-m-f-d-pemsa-basel"
       },
       "id": "pemsa-3db3247a75fa",
@@ -9509,8 +9493,8 @@
       },
       "slugByLocale": {
         "it": "caposquadra-muratura-m-f-pemsa-tavannes",
-        "en": "caposquadra-muratura-m-f-pemsa-tavannes",
-        "de": "caposquadra-muratura-m-f-pemsa-tavannes",
+        "en": "lead-bricklayer-masonry-m-f-pemsa-tavannes",
+        "de": "vorarbeiter-maurerarbeiten-m-f-pemsa-tavannes",
         "fr": "siege-mur-m-f-pemsa-tavannes"
       },
       "id": "pemsa-ac0652767ae9",

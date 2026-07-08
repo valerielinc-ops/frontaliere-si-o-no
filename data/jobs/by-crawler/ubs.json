@@ -8182,9 +8182,9 @@
     },
     {
       "id": "ubs-e15a38bc3f70",
-      "slug": "remote-advisor-mortgages-affluent-renens-80-100-ubs-valais",
+      "slug": "consulente-remota-hypoteca-affluente-renens-80-100-ubs-valais",
       "slugByLocale": {
-        "it": "remote-advisor-mortgages-affluent-renens-80-100-ubs-valais",
+        "it": "consulente-remota-hypoteca-affluente-renens-80-100-ubs-valais",
         "en": "remote-advisor-mortgages-affluent-renens-80-100-ubs-valais",
         "de": "remote-advisor-mortgages-affluent-renens-80-100-ubs-valais",
         "fr": "remote-advisor-mortgages-affluent-renens-80-100-ubs-valais"
@@ -8248,7 +8248,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "remote-advisor-mortgages-affluent-renens-80-100-ubs-valais"
+        ]
+      },
+      "previousSlugs": [
+        "remote-advisor-mortgages-affluent-renens-80-100-ubs-valais"
+      ]
     },
     {
       "id": "ubs-eccef12c7103",
