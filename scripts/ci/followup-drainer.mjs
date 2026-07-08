@@ -213,6 +213,47 @@ export function detectExplicitNetworkAudit(title, body) {
   return /network-enabled\s+audit|audit\s+curl/i.test(s);
 }
 
+// --- OVERLAP-FILE PRE-FLIGHT (escalation #3810) ----------------------------------
+// fix-outcome:overlap-skip ricorre 8×/14gg: il fixer Claude rileva l'overlap solo
+// DOPO aver bruciato ~1M token. Questo check zero-Claude rimuove il burn alla fonte:
+// il drainer rileva PRIMA della promozione se i file target della issue sono già
+// modificati da una PR aperta, rinviando il candidato al prossimo tick (no park:
+// l'overlap è transitorio — la PR bloccante può mergiarsi, il candidato diventa
+// promuovibile al tick successivo senza aver consumato quota Claude).
+//
+// CONSERVATIVO (bias a PROMUOVERE — un falso-skip ritarderebbe un fix legittimo):
+//   - Nessun path di codice estratto dal body → PROMUOVI (nessun segnale).
+//   - Errori gh (pr list / pr diff) → PROMUOVI (transiente, non bloccare su glitch).
+//   - Solo path CODE_PATH_RE (scripts/build-plugins/services/…) — mai su data-blob
+//     (data/**) o workflow (.github/**) già gestiti dalle pre-flight sopra.
+
+/**
+ * Estrae i path di file codice (non-workflow) citati nel testo di una issue.
+ * Riusa CODE_PATH_RE già definita (consistenza, no drift). Pura → testabile.
+ * @param {string} text  title + body della issue
+ * @returns {string[]}
+ */
+export function extractCodePaths(text) {
+  return [...new Set((String(text || '').match(CODE_PATH_RE) || []))];
+}
+
+/**
+ * Dato l'array di path del candidato e una mappa PR→files (pre-caricata),
+ * ritorna il PRIMO overlap trovato {prNumber, prTitle, file} o null se nessuno.
+ * Pura (niente gh) → testabile in unit test senza mock.
+ * @param {string[]} paths
+ * @param {Map<number, {title:string, files:Set<string>}>} prFilesMap
+ * @returns {{prNumber:number, prTitle:string, file:string}|null}
+ */
+export function findOverlapFile(paths, prFilesMap) {
+  for (const [prNumber, { title, files }] of prFilesMap) {
+    for (const p of paths) {
+      if (files.has(p)) return { prNumber, prTitle: String(title || ''), file: p };
+    }
+  }
+  return null;
+}
+
 /**
  * Un'issue è "queue-managed" (passata dalla coda `agent:fix-queued` drenata da
  * questo file)? Prima del 2026-07-05 SOLO i `follow-up` la attraversavano;
@@ -416,6 +457,30 @@ function latestFixOutcome(num) {
   }
 }
 
+/**
+ * Carica la mappa PR aperta → {title, files modificati} per il ciclo drainer
+ * corrente. In caso di errore gh → mappa vuota (bias a promuovere: mai bloccare
+ * una promozione per un glitch API transiente).
+ * @returns {Map<number, {title:string, files:Set<string>}>}
+ */
+function loadOpenPrFilesMap() {
+  const map = new Map();
+  let openPrs;
+  try {
+    openPrs = gh(['pr', 'list', '--state', 'open', '--json', 'number,title', '--limit', '50']);
+  } catch { return map; } // lista PR non disponibile → mappa vuota → promuovi
+  for (const pr of Array.isArray(openPrs) ? openPrs : []) {
+    try {
+      const diffOut = gh(['pr', 'diff', String(pr.number), '--name-only'], { json: false });
+      const files = new Set(
+        String(diffOut || '').split('\n').map((l) => l.trim()).filter(Boolean),
+      );
+      map.set(pr.number, { title: String(pr.title || ''), files });
+    } catch { /* diff non disponibile → salta questa PR (bias a promuovere) */ }
+  }
+  return map;
+}
+
 function main() {
   if (!REPO) { console.error('GITHUB_REPOSITORY mancante'); process.exit(1); }
   console.log(`followup-drainer${DRY ? ' [DRY-RUN]' : ''} repo=${REPO}`);
@@ -615,6 +680,9 @@ function main() {
     .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
   if (!queued.length) { console.log('coda vuota → niente da promuovere.'); return; }
 
+  let overlapSkipped = 0;
+  let prFilesMap = null; // lazy: caricato al primo candidato con path estratti, poi cached
+
   // Promuovi il primo candidato in coda, MA salta (parka) quelli il cui fix è
   // esclusivamente workflow-scoped (#1724): promuoverli brucerebbe ~1M token in
   // un run che il push GitHub-App bloccherebbe comunque (no scope `workflows`).
@@ -665,11 +733,24 @@ function main() {
       continue; // prova il prossimo in coda
     }
 
+    // Check: overlap-file con PR aperta (escalation #3810). Zero-Claude, pre-promozione.
+    const candPaths = extractCodePaths(`${cand.title}\n${body}`);
+    if (candPaths.length > 0) {
+      if (prFilesMap === null) prFilesMap = loadOpenPrFilesMap(); // lazy init, cached per ciclo
+      const overlap = findOverlapFile(candPaths, prFilesMap);
+      if (overlap) {
+        console.log(`OVERLAP-SKIP #${cand.number} (file \`${overlap.file}\` in-volo in PR #${overlap.prNumber} "${overlap.prTitle.slice(0, 40)}") → rinvio al prossimo tick`);
+        overlapSkipped++;
+        continue; // NO park: l'overlap è transitorio (la PR bloccante può mergiarsi)
+      }
+    }
+
     console.log(`PROMUOVO #${cand.number} (${has(cand, 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_FIX}`);
     edit(cand.number, { add: [LBL_FIX], remove: [LBL_QUEUED] });
     return; // una sola promozione per run (slot issue-fix)
   }
-  console.log('coda esaurita (solo candidati workflow-scoped parkati) → niente da promuovere.');
+  const skipNote = overlapSkipped ? ` + ${overlapSkipped} overlap-file rinviati al prossimo tick` : '';
+  console.log(`coda esaurita (solo candidati parkati${skipNote}) → niente da promuovere.`);
 }
 
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
