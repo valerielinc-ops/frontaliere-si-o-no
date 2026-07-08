@@ -567,8 +567,22 @@ const BOILERPLATE_MIN_COUNT = Number(process.env.JOBS_BOILERPLATE_MIN_COUNT) || 
 const SHRINK_GUARD_MIN_BASELINE = 20;
 const SHRINK_GUARD_RATIO = 0.4;
 
-/** Whether writeJobsCrawlerSlice should refuse to persist a shrink from priorCount to newCount jobs. */
+/**
+ * Whether writeJobsCrawlerSlice should refuse to persist a shrink from
+ * priorCount to newCount jobs.
+ *
+ * The MIN_BASELINE ratio-gate below exists to avoid false positives on
+ * small crawlers' natural churn swings (e.g. 6 jobs -> 3 jobs is normal
+ * noise for a small employer, not a broken parser). But that same gate
+ * created a blind spot: a crawler with a small baseline (<20 jobs) that
+ * goes to exactly zero is a 100% wipeout — never legitimate churn — and
+ * sailed through completely unguarded (corner-banca incident, 2026-07-06:
+ * 17 real jobs -> 0, below MIN_BASELINE, guard never even evaluated the
+ * ratio). A total wipeout is caught unconditionally, regardless of
+ * baseline size, before falling back to the baseline-gated ratio check.
+ */
 export function shouldBlockShrink(priorCount, newCount) {
+  if (priorCount > 0 && newCount === 0) return true;
   return priorCount >= SHRINK_GUARD_MIN_BASELINE && newCount < priorCount * SHRINK_GUARD_RATIO;
 }
 
