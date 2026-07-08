@@ -108,6 +108,11 @@ function extractHtmlJobCards(html) {
       // Extract location
       const locMatch = block.match(/(?:Lugano|Zurich|Zürich|Locarno|Bellinzona|Switzerland|Svizzera|Schweiz)/i);
       const location = locMatch ? locMatch[0] : '';
+      // Tailwind's ubiquitous "items-center"/"items-start" utility classes make
+      // Pattern B's "item" keyword match almost any layout div (non-job hero
+      // sections included); a real card always carries a location keyword, so
+      // require one to reject these false positives (issue #3797).
+      if (!location) continue;
 
       // Extract link
       const linkMatch = block.match(/href="([^"]+)"/i);
@@ -148,9 +153,12 @@ function extractLinkBasedJobs(html) {
     const linkText = stripHtml(match[2]);
     if (!linkText || linkText.length < 3) continue;
 
-    // Get surrounding context (300 chars before the link)
+    // Get surrounding context before the link. Real cards on this site put
+    // the location badge ~580-590 chars before the apply link (location ->
+    // employment-type badge -> title -> description -> apply link), so 500
+    // chars cut the location off; widen the window to fit it (issue #3797).
     const pos = match.index;
-    const before = html.substring(Math.max(0, pos - 500), pos);
+    const before = html.substring(Math.max(0, pos - 700), pos);
 
     // Look for a heading before the link
     const headingMatch = before.match(/<(?:h[1-6])[^>]*>(.*?)<\/h[1-6]>/gi);

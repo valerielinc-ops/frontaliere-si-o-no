@@ -2,7 +2,17 @@
 /**
  * Benteler job parser — Fetcher and job builder.
  *
- * Source: https://career.benteler.com/
+ * Source: https://career.benteler.jobs/search/?locale=en_US
+ *
+ * ISSUE #3797 FALSE-NEGATIVE FIX: the previous parser targeted
+ * `career.benteler.com` (a TYPO3 marketing site, not a job board at all)
+ * with invented SuccessFactors API URLs that never existed. Benteler's
+ * real job board lives on a completely different domain: a SAP
+ * SuccessFactors "Jobs2Web" career site at `career.benteler.jobs`. It is
+ * fully server-rendered HTML (no JS/API needed) — listing rows are
+ * `<tr class="data-row">` blocks with `jobTitle-link`/`jobLocation`
+ * spans, paginated via `?startrow=N` (25 rows/page), and detail pages
+ * carry schema.org `JobPosting` microdata.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBentelerJobs()  — Fetch and parse all jobs
@@ -11,12 +21,10 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson, warnIfListingAtCap } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -24,20 +32,12 @@ export const BENTELER_KEY = 'benteler';
 export const BENTELER_COMPANY_NAME = 'Benteler';
 export const BENTELER_COMPANY_DOMAIN = 'benteler.com';
 
-const CAREER_URL = 'https://career.benteler.com/';
+const CAREER_HOST = 'career.benteler.jobs';
+const CAREER_URL = `https://${CAREER_HOST}/search/?locale=en_US`;
 const HQ = getCompanyDefaults('benteler');
 
-/**
- * Benteler uses SAP SuccessFactors. Their career site typically serves
- * job data via a JSON API or embeds it in the HTML as a script block.
- * We try to discover the SuccessFactors API endpoint and fall back to
- * HTML scraping.
- */
-const SF_API_LIMIT = 50;
-const SF_API_URLS = [
-  `https://career.benteler.com/api/jobs?country=CH&limit=${SF_API_LIMIT}`,
-  `https://career.benteler.com/api/v1/jobs?location=Switzerland&limit=${SF_API_LIMIT}`,
-];
+const PAGE_SIZE = 25;
+const MAX_PAGES = 40; // safety cap (40 * 25 = 1000 rows)
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -49,26 +49,6 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
-function isLikelyJobLink({ title = '', href = '' } = {}) {
-  const text = normalizeSpace(title);
-  const lowerText = text.toLowerCase();
-  const lowerHref = String(href || '').toLowerCase();
-
-  if (!text || text.length < 5) return false;
-  if (/^(more|apply now|click here to apply|faqs? and job offers)$/i.test(text)) return false;
-  if (/\b(opens in new window|job offers|faq|privacy|impressum|login|register|contact|about)\b/i.test(text)) {
-    return false;
-  }
-  if (/login|register|contact|about|impressum|datenschutz|privacy|faq/i.test(lowerHref)) return false;
-
-  return (
-    /\/job\//i.test(lowerHref) ||
-    /\/jobs\//i.test(lowerHref) ||
-    /jobid=|job_id=|jobreqid=|requisition|stellenangebot|karriere/i.test(lowerHref) ||
-    /\b(engineer|manager|specialist|technician|operator|mechanic|quality|logistics|praktik|intern|fach|leiter|mitarbeiter)\b/i.test(lowerText)
-  );
-}
-
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -78,7 +58,7 @@ function isLikelyJobLink({ title = '', href = '' } = {}) {
 export function isBentelerJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
@@ -88,17 +68,24 @@ export function isBentelerJob(job) {
     key === BENTELER_KEY ||
     key.startsWith('benteler') ||
     company.includes('benteler') ||
-    url.includes('benteler.com')
+    url.includes('benteler.com') ||
+    url.includes('benteler.jobs')
   );
 }
 
 /**
- * Validate that a URL belongs to Benteler's domain.
+ * Validate that a URL belongs to Benteler's domain (marketing site or the
+ * SuccessFactors Jobs2Web career board, which lives on `benteler.jobs`).
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'benteler.com' || host.endsWith('.benteler.com');
+    return (
+      host === 'benteler.com' ||
+      host.endsWith('.benteler.com') ||
+      host === 'benteler.jobs' ||
+      host.endsWith('.benteler.jobs')
+    );
   } catch {
     return false;
   }
@@ -138,167 +125,178 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── Fetch + Parse ─────────────────────────────────────────── */
+/* ── Jobs2Web listing + detail (server-rendered HTML) ─────── */
 
 /**
- * Try SuccessFactors-style API endpoints to fetch job listings.
- */
-async function trySuccessFactorsApi() {
-  for (const apiUrl of SF_API_URLS) {
-    try {
-      console.log(`   Trying SuccessFactors API: ${apiUrl}`);
-      const data = await fetchJson(apiUrl, { timeoutMs: 15000 });
-      const items = assertJsonListShapeMultiKey(data, {
-        keys: ['jobs', 'results', 'd.results', 'requisitions'],
-        allowBareArray: true,
-        source: BENTELER_KEY,
-      });
-      if (items.length > 0) {
-        console.log(`   API returned ${items.length} jobs`);
-        warnIfListingAtCap({ label: 'Benteler SuccessFactors listing', count: items.length, cap: SF_API_LIMIT });
-        return items;
-      }
-    } catch (err) {
-      console.log(`   API attempt failed: ${err.message}`);
-    }
-  }
-  return null;
-}
-
-/**
- * Parse the Benteler career page HTML for job listings.
- * SuccessFactors sites often render server-side or embed JSON data.
- */
-function parseCareerPageHtml(html = '') {
-  if (!html) return [];
-  const { document } = new JSDOM(html).window;
-  const jobs = [];
-  const seen = new Set();
-
-  // Look for embedded JSON in script tags
-  const scripts = document.querySelectorAll('script');
-  for (const script of scripts) {
-    const text = script.textContent || '';
-    // SuccessFactors often uses __NEXT_DATA__ or embedded requisition data
-    const jsonMatch = text.match(/"(?:jobs|requisitions|postings)"\s*:\s*(\[[\s\S]*?\])/i);
-    if (jsonMatch) {
-      try {
-        const parsed = JSON.parse(jsonMatch[1]);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-      } catch { /* not valid JSON */ }
-    }
-  }
-
-  // Scrape job links from HTML
-  const JOB_SELECTORS = [
-    'a[href*="job"], a[href*="/go/"], a[href*="requisition"]',
-    '.job-listing a, .job-card a, .vacancy a',
-    '.career-listing a, .position-card a',
-    'h2 a, h3 a',
-  ];
-
-  for (const selector of JOB_SELECTORS) {
-    try {
-      const links = document.querySelectorAll(selector);
-      for (const link of links) {
-        const href = link.getAttribute('href') || '';
-        const title = normalizeSpace(link.textContent || '');
-
-        const fullUrl = href.startsWith('http') ? href : `https://career.benteler.com${href.startsWith('/') ? '' : '/'}${href}`;
-        if (!isTrustedDomain(fullUrl)) continue;
-        if (!isLikelyJobLink({ title, href: fullUrl })) continue;
-        if (seen.has(fullUrl.toLowerCase())) continue;
-
-        seen.add(fullUrl.toLowerCase());
-
-        // Check if this looks like a Swiss job
-        const parent = link.closest('li, tr, div, article') || link.parentElement;
-        const parentText = (parent?.textContent || '').toLowerCase();
-        const isSwiss = /schweiz|switzerland|suisse|svizzera|manno|ticino|tessin|lugano|ch\b/i.test(parentText);
-
-        jobs.push({
-          title,
-          url: fullUrl,
-          location: isSwiss ? 'Manno' : '',
-          description: '',
-          isSwiss,
-        });
-      }
-    } catch { /* selector not found */ }
-    if (jobs.length > 0) break;
-  }
-
-  return jobs;
-}
-
-/**
- * Check if a location string indicates a Swiss target location. Uses the
- * canonical BFS-based check so every canton/municipality is recognized.
+ * Check if a location string indicates a Swiss target location.
+ *
+ * Jobs2Web location text is formatted "City, RegionCode, CountryCode" (e.g.
+ * "Paderborn, NW, DE" or "Sierre, VS, CH"). A trailing 2/3-letter country
+ * code, when present, is authoritative and MUST be checked before falling
+ * back to fuzzy canton/city matching: Swiss canton abbreviations collide
+ * with foreign region codes (e.g. "NW" = Nidwalden in Switzerland, but also
+ * Nordrhein-Westfalen in Germany) — without this guard, `isTargetSwissLocation()`
+ * false-positives on every German posting whose region code happens to
+ * match a Swiss canton code.
  */
 function isSwissLocation(location = '') {
-  const loc = String(location || '');
+  const loc = String(location || '').trim();
   if (!loc) return false;
-  if (/\b(schweiz|switzerland|suisse|svizzera|ch)\b/i.test(loc)) return true;
+  if (/\b(schweiz|switzerland|suisse|svizzera)\b/i.test(loc)) return true;
+  const parts = loc.split(',').map((p) => p.trim()).filter(Boolean);
+  if (parts.length >= 2) {
+    const last = parts[parts.length - 1].toUpperCase();
+    if (/^[A-Z]{2,3}$/.test(last)) {
+      return last === 'CH';
+    }
+  }
   return isTargetSwissLocation(loc);
+}
+
+/**
+ * Parse one Jobs2Web search-results page (server-rendered `<tr class="data-row">`
+ * table). Returns `{ rows, total }` where `total` is the "Results X to Y of
+ * TOTAL" count parsed from the page (0 if not found).
+ */
+function parseSearchPage(html = '') {
+  const rows = [];
+  const blocks = String(html || '').split('<tr class="data-row">').slice(1);
+  for (const block of blocks) {
+    const titleM = block.match(/class="jobTitle-link">([^<]*)</);
+    const hrefM = block.match(/href="([^"]+)"\s*class="jobTitle-link"/);
+    const locM = block.match(/<span class="jobLocation">\s*([^<]*?)\s*<\/span>/);
+    const facM = block.match(/class="jobFacility">([^<]*)</);
+    if (!titleM || !hrefM) continue;
+    rows.push({
+      title: normalizeSpace(titleM[1]),
+      href: hrefM[1],
+      locationText: locM ? normalizeSpace(locM[1]) : '',
+      facility: facM ? normalizeSpace(facM[1]) : '',
+    });
+  }
+  const totalM = html.match(/Results\s+\d+\s+to\s+\d+\s+of\s+(\d+)/i);
+  return { rows, total: totalM ? Number(totalM[1]) : 0 };
+}
+
+/**
+ * Fetch every Jobs2Web search-results page, then filter client-side for
+ * Swiss locations. Note: on this tenant `jobFacility` holds a business-unit
+ * name (e.g. "BENTELER Steel/Tube"), not a country, so filtering relies on
+ * the `jobLocation` text via `isSwissLocation()`.
+ */
+async function listSwissJobs() {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const allRows = [];
+  let startrow = 0;
+  let expectedTotal = 0;
+
+  for (let page = 0; page < MAX_PAGES; page += 1) {
+    const url = `${CAREER_URL}&startrow=${startrow}`;
+    let html;
+    try {
+      html = await fetchHtml(url, { timeoutMs });
+    } catch (err) {
+      if (startrow === 0) console.warn(`⚠️ Failed to fetch Jobs2Web listing: ${err.message}`);
+      break;
+    }
+    const { rows, total } = parseSearchPage(html);
+    if (page === 0) expectedTotal = total;
+    if (rows.length === 0) break;
+    allRows.push(...rows);
+    if (rows.length < PAGE_SIZE) break;
+    if (expectedTotal > 0 && allRows.length >= expectedTotal) break;
+    startrow += PAGE_SIZE;
+    await new Promise((r) => setTimeout(r, 500));
+  }
+
+  const swissRows = allRows.filter((r) => isSwissLocation(r.locationText));
+  console.log(`  🎯 Filtered ${allRows.length} total → ${swissRows.length} Swiss jobs`);
+  return swissRows;
+}
+
+/**
+ * Fetch and parse a job detail page (schema.org `JobPosting` microdata,
+ * server-rendered — no JS needed).
+ */
+async function fetchJobDetail(href) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const url = href.startsWith('http') ? href : `https://${CAREER_HOST}${href}`;
+  let html;
+  try {
+    html = await fetchHtml(url, { timeoutMs });
+  } catch (err) {
+    console.warn(`⚠️ Detail fetch failed for ${url}: ${err.message}`);
+    return null;
+  }
+
+  const addrM = html.match(
+    /itemprop="addressLocality" content="([^"]*)"[\s\S]{0,200}?itemprop="addressRegion" content="([^"]*)"[\s\S]{0,200}?itemprop="postalCode" content="([^"]*)"[\s\S]{0,200}?itemprop="addressCountry" content="([^"]*)"/,
+  );
+  const dateM = html.match(/itemprop="datePosted" content="([^"]*)"/);
+
+  let descriptionHtml = '';
+  const startMarker = '<span class="jobdescription">';
+  const start = html.indexOf(startMarker);
+  if (start !== -1) {
+    const from = start + startMarker.length;
+    const endMarker = '<p class="job-location">';
+    const end = html.indexOf(endMarker, from);
+    descriptionHtml = html.slice(from, end !== -1 ? end : from + 20000);
+  }
+
+  let postedDate = '';
+  if (dateM) {
+    const d = new Date(dateM[1]);
+    if (!Number.isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
+  }
+
+  return {
+    addressLocality: addrM ? addrM[1] : '',
+    addressRegion: addrM ? addrM[2] : '',
+    postalCode: addrM ? addrM[3] : '',
+    addressCountry: addrM ? addrM[4] : '',
+    postedDate,
+    descriptionHtml,
+    url,
+  };
 }
 
 /**
  * Fetch all Benteler jobs.
  * Returns an array of ParsedJob objects (source-locale only).
- *
- * Strategy:
- *  1. Try SuccessFactors API endpoints
- *  2. Fall back to HTML scraping
- *  3. Filter for Swiss locations (Benteler is global, we only want CH jobs)
  */
 export async function fetchAllBentelerJobs() {
-  console.log(`🔍 Fetching Benteler jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log(`🔍 Fetching Benteler jobs from ${CAREER_URL}`);
+  console.log(`   Filter: Switzerland (jobLocation text)\n`);
 
-  // Strategy 1: Try API
-  let listings = await trySuccessFactorsApi();
-
-  // Strategy 2: Fall back to HTML scraping
+  const listings = await listSwissJobs();
   if (!listings || listings.length === 0) {
-    console.log('   SuccessFactors API did not return jobs, trying HTML scraping...');
-    try {
-      const html = await fetchHtml(CAREER_URL, { timeoutMs: 20000 });
-      listings = parseCareerPageHtml(html);
-      console.log(`   HTML scraping found ${listings?.length || 0} job links`);
-    } catch (err) {
-      console.warn(`   HTML fetch failed: ${err.message}`);
-      listings = [];
-    }
-  }
-
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No Benteler job listings found.');
+    console.warn('⚠️ No Swiss job listings found on the Jobs2Web board.');
     return [];
   }
 
-  // Filter for Swiss locations only
-  const swissListings = listings.filter((l) => {
-    const loc = l.location || l.city || l.country || '';
-    return l.isSwiss || isSwissLocation(loc) || !loc; // Include if no location (might be Swiss)
-  });
-
-  console.log(`  📋 Total listings: ${listings.length}, Swiss-filtered: ${swissListings.length}`);
+  console.log(`  📋 Swiss job listings found: ${listings.length}`);
 
   const jobs = [];
-  for (const listing of swissListings) {
-    const title = normalizeSpace(listing.title || listing.name || listing.jobTitle || '');
+  for (const listing of listings) {
+    if (!listing.href) continue;
+
+    console.log(`  📄 Fetching detail: ${listing.title}`);
+    const detail = await fetchJobDetail(listing.href);
+    if (!detail) continue;
+
+    const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.location || listing.city || '';
-    const location = normalizeSpace(rawLocation) || HQ?.city || 'Manno';
-    const canton = inferAnyCanton(location) || HQ?.canton || '';
-    const descriptionHtml = listing.description || listing.jobDescription || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    const publicUrl = listing.url || listing.link || CAREER_URL;
+    const location = normalizeSpace(detail.addressLocality || listing.locationText || '') || HQ?.city || 'Manno';
+    const canton = inferAnyCanton(`${location} ${detail.addressRegion || ''}`) || HQ?.canton || '';
+    const descriptionText = stripHtml(detail.descriptionHtml || '');
+    const publicUrl = detail.url;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} benteler ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const employmentType = detectEmploymentType(title);
 
     const desc = descriptionText || `${title} — Stelle bei Benteler in ${location}, Schweiz. Benteler ist ein globaler Automobil- und Stahlzulieferer mit einem Standort in Manno (Tessin).`;
 
@@ -316,23 +314,23 @@ export async function fetchAllBentelerJobs() {
       location,
       canton,
       url: publicUrl,
-      source: 'Benteler Dedicated Parser',
+      source: 'Benteler Dedicated Parser (Jobs2Web)',
       sourceLang,
       crawledAt: new Date().toISOString(),
       addressLocality: location,
       addressRegion: HQ?.addressRegion || 'TI',
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: HQ?.postalCode || '6928',
+      postalCode: detail.postalCode || HQ?.postalCode || '6928',
       category: detectCategory(title),
-      contract: detectEmploymentType(listing.timeType || title) === 'PART_TIME' ? 'part-time' : 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || listing.type || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Automotive / Industria siderurgica',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || listing.datePosted || new Date().toISOString().split('T')[0],
-      applyUrl: listing.applyUrl || publicUrl,
+      postedDate: detail.postedDate || new Date().toISOString().split('T')[0],
+      applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };
@@ -344,8 +342,3 @@ export async function fetchAllBentelerJobs() {
   console.log(`\n📋 Total Benteler jobs discovered: ${jobs.length}`);
   return jobs;
 }
-
-export const __internals = {
-  isLikelyJobLink,
-  parseCareerPageHtml,
-};

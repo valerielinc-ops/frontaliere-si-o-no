@@ -198,12 +198,10 @@ async function fetchPage(url) {
 /**
  * Parse job links from the listing page HTML.
  *
- * Each listing is structured as:
- *   <li>
- *     <a href="/karriere-jobs/offene-stellen/{slug}/">
- *       <h3>Job Title</h3>
- *     </a>
- *   </li>
+ * Each listing is structured as (Rukzuk CMS "teaserHeadline" pattern):
+ *   <h2 class="teaserHeadline">
+ *     <a href="/karriere-jobs/offene-stellen/{slug}/">Job Title</a>
+ *   </h2>
  *
  * Filters out:
  *   - "Initiativbewerbung" (spontaneous application placeholder)
@@ -212,8 +210,8 @@ async function fetchPage(url) {
 export function parseListingPage(html = '') {
   const links = [];
 
-  // Match <a href="/karriere-jobs/offene-stellen/{slug}/"> with <h3> title inside
-  const linkRegex = /<a\s+href="(\/karriere-jobs\/offene-stellen\/[^"]+\/)"[^>]*>\s*<h3[^>]*>([\s\S]*?)<\/h3>\s*<\/a>/gi;
+  // Match <h2 class="teaserHeadline"><a href="...">Title</a></h2>
+  const linkRegex = /<h2[^>]*class="teaserHeadline"[^>]*>\s*<a\s+href="(\/karriere-jobs\/offene-stellen\/[^"]+\/)"[^>]*>([\s\S]*?)<\/a>\s*<\/h2>/gi;
   let match;
 
   while ((match = linkRegex.exec(html)) !== null) {

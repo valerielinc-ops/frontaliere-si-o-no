@@ -2,7 +2,8 @@
 /**
  * Canton du Valais job parser — Fetcher and job builder.
  *
- * Source: https://vs.service-now.com/x/hdvi2/hvs-ats-portal/landing/params/language/fr/spref/
+ * Source: https://www.vs.ch/web/srh/stellenborse (État du Valais civil-service
+ *         job board; see OTB_PORTLET_URL below for the actual data fragment)
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllCantonValaisJobs()  — Fetch and parse all jobs
@@ -11,12 +12,10 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, warnIfListingAtCap } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
-import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -24,24 +23,28 @@ export const CANTON_VALAIS_KEY = 'canton-valais';
 export const CANTON_VALAIS_COMPANY_NAME = 'Canton du Valais';
 export const CANTON_VALAIS_COMPANY_DOMAIN = 'vs.ch';
 
-const CAREER_URL = 'https://vs.service-now.com/x/hdvi2/hvs-ats-portal/landing/params/language/fr/spref/';
+const OTB_LANDING_URL = 'https://www.vs.ch/web/srh/stellenborse';
+const CAREER_URL = OTB_LANDING_URL;
 const HQ = getCompanyDefaults('canton-valais');
 
 /**
- * ServiceNow SPA endpoints — the portal renders client-side but the data
- * is served by a REST API. We try the known ServiceNow table API patterns.
+ * État du Valais career board — the public landing page is a Liferay portal
+ * page whose job-offer list is rendered by a separate "vsotbportlet" AJAX
+ * fragment (server-rendered HTML, no auth/JS execution required). The old
+ * `vs.service-now.com/x/hdvi2/hvs-ats-portal/...` endpoint previously used
+ * here was actually Hôpital du Valais's own dedicated ATS (see
+ * hopital-du-valais-job-parser.mjs) — it never carried real "État du Valais"
+ * civil-service postings (issue #3797).
  */
-const SN_API_URLS = [
-  // ServiceNow Table API for job postings (common pattern)
-  'https://vs.service-now.com/api/x_hdvi2_hvs_ats/ats_portal/jobs?language=fr',
-  // Alternative: scripted REST API
-  'https://vs.service-now.com/api/x_hdvi2_hvs_ats/ats_portal_api/jobs?sysparm_limit=100&language=fr',
-];
+const OTB_PORTLET_URL =
+  'https://www.vs.ch/c/portal/render_portlet?p_l_id=34365892&p_p_id=vsotbportlet' +
+  '&p_p_lifecycle=0&p_t_lifecycle=0&p_p_state=normal&p_p_mode=view' +
+  '&p_p_col_id=_com_liferay_nested_portlets_web_portlet_NestedPortletsPortlet_INSTANCE_vivDF3CdM1oJ__column-1' +
+  '&p_p_col_pos=1&p_p_col_count=2&p_p_isolated=1&currentURL=%2Fweb%2Fsrh%2Fstellenborse';
 
-// SN_API_URLS[0] carries no explicit `sysparm_limit`, so we can't read the real
-// server-side page cap from its query string. Fall back to the sibling
-// endpoint's known limit as a sentinel so the truncation warning still fires
-// for that endpoint instead of silently no-op'ing (issue #3578).
+// Legacy ServiceNow page-cap sentinel — retained only because
+// resolveServiceNowPageCap() below is still covered by
+// tests/canton-valais-crawler.test.ts (issue #3578).
 const SN_DEFAULT_PAGE_CAP = 100;
 
 /* ── Helpers ───────────────────────────────────────────────── */
@@ -137,156 +140,89 @@ export function resolveServiceNowPageCap(apiUrl) {
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
- * Try ServiceNow REST API endpoints to fetch job listings as JSON.
- * ServiceNow SPAs often expose a scripted REST API for the portal data.
+ * Fetch job offers from the État du Valais Liferay portlet fragment.
+ * Server-rendered HTML — no auth or JS execution required.
  */
-async function tryServiceNowApi() {
-  const UA = process.env.JOBS_CRAWLER_USER_AGENT ||
-    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/2.0; +https://frontaliereticino.ch/)';
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-
-  for (const apiUrl of SN_API_URLS) {
-    try {
-      console.log(`   Trying ServiceNow API: ${apiUrl}`);
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
-      const res = await fetch(apiUrl, {
-        headers: {
-          'User-Agent': UA,
-          Accept: 'application/json',
-          'Accept-Language': 'fr-CH,fr;q=0.9',
-        },
-        signal: controller.signal,
-      });
-      clearTimeout(timer);
-
-      if (res.ok) {
-        const data = await res.json();
-        // ServiceNow returns { result: [...] } for table API
-        const items = assertJsonListShapeMultiKey(data, {
-          keys: ['result', 'jobs', 'data'],
-          allowBareArray: true,
-          source: CANTON_VALAIS_KEY,
-        });
-        if (items.length > 0) {
-          console.log(`   ServiceNow API returned ${items.length} items`);
-          warnIfListingAtCap({
-            label: 'Canton du Valais listing',
-            count: items.length,
-            cap: resolveServiceNowPageCap(apiUrl),
-          });
-          return items;
-        }
-      } else {
-        console.log(`   API returned HTTP ${res.status}`);
-      }
-    } catch (err) {
-      console.log(`   API attempt failed: ${err.message}`);
-    }
+async function fetchOtbListings() {
+  let html = '';
+  try {
+    html = await fetchHtml(OTB_PORTLET_URL, { timeoutMs: 20000 });
+  } catch (err) {
+    console.warn(`   ⚠️ Failed to fetch État du Valais job portlet: ${err.message}`);
+    return [];
   }
-  return null;
+  return parseOtbListings(html);
+}
+
+const VALAIS_CITY_HINTS = [
+  'Sion', 'Sierre', 'Martigny', 'Monthey', 'Brig-Glis', 'Brigue', 'Brig',
+  'Visp', 'Naters', 'Loèche', 'Conthey', 'Vétroz', 'Saxon', 'Fully',
+  'Bagnes', 'Verbier', 'Zermatt', 'Saas-Fee', 'Crans-Montana', 'Nendaz',
+  'Savièse', 'Saint-Maurice', 'St-Gingolph', 'Collombey', 'Vouvry',
+  'Troistorrents', 'Val de Bagnes',
+];
+
+function extractOtbCity(text = '') {
+  for (const city of VALAIS_CITY_HINTS) {
+    if (new RegExp(`\\b${city}\\b`, 'i').test(text)) return city;
+  }
+  return '';
 }
 
 /**
- * Parse the ServiceNow portal HTML page for embedded job data.
- * ServiceNow SPAs often embed JSON data in script tags or have
- * pre-rendered content for SEO.
+ * Parse the "vsotbportlet" fragment's `.ivs-job-offer` blocks into raw
+ * listing objects shaped for the job-building loop below.
  */
-function parseServiceNowHtml(html = '') {
+function parseOtbListings(html = '') {
   if (!html) return [];
-  const { document } = new JSDOM(html).window;
   const jobs = [];
-  const seen = new Set();
+  const blockRx = /<div class="ivs-job-offer[^"]*">([\s\S]*?)<\/div>\s*<\/div>/g;
+  let match;
+  while ((match = blockRx.exec(html))) {
+    const block = match[1];
 
-  // Strategy 1: Look for embedded JSON data in script tags
-  const scripts = document.querySelectorAll('script');
-  for (const script of scripts) {
-    const text = script.textContent || '';
-    // ServiceNow often embeds data as window.__data or angular scope data
-    const jsonMatches = text.match(/(?:jobs|postings|positions)\s*[:=]\s*(\[[\s\S]*?\])/i);
-    if (jsonMatches) {
-      try {
-        const parsed = JSON.parse(jsonMatches[1]);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-      } catch { /* not valid JSON */ }
-    }
+    const titleMatch = block.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
+    const title = normalizeSpace(stripHtml(titleMatch?.[1] || ''));
+    if (!title) continue;
+
+    const pMatch = block.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+    const deptText = normalizeSpace(stripHtml(pMatch?.[1] || ''));
+
+    const docMatch = block.match(/joboffersdocument\/(\d+)/i);
+    const pdfUrl = docMatch
+      ? `https://otb.apps.vs.ch/svc/api/joboffersdocument/${docMatch[1]}?language=fr`
+      : '';
+
+    const applyMatch = block.match(/href="(https:\/\/otb\.apps\.vs\.ch\/iapply\?[^"]*)"/i);
+    const applyUrl = applyMatch ? applyMatch[1].replace(/&amp;/g, '&') : '';
+
+    const location = extractOtbCity(deptText) || HQ?.city || 'Sion';
+
+    jobs.push({
+      title,
+      location,
+      url: applyUrl || pdfUrl || OTB_LANDING_URL,
+      description: deptText,
+    });
   }
-
-  // Strategy 2: Look for job listing elements in rendered HTML
-  const JOB_SELECTORS = [
-    'a[href*="job"], a[href*="vacancy"], a[href*="position"], a[href*="stelle"]',
-    '.job-listing, .job-card, .vacancy-item, .position-item',
-    'li[class*="job"], div[class*="job"], article[class*="job"]',
-    '.list-group-item a, .card a, tr td a',
-  ];
-
-  for (const selector of JOB_SELECTORS) {
-    try {
-      const elements = document.querySelectorAll(selector);
-      for (const el of elements) {
-        const link = el.tagName === 'A' ? el : el.querySelector('a');
-        if (!link) continue;
-
-        const href = link.getAttribute('href') || '';
-        const title = normalizeSpace(link.textContent || '');
-        if (!title || title.length < 5 || seen.has(title)) continue;
-
-        // Filter out navigation links, social links, etc.
-        if (/login|register|contact|about|faq|legal|privacy/i.test(href)) continue;
-        if (/cookie|banner|header|footer|nav/i.test(el.className || '')) continue;
-
-        seen.add(title);
-        const fullUrl = href.startsWith('http') ? href : `https://vs.service-now.com${href.startsWith('/') ? '' : '/'}${href}`;
-
-        jobs.push({
-          title,
-          url: fullUrl,
-          location: 'Sion',
-          description: '',
-        });
-      }
-    } catch { /* selector not found */ }
-  }
-
   return jobs;
 }
 
 /**
- * Fetch all Canton du Valais jobs.
+ * Fetch all Canton du Valais (État du Valais) jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
- * Strategy:
- *  1. Try ServiceNow REST API endpoints
- *  2. Fall back to HTML scraping of the portal page
- *  3. Return empty array gracefully if nothing found
+ * Source: the public `vs.ch` civil-service job board, whose listing is
+ * rendered by a Liferay "vsotbportlet" fragment (see fetchOtbListings()).
  */
 export async function fetchAllCantonValaisJobs() {
   console.log(`🔍 Fetching Canton du Valais jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  // Strategy 1: Try ServiceNow API
-  let listings = await tryServiceNowApi();
-
-  // Strategy 2: Fall back to HTML scraping
-  if (!listings || listings.length === 0) {
-    console.log('   ServiceNow API did not return jobs, trying HTML scraping...');
-    try {      let html = '';
-  try {
-    html = await fetchHtml(CAREER_URL, { timeoutMs: 20000 });
-  } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
-  }
-      listings = parseServiceNowHtml(html);
-      console.log(`   HTML scraping found ${listings?.length || 0} potential jobs`);
-    } catch (err) {
-      console.warn(`   HTML fetch failed: ${err.message}`);
-      listings = [];
-    }
-  }
+  const listings = await fetchOtbListings();
 
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings found (ServiceNow SPA may require JS rendering).');
+    console.warn('⚠️ No job listings found on the État du Valais job portlet.');
     return [];
   }
 
