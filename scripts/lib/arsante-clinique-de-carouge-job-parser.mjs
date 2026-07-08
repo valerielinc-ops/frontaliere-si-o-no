@@ -114,7 +114,7 @@ export function extractDetailBody(html) {
   // inner close tag.
   const jobPostingIdx = html.search(/itemtype="https:\/\/schema\.org\/JobPosting"/i);
   if (jobPostingIdx !== -1) {
-    const located = locateTagByAttribute(html.slice(jobPostingIdx), 'itemprop="description"');
+    const located = locateTagByAttribute(html.slice(jobPostingIdx), 'itemprop="description"', { skipVoidTags: true });
     if (located) {
       const inner = extractBalancedTagBlock(located.rest, located.tagName);
       return normalizeSpace(htmlToText(inner)).slice(0, 6000);

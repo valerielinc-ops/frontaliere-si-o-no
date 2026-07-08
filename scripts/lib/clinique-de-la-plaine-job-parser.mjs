@@ -23,7 +23,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -120,7 +120,12 @@ export function parseDetailDescription(html = '') {
   const body = firstIsH1 ? blocks.slice(1) : blocks;
   // Join with double newline so htmlToText preserves paragraph spacing.
   const joined = body.join('\n\n');
-  return normalizeSpace(htmlToText(joined).replace(/\n+/g, ' ')).slice(0, 6000);
+  const cleaned = htmlToText(joined)
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  return normalizeDescriptionBullets(cleaned).slice(0, 6000);
 }
 
 /* ── Fetcher ───────────────────────────────────────────────── */

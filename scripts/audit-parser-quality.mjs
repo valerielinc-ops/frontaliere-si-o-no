@@ -39,16 +39,27 @@ export function loadNoStructureBaseline(p = BASELINE_PATH) {
  *   posts each role 9× with different IDs) or the parser is keeping records
  *   that should have been deduped. Action: dedupe in the parser.
  *
- * SIGNAL 2 — chrome scraping (desc-only fingerprint, ≥95%):
- *   Almost every job — regardless of title — carries the SAME body. That's
- *   the Moncucco-class failure: the parser is grabbing nav/footer/megamenu
- *   instead of the per-job body. Action: inspect detail-page selectors.
+ * SIGNAL 2 — chrome scraping (desc-only fingerprint, ≥95% in the LARGEST
+ * single bucket):
+ *   Almost every job — regardless of title — collapses into ONE identical
+ *   body. That's the Moncucco-class failure: the parser is grabbing
+ *   nav/footer/megamenu instead of the per-job body, so every job carries
+ *   the same universal blob. Action: inspect detail-page selectors.
  *
  * Threshold rationale: title-aware stays at 80% (the original threshold);
  * desc-only is tightened to 95% so legitimately templated content (companies
  * that publish the same role across many cities — reboot-monkey, lidl-svizzera)
  * doesn't false-positive. A real chrome-scraping parser produces near-100%
  * desc-only duplicates because every job carries the same nav blob.
+ *
+ * Signal 2 measures the LARGEST single fingerprint bucket, not the sum across
+ * all colliding buckets (see largestDuplicateBucket() doc). A retailer that
+ * runs MULTIPLE distinct role templates (New Yorker #3721: a "Verkaufsmitarbeiter"
+ * template + a separate "Filialleitung" template) can have each template's
+ * bucket legitimately dominate its own jobs while the SUM across both
+ * templates still clears 95% of the crawler's total — that's still two
+ * distinct, real per-role templates, not one universal chrome blob, so it
+ * must not trip this signal.
  *
  * Both signals require ≥5 jobs to skip naturally-templated tiny crawlers.
  *
@@ -369,6 +380,35 @@ export function countDuplicates(fps) {
   return [...counts.values()].filter((c) => c > 1).reduce((s, c) => s + c, 0);
 }
 
+/**
+ * Size of the largest single fingerprint bucket (most jobs sharing one exact
+ * fingerprint). Used by the desc-only chrome-scraping signal instead of
+ * countDuplicates()'s cross-bucket sum.
+ *
+ * Real chrome scraping produces ONE universal blob — every job, regardless of
+ * role, collapses into the same nav/footer text — so the largest bucket alone
+ * approaches 100%. A retailer running several distinct role templates (e.g.
+ * a sales-associate template + a store-manager template) instead produces
+ * MULTIPLE separate buckets, each internally legitimate; summing them can
+ * still clear a high percentage-of-total threshold even though no single
+ * template dominates. New Yorker #3721: 50/55 jobs share one
+ * "Verkaufsmitarbeiter" template and 3/55 share a separate "Filialleitung"
+ * template — sum 53/55 (96%) tripped the old sum-based ≥95% chrome ratchet,
+ * but the largest bucket is only 50/55 (91%), correctly below it.
+ */
+export function largestDuplicateBucket(fps) {
+  const counts = new Map();
+  for (const fp of fps) {
+    if (fp.length < 20) continue; // skip empty/tiny
+    counts.set(fp, (counts.get(fp) || 0) + 1);
+  }
+  let max = 0;
+  for (const c of counts.values()) {
+    if (c > max) max = c;
+  }
+  return max;
+}
+
 /* ── URL checker with concurrency limit ────────────────────── */
 async function checkUrl(url) {
   const ctrl = new AbortController();
@@ -529,9 +569,12 @@ async function main() {
     // 5b. Chrome-scraping signal — desc-only slice at a stricter threshold.
     // Stored separately so applyChromeScrapingRatchet() can escalate without
     // double-flagging templated content (which the title-aware check above
-    // already filters out).
+    // already filters out). Uses the LARGEST single bucket, not the sum
+    // across all colliding buckets — see largestDuplicateBucket() doc: a
+    // retailer with multiple distinct role templates can otherwise trip this
+    // even though no single template is a universal chrome blob (#3721).
     const fpsDescOnly = fingerprintsForCrawler(jobs, 'desc-only');
-    const chromeDupes = countDuplicates(fpsDescOnly);
+    const chromeDupes = largestDuplicateBucket(fpsDescOnly);
     if (chromeDupes > 1) {
       issues.push({
         type: 'duplicate-descriptions-desc-only',

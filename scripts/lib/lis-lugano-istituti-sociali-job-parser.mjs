@@ -35,7 +35,8 @@
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { locateTagByAttribute, extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
+import { locateTagByAttribute, extractBalancedTagBlock, stripInlineJsCode } from './hospital-custom-html-helpers.mjs';
+import { normalizeDescriptionBullets } from './crawler-template.mjs';
 
 const HQ = getCompanyDefaults('lis');
 
@@ -275,9 +276,9 @@ export function parseArca24DetailPage(html, pageUrl = '') {
   // description blocks commonly wrap paragraphs in nested `<div>`s (WYSIWYG
   // output), so walk balanced nesting instead of stopping at the first inner
   // close tag — sibling of the Arsanté/CSB truncation bug (#2823).
-  const located = locateTagByAttribute(html, 'itemprop=["\']description["\']');
+  const located = locateTagByAttribute(html, 'itemprop=["\']description["\']', { skipVoidTags: true });
   if (located) {
-    const candidate = stripHtml(extractBalancedTagBlock(located.rest, located.tagName));
+    const candidate = stripInlineJsCode(stripHtml(extractBalancedTagBlock(located.rest, located.tagName)));
     if (candidate.length > 50) description = candidate;
   }
 
@@ -285,7 +286,7 @@ export function parseArca24DetailPage(html, pageUrl = '') {
   if (!description) {
     const jobDescMatch = html.match(/<div\s+class="jobDescription[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
     if (jobDescMatch) {
-      const candidate = stripHtml(jobDescMatch[1]);
+      const candidate = stripInlineJsCode(stripHtml(jobDescMatch[1]));
       if (candidate.length > 50) description = candidate;
     }
   }
@@ -296,7 +297,7 @@ export function parseArca24DetailPage(html, pageUrl = '') {
     const descRegex = /<div\s+class="descriptionContainer[^"]*"[^>]*>([\s\S]*?)<\/div>/gi;
     let dm;
     while ((dm = descRegex.exec(html)) !== null) {
-      const text = stripHtml(dm[1]);
+      const text = stripInlineJsCode(stripHtml(dm[1]));
       if (text.length > 50) {
         descContainers.push(text);
       }
@@ -309,6 +310,7 @@ export function parseArca24DetailPage(html, pageUrl = '') {
   // Pattern: "classe X min. CHF XX'XXX.XX / max. CHF XX'XXX.XX" (LIS/ROCIS format)
   // or "classe X: min. CHF XX'XXX / max. CHF XX'XXX"
   const salary = extractLisSalary(description);
+  description = normalizeDescriptionBullets(description);
 
   // Company name from microdata
   const orgMatch = html.match(/itemprop=["']name["'][^>]*>([^<]*LIS[^<]*Lugano[^<]*Istituti[^<]*)/i);

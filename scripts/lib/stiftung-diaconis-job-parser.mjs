@@ -22,7 +22,7 @@
  * Address: Schönburgstrasse 25, 3000 Bern 25 (BE).
  */
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -125,7 +125,12 @@ export function parseDetailDescription(html = '') {
     if (main) parts.push(main[1]);
   }
   if (parts.length === 0) return '';
-  return normalizeSpace(htmlToText(parts.join('\n\n')).replace(/\n+/g, ' ')).slice(0, 6000);
+  const cleaned = htmlToText(parts.join('\n\n'))
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  return normalizeDescriptionBullets(cleaned).slice(0, 6000);
 }
 
 /* ── Fetch + build ─────────────────────────────────────────── */

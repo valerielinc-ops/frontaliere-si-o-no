@@ -164,6 +164,18 @@ export async function fetchHtml(url, { timeoutMs } = {}) {
   }
 }
 
+// Void elements never have a matching close tag. A caller that pipes the
+// match straight into `extractBalancedTagBlock` (which walks open/close
+// pairs) will never see depth reach 0 against one of these — it falls back
+// to raw-slicing up to `scanCap`, silently swallowing whatever markup
+// follows (seen live: `<meta itemprop="description" content="...">` in
+// `<head>` matched before the real `<div itemprop="description">`, so the
+// walker slurped the next `<script>` block whole — #3721).
+const VOID_TAGS = new Set([
+  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
+  'link', 'meta', 'param', 'source', 'track', 'wbr',
+]);
+
 /**
  * Locate an HTML element's opening tag by a literal attribute/value snippet
  * (e.g. `itemprop="description"` or `data-careersite-propertyid="description"`)
@@ -171,12 +183,26 @@ export async function fetchHtml(url, { timeoutMs } = {}) {
  * after the opening tag's `>`. Returns `null` if not found. Caller decides
  * how to read the value; for long/nested fields use `extractBalancedTagBlock`
  * below instead of a naive `[\s\S]*?</tag>` scan.
+ *
+ * Pass `{ skipVoidTags: true }` when the result feeds `extractBalancedTagBlock`
+ * — void elements (`<meta>` etc.) can match the attribute but have no body/
+ * close tag, so the first candidate is skipped in favor of the next real
+ * container match. Default stays `false` for callers (e.g. schema.org
+ * microdata readers) that intentionally want `<meta content="...">` values.
  */
-export function locateTagByAttribute(html, attrMatcher) {
-  const openRe = new RegExp(`<(\\w+)((?:(?!>)[\\s\\S])*?\\b${attrMatcher}(?:(?!>)[\\s\\S])*?)>`, 'i');
-  const m = openRe.exec(html);
-  if (!m) return null;
-  return { tagName: m[1], attrs: m[2], rest: html.slice(m.index + m[0].length) };
+export function locateTagByAttribute(html, attrMatcher, { skipVoidTags = false } = {}) {
+  const openRe = new RegExp(`<(\\w+)((?:(?!>)[\\s\\S])*?\\b${attrMatcher}(?:(?!>)[\\s\\S])*?)>`, skipVoidTags ? 'gi' : 'i');
+  if (!skipVoidTags) {
+    const m = openRe.exec(html);
+    if (!m) return null;
+    return { tagName: m[1], attrs: m[2], rest: html.slice(m.index + m[0].length) };
+  }
+  let m;
+  while ((m = openRe.exec(html)) !== null) {
+    if (VOID_TAGS.has(m[1].toLowerCase())) continue;
+    return { tagName: m[1], attrs: m[2], rest: html.slice(m.index + m[0].length) };
+  }
+  return null;
 }
 
 /**

@@ -112,7 +112,7 @@ export function extractLabelValue(html = '', label = '') {
  * container has nested `<div>`s.
  */
 export function extractArticleProseHtml(html = '') {
-  const located = locateTagByAttribute(html, 'class="article-prose"');
+  const located = locateTagByAttribute(html, 'class="article-prose"', { skipVoidTags: true });
   if (!located) return '';
   return extractBalancedTagBlock(located.rest, located.tagName, 30000);
 }

@@ -41,7 +41,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   fetchHtml,
@@ -263,7 +263,7 @@ async function fetchDetailDescription(detailUrl) {
     const cutMatch = block.match(/[\s\S]+?(?=Rechtliche\s+Hinweise|Mentions\s+l[ée]gales|<\/main>|<footer)/);
     const trimmed = cutMatch ? cutMatch[0] : block;
     const text = htmlToText(trimmed);
-    return normalizeSpace(text).slice(0, 6000);
+    return normalizeDescriptionBullets(normalizeSpace(text).slice(0, 6000));
   } catch (err) {
     console.warn(` ⚠️ Victorinox detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return '';

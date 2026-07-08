@@ -23,6 +23,7 @@
 
 import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
+import { normalizeDescriptionBullets } from '../crawler-template.mjs';
 
 /* ── Errors ────────────────────────────────────────────────────────────── */
 
@@ -442,12 +443,12 @@ export async function fetchWorkdayJobDescriptionText(
   if (!html) return '';
 
   const text = stripHtml(html);
-  return String(text || '')
+  const normalized = normalizeDescriptionBullets(String(text || '')
     .replace(/[ \t]+/g, ' ')
     .replace(/[ \t]*\n[ \t]*/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
-    .trim()
-    .slice(0, maxChars);
+    .trim());
+  return normalized.slice(0, maxChars);
 }
 
 /* ── Date parsing ──────────────────────────────────────────────────────── */

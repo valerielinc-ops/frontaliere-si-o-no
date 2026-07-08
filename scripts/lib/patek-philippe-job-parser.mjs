@@ -28,7 +28,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -378,7 +378,7 @@ export async function fetchAllPatekPhilippeJobs() {
     const descriptionHtml = (detail && detail.descriptionHtml) || '';
     const descriptionText = stripHtml(descriptionHtml);
     const description = descriptionText && descriptionText.length >= 40
-      ? descriptionText
+      ? normalizeDescriptionBullets(descriptionText)
       : `${title} — ${PATEK_PHILIPPE_COMPANY_NAME}, ${city} (${canton}).`;
 
     const postedDate = (detail && detail.postedDate)

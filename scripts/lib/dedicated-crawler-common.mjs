@@ -2332,10 +2332,14 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
   }
   if (fromCache && typeof fromCache === 'object' && !Array.isArray(fromCache)) {
     // Cache quality guard: bust the cache if any target locale contains untranslated
-    // content (source-language text in a non-source locale slot).
+    // content (source-language text in a non-source locale slot), or a
+    // structure-flattened list (source had bullets, cached candidate has none —
+    // #3721: pre-fix cache entries persisted this indefinitely since only new
+    // translations ran through isAcceptableTranslation's structure check).
     // Use language detection + exact-match check to catch both identical copies and
     // slightly reformatted copies that didn't actually get translated.
-    const cleanSourceLower = cleanFn(description || '').toLowerCase();
+    const cleanSource = cleanFn(description || '');
+    const cleanSourceLower = cleanSource.toLowerCase();
     const hasBadLocale = targetLocales.some((locale) => {
       const localeData = fromCache[locale];
       if (!localeData?.description) return true; // missing = bad
@@ -2348,6 +2352,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
         const detected = detectLanguage(cleanLocale, locale);
         if (detected === sourceLang && detected !== locale) return true;
       }
+      if (!isAcceptableTranslation(cleanSource, cleanLocale)) return true;
       return false;
     });
     if (hasBadLocale) {

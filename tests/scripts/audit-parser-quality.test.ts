@@ -21,6 +21,7 @@ import {
   hasFormChrome,
   fingerprintsForCrawler,
   countDuplicates,
+  largestDuplicateBucket,
   effectiveDescription,
 } from '../../scripts/audit-parser-quality.mjs';
 
@@ -336,6 +337,30 @@ describe('applyDuplicateDescriptionRatchet', () => {
     expect(report['templated-source'].severity).toBe('WARNING');
     expect(regressions).toHaveLength(0);
   });
+
+  it('does NOT false-positive when TWO distinct templates sum past 95% but neither dominates alone (#3721 new-yorker)', () => {
+    // new-yorker case: 50/55 jobs share one "Verkaufsmitarbeiter" template
+    // (six title variants — 80%/70%/60%/50%/100% workload + "Aushilfe" — all
+    // templated identically) and 3/55 share a separate "Filialleitung"
+    // template. Two genuinely distinct real per-role templates. The old
+    // sum-based count (50 + 3 = 53/55 = 96%) tripped the ≥95% chrome ratchet;
+    // the corrected count uses the LARGEST single bucket (50/55 = 91%),
+    // which stays below the threshold.
+    const report: Record<string, Entry> = {
+      'new-yorker': {
+        total: 55,
+        severity: 'WARNING',
+        issues: [
+          { type: 'duplicate-descriptions-desc-only', count: 50, total: 55, message: '', hidden: true },
+        ],
+      },
+    };
+
+    const regressions = applyDuplicateDescriptionRatchet(report);
+
+    expect(report['new-yorker'].severity).toBe('WARNING');
+    expect(regressions).toHaveLength(0);
+  });
 });
 
 describe('fingerprintsForCrawler (location-aware title-aware mode)', () => {
@@ -382,6 +407,39 @@ describe('fingerprintsForCrawler (location-aware title-aware mode)', () => {
     ];
     const dupes = countDuplicates(fingerprintsForCrawler(jobs, 'desc-only'));
     expect(dupes).toBe(3);
+  });
+});
+
+describe('largestDuplicateBucket', () => {
+  it('returns the full count for a single universal blob (true chrome-scraping)', () => {
+    const jobs = Array.from({ length: 9 }, (_, i) => ({
+      title: `Role ${i}`,
+      description: 'Same nav/footer chrome text on every job page.',
+      location: `City ${i}`,
+    }));
+    const fps = fingerprintsForCrawler(jobs, 'desc-only');
+    expect(largestDuplicateBucket(fps)).toBe(9);
+  });
+
+  it('returns the size of the LARGEST bucket, not the sum, when two distinct templates exist (#3721 new-yorker)', () => {
+    const verkaufTemplate = 'DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER... (Verkauf role duties)';
+    const filialleitungTemplate = 'DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER... (Filialleitung role duties, distinct from Verkauf)';
+    const verkaufJobs = Array.from({ length: 50 }, (_, i) => ({
+      title: `MITARBEITER (M/W/D) IM VERKAUF ${i % 5 === 0 ? '80%' : '50%'}`,
+      description: verkaufTemplate,
+      location: `Store ${i}`,
+    }));
+    const filialleitungJobs = Array.from({ length: 3 }, (_, i) => ({
+      title: 'Stellvertretende Filialleitung (m/w/d)',
+      description: filialleitungTemplate,
+      location: `Store ${i}`,
+    }));
+    const jobs = [...verkaufJobs, ...filialleitungJobs];
+    const fps = fingerprintsForCrawler(jobs, 'desc-only');
+    // Sum across both buckets (53) would trip a ≥95% sum-based threshold on
+    // 55 total; the largest single bucket (50) stays below it.
+    expect(countDuplicates(fps)).toBe(53);
+    expect(largestDuplicateBucket(fps)).toBe(50);
   });
 });
 

@@ -32,7 +32,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -315,7 +315,7 @@ export function parseDetailPage(html) {
     if (parts.length > 0) descriptionHtml = parts.join('\n\n');
   }
 
-  let description = normalizeDescriptionSpace(stripHtml(descriptionHtml));
+  let description = normalizeDescriptionBullets(normalizeDescriptionSpace(stripHtml(descriptionHtml)));
 
   // Reject SF widget garbage that occasionally bleeds into the description
   const GARBAGE = [
