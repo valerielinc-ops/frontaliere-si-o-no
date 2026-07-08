@@ -53,7 +53,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040474EXTERNALENGLOBAL/DACH-Sales-Manager-CI"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-07-08T10:56:22.873Z",
+  "updatedAt": "2026-07-08T11:26:44.012Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040367EXTERNALENGLOBAL/Global-Sales-Manager-Business-Line-Mining---Materials_JR00040367-1": {
       "location": "Baden, Aargau, Switzerland",
@@ -143,6 +143,14 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00037564EXTERNALENGLOBAL/Senior-Robotic-Middleware-Software-Engineer": {
+      "location": "Zurich, Zurich, Switzerland",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00036910EXTERNALENGLOBAL/XMLNAME--80--100---Engineering-Team-Leader": {
       "location": "Untersiggenthal, Aargau, Switzerland",
       "canton": "AG",
@@ -154,14 +162,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00033795EXTERNALENGLOBAL/Power-Electronics-Quality-and-Reliability-Senior-R-D-Engineer-for-SST": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
       "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00037564EXTERNALENGLOBAL/Senior-Robotic-Middleware-Software-Engineer": {
-      "location": "Zurich, Zurich, Switzerland",
-      "canton": "ZH",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
@@ -183,17 +183,17 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00039532EXTERNALENGLOBAL/FPGA-Software-Engineer-R-D---Power-Electronics-Traction-Applications": {
-      "location": "Untersiggenthal, Aargau, Switzerland",
-      "canton": "AG",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00034157EXTERNALENGLOBAL/Einrichter-in-Spritzguss---Extrusion--80-100": {
+      "location": "Uster, Zurich, Switzerland",
+      "canton": "ZH",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00034157EXTERNALENGLOBAL/Einrichter-in-Spritzguss---Extrusion--80-100": {
-      "location": "Uster, Zurich, Switzerland",
-      "canton": "ZH",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00039532EXTERNALENGLOBAL/FPGA-Software-Engineer-R-D---Power-Electronics-Traction-Applications": {
+      "location": "Untersiggenthal, Aargau, Switzerland",
+      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
@@ -311,6 +311,14 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00033647EXTERNALENGLOBAL/Technical-Service-Specialist": {
+      "location": "Untersiggenthal, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00021738EXTERNALENGLOBAL/Sales-Engineer---Cobot-Distribution---Ecosystem--80-100": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
@@ -321,14 +329,6 @@
     },
     "https://careers.abb/global/en/job/ABB1GLOBAL96145232EXTERNALENGLOBAL/Field-Service-Engineer_96145232": {
       "location": "Turgi, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00033647EXTERNALENGLOBAL/Technical-Service-Specialist": {
-      "location": "Untersiggenthal, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
