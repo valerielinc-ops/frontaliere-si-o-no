@@ -99,6 +99,19 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      # ── Claude CLI Haiku fallback (opt-in via RC ENABLE_HAIKU_ARTICLE_FALLBACK) ──
+      # Absolute last resort, reached only after every free-tier model AND the
+      # local/ollama fallback above have failed (scripts/lib/ai-models.mjs
+      # AI_MODELS.CLAUDE_CLI_HAIKU, pinned below local/* by sortChainByScore).
+      # Zero marginal cost: auth is CLAUDE_CODE_OAUTH_TOKEN (same Max-plan
+      # subscription token already used by pr-review-loop.yml/issue-fix.yml),
+      # never ANTHROPIC_API_KEY. Inert unless the RC flag is on: with it unset,
+      # getApiKeyForProvider(PROVIDER.CLAUDE_CLI) returns '' and the model is
+      # never offered — identical to today.
+      - name: Setup Claude CLI Haiku fallback
+        if: env.ENABLE_HAIKU_ARTICLE_FALLBACK == '1'
+        run: npm install -g @anthropic-ai/claude-code
+
       # Primary identity for the self-trigger dispatch below = GitHub App
       # installation token (`frontaliere-automation[bot]`): auto-mints, no expiry
       # babysit, and its dispatch re-triggers the next run just like the PAT (no
@@ -238,6 +251,13 @@ jobs:
           # the deadlineMs abort and keeps local fallback available (it still
           # fires when reached) without the runaway ceiling.
           CREATE_ARTICLE_MAX_WALL_MS: ${{ steps.section.outputs.section == 'svizzera' && '1800000' || '3300000' }}
+          # Auth for the opt-in Claude CLI Haiku last-resort fallback (see
+          # "Setup Claude CLI Haiku fallback" step above). Same secret already
+          # used by pr-review-loop.yml/issue-fix.yml — zero marginal cost
+          # (Max-plan subscription), never ANTHROPIC_API_KEY. Harmless to
+          # always pass: ai-models.mjs only offers the model when this AND the
+          # RC flag are both set (isClaudeCliFallbackEnabled/hasClaudeCodeOauthToken).
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
           echo "📰 Generating blog article (section=$TARGET_SECTION)..."
           if [ -n "${{ inputs.url }}" ]; then
