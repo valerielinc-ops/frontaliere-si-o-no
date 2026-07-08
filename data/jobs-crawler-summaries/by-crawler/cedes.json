@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-07-07T12:03:45.723Z",
+  "generatedAt": "2026-07-08T10:55:48.076Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3656,
-  "avgDurationMs": 3656,
+  "durationMs": 3692,
+  "avgDurationMs": 3692,
   "durationHistory": [
-    3656
+    3692
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:03:44.058Z",
+      "crawledAt": "2026-07-08T10:55:46.395Z",
       "firstSeenAt": "2026-06-24T21:41:21.298Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -64,7 +64,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:03:43.730Z",
+      "crawledAt": "2026-07-08T10:55:46.042Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -97,19 +97,18 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:03:44.058Z",
+      "crawledAt": "2026-07-08T10:55:46.395Z",
       "firstSeenAt": "2026-06-24T21:41:21.298Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "postalCode": "7302",
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 19
       }
     },
     {
@@ -132,19 +131,18 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T12:03:43.730Z",
+      "crawledAt": "2026-07-08T10:55:46.042Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "postalCode": "7302",
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 88,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 16,
         "translation": 25,
-        "completeness": 22
+        "completeness": 19
       }
     }
   ]
