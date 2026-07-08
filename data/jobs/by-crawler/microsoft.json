@@ -1,6 +1,6 @@
 {
   "crawlerKey": "microsoft",
-  "assembledAt": "2026-07-08T11:19:34.360Z",
+  "assembledAt": "2026-07-08T22:14:02.158Z",
   "jobs": [
     {
       "id": "microsoft-200042292",
@@ -33,7 +33,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556924215",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:19:31.651Z",
+      "crawledAt": "2026-07-08T22:13:59.628Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -72,6 +72,85 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "microsoft-200005606",
+      "slug": "tirocinio-in-scienze-applicate-microsoft-zurich",
+      "slugByLocale": {
+        "it": "tirocinio-in-scienze-applicate-microsoft-zurich",
+        "en": "applied-sciences-internship-microsoft-zurich",
+        "de": "praktikum-fur-angewandte-wissenschaften-microsoft-zurich",
+        "fr": "stage-en-sciences-appliquees-microsoft-zurich"
+      },
+      "company": "Microsoft",
+      "companyKey": "microsoft",
+      "companyDomain": "microsoft.com",
+      "title": "Applied Sciences Internship",
+      "titleByLocale": {
+        "it": "Tirocinio in Scienze Applicate",
+        "en": "Applied Sciences Internship",
+        "de": "Praktikum für angewandte Wissenschaften",
+        "fr": "Stage en sciences appliquées"
+      },
+      "description": "This position will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled.\n\nMicrosoft is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to age, ancestry, citizenship, color, family or medical care leave, gender identity or expression, genetic information, immigration status, marital status, medical condition, national origin, physical or mental disability, political affiliation, protected veteran or military status, race, ethnicity, religion, sex (including pregnancy), sexual orientation, or any other characteristic protected by applicable local laws, regulations and ordinances. If you need assistance with religious accommodations and/or a reasonable accommodation due to a disability during the application process, read more about requesting accommodations.",
+      "descriptionByLocale": {
+        "it": "Questa posizione sarà aperta per un minimo di 5 giorni, con applicazioni accettate su base continuativa fino a quando la posizione non sarà riempita. Microsoft è un datore di lavoro pari opportunità. Tutti i candidati qualificati riceveranno considerazione per l'occupazione senza riguardo a età, antenati, cittadinanza, colore, famiglia o congedo di assistenza medica, identità di genere o espressione, informazioni genetiche, stato di immigrazione, stato civile, stato medico, origine nazionale, disabilità fisica o mentale, affiliazione politica, stato veterano protetto o militare, razza, etnia, religione, sesso (compresa la gravidanza), orientamento sessuale, o qualsiasi altra caratteristica protetta da leggi, regolamenti e ordinanze locali applicabili. Se avete bisogno di assistenza con alloggi religiosi e/o di un alloggio ragionevole a causa di una disabilità durante il processo di applicazione, saperne di più sulla richiesta di alloggi.",
+        "en": "This position will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled. Microsoft is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to age, ancestry, citizenship, color, family or medical care leave, gender identity or expression, genetic information, immigration status, marital status, medical condition, national origin, physical or mental disability, political affiliation, protected veteran or military status, race, ethnicity, religion, sex (including pregnancy), sexual orientation, or any other characteristic protected by applicable local laws, regulations and ordinances. If you need assistance with religious accommodations and/or a reasonable accommodation due to a disability during the application process, read more about requesting accommodations.",
+        "de": "Diese Position ist für mindestens 5 Tage geöffnet, wobei die Bewerbungen fortlaufend akzeptiert werden, bis die Position besetzt ist. Microsoft ist ein Arbeitgeber für Chancengleichheit. Alle qualifizierten Bewerber erhalten eine Gegenleistung für eine Beschäftigung ohne Rücksicht auf Alter, Abstammung, Staatsangehörigkeit, Hautfarbe, Familie oder medizinische Versorgung Urlaub, Geschlechtsidentität oder Ausdruck, genetische Informationen, Einwanderungsstatus, Familienstand, Gesundheitszustand, nationale Herkunft, körperliche oder geistige Behinderung, politische Zugehörigkeit, geschützt Veteran oder Militärstatus, Rasse, Ethnizität, Religion, Geschlecht (einschließlich Schwangerschaft), sexuelle Orientierung oder andere durch geltende lokale Gesetze, Vorschriften und Verordnungen geschützte Merkmale. Wenn Sie Hilfe bei religiösen Unterkünften und / oder eine angemessene Unterkunft aufgrund einer Behinderung während des Bewerbungsprozesses benötigen, lesen Sie mehr über die Beantragung von Unterkünften.",
+        "fr": "Ce poste sera ouvert pendant au moins 5 jours, les candidatures étant acceptées de façon continue jusqu'à ce que le poste soit comblé. Microsoft est un employeur à chances égales. Tous les candidats qualifiés seront considérés pour un emploi sans égard à l'âge, à l'ascendance, à la citoyenneté, à la couleur, à la famille ou aux soins médicaux, à l'identité ou à l'expression de genre, à l'information génétique, à l'état d'immigration, à l'état matrimonial, à l'état médical, à l'origine nationale, à un handicap physique ou mental, à l'appartenance politique, à un ancien combattant protégé ou à un statut militaire protégé, à la race, à l'ethnicité, à la religion, au sexe (y compris la grossesse), à l'orientation sexuelle ou à toute autre caractéristique protégée par les lois, règlements et ordonnances locaux applicables. Si vous avez besoin d'aide en matière d'adaptation religieuse et/ou d'accommodement raisonnable en raison d'une déficience pendant le processus de demande, en savoir plus sur la demande d'adaptation."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.careers.microsoft.com/careers/job/1970393556625311",
+      "source": "Microsoft Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-08T22:13:59.624Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-01-28",
+      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556625311",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "applied-sciences-internship-microsoft-zurich",
+        "tirocinio-in-scienze-applicate-microsoft-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "applied-sciences-internship-microsoft-zurich",
+          "tirocinio-in-scienze-applicate-microsoft-zurich"
+        ],
+        "de": [
+          "applied-sciences-internship-microsoft-zurich"
+        ],
+        "fr": [
+          "applied-sciences-internship-microsoft-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-06-27T11:45:37.003Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "The Circle 02",
+      "postalCode": "8058"
     },
     {
       "id": "microsoft-200041378",
@@ -134,166 +213,8 @@
         }
       },
       "streetAddress": "The Circle 02",
-      "postalCode": "8058"
-    },
-    {
-      "id": "microsoft-200005606",
-      "slug": "tirocinio-in-scienze-applicate-microsoft-zurich",
-      "slugByLocale": {
-        "it": "tirocinio-in-scienze-applicate-microsoft-zurich",
-        "en": "applied-sciences-internship-microsoft-zurich",
-        "de": "praktikum-fur-angewandte-wissenschaften-microsoft-zurich",
-        "fr": "stage-en-sciences-appliquees-microsoft-zurich"
-      },
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Applied Sciences Internship",
-      "titleByLocale": {
-        "it": "Tirocinio in Scienze Applicate",
-        "en": "Applied Sciences Internship",
-        "de": "Praktikum für angewandte Wissenschaften",
-        "fr": "Stage en sciences appliquées"
-      },
-      "description": "This position will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled.\n\nMicrosoft is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to age, ancestry, citizenship, color, family or medical care leave, gender identity or expression, genetic information, immigration status, marital status, medical condition, national origin, physical or mental disability, political affiliation, protected veteran or military status, race, ethnicity, religion, sex (including pregnancy), sexual orientation, or any other characteristic protected by applicable local laws, regulations and ordinances. If you need assistance with religious accommodations and/or a reasonable accommodation due to a disability during the application process, read more about requesting accommodations.",
-      "descriptionByLocale": {
-        "it": "Questa posizione sarà aperta per un minimo di 5 giorni, con applicazioni accettate su base continuativa fino a quando la posizione non sarà riempita. Microsoft è un datore di lavoro pari opportunità. Tutti i candidati qualificati riceveranno considerazione per l'occupazione senza riguardo a età, antenati, cittadinanza, colore, famiglia o congedo di assistenza medica, identità di genere o espressione, informazioni genetiche, stato di immigrazione, stato civile, stato medico, origine nazionale, disabilità fisica o mentale, affiliazione politica, stato veterano protetto o militare, razza, etnia, religione, sesso (compresa la gravidanza), orientamento sessuale, o qualsiasi altra caratteristica protetta da leggi, regolamenti e ordinanze locali applicabili. Se avete bisogno di assistenza con alloggi religiosi e/o di un alloggio ragionevole a causa di una disabilità durante il processo di applicazione, saperne di più sulla richiesta di alloggi.",
-        "en": "This position will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled. Microsoft is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to age, ancestry, citizenship, color, family or medical care leave, gender identity or expression, genetic information, immigration status, marital status, medical condition, national origin, physical or mental disability, political affiliation, protected veteran or military status, race, ethnicity, religion, sex (including pregnancy), sexual orientation, or any other characteristic protected by applicable local laws, regulations and ordinances. If you need assistance with religious accommodations and/or a reasonable accommodation due to a disability during the application process, read more about requesting accommodations.",
-        "de": "Diese Position ist für mindestens 5 Tage geöffnet, wobei die Bewerbungen fortlaufend akzeptiert werden, bis die Position besetzt ist. Microsoft ist ein Arbeitgeber für Chancengleichheit. Alle qualifizierten Bewerber erhalten eine Gegenleistung für eine Beschäftigung ohne Rücksicht auf Alter, Abstammung, Staatsangehörigkeit, Hautfarbe, Familie oder medizinische Versorgung Urlaub, Geschlechtsidentität oder Ausdruck, genetische Informationen, Einwanderungsstatus, Familienstand, Gesundheitszustand, nationale Herkunft, körperliche oder geistige Behinderung, politische Zugehörigkeit, geschützt Veteran oder Militärstatus, Rasse, Ethnizität, Religion, Geschlecht (einschließlich Schwangerschaft), sexuelle Orientierung oder andere durch geltende lokale Gesetze, Vorschriften und Verordnungen geschützte Merkmale. Wenn Sie Hilfe bei religiösen Unterkünften und / oder eine angemessene Unterkunft aufgrund einer Behinderung während des Bewerbungsprozesses benötigen, lesen Sie mehr über die Beantragung von Unterkünften.",
-        "fr": "Ce poste sera ouvert pendant au moins 5 jours, les candidatures étant acceptées de façon continue jusqu'à ce que le poste soit comblé. Microsoft est un employeur à chances égales. Tous les candidats qualifiés seront considérés pour un emploi sans égard à l'âge, à l'ascendance, à la citoyenneté, à la couleur, à la famille ou aux soins médicaux, à l'identité ou à l'expression de genre, à l'information génétique, à l'état d'immigration, à l'état matrimonial, à l'état médical, à l'origine nationale, à un handicap physique ou mental, à l'appartenance politique, à un ancien combattant protégé ou à un statut militaire protégé, à la race, à l'ethnicité, à la religion, au sexe (y compris la grossesse), à l'orientation sexuelle ou à toute autre caractéristique protégée par les lois, règlements et ordonnances locaux applicables. Si vous avez besoin d'aide en matière d'adaptation religieuse et/ou d'accommodement raisonnable en raison d'une déficience pendant le processus de demande, en savoir plus sur la demande d'adaptation."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393556625311",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:19:31.629Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-28",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556625311",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "applied-sciences-internship-microsoft-zurich",
-        "tirocinio-in-scienze-applicate-microsoft-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "applied-sciences-internship-microsoft-zurich",
-          "tirocinio-in-scienze-applicate-microsoft-zurich"
-        ],
-        "de": [
-          "applied-sciences-internship-microsoft-zurich"
-        ],
-        "fr": [
-          "applied-sciences-internship-microsoft-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-06-27T11:45:37.003Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "The Circle 02",
-      "postalCode": "8058"
-    },
-    {
-      "id": "microsoft-200040836",
-      "slug": "senior-software-ingegnere-microsoft-zurich",
-      "slugByLocale": {
-        "it": "senior-software-ingegnere-microsoft-zurich",
-        "en": "senior-software-engineer-microsoft-zurich",
-        "de": "senior-software-ingenieur-microsoft-zurich",
-        "fr": "senior-software-ingenieur-microsoft-zurich"
-      },
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Senior Software Engineer",
-      "titleByLocale": {
-        "it": "Senior Software Ingegnere",
-        "en": "Senior Software Engineer",
-        "de": "Senior Software Ingenieur",
-        "fr": "Senior Software Ingénieur"
-      },
-      "description": "Overview\n Do you enjoy solving problems, writing software, and working with customers? Do you want to join a team where learning about new technology is part of our work every day? Then, come join us!\n\nThe Industry Solutions Engineering (ISE) team is a global engineering organization that works directly with customers looking to leverage the latest technologies to address their toughest challenges.\n\nWe work closely with our customers’ engineers to jointly develop code for cloud-based solutions that can accelerate their organization. We work in collaboration with Microsoft product teams, partners, and open-source communities to empower our customers to do more with the cloud. We develop solutions side-by-side with our customers through collaborative innovation to solve their challenges. This work involves the development of broadly applicable, high-impact solution patterns and open-source software assets that contribute to the Microsoft platform.\n\nWe are hiring a Senior Software Engineer with deep experience and expertise in designing and delivering solutions using modern software engineering practices and cloud technologies. You will be part of a cross-functional team of software engineers, data scientists, technical program managers, and designers who work side-by-side with high-impact and strategic customers and their engineers to build innovative solutions.\n\nAs part of our team, you will thrive in working with a variety of technologies, not just Microsoft technology. You will solve exciting business problems, contribute to open source, and collaborate with Microsoft product teams.\n\nMicrosoft’s mission is to empower every person and every organization on the planet to achieve more. As employees, we come together with a growth mindset, innovate to empower others, and collaborate to realize our shared goals. Each day we build on our values of respect, integrity, and accountability to create a culture of inclusion where everyone can thrive at work and beyond.\n\nResponsibilities\n\n• Collaborates with appropriate stakeholders to determine user requirements for a scenario.\n\n• Drives identification of dependencies and the development of design documents for a product, application, service, or platform.\n\n• Creates, implements, optimizes, debugs, refactors, and reuses code to establish and improve performance and maintainability, effectiveness, and return on investment (ROI).\n\n• Leverages subject-matter expertise of product features and partners with appropriate stakeholders (e.g., project managers) to drive a workgroup's project plans, release plans, and work items.\n\n• Acts as a Designated Responsible Individual (DRI) and guides other engineers by developing and following the playbook, working on call to monitor system/product/service for degradation, downtime, or interruptions, alerting stakeholders about status and initiates actions to restore system/product/service for simple and complex problems when appropriate.\n\n• Proactively seeks new knowledge and adapts to new trends, technical solutions, and patterns that will improve the availability, reliability, efficiency, observability, and performance of products while also driving consistency in monitoring and operations at scale.\n\n• Embodies our culture and values\n\nQualifications\n Required/Minimum Qualifications (RQs/MQs)\n\n• Bachelor's degree in computer science, or related technical discipline AND 4+ years technical engineering experience with coding in languages including, but not limited to, C, C++, C#, Java, JavaScript, or Python\n\n• Familiarity with deploying and operating AI systems in production environments\n\n• Experience building or integrating AI/ML or LLM-based solutions, prompt engineering, RAG\n\n• Understanding of model evaluation, data quality, and performance monitoring\n\nAdditional or Preferred Qualifications (PQs)\n\n• Bachelor's degree in computer science OR related technical field AND technical engineering experience with coding in languages including, but not limited to, C, C++, C#, Java, JavaScript, or Python\n\n• German language would be beneficial\n\n• Enjoy travel and are comfortable with travel up to 25%\n\nOur team prides itself on embracing a growth mindset, inspiring excellence, and encouraging everyone to share their unique viewpoints and be their authentic self. Join us and help create life-changing innovations that impact billions around the world!\n\nAt Microsoft, we are seeking people who have a passion for the positive impact technology can have on communities and for making a difference in the world. Within ISE, you will find a wide range of backgrounds, perspectives, personal and cultural experiences which are vital to our success with our customers.  It’s an informal and flexible work environment, and you’ll be welcome to work in a way that best enables you to get your job done.\n\nWe invest in your health, wellness, and financial future by offering a competitive package including a wide range of benefits built around your personal needs and those close to you.\n\nBenefits/perks listed below may vary depending on the nature of your employment with Microsoft and the country where you work.\n\n#ISEngineering\n\n#WSS\n\nSoftware Engineering IC4 - The typical base pay range for this role across Switzerland is CHF 146,200.00 - CHF 245,900.00 per year. Certain roles may be eligible for benefits and other compensation.\n\nFind additional benefits and pay information here:\n https://careers.microsoft.com/v2/global/en/corporate-pay/switzerland-corporate-pay.html\n\nThis position will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled.\n\nMicrosoft is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to age, ancestry, citizenship, color, family or medical care leave, gender identity or expression, genetic information, immigration status, marital status, medical condition, national origin, physical or mental disability, political affiliation, protected veteran or military status, race, ethnicity, religion, sex (including pregnancy), sexual orientation, or any other characteristic protected by applicable local laws, regulations and ordinances. If you need assistance with religious accommodations and/or a reasonable accommodation due to a disability during the application process, read more about requesting accommodations.",
-      "descriptionByLocale": {
-        "it": "Panoramica Ti piace risolvere problemi, scrivere software e lavorare con i clienti? Vuoi unirti a un team dove imparare nuove tecnologie fa parte del nostro lavoro ogni giorno? Allora vieni con noi! Il team Industry Solutions Engineering (ISE) è un'organizzazione di ingegneria globale che lavora direttamente con i clienti che cercano di sfruttare le ultime tecnologie per affrontare le loro sfide più difficili. Lavoriamo a stretto contatto con gli ingegneri dei nostri clienti per sviluppare insieme il codice per soluzioni basate su cloud che possono accelerare la loro organizzazione. Lavoriamo in collaborazione con team di prodotti Microsoft, partner e comunità open source per consentire ai nostri clienti di fare di più con il cloud. Sviluppiamo soluzioni fianco a fianco con i nostri clienti attraverso l'innovazione collaborativa per risolvere le loro sfide. Questo lavoro comporta lo sviluppo di modelli di soluzioni ad alto impatto e risorse software open source che contribuiscono alla piattaforma Microsoft. Assumiamo un Senior Software Engineer con profonda esperienza e competenza nella progettazione e nella fornitura di soluzioni utilizzando moderne pratiche di ingegneria del software e tecnologie cloud. Sarete parte di un team interfunzionale di ingegneri software, scienziati di dati, manager di programmi tecnici e designer che lavorano fianco a fianco con clienti ad alto impatto e strategici e i loro ingegneri per costruire soluzioni innovative. Come parte del nostro team, si prospererà a lavorare con una varietà di tecnologie, non solo la tecnologia Microsoft. Risolverai problemi di business entusiasmanti, contribuirai all'open source e collaborerai con i team di prodotti Microsoft. La missione di Microsoft è di consentire a ogni persona e ogni organizzazione del pianeta di ottenere di più. Come dipendenti, ci uniamo a una mentalità di crescita, innovare per potenziare gli altri, e collaborare per realizzare i nostri obiettivi condivisi. Ogni giorno costruiamo sui nostri valori di rispetto, integrità e responsabilità per creare una cultura di inclusione dove tutti possono prosperare al lavoro e oltre. responsabilità\n• Collabora con gli stakeholder appropriati per determinare i requisiti degli utenti per uno scenario.\n• Guida l'identificazione delle dipendenze e lo sviluppo di documenti di progettazione per un prodotto, applicazione, servizio o piattaforma.\n• Crea, implementa, ottimizza, debug, refactors e riutilizza il codice per stabilire e migliorare le prestazioni e la manutentività, l'efficacia e il ritorno sull'investimento (ROI).\n• Leva le competenze più importanti per le caratteristiche dei prodotti e i partner con gli stakeholder appropriati (ad esempio, project manager) per guidare i piani di progetto, i piani di rilascio e gli elementi di lavoro del gruppo di lavoro.\n• Agisce come individuo responsabile designato (DRI) e guida altri ingegneri sviluppando e seguendo la cartella di gioco, lavorando su chiamata per monitorare il sistema / prodotto / servizio per la degradazione, downtime, o interruzioni, avvisando le parti interessate sullo stato e avvia azioni per ripristinare sistema / prodotto / servizio per problemi semplici e complessi quando necessario.\n• Proattivamente cerca nuove conoscenze e si adatta a nuove tendenze, soluzioni tecniche e modelli che miglioreranno la disponibilità, l'affidabilità, l'efficienza, l'osservabilità e le prestazioni dei prodotti, guidando anche la coerenza nel monitoraggio e nelle operazioni in scala.\n• incarna la nostra cultura e i nostri valori Qualifiche Required/Minimum Qualificazioni (RQ/MQs)\n• Corso di laurea in informatica, o disciplina tecnica correlata E 4+ anni esperienza di ingegneria tecnica con codifica in lingue tra cui, ma non solo, C, C++, C#, Java, JavaScript, o Python\n• Familiarità con lo schieramento e il funzionamento dei sistemi AI in ambienti produttivi\n• Esperienza costruzione o integrazione di soluzioni basate su AI/ML o LLM, ingegneria rapida, RAG\n• Comprensione della valutazione del modello, della qualità dei dati e del monitoraggio delle prestazioni Qualificazioni aggiuntive o preferenziali (PQ)\n• Corso di laurea in informatica O relativo campo tecnico E esperienza di ingegneria tecnica con codifica in lingue tra cui, ma non solo, C, C++, C#, Java, JavaScript, o Python\n• La lingua tedesca sarebbe utile\n• Godetevi il viaggio e sono confortevoli con un viaggio fino al 25% Il nostro team si vanta di abbracciare una mentalità di crescita, ispirando l'eccellenza, e incoraggiando tutti a condividere i loro punti di vista unici ed essere il loro sé autentico. Unisciti a noi e contribuire a creare innovazioni che cambiano la vita che impatto miliardi in tutto il mondo! In Microsoft, stiamo cercando persone che hanno una passione per la tecnologia di impatto positivo può avere sulle comunità e per fare la differenza nel mondo. All'interno dell'ISE troverete una vasta gamma di sfondi, prospettive, esperienze personali e culturali che sono vitali per il nostro successo con i nostri clienti. Si tratta di un ambiente di lavoro informale e flessibile, e sarete invitati a lavorare in un modo che ti permette di ottenere il lavoro fatto. Investiamo nella vostra salute, benessere e futuro finanziario offrendo un pacchetto competitivo tra cui una vasta gamma di benefici costruiti intorno alle vostre esigenze personali e quelli vicino a voi. Vantaggi / vantaggi elencati di seguito possono variare a seconda della natura del vostro lavoro con Microsoft e il paese in cui si lavora. #ISEngineering # Software Engineering IC4 - La gamma di pagamenti base tipica per questo ruolo in tutta la Svizzera è di CHF 146,200.00 - CHF 245.900.00 all'anno. Alcuni ruoli possono essere idonei per le prestazioni e altre compensazioni. Trova ulteriori vantaggi e informazioni di pagamento qui: https://careers.microsoft.com/v2/global/en/corporate-pay/switzerland-corporate-pay.html Questa posizione sarà aperta per un minimo di 5 giorni, con applicazioni accettate su base continuativa fino a quando la posizione non sarà riempita. Microsoft è un datore di lavoro pari opportunità. Tutti i candidati qualificati riceveranno considerazione per l'occupazione senza riguardo a età, antenati, cittadinanza, colore, famiglia o congedo di assistenza medica, identità di genere o espressione, informazioni genetiche, stato di immigrazione, stato civile, stato medico, origine nazionale, disabilità fisica o mentale, affiliazione politica, stato veterano protetto o militare, razza, etnia, religione, sesso (compresa la gravidanza), orientamento sessuale, o qualsiasi altra caratteristica protetta da leggi, regolamenti e ordinanze locali applicabili. Se avete bisogno di assistenza con alloggi religiosi e/o di un alloggio ragionevole a causa di una disabilità durante il processo di applicazione, saperne di più sulla richiesta di alloggi.",
-        "en": "Overview Do you enjoy solving problems, writing software, and working with customers? Do you want to join a team where learning about new technology is part of our work every day? Then, come join us! The Industry Solutions Engineering (ISE) team is a global engineering organization that works directly with customers looking to leverage the latest technologies to address their toughest challenges. We work closely with our customers’ engineers to jointly develop code for cloud-based solutions that can accelerate their organization. We work in collaboration with Microsoft product teams, partners, and open-source communities to empower our customers to do more with the cloud. We develop solutions side-by-side with our customers through collaborative innovation to solve their challenges. This work involves the development of broadly applicable, high-impact solution patterns and open-source software assets that contribute to the Microsoft platform. We are hiring a Senior Software Engineer with deep experience and expertise in designing and delivering solutions using modern software engineering practices and cloud technologies. You will be part of a cross-functional team of software engineers, data scientists, technical program managers, and designers who work side-by-side with high-impact and strategic customers and their engineers to build innovative solutions. As part of our team, you will thrive in working with a variety of technologies, not just Microsoft technology. You will solve exciting business problems, contribute to open source, and collaborate with Microsoft product teams. Microsoft’s mission is to empower every person and every organization on the planet to achieve more. As employees, we come together with a growth mindset, innovate to empower others, and collaborate to realize our shared goals. Each day we build on our values of respect, integrity, and accountability to create a culture of inclusion where everyone can thrive at work and beyond. Responsibilities\n• Collaborates with appropriate stakeholders to determine user requirements for a scenario.\n• Drives identification of dependencies and the development of design documents for a product, application, service, or platform.\n• Creates, implements, optimizes, debugs, refactors, and reuses code to establish and improve performance and maintainability, effectiveness, and return on investment (ROI).\n• Leverages subject-matter expertise of product features and partners with appropriate stakeholders (e.g., project managers) to drive a workgroup's project plans, release plans, and work items.\n• Acts as a Designated Responsible Individual (DRI) and guides other engineers by developing and following the playbook, working on call to monitor system/product/service for degradation, downtime, or interruptions, alerting stakeholders about status and initiates actions to restore system/product/service for simple and complex problems when appropriate.\n• Proactively seeks new knowledge and adapts to new trends, technical solutions, and patterns that will improve the availability, reliability, efficiency, observability, and performance of products while also driving consistency in monitoring and operations at scale.\n• Embodies our culture and values Qualifications Required/Minimum Qualifications (RQs/MQs)\n• Bachelor's degree in computer science, or related technical discipline AND 4+ years technical engineering experience with coding in languages including, but not limited to, C, C++, C#, Java, JavaScript, or Python\n• Familiarity with deploying and operating AI systems in production environments\n• Experience building or integrating AI/ML or LLM-based solutions, prompt engineering, RAG\n• Understanding of model evaluation, data quality, and performance monitoring Additional or Preferred Qualifications (PQs)\n• Bachelor's degree in computer science OR related technical field AND technical engineering experience with coding in languages including, but not limited to, C, C++, C#, Java, JavaScript, or Python\n• German language would be beneficial\n• Enjoy travel and are comfortable with travel up to 25% Our team prides itself on embracing a growth mindset, inspiring excellence, and encouraging everyone to share their unique viewpoints and be their authentic self. Join us and help create life-changing innovations that impact billions around the world! At Microsoft, we are seeking people who have a passion for the positive impact technology can have on communities and for making a difference in the world. Within ISE, you will find a wide range of backgrounds, perspectives, personal and cultural experiences which are vital to our success with our customers. It’s an informal and flexible work environment, and you’ll be welcome to work in a way that best enables you to get your job done. We invest in your health, wellness, and financial future by offering a competitive package including a wide range of benefits built around your personal needs and those close to you. Benefits/perks listed below may vary depending on the nature of your employment with Microsoft and the country where you work. #ISEngineering #WSS Software Engineering IC4 - The typical base pay range for this role across Switzerland is CHF 146,200.00 - CHF 245,900.00 per year. Certain roles may be eligible for benefits and other compensation. Find additional benefits and pay information here: https://careers.microsoft.com/v2/global/en/corporate-pay/switzerland-corporate-pay.html This position will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled. Microsoft is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to age, ancestry, citizenship, color, family or medical care leave, gender identity or expression, genetic information, immigration status, marital status, medical condition, national origin, physical or mental disability, political affiliation, protected veteran or military status, race, ethnicity, religion, sex (including pregnancy), sexual orientation, or any other characteristic protected by applicable local laws, regulations and ordinances. If you need assistance with religious accommodations and/or a reasonable accommodation due to a disability during the application process, read more about requesting accommodations.",
-        "de": "Übersicht Genießen Sie es, Probleme zu lösen, Software zu schreiben und mit Kunden zu arbeiten? Möchten Sie einem Team beitreten, in dem das Lernen über neue Technologien jeden Tag Teil unserer Arbeit ist? Dann kommen Sie zu uns! Das Industry Solutions Engineering (ISE)-Team ist eine globale Engineering-Organisation, die direkt mit Kunden zusammenarbeitet, die die neuesten Technologien nutzen möchten, um ihre schwierigsten Herausforderungen zu meistern. Wir arbeiten eng mit den Ingenieuren unserer Kunden zusammen, um gemeinsam Code für Cloud-basierte Lösungen zu entwickeln, die ihre Organisation beschleunigen können. Wir arbeiten mit Microsoft Produktteams, Partnern und Open-Source-Communities zusammen, um unseren Kunden zu ermöglichen, mehr mit der Cloud zu tun. Wir entwickeln Lösungen Seite an Seite mit unseren Kunden durch kollaborative Innovationen, um ihre Herausforderungen zu lösen. Diese Arbeit umfasst die Entwicklung von breit anwendbaren, wirkungsvollen Lösungsmustern und Open-Source-Software-Assets, die zur Microsoft-Plattform beitragen. Wir stellen einen Senior Software Engineer mit großer Erfahrung und Expertise bei der Entwicklung und Bereitstellung von Lösungen mit modernen Software-Engineering-Praktiken und Cloud-Technologien ein. Sie werden Teil eines funktionsübergreifenden Teams von Software-Ingenieuren, Datenwissenschaftlern, technischen Programmmanagern und Designern sein, die Seite an Seite mit einflussreichen und strategischen Kunden und ihren Ingenieuren arbeiten, um innovative Lösungen zu entwickeln. Als Teil unseres Teams werden Sie mit einer Vielzahl von Technologien arbeiten, nicht nur mit Microsoft-Technologie. Sie lösen spannende Geschäftsprobleme, tragen zu Open Source bei und arbeiten mit Microsoft-Produktteams zusammen. Microsofts Mission ist es, jede Person und jedes Unternehmen auf dem Planeten zu befähigen, mehr zu erreichen. Als Mitarbeiter kommen wir mit einer Wachstumsmentalität zusammen, innovieren, um andere zu stärken, und arbeiten zusammen, um unsere gemeinsamen Ziele zu erreichen. Jeden Tag bauen wir auf unseren Werten Respekt, Integrität und Rechenschaftspflicht auf, um eine Kultur der Inklusion zu schaffen, in der jeder bei der Arbeit und darüber hinaus gedeihen kann. Zuständigkeiten\n• Arbeitet mit geeigneten Stakeholdern zusammen, um die Benutzeranforderungen für ein Szenario zu bestimmen.\n• Betreibt die Identifizierung von Abhängigkeiten und die Entwicklung von Designdokumenten für ein Produkt, eine Anwendung, einen Dienst oder eine Plattform.\n• Erstellt, implementiert, optimiert, debugs, refactors und verwendet Code, um Leistung und Wartbarkeit, Effektivität und Return on Investment (ROI) zu etablieren und zu verbessern.\n• Nutzen Sie Fachkenntnisse zu Produktfunktionen und Partnerschaften mit geeigneten Stakeholdern (z. B. Projektmanagern), um die Projektpläne, Releasepläne und Arbeitselemente einer Arbeitsgruppe zu steuern.\n• Agiert als Designated Responsible Individual (DRI) und leitet andere Ingenieure durch die Entwicklung und Befolgung des Playbooks, die Arbeit am Aufruf, um System / Produkt / Service auf Degradation, Ausfallzeiten oder Unterbrechungen zu überwachen, die Stakeholder über den Status zu informieren und Maßnahmen einzuleiten, um System / Produkt / Service für einfache und komplexe Probleme wiederherzustellen, wenn dies angemessen ist.\n• Proaktiv sucht neues Wissen und passt sich neuen Trends, technischen Lösungen und Mustern an, die die Verfügbarkeit, Zuverlässigkeit, Effizienz, Beobachtbarkeit und Leistung von Produkten verbessern und gleichzeitig die Konsistenz bei der Überwachung und dem Betrieb in großem Maßstab erhöhen.\n• Verkörpern unsere Kultur und Werte Qualifikationen Erforderliche/Mindestqualifikationen (RQs/MQs)\n• Bachelor-Abschluss in Informatik, oder verwandte technische Disziplin UND 4+ Jahre technische Ingenieurerfahrung mit Codierung in Sprachen einschließlich, aber nicht beschränkt auf, C, C++, C#, Java, JavaScript oder Python\n• Vertrautheit mit der Bereitstellung und dem Betrieb von KI-Systemen in Produktionsumgebungen\n• Erleben Sie den Aufbau oder die Integration von AI / ML- oder LLM-basierten Lösungen, promptes Engineering, RAG\n• Verständnis der Modellbewertung, Datenqualität und Leistungsüberwachung Zusätzliche oder bevorzugte Qualifikationen (PQs)\n• Bachelor-Abschluss in Informatik ODER verwandten technischen Bereich und technische Ingenieurerfahrung mit Codierung in Sprachen einschließlich, aber nicht beschränkt auf, C, C++, C#, Java, JavaScript oder Python\n• Deutsche Sprache wäre von Vorteil\n• Genießen Sie Reisen und sind bequem mit Reisen bis zu 25% Unser Team ist stolz darauf, eine Wachstumsmentalität anzunehmen, Exzellenz zu inspirieren und alle zu ermutigen, ihre einzigartigen Standpunkte zu teilen und ihr authentisches Selbst zu sein. Begleiten Sie uns und helfen Sie, lebensverändernde Innovationen zu schaffen, die Milliarden auf der ganzen Welt beeinflussen! Bei Microsoft suchen wir Menschen, die eine Leidenschaft für die positiven Auswirkungen haben, die Technologie auf Gemeinschaften haben kann und einen Unterschied in der Welt macht. ISE bietet eine breite Palette von Hintergründen, Perspektiven, persönlichen und kulturellen Erfahrungen, die für unseren Erfolg bei unseren Kunden von entscheidender Bedeutung sind. Es ist ein informelles und flexibles Arbeitsumfeld, und Sie können gerne so arbeiten, dass Sie Ihre Arbeit am besten erledigen können. Wir investieren in Ihre Gesundheit, Ihr Wohlbefinden und Ihre finanzielle Zukunft, indem wir ein wettbewerbsfähiges Paket anbieten, das eine breite Palette von Vorteilen umfasst, die auf Ihren persönlichen Bedürfnissen und denen in Ihrer Nähe basieren. Die unten aufgeführten Vorteile / Vergünstigungen können je nach Art Ihrer Beschäftigung bei Microsoft und dem Land, in dem Sie arbeiten, variieren. #ISEngineering #WSS Software Engineering IC4 - Die typische Basislohnspanne für diese Rolle in der Schweiz beträgt CHF 146.200.00 - CHF 245.900.00 pro Jahr. Bestimmte Rollen können für Leistungen und andere Entschädigungen in Betracht kommen. Weitere Vorteile und Zahlungsinformationen finden Sie hier: https://careers.microsoft.com/v2/global/en/corporate-pay/switzerland-corporate-pay.html Diese Position ist für mindestens 5 Tage geöffnet, wobei die Bewerbungen fortlaufend akzeptiert werden, bis die Position besetzt ist. Microsoft ist ein Arbeitgeber für Chancengleichheit. Alle qualifizierten Bewerber erhalten eine Gegenleistung für eine Beschäftigung ohne Rücksicht auf Alter, Abstammung, Staatsangehörigkeit, Hautfarbe, Familie oder medizinische Versorgung Urlaub, Geschlechtsidentität oder Ausdruck, genetische Informationen, Einwanderungsstatus, Familienstand, Gesundheitszustand, nationale Herkunft, körperliche oder geistige Behinderung, politische Zugehörigkeit, geschützt Veteran oder Militärstatus, Rasse, Ethnizität, Religion, Geschlecht (einschließlich Schwangerschaft), sexuelle Orientierung oder andere durch geltende lokale Gesetze, Vorschriften und Verordnungen geschützte Merkmale. Wenn Sie Hilfe bei religiösen Unterkünften und / oder eine angemessene Unterkunft aufgrund einer Behinderung während des Bewerbungsprozesses benötigen, lesen Sie mehr über die Beantragung von Unterkünften.",
-        "fr": "Aperçu général Vous aimez résoudre des problèmes, écrire des logiciels et travailler avec les clients? Voulez-vous rejoindre une équipe où l'apprentissage des nouvelles technologies fait partie de notre travail quotidien? Alors venez nous rejoindre ! L'équipe d'Industry Solutions Engineering (ISE) est une organisation d'ingénierie mondiale qui travaille directement avec les clients qui cherchent à tirer parti des dernières technologies pour relever leurs défis les plus difficiles. Nous travaillons en étroite collaboration avec nos clients pour développer conjointement le code des solutions cloud qui peuvent accélérer leur organisation. Nous travaillons en collaboration avec des équipes de produits Microsoft, des partenaires et des communautés open-source pour donner à nos clients les moyens de faire plus avec le cloud. Nous développons des solutions côte à côte avec nos clients grâce à l'innovation collaborative pour résoudre leurs défis. Ce travail implique le développement de modèles de solutions largement applicables et à fort impact et de logiciels libres qui contribuent à la plate-forme Microsoft. Nous embauchons un ingénieur logiciel senior avec une expérience et une expertise approfondies dans la conception et la livraison de solutions utilisant des pratiques modernes d'ingénierie logicielle et des technologies cloud. Vous ferez partie d'une équipe interfonctionnelle d'ingénieurs en logiciels, de data savants, de gestionnaires de programmes techniques et de concepteurs qui travaillent côte à côte avec des clients stratégiques et à fort impact et leurs ingénieurs pour construire des solutions innovantes. Dans le cadre de notre équipe, vous prospérerez en travaillant avec une variété de technologies, pas seulement la technologie Microsoft. Vous allez résoudre des problèmes d'affaires passionnants, contribuer à open source, et collaborer avec les équipes de produits Microsoft. La mission de Microsoft est de donner à chaque personne et à chaque organisation de la planète les moyens de réaliser davantage. En tant qu'employés, nous nous associons à une mentalité de croissance, innovons pour responsabiliser les autres et collaborons à la réalisation de nos objectifs communs. Chaque jour, nous nous appuyons sur nos valeurs de respect, d'intégrité et de responsabilité pour créer une culture d'inclusion où chacun peut prospérer au travail et au-delà. Responsabilités\n• Collabore avec les intervenants appropriés pour déterminer les besoins des utilisateurs pour un scénario.\n• Permet l'identification des dépendances et le développement de documents de conception pour un produit, une application, un service ou une plateforme.\n• Crée, implémente, optimise, débogue, refactorise et réutilise le code pour établir et améliorer les performances et la maintenance, l'efficacité et le rendement de l'investissement.\n• Tire parti de l'expertise en matière de caractéristiques des produits et des partenaires avec les intervenants appropriés (p. ex. les gestionnaires de projet) pour diriger les plans de projet, les plans de diffusion et les éléments de travail d'un groupe de travail.\n• Agir en tant qu'individu désigné responsable (DRI) et guider d'autres ingénieurs en élaborant et en suivant le playbook, en travaillant sur appel pour surveiller le système/produit/service pour la dégradation, les temps d'arrêt ou les interruptions, en avertissant les intervenants de l'état et en prenant des mesures pour restaurer le système/produit/service pour des problèmes simples et complexes, le cas échéant.\n• Recherche proactive de nouvelles connaissances et s'adapte aux nouvelles tendances, solutions techniques et modèles qui amélioreront la disponibilité, la fiabilité, l'efficacité, l'observabilité et la performance des produits tout en favorisant la cohérence dans la surveillance et les opérations à l'échelle.\n• Intégre notre culture et nos valeurs Compétences Obligatoire/Qualification minimale (QR/QM)\n• Baccalauréat en informatique, ou discipline technique connexe ET 4 ans d'expérience en ingénierie technique avec codage dans les langues, y compris, mais non limité à, C, C++, C#, Java, JavaScript, ou Python\n• Familiarité avec le déploiement et l'exploitation des systèmes AI dans les environnements de production\n• Expérimenter la construction ou l'intégration de solutions basées sur l'IA/ML ou LLM, l'ingénierie rapide, RAG\n• Compréhension de l'évaluation des modèles, de la qualité des données et du suivi des performances Qualifications supplémentaires ou privilégiées (PQ)\n• Baccalauréat en sciences de l'informatique OU domaine technique connexe ET expérience en génie technique avec codage dans les langues, y compris, mais non limité à, C, C++, C#, Java, JavaScript, ou Python\n• L'allemand serait bénéfique\n• Profitez des voyages et êtes à l'aise avec les voyages jusqu'à 25% Notre équipe est fière d'adopter un état d'esprit de croissance, d'inspirer l'excellence et d'encourager chacun à partager ses points de vue uniques et à être son propre authentique. Rejoignez-nous et contribuez à créer des innovations qui changent la vie et qui touchent des milliards de personnes dans le monde! Chez Microsoft, nous cherchons des gens qui ont une passion pour l'impact positif que la technologie peut avoir sur les communautés et pour faire une différence dans le monde. Au sein de ISE, vous trouverez un large éventail d'horizons, de perspectives, d'expériences personnelles et culturelles qui sont essentiels à notre succès auprès de nos clients. C'est un environnement de travail informel et flexible, et vous serez les bienvenus pour travailler d'une manière qui vous permet le mieux de faire votre travail. Nous investissons dans votre santé, votre bien-être et votre avenir financier en offrant un ensemble concurrentiel comprenant un large éventail d'avantages axés sur vos besoins personnels et ceux qui vous sont proches. Les avantages et avantages énumérés ci-dessous peuvent varier selon la nature de votre emploi chez Microsoft et le pays où vous travaillez. #ISEngineering #WSS Ingénierie logicielle IC4 - La plage de rémunération de base typique pour ce rôle en Suisse est de CHF 146,200,00 - CHF 245,900.00 par an. Certains rôles peuvent être admissibles aux prestations et autres rémunérations. Trouvez d'autres renseignements sur les avantages sociaux et la paye ici : https://careers.microsoft.com/v2/global/fr/corporate-pay/switzerland-corporate-pay.html Ce poste sera ouvert pendant au moins 5 jours, les candidatures étant acceptées de façon continue jusqu'à ce que le poste soit comblé. Microsoft est un employeur à chances égales. Tous les candidats qualifiés seront considérés pour un emploi sans égard à l'âge, à l'ascendance, à la citoyenneté, à la couleur, à la famille ou aux soins médicaux, à l'identité ou à l'expression de genre, à l'information génétique, à l'état d'immigration, à l'état matrimonial, à l'état médical, à l'origine nationale, à un handicap physique ou mental, à l'appartenance politique, à un ancien combattant protégé ou à un statut militaire protégé, à la race, à l'ethnicité, à la religion, au sexe (y compris la grossesse), à l'orientation sexuelle ou à toute autre caractéristique protégée par les lois, règlements et ordonnances locaux applicables. Si vous avez besoin d'aide en matière d'adaptation religieuse et/ou d'accommodement raisonnable en raison d'une déficience pendant le processus de demande, en savoir plus sur la demande d'adaptation."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393556887764",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:20:04.104Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556887764",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-software-engineer-microsoft-zurich",
-        "senior-software-ingegnere-microsoft-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-software-engineer-microsoft-zurich",
-          "senior-software-ingegnere-microsoft-zurich"
-        ],
-        "de": [
-          "senior-software-engineer-microsoft-zurich"
-        ],
-        "fr": [
-          "senior-software-engineer-microsoft-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-06-26T11:45:55.897Z",
-      "crawlerMissStreak": 2,
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "The Circle 02",
-      "postalCode": "8058"
+      "postalCode": "8058",
+      "crawlerMissStreak": 1
     }
   ]
 }
