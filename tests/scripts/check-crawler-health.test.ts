@@ -265,6 +265,46 @@ describe('nextCrawlerState', () => {
     expect(state.consecutiveEmptyRuns).toBe(0);
   });
 
+  it('clears broken status for has-healthcare (Drupal micro-site, empty-ok) on a fresh zero-job run (#3565, #3819)', () => {
+    // Reproduces the #3819 recurrence of #3565: the e-lavoro.ch/node/104
+    // listing page (AITI Drupal micro-site) returns HTTP 200 with its own
+    // legitimate empty-state markup — "Purtroppo non ci sono offerte di
+    // lavoro, torna a trovarci!" — verified via a direct fetch with the
+    // crawler's own selectors (job-title-row / w-100 p-3 /
+    // main-list-job-percentage), which is unchanged and still correct; it
+    // simply has nothing to match. #3565 was closed on this same evidence
+    // but WITHOUT adding the crawler to EMPTY_OK_CRAWLERS, so the daily
+    // monitor kept re-flagging it as broken every day until #3819 was
+    // opened fresh 6 empty runs later. It must not stay flagged broken once
+    // added to EMPTY_OK_CRAWLERS.
+    const prev = {
+      lastSuccessfulRunAt: '2026-07-01T22:28:50.370Z',
+      lastNonZeroJobs: 4,
+      consecutiveEmptyRuns: 6,
+      lastFailureReason: '6 consecutive runs returned 0 jobs',
+      status: 'broken',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+      _lastObservedAssembledAt: new Date(NOW_MS - DAY_MS).toISOString(),
+    };
+    const { status, state, reason } = nextCrawlerState(
+      prev,
+      {
+        slug: 'has-healthcare',
+        jobCount: 0,
+        freshnessAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        freshnessSource: 'summary',
+        generatedAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        assembledAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state.consecutiveEmptyRuns).toBe(0);
+  });
+
   it('flags stale when slice assembledAt is older than 7 days (regardless of empty streak)', () => {
     // heineken-ch fixture: slice from 8d ago.
     const { status, state, reason } = nextCrawlerState(
