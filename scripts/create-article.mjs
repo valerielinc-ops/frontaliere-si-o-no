@@ -1240,6 +1240,31 @@ const PRIORITY_EVERGREEN_TOPICS = [
   { keyword: 'frontaliere adozione affido procedura italia svizzera', angle: 'Procedura di adozione o affido per una famiglia frontaliera: enti competenti tra Italia e Svizzera, congedi previsti, documenti necessari' },
   { keyword: 'frontaliere gravidanza controlli sanitari lamal cmi', angle: 'Gravidanza e controlli sanitari per la frontaliera: copertura LAMal o CMI, scelta dell\'ospedale, differenze pratiche tra i due sistemi' },
   { keyword: 'frontaliere disdetta contratto lavoro dimissioni termini', angle: 'Dare le dimissioni da un lavoro da frontaliere: termini di preavviso svizzeri, procedura corretta, impatto su permesso e disoccupazione' },
+  // 2026-07-08: batch di interesse generale per chi vive/lavora nell'area
+  // transfrontaliera Ticino-Lombardia, non legato allo status fiscale/permesso
+  // del frontaliere — vita locale, tempo libero, mobilità, immobiliare,
+  // trasferimento in Svizzera per chi non è (ancora) frontaliere.
+  { keyword: 'cosa fare nel weekend in ticino attività outdoor', angle: 'Idee per il weekend in Ticino: escursioni, laghi, borghi e attività all\'aperto per chi vive o lavora nell\'area transfrontaliera' },
+  { keyword: 'migliori laghi balneabili ticino estate', angle: 'Guida ai laghi balneabili del Ticino: qualità delle acque, spiagge attrezzate, accesso e parcheggi, consigli per l\'estate' },
+  { keyword: 'sentieri escursionistici ticino per principianti', angle: 'I sentieri escursionistici più adatti ai principianti in Ticino: dislivello, durata, punti panoramici, come arrivarci' },
+  { keyword: 'stazioni sci vicino lugano bellinzona', angle: 'Le stazioni sciistiche più vicine a Lugano e Bellinzona: piste, skipass, tempi di percorrenza da chi vive nell\'area di confine' },
+  { keyword: 'mercatini e mercati settimanali ticino', angle: 'Guida ai mercati settimanali e mercatini del Ticino: prodotti locali, giorni e orari, città principali' },
+  { keyword: 'migliori ristoranti tipici ticinesi lugano', angle: 'Dove mangiare cucina tipica ticinese a Lugano e dintorni: grotti, osterie, piatti da provare, fasce di prezzo' },
+  { keyword: 'vino merlot ticinese cantine da visitare', angle: 'Il Merlot ticinese e le cantine da visitare: percorsi enoturistici, degustazioni, come raggiungerle dall\'area di confine' },
+  { keyword: 'piste ciclabili ticino lombardia percorsi', angle: 'Le piste ciclabili tra Ticino e Lombardia: percorsi lungolago, difficoltà, noleggio bici, punti di interesse' },
+  { keyword: 'parchi naturali e riserve ticino', angle: 'Parchi naturali e riserve protette del Ticino: accesso, attività consentite, periodi migliori per la visita' },
+  { keyword: 'mercato immobiliare ticino prezzi tendenze', angle: 'Il mercato immobiliare in Ticino: prezzi medi per zona, tendenze recenti, differenze tra affitto e acquisto, utile a chiunque valuti un trasferimento' },
+  { keyword: 'trasferirsi in svizzera da italiano non frontaliere guida', angle: 'Guida al trasferimento in Svizzera per chi non è (ancora) frontaliere: permesso di soggiorno, ricerca casa, primi passi burocratici' },
+  { keyword: 'sistema sanitario svizzero panoramica generale', angle: 'Come funziona il sistema sanitario svizzero: assicurazione obbligatoria, medico di famiglia, pronto soccorso, differenze rispetto al SSN italiano' },
+  { keyword: 'aprire un conto in banca svizzera per residenti', angle: 'Aprire un conto bancario in Svizzera da residente: documenti richiesti, banche principali, costi di gestione' },
+  { keyword: 'mercato del lavoro ticino settori in crescita', angle: 'I settori in crescita nel mercato del lavoro ticinese: dati aggiornati, professioni richieste, prospettive per chi cerca impiego' },
+  { keyword: 'imparare lo svizzero tedesco corsi e app', angle: 'Come imparare lo svizzero tedesco: corsi in presenza, app consigliate, differenze con il tedesco standard' },
+  { keyword: 'coworking e spazi di lavoro condiviso lugano', angle: 'I migliori spazi di coworking a Lugano e in Ticino: costi, servizi inclusi, per chi lavora in autonomia o da remoto' },
+  { keyword: 'clima e meteo ticino stagioni caratteristiche', angle: 'Il clima del Ticino stagione per stagione: temperature medie, precipitazioni, il fenomeno del favonio, cosa aspettarsi durante l\'anno' },
+  { keyword: 'shopping outlet centri commerciali ticino', angle: 'Guida allo shopping in Ticino: outlet, centri commerciali, orari di apertura, confronto prezzi con l\'Italia' },
+  { keyword: 'trasporti pubblici ticino guida abbonamenti generali', angle: 'Guida generale ai trasporti pubblici in Ticino: rete Arcobaleno, tipologie di abbonamento, app utili per orari e biglietti' },
+  { keyword: 'pensionarsi in svizzera per chi si trasferisce non frontaliere', angle: 'Andare in pensione in Svizzera per chi si trasferisce senza background da frontaliere: requisiti di residenza, fiscalità, qualità della vita' },
+  { keyword: 'sport e tempo libero ticino strutture sportive', angle: 'Strutture sportive e attività per il tempo libero in Ticino: piscine, palestre, centri sportivi comunali, costi di iscrizione' },
 ];
 
 // ── News sources to auto-scan ───────────────────────────────
