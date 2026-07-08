@@ -1,21 +1,19 @@
 {
   "key": "ergolz-klinik",
   "label": "Ergolz Klinik",
-  "generatedAt": "2026-07-07T22:16:29.854Z",
+  "generatedAt": "2026-07-08T11:24:15.341Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3676,
-  "avgDurationMs": 3676,
+  "unchangedCount": 0,
+  "durationMs": 5004,
+  "avgDurationMs": 5004,
   "durationHistory": [
-    3676
+    5004
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "ergolz-klinik-9afa70b1ddcc",
       "slug": "dipl-pflegefachperson-anasthesie-60-80-ergolz-klinik-liestal",
@@ -29,7 +27,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:16:27.563Z",
+      "crawledAt": "2026-07-08T11:24:11.793Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -53,5 +51,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
