@@ -1,16 +1,16 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-07-08T11:36:33.824Z",
+  "generatedAt": "2026-07-08T22:18:32.856Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7604,
-  "avgDurationMs": 7604,
+  "durationMs": 6784,
+  "avgDurationMs": 6784,
   "durationHistory": [
-    7604
+    6784
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135518323-infirmier-ere-instrumentiste",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:36:30.899Z",
+      "crawledAt": "2026-07-08T22:18:29.896Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135076878-aide-soignant-e-bloc-operatoire",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:36:31.870Z",
+      "crawledAt": "2026-07-08T22:18:30.912Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -91,47 +91,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "clinique-generale-beaulieu-289b6038a0d2",
-      "slug": "apprendista-tecnologo-in-dispositivi-medici-clinique-generale-beaulieu-geneve",
-      "company": "Clinique Générale-Beaulieu",
-      "companyKey": "clinique-generale-beaulieu",
-      "companyDomain": "swissmedical.net",
-      "title": "Apprenti(e) Technologue en Dispositif Médicaux",
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000126682308-apprenti-e-technologue-en-dispositif-medicaux",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000126682308-apprenti-e-technologue-en-dispositif-medicaux",
-      "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-06T22:36:06.187Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1206",
-      "streetAddress": "Chemin de Beau-Soleil 20, 1206 Genève",
-      "category": "Formazione",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "datePosted": "2026-05-26",
-      "firstSeenAt": "2026-05-26T14:07:24.929Z",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
