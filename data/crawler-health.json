@@ -643,13 +643,14 @@
       "lastNonZeroJobs": 0,
       "consecutiveEmptyRuns": 1,
       "lastFailureReason": "crawler not run in 52 days (freshnessAt=2026-05-17T21:07:56.707Z, source=summary)",
-      "status": "stale",
+      "status": "unknown",
       "_lastObservedAt": "2026-07-08T09:13:17.679Z",
       "_lastObservedJobs": 0,
       "_lastObservedFreshnessAt": "2026-05-17T21:07:56.707Z",
       "_lastObservedFreshnessSource": "summary",
       "_lastObservedAssembledAt": null,
-      "_lastObservedGeneratedAt": "2026-05-17T21:07:56.707Z"
+      "_lastObservedGeneratedAt": "2026-05-17T21:07:56.707Z",
+      "_missingAt": "2026-07-08T10:51:08.887Z"
     },
     "baronie": {
       "lastSuccessfulRunAt": null,
