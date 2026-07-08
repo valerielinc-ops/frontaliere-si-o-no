@@ -183,6 +183,7 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-40-st-moritz-710970",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-40-thusis-710972",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-40-uster-686524",
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-40-widnau-714764",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-50-pfaffikon-zh-699515",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-1-spreitenbach-691867",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-arbon-681473",
@@ -228,6 +229,7 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-muri-ag-671089",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-reinach-ag-677046",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-seewen-685901",
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-wallisellen-711246",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-zug-680569",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-zug-698180",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-zurich-705587",
@@ -296,6 +298,7 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-702399",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wallisellen-701474",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wetzikon-675996",
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-widnau-691226",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-willisau-686194",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-zug-713322",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-zurich-701465",
@@ -306,10 +309,10 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-reiden-714285",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-springerfunktion-m-w-d-80-100-1-reinach-ag-698364",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-springerfunktion-m-w-d-80-100-muri-ag-695103",
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-samstagskraft-m-w-d-20-80-amriswil-716113",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-samstagskraft-m-w-d-20-chur-705696",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-samstagskraft-m-w-d-20-chur-705710",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-samstagskraft-m-w-d-20-landquart-705694",
-    "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-40-crissier-710347",
     "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-40-morges-693331",
     "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-20-40-payerne-707132",
     "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-40-bulle-715218",
@@ -347,7 +350,7 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-704917"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-07-08T04:45:32.245Z",
+  "updatedAt": "2026-07-08T11:11:26.667Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-kreuzlingen-695002": {
       "location": "Kreuzlingen",
@@ -393,6 +396,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-samstagskraft-m-w-d-20-80-amriswil-716113": {
+      "location": "Amriswil",
+      "addressLocality": "Amriswil",
+      "canton": "TG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-zolldeklaration-m-w-d-80-100-weinfelden-709703": {
       "location": "Weinfelden",
@@ -515,6 +527,24 @@
       "location": "Arbon",
       "addressLocality": "Arbon",
       "canton": "TG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-40-widnau-714764": {
+      "location": "Widnau",
+      "addressLocality": "Widnau",
+      "canton": "SG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-widnau-691226": {
+      "location": "Widnau",
+      "addressLocality": "Widnau",
+      "canton": "SG",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
@@ -926,6 +956,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-wallisellen-701466": {
+      "location": "Wallisellen",
+      "addressLocality": "Wallisellen",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-wallisellen-711246": {
       "location": "Wallisellen",
       "addressLocality": "Wallisellen",
       "canton": "ZH",
@@ -3113,15 +3152,6 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-crissier-715457": {
-      "location": "Crissier",
-      "addressLocality": "Crissier",
-      "canton": "VD",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-40-crissier-710347": {
       "location": "Crissier",
       "addressLocality": "Crissier",
       "canton": "VD",
