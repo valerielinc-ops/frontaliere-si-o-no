@@ -1,35 +1,37 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-07T12:09:21.596Z",
-  "total": 382,
+  "generatedAt": "2026-07-08T11:21:28.271Z",
+  "total": 380,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 103737,
-  "avgDurationMs": 103737,
+  "unchangedCount": 1,
+  "durationMs": 117525,
+  "avgDurationMs": 117525,
   "durationHistory": [
-    103737
+    117525
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Apotheker / Apothekerin als Stellvertretung (w/m/d)",
+      "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
       "company": "Galenica (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3112117.4018789",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3109907.4014666",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Apotheker / Apothekerin als Stellvertretung (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "descriptionIt": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
-      "postedDate": "2026-06-10",
+      "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "apotheker-apothekerin-come-stellvertretung-m-w-d-galenica-bern",
-      "id": "galenica-454683a51feb",
+      "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
+      "id": "galenica-306fc202b2d8",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -40,16 +42,14 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 84,
+      "crawlerMissStreak": 2,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
