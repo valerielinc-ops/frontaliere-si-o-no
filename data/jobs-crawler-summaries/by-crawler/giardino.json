@@ -1,16 +1,16 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-07-07T22:15:30.816Z",
-  "total": 3,
+  "generatedAt": "2026-07-08T11:14:54.997Z",
+  "total": 4,
   "newCount": 1,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5255,
-  "avgDurationMs": 5255,
+  "unchangedCount": 1,
+  "durationMs": 6341,
+  "avgDurationMs": 6341,
   "durationHistory": [
-    5255
+    6341
   ],
   "newJobs": [
     {
@@ -25,7 +25,7 @@
       "url": "https://giardinohotels.ch/en/jobs/marketing-pr-manager-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:15:28.764Z",
+      "crawledAt": "2026-07-08T11:14:52.237Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -51,42 +51,6 @@
   ],
   "updatedJobs": [
     {
-      "id": "giardino-ce15b53b765a",
-      "slug": "marketing-pr-manager-giardino-group-ascona",
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Marketing & PR Manager",
-      "location": "Ascona",
-      "canton": "TI",
-      "url": "https://giardinohotels.ch/en/jobs/marketing-pr-manager/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:15:28.768Z",
-      "addressLocality": "Ascona",
-      "postalCode": "6612",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing / Vendite",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/marketing-pr-manager/",
-      "firstSeenAt": "2026-07-04T22:10:16.816Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "id": "giardino-fa048f90699b",
       "slug": "reservations-front-office-specialist-m-w-giardino-group-champfer",
       "company": "Giardino Group",
@@ -98,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:15:28.767Z",
+      "crawledAt": "2026-07-08T11:14:52.243Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -134,7 +98,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:15:28.768Z",
+      "crawledAt": "2026-07-08T11:14:52.247Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -160,5 +124,45 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "giardino-ce15b53b765a",
+      "slug": "marketing-pr-manager-giardino-group-ascona",
+      "company": "Giardino Group",
+      "companyKey": "giardino",
+      "companyDomain": "giardinohotels.ch",
+      "title": "Marketing & PR Manager",
+      "location": "Ascona",
+      "canton": "TI",
+      "url": "https://giardinohotels.ch/en/jobs/marketing-pr-manager/",
+      "source": "Giardino Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-07T22:15:28.768Z",
+      "addressLocality": "Ascona",
+      "postalCode": "6612",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing / Vendite",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-04",
+      "applyUrl": "https://giardinohotels.ch/en/jobs/marketing-pr-manager/",
+      "firstSeenAt": "2026-07-04T22:10:16.816Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ]
 }
