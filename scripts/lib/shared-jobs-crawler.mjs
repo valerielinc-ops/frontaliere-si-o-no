@@ -5413,7 +5413,6 @@ async function main() {
                 const aiSlugByLocale = enriched.slugByLocale ? { ...enriched.slugByLocale } : {};
                 const aiSlug = enriched.slug || '';
                 const srcLang = enriched.sourceLang || null;
-                const regSrc = srcLang && pin.slugByLocale ? String(pin.slugByLocale[srcLang] || '').trim() : '';
                 if (!enriched.slugByLocale || typeof enriched.slugByLocale !== 'object') {
                   enriched.slugByLocale = {};
                 }
@@ -5426,10 +5425,19 @@ async function main() {
                     if (pinned) enriched.slugByLocale[loc] = pinned;
                   }
                 }
-                const enforceMaster = !srcLang
-                  || !regSrc
-                  || String(pin.canonicalSlug).trim() !== regSrc;
-                if (enforceMaster) enriched.slug = pin.canonicalSlug;
+                // Master slug serves the IT path (regenerate-slugs-by-locale.mjs
+                // keeps job.slug in sync with slugByLocale.it), so pin it through
+                // the SAME registryPinnedLocaleSlug source-copy guard used for
+                // every other locale above instead of comparing raw
+                // pin.canonicalSlug against pin.slugByLocale[srcLang] — those two
+                // registry fields can legitimately differ (e.g. disambiguator
+                // hash present on one but not the other) even when both were
+                // frozen pre-translation, which silently defeated the old
+                // equality check and re-pinned an untranslated master slug over
+                // a real IT translation on every subsequent run (issues #3785 /
+                // #3794).
+                const pinnedMasterSlug = registryPinnedLocaleSlug(pin, 'it', srcLang);
+                if (pinnedMasterSlug) enriched.slug = pinnedMasterSlug;
                 captureLostSlugs(enriched, aiSlugByLocale, aiSlug);
               }
             }
