@@ -1,56 +1,18 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-07-08T11:37:53.923Z",
+  "generatedAt": "2026-07-08T22:14:34.061Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 8,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1706,
-  "avgDurationMs": 1706,
+  "durationMs": 2591,
+  "avgDurationMs": 2591,
   "durationHistory": [
-    1706
+    2591
   ],
-  "newJobs": [
-    {
-      "title": "Senior DevOps Engineer (HashiCorp Vault)",
-      "slug": "senior-devops-engineer-hashicorp-vault-fincons-group-lugano-switzerland",
-      "url": "https://fincons.applytojob.com/apply/UzgDqa8ywx/Senior-DevOps-Engineer-HashiCorp-Vault",
-      "applyUrl": "https://fincons.applytojob.com/apply/UzgDqa8ywx/Senior-DevOps-Engineer-HashiCorp-Vault",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-07-08",
-      "validThrough": "2026-10-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Mid Level",
-        "uniqueJobCode": "job_20260708080124_OUTHSNCVEW1PJVLS",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Angular Software Engineer",
@@ -85,14 +47,14 @@
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-06-23T11:38:21.084Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -128,14 +90,14 @@
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-06-17T22:36:03.816Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -171,14 +133,14 @@
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-06-12T12:06:56.780Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -214,14 +176,14 @@
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-05-07T11:00:54.190Z",
-      "_qualityScore": 99,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -257,14 +219,14 @@
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-06-12T12:06:56.780Z",
-      "_qualityScore": 99,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -300,14 +262,56 @@
       "salaryMin": 79500,
       "salaryMax": 135000,
       "currency": "CHF",
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-06-30T11:21:13.758Z",
-      "_qualityScore": 99,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Senior DevOps Engineer (HashiCorp Vault)",
+      "slug": "senior-devops-engineer-hashicorp-vault-fincons-group-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/UzgDqa8ywx/Senior-DevOps-Engineer-HashiCorp-Vault",
+      "applyUrl": "https://fincons.applytojob.com/apply/UzgDqa8ywx/Senior-DevOps-Engineer-HashiCorp-Vault",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-08",
+      "validThrough": "2026-10-06",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260708080124_OUTHSNCVEW1PJVLS",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-d827a730d90e",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-08T11:37:53.921Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -343,14 +347,14 @@
       "salaryMin": 79500,
       "salaryMax": 135000,
       "currency": "CHF",
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-06-23T11:38:21.084Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -386,14 +390,14 @@
       "salaryMin": 79500,
       "salaryMax": 135000,
       "currency": "CHF",
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-05-29T12:22:56.132Z",
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 21,
-        "completeness": 25
+        "completeness": 22
       }
     }
   ],
