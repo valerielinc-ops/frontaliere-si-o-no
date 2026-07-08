@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-07-08T11:16:15.144Z",
+  "generatedAt": "2026-07-08T22:08:43.109Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18057,
-  "avgDurationMs": 18057,
+  "durationMs": 15149,
+  "avgDurationMs": 15149,
   "durationHistory": [
-    18057
+    15149
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,9 +42,9 @@
         "location": "Graubünden"
       },
       "id": "capri-holdings-ec18af29c10f",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T21:19:55.464Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
