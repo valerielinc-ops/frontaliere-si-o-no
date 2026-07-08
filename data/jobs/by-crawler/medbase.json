@@ -1,6 +1,6 @@
 {
   "crawlerKey": "medbase",
-  "assembledAt": "2026-07-07T22:28:52.685Z",
+  "assembledAt": "2026-07-08T04:48:13.017Z",
   "jobs": [
     {
       "id": "medbase-a355712f9f21",
@@ -34,7 +34,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Facharzt--w-m-d--fr-Dermatologie-100-_JR03952",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:48.845Z",
+      "crawledAt": "2026-07-08T04:48:10.142Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Eglisau/Facharzt-Allgemeine-Innere-Medizin-60-80---w-m-d-_JR03532",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:48.076Z",
+      "crawledAt": "2026-07-08T04:48:09.389Z",
       "addressLocality": "Eglisau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -131,11 +131,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR03532",
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-a-60-80-medbase-ch"
+        "facharztin-facharzt-allgemeine-innere-medizin-a-60-80-medbase-ch",
+        "medicina-generale-specialistica-interna-a-60-80-medbase-eglisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-a-60-80-medbase-ch"
+          "facharztin-facharzt-allgemeine-innere-medizin-a-60-80-medbase-ch",
+          "medicina-generale-specialistica-interna-a-60-80-medbase-eglisau"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-60-80-medbase-ch"
@@ -190,7 +192,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Baden/Facharzt-Allgemeine-Innere-Medizin-FMH--m-w-d--70-100-_JR03915",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:47.337Z",
+      "crawledAt": "2026-07-08T04:48:08.634Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -208,11 +210,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR03915",
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-fmh-a-70-100-medbase-ch"
+        "facharztin-facharzt-allgemeine-innere-medizin-fmh-a-70-100-medbase-ch",
+        "specialista-generale-medicina-interna-fmh-a-70-100-medbase-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-fmh-a-70-100-medbase-ch"
+          "facharztin-facharzt-allgemeine-innere-medizin-fmh-a-70-100-medbase-ch",
+          "specialista-generale-medicina-interna-fmh-a-70-100-medbase-baden"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-fmh-a-70-100-medbase-ch"
@@ -267,7 +271,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Weinfelden/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--w-m-d--50-100-_JR03728",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:46.596Z",
+      "crawledAt": "2026-07-08T04:48:07.884Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -285,11 +289,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR03728",
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch"
+        "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch",
+        "medicina-generale-specialistica-interna-a-50-100-medbase-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch"
+          "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch",
+          "medicina-generale-specialistica-interna-a-50-100-medbase-weinfelden"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch"
@@ -344,7 +350,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Fachrztin---Facharzt-Dermatologie--a--40-80-_JR05383",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:45.759Z",
+      "crawledAt": "2026-07-08T04:48:07.021Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -362,11 +368,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05383",
       "previousSlugs": [
-        "facharztin-facharzt-dermatologie-a-40-80-medbase-ch"
+        "facharztin-facharzt-dermatologie-a-40-80-medbase-ch",
+        "dermatologia-specialistica-a-40-80-medbase-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-dermatologie-a-40-80-medbase-ch"
+          "facharztin-facharzt-dermatologie-a-40-80-medbase-ch",
+          "dermatologia-specialistica-a-40-80-medbase-frauenfeld"
         ],
         "en": [
           "facharztin-facharzt-dermatologie-a-40-80-medbase-ch"
@@ -421,7 +429,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Gampelen/Fachrztin---Facharzt--fr-Gynkologie-und-Geburtshilfe--a--50-100-_JR05253",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:45.030Z",
+      "crawledAt": "2026-07-08T04:48:06.294Z",
       "addressLocality": "Gampelen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -498,7 +506,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Genve/Mdecin-spcialiste_JR05118",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:44.293Z",
+      "crawledAt": "2026-07-08T04:48:05.542Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -516,11 +524,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05118",
       "previousSlugs": [
-        "medecin-specialiste-tous-genres-80-100-medbase-ch"
+        "medecin-specialiste-tous-genres-80-100-medbase-ch",
+        "medico-specializzato-tutti-i-generi-80-100-medbase-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-specialiste-tous-genres-80-100-medbase-ch"
+          "medecin-specialiste-tous-genres-80-100-medbase-ch",
+          "medico-specializzato-tutti-i-generi-80-100-medbase-geneve"
         ],
         "en": [
           "medecin-specialiste-tous-genres-80-100-medbase-ch"
@@ -575,7 +585,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Mdecin-spcialiste-en-rhumatologie--f-m-d-_JR04192",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:43.575Z",
+      "crawledAt": "2026-07-08T04:48:04.774Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -593,11 +603,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR04192",
       "previousSlugs": [
-        "medecin-specialiste-en-rhumatologie-tous-genres-60-100-medbase-ch"
+        "medecin-specialiste-en-rhumatologie-tous-genres-60-100-medbase-ch",
+        "medico-specialista-in-reumatologia-tutti-i-generi-60-100-medbase-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-specialiste-en-rhumatologie-tous-genres-60-100-medbase-ch"
+          "medecin-specialiste-en-rhumatologie-tous-genres-60-100-medbase-ch",
+          "medico-specialista-in-reumatologia-tutti-i-generi-60-100-medbase-lausanne"
         ],
         "en": [
           "medecin-specialiste-en-rhumatologie-tous-genres-60-100-medbase-ch"
@@ -652,7 +664,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Mdecin-spcialiste-en-dermatologie--f-m-d-_JR04191",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:42.823Z",
+      "crawledAt": "2026-07-08T04:48:03.999Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -670,11 +682,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR04191",
       "previousSlugs": [
-        "medecin-specialiste-en-dermatologie-tous-genres-60-100-medbase-ch"
+        "medecin-specialiste-en-dermatologie-tous-genres-60-100-medbase-ch",
+        "medico-specializzato-in-dermatologia-tutti-i-generi-60-100-medbase-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-specialiste-en-dermatologie-tous-genres-60-100-medbase-ch"
+          "medecin-specialiste-en-dermatologie-tous-genres-60-100-medbase-ch",
+          "medico-specializzato-in-dermatologia-tutti-i-generi-60-100-medbase-lausanne"
         ],
         "en": [
           "medecin-specialiste-en-dermatologie-tous-genres-60-100-medbase-ch"
@@ -729,7 +743,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Genve/Psychologue---Psychothrapeute-indpendante--m-f-d--50--100-_JR05146",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:42.063Z",
+      "crawledAt": "2026-07-08T04:48:03.243Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -747,11 +761,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05146",
       "previousSlugs": [
-        "psychologue-psychotherapeute-independant-e-tous-genres-50-100-medbase-ch"
+        "psychologue-psychotherapeute-independant-e-tous-genres-50-100-medbase-ch",
+        "psicologo-psicoterapeuta-indipendente-tutti-i-tipi-50-100-medbase-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-psychotherapeute-independant-e-tous-genres-50-100-medbase-ch"
+          "psychologue-psychotherapeute-independant-e-tous-genres-50-100-medbase-ch",
+          "psicologo-psicoterapeuta-indipendente-tutti-i-tipi-50-100-medbase-geneve"
         ],
         "en": [
           "psychologue-psychotherapeute-independant-e-tous-genres-50-100-medbase-ch"
@@ -806,7 +822,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Grand-Lancy/Mdecin-spcialiste-en-Gyncologie-et-Obsttrique_JR04787",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:41.330Z",
+      "crawledAt": "2026-07-08T04:48:02.479Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -824,11 +840,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR04787",
       "previousSlugs": [
-        "medecin-specialiste-en-gynecologie-et-obstetrique-tous-genres-80-100-medbase-ch"
+        "medecin-specialiste-en-gynecologie-et-obstetrique-tous-genres-80-100-medbase-ch",
+        "specialista-in-ginecologia-e-ostetricia-tutti-i-generi-80-100-medbase-lancy"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-specialiste-en-gynecologie-et-obstetrique-tous-genres-80-100-medbase-ch"
+          "medecin-specialiste-en-gynecologie-et-obstetrique-tous-genres-80-100-medbase-ch",
+          "specialista-in-ginecologia-e-ostetricia-tutti-i-generi-80-100-medbase-lancy"
         ],
         "en": [
           "medecin-specialiste-en-gynecologie-et-obstetrique-tous-genres-80-100-medbase-ch"
@@ -883,7 +901,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Mdecins-de-premiers-recours--f-m-d-_JR04196",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:40.545Z",
+      "crawledAt": "2026-07-08T04:48:01.727Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -901,11 +919,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR04196",
       "previousSlugs": [
-        "medecins-de-premiers-recours-tous-genres-medbase-ch"
+        "medecins-de-premiers-recours-tous-genres-medbase-ch",
+        "medici-primari-tutti-i-tipi-medbase-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecins-de-premiers-recours-tous-genres-medbase-ch"
+          "medecins-de-premiers-recours-tous-genres-medbase-ch",
+          "medici-primari-tutti-i-tipi-medbase-lausanne"
         ],
         "en": [
           "medecins-de-premiers-recours-tous-genres-medbase-ch"
@@ -960,7 +980,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Mdecin-spcialiste-en-cardiologie--f-m-d-_JR04195",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:39.774Z",
+      "crawledAt": "2026-07-08T04:48:00.976Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -978,11 +998,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR04195",
       "previousSlugs": [
-        "medecin-specialiste-en-cardiologie-tous-genres-60-100-medbase-ch"
+        "medecin-specialiste-en-cardiologie-tous-genres-60-100-medbase-ch",
+        "medico-specializzato-in-cardiologia-tutti-i-generi-60-100-medbase-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-specialiste-en-cardiologie-tous-genres-60-100-medbase-ch"
+          "medecin-specialiste-en-cardiologie-tous-genres-60-100-medbase-ch",
+          "medico-specializzato-in-cardiologia-tutti-i-generi-60-100-medbase-lausanne"
         ],
         "en": [
           "medecin-specialiste-en-cardiologie-tous-genres-60-100-medbase-ch"
@@ -1037,7 +1059,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bern/Unterassistent--w-m-d--100-_JR03921",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:39.032Z",
+      "crawledAt": "2026-07-08T04:48:00.202Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1055,11 +1077,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR03921",
       "previousSlugs": [
-        "unterassistenz-a-100-bern-bahnhof-medbase-ch"
+        "unterassistenz-a-100-bern-bahnhof-medbase-ch",
+        "sottoassistenza-a-100-bern-bahnhof-medbase-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistenz-a-100-bern-bahnhof-medbase-ch"
+          "unterassistenz-a-100-bern-bahnhof-medbase-ch",
+          "sottoassistenza-a-100-bern-bahnhof-medbase-bern"
         ],
         "en": [
           "unterassistenz-a-100-bern-bahnhof-medbase-ch"
@@ -1111,7 +1135,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zuchwil/Apotheker-in--a--70---100-_JR05373",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:38.306Z",
+      "crawledAt": "2026-07-08T04:47:59.447Z",
       "addressLocality": "Zuchwil",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1129,11 +1153,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05373",
       "previousSlugs": [
-        "apotheker-in-a-70-100-medbase-ch"
+        "apotheker-in-a-70-100-medbase-ch",
+        "farmacista-in-a-70-100-medbase-zuchwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apotheker-in-a-70-100-medbase-ch"
+          "apotheker-in-a-70-100-medbase-ch",
+          "farmacista-in-a-70-100-medbase-zuchwil"
         ],
         "en": [
           "apotheker-in-a-70-100-medbase-ch"
@@ -1188,7 +1214,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bern/Assistenzarzt--m-w-d-_JR04012",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:37.544Z",
+      "crawledAt": "2026-07-08T04:47:58.711Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1206,11 +1232,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR04012",
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-im-walk-in-notfall-a-80-100-bern-bahnhof-medbase-ch"
+        "assistenzarztin-assistenzarzt-im-walk-in-notfall-a-80-100-bern-bahnhof-medbase-ch",
+        "assistente-medico-in-emergenza-a-80-100-bern-bahnhof-medbase-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-im-walk-in-notfall-a-80-100-bern-bahnhof-medbase-ch"
+          "assistenzarztin-assistenzarzt-im-walk-in-notfall-a-80-100-bern-bahnhof-medbase-ch",
+          "assistente-medico-in-emergenza-a-80-100-bern-bahnhof-medbase-bern"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-im-walk-in-notfall-a-80-100-bern-bahnhof-medbase-ch"
@@ -1265,7 +1293,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/St-Gallen/Stv-Leitung-Medical-Center--a---100--_JR05643",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:36.834Z",
+      "crawledAt": "2026-07-08T04:47:57.939Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1283,11 +1311,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05643",
       "previousSlugs": [
-        "stv-leitung-medical-center-a-100-medbase-ch"
+        "stv-leitung-medical-center-a-100-medbase-ch",
+        "capo-del-centro-medico-a-100-medbase-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-leitung-medical-center-a-100-medbase-ch"
+          "stv-leitung-medical-center-a-100-medbase-ch",
+          "capo-del-centro-medico-a-100-medbase-st-gallen"
         ],
         "en": [
           "stv-leitung-medical-center-a-100-medbase-ch"
@@ -1342,7 +1372,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Medizinische-Praxisassistenz--a--40-_JR04622-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:36.100Z",
+      "crawledAt": "2026-07-08T04:47:57.192Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1361,12 +1391,14 @@
       "jobReqId": "JR04622",
       "previousSlugs": [
         "medizinische-praxisassistenz-a-40-medbase-ch",
-        "medizinische-praxisassistenz-a-40-medbase-frauenfeld"
+        "medizinische-praxisassistenz-a-40-medbase-frauenfeld",
+        "assistenza-medica-a-40-medbase-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-40-medbase-ch",
-          "medizinische-praxisassistenz-a-40-medbase-frauenfeld"
+          "medizinische-praxisassistenz-a-40-medbase-frauenfeld",
+          "assistenza-medica-a-40-medbase-frauenfeld"
         ],
         "en": [
           "medizinische-praxisassistenz-a-40-medbase-frauenfeld"
@@ -1421,7 +1453,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Baden/Facharzt-Endokrinologie-50-60---m-w-d-_JR04333",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:35.339Z",
+      "crawledAt": "2026-07-08T04:47:56.428Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1439,11 +1471,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR04333",
       "previousSlugs": [
-        "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch"
+        "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch",
+        "riumatologia-specialistica-50-60-a-medbase-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch"
+          "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch",
+          "riumatologia-specialistica-50-60-a-medbase-baden"
         ],
         "en": [
           "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch"
@@ -1498,7 +1532,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Vevey/Mdecin-gnraliste_JR05675",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:34.602Z",
+      "crawledAt": "2026-07-08T04:47:55.674Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1516,11 +1550,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05675",
       "previousSlugs": [
-        "medecin-generaliste-medbase-ch"
+        "medecin-generaliste-medbase-ch",
+        "professionista-generale-medbase-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-generaliste-medbase-ch"
+          "medecin-generaliste-medbase-ch",
+          "professionista-generale-medbase-vevey"
         ],
         "en": [
           "medecin-generaliste-medbase-ch"
@@ -1575,7 +1611,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Gampelen/Fachrztin---Facharzt-Allgemeine-Innere-Medizin-Praktische-rztin---Praktischer-Arzt--a--50-100-_JR05760",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:33.851Z",
+      "crawledAt": "2026-07-08T04:47:54.922Z",
       "addressLocality": "Gampelen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1593,11 +1629,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05760",
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-praktische-arztin-praktischer-arzt-a-50-100"
+        "facharztin-facharzt-allgemeine-innere-medizin-praktische-arztin-praktischer-arzt-a-50-100",
+        "specialista-specialista-medicina-interna-generale-medico-pratico-medico-pratico-a-50-100-medbase-gampelen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-praktische-arztin-praktischer-arzt-a-50-100"
+          "facharztin-facharzt-allgemeine-innere-medizin-praktische-arztin-praktischer-arzt-a-50-100",
+          "specialista-specialista-medicina-interna-generale-medico-pratico-medico-pratico-a-50-100-medbase-gampelen"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-praktische-arztin-praktischer-arzt-a-50-100"
@@ -1652,7 +1690,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Apotheker--w-m-d--50-_JR04834",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:33.111Z",
+      "crawledAt": "2026-07-08T04:47:54.181Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1731,7 +1769,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Facharzt-fr-Physikalische-Medizin--Manuelle-Medizin-oder-Sportmedizin--w-m-d--60-100-_JR03826",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:32.374Z",
+      "crawledAt": "2026-07-08T04:47:53.454Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1808,7 +1846,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Fachrztin---Facharzt-fr-Allgemeine-Innere-Medizin--a--60-100----Zrich-Lwenstrasse_JR05997",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:31.625Z",
+      "crawledAt": "2026-07-08T04:47:52.710Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1885,7 +1923,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Schaffhausen/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--50-100-_JR06115",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:30.856Z",
+      "crawledAt": "2026-07-08T04:47:51.960Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1904,12 +1942,14 @@
       "jobReqId": "JR06115",
       "previousSlugs": [
         "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch",
-        "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch-2"
+        "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch-2",
+        "medicina-generale-specialistica-interna-a-50-100-medbase-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch",
-          "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch-2"
+          "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch-2",
+          "medicina-generale-specialistica-interna-a-50-100-medbase-schaffhausen"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch-2"
@@ -1964,7 +2004,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Neuchtel/Chef-de-clinique-adjoint_JR04113",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:30.118Z",
+      "crawledAt": "2026-07-08T04:47:51.200Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1983,12 +2023,14 @@
       "jobReqId": "JR04113",
       "previousSlugs": [
         "chef-fe-de-clinique-adjoint-e-tous-genres-80-100-medbase-ch",
-        "chef-fe-de-clinique-adjoint-e-tous-genres-80-100-medbase-neuchatel"
+        "chef-fe-de-clinique-adjoint-e-tous-genres-80-100-medbase-neuchatel",
+        "vice-capo-clinico-tutti-i-generi-80-100-medbase-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-clinique-adjoint-e-tous-genres-80-100-medbase-ch",
-          "chef-fe-de-clinique-adjoint-e-tous-genres-80-100-medbase-neuchatel"
+          "chef-fe-de-clinique-adjoint-e-tous-genres-80-100-medbase-neuchatel",
+          "vice-capo-clinico-tutti-i-generi-80-100-medbase-neuchatel"
         ],
         "en": [
           "chef-fe-de-clinique-adjoint-e-tous-genres-80-100-medbase-ch"
@@ -2043,7 +2085,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Gampelen/Professional-Medical-Center-Operations_JR06122",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:29.383Z",
+      "crawledAt": "2026-07-08T04:47:50.444Z",
       "addressLocality": "Gampelen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2061,11 +2103,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06122",
       "previousSlugs": [
-        "medizinische-praxisassistenz-a-80-100-medbase-ch"
+        "medizinische-praxisassistenz-a-80-100-medbase-ch",
+        "assistenza-medica-pratica-a-80-100-medbase-gampelen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-a-80-100-medbase-ch"
+          "medizinische-praxisassistenz-a-80-100-medbase-ch",
+          "assistenza-medica-pratica-a-80-100-medbase-gampelen"
         ],
         "en": [
           "medizinische-praxisassistenz-a-80-100-medbase-ch"
@@ -2120,7 +2164,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Mdecin-spcialiste-en-pdiatrie--tous-genres--80---100-_JR05895",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:28.651Z",
+      "crawledAt": "2026-07-08T04:47:49.723Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2138,11 +2182,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05895",
       "previousSlugs": [
-        "medecin-specialiste-en-pediatrie-tous-genres-50-100-medbase-ch"
+        "medecin-specialiste-en-pediatrie-tous-genres-50-100-medbase-ch",
+        "medico-pediatrico-tutti-i-generi-50-100-medbase-aigle-mc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-specialiste-en-pediatrie-tous-genres-50-100-medbase-ch"
+          "medecin-specialiste-en-pediatrie-tous-genres-50-100-medbase-ch",
+          "medico-pediatrico-tutti-i-generi-50-100-medbase-aigle-mc"
         ],
         "en": [
           "medecin-specialiste-en-pediatrie-tous-genres-50-100-medbase-ch"
@@ -2197,7 +2243,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Mdecin-spcialiste-en-mdecin-interne-gnrale--tous-genres--100-_JR05893",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:27.896Z",
+      "crawledAt": "2026-07-08T04:47:48.958Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2215,11 +2261,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05893",
       "previousSlugs": [
-        "medecin-specialiste-en-medecin-interne-generale-tous-genres-50-100-medbase-ch"
+        "medecin-specialiste-en-medecin-interne-generale-tous-genres-50-100-medbase-ch",
+        "specialista-medico-in-generale-medico-interno-tutti-i-tipi-50-100-medbase-aigle-mc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-specialiste-en-medecin-interne-generale-tous-genres-50-100-medbase-ch"
+          "medecin-specialiste-en-medecin-interne-generale-tous-genres-50-100-medbase-ch",
+          "specialista-medico-in-generale-medico-interno-tutti-i-tipi-50-100-medbase-aigle-mc"
         ],
         "en": [
           "medecin-specialiste-en-medecin-interne-generale-tous-genres-50-100-medbase-ch"
@@ -2274,7 +2322,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Mdecin-spcialiste-en-cardiologie--tous-genres--80---100-_JR05894",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:27.119Z",
+      "crawledAt": "2026-07-08T04:47:48.204Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2292,11 +2340,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05894",
       "previousSlugs": [
-        "medecin-specialiste-en-cardiologie-tous-genres-50-100-medbase-ch"
+        "medecin-specialiste-en-cardiologie-tous-genres-50-100-medbase-ch",
+        "medico-specializzato-in-cardiologia-tutti-i-tipi-50-100-medbase-aigle-mc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-specialiste-en-cardiologie-tous-genres-50-100-medbase-ch"
+          "medecin-specialiste-en-cardiologie-tous-genres-50-100-medbase-ch",
+          "medico-specializzato-in-cardiologia-tutti-i-tipi-50-100-medbase-aigle-mc"
         ],
         "en": [
           "medecin-specialiste-en-cardiologie-tous-genres-50-100-medbase-ch"
@@ -2351,7 +2401,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Teufen/Fachrztin-Facharzt-fr-Dermatologie--a--50-60-_JR05673",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:26.376Z",
+      "crawledAt": "2026-07-08T04:47:47.455Z",
       "addressLocality": "Teufen",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -2428,7 +2478,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Teufen/Facharzt-Allgemeine-Innere-Medizin--m-w-d--60-80-_JR04992",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:25.654Z",
+      "crawledAt": "2026-07-08T04:47:46.721Z",
       "addressLocality": "Teufen",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -2447,12 +2497,14 @@
       "jobReqId": "JR04992",
       "previousSlugs": [
         "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch",
-        "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch-2"
+        "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch-2",
+        "medicina-generale-specialistica-interna-a-60-100-medbase-teufen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch",
-          "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch-2"
+          "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch-2",
+          "medicina-generale-specialistica-interna-a-60-100-medbase-teufen"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch-2"
@@ -2507,7 +2559,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Apotheker-in--a--80-100--Winterthur-Tss_JR06216-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:24.900Z",
+      "crawledAt": "2026-07-08T04:47:45.982Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2525,11 +2577,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06216",
       "previousSlugs": [
-        "apotheker-in-a-80-100-winterthur-toss-medbase-ch"
+        "apotheker-in-a-80-100-winterthur-toss-medbase-ch",
+        "farmacista-in-a-80-100-winterthur-toss-medbase-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apotheker-in-a-80-100-winterthur-toss-medbase-ch"
+          "apotheker-in-a-80-100-winterthur-toss-medbase-ch",
+          "farmacista-in-a-80-100-winterthur-toss-medbase-winterthur"
         ],
         "en": [
           "apotheker-in-a-80-100-winterthur-toss-medbase-ch"
@@ -2586,7 +2640,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aarau/Apotheker--a--60-100----Aarau-Telli_JR06123-2",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:24.135Z",
+      "crawledAt": "2026-07-08T04:47:45.248Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2604,11 +2658,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06123",
       "previousSlugs": [
-        "apotheker-a-60-100-aarau-telli-medbase-ch"
+        "apotheker-a-60-100-aarau-telli-medbase-ch",
+        "farmacista-a-60-100-aarau-telli-medbase-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apotheker-a-60-100-aarau-telli-medbase-ch"
+          "apotheker-a-60-100-aarau-telli-medbase-ch",
+          "farmacista-a-60-100-aarau-telli-medbase-aarau"
         ],
         "en": [
           "apotheker-a-60-100-aarau-telli-medbase-ch"
@@ -2663,7 +2719,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Assistante-mdicale--tous-genres--80-100-_JR06287",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:23.410Z",
+      "crawledAt": "2026-07-08T04:47:44.507Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2681,11 +2737,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06287",
       "previousSlugs": [
-        "assistant-e-medical-e-tous-genres-80-100-medbase-ch"
+        "assistant-e-medical-e-tous-genres-80-100-medbase-ch",
+        "assistente-medico-tutti-i-tipi-80-100-medbase-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-tous-genres-80-100-medbase-ch"
+          "assistant-e-medical-e-tous-genres-80-100-medbase-ch",
+          "assistente-medico-tutti-i-tipi-80-100-medbase-lausanne"
         ],
         "en": [
           "assistant-e-medical-e-tous-genres-80-100-medbase-ch"
@@ -2737,7 +2795,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wetzikon/Fachrztin---Facharzt-Dermatologie--a--60-100-_JR06348",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:22.683Z",
+      "crawledAt": "2026-07-08T04:47:43.735Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2755,11 +2813,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06348",
       "previousSlugs": [
-        "facharztin-facharzt-dermatologie-a-60-100-medbase-ch"
+        "facharztin-facharzt-dermatologie-a-60-100-medbase-ch",
+        "dermatologia-specialistica-a-60-100-medbase-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-dermatologie-a-60-100-medbase-ch"
+          "facharztin-facharzt-dermatologie-a-60-100-medbase-ch",
+          "dermatologia-specialistica-a-60-100-medbase-wetzikon"
         ],
         "en": [
           "facharztin-facharzt-dermatologie-a-60-100-medbase-ch"
@@ -2814,7 +2874,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Teamleitung-Hausarztmedizin--a--80-100-_JR06314",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:21.935Z",
+      "crawledAt": "2026-07-08T04:47:42.997Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2832,11 +2892,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06314",
       "previousSlugs": [
-        "teamleitung-hausarztmedizin-a-80-100-medbase-ch"
+        "teamleitung-hausarztmedizin-a-80-100-medbase-ch",
+        "gestione-team-medicina-familiare-a-80-100-medbase-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-hausarztmedizin-a-80-100-medbase-ch"
+          "teamleitung-hausarztmedizin-a-80-100-medbase-ch",
+          "gestione-team-medicina-familiare-a-80-100-medbase-winterthur"
         ],
         "en": [
           "teamleitung-hausarztmedizin-a-80-100-medbase-ch"
@@ -2893,7 +2955,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zweisimmen/Facharzt-Allgemeine-Innere-Medizin--a--60-100-_JR05106",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:21.178Z",
+      "crawledAt": "2026-07-08T04:47:42.265Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2912,12 +2974,14 @@
       "jobReqId": "JR05106",
       "previousSlugs": [
         "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch",
-        "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch-4"
+        "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch-4",
+        "medicina-generale-specialistica-interna-a-60-100-medbase-zweisimmen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch",
-          "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch-4"
+          "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch-4",
+          "medicina-generale-specialistica-interna-a-60-100-medbase-zweisimmen"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch-4"
@@ -2972,7 +3036,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--w-m-d--60-100-_JR03721",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:20.437Z",
+      "crawledAt": "2026-07-08T04:47:41.526Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -2990,11 +3054,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR03721",
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-w-m-d-60-100-medbase-ch"
+        "facharztin-facharzt-allgemeine-innere-medizin-w-m-d-60-100-medbase-ch",
+        "specialista-medicina-interna-generale-specialista-f-m-d-60-100-medbase-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-w-m-d-60-100-medbase-ch"
+          "facharztin-facharzt-allgemeine-innere-medizin-w-m-d-60-100-medbase-ch",
+          "specialista-medicina-interna-generale-specialista-f-m-d-60-100-medbase-frauenfeld"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-w-m-d-60-100-medbase-ch"
@@ -3049,7 +3115,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zug/Physiotherapeut-in--a--40-60-_JR06339",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:19.691Z",
+      "crawledAt": "2026-07-08T04:47:40.789Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3068,12 +3134,14 @@
       "jobReqId": "JR06339",
       "previousSlugs": [
         "physiotherapeut-in-a-40-90-medbase-ch",
-        "physiotherapeut-in-a-40-90-medbase-zug"
+        "physiotherapeut-in-a-40-90-medbase-zug",
+        "fisioterapista-in-a-40-90-medbase-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-a-40-90-medbase-ch",
-          "physiotherapeut-in-a-40-90-medbase-zug"
+          "physiotherapeut-in-a-40-90-medbase-zug",
+          "fisioterapista-in-a-40-90-medbase-zug"
         ],
         "en": [
           "physiotherapeut-in-a-40-90-medbase-zug"
@@ -3128,7 +3196,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Gampelen/Assistenzarzt--w-m-d--80-100-_JR03870",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:18.937Z",
+      "crawledAt": "2026-07-08T04:47:40.054Z",
       "addressLocality": "Gampelen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3146,11 +3214,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR03870",
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-a-80-100-medbase-ch"
+        "assistenzarztin-assistenzarzt-a-80-100-medbase-ch",
+        "assistente-medico-a-80-100-medbase-gampelen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-a-80-100-medbase-ch"
+          "assistenzarztin-assistenzarzt-a-80-100-medbase-ch",
+          "assistente-medico-a-80-100-medbase-gampelen"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-a-80-100-medbase-ch"
@@ -3205,7 +3275,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Fachrztin-Facharzt-fr-Kardiologie--a--20-40-_JR06487",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:18.204Z",
+      "crawledAt": "2026-07-08T04:47:39.325Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3282,7 +3352,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kloten/Medizinische-Praxisassistenz--a--60-100-_JR06450",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:17.461Z",
+      "crawledAt": "2026-07-08T04:47:38.564Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3300,11 +3370,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06450",
       "previousSlugs": [
-        "medizinische-praxisassistenz-a-60-100-medbase-ch"
+        "medizinische-praxisassistenz-a-60-100-medbase-ch",
+        "assistenza-medica-a-60-100-medbase-kloten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-a-60-100-medbase-ch"
+          "medizinische-praxisassistenz-a-60-100-medbase-ch",
+          "assistenza-medica-a-60-100-medbase-kloten"
         ],
         "en": [
           "medizinische-praxisassistenz-a-60-100-medbase-ch"
@@ -3359,7 +3431,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zweisimmen/Leitende-Medizinische-Praxisassistenz--a--80-100-_JR06497",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:16.745Z",
+      "crawledAt": "2026-07-08T04:47:37.833Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3377,11 +3449,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06497",
       "previousSlugs": [
-        "leitende-medizinische-praxisassistenz-a-80-100-medbase-ch"
+        "leitende-medizinische-praxisassistenz-a-80-100-medbase-ch",
+        "assistenza-medica-senior-a-80-100-medbase-zweisimmen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-medizinische-praxisassistenz-a-80-100-medbase-ch"
+          "leitende-medizinische-praxisassistenz-a-80-100-medbase-ch",
+          "assistenza-medica-senior-a-80-100-medbase-zweisimmen"
         ],
         "en": [
           "leitende-medizinische-praxisassistenz-a-80-100-medbase-ch"
@@ -3436,7 +3510,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Oensingen/Apotheker-in--a---80-100-_JR06557",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:16.011Z",
+      "crawledAt": "2026-07-08T04:47:37.061Z",
       "addressLocality": "Oensingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3454,11 +3528,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06557",
       "previousSlugs": [
-        "apotheker-in-a-80-100-medbase-ch"
+        "apotheker-in-a-80-100-medbase-ch",
+        "farmacista-in-a-80-100-medbase-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apotheker-in-a-80-100-medbase-ch"
+          "apotheker-in-a-80-100-medbase-ch",
+          "farmacista-in-a-80-100-medbase-oensingen"
         ],
         "en": [
           "apotheker-in-a-80-100-medbase-ch"
@@ -3513,7 +3589,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wattwil/Medizinische-Praxisassistenz--a--40-100-_JR06558",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:15.273Z",
+      "crawledAt": "2026-07-08T04:47:36.310Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3531,11 +3607,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06558",
       "previousSlugs": [
-        "medizinische-praxisassistenz-a-40-100-medbase-ch"
+        "medizinische-praxisassistenz-a-40-100-medbase-ch",
+        "assistenza-medica-a-40-100-medbase-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-a-40-100-medbase-ch"
+          "medizinische-praxisassistenz-a-40-100-medbase-ch",
+          "assistenza-medica-a-40-100-medbase-wattwil"
         ],
         "en": [
           "medizinische-praxisassistenz-a-40-100-medbase-ch"
@@ -3590,7 +3668,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zweisimmen/Medizinische-Praxisassistenz--a--80-100-_JR06496",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:14.553Z",
+      "crawledAt": "2026-07-08T04:47:35.567Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3609,12 +3687,14 @@
       "jobReqId": "JR06496",
       "previousSlugs": [
         "medizinische-praxisassistenz-a-80-100-medbase-ch",
-        "medizinische-praxisassistenz-a-80-100-medbase-ch-2"
+        "medizinische-praxisassistenz-a-80-100-medbase-ch-2",
+        "assistenza-medica-pratica-a-80-100-medbase-zweisimmen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-80-100-medbase-ch",
-          "medizinische-praxisassistenz-a-80-100-medbase-ch-2"
+          "medizinische-praxisassistenz-a-80-100-medbase-ch-2",
+          "assistenza-medica-pratica-a-80-100-medbase-zweisimmen"
         ],
         "en": [
           "medizinische-praxisassistenz-a-80-100-medbase-ch-2"
@@ -3669,7 +3749,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--50-80----Zrich-HB-Permanence_JR06277",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:13.833Z",
+      "crawledAt": "2026-07-08T04:47:34.825Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3687,11 +3767,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06277",
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-a-50-80-zurich-hb-permanence-medbase-ch"
+        "facharztin-facharzt-allgemeine-innere-medizin-a-50-80-zurich-hb-permanence-medbase-ch",
+        "specialista-generale-medicina-interna-a-50-80-permanenza-hb-di-zurigo-medbase-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-a-50-80-zurich-hb-permanence-medbase-ch"
+          "facharztin-facharzt-allgemeine-innere-medizin-a-50-80-zurich-hb-permanence-medbase-ch",
+          "specialista-generale-medicina-interna-a-50-80-permanenza-hb-di-zurigo-medbase-zurich"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-50-80-zurich-hb-permanence-medbase-ch"
@@ -3746,7 +3828,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Leitung-Medical-Center--a--100----Basel-Heuwaage_JR06226",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:13.078Z",
+      "crawledAt": "2026-07-08T04:47:34.100Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3764,11 +3846,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06226",
       "previousSlugs": [
-        "leitung-medical-center-a-100-basel-heuwaage-medbase-ch"
+        "leitung-medical-center-a-100-basel-heuwaage-medbase-ch",
+        "capo-del-centro-medico-a-100-basel-heuwaage-medbase-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-medical-center-a-100-basel-heuwaage-medbase-ch"
+          "leitung-medical-center-a-100-basel-heuwaage-medbase-ch",
+          "capo-del-centro-medico-a-100-basel-heuwaage-medbase-basel"
         ],
         "en": [
           "leitung-medical-center-a-100-basel-heuwaage-medbase-ch"
@@ -3823,7 +3907,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Medizinische-Praxisassistenz--a--80-100----Basel-Heuwaage_JR06609",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:12.310Z",
+      "crawledAt": "2026-07-08T04:47:33.333Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3841,11 +3925,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06609",
       "previousSlugs": [
-        "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch"
+        "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch",
+        "assistente-medico-a-80-100-basel-heuwaage-medbase-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch"
+          "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch",
+          "assistente-medico-a-80-100-basel-heuwaage-medbase-basel"
         ],
         "en": [
           "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch"
@@ -3900,7 +3986,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Schaffhausen/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--w-m-d--80-100-_JR06608",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:11.579Z",
+      "crawledAt": "2026-07-08T04:47:32.554Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3918,11 +4004,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06608",
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-w-m-d-80-100-medbase-ch"
+        "facharztin-facharzt-allgemeine-innere-medizin-w-m-d-80-100-medbase-ch",
+        "medicina-generale-specialistica-interna-f-m-d-80-100-medbase-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-w-m-d-80-100-medbase-ch"
+          "facharztin-facharzt-allgemeine-innere-medizin-w-m-d-80-100-medbase-ch",
+          "medicina-generale-specialistica-interna-f-m-d-80-100-medbase-schaffhausen"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-w-m-d-80-100-medbase-ch"
@@ -3977,7 +4065,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Ddingen/Medizinische-Praxisassistenz--a----80-100-_JR06594",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:10.823Z",
+      "crawledAt": "2026-07-08T04:47:31.814Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3996,12 +4084,14 @@
       "jobReqId": "JR06594",
       "previousSlugs": [
         "medizinische-praxisassistenz-a-80-100-medbase-ch",
-        "medizinische-praxisassistenz-a-80-100-medbase-ch-3"
+        "medizinische-praxisassistenz-a-80-100-medbase-ch-3",
+        "assistenza-medica-a-80-100-medbase-dudingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-80-100-medbase-ch",
-          "medizinische-praxisassistenz-a-80-100-medbase-ch-3"
+          "medizinische-praxisassistenz-a-80-100-medbase-ch-3",
+          "assistenza-medica-a-80-100-medbase-dudingen"
         ],
         "en": [
           "medizinische-praxisassistenz-a-80-100-medbase-ch-3"
@@ -4056,7 +4146,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kriens/Fachrztin---Facharzt-Allergologie-und-klinische-Immunologie--a--40-100-_JR06605-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:10.088Z",
+      "crawledAt": "2026-07-08T04:47:31.072Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4133,7 +4223,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Psychotherapeut-in--a--60-80--Zrich-Wiedikon-Befristet-fr-ein-Jahr-mit-Option-auf-Festanstellung_JR06610",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:09.336Z",
+      "crawledAt": "2026-07-08T04:47:30.348Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4210,7 +4300,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Apotheker-in--a--40-60-_JR06625",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:08.582Z",
+      "crawledAt": "2026-07-08T04:47:29.589Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4228,11 +4318,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06625",
       "previousSlugs": [
-        "apotheker-in-a-40-60-medbase-ch"
+        "apotheker-in-a-40-60-medbase-ch",
+        "farmacista-in-a-40-60-medbase-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apotheker-in-a-40-60-medbase-ch"
+          "apotheker-in-a-40-60-medbase-ch",
+          "farmacista-in-a-40-60-medbase-basel"
         ],
         "en": [
           "apotheker-in-a-40-60-medbase-ch"
@@ -4287,7 +4379,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Fachrztin-Facharzt-AIM-oder-Praktische-rztin-Praktischer-Arzt--a--60-100-_JR06620",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:07.839Z",
+      "crawledAt": "2026-07-08T04:47:28.835Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4364,7 +4456,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Oensingen/Apotheker--m-w-d--20-100-_JR04389",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:07.073Z",
+      "crawledAt": "2026-07-08T04:47:28.105Z",
       "addressLocality": "Oensingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4441,7 +4533,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Genve/Tlphoniste_JR06596",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:06.325Z",
+      "crawledAt": "2026-07-08T04:47:27.342Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4459,11 +4551,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06596",
       "previousSlugs": [
-        "secretaire-medical-e-tous-genres-a-100-medbase-ch"
+        "secretaire-medical-e-tous-genres-a-100-medbase-ch",
+        "100-segretaria-medica-tutti-i-tipi-medbase-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-medical-e-tous-genres-a-100-medbase-ch"
+          "secretaire-medical-e-tous-genres-a-100-medbase-ch",
+          "100-segretaria-medica-tutti-i-tipi-medbase-geneve"
         ],
         "en": [
           "secretaire-medical-e-tous-genres-a-100-medbase-ch"
@@ -4518,7 +4612,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Mdecins-spcialistes-avec-titre-FMH--tous-genres--40---100-_JR06839",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:05.577Z",
+      "crawledAt": "2026-07-08T04:47:26.606Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4536,11 +4630,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06839",
       "previousSlugs": [
-        "medecins-specialistes-avec-titre-fmh-tous-genres-40-100-medbase-ch"
+        "medecins-specialistes-avec-titre-fmh-tous-genres-40-100-medbase-ch",
+        "medici-specialistici-con-titolo-fmh-tutti-i-generi-40-100-medbase-aigle-mc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecins-specialistes-avec-titre-fmh-tous-genres-40-100-medbase-ch"
+          "medecins-specialistes-avec-titre-fmh-tous-genres-40-100-medbase-ch",
+          "medici-specialistici-con-titolo-fmh-tutti-i-generi-40-100-medbase-aigle-mc"
         ],
         "en": [
           "medecins-specialistes-avec-titre-fmh-tous-genres-40-100-medbase-ch"
@@ -4595,7 +4691,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Weinfelden/Medizinische-Praxisassistenz--a--80-100-_JR05786",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:04.835Z",
+      "crawledAt": "2026-07-08T04:47:25.844Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -4613,11 +4709,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05786",
       "previousSlugs": [
-        "medizinische-praxisassistenz-a-70-100-medbase-ch"
+        "medizinische-praxisassistenz-a-70-100-medbase-ch",
+        "assistenza-medica-a-70-100-medbase-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-a-70-100-medbase-ch"
+          "medizinische-praxisassistenz-a-70-100-medbase-ch",
+          "assistenza-medica-a-70-100-medbase-weinfelden"
         ],
         "en": [
           "medizinische-praxisassistenz-a-70-100-medbase-ch"
@@ -4672,7 +4770,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zug/Assistenzrztin---Assistenzarzt--a--100-_JR06844",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:03.673Z",
+      "crawledAt": "2026-07-08T04:47:24.948Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -4690,11 +4788,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06844",
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-a-100-medbase-ch"
+        "assistenzarztin-assistenzarzt-a-100-medbase-ch",
+        "assistente-medico-a-100-medbase-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-a-100-medbase-ch"
+          "assistenzarztin-assistenzarzt-a-100-medbase-ch",
+          "assistente-medico-a-100-medbase-zug"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-a-100-medbase-ch"
@@ -4749,7 +4849,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Volketswil/Apotheker-in-in-FPH-Weiterbildung--a--80---100-_JR06888",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:02.927Z",
+      "crawledAt": "2026-07-08T04:47:24.201Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4767,11 +4867,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06888",
       "previousSlugs": [
-        "apotheker-in-in-fph-weiterbildung-a-80-100-medbase-ch"
+        "apotheker-in-in-fph-weiterbildung-a-80-100-medbase-ch",
+        "farmacista-nella-formazione-fph-a-80-100-medbase-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apotheker-in-in-fph-weiterbildung-a-80-100-medbase-ch"
+          "apotheker-in-in-fph-weiterbildung-a-80-100-medbase-ch",
+          "farmacista-nella-formazione-fph-a-80-100-medbase-volketswil"
         ],
         "en": [
           "apotheker-in-in-fph-weiterbildung-a-80-100-medbase-ch"
@@ -4826,7 +4928,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Physiotherapeut-in--a--50-_JR06459",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:02.184Z",
+      "crawledAt": "2026-07-08T04:47:23.420Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -4845,12 +4947,14 @@
       "jobReqId": "JR06459",
       "previousSlugs": [
         "physiotherapeut-in-a-50-60-medbase-ch",
-        "physiotherapeut-in-a-50-60-medbase-frauenfeld"
+        "physiotherapeut-in-a-50-60-medbase-frauenfeld",
+        "fisioterapista-in-a-50-60-medbase-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-a-50-60-medbase-ch",
-          "physiotherapeut-in-a-50-60-medbase-frauenfeld"
+          "physiotherapeut-in-a-50-60-medbase-frauenfeld",
+          "fisioterapista-in-a-50-60-medbase-frauenfeld"
         ],
         "en": [
           "physiotherapeut-in-a-50-60-medbase-frauenfeld"
@@ -4905,7 +5009,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kriens/Med-Praxiskoordinator-in-klinische-Richtung---Med-Praxisassistenz-60---Mi--Do--Fr----Kriens-Mattenhof_JR06908-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:28:01.443Z",
+      "crawledAt": "2026-07-08T04:47:22.666Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4923,11 +5027,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06908",
       "previousSlugs": [
-        "med-praxiskoordinator-in-klinische-richtung-60-a-kriens-mattenhof-medbase-ch"
+        "med-praxiskoordinator-in-klinische-richtung-60-a-kriens-mattenhof-medbase-ch",
+        "med-coordinatore-della-pratica-in-direzione-clinica-60-a-kriens-mattenhof-medbase-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxiskoordinator-in-klinische-richtung-60-a-kriens-mattenhof-medbase-ch"
+          "med-praxiskoordinator-in-klinische-richtung-60-a-kriens-mattenhof-medbase-ch",
+          "med-coordinatore-della-pratica-in-direzione-clinica-60-a-kriens-mattenhof-medbase-kriens"
         ],
         "en": [
           "med-praxiskoordinator-in-klinische-richtung-60-a-kriens-mattenhof-medbase-ch"
@@ -4982,7 +5088,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bulle/Mdecin-spcialiste-en-mdecin-interne-gnrale--f-m-d-_JR04269",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:00.700Z",
+      "crawledAt": "2026-07-08T04:47:21.904Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5000,11 +5106,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR04269",
       "previousSlugs": [
-        "medecin-specialiste-en-medecin-interne-generale-tous-genres-80-100-medbase-ch"
+        "medecin-specialiste-en-medecin-interne-generale-tous-genres-80-100-medbase-ch",
+        "specialista-medico-in-generale-medico-interno-tutti-i-tipi-80-100-medbase-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-specialiste-en-medecin-interne-generale-tous-genres-80-100-medbase-ch"
+          "medecin-specialiste-en-medecin-interne-generale-tous-genres-80-100-medbase-ch",
+          "specialista-medico-in-generale-medico-interno-tutti-i-tipi-80-100-medbase-bulle"
         ],
         "en": [
           "medecin-specialiste-en-medecin-interne-generale-tous-genres-80-100-medbase-ch"
@@ -5059,7 +5167,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Dbendorf/Fachfrau---Fachmann-Apotheke--a--60---80-_JR06924-2",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:59.962Z",
+      "crawledAt": "2026-07-08T04:47:21.155Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5077,11 +5185,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06924",
       "previousSlugs": [
-        "fachfrau-fachmann-apotheke-a-60-80-medbase-ch"
+        "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
+        "farmacia-esperto-specialista-a-60-80-medbase-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-apotheke-a-60-80-medbase-ch"
+          "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
+          "farmacia-esperto-specialista-a-60-80-medbase-dubendorf"
         ],
         "en": [
           "fachfrau-fachmann-apotheke-a-60-80-medbase-ch"
@@ -5136,7 +5246,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Leiterin-Physiotherapie--m-w-d--60-80-_JR06927",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:59.201Z",
+      "crawledAt": "2026-07-08T04:47:20.391Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5154,11 +5264,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06927",
       "previousSlugs": [
-        "leiter-in-physiotherapie-a-60-100-medbase-ch"
+        "leiter-in-physiotherapie-a-60-100-medbase-ch",
+        "responsabile-physiotherapie-a-60-100-medbase-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-physiotherapie-a-60-100-medbase-ch"
+          "leiter-in-physiotherapie-a-60-100-medbase-ch",
+          "responsabile-physiotherapie-a-60-100-medbase-zurich"
         ],
         "en": [
           "leiter-in-physiotherapie-a-60-100-medbase-ch"
@@ -5213,7 +5325,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Eglisau/Assistenzrztin---Assistenzarzt--a--50-80-_JR06969",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:58.466Z",
+      "crawledAt": "2026-07-08T04:47:19.640Z",
       "addressLocality": "Eglisau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5232,12 +5344,14 @@
       "jobReqId": "JR06969",
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-a-50-80-medbase-ch",
-        "assistenzarztin-assistenzarzt-a-50-80-medbase-eglisau"
+        "assistenzarztin-assistenzarzt-a-50-80-medbase-eglisau",
+        "assistente-medico-a-50-80-medbase-eglisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-a-50-80-medbase-ch",
-          "assistenzarztin-assistenzarzt-a-50-80-medbase-eglisau"
+          "assistenzarztin-assistenzarzt-a-50-80-medbase-eglisau",
+          "assistente-medico-a-50-80-medbase-eglisau"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-a-50-80-medbase-eglisau"
@@ -5292,7 +5406,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Medizinische-Praxisassistenz-60-100---a----Zrich-Oerlikon_JR06884",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:57.699Z",
+      "crawledAt": "2026-07-08T04:47:18.901Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5310,11 +5424,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06884",
       "previousSlugs": [
-        "medizinische-praxisassistenz-60-100-a-zurich-oerlikon-medbase-ch"
+        "medizinische-praxisassistenz-60-100-a-zurich-oerlikon-medbase-ch",
+        "assistente-medico-60-100-a-zurigo-oerlikon-medbase-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-60-100-a-zurich-oerlikon-medbase-ch"
+          "medizinische-praxisassistenz-60-100-a-zurich-oerlikon-medbase-ch",
+          "assistente-medico-60-100-a-zurigo-oerlikon-medbase-zurich"
         ],
         "en": [
           "medizinische-praxisassistenz-60-100-a-zurich-oerlikon-medbase-ch"
@@ -5369,7 +5485,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Brgg/Fachfrau---Fachmann-Apotheke--a--60---80-_JR07006",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:56.931Z",
+      "crawledAt": "2026-07-08T04:47:18.158Z",
       "addressLocality": "Brügg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5388,12 +5504,14 @@
       "jobReqId": "JR07006",
       "previousSlugs": [
         "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-        "fachfrau-fachmann-apotheke-a-60-80-medbase-ch-2"
+        "fachfrau-fachmann-apotheke-a-60-80-medbase-ch-2",
+        "farmacia-esperto-specialista-a-60-80-medbase-brugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-          "fachfrau-fachmann-apotheke-a-60-80-medbase-ch-2"
+          "fachfrau-fachmann-apotheke-a-60-80-medbase-ch-2",
+          "farmacia-esperto-specialista-a-60-80-medbase-brugg"
         ],
         "en": [
           "fachfrau-fachmann-apotheke-a-60-80-medbase-ch-2"
@@ -5448,7 +5566,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Reinach/Fachfrau---Fachmann-Apotheke--a--im-Backoffice--50---60-_JR07071",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:56.198Z",
+      "crawledAt": "2026-07-08T04:47:17.371Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5466,11 +5584,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07071",
       "previousSlugs": [
-        "fachfrau-fachmann-apotheke-a-im-backoffice-50-60-medbase-ch"
+        "fachfrau-fachmann-apotheke-a-im-backoffice-50-60-medbase-ch",
+        "farmacia-professionale-a-nell-ufficio-posteriore-50-60-medbase-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-apotheke-a-im-backoffice-50-60-medbase-ch"
+          "fachfrau-fachmann-apotheke-a-im-backoffice-50-60-medbase-ch",
+          "farmacia-professionale-a-nell-ufficio-posteriore-50-60-medbase-reinach"
         ],
         "en": [
           "fachfrau-fachmann-apotheke-a-im-backoffice-50-60-medbase-ch"
@@ -5525,7 +5645,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Medizinische-Praxisassistenz--a--80-100-_JR07068",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:55.446Z",
+      "crawledAt": "2026-07-08T04:47:16.604Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5544,12 +5664,14 @@
       "jobReqId": "JR07068",
       "previousSlugs": [
         "medizinische-praxisassistenz-a-80-100-medbase-ch",
-        "medizinische-praxisassistenz-a-80-100-medbase-ch-4"
+        "medizinische-praxisassistenz-a-80-100-medbase-ch-4",
+        "assistenza-medica-pratica-a-80-100-medbase-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-80-100-medbase-ch",
-          "medizinische-praxisassistenz-a-80-100-medbase-ch-4"
+          "medizinische-praxisassistenz-a-80-100-medbase-ch-4",
+          "assistenza-medica-pratica-a-80-100-medbase-winterthur"
         ],
         "en": [
           "medizinische-praxisassistenz-a-80-100-medbase-ch-4"
@@ -5606,7 +5728,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Fachfrau---Fachmann-Apotheke-EFT--a--40---100-_JR07080",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:54.714Z",
+      "crawledAt": "2026-07-08T04:47:15.823Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5624,11 +5746,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07080",
       "previousSlugs": [
-        "fachfrau-fachmann-apotheke-eft-a-40-100-medbase-ch"
+        "fachfrau-fachmann-apotheke-eft-a-40-100-medbase-ch",
+        "eft-professionale-di-farmacia-a-40-100-medbase-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-apotheke-eft-a-40-100-medbase-ch"
+          "fachfrau-fachmann-apotheke-eft-a-40-100-medbase-ch",
+          "eft-professionale-di-farmacia-a-40-100-medbase-winterthur"
         ],
         "en": [
           "fachfrau-fachmann-apotheke-eft-a-40-100-medbase-ch"
@@ -5685,7 +5809,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wil/Physiotherapeut-in--a--40---60-_JR05506",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:53.994Z",
+      "crawledAt": "2026-07-08T04:47:15.082Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -5704,12 +5828,14 @@
       "jobReqId": "JR05506",
       "previousSlugs": [
         "physiotherapeut-in-a-40-100-medbase-ch",
-        "physiotherapeut-in-a-40-100-medbase-wil"
+        "physiotherapeut-in-a-40-100-medbase-wil",
+        "fisioterapista-in-a-40-100-medbase-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-a-40-100-medbase-ch",
-          "physiotherapeut-in-a-40-100-medbase-wil"
+          "physiotherapeut-in-a-40-100-medbase-wil",
+          "fisioterapista-in-a-40-100-medbase-wil"
         ],
         "en": [
           "physiotherapeut-in-a-40-100-medbase-wil"
@@ -5764,7 +5890,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Dbendorf/Fachfrau---Fachmann-Apotheke-EFZ--a--40---100-_JR07083",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:53.257Z",
+      "crawledAt": "2026-07-08T04:47:14.353Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5782,11 +5908,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07083",
       "previousSlugs": [
-        "fachfrau-fachmann-apotheke-efz-a-40-100-medbase-ch"
+        "fachfrau-fachmann-apotheke-efz-a-40-100-medbase-ch",
+        "fachfrau-fachmann-apotheke-cfc-a-40-100-medbase-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-apotheke-efz-a-40-100-medbase-ch"
+          "fachfrau-fachmann-apotheke-efz-a-40-100-medbase-ch",
+          "fachfrau-fachmann-apotheke-cfc-a-40-100-medbase-dubendorf"
         ],
         "en": [
           "fachfrau-fachmann-apotheke-efz-a-40-100-medbase-ch"
@@ -5841,7 +5969,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur-Springerpool/Springer-in-Fachfrau---Fachmann-Apotheke--a--80---100--Region-Ostschweiz_JR06785-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:52.513Z",
+      "crawledAt": "2026-07-08T04:47:13.615Z",
       "addressLocality": "Winterthur Springerpool",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5920,7 +6048,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Reinach/Spezialisti-in-Apotheke-Koordination--a---100-_JR06520",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:51.728Z",
+      "crawledAt": "2026-07-08T04:47:12.884Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5938,11 +6066,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06520",
       "previousSlugs": [
-        "spezialist-in-apotheken-koordination-a-100-medbase-ch"
+        "spezialist-in-apotheken-koordination-a-100-medbase-ch",
+        "specialista-in-farmacie-coordinamento-a-100-medbase-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-apotheken-koordination-a-100-medbase-ch"
+          "spezialist-in-apotheken-koordination-a-100-medbase-ch",
+          "specialista-in-farmacie-coordinamento-a-100-medbase-reinach"
         ],
         "en": [
           "spezialist-in-apotheken-koordination-a-100-medbase-ch"
@@ -5997,7 +6127,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--80-100----Zrich-Lwenstrasse_JR07025",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:50.985Z",
+      "crawledAt": "2026-07-08T04:47:12.147Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6015,11 +6145,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07025",
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-lowenstrasse-medbase-ch"
+        "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-lowenstrasse-medbase-ch",
+        "specialista-generale-medicina-interna-a-80-100-zurigo-lowenstrasse-medbase-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-lowenstrasse-medbase-ch"
+          "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-lowenstrasse-medbase-ch",
+          "specialista-generale-medicina-interna-a-80-100-zurigo-lowenstrasse-medbase-zurich"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-lowenstrasse-medbase-ch"
@@ -6074,7 +6206,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wil/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a----80-100--_JR07112",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:50.225Z",
+      "crawledAt": "2026-07-08T04:47:11.397Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6092,11 +6224,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07112",
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch"
+        "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch",
+        "specialista-generale-medicina-interna-a-80-100-medbase-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch"
+          "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch",
+          "specialista-generale-medicina-interna-a-80-100-medbase-wil"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch"
@@ -6151,7 +6285,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Geschftsfhrende-r-Apotheker-in--a--100-_JR07127",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:49.487Z",
+      "crawledAt": "2026-07-08T04:47:10.643Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6169,11 +6303,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07127",
       "previousSlugs": [
-        "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch"
+        "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch",
+        "amministratore-delegato-r-pharmacist-in-a-100-medbase-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch"
+          "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch",
+          "amministratore-delegato-r-pharmacist-in-a-100-medbase-basel"
         ],
         "en": [
           "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch"
@@ -6228,7 +6364,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Brgg/Pharmaassistenz--a--80---100-_JR07108",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:48.750Z",
+      "crawledAt": "2026-07-08T04:47:09.880Z",
       "addressLocality": "Brügg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6247,12 +6383,14 @@
       "jobReqId": "JR07108",
       "previousSlugs": [
         "pharmaassistenz-a-80-100-medbase-ch",
-        "pharmaassistenz-a-80-100-medbase-brugg"
+        "pharmaassistenz-a-80-100-medbase-brugg",
+        "assistenza-farmaceutica-a-80-100-medbase-brugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pharmaassistenz-a-80-100-medbase-ch",
-          "pharmaassistenz-a-80-100-medbase-brugg"
+          "pharmaassistenz-a-80-100-medbase-brugg",
+          "assistenza-farmaceutica-a-80-100-medbase-brugg"
         ],
         "en": [
           "pharmaassistenz-a-80-100-medbase-brugg"
@@ -6307,7 +6445,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Luzern/Medizinische-Praxisassistenz--a--60-100-_JR07090",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:48.007Z",
+      "crawledAt": "2026-07-08T04:47:09.158Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -6326,12 +6464,14 @@
       "jobReqId": "JR07090",
       "previousSlugs": [
         "medizinische-praxisassistenz-a-60-100-medbase-ch",
-        "medizinische-praxisassistenz-a-60-100-medbase-ch-2"
+        "medizinische-praxisassistenz-a-60-100-medbase-ch-2",
+        "assistenza-medica-a-60-100-medbase-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-60-100-medbase-ch",
-          "medizinische-praxisassistenz-a-60-100-medbase-ch-2"
+          "medizinische-praxisassistenz-a-60-100-medbase-ch-2",
+          "assistenza-medica-a-60-100-medbase-luzern"
         ],
         "en": [
           "medizinische-praxisassistenz-a-60-100-medbase-ch-2"
@@ -6386,7 +6526,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Herisau/Fachfrau---Fachmann-Apotheke--a--80---100-_JR07102",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:47.270Z",
+      "crawledAt": "2026-07-08T04:47:08.407Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -6404,11 +6544,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07102",
       "previousSlugs": [
-        "fachfrau-fachmann-apotheke-a-80-100-medbase-ch"
+        "fachfrau-fachmann-apotheke-a-80-100-medbase-ch",
+        "farmacia-professionale-a-80-100-medbase-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-apotheke-a-80-100-medbase-ch"
+          "fachfrau-fachmann-apotheke-a-80-100-medbase-ch",
+          "farmacia-professionale-a-80-100-medbase-herisau"
         ],
         "en": [
           "fachfrau-fachmann-apotheke-a-80-100-medbase-ch"
@@ -6463,7 +6605,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/St-Gallen/Apotheker-in-mit-BAB-oder-in-FPH-Weiterbildung--a--80-100-_JR07126",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:46.522Z",
+      "crawledAt": "2026-07-08T04:47:07.690Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6542,7 +6684,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Head-of-Customer-Service-B2C--a--80-100-_JR06678",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:45.760Z",
+      "crawledAt": "2026-07-08T04:47:06.928Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -6560,11 +6702,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06678",
       "previousSlugs": [
-        "head-of-customer-service-b2c-a-80-100-medbase-ch"
+        "head-of-customer-service-b2c-a-80-100-medbase-ch",
+        "responsabile-servizio-clienti-b2c-a-80-100-medbase-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-customer-service-b2c-a-80-100-medbase-ch"
+          "head-of-customer-service-b2c-a-80-100-medbase-ch",
+          "responsabile-servizio-clienti-b2c-a-80-100-medbase-frauenfeld"
         ],
         "fr": [
           "head-of-customer-service-b2c-a-80-100-medbase-ch"
@@ -6616,7 +6760,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Uster-Ost-Apo/Geschftsfhrende-r-Apotheker-in--a--80---100-_JR07160",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:45.022Z",
+      "crawledAt": "2026-07-08T04:47:06.189Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6634,11 +6778,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07160",
       "previousSlugs": [
-        "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch"
+        "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch",
+        "amministratore-delegato-r-pharmacist-in-a-80-100-medbase-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch"
+          "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch",
+          "amministratore-delegato-r-pharmacist-in-a-80-100-medbase-uster"
         ],
         "en": [
           "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch"
@@ -6693,7 +6839,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Weinfelden/Pharma-Assistentin-80---100-_JR07171",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:44.284Z",
+      "crawledAt": "2026-07-08T04:47:05.473Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -6711,11 +6857,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07171",
       "previousSlugs": [
-        "pharma-assistentin-80-100-medbase-ch"
+        "pharma-assistentin-80-100-medbase-ch",
+        "assistente-farmaceutico-80-100-medbase-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pharma-assistentin-80-100-medbase-ch"
+          "pharma-assistentin-80-100-medbase-ch",
+          "assistente-farmaceutico-80-100-medbase-weinfelden"
         ],
         "en": [
           "pharma-assistentin-80-100-medbase-ch"
@@ -6770,7 +6918,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Uzwil/Physiotherapeut-in--a--40-_JR07141",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:43.025Z",
+      "crawledAt": "2026-07-08T04:47:04.228Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6789,12 +6937,14 @@
       "jobReqId": "JR07141",
       "previousSlugs": [
         "physiotherapeut-in-a-40-medbase-ch",
-        "physiotherapeut-in-a-40-medbase-uzwil"
+        "physiotherapeut-in-a-40-medbase-uzwil",
+        "fisioterapista-in-a-40-medbase-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-a-40-medbase-ch",
-          "physiotherapeut-in-a-40-medbase-uzwil"
+          "physiotherapeut-in-a-40-medbase-uzwil",
+          "fisioterapista-in-a-40-medbase-uzwil"
         ],
         "en": [
           "physiotherapeut-in-a-40-medbase-uzwil"
@@ -6849,7 +6999,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Romanel-sur-Lausanne/Pharmacienne--tous-genres--80---100-_JR07123",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:27:42.260Z",
+      "crawledAt": "2026-07-08T04:47:03.485Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -6867,11 +7017,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07123",
       "previousSlugs": [
-        "pharmacien-ne-tous-genres-80-100-medbase-ch"
+        "pharmacien-ne-tous-genres-80-100-medbase-ch",
+        "farmaceutici-tutti-i-generi-80-100-medbase-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pharmacien-ne-tous-genres-80-100-medbase-ch"
+          "pharmacien-ne-tous-genres-80-100-medbase-ch",
+          "farmaceutici-tutti-i-generi-80-100-medbase-lausanne"
         ],
         "en": [
           "pharmacien-ne-tous-genres-80-100-medbase-ch"
@@ -6926,7 +7078,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/People-Generalist--a--80-100-_JR07129",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:41.481Z",
+      "crawledAt": "2026-07-08T04:47:02.728Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -6944,11 +7096,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07129",
       "previousSlugs": [
-        "people-generalist-a-80-100-medbase-ch"
+        "people-generalist-a-80-100-medbase-ch",
+        "persone-generaliste-a-80-100-medbase-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "people-generalist-a-80-100-medbase-ch"
+          "people-generalist-a-80-100-medbase-ch",
+          "persone-generaliste-a-80-100-medbase-frauenfeld"
         ],
         "fr": [
           "people-generalist-a-80-100-medbase-ch"
@@ -7000,7 +7154,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/People-Operations-Specialist--a--80-100-_JR07136",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:40.742Z",
+      "crawledAt": "2026-07-08T04:47:01.978Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -7018,11 +7172,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07136",
       "previousSlugs": [
-        "people-operations-specialist-a-80-100-medbase-ch"
+        "people-operations-specialist-a-80-100-medbase-ch",
+        "people-operations-specialista-a-80-100-medbase-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "people-operations-specialist-a-80-100-medbase-ch"
+          "people-operations-specialist-a-80-100-medbase-ch",
+          "people-operations-specialista-a-80-100-medbase-frauenfeld"
         ],
         "fr": [
           "people-operations-specialist-a-80-100-medbase-ch"
@@ -7074,7 +7230,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Ddingen/Facharzt-Allgemeine-Innere-Medizin-oder-erweiterte-Grundversorgung_JR05342",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:40.005Z",
+      "crawledAt": "2026-07-08T04:47:01.233Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -7151,7 +7307,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Paralegal-Legal---Compliance--a--80---100--_JR07161",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:39.277Z",
+      "crawledAt": "2026-07-08T04:47:00.476Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7216,7 +7372,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/St-Gallen/Fachfrau---Fachmann-Apotheke--a--20---60-_JR07188",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:38.515Z",
+      "crawledAt": "2026-07-08T04:46:59.732Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7234,11 +7390,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07188",
       "previousSlugs": [
-        "fachfrau-fachmann-apotheke-a-20-60-medbase-ch"
+        "fachfrau-fachmann-apotheke-a-20-60-medbase-ch",
+        "farmacia-esperto-specialista-a-20-60-medbase-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-apotheke-a-20-60-medbase-ch"
+          "fachfrau-fachmann-apotheke-a-20-60-medbase-ch",
+          "farmacia-esperto-specialista-a-20-60-medbase-st-gallen"
         ],
         "en": [
           "fachfrau-fachmann-apotheke-a-20-60-medbase-ch"
@@ -7293,7 +7451,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/St-Gallen/Fachrztin---Facharzt-fr-Allgemeine-Innere-Medizin--a--80-100-_JR07221",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:37.773Z",
+      "crawledAt": "2026-07-08T04:46:59.005Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7370,7 +7528,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Schaffhausen/Standortleiter-in-Medbase-Schaffhausen_JR03993",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:37.011Z",
+      "crawledAt": "2026-07-08T04:46:58.267Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -7388,11 +7546,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR03993",
       "previousSlugs": [
-        "leitung-medical-center-a-100-medbase-ch"
+        "leitung-medical-center-a-100-medbase-ch",
+        "centro-medico-di-gestione-a-100-medbase-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-medical-center-a-100-medbase-ch"
+          "leitung-medical-center-a-100-medbase-ch",
+          "centro-medico-di-gestione-a-100-medbase-schaffhausen"
         ],
         "en": [
           "leitung-medical-center-a-100-medbase-ch"
@@ -7447,7 +7607,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Schaffhausen/Medizinische-Praxisassistenz--a--60-80-_JR07219",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:36.269Z",
+      "crawledAt": "2026-07-08T04:46:57.498Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -7466,12 +7626,14 @@
       "jobReqId": "JR07219",
       "previousSlugs": [
         "medizinische-praxisassistenz-a-60-80-medbase-ch",
-        "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen"
+        "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen",
+        "assistenza-medica-a-60-80-medbase-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-60-80-medbase-ch",
-          "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen"
+          "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen",
+          "assistenza-medica-a-60-80-medbase-schaffhausen"
         ],
         "en": [
           "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen"
@@ -7526,7 +7688,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Medizinische-Praxisassistenz--a--80----Zrich-Lwenstrasse_JR06465",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:35.512Z",
+      "crawledAt": "2026-07-08T04:46:56.762Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7544,11 +7706,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06465",
       "previousSlugs": [
-        "medizinische-praxisassistenz-a-60-100-zurich-lowenstrasse-medbase-ch"
+        "medizinische-praxisassistenz-a-60-100-zurich-lowenstrasse-medbase-ch",
+        "assistenza-medica-a-60-100-zurigo-lowenstrasse-medbase-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-a-60-100-zurich-lowenstrasse-medbase-ch"
+          "medizinische-praxisassistenz-a-60-100-zurich-lowenstrasse-medbase-ch",
+          "assistenza-medica-a-60-100-zurigo-lowenstrasse-medbase-zurich"
         ],
         "en": [
           "medizinische-praxisassistenz-a-60-100-zurich-lowenstrasse-medbase-ch"
@@ -7603,7 +7767,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Gampelen/Lernende-r-Medizinischer-Praxisbetrieb_JR07226",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:34.765Z",
+      "crawledAt": "2026-07-08T04:46:56.031Z",
       "addressLocality": "Gampelen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7621,11 +7785,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07226",
       "previousSlugs": [
-        "trainee-medical-center-operations-medbase-ch"
+        "trainee-medical-center-operations-medbase-ch",
+        "apprendista-medical-center-operations-medbase-gampelen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainee-medical-center-operations-medbase-ch"
+          "trainee-medical-center-operations-medbase-ch",
+          "apprendista-medical-center-operations-medbase-gampelen"
         ],
         "fr": [
           "trainee-medical-center-operations-medbase-ch"
@@ -7677,7 +7843,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Assistante-mdicale--tous-genres--100-_JR06221",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:27:34.011Z",
+      "crawledAt": "2026-07-08T04:46:55.300Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -7695,11 +7861,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06221",
       "previousSlugs": [
-        "assistant-e-medical-e-ou-assc-tous-genres-80-100-medbase-ch"
+        "assistant-e-medical-e-ou-assc-tous-genres-80-100-medbase-ch",
+        "assistente-medico-o-assc-tutti-i-tipi-80-100-medbase-aigle-mc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-ou-assc-tous-genres-80-100-medbase-ch"
+          "assistant-e-medical-e-ou-assc-tous-genres-80-100-medbase-ch",
+          "assistente-medico-o-assc-tutti-i-tipi-80-100-medbase-aigle-mc"
         ],
         "en": [
           "assistant-e-medical-e-ou-assc-tous-genres-80-100-medbase-ch"
@@ -7751,7 +7919,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Physiotherapeut-in--a--60-100----Basel-Heuwaage_JR05946",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:33.265Z",
+      "crawledAt": "2026-07-08T04:46:54.564Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7769,11 +7937,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05946",
       "previousSlugs": [
-        "physiotherapeut-in-a-60-80-basel-heuwaage-medbase-ch"
+        "physiotherapeut-in-a-60-80-basel-heuwaage-medbase-ch",
+        "fisioterapista-in-60-80-basel-heuwaage-medbase-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-a-60-80-basel-heuwaage-medbase-ch"
+          "physiotherapeut-in-a-60-80-basel-heuwaage-medbase-ch",
+          "fisioterapista-in-60-80-basel-heuwaage-medbase-basel"
         ],
         "en": [
           "physiotherapeut-in-a-60-80-basel-heuwaage-medbase-ch"
@@ -7828,7 +7998,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bern/Arztsekretr-in--a--80-100-_JR07105-2",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:32.544Z",
+      "crawledAt": "2026-07-08T04:46:53.848Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7846,11 +8016,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07105",
       "previousSlugs": [
-        "arztsekretar-in-a-80-100-medbase-ch"
+        "arztsekretar-in-a-80-100-medbase-ch",
+        "sottosegretario-medico-a-80-100-medbase-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-a-80-100-medbase-ch"
+          "arztsekretar-in-a-80-100-medbase-ch",
+          "sottosegretario-medico-a-80-100-medbase-bern"
         ],
         "en": [
           "arztsekretar-in-a-80-100-medbase-ch"
@@ -7905,7 +8077,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Diepoldsau/Fachrztin-Arzt-Allgemeine-Innere-Medizin-oder-Praktische-rztin-Arzt--a--50-100-_JR07128-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:31.803Z",
+      "crawledAt": "2026-07-08T04:46:53.097Z",
       "addressLocality": "Diepoldsau",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7982,7 +8154,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Fachfrau-Fachmann-Apotheke--a--80-100-_JR07208",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:31.050Z",
+      "crawledAt": "2026-07-08T04:46:52.381Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8001,12 +8173,14 @@
       "jobReqId": "JR07208",
       "previousSlugs": [
         "fachfrau-fachmann-apotheke-a-80-100-medbase-ch",
-        "fachfrau-fachmann-apotheke-a-80-100-medbase-ch-2"
+        "fachfrau-fachmann-apotheke-a-80-100-medbase-ch-2",
+        "farmacia-professionale-a-80-100-medbase-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-apotheke-a-80-100-medbase-ch",
-          "fachfrau-fachmann-apotheke-a-80-100-medbase-ch-2"
+          "fachfrau-fachmann-apotheke-a-80-100-medbase-ch-2",
+          "farmacia-professionale-a-80-100-medbase-zurich"
         ],
         "en": [
           "fachfrau-fachmann-apotheke-a-80-100-medbase-ch-2"
@@ -8061,7 +8235,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Rorschach/Fachrztin-Arzt-AIM-oder-Praktische-rztin-Arzt--a--60-100-_JR07024",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:30.325Z",
+      "crawledAt": "2026-07-08T04:46:51.621Z",
       "addressLocality": "Rorschach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -8138,7 +8312,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Fribourg/Assistante-mdicale--tous-genres--80-90-_JR07170",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:27:29.601Z",
+      "crawledAt": "2026-07-08T04:46:50.879Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -8156,11 +8330,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07170",
       "previousSlugs": [
-        "assistant-e-medical-e-tous-genres-80-90-medbase-ch"
+        "assistant-e-medical-e-tous-genres-80-90-medbase-ch",
+        "assistente-medico-tutti-i-tipi-80-90-medbase-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-tous-genres-80-90-medbase-ch"
+          "assistant-e-medical-e-tous-genres-80-90-medbase-ch",
+          "assistente-medico-tutti-i-tipi-80-90-medbase-fribourg"
         ],
         "en": [
           "assistant-e-medical-e-tous-genres-80-90-medbase-ch"
@@ -8212,7 +8388,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Arlesheim/Fachfrau---Fachmann-Apotheke--a--EFZ-100-_JR07255",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:28.881Z",
+      "crawledAt": "2026-07-08T04:46:50.137Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -8230,11 +8406,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07255",
       "previousSlugs": [
-        "fachfrau-fachmann-apotheke-a-efz-100-medbase-ch"
+        "fachfrau-fachmann-apotheke-a-efz-100-medbase-ch",
+        "fachfrau-fachmann-apotheke-a-cfc-100-medbase-arlesheim"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-apotheke-a-efz-100-medbase-ch"
+          "fachfrau-fachmann-apotheke-a-efz-100-medbase-ch",
+          "fachfrau-fachmann-apotheke-a-cfc-100-medbase-arlesheim"
         ],
         "en": [
           "fachfrau-fachmann-apotheke-a-efz-100-medbase-ch"
@@ -8289,7 +8467,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zuchwil/Geschftsfhrende-r-Apotheker-in--a--80-100-_JR07249",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:28.159Z",
+      "crawledAt": "2026-07-08T04:46:49.411Z",
       "addressLocality": "Zuchwil",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8308,12 +8486,14 @@
       "jobReqId": "JR07249",
       "previousSlugs": [
         "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch",
-        "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch-2"
+        "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch-2",
+        "direttore-generale-r-pharmacist-in-a-80-100-medbase-zuchwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch",
-          "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch-2"
+          "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch-2",
+          "direttore-generale-r-pharmacist-in-a-80-100-medbase-zuchwil"
         ],
         "en": [
           "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch-2"
@@ -8368,7 +8548,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bischofszell/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--100-_JR05647-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:27.421Z",
+      "crawledAt": "2026-07-08T04:46:48.548Z",
       "addressLocality": "Bischofszell",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -8386,11 +8566,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR05647",
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-a-100-medbase-ch"
+        "facharztin-facharzt-allgemeine-innere-medizin-a-100-medbase-ch",
+        "specialista-specialista-medicina-interna-generale-a-100-medbase-bischofszell"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-a-100-medbase-ch"
+          "facharztin-facharzt-allgemeine-innere-medizin-a-100-medbase-ch",
+          "specialista-specialista-medicina-interna-generale-a-100-medbase-bischofszell"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-100-medbase-ch"
@@ -8445,7 +8627,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bischofszell/Fachrztin---Facharzt-Allgemeine-Innere-Medizin-oder-Praktische-r-rztin---Arzt--a--100-_JR06139",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:26.678Z",
+      "crawledAt": "2026-07-08T04:46:47.821Z",
       "addressLocality": "Bischofszell",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -8522,7 +8704,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Amriswil/Professional-Medical_JR04098",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:25.947Z",
+      "crawledAt": "2026-07-08T04:46:47.056Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -8541,12 +8723,14 @@
       "jobReqId": "JR04098",
       "previousSlugs": [
         "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch",
-        "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch-3"
+        "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch-3",
+        "medicina-generale-specialistica-interna-a-50-100-medbase-amriswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch",
-          "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch-3"
+          "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch-3",
+          "medicina-generale-specialistica-interna-a-50-100-medbase-amriswil"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-50-100-medbase-ch-3"
@@ -8601,7 +8785,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Secrtaire-mdicale--tous-genres---100-_JR07183",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:27:25.201Z",
+      "crawledAt": "2026-07-08T04:46:46.333Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -8620,12 +8804,14 @@
       "jobReqId": "JR07183",
       "previousSlugs": [
         "secretaire-medical-e-tous-genres-a-100-medbase-ch",
-        "secretaire-medical-e-tous-genres-a-100-medbase-ch-2"
+        "secretaire-medical-e-tous-genres-a-100-medbase-ch-2",
+        "100-segretaria-medica-tutti-i-tipi-medbase-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "secretaire-medical-e-tous-genres-a-100-medbase-ch",
-          "secretaire-medical-e-tous-genres-a-100-medbase-ch-2"
+          "secretaire-medical-e-tous-genres-a-100-medbase-ch-2",
+          "100-segretaria-medica-tutti-i-tipi-medbase-lausanne"
         ],
         "en": [
           "secretaire-medical-e-tous-genres-a-100-medbase-ch-2"
@@ -8680,7 +8866,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Assistante-mdicale--tous-genres--ou-autre-professionnelle-de-la-sant-50-100---pour-notre-service-de-tlmdecine-innovant_JR07222",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:27:24.461Z",
+      "crawledAt": "2026-07-08T04:46:45.602Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -8698,11 +8884,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07222",
       "previousSlugs": [
-        "assistant-e-medical-e-tous-genres-ou-autre-professionnel-le-de-la-sante-50-100-pour-notre"
+        "assistant-e-medical-e-tous-genres-ou-autre-professionnel-le-de-la-sante-50-100-pour-notre",
+        "assistente-medico-tutti-i-tipi-o-altro-professionista-sanitario-50-100-per-il-nostro-innovativo-servizio-di-telemedicina"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-tous-genres-ou-autre-professionnel-le-de-la-sante-50-100-pour-notre"
+          "assistant-e-medical-e-tous-genres-ou-autre-professionnel-le-de-la-sante-50-100-pour-notre",
+          "assistente-medico-tutti-i-tipi-o-altro-professionista-sanitario-50-100-per-il-nostro-innovativo-servizio-di-telemedicina"
         ],
         "en": [
           "assistant-e-medical-e-tous-genres-ou-autre-professionnel-le-de-la-sante-50-100-pour-notre"
@@ -8754,7 +8942,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kriens/Fachfrau---Fachmann-Apotheke-EFZ--a--80---100-_JR07034",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:23.697Z",
+      "crawledAt": "2026-07-08T04:46:44.848Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8772,11 +8960,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07034",
       "previousSlugs": [
-        "fachfrau-fachmann-apotheke-efz-a-80-100-medbase-ch"
+        "fachfrau-fachmann-apotheke-efz-a-80-100-medbase-ch",
+        "fachfrau-fachmann-apotheke-cfc-a-80-100-medbase-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-apotheke-efz-a-80-100-medbase-ch"
+          "fachfrau-fachmann-apotheke-efz-a-80-100-medbase-ch",
+          "fachfrau-fachmann-apotheke-cfc-a-80-100-medbase-kriens"
         ],
         "en": [
           "fachfrau-fachmann-apotheke-efz-a-80-100-medbase-ch"
@@ -8831,7 +9021,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur-Schtzenstrasse-HQ/Apotheker-in-fr-FPH-Weiterbildung--a--60---100-_JR07008",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:22.950Z",
+      "crawledAt": "2026-07-08T04:46:44.119Z",
       "addressLocality": "Winterthur-Schtzenstrasse-HQ",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8910,7 +9100,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Allschwil/Spezialist-in--a--Apotheken-Koordination-80-100-_JR07282",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:22.177Z",
+      "crawledAt": "2026-07-08T04:46:43.372Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -8928,11 +9118,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07282",
       "previousSlugs": [
-        "spezialist-in-a-apotheken-koordination-80-100-medbase-ch"
+        "spezialist-in-a-apotheken-koordination-80-100-medbase-ch",
+        "specialista-in-a-coordinamento-delle-farmacie-80-100-medbase-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-a-apotheken-koordination-80-100-medbase-ch"
+          "spezialist-in-a-apotheken-koordination-80-100-medbase-ch",
+          "specialista-in-a-coordinamento-delle-farmacie-80-100-medbase-allschwil"
         ],
         "en": [
           "spezialist-in-a-apotheken-koordination-80-100-medbase-ch"
@@ -8987,7 +9179,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Fachfrau---Fachmann-Apotheke--a--80-100--Zrich-Wiedikon_JR07089",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:21.445Z",
+      "crawledAt": "2026-07-08T04:46:42.638Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9005,11 +9197,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07089",
       "previousSlugs": [
-        "fachfrau-fachmann-apotheke-a-80-100-zurich-wiedikon-medbase-ch"
+        "fachfrau-fachmann-apotheke-a-80-100-zurich-wiedikon-medbase-ch",
+        "farmacia-professionale-a-80-100-zurigo-wiedikon-medbase-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-apotheke-a-80-100-zurich-wiedikon-medbase-ch"
+          "fachfrau-fachmann-apotheke-a-80-100-zurich-wiedikon-medbase-ch",
+          "farmacia-professionale-a-80-100-zurigo-wiedikon-medbase-zurich"
         ],
         "en": [
           "fachfrau-fachmann-apotheke-a-80-100-zurich-wiedikon-medbase-ch"
@@ -9064,7 +9258,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Projektleitung-strategische-Geschftsentwicklung_JR07290",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:20.722Z",
+      "crawledAt": "2026-07-08T04:46:41.912Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9082,11 +9276,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07290",
       "previousSlugs": [
-        "projektleitung-strategische-geschaftsentwicklung-a-100-medbase-ch"
+        "projektleitung-strategische-geschaftsentwicklung-a-100-medbase-ch",
+        "gestione-del-progetto-sviluppo-commerciale-strategico-a-100-medbase-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleitung-strategische-geschaftsentwicklung-a-100-medbase-ch"
+          "projektleitung-strategische-geschaftsentwicklung-a-100-medbase-ch",
+          "gestione-del-progetto-sviluppo-commerciale-strategico-a-100-medbase-winterthur"
         ],
         "en": [
           "projektleitung-strategische-geschaftsentwicklung-a-100-medbase-ch"
@@ -9143,7 +9339,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Medizinische-Praxisassistenz-80-100---a-_JR06894-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:19.966Z",
+      "crawledAt": "2026-07-08T04:46:41.185Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9161,11 +9357,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06894",
       "previousSlugs": [
-        "medizinische-praxisassistenz-80-100-a-medbase-ch"
+        "medizinische-praxisassistenz-80-100-a-medbase-ch",
+        "assistente-medico-80-100-a-medbase-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-80-100-a-medbase-ch"
+          "medizinische-praxisassistenz-80-100-a-medbase-ch",
+          "assistente-medico-80-100-a-medbase-zurich"
         ],
         "en": [
           "medizinische-praxisassistenz-80-100-a-medbase-ch"
@@ -9220,7 +9418,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Amriswil/Physiotherapeut-in--a--40-80--Amriswil-Bischofszell_JR06672",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:19.207Z",
+      "crawledAt": "2026-07-08T04:46:40.436Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -9238,11 +9436,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR06672",
       "previousSlugs": [
-        "physiotherapeut-in-a-40-80-amriswil-bischofszell-medbase-ch"
+        "physiotherapeut-in-a-40-80-amriswil-bischofszell-medbase-ch",
+        "physiotherapist-in-a-40-80-amriswil-cellula-del-negozio-medbase-amriswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-a-40-80-amriswil-bischofszell-medbase-ch"
+          "physiotherapeut-in-a-40-80-amriswil-bischofszell-medbase-ch",
+          "physiotherapist-in-a-40-80-amriswil-cellula-del-negozio-medbase-amriswil"
         ],
         "en": [
           "physiotherapeut-in-a-40-80-amriswil-bischofszell-medbase-ch"
@@ -9297,7 +9497,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Medizinische-Praxisassistenz--a--80-100-_JR07314",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:18.461Z",
+      "crawledAt": "2026-07-08T04:46:39.710Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -9316,12 +9516,14 @@
       "jobReqId": "JR07314",
       "previousSlugs": [
         "medizinische-praxisassistenz-a-80-100-medbase-ch",
-        "medizinische-praxisassistenz-a-80-100-medbase-ch-5"
+        "medizinische-praxisassistenz-a-80-100-medbase-ch-5",
+        "assistenza-medica-pratica-a-80-100-medbase-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-80-100-medbase-ch",
-          "medizinische-praxisassistenz-a-80-100-medbase-ch-5"
+          "medizinische-praxisassistenz-a-80-100-medbase-ch-5",
+          "assistenza-medica-pratica-a-80-100-medbase-frauenfeld"
         ],
         "en": [
           "medizinische-praxisassistenz-a-80-100-medbase-ch-5"
@@ -9376,7 +9578,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Affoltern-am-Albis/Apotheker-in--a--60-100-----Affoltern-am-Albis_JR07350",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:17.678Z",
+      "crawledAt": "2026-07-08T04:46:38.978Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9394,11 +9596,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07350",
       "previousSlugs": [
-        "apotheker-in-a-60-100-affoltern-am-albis-medbase-ch"
+        "apotheker-in-a-60-100-affoltern-am-albis-medbase-ch",
+        "farmacista-in-a-60-100-affoltern-sugli-albi-medbase-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apotheker-in-a-60-100-affoltern-am-albis-medbase-ch"
+          "apotheker-in-a-60-100-affoltern-am-albis-medbase-ch",
+          "farmacista-in-a-60-100-affoltern-sugli-albi-medbase-affoltern-am-albis"
         ],
         "en": [
           "apotheker-in-a-60-100-affoltern-am-albis-medbase-ch"
@@ -9453,7 +9657,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kriens/Facharzt-Allgemeine-Innere-Medizin--w-m-d--60-100-_JR03906",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:16.841Z",
+      "crawledAt": "2026-07-08T04:46:38.224Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -9472,12 +9676,14 @@
       "jobReqId": "JR03906",
       "previousSlugs": [
         "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch",
-        "facharztin-facharzt-allgemeine-innere-medizin-a-60-medbase-ch"
+        "facharztin-facharzt-allgemeine-innere-medizin-a-60-medbase-ch",
+        "medicina-generale-specialistica-interna-a-60-100-medbase-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch",
-          "facharztin-facharzt-allgemeine-innere-medizin-a-60-medbase-ch"
+          "facharztin-facharzt-allgemeine-innere-medizin-a-60-medbase-ch",
+          "medicina-generale-specialistica-interna-a-60-100-medbase-kriens"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-a-60-100-medbase-ch"
@@ -9532,7 +9738,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Uster/Fachfrau---Fachmann-Apotheke-EFZ--a--80---100-_JR07336",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:16.084Z",
+      "crawledAt": "2026-07-08T04:46:37.490Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9603,7 +9809,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Vevey/Assistante-mdicale--tous-genres----100-_JR07277",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:27:15.247Z",
+      "crawledAt": "2026-07-08T04:46:36.756Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -9621,11 +9827,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07277",
       "previousSlugs": [
-        "assistant-e-medical-e-tous-genres-100-medbase-ch"
+        "assistant-e-medical-e-tous-genres-100-medbase-ch",
+        "assistente-medico-tutti-i-tipi-100-medbase-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-tous-genres-100-medbase-ch"
+          "assistant-e-medical-e-tous-genres-100-medbase-ch",
+          "assistente-medico-tutti-i-tipi-100-medbase-vevey"
         ],
         "en": [
           "assistant-e-medical-e-tous-genres-100-medbase-ch"
@@ -9680,7 +9888,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Mitarbeiterin-Rezeption-und-Medical-Services-80-100---a-_JR07235",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:14.485Z",
+      "crawledAt": "2026-07-08T04:46:35.991Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9759,7 +9967,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Solothurn/Apothekerin-FPH_JR07017",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:27:13.706Z",
+      "crawledAt": "2026-07-08T04:46:35.149Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9778,12 +9986,14 @@
       "jobReqId": "JR07017",
       "previousSlugs": [
         "apotheker-in-fph-a-80-100-medbase-ch",
-        "apotheker-in-in-fur-fph-weiterbildung-a-80-100-medbase-ch"
+        "apotheker-in-in-fur-fph-weiterbildung-a-80-100-medbase-ch",
+        "farmacista-in-fph-a-80-100-medbase-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apotheker-in-fph-a-80-100-medbase-ch",
-          "apotheker-in-in-fur-fph-weiterbildung-a-80-100-medbase-ch"
+          "apotheker-in-in-fur-fph-weiterbildung-a-80-100-medbase-ch",
+          "farmacista-in-fph-a-80-100-medbase-solothurn"
         ],
         "en": [
           "apotheker-in-fph-a-80-100-medbase-ch"
@@ -9884,7 +10094,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "medbase-6b85c47a1d6b",
@@ -9962,7 +10172,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "medbase-95839caee731",
@@ -10040,166 +10250,6 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "medbase-3ca2dcd29528",
-      "slug": "coordinamento-della-pratica-a-100-medbase-abtwil",
-      "slugByLocale": {
-        "it": "coordinamento-della-pratica-a-100-medbase-abtwil",
-        "en": "coordination-of-practice-a-100-medbase-abtwil",
-        "de": "praxiskoordination-a-100-medbase-ch",
-        "fr": "coordination-de-la-pratique-a-100-medbase-abtwil"
-      },
-      "company": "Medbase",
-      "companyKey": "medbase",
-      "companyDomain": "medbase.ch",
-      "title": "Praxiskoordination (a) 100%",
-      "titleByLocale": {
-        "it": "Coordinamento della pratica (a) 100%",
-        "en": "Coordination of practice (a) 100%",
-        "de": "Praxiskoordination (a) 100%",
-        "fr": "Coordination de la pratique (a) 100%"
-      },
-      "description": "Herzlich willkommen bei Medbase Abtwil\n\nUnser modernes , vielseitiges Medical Center befindet sich direkt neben dem Säntispark in Abtwil , nur wenige Kilometer von St. Gallen entfernt.\nHier betreuen wir Patientinnen und Patienten interdisziplinär und qualitätsorientiert .\nRund 50 Mitarbeitende aus den Disziplinen Allgemeine Innere Medizin, Sportmedizin oder Leistungsdiagnostik sowie Orthopädie, Physiotherapie oder Traditionelle Chinesische Medizin TCM arbeiten interprofessionell zusammen.\nUnser Medical Center ist im Bereich der Sportmedizin von Swiss Olympic zertifiziert.\nWir pflegen eine enge Zusammenarbeit mit dem Säntispark, dessen moderne Infrastruktur wir für gewisse Therapieformen nutzen.\nBei Medbase Abtwil achten wir auf eine ausgewogene Work-Life-Balance .\nDas Arbeiten im Teilzeitpensum ist grundsätzlich in allen Funktionen möglich.\n\nDas kannst du bewegen\n\nAls leitende/r MPA gestaltest du aktiv den Praxisalltag und unterstützt dein Team mit Fachkompetenz und Führung. Medbase bietet dir den Freiraum und die Unterstützung, die du benötigst, um das Team weiterzuentwickeln und die Praxisprozesse zu optimieren.\n\n• Fachliche und personelle Führung des MPA-Teams\n\n• Organisation und Optimierung der Praxisprozesse für einen reibungslosen Ablauf\n\n• Betreuung und Unterstützung von Auszubildenden während ihrer Ausbildung\n\n• Einarbeitung neuer Mitarbeitender und Sicherstellung ihrer Integration ins Team\n\n• IT-Key-User und Mitarbeit in der Standortleitung zur Weiterentwicklung der Praxis\n\nWas du mitbringst\n\n• Abgeschlossene Ausbildung als MPA mit zusätzlicher Qualifikation als MPK oder vergleichbarer Ausbildung\n\n• Leitungserfahrung, idealerweise in einer stellvertretenden oder ähnlichen Führungsfunktion\n\n• Teamplayer mit Führungsqualitäten und Freude an der Anleitung und Entwicklung von Mitarbeitenden\n\n• Erfahrung und Kenntnisse im Labor, Röntgen und Infusionen\n\n• IT-Affinität sowie sicherer Umgang mit IT-Systemen\n\n• Berufsbildner/in-Qualifikation und Erfahrung im KV-Bereich von Vorteil\n\nBereit für die Zukunft? Jetzt bewerben.\n\n#WeAreMedbase\n\nDie Medbase Gruppe ist eines der führenden Unternehmen in der ambulanten Gesundheitsversorgung.\nDas bedeutet Dienstleistungen von der Gesundheitsförderung über Medikamentenversorgung und Akutbehandlung bis zur Rehabilitation.\nGesundheitsfachpersonen verschiedener Disziplinen arbeiten Hand in Hand, um den Menschen in der ganzen Schweiz eine integrierte und erstklassige medizinische Rundumbetreuung zu bieten.\nMit Logistik-Dienstleistungen und digitalen Lösungen unterstützen wir Ärztinnen und Ärzte, damit auch sie sich voll und ganz auf Patientinnen und Patienten konzentrieren können.\n\nZur Medbase Gruppe gehören die Marken Medbase Apotheken, Zur Rose, zahnarztzentrum.ch, WePractice und Bluecare.",
-      "descriptionByLocale": {
-        "it": "Herzlich willkommen bei Medbase Abtwil Unser modernes , vielseitiges Medical Center befindet sich direkt neben dem Säntispark in Abtwil , nur wenige Kilometer von St. Gallen entfernt. Hier betreuen wir Patientinnen und Patienten interdisziplinär und qualitätsorientiert . Rund 50 Mitarbeitende aus den Disziplinen Allgemeine Innere Medizin, Sportmedizin oder Leistungsdiagnostik sowie Orthopädie, Physiotherapie oder Traditionelle Chinesische Medizin TCM arbeiten interprofessionell zusammen. Unser Medical Center ist im Bereich der Sportmedizin von Swiss Olympic zertifiziert. Wir pflegen eine enge Zusammenarbeit mit dem Säntispark, dessen moderne Infrastruktur wir für gewisse Therapieformen nutzen. Bei Medbase Abtwil achten wir auf eine ausgewogene Work-Life-Balance . Das Arbeiten im Teilzeitpensum ist grundsätzlich in allen Funktionen möglich. Das kannst du bewegen Als leitende/r MPA gestaltest du aktiv den Praxisalltag und unterstützt dein Team mit Fachkompetenz und Führung. Medbase bietet dir den Freiraum und die Unterstützung, die du benötigst, um das Team weiterzuentwickeln und die Praxisprozesse zu optimieren.\n• Fachliche und personelle Führung des MPA-Teams\n• Organisation und Optimierung der Praxisprozesse für einen reibungslosen Ablauf\n• Betreuung und Unterstützung von Auszubildenden während ihrer Ausbildung\n• Einarbeitung neuer Mitarbeitender und Sicherstellung ihrer Integration ins Team\n• IT-Key-User und Mitarbeit in der Standortleitung zur Weiterentwicklung der Praxis Was du mitbringst\n• Abgeschlossene Ausbildung als MPA mit zusätzlicher Qualifikation als MPK oder vergleichbarer Ausbildung\n• Leitungserfahrung, idealerweise in einer stellvertretenden oder ähnlichen Führungsfunktion\n• Teamplayer mit Führungsqualitäten und Freude an der Anleitung und Entwicklung von Mitarbeitenden\n• Erfahrung und Kenntnisse im Labor, Röntgen und Infusionen\n• IT-Affinität sowie sicherer Umgang mit IT-Systemen\n• Berufsbildner/in-Qualifikation und Erfahrung im KV-Bereich von Vorteil Bereit für die Zukunft? Jetzt bewerben. #WeAreMedbase Die Medbase Gruppe ist eines der führenden Unternehmen in der ambulanten Gesundheitsversorgung. Das bedeutet Dienstleistungen von der Gesundheitsförderung über Medikamentenversorgung und Akutbehandlung bis zur Rehabilitation. Gesundheitsfachpersonen verschiedener Disziplinen arbeiten Hand in Hand, um den Menschen in der ganzen Schweiz eine integrierte und erstklassige medizinische Rundumbetreuung zu bieten. Mit Logistik-Dienstleistungen und digitalen Lösungen unterstützen wir Ärztinnen und Ärzte, damit auch sie sich voll und ganz auf Patientinnen und Patienten konzentrieren können. Zur Medbase Gruppe gehören die Marken Medbase Apotheken, Zur Rose, zahnarztzentrum.ch, WePractice und Bluecare.",
-        "en": "Herzlich willkommen bei Medbase Abtwil Unser modernes , vielseitiges Medical Center befindet sich direkt neben dem Säntispark in Abtwil , nur wenige Kilometer von St. Gallen entfernt. Hier betreuen wir Patientinnen und Patienten interdisziplinär und qualitätsorientiert . Rund 50 Mitarbeitende aus den Disziplinen Allgemeine Innere Medizin, Sportmedizin oder Leistungsdiagnostik sowie Orthopädie, Physiotherapie oder Traditionelle Chinesische Medizin TCM arbeiten interprofessionell zusammen. Unser Medical Center ist im Bereich der Sportmedizin von Swiss Olympic zertifiziert. Wir pflegen eine enge Zusammenarbeit mit dem Säntispark, dessen moderne Infrastruktur wir für gewisse Therapieformen nutzen. Bei Medbase Abtwil achten wir auf eine ausgewogene Work-Life-Balance . Das Arbeiten im Teilzeitpensum ist grundsätzlich in allen Funktionen möglich. Das kannst du bewegen Als leitende/r MPA gestaltest du aktiv den Praxisalltag und unterstützt dein Team mit Fachkompetenz und Führung. Medbase bietet dir den Freiraum und die Unterstützung, die du benötigst, um das Team weiterzuentwickeln und die Praxisprozesse zu optimieren.\n• Fachliche und personelle Führung des MPA-Teams\n• Organisation und Optimierung der Praxisprozesse für einen reibungslosen Ablauf\n• Betreuung und Unterstützung von Auszubildenden während ihrer Ausbildung\n• Einarbeitung neuer Mitarbeitender und Sicherstellung ihrer Integration ins Team\n• IT-Key-User und Mitarbeit in der Standortleitung zur Weiterentwicklung der Praxis Was du mitbringst\n• Abgeschlossene Ausbildung als MPA mit zusätzlicher Qualifikation als MPK oder vergleichbarer Ausbildung\n• Leitungserfahrung, idealerweise in einer stellvertretenden oder ähnlichen Führungsfunktion\n• Teamplayer mit Führungsqualitäten und Freude an der Anleitung und Entwicklung von Mitarbeitenden\n• Erfahrung und Kenntnisse im Labor, Röntgen und Infusionen\n• IT-Affinität sowie sicherer Umgang mit IT-Systemen\n• Berufsbildner/in-Qualifikation und Erfahrung im KV-Bereich von Vorteil Bereit für die Zukunft? Jetzt bewerben. #WeAreMedbase Die Medbase Gruppe ist eines der führenden Unternehmen in der ambulanten Gesundheitsversorgung. Das bedeutet Dienstleistungen von der Gesundheitsförderung über Medikamentenversorgung und Akutbehandlung bis zur Rehabilitation. Gesundheitsfachpersonen verschiedener Disziplinen arbeiten Hand in Hand, um den Menschen in der ganzen Schweiz eine integrierte und erstklassige medizinische Rundumbetreuung zu bieten. Mit Logistik-Dienstleistungen und digitalen Lösungen unterstützen wir Ärztinnen und Ärzte, damit auch sie sich voll und ganz auf Patientinnen und Patienten konzentrieren können. Zur Medbase Gruppe gehören die Marken Medbase Apotheken, Zur Rose, zahnarztzentrum.ch, WePractice und Bluecare.",
-        "de": "Herzlich willkommen bei Medbase Abtwil Unser modernes , vielseitiges Medical Center befindet sich direkt neben dem Säntispark in Abtwil , nur wenige Kilometer von St. Gallen entfernt. Hier betreuen wir Patientinnen und Patienten interdisziplinär und qualitätsorientiert . Rund 50 Mitarbeitende aus den Disziplinen Allgemeine Innere Medizin, Sportmedizin oder Leistungsdiagnostik sowie Orthopädie, Physiotherapie oder Traditionelle Chinesische Medizin TCM arbeiten interprofessionell zusammen. Unser Medical Center ist im Bereich der Sportmedizin von Swiss Olympic zertifiziert. Wir pflegen eine enge Zusammenarbeit mit dem Säntispark, dessen moderne Infrastruktur wir für gewisse Therapieformen nutzen. Bei Medbase Abtwil achten wir auf eine ausgewogene Work-Life-Balance . Das Arbeiten im Teilzeitpensum ist grundsätzlich in allen Funktionen möglich. Das kannst du bewegen Als leitende/r MPA gestaltest du aktiv den Praxisalltag und unterstützt dein Team mit Fachkompetenz und Führung. Medbase bietet dir den Freiraum und die Unterstützung, die du benötigst, um das Team weiterzuentwickeln und die Praxisprozesse zu optimieren.\n• Fachliche und personelle Führung des MPA-Teams\n• Organisation und Optimierung der Praxisprozesse für einen reibungslosen Ablauf\n• Betreuung und Unterstützung von Auszubildenden während ihrer Ausbildung\n• Einarbeitung neuer Mitarbeitender und Sicherstellung ihrer Integration ins Team\n• IT-Key-User und Mitarbeit in der Standortleitung zur Weiterentwicklung der Praxis Was du mitbringst\n• Abgeschlossene Ausbildung als MPA mit zusätzlicher Qualifikation als MPK oder vergleichbarer Ausbildung\n• Leitungserfahrung, idealerweise in einer stellvertretenden oder ähnlichen Führungsfunktion\n• Teamplayer mit Führungsqualitäten und Freude an der Anleitung und Entwicklung von Mitarbeitenden\n• Erfahrung und Kenntnisse im Labor, Röntgen und Infusionen\n• IT-Affinität sowie sicherer Umgang mit IT-Systemen\n• Berufsbildner/in-Qualifikation und Erfahrung im KV-Bereich von Vorteil Bereit für die Zukunft? Jetzt bewerben. #WeAreMedbase Die Medbase Gruppe ist eines der führenden Unternehmen in der ambulanten Gesundheitsversorgung. Das bedeutet Dienstleistungen von der Gesundheitsförderung über Medikamentenversorgung und Akutbehandlung bis zur Rehabilitation. Gesundheitsfachpersonen verschiedener Disziplinen arbeiten Hand in Hand, um den Menschen in der ganzen Schweiz eine integrierte und erstklassige medizinische Rundumbetreuung zu bieten. Mit Logistik-Dienstleistungen und digitalen Lösungen unterstützen wir Ärztinnen und Ärzte, damit auch sie sich voll und ganz auf Patientinnen und Patienten konzentrieren können. Zur Medbase Gruppe gehören die Marken Medbase Apotheken, Zur Rose, zahnarztzentrum.ch, WePractice und Bluecare.",
-        "fr": "Herzlich willkommen bei Medbase Abtwil Unser modernes , vielseitiges Medical Center befindet sich direkt neben dem Säntispark in Abtwil , nur wenige Kilometer von St. Gallen entfernt. Hier betreuen wir Patientinnen und Patienten interdisziplinär und qualitätsorientiert . Rund 50 Mitarbeitende aus den Disziplinen Allgemeine Innere Medizin, Sportmedizin oder Leistungsdiagnostik sowie Orthopädie, Physiotherapie oder Traditionelle Chinesische Medizin TCM arbeiten interprofessionell zusammen. Unser Medical Center ist im Bereich der Sportmedizin von Swiss Olympic zertifiziert. Wir pflegen eine enge Zusammenarbeit mit dem Säntispark, dessen moderne Infrastruktur wir für gewisse Therapieformen nutzen. Bei Medbase Abtwil achten wir auf eine ausgewogene Work-Life-Balance . Das Arbeiten im Teilzeitpensum ist grundsätzlich in allen Funktionen möglich. Das kannst du bewegen Als leitende/r MPA gestaltest du aktiv den Praxisalltag und unterstützt dein Team mit Fachkompetenz und Führung. Medbase bietet dir den Freiraum und die Unterstützung, die du benötigst, um das Team weiterzuentwickeln und die Praxisprozesse zu optimieren.\n• Fachliche und personelle Führung des MPA-Teams\n• Organisation und Optimierung der Praxisprozesse für einen reibungslosen Ablauf\n• Betreuung und Unterstützung von Auszubildenden während ihrer Ausbildung\n• Einarbeitung neuer Mitarbeitender und Sicherstellung ihrer Integration ins Team\n• IT-Key-User und Mitarbeit in der Standortleitung zur Weiterentwicklung der Praxis Was du mitbringst\n• Abgeschlossene Ausbildung als MPA mit zusätzlicher Qualifikation als MPK oder vergleichbarer Ausbildung\n• Leitungserfahrung, idealerweise in einer stellvertretenden oder ähnlichen Führungsfunktion\n• Teamplayer mit Führungsqualitäten und Freude an der Anleitung und Entwicklung von Mitarbeitenden\n• Erfahrung und Kenntnisse im Labor, Röntgen und Infusionen\n• IT-Affinität sowie sicherer Umgang mit IT-Systemen\n• Berufsbildner/in-Qualifikation und Erfahrung im KV-Bereich von Vorteil Bereit für die Zukunft? Jetzt bewerben. #WeAreMedbase Die Medbase Gruppe ist eines der führenden Unternehmen in der ambulanten Gesundheitsversorgung. Das bedeutet Dienstleistungen von der Gesundheitsförderung über Medikamentenversorgung und Akutbehandlung bis zur Rehabilitation. Gesundheitsfachpersonen verschiedener Disziplinen arbeiten Hand in Hand, um den Menschen in der ganzen Schweiz eine integrierte und erstklassige medizinische Rundumbetreuung zu bieten. Mit Logistik-Dienstleistungen und digitalen Lösungen unterstützen wir Ärztinnen und Ärzte, damit auch sie sich voll und ganz auf Patientinnen und Patienten konzentrieren können. Zur Medbase Gruppe gehören die Marken Medbase Apotheken, Zur Rose, zahnarztzentrum.ch, WePractice und Bluecare."
-      },
-      "needsRetranslation": true,
-      "location": "Abtwil",
-      "canton": "AG",
-      "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Abtwil/Teamleitung-Medizinischer-Praxisbetrieb--a--100-_JR06612",
-      "source": "Medbase Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:27:12.404Z",
-      "addressLocality": "Abtwil",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Farmacie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-04",
-      "applyUrl": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Abtwil/Teamleitung-Medizinischer-Praxisbetrieb--a--100-_JR06612",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "JR06612",
-      "previousSlugs": [
-        "praxiskoordination-a-100-medbase-ch",
-        "praxiskoordination-a-100-medbase-abtwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praxiskoordination-a-100-medbase-ch",
-          "praxiskoordination-a-100-medbase-abtwil"
-        ],
-        "en": [
-          "praxiskoordination-a-100-medbase-abtwil"
-        ],
-        "fr": [
-          "praxiskoordination-a-100-medbase-abtwil"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:44:30.630Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "5000",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "medbase-f012978112bf",
-      "slug": "team-management-sala-di-controllo-logistica-a-80-100-medbase-frauenfeld",
-      "slugByLocale": {
-        "it": "team-management-sala-di-controllo-logistica-a-80-100-medbase-frauenfeld",
-        "en": "team-management-logistics-control-room-a-80-100-medbase-frauenfeld",
-        "de": "teamleitung-logistik-leitstand-a-80-100-medbase-ch",
-        "fr": "gestion-d-equipe-salle-de-controle-logistique-a-80-100-medbase-frauenfeld"
-      },
-      "company": "Medbase",
-      "companyKey": "medbase",
-      "companyDomain": "medbase.ch",
-      "title": "Teamleitung Logistik Leitstand (a) 80-100%",
-      "titleByLocale": {
-        "it": "Team management Sala di controllo logistica (a) 80-100 %",
-        "en": "Team management Logistics control room (a) 80-100 %",
-        "de": "Teamleitung Logistik Leitstand (a) 80-100%",
-        "fr": "Gestion d'équipe Salle de contrôle logistique (a) 80-100 %"
-      },
-      "description": "Aufgaben\n- Personelle Führung sowie Coaching von 6 Mitarbeitenden sowie den 5-6 Lernenden\n- Aktive Mitarbeit im operativen Tagesgeschäft\n- Mitarbeit im Projekt zur weiteren Modernisierung/Ausbau unserer Logistik\n- Steuern des Tagesgeschäfts und reagieren auf Zielabweichungen\n- Zentrale Anlaufstelle für Incidents und Störungen im Tagesbetrieb\n- Fachliche Verantwortung für den Bereich (Prozessverantwortung, SOP's, CAPAs, Änderungsanträge) inkl. Organisation und Kontrolle der Schulungen\n- Gewährleisten des kontinuierlichen Verbesserungsprozesses und Unterbreiten von Vorschlägen im Bereich (Optimierungen, Effizienzsteigerungen)\n- Planen des Tages-Personaleinsatzes sowie der technischen Ressourcen (Personalrochade im Tagesgeschäft)\n- Sicherstellen der Kommunikation/Informationsfluss und der effizienten Zusammenarbeit innerhalb der Abteilung Warehouse\n\nStärken\n- Mehrjährige Berufserfahrung in der Logistik, vorzugsweise in der Pharma-Branche resp. stark regulierten Umfeld\n- Ausbildung zum Logistikfachmann/frau oder vergleiche Ausbildung mit Führungserfahrung in Logistikbetrieben, Berufsbildner in der Logistik von Vorteil\n- Ganzheitliches Logistikverständnis mit Schwerpunkt Koordination und Organisation\n- Projekterfahrung\n- Experte in LVS-Logistiksystemen (WAMAS) und ERP-Systemen\n- Die Bereitschaft zu Samstagseinsätzen ca. 1x im Montag ist wichtig, da unser Betrieb auch am Samstag von 09.00 - 15.00 Uhr arbeitet\n\nBewirb dich noch heute\nFür Fragen stehen wir dir unter der Telefonnummer 052 724 17 89 gerne zur Verfügung.\n\nÜber uns\nMit unseren innovativen und effektiven pharmazeutischen Lösungen setzen wir bei Zur Rose alles daran, das Leben der Menschen positiv zu beeinflussen. Unser Team von 500 Mitarbeitenden mit Hauptsitz in Frauenfeld verfolgt das gemeinsame Ziel, die Zukunft des Gesundheitswesens zu verbessern. Da Qualität, Komfort und Effektivität bei uns besonders grossgeschrieben werden, können Patientinnen und Patienten ihre Gesundheit einfach, schnell und sicher selbst in die Hand nehmen. Unser Anspruch ist es, künftige Anforderungen im Gesundheitswesen zu prognostizieren. Bei der Entwicklung unserer Lösungen und Arzneimittel setzen wir auf ein hohes Mass an Zuverlässigkeit und Effizienz und kümmern uns um die komplexen Themen, damit unsere Kundinnen und Kunden sich entspannt zurücklehnen können.\n\nDie funktionsübergreifende Teamarbeit wird durch unsere Unternehmenskultur gefördert, sodass jedes Teammitglied gleichermassen geschätzt und darin bestärkt wird, sich am Entscheidungsprozess aktiv zu beteiligen. Offene Kommunikation und Empathie stehen bei uns an erster Stelle. Dabei versuchen wir stets, einen gemeinsamen Nenner zu finden und somit Kompromisse zu vermeiden.\n\nUnsere Leidenschaft bei Zur Rose besteht darin, die Welt positiv zu beeinflussen. Teilst du dieselben Werte und möchtest auch du das Leben der Menschen verbessern? Dann würden wir uns freuen, dich als Teil unseres Teams zu begrüssen.",
-      "descriptionByLocale": {
-        "it": "Aufgaben - Personelle Führung sowie Coaching von 6 Mitarbeitenden sowie den 5-6 Lernenden - Aktive Mitarbeit im operativen Tagesgeschäft - Mitarbeit im Projekt zur weiteren Modernisierung/Ausbau unserer Logistik - Steuern des Tagesgeschäfts und reagieren auf Zielabweichungen - Zentrale Anlaufstelle für Incidents und Störungen im Tagesbetrieb - Fachliche Verantwortung für den Bereich (Prozessverantwortung, SOP's, CAPAs, Änderungsanträge) inkl. Organisation und Kontrolle der Schulungen - Gewährleisten des kontinuierlichen Verbesserungsprozesses und Unterbreiten von Vorschlägen im Bereich (Optimierungen, Effizienzsteigerungen) - Planen des Tages-Personaleinsatzes sowie der technischen Ressourcen (Personalrochade im Tagesgeschäft) - Sicherstellen der Kommunikation/Informationsfluss und der effizienten Zusammenarbeit innerhalb der Abteilung Warehouse Stärken - Mehrjährige Berufserfahrung in der Logistik, vorzugsweise in der Pharma-Branche resp. stark regulierten Umfeld - Ausbildung zum Logistikfachmann/frau oder vergleiche Ausbildung mit Führungserfahrung in Logistikbetrieben, Berufsbildner in der Logistik von Vorteil - Ganzheitliches Logistikverständnis mit Schwerpunkt Koordination und Organisation - Projekterfahrung - Experte in LVS-Logistiksystemen (WAMAS) und ERP-Systemen - Die Bereitschaft zu Samstagseinsätzen ca. 1x im Montag ist wichtig, da unser Betrieb auch am Samstag von 09.00 - 15.00 Uhr arbeitet Bewirb dich noch heute Für Fragen stehen wir dir unter der Telefonnummer 052 724 17 89 gerne zur Verfügung. Über uns Mit unseren innovativen und effektiven pharmazeutischen Lösungen setzen wir bei Zur Rose alles daran, das Leben der Menschen positiv zu beeinflussen. Unser Team von 500 Mitarbeitenden mit Hauptsitz in Frauenfeld verfolgt das gemeinsame Ziel, die Zukunft des Gesundheitswesens zu verbessern. Da Qualität, Komfort und Effektivität bei uns besonders grossgeschrieben werden, können Patientinnen und Patienten ihre Gesundheit einfach, schnell und sicher selbst in die Hand nehmen. Unser Anspruch ist es, künftige\n• Anforderungen im Gesundheitswesen zu prognostizieren. Bei der Entwicklung unserer Lösungen und Arzneimittel setzen wir auf ein hohes Mass an Zuverlässigkeit und Effizienz und kümmern uns um die komplexen Themen, damit unsere Kundinnen und Kunden sich entspannt zurücklehnen können. Die funktionsübergreifende Teamarbeit wird durch unsere Unternehmenskultur gefördert, sodass jedes Teammitglied gleichermassen geschätzt und darin bestärkt wird, sich am Entscheidungsprozess aktiv zu beteiligen. Offene Kommunikation und Empathie stehen bei uns an erster Stelle. Dabei versuchen wir stets, einen gemeinsamen Nenner zu finden und somit Kompromisse zu vermeiden. Unsere Leidenschaft bei Zur Rose besteht darin, die Welt positiv zu beeinflussen. Teilst du dieselben Werte und möchtest auch du das Leben der Menschen verbessern? Dann würden wir uns freuen, dich als Teil unseres Teams zu begrüssen.",
-        "en": "Aufgaben - Personelle Führung sowie Coaching von 6 Mitarbeitenden sowie den 5-6 Lernenden - Aktive Mitarbeit im operativen Tagesgeschäft - Mitarbeit im Projekt zur weiteren Modernisierung/Ausbau unserer Logistik - Steuern des Tagesgeschäfts und reagieren auf Zielabweichungen - Zentrale Anlaufstelle für Incidents und Störungen im Tagesbetrieb - Fachliche Verantwortung für den Bereich (Prozessverantwortung, SOP's, CAPAs, Änderungsanträge) inkl. Organisation und Kontrolle der Schulungen - Gewährleisten des kontinuierlichen Verbesserungsprozesses und Unterbreiten von Vorschlägen im Bereich (Optimierungen, Effizienzsteigerungen) - Planen des Tages-Personaleinsatzes sowie der technischen Ressourcen (Personalrochade im Tagesgeschäft) - Sicherstellen der Kommunikation/Informationsfluss und der effizienten Zusammenarbeit innerhalb der Abteilung Warehouse Stärken - Mehrjährige Berufserfahrung in der Logistik, vorzugsweise in der Pharma-Branche resp. stark regulierten Umfeld - Ausbildung zum Logistikfachmann/frau oder vergleiche Ausbildung mit Führungserfahrung in Logistikbetrieben, Berufsbildner in der Logistik von Vorteil - Ganzheitliches Logistikverständnis mit Schwerpunkt Koordination und Organisation - Projekterfahrung - Experte in LVS-Logistiksystemen (WAMAS) und ERP-Systemen - Die Bereitschaft zu Samstagseinsätzen ca. 1x im Montag ist wichtig, da unser Betrieb auch am Samstag von 09.00 - 15.00 Uhr arbeitet Bewirb dich noch heute Für Fragen stehen wir dir unter der Telefonnummer 052 724 17 89 gerne zur Verfügung. Über uns Mit unseren innovativen und effektiven pharmazeutischen Lösungen setzen wir bei Zur Rose alles daran, das Leben der Menschen positiv zu beeinflussen. Unser Team von 500 Mitarbeitenden mit Hauptsitz in Frauenfeld verfolgt das gemeinsame Ziel, die Zukunft des Gesundheitswesens zu verbessern. Da Qualität, Komfort und Effektivität bei uns besonders grossgeschrieben werden, können Patientinnen und Patienten ihre Gesundheit einfach, schnell und sicher selbst in die Hand nehmen. Unser Anspruch ist es, künftige\n• Anforderungen im Gesundheitswesen zu prognostizieren. Bei der Entwicklung unserer Lösungen und Arzneimittel setzen wir auf ein hohes Mass an Zuverlässigkeit und Effizienz und kümmern uns um die komplexen Themen, damit unsere Kundinnen und Kunden sich entspannt zurücklehnen können. Die funktionsübergreifende Teamarbeit wird durch unsere Unternehmenskultur gefördert, sodass jedes Teammitglied gleichermassen geschätzt und darin bestärkt wird, sich am Entscheidungsprozess aktiv zu beteiligen. Offene Kommunikation und Empathie stehen bei uns an erster Stelle. Dabei versuchen wir stets, einen gemeinsamen Nenner zu finden und somit Kompromisse zu vermeiden. Unsere Leidenschaft bei Zur Rose besteht darin, die Welt positiv zu beeinflussen. Teilst du dieselben Werte und möchtest auch du das Leben der Menschen verbessern? Dann würden wir uns freuen, dich als Teil unseres Teams zu begrüssen.",
-        "de": "Aufgaben - Personelle Führung sowie Coaching von 6 Mitarbeitenden sowie den 5-6 Lernenden - Aktive Mitarbeit im operativen Tagesgeschäft - Mitarbeit im Projekt zur weiteren Modernisierung/Ausbau unserer Logistik - Steuern des Tagesgeschäfts und reagieren auf Zielabweichungen - Zentrale Anlaufstelle für Incidents und Störungen im Tagesbetrieb - Fachliche Verantwortung für den Bereich (Prozessverantwortung, SOP's, CAPAs, Änderungsanträge) inkl. Organisation und Kontrolle der Schulungen - Gewährleisten des kontinuierlichen Verbesserungsprozesses und Unterbreiten von Vorschlägen im Bereich (Optimierungen, Effizienzsteigerungen) - Planen des Tages-Personaleinsatzes sowie der technischen Ressourcen (Personalrochade im Tagesgeschäft) - Sicherstellen der Kommunikation/Informationsfluss und der effizienten Zusammenarbeit innerhalb der Abteilung Warehouse Stärken - Mehrjährige Berufserfahrung in der Logistik, vorzugsweise in der Pharma-Branche resp. stark regulierten Umfeld - Ausbildung zum Logistikfachmann/frau oder vergleiche Ausbildung mit Führungserfahrung in Logistikbetrieben, Berufsbildner in der Logistik von Vorteil - Ganzheitliches Logistikverständnis mit Schwerpunkt Koordination und Organisation - Projekterfahrung - Experte in LVS-Logistiksystemen (WAMAS) und ERP-Systemen - Die Bereitschaft zu Samstagseinsätzen ca. 1x im Montag ist wichtig, da unser Betrieb auch am Samstag von 09.00 - 15.00 Uhr arbeitet Bewirb dich noch heute Für Fragen stehen wir dir unter der Telefonnummer 052 724 17 89 gerne zur Verfügung. Über uns Mit unseren innovativen und effektiven pharmazeutischen Lösungen setzen wir bei Zur Rose alles daran, das Leben der Menschen positiv zu beeinflussen. Unser Team von 500 Mitarbeitenden mit Hauptsitz in Frauenfeld verfolgt das gemeinsame Ziel, die Zukunft des Gesundheitswesens zu verbessern. Da Qualität, Komfort und Effektivität bei uns besonders grossgeschrieben werden, können Patientinnen und Patienten ihre Gesundheit einfach, schnell und sicher selbst in die Hand nehmen. Unser Anspruch ist es, künftige\n• Anforderungen im Gesundheitswesen zu prognostizieren. Bei der Entwicklung unserer Lösungen und Arzneimittel setzen wir auf ein hohes Mass an Zuverlässigkeit und Effizienz und kümmern uns um die komplexen Themen, damit unsere Kundinnen und Kunden sich entspannt zurücklehnen können. Die funktionsübergreifende Teamarbeit wird durch unsere Unternehmenskultur gefördert, sodass jedes Teammitglied gleichermassen geschätzt und darin bestärkt wird, sich am Entscheidungsprozess aktiv zu beteiligen. Offene Kommunikation und Empathie stehen bei uns an erster Stelle. Dabei versuchen wir stets, einen gemeinsamen Nenner zu finden und somit Kompromisse zu vermeiden. Unsere Leidenschaft bei Zur Rose besteht darin, die Welt positiv zu beeinflussen. Teilst du dieselben Werte und möchtest auch du das Leben der Menschen verbessern? Dann würden wir uns freuen, dich als Teil unseres Teams zu begrüssen.",
-        "fr": "Aufgaben - Personelle Führung sowie Coaching von 6 Mitarbeitenden sowie den 5-6 Lernenden - Aktive Mitarbeit im operativen Tagesgeschäft - Mitarbeit im Projekt zur weiteren Modernisierung/Ausbau unserer Logistik - Steuern des Tagesgeschäfts und reagieren auf Zielabweichungen - Zentrale Anlaufstelle für Incidents und Störungen im Tagesbetrieb - Fachliche Verantwortung für den Bereich (Prozessverantwortung, SOP's, CAPAs, Änderungsanträge) inkl. Organisation und Kontrolle der Schulungen - Gewährleisten des kontinuierlichen Verbesserungsprozesses und Unterbreiten von Vorschlägen im Bereich (Optimierungen, Effizienzsteigerungen) - Planen des Tages-Personaleinsatzes sowie der technischen Ressourcen (Personalrochade im Tagesgeschäft) - Sicherstellen der Kommunikation/Informationsfluss und der effizienten Zusammenarbeit innerhalb der Abteilung Warehouse Stärken - Mehrjährige Berufserfahrung in der Logistik, vorzugsweise in der Pharma-Branche resp. stark regulierten Umfeld - Ausbildung zum Logistikfachmann/frau oder vergleiche Ausbildung mit Führungserfahrung in Logistikbetrieben, Berufsbildner in der Logistik von Vorteil - Ganzheitliches Logistikverständnis mit Schwerpunkt Koordination und Organisation - Projekterfahrung - Experte in LVS-Logistiksystemen (WAMAS) und ERP-Systemen - Die Bereitschaft zu Samstagseinsätzen ca. 1x im Montag ist wichtig, da unser Betrieb auch am Samstag von 09.00 - 15.00 Uhr arbeitet Bewirb dich noch heute Für Fragen stehen wir dir unter der Telefonnummer 052 724 17 89 gerne zur Verfügung. Über uns Mit unseren innovativen und effektiven pharmazeutischen Lösungen setzen wir bei Zur Rose alles daran, das Leben der Menschen positiv zu beeinflussen. Unser Team von 500 Mitarbeitenden mit Hauptsitz in Frauenfeld verfolgt das gemeinsame Ziel, die Zukunft des Gesundheitswesens zu verbessern. Da Qualität, Komfort und Effektivität bei uns besonders grossgeschrieben werden, können Patientinnen und Patienten ihre Gesundheit einfach, schnell und sicher selbst in die Hand nehmen. Unser Anspruch ist es, künftige\n• Anforderungen im Gesundheitswesen zu prognostizieren. Bei der Entwicklung unserer Lösungen und Arzneimittel setzen wir auf ein hohes Mass an Zuverlässigkeit und Effizienz und kümmern uns um die komplexen Themen, damit unsere Kundinnen und Kunden sich entspannt zurücklehnen können. Die funktionsübergreifende Teamarbeit wird durch unsere Unternehmenskultur gefördert, sodass jedes Teammitglied gleichermassen geschätzt und darin bestärkt wird, sich am Entscheidungsprozess aktiv zu beteiligen. Offene Kommunikation und Empathie stehen bei uns an erster Stelle. Dabei versuchen wir stets, einen gemeinsamen Nenner zu finden und somit Kompromisse zu vermeiden. Unsere Leidenschaft bei Zur Rose besteht darin, die Welt positiv zu beeinflussen. Teilst du dieselben Werte und möchtest auch du das Leben der Menschen verbessern? Dann würden wir uns freuen, dich als Teil unseres Teams zu begrüssen."
-      },
-      "needsRetranslation": true,
-      "location": "Frauenfeld",
-      "canton": "TG",
-      "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Teamleitung-Logistik-Leitstand--a--80-100-_JR05242-3",
-      "source": "Medbase Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:26:50.559Z",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Farmacie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-04",
-      "applyUrl": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Teamleitung-Logistik-Leitstand--a--80-100-_JR05242-3",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "JR05242",
-      "previousSlugs": [
-        "teamleitung-logistik-leitstand-a-80-100-medbase-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleitung-logistik-leitstand-a-80-100-medbase-ch"
-        ],
-        "en": [
-          "teamleitung-logistik-leitstand-a-80-100-medbase-ch"
-        ],
-        "fr": [
-          "teamleitung-logistik-leitstand-a-80-100-medbase-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:44:12.438Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8500",
       "crawlerMissStreak": 2
     }
   ]
