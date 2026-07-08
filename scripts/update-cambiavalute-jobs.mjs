@@ -389,6 +389,14 @@ function updateAdapter(seedUrls, seedMetaByUrl) {
     enabled: true,
     priority: 10,
     crawlerModes: ['html', 'jsonld'],
+    // Detail-page fetches otherwise default to the shared crawler's generic bot
+    // UA (`FrontaliereTicinoBot/1.0`), which is exactly what the WAF blocks
+    // (#1277/#1303/#1363). Reuse the same known-good rotating-window Chrome UA
+    // as the listing/discovery fetch (BROWSER_USER_AGENTS) so the direct-fetch
+    // fallback in fetchWithTimeout — used when the Jina proxy is exhausted, see
+    // #3797 — presents a real browser fingerprint instead of an instantly-403'd
+    // bot UA.
+    userAgent: BROWSER_USER_AGENTS[0],
     seedUrls,
     seedDetailUrls: seedUrls,
     seedMetaByUrl,

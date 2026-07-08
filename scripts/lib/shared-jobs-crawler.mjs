@@ -101,7 +101,7 @@ import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mj
 import { freeTranslateWithRetry, logCascadeSummary } from './free-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
 import { hasConcatenatedWords } from './translation-quality.mjs';
-import { jinaProxiedRequest, hostMatchesProxyList, fetchViaJinaWithRetry } from './jina-proxy.mjs';
+import { jinaProxiedRequest, hostMatchesProxyList, fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import {
   extractMigrosStructuredData,
   extractMigrosSectionItems,
@@ -2400,6 +2400,7 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
   // what callers use for the job's canonical URL.
   let targetUrl = url;
   let proxyHeaders = {};
+  let postJinaFallback = false;
   if (hostMatchesProxyList(url, process.env.JOBS_CRAWLER_FETCH_PROXY)) {
     // Route through Jina Reader, and for idempotent GET/HEAD retry on a fresh
     // Jina egress IP when the proxy lands on a WAF-flagged IP (the challenge
@@ -2413,11 +2414,27 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
     // body. Let HEAD fall through to the generic proxied fetch below, which keeps
     // the original method.
     if (canRetry && upperMethod === 'GET') {
-      return await fetchViaJinaWithRetry(url, { timeoutMs: REQUEST_TIMEOUT_MS });
+      const jinaRes = await fetchViaJinaWithRetry(url, { timeoutMs: REQUEST_TIMEOUT_MS });
+      if (jinaRes.ok) return jinaRes;
+      // Every Jina egress IP tried was still blocked/erroring (#3797 recurrence,
+      // 2026-07-07: all 4 cambiavalute.ch detail pages silently dropped this way
+      // in one CI run — zero log trace, even though a plain direct fetch worked
+      // fine for discovery in that SAME run and reproduced locally afterwards).
+      // A degraded/rate-limited proxy pool must not be a harder failure mode than
+      // no proxy at all, so fall through to the direct-fetch retry loop below
+      // (targetUrl/proxyHeaders are left at their unproxied defaults — do NOT
+      // route this fallback through jinaProxiedRequest, or it just re-hits the
+      // same exhausted proxy path). Logged so a future recurrence is diagnosable
+      // from CI output alone (previously this path was completely silent — the
+      // caller's `if (!res.ok) continue` masked it entirely).
+      const jinaFailReason = jinaRes.headers.get('x-jina-retry-reason') || `HTTP ${jinaRes.status}`;
+      console.warn(`⚠️ Jina proxy exhausted for ${url} (${jinaFailReason}) — falling back to direct fetch.`);
+      postJinaFallback = true;
+    } else {
+      const proxied = jinaProxiedRequest(url);
+      targetUrl = proxied.url;
+      proxyHeaders = proxied.headers;
     }
-    const proxied = jinaProxiedRequest(url);
-    targetUrl = proxied.url;
-    proxyHeaders = proxied.headers;
   }
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
@@ -2450,6 +2467,25 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
         try { await res.body?.cancel(); } catch {}
         await sleep(fetchRetryDelayMs(attempt));
         continue;
+      }
+      if (postJinaFallback && res.ok) {
+        // Direct-fetch fallback after Jina exhaustion (see above): a CI
+        // datacenter IP can hit the same sgcaptcha WAF challenge Jina's blocked
+        // IPs get, but on a plain HTTP 200 — no `!res.ok` signal at all. Validate
+        // the body with the same detector Jina's own retry path already relies
+        // on before trusting this as real content; otherwise a challenge page
+        // silently gets parsed as a job page instead of the old (safe) skip.
+        const probe = res.clone();
+        const text = await probe.text().catch(() => '');
+        const errorReason = detectJinaErrorBody(text);
+        if (errorReason) {
+          console.warn(`⚠️ Direct-fetch fallback for ${url} also hit a WAF challenge (${errorReason}) — treating as failed fetch.`);
+          try { await res.body?.cancel(); } catch {}
+          return new Response('', {
+            status: 502,
+            headers: { 'content-type': 'text/html', 'x-fallback-fail-reason': errorReason },
+          });
+        }
       }
       return res;
     } catch (err) {
@@ -5738,6 +5774,7 @@ export { main as runSharedCrawlerPipeline };
 // in-memory Map that must be reset between test cases (#3080).
 export const __testables = {
   aiValidateJobDetailPage,
+  fetchWithTimeout,
   setCrawlerConfigForTests(cfg) { crawlerConfigGlobal = cfg; },
   clearAiResponseCacheForTests() { aiResponseCache.clear(); },
   persistAiCacheToDisk,
