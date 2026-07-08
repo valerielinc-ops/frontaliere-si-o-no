@@ -1,21 +1,19 @@
 {
   "key": "privatklinik-obach",
   "label": "Privatklinik Obach",
-  "generatedAt": "2026-07-08T04:45:23.709Z",
+  "generatedAt": "2026-07-08T10:54:47.480Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 6349,
-  "avgDurationMs": 6349,
+  "unchangedCount": 1,
+  "durationMs": 7454,
+  "avgDurationMs": 7454,
   "durationHistory": [
-    6349
+    7454
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "privatklinik-obach-6c5a6f2d6c81",
       "slug": "lagerungspfleger-in-60-100-privatklinik-obach",
@@ -30,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133075633-lagerungspfleger-in-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T04:45:21.230Z",
+      "crawledAt": "2026-07-08T10:54:44.971Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -53,10 +51,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "privatklinik-obach-b97b400a97a5",
-      "slug": "pflegeassistenz-50-60-privatklinik-obach",
+      "slug": "pflegeassistenz-50-60-privatklinik-obach-solothurn",
       "company": "Privatklinik Obach",
       "companyKey": "privatklinik-obach",
       "companyDomain": "swissmedical.net",
@@ -84,13 +85,15 @@
       "postedDate": "2026-06-15",
       "datePosted": "2026-06-15",
       "firstSeenAt": "2026-06-15T15:11:09.668Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 83,
+      "crawlerMissStreak": 2,
+      "salaryMin": 41100,
+      "salaryMax": 62400,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ]
