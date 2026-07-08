@@ -22,7 +22,7 @@
       "fr": "head-business-architecture-l-h-operations-swiss-re-ch-4d8p8e"
     },
     "sector": "Assicurazioni",
-    "expiredAt": "2026-07-08T11:24:57.877Z",
+    "expiredAt": "2026-07-08T22:14:03.045Z",
     "previousSlugs": [
       "head-business-architecture-l-h-operations-swiss-re-ch-2",
       "head-business-architecture-l-h-operations-swiss-re-ch"
@@ -61,7 +61,7 @@
       "fr": "senior-auditor-p-c-actuary-swiss-re-ch-58j5vr"
     },
     "sector": "Assicurazioni",
-    "expiredAt": "2026-07-08T11:24:57.877Z",
+    "expiredAt": "2026-07-08T22:14:03.045Z",
     "previousSlugs": [
       "senior-auditor-p-c-actuary-swiss-re-ch-2",
       "senior-auditor-p-c-actuary-swiss-re-ch"
@@ -76,5 +76,34 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "dedupArchive": true
+  },
+  {
+    "slug": "it-business-analyst-general-ledger-subledger-group-integration-swiss-re-ch",
+    "title": "IT Business Analyst - General Ledger: Subledger & Group Integration",
+    "titleByLocale": {
+      "en": "IT Business Analyst - General Ledger: Subledger & Group Integration",
+      "fr": "IT Business Analyste - General Ledger: Subledger & Group Integration",
+      "it": "IT Business Analista - General Ledger: Subledger & Group Integration",
+      "de": "IT Business Analyst - General Ledger: Subledger & Group Integration"
+    },
+    "company": "Swiss Re",
+    "companyKey": "swiss-re",
+    "location": "Bratislava, SK",
+    "addressLocality": "Bratislava, SK",
+    "descriptionByLocale": {
+      "en": "IT Business Analyst - General Ledger: Subledger & Group Integration — Swiss Re"
+    },
+    "slugByLocale": {
+      "en": "it-business-analyst-general-ledger-subledger-group-integration-swiss-re-ch",
+      "it": "it-business-analyst-general-ledger-subledger-group-integration-swiss-re-ch",
+      "de": "it-business-analyst-general-ledger-subledger-group-integration-swiss-re-ch",
+      "fr": "it-business-analyst-general-ledger-subledger-group-integration-swiss-re-ch"
+    },
+    "sector": "Assicurazioni",
+    "expiredAt": "2026-07-08T22:13:14.494Z",
+    "salaryMin": 79000,
+    "salaryMax": 134500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   }
 ]
