@@ -483,6 +483,18 @@ function applyCantonSubstitution(text: string, rules: Array<[RegExp, string]>): 
   return rules.reduce((acc, [re, repl]) => acc.replace(re, repl), text);
 }
 
+/** Short, budget-safe fallback `hubTitle` per locale — `sub(base.hubTitle)`
+ * substitutes the real canton name into a title budgeted for TI's short
+ * "Ticino"/"Tessin" with no re-check, so a long canton name (e.g. German
+ * "Appenzell Ausserrhoden") can push it past TITLE_MAX_CHARS. Composed via
+ * {@link composePlaceTitle} like `comuneTitle`, never emitted verbatim. */
+const HUB_TITLE_FALLBACK: Record<Locale, (display: string) => string> = {
+  it: (d) => `Eventi in ${d}: agenda aggiornata`,
+  en: (d) => `Events in ${d}: an updated agenda`,
+  de: (d) => `Veranstaltungen in ${d}: aktuelle Agenda`,
+  fr: (d) => `Événements à ${d} : agenda à jour`,
+};
+
 const copyCache = new Map<string, Copy>();
 /** TI → the literal, hand-tuned `COPY[locale]` object (byte-identical, zero
  * risk). Any other canton → a derived copy with the safe substitution rules
@@ -495,9 +507,14 @@ function copyFor(canton: string, locale: Locale): Copy {
   const rules = cantonSubstitutionRules(canton, locale);
   const base = COPY[locale];
   const sub = (s: string) => applyCantonSubstitution(s, rules);
+  const display = cantonDisplayLabel(canton, locale);
   const out: Copy = {
     ...base,
-    hubTitle: sub(base.hubTitle),
+    hubTitle: composePlaceTitle(
+      [sub(base.hubTitle), HUB_TITLE_FALLBACK[locale](display)],
+      TITLE_MAX_CHARS,
+      (s) => esc(s).length,
+    ),
     hubH1: sub(base.hubH1),
     hubLede: sub(base.hubLede),
     comuneLede: (c: string) => sub(base.comuneLede(c)),
@@ -656,6 +673,27 @@ function buildNationalAlternates(): string {
 
 type DigestCopy = { title: string; h1: string; lede: string; desc: string; faqQ: string; faqA: string };
 const digestCopyCache = new Map<string, DigestCopy>();
+
+/** Short, budget-safe fallback `title` per digest key + locale — same
+ * overflow risk as `HUB_TITLE_FALLBACK` (canton substituted into a title
+ * budgeted for TI's short name, no re-check). Keeps the weekend/week
+ * distinction so the two digest pages for one canton never end up with an
+ * identical (or near-identical) truncated `<title>`. */
+const DIGEST_TITLE_FALLBACK: Record<string, Record<Locale, (display: string) => string>> = {
+  weekend: {
+    it: (d) => `Eventi nel weekend a ${d}`,
+    en: (d) => `Events this weekend in ${d}`,
+    de: (d) => `Veranstaltungen am Wochenende: ${d}`,
+    fr: (d) => `Événements ce week-end à ${d}`,
+  },
+  week: {
+    it: (d) => `Eventi questa settimana a ${d}`,
+    en: (d) => `Events this week in ${d}`,
+    de: (d) => `Veranstaltungen diese Woche: ${d}`,
+    fr: (d) => `Événements cette semaine à ${d}`,
+  },
+};
+
 /** Same TI-verbatim / non-TI-substituted split as `copyFor`, applied to a
  * single `DigestDef.copy[locale]` entry. */
 function digestCopyFor(def: { key: string; copy: Record<Locale, DigestCopy> }, canton: string, locale: Locale): DigestCopy {
@@ -666,8 +704,12 @@ function digestCopyFor(def: { key: string; copy: Record<Locale, DigestCopy> }, c
   if (cached) return cached;
   const rules = cantonSubstitutionRules(canton, locale);
   const sub = (s: string) => applyCantonSubstitution(s, rules);
+  const display = cantonDisplayLabel(canton, locale);
+  const fallbackTitle = DIGEST_TITLE_FALLBACK[def.key]?.[locale];
   const out: DigestCopy = {
-    title: sub(base.title),
+    title: fallbackTitle
+      ? composePlaceTitle([sub(base.title), fallbackTitle(display)], TITLE_MAX_CHARS, (s) => esc(s).length)
+      : sub(base.title),
     h1: sub(base.h1),
     lede: sub(base.lede),
     desc: sub(base.desc),
@@ -1775,6 +1817,15 @@ const OTHER_EVENTS_COPY: Record<Locale, OtherEventsCopy> = {
   },
 };
 
+/** Short, budget-safe fallback `metaTitle` per locale — same overflow risk
+ * as `HUB_TITLE_FALLBACK`/`DIGEST_TITLE_FALLBACK`. */
+const OTHER_EVENTS_TITLE_FALLBACK: Record<Locale, (display: string) => string> = {
+  it: (d) => `Altri eventi in ${d}`,
+  en: (d) => `Other events in ${d}`,
+  de: (d) => `Weitere Veranstaltungen in ${d}`,
+  fr: (d) => `Autres événements à ${d}`,
+};
+
 const otherEventsCopyCache = new Map<string, OtherEventsCopy>();
 /** Same TI-verbatim / non-TI-substituted split as `copyFor`/`detailCopyFor`. */
 function otherEventsCopyFor(canton: string, locale: Locale): OtherEventsCopy {
@@ -1785,9 +1836,14 @@ function otherEventsCopyFor(canton: string, locale: Locale): OtherEventsCopy {
   const rules = cantonSubstitutionRules(canton, locale);
   const base = OTHER_EVENTS_COPY[locale];
   const sub = (s: string) => applyCantonSubstitution(s, rules);
+  const display = cantonDisplayLabel(canton, locale);
   const out: OtherEventsCopy = {
     ...base,
-    metaTitle: sub(base.metaTitle),
+    metaTitle: composePlaceTitle(
+      [sub(base.metaTitle), OTHER_EVENTS_TITLE_FALLBACK[locale](display)],
+      TITLE_MAX_CHARS,
+      (s) => esc(s).length,
+    ),
     metaDesc: sub(base.metaDesc),
     h1: sub(base.h1),
     lede: sub(base.lede),
@@ -1997,9 +2053,25 @@ function eventDetailMetaTitle(rawTitle: string, suffix: string): string {
   return `${title}${suffix}`;
 }
 
+/** Per-locale event-detail `<title>` suffix template (comune + region +
+ * brand), extracted out of `DETAIL_COPY[locale].metaTitle` so
+ * `detailCopyFor` can canton-substitute the suffix itself and re-run it
+ * through {@link eventDetailMetaTitle} for non-TI cantons. The old code
+ * substituted the canton name into the ALREADY-budgeted/truncated string
+ * `eventDetailMetaTitle` returned (assuming TI's short "Ticino"/"Tessin"),
+ * with no re-check — a long canton display name (e.g. "Appenzell
+ * Rhodes-Extérieures", 28 chars vs "Tessin"'s 6) silently pushed the final
+ * `<title>` past TITLE_MAX_CHARS for every affected event-detail page. */
+const DETAIL_TITLE_SUFFIX: Record<Locale, (comune: string) => string> = {
+  it: (c) => ` — ${c} (Ticino) | Eventi`,
+  en: (c) => ` — ${c} (Ticino) | Events`,
+  de: (c) => ` — ${c} (Tessin) | Veranstaltungen`,
+  fr: (c) => ` — ${c} (Tessin) | Événements`,
+};
+
 const DETAIL_COPY: Record<Locale, DetailCopy> = {
   it: {
-    metaTitle: (t, c) => eventDetailMetaTitle(t, ` — ${c} (Ticino) | Eventi`),
+    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIX.it(c)),
     metaDesc: (t, c, w) => `${t}: ${w} a ${c}, in Ticino. Data, orario, luogo e link al sito ufficiale dell'evento.`,
     whenLabel: 'Quando',
     whereLabel: 'Dove',
@@ -2027,7 +2099,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     descriptionTitle: 'Descrizione',
   },
   en: {
-    metaTitle: (t, c) => eventDetailMetaTitle(t, ` — ${c} (Ticino) | Events`),
+    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIX.en(c)),
     metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Ticino. Date, time, venue and a link to the event’s official site.`,
     whenLabel: 'When',
     whereLabel: 'Where',
@@ -2055,7 +2127,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     descriptionTitle: 'Description',
   },
   de: {
-    metaTitle: (t, c) => eventDetailMetaTitle(t, ` — ${c} (Tessin) | Veranstaltungen`),
+    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIX.de(c)),
     metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Tessin. Datum, Uhrzeit, Ort und Link zur offiziellen Website der Veranstaltung.`,
     whenLabel: 'Wann',
     whereLabel: 'Wo',
@@ -2083,7 +2155,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     descriptionTitle: 'Beschreibung',
   },
   fr: {
-    metaTitle: (t, c) => eventDetailMetaTitle(t, ` — ${c} (Tessin) | Événements`),
+    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIX.fr(c)),
     metaDesc: (t, c, w) => `${t} : ${w} à ${c}, au Tessin. Date, heure, lieu et lien vers le site officiel de l’événement.`,
     whenLabel: 'Quand',
     whereLabel: 'Où',
@@ -2127,7 +2199,11 @@ function detailCopyFor(canton: string, locale: Locale): DetailCopy {
   const sub = (s: string) => applyCantonSubstitution(s, rules);
   const out: DetailCopy = {
     ...base,
-    metaTitle: (t: string, c: string) => sub(base.metaTitle(t, c)),
+    // Root-cause fix (recurrence of #3772): re-run the escape/budget-aware
+    // truncation against the REAL (canton-substituted) suffix, instead of
+    // substituting into `base.metaTitle`'s already-truncated output — see
+    // `DETAIL_TITLE_SUFFIX` doc comment above.
+    metaTitle: (t: string, c: string) => eventDetailMetaTitle(t, sub(DETAIL_TITLE_SUFFIX[locale](c))),
     metaDesc: (t: string, c: string, w: string) => sub(base.metaDesc(t, c, w)),
     lede: (w: string, ti: string, v: string, c: string) => sub(base.lede(w, ti, v, c)),
     about: (t: string, c: string, w: string, cat: string, venue?: string) => sub(base.about(t, c, w, cat, venue)),
