@@ -10,6 +10,12 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-kat-b100-fahrleitungszugmaschine/b0e04be8-b20e-450d-be7e-611e612644b4",
+    "https://jobs.sbb.ch/v2/offene-stellen/regionenleiter-in-logistik-und-produktion/e1fa70b1-b694-4fa6-8c02-bd7b67472833",
+    "https://jobs.sbb.ch/v2/offene-stellen/responsable-regionale-logistique-et-production/cafefccc-1aa6-424d-9d8f-01efcda5b363",
+    "https://jobs.sbb.ch/v2/offene-stellen/responsabile-regionale-logistica-e-produzione/20fd7ec3-3b8f-40db-b38e-2eb520c9f622",
+    "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitung-b100-und-triebfahrzeugfuehrer-in/d29af285-71b2-47f8-af39-d56f6e74aa28",
+    "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-fahrleitung/35b2e79d-e182-4c62-9830-3facd8b22c3e",
     "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-transportpolizei-region-west/615a219d-e8e8-41d4-925e-fe3275bcf7d6",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in-teambahnhof-ai40/d781a513-ee0b-4749-a032-7f601128d8e7",
     "https://jobs.sbb.ch/v2/offene-stellen/cheffe-de-la-police-des-transports-region-ouest/e0e46300-66a7-4b44-9474-0b59ba2cd826",
@@ -85,9 +91,7 @@
     "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in/46178949-76fb-4fdd-924c-410a33eebaf6",
     "https://jobs.sbb.ch/v2/offene-stellen/bekleidungsgestalter-in-arbeits-und-schutzkleidung/6230f0db-e91f-42ba-bff5-28eb8bac52fd",
     "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitungszugmaschine-triebfahrzeugfuehrer-in/6586540d-5d9f-4fd8-b49d-0c0c0b4388ea",
-    "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-fahrleitung/7e999f0c-edc9-4631-b68f-0cad53ec3bdb",
     "https://jobs.sbb.ch/v2/offene-stellen/disponent-in-personaleinsatz-fahrgastzaehlung/bcad1743-66e3-4dda-8098-8785c15e65c9",
-    "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitung-b100-und-triebfahrzeugfuehrer-in/0d4c619d-d065-46f9-8088-2a9ef431ee07",
     "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-fachtechniker-in-industrie/c3759bfa-eec1-4fc7-88b1-e53c931680f1",
     "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-gleisbau-vorarbeiter-in-bern/1c6d635e-bb00-4959-98bf-e6453ab409cf",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-spezialist-in-bahnrettung/3740a546-bb55-4e36-a9be-f1a0360f39f3",
@@ -151,5 +155,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in-ai40/2f5499bd-119f-4f07-9d22-09a22c8a9e82"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-07-07T22:19:37.028Z"
+  "updatedAt": "2026-07-08T11:17:44.615Z"
 }
