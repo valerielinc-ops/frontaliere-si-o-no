@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-07-07T11:58:40.279Z",
+  "assembledAt": "2026-07-08T11:13:41.255Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T11:58:24.076Z",
+      "crawledAt": "2026-07-08T11:13:26.989Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -86,7 +86,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Pratique / Pratique"
+        "fr": "Praticanta / praticant"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -100,7 +100,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-07T11:58:23.306Z",
+      "crawledAt": "2026-07-08T11:13:25.738Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,6 +141,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -168,7 +169,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Auditeur.trice interne",
       "titleByLocale": {
-        "it": "Revisore interno",
+        "it": "Auditeur.trice interne",
         "en": "Internal Auditor",
         "de": "Interner Auditor",
         "fr": "Auditeur.trice interne"
@@ -185,7 +186,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/2156fd7f-6945-4e7a-8a75-f785cf475947",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T11:58:22.536Z",
+      "crawledAt": "2026-07-08T11:13:24.649Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -241,14 +242,17 @@
         "pensumMax": 50
       },
       "previousSlugs": [
-        "auditeur-trice-interne-srg-ssr-bern"
+        "auditeur-trice-interne-srg-ssr-bern",
+        "revisore-interno-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auditeur-trice-interne-srg-ssr-bern"
+          "auditeur-trice-interne-srg-ssr-bern",
+          "revisore-interno-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:46.888Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -294,7 +298,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/kundenberater-in-im-kundencenter-srg/49fbabac-3c25-43e6-a560-ae8e78299667",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T11:58:21.763Z",
+      "crawledAt": "2026-07-08T11:13:23.851Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -351,14 +355,17 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
+        "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
+        "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
+          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
+          "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:40.347Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -404,7 +411,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-wirtschaft-tv-online/1ac187bb-1ac0-4d9e-93c3-514216b23a97",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T11:58:20.972Z",
+      "crawledAt": "2026-07-08T11:13:23.013Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -449,14 +456,17 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich"
+        "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich",
+        "tirocinante-economia-tv-online-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich"
+          "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich",
+          "tirocinante-economia-tv-online-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:37.929Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -485,7 +495,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Operatore di servizio",
+        "it": "Service Operator",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -502,7 +512,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T11:58:20.078Z",
+      "crawledAt": "2026-07-08T11:13:22.095Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -566,14 +576,17 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "service-operator-srg-ssr-bern"
+        "service-operator-srg-ssr-bern",
+        "operatore-di-servizio-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-operator-srg-ssr-bern"
+          "service-operator-srg-ssr-bern",
+          "operatore-di-servizio-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -619,7 +632,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-recherchiste-pour-l-emission-on-en-parle/e4b54b62-3c24-47f7-ac80-87e4913b9ad1",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T11:58:19.305Z",
+      "crawledAt": "2026-07-08T11:13:21.326Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -662,14 +675,17 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
+        "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
+        "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
+          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
+          "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:18.709Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -683,99 +699,6 @@
         }
       },
       "addressRegion": "BE"
-    },
-    {
-      "id": "srg-ssr-5ebde7951fed",
-      "slug": "consulente-hr-srg-ssr-zurich",
-      "slugByLocale": {
-        "it": "consulente-hr-srg-ssr-zurich",
-        "en": "hr-consultant-srg-ssr-zurich",
-        "de": "hr-berater-in-srg-ssr-zurich",
-        "fr": "conseiller-ere-rh-srg-ssr-zurich"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "HR-Berater:in",
-      "titleByLocale": {
-        "it": "Risorse Umane-Berater:in",
-        "en": "HR Consultant",
-        "de": "HR-Berater:in",
-        "fr": "Conseiller(ère) RH"
-      },
-      "description": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR-Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Kenntnisse in Deutsch sowie Französisch mindestens auf Niveau B2 Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet Business Partner HR SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse.",
-      "descriptionByLocale": {
-        "it": "Descrizione Quali sono i tuoi compiti? Siamo alla ricerca di un partner HR immediatamente o d'accordo:n HR Partner:in temporaneamente fino al 31. Dicembre 2027. All'interno del team di consulenza HR, sei coinvolto nell'area offerta per i seguenti argomenti: Mansioni - Agite come interfaccia strategica tra management e dipendenti, assumete la responsabilità complessiva di tutti i processi HR nella vostra area di supporto e accompagnate l'area di offerta nazionale durante la fase di trasformazione attuale - L'utente sostiene e consiglia i supervisori in tutte le questioni del personale, in particolare nel reclutamento, nel rilevamento dei salari, nell'attuazione delle interviste ai dipendenti, nonché nei problemi di sviluppo e di carriera e nel rispetto delle linee guida interne, degli standard organizzativi e aziendali - L'utente fornisce consulenza competente nel diritto del lavoro, nei requisiti organizzativi e negli standard aziendali e si assume la responsabilità di tutte le questioni contrattuali rilevanti - Lei sostiene casi sensibili (ad esempio conflitti, assenze o argomenti disciplinari) con grande sensibilità e alta professionalità - In stretta collaborazione con i supervisori la responsabilità per l'attuazione della politica HR e la sicurezza degli standard HR\n• Requisiti - personalità orientata alla soluzione ed empatica, con la capacità di accompagnare attivamente i dipendenti e i manager attraverso processi di trasformazione - Competenze di consulenza HR ampie e complete, tra cui metodi e sviluppi previsionali - Forte personalità di comunicazione con la capacità di agire in modo chiaro, orientata all'indirizzo e sovranamente alle Risorse Umane accompagna i dipendenti di SRG in tutti gli argomenti del personale.",
-        "en": "Descrizione What are your tasks? We are looking for an HR partner:in a limited period until 31 December 2027 by immediate agreement or by appointment. Within the HR Consulting team, you are involved in the range of services for the following topics: Mansioni - you act as a strategic interface between management and employees, bear overall responsibility for all HR processes in your care area and accompany the national range of services during the current transformation phase - you support and advise the superiors on all personnel issues, in particular in recruitment, finding wages, conducting employee interviews, and in development and career issues and ensure compliance with internal guidelines, legal requirements and company-wide standards - you provide competent advice on work law, organizational and company topics and take over responsibility for all issues relevant to employment contracts as the first point of contact - you accompany sensitive cases (e.g. B. Conflicts, absences or disciplinary issues) with a great sense of touch and high professionalism - in close cooperation with the supervisors, you bear responsibility for the implementation of personnel policy and the assurance of HR standards\n• Requisiti - solution-oriented and empathic personality, with the ability to actively accompany employees and executives through transformation processes - Well-founded, multi-year HR consulting experience in a complex and dynamic business environment of comparable size - broad and comprehensive HR expertise, including forward-looking methods and developments - Communication-strong personality with the ability to act clearly, addressately and confidently at all levels - readiness to work regularly at the locations Berne and Zurich - Very good knowledge in German and French at least at level B2 Cosa offiamo - An exciting, lively and dynamic environment with plenty of design possibilities - An interesting, versatile and challenging field of work - Sympathetic teammates who like to share your professional experience with you - Modern Working environment with flexible working hours and the option to work partly in the home office Contatto on the application process Patrik Porchet Business Partner HR SRF +41 58 135 02 65 The nationally managed Human Resources division is responsible for and manages the human resources business of the entire SRG. Human Resources supports the employees:inside the SRG in all personnel topics, offers a contemporary training and further education offer and is responsible for the holistic implementation of the most modern HR core processes.",
-        "de": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR-Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Kenntnisse in Deutsch sowie Französisch mindestens auf Niveau B2 Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet Business Partner HR SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse.",
-        "fr": "Descrizione Quelles sont vos tâches ? Nous sommes à la recherche d'un partenaire RH immédiatement ou par accord:n RH Partner:in temporairement jusqu'à 31. Décembre 2027. Au sein de l'équipe de conseil en RH, vous êtes impliqué dans la zone d'offre pour les sujets suivants : Mansioni - Vous agissez comme une interface stratégique entre la direction et les employés, assumez la responsabilité globale de tous les processus de RH dans votre zone de soutien et accompagnez la zone d'offre nationale pendant la phase de transformation actuelle - Vous soutenez et conseillez les superviseurs dans toutes les questions de personnel, en particulier dans le recrutement, la détermination des salaires, la mise en oeuvre d'entrevues avec les employés ainsi que dans les questions de perfectionnement et de carrière, et vous assurez le respect des lignes directrices internes, des normes organisationnelles et des normes de l'entreprise - Vous fournissez des conseils compétents en matière de droit du travail, d'exigences organisationnelles et de normes à l'échelle de l'entreprise et assumez la responsabilité de toutes les questions contractuelles pertinentes - Vous soutenez les cas sensibles (par exemple, conflits, absences ou sujets disciplinaires) avec une grande sensibilité et un grand professionnalisme - En étroite collaboration avec les superviseurs, la responsabilité de la mise en oeuvre de la politique en matière de RH et de la sécurisation des normes en matière de RH\n• Requisiti - Personnalité orientée vers la solution et empathique, avec la capacité d'accompagner activement les employés et les gestionnaires par des processus de transformation - Expertise élargie et exhaustive en matière de consultation en matière de RH, y compris des méthodes et des développements prospectifs - Une forte personnalité en matière de communication, capable d'agir clairement, d'aborder et de façon souveraine aux Ressources humaines, accompagne les employés de SRG dans tous les domaines du personnel, offre une formation à jour et une formation continue et est responsable de la mise en oeuvre globale des derniers processus de RH de base."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-berater-in/96e829ec-3d10-441c-bb91-caac41432745",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-07T11:58:18.423Z",
-      "addressLocality": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8052",
-      "streetAddress": "Fernsehstrasse 1-4",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-23",
-      "applyUrl": "https://jobs.srgssr.ch/srf/offene-stellen/hr-berater-in/96e829ec-3d10-441c-bb91-caac41432745",
-      "requirements": [
-        "Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten",
-        "Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse",
-        "Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen",
-        "Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren",
-        "Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich",
-        "Sehr gute Kenntnisse in Deutsch sowie Französisch mindestens auf Niveau B2"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse",
-          "Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen",
-          "Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren",
-          "Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich",
-          "Sehr gute Kenntnisse in Deutsch sowie Französisch mindestens auf Niveau B2"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "96e829ec-3d10-441c-bb91-caac41432745",
-        "org": "srf",
-        "orgLabel": "SRF",
-        "pensumMin": 80,
-        "pensumMax": 100
-      },
-      "previousSlugs": [
-        "hr-berater-in-srg-ssr-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-berater-in-srg-ssr-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-06-29T11:35:14.970Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
     },
     {
       "id": "srg-ssr-fc3f7a723214",
@@ -808,7 +731,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-07T11:58:17.460Z",
+      "crawledAt": "2026-07-08T11:13:20.406Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -891,7 +814,7 @@
       "title": "Redactura / redactur da musica",
       "titleByLocale": {
         "it": "Redactura / redactur da musica",
-        "en": "Redactura / redactur from music",
+        "en": "Redactura / redactur da musica",
         "de": "Musikredakteur",
         "fr": "Éditeur de musique"
       },
@@ -907,7 +830,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/redactura-redactur-da-musica/7c66d830-b72e-4214-8375-038c53352ee0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-07T11:58:16.712Z",
+      "crawledAt": "2026-07-08T11:13:19.460Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -964,6 +887,7 @@
         "pensumMax": 60
       },
       "firstSeenAt": "2026-06-29T11:35:07.581Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -992,7 +916,7 @@
       "title": "Senior Project Manager HR (a tempo determinato)",
       "titleByLocale": {
         "it": "Senior Project Manager Risorse Umane (a tempo determinato)",
-        "en": "Senior Project Manager HR (determined)",
+        "en": "Senior Project Manager HR (a tempo determinato)",
         "de": "Senior Project Manager Personalwesen (a tempo determinato)",
         "fr": "Senior Project Manager Ressources Humaines (a tempo determinato)"
       },
@@ -1008,7 +932,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/senior-project-manager-hr-a-tempo-determinato/06271038-08e4-4448-8763-70ad9aced33c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-07T11:58:15.876Z",
+      "crawledAt": "2026-07-08T11:13:18.534Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1045,6 +969,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-02T12:13:25.033Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1074,7 +999,7 @@
       "title": "Senior Project Manager RH (CDD, f/h/d)",
       "titleByLocale": {
         "it": "Senior Project Manager RH (CDD, f/m/d)",
-        "en": "Senior Project Manager HR (CDD, f/h/d)",
+        "en": "Senior Project Manager RH (CDD, f/h/d)",
         "de": "Senior Project Manager HR (CDD, f/h/d)",
         "fr": "Senior Project Manager RH (CDD, f/h/d)"
       },
@@ -1090,7 +1015,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/senior-project-manager-rh-cdd-f-h-d/42692ab2-1abb-40f8-9b0d-ebfae20a3bc6",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T11:58:15.107Z",
+      "crawledAt": "2026-07-08T11:13:17.727Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1138,6 +1063,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:03.601Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1183,7 +1109,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-comunicazione-rsi/9f6d7002-daae-4d10-aadc-e7048cd57fd7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-07T11:58:13.462Z",
+      "crawledAt": "2026-07-08T11:13:15.904Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1228,6 +1154,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-30T12:57:11.547Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1241,6 +1168,92 @@
         }
       },
       "addressRegion": "TI"
+    },
+    {
+      "id": "srg-ssr-1ec471defa96",
+      "slug": "assistente-finanze-srg-ssr-bern",
+      "slugByLocale": {
+        "it": "assistente-finanze-srg-ssr-bern",
+        "en": "assistant-finance-srg-ssr-bern",
+        "de": "assistant-finance-srg-ssr-bern",
+        "fr": "assistant-aux-finances-srg-ssr-bern"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Assistente Finanze",
+      "titleByLocale": {
+        "it": "Assistente Finanze",
+        "en": "Assistant Finance",
+        "de": "Assistant Finance",
+        "fr": "Assistant aux finances"
+      },
+      "description": "Mansioni Nell'ambito del settore Finanze della SSR, in qualità di membro del pool di assistenza, fornirai supporto amministrativo e organizzativo al team direttivo Finanze, tra cui:\n• gestione dell'agenda di componenti selezionati del team direttivo Finanze;\n• coordinamento degli appuntamenti e organizzazione di riunioni interne ed esterne, viaggi di lavoro ed eventi.”\n• gestione dei canali di comunicazione specifici del dipartimento (ad es. canali MS Teams, newsletter e intranet);\n• organizzazione e verifica delle traduzioni, con particolare attenzione al tedesco e all'italiano (ad es. presentazioni, documenti e contenuti di comunicazione);\n• coordinamento dell'offerta di formazione continua e supporto nelle misure di cambiamento e di trasformazione;\n• gestione dell'interfaccia con gli altri pool di assistenza della SSR e sostituzione, durante le assenze per ferie, delle altre persone addette all'assistenza nel settore Finanze. Requisiti\n• Esperienza pluriennale in una funzione di assistenza, idealmente a supporto di ruoli dirigenziali.\n• Modalità di lavoro orientata al servizio, strutturata e proattiva.\n• Discrezione nella gestione di informazioni sensibili e capacità di stabilire priorità in modo affidabile.\n• Buona familiarità con gli strumenti digitali e con l'ambiente MS 365.\n• Passione per la collaborazione interdisciplinare in un contesto dinamico, con un forte radicamento in diverse regioni linguistiche.\n• Ottima conoscenza del tedesco e dell'italiano, compresa padronanza stilistica nella comunicazione orale e scritta. Cosa offriamo\n• Una visione diversificata della SSR al centro dell'organizzazione finanziaria.\n• Una funzione versatile, in cui sono valorizzate l'iniziativa personale e le nuove idee.\n• Modello di lavoro ibrido con home office parziale.\n• Un team motivato, che crede intensamente nel mandato del servizio pubblico.\n• Un ambiente di lavoro aperto e basato sul rispetto reciproco. Altre domande? Info sul processo di candidatura Silvia Flück Partner HR settori centrali Telefono +41 58 136 10 73 Agiamo come un UNICO team per il successo della SSR. Insieme agli altri settori, Finanze si occupa della gestione strategica, dell'allocazione dei mezzi finanziari orientata agli obiettivi e crea trasparenza per decisioni sostenibili.",
+      "descriptionByLocale": {
+        "it": "Mansioni Nell'ambito del settore Finanze della SSR, in qualità di membro del pool di assistenza, fornirai supporto amministrativo e organizzativo al team direttivo Finanze, tra cui:\n• gestione dell'agenda di componenti selezionati del team direttivo Finanze;\n• coordinamento degli appuntamenti e organizzazione di riunioni interne ed esterne, viaggi di lavoro ed eventi.”\n• gestione dei canali di comunicazione specifici del dipartimento (ad es. canali MS Teams, newsletter e intranet);\n• organizzazione e verifica delle traduzioni, con particolare attenzione al tedesco e all'italiano (ad es. presentazioni, documenti e contenuti di comunicazione);\n• coordinamento dell'offerta di formazione continua e supporto nelle misure di cambiamento e di trasformazione;\n• gestione dell'interfaccia con gli altri pool di assistenza della SSR e sostituzione, durante le assenze per ferie, delle altre persone addette all'assistenza nel settore Finanze. Requisiti\n• Esperienza pluriennale in una funzione di assistenza, idealmente a supporto di ruoli dirigenziali.\n• Modalità di lavoro orientata al servizio, strutturata e proattiva.\n• Discrezione nella gestione di informazioni sensibili e capacità di stabilire priorità in modo affidabile.\n• Buona familiarità con gli strumenti digitali e con l'ambiente MS 365.\n• Passione per la collaborazione interdisciplinare in un contesto dinamico, con un forte radicamento in diverse regioni linguistiche.\n• Ottima conoscenza del tedesco e dell'italiano, compresa padronanza stilistica nella comunicazione orale e scritta. Cosa offriamo\n• Una visione diversificata della SSR al centro dell'organizzazione finanziaria.\n• Una funzione versatile, in cui sono valorizzate l'iniziativa personale e le nuove idee.\n• Modello di lavoro ibrido con home office parziale.\n• Un team motivato, che crede intensamente nel mandato del servizio pubblico.\n• Un ambiente di lavoro aperto e basato sul rispetto reciproco. Altre domande? Info sul processo di candidatura Silvia Flück Partner HR settori centrali Telefono +41 58 136 10 73 Agiamo come un UNICO team per il successo della SSR. Insieme agli altri settori, Finanze si occupa della gestione strategica, dell'allocazione dei mezzi finanziari orientata agli obiettivi e crea trasparenza per decisioni sostenibili.",
+        "en": "In the context of the SSR Finance sector, as a member of the assistance pool, you will provide administrative and organizational support to the Finance Management Team, including:\n• management of the agenda of selected components of the management team Finances;\n• coordination of appointments and organization of internal and external meetings, business trips and events. ”\n• management of department-specific communication channels (e.g. MS Teams channels, newsletters and intranet);\n• organization and verification of translations, with particular attention to German and Italian (e.g. presentations, documents and communication content);\n• coordination of the supply of continuing training and support in the measures of change and transformation;\n• interface management with other SSR assistance pools and replacement, during holiday absences, of other people with assistance in the Finance sector. Requirements\n• Multiannual experience in a service function, ideally supporting leadership roles.\n• Service-oriented, structured and proactive working methods.\n• Discretion in managing sensitive information and ability to establish priorities reliably.\n• Good familiarity with digital tools and MS 365 environment.\n• Passion for interdisciplinary collaboration in a dynamic context, with strong rooting in different language regions.\n• Excellent knowledge of German and Italian, including stylistic mastery in oral and written communication. What we offer\n• A diversified vision of the SSR at the centre of the financial organization.\n• A versatile function, in which personal initiative and new ideas are valued.\n• Hybrid work model with partial home office.\n• A motivated team, who strongly believes in the mandate of the public service.\n• An open working environment based on mutual respect. Any more questions? Info on the application process Silvia Flück Partner HR central sectors Phone +41 58 136 10 73 We act as a UNICO team for the success of the SSR. Together with other sectors, Finance is responsible for strategic management, allocation of target-oriented financial resources and creates transparency for sustainable decisions.",
+        "de": "Im Rahmen des SSR Finance-Sektors leisten Sie als Mitglied des Assistance Pools administrative und organisatorische Unterstützung für das Finance Management Team, einschließlich:\n• Verwaltung der Tagesordnung der ausgewählten Komponenten des Managementteams Finanzen;\n• Koordination von Terminen und Organisation von internen und externen Treffen, Geschäftsreisen und Veranstaltungen.\n• Verwaltung abteilungsspezifischer Kommunikationskanäle (z. B. MS-Teams-Kanäle, Newsletter und Intranet);\n• Organisation und Prüfung von Übersetzungen, mit besonderem Augenmerk auf Deutsch und Italienisch (z.B. Präsentationen, Dokumente und Kommunikationsinhalte);\n• Koordinierung des Angebots an Weiterbildung und Unterstützung bei Veränderungs- und Transformationsmaßnahmen;\n• Schnittstellenmanagement mit anderen SSR-Assistenzpools und Ersatz anderer Personen mit Unterstützung im Finanzsektor bei Urlaubsausfällen. Anforderungen\n• Mehrjährige Erfahrung in einer Servicefunktion, idealerweise Unterstützung von Führungsrollen.\n• Serviceorientierte, strukturierte und proaktive Arbeitsmethoden.\n• Diskretion bei der Verwaltung sensibler Informationen und die Fähigkeit, Prioritäten zuverlässig festzulegen.\n• Gute Vertrautheit mit digitalen Tools und MS 365-Umgebung.\n• Leidenschaft für interdisziplinäre Zusammenarbeit in einem dynamischen Kontext, mit starker Verankerung in verschiedenen Sprachregionen.\n• Hervorragende Kenntnisse in Deutsch und Italienisch, einschließlich stilistischer Beherrschung in der mündlichen und schriftlichen Kommunikation. Was wir anbieten\n• Eine diversifizierte Vision der SSR im Zentrum der Finanzorganisation.\n• Eine vielseitige Funktion, in der persönliche Initiative und neue Ideen geschätzt werden.\n• Hybrides Arbeitsmodell mit Partial Home Office.\n• Ein motiviertes Team, das stark an das Mandat des öffentlichen Dienstes glaubt.\n• Ein offenes Arbeitsumfeld, das auf gegenseitigem Respekt basiert. Noch weitere Fragen? Infos zum Bewerbungsprozess Silvia Flück Partner HR Zentralsektoren Telefon +41 58 136 10 73 Wir agieren als UNICO-Team für den Erfolg der SSR. Zusammen mit anderen Branchen ist Finance für das strategische Management, die Allokation zielgerichteter finanzieller Ressourcen und die Transparenz für nachhaltige Entscheidungen verantwortlich.",
+        "fr": "Dans le contexte du secteur des finances de la SSR, en tant que membre du bassin d'aide, vous fournirez un soutien administratif et organisationnel à l'équipe de gestion des finances, notamment :\n• la gestion du programme de certaines composantes de l'équipe de gestion Finances;\n• coordination des nominations et organisation des réunions internes et externes, des voyages d'affaires et des événements.\n• la gestion des canaux de communication propres aux ministères (p. ex. les canaux des équipes de la SM, les bulletins et l'intranet);\n• l'organisation et la vérification des traductions, en accordant une attention particulière à l'allemand et à l'italien (par exemple, présentations, documents et contenu de communication);\n• la coordination de l'offre de formation continue et de soutien aux mesures de changement et de transformation;\n• gestion de l'interface avec d'autres piscines d'assistance SSR et remplacement, pendant les absences de vacances, d'autres personnes avec l'aide dans le secteur des finances. Exigences\n• Expérience pluriannuelle dans une fonction de service, soutenant idéalement les rôles de leadership.\n• Méthodes de travail axées sur les services, structurées et proactives.\n• Discrétion dans la gestion de l'information délicate et capacité d'établir des priorités de façon fiable.\n• Bonne connaissance des outils numériques et de l'environnement MS 365.\n• Passion de collaboration interdisciplinaire dans un contexte dynamique, fortement enraciné dans différentes régions linguistiques.\n• Excellente connaissance de l'allemand et de l'italien, y compris la maîtrise stylistique de la communication orale et écrite. Ce que nous offrons\n• Une vision diversifiée du SSR au centre de l'organisation financière.\n• Une fonction polyvalente, dans laquelle l'initiative personnelle et les idées nouvelles sont valorisées.\n• Modèle de travail hybride avec bureau à domicile partiel.\n• Une équipe motivée, qui croit fermement au mandat de la fonction publique.\n• Un environnement de travail ouvert fondé sur le respect mutuel. D'autres questions ? Informations sur le processus de candidature Silvia Flück Partenaire Secteurs centraux RH Téléphone +41 58 136 10 73 Nous agissons comme une équipe de l'UNICO pour le succès de la RSS. Avec d'autres secteurs, le ministère des Finances est responsable de la gestion stratégique, de l'affectation des ressources financières ciblées et de la transparence des décisions durables."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-08T11:13:15.064Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3007",
+      "streetAddress": "Schwarztorstrasse 21",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-30",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
+      "requirements": [
+        "Esperienza pluriennale in una funzione di assistenza, idealmente a supporto di ruoli dirigenziali.",
+        "Modalità di lavoro orientata al servizio, strutturata e proattiva.",
+        "Discrezione nella gestione di informazioni sensibili e capacità di stabilire priorità in modo affidabile.",
+        "Buona familiarità con gli strumenti digitali e con l'ambiente MS 365.",
+        "Passione per la collaborazione interdisciplinare in un contesto dinamico, con un forte radicamento in diverse regioni linguistiche.",
+        "Ottima conoscenza del tedesco e dell'italiano, compresa padronanza stilistica nella comunicazione orale e scritta."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Esperienza pluriennale in una funzione di assistenza, idealmente a supporto di ruoli dirigenziali.",
+          "Modalità di lavoro orientata al servizio, strutturata e proattiva.",
+          "Discrezione nella gestione di informazioni sensibili e capacità di stabilire priorità in modo affidabile.",
+          "Buona familiarità con gli strumenti digitali e con l'ambiente MS 365.",
+          "Ottima conoscenza del tedesco e dell'italiano, compresa padronanza stilistica nella comunicazione orale e scritta."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 60,
+        "pensumMax": 80
+      },
+      "firstSeenAt": "2026-06-30T23:26:53.483Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE"
     },
     {
       "id": "srg-ssr-77d1f68399d3",
@@ -1273,7 +1286,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T11:58:02.532Z",
+      "crawledAt": "2026-07-08T11:13:14.299Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1314,11 +1327,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "assistent-in-finanzen-srg-ssr-bern"
+        "assistent-in-finanzen-srg-ssr-bern",
+        "assistente-in-finanza-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-finanzen-srg-ssr-bern"
+          "assistent-in-finanzen-srg-ssr-bern",
+          "assistente-in-finanza-srg-ssr-bern"
         ],
         "en": [
           "assistent-in-finanzen-srg-ssr-bern"
@@ -1328,6 +1343,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:26:49.331Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1356,7 +1372,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Auditeur.trice interne",
       "titleByLocale": {
-        "it": "Revisore interno",
+        "it": "Auditeur.trice interne",
         "en": "Internal auditor",
         "de": "Interner Prüfer",
         "fr": "Auditeur.trice interne"
@@ -1373,7 +1389,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/52527d21-58ff-4fab-bcc4-663b0b2d7623",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T11:58:01.684Z",
+      "crawledAt": "2026-07-08T11:13:07.887Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1414,12 +1430,14 @@
       },
       "previousSlugs": [
         "auditeur-trice-interne-srg-ssr-bern-2",
-        "auditeur-trice-interne-srg-ssr-bern"
+        "auditeur-trice-interne-srg-ssr-bern",
+        "revisore-interno-srg-ssr-bern-97427c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auditeur-trice-interne-srg-ssr-bern-2",
-          "auditeur-trice-interne-srg-ssr-bern"
+          "auditeur-trice-interne-srg-ssr-bern",
+          "revisore-interno-srg-ssr-bern-97427c"
         ],
         "en": [
           "auditeur-trice-interne-srg-ssr-bern-2"
@@ -1429,6 +1447,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:26:48.032Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1474,7 +1493,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-eventi-e-mediapartenariati/9bece2f2-6173-4517-ba54-75721cbd91a6",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-07T11:58:00.924Z",
+      "crawledAt": "2026-07-08T11:13:01.899Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1519,6 +1538,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-02T12:13:15.488Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1564,7 +1584,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-digitale-rsi-cultura/38f358d6-97d8-49ea-8676-555f9adf6966",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-07T11:58:00.010Z",
+      "crawledAt": "2026-07-08T11:13:01.069Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1607,6 +1627,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-02T22:57:28.962Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1637,7 +1658,7 @@
       "titleByLocale": {
         "it": "Stage Spam e Young Unit RSI",
         "en": "Stage Spam and Young Unit RSI",
-        "de": "Stage Spam und Young Unit RSI",
+        "de": "Stage Spam e Young Unit RSI",
         "fr": "Stage Spam et Jeune Unité RSI"
       },
       "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Proposta e sviluppo di idee e contenuti in linea con la linea editoriale della Young Unit, seguendo l'attualità del territorio e i temi di interesse per il pubblico giovane.\n• Realizzazione di contenuti digitali, interviste e video per social e web.\n• Collaborazione con videomaker e redazioni del Dipartimento Cultura e Società.\n• Partecipazione alle attività di redazione e agli eventi dedicati al pubblico giovane. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessano l'attualità, i temi che coinvolgono le nuove generazioni e il mondo dei social me-dia?\n• Possiedi buone competenze comunicative e di scrittura?\n• Ti piacerebbe realizzare interviste e contenuti video per il web e i social?\n• Sei una persona curiosa, intraprendente e orientata al lavoro di squadra?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! Cosa offriamo Altre domande? Info sul processo di candidatura Stage di 6 mesi, tra settembre 2026 e febbraio 2027, la sede di lavoro è a Comano. Candidarsi è facile Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e ac-compagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura domenica 9 agosto 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui manda-to è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Conces-sione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fon-damentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'in-trattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguisti-che della Svizzera.",
@@ -1652,7 +1673,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-spam-e-young-unit-rsi/f758873d-0a18-44da-92a2-77451acbd13e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-07T11:57:59.147Z",
+      "crawledAt": "2026-07-08T11:13:00.136Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1695,6 +1716,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-02T22:57:28.118Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1740,7 +1762,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-redazione-sportiva-digitale/09f45389-a3b1-4856-a944-aeac0e046644",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-07T11:57:58.242Z",
+      "crawledAt": "2026-07-08T11:12:59.212Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1782,6 +1804,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
+      "firstSeenAt": "2026-07-07T11:57:58.242Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1794,94 +1818,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-07-07T11:57:58.242Z"
-    },
-    {
-      "id": "srg-ssr-1ec471defa96",
-      "slug": "assistente-finanze-srg-ssr-bern",
-      "slugByLocale": {
-        "it": "assistente-finanze-srg-ssr-bern",
-        "en": "assistant-finance-srg-ssr-bern",
-        "de": "assistant-finance-srg-ssr-bern",
-        "fr": "assistant-aux-finances-srg-ssr-bern"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Assistente Finanze",
-      "titleByLocale": {
-        "it": "Assistente Finanze",
-        "en": "Assistant Finance",
-        "de": "Assistant Finance",
-        "fr": "Assistant aux finances"
-      },
-      "description": "Mansioni Nell'ambito del settore Finanze della SSR, in qualità di membro del pool di assistenza, fornirai supporto amministrativo e organizzativo al team direttivo Finanze, tra cui:\n• gestione dell'agenda di componenti selezionati del team direttivo Finanze;\n• coordinamento degli appuntamenti e organizzazione di riunioni interne ed esterne, viaggi di lavoro ed eventi.”\n• gestione dei canali di comunicazione specifici del dipartimento (ad es. canali MS Teams, newsletter e intranet);\n• organizzazione e verifica delle traduzioni, con particolare attenzione al tedesco e all'italiano (ad es. presentazioni, documenti e contenuti di comunicazione);\n• coordinamento dell'offerta di formazione continua e supporto nelle misure di cambiamento e di trasformazione;\n• gestione dell'interfaccia con gli altri pool di assistenza della SSR e sostituzione, durante le assenze per ferie, delle altre persone addette all'assistenza nel settore Finanze. Requisiti\n• Esperienza pluriennale in una funzione di assistenza, idealmente a supporto di ruoli dirigenziali.\n• Modalità di lavoro orientata al servizio, strutturata e proattiva.\n• Discrezione nella gestione di informazioni sensibili e capacità di stabilire priorità in modo affidabile.\n• Buona familiarità con gli strumenti digitali e con l'ambiente MS 365.\n• Passione per la collaborazione interdisciplinare in un contesto dinamico, con un forte radicamento in diverse regioni linguistiche.\n• Ottima conoscenza del tedesco e dell'italiano, compresa padronanza stilistica nella comunicazione orale e scritta. Cosa offriamo\n• Una visione diversificata della SSR al centro dell'organizzazione finanziaria.\n• Una funzione versatile, in cui sono valorizzate l'iniziativa personale e le nuove idee.\n• Modello di lavoro ibrido con home office parziale.\n• Un team motivato, che crede intensamente nel mandato del servizio pubblico.\n• Un ambiente di lavoro aperto e basato sul rispetto reciproco. Altre domande? Info sul processo di candidatura Silvia Flück Partner HR settori centrali Telefono +41 58 136 10 73 Agiamo come un UNICO team per il successo della SSR. Insieme agli altri settori, Finanze si occupa della gestione strategica, dell'allocazione dei mezzi finanziari orientata agli obiettivi e crea trasparenza per decisioni sostenibili.",
-      "descriptionByLocale": {
-        "it": "Mansioni Nell'ambito del settore Finanze della SSR, in qualità di membro del pool di assistenza, fornirai supporto amministrativo e organizzativo al team direttivo Finanze, tra cui:\n• gestione dell'agenda di componenti selezionati del team direttivo Finanze;\n• coordinamento degli appuntamenti e organizzazione di riunioni interne ed esterne, viaggi di lavoro ed eventi.”\n• gestione dei canali di comunicazione specifici del dipartimento (ad es. canali MS Teams, newsletter e intranet);\n• organizzazione e verifica delle traduzioni, con particolare attenzione al tedesco e all'italiano (ad es. presentazioni, documenti e contenuti di comunicazione);\n• coordinamento dell'offerta di formazione continua e supporto nelle misure di cambiamento e di trasformazione;\n• gestione dell'interfaccia con gli altri pool di assistenza della SSR e sostituzione, durante le assenze per ferie, delle altre persone addette all'assistenza nel settore Finanze. Requisiti\n• Esperienza pluriennale in una funzione di assistenza, idealmente a supporto di ruoli dirigenziali.\n• Modalità di lavoro orientata al servizio, strutturata e proattiva.\n• Discrezione nella gestione di informazioni sensibili e capacità di stabilire priorità in modo affidabile.\n• Buona familiarità con gli strumenti digitali e con l'ambiente MS 365.\n• Passione per la collaborazione interdisciplinare in un contesto dinamico, con un forte radicamento in diverse regioni linguistiche.\n• Ottima conoscenza del tedesco e dell'italiano, compresa padronanza stilistica nella comunicazione orale e scritta. Cosa offriamo\n• Una visione diversificata della SSR al centro dell'organizzazione finanziaria.\n• Una funzione versatile, in cui sono valorizzate l'iniziativa personale e le nuove idee.\n• Modello di lavoro ibrido con home office parziale.\n• Un team motivato, che crede intensamente nel mandato del servizio pubblico.\n• Un ambiente di lavoro aperto e basato sul rispetto reciproco. Altre domande? Info sul processo di candidatura Silvia Flück Partner HR settori centrali Telefono +41 58 136 10 73 Agiamo come un UNICO team per il successo della SSR. Insieme agli altri settori, Finanze si occupa della gestione strategica, dell'allocazione dei mezzi finanziari orientata agli obiettivi e crea trasparenza per decisioni sostenibili.",
-        "en": "In the context of the SSR Finance sector, as a member of the assistance pool, you will provide administrative and organizational support to the Finance Management Team, including:\n• management of the agenda of selected components of the management team Finances;\n• coordination of appointments and organization of internal and external meetings, business trips and events. ”\n• management of department-specific communication channels (e.g. MS Teams channels, newsletters and intranet);\n• organization and verification of translations, with particular attention to German and Italian (e.g. presentations, documents and communication content);\n• coordination of the supply of continuing training and support in the measures of change and transformation;\n• interface management with other SSR assistance pools and replacement, during holiday absences, of other people with assistance in the Finance sector. Requirements\n• Multiannual experience in a service function, ideally supporting leadership roles.\n• Service-oriented, structured and proactive working methods.\n• Discretion in managing sensitive information and ability to establish priorities reliably.\n• Good familiarity with digital tools and MS 365 environment.\n• Passion for interdisciplinary collaboration in a dynamic context, with strong rooting in different language regions.\n• Excellent knowledge of German and Italian, including stylistic mastery in oral and written communication. What we offer\n• A diversified vision of the SSR at the centre of the financial organization.\n• A versatile function, in which personal initiative and new ideas are valued.\n• Hybrid work model with partial home office.\n• A motivated team, who strongly believes in the mandate of the public service.\n• An open working environment based on mutual respect. Any more questions? Info on the application process Silvia Flück Partner HR central sectors Phone +41 58 136 10 73 We act as a UNICO team for the success of the SSR. Together with other sectors, Finance is responsible for strategic management, allocation of target-oriented financial resources and creates transparency for sustainable decisions.",
-        "de": "Im Rahmen des SSR Finance-Sektors leisten Sie als Mitglied des Assistance Pools administrative und organisatorische Unterstützung für das Finance Management Team, einschließlich:\n• Verwaltung der Tagesordnung der ausgewählten Komponenten des Managementteams Finanzen;\n• Koordination von Terminen und Organisation von internen und externen Treffen, Geschäftsreisen und Veranstaltungen.\n• Verwaltung abteilungsspezifischer Kommunikationskanäle (z. B. MS-Teams-Kanäle, Newsletter und Intranet);\n• Organisation und Prüfung von Übersetzungen, mit besonderem Augenmerk auf Deutsch und Italienisch (z.B. Präsentationen, Dokumente und Kommunikationsinhalte);\n• Koordinierung des Angebots an Weiterbildung und Unterstützung bei Veränderungs- und Transformationsmaßnahmen;\n• Schnittstellenmanagement mit anderen SSR-Assistenzpools und Ersatz anderer Personen mit Unterstützung im Finanzsektor bei Urlaubsausfällen. Anforderungen\n• Mehrjährige Erfahrung in einer Servicefunktion, idealerweise Unterstützung von Führungsrollen.\n• Serviceorientierte, strukturierte und proaktive Arbeitsmethoden.\n• Diskretion bei der Verwaltung sensibler Informationen und die Fähigkeit, Prioritäten zuverlässig festzulegen.\n• Gute Vertrautheit mit digitalen Tools und MS 365-Umgebung.\n• Leidenschaft für interdisziplinäre Zusammenarbeit in einem dynamischen Kontext, mit starker Verankerung in verschiedenen Sprachregionen.\n• Hervorragende Kenntnisse in Deutsch und Italienisch, einschließlich stilistischer Beherrschung in der mündlichen und schriftlichen Kommunikation. Was wir anbieten\n• Eine diversifizierte Vision der SSR im Zentrum der Finanzorganisation.\n• Eine vielseitige Funktion, in der persönliche Initiative und neue Ideen geschätzt werden.\n• Hybrides Arbeitsmodell mit Partial Home Office.\n• Ein motiviertes Team, das stark an das Mandat des öffentlichen Dienstes glaubt.\n• Ein offenes Arbeitsumfeld, das auf gegenseitigem Respekt basiert. Noch weitere Fragen? Infos zum Bewerbungsprozess Silvia Flück Partner HR Zentralsektoren Telefon +41 58 136 10 73 Wir agieren als UNICO-Team für den Erfolg der SSR. Zusammen mit anderen Branchen ist Finance für das strategische Management, die Allokation zielgerichteter finanzieller Ressourcen und die Transparenz für nachhaltige Entscheidungen verantwortlich.",
-        "fr": "Dans le contexte du secteur des finances de la SSR, en tant que membre du bassin d'aide, vous fournirez un soutien administratif et organisationnel à l'équipe de gestion des finances, notamment :\n• la gestion du programme de certaines composantes de l'équipe de gestion Finances;\n• coordination des nominations et organisation des réunions internes et externes, des voyages d'affaires et des événements.\n• la gestion des canaux de communication propres aux ministères (p. ex. les canaux des équipes de la SM, les bulletins et l'intranet);\n• l'organisation et la vérification des traductions, en accordant une attention particulière à l'allemand et à l'italien (par exemple, présentations, documents et contenu de communication);\n• la coordination de l'offre de formation continue et de soutien aux mesures de changement et de transformation;\n• gestion de l'interface avec d'autres piscines d'assistance SSR et remplacement, pendant les absences de vacances, d'autres personnes avec l'aide dans le secteur des finances. Exigences\n• Expérience pluriannuelle dans une fonction de service, soutenant idéalement les rôles de leadership.\n• Méthodes de travail axées sur les services, structurées et proactives.\n• Discrétion dans la gestion de l'information délicate et capacité d'établir des priorités de façon fiable.\n• Bonne connaissance des outils numériques et de l'environnement MS 365.\n• Passion de collaboration interdisciplinaire dans un contexte dynamique, fortement enraciné dans différentes régions linguistiques.\n• Excellente connaissance de l'allemand et de l'italien, y compris la maîtrise stylistique de la communication orale et écrite. Ce que nous offrons\n• Une vision diversifiée du SSR au centre de l'organisation financière.\n• Une fonction polyvalente, dans laquelle l'initiative personnelle et les idées nouvelles sont valorisées.\n• Modèle de travail hybride avec bureau à domicile partiel.\n• Une équipe motivée, qui croit fermement au mandat de la fonction publique.\n• Un environnement de travail ouvert fondé sur le respect mutuel. D'autres questions ? Informations sur le processus de candidature Silvia Flück Partenaire Secteurs centraux RH Téléphone +41 58 136 10 73 Nous agissons comme une équipe de l'UNICO pour le succès de la RSS. Avec d'autres secteurs, le ministère des Finances est responsable de la gestion stratégique, de l'affectation des ressources financières ciblées et de la transparence des décisions durables."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-06T22:15:35.686Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3007",
-      "streetAddress": "Schwarztorstrasse 21",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-30",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
-      "requirements": [
-        "Esperienza pluriennale in una funzione di assistenza, idealmente a supporto di ruoli dirigenziali.",
-        "Modalità di lavoro orientata al servizio, strutturata e proattiva.",
-        "Discrezione nella gestione di informazioni sensibili e capacità di stabilire priorità in modo affidabile.",
-        "Buona familiarità con gli strumenti digitali e con l'ambiente MS 365.",
-        "Passione per la collaborazione interdisciplinare in un contesto dinamico, con un forte radicamento in diverse regioni linguistiche.",
-        "Ottima conoscenza del tedesco e dell'italiano, compresa padronanza stilistica nella comunicazione orale e scritta."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Esperienza pluriennale in una funzione di assistenza, idealmente a supporto di ruoli dirigenziali.",
-          "Modalità di lavoro orientata al servizio, strutturata e proattiva.",
-          "Discrezione nella gestione di informazioni sensibili e capacità di stabilire priorità in modo affidabile.",
-          "Buona familiarità con gli strumenti digitali e con l'ambiente MS 365.",
-          "Ottima conoscenza del tedesco e dell'italiano, compresa padronanza stilistica nella comunicazione orale e scritta."
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 60,
-        "pensumMax": 80
-      },
-      "firstSeenAt": "2026-06-30T23:26:53.483Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE",
-      "crawlerMissStreak": 1
+      "addressRegion": "TI"
     }
   ]
 }
