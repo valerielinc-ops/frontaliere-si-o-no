@@ -11,6 +11,8 @@
   "seedUrls": [
     "https://job.post.ch/search/?locale=it_IT",
     "https://job.post.ch/search/?locale=de_DE",
+    "https://job.post.ch/default/job/PostAuto-Fahrerin/74291-de_DE",
+    "https://job.post.ch/default/job/Stv_-Teamleaderin-Zustellung-Briefe-und-Pakete-%28Entwicklungsprogramm-im-Distributionsgebiet%29/74284-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73566-de_DE",
     "https://job.post.ch/default/job/PostAuto-Fahrerin/74280-de_DE",
     "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
@@ -36,7 +38,6 @@
     "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
     "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
     "https://job.post.ch/default/job/Kundenberaterin/74227-de_DE",
-    "https://job.post.ch/default/job/Sachbearbeiterin-Immobilienbewirtschaftung/74223-de_DE",
     "https://job.post.ch/default/job/PostAuto-Fahrerin/73719-de_DE",
     "https://job.post.ch/default/job/PostAuto-Fahrerin/73577-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73604-de_DE",
@@ -92,11 +93,12 @@
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74074-de_DE",
     "https://job.post.ch/default/job/Springerin-Fr%C3%BChzustellung/74027-de_DE",
     "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73227-de_DE",
+    "https://job.post.ch/default/job/ConductriceConducteur-CarPostal/74115-fr_FR",
     "https://job.post.ch/default/job/R%C3%A9gulatriceR%C3%A9gulateur-de-trafic/74237-fr_FR",
     "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-CDD-6-mois/73769-fr_FR",
     "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9-e-de-commerce-CFC%2C-Services-et-administration-Berne-%28francophone%29/73558-fr_FR",
     "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9-e-de-commerce-CFC%2C-Services-et-administration-Jura/73607-fr_FR"
   ],
   "notes": "Swiss Post careers portal — CH-wide jobs (all 26 cantons) discovered via the SuccessFactors NES jobs search API (POST job.post.ch/services/recruiting/v1/jobs, national / no canton facet) and detail HTML scraped from job.post.ch.",
-  "updatedAt": "2026-07-07T22:20:42.096Z"
+  "updatedAt": "2026-07-08T11:21:35.536Z"
 }
