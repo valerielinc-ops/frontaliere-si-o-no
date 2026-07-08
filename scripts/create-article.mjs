@@ -8070,6 +8070,23 @@ let _localFallbackUsedThisHeadline = false;
 const LOCAL_MIN_VIABLE_MS = 11 * 60_000;
 
 /**
+ * Minimum wall-clock remaining (ms) to justify starting a brand-new attempt
+ * at ALL — any provider, not just local/fallback. Distinct from
+ * LOCAL_MIN_VIABLE_MS above, which reserves time specifically for local's
+ * slow ~12-17min CPU inference. A new attempt's cascade tries ~70 free-tier
+ * cloud models before ever reaching local, and a successful cloud call
+ * typically completes in seconds — gating "start a new attempt" on local's
+ * much larger reserve wasted every cloud-model chance in a run's last
+ * minutes (root cause of runs producing zero articles: this fired below
+ * 11min remaining even though a cloud model would easily fit). callLLM's own
+ * deadlineMs check (ai-models.mjs) already bounds an in-flight attempt to
+ * roughly one call's timeout past this floor, so lowering it doesn't risk an
+ * unbounded overrun — it only stops starting a candidate with no realistic
+ * time left for even one call.
+ */
+const MIN_VIABLE_ATTEMPT_MS = 2 * 60_000;
+
+/**
  * True when the error is a CONTENT/QUALITY rejection (fact-check block,
  * topic-gate REGOLA #0 abort, fabrication, or a non-conformant headline that
  * survived its retry budget) rather than an infrastructure bug.
@@ -8333,24 +8350,21 @@ async function main() {
             console.error(`⏱️  Budget wall-clock (${Math.round(RUN_WALL_BUDGET_MS / 60000)}min) superato — interrompo i tentativi ${pool.name}; l'articolo è deferito al prossimo run.`);
             break;
           }
-          // Cross-headline local-fallback reserve (2026-07-07, incident run
-          // 28850309199): LOCAL_MIN_VIABLE_MS below already guards a SECOND
-          // local/fallback attempt on the SAME headline, but does nothing for
-          // the FIRST attempt on a BRAND NEW headline picked with the run's
-          // dying minutes. That run burned ~50min on 4 semantic-dedup rejects
-          // (each paying the full generation+fact-check cost before the dedup
-          // check even runs), leaving ~7min for candidate 5 — whose cloud
-          // cascade exhausted (~5min) before falling to local with ~2.3min
-          // left, truncated mid-inference by _callLocal's own deadline cap.
-          // Zero output, wasted GH Actions minutes. Stop picking NEW
-          // candidates below this same floor instead; an in-flight generation
-          // (started before the floor was crossed) still runs to completion
-          // untouched — same clean-deferral disposition as the guard below.
+          // Cross-headline minimum-viable-attempt reserve (2026-07-07, incident
+          // run 28850309199; floor lowered 2026-07-08 — see MIN_VIABLE_ATTEMPT_MS
+          // above). Stop picking NEW candidates once there's no realistic time
+          // left for even one cascade call; an in-flight generation (started
+          // before the floor was crossed) still runs to completion untouched —
+          // same clean-deferral disposition as the guard below. Deliberately NOT
+          // gated on local/fallback's much larger reserve (LOCAL_MIN_VIABLE_MS):
+          // the cascade tries ~70 fast cloud models before ever reaching local,
+          // so reserving 11min here was killing real cloud-model chances in a
+          // run's last minutes — the actual root cause of zero-article runs.
           {
             const remainingForNewAttemptMs = RUN_WALL_BUDGET_MS - (Date.now() - RUN_START_MS);
-            if (remainingForNewAttemptMs < LOCAL_MIN_VIABLE_MS) {
-              console.error(`⏱️  Restano ${Math.round(remainingForNewAttemptMs / 60_000)}min (< ${LOCAL_MIN_VIABLE_MS / 60_000}min necessari per un eventuale fallback locale) — interrompo i tentativi ${pool.name} invece di avviare un candidato che rischia di non completare; l'articolo è deferito al prossimo run.`);
-              RUN_REPORT.notes.push(`Retry loop stopped early: cross-headline local-fallback reserve (pool=${pool.name}, attempt=${attempt}, remainingMin=${Math.round(remainingForNewAttemptMs / 60_000)})`);
+            if (remainingForNewAttemptMs < MIN_VIABLE_ATTEMPT_MS) {
+              console.error(`⏱️  Restano ${Math.round(remainingForNewAttemptMs / 60_000)}min (< ${MIN_VIABLE_ATTEMPT_MS / 60_000}min necessari per un nuovo tentativo) — interrompo i tentativi ${pool.name} invece di avviare un candidato che rischia di non completare; l'articolo è deferito al prossimo run.`);
+              RUN_REPORT.notes.push(`Retry loop stopped early: cross-headline minimum-viable-attempt reserve (pool=${pool.name}, attempt=${attempt}, remainingMin=${Math.round(remainingForNewAttemptMs / 60_000)})`);
               break;
             }
           }
@@ -8709,16 +8723,17 @@ async function main() {
           console.error(`⏱️  Budget wall-clock (${Math.round(RUN_WALL_BUDGET_MS / 60000)}min) superato — interrompo i tentativi evergreen; l'articolo è deferito al prossimo run.`);
           break;
         }
-        // Cross-headline local-fallback reserve: same guard as the news-pool
-        // loop (~L8273). Without it, a new evergreen keyword attempt can start
-        // in the run's dying minutes, exhaust the cloud cascade, and leave the
-        // local LLM with too little time to finish — the exact failure mode of
-        // incident run 28850309199, reached precisely when the news-pool fails.
+        // Cross-headline minimum-viable-attempt reserve: same guard as the
+        // news-pool loop (~L8360; see MIN_VIABLE_ATTEMPT_MS for the 2026-07-08
+        // rationale). Deliberately NOT gated on local/fallback's much larger
+        // reserve (LOCAL_MIN_VIABLE_MS) — the cascade tries ~70 fast cloud
+        // models before ever reaching local, so this only stops picking a new
+        // candidate once there's no realistic time left for even one call.
         {
           const remainingForNewAttemptMs = RUN_WALL_BUDGET_MS - (Date.now() - RUN_START_MS);
-          if (remainingForNewAttemptMs < LOCAL_MIN_VIABLE_MS) {
-            console.error(`⏱️  Restano ${Math.round(remainingForNewAttemptMs / 60_000)}min (< ${LOCAL_MIN_VIABLE_MS / 60_000}min necessari per un eventuale fallback locale) — interrompo i tentativi evergreen invece di avviare un candidato che rischia di non completare; l'articolo è deferito al prossimo run.`);
-            RUN_REPORT.notes.push(`Retry loop stopped early: cross-headline local-fallback reserve (pool=evergreen, attempt=${attempt}, remainingMin=${Math.round(remainingForNewAttemptMs / 60_000)})`);
+          if (remainingForNewAttemptMs < MIN_VIABLE_ATTEMPT_MS) {
+            console.error(`⏱️  Restano ${Math.round(remainingForNewAttemptMs / 60_000)}min (< ${MIN_VIABLE_ATTEMPT_MS / 60_000}min necessari per un nuovo tentativo) — interrompo i tentativi evergreen invece di avviare un candidato che rischia di non completare; l'articolo è deferito al prossimo run.`);
+            RUN_REPORT.notes.push(`Retry loop stopped early: cross-headline minimum-viable-attempt reserve (pool=evergreen, attempt=${attempt}, remainingMin=${Math.round(remainingForNewAttemptMs / 60_000)})`);
             break;
           }
         }
