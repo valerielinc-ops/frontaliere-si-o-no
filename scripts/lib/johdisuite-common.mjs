@@ -49,6 +49,18 @@ function normalize(s = '') {
   return String(s || '').trim().toLowerCase();
 }
 
+/**
+ * Extract a single 4-digit Swiss postal code from the Johdi Suite `zip_code`
+ * field. Multi-site postings ("Site de Chamblon et d'Orbe") return a
+ * compound value like "1436 et 1350" — take the first code, matching the
+ * first-listed site in `work_place`/`city`. Falls back to `fallback`
+ * (the tenant's `defaultPostalCode`) when `zip_code` is missing/malformed.
+ */
+function extractSwissPostalCode(zipCode, fallback) {
+  const match = String(zipCode || '').match(/\b\d{4}\b/);
+  return match ? match[0] : fallback;
+}
+
 async function fetchJson(url, { timeoutMs } = {}) {
   const t = timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   return fetchWithRetry(async () => {
@@ -208,6 +220,7 @@ export function createJohdiSuiteParser(config) {
 
       const city = String(detail?.city || item.city || detail?.work_place || item.work_place || defaultCity).trim();
       const cantonInferred = inferSwissTargetCanton(`${city} ${detail?.canton || item.canton || ''}`) || defaultCanton;
+      const postalCode = extractSwissPostalCode(detail?.zip_code, defaultPostalCode);
 
       // Activity rate (%): use min/max
       const actMin = Number(detail?.activity_from ?? item.activity_from ?? 0);
@@ -251,7 +264,7 @@ export function createJohdiSuiteParser(config) {
         addressRegion: cantonInferred,
         addressCountry: 'CH',
         country: 'CH',
-        postalCode: defaultPostalCode,
+        postalCode,
         category: detectHealthcareCategory(title),
         contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
         employmentType,
