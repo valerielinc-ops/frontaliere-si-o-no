@@ -75,6 +75,15 @@ describe('createAgendaCrawler — crawl()', () => {
     expect(byId['src:evt-1'].endDate).toBe('2026-08-03'); // extended across iterations 0,1,2
     expect(byId['src:evt-2'].endDate).toBeUndefined(); // seen once — no extension
 
+    // Per-event sourceKey/sourceName — eventLd()'s organizer.name reads
+    // event.sourceName directly; omitting it here (only slice-level metadata
+    // stamped) silently shipped Event JSON-LD with no organizer.name for
+    // every ge-agenda event (GSC "missing name in organizer").
+    for (const e of result.events) {
+      expect(e.sourceKey).toBe(TEST_SOURCE_KEY);
+      expect(e.sourceName).toBe('Test Agenda Factory Fixture');
+    }
+
     expect(existsSync(slicePath)).toBe(true);
     const written = JSON.parse(readFileSync(slicePath, 'utf-8'));
     expect(written).toMatchObject({ schemaVersion: 1, sourceKey: TEST_SOURCE_KEY, canton: 'ZZ' });
