@@ -64,9 +64,14 @@ describe('fetchWithTimeout — JOBS_CRAWLER_FETCH_PROXY Jina-exhaustion fallback
     expect(global.fetch).not.toHaveBeenCalled();
   });
 
+  // Real target pages are always well over detectJinaErrorBody's 200-char
+  // short-body floor — pad with filler so this reads as genuine content, not
+  // an accidental "too short" false-positive.
+  const REAL_DIRECT_BODY = `<html><body>${'Real cambiavalute.ch job posting content. '.repeat(6)}</body></html>`;
+
   it('falls back to a genuine direct (unproxied) fetch when Jina is exhausted, and warns', async () => {
     fetchViaJinaWithRetry.mockResolvedValue(jinaResponse(false, { reason: 'all-egress-ips-blocked' }));
-    global.fetch = vi.fn(async () => new Response('<html>direct body</html>', { status: 200 })) as unknown as typeof fetch;
+    global.fetch = vi.fn(async () => new Response(REAL_DIRECT_BODY, { status: 200 })) as unknown as typeof fetch;
     const res = await fetchWithTimeout(TARGET_URL);
     expect(res.ok).toBe(true);
     expect(global.fetch).toHaveBeenCalledTimes(1);
@@ -75,6 +80,27 @@ describe('fetchWithTimeout — JOBS_CRAWLER_FETCH_PROXY Jina-exhaustion fallback
     // target — or it would just re-hit the same exhausted proxy path.
     expect(calledUrl).toBe(TARGET_URL);
     expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('all-egress-ips-blocked'));
+  });
+
+  // PR #3832 review finding (🔴): the direct-fetch fallback used to trust any
+  // res.ok===true blindly. A CI datacenter IP can get the exact same sgcaptcha
+  // WAF challenge cambiavalute.ch's Jina-blocked IPs get (#1363) — but as a
+  // plain HTTP 200, so `!res.ok` never catches it. Must validate the body with
+  // the same detector Jina's own retry path already uses before trusting it.
+  it('treats a WAF challenge page on the direct-fetch fallback as a failed fetch, not real content', async () => {
+    fetchViaJinaWithRetry.mockResolvedValue(jinaResponse(false, { reason: 'all-egress-ips-blocked' }));
+    const challengeBody = `<html><body>${'Please wait while we verify your browser. sgcaptcha challenge. '.repeat(4)}</body></html>`;
+    global.fetch = vi.fn(async () => new Response(challengeBody, { status: 200 })) as unknown as typeof fetch;
+    const res = await fetchWithTimeout(TARGET_URL);
+    expect(res.ok).toBe(false);
+    expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('sgcaptcha'));
+  });
+
+  it('treats a suspiciously short direct-fetch fallback body as a failed fetch too', async () => {
+    fetchViaJinaWithRetry.mockResolvedValue(jinaResponse(false, { reason: 'all-egress-ips-blocked' }));
+    global.fetch = vi.fn(async () => new Response('<html>short</html>', { status: 200 })) as unknown as typeof fetch;
+    const res = await fetchWithTimeout(TARGET_URL);
+    expect(res.ok).toBe(false);
   });
 
   it('leaves fetch behavior untouched for hosts outside JOBS_CRAWLER_FETCH_PROXY', async () => {

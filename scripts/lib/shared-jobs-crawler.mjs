@@ -101,7 +101,7 @@ import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mj
 import { freeTranslateWithRetry, logCascadeSummary } from './free-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
 import { hasConcatenatedWords } from './translation-quality.mjs';
-import { jinaProxiedRequest, hostMatchesProxyList, fetchViaJinaWithRetry } from './jina-proxy.mjs';
+import { jinaProxiedRequest, hostMatchesProxyList, fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import {
   extractMigrosStructuredData,
   extractMigrosSectionItems,
@@ -2400,6 +2400,7 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
   // what callers use for the job's canonical URL.
   let targetUrl = url;
   let proxyHeaders = {};
+  let postJinaFallback = false;
   if (hostMatchesProxyList(url, process.env.JOBS_CRAWLER_FETCH_PROXY)) {
     // Route through Jina Reader, and for idempotent GET/HEAD retry on a fresh
     // Jina egress IP when the proxy lands on a WAF-flagged IP (the challenge
@@ -2428,6 +2429,7 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
       // caller's `if (!res.ok) continue` masked it entirely).
       const jinaFailReason = jinaRes.headers.get('x-jina-retry-reason') || `HTTP ${jinaRes.status}`;
       console.warn(`⚠️ Jina proxy exhausted for ${url} (${jinaFailReason}) — falling back to direct fetch.`);
+      postJinaFallback = true;
     } else {
       const proxied = jinaProxiedRequest(url);
       targetUrl = proxied.url;
@@ -2465,6 +2467,25 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
         try { await res.body?.cancel(); } catch {}
         await sleep(fetchRetryDelayMs(attempt));
         continue;
+      }
+      if (postJinaFallback && res.ok) {
+        // Direct-fetch fallback after Jina exhaustion (see above): a CI
+        // datacenter IP can hit the same sgcaptcha WAF challenge Jina's blocked
+        // IPs get, but on a plain HTTP 200 — no `!res.ok` signal at all. Validate
+        // the body with the same detector Jina's own retry path already relies
+        // on before trusting this as real content; otherwise a challenge page
+        // silently gets parsed as a job page instead of the old (safe) skip.
+        const probe = res.clone();
+        const text = await probe.text().catch(() => '');
+        const errorReason = detectJinaErrorBody(text);
+        if (errorReason) {
+          console.warn(`⚠️ Direct-fetch fallback for ${url} also hit a WAF challenge (${errorReason}) — treating as failed fetch.`);
+          try { await res.body?.cancel(); } catch {}
+          return new Response('', {
+            status: 502,
+            headers: { 'content-type': 'text/html', 'x-fallback-fail-reason': errorReason },
+          });
+        }
       }
       return res;
     } catch (err) {
