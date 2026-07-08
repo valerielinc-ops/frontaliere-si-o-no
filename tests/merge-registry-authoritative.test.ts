@@ -73,4 +73,63 @@ describe('mergeAndDeduplicate registry authority (post source-copy dedup)', () =
     const allPrev = [...enPrev, ...(merged.previousSlugs || [])];
     expect(allPrev).toContain(DRIFT_EN);
   });
+
+  it('does not revert a real master slug to a stale pre-translation canonicalSlug (issues #3785/#3794)', async () => {
+    // Reproduces the "Two Spice AG" regression: registerJobSlug froze this
+    // entry (write-once) while the job's IT slot was still an untranslated
+    // copy of the German source — canonicalSlug ended up WITHOUT the
+    // disambiguator hash that slugByLocale[sourceLang] carries, even though
+    // both were derived from the same untranslated source title. The old
+    // enforceMaster check compared canonicalSlug against
+    // slugByLocale[sourceLang] byte-for-byte and treated that hash-suffix
+    // mismatch as "this is a real translation, pin it" — permanently
+    // re-reverting the job's later, genuinely-translated master slug back to
+    // the frozen untranslated one on every subsequent run.
+    const registry = {
+      'id|coopjobs.ch|176c7659-81e1-412f-8390-9ca9cd3a3b28': {
+        canonicalSlug: 'stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon',
+        slugByLocale: {
+          it: 'stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon-gpf7z1',
+          en: 'stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon-gpf7z1',
+          de: 'stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon-gpf7z1',
+          fr: 'stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon-gpf7z1',
+        },
+      },
+    };
+    const regPath = path.join(os.tmpdir(), `merge-auth-reg-master-${process.pid}.json`);
+    fs.writeFileSync(regPath, JSON.stringify(registry), 'utf-8');
+    tmpFiles.push(regPath);
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = regPath;
+
+    const { mergeAndDeduplicate } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+
+    const GOOD_IT_MASTER = 'stv-team-leader-in-cucina-di-riso-100-two-spice-ag-dietlikon';
+    const existingJob = {
+      id: 'company-gpf7z1',
+      url: 'https://jobs.coopjobs.ch/offene-stellen/stv-teamleiter-in-reiskueche/176c7659-81e1-412f-8390-9ca9cd3a3b28',
+      title: 'Stv. Teamleiter:in Reisküche 100%',
+      company: 'Two Spice AG',
+      location: 'Dietlikon',
+      canton: 'ZH',
+      sourceLang: 'de',
+      description: 'x'.repeat(200),
+      crawledAt: '2026-07-07T00:44:00.265Z',
+      source: 'Company Careers Crawler',
+      slug: GOOD_IT_MASTER,
+      slugByLocale: {
+        it: GOOD_IT_MASTER,
+        en: 'stv-team-leader-in-rice-kitchen-100-two-spice-ag-dietlikon',
+        de: 'stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon-gpf7z1',
+        fr: 'chef-d-equipe-stv-dans-la-cuisine-de-riz-100-two-spice-ag-dietlikon',
+      },
+    };
+
+    const result = mergeAndDeduplicate([existingJob], [], {});
+    const merged = result.merged.find((j: { id: string }) => j.id === 'company-gpf7z1');
+
+    // Real, correctly-translated master slug must survive — not get reverted
+    // to the registry's frozen, untranslated canonicalSlug.
+    expect(merged.slug).toBe(GOOD_IT_MASTER);
+    expect(merged.slugByLocale.it).toBe(GOOD_IT_MASTER);
+  });
 });
