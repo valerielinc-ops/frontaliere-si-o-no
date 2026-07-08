@@ -612,12 +612,12 @@
     },
     {
       "id": "migros-hq-0cf886b0ea77",
-      "slug": "product-owner-servicenow-platform-basis-m-w-d-migros-genossenschafts-bund-zurich-mdjszo",
+      "slug": "proprietario-del-prodotto-servicenow-platform-basis-f-m-d-migros-hq-zurich-zurich",
       "slugByLocale": {
         "de": "product-owner-servicenow-platform-basis-m-w-d-migros-genossenschafts-bund-zurich-mdjszo",
         "en": "product-owner-servicenow-plattform-basis-m-w-d-migros-genossenschafts-bund-zurich-mdjszo",
-        "it": "product-owner-servicenow-platform-basis-m-w-d-migros-genossenschafts-bund-zurich-mdjszo",
-        "fr": "product-owner-servicenow-platform-basis-m-w-d-migros-genossenschafts-bund-zurich-mdjszo"
+        "it": "proprietario-del-prodotto-servicenow-platform-basis-f-m-d-migros-hq-zurich-zurich",
+        "fr": "proprietaire-du-produit-servicenow-platform-base-f-m-d-migros-hq-zurich-zurich"
       },
       "company": "Migros HQ Zürich",
       "companyKey": "migros-hq",
@@ -663,14 +663,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "product-owner-servicenow-plattform-basis-w-m-d-migros-hq-ch"
+          "product-owner-servicenow-plattform-basis-w-m-d-migros-hq-ch",
+          "product-owner-servicenow-platform-basis-m-w-d-migros-genossenschafts-bund-zurich-mdjszo"
         ],
         "de": [
           "product-owner-servicenow-plattform-basis-w-m-d-migros-hq-ch"
+        ],
+        "fr": [
+          "product-owner-servicenow-platform-basis-m-w-d-migros-genossenschafts-bund-zurich-mdjszo"
         ]
       },
       "previousSlugs": [
-        "product-owner-servicenow-plattform-basis-w-m-d-migros-hq-ch"
+        "product-owner-servicenow-plattform-basis-w-m-d-migros-hq-ch",
+        "product-owner-servicenow-platform-basis-m-w-d-migros-genossenschafts-bund-zurich-mdjszo"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

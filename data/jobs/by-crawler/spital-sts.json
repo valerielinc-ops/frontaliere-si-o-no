@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "spital-sts-72740fa89a5b",
-      "slug": "bettendisponent-in-spital-sts-thun",
+      "slug": "spedizione-del-letto-in-spital-sts-thun",
       "slugByLocale": {
         "de": "bettendisponent-in-spital-sts-thun",
-        "it": "bettendisponent-in-spital-sts-thun",
-        "en": "bettendisponent-in-spital-sts-thun",
-        "fr": "bettendisponent-in-spital-sts-thun"
+        "it": "spedizione-del-letto-in-spital-sts-thun",
+        "en": "bed-dispatch-in-spital-sts-thun",
+        "fr": "expedition-du-lit-en-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -49,7 +49,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "bettendisponent-in-spital-sts-thun"
+        ],
+        "en": [
+          "bettendisponent-in-spital-sts-thun"
+        ],
+        "fr": [
+          "bettendisponent-in-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "bettendisponent-in-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-69f6cb995fca",
@@ -100,22 +114,6 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/07785e64-e98f-4d56-8999-bec611240880",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen",
-        "assistenza-sanitaria-professionale-due-semplici-spital-sts-zweisimmen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen",
-          "assistenza-sanitaria-professionale-due-semplici-spital-sts-zweisimmen"
-        ],
-        "en": [
-          "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen"
-        ],
-        "fr": [
-          "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen"
-        ]
-      },
       "firstSeenAt": "2026-07-07T22:17:58.674Z"
     },
     {
@@ -232,22 +230,6 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/15b97db1-e6cb-40a5-bf3e-054c5c9a0bbf",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-distributionslogistik-spital-sts-thun",
-        "collaboratore-trice-distributionslogistik-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-distributionslogistik-spital-sts-thun",
-          "collaboratore-trice-distributionslogistik-spital-sts-thun"
-        ],
-        "en": [
-          "mitarbeiter-in-distributionslogistik-spital-sts-thun"
-        ],
-        "fr": [
-          "mitarbeiter-in-distributionslogistik-spital-sts-thun"
-        ]
-      },
       "firstSeenAt": "2026-07-02T12:25:23.996Z"
     },
     {
@@ -364,22 +346,6 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/41e474a9-a923-4a9b-84d2-b6417785444c",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
-        "dipl-infermieristica-professionale-gastroenterologia-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
-          "dipl-infermieristica-professionale-gastroenterologia-spital-sts-thun"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
-        ]
-      },
       "firstSeenAt": "2026-07-01T23:26:39.395Z"
     },
     {
@@ -431,22 +397,6 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/e7a46e5e-e9b7-439d-bc00-40fe95c0e6e8",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "experte-expertin-notfallpflege-befristet-spital-sts-thun",
-        "expert-expert-emergency-care-temporanea-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "experte-expertin-notfallpflege-befristet-spital-sts-thun",
-          "expert-expert-emergency-care-temporanea-spital-sts-thun"
-        ],
-        "en": [
-          "experte-expertin-notfallpflege-befristet-spital-sts-thun"
-        ],
-        "fr": [
-          "experte-expertin-notfallpflege-befristet-spital-sts-thun"
-        ]
-      },
       "firstSeenAt": "2026-07-01T13:09:25.409Z"
     },
     {
@@ -498,19 +448,6 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/47dc27f3-b41a-4f8b-81d3-ac9aaf59aab9",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-room-service-spital-sts-thun",
-        "collaboratore-trice-room-service-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-room-service-spital-sts-thun",
-          "collaboratore-trice-room-service-spital-sts-thun"
-        ],
-        "fr": [
-          "mitarbeiter-in-room-service-spital-sts-thun"
-        ]
-      },
       "firstSeenAt": "2026-06-26T12:12:06.176Z"
     },
     {
@@ -562,22 +499,6 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/e64cfd8c-92ce-45dd-aff7-6e1b1a65a034",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sommerjob-in-der-pflege-befristet-spital-sts-thun",
-        "lavoro-estivo-in-infermieristica-temporaneo-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sommerjob-in-der-pflege-befristet-spital-sts-thun",
-          "lavoro-estivo-in-infermieristica-temporaneo-spital-sts-thun"
-        ],
-        "en": [
-          "sommerjob-in-der-pflege-befristet-spital-sts-thun"
-        ],
-        "fr": [
-          "sommerjob-in-der-pflege-befristet-spital-sts-thun"
-        ]
-      },
       "firstSeenAt": "2026-06-22T15:21:57.854Z"
     },
     {
@@ -629,22 +550,6 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/1953d39c-d8f1-45c3-9cd2-ad7010521204",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
-        "dipl-chirurgia-specialistica-infermieristica-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
-          "dipl-chirurgia-specialistica-infermieristica-spital-sts-thun"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun"
-        ]
-      },
       "firstSeenAt": "2026-06-17T13:51:16.398Z"
     },
     {
