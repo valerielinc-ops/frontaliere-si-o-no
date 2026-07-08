@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fincons-group",
-  "assembledAt": "2026-07-07T22:19:36.243Z",
+  "assembledAt": "2026-07-08T11:37:53.922Z",
   "jobs": [
     {
       "title": "Angular Software Engineer",
@@ -64,7 +64,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-06-23T11:38:21.084Z",
       "previousSlugsByLocale": {
         "it": [
@@ -143,7 +143,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-06-17T22:36:03.816Z",
       "previousSlugsByLocale": {
         "it": [
@@ -222,7 +222,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-06-12T12:06:56.780Z",
       "previousSlugsByLocale": {
         "it": [
@@ -301,7 +301,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-05-07T11:00:54.190Z",
       "previousSlugs": [
         "developer-pl-sql-banking-area-fincons-group-lugano",
@@ -384,7 +384,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-06-12T12:06:56.780Z",
       "previousSlugsByLocale": {
         "it": [
@@ -399,7 +399,8 @@
       },
       "previousSlugs": [
         "full-stack-developer-angular-java-fincons-group-lugano-ticino-switzerland"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior .NET Engineer (6-months project)",
@@ -463,7 +464,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-06-30T11:21:13.758Z",
       "previousSlugsByLocale": {
         "it": [
@@ -479,6 +480,71 @@
       "previousSlugs": [
         "senior-net-engineer-6-months-project-fincons-group-lugano-switzerland"
       ]
+    },
+    {
+      "title": "Senior DevOps Engineer (HashiCorp Vault)",
+      "slug": "senior-devops-engineer-hashicorp-vault-fincons-group-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/UzgDqa8ywx/Senior-DevOps-Engineer-HashiCorp-Vault",
+      "applyUrl": "https://fincons.applytojob.com/apply/UzgDqa8ywx/Senior-DevOps-Engineer-HashiCorp-Vault",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-08",
+      "validThrough": "2026-10-06",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "description": "Fincons Group is an IT business consulting company that has been designing the digital future of leading companies in international markets for 40 years. Fincons Group built its reputation on foreseeing and interpreting new business models and the rapid evolution of IT systems by building a complete range of services: from research and consulting to design and development, from system integration of leading vendor software solutions right up to application management, supporting clients step by step along their digital transformation journey. Fincons is a multinational with over 2,600 people and several offices worldwide (in Italy, Switzerland, Germany, France, the United Kingdom, Belgium and the USA), but above all, a Family Company where the founders play a strategic role with commitment and passion, grounding the company in the same principles of a united and caring family. We firmly believe in the value of cooperation and in the contribution that every idea and intuition can bring. We believe that everyone’s effort can make a difference. Transforming knowledge into a strategic resource is our company mission, and we pursue it with the help of our most strategic asset: our people. Job Overview We’re looking for a DevOps Engineer with solid experience who will be responsible for developing and evolving security, automation, and integration capabilities across our technology platforms, to join our team in Lugano . What you'll do:\n\n- Design, implement, and evolve enterprise secrets management capabilities, with a primary focus on HashiCorp Vault\n- Develop secure authentication, authorization, and credential management solutions across technology platforms\n- Enable and support secure integrations between platforms, applications, and delivery pipelines\n- Contribute to the automation of software delivery and operational processes, including CI/CD workflow\n- Define and promote standards, best practices, and reusable patterns for secure platform services\n\n## What you bring\n\n- Bachelor’s or Master’s degree in Computer Science, Engineering, or equivalent experience\n- Hands-on experience with HashiCorp Vault or similar tools\n- Solid knowledge of secret lifecycle management, token and certificate management, authentication and authorization mechanisms\n- Experience designing and implementing integrations across platforms/applications, and APIs\n- Familiarity with containerized and cloud-native environments, including Kubernetes\n- Hands-on experience with scripting and infrastructure automation tools\n- Excellent communication skills in English and Italian\n\n## Location Requirement\n\n- We do not offer a fully remote work policy\n- Candidates should be prepared to relocate to Canton Ticino (Switzerland)or Italian Border Towns (such as Como, Varese, etc.)\n- Work-from-home days may be possible according to the Client's policy\n\nAre you looking for an exciting and challenging job in a dynamic environment? Please do not hesitate to apply now!\n\nOur personnel search is addressed to candidates of all genders. The data will be processed and stored exclusively for the purposes of this or future selections, in compliance with the Federal Data Protection Law (LPD) and guaranteeing the rights referred to in art. 13 Legislative Decree 196/03 and EU regulation 679/2016 (GDPR).",
+      "titleByLocale": {
+        "en": "Senior DevOps Engineer (HashiCorp Vault)",
+        "it": "Senior DevOps Ingegnere (HashiCorp Vault)",
+        "de": "Senior DevOps Ingenieur (HashiCorp Vault)",
+        "fr": "Senior DevOps Ingénieur (HashiCorp Vault)"
+      },
+      "descriptionByLocale": {
+        "en": "Fincons Group is an IT business consulting company that has been designing the digital future of leading companies in international markets for 40 years. Fincons Group built its reputation on foreseeing and interpreting new business models and the rapid evolution of IT systems by building a complete range of services: from research and consulting to design and development, from system integration of leading vendor software solutions right up to application management, supporting clients step by step along their digital transformation journey. Fincons is a multinational with over 2,600 people and several offices worldwide (in Italy, Switzerland, Germany, France, the United Kingdom, Belgium and the USA), but above all, a Family Company where the founders play a strategic role with commitment and passion, grounding the company in the same principles of a united and caring family. We firmly believe in the value of cooperation and in the contribution that every idea and intuition can bring. We believe that everyone’s effort can make a difference. Transforming knowledge into a strategic resource is our company mission, and we pursue it with the help of our most strategic asset: our people. Job Overview We’re looking for a DevOps Engineer with solid experience who will be responsible for developing and evolving security, automation, and integration capabilities across our technology platforms, to join our team in Lugano . What you'll do:\n\n- Design, implement, and evolve enterprise secrets management capabilities, with a primary focus on HashiCorp Vault\n- Develop secure authentication, authorization, and credential management solutions across technology platforms\n- Enable and support secure integrations between platforms, applications, and delivery pipelines\n- Contribute to the automation of software delivery and operational processes, including CI/CD workflow\n- Define and promote standards, best practices, and reusable patterns for secure platform services\n\n## What you bring\n\n- Bachelor’s or Master’s degree in Computer Science, Engineering, or equivalent experience\n- Hands-on experience with HashiCorp Vault or similar tools\n- Solid knowledge of secret lifecycle management, token and certificate management, authentication and authorization mechanisms\n- Experience designing and implementing integrations across platforms/applications, and APIs\n- Familiarity with containerized and cloud-native environments, including Kubernetes\n- Hands-on experience with scripting and infrastructure automation tools\n- Excellent communication skills in English and Italian\n\n## Location Requirement\n\n- We do not offer a fully remote work policy\n- Candidates should be prepared to relocate to Canton Ticino (Switzerland)or Italian Border Towns (such as Como, Varese, etc.)\n- Work-from-home days may be possible according to the Client's policy\n\nAre you looking for an exciting and challenging job in a dynamic environment? Please do not hesitate to apply now!\n\nOur personnel search is addressed to candidates of all genders. The data will be processed and stored exclusively for the purposes of this or future selections, in compliance with the Federal Data Protection Law (LPD) and guaranteeing the rights referred to in art. 13 Legislative Decree 196/03 and EU regulation 679/2016 (GDPR).",
+        "it": "Fincons Group is an IT business consulting company that has been designing the digital future of leading companies in international markets for 40 years. Fincons Group built its reputation on foreseeing and interpreting new business models and the rapid evolution of IT systems by building a complete range of services: from research and consulting to design and development, from system integration of leading vendor software solutions right up to application management, supporting clients step by step along their digital transformation journey. Fincons is a multinational with over 2,600 people and several offices worldwide (in Italy, Switzerland, Germany, France, the United Kingdom, Belgium and the USA), but above all, a Family Company where the founders play a strategic role with commitment and passion, grounding the company in the same principles of a united and caring family. We firmly believe in the value of cooperation and in the contribution that every idea and intuition can bring. We believe that everyone’s effort can make a difference. Transforming knowledge into a strategic resource is our company mission, and we pursue it with the help of our most strategic asset: our people. Job Overview We’re looking for a DevOps Engineer with solid experience who will be responsible for developing and evolving security, automation, and integration capabilities across our technology platforms, to join our team in Lugano . What you'll do:\n\n- Design, implement, and evolve enterprise secrets management capabilities, with a primary focus on HashiCorp Vault\n- Develop secure authentication, authorization, and credential management solutions across technology platforms\n- Enable and support secure integrations between platforms, applications, and delivery pipelines\n- Contribute to the automation of software delivery and operational processes, including CI/CD workflow\n- Define and promote standards, best practices, and reusable patterns for secure platform services\n\n## What you bring\n\n- Bachelor’s or Master’s degree in Computer Science, Engineering, or equivalent experience\n- Hands-on experience with HashiCorp Vault or similar tools\n- Solid knowledge of secret lifecycle management, token and certificate management, authentication and authorization mechanisms\n- Experience designing and implementing integrations across platforms/applications, and APIs\n- Familiarity with containerized and cloud-native environments, including Kubernetes\n- Hands-on experience with scripting and infrastructure automation tools\n- Excellent communication skills in English and Italian\n\n## Location Requirement\n\n- We do not offer a fully remote work policy\n- Candidates should be prepared to relocate to Canton Ticino (Switzerland)or Italian Border Towns (such as Como, Varese, etc.)\n- Work-from-home days may be possible according to the Client's policy\n\nAre you looking for an exciting and challenging job in a dynamic environment? Please do not hesitate to apply now!\n\nOur personnel search is addressed to candidates of all genders. The data will be processed and stored exclusively for the purposes of this or future selections, in compliance with the Federal Data Protection Law (LPD) and guaranteeing the rights referred to in art. 13 Legislative Decree 196/03 and EU regulation 679/2016 (GDPR).",
+        "de": "Fincons Group is an IT business consulting company that has been designing the digital future of leading companies in international markets for 40 years. Fincons Group built its reputation on foreseeing and interpreting new business models and the rapid evolution of IT systems by building a complete range of services: from research and consulting to design and development, from system integration of leading vendor software solutions right up to application management, supporting clients step by step along their digital transformation journey. Fincons is a multinational with over 2,600 people and several offices worldwide (in Italy, Switzerland, Germany, France, the United Kingdom, Belgium and the USA), but above all, a Family Company where the founders play a strategic role with commitment and passion, grounding the company in the same principles of a united and caring family. We firmly believe in the value of cooperation and in the contribution that every idea and intuition can bring. We believe that everyone’s effort can make a difference. Transforming knowledge into a strategic resource is our company mission, and we pursue it with the help of our most strategic asset: our people. Job Overview We’re looking for a DevOps Engineer with solid experience who will be responsible for developing and evolving security, automation, and integration capabilities across our technology platforms, to join our team in Lugano . What you'll do:\n\n- Design, implement, and evolve enterprise secrets management capabilities, with a primary focus on HashiCorp Vault\n- Develop secure authentication, authorization, and credential management solutions across technology platforms\n- Enable and support secure integrations between platforms, applications, and delivery pipelines\n- Contribute to the automation of software delivery and operational processes, including CI/CD workflow\n- Define and promote standards, best practices, and reusable patterns for secure platform services\n\n## What you bring\n\n- Bachelor’s or Master’s degree in Computer Science, Engineering, or equivalent experience\n- Hands-on experience with HashiCorp Vault or similar tools\n- Solid knowledge of secret lifecycle management, token and certificate management, authentication and authorization mechanisms\n- Experience designing and implementing integrations across platforms/applications, and APIs\n- Familiarity with containerized and cloud-native environments, including Kubernetes\n- Hands-on experience with scripting and infrastructure automation tools\n- Excellent communication skills in English and Italian\n\n## Location Requirement\n\n- We do not offer a fully remote work policy\n- Candidates should be prepared to relocate to Canton Ticino (Switzerland)or Italian Border Towns (such as Como, Varese, etc.)\n- Work-from-home days may be possible according to the Client's policy\n\nAre you looking for an exciting and challenging job in a dynamic environment? Please do not hesitate to apply now!\n\nOur personnel search is addressed to candidates of all genders. The data will be processed and stored exclusively for the purposes of this or future selections, in compliance with the Federal Data Protection Law (LPD) and guaranteeing the rights referred to in art. 13 Legislative Decree 196/03 and EU regulation 679/2016 (GDPR).",
+        "fr": "Fincons Group is an IT business consulting company that has been designing the digital future of leading companies in international markets for 40 years. Fincons Group built its reputation on foreseeing and interpreting new business models and the rapid evolution of IT systems by building a complete range of services: from research and consulting to design and development, from system integration of leading vendor software solutions right up to application management, supporting clients step by step along their digital transformation journey. Fincons is a multinational with over 2,600 people and several offices worldwide (in Italy, Switzerland, Germany, France, the United Kingdom, Belgium and the USA), but above all, a Family Company where the founders play a strategic role with commitment and passion, grounding the company in the same principles of a united and caring family. We firmly believe in the value of cooperation and in the contribution that every idea and intuition can bring. We believe that everyone’s effort can make a difference. Transforming knowledge into a strategic resource is our company mission, and we pursue it with the help of our most strategic asset: our people. Job Overview We’re looking for a DevOps Engineer with solid experience who will be responsible for developing and evolving security, automation, and integration capabilities across our technology platforms, to join our team in Lugano . What you'll do:\n\n- Design, implement, and evolve enterprise secrets management capabilities, with a primary focus on HashiCorp Vault\n- Develop secure authentication, authorization, and credential management solutions across technology platforms\n- Enable and support secure integrations between platforms, applications, and delivery pipelines\n- Contribute to the automation of software delivery and operational processes, including CI/CD workflow\n- Define and promote standards, best practices, and reusable patterns for secure platform services\n\n## What you bring\n\n- Bachelor’s or Master’s degree in Computer Science, Engineering, or equivalent experience\n- Hands-on experience with HashiCorp Vault or similar tools\n- Solid knowledge of secret lifecycle management, token and certificate management, authentication and authorization mechanisms\n- Experience designing and implementing integrations across platforms/applications, and APIs\n- Familiarity with containerized and cloud-native environments, including Kubernetes\n- Hands-on experience with scripting and infrastructure automation tools\n- Excellent communication skills in English and Italian\n\n## Location Requirement\n\n- We do not offer a fully remote work policy\n- Candidates should be prepared to relocate to Canton Ticino (Switzerland)or Italian Border Towns (such as Como, Varese, etc.)\n- Work-from-home days may be possible according to the Client's policy\n\nAre you looking for an exciting and challenging job in a dynamic environment? Please do not hesitate to apply now!\n\nOur personnel search is addressed to candidates of all genders. The data will be processed and stored exclusively for the purposes of this or future selections, in compliance with the Federal Data Protection Law (LPD) and guaranteeing the rights referred to in art. 13 Legislative Decree 196/03 and EU regulation 679/2016 (GDPR)."
+      },
+      "slugByLocale": {
+        "en": "senior-devops-engineer-hashicorp-vault-fincons-group-lugano-switzerland",
+        "it": "senior-devops-engineer-hashicorp-vault-fincons-group-lugano-switzerland",
+        "de": "senior-devops-engineer-hashicorp-vault-fincons-group-lugano-switzerland",
+        "fr": "senior-devops-engineer-hashicorp-vault-fincons-group-lugano-switzerland"
+      },
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260708080124_OUTHSNCVEW1PJVLS",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-d827a730d90e",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 135000,
+          "unitText": "YEAR"
+        }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T11:37:53.921Z"
     },
     {
       "title": "Senior Full Stack Engineer Java/React",
@@ -542,7 +608,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-06-23T11:38:21.084Z",
       "previousSlugsByLocale": {
         "it": [
@@ -557,7 +623,8 @@
       },
       "previousSlugs": [
         "senior-full-stack-engineer-java-react-fincons-group-lugano-ticino-switzerland"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Test Automation Engineer",
@@ -621,7 +688,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 3",
+      "streetAddress": "",
       "firstSeenAt": "2026-05-29T12:22:56.132Z",
       "previousSlugs": [
         "ingegnere-qa-test-automation-fincons-group-lugano",
