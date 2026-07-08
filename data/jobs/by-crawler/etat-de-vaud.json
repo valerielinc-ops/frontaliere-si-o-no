@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-vaud",
-  "assembledAt": "2026-07-07T22:28:19.976Z",
+  "assembledAt": "2026-07-08T11:28:10.538Z",
   "jobs": [
     {
       "id": "etat-de-vaud-5369",
@@ -33,7 +33,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5369",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:17.213Z",
+      "crawledAt": "2026-07-08T11:28:07.245Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -93,6 +93,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -137,7 +138,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5379",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:16.775Z",
+      "crawledAt": "2026-07-08T11:28:06.770Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -196,6 +197,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -240,7 +242,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5476",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:16.356Z",
+      "crawledAt": "2026-07-08T11:28:06.256Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -292,6 +294,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -336,7 +339,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5473",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:15.937Z",
+      "crawledAt": "2026-07-08T11:28:05.745Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -384,6 +387,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:24.207Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -428,7 +432,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5458",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:15.513Z",
+      "crawledAt": "2026-07-08T11:28:05.235Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -488,6 +492,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:22.967Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -532,7 +537,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5452",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:15.081Z",
+      "crawledAt": "2026-07-08T11:28:04.739Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -572,6 +577,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:22.128Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -616,7 +622,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5413",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:14.659Z",
+      "crawledAt": "2026-07-08T11:28:04.250Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -664,6 +670,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:21.700Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -708,7 +715,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5380",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:14.248Z",
+      "crawledAt": "2026-07-08T11:28:03.775Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -758,6 +765,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:21.283Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -802,7 +810,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5465",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:13.829Z",
+      "crawledAt": "2026-07-08T11:28:03.294Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -875,7 +883,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5515",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:13.412Z",
+      "crawledAt": "2026-07-08T11:28:02.813Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -937,6 +945,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:19.624Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -981,7 +990,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5513",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:12.990Z",
+      "crawledAt": "2026-07-08T11:28:02.324Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1035,6 +1044,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:19.206Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1079,7 +1089,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5495",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:12.577Z",
+      "crawledAt": "2026-07-08T11:28:01.837Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1133,6 +1143,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:18.795Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1177,7 +1188,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5494",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:12.156Z",
+      "crawledAt": "2026-07-08T11:28:01.354Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1237,6 +1248,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:18.367Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1281,7 +1293,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5492",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:11.738Z",
+      "crawledAt": "2026-07-08T11:28:00.868Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1337,6 +1349,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:17.950Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1381,7 +1394,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5528",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:11.322Z",
+      "crawledAt": "2026-07-08T11:28:00.295Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1441,6 +1454,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:17.523Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1485,7 +1499,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5519",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:10.883Z",
+      "crawledAt": "2026-07-08T11:27:59.774Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1542,6 +1556,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:17.090Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1586,7 +1601,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5381",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:10.465Z",
+      "crawledAt": "2026-07-08T11:27:59.295Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1634,6 +1649,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:16.647Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1678,7 +1694,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5553",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:10.028Z",
+      "crawledAt": "2026-07-08T11:27:58.807Z",
       "addressLocality": "Palezieux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1730,6 +1746,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:16.234Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1774,7 +1791,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5564",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:09.534Z",
+      "crawledAt": "2026-07-08T11:27:58.289Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1831,6 +1848,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:15.788Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1875,7 +1893,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5550",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:09.111Z",
+      "crawledAt": "2026-07-08T11:27:57.793Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1921,6 +1939,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:15.359Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1965,7 +1984,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5541",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:08.678Z",
+      "crawledAt": "2026-07-08T11:27:57.316Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2014,6 +2033,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:14.929Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2058,7 +2078,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5591",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:08.260Z",
+      "crawledAt": "2026-07-08T11:27:56.838Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2137,7 +2157,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5582",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:07.822Z",
+      "crawledAt": "2026-07-08T11:27:56.346Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2216,7 +2236,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5565",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:07.404Z",
+      "crawledAt": "2026-07-08T11:27:55.855Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2295,7 +2315,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5551",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:06.966Z",
+      "crawledAt": "2026-07-08T11:27:55.295Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2374,7 +2394,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5543",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T22:28:06.532Z",
+      "crawledAt": "2026-07-08T11:27:54.778Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2421,6 +2441,336 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "etat-de-vaud-5606",
+      "slug": "responsable-de-laboratoire-igv-etat-de-vaud-lausanne",
+      "slugByLocale": {
+        "fr": "responsable-de-laboratoire-igv-etat-de-vaud-lausanne",
+        "it": "responsable-de-laboratoire-igv-etat-de-vaud-lausanne",
+        "en": "responsable-de-laboratoire-igv-etat-de-vaud-lausanne",
+        "de": "responsable-de-laboratoire-igv-etat-de-vaud-lausanne"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Responsable de laboratoire - IGV",
+      "titleByLocale": {
+        "fr": "Responsable de laboratoire - IGV",
+        "it": "Responsable de laboratoire - IGV",
+        "en": "Responsable de laboratoire - IGV",
+        "de": "Responsable de laboratoire - IGV"
+      },
+      "description": "Rattaché à la Direction des affaires vétérinaires et de l’inspectorat, l’Institut Galli-Valerio (IGV) un rôle central dans la lutte contre les épizooties ainsi que dans la surveillance épidémiologique des maladies animales. Ses missions principales comprennent le diagnostic des maladies animales à déclaration obligatoire, la réalisation d’analyses en lien avec la sécurité alimentaire, ainsi que des activités de diagnostic concernant d’autres affections animales non épizootiques. En tant que laboratoire officiel, il collabore étroitement avec les autorités cantonales et fédérales, ainsi qu’avec les professionnels vétérinaires, pour assurer une veille sanitaire rigoureuse et réactive face aux enjeux émergents. En rejoignant l’Institut Galli-Valerio, le·la responsable de laboratoire intégrera une équipe engagée dans une démarche de service public essentielle, où la rigueur scientifique rencontre l’utilité collective. Il·elle contribuera activement au bon fonctionnement de cette structure, en supervisant les activités techniques et logistiques qui soutiennent nos missions de surveillance et de prévention.\n\n• Définir et déployer la stratégie opérationnelle du laboratoire en alignement avec la Direction, tout en pilotant la performance par l’analyse des indicateurs, le développement des synergies internes, la gestion des partenariats externes et la proposition continue d’axes d’amélioration.\n• Assurer la validation médicale et la réalisation d’analyses anatomopathologiques et forensiques, tout en conseillant les clients et les autorités, en veillant à l’évolution scientifique et réglementaire des méthodes, et en supervisant la tarification des prestations\n• Piloter le système de management de la qualité (ISO 17025) et l’innovation méthodologique en garantissant la conformité normative, la maîtrise des outils informatiques, la résolution des non-conformités et l’amélioration continue de la performance via le suivi d’indicateurs et la formation.\n• Piloter la gestion opérationnelle et budgétaire du laboratoire en optimisant les flux, les équipements et les stocks, tout en supervisant les équipes, le développement des compétences et le strict respect des normes de biosécurité Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Le secrétariat de Monsieur Giovanni Peduto, Vétérinaire Cantonal, se tient à votre disposition pour toutes questions au 021 316 38 70. Nous vous invitons à transmettre votre dossier de candidature complet (CV, lettre de motivation, diplômes, certificats de travail) via la plateforme emploi de l’État de Vaud .\n\n• Diplôme de médecin vétérinaire avec Doctorat en médecine vétérinaire\n• Titre de médecin-vétérinaire spécialiste FVH dans un domaine de la médecine vétérinaire de laboratoire ou équivalent\n• Certificat de capacité de vétérinaire officiel·le ou engagement ferme à suivre la formation et à en obtenir le titre en cours d’engagement\n• Pratique professionnelle dans un laboratoire d'analyses vétérinaires de 4 années\n• Spécialisation dans un ou plusieurs domaines de la médecine vétérinaire de laboratoire notamment l'anatomopathologie, l'histologie, la bactériologie, la parasitologie, la sérologie ou la biologie moléculaire durant 3 années\n• Maîtrise orale de l’allemand et de l’anglais\n• Capacité à fédérer, à déléguer avec contrôle et à gérer les conflits avec diplomatie, tout en maintenant une cohésion forte au sein du laboratoire\n• Aptitude à adopter une vision globale, à synthétiser des informations complexes et à prendre des décisions déterminées pour orienter l’activité vers l’excellence\n• Excellente gestion du temps et des priorités dans un environnement dynamique, couplée à une grande maîtrise de soi et une gestion efficace du stress\n• Sens aigu du service client et de la collaboration avec les partenaires externes\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "Rattaché à la Direction des affaires vétérinaires et de l’inspectorat, l’Institut Galli-Valerio (IGV) un rôle central dans la lutte contre les épizooties ainsi que dans la surveillance épidémiologique des maladies animales. Ses missions principales comprennent le diagnostic des maladies animales à déclaration obligatoire, la réalisation d’analyses en lien avec la sécurité alimentaire, ainsi que des activités de diagnostic concernant d’autres affections animales non épizootiques. En tant que laboratoire officiel, il collabore étroitement avec les autorités cantonales et fédérales, ainsi qu’avec les professionnels vétérinaires, pour assurer une veille sanitaire rigoureuse et réactive face aux enjeux émergents. En rejoignant l’Institut Galli-Valerio, le·la responsable de laboratoire intégrera une équipe engagée dans une démarche de service public essentielle, où la rigueur scientifique rencontre l’utilité collective. Il·elle contribuera activement au bon fonctionnement de cette structure, en supervisant les activités techniques et logistiques qui soutiennent nos missions de surveillance et de prévention.\n\n• Définir et déployer la stratégie opérationnelle du laboratoire en alignement avec la Direction, tout en pilotant la performance par l’analyse des indicateurs, le développement des synergies internes, la gestion des partenariats externes et la proposition continue d’axes d’amélioration.\n• Assurer la validation médicale et la réalisation d’analyses anatomopathologiques et forensiques, tout en conseillant les clients et les autorités, en veillant à l’évolution scientifique et réglementaire des méthodes, et en supervisant la tarification des prestations\n• Piloter le système de management de la qualité (ISO 17025) et l’innovation méthodologique en garantissant la conformité normative, la maîtrise des outils informatiques, la résolution des non-conformités et l’amélioration continue de la performance via le suivi d’indicateurs et la formation.\n• Piloter la gestion opérationnelle et budgétaire du laboratoire en optimisant les flux, les équipements et les stocks, tout en supervisant les équipes, le développement des compétences et le strict respect des normes de biosécurité Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Le secrétariat de Monsieur Giovanni Peduto, Vétérinaire Cantonal, se tient à votre disposition pour toutes questions au 021 316 38 70. Nous vous invitons à transmettre votre dossier de candidature complet (CV, lettre de motivation, diplômes, certificats de travail) via la plateforme emploi de l’État de Vaud .\n\n• Diplôme de médecin vétérinaire avec Doctorat en médecine vétérinaire\n• Titre de médecin-vétérinaire spécialiste FVH dans un domaine de la médecine vétérinaire de laboratoire ou équivalent\n• Certificat de capacité de vétérinaire officiel·le ou engagement ferme à suivre la formation et à en obtenir le titre en cours d’engagement\n• Pratique professionnelle dans un laboratoire d'analyses vétérinaires de 4 années\n• Spécialisation dans un ou plusieurs domaines de la médecine vétérinaire de laboratoire notamment l'anatomopathologie, l'histologie, la bactériologie, la parasitologie, la sérologie ou la biologie moléculaire durant 3 années\n• Maîtrise orale de l’allemand et de l’anglais\n• Capacité à fédérer, à déléguer avec contrôle et à gérer les conflits avec diplomatie, tout en maintenant une cohésion forte au sein du laboratoire\n• Aptitude à adopter une vision globale, à synthétiser des informations complexes et à prendre des décisions déterminées pour orienter l’activité vers l’excellence\n• Excellente gestion du temps et des priorités dans un environnement dynamique, couplée à une grande maîtrise de soi et une gestion efficace du stress\n• Sens aigu du service client et de la collaboration avec les partenaires externes\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "Rattaché à la Direction des affaires vétérinaires et de l’inspectorat, l’Institut Galli-Valerio (IGV) un rôle central dans la lutte contre les épizooties ainsi que dans la surveillance épidémiologique des maladies animales. Ses missions principales comprennent le diagnostic des maladies animales à déclaration obligatoire, la réalisation d’analyses en lien avec la sécurité alimentaire, ainsi que des activités de diagnostic concernant d’autres affections animales non épizootiques. En tant que laboratoire officiel, il collabore étroitement avec les autorités cantonales et fédérales, ainsi qu’avec les professionnels vétérinaires, pour assurer une veille sanitaire rigoureuse et réactive face aux enjeux émergents. En rejoignant l’Institut Galli-Valerio, le·la responsable de laboratoire intégrera une équipe engagée dans une démarche de service public essentielle, où la rigueur scientifique rencontre l’utilité collective. Il·elle contribuera activement au bon fonctionnement de cette structure, en supervisant les activités techniques et logistiques qui soutiennent nos missions de surveillance et de prévention.\n\n• Définir et déployer la stratégie opérationnelle du laboratoire en alignement avec la Direction, tout en pilotant la performance par l’analyse des indicateurs, le développement des synergies internes, la gestion des partenariats externes et la proposition continue d’axes d’amélioration.\n• Assurer la validation médicale et la réalisation d’analyses anatomopathologiques et forensiques, tout en conseillant les clients et les autorités, en veillant à l’évolution scientifique et réglementaire des méthodes, et en supervisant la tarification des prestations\n• Piloter le système de management de la qualité (ISO 17025) et l’innovation méthodologique en garantissant la conformité normative, la maîtrise des outils informatiques, la résolution des non-conformités et l’amélioration continue de la performance via le suivi d’indicateurs et la formation.\n• Piloter la gestion opérationnelle et budgétaire du laboratoire en optimisant les flux, les équipements et les stocks, tout en supervisant les équipes, le développement des compétences et le strict respect des normes de biosécurité Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Le secrétariat de Monsieur Giovanni Peduto, Vétérinaire Cantonal, se tient à votre disposition pour toutes questions au 021 316 38 70. Nous vous invitons à transmettre votre dossier de candidature complet (CV, lettre de motivation, diplômes, certificats de travail) via la plateforme emploi de l’État de Vaud .\n\n• Diplôme de médecin vétérinaire avec Doctorat en médecine vétérinaire\n• Titre de médecin-vétérinaire spécialiste FVH dans un domaine de la médecine vétérinaire de laboratoire ou équivalent\n• Certificat de capacité de vétérinaire officiel·le ou engagement ferme à suivre la formation et à en obtenir le titre en cours d’engagement\n• Pratique professionnelle dans un laboratoire d'analyses vétérinaires de 4 années\n• Spécialisation dans un ou plusieurs domaines de la médecine vétérinaire de laboratoire notamment l'anatomopathologie, l'histologie, la bactériologie, la parasitologie, la sérologie ou la biologie moléculaire durant 3 années\n• Maîtrise orale de l’allemand et de l’anglais\n• Capacité à fédérer, à déléguer avec contrôle et à gérer les conflits avec diplomatie, tout en maintenant une cohésion forte au sein du laboratoire\n• Aptitude à adopter une vision globale, à synthétiser des informations complexes et à prendre des décisions déterminées pour orienter l’activité vers l’excellence\n• Excellente gestion du temps et des priorités dans un environnement dynamique, couplée à une grande maîtrise de soi et une gestion efficace du stress\n• Sens aigu du service client et de la collaboration avec les partenaires externes\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "Rattaché à la Direction des affaires vétérinaires et de l’inspectorat, l’Institut Galli-Valerio (IGV) un rôle central dans la lutte contre les épizooties ainsi que dans la surveillance épidémiologique des maladies animales. Ses missions principales comprennent le diagnostic des maladies animales à déclaration obligatoire, la réalisation d’analyses en lien avec la sécurité alimentaire, ainsi que des activités de diagnostic concernant d’autres affections animales non épizootiques. En tant que laboratoire officiel, il collabore étroitement avec les autorités cantonales et fédérales, ainsi qu’avec les professionnels vétérinaires, pour assurer une veille sanitaire rigoureuse et réactive face aux enjeux émergents. En rejoignant l’Institut Galli-Valerio, le·la responsable de laboratoire intégrera une équipe engagée dans une démarche de service public essentielle, où la rigueur scientifique rencontre l’utilité collective. Il·elle contribuera activement au bon fonctionnement de cette structure, en supervisant les activités techniques et logistiques qui soutiennent nos missions de surveillance et de prévention.\n\n• Définir et déployer la stratégie opérationnelle du laboratoire en alignement avec la Direction, tout en pilotant la performance par l’analyse des indicateurs, le développement des synergies internes, la gestion des partenariats externes et la proposition continue d’axes d’amélioration.\n• Assurer la validation médicale et la réalisation d’analyses anatomopathologiques et forensiques, tout en conseillant les clients et les autorités, en veillant à l’évolution scientifique et réglementaire des méthodes, et en supervisant la tarification des prestations\n• Piloter le système de management de la qualité (ISO 17025) et l’innovation méthodologique en garantissant la conformité normative, la maîtrise des outils informatiques, la résolution des non-conformités et l’amélioration continue de la performance via le suivi d’indicateurs et la formation.\n• Piloter la gestion opérationnelle et budgétaire du laboratoire en optimisant les flux, les équipements et les stocks, tout en supervisant les équipes, le développement des compétences et le strict respect des normes de biosécurité Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Le secrétariat de Monsieur Giovanni Peduto, Vétérinaire Cantonal, se tient à votre disposition pour toutes questions au 021 316 38 70. Nous vous invitons à transmettre votre dossier de candidature complet (CV, lettre de motivation, diplômes, certificats de travail) via la plateforme emploi de l’État de Vaud .\n\n• Diplôme de médecin vétérinaire avec Doctorat en médecine vétérinaire\n• Titre de médecin-vétérinaire spécialiste FVH dans un domaine de la médecine vétérinaire de laboratoire ou équivalent\n• Certificat de capacité de vétérinaire officiel·le ou engagement ferme à suivre la formation et à en obtenir le titre en cours d’engagement\n• Pratique professionnelle dans un laboratoire d'analyses vétérinaires de 4 années\n• Spécialisation dans un ou plusieurs domaines de la médecine vétérinaire de laboratoire notamment l'anatomopathologie, l'histologie, la bactériologie, la parasitologie, la sérologie ou la biologie moléculaire durant 3 années\n• Maîtrise orale de l’allemand et de l’anglais\n• Capacité à fédérer, à déléguer avec contrôle et à gérer les conflits avec diplomatie, tout en maintenant une cohésion forte au sein du laboratoire\n• Aptitude à adopter une vision globale, à synthétiser des informations complexes et à prendre des décisions déterminées pour orienter l’activité vers l’excellence\n• Excellente gestion du temps et des priorités dans un environnement dynamique, couplée à une grande maîtrise de soi et une gestion efficace du stress\n• Sens aigu du service client et de la collaboration avec les partenaires externes\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "Rattaché à la Direction des affaires vétérinaires et de l’inspectorat, l’Institut Galli-Valerio (IGV) un rôle central dans la lutte contre les épizooties ainsi que dans la surveillance épidémiologique des maladies animales. Ses missions principales comprennent le diagnostic des maladies animales à déclaration obligatoire, la réalisation d’analyses en lien avec la sécurité alimentaire, ainsi que des activités de diagnostic concernant d’autres affections animales non épizootiques. En tant que laboratoire officiel, il collabore étroitement avec les autorités cantonales et fédérales, ainsi qu’avec les professionnels vétérinaires, pour assurer une veille sanitaire rigoureuse et réactive face aux enjeux émergents. En rejoignant l’Institut Galli-Valerio, le·la responsable de laboratoire intégrera une équipe engagée dans une démarche de service public essentielle, où la rigueur scientifique rencontre l’utilité collective. Il·elle contribuera activement au bon fonctionnement de cette structure, en supervisant les activités techniques et logistiques qui soutiennent nos missions de surveillance et de prévention.\n\n• Définir et déployer la stratégie opérationnelle du laboratoire en alignement avec la Direction, tout en pilotant la performance par l’analyse des indicateurs, le développement des synergies internes, la gestion des partenariats externes et la proposition continue d’axes d’amélioration.\n• Assurer la validation médicale et la réalisation d’analyses anatomopathologiques et forensiques, tout en conseillant les clients et les autorités, en veillant à l’évolution scientifique et réglementaire des méthodes, et en supervisant la tarification des prestations\n• Piloter le système de management de la qualité (ISO 17025) et l’innovation méthodologique en garantissant la conformité normative, la maîtrise des outils informatiques, la résolution des non-conformités et l’amélioration continue de la performance via le suivi d’indicateurs et la formation.\n• Piloter la gestion opérationnelle et budgétaire du laboratoire en optimisant les flux, les équipements et les stocks, tout en supervisant les équipes, le développement des compétences et le strict respect des normes de biosécurité Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Le secrétariat de Monsieur Giovanni Peduto, Vétérinaire Cantonal, se tient à votre disposition pour toutes questions au 021 316 38 70. Nous vous invitons à transmettre votre dossier de candidature complet (CV, lettre de motivation, diplômes, certificats de travail) via la plateforme emploi de l’État de Vaud .\n\n• Diplôme de médecin vétérinaire avec Doctorat en médecine vétérinaire\n• Titre de médecin-vétérinaire spécialiste FVH dans un domaine de la médecine vétérinaire de laboratoire ou équivalent\n• Certificat de capacité de vétérinaire officiel·le ou engagement ferme à suivre la formation et à en obtenir le titre en cours d’engagement\n• Pratique professionnelle dans un laboratoire d'analyses vétérinaires de 4 années\n• Spécialisation dans un ou plusieurs domaines de la médecine vétérinaire de laboratoire notamment l'anatomopathologie, l'histologie, la bactériologie, la parasitologie, la sérologie ou la biologie moléculaire durant 3 années\n• Maîtrise orale de l’allemand et de l’anglais\n• Capacité à fédérer, à déléguer avec contrôle et à gérer les conflits avec diplomatie, tout en maintenant une cohésion forte au sein du laboratoire\n• Aptitude à adopter une vision globale, à synthétiser des informations complexes et à prendre des décisions déterminées pour orienter l’activité vers l’excellence\n• Excellente gestion du temps et des priorités dans un environnement dynamique, couplée à une grande maîtrise de soi et une gestion efficace du stress\n• Sens aigu du service client et de la collaboration avec les partenaires externes\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5606",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-08T11:27:54.298Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1000",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5606",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.864Z"
+    },
+    {
+      "id": "etat-de-vaud-5593",
+      "slug": "analyste-financier-ere-etat-de-vaud-lausanne",
+      "slugByLocale": {
+        "fr": "analyste-financier-ere-etat-de-vaud-lausanne",
+        "it": "analyste-financier-ere-etat-de-vaud-lausanne",
+        "en": "analyste-financier-ere-etat-de-vaud-lausanne",
+        "de": "analyste-financier-ere-etat-de-vaud-lausanne"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Analyste financier·ère",
+      "titleByLocale": {
+        "fr": "Analyste financier·ère",
+        "it": "Analyste financier·ère",
+        "en": "Analyste financier·ère",
+        "de": "Analyste financier·ère"
+      },
+      "description": "En tant qu'analyste financier·ère au sein de la division de la Gestion financière opérationnelle (GFO) du SAGEFI, vous jouez un rôle clé dans le pilotage financier de l'administration. À ce titre, vous êtes responsable de la coordination et du suivi du processus d'élaboration budgétaire ainsi que des prévisions financières de plusieurs départements. Grâce à votre expertise, vous contribuez à garantir la qualité des analyses financières et accompagnez les directions dans leurs prises de décision. Vous participez également à l'élaboration des positions du service sur les dossiers à enjeux financiers soumis au Conseil d'État. En tant qu'interlocuteur·trice reconnu-e, vous représentez le SAGEFI au sein de groupes de travail et de projets, notamment dans le cadre des évolutions du système d'information financier SIF-SAP. Vous travaillez sous la supervision du chef de la division GFO et collaborez avec les unités financières départementales ainsi que les responsables financiers des services. Ce contrat à durée déterminée constitue une opportunité de rejoindre un service occupant une position central dans la gestion des finances du canton. À moyen terme, des opportunités de recrutement en CDI pourraient se présenter.\n\n• Piloter la procédure budgétaire des départements et services dont l'Analyste a la responsabilité.\n• Coordonner en collaboration avec les Responsables financiers départementaux le suivi administratif et l'élaboration du budget des départements et services.\n• Analyser les écarts des versions de budget déposées par rapport aux objectifs budgétaires, préparer la synthèse à l'attention du Conseil d'Etat et proposer des pistes d’amélioration budgétaire.\n• Analyser et consolider les données des suivis mensuels et trimestriels pour établir les prévisions annuelles des départements et services.\n• Analyser les dossiers avec implications financières dans le cadre de l'exécution du budget de fonctionnement (crédits supplémentaires, reports de crédits) et rédiger des propositions de prise de position du SAGEFI (déterminations).\n• Analyser les dossiers en lien avec des projets d'investissement (Exposé des motifs et projet de décret - EMPD) ou de nouvelle loi (Exposé des motifs et projet de loi - EMPL) et rédiger des propositions de prise de position du SAGEFI (déterminations).\n• Participer à l’élaboration de tableaux ou de planches de présentation pour les propositions au Conseil d’Etat (PCE) ou les EMPD/L rédigés par la division et la conférence de presse du projet de budget.\n• Analyser des problématiques en lien avec des projets d'investissement (EMPD) et projets de loi (EMPL) ainsi que proposer des solutions dans le cadre de groupe de travail.\n• Mener des projets en lien avec les objectifs de la division, notamment dans le cadre du développement du système d’information financier SIF-SAP Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Yannick Sapin, Chef de la division gestion financière opérationnelle au 021 316 25 37.\n\n• Titulaire d’un·e Master/Licence en sciences économiques ou diplôme HES ou Brevet fédéral de spécialiste en finance et comptabilité\n• Diplôme fédéral d’expert-e en finance et controlling ou équivalent souhaité\n• Expérience de 8 ans en tant qu'analyste financier-ère au sein du secteur public, fiduciaire, moyenne ou grande entreprise\n• Expérience pratique dans le domaine du processus budgétaire et reporting\n• Capacité à conduire plusieurs missions en même temps et à résoudre des problématiques sensibles et complexes.\n• Excellentes facultés de rédaction\n• Maitrise des applications informatiques courantes (notamment MS Office) et expérience dans l’utilisation de SAP souhaité.\n• Résistance au stress, très bonne gestion du temps et des priorités.\n• Respect des normes et des procédures et sens des responsabilités et éthiques du service public développés.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "En tant qu'analyste financier·ère au sein de la division de la Gestion financière opérationnelle (GFO) du SAGEFI, vous jouez un rôle clé dans le pilotage financier de l'administration. À ce titre, vous êtes responsable de la coordination et du suivi du processus d'élaboration budgétaire ainsi que des prévisions financières de plusieurs départements. Grâce à votre expertise, vous contribuez à garantir la qualité des analyses financières et accompagnez les directions dans leurs prises de décision. Vous participez également à l'élaboration des positions du service sur les dossiers à enjeux financiers soumis au Conseil d'État. En tant qu'interlocuteur·trice reconnu-e, vous représentez le SAGEFI au sein de groupes de travail et de projets, notamment dans le cadre des évolutions du système d'information financier SIF-SAP. Vous travaillez sous la supervision du chef de la division GFO et collaborez avec les unités financières départementales ainsi que les responsables financiers des services. Ce contrat à durée déterminée constitue une opportunité de rejoindre un service occupant une position central dans la gestion des finances du canton. À moyen terme, des opportunités de recrutement en CDI pourraient se présenter.\n\n• Piloter la procédure budgétaire des départements et services dont l'Analyste a la responsabilité.\n• Coordonner en collaboration avec les Responsables financiers départementaux le suivi administratif et l'élaboration du budget des départements et services.\n• Analyser les écarts des versions de budget déposées par rapport aux objectifs budgétaires, préparer la synthèse à l'attention du Conseil d'Etat et proposer des pistes d’amélioration budgétaire.\n• Analyser et consolider les données des suivis mensuels et trimestriels pour établir les prévisions annuelles des départements et services.\n• Analyser les dossiers avec implications financières dans le cadre de l'exécution du budget de fonctionnement (crédits supplémentaires, reports de crédits) et rédiger des propositions de prise de position du SAGEFI (déterminations).\n• Analyser les dossiers en lien avec des projets d'investissement (Exposé des motifs et projet de décret - EMPD) ou de nouvelle loi (Exposé des motifs et projet de loi - EMPL) et rédiger des propositions de prise de position du SAGEFI (déterminations).\n• Participer à l’élaboration de tableaux ou de planches de présentation pour les propositions au Conseil d’Etat (PCE) ou les EMPD/L rédigés par la division et la conférence de presse du projet de budget.\n• Analyser des problématiques en lien avec des projets d'investissement (EMPD) et projets de loi (EMPL) ainsi que proposer des solutions dans le cadre de groupe de travail.\n• Mener des projets en lien avec les objectifs de la division, notamment dans le cadre du développement du système d’information financier SIF-SAP Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Yannick Sapin, Chef de la division gestion financière opérationnelle au 021 316 25 37.\n\n• Titulaire d’un·e Master/Licence en sciences économiques ou diplôme HES ou Brevet fédéral de spécialiste en finance et comptabilité\n• Diplôme fédéral d’expert-e en finance et controlling ou équivalent souhaité\n• Expérience de 8 ans en tant qu'analyste financier-ère au sein du secteur public, fiduciaire, moyenne ou grande entreprise\n• Expérience pratique dans le domaine du processus budgétaire et reporting\n• Capacité à conduire plusieurs missions en même temps et à résoudre des problématiques sensibles et complexes.\n• Excellentes facultés de rédaction\n• Maitrise des applications informatiques courantes (notamment MS Office) et expérience dans l’utilisation de SAP souhaité.\n• Résistance au stress, très bonne gestion du temps et des priorités.\n• Respect des normes et des procédures et sens des responsabilités et éthiques du service public développés.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "En tant qu'analyste financier·ère au sein de la division de la Gestion financière opérationnelle (GFO) du SAGEFI, vous jouez un rôle clé dans le pilotage financier de l'administration. À ce titre, vous êtes responsable de la coordination et du suivi du processus d'élaboration budgétaire ainsi que des prévisions financières de plusieurs départements. Grâce à votre expertise, vous contribuez à garantir la qualité des analyses financières et accompagnez les directions dans leurs prises de décision. Vous participez également à l'élaboration des positions du service sur les dossiers à enjeux financiers soumis au Conseil d'État. En tant qu'interlocuteur·trice reconnu-e, vous représentez le SAGEFI au sein de groupes de travail et de projets, notamment dans le cadre des évolutions du système d'information financier SIF-SAP. Vous travaillez sous la supervision du chef de la division GFO et collaborez avec les unités financières départementales ainsi que les responsables financiers des services. Ce contrat à durée déterminée constitue une opportunité de rejoindre un service occupant une position central dans la gestion des finances du canton. À moyen terme, des opportunités de recrutement en CDI pourraient se présenter.\n\n• Piloter la procédure budgétaire des départements et services dont l'Analyste a la responsabilité.\n• Coordonner en collaboration avec les Responsables financiers départementaux le suivi administratif et l'élaboration du budget des départements et services.\n• Analyser les écarts des versions de budget déposées par rapport aux objectifs budgétaires, préparer la synthèse à l'attention du Conseil d'Etat et proposer des pistes d’amélioration budgétaire.\n• Analyser et consolider les données des suivis mensuels et trimestriels pour établir les prévisions annuelles des départements et services.\n• Analyser les dossiers avec implications financières dans le cadre de l'exécution du budget de fonctionnement (crédits supplémentaires, reports de crédits) et rédiger des propositions de prise de position du SAGEFI (déterminations).\n• Analyser les dossiers en lien avec des projets d'investissement (Exposé des motifs et projet de décret - EMPD) ou de nouvelle loi (Exposé des motifs et projet de loi - EMPL) et rédiger des propositions de prise de position du SAGEFI (déterminations).\n• Participer à l’élaboration de tableaux ou de planches de présentation pour les propositions au Conseil d’Etat (PCE) ou les EMPD/L rédigés par la division et la conférence de presse du projet de budget.\n• Analyser des problématiques en lien avec des projets d'investissement (EMPD) et projets de loi (EMPL) ainsi que proposer des solutions dans le cadre de groupe de travail.\n• Mener des projets en lien avec les objectifs de la division, notamment dans le cadre du développement du système d’information financier SIF-SAP Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Yannick Sapin, Chef de la division gestion financière opérationnelle au 021 316 25 37.\n\n• Titulaire d’un·e Master/Licence en sciences économiques ou diplôme HES ou Brevet fédéral de spécialiste en finance et comptabilité\n• Diplôme fédéral d’expert-e en finance et controlling ou équivalent souhaité\n• Expérience de 8 ans en tant qu'analyste financier-ère au sein du secteur public, fiduciaire, moyenne ou grande entreprise\n• Expérience pratique dans le domaine du processus budgétaire et reporting\n• Capacité à conduire plusieurs missions en même temps et à résoudre des problématiques sensibles et complexes.\n• Excellentes facultés de rédaction\n• Maitrise des applications informatiques courantes (notamment MS Office) et expérience dans l’utilisation de SAP souhaité.\n• Résistance au stress, très bonne gestion du temps et des priorités.\n• Respect des normes et des procédures et sens des responsabilités et éthiques du service public développés.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "En tant qu'analyste financier·ère au sein de la division de la Gestion financière opérationnelle (GFO) du SAGEFI, vous jouez un rôle clé dans le pilotage financier de l'administration. À ce titre, vous êtes responsable de la coordination et du suivi du processus d'élaboration budgétaire ainsi que des prévisions financières de plusieurs départements. Grâce à votre expertise, vous contribuez à garantir la qualité des analyses financières et accompagnez les directions dans leurs prises de décision. Vous participez également à l'élaboration des positions du service sur les dossiers à enjeux financiers soumis au Conseil d'État. En tant qu'interlocuteur·trice reconnu-e, vous représentez le SAGEFI au sein de groupes de travail et de projets, notamment dans le cadre des évolutions du système d'information financier SIF-SAP. Vous travaillez sous la supervision du chef de la division GFO et collaborez avec les unités financières départementales ainsi que les responsables financiers des services. Ce contrat à durée déterminée constitue une opportunité de rejoindre un service occupant une position central dans la gestion des finances du canton. À moyen terme, des opportunités de recrutement en CDI pourraient se présenter.\n\n• Piloter la procédure budgétaire des départements et services dont l'Analyste a la responsabilité.\n• Coordonner en collaboration avec les Responsables financiers départementaux le suivi administratif et l'élaboration du budget des départements et services.\n• Analyser les écarts des versions de budget déposées par rapport aux objectifs budgétaires, préparer la synthèse à l'attention du Conseil d'Etat et proposer des pistes d’amélioration budgétaire.\n• Analyser et consolider les données des suivis mensuels et trimestriels pour établir les prévisions annuelles des départements et services.\n• Analyser les dossiers avec implications financières dans le cadre de l'exécution du budget de fonctionnement (crédits supplémentaires, reports de crédits) et rédiger des propositions de prise de position du SAGEFI (déterminations).\n• Analyser les dossiers en lien avec des projets d'investissement (Exposé des motifs et projet de décret - EMPD) ou de nouvelle loi (Exposé des motifs et projet de loi - EMPL) et rédiger des propositions de prise de position du SAGEFI (déterminations).\n• Participer à l’élaboration de tableaux ou de planches de présentation pour les propositions au Conseil d’Etat (PCE) ou les EMPD/L rédigés par la division et la conférence de presse du projet de budget.\n• Analyser des problématiques en lien avec des projets d'investissement (EMPD) et projets de loi (EMPL) ainsi que proposer des solutions dans le cadre de groupe de travail.\n• Mener des projets en lien avec les objectifs de la division, notamment dans le cadre du développement du système d’information financier SIF-SAP Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Yannick Sapin, Chef de la division gestion financière opérationnelle au 021 316 25 37.\n\n• Titulaire d’un·e Master/Licence en sciences économiques ou diplôme HES ou Brevet fédéral de spécialiste en finance et comptabilité\n• Diplôme fédéral d’expert-e en finance et controlling ou équivalent souhaité\n• Expérience de 8 ans en tant qu'analyste financier-ère au sein du secteur public, fiduciaire, moyenne ou grande entreprise\n• Expérience pratique dans le domaine du processus budgétaire et reporting\n• Capacité à conduire plusieurs missions en même temps et à résoudre des problématiques sensibles et complexes.\n• Excellentes facultés de rédaction\n• Maitrise des applications informatiques courantes (notamment MS Office) et expérience dans l’utilisation de SAP souhaité.\n• Résistance au stress, très bonne gestion du temps et des priorités.\n• Respect des normes et des procédures et sens des responsabilités et éthiques du service public développés.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "En tant qu'analyste financier·ère au sein de la division de la Gestion financière opérationnelle (GFO) du SAGEFI, vous jouez un rôle clé dans le pilotage financier de l'administration. À ce titre, vous êtes responsable de la coordination et du suivi du processus d'élaboration budgétaire ainsi que des prévisions financières de plusieurs départements. Grâce à votre expertise, vous contribuez à garantir la qualité des analyses financières et accompagnez les directions dans leurs prises de décision. Vous participez également à l'élaboration des positions du service sur les dossiers à enjeux financiers soumis au Conseil d'État. En tant qu'interlocuteur·trice reconnu-e, vous représentez le SAGEFI au sein de groupes de travail et de projets, notamment dans le cadre des évolutions du système d'information financier SIF-SAP. Vous travaillez sous la supervision du chef de la division GFO et collaborez avec les unités financières départementales ainsi que les responsables financiers des services. Ce contrat à durée déterminée constitue une opportunité de rejoindre un service occupant une position central dans la gestion des finances du canton. À moyen terme, des opportunités de recrutement en CDI pourraient se présenter.\n\n• Piloter la procédure budgétaire des départements et services dont l'Analyste a la responsabilité.\n• Coordonner en collaboration avec les Responsables financiers départementaux le suivi administratif et l'élaboration du budget des départements et services.\n• Analyser les écarts des versions de budget déposées par rapport aux objectifs budgétaires, préparer la synthèse à l'attention du Conseil d'Etat et proposer des pistes d’amélioration budgétaire.\n• Analyser et consolider les données des suivis mensuels et trimestriels pour établir les prévisions annuelles des départements et services.\n• Analyser les dossiers avec implications financières dans le cadre de l'exécution du budget de fonctionnement (crédits supplémentaires, reports de crédits) et rédiger des propositions de prise de position du SAGEFI (déterminations).\n• Analyser les dossiers en lien avec des projets d'investissement (Exposé des motifs et projet de décret - EMPD) ou de nouvelle loi (Exposé des motifs et projet de loi - EMPL) et rédiger des propositions de prise de position du SAGEFI (déterminations).\n• Participer à l’élaboration de tableaux ou de planches de présentation pour les propositions au Conseil d’Etat (PCE) ou les EMPD/L rédigés par la division et la conférence de presse du projet de budget.\n• Analyser des problématiques en lien avec des projets d'investissement (EMPD) et projets de loi (EMPL) ainsi que proposer des solutions dans le cadre de groupe de travail.\n• Mener des projets en lien avec les objectifs de la division, notamment dans le cadre du développement du système d’information financier SIF-SAP Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Yannick Sapin, Chef de la division gestion financière opérationnelle au 021 316 25 37.\n\n• Titulaire d’un·e Master/Licence en sciences économiques ou diplôme HES ou Brevet fédéral de spécialiste en finance et comptabilité\n• Diplôme fédéral d’expert-e en finance et controlling ou équivalent souhaité\n• Expérience de 8 ans en tant qu'analyste financier-ère au sein du secteur public, fiduciaire, moyenne ou grande entreprise\n• Expérience pratique dans le domaine du processus budgétaire et reporting\n• Capacité à conduire plusieurs missions en même temps et à résoudre des problématiques sensibles et complexes.\n• Excellentes facultés de rédaction\n• Maitrise des applications informatiques courantes (notamment MS Office) et expérience dans l’utilisation de SAP souhaité.\n• Résistance au stress, très bonne gestion du temps et des priorités.\n• Respect des normes et des procédures et sens des responsabilités et éthiques du service public développés.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5593",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-08T11:27:53.815Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1000",
+      "streetAddress": "Place du Château 1",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5593",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.864Z"
+    },
+    {
+      "id": "etat-de-vaud-5590",
+      "slug": "secretaire-de-direction-etat-de-vaud-renens-vd",
+      "slugByLocale": {
+        "fr": "secretaire-de-direction-etat-de-vaud-renens-vd",
+        "it": "secretaire-de-direction-etat-de-vaud-renens-vd",
+        "en": "secretaire-de-direction-etat-de-vaud-renens-vd",
+        "de": "secretaire-de-direction-etat-de-vaud-renens-vd"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Secrétaire de direction",
+      "titleByLocale": {
+        "fr": "Secrétaire de direction",
+        "it": "Secrétaire de direction",
+        "en": "Secrétaire de direction",
+        "de": "Secrétaire de direction"
+      },
+      "description": "La Direction générale de l’enfance et de la jeunesse (DGEJ) recherche son·sa nouveau·lle secrétaire de direction afin de compléter son équipe au sein de la Direction et de garantir le bon fonctionnement du secrétariat central du service.\n\n• Assurer le fonctionnement du secrétariat de la Direction en gérant les courriers, les courriels et les agendas selon les priorités et en garantissant le lien administratif avec l’ensemble du service ;\n• Gérer le suivi administratif et la coordination de dossiers du service selon les instructions reçues par la Direction, notamment les situations urgentes, la préparation des dossiers à son attention et les aspects logistiques liés aux archives ;\n• Conduire et coordonner l’équipe du secrétariat central du service en favorisant une dynamique d’équipe et une collaboration sereine et efficace ;\n• Coordonner et soutenir l'équipe du secrétariat central dans la dématérialisation des documents entrants et sortants du service via le système d'information. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Laureline Gross, Adjointe à la Responsable RH, au 021 316 10 74.\n\n• CFC employé·e de commerce ou titre jugé équivalent ;\n• Formation d'assistant·e de Direction ou brevet fédéral, souhaité ;\n• Formation complémentaire en management et gestion d'équipe, un atout ;\n• Expérience professionnelle de 5 ans en qualité de secrétaire de direction ou dans la gestion de dossiers complexes ;\n• Maîtrise de soi et gestion du stress ;\n• Bonne organisation et gestion des priorités ;\n• Capacité à gérer des conflits au sein d’une équipe ;\n• Excellente orthographe et aisance rédactionnelle ;\n• Maîtrise avancée des outils bureautiques Office ; La communication des éventuels antécédents judiciaires est requise pour ce poste.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "La Direction générale de l’enfance et de la jeunesse (DGEJ) recherche son·sa nouveau·lle secrétaire de direction afin de compléter son équipe au sein de la Direction et de garantir le bon fonctionnement du secrétariat central du service.\n\n• Assurer le fonctionnement du secrétariat de la Direction en gérant les courriers, les courriels et les agendas selon les priorités et en garantissant le lien administratif avec l’ensemble du service ;\n• Gérer le suivi administratif et la coordination de dossiers du service selon les instructions reçues par la Direction, notamment les situations urgentes, la préparation des dossiers à son attention et les aspects logistiques liés aux archives ;\n• Conduire et coordonner l’équipe du secrétariat central du service en favorisant une dynamique d’équipe et une collaboration sereine et efficace ;\n• Coordonner et soutenir l'équipe du secrétariat central dans la dématérialisation des documents entrants et sortants du service via le système d'information. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Laureline Gross, Adjointe à la Responsable RH, au 021 316 10 74.\n\n• CFC employé·e de commerce ou titre jugé équivalent ;\n• Formation d'assistant·e de Direction ou brevet fédéral, souhaité ;\n• Formation complémentaire en management et gestion d'équipe, un atout ;\n• Expérience professionnelle de 5 ans en qualité de secrétaire de direction ou dans la gestion de dossiers complexes ;\n• Maîtrise de soi et gestion du stress ;\n• Bonne organisation et gestion des priorités ;\n• Capacité à gérer des conflits au sein d’une équipe ;\n• Excellente orthographe et aisance rédactionnelle ;\n• Maîtrise avancée des outils bureautiques Office ; La communication des éventuels antécédents judiciaires est requise pour ce poste.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "La Direction générale de l’enfance et de la jeunesse (DGEJ) recherche son·sa nouveau·lle secrétaire de direction afin de compléter son équipe au sein de la Direction et de garantir le bon fonctionnement du secrétariat central du service.\n\n• Assurer le fonctionnement du secrétariat de la Direction en gérant les courriers, les courriels et les agendas selon les priorités et en garantissant le lien administratif avec l’ensemble du service ;\n• Gérer le suivi administratif et la coordination de dossiers du service selon les instructions reçues par la Direction, notamment les situations urgentes, la préparation des dossiers à son attention et les aspects logistiques liés aux archives ;\n• Conduire et coordonner l’équipe du secrétariat central du service en favorisant une dynamique d’équipe et une collaboration sereine et efficace ;\n• Coordonner et soutenir l'équipe du secrétariat central dans la dématérialisation des documents entrants et sortants du service via le système d'information. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Laureline Gross, Adjointe à la Responsable RH, au 021 316 10 74.\n\n• CFC employé·e de commerce ou titre jugé équivalent ;\n• Formation d'assistant·e de Direction ou brevet fédéral, souhaité ;\n• Formation complémentaire en management et gestion d'équipe, un atout ;\n• Expérience professionnelle de 5 ans en qualité de secrétaire de direction ou dans la gestion de dossiers complexes ;\n• Maîtrise de soi et gestion du stress ;\n• Bonne organisation et gestion des priorités ;\n• Capacité à gérer des conflits au sein d’une équipe ;\n• Excellente orthographe et aisance rédactionnelle ;\n• Maîtrise avancée des outils bureautiques Office ; La communication des éventuels antécédents judiciaires est requise pour ce poste.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "La Direction générale de l’enfance et de la jeunesse (DGEJ) recherche son·sa nouveau·lle secrétaire de direction afin de compléter son équipe au sein de la Direction et de garantir le bon fonctionnement du secrétariat central du service.\n\n• Assurer le fonctionnement du secrétariat de la Direction en gérant les courriers, les courriels et les agendas selon les priorités et en garantissant le lien administratif avec l’ensemble du service ;\n• Gérer le suivi administratif et la coordination de dossiers du service selon les instructions reçues par la Direction, notamment les situations urgentes, la préparation des dossiers à son attention et les aspects logistiques liés aux archives ;\n• Conduire et coordonner l’équipe du secrétariat central du service en favorisant une dynamique d’équipe et une collaboration sereine et efficace ;\n• Coordonner et soutenir l'équipe du secrétariat central dans la dématérialisation des documents entrants et sortants du service via le système d'information. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Laureline Gross, Adjointe à la Responsable RH, au 021 316 10 74.\n\n• CFC employé·e de commerce ou titre jugé équivalent ;\n• Formation d'assistant·e de Direction ou brevet fédéral, souhaité ;\n• Formation complémentaire en management et gestion d'équipe, un atout ;\n• Expérience professionnelle de 5 ans en qualité de secrétaire de direction ou dans la gestion de dossiers complexes ;\n• Maîtrise de soi et gestion du stress ;\n• Bonne organisation et gestion des priorités ;\n• Capacité à gérer des conflits au sein d’une équipe ;\n• Excellente orthographe et aisance rédactionnelle ;\n• Maîtrise avancée des outils bureautiques Office ; La communication des éventuels antécédents judiciaires est requise pour ce poste.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "La Direction générale de l’enfance et de la jeunesse (DGEJ) recherche son·sa nouveau·lle secrétaire de direction afin de compléter son équipe au sein de la Direction et de garantir le bon fonctionnement du secrétariat central du service.\n\n• Assurer le fonctionnement du secrétariat de la Direction en gérant les courriers, les courriels et les agendas selon les priorités et en garantissant le lien administratif avec l’ensemble du service ;\n• Gérer le suivi administratif et la coordination de dossiers du service selon les instructions reçues par la Direction, notamment les situations urgentes, la préparation des dossiers à son attention et les aspects logistiques liés aux archives ;\n• Conduire et coordonner l’équipe du secrétariat central du service en favorisant une dynamique d’équipe et une collaboration sereine et efficace ;\n• Coordonner et soutenir l'équipe du secrétariat central dans la dématérialisation des documents entrants et sortants du service via le système d'information. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Laureline Gross, Adjointe à la Responsable RH, au 021 316 10 74.\n\n• CFC employé·e de commerce ou titre jugé équivalent ;\n• Formation d'assistant·e de Direction ou brevet fédéral, souhaité ;\n• Formation complémentaire en management et gestion d'équipe, un atout ;\n• Expérience professionnelle de 5 ans en qualité de secrétaire de direction ou dans la gestion de dossiers complexes ;\n• Maîtrise de soi et gestion du stress ;\n• Bonne organisation et gestion des priorités ;\n• Capacité à gérer des conflits au sein d’une équipe ;\n• Excellente orthographe et aisance rédactionnelle ;\n• Maîtrise avancée des outils bureautiques Office ; La communication des éventuels antécédents judiciaires est requise pour ce poste.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Renens VD",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5590",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-08T11:27:53.329Z",
+      "addressLocality": "Renens VD",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1020",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5590",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.864Z"
+    },
+    {
+      "id": "etat-de-vaud-5566",
+      "slug": "juriste-au-support-juridique-etat-de-vaud-lausanne",
+      "slugByLocale": {
+        "fr": "juriste-au-support-juridique-etat-de-vaud-lausanne",
+        "it": "juriste-au-support-juridique-etat-de-vaud-lausanne",
+        "en": "juriste-au-support-juridique-etat-de-vaud-lausanne",
+        "de": "juriste-au-support-juridique-etat-de-vaud-lausanne"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Juriste au support juridique",
+      "titleByLocale": {
+        "fr": "Juriste au support juridique",
+        "en": "Juriste au support juridique",
+        "it": "Juriste au support juridique",
+        "de": "Juriste au support juridique"
+      },
+      "description": "Nous recherchons une personne afin de renforcer notre équipe du support juridique. En qualité de juriste, vous assistez et conseillez activement les curateurs·trices professionnels·les dans leur mission principale qui est de protéger les intérêts des personnes majeures et mineures lorsque celles-ci sont en difficulté et qu'elles ont besoin d'aide. Vous contribuez ainsi, à la perspective d'une vie digne et autonome pour toutes et tous, en participant ainsi à la justice sociale.\n\n• Assistance et conseil en matière juridique aux curateurs·trices professionnels·les dans tous les domaines du droit.\n• Gestion des dossiers de successions et de ventes immobilières des bénéficiaires.\n• Analyse des situations juridiques particulières et comparutions devant les instances judiciaires.\n• Contribution à la constitution du référentiel juridique du service et à la formation continue juridique des curateurs·trices professionnels·les.\n• Déplacements pour les permanences juridiques dans les différents sites régionaux du service.\n• Participation à des formations continues utiles au maintien des compétences métiers. Pour de plus amples informations, veuillez consulter le cahier des charges du poste. En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Ermelinda Di Palma, cheffe du support juridique, au 021 316 70 33.\n\n• Master en droit\n• 5 ans d’expérience professionnelle dans le domaine juridique ou auprès d'une instance judiciaire.\n• Connaissances approfondies du droit de la protection de l'adulte et de l'enfant ainsi que des assurances sociales.\n• Connaissances en droit des successions et des ventes immobilières.\n• Compétences en droit des sociétés et maîtrise de l'italien, un atout.\n• Rigueur juridique et sens de l'organisation.\n• Excellentes capacités d'expression orales et écrites.\n• Autonomie, résistance au stress, sens des responsabilités et des priorités.\n• Ouverture d’esprit, écoute, flexibilité, grande capacité d’adaptation.\n• La communication d’éventuels antécédents judiciaires ainsi que d’un extrait de l’Office des poursuites est requise pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "Nous recherchons une personne afin de renforcer notre équipe du support juridique. En qualité de juriste, vous assistez et conseillez activement les curateurs·trices professionnels·les dans leur mission principale qui est de protéger les intérêts des personnes majeures et mineures lorsque celles-ci sont en difficulté et qu'elles ont besoin d'aide. Vous contribuez ainsi, à la perspective d'une vie digne et autonome pour toutes et tous, en participant ainsi à la justice sociale.\n\n• Assistance et conseil en matière juridique aux curateurs·trices professionnels·les dans tous les domaines du droit.\n• Gestion des dossiers de successions et de ventes immobilières des bénéficiaires.\n• Analyse des situations juridiques particulières et comparutions devant les instances judiciaires.\n• Contribution à la constitution du référentiel juridique du service et à la formation continue juridique des curateurs·trices professionnels·les.\n• Déplacements pour les permanences juridiques dans les différents sites régionaux du service.\n• Participation à des formations continues utiles au maintien des compétences métiers. Pour de plus amples informations, veuillez consulter le cahier des charges du poste. En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Ermelinda Di Palma, cheffe du support juridique, au 021 316 70 33.\n\n• Master en droit\n• 5 ans d’expérience professionnelle dans le domaine juridique ou auprès d'une instance judiciaire.\n• Connaissances approfondies du droit de la protection de l'adulte et de l'enfant ainsi que des assurances sociales.\n• Connaissances en droit des successions et des ventes immobilières.\n• Compétences en droit des sociétés et maîtrise de l'italien, un atout.\n• Rigueur juridique et sens de l'organisation.\n• Excellentes capacités d'expression orales et écrites.\n• Autonomie, résistance au stress, sens des responsabilités et des priorités.\n• Ouverture d’esprit, écoute, flexibilité, grande capacité d’adaptation.\n• La communication d’éventuels antécédents judiciaires ainsi que d’un extrait de l’Office des poursuites est requise pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "Nous recherchons une personne afin de renforcer notre équipe du support juridique. En qualité de juriste, vous assistez et conseillez activement les curateurs·trices professionnels·les dans leur mission principale qui est de protéger les intérêts des personnes majeures et mineures lorsque celles-ci sont en difficulté et qu'elles ont besoin d'aide. Vous contribuez ainsi, à la perspective d'une vie digne et autonome pour toutes et tous, en participant ainsi à la justice sociale.\n\n• Assistance et conseil en matière juridique aux curateurs·trices professionnels·les dans tous les domaines du droit.\n• Gestion des dossiers de successions et de ventes immobilières des bénéficiaires.\n• Analyse des situations juridiques particulières et comparutions devant les instances judiciaires.\n• Contribution à la constitution du référentiel juridique du service et à la formation continue juridique des curateurs·trices professionnels·les.\n• Déplacements pour les permanences juridiques dans les différents sites régionaux du service.\n• Participation à des formations continues utiles au maintien des compétences métiers. Pour de plus amples informations, veuillez consulter le cahier des charges du poste. En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Ermelinda Di Palma, cheffe du support juridique, au 021 316 70 33.\n\n• Master en droit\n• 5 ans d’expérience professionnelle dans le domaine juridique ou auprès d'une instance judiciaire.\n• Connaissances approfondies du droit de la protection de l'adulte et de l'enfant ainsi que des assurances sociales.\n• Connaissances en droit des successions et des ventes immobilières.\n• Compétences en droit des sociétés et maîtrise de l'italien, un atout.\n• Rigueur juridique et sens de l'organisation.\n• Excellentes capacités d'expression orales et écrites.\n• Autonomie, résistance au stress, sens des responsabilités et des priorités.\n• Ouverture d’esprit, écoute, flexibilité, grande capacité d’adaptation.\n• La communication d’éventuels antécédents judiciaires ainsi que d’un extrait de l’Office des poursuites est requise pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "Nous recherchons une personne afin de renforcer notre équipe du support juridique. En qualité de juriste, vous assistez et conseillez activement les curateurs·trices professionnels·les dans leur mission principale qui est de protéger les intérêts des personnes majeures et mineures lorsque celles-ci sont en difficulté et qu'elles ont besoin d'aide. Vous contribuez ainsi, à la perspective d'une vie digne et autonome pour toutes et tous, en participant ainsi à la justice sociale.\n\n• Assistance et conseil en matière juridique aux curateurs·trices professionnels·les dans tous les domaines du droit.\n• Gestion des dossiers de successions et de ventes immobilières des bénéficiaires.\n• Analyse des situations juridiques particulières et comparutions devant les instances judiciaires.\n• Contribution à la constitution du référentiel juridique du service et à la formation continue juridique des curateurs·trices professionnels·les.\n• Déplacements pour les permanences juridiques dans les différents sites régionaux du service.\n• Participation à des formations continues utiles au maintien des compétences métiers. Pour de plus amples informations, veuillez consulter le cahier des charges du poste. En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Ermelinda Di Palma, cheffe du support juridique, au 021 316 70 33.\n\n• Master en droit\n• 5 ans d’expérience professionnelle dans le domaine juridique ou auprès d'une instance judiciaire.\n• Connaissances approfondies du droit de la protection de l'adulte et de l'enfant ainsi que des assurances sociales.\n• Connaissances en droit des successions et des ventes immobilières.\n• Compétences en droit des sociétés et maîtrise de l'italien, un atout.\n• Rigueur juridique et sens de l'organisation.\n• Excellentes capacités d'expression orales et écrites.\n• Autonomie, résistance au stress, sens des responsabilités et des priorités.\n• Ouverture d’esprit, écoute, flexibilité, grande capacité d’adaptation.\n• La communication d’éventuels antécédents judiciaires ainsi que d’un extrait de l’Office des poursuites est requise pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "Nous recherchons une personne afin de renforcer notre équipe du support juridique. En qualité de juriste, vous assistez et conseillez activement les curateurs·trices professionnels·les dans leur mission principale qui est de protéger les intérêts des personnes majeures et mineures lorsque celles-ci sont en difficulté et qu'elles ont besoin d'aide. Vous contribuez ainsi, à la perspective d'une vie digne et autonome pour toutes et tous, en participant ainsi à la justice sociale.\n\n• Assistance et conseil en matière juridique aux curateurs·trices professionnels·les dans tous les domaines du droit.\n• Gestion des dossiers de successions et de ventes immobilières des bénéficiaires.\n• Analyse des situations juridiques particulières et comparutions devant les instances judiciaires.\n• Contribution à la constitution du référentiel juridique du service et à la formation continue juridique des curateurs·trices professionnels·les.\n• Déplacements pour les permanences juridiques dans les différents sites régionaux du service.\n• Participation à des formations continues utiles au maintien des compétences métiers. Pour de plus amples informations, veuillez consulter le cahier des charges du poste. En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Ermelinda Di Palma, cheffe du support juridique, au 021 316 70 33.\n\n• Master en droit\n• 5 ans d’expérience professionnelle dans le domaine juridique ou auprès d'une instance judiciaire.\n• Connaissances approfondies du droit de la protection de l'adulte et de l'enfant ainsi que des assurances sociales.\n• Connaissances en droit des successions et des ventes immobilières.\n• Compétences en droit des sociétés et maîtrise de l'italien, un atout.\n• Rigueur juridique et sens de l'organisation.\n• Excellentes capacités d'expression orales et écrites.\n• Autonomie, résistance au stress, sens des responsabilités et des priorités.\n• Ouverture d’esprit, écoute, flexibilité, grande capacité d’adaptation.\n• La communication d’éventuels antécédents judiciaires ainsi que d’un extrait de l’Office des poursuites est requise pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5566",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-08T11:27:52.849Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1000",
+      "streetAddress": "Place du Château 1",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5566",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.864Z"
+    },
+    {
+      "id": "etat-de-vaud-5318",
+      "slug": "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-vevey",
+      "slugByLocale": {
+        "fr": "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-vevey",
+        "it": "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-vevey",
+        "en": "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-vevey",
+        "de": "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-vevey"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Chef·fe de groupe de la protection de l'adulte",
+      "titleByLocale": {
+        "fr": "Chef·fe de groupe de la protection de l'adulte",
+        "it": "Chef·fe de groupe de la protection de l'adulte",
+        "en": "Chef·fe de groupe de la protection de l'adulte",
+        "de": "Chef·fe de groupe de la protection de l'adulte"
+      },
+      "description": "Afin de répondre à l'augmentation du nombre de mandats confiés au service et d'accompagner le développement de nos prestations, nous recherchons un·e cadre motivé·e à s'engager, au sein de notre antenne de Vevey. En tant que chef·fe de groupe dans le domaine de protection de l'adulte, vous assurez la conduite opérationnelle d’un groupe de curateurs·trices professionnels·les. Votre expertise de la curatelle d'adulte, ainsi que vos compétences en management vous permettent d'assurer un encadrement de votre équipe proactif, bienveillant et efficient et la délivrance de prestations conformes, diligentes et de qualité. Vous contribuez activement au bon fonctionnement du domaine de la protection de l’adulte et collaborez étroitement avec la hiérarchie, les autorités judiciaires et les partenaires du réseau.\n\n• Encadrer, organiser et coordonner les activités d’un groupe de curateurs·trices professionnels·les.\n• Planifier, répartir et contrôler la gestion des mandats de protection de l’adulte confiés au groupe.\n• Garantir le respect du cadre légal, réglementaire et des procédures internes.\n• Apporter un appui métier dans les situations complexes et superviser les dossiers, rapports et comptes transmis aux autorités judiciaires.\n• Animer les colloques du groupe et assurer une communication efficace.\n• Assurer la gestion RH de son équipe, en collaboration avec l'unité RH du service.\n• Assumer personnellement certains mandats de protection de l’adulte, dans le respect de l’autonomie et des droits des personnes sous curatelle. Pour de plus amples informations, veuillez consulter le cahier des charges . En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Juliana Salinas, Cheffe de région Est de la protection de l’adulte, Tél, +41 (0)21 316 66 71.\n\n• Bachelor HES ou universitaire.\n• Module 1 du CAS en curatelles d’adultes.\n• Formation en management ou en conduite d'équipe.\n• 3 ans d'expérience dans le travail social et idéalement dans la conduite d’une entité sociale.\n• Leadership personnel, loyauté, culture du dialogue et du feedback, courage managérial, agilité organisationnelle, gestion des risques, accompagnement au changement.\n• Solides connaissances en assurances sociales, en droit de la protection de l’adulte et en gestion financière.\n• Maîtrise des techniques d’entretien dans des situations difficiles ou de réseaux complexes.\n• Compétences pédagogiques : capacité à transmettre les savoirs et à accompagner les professionnel·le·s.\n• Permis de conduire et véhicule personnel.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "Afin de répondre à l'augmentation du nombre de mandats confiés au service et d'accompagner le développement de nos prestations, nous recherchons un·e cadre motivé·e à s'engager, au sein de notre antenne de Vevey. En tant que chef·fe de groupe dans le domaine de protection de l'adulte, vous assurez la conduite opérationnelle d’un groupe de curateurs·trices professionnels·les. Votre expertise de la curatelle d'adulte, ainsi que vos compétences en management vous permettent d'assurer un encadrement de votre équipe proactif, bienveillant et efficient et la délivrance de prestations conformes, diligentes et de qualité. Vous contribuez activement au bon fonctionnement du domaine de la protection de l’adulte et collaborez étroitement avec la hiérarchie, les autorités judiciaires et les partenaires du réseau.\n\n• Encadrer, organiser et coordonner les activités d’un groupe de curateurs·trices professionnels·les.\n• Planifier, répartir et contrôler la gestion des mandats de protection de l’adulte confiés au groupe.\n• Garantir le respect du cadre légal, réglementaire et des procédures internes.\n• Apporter un appui métier dans les situations complexes et superviser les dossiers, rapports et comptes transmis aux autorités judiciaires.\n• Animer les colloques du groupe et assurer une communication efficace.\n• Assurer la gestion RH de son équipe, en collaboration avec l'unité RH du service.\n• Assumer personnellement certains mandats de protection de l’adulte, dans le respect de l’autonomie et des droits des personnes sous curatelle. Pour de plus amples informations, veuillez consulter le cahier des charges . En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Juliana Salinas, Cheffe de région Est de la protection de l’adulte, Tél, +41 (0)21 316 66 71.\n\n• Bachelor HES ou universitaire.\n• Module 1 du CAS en curatelles d’adultes.\n• Formation en management ou en conduite d'équipe.\n• 3 ans d'expérience dans le travail social et idéalement dans la conduite d’une entité sociale.\n• Leadership personnel, loyauté, culture du dialogue et du feedback, courage managérial, agilité organisationnelle, gestion des risques, accompagnement au changement.\n• Solides connaissances en assurances sociales, en droit de la protection de l’adulte et en gestion financière.\n• Maîtrise des techniques d’entretien dans des situations difficiles ou de réseaux complexes.\n• Compétences pédagogiques : capacité à transmettre les savoirs et à accompagner les professionnel·le·s.\n• Permis de conduire et véhicule personnel.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "Afin de répondre à l'augmentation du nombre de mandats confiés au service et d'accompagner le développement de nos prestations, nous recherchons un·e cadre motivé·e à s'engager, au sein de notre antenne de Vevey. En tant que chef·fe de groupe dans le domaine de protection de l'adulte, vous assurez la conduite opérationnelle d’un groupe de curateurs·trices professionnels·les. Votre expertise de la curatelle d'adulte, ainsi que vos compétences en management vous permettent d'assurer un encadrement de votre équipe proactif, bienveillant et efficient et la délivrance de prestations conformes, diligentes et de qualité. Vous contribuez activement au bon fonctionnement du domaine de la protection de l’adulte et collaborez étroitement avec la hiérarchie, les autorités judiciaires et les partenaires du réseau.\n\n• Encadrer, organiser et coordonner les activités d’un groupe de curateurs·trices professionnels·les.\n• Planifier, répartir et contrôler la gestion des mandats de protection de l’adulte confiés au groupe.\n• Garantir le respect du cadre légal, réglementaire et des procédures internes.\n• Apporter un appui métier dans les situations complexes et superviser les dossiers, rapports et comptes transmis aux autorités judiciaires.\n• Animer les colloques du groupe et assurer une communication efficace.\n• Assurer la gestion RH de son équipe, en collaboration avec l'unité RH du service.\n• Assumer personnellement certains mandats de protection de l’adulte, dans le respect de l’autonomie et des droits des personnes sous curatelle. Pour de plus amples informations, veuillez consulter le cahier des charges . En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Juliana Salinas, Cheffe de région Est de la protection de l’adulte, Tél, +41 (0)21 316 66 71.\n\n• Bachelor HES ou universitaire.\n• Module 1 du CAS en curatelles d’adultes.\n• Formation en management ou en conduite d'équipe.\n• 3 ans d'expérience dans le travail social et idéalement dans la conduite d’une entité sociale.\n• Leadership personnel, loyauté, culture du dialogue et du feedback, courage managérial, agilité organisationnelle, gestion des risques, accompagnement au changement.\n• Solides connaissances en assurances sociales, en droit de la protection de l’adulte et en gestion financière.\n• Maîtrise des techniques d’entretien dans des situations difficiles ou de réseaux complexes.\n• Compétences pédagogiques : capacité à transmettre les savoirs et à accompagner les professionnel·le·s.\n• Permis de conduire et véhicule personnel.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "Afin de répondre à l'augmentation du nombre de mandats confiés au service et d'accompagner le développement de nos prestations, nous recherchons un·e cadre motivé·e à s'engager, au sein de notre antenne de Vevey. En tant que chef·fe de groupe dans le domaine de protection de l'adulte, vous assurez la conduite opérationnelle d’un groupe de curateurs·trices professionnels·les. Votre expertise de la curatelle d'adulte, ainsi que vos compétences en management vous permettent d'assurer un encadrement de votre équipe proactif, bienveillant et efficient et la délivrance de prestations conformes, diligentes et de qualité. Vous contribuez activement au bon fonctionnement du domaine de la protection de l’adulte et collaborez étroitement avec la hiérarchie, les autorités judiciaires et les partenaires du réseau.\n\n• Encadrer, organiser et coordonner les activités d’un groupe de curateurs·trices professionnels·les.\n• Planifier, répartir et contrôler la gestion des mandats de protection de l’adulte confiés au groupe.\n• Garantir le respect du cadre légal, réglementaire et des procédures internes.\n• Apporter un appui métier dans les situations complexes et superviser les dossiers, rapports et comptes transmis aux autorités judiciaires.\n• Animer les colloques du groupe et assurer une communication efficace.\n• Assurer la gestion RH de son équipe, en collaboration avec l'unité RH du service.\n• Assumer personnellement certains mandats de protection de l’adulte, dans le respect de l’autonomie et des droits des personnes sous curatelle. Pour de plus amples informations, veuillez consulter le cahier des charges . En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Juliana Salinas, Cheffe de région Est de la protection de l’adulte, Tél, +41 (0)21 316 66 71.\n\n• Bachelor HES ou universitaire.\n• Module 1 du CAS en curatelles d’adultes.\n• Formation en management ou en conduite d'équipe.\n• 3 ans d'expérience dans le travail social et idéalement dans la conduite d’une entité sociale.\n• Leadership personnel, loyauté, culture du dialogue et du feedback, courage managérial, agilité organisationnelle, gestion des risques, accompagnement au changement.\n• Solides connaissances en assurances sociales, en droit de la protection de l’adulte et en gestion financière.\n• Maîtrise des techniques d’entretien dans des situations difficiles ou de réseaux complexes.\n• Compétences pédagogiques : capacité à transmettre les savoirs et à accompagner les professionnel·le·s.\n• Permis de conduire et véhicule personnel.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "Afin de répondre à l'augmentation du nombre de mandats confiés au service et d'accompagner le développement de nos prestations, nous recherchons un·e cadre motivé·e à s'engager, au sein de notre antenne de Vevey. En tant que chef·fe de groupe dans le domaine de protection de l'adulte, vous assurez la conduite opérationnelle d’un groupe de curateurs·trices professionnels·les. Votre expertise de la curatelle d'adulte, ainsi que vos compétences en management vous permettent d'assurer un encadrement de votre équipe proactif, bienveillant et efficient et la délivrance de prestations conformes, diligentes et de qualité. Vous contribuez activement au bon fonctionnement du domaine de la protection de l’adulte et collaborez étroitement avec la hiérarchie, les autorités judiciaires et les partenaires du réseau.\n\n• Encadrer, organiser et coordonner les activités d’un groupe de curateurs·trices professionnels·les.\n• Planifier, répartir et contrôler la gestion des mandats de protection de l’adulte confiés au groupe.\n• Garantir le respect du cadre légal, réglementaire et des procédures internes.\n• Apporter un appui métier dans les situations complexes et superviser les dossiers, rapports et comptes transmis aux autorités judiciaires.\n• Animer les colloques du groupe et assurer une communication efficace.\n• Assurer la gestion RH de son équipe, en collaboration avec l'unité RH du service.\n• Assumer personnellement certains mandats de protection de l’adulte, dans le respect de l’autonomie et des droits des personnes sous curatelle. Pour de plus amples informations, veuillez consulter le cahier des charges . En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Juliana Salinas, Cheffe de région Est de la protection de l’adulte, Tél, +41 (0)21 316 66 71.\n\n• Bachelor HES ou universitaire.\n• Module 1 du CAS en curatelles d’adultes.\n• Formation en management ou en conduite d'équipe.\n• 3 ans d'expérience dans le travail social et idéalement dans la conduite d’une entité sociale.\n• Leadership personnel, loyauté, culture du dialogue et du feedback, courage managérial, agilité organisationnelle, gestion des risques, accompagnement au changement.\n• Solides connaissances en assurances sociales, en droit de la protection de l’adulte et en gestion financière.\n• Maîtrise des techniques d’entretien dans des situations difficiles ou de réseaux complexes.\n• Compétences pédagogiques : capacité à transmettre les savoirs et à accompagner les professionnel·le·s.\n• Permis de conduire et véhicule personnel.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Vevey",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5318",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-08T11:27:52.142Z",
+      "addressLocality": "Vevey",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1800",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5318",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.864Z"
     },
     {
       "id": "etat-de-vaud-5496",
@@ -2515,7 +2865,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
