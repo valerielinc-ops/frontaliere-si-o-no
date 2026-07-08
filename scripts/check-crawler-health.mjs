@@ -326,6 +326,16 @@ const EMPTY_OK_CRAWLERS = new Set([
   'zucchetti-switzerland',
   // e-lavoro.ch/node/104: "Purtroppo non ci sono offerte di lavoro".
   'has-healthcare',
+  // Bally (Swiss luxury leather-goods house, HQ Caslano TI): the crawler was
+  // fixed (#3797) to pull from the real source — the SmartRecruiters tenant
+  // "Bally" (https://jobs.smartrecruiters.com/Bally), replacing the 4 dead
+  // bally.com/en-ch/careers.html-style URLs the old scraper 404'd against.
+  // Verified live 2026-07-08: the public API
+  // (https://api.smartrecruiters.com/v1/companies/Bally/postings) returns
+  // "totalFound":0 worldwide, not just for Switzerland — Bally genuinely has
+  // no open postings on this ATS right now. Parser is healthy and will pick
+  // up real jobs (CH-filtered) the moment any are published.
+  'bally',
 ]);
 
 /** Read JSON file, return null on any error. */
