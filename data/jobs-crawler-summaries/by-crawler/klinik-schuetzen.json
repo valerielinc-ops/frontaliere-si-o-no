@@ -1,27 +1,28 @@
 {
   "key": "klinik-schuetzen",
   "label": "Klinik Schützen Rheinfelden",
-  "generatedAt": "2026-07-07T22:12:52.273Z",
+  "generatedAt": "2026-07-08T11:11:21.333Z",
   "total": 9,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5458,
-  "avgDurationMs": 5458,
+  "unchangedCount": 1,
+  "durationMs": 4513,
+  "avgDurationMs": 4513,
   "durationHistory": [
-    5458
+    4513
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "klinik-schuetzen-56a63b5ba710",
-      "slug": "dipl-sozialarbeiterin-sozialarbeiter-40-klinik-schuetzen-rheinfelden",
+      "slug": "assistente-sociale-dipl-assistente-sociale-40-klinik-schutzen-rheinfelden-rheinfelden",
       "company": "Klinik Schützen Rheinfelden",
       "companyKey": "klinik-schuetzen",
       "companyDomain": "klinikschuetzen.ch",
       "title": "Dipl. Sozialarbeiterin / Sozialarbeiter (40%)",
-      "needsRetranslation": false,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-RH3PZ026",
@@ -43,16 +44,16 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-RH3PZ026",
       "firstSeenAt": "2026-05-19T12:20:46.882Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 85,
+      "crawlerMissStreak": 2,
+      "salaryMin": 24800,
+      "salaryMax": 37600,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
