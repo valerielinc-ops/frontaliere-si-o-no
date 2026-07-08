@@ -43408,10 +43408,10 @@
   },
   "TI::fr::macon-charpentier-pemsa-bellinzona": {
     "winnerJobIdentifier": "pemsa-88b61ebb2f35",
-    "winnerCanonical": "murder-pemsa-locarno",
+    "winnerCanonical": "macon-charpentier-pemsa-locarno",
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-08T00:00:00.000Z",
-    "score": 0.1667,
+    "score": 0.6,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -43426,10 +43426,10 @@
   },
   "TI::fr::maurer-zimmerer-pemsa-bellinzona": {
     "winnerJobIdentifier": "pemsa-88b61ebb2f35",
-    "winnerCanonical": "murder-pemsa-locarno",
+    "winnerCanonical": "macon-charpentier-pemsa-locarno",
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-08T00:00:00.000Z",
-    "score": 0.1667,
+    "score": 0.1429,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -51119,6 +51119,24 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::de::dipl-professionnels-des-soins-infirmiers-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-puk-zuerich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.1111,
+    "candidatesCount": 4,
+    "canton": "ZH"
+  },
+  "ZH::de::dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-c1-psychiatrische-universitatsklinik-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-puk-zuerich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.125,
+    "candidatesCount": 5,
+    "canton": "ZH"
+  },
   "ZH::de::dipl-specialista-hf-fh-con-guida-a-goccia-80-100-spitex-stafa-stafa": {
     "winnerJobIdentifier": "spitex-ch-0600c7564978",
     "winnerCanonical": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
@@ -55538,6 +55556,15 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
+  "ZH::en::dipl-ing-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
+    "winnerCanonical": "dipl-nursing-specialist-nursing-specialist-acute-station-adolescent-a0-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
   "ZH::en::dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-535706855cd2",
     "winnerCanonical": "dipl-nursing-professional-nursing-professional-c1-psychiatrische-universitatsklinik-zurich-zurich",
@@ -55664,6 +55691,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-nursing-professional-nursing-professional-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 4,
+    "canton": "ZH"
+  },
   "ZH::en::dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
     "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
@@ -55779,6 +55815,24 @@
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
     "score": 0.1818,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::en::dipl-professionnels-des-soins-infirmiers-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-a78af0b3ba29",
+    "winnerCanonical": "dipl-nursing-professional-dipl-nursing-professional-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 4,
+    "canton": "ZH"
+  },
+  "ZH::en::dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-c1-psychiatrische-universitatsklinik-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
+    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 5,
     "canton": "ZH"
   },
   "ZH::en::dipl-specialista-hf-fh-con-guida-a-goccia-80-100-spitex-stafa-stafa": {
@@ -60587,6 +60641,15 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
+  "ZH::fr::dipl-ing-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
+    "winnerCanonical": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-adolescent-de-la-station-a0-psychiatrische",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.1176,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
   "ZH::fr::dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-535706855cd2",
     "winnerCanonical": "infirmiere-diplomee-c1-psychiatrische-universitatsklinik-zurich-zurich",
@@ -60702,6 +60765,15 @@
     "lastSeenAt": "2026-07-08T00:00:00.000Z",
     "score": 0.1111,
     "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "infirmiere-diplomee-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 4,
     "canton": "ZH"
   },
   "ZH::fr::dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -60828,6 +60900,24 @@
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
     "score": 0.1739,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::fr::dipl-professionnels-des-soins-infirmiers-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 5,
+    "canton": "ZH"
+  },
+  "ZH::fr::dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-c1-psychiatrische-universitatsklinik-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "infirmiere-diplomee-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 6,
     "canton": "ZH"
   },
   "ZH::fr::dipl-specialista-hf-fh-con-guida-a-goccia-80-100-spitex-stafa-stafa": {
@@ -65834,6 +65924,15 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
+  "ZH::it::dipl-ing-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
   "ZH::it::dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-535706855cd2",
     "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
@@ -65985,6 +66084,15 @@
     "lastSeenAt": "2026-07-08T00:00:00.000Z",
     "score": 0.1176,
     "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.6,
+    "candidatesCount": 5,
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich": {
@@ -66165,6 +66273,24 @@
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
     "score": 0.1304,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::dipl-professionnels-des-soins-infirmiers-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 5,
+    "canton": "ZH"
+  },
+  "ZH::it::dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-c1-psychiatrische-universitatsklinik-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 5,
     "canton": "ZH"
   },
   "ZH::it::dipl-specialista-di-cura-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln": {
@@ -66447,20 +66573,20 @@
     "canton": "ZH"
   },
   "ZH::it::ergoterapia-hf-fh-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-3c17cbb50ee2",
-    "winnerCanonical": "ergotherapeutin-ergotherapeuten-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
+    "winnerJobIdentifier": "puk-zuerich-c4f8c519eb63",
+    "winnerCanonical": "ergoterapeuta-ergoterapeuta-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-08T00:00:00.000Z",
-    "score": 0.625,
+    "score": 0.7143,
     "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::ergotherapeute-en-hf-fh-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-3c17cbb50ee2",
-    "winnerCanonical": "ergotherapeutin-ergotherapeuten-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
+    "winnerJobIdentifier": "puk-zuerich-c4f8c519eb63",
+    "winnerCanonical": "ergoterapeuta-ergoterapeuta-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-08T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.625,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -66483,20 +66609,20 @@
     "canton": "ZH"
   },
   "ZH::it::ergotherapie-hf-fh-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-3c17cbb50ee2",
-    "winnerCanonical": "ergotherapeutin-ergotherapeuten-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
+    "winnerJobIdentifier": "puk-zuerich-c4f8c519eb63",
+    "winnerCanonical": "ergoterapeuta-ergoterapeuta-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-08T00:00:00.000Z",
-    "score": 0.625,
+    "score": 0.7143,
     "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::ergotherapie-hf-fh-puk-zuerich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-3c17cbb50ee2",
-    "winnerCanonical": "ergotherapeutin-ergotherapeuten-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
+    "winnerJobIdentifier": "puk-zuerich-c4f8c519eb63",
+    "winnerCanonical": "ergoterapeuta-ergoterapeuta-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-08T00:00:00.000Z",
-    "score": 0.3,
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -69130,19 +69256,28 @@
   },
   "ZH::it::terapia-professionale-hf-fh-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-c4f8c519eb63",
-    "winnerCanonical": "terapista-professionale-terapista-professionale-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
+    "winnerCanonical": "ergoterapeuta-ergoterapeuta-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-08T00:00:00.000Z",
-    "score": 0.75,
+    "score": 0.625,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::terapista-professionale-terapista-professionale-hf-fh-psychiatrische-universitatsklinik-zurich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-c4f8c519eb63",
+    "winnerCanonical": "ergoterapeuta-ergoterapeuta-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "score": 0.625,
     "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::therapie-occupationnelle-hf-fh-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-3c17cbb50ee2",
-    "winnerCanonical": "ergotherapeutin-ergotherapeuten-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
+    "winnerJobIdentifier": "puk-zuerich-c4f8c519eb63",
+    "winnerCanonical": "ergoterapeuta-ergoterapeuta-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-08T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.625,
     "candidatesCount": 2,
     "canton": "ZH"
   },
