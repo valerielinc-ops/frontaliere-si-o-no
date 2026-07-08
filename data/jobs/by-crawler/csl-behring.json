@@ -71,7 +71,7 @@
       "slugByLocale": {
         "it": "ricercatore-senior-tech-ops-csl-behring-bern",
         "en": "senior-scientist-tech-ops-csl-behring-ch",
-        "de": "senior-scientist-tech-ops-csl-behring-ch",
+        "de": "leitender-wissenschaftler-tech-ops-csl-behring-bern",
         "fr": "chercheur-principal-operations-techniques-csl-behring-bern"
       },
       "company": "CSL Behring",
@@ -118,6 +118,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-scientist-tech-ops-csl-behring-ch"
+        ],
+        "de": [
           "senior-scientist-tech-ops-csl-behring-ch"
         ]
       },

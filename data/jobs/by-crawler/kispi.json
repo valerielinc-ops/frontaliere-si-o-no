@@ -2538,7 +2538,7 @@
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
-        "fr": "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
+        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -2585,7 +2585,7 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi-2",
         "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
         "dipl-carriera-dipl-specialista-infermieristico-per-nds-hf-anestesia-care-paediatrics-universitats-kinderspital-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
+        "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2598,7 +2598,7 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesie-padiatrie-kispi-zurich"
         ],
         "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
+          "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T22:39:00.246Z",
@@ -3027,7 +3027,7 @@
       "id": "kispi-93a9fb6fe5e4",
       "slug": "assistenzarztin-assistenzarzt-orl-100-oto-rhino-laryngologie-br-befristet-per-1-jahr-universitats-kinderspital-zurich",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-orl-100-oto-rhino-laryngologie-br-befristet-per-1-jahr-universitats-kinderspital-zurich-zu",
+        "it": "assistenzarztin-assistenzarzt-orl-100-oto-rhino-laryngologie-br-befristet-per-1-jahr-universitats-kinderspital-zurich",
         "en": "assistenzarztin-assistenzarzt-orl-100-oto-rhino-laryngologie-br-befristet-fur-1-jahr-universitats-kinderspital-zurich",
         "de": "assistenzarztin-assistenzarzt-orl-100-oto-rhino-laryngologie-br-befristet-fur-1-jahr-kispi",
         "fr": "assistenzarztin-assistenzarzt-orl-100-oto-rhino-laryngologie-br-befristet-fur-1-jahr-universitats-kinderspital-zurich"
@@ -3074,11 +3074,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-orl-100-oto-rhino-laryngologie-br-befristet-fur-1-jahr-kispi"
+        "assistenzarztin-assistenzarzt-orl-100-oto-rhino-laryngologie-br-befristet-fur-1-jahr-kispi",
+        "assistenzarztin-assistenzarzt-orl-100-oto-rhino-laryngologie-br-befristet-per-1-jahr-universitats-kinderspital-zurich-zu"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-orl-100-oto-rhino-laryngologie-br-befristet-fur-1-jahr-kispi"
+          "assistenzarztin-assistenzarzt-orl-100-oto-rhino-laryngologie-br-befristet-fur-1-jahr-kispi",
+          "assistenzarztin-assistenzarzt-orl-100-oto-rhino-laryngologie-br-befristet-per-1-jahr-universitats-kinderspital-zurich-zu"
         ]
       },
       "firstSeenAt": "2026-06-02T23:58:39.129Z",
@@ -3790,7 +3792,7 @@
       "id": "kispi-334b8070b0d8",
       "slug": "pflegepraktikantin-m-w-d-80-100-eeg-neuropsychologie-br-befristet-per-4-monate-universitats-kinderspital-zurich",
       "slugByLocale": {
-        "it": "pflegepraktikantin-m-w-80-100-eeg-epileptologie-br-befristet-per-4-monate-universitats-kinderspital-zurich-zurich",
+        "it": "pflegepraktikantin-m-w-d-80-100-eeg-neuropsychologie-br-befristet-per-4-monate-universitats-kinderspital-zurich",
         "en": "praktikant-m-w-80-100-eeg-neuropsychologie-br-determined-for-4-months-universitats-kinderspital-zurich-zurich",
         "de": "pflegepraktikantin-m-w-80-100-eeg-neuropsychologie-br-befristet-fur-4-monate-kispi-zurich",
         "fr": "pflegepraktikantin-m-w-80-100-eeg-neuropsychologie-br-befristet-fur-4-monate-kispi-zurich"
@@ -3839,13 +3841,15 @@
       "previousSlugs": [
         "pflegepraktikantin-m-w-80-100-eeg-epileptologie-br-befristet-fur-4-monate-kispi-zurich",
         "pflegepraktikantin-m-w-80-100-eeg-neuropsychologie-br-befristet-fur-4-monate-kispi-zurich",
-        "praktikant-m-w-80-100-eeg-neuropschologie-br-determinato-per-4-mesi-universitats-kinderspital-zurich-zurich"
+        "praktikant-m-w-80-100-eeg-neuropschologie-br-determinato-per-4-mesi-universitats-kinderspital-zurich-zurich",
+        "pflegepraktikantin-m-w-80-100-eeg-epileptologie-br-befristet-per-4-monate-universitats-kinderspital-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegepraktikantin-m-w-80-100-eeg-neuropsychologie-br-befristet-fur-4-monate-kispi-zurich",
           "praktikant-m-w-80-100-eeg-neuropschologie-br-determinato-per-4-mesi-universitats-kinderspital-zurich-zurich",
-          "pflegepraktikantin-m-w-80-100-eeg-epileptologie-br-befristet-fur-4-monate-kispi-zurich"
+          "pflegepraktikantin-m-w-80-100-eeg-epileptologie-br-befristet-fur-4-monate-kispi-zurich",
+          "pflegepraktikantin-m-w-80-100-eeg-epileptologie-br-befristet-per-4-monate-universitats-kinderspital-zurich-zurich"
         ],
         "en": [
           "pflegepraktikantin-m-w-80-100-eeg-neuropsychologie-br-befristet-fur-4-monate-kispi-zurich"
@@ -3960,7 +3964,7 @@
       "id": "kispi-c3c828bd43d0",
       "slug": "biomed-analytikerin-m-w-d-90-befristet-per-6-monate-universitats-kinderspital-zurich",
       "slugByLocale": {
-        "it": "biomed-analista-m-w-90-limitato-per-6-mesi-universitats-kinderspital-zurich-zurich",
+        "it": "biomed-analytikerin-m-w-d-90-befristet-per-6-monate-universitats-kinderspital-zurich",
         "en": "biomed-analyst-m-w-90-limited-for-6-months-universitats-kinderspital-zurich-zurich",
         "de": "biomed-analytikerin-m-w-90-befristet-fur-6-monate-kispi-zurich",
         "fr": "biomed-analyste-m-m-90-limitee-pour-6-mois-universitats-kinderspital-zurich-zurich"
@@ -4007,11 +4011,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "biomed-analytikerin-m-w-90-befristet-fur-6-monate-kispi-zurich"
+        "biomed-analytikerin-m-w-90-befristet-fur-6-monate-kispi-zurich",
+        "biomed-analista-m-w-90-limitato-per-6-mesi-universitats-kinderspital-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biomed-analytikerin-m-w-90-befristet-fur-6-monate-kispi-zurich"
+          "biomed-analytikerin-m-w-90-befristet-fur-6-monate-kispi-zurich",
+          "biomed-analista-m-w-90-limitato-per-6-mesi-universitats-kinderspital-zurich-zurich"
         ],
         "en": [
           "biomed-analytikerin-m-w-90-befristet-fur-6-monate-kispi-zurich"
@@ -4116,7 +4122,7 @@
       "id": "kispi-60a8838dec19",
       "slug": "risorse-umane-controller-m-w-d-40-50-befristet-bis-marz-2027-universitats-kinderspital-zurich",
       "slugByLocale": {
-        "it": "responsabile-hr-m-f-40-50-temporaneo-fino-a-marzo-2027-universitats-kinderspital-zurich-zurich",
+        "it": "risorse-umane-controller-m-w-d-40-50-befristet-bis-marz-2027-universitats-kinderspital-zurich",
         "en": "hr-controller-m-f-40-50-temporary-until-march-2027-universitats-kinderspital-zurich-zurich",
         "de": "hr-controller-m-w-40-50-befristet-bis-marz-2027-kispi-zurich",
         "fr": "ressources-humaines-controller-m-w-40-50-befristet-bis-marz-2027-universitats-kinderspital-zurich-zurich"
@@ -4163,11 +4169,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-controller-m-w-40-50-befristet-bis-marz-2027-kispi-zurich"
+        "hr-controller-m-w-40-50-befristet-bis-marz-2027-kispi-zurich",
+        "responsabile-hr-m-f-40-50-temporaneo-fino-a-marzo-2027-universitats-kinderspital-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-controller-m-w-40-50-befristet-bis-marz-2027-kispi-zurich"
+          "hr-controller-m-w-40-50-befristet-bis-marz-2027-kispi-zurich",
+          "responsabile-hr-m-f-40-50-temporaneo-fino-a-marzo-2027-universitats-kinderspital-zurich-zurich"
         ],
         "en": [
           "hr-controller-m-w-40-50-befristet-bis-marz-2027-kispi-zurich"
