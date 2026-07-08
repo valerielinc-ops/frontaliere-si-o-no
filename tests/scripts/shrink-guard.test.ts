@@ -15,6 +15,12 @@
  * incident: corner-banca 17 -> 0 jobs in one run (2026-07-06), below
  * MIN_BASELINE=20, so the ratio check never even evaluated. Total wipeouts
  * are now blocked unconditionally, regardless of baseline size.
+ *
+ * Residual gap (#3840): the same failure mode without landing on exactly
+ * zero — e.g. 17 -> 1 (94% loss) — still sailed through, since it's neither
+ * a total wipeout nor above MIN_BASELINE for the ratio check. A stricter
+ * ratio now catches near-total (non-zero) drops below baseline too, while
+ * still letting ordinary small-crawler churn through.
  */
 import { describe, it, expect } from 'vitest';
 import { shouldBlockShrink } from '../../scripts/assemble-jobs-dataset.mjs';
@@ -34,9 +40,21 @@ describe('shouldBlockShrink()', () => {
     expect(shouldBlockShrink(19, 0)).toBe(true);
   });
 
-  it('does not block a non-zero drop below the minimum baseline (small crawlers churn freely)', () => {
-    expect(shouldBlockShrink(19, 1)).toBe(false);
-    expect(shouldBlockShrink(10, 1)).toBe(false);
+  it('blocks a near-total (non-zero) drop below the minimum baseline (#3840)', () => {
+    expect(shouldBlockShrink(17, 1)).toBe(true); // issue #3840 example, 94% loss
+    expect(shouldBlockShrink(19, 1)).toBe(true);
+    expect(shouldBlockShrink(10, 1)).toBe(true);
+  });
+
+  it('does not block ordinary small-crawler churn below the minimum baseline', () => {
+    expect(shouldBlockShrink(6, 3)).toBe(false); // documented normal-noise example
+    expect(shouldBlockShrink(10, 4)).toBe(false);
+    expect(shouldBlockShrink(5, 2)).toBe(false);
+  });
+
+  it('blocks below the small-baseline ratio threshold, not at or above it', () => {
+    expect(shouldBlockShrink(15, 2)).toBe(true); // < 20% remaining
+    expect(shouldBlockShrink(15, 3)).toBe(false); // exactly 20% remaining, not blocked
   });
 
   it('does not block normal churn within observed 15-day range (down to ~50-70% of baseline)', () => {
