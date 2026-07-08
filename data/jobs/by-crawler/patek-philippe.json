@@ -1,6 +1,6 @@
 {
   "crawlerKey": "patek-philippe",
-  "assembledAt": "2026-07-08T11:15:35.760Z",
+  "assembledAt": "2026-07-08T22:07:57.279Z",
   "jobs": [
     {
       "id": "patek-philippe-8cb8db2b40a7",
@@ -30,7 +30,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-d'Industrialisation-Montre-%28HF%29/1346313355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:32.930Z",
+      "crawledAt": "2026-07-08T22:07:53.484Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -50,11 +50,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates"
+        "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates",
+        "orologio-industrialista-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates"
+          "charge-d-industrialisation-montre-h-f-patek-philippe-plan-les-ouates",
+          "orologio-industrialista-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "needsRetranslation": true,
@@ -103,7 +105,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface-%28HF%29/1356532255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:32.364Z",
+      "crawledAt": "2026-07-08T22:07:52.822Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -121,11 +123,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier"
+        "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
+        "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier"
+          "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
+          "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier"
         ]
       },
       "needsRetranslation": true,
@@ -174,7 +178,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Gestionnaire-Syst%C3%A8mes-d'Informations-%28HF%29/1358617755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:31.794Z",
+      "crawledAt": "2026-07-08T22:07:52.169Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -193,15 +197,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-systemes-d-informations-m-w-d-patek-philippe-saint-imier",
-        "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier"
+        "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier",
+        "gestione-sistemi-informativi-h-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-systemes-d-informations-m-w-d-patek-philippe-saint-imier",
-          "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier"
+          "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier",
+          "gestione-sistemi-informativi-h-f-patek-philippe-saint-imier"
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:11.734Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "baseSalary": {
@@ -246,7 +253,7 @@
       "url": "https://careers.patek.com/job/Gen%C3%A8ve-Assistant-%C3%A9v%C3%A8nementiel-et-administratif-%28HF%29/1358584955/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:31.229Z",
+      "crawledAt": "2026-07-08T22:07:51.515Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Genève",
       "addressRegion": "Genève",
@@ -264,11 +271,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve"
+        "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve",
+        "evento-e-assistente-amministrativo-h-f-patek-philippe-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve"
+          "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve",
+          "evento-e-assistente-amministrativo-h-f-patek-philippe-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -301,7 +310,7 @@
       "title": "Chargé de Process Vie Série (H/F)",
       "titleByLocale": {
         "it": "Serie di vita di processo (H/F)",
-        "en": "Process Life Series (H/F)",
+        "en": "Chargé de Process Vie Série (H/F)",
         "de": "Prozesslebensdauer (H/F)",
         "fr": "Chargé de Process Vie Série (H/F)"
       },
@@ -317,7 +326,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Vie-S%C3%A9rie-%28HF%29/1356655355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:30.627Z",
+      "crawledAt": "2026-07-08T22:07:50.865Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -337,11 +346,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates"
+        "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates",
+        "serie-di-vita-di-processo-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates"
+          "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates",
+          "serie-di-vita-di-processo-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "needsRetranslation": true,
@@ -390,7 +401,7 @@
       "url": "https://careers.patek.com/job/Gen%C3%A8ve-Conseiller-de-Ventes-%28HF%29/1358754555/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:30.069Z",
+      "crawledAt": "2026-07-08T22:07:50.218Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Genève",
       "addressRegion": "Genève",
@@ -408,11 +419,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-de-ventes-h-f-patek-philippe-geneve"
+        "conseiller-de-ventes-h-f-patek-philippe-geneve",
+        "consulente-commerciale-h-f-patek-philippe-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-ventes-h-f-patek-philippe-geneve"
+          "conseiller-de-ventes-h-f-patek-philippe-geneve",
+          "consulente-commerciale-h-f-patek-philippe-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -461,7 +474,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Ligne-Nautilus-%28HF%29/1358759455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:29.505Z",
+      "crawledAt": "2026-07-08T22:07:49.561Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -481,11 +494,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates"
+        "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
+        "nautilus-line-manager-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates"
+          "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
+          "nautilus-line-manager-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "needsRetranslation": true,
@@ -534,7 +549,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Microm%C3%A9canicien-%28HF%29/1359072755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:28.947Z",
+      "crawledAt": "2026-07-08T22:07:48.873Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -552,11 +567,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "micromecanicien-h-f-patek-philippe-saint-imier"
+        "micromecanicien-h-f-patek-philippe-saint-imier",
+        "micromeccanica-h-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "micromecanicien-h-f-patek-philippe-saint-imier"
+          "micromecanicien-h-f-patek-philippe-saint-imier",
+          "micromeccanica-h-f-patek-philippe-saint-imier"
         ]
       },
       "needsRetranslation": true,
@@ -605,7 +622,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-d'Industrialisation-Prototypes-%28HF%29/1359260155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:28.379Z",
+      "crawledAt": "2026-07-08T22:07:48.222Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -623,11 +640,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier"
+        "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier",
+        "prototipi-industriali-h-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier"
+          "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier",
+          "prototipi-industriali-h-f-patek-philippe-saint-imier"
         ]
       },
       "needsRetranslation": true,
@@ -676,7 +695,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Sertisseur-baguette-%28HF%29/1359382355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:27.821Z",
+      "crawledAt": "2026-07-08T22:07:47.569Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -694,11 +713,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
+        "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
+        "wand-h-f-patek-philippe-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
+          "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
+          "wand-h-f-patek-philippe-la-chaux-de-fonds"
         ]
       },
       "needsRetranslation": true,
@@ -747,7 +768,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-Restaurateur-R%C3%A9gleur-%28HF%29/1351663055/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:27.259Z",
+      "crawledAt": "2026-07-08T22:07:46.895Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -767,11 +788,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates"
+        "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates",
+        "aggiustatore-restauratore-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates"
+          "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates",
+          "aggiustatore-restauratore-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "needsRetranslation": true,
@@ -808,19 +831,19 @@
         "de": "Herstellerbewegung (H/F)",
         "fr": "Constructeur Mouvement (H/F)"
       },
-      "description": "Mission\n\nDans le cadre de cette fonction, rattachée au service Recherche Montre de notre Division Recherche & Développement, vous chercherez des solutions de construction novatrices et inédites dans le but de développer des produits horlogers de haute performance. Sortant des sentiers battus, vous développerez de nouveaux concepts qui constitueront à terme les éléments de base de nos futurs produits. Vous serez l’intégrateur de technologies et matériaux nouveaux, identifiant les besoins et opportunités de progression.\n\nResponsabilités\n\n• Concevoir de nouveaux concepts horlogers, évaluer leur faisabilité et superviser la mise au point des prototypes.\n\n• Mener à bien des projets ou des phases de projets ambitieux sur des mécanismes complexes alliant horlogerie traditionnelle et nouvelles technologies.\n\n• Répondre aux exigences fonctionnelles et qualitatives de nos garde-temps, grâce à vos connaissances techniques.\n\n• Assurer la veille technologique en s'informant régulièrement sur les évolutions et les développements techniques ainsi que sur les moyens et outils de travail propre à la construction.\n\nProfil recherché\n\n• Master en tant qu’Ingénieur EPF ou HES en microtechnique ou mécanique.\n\n• Dès 2 années d’expérience dans un poste en construction horlogère.\n\n• Bonnes connaissances des matériaux et de leurs techniques de mise en forme.\n\n• Bonnes connaissances des outils métiers (CAO, SGDT, Cotation GPS) ainsi que des outils bureautiques.\n\n• Envie et aptitude à se former sur le pilotage de projets.\n\n• Aisance à travailler à partir d’une feuille blanche, à gérer la complexité, l’incertitude et l’ambiguïté.\n\n• Rigueur, précision, sens de l’analyse et de la synthèse.\n\n• Orienté résultats.\n\n• Aisance relationnelle, assertivité, sens de la diplomatie et proactivité.\n\n• Facilité d’adaptation dans les équipes de projet.\n\nRéférence du poste\n\n3609",
+      "description": "Constructeur Mouvement (H/F) — Patek Philippe, Plan-Les-Ouates (GE).",
       "descriptionByLocale": {
         "it": "Mission Dans le cadre de cette fonction, rattachée au service Recherche Montre de notre Division Recherche & Développement, vous chercherez des solutions de construction novatrices et inédites dans le but de développer des produits horlogers de haute performance. Sortant des sentiers battus, vous développerez de nouveaux concepts qui constitueront à terme les éléments de base de nos futurs produits. Vous serez l’intégrateur de technologies et matériaux nouveaux, identifiant les besoins et opportunités de progression. Responsabilités\n• Concevoir de nouveaux concepts horlogers, évaluer leur faisabilité et superviser la mise au point des prototypes.\n• Mener à bien des projets ou des phases de projets ambitieux sur des mécanismes complexes alliant horlogerie traditionnelle et nouvelles technologies.\n• Répondre aux exigences fonctionnelles et qualitatives de nos garde-temps, grâce à vos connaissances techniques.\n• Assurer la veille technologique en s'informant régulièrement sur les évolutions et les développements techniques ainsi que sur les moyens et outils de travail propre à la construction. Profil recherché\n• Master en tant qu’Ingénieur EPF ou HES en microtechnique ou mécanique.\n• Dès 2 années d’expérience dans un poste en construction horlogère.\n• Bonnes connaissances des matériaux et de leurs techniques de mise en forme.\n• Bonnes connaissances des outils métiers (CAO, SGDT, Cotation GPS) ainsi que des outils bureautiques.\n• Envie et aptitude à se former sur le pilotage de projets.\n• Aisance à travailler à partir d’une feuille blanche, à gérer la complexité, l’incertitude et l’ambiguïté.\n• Rigueur, précision, sens de l’analyse et de la synthèse.\n• Orienté résultats.\n• Aisance relationnelle, assertivité, sens de la diplomatie et proactivité.\n• Facilité d’adaptation dans les équipes de projet. Référence du poste 3609",
         "en": "Mission Dans le cadre de cette fonction, rattachée au service Recherche Montre de notre Division Recherche & Développement, vous chercherez des solutions de construction novatrices et inédites dans le but de développer des produits horlogers de haute performance. Sortant des sentiers battus, vous développerez de nouveaux concepts qui constitueront à terme les éléments de base de nos futurs produits. Vous serez l’intégrateur de technologies et matériaux nouveaux, identifiant les besoins et opportunités de progression. Responsabilités\n• Concevoir de nouveaux concepts horlogers, évaluer leur faisabilité et superviser la mise au point des prototypes.\n• Mener à bien des projets ou des phases de projets ambitieux sur des mécanismes complexes alliant horlogerie traditionnelle et nouvelles technologies.\n• Répondre aux exigences fonctionnelles et qualitatives de nos garde-temps, grâce à vos connaissances techniques.\n• Assurer la veille technologique en s'informant régulièrement sur les évolutions et les développements techniques ainsi que sur les moyens et outils de travail propre à la construction. Profil recherché\n• Master en tant qu’Ingénieur EPF ou HES en microtechnique ou mécanique.\n• Dès 2 années d’expérience dans un poste en construction horlogère.\n• Bonnes connaissances des matériaux et de leurs techniques de mise en forme.\n• Bonnes connaissances des outils métiers (CAO, SGDT, Cotation GPS) ainsi que des outils bureautiques.\n• Envie et aptitude à se former sur le pilotage de projets.\n• Aisance à travailler à partir d’une feuille blanche, à gérer la complexité, l’incertitude et l’ambiguïté.\n• Rigueur, précision, sens de l’analyse et de la synthèse.\n• Orienté résultats.\n• Aisance relationnelle, assertivité, sens de la diplomatie et proactivité.\n• Facilité d’adaptation dans les équipes de projet. Référence du poste 3609",
         "de": "Mission Dans le cadre de cette fonction, rattachée au service Recherche Montre de notre Division Recherche & Développement, vous chercherez des solutions de construction novatrices et inédites dans le but de développer des produits horlogers de haute performance. Sortant des sentiers battus, vous développerez de nouveaux concepts qui constitueront à terme les éléments de base de nos futurs produits. Vous serez l’intégrateur de technologies et matériaux nouveaux, identifiant les besoins et opportunités de progression. Responsabilités\n• Concevoir de nouveaux concepts horlogers, évaluer leur faisabilité et superviser la mise au point des prototypes.\n• Mener à bien des projets ou des phases de projets ambitieux sur des mécanismes complexes alliant horlogerie traditionnelle et nouvelles technologies.\n• Répondre aux exigences fonctionnelles et qualitatives de nos garde-temps, grâce à vos connaissances techniques.\n• Assurer la veille technologique en s'informant régulièrement sur les évolutions et les développements techniques ainsi que sur les moyens et outils de travail propre à la construction. Profil recherché\n• Master en tant qu’Ingénieur EPF ou HES en microtechnique ou mécanique.\n• Dès 2 années d’expérience dans un poste en construction horlogère.\n• Bonnes connaissances des matériaux et de leurs techniques de mise en forme.\n• Bonnes connaissances des outils métiers (CAO, SGDT, Cotation GPS) ainsi que des outils bureautiques.\n• Envie et aptitude à se former sur le pilotage de projets.\n• Aisance à travailler à partir d’une feuille blanche, à gérer la complexité, l’incertitude et l’ambiguïté.\n• Rigueur, précision, sens de l’analyse et de la synthèse.\n• Orienté résultats.\n• Aisance relationnelle, assertivité, sens de la diplomatie et proactivité.\n• Facilité d’adaptation dans les équipes de projet. Référence du poste 3609",
-        "fr": "Mission Dans le cadre de cette fonction, rattachée au service Recherche Montre de notre Division Recherche & Développement, vous chercherez des solutions de construction novatrices et inédites dans le but de développer des produits horlogers de haute performance. Sortant des sentiers battus, vous développerez de nouveaux concepts qui constitueront à terme les éléments de base de nos futurs produits. Vous serez l’intégrateur de technologies et matériaux nouveaux, identifiant les besoins et opportunités de progression. Responsabilités\n• Concevoir de nouveaux concepts horlogers, évaluer leur faisabilité et superviser la mise au point des prototypes.\n• Mener à bien des projets ou des phases de projets ambitieux sur des mécanismes complexes alliant horlogerie traditionnelle et nouvelles technologies.\n• Répondre aux exigences fonctionnelles et qualitatives de nos garde-temps, grâce à vos connaissances techniques.\n• Assurer la veille technologique en s'informant régulièrement sur les évolutions et les développements techniques ainsi que sur les moyens et outils de travail propre à la construction. Profil recherché\n• Master en tant qu’Ingénieur EPF ou HES en microtechnique ou mécanique.\n• Dès 2 années d’expérience dans un poste en construction horlogère.\n• Bonnes connaissances des matériaux et de leurs techniques de mise en forme.\n• Bonnes connaissances des outils métiers (CAO, SGDT, Cotation GPS) ainsi que des outils bureautiques.\n• Envie et aptitude à se former sur le pilotage de projets.\n• Aisance à travailler à partir d’une feuille blanche, à gérer la complexité, l’incertitude et l’ambiguïté.\n• Rigueur, précision, sens de l’analyse et de la synthèse.\n• Orienté résultats.\n• Aisance relationnelle, assertivité, sens de la diplomatie et proactivité.\n• Facilité d’adaptation dans les équipes de projet. Référence du poste 3609"
+        "fr": "Constructeur Mouvement (H/F) — Patek Philippe, Plan-Les-Ouates (GE)."
       },
       "location": "Plan-Les-Ouates",
       "canton": "GE",
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Constructeur-Mouvement-%28HF%29/1351681155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:26.696Z",
+      "crawledAt": "2026-07-08T22:07:46.245Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -840,11 +863,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates"
+        "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates",
+        "movimento-del-produttore-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates"
+          "constructeur-mouvement-h-f-patek-philippe-plan-les-ouates",
+          "movimento-del-produttore-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "needsRetranslation": true,
@@ -893,7 +918,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Dessinateur-%28HF%29/1351586455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:26.134Z",
+      "crawledAt": "2026-07-08T22:07:45.582Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -913,11 +938,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dessinateur-h-f-patek-philippe-plan-les-ouates"
+        "dessinateur-h-f-patek-philippe-plan-les-ouates",
+        "abbozzo-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dessinateur-h-f-patek-philippe-plan-les-ouates"
+          "dessinateur-h-f-patek-philippe-plan-les-ouates",
+          "abbozzo-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "needsRetranslation": true,
@@ -966,7 +993,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-Rhabilleur/1338567155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:15:25.555Z",
+      "crawledAt": "2026-07-08T22:07:44.897Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
