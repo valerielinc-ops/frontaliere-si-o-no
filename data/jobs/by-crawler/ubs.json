@@ -169,8 +169,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-6e4e0f0e4b6e",
@@ -425,8 +424,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-1e97654f7d40",
@@ -506,8 +504,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-d9fb8dfc1dba",
@@ -3224,7 +3221,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.795Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3311,7 +3307,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.793Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3398,7 +3393,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.791Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -4000,7 +3994,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.785Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -4087,7 +4080,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.783Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4566,7 +4558,8 @@
       },
       "previousSlugs": [
         "client-advisor-wm-apac-switzerland-china-team-in-zurich-ubs-zurich",
-        "client-advisor-wm-apac-svizzera-team-cina-a-zurigo-ubs-zurich"
+        "client-advisor-wm-apac-svizzera-team-cina-a-zurigo-ubs-zurich",
+        "client-consulente-wm-apac-switzerland-china-team-in-zurich-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5494,7 +5487,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.423Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5606,7 +5598,7 @@
         "it": "Addetto agli eventi (pagato a ore)",
         "en": "Event Attendant (hourly paid)",
         "de": "Veranstaltungsmitarbeiter (stundenweise bezahlt)",
-        "fr": "Event Attendant (hourly paid)"
+        "fr": "Participant à l'événement (payé en heures)"
       },
       "description": "Do you always put clients at the center of everything you do? Are you passionate about creating a welcoming and positive atmosphere?\nAs additional support for our team in Geneva, we are looking for a new colleague (female or male) to join us as an Event Attendant on an hourly, on-call basis (on average, approximately 65 hours per year).\nIn this role, you will be responsible for welcoming guests and providing excellent client service at a variety of events, including client gatherings, press conferences, and third-party events involving UBS. You will support the event manager and play a key role in ensuring each event runs smoothly and safely.",
       "descriptionByLocale": {
@@ -5658,7 +5650,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.362Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6078,7 +6069,7 @@
       "title": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (w/m/d)",
       "titleByLocale": {
         "it": "UBS Card Center AG - Responsabile Supply & Demand Management 80 - 100%",
-        "en": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (w/m/d)",
+        "en": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (f/m/d)",
         "de": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (w/m/d)",
         "fr": "UBS Card Center AG - Responsable Supply & Demand Management 80 - 100%"
       },
@@ -6119,7 +6110,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-02T15:04:48.251Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -6315,7 +6305,7 @@
       "title": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100%",
       "titleByLocale": {
         "it": "Consulente Ipotechario Remoto – Vendite e Consulenza a Distanza",
-        "en": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100%",
+        "en": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100 %",
         "de": "Remote Berater Mortgage – Remote Sales & Advice Basel, 80-100%",
         "fr": "Conseiller Hypothécaire à Distance – Ventes et Conseils à Distance"
       },
@@ -6366,7 +6356,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.239Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6395,16 +6384,16 @@
       "title": "Speditionsfachfrau/mann",
       "titleByLocale": {
         "it": "Specialista in logistica",
-        "en": "Speditionsfachfrau/mann",
+        "en": "Logistics Specialist",
         "de": "Speditionsfachfrau/mann",
-        "fr": "Speditionsfachfrau/mann"
+        "fr": "Spécialiste du transport de marchandises"
       },
       "description": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nWir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n OZL Abwicklung (Ein- und Ausgänge)\n Offertanfrage und Transportkalkulationen\n Raffinations- & Produktionsbereich (Abstimmungen)\n Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n Rechnungskontrolle (Debitoren/Kreditoren)",
       "descriptionByLocale": {
-        "it": "Descrizione Ti piace lavorare indipendentemente e sono multitasking in grado? Vuoi aiutarci a migliorare la nostra esperienza clienti ora e in futuro? Sei orientata al cliente e avere un alto livello di consapevolezza del rischio? Allora sei esattamente nel nostro team! Nel campo delle operazioni di Investment Bank, siamo gli esperti che garantiscono un regolare svolgimento del business quotidiano. La nostra visione è quella di migliorare l'esperienza per i nostri clienti ora e in futuro. Per avere successo, i nostri dipendenti devono: - eseguire le massime prestazioni. - Sapere cosa i nostri clienti hanno bisogno e vogliono. - promuovere l'organizzazione lavorando con determinazione e passione - interazione con partner esterni/clienti e autorità doganale - cooperazione in vari progetti e miglioramento continuo dei processi di lavoro - assistenza nelle attività quotidiane, che comprende le seguenti attività: - corretta e specializzata esecuzione di spedizioni domestiche in metallo prezioso, importazioni ed esportazioni - lavorazione OZL (input e output) - calcolo delle richieste e dei trasporti - raffinazione e area di produzione (voti) - monitoraggio, analisi e, se necessario, correzione dell'IVA. Statistiche - Creare e inviare relazioni mensili e trimestrali sull'IVA - Controllo delle fatture (Stefani/creditori)",
-        "en": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig! Im Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten Wir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:  korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte  OZL Abwicklung (Ein- und Ausgänge)  Offertanfrage und Transportkalkulationen  Raffinations- & Produktionsbereich (Abstimmungen)  Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken  Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte  Rechnungskontrolle (Debitoren/Kreditoren)",
-        "de": "Beschreibung Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig! Im Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter: - Höchstleistungen erbringen. - Wissen, was unsere Kunden benötigen und wollen. - Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten \n• Aufgaben - Interaktion mit externen Partnern/Kunden sowie Zollbehörde - Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse - Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten: - korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte - OZL Abwicklung (Ein- und Ausgänge) - Offertanfrage und Transportkalkulationen - Raffinations- & Produktionsbereich (Abstimmungen) - Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken - Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte - Rechnungskontrolle (Debitoren/Kreditoren)",
-        "fr": "Description Vous aimez travailler de façon indépendante et vous êtes capable de multitâches? Vous voulez nous aider à améliorer notre expérience client maintenant et dans le futur? Êtes-vous orienté client et avez un haut niveau de sensibilisation aux risques? Ensuite, vous êtes exactement dans notre équipe! Dans le domaine des Opérations de la Banque d'investissement, nous sommes les experts qui assurent un fonctionnement en douceur des affaires quotidiennes. Notre vision est d'améliorer l'expérience pour nos clients maintenant et dans le futur. - Sachez ce que nos clients ont besoin et veulent. - Promouvoir l'organisation en travaillant avec détermination et passion - interaction avec les partenaires externes/clients ainsi qu'avec l'autorité douanière - coopération dans divers projets et amélioration continue des processus de travail - assistance dans les affaires quotidiennes, qui comprend les activités suivantes: - exécution correcte et spécialisée des expéditions intérieures de métaux précieux, importations et exportations - traitement des OTL (intrants et produits) - demande d'offre et calculs de transport - zone de raffinage et de production (votes) - suivi, analyse et, si nécessaire, correction de la TVA. Statistiques - Créer et envoyer des rapports mensuels et trimestriels sur la TVA - contrôle des factures (débiteurs/créditeurs)"
+        "it": "Descrizione Ti piace lavorare indipendentemente e sono multitasking in grado? Vuoi aiutarci a migliorare la nostra esperienza clienti ora e in futuro? Sei orientata al cliente e avere un alto livello di consapevolezza del rischio? Allora sei esattamente nel nostro team! Nel campo delle operazioni di Investment Bank, siamo gli esperti che garantiscono un regolare svolgimento del business quotidiano. La nostra visione è quella di migliorare l'esperienza per i nostri clienti ora e in futuro. Per avere successo, i nostri dipendenti devono: - eseguire le massime prestazioni.\n\n- Sapere cosa i nostri clienti hanno bisogno e vogliono.\n\n- promuovere l'organizzazione lavorando con determinazione e passione - interazione con partner esterni/clienti e autorità doganale - cooperazione in vari progetti e miglioramento continuo dei processi di lavoro - assistenza nelle attività quotidiane, che comprende le seguenti attività: - corretta e specializzata esecuzione di spedizioni domestiche in metallo prezioso, importazioni ed esportazioni - lavorazione OZL (input e output) - calcolo delle richieste e dei trasporti - raffinazione e area di produzione (voti) - monitoraggio, analisi e, se necessario, correzione dell'IVA.\n\nStatistiche - Creare e inviare relazioni mensili e trimestrali sull'IVA - Controllo delle fatture (Stefani/creditori)",
+        "en": "Description Do you like to work independently and are multitasking capable? Would you like to help us improve our customer experience now and in the future? Are you customer-oriented and have a high level of risk awareness? Then you are exactly right in our team! In the field of Investment Bank Operations, we are the experts who ensure a smooth running of the day-to-day business. Our vision is to improve the experience for our customers now and in the future. To be successful, our employees must: - perform maximum performance.\n\n- Know what our customers need and want.\n\n- Promote the organization by working with determination and passion tasks - interaction with external partners/customers as well as customs authority - cooperation in various projects and continuous improvement of the work processes - assistance in day-to-day business, which includes the following activities: - correct and specialized execution of precious metal domestic shipments, imports & exports - OZL processing (input and outputs) - offer request and transport calculations - refining & production area (votes) - monitoring, analysis and, if necessary, correcting the VAT.\n\nStatistics - Create and send monthly and quarterly VAT reports - invoice control (debitors/creditors)",
+        "de": "Beschreibung\nArbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n- Höchstleistungen erbringen.\n- Wissen, was unsere Kunden benötigen und wollen.\n- Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nAufgaben\n- Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n- Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n- Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n- korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n- OZL Abwicklung (Ein- und Ausgänge)\n- Offertanfrage und Transportkalkulationen\n- Raffinations- & Produktionsbereich (Abstimmungen)\n- Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n- Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n- Rechnungskontrolle (Debitoren/Kreditoren)",
+        "fr": "Description Vous aimez travailler de façon indépendante et vous êtes capable de multitâches? Vous voulez nous aider à améliorer notre expérience client maintenant et dans le futur? Êtes-vous orienté client et avez un haut niveau de sensibilisation aux risques? Ensuite, vous êtes exactement dans notre équipe! Dans le domaine des Opérations de la Banque d'investissement, nous sommes les experts qui assurent un fonctionnement en douceur des affaires quotidiennes. Notre vision est d'améliorer l'expérience pour nos clients maintenant et dans le futur.\n\n- Sachez ce que nos clients ont besoin et veulent.\n\n- Promouvoir l'organisation en travaillant avec détermination et passion - interaction avec les partenaires externes/clients ainsi qu'avec l'autorité douanière - coopération dans divers projets et amélioration continue des processus de travail - assistance dans les affaires quotidiennes, qui comprend les activités suivantes: - exécution correcte et spécialisée des expéditions intérieures de métaux précieux, importations et exportations - traitement des OTL (intrants et produits) - demande d'offre et calculs de transport - zone de raffinage et de production (votes) - suivi, analyse et, si nécessaire, correction de la TVA.\n\nStatistiques - Créer et envoyer des rapports mensuels et trimestriels sur la TVA - contrôle des factures (débiteurs/créditeurs)"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -6456,7 +6445,6 @@
         "specialista-in-logistica-ubs-zurich"
       ],
       "firstSeenAt": "2026-07-02T15:04:48.229Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7128,7 +7116,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.030Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "baseSalary": {
@@ -7158,7 +7145,7 @@
       "title": "Client Advisor Retail Cité",
       "titleByLocale": {
         "it": "Client Consulente Retail Cité",
-        "en": "Client Advisor Retail Cité",
+        "en": "Client Advisor Retail City",
         "de": "Client Berater Retail Cité",
         "fr": "Client Conseiller Retail Cité"
       },
@@ -7215,7 +7202,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.025Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -7374,7 +7360,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.557Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -7406,7 +7391,7 @@
         "it": "Relazioni con gli Investitori - Beni Realizzabili – Alternative Globali Unificate",
         "en": "Investor Relations Real Assets – Unified Global Alternatives",
         "de": "Investor Relations Real Assets – Vereinheitlichte globale Alternativen",
-        "fr": "Investor Relations Real Assets – Unified Global Alternatives"
+        "fr": "Relations avec les investisseurs Biens réels – Solutions globales unifiées"
       },
       "description": "Are you at your best when serving clients and providing specialist real assets and private markets knowledge? Do you have the demonstrated ability to work with clients to deliver alternative investment solutions?\n\nWe are looking for someone who can:\n\n• lead the Investor Relations function for the UGA Infrastructure vertical, overseeing and developing a team of approximately five professionals\n• provide specialist knowledge of UGA's infrastructure products to clients worldwide\n• provide high-quality investment solutions to institutional and private investors\n• contribute to fundraising efforts by completing RFPs and creating compelling marketing materials, including pitch decks and due diligence questionnaires (DDQs)\n• work closely with the investment teams to conduct research and analysis on market trends, industry benchmarks, and competitor activity to enhance investor communication and position the firm as a market leader\n• work closely with the Asset Management Client Coverage teams as well as Global Wealth Management client advisors to support sales and client services efforts",
       "descriptionByLocale": {
@@ -7458,7 +7443,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:47.967Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8285,7 +8269,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:46.871Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -8467,16 +8450,16 @@
       "title": "Privatkundenberater/in Affluent Ostermundigen, 80 - 100%",
       "titleByLocale": {
         "de": "Privatkundenberater/in Affluent Ostermundigen, 80 - 100%",
-        "it": "Privatkundenberater/in Affluent Ostermundigen, 80 - 100%",
-        "en": "Privatkundenberater/in Affluent Ostermundigen, 80 - 100%",
-        "fr": "Privatkundenberater/in Affluent Ostermundigen, 80 - 100%"
+        "it": "Consulente clienti privato in Affluent Ostermundigen, 80 - 100%",
+        "en": "Private customer consultant in Affluent Ostermundigen, 80 - 100%",
+        "fr": "Consultant client privé en Ostermundige, 80 - 100%"
       },
       "description": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten?\n\nDann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat und sich in der digitalen Welt wohl fühlt.\n\nUnd das sind Ihre Kernaufgaben:\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
       "descriptionByLocale": {
         "de": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten?\n\nDann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat und sich in der digitalen Welt wohl fühlt.\n\nUnd das sind Ihre Kernaufgaben:\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-        "it": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten?\n\nDann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat und sich in der digitalen Welt wohl fühlt.\n\nUnd das sind Ihre Kernaufgaben:\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-        "en": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten?\n\nDann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat und sich in der digitalen Welt wohl fühlt.\n\nUnd das sind Ihre Kernaufgaben:\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-        "fr": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten?\n\nDann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat und sich in der digitalen Welt wohl fühlt.\n\nUnd das sind Ihre Kernaufgaben:\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei."
+        "it": "Sei un'iniziativa, personalità socievole? E sei al meglio quando consigli ai clienti con l'aiuto delle ultime tecnologie?\n\nContattateci. Siamo alla ricerca di un collega che ha un tocco per le preoccupazioni del cliente e si sente a proprio agio nel mondo digitale.\n\nE questi sono i vostri compiti principali:\n• Catturano le esigenze versatili dei nostri clienti con precisione e li consigliano con competenza.\n• Dopo un periodo di formazione completo, supporta e elabora il proprio portafoglio clienti con clienti di investimento e mutuo.\n• Hanno un forte senso di soluzioni ottimali. Questo garantisce rapporti e punteggi a lungo termine con nuovi clienti.\n• Nella vostra consulenza, vi affidate anche a strumenti e app innovativi. Questo è il modo di portare i vostri clienti nel nostro viaggio nel futuro: li incoraggiate a utilizzare i nostri prodotti digitali e supportarli in questo modo.",
+        "en": "Are you an initiative, sociable personality? And are you at your best when you advise customers with the help of the latest technologies?\n\nPlease contact us. We are looking for a colleague who has a flair for the concerns of the customer and feels comfortable in the digital world.\n\nAnd these are your core tasks:\n• They capture the versatile needs of our customers precisely and advise them competently.\n• After a comprehensive training period, you support and process your own customer portfolio with investment and mortgage customers.\n• They have a strong sense of optimal solutions. This ensures long-term customer relationships and scores with new customers.\n• In your consulting, you also rely on innovative tools and apps. This is how you take your customers on our journey into the future: you encourage them to use our digital products and support them in doing so.",
+        "fr": "Êtes-vous une initiative, une personnalité sociable ? Et êtes-vous à votre meilleur quand vous conseillez les clients avec l'aide des dernières technologies?\n\nVeuillez nous contacter. Nous recherchons un collègue qui a un goût pour les préoccupations du client et qui se sent à l'aise dans le monde numérique.\n\nEt voici vos tâches principales :\n• Ils saisissent précisément les besoins polyvalents de nos clients et les conseillent avec compétence.\n• Après une période de formation complète, vous aidez et traitez votre propre portefeuille client avec des clients d'investissement et d'hypothèque.\n• Ils ont un fort sens des solutions optimales. Cela garantit des relations client à long terme et des scores avec de nouveaux clients.\n• Dans votre consultation, vous comptez également sur des outils et des applications innovants. C'est ainsi que vous emmenez vos clients dans notre voyage à l'avenir : vous les encouragez à utiliser nos produits numériques et les aidez à le faire."
       },
       "location": "Mittelland",
       "canton": "",
@@ -8509,7 +8492,6 @@
         "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8539,16 +8521,16 @@
       "title": "Conseiller-ère Clientèle privée Retail - Eaux-Vives",
       "titleByLocale": {
         "fr": "Conseiller-ère Clientèle privée Retail - Eaux-Vives",
-        "it": "Conseiller-ère Clientèle privée Retail - Eaux-Vives",
-        "en": "Conseiller-ère Clientèle privée Retail - Eaux-Vives",
-        "de": "Conseiller-ère Clientèle privée Retail - Eaux-Vives"
+        "it": "Advisor-ère Private Clientèle Retail - Eaux-Vives",
+        "en": "Advisor-ère Private Clientèle Retail - Eaux-Vives",
+        "de": "Advisor-ère Private Clientèle Retail - Eaux-Vives"
       },
       "description": "Avez-vous une personnalité sympathique et sociable, aimez-vous prendre des initiatives ? Et vous sentez-vous à l'aise dans le monde digital ?\n\nAlors prenez contact avec nous. Nous recherchons justement une collègue ou un collègue qui a du flair pour les différents besoins des clients, comme l’intérêt pour les nouvelles technologies.\n\nEt voici vos tâches principales:\n• vous conseillez nos clients de manière compétente. A cet effet, vous misez sur des Tools et des Apps innovants\n• vous identifiez précisément les besoins des clients. Et vous avez l’intuition pour les solutions les plus adaptées. Avec celles-ci, vous ne vous démarquez pas seulement avec nos clients actuels, mais surprenez aussi les nouveaux\n• en finalité, vous emmenez notre clientèle dans notre voyage vers le futur: vous vous encouragez à utiliser nos produits digitaux et vous vous y investissez",
       "descriptionByLocale": {
         "fr": "Avez-vous une personnalité sympathique et sociable, aimez-vous prendre des initiatives ? Et vous sentez-vous à l'aise dans le monde digital ?\n\nAlors prenez contact avec nous. Nous recherchons justement une collègue ou un collègue qui a du flair pour les différents besoins des clients, comme l’intérêt pour les nouvelles technologies.\n\nEt voici vos tâches principales:\n• vous conseillez nos clients de manière compétente. A cet effet, vous misez sur des Tools et des Apps innovants\n• vous identifiez précisément les besoins des clients. Et vous avez l’intuition pour les solutions les plus adaptées. Avec celles-ci, vous ne vous démarquez pas seulement avec nos clients actuels, mais surprenez aussi les nouveaux\n• en finalité, vous emmenez notre clientèle dans notre voyage vers le futur: vous vous encouragez à utiliser nos produits digitaux et vous vous y investissez",
-        "it": "Avez-vous une personnalité sympathique et sociable, aimez-vous prendre des initiatives ? Et vous sentez-vous à l'aise dans le monde digital ?\n\nAlors prenez contact avec nous. Nous recherchons justement une collègue ou un collègue qui a du flair pour les différents besoins des clients, comme l’intérêt pour les nouvelles technologies.\n\nEt voici vos tâches principales:\n• vous conseillez nos clients de manière compétente. A cet effet, vous misez sur des Tools et des Apps innovants\n• vous identifiez précisément les besoins des clients. Et vous avez l’intuition pour les solutions les plus adaptées. Avec celles-ci, vous ne vous démarquez pas seulement avec nos clients actuels, mais surprenez aussi les nouveaux\n• en finalité, vous emmenez notre clientèle dans notre voyage vers le futur: vous vous encouragez à utiliser nos produits digitaux et vous vous y investissez",
-        "en": "Avez-vous une personnalité sympathique et sociable, aimez-vous prendre des initiatives ? Et vous sentez-vous à l'aise dans le monde digital ?\n\nAlors prenez contact avec nous. Nous recherchons justement une collègue ou un collègue qui a du flair pour les différents besoins des clients, comme l’intérêt pour les nouvelles technologies.\n\nEt voici vos tâches principales:\n• vous conseillez nos clients de manière compétente. A cet effet, vous misez sur des Tools et des Apps innovants\n• vous identifiez précisément les besoins des clients. Et vous avez l’intuition pour les solutions les plus adaptées. Avec celles-ci, vous ne vous démarquez pas seulement avec nos clients actuels, mais surprenez aussi les nouveaux\n• en finalité, vous emmenez notre clientèle dans notre voyage vers le futur: vous vous encouragez à utiliser nos produits digitaux et vous vous y investissez",
-        "de": "Avez-vous une personnalité sympathique et sociable, aimez-vous prendre des initiatives ? Et vous sentez-vous à l'aise dans le monde digital ?\n\nAlors prenez contact avec nous. Nous recherchons justement une collègue ou un collègue qui a du flair pour les différents besoins des clients, comme l’intérêt pour les nouvelles technologies.\n\nEt voici vos tâches principales:\n• vous conseillez nos clients de manière compétente. A cet effet, vous misez sur des Tools et des Apps innovants\n• vous identifiez précisément les besoins des clients. Et vous avez l’intuition pour les solutions les plus adaptées. Avec celles-ci, vous ne vous démarquez pas seulement avec nos clients actuels, mais surprenez aussi les nouveaux\n• en finalité, vous emmenez notre clientèle dans notre voyage vers le futur: vous vous encouragez à utiliser nos produits digitaux et vous vous y investissez"
+        "it": "Hai una personalità amichevole e socievole, ti piace prendere iniziative? E ti senti a tuo agio nel mondo digitale?\n\nAllora contattaci. Siamo alla ricerca di un collega o di un collega che abbia un fascino per le diverse esigenze dei clienti, come l'interesse per le nuove tecnologie.\n\nEd ecco i vostri compiti principali:\n• si consiglia ai nostri clienti con competenza. A tal fine, si sta affidando a strumenti e app innovativi\n• identificare con precisione le esigenze dei clienti. E avete intuito per le soluzioni più adatte. Con questi, non si distingue solo con i nostri clienti attuali, ma anche sorprendere quelli nuovi\n• Alla fine, portate i nostri clienti nel nostro viaggio verso il futuro: incoraggiate e investite nei nostri prodotti digitali",
+        "en": "Do you have a friendly and sociable personality, do you like to take initiatives? And do you feel comfortable in the digital world?\n\nThen contact us. We are looking for a colleague or colleague who has a flair for the different needs of customers, such as interest in new technologies.\n\nAnd here are your main tasks:\n• you advise our customers competently. To this end, you are relying on innovative Tools and Apps\n• you accurately identify the needs of customers. And you have intuition for the most suitable solutions. With these, you not only stand out with our current customers, but also surprise the new ones\n• In the end, you take our customers on our journey to the future: you encourage and invest in our digital products",
+        "de": "Haben Sie eine freundliche und gesellige Persönlichkeit, möchten Sie Initiativen ergreifen? Und fühlen Sie sich wohl in der digitalen Welt?\n\nDann kontaktieren Sie uns. Wir suchen einen Kollegen oder Kollegen, der ein Gespür für die unterschiedlichen Bedürfnisse der Kunden hat, wie z.B. Interesse an neuen Technologien.\n\nUnd hier sind Ihre Hauptaufgaben:\n• Sie beraten unsere Kunden kompetent. Dafür setzen Sie auf innovative Tools und Apps\n• Sie identifizieren die Bedürfnisse der Kunden genau. Und Sie haben Intuition für die am besten geeigneten Lösungen. Mit diesen heben Sie sich nicht nur von unseren aktuellen Kunden ab, sondern überraschen auch die neuen.\n• Am Ende nehmen Sie unsere Kunden mit auf unsere Reise in die Zukunft: Sie fördern und investieren in unsere digitalen Produkte"
       },
       "location": "Suisse romande",
       "canton": "VD",
@@ -8581,7 +8563,6 @@
         "categoryRaw": "Conseil clientèle / Relationship management",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -8612,16 +8593,16 @@
       "title": "Sachbearbeiter /in Mahnwesen",
       "titleByLocale": {
         "de": "Sachbearbeiter /in Mahnwesen",
-        "it": "Sachbearbeiter /in Mahnwesen",
-        "en": "Sachbearbeiter /in Mahnwesen",
-        "fr": "Sachbearbeiter /in Mahnwesen"
+        "it": "Persona responsabile / astuzia",
+        "en": "Person in charge / dunning",
+        "fr": "Responsable / titulaire"
       },
       "description": "Haben Sie ein Flair für Zahlen und eine gute Auffassungsgabe? Sind effizientes und exaktes Arbeiten Ihre Stärken? Besitzen Sie ein gutes Verhandlungsgeschick? Suchen Sie den Einstieg in die Finanzbranche?\n\nWir suchen eine/n Sachbearbeiter/in Mahnwesen als Verstärkung für unser Team mit folgenden Aufgaben:\n\n• Analyse und Bearbeitung von Kontoüberschreitungen\n• Selbständiges Auslösen von Mahnungen, Ausbuchungen und Überträgen an unser Inkasso\n• Kommentieren von Überschreitungsmeldung mit höherem Risiko\n• Selbständiges Treffen von Zahlungsvereinbarungen mit Kunden unter Berücksichtigung von internen Weisungen\n• Schriftverkehr und telefonischer Kontakt mit Kunden, Kundenberater/innen, internen Stellen sowie Ämtern und Behörden\n• Allgemeine administrative Arbeiten",
       "descriptionByLocale": {
         "de": "Haben Sie ein Flair für Zahlen und eine gute Auffassungsgabe? Sind effizientes und exaktes Arbeiten Ihre Stärken? Besitzen Sie ein gutes Verhandlungsgeschick? Suchen Sie den Einstieg in die Finanzbranche?\n\nWir suchen eine/n Sachbearbeiter/in Mahnwesen als Verstärkung für unser Team mit folgenden Aufgaben:\n\n• Analyse und Bearbeitung von Kontoüberschreitungen\n• Selbständiges Auslösen von Mahnungen, Ausbuchungen und Überträgen an unser Inkasso\n• Kommentieren von Überschreitungsmeldung mit höherem Risiko\n• Selbständiges Treffen von Zahlungsvereinbarungen mit Kunden unter Berücksichtigung von internen Weisungen\n• Schriftverkehr und telefonischer Kontakt mit Kunden, Kundenberater/innen, internen Stellen sowie Ämtern und Behörden\n• Allgemeine administrative Arbeiten",
-        "it": "Haben Sie ein Flair für Zahlen und eine gute Auffassungsgabe? Sind effizientes und exaktes Arbeiten Ihre Stärken? Besitzen Sie ein gutes Verhandlungsgeschick? Suchen Sie den Einstieg in die Finanzbranche?\n\nWir suchen eine/n Sachbearbeiter/in Mahnwesen als Verstärkung für unser Team mit folgenden Aufgaben:\n\n• Analyse und Bearbeitung von Kontoüberschreitungen\n• Selbständiges Auslösen von Mahnungen, Ausbuchungen und Überträgen an unser Inkasso\n• Kommentieren von Überschreitungsmeldung mit höherem Risiko\n• Selbständiges Treffen von Zahlungsvereinbarungen mit Kunden unter Berücksichtigung von internen Weisungen\n• Schriftverkehr und telefonischer Kontakt mit Kunden, Kundenberater/innen, internen Stellen sowie Ämtern und Behörden\n• Allgemeine administrative Arbeiten",
-        "en": "Haben Sie ein Flair für Zahlen und eine gute Auffassungsgabe? Sind effizientes und exaktes Arbeiten Ihre Stärken? Besitzen Sie ein gutes Verhandlungsgeschick? Suchen Sie den Einstieg in die Finanzbranche?\n\nWir suchen eine/n Sachbearbeiter/in Mahnwesen als Verstärkung für unser Team mit folgenden Aufgaben:\n\n• Analyse und Bearbeitung von Kontoüberschreitungen\n• Selbständiges Auslösen von Mahnungen, Ausbuchungen und Überträgen an unser Inkasso\n• Kommentieren von Überschreitungsmeldung mit höherem Risiko\n• Selbständiges Treffen von Zahlungsvereinbarungen mit Kunden unter Berücksichtigung von internen Weisungen\n• Schriftverkehr und telefonischer Kontakt mit Kunden, Kundenberater/innen, internen Stellen sowie Ämtern und Behörden\n• Allgemeine administrative Arbeiten",
-        "fr": "Haben Sie ein Flair für Zahlen und eine gute Auffassungsgabe? Sind effizientes und exaktes Arbeiten Ihre Stärken? Besitzen Sie ein gutes Verhandlungsgeschick? Suchen Sie den Einstieg in die Finanzbranche?\n\nWir suchen eine/n Sachbearbeiter/in Mahnwesen als Verstärkung für unser Team mit folgenden Aufgaben:\n\n• Analyse und Bearbeitung von Kontoüberschreitungen\n• Selbständiges Auslösen von Mahnungen, Ausbuchungen und Überträgen an unser Inkasso\n• Kommentieren von Überschreitungsmeldung mit höherem Risiko\n• Selbständiges Treffen von Zahlungsvereinbarungen mit Kunden unter Berücksichtigung von internen Weisungen\n• Schriftverkehr und telefonischer Kontakt mit Kunden, Kundenberater/innen, internen Stellen sowie Ämtern und Behörden\n• Allgemeine administrative Arbeiten"
+        "it": "Hai un tocco per i numeri e una buona comprensione? Sono efficienti ed esatti i vostri punti di forza? Hai buone capacità di negoziazione? Stai cercando di entrare nel settore finanziario?\n\nSiamo alla ricerca di un agente d'assalto come un rinforzo per il nostro team con i seguenti compiti:\n\n• Analisi e lavorazione di overruns\n• Attivazione indipendente di promemoria, pensionati e trasferimenti alla nostra raccolta di debiti\n• Commenta la notifica a rischio più elevato\n• Conclusione indipendente degli accordi di pagamento con i clienti tenendo conto delle istruzioni interne\n• Corrispondenza e contatto telefonico con clienti, consulenti clienti, uffici interni e uffici e autorità\n• Lavoro amministrativo generale",
+        "en": "Do you have a flair for numbers and a good comprehension? Are efficient and exact work your strengths? Do you have good negotiation skills? Are you looking for entry into the financial industry?\n\nWe are looking for a dunning agent as a reinforcement for our team with the following tasks:\n\n• Analysis and processing of overruns\n• Independent triggering of reminders, retirements and transfers to our debt collection\n• Commenting on higher risk overrun notification\n• Independent conclusion of payment agreements with customers taking into account internal instructions\n• Correspondence and telephone contact with customers, customer consultants, internal offices as well as offices and authorities\n• General administrative work",
+        "fr": "Avez-vous un goût pour les chiffres et une bonne compréhension ? Vos forces sont-elles efficaces et exactes? Avez-vous de bonnes compétences en négociation? Vous cherchez à entrer dans le secteur financier?\n\nNous cherchons un agent de dunning comme renfort pour notre équipe avec les tâches suivantes:\n\n• Analyse et traitement des dépassements\n• Déclenchement indépendant des rappels, des retraits et des transferts à notre recouvrement de la dette\n• Commentaires sur la notification de dépassement de risque plus élevé\n• Conclusion indépendante d'accords de paiement avec les clients en tenant compte des instructions internes\n• Correspondance et contact téléphonique avec les clients, les consultants clients, les bureaux internes ainsi que les bureaux et autorités\n• Travaux administratifs généraux"
       },
       "location": "Mittelland",
       "canton": "",
@@ -8654,7 +8635,6 @@
         "categoryRaw": "Operations",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8686,7 +8666,7 @@
         "it": "Progettisti di Successione",
         "en": "Succession Planners",
         "de": "Succession Planner/in Wealth Management",
-        "fr": "Succession Planner/in Wealth Management"
+        "fr": "Planificateur de relève/Gestion de la masse"
       },
       "description": "Bringen Sie fundierte Expertise im Güter- und Erbrecht mit?\nDenken Sie unternehmerisch und erkennen komplexe Kundenbedürfnisse frühzeitig?\nArbeiten Sie gerne interdisziplinär und überzeugen durch klare Kommunikation?\n\nWir suchen Sie für die:\n• Ganzheitliche Beratung von vermögenden Privatkunden sowie Entrepreneurs und Executives in Nachlass- und Vermögensfragen\n• Erstellung von Testamenten, Ehe- und Erbverträgen sowie Vorsorgeaufträgen\n• Strukturierung von lebzeitigen Vermögensübertragungen und Begleitung von Unternehmensnachfolgen\n• Proaktive Erkennung von Kundenbedürfnissen und Entwicklung massgeschneiderter Lösungen\n• Enge Zusammenarbeit mit Kundenberatern und internen/externalen Spezialisten\n• Repräsentation der Fachkompetenz in Präsentationen, Events und im Wissenstransfer",
       "descriptionByLocale": {
@@ -8745,7 +8725,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.546Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
