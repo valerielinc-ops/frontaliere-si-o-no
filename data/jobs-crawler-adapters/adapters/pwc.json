@@ -11,9 +11,9 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-07-07T22:15:54.288Z",
+  "updatedAt": "2026-07-08T11:35:58.895Z",
   "seedMetaByUrl": {
-    "https://jobs.pwc.ch/job-vacancies/associate-manager-jurist-in-compliance-experte-in-im-bereich-finanzmarktrecht/ebd01fae-9f53-4778-b24f-cc22b9061a7b": {
+    "https://jobs.pwc.ch/job-vacancies/jurist-in-compliance-experte-in-im-bereich-finanzmarktrecht/ebd01fae-9f53-4778-b24f-cc22b9061a7b": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "PwC Switzerland",
