@@ -1,0 +1,40 @@
+{
+  "id": "pizza-price-italy-implications",
+  "slug": "pizza-price-italy-implications",
+  "publishedAt": "2026-07-08T01:56:15.850Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 33.442574206154354,
+    "confidence": 0.8,
+    "finalScore": 26.754059364923485,
+    "topK": [
+      {
+        "slug": "pizza-bibita-costi-citta",
+        "cosine": 0.8587166925203098
+      },
+      {
+        "slug": "prezzi-dinamici-ticino-futuro",
+        "cosine": 0.8320515203892385
+      },
+      {
+        "slug": "aumento-prezzi-carburanti-maggio-2026",
+        "cosine": 0.8233936765371862
+      },
+      {
+        "slug": "pasta-svizzera-italia-2026",
+        "cosine": 0.819547775403267
+      },
+      {
+        "slug": "confine-italia-svizzera-6-regole-doganali",
+        "cosine": 0.8170396309694409
+      }
+    ],
+    "score": 26.754059364923485,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3108,
+ "numberOfItems": 3109,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7783,7 +7783,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3105, "name": "Cerca lavoro ascensori a Steinach: opportunità ...", "url": `${BASE_URL}/articoli-frontaliere/ascensori-steinach-lavoro-svizzera` },
           { "@type": "ListItem", "position": 3106, "name": "Prezzi pizza in Italia: analisi e impatto sul c...", "url": `${BASE_URL}/articoli-frontaliere/prezzi-pizza-italia-implicazioni` },
           { "@type": "ListItem", "position": 3107, "name": "Pemsa Lugano: Servizi per i lavoratori in Ticino", "url": `${BASE_URL}/articoli-frontaliere/pemsa-lugano-servizi-frontalieri` },
-          { "@type": "ListItem", "position": 3108, "name": "Autovelox ticinesi: introiti decuplicati, 60% s...", "url": `${BASE_URL}/articoli-frontaliere/autovelox-ticino-introiti-frontalieri` }
+          { "@type": "ListItem", "position": 3108, "name": "Autovelox ticinesi: introiti decuplicati, 60% s...", "url": `${BASE_URL}/articoli-frontaliere/autovelox-ticino-introiti-frontalieri` },
+          { "@type": "ListItem", "position": 3109, "name": "Prezzi pizza in Italia: cosa cambia per i front...", "url": `${BASE_URL}/articoli-frontaliere/pizza-price-italy-implications` }
  ]
  },
  {
