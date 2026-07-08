@@ -1,7 +1,80 @@
 {
   "crawlerKey": "upd",
-  "assembledAt": "2026-05-28T00:45:46.059Z",
+  "assembledAt": "2026-07-08T22:15:10.840Z",
   "jobs": [
+    {
+      "id": "upd-d911ea151626",
+      "slug": "dipl-pflegefachperson-come-nachtwache-station-freiburghaus-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-als-nachtwache-station-freiburghaus-upd-bern",
+        "it": "dipl-pflegefachperson-come-nachtwache-station-freiburghaus-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "dipl-pflegefachperson-als-nachtwache-station-freiburghaus-upd-bern",
+        "fr": "dipl-pflegefachperson-als-nachtwache-station-freiburghaus-upd-bern"
+      },
+      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+      "companyKey": "upd",
+      "companyDomain": "upd.ch",
+      "title": "Dipl. Pflegefachperson als Nachtwache Station Freiburghaus",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson als Nachtwache Station Freiburghaus",
+        "en": "Dipl. Pflegefachperson als Nachtwache Station Freiburghaus",
+        "it": "Dipl. Pflegefachperson come Nachtwache Station Freiburghaus",
+        "fr": "Dipl. Pflegefachperson als Nachtwache Station Freiburghaus"
+      },
+      "description": "Dipl. Pflegefachperson als Nachtwache Station Freiburghaus bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+      "descriptionByLocale": {
+        "de": "Dipl. Pflegefachperson als Nachtwache Station Freiburghaus bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "it": "Dipl. Pflegefachperson als Nachtwache Station Freiburghaus bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "en": "Dipl. Pflegefachperson als Nachtwache Station Freiburghaus bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "fr": "Dipl. Pflegefachperson als Nachtwache Station Freiburghaus bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)"
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3239/Description/1",
+      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-08T22:14:46.438Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3000",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3239/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-als-nachtwache-station-freiburghaus-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-als-nachtwache-station-freiburghaus-upd-bern"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-08T22:14:46.438Z"
+    },
     {
       "id": "upd-b6fe58cbb517",
       "slug": "dipl-pflegefachperson-fachverantwortung-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
@@ -70,7 +143,9 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "upd-ef97a74f6270",
@@ -145,7 +220,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "upd-6622e9150421",
@@ -229,7 +305,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "upd-2617f609680b",
@@ -306,7 +383,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "upd-96c5242792bf",
@@ -383,11 +461,12 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "upd-a67318c29a3f",
-      "slug": "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "dipendenti-dell-applicazione-al-100-kanton-aargau-aarau-d35b52",
       "slugByLocale": {
         "it": "dipendenti-dell-applicazione-al-100-kanton-aargau-aarau-d35b52",
         "en": "prisoners-100-kanton-aargau-aarau-d35b52",
@@ -435,11 +514,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-station-marbach-upd-bern",
-        "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern"
+        "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-station-marbach-upd-bern"
+          "dipl-pflegefachperson-station-marbach-upd-bern",
+          "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "fr": [
           "dipl-pflegefachperson-station-marbach-upd-bern",
@@ -461,11 +542,12 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "upd-e7c1119f4613",
-      "slug": "medico-specialista-in-pediatria-e-adolescenza-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "oberarztin-oberarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "it": "oberarztin-oberarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "senior-physician-in-child-and-adolescent-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
@@ -513,11 +595,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
+        "medico-specialista-in-pediatria-e-adolescenza-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
+          "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
+          "medico-specialista-in-pediatria-e-adolescenza-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "en": [
           "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
@@ -538,11 +622,12 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "upd-af7f20719265",
-      "slug": "fachperson-gesundheit-o-dipl-pflegefachperson-station-flugel-inkl-aufbau-ausbildungsstation-universitare-psychiatrische",
+      "slug": "operatore-socio-sanitario-o-infermiere-diplomato-reparto-flugel-inclusa-la-creazione-di-un-reparto-di-formazione",
       "slugByLocale": {
         "it": "operatore-socio-sanitario-o-infermiere-diplomato-reparto-flugel-inclusa-la-creazione-di-un-reparto-di-formazione",
         "en": "healthcare-specialist-or-dipl-nursing-specialist-station-flugel-including-establishment-of-a-training-station",
@@ -566,7 +651,7 @@
         "de": "Fachperson Gesundheit oder Dipl. Pflegefachperson Station Flügel (inkl. Aufbau Ausbildungsstation) bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n• Bereich: Pflege | Sozialpädagogik\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
         "fr": "Posizione Vacante Sujet Santé ou Dipl. Poste de soins infirmiers (y compris le poste de formation en construction) UPD AG – Services psychiatriques universitaires Berne Berne (3000, BE), Suisse --- Descrizione del Ruolo - Zone di competenza: Soins - Tipo di contratto: Temps plein - Condizione contrattuale: limitée (sans limite) - Luogo di lavoro: Berne (BE) --- Contatto par candidature - Modalità di candidatura: Demande via le Umantis-Karriereportal von Universitären Services psychiatriques Bern (UPD)"
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://recruitingapp-2908.umantis.com/Vacancies/3141/Description/1",
@@ -592,11 +677,13 @@
       "previousSlugs": [
         "fachperson-gesundheit-oder-dipl-pflegefachperson-station-flugel-inkl-aufbau",
         "subject-health-or-dipl-nursing-person-station-wing-incl-construction-training-station-universitare-psychiatrische",
-        "sujet-sante-ou-dipl-poste-de-soins-infirmiers-y-compris-le-poste-de-formation-en-construction-universitare"
+        "sujet-sante-ou-dipl-poste-de-soins-infirmiers-y-compris-le-poste-de-formation-en-construction-universitare",
+        "fachperson-gesundheit-o-dipl-pflegefachperson-station-flugel-inkl-aufbau-ausbildungsstation-universitare-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-oder-dipl-pflegefachperson-station-flugel-inkl-aufbau"
+          "fachperson-gesundheit-oder-dipl-pflegefachperson-station-flugel-inkl-aufbau",
+          "fachperson-gesundheit-o-dipl-pflegefachperson-station-flugel-inkl-aufbau-ausbildungsstation-universitare-psychiatrische"
         ],
         "en": [
           "subject-health-or-dipl-nursing-person-station-wing-incl-construction-training-station-universitare-psychiatrische"
@@ -617,11 +704,12 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "upd-8edd6aebefcc",
-      "slug": "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
@@ -668,11 +756,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern"
+        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
+        "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern"
+          "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
+          "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern"
@@ -693,7 +783,9 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "upd-a5fef534fd9a",
@@ -775,7 +867,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
