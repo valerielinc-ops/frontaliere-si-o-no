@@ -1,16 +1,16 @@
 {
   "key": "dic-sa",
   "label": "DIC SA",
-  "generatedAt": "2026-07-08T11:23:14.626Z",
+  "generatedAt": "2026-07-08T22:13:36.810Z",
   "total": 1,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2791,
-  "avgDurationMs": 2791,
+  "durationMs": 3452,
+  "avgDurationMs": 3452,
   "durationHistory": [
-    2791
+    3452
   ],
   "newJobs": [
     {
@@ -22,10 +22,10 @@
       "title": "Ingenieur civil EPF - Chef de projet (H/F)",
       "location": "Aigle",
       "canton": "VD",
-      "url": "https://www.jobs.ch/fr/vacancies/detail/90aca745-50a2-46aa-ba78-f551572468cb/",
+      "url": "https://www.jobs.ch/en/vacancies/detail/90aca745-50a2-46aa-ba78-f551572468cb/",
       "source": "DIC SA Dedicated Parser (jobs.ch)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:23:12.797Z",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-08T22:13:34.663Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "streetAddress": "Les Glariers",
@@ -40,12 +40,12 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-29",
-      "applyUrl": "https://www.jobs.ch/fr/vacancies/detail/90aca745-50a2-46aa-ba78-f551572468cb/",
+      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/90aca745-50a2-46aa-ba78-f551572468cb/",
       "hiringOrganizationName": "DIC SA",
-      "_qualityScore": 49,
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 18,
         "translation": 4,
         "completeness": 20
       }
