@@ -49,10 +49,11 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00039532EXTERNALENGLOBAL/FPGA-Software-Engineer-R-D---Power-Electronics-Traction-Applications",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00039855EXTERNALENGLOBAL/Production-Shift-Supervisor--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040367EXTERNALENGLOBAL/Global-Sales-Manager-Business-Line-Mining---Materials_JR00040367-1",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00040380EXTERNALENGLOBAL/Business---Market-Intelligence-Analyst",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040474EXTERNALENGLOBAL/DACH-Sales-Manager-CI"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-07-08T04:47:14.815Z",
+  "updatedAt": "2026-07-08T10:56:22.873Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040367EXTERNALENGLOBAL/Global-Sales-Manager-Business-Line-Mining---Materials_JR00040367-1": {
       "location": "Baden, Aargau, Switzerland",
@@ -121,6 +122,14 @@
     "https://careers.abb/global/en/job/ABB1GLOBAL96065277EXTERNALENGLOBAL/Sales-Specialist_96065277": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00040380EXTERNALENGLOBAL/Business---Market-Intelligence-Analyst": {
+      "location": "Zurich, Zurich, Switzerland",
+      "canton": "ZH",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
