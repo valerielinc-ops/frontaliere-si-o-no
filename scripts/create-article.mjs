@@ -3572,9 +3572,15 @@ async function fetchPageContent(url) {
     console.error(`📚 Articolo evergreen: "${keyword}"`);
     return `[ARTICOLO EVERGREEN SEO]\nKeyword target: ${keyword}\nAngolo editoriale: ${angle}\n\nGenera un articolo approfondito e pratico ottimizzato per questa keyword long-tail. Usa solo fatti verificati e stabili sul dominio frontalieri Ticino-Italia. Se servono esempi, presentali come scenari ipotetici, senza nomi, aziende, città o importi specifici inventati.\n\n${EVERGREEN_FACTS_BRIEF}\n\n⚠️ I FATTI VERIFICATI qui sopra DEVONO corrispondere ESATTAMENTE (lo stesso ground truth è usato dal fact-checker, che blocca l'articolo se diverghi). Per dettagli NON coperti, attieniti a nozioni stabili e generali del dominio; se un dato specifico non è certo, ometti o usa formulazioni qualitative invece di inventare cifre/date precise.`;
   }
-  console.error(`📰 Fetching: ${url}`);
+  // Orphan-query candidates carry a site-relative path (GSC topLandingPage
+  // is stored path-only by design, see gscFetcher.mjs:231) — fetch() has no
+  // implicit base URL and throws "Failed to parse URL from /..." on these,
+  // silently degrading to a sourceless generation. Resolve against the
+  // canonical domain before fetching.
+  const absoluteUrl = url.startsWith('/') ? `${BASE_URL}${url}` : url;
+  console.error(`📰 Fetching: ${absoluteUrl}`);
   try {
-    const res = await fetch(url, {
+    const res = await fetch(absoluteUrl, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
         'Accept': 'text/html,application/xhtml+xml',
