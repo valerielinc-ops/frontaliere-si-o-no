@@ -946,6 +946,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ascensori-steinach-lavoro-svizzera.title': 'Recherche d\'emploi ascenseurs à Steinach : opportunités en Suisse',
     'blog.article.ascensori-steinach-lavoro-svizzera.excerpt': 'Découvrez les opportunités d\'emploi pour les installateurs et les mainteneurs d\'ascenseurs à Steinach et dans toute la Suisse. Données sur les salaires, les réglementations techniques et les procédures cantonales.',
     'blog.article.ascensori-steinach-lavoro-svizzera.imageAlt': 'Ouvriers suisses installent un ascenseur',
+    'blog.article.prezzi-pizza-italia-implicazioni.title': 'Prix des pizzas en Italie : analyse et impact sur le coût de la vie',
+    'blog.article.prezzi-pizza-italia-implicazioni.excerpt': 'Analyse de l\'évolution des prix de la pizza en Italie et des implications pour ceux qui gèrent leur budget entre la Suisse et l\'Italie.',
+    'blog.article.prezzi-pizza-italia-implicazioni.imageAlt': 'Pizza italienne traditionnelle servie dans un restaurant.',
 };
 
 export default blogMetaChFr;

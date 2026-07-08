@@ -2834,6 +2834,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'prezzi-pizza-italia-implicazioni',
+    category: 'novita',
+    date: '2026-07-08T01:14:21.808Z',
+    image: '/images/blog/prezzi-pizza-italia-implicazioni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
