@@ -396,7 +396,17 @@ export function identityUrlKey(url) {
 
   try {
     const parsed = new URL(raw);
-    parsed.hash = '';
+    // Johdi Suite ATS widget (eHnv, H-JU, Daler — johdisuite.ch tenants) hash-routes
+    // every distinct posting as `#offer/<numeric-id>/<slug>` on ONE shared canonical
+    // career-page URL. Blindly stripping the hash below collapses all postings at a
+    // tenant onto a single stats/diff/firstSeenAt identity — computeCrawlDiff's
+    // removedJobs then never fires for these tenants (masked by any other still-open
+    // posting), so a genuinely-removed indexed job URL never gets its soft-landing
+    // expired page (crawler-template.mjs Step 4b archival). Key on the numeric offer
+    // id instead — same title/slug-proof stability rationale as the sibling fix in
+    // extractJobIdentityFromUrl (dedicated-crawler-common.mjs, eHnv 15→1 incident).
+    const johdiSuiteMatch = parsed.hash.match(/^#offer\/(\d+)\//i);
+    parsed.hash = johdiSuiteMatch ? `#offer-${johdiSuiteMatch[1]}` : '';
     if ((parsed.protocol === 'https:' && parsed.port === '443') || (parsed.protocol === 'http:' && parsed.port === '80')) {
       parsed.port = '';
     }
