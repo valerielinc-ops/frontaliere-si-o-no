@@ -1,6 +1,6 @@
 {
   "crawlerKey": "allianz-suisse",
-  "assembledAt": "2026-07-08T11:25:35.369Z",
+  "assembledAt": "2026-07-08T22:20:22.029Z",
   "jobs": [
     {
       "title": "Lehrstelle als Kauffrau/Kaufmann EFZ, 100%, Sommer 2027",
@@ -72,7 +72,8 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-01T21:47:45.204Z"
+      "firstSeenAt": "2026-07-01T21:47:45.204Z",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter:in Innendienst, 60-100%, Generalagentur Berner Oberland",
@@ -144,7 +145,8 @@
         }
       },
       "postalCode": "3600",
-      "firstSeenAt": "2026-06-25T10:40:49.593Z"
+      "firstSeenAt": "2026-06-25T10:40:49.593Z",
+      "needsRetranslation": true
     },
     {
       "title": "Kundenberater/in für die Agentur Murten 100%",
@@ -225,7 +227,7 @@
     },
     {
       "title": "Kundenberater:in (auch Quereinsteiger:in) Versicherung (w/m/d), 80-100%, Buchs",
-      "slug": "kundenberater-in-auch-candidato-a-in-riqualificazione-versicherung-w-m-d-80-100-buchs-allianz-suisse-aarau",
+      "slug": "psicologo-specializzato-in-psicoterapia-klinik-sonnenhalde-riehen",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/318/Description/4",
       "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/318/Application/CheckLogin/4",
       "company": "Allianz Suisse",
@@ -261,19 +263,21 @@
       "slugByLocale": {
         "it": "psicologo-specializzato-in-psicoterapia-klinik-sonnenhalde-riehen",
         "en": "specialist-psychologist-for-psychotherapy-klinik-sonnenhalde-riehen",
-        "de": "kundenberater-in-auch-quereinsteiger-in-versicherung-w-m-d-80-100-buchs-allianz-suisse-aarau",
+        "de": "fachpsycholog-in-fur-psychotherapie-klinik-sonnenhalde-riehen",
         "fr": "psychologue-specialise-en-psychotherapie-klinik-sonnenhalde-riehen"
       },
       "id": "allianz-suisse-4217a32cd1d3",
       "previousSlugsByLocale": {
         "it": [
-          "allianz-bewerbermanagement"
+          "allianz-bewerbermanagement",
+          "kundenberater-in-auch-candidato-a-in-riqualificazione-versicherung-w-m-d-80-100-buchs-allianz-suisse-aarau"
         ],
         "en": [
           "allianz-bewerbermanagement"
         ],
         "de": [
           "allianz-bewerbermanagement",
+          "kundenberater-in-auch-quereinsteiger-in-versicherung-w-m-d-80-100-buchs-allianz-suisse-aarau",
           "fachpsycholog-in-fur-psychotherapie-klinik-sonnenhalde-riehen"
         ],
         "fr": [
@@ -282,6 +286,8 @@
       },
       "previousSlugs": [
         "allianz-bewerbermanagement",
+        "kundenberater-in-auch-candidato-a-in-riqualificazione-versicherung-w-m-d-80-100-buchs-allianz-suisse-aarau",
+        "kundenberater-in-auch-quereinsteiger-in-versicherung-w-m-d-80-100-buchs-allianz-suisse-aarau",
         "fachpsycholog-in-fur-psychotherapie-klinik-sonnenhalde-riehen"
       ],
       "salaryMin": 53500,
@@ -298,7 +304,8 @@
         }
       },
       "postalCode": "9470",
-      "firstSeenAt": "2026-06-10T22:11:05.157Z"
+      "firstSeenAt": "2026-06-10T22:11:05.157Z",
+      "needsRetranslation": true
     },
     {
       "title": "Responsabile vendite per l’agenzia generale Chur, 100%",
@@ -438,7 +445,7 @@
     },
     {
       "title": "KMU-Supporter:in mit fachlicher Führung im Aussendienst (m/w/d), 100%",
-      "slug": "kmu-supporter-in-con-fachlicher-fuhrung-im-aussendienst-m-w-d-100-allianz-suisse-kmu-supporter-in",
+      "slug": "allianz-gestione-candidati-allianz-suisse-region-graubunden",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/403/Description/4",
       "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/403/Application/CheckLogin/4",
       "company": "Allianz Suisse",
@@ -474,14 +481,15 @@
       "slugByLocale": {
         "it": "allianz-gestione-candidati-allianz-suisse-region-graubunden",
         "en": "allianz-candidate-management-allianz-suisse-region-graubunden",
-        "de": "kmu-supporter-in-mit-fachlicher-fuhrung-im-aussendienst-m-w-d-100-allianz-suisse-kmu-supporter-in",
+        "de": "allianz-bewerbermanagement",
         "fr": "allianz-gestion-des-candidats-allianz-suisse-region-graubunden"
       },
       "id": "allianz-suisse-673166e2ef7b",
       "previousSlugsByLocale": {
         "it": [
           "allianz-bewerbermanagement",
-          "allianz-bewerbermanagement-allianz-suisse-region-graubunden"
+          "allianz-bewerbermanagement-allianz-suisse-region-graubunden",
+          "kmu-supporter-in-con-fachlicher-fuhrung-im-aussendienst-m-w-d-100-allianz-suisse-kmu-supporter-in"
         ],
         "en": [
           "allianz-bewerbermanagement",
@@ -491,13 +499,16 @@
           "allianz-bewerbermanagement"
         ],
         "de": [
+          "kmu-supporter-in-mit-fachlicher-fuhrung-im-aussendienst-m-w-d-100-allianz-suisse-kmu-supporter-in",
           "allianz-bewerbermanagement"
         ]
       },
       "previousSlugs": [
         "allianz-bewerbermanagement",
         "allianz-bewerbermanagement-allianz-suisse-region-graubunden",
-        "allianz-beerm-allianz-suisse-region-graubunden"
+        "allianz-beerm-allianz-suisse-region-graubunden",
+        "kmu-supporter-in-con-fachlicher-fuhrung-im-aussendienst-m-w-d-100-allianz-suisse-kmu-supporter-in",
+        "kmu-supporter-in-mit-fachlicher-fuhrung-im-aussendienst-m-w-d-100-allianz-suisse-kmu-supporter-in"
       ],
       "salaryMin": 53500,
       "salaryMax": 89000,
@@ -519,7 +530,7 @@
     },
     {
       "title": "Mitarbeiter:in Innendienst Generalagentur Langenthal (w/m/d), 70%",
-      "slug": "collaboratore-trice-servizio-interno-agenzia-generale-langenthal-w-m-d-70-allianz-suisse-langenthal",
+      "slug": "assistenz-des-ceo-e-cfo-leitung-spitalmanagement-m-w-d-bethesda-spital-basel",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/449/Description/4",
       "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/449/Application/CheckLogin/4",
       "company": "Allianz Suisse",
@@ -555,13 +566,14 @@
       "slugByLocale": {
         "it": "assistenz-des-ceo-e-cfo-leitung-spitalmanagement-m-w-d-bethesda-spital-basel",
         "en": "allianz-beerm-allianz-suisse-langenthal",
-        "de": "mitarbeiter-in-innendienst-generalagentur-langenthal-w-m-d-70-allianz-suisse-langenthal",
+        "de": "assistenz-des-ceo-und-cfo-leitung-spitalmanagement-m-w-d-bethesda-spital-basel",
         "fr": "collaborateur-trice-innendienst-generalagentur-langenthal-w-m-d-70-allianz-suisse-langenthal"
       },
       "id": "allianz-suisse-3697016fbac9",
       "previousSlugsByLocale": {
         "it": [
-          "allianz-bewerbermanagement"
+          "allianz-bewerbermanagement",
+          "collaboratore-trice-servizio-interno-agenzia-generale-langenthal-w-m-d-70-allianz-suisse-langenthal"
         ],
         "en": [
           "allianz-bewerbermanagement",
@@ -570,6 +582,7 @@
         ],
         "de": [
           "allianz-bewerbermanagement",
+          "mitarbeiter-in-innendienst-generalagentur-langenthal-w-m-d-70-allianz-suisse-langenthal",
           "assistenz-des-ceo-und-cfo-leitung-spitalmanagement-m-w-d-bethesda-spital-basel"
         ],
         "fr": [
@@ -581,7 +594,9 @@
       "previousSlugs": [
         "allianz-bewerbermanagement",
         "allianz-bewerbermanagement-allianz-suisse-langenthal",
-        "assistenz-des-ceo-und-cfo-leitung-spitalmanagement-m-w-d-bethesda-spital-basel"
+        "assistenz-des-ceo-und-cfo-leitung-spitalmanagement-m-w-d-bethesda-spital-basel",
+        "collaboratore-trice-servizio-interno-agenzia-generale-langenthal-w-m-d-70-allianz-suisse-langenthal",
+        "mitarbeiter-in-innendienst-generalagentur-langenthal-w-m-d-70-allianz-suisse-langenthal"
       ],
       "salaryMin": 53500,
       "salaryMax": 89000,
@@ -1056,7 +1071,7 @@
     },
     {
       "title": "Mitarbeiter:in Innendienst Generalagentur (w/m/d), 100%",
-      "slug": "collaboratore-trice-servizio-interno-agenzia-generale-m-w-d-100-allianz-suisse-triesen",
+      "slug": "assistente-di-laboratorio-di-biologia-kanton-aargau-aarau",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/897/Description/4",
       "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/897/Application/CheckLogin/4",
       "company": "Allianz Suisse",
@@ -1092,13 +1107,14 @@
       "slugByLocale": {
         "it": "assistente-di-laboratorio-di-biologia-kanton-aargau-aarau",
         "en": "biology-laboratory-technician-kanton-aargau-aarau",
-        "de": "mitarbeiter-in-innendienst-generalagentur-w-m-d-100-allianz-suisse-triesen",
+        "de": "biologielaborant-in-kanton-aargau-ch",
         "fr": "technicien-de-laboratoire-de-biologie-kanton-aargau-aarau"
       },
       "id": "allianz-suisse-11fcfa9f078f",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-innendienst-generalagentur-w-m-d-100"
+          "mitarbeiter-in-innendienst-generalagentur-w-m-d-100",
+          "collaboratore-trice-servizio-interno-agenzia-generale-m-w-d-100-allianz-suisse-triesen"
         ],
         "en": [
           "mitarbeiter-in-innendienst-generalagentur-w-m-d-100",
@@ -1110,14 +1126,17 @@
         ],
         "de": [
           "mitarbeiter-in-innendienst-generalagentur-w-m-d-100",
+          "mitarbeiter-in-innendienst-generalagentur-w-m-d-100-allianz-suisse-triesen",
           "biologielaborant-in-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-innendienst-generalagentur-w-m-d-100",
-        "biologielaborant-in-kanton-aargau-ch",
         "associate-innendienst-generalagentur-w-m-d-100-allianz-suisse-triesen",
-        "collaborateur-trice-innendienst-generalagentur-w-m-d-100-allianz-suisse-triesen"
+        "collaborateur-trice-innendienst-generalagentur-w-m-d-100-allianz-suisse-triesen",
+        "collaboratore-trice-servizio-interno-agenzia-generale-m-w-d-100-allianz-suisse-triesen",
+        "mitarbeiter-in-innendienst-generalagentur-w-m-d-100-allianz-suisse-triesen",
+        "biologielaborant-in-kanton-aargau-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2646,7 +2665,7 @@
     },
     {
       "title": "Collaborateur/trice du service interne agence générale (h/f/d), 50-100%, Neuchâtel",
-      "slug": "collaboratore-dell-agenzia-generale-del-servizio-interno-h-f-d-50-100-neuchatel-allianz-suisse-collaborateur-trice-du",
+      "slug": "collaborateur-trice-du-service-interne-agence-generale-h-f-d-50-100-neuchatel-allianz-suisse-collaborateur-trice-du",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/485/Description/4",
       "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/485/Application/CheckLogin/4",
       "company": "Allianz Suisse",
@@ -2668,7 +2687,7 @@
       "validThrough": "",
       "description": "## Comment nous façonnons ton avenir ensemble\n- Tu bénéficies des meilleures conditions d’entrée en service grâce à notre intégration approfondie à l’agence générale.\n- Tu prends en charge des tâches passionnantes et variées dans un environnement de travail dynamique et familial.\n- Tu profites de réductions sur les produits Allianz et d’autres avantages intéressants pour le personnel.\n## Ce que nous attendons de toi\n- Tu as terminé un apprentissage de commerce ou une formation équivalente.\n- Tu disposes déjà de plusieurs années d’expérience professionnelle, idéalement dans le domaine de l’assurance, de la prévoyance ou de la finance.\n- Tu t’adaptes facilement à de nouvelles situations et travailles dans un esprit de service, rapidement et soigneusement.\n- Tu as le sens de la communication et maîtrises l’allemand à l’oral et à l’écrit.\n- Tu as obtenu ta certification AFA ou tu es en cours d'obtention.\n## Ce qui t’attend : un travail quotidien varié\n- Tu soutiens le service externe pour toutes les questions administratives.\n- Tu accompagnes les clients au guichet, par téléphone et par correspondance.\n- Tu t’occupes des affaires courantes, par exemple l’établissement d’offres et la gestion de la correspondance.\n- Tu effectues des recherches et des clarifications en collaboration avec les sections techniques du siège principal.\n## Let's care for tomorrow\n« Let’s care for tomorrow » est notre promesse de nous soucier de l’avenir et d’offrir de la sécurité à nos client(e)s, mais aussi à nos collègues. C’est pourquoi nous travaillons dans une atmosphère familiale sur plus de 120 sites répartis dans toute la Suisse. Façonnons l’avenir ensemble pour aller encore plus loin !",
       "titleByLocale": {
-        "it": "Collaboratore dell'Agenzia Generale del Servizio Interno (h/f/d), 50-100%, Neuchâtel",
+        "it": "Collaborateur/trice du service interne agence générale (h/f/d), 50-100%, Neuchâtel",
         "en": "| Allianz / Beerm",
         "de": "| Allianz | Bewerbermanagement",
         "fr": "| Allianz | Bewerbermanagement"
@@ -2680,7 +2699,7 @@
         "fr": "## Comment nous façonnons ton avenir ensemble - Tu bénéficies des meilleures conditions d’entrée en service grâce à notre intégration approfondie à l’agence générale. - Tu prends en charge des tâches passionnantes et variées dans un environnement de travail dynamique et familial. - Tu profites de réductions sur les produits Allianz et d’autres avantages intéressants pour le personnel. ## Ce que nous attendons de toi - Tu as terminé un apprentissage de commerce ou une formation équivalente. - Tu disposes déjà de plusieurs années d’expérience professionnelle, idéalement dans le domaine de l’assurance, de la prévoyance ou de la finance. - Tu t’adaptes facilement à de nouvelles situations et travailles dans un esprit de service, rapidement et soigneusement. - Tu as le sens de la communication et maîtrises l’allemand à l’oral et à l’écrit. - Tu as obtenu ta certification AFA ou tu es en cours d'obtention. ## Ce qui t’attend : un travail quotidien varié - Tu soutiens le service externe pour toutes les questions administratives. - Tu accompagnes les clients au guichet, par téléphone et par correspondance. - Tu t’occupes des affaires courantes, par exemple l’établissement d’offres et la gestion de la correspondance. - Tu effectues des recherches et des clarifications en collaboration avec les sections techniques du siège principal. ## Let's care for tomorrow « Let’s care for tomorrow » est notre promesse de nous soucier de l’avenir et d’offrir de la sécurité à nos client(e)s, mais aussi à nos collègues. C’est pourquoi nous travaillons dans une atmosphère familiale sur plus de 120 sites répartis dans toute la Suisse. Façonnons l’avenir ensemble pour aller encore plus loin !"
       },
       "slugByLocale": {
-        "it": "collaboratore-dell-agenzia-generale-del-servizio-interno-h-f-d-50-100-neuchatel-allianz-suisse-collaborateur-trice-du",
+        "it": "collaborateur-trice-du-service-interne-agence-generale-h-f-d-50-100-neuchatel-allianz-suisse-collaborateur-trice-du",
         "en": "allianz-beerm-allianz-suisse-neuchatel",
         "de": "allianz-bewerbermanagement-allianz-suisse-collaborateur-trice-du-service-interne",
         "fr": "allianz-bewerbermanagement-allianz-suisse-collaborateur-trice-du-service-interne"
@@ -2690,6 +2709,7 @@
         "it": [
           "allianz-bewerbermanagement",
           "allianz-bewerbermanagement-allianz-suisse-neuchatel",
+          "collaboratore-dell-agenzia-generale-del-servizio-interno-h-f-d-50-100-neuchatel-allianz-suisse-collaborateur-trice-du",
           "collaborateur-trice-du-service-interne-agence-generale-h-f-d-50-100-neuchatel-allianz-suisse-collaborateur-trice-du"
         ],
         "en": [
@@ -2707,6 +2727,7 @@
       "previousSlugs": [
         "allianz-bewerbermanagement",
         "allianz-bewerbermanagement-allianz-suisse-neuchatel",
+        "collaboratore-dell-agenzia-generale-del-servizio-interno-h-f-d-50-100-neuchatel-allianz-suisse-collaborateur-trice-du",
         "collaborateur-trice-du-service-interne-agence-generale-h-f-d-50-100-neuchatel-allianz-suisse-collaborateur-trice-du"
       ],
       "salaryMin": 53500,
@@ -2724,7 +2745,8 @@
       },
       "postalCode": "2000",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "streetAddress": ""
+      "streetAddress": "",
+      "needsRetranslation": true
     },
     {
       "title": "Consulente assicurativo (m/f/d) al 100%, Agenzia generale Sopraceneri",
@@ -3199,8 +3221,83 @@
       "firstSeenAt": "2026-06-11T22:12:35.243Z"
     },
     {
+      "title": "Kundenberater:in Versicherung Rotkreuz, 100%",
+      "slug": "direzione-del-reparto-di-medicina-acuta-80-100-spital-davos-davos",
+      "url": "https://recruitingapp-2872.umantis.com/Vacancies/699/Description/4",
+      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/699/Application/CheckLogin/4",
+      "company": "Allianz Suisse",
+      "companyKey": "allianz-suisse",
+      "companyDomain": "umantis.com",
+      "location": "Kundenberater/in",
+      "addressLocality": "Kundenberater/in",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Assicurazioni",
+      "source": "allianz-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-08",
+      "employmentType": "full-time",
+      "contractType": "Unbefristet",
+      "validThrough": "",
+      "description": "## So gestalten wir gemeinsam deine Zukunft\n- Du erhältst eine praxisnahe Grundausbildung und eine sorgfältige Einarbeitung in der Generalagentur.\n- Du profitierst laufend von vielfältigen Weiterbildungsmöglichkeiten.\n- Du gestaltest deinen abwechslungsreichen Arbeitsalltag mit grossem Freiraum und vielfältigem Kundenkontakt.\n- Du kommst in den Genuss eines leistungsorientierten Vergütungsmodells, das attraktive Verdienstmöglichkeiten bietet.\n- Du profitierst von unserem breiten Weiterbildungsangebot.\n- Dir stehen vielfältige Karrierewege offen: Entwickle dich zum Verkaufsleiter oder zur Verkaufsleiterin oder spezialisiere dich in den Bereichen Vorsorge oder KMU.\n## Das bringst du für diese Aufgabe mit\n- Du hast eine Berufslehre oder eine vergleichbare Ausbildung abgeschlossen.\n- Du verfügst über einige Jahre Berufserfahrung, idealerweise in der Beratung oder im Verkauf.\n- Du zeichnest dich durch eine leistungsorientierte Arbeitsweise sowie dein Verkaufstalent aus.\n- Du verfolgst deine Ziele selbstständig und mit viel Drive – immer das grosse Ganze im Blick.\n- Du hast Freude am Umgang mit Menschen und am Ausbau deiner Kontakte.\n- Du wohnst in der Nähe der Agentur und bist gut vernetzt.\n## So sieht dein vielseitiger Arbeitsalltag aus\n- Mit deiner Rundumberatung gibst du deinen Kundinnen und Kunden im Privat- und KMU-Bereich Sicherheit in allen Lebenslagen.\n- Durch Eigeninitiative gewinnst du neue Kundinnen und Kunden und baust bestehende Beziehungen aus.\n- Dank deiner Proaktivität erkennst du Kundenbedürfnisse und Verkaufschancen und bietest individuelle Versicherungs-, Vorsorge- und Vermögenslösungen an.\n- Du erledigst administrative Aufgaben wie das Erstellen von Offerten speditiv und unkompliziert.\n## Let's care for tomorrow\nDas ist unser Versprechen, uns um die Zukunft zu kümmern und Sicherheit zu geben. Für unsere Kundinnen und Kunden, aber auch für unsere Mitarbeitenden. Deshalb leben wir an über 120 Standorten in der ganzen Schweiz ein familiäres Miteinander. Gestalte mit uns die Zukunft und lass uns gemeinsam noch mehr erreichen!",
+      "titleByLocale": {
+        "it": "Kundenberater:in Versicherung Rotkreuz, 100%",
+        "en": "Kundenberater:in Versicherung Rotkreuz, 100%",
+        "de": "Kundenberater:in Versicherung Rotkreuz, 100%",
+        "fr": "Kundenberater:in Versicherung Rotkreuz, 100%"
+      },
+      "descriptionByLocale": {
+        "it": "## So gestalten wir gemeinsam deine Zukunft\n- Du erhältst eine praxisnahe Grundausbildung und eine sorgfältige Einarbeitung in der Generalagentur.\n- Du profitierst laufend von vielfältigen Weiterbildungsmöglichkeiten.\n- Du gestaltest deinen abwechslungsreichen Arbeitsalltag mit grossem Freiraum und vielfältigem Kundenkontakt.\n- Du kommst in den Genuss eines leistungsorientierten Vergütungsmodells, das attraktive Verdienstmöglichkeiten bietet.\n- Du profitierst von unserem breiten Weiterbildungsangebot.\n- Dir stehen vielfältige Karrierewege offen: Entwickle dich zum Verkaufsleiter oder zur Verkaufsleiterin oder spezialisiere dich in den Bereichen Vorsorge oder KMU.\n## Das bringst du für diese Aufgabe mit\n- Du hast eine Berufslehre oder eine vergleichbare Ausbildung abgeschlossen.\n- Du verfügst über einige Jahre Berufserfahrung, idealerweise in der Beratung oder im Verkauf.\n- Du zeichnest dich durch eine leistungsorientierte Arbeitsweise sowie dein Verkaufstalent aus.\n- Du verfolgst deine Ziele selbstständig und mit viel Drive – immer das grosse Ganze im Blick.\n- Du hast Freude am Umgang mit Menschen und am Ausbau deiner Kontakte.\n- Du wohnst in der Nähe der Agentur und bist gut vernetzt.\n## So sieht dein vielseitiger Arbeitsalltag aus\n- Mit deiner Rundumberatung gibst du deinen Kundinnen und Kunden im Privat- und KMU-Bereich Sicherheit in allen Lebenslagen.\n- Durch Eigeninitiative gewinnst du neue Kundinnen und Kunden und baust bestehende Beziehungen aus.\n- Dank deiner Proaktivität erkennst du Kundenbedürfnisse und Verkaufschancen und bietest individuelle Versicherungs-, Vorsorge- und Vermögenslösungen an.\n- Du erledigst administrative Aufgaben wie das Erstellen von Offerten speditiv und unkompliziert.\n## Let's care for tomorrow\nDas ist unser Versprechen, uns um die Zukunft zu kümmern und Sicherheit zu geben. Für unsere Kundinnen und Kunden, aber auch für unsere Mitarbeitenden. Deshalb leben wir an über 120 Standorten in der ganzen Schweiz ein familiäres Miteinander. Gestalte mit uns die Zukunft und lass uns gemeinsam noch mehr erreichen!",
+        "en": "## So gestalten wir gemeinsam deine Zukunft\n- Du erhältst eine praxisnahe Grundausbildung und eine sorgfältige Einarbeitung in der Generalagentur.\n- Du profitierst laufend von vielfältigen Weiterbildungsmöglichkeiten.\n- Du gestaltest deinen abwechslungsreichen Arbeitsalltag mit grossem Freiraum und vielfältigem Kundenkontakt.\n- Du kommst in den Genuss eines leistungsorientierten Vergütungsmodells, das attraktive Verdienstmöglichkeiten bietet.\n- Du profitierst von unserem breiten Weiterbildungsangebot.\n- Dir stehen vielfältige Karrierewege offen: Entwickle dich zum Verkaufsleiter oder zur Verkaufsleiterin oder spezialisiere dich in den Bereichen Vorsorge oder KMU.\n## Das bringst du für diese Aufgabe mit\n- Du hast eine Berufslehre oder eine vergleichbare Ausbildung abgeschlossen.\n- Du verfügst über einige Jahre Berufserfahrung, idealerweise in der Beratung oder im Verkauf.\n- Du zeichnest dich durch eine leistungsorientierte Arbeitsweise sowie dein Verkaufstalent aus.\n- Du verfolgst deine Ziele selbstständig und mit viel Drive – immer das grosse Ganze im Blick.\n- Du hast Freude am Umgang mit Menschen und am Ausbau deiner Kontakte.\n- Du wohnst in der Nähe der Agentur und bist gut vernetzt.\n## So sieht dein vielseitiger Arbeitsalltag aus\n- Mit deiner Rundumberatung gibst du deinen Kundinnen und Kunden im Privat- und KMU-Bereich Sicherheit in allen Lebenslagen.\n- Durch Eigeninitiative gewinnst du neue Kundinnen und Kunden und baust bestehende Beziehungen aus.\n- Dank deiner Proaktivität erkennst du Kundenbedürfnisse und Verkaufschancen und bietest individuelle Versicherungs-, Vorsorge- und Vermögenslösungen an.\n- Du erledigst administrative Aufgaben wie das Erstellen von Offerten speditiv und unkompliziert.\n## Let's care for tomorrow\nDas ist unser Versprechen, uns um die Zukunft zu kümmern und Sicherheit zu geben. Für unsere Kundinnen und Kunden, aber auch für unsere Mitarbeitenden. Deshalb leben wir an über 120 Standorten in der ganzen Schweiz ein familiäres Miteinander. Gestalte mit uns die Zukunft und lass uns gemeinsam noch mehr erreichen!",
+        "de": "## So gestalten wir gemeinsam deine Zukunft\n- Du erhältst eine praxisnahe Grundausbildung und eine sorgfältige Einarbeitung in der Generalagentur.\n- Du profitierst laufend von vielfältigen Weiterbildungsmöglichkeiten.\n- Du gestaltest deinen abwechslungsreichen Arbeitsalltag mit grossem Freiraum und vielfältigem Kundenkontakt.\n- Du kommst in den Genuss eines leistungsorientierten Vergütungsmodells, das attraktive Verdienstmöglichkeiten bietet.\n- Du profitierst von unserem breiten Weiterbildungsangebot.\n- Dir stehen vielfältige Karrierewege offen: Entwickle dich zum Verkaufsleiter oder zur Verkaufsleiterin oder spezialisiere dich in den Bereichen Vorsorge oder KMU.\n## Das bringst du für diese Aufgabe mit\n- Du hast eine Berufslehre oder eine vergleichbare Ausbildung abgeschlossen.\n- Du verfügst über einige Jahre Berufserfahrung, idealerweise in der Beratung oder im Verkauf.\n- Du zeichnest dich durch eine leistungsorientierte Arbeitsweise sowie dein Verkaufstalent aus.\n- Du verfolgst deine Ziele selbstständig und mit viel Drive – immer das grosse Ganze im Blick.\n- Du hast Freude am Umgang mit Menschen und am Ausbau deiner Kontakte.\n- Du wohnst in der Nähe der Agentur und bist gut vernetzt.\n## So sieht dein vielseitiger Arbeitsalltag aus\n- Mit deiner Rundumberatung gibst du deinen Kundinnen und Kunden im Privat- und KMU-Bereich Sicherheit in allen Lebenslagen.\n- Durch Eigeninitiative gewinnst du neue Kundinnen und Kunden und baust bestehende Beziehungen aus.\n- Dank deiner Proaktivität erkennst du Kundenbedürfnisse und Verkaufschancen und bietest individuelle Versicherungs-, Vorsorge- und Vermögenslösungen an.\n- Du erledigst administrative Aufgaben wie das Erstellen von Offerten speditiv und unkompliziert.\n## Let's care for tomorrow\nDas ist unser Versprechen, uns um die Zukunft zu kümmern und Sicherheit zu geben. Für unsere Kundinnen und Kunden, aber auch für unsere Mitarbeitenden. Deshalb leben wir an über 120 Standorten in der ganzen Schweiz ein familiäres Miteinander. Gestalte mit uns die Zukunft und lass uns gemeinsam noch mehr erreichen!",
+        "fr": "## So gestalten wir gemeinsam deine Zukunft\n- Du erhältst eine praxisnahe Grundausbildung und eine sorgfältige Einarbeitung in der Generalagentur.\n- Du profitierst laufend von vielfältigen Weiterbildungsmöglichkeiten.\n- Du gestaltest deinen abwechslungsreichen Arbeitsalltag mit grossem Freiraum und vielfältigem Kundenkontakt.\n- Du kommst in den Genuss eines leistungsorientierten Vergütungsmodells, das attraktive Verdienstmöglichkeiten bietet.\n- Du profitierst von unserem breiten Weiterbildungsangebot.\n- Dir stehen vielfältige Karrierewege offen: Entwickle dich zum Verkaufsleiter oder zur Verkaufsleiterin oder spezialisiere dich in den Bereichen Vorsorge oder KMU.\n## Das bringst du für diese Aufgabe mit\n- Du hast eine Berufslehre oder eine vergleichbare Ausbildung abgeschlossen.\n- Du verfügst über einige Jahre Berufserfahrung, idealerweise in der Beratung oder im Verkauf.\n- Du zeichnest dich durch eine leistungsorientierte Arbeitsweise sowie dein Verkaufstalent aus.\n- Du verfolgst deine Ziele selbstständig und mit viel Drive – immer das grosse Ganze im Blick.\n- Du hast Freude am Umgang mit Menschen und am Ausbau deiner Kontakte.\n- Du wohnst in der Nähe der Agentur und bist gut vernetzt.\n## So sieht dein vielseitiger Arbeitsalltag aus\n- Mit deiner Rundumberatung gibst du deinen Kundinnen und Kunden im Privat- und KMU-Bereich Sicherheit in allen Lebenslagen.\n- Durch Eigeninitiative gewinnst du neue Kundinnen und Kunden und baust bestehende Beziehungen aus.\n- Dank deiner Proaktivität erkennst du Kundenbedürfnisse und Verkaufschancen und bietest individuelle Versicherungs-, Vorsorge- und Vermögenslösungen an.\n- Du erledigst administrative Aufgaben wie das Erstellen von Offerten speditiv und unkompliziert.\n## Let's care for tomorrow\nDas ist unser Versprechen, uns um die Zukunft zu kümmern und Sicherheit zu geben. Für unsere Kundinnen und Kunden, aber auch für unsere Mitarbeitenden. Deshalb leben wir an über 120 Standorten in der ganzen Schweiz ein familiäres Miteinander. Gestalte mit uns die Zukunft und lass uns gemeinsam noch mehr erreichen!"
+      },
+      "slugByLocale": {
+        "it": "direzione-del-reparto-di-medicina-acuta-80-100-spital-davos-davos",
+        "en": "ward-manager-acute-care-unit-80-100-spital-davos-davos",
+        "de": "stationsleitung-akutabteilung-80-100-spital-davos-ch",
+        "fr": "direction-d-unite-de-soins-aigus-80-100-spital-davos-davos"
+      },
+      "id": "allianz-suisse-dc51116ea608",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-versicherung-rotkreuz-100"
+        ],
+        "en": [
+          "kundenberater-in-versicherung-rotkreuz-100"
+        ],
+        "de": [
+          "kundenberater-in-versicherung-rotkreuz-100"
+        ],
+        "fr": [
+          "kundenberater-in-versicherung-rotkreuz-100"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-versicherung-rotkreuz-100"
+      ],
+      "salaryMin": 79000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 121500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-08T22:20:22.027Z"
+    },
+    {
       "title": "Werkstudent DSA (m/w/d), 40-60%",
-      "slug": "studente-di-lavoro-dsa-m-f-d-40-60-allianz-suisse-wallisellen",
+      "slug": "werkstudent-dsa-m-w-d-40-60",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/881/Description/4",
       "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/881/Application/CheckLogin/4",
       "company": "Allianz Suisse",
@@ -3261,16 +3358,20 @@
         ],
         "fr": [
           "etudiant-en-formation-dsa-m-f-j-40-60-allianz-suisse-wallisellen"
+        ],
+        "it": [
+          "studente-di-lavoro-dsa-m-f-d-40-60-allianz-suisse-wallisellen"
         ]
       },
       "previousSlugs": [
         "working-student-dsa-m-f-d-40-60-allianz-suisse-wallisellen",
-        "etudiant-en-formation-dsa-m-f-j-40-60-allianz-suisse-wallisellen"
+        "etudiant-en-formation-dsa-m-f-j-40-60-allianz-suisse-wallisellen",
+        "studente-di-lavoro-dsa-m-f-d-40-60-allianz-suisse-wallisellen"
       ]
     },
     {
       "title": "Werkstudent:in DSA, 40-60%",
-      "slug": "studente-di-lavoro-in-dsa-40-60-allianz-suisse-wallisellen",
+      "slug": "werkstudent-in-dsa-40-60",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/846/Description/4",
       "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/846/Application/CheckLogin/4",
       "company": "Allianz Suisse",
@@ -3331,11 +3432,15 @@
         ],
         "fr": [
           "etudiant-en-dsa-40-60-allianz-suisse-wallisellen"
+        ],
+        "it": [
+          "studente-di-lavoro-in-dsa-40-60-allianz-suisse-wallisellen"
         ]
       },
       "previousSlugs": [
         "working-student-in-dsa-40-60-allianz-suisse-wallisellen",
-        "etudiant-en-dsa-40-60-allianz-suisse-wallisellen"
+        "etudiant-en-dsa-40-60-allianz-suisse-wallisellen",
+        "studente-di-lavoro-in-dsa-40-60-allianz-suisse-wallisellen"
       ]
     },
     {
@@ -3419,7 +3524,7 @@
     },
     {
       "title": "Verkaufsleiter:in im Aussendienst Brugg (80-100%)",
-      "slug": "allianz-bewerbermanagement-allianz-suisse-verkaufsleiter-in",
+      "slug": "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/880/Description/4",
       "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/880/Application/CheckLogin/4",
       "company": "Allianz Suisse",
@@ -3455,19 +3560,21 @@
       "slugByLocale": {
         "it": "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen",
         "en": "dipl-healthcare-assistant-hf-medicine-night-and-day-shifts-see-spital-horgen",
-        "de": "verkaufsleiter-in-im-aussendienst-brugg-80-100-allianz-suisse-verkaufsleiter-in",
+        "de": "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
         "fr": "dipl-assistant-de-sante-hf-medecine-nuit-et-jour-see-spital-horgen"
       },
       "id": "allianz-suisse-6b9414b6f610",
       "previousSlugsByLocale": {
         "it": [
-          "allianz-bewerbermanagement"
+          "allianz-bewerbermanagement",
+          "allianz-bewerbermanagement-allianz-suisse-verkaufsleiter-in"
         ],
         "en": [
           "allianz-bewerbermanagement"
         ],
         "de": [
           "allianz-bewerbermanagement",
+          "verkaufsleiter-in-im-aussendienst-brugg-80-100-allianz-suisse-verkaufsleiter-in",
           "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit"
         ],
         "fr": [
@@ -3476,6 +3583,8 @@
       },
       "previousSlugs": [
         "allianz-bewerbermanagement",
+        "allianz-bewerbermanagement-allianz-suisse-verkaufsleiter-in",
+        "verkaufsleiter-in-im-aussendienst-brugg-80-100-allianz-suisse-verkaufsleiter-in",
         "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit"
       ],
       "salaryMin": 53500,
@@ -3799,7 +3908,7 @@
     },
     {
       "title": "Kundenberater:in Versicherung (m/w/d), Generalagentur Brugg",
-      "slug": "kundenberater-in-versicherung-m-w-d-agenzia-generale-brugg-allianz-suisse-kundenberater-in",
+      "slug": "addetto-a-risorse-umane-klinik-sonnenhalde-riehen",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/394/Description/4",
       "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/394/Application/CheckLogin/4",
       "company": "Allianz Suisse",
@@ -3835,19 +3944,21 @@
       "slugByLocale": {
         "it": "addetto-a-risorse-umane-klinik-sonnenhalde-riehen",
         "en": "associate-personal-klinik-sonnenhalde-riehen",
-        "de": "kundenberater-in-versicherung-m-w-d-generalagentur-brugg-allianz-suisse-kundenberater-in",
+        "de": "mitarbeiter-in-personal-klinik-sonnenhalde-riehen",
         "fr": "collaborateur-trice-personal-klinik-sonnenhalde-riehen"
       },
       "id": "allianz-suisse-0bcfb2c5b79c",
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-versicherung-m-w-d-generalagentur-brugg"
+          "kundenberater-in-versicherung-m-w-d-generalagentur-brugg",
+          "kundenberater-in-versicherung-m-w-d-agenzia-generale-brugg-allianz-suisse-kundenberater-in"
         ],
         "en": [
           "kundenberater-in-versicherung-m-w-d-generalagentur-brugg"
         ],
         "de": [
           "kundenberater-in-versicherung-m-w-d-generalagentur-brugg",
+          "kundenberater-in-versicherung-m-w-d-generalagentur-brugg-allianz-suisse-kundenberater-in",
           "mitarbeiter-in-personal-klinik-sonnenhalde-riehen"
         ],
         "fr": [
@@ -3856,6 +3967,8 @@
       },
       "previousSlugs": [
         "kundenberater-in-versicherung-m-w-d-generalagentur-brugg",
+        "kundenberater-in-versicherung-m-w-d-agenzia-generale-brugg-allianz-suisse-kundenberater-in",
+        "kundenberater-in-versicherung-m-w-d-generalagentur-brugg-allianz-suisse-kundenberater-in",
         "mitarbeiter-in-personal-klinik-sonnenhalde-riehen"
       ],
       "salaryMin": 59000,
@@ -3949,7 +4062,7 @@
     },
     {
       "title": "Vorsorgeberater Generalagentur Zürich (m/w/d), 100%",
-      "slug": "consulente-previdenziale-agenzia-generale-zurigo-m-f-d-100-allianz-suisse-zurich",
+      "slug": "vorsorgeberater-agenzia-generale-zurich-m-w-d-100-allianz-suisse-zurich",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/297/Description/4",
       "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/297/Application/CheckLogin/4",
       "company": "Allianz Suisse",
@@ -3991,7 +4104,8 @@
       "id": "allianz-suisse-90c311a8360e",
       "previousSlugsByLocale": {
         "it": [
-          "vorsorgeberater-generalagentur-zurich-m-w-d-100"
+          "vorsorgeberater-generalagentur-zurich-m-w-d-100",
+          "consulente-previdenziale-agenzia-generale-zurigo-m-f-d-100-allianz-suisse-zurich"
         ],
         "en": [
           "vorsorgeberater-generalagentur-zurich-m-w-d-100"
@@ -4001,7 +4115,8 @@
         ]
       },
       "previousSlugs": [
-        "vorsorgeberater-generalagentur-zurich-m-w-d-100"
+        "vorsorgeberater-generalagentur-zurich-m-w-d-100",
+        "consulente-previdenziale-agenzia-generale-zurigo-m-f-d-100-allianz-suisse-zurich"
       ],
       "salaryMin": 53500,
       "salaryMax": 89000,
@@ -4093,6 +4208,64 @@
       },
       "postalCode": "8500",
       "firstSeenAt": "2026-06-10T22:11:05.157Z"
+    },
+    {
+      "title": "Verkaufsleiter im Aussendienst (m/w/d), 100%",
+      "slug": "verkaufsleiter-im-aussendienst-m-w-d-100",
+      "url": "https://recruitingapp-2872.umantis.com/Vacancies/423/Description/4",
+      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/423/Application/CheckLogin/4",
+      "company": "Allianz Suisse",
+      "companyKey": "allianz-suisse",
+      "companyDomain": "umantis.com",
+      "location": "Verkaufsleiter/in",
+      "addressLocality": "Verkaufsleiter/in",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Assicurazioni",
+      "source": "allianz-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-08",
+      "employmentType": "full-time",
+      "contractType": "Unbefristet",
+      "validThrough": "",
+      "description": "## So gestalten wir gemeinsam deine Zukunft\n- Du erhältst beste Startbedingungen durch unsere sorgfältige Einarbeitung.\n- Du übernimmst ein spannendes und abwechslungsreiches Aufgabengebiet mit einer breiten Produktpalette.\n- Du profitierst von attraktiven Verdienstmöglichkeiten durch unser leistungsorientiertes Vergütungsmodell.\n- Du erlebst einen abwechslungsreichen Arbeitsalltag mit vielfältigen Kundenkontakten und einem hohen Mass an Flexibilität.\n- Du profitierst laufend von vielfältigen Weiterbildungsmöglichkeiten.\n## Das bringst du für diese Aufgabe mit\n- Du besitzt eine höhere Ausbildung im Versicherungs- oder Finanzbereich.\n- Du verfügst über mehrjährige Berufserfahrung in der Versicherungs- oder Finanzbranche.\n- Du bist eine ambitionierte Führungspersönlichkeit, die ihre Mitarbeitenden begeistern kann.\n- Du bringst sehr gute Kommunikationsfähigkeiten mit und kannst dich schnell und flexibel auf neue Situationen einstellen.\n- Du zeichnest dich durch eine leistungsorientierte Arbeitsweise und Verkaufstalent aus.\n- Du hast Freude am Umgang mit Menschen und am Ausbau deiner Kontakte.\n- Du wohnst in der Nähe der Agentur und bist gut vernetzt.\n## So sieht dein vielseitiger Arbeitsalltag aus\n- Du leitest ein Verkaufsteam von Kundenberaterinnen und Kundenberatern und betreust deinen eigenen Kundenstamm.\n- Du stehst deinen Kundinnen und Kunden sowohl im Privat- als auch im KMU-Bereich zur Seite, gewinnst neue Kundinnen und Kunden und baust bestehende Beziehungen aus.\n- Du analysierst die Bedürfnisse deiner Kundinnen und Kunden und arbeitest massgeschneiderte Versicherungslösungen für sie aus.\n- Du baust ein leistungsstarkes Verkaufsteam auf und leitest dieses zur Erreichung der Unternehmensziele.\n- Du führst, coachst und motivierst dein Verkaufsteam aus Einsteiger:innen und Expert:innen.\n- In enger Abstimmung mit dem:der Generalagent:in rekrutierst du neue Kundenberaterinnen und Kundenberater.\n## Let’s care for tomorrow\nDas ist unser Versprechen, uns um die Zukunft zu kümmern und Sicherheit zu geben. Für unsere Kundinnen und Kunden, aber auch für unsere Mitarbeitenden. Deshalb leben wir an über 120 Standorten in der ganzen Schweiz ein familiäres Miteinander. Gestalte mit uns die Zukunft und lass uns gemeinsam noch mehr erreichen!",
+      "titleByLocale": {
+        "it": "Verkaufsleiter im Aussendienst (m/w/d), 100%",
+        "en": "Verkaufsleiter im Aussendienst (m/w/d), 100%",
+        "de": "Verkaufsleiter im Aussendienst (m/w/d), 100%",
+        "fr": "Verkaufsleiter im Aussendienst (m/w/d), 100%"
+      },
+      "descriptionByLocale": {
+        "it": "## So gestalten wir gemeinsam deine Zukunft\n- Du erhältst beste Startbedingungen durch unsere sorgfältige Einarbeitung.\n- Du übernimmst ein spannendes und abwechslungsreiches Aufgabengebiet mit einer breiten Produktpalette.\n- Du profitierst von attraktiven Verdienstmöglichkeiten durch unser leistungsorientiertes Vergütungsmodell.\n- Du erlebst einen abwechslungsreichen Arbeitsalltag mit vielfältigen Kundenkontakten und einem hohen Mass an Flexibilität.\n- Du profitierst laufend von vielfältigen Weiterbildungsmöglichkeiten.\n## Das bringst du für diese Aufgabe mit\n- Du besitzt eine höhere Ausbildung im Versicherungs- oder Finanzbereich.\n- Du verfügst über mehrjährige Berufserfahrung in der Versicherungs- oder Finanzbranche.\n- Du bist eine ambitionierte Führungspersönlichkeit, die ihre Mitarbeitenden begeistern kann.\n- Du bringst sehr gute Kommunikationsfähigkeiten mit und kannst dich schnell und flexibel auf neue Situationen einstellen.\n- Du zeichnest dich durch eine leistungsorientierte Arbeitsweise und Verkaufstalent aus.\n- Du hast Freude am Umgang mit Menschen und am Ausbau deiner Kontakte.\n- Du wohnst in der Nähe der Agentur und bist gut vernetzt.\n## So sieht dein vielseitiger Arbeitsalltag aus\n- Du leitest ein Verkaufsteam von Kundenberaterinnen und Kundenberatern und betreust deinen eigenen Kundenstamm.\n- Du stehst deinen Kundinnen und Kunden sowohl im Privat- als auch im KMU-Bereich zur Seite, gewinnst neue Kundinnen und Kunden und baust bestehende Beziehungen aus.\n- Du analysierst die Bedürfnisse deiner Kundinnen und Kunden und arbeitest massgeschneiderte Versicherungslösungen für sie aus.\n- Du baust ein leistungsstarkes Verkaufsteam auf und leitest dieses zur Erreichung der Unternehmensziele.\n- Du führst, coachst und motivierst dein Verkaufsteam aus Einsteiger:innen und Expert:innen.\n- In enger Abstimmung mit dem:der Generalagent:in rekrutierst du neue Kundenberaterinnen und Kundenberater.\n## Let’s care for tomorrow\nDas ist unser Versprechen, uns um die Zukunft zu kümmern und Sicherheit zu geben. Für unsere Kundinnen und Kunden, aber auch für unsere Mitarbeitenden. Deshalb leben wir an über 120 Standorten in der ganzen Schweiz ein familiäres Miteinander. Gestalte mit uns die Zukunft und lass uns gemeinsam noch mehr erreichen!",
+        "en": "## So gestalten wir gemeinsam deine Zukunft\n- Du erhältst beste Startbedingungen durch unsere sorgfältige Einarbeitung.\n- Du übernimmst ein spannendes und abwechslungsreiches Aufgabengebiet mit einer breiten Produktpalette.\n- Du profitierst von attraktiven Verdienstmöglichkeiten durch unser leistungsorientiertes Vergütungsmodell.\n- Du erlebst einen abwechslungsreichen Arbeitsalltag mit vielfältigen Kundenkontakten und einem hohen Mass an Flexibilität.\n- Du profitierst laufend von vielfältigen Weiterbildungsmöglichkeiten.\n## Das bringst du für diese Aufgabe mit\n- Du besitzt eine höhere Ausbildung im Versicherungs- oder Finanzbereich.\n- Du verfügst über mehrjährige Berufserfahrung in der Versicherungs- oder Finanzbranche.\n- Du bist eine ambitionierte Führungspersönlichkeit, die ihre Mitarbeitenden begeistern kann.\n- Du bringst sehr gute Kommunikationsfähigkeiten mit und kannst dich schnell und flexibel auf neue Situationen einstellen.\n- Du zeichnest dich durch eine leistungsorientierte Arbeitsweise und Verkaufstalent aus.\n- Du hast Freude am Umgang mit Menschen und am Ausbau deiner Kontakte.\n- Du wohnst in der Nähe der Agentur und bist gut vernetzt.\n## So sieht dein vielseitiger Arbeitsalltag aus\n- Du leitest ein Verkaufsteam von Kundenberaterinnen und Kundenberatern und betreust deinen eigenen Kundenstamm.\n- Du stehst deinen Kundinnen und Kunden sowohl im Privat- als auch im KMU-Bereich zur Seite, gewinnst neue Kundinnen und Kunden und baust bestehende Beziehungen aus.\n- Du analysierst die Bedürfnisse deiner Kundinnen und Kunden und arbeitest massgeschneiderte Versicherungslösungen für sie aus.\n- Du baust ein leistungsstarkes Verkaufsteam auf und leitest dieses zur Erreichung der Unternehmensziele.\n- Du führst, coachst und motivierst dein Verkaufsteam aus Einsteiger:innen und Expert:innen.\n- In enger Abstimmung mit dem:der Generalagent:in rekrutierst du neue Kundenberaterinnen und Kundenberater.\n## Let’s care for tomorrow\nDas ist unser Versprechen, uns um die Zukunft zu kümmern und Sicherheit zu geben. Für unsere Kundinnen und Kunden, aber auch für unsere Mitarbeitenden. Deshalb leben wir an über 120 Standorten in der ganzen Schweiz ein familiäres Miteinander. Gestalte mit uns die Zukunft und lass uns gemeinsam noch mehr erreichen!",
+        "de": "## So gestalten wir gemeinsam deine Zukunft\n- Du erhältst beste Startbedingungen durch unsere sorgfältige Einarbeitung.\n- Du übernimmst ein spannendes und abwechslungsreiches Aufgabengebiet mit einer breiten Produktpalette.\n- Du profitierst von attraktiven Verdienstmöglichkeiten durch unser leistungsorientiertes Vergütungsmodell.\n- Du erlebst einen abwechslungsreichen Arbeitsalltag mit vielfältigen Kundenkontakten und einem hohen Mass an Flexibilität.\n- Du profitierst laufend von vielfältigen Weiterbildungsmöglichkeiten.\n## Das bringst du für diese Aufgabe mit\n- Du besitzt eine höhere Ausbildung im Versicherungs- oder Finanzbereich.\n- Du verfügst über mehrjährige Berufserfahrung in der Versicherungs- oder Finanzbranche.\n- Du bist eine ambitionierte Führungspersönlichkeit, die ihre Mitarbeitenden begeistern kann.\n- Du bringst sehr gute Kommunikationsfähigkeiten mit und kannst dich schnell und flexibel auf neue Situationen einstellen.\n- Du zeichnest dich durch eine leistungsorientierte Arbeitsweise und Verkaufstalent aus.\n- Du hast Freude am Umgang mit Menschen und am Ausbau deiner Kontakte.\n- Du wohnst in der Nähe der Agentur und bist gut vernetzt.\n## So sieht dein vielseitiger Arbeitsalltag aus\n- Du leitest ein Verkaufsteam von Kundenberaterinnen und Kundenberatern und betreust deinen eigenen Kundenstamm.\n- Du stehst deinen Kundinnen und Kunden sowohl im Privat- als auch im KMU-Bereich zur Seite, gewinnst neue Kundinnen und Kunden und baust bestehende Beziehungen aus.\n- Du analysierst die Bedürfnisse deiner Kundinnen und Kunden und arbeitest massgeschneiderte Versicherungslösungen für sie aus.\n- Du baust ein leistungsstarkes Verkaufsteam auf und leitest dieses zur Erreichung der Unternehmensziele.\n- Du führst, coachst und motivierst dein Verkaufsteam aus Einsteiger:innen und Expert:innen.\n- In enger Abstimmung mit dem:der Generalagent:in rekrutierst du neue Kundenberaterinnen und Kundenberater.\n## Let’s care for tomorrow\nDas ist unser Versprechen, uns um die Zukunft zu kümmern und Sicherheit zu geben. Für unsere Kundinnen und Kunden, aber auch für unsere Mitarbeitenden. Deshalb leben wir an über 120 Standorten in der ganzen Schweiz ein familiäres Miteinander. Gestalte mit uns die Zukunft und lass uns gemeinsam noch mehr erreichen!",
+        "fr": "## So gestalten wir gemeinsam deine Zukunft\n- Du erhältst beste Startbedingungen durch unsere sorgfältige Einarbeitung.\n- Du übernimmst ein spannendes und abwechslungsreiches Aufgabengebiet mit einer breiten Produktpalette.\n- Du profitierst von attraktiven Verdienstmöglichkeiten durch unser leistungsorientiertes Vergütungsmodell.\n- Du erlebst einen abwechslungsreichen Arbeitsalltag mit vielfältigen Kundenkontakten und einem hohen Mass an Flexibilität.\n- Du profitierst laufend von vielfältigen Weiterbildungsmöglichkeiten.\n## Das bringst du für diese Aufgabe mit\n- Du besitzt eine höhere Ausbildung im Versicherungs- oder Finanzbereich.\n- Du verfügst über mehrjährige Berufserfahrung in der Versicherungs- oder Finanzbranche.\n- Du bist eine ambitionierte Führungspersönlichkeit, die ihre Mitarbeitenden begeistern kann.\n- Du bringst sehr gute Kommunikationsfähigkeiten mit und kannst dich schnell und flexibel auf neue Situationen einstellen.\n- Du zeichnest dich durch eine leistungsorientierte Arbeitsweise und Verkaufstalent aus.\n- Du hast Freude am Umgang mit Menschen und am Ausbau deiner Kontakte.\n- Du wohnst in der Nähe der Agentur und bist gut vernetzt.\n## So sieht dein vielseitiger Arbeitsalltag aus\n- Du leitest ein Verkaufsteam von Kundenberaterinnen und Kundenberatern und betreust deinen eigenen Kundenstamm.\n- Du stehst deinen Kundinnen und Kunden sowohl im Privat- als auch im KMU-Bereich zur Seite, gewinnst neue Kundinnen und Kunden und baust bestehende Beziehungen aus.\n- Du analysierst die Bedürfnisse deiner Kundinnen und Kunden und arbeitest massgeschneiderte Versicherungslösungen für sie aus.\n- Du baust ein leistungsstarkes Verkaufsteam auf und leitest dieses zur Erreichung der Unternehmensziele.\n- Du führst, coachst und motivierst dein Verkaufsteam aus Einsteiger:innen und Expert:innen.\n- In enger Abstimmung mit dem:der Generalagent:in rekrutierst du neue Kundenberaterinnen und Kundenberater.\n## Let’s care for tomorrow\nDas ist unser Versprechen, uns um die Zukunft zu kümmern und Sicherheit zu geben. Für unsere Kundinnen und Kunden, aber auch für unsere Mitarbeitenden. Deshalb leben wir an über 120 Standorten in der ganzen Schweiz ein familiäres Miteinander. Gestalte mit uns die Zukunft und lass uns gemeinsam noch mehr erreichen!"
+      },
+      "slugByLocale": {
+        "it": "verkaufsleiter-im-aussendienst-m-w-d-100",
+        "en": "verkaufsleiter-im-aussendienst-m-w-d-100",
+        "de": "verkaufsleiter-im-aussendienst-m-w-d-100-allianz-suisse-verkaufsleiter-in",
+        "fr": "verkaufsleiter-im-aussendienst-m-w-d-100"
+      },
+      "id": "allianz-suisse-806a0f35407e",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 105000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-08T22:20:22.027Z"
     },
     {
       "title": "Kundenberater im Aussendienst (auch Quereinsteiger), 100%",
@@ -4944,7 +5117,7 @@
       "slugByLocale": {
         "it": "vorsorgeberater-langenthal-m-w-d-mit-fachverantwortung-100",
         "en": "pension-advisor-langenthal-m-f-d-with-specialist-responsibility-100-allianz-suisse-vorsorgeberater-in",
-        "de": "vorsorgeberater-langenthal-m-w-d-mit-fachverantwortung-100-allianz-suisse-vorsorgeberater-in",
+        "de": "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
         "fr": "conseiller-en-retraite-langenthal-m-f-d-avec-responsabilite-specialisee-100-allianz-suisse-vorsorgeberater-in"
       },
       "id": "allianz-suisse-57ad6aa74b3a",
@@ -4966,10 +5139,12 @@
       "firstSeenAt": "2026-06-11T22:12:35.243Z",
       "previousSlugsByLocale": {
         "de": [
+          "vorsorgeberater-langenthal-m-w-d-mit-fachverantwortung-100-allianz-suisse-vorsorgeberater-in",
           "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
         ]
       },
       "previousSlugs": [
+        "vorsorgeberater-langenthal-m-w-d-mit-fachverantwortung-100-allianz-suisse-vorsorgeberater-in",
         "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
       ]
     },
@@ -5407,7 +5582,7 @@
     },
     {
       "title": "Conseiller en prévoyance au service externe Vevey (h/f/d), 100%",
-      "slug": "conseiller-en-prevoyance-au-service-externe-vevey-f-m-d-100-allianz-suisse-vevey",
+      "slug": "collaboratore-trice-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-davos",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/701/Description/4",
       "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/701/Application/CheckLogin/4",
       "company": "Allianz Suisse",
@@ -5444,12 +5619,13 @@
         "it": "collaboratore-trice-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-davos",
         "en": "allianz-beerm-allianz-suisse-vevey",
         "de": "allianz-bewerbermanagement-allianz-suisse-vevey",
-        "fr": "conseiller-en-prevoyance-au-service-externe-vevey-h-f-d-100-allianz-suisse-vevey"
+        "fr": "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
       },
       "id": "allianz-suisse-00870eac98f6",
       "previousSlugsByLocale": {
         "it": [
-          "allianz-bewerbermanagement"
+          "allianz-bewerbermanagement",
+          "conseiller-en-prevoyance-au-service-externe-vevey-f-m-d-100-allianz-suisse-vevey"
         ],
         "en": [
           "allianz-bewerbermanagement",
@@ -5463,13 +5639,16 @@
         "fr": [
           "allianz-bewerbermanagement",
           "allianz-bewerbermanagement-allianz-suisse-region-waadt",
+          "conseiller-en-prevoyance-au-service-externe-vevey-h-f-d-100-allianz-suisse-vevey",
           "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
         ]
       },
       "previousSlugs": [
         "allianz-bewerbermanagement",
         "allianz-bewerbermanagement-allianz-suisse-region-waadt",
-        "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
+        "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-",
+        "conseiller-en-prevoyance-au-service-externe-vevey-f-m-d-100-allianz-suisse-vevey",
+        "conseiller-en-prevoyance-au-service-externe-vevey-h-f-d-100-allianz-suisse-vevey"
       ],
       "salaryMin": 53500,
       "salaryMax": 89000,
