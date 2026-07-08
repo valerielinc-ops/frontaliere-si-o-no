@@ -2,10 +2,9 @@
   "jobs": [
     {
       "id": "liebherr-694763ed3a4a",
-      "slug": "primaritorno-a-liebherr-baumaschinen-ag-liebherr-reiden",
+      "slug": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
       "slugByLocale": {
-        "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
-        "it": "primaritorno-a-liebherr-baumaschinen-ag-liebherr-reiden"
+        "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -47,15 +46,7 @@
         "en": []
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 0,
-      "previousSlugsByLocale": {
-        "it": [
-          "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden"
-        ]
-      },
-      "previousSlugs": [
-        "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden"
-      ]
+      "retranslationAttempts": 0
     },
     {
       "id": "liebherr-80754efea8a1",
@@ -166,7 +157,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle",
         "giovani-talenti-preparazione-del-lavoro-motori-di-combustione-m-f-x-liebherr-bulle",
+        "giovani-talenti-preparazione-al-lavoro-motori-a-combustione-m-f-x-liebherr-bulle",
         "young-talent-acquisisci-motori-di-combustione-m-w-x-liebherr-bulle",
         "young-talent-purchasing-combustion-engines-m-w-x-liebherr-bulle",
         "young-talent-einkauf-von-verbrennungsmotoren-m-w-x-liebherr-bulle",
@@ -175,7 +168,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "giovani-talenti-preparazione-del-lavoro-motori-di-combustione-m-f-x-liebherr-bulle"
+          "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle",
+          "giovani-talenti-preparazione-del-lavoro-motori-di-combustione-m-f-x-liebherr-bulle",
+          "giovani-talenti-preparazione-al-lavoro-motori-a-combustione-m-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-07-03T11:45:50.885Z"
@@ -344,6 +342,27 @@
       "jobReqId": "1364834733",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "diagnostiker-mechaniker-m-f-x-liebherr-bulle",
+          "warranty-investigation-technician-m-w-d-liebherr-bulle"
+        ],
+        "it": [
+          "diagnostiker-mechaniker-m-f-x-liebherr-bulle",
+          "meccanico-diagnostico-m-f-x-liebherr-bulle"
+        ],
+        "en": [
+          "diagnostiker-mechaniker-m-f-x-liebherr-bulle"
+        ],
+        "fr": [
+          "diagnostiker-mechaniker-m-f-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "diagnostiker-mechaniker-m-f-x-liebherr-bulle",
+        "warranty-investigation-technician-m-w-d-liebherr-bulle",
+        "meccanico-diagnostico-m-f-x-liebherr-bulle"
+      ],
       "firstSeenAt": "2026-07-01T22:41:15.857Z"
     },
     {
@@ -394,6 +413,21 @@
       "jobReqId": "1364834833",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle",
+          "warranty-investigation-technician-m-f-x-liebherr-bulle"
+        ],
+        "it": [
+          "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle",
+          "diagnostica-meccatronica-tecnica-m-f-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle",
+        "warranty-investigation-technician-m-f-x-liebherr-bulle",
+        "diagnostica-meccatronica-tecnica-m-f-x-liebherr-bulle"
+      ],
       "firstSeenAt": "2026-07-01T22:41:16.361Z"
     },
     {
@@ -613,7 +647,10 @@
       "jobReqId": "1406546633",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-19T22:09:42.724Z"
+      "firstSeenAt": "2026-06-19T22:09:42.724Z",
+      "previousSlugs": [
+        "head-of-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-d7d6f506f853",
@@ -664,8 +701,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "head-of-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle",
+        "capo-del-governo-della-sicurezza-dell-informazione-del-rischio-e-della-conformita-m-w-d-liebherr-bulle",
         "responsable-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle",
+          "capo-del-governo-della-sicurezza-dell-informazione-del-rischio-e-della-conformita-m-w-d-liebherr-bulle"
+        ],
+        "de": [
+          "head-of-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle"
+        ],
+        "fr": [
+          "head-of-information-security-governance-risk-and-compliance-m-w-d-liebherr-bulle"
+        ]
+      },
       "firstSeenAt": "2026-06-19T22:10:12.940Z"
     },
     {
@@ -875,9 +926,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle",
+        "team-leader-validazione-della-funzione-m-f-x-liebherr-bulle",
         "team-leader-testing-m-f-x-liebherr-bulle",
         "team-leader-function-validation-m-f-x-liebherr-bulle"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle",
+          "team-leader-validazione-della-funzione-m-f-x-liebherr-bulle"
+        ],
+        "en": [
+          "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle"
+        ],
+        "fr": [
+          "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle"
+        ]
+      },
       "firstSeenAt": "2026-06-17T13:11:29.911Z"
     },
     {
@@ -1010,17 +1075,17 @@
       "companyDomain": "liebherr.com",
       "title": "Team Leader - Testing (m/f/x)",
       "titleByLocale": {
-        "it": "Capo Squadra - Validazione della Funzione (m/f/x)",
+        "it": "Team Leader - Collaudo (m/f/x)",
         "en": "Team Leader - Testing (m/f/x)",
-        "de": "Teamleiter – Funktionsvalidierung (m/f/x)",
-        "fr": "Chef d'équipe - Validation des fonctions (m/f/x)"
+        "de": "Teamleiter - Prüfung (m/w/x)",
+        "fr": "Chef d'équipe - Essai (m/f/x)"
       },
       "description": "Your Responsibilities • You will define and implement the team's long-term vision, objectives, and testing strategy in alignment with departmental goals. • You will plan, coordinate, and oversee functional validation programs on hydraulic component test benches. • You will ensure high-quality validation standards and drive innovation by establishing and continuously improving testing methodologies and best practices. • You will analyze test results and translate findings into actionable recommendations for product improvement. • You will collaborate closely with Design Engineering, Quality, and Production teams to align testing priorities and support product development. • You will develop and implement standardized testing procedures and data analysis methods to improve efficiency, reliability, and repeatability of validation activities. • You will monitor project progress, resource allocation, and team performance, providing regular updates and recommendations to department management. • You will ensure compliance with safety standards across all testing operations and laboratory activities. Your Profile • You hold a degree in mechanical engineering, preferably with a specialization in mobile hydraulics, mobile machinery, drive systems, construction equipment or agricultural. • You have proven experience in engineering development and validation, ideally in the field of hydraulic drive systems, mobile machinery or off-highway equipment. • You possess deep knowledge in hydraulic drives, control systems, and functional validation methods, combined with a good understanding of machine functions and system behavior under real operating conditions. • Leadership is a core aspect of your profile: you actively coach and empower your team, set clear priorities and ensure alignment with strategic objectives. You foster a high-performance culture, promote accountability and support your team in solving complex technical challenges. • You combine strategic thinking with strong analytical skills, enabling you to solve complex technical challenges, support your team in root-cause analysis and drive sustainable improvements across products, test methods and processes. • You communicate fluently in French and German, with a good command of English. Our Offer Can we inspire you to take on a responsible position in a dynamic and independent family business? We offer you room for ideas, a secure job, modern and family-friendly employment conditions such as flexible working hours, home office, a company restaurant, training opportunities as well as many benefits. The workplace is located in Bulle, surrounded by the wonderful nature of the Gruyère region. Start planning your personal and professional development with us. In order to ensure a fair application process, we cannot accept applications by post or email. Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Sylvain STUDER. One Passion. Many Opportunities. The company ​Liebherr Machines Bulle SA is the centre of excellence for combustion engines (diesel and gas engines) and hydraulic components (axial piston pumps and motors). The company develops and produces various products, which find their use in building construction and civil engineering, mining, agriculture, decentralised energy, machine and plant engineering, as well as aerospace. Location Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Switzerland (CH) Contact Sylvain STUDER +41 26 913 34 00",
       "descriptionByLocale": {
-        "it": "Le tue responsabilità • Definirai e implementerai la visione a lungo termine, gli obiettivi e la strategia di test del team in linea con gli obiettivi del dipartimento. • Pianificherai, coordinerai e supervisionerai i programmi di validazione funzionale sui banchi prova dei componenti idraulici. • Garantirai standard di convalida di alta qualità e guiderai l'innovazione stabilendo e migliorando continuamente metodologie di test e migliori pratiche. • Analizzerai i risultati dei test e tradurrai i risultati in raccomandazioni attuabili per il miglioramento del prodotto. • Collaborerai a stretto contatto con i team di progettazione, qualità e produzione per allineare le priorità dei test e supportare lo sviluppo del prodotto. • Svilupperai e implementerai procedure di test standardizzate e metodi di analisi dei dati per migliorare l'efficienza, l'affidabilità e la ripetibilità delle attività di convalida. • Monitorerai l'avanzamento del progetto, l'allocazione delle risorse e le prestazioni del team, fornendo aggiornamenti e raccomandazioni regolari alla direzione del dipartimento. • Garantirai il rispetto degli standard di sicurezza in tutte le operazioni di test e attività di laboratorio. Il tuo profilo • Possiedi una laurea in ingegneria meccanica, preferibilmente con una specializzazione in idraulica mobile, macchine mobili, sistemi di trasmissione, macchine edili o agricole. • Hai una comprovata esperienza nello sviluppo e nella convalida ingegneristica, idealmente nel campo dei sistemi di trasmissione idraulici, dei macchinari mobili o delle attrezzature fuoristrada. • Possiedi una conoscenza approfondita degli azionamenti idraulici, dei sistemi di controllo e dei metodi di convalida funzionale, combinata con una buona comprensione delle funzioni della macchina e del comportamento del sistema in condizioni operative reali. • La leadership è un aspetto fondamentale del tuo profilo: alleni e responsabilizzi attivamente il tuo team, stabilisci priorità chiare e garantisci l'allineamento con gli obiettivi strategici. Promuovi una cultura ad alte prestazioni, promuovi la responsabilità e supporti il ​​tuo team nella risoluzione di sfide tecniche complesse. • Combini il pensiero strategico con forti capacità analitiche, consentendoti di risolvere sfide tecniche complesse, supportare il tuo team nell'analisi delle cause profonde e promuovere miglioramenti sostenibili attraverso prodotti, metodi di test e processi. • Comunichi fluentemente in francese e tedesco, con una buona padronanza dell'inglese. La nostra offerta Possiamo ispirarvi ad assumere una posizione di responsabilità in un'azienda familiare dinamica e indipendente? Vi offriamo spazio per le idee, un lavoro sicuro, condizioni di lavoro moderne e adatte alla famiglia come orari di lavoro flessibili, home office, ristorante aziendale, opportunità di formazione e molti vantaggi. La sede di lavoro si trova a Bulle, immersa nella meravigliosa natura della regione della Gruyère. Inizia a pianificare con noi il tuo sviluppo personale e professionale. Al fine di garantire un processo di candidatura equo, non possiamo accettare candidature tramite posta o e-mail. Abbiamo risvegliato il tuo interesse? Allora non vediamo l'ora di ricevere la tua candidatura online. In caso di domande rivolgersi a Sylvain STUDER. Una passione. Molte opportunità. L'azienda ​Liebherr Machines Bulle SA è il centro di eccellenza per i motori a combustione (motori diesel e a gas) e i componenti idraulici (pompe e motori a pistoni assiali). L'azienda sviluppa e produce diversi prodotti che trovano impiego nell'edilizia e nell'ingegneria civile, nell'industria mineraria, nell'agricoltura, nell'energia decentralizzata, nell'ingegneria meccanica e impiantistica nonché nel settore aerospaziale. Sede Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Svizzera (CH) Contatto Sylvain STUDER +41 26 913 34 00",
-        "en": "Your Responsibilities • You will define and implement the team's long-term vision, objectives, and testing strategy in alignment with departmental goals. • You will plan, coordinate, and oversee functional validation programs on hydraulic component test benches. • You will ensure high-quality validation standards and drive innovation by establishing and continuously improving testing methodologies and best practices. • You will analyze test results and translate findings into actionable recommendations for product improvement. • You will collaborate closely with Design Engineering, Quality, and Production teams to align testing priorities and support product development. • You will develop and implement standardized testing procedures and data analysis methods to improve efficiency, reliability, and repeatability of validation activities. • You will monitor project progress, resource allocation, and team performance, providing regular updates and recommendations to department management. • You will ensure compliance with safety standards across all testing operations and laboratory activities. Your Profile • You hold a degree in mechanical engineering, preferably with a specialization in mobile hydraulics, mobile machinery, drive systems, construction equipment or agricultural. • You have proven experience in engineering development and validation, ideally in the field of hydraulic drive systems, mobile machinery or off-highway equipment. • You possess deep knowledge in hydraulic drives, control systems, and functional validation methods, combined with a good understanding of machine functions and system behavior under real operating conditions. • Leadership is a core aspect of your profile: you actively coach and empower your team, set clear priorities and ensure alignment with strategic objectives. You foster a high-performance culture, promote accountability and support your team in solving complex technical challenges. • You combine strategic thinking with strong analytical skills, enabling you to solve complex technical challenges, support your team in root-cause analysis and drive sustainable improvements across products, test methods and processes. • You communicate fluently in French and German, with a good command of English. Our Offer Can we inspire you to take on a responsible position in a dynamic and independent family business? We offer you room for ideas, a secure job, modern and family-friendly employment conditions such as flexible working hours, home office, a company restaurant, training opportunities as well as many benefits. The workplace is located in Bulle, surrounded by the wonderful nature of the Gruyère region. Start planning your personal and professional development with us. In order to ensure a fair application process, we cannot accept applications by post or email. Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Sylvain STUDER. One Passion. Many Opportunities. The company ​Liebherr Machines Bulle SA is the centre of excellence for combustion engines (diesel and gas engines) and hydraulic components (axial piston pumps and motors). The company develops and produces various products, which find their use in building construction and civil engineering, mining, agriculture, decentralised energy, machine and plant engineering, as well as aerospace. Location Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Switzerland (CH) Contact Sylvain STUDER +41 26 913 34 00",
-        "de": "Ihre Aufgaben • Sie definieren und implementieren die langfristige Vision, Ziele und Teststrategie des Teams im Einklang mit den Abteilungszielen. • Sie planen, koordinieren und betreuen Funktionsvalidierungsprogramme an hydraulischen Komponentenprüfständen. • Sie stellen qualitativ hochwertige Validierungsstandards sicher und treiben Innovationen voran, indem Sie Testmethoden und Best Practices etablieren und kontinuierlich verbessern. • Sie analysieren Testergebnisse und übersetzen die Ergebnisse in umsetzbare Empfehlungen zur Produktverbesserung. • Sie arbeiten eng mit den Design-, Qualitäts- und Produktionsteams zusammen, um Testprioritäten abzustimmen und die Produktentwicklung zu unterstützen. • Sie entwickeln und implementieren standardisierte Testverfahren und Datenanalysemethoden, um die Effizienz, Zuverlässigkeit und Wiederholbarkeit von Validierungsaktivitäten zu verbessern. • Sie überwachen den Projektfortschritt, die Ressourcenzuweisung und die Teamleistung und stellen der Abteilungsleitung regelmäßig Updates und Empfehlungen zur Verfügung. • Sie stellen die Einhaltung von Sicherheitsstandards bei allen Testvorgängen und Laboraktivitäten sicher. Ihr Profil • Sie verfügen über ein abgeschlossenes Maschinenbaustudium, vorzugsweise mit den Schwerpunkten Mobilhydraulik, mobile Arbeitsmaschinen, Antriebssysteme, Baumaschinen oder Landwirtschaft. • Sie verfügen über nachgewiesene Erfahrung in der technischen Entwicklung und Validierung, idealerweise im Bereich hydraulischer Antriebssysteme, mobiler Maschinen oder Off-Highway-Geräte. • Sie verfügen über fundierte Kenntnisse in hydraulischen Antrieben, Steuerungssystemen und Funktionsvalidierungsmethoden, kombiniert mit einem guten Verständnis der Maschinenfunktionen und des Systemverhaltens unter realen Betriebsbedingungen. • Führung ist ein zentraler Aspekt Ihres Profils: Sie coachen und stärken Ihr Team aktiv, setzen klare Prioritäten und sorgen für die Ausrichtung auf strategische Ziele. Sie pflegen eine Hochleistungskultur, fördern Verantwortung und unterstützen Ihr Team bei der Lösung komplexer technischer Herausforderungen. • Sie kombinieren strategisches Denken mit ausgeprägten analytischen Fähigkeiten und sind so in der Lage, komplexe technische Herausforderungen zu lösen, Ihr Team bei der Ursachenanalyse zu unterstützen und nachhaltige Verbesserungen bei Produkten, Testmethoden und Prozessen voranzutreiben. • Sie kommunizieren fließend auf Französisch und Deutsch und verfügen über gute Englischkenntnisse. Unser Angebot Können wir Sie für die Übernahme einer verantwortungsvollen Position in einem dynamischen und unabhängigen Familienunternehmen begeistern? Wir bieten Ihnen Raum für Ideen, einen sicheren Arbeitsplatz, moderne und familienfreundliche Anstellungsbedingungen wie flexible Arbeitszeiten, Homeoffice, ein Betriebsrestaurant, Weiterbildungsmöglichkeiten sowie viele Benefits. Der Arbeitsplatz befindet sich in Bulle, umgeben von der wunderschönen Natur des Greyerzerlandes. Planen Sie mit uns Ihre persönliche und berufliche Weiterentwicklung. Um einen fairen Bewerbungsprozess zu gewährleisten, können wir keine Bewerbungen per Post oder E-Mail annehmen. Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre Online-Bewerbung. Bei Fragen wenden Sie sich bitte an Sylvain STUDER. Eine Leidenschaft. Viele Möglichkeiten. Die Firma ​Liebherr Machines Bulle SA ist das Kompetenzzentrum für Verbrennungsmotoren (Diesel- und Gasmotoren) und Hydraulikkomponenten (Axialkolbenpumpen und -motoren). Das Unternehmen entwickelt und produziert verschiedene Produkte, die im Hoch- und Tiefbau, im Bergbau, in der Landwirtschaft, in der dezentralen Energiewirtschaft, im Maschinen- und Anlagenbau sowie in der Luft- und Raumfahrt Anwendung finden. Standort Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Schweiz (CH) Kontakt Sylvain STUDER +41 26 913 34 00",
-        "fr": "Vos responsabilités • Vous définirez et mettrez en œuvre la vision à long terme, les objectifs et la stratégie de test de l'équipe en accord avec les objectifs du département. • Vous planifierez, coordonnerez et superviserez les programmes de validation fonctionnelle sur les bancs d'essais de composants hydrauliques. • Vous garantirez des normes de validation de haute qualité et stimulerez l'innovation en établissant et en améliorant continuellement les méthodologies de test et les meilleures pratiques. • Vous analyserez les résultats des tests et traduirez les résultats en recommandations concrètes pour l'amélioration du produit. • Vous collaborerez en étroite collaboration avec les équipes d'ingénierie de conception, de qualité et de production pour aligner les priorités de test et soutenir le développement de produits. • Vous développerez et mettrez en œuvre des procédures de test standardisées et des méthodes d'analyse de données pour améliorer l'efficacité, la fiabilité et la répétabilité des activités de validation. • Vous surveillerez l'avancement du projet, l'allocation des ressources et les performances de l'équipe, en fournissant des mises à jour régulières et des recommandations à la direction du département. • Vous assurerez le respect des normes de sécurité dans toutes les opérations de tests et activités de laboratoire. Votre profil • Vous êtes titulaire d'un diplôme en génie mécanique, de préférence avec une spécialisation en hydraulique mobile, engins mobiles, systèmes d'entraînement, engins de chantier ou agricoles. • Vous possédez une expérience avérée en développement et validation d'ingénierie, idéalement dans le domaine des systèmes d'entraînement hydrauliques, des engins mobiles ou des équipements hors route. • Vous possédez une connaissance approfondie des entraînements hydrauliques, des systèmes de contrôle et des méthodes de validation fonctionnelle, combinée à une bonne compréhension des fonctions de la machine et du comportement du système dans des conditions de fonctionnement réelles. • Le leadership est un aspect essentiel de votre profil : vous coachez activement et responsabilisez votre équipe, définissez des priorités claires et assurez l'alignement avec les objectifs stratégiques. Vous favorisez une culture de haute performance, favorisez la responsabilité et soutenez votre équipe dans la résolution de défis techniques complexes. • Vous combinez réflexion stratégique et solides compétences analytiques, vous permettant de résoudre des défis techniques complexes, de soutenir votre équipe dans l'analyse des causes profondes et de générer des améliorations durables des produits, des méthodes de test et des processus. • Vous communiquez couramment en français et en allemand, avec une bonne maîtrise de l'anglais. Notre offre Pouvons-nous vous inspirer pour occuper un poste à responsabilité dans une entreprise familiale dynamique et indépendante ? Nous vous offrons de l'espace pour les idées, un emploi sûr, des conditions de travail modernes et familiales telles que des horaires de travail flexibles, un bureau à domicile, un restaurant d'entreprise, des possibilités de formation ainsi que de nombreux avantages. Le lieu de travail est situé à Bulle, au cœur de la magnifique nature de la Gruyère. Commencez à planifier votre développement personnel et professionnel avec nous. Afin de garantir un processus de candidature équitable, nous ne pouvons pas accepter les candidatures par courrier ou par courrier électronique. Avons-nous éveillé votre intérêt ? Alors nous attendons avec impatience de recevoir votre candidature en ligne. Si vous avez des questions, n'hésitez pas à contacter Sylvain STUDER. Une passion. De nombreuses opportunités. La société Liebherr Machines Bulle SA est le centre d'excellence pour les moteurs à combustion (moteurs diesel et gaz) et les composants hydrauliques (pompes et moteurs à pistons axiaux). L'entreprise développe et fabrique divers produits qui trouvent leur application dans la construction de bâtiments et le génie civil, l'exploitation minière, l'agriculture, l'énergie décentralisée, la construction de machines et d'installations ainsi que l'aérospatiale. Localisation Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Suisse (CH) Contact Sylvain STUDER +41 26 913 34 00"
+        "it": "Titolo professionale\nResponsabilità\n- Definire e implementare la visione a lungo termine, gli obiettivi e la strategia di test del team in linea con gli obiettivi dipartimentali.\n- Pianificare, coordinare e supervisionare i programmi di validazione funzionale sui banchi di prova dei componenti idraulici.\n- Garantire standard di convalida di alta qualità e guidare l'innovazione stabilendo e migliorando continuamente le metodologie di test e le migliori pratiche.\n- Analizzare i risultati dei test e tradurli in raccomandazioni attuabili per il miglioramento del prodotto.\n- Collaborare a stretto contatto con i team di progettazione, qualità e produzione per allineare le priorità dei test e supportare lo sviluppo del prodotto.\n- Sviluppare e implementare procedure di test standardizzate e metodi di analisi dei dati per migliorare l'efficienza, l'affidabilità e la ripetibilità delle attività di convalida.\n- Monitorare l'avanzamento del progetto, l'allocazione delle risorse e le prestazioni del team, fornendo aggiornamenti e raccomandazioni regolari alla direzione del reparto.\n- Garantire la conformità agli standard di sicurezza in tutte le operazioni di test e le attività di laboratorio.\n\nProfilo\n- Laurea in ingegneria meccanica, preferibilmente con specializzazione in idraulica mobile, macchine mobili, sistemi di azionamento, macchine edili o agricole.\n- Comprovata esperienza nello sviluppo e nella validazione ingegneristica, idealmente nel campo dei sistemi di azionamento idraulico, delle macchine mobili o delle apparecchiature off-highway.\n- Conoscenza approfondita degli azionamenti idraulici, dei sistemi di controllo e dei metodi di convalida funzionale, combinata con una buona comprensione",
+        "en": "Job Title\nResponsibilities\n- Define and implement the team's long-term vision, objectives, and testing strategy in alignment with departmental goals.\n- Plan, coordinate, and oversee functional validation programs on hydraulic component test benches.\n- Ensure high-quality validation standards and drive innovation by establishing and continuously improving testing methodologies and best practices.\n- Analyze test results and translate findings into actionable recommendations for product improvement.\n- Collaborate closely with Design Engineering, Quality, and Production teams to align testing priorities and support product development.\n- Develop and implement standardized testing procedures and data analysis methods to improve efficiency, reliability, and repeatability of validation activities.\n- Monitor project progress, resource allocation, and team performance, providing regular updates and recommendations to department management.\n- Ensure compliance with safety standards across all testing operations and laboratory activities.\n\nProfile\n- Degree in mechanical engineering, preferably with a specialization in mobile hydraulics, mobile machinery, drive systems, construction equipment, or agricultural.\n- Proven experience in engineering development and validation, ideally in the field of hydraulic drive systems, mobile machinery, or off-highway equipment.\n- Deep knowledge in hydraulic drives, control systems, and functional validation methods, combined with a good understanding of machine functions and system behavior under real operating conditions.\n- Leadership is a core aspect of your profile: you actively coach and empower your team, set clear priorities, and ensure alignment with strategic objectives. You foster a high-performance culture, promote accountability, and support your team in solving complex technical challenges.\n- Combine strategic thinking with strong analytical skills, enabling you to solve complex technical challenges, support your team in root-cause analysis, and drive sustainable improvements across products, test methods, and processes.\n- Communicate fluently in French and German, with a good command of English.\n\nWhat we offer\n- Can we inspire you to take on a responsible position in a dynamic and independent family business?\n- We offer you room for ideas, a secure job, modern and family-friendly employment conditions such as flexible working hours, home office, a company restaurant, training opportunities, and many benefits.\n- The workplace is located in Bulle, surrounded by the wonderful nature of the Gruyère region.\n- Start planning your personal and professional development with us.\n\nContact\n- In order to ensure a fair application process, we cannot accept applications by post or email.\n- Have we awoken your interest? Then we look forward to receiving your online application.\n- If you have any questions, please contact Sylvain STUDER.\n- One Passion. Many Opportunities.\n- The company Liebherr Machines Bulle SA is the centre of excellence for combustion engines (diesel and gas engines) and hydraulic components (axial piston pumps and motors).\n- The company develops and produces various products, which find their use in building construction and civil engineering, mining, agriculture, decentralised energy, machine and plant engineering, as well as aerospace.\n- Location Liebherr Machines Bulle SA\n- 7, Rue Hans-Liebherr\n- 1630 Bulle\n- Switzerland (CH)\n- Contact Sylvain STUDER\n- +41 26 913 34 00",
+        "de": "Job Title Responsibilities - Definieren und implementieren Sie die langfristige Vision, Ziele und Teststrategie des Teams in Übereinstimmung mit den Zielen der Abteilung. - Planen, koordinieren und überwachen Sie funktionale Validierungsprogramme auf hydraulischen Komponenten Prüfstände. - Sicherstellen Sie hochwertige Validierungsstandards und treiben Innovationen durch die Etablierung und kontinuierliche Verbesserung von Testmethoden und Best Practices. - Analysieren Sie Testergebnisse und übersetzen Sie Ergebnisse in umsetzbare Empfehlungen für Produktverbesserungen.\n\n- Eng mit Design Engineering, Quality und Production Teams zusammenzuarbeiten, um die Testprioritäten auszurichten und die Produktentwicklung zu unterstützen. - Entwickeln und implementieren standardisierte Testverfahren und Datenanalysemethoden, um Effizienz, Zuverlässigkeit und Wiederholbarkeit von Validierungsaktivitäten zu verbessern. - Überwachen Sie den Projektfortschritt, Ressourcenallokation und Teamleistung, die regelmäßige Updates und Empfehlungen für das Abteilungsmanagement bieten. - Sicherstellung der Einhaltung von Sicherheitsstandards über alle Testvorgänge und Laboraktivitäten hinweg.\n\nProfil - Maschinenbau-Abschluss, vorzugsweise mit einer Spezialisierung auf mobile Hydraulik, mobile Maschinen, Antriebssysteme, Baumaschinen oder landwirtschaftliche. - Bewährte Erfahrung in der technischen Entwicklung und Validierung, idealerweise im Bereich der hydraulischen Antriebssysteme, mobile Maschinen oder Off-Highway-Ausrüstung. - Tiefe Kenntnisse in hydraulischen Antrieben, Steuerungen und funktionellen Validierungsmethoden, kombiniert mit einem guten Verständnis der Maschinenfunktionen und Systemverhalten unter realen Betriebsbedingungen.\n\n- Führung ist ein zentraler Aspekt Ihres Profils: Sie trainieren und stärken Ihr Team aktiv, setzen klare Prioritäten und gewährleisten die Ausrichtung auf strategische Ziele. Sie fördern eine leistungsstarke Kultur, fördern die Rechenschaftspflicht und unterstützen Ihr Team bei der Lösung komplexer technischer Herausforderungen. - Kombinieren Sie strategisches Denken mit starken analytischen Fähigkeiten, damit Sie komplexe technische Herausforderungen lösen, Ihr Team bei der Wurzel-Ursache-Analyse unterstützen und nachhaltige Verbesserungen über Produkte, Testmethoden und Prozesse hinweg vorantreiben können. - Kommunizieren Sie fließend in Französisch und Deutsch, mit einem guten Englischkenntnissen.\n\nWas wir bieten - Können wir Sie inspirieren, eine verantwortungsvolle Position in einem dynamischen und unabhängigen Familienunternehmen einzunehmen? - Wir bieten Ihnen Raum für Ideen, einen sicheren Arbeitsplatz, moderne und familienfreundliche Beschäftigungsbedingungen wie flexible Arbeitszeiten, Home Office, ein Firmenrestaurant, Ausbildungsmöglichkeiten und viele Vorteile. - Der Arbeitsplatz befindet sich in Bulle, umgeben von der wunderschönen Natur der Region Gruyère. - Planen Sie Ihre persönliche und berufliche Entwicklung mit uns.\n\nKontakt - Um ein faires Bewerbungsverfahren zu gewährleisten, können wir keine Bewerbungen per Post oder E-Mail annehmen. - Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre Online-Bewerbung. - Bei Fragen wenden Sie sich bitte an Sylvain STUDER. - One Passion. Viele Möglichkeiten. - Die Firma Liebherr Machines Bulle SA ist das Kompetenzzentrum für Verbrennungsmotoren (Diesel- und Gasmotoren) und hydraulische Komponenten (Axiskolbenpumpen und Motoren).\n\n- Das Unternehmen entwickelt und produziert verschiedene Produkte, die im Bau- und Tiefbau, im Bergbau, in der Landwirtschaft, im dezentralen Energie-, Maschinen- und Anlagenbau sowie in der Luft- und Raumfahrt eingesetzt werden. - Standort Liebherr Machines Bulle SA - 7, Rue Hans-Liebherr - 1630 Bulle - Schweiz (CH) - Kontakt Sylvain STUDER - +41 26 913 34 00",
+        "fr": "Titre du poste Responsabilités - Définir et mettre en oeuvre la vision, les objectifs et la stratégie d'essai à long terme de l'équipe en conformité avec les objectifs ministériels. - Planifier, coordonner et superviser les programmes de validation fonctionnelle des bancs d'essai des composants hydrauliques. - Assurer des normes de validation de haute qualité et stimuler l'innovation en établissant et en améliorant continuellement les méthodes d'essai et les pratiques exemplaires. - Analyser les résultats des essais et traduire les résultats en recommandations concrètes pour améliorer le produit.\n\n- Collaborer étroitement avec les équipes de conception, d'ingénierie, de qualité et de production afin d'harmoniser les priorités des essais et de soutenir l'élaboration de produits. - Élaborer et mettre en oeuvre des méthodes normalisées d'essai et d'analyse des données pour améliorer l'efficacité, la fiabilité et la répétabilité des activités de validation. - Surveiller l'avancement des projets, l'affectation des ressources et le rendement de l'équipe, en fournissant régulièrement des mises à jour et des recommandations à la direction du Ministère. - Assurer la conformité aux normes de sécurité pour toutes les opérations d'essai et les activités de laboratoire.\n\nProfil - Diplôme en génie mécanique, de préférence avec une spécialisation en hydraulique mobile, machines mobiles, systèmes d'entraînement, équipement de construction ou agricole. - Expérience en développement et validation techniques, idéalement dans le domaine des systèmes d'entraînement hydraulique, machines mobiles ou équipements hors route. - Connaissance approfondie des entraînements hydrauliques, systèmes de commande et méthodes de validation fonctionnelles, combinée à une bonne compréhension des fonctions et du comportement des systèmes dans des conditions réelles de fonctionnement.\n\n- Le leadership est un aspect central de votre profil : vous entraînez et autonomisez votre équipe, définissez des priorités claires et veillez à l'alignement avec les objectifs stratégiques. Vous favorisez une culture de haute performance, favorisez la responsabilisation et soutenez votre équipe dans la résolution de défis techniques complexes. - Combinez la pensée stratégique avec de solides compétences analytiques, vous permettant de résoudre des défis techniques complexes, soutenez votre équipe dans l'analyse de cause profonde et conduisez des améliorations durables à travers les produits, les méthodes de test et les processus.\n\nCe que nous offrons - Pouvons-nous vous inspirer pour occuper un poste de responsabilité dans une entreprise familiale dynamique et indépendante? - Nous vous offrons une place pour des idées, un emploi sécurisé, des conditions d'emploi modernes et favorables à la famille comme la flexibilité des horaires de travail, le bureau à domicile, un restaurant d'entreprise, des possibilités de formation et de nombreux avantages. - Le lieu de travail est situé à Bulle, entouré par la nature merveilleuse de la région de Gruyère. - Commencez à planifier votre développement personnel et professionnel avec nous.\n\nContact - Afin d'assurer un processus de demande équitable, nous ne pouvons pas accepter les demandes par courrier ou par courriel. - Avons-nous réveillé votre intérêt? Ensuite, nous attendons avec impatience de recevoir votre demande en ligne. - Si vous avez des questions, veuillez contacter Sylvain STUDER. - Une passion. De nombreuses opportunités. - La société Liebherr Machines Bulle SA est le centre d'excellence pour les moteurs à combustion (moteurs diesel et à gaz) et les composants hydrauliques (pompes à piston axiaux et moteurs).\n\n- L'entreprise développe et produit divers produits qui trouvent leur utilisation dans la construction et le génie civil, l'exploitation minière, l'agriculture, l'énergie décentralisée, la mécanique et l'ingénierie des machines, ainsi que l'aérospatiale. - Emplacement Liebherr Machines Bulle SA - 7, Rue Hans-Liebherr - 1630 Bulle - Suisse (CH) - Contact Sylvain STUDER - +41 26 913 34 00"
       },
       "location": "Bulle",
       "canton": "FR",
@@ -1045,8 +1110,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
+        "en": [
+          "team-leader-testing-m-f-x-liebherr-bulle",
           "team-leader-function-validation-m-f-x-liebherr-bulle"
+        ],
+        "it": [
+          "team-leader-function-validation-m-f-x-liebherr-bulle",
+          "team-leader-testing-m-f-x-liebherr-bulle",
+          "capo-squadra-function-validation-m-f-x-liebherr-bulle"
         ],
         "de": [
           "team-leader-function-validation-m-f-x-liebherr-bulle"
@@ -1056,7 +1127,10 @@
         ]
       },
       "previousSlugs": [
-        "team-leader-function-validation-m-f-x-liebherr-bulle"
+        "team-leader-testing-m-f-x-liebherr-bulle",
+        "team-leader-function-validation-m-f-x-liebherr-bulle",
+        "capo-squadra-function-validation-m-f-x-liebherr-bulle",
+        "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-15T14:48:44.629Z"
     },
@@ -1266,7 +1340,10 @@
           "You have good skills in TIG / MAG welding / as well as brazing"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:08.317Z"
+      "firstSeenAt": "2026-06-10T09:03:08.317Z",
+      "previousSlugs": [
+        "serrurier-constructeur-metallique-h-f-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-907dde86c03b",
@@ -3019,8 +3096,22 @@
         ]
       },
       "previousSlugs": [
+        "ingenieur-de-production-dmu-h-f-x-liebherr-bulle",
+        "ingegnere-di-produzione-dmu-h-f-x-liebherr-bulle",
         "ingegnere-di-produzione-dmu-m-w-d-liebherr-bulle"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-de-production-dmu-h-f-x-liebherr-bulle",
+          "ingegnere-di-produzione-dmu-h-f-x-liebherr-bulle"
+        ],
+        "en": [
+          "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
+        ]
+      },
       "firstSeenAt": "2026-06-10T09:03:08.379Z"
     },
     {

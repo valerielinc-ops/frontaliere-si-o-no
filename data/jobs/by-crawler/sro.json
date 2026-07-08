@@ -88,12 +88,12 @@
     },
     {
       "id": "sro-2049f2aea8f9",
-      "slug": "stv-station-manager-80-100-reparto-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
       "slugByLocale": {
         "de": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
-        "it": "stv-station-manager-80-100-reparto-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "stv-station-manager-80-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal",
-        "fr": "stv-gestionnaire-de-station-80-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau-langenthal"
+        "it": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
+        "en": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
+        "fr": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -153,21 +153,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:16:09.747Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
-        ],
-        "en": [
-          "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
-        ],
-        "fr": [
-          "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
-        ]
-      },
-      "previousSlugs": [
-        "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
-      ]
+      "firstSeenAt": "2026-07-08T11:16:09.747Z"
     },
     {
       "id": "sro-5b6a9189f99e",
@@ -306,11 +292,13 @@
       "department": "Gesundheitswesen",
       "previousSlugsByLocale": {
         "de": [
-          "psychotherapeut-in-schmerzklinik-80-sro-langenthal"
+          "psychotherapeut-in-schmerzklinik-80-sro-langenthal",
+          "teamleitung-schmerzpsychologie-80-sro-langenthal"
         ],
         "it": [
           "teamleitung-schmerzpsychologie-80-sro-langenthal",
-          "psychotherapeut-in-schmerzklinik-80-sro-langenthal"
+          "psychotherapeut-in-schmerzklinik-80-sro-langenthal",
+          "capo-squadra-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "team-leader-pain-psychology-80-sro-ag-spital-region-oberaargau-langenthal",
@@ -325,7 +313,8 @@
         "teamleitung-schmerzpsychologie-80-sro-langenthal",
         "team-leader-pain-psychology-80-sro-ag-spital-region-oberaargau-langenthal",
         "team-leader-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal",
-        "responsable-equipe-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal"
+        "responsable-equipe-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal",
+        "capo-squadra-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "firstSeenAt": "2026-06-22T15:23:13.268Z",
       "salaryMin": 75600,
@@ -395,11 +384,13 @@
       "validThrough": "2026-07-16",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
+        "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
+        "psicologo-psicologo-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
+          "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
+          "psicologo-psicologo-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
@@ -480,11 +471,13 @@
         "psychologist-psychologist-old-age-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "psicologa-psicologo-psichiatria-geriatrica-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "psychologue-therapeute-psychiatrie-geriatrique-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "psychologin-psychologen-fur-alterspsychiatrie-80-100-or-klinische-psychologin-klinische-psychologen-schwerpunkt"
+        "psychologin-psychologen-fur-alterspsychiatrie-80-100-or-klinische-psychologin-klinische-psychologen-schwerpunkt",
+        "psicologo-psicologo-vecchio-eta-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal"
+          "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal",
+          "psicologo-psicologo-vecchio-eta-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "psychologist-psychologist-old-age-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
@@ -562,11 +555,13 @@
       "validThrough": "2026-07-17",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
+        "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
+        "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
+          "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
+          "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
@@ -691,16 +686,16 @@
       "title": "Oberärztin/Oberarzt Anästhesiologie 100 %",
       "titleByLocale": {
         "it": "Anestesiologia medico senior 100 %",
-        "en": "Senior physician anesthesiology 100 %",
+        "en": "Upper physician/upper physician Anesthesiology 100 %",
         "de": "Oberärztin/Oberarzt Anästhesiologie 100 %",
-        "fr": "Anesthésiologie du médecin principal 100 %"
+        "fr": "Médecin supérieur/médecin supérieur Anesthésiologie 100 %"
       },
       "description": "Wir führen jährlich über 7'000 Anästhesien (Regionalanästhesieteil zirka 40 %) in den Fachbereichen allgemei-ne Chirurgie, Orthopädie, Traumatologie, Handchirurgie, plastische Chirurgie, Gynäkologie, Urologie, Wirbelsäu-lenchirurgie, HNO und Ophthalmologie durch. Für die Klinik für Anästhesiologie und perioperative Schmerztherapie suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns Sie stellen eine kompetente und effektive anästhesiologische Betreuung von Patienten inkl. Kindern ab 3 Jahren sicher und beteiligen sich am anästhesiologischen Notfall- und Dienstbetrieb. Die Mitbetreuung intensivmedizinischer Patienten, die Supervision und die Ausbildung von Assistenzärztinnen und Assistenzärzten, Medizinstudentinnen und Medizinstudenten sowie die Mitarbeit in der internen Weiterbildung sind ebenfalls Teil Ihrer spannenden und verantwortungsvollen Aufgabe. Das bringen Sie mit Sie besitzen den Facharzttitel Anästhesiologie oder eine vergleichbaren Fachbescheinigung mit Anerkennung durch die MEBEKO. Entsprechende Berufserfahrung in der Anästhesiologie setzen wir voraus. Wir wenden uns an eine engagierte, kollegiale, selbstständige, belastbare sowie zielorientierte Persönlichkeit, welche ihre Arbeit mit Enthusiasmus ausführt, über gute Kommunikationsfähigkeiten verfügt und Wert auf eine konstruktive Zusammenarbeit legt. Bei uns arbeiten SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\nSie stellen eine kompetente und effektive anästhesiologische Betreuung von Patienten inkl. Kindern ab 3 Jahren sicher und beteiligen sich am anästhesiologischen Notfall- und Dienstbetrieb. Die Mitbetreuung intensivmedizinischer Patienten, die Supervision und die Ausbildung von Assistenzärztinnen und Assistenzärzten, Medizinstudentinnen und Medizinstudenten sowie die Mitarbeit in der internen Weiterbildung sind ebenfalls Teil Ihrer spannenden und verantwortungsvollen Aufgabe.\n\nAnforderungen:\nSie besitzen den Facharzttitel Anästhesiologie oder eine vergleichbaren Fachbescheinigung mit Anerkennung durch die MEBEKO. Entsprechende Berufserfahrung in der Anästhesiologie setzen wir voraus. Wir wenden uns an eine engagierte, kollegiale, selbstständige, belastbare sowie zielorientierte Persönlichkeit, welche ihre Arbeit mit Enthusiasmus ausführt, über gute Kommunikationsfähigkeiten verfügt und Wert auf eine konstruktive Zusammenarbeit legt.",
       "descriptionByLocale": {
-        "it": "Ogni anno effettuiamo più di 7'000 anestesia (anestesia regionale parte circa 40 %) nei campi di chirurgia generale, ortopedia, traumatologia, chirurgia della mano, chirurgia plastica, ginecologia, urologia, chirurgia vertebrale, ENT e oftalmologia. Per la Clinica di Anestesiologia e Terapia Perioperativa del Dolore stiamo cercando un immediato o su appuntamento Fornite una cura anestesiologica competente ed efficace dei pazienti incl. Bambini da 3 anni sicuri e partecipare alle operazioni di emergenza e assistenza anestesiologica. La co-assistenza di pazienti intensivi, la supervisione e la formazione di medici assistenti, studenti medici e la partecipazione all'istruzione ulteriore interna fanno parte anche del vostro compito emozionante e responsabile. Hai il titolo specialistico di anestesiologia o un certificato comparabile con riconoscimento di MEBEKO. Abbiamo bisogno di un'adeguata esperienza professionale in anestesiologia. Stiamo affrontando una personalità impegnata, collegiale, indipendente, resiliente e orientata agli obiettivi che svolge il suo lavoro con entusiasmo, ha buone capacità di comunicazione e valori di cooperazione costruttiva. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31, F 062 916 31 12, info@sro.ch, www.sro.ch Compiti: Essi forniscono cure anestesiologiche competenti ed efficaci di pazienti incl. Bambini da 3 anni sicuri e partecipare alle operazioni di emergenza e assistenza anestesiologica. La co-assistenza di pazienti intensivi, la supervisione e la formazione di medici assistenti, studenti medici e la partecipazione all'istruzione ulteriore interna fanno parte anche del vostro compito emozionante e responsabile.\n• Requisiti Hai il titolo specialistico di anestesiologia o un certificato comparabile con riconoscimento di MEBEKO. Abbiamo bisogno di un'adeguata esperienza professionale in anestesiologia. Stiamo affrontando una personalità impegnata, collegiale, indipendente, resiliente e orientata agli obiettivi che svolge il suo lavoro con entusiasmo, ha buone capacità di comunicazione e valori di cooperazione costruttiva.",
-        "en": "Every year we carry out more than 7'000 anesthesias (regional aesthesia part about 40 %) in the fields of general surgery, orthopaedics, traumatology, hand surgery, plastic surgery, gynecology, urology, vertebral surgery, ENT and ophthalmology. For the Clinic of Anesthesiology and Perioperative Pain Therapy we are looking for an immediately or by appointment You provide a competent and effective anesthesiological care of patients incl. Children from 3 years of age safe and participate in anesthesiological emergency and service operations. The co-care of intensive care patients, the supervision and the training of assistant doctors, medical students and the participation in internal further education are also part of your exciting and responsible task. You have the specialist title of anesthesiology or a comparable certificate with recognition by MEBEKO. We require appropriate professional experience in anesthesiology. We are addressing a committed, collegial, independent, resilient and goal-oriented personality who carries out her work with enthusiasm, has good communication skills and values constructive cooperation. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Tasks: They provide competent and effective anesthesiological care of patients incl. Children from 3 years of age safe and participate in anesthesiological emergency and service operations. The co-care of intensive care patients, the supervision and the training of assistant doctors, medical students and the participation in internal further education are also part of your exciting and responsible task.\n• Requirements You have the specialist title of anesthesiology or a comparable certificate with recognition by MEBEKO. We require appropriate professional experience in anesthesiology. We are addressing a committed, collegial, independent, resilient and goal-oriented personality who carries out her work with enthusiasm, has good communication skills and values constructive cooperation.",
-        "de": "Wir führen jährlich über 7'000 Anästhesien (Regionalanästhesieteil zirka 40 %) in den Fachbereichen allgemei-ne Chirurgie, Orthopädie, Traumatologie, Handchirurgie, plastische Chirurgie, Gynäkologie, Urologie, Wirbelsäu-lenchirurgie, HNO und Ophthalmologie durch. Für die Klinik für Anästhesiologie und perioperative Schmerztherapie suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns Sie stellen eine kompetente und effektive anästhesiologische Betreuung von Patienten inkl. Kindern ab 3 Jahren sicher und beteiligen sich am anästhesiologischen Notfall- und Dienstbetrieb. Die Mitbetreuung intensivmedizinischer Patienten, die Supervision und die Ausbildung von Assistenzärztinnen und Assistenzärzten, Medizinstudentinnen und Medizinstudenten sowie die Mitarbeit in der internen Weiterbildung sind ebenfalls Teil Ihrer spannenden und verantwortungsvollen Aufgabe. Das bringen Sie mit Sie besitzen den Facharzttitel Anästhesiologie oder eine vergleichbaren Fachbescheinigung mit Anerkennung durch die MEBEKO. Entsprechende Berufserfahrung in der Anästhesiologie setzen wir voraus. Wir wenden uns an eine engagierte, kollegiale, selbstständige, belastbare sowie zielorientierte Persönlichkeit, welche ihre Arbeit mit Enthusiasmus ausführt, über gute Kommunikationsfähigkeiten verfügt und Wert auf eine konstruktive Zusammenarbeit legt. Bei uns arbeiten SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch \n• Aufgaben: Sie stellen eine kompetente und effektive anästhesiologische Betreuung von Patienten inkl. Kindern ab 3 Jahren sicher und beteiligen sich am anästhesiologischen Notfall- und Dienstbetrieb. Die Mitbetreuung intensivmedizinischer Patienten, die Supervision und die Ausbildung von Assistenzärztinnen und Assistenzärzten, Medizinstudentinnen und Medizinstudenten sowie die Mitarbeit in der internen Weiterbildung sind ebenfalls Teil Ihrer spannenden und verantwortungsvollen Aufgabe. \n• Anforderungen: Sie besitzen den Facharzttitel Anästhesiologie oder eine vergleichbaren Fachbescheinigung mit Anerkennung durch die MEBEKO. Entsprechende Berufserfahrung in der Anästhesiologie setzen wir voraus. Wir wenden uns an eine engagierte, kollegiale, selbstständige, belastbare sowie zielorientierte Persönlichkeit, welche ihre Arbeit mit Enthusiasmus ausführt, über gute Kommunikationsfähigkeiten verfügt und Wert auf eine konstruktive Zusammenarbeit legt.",
-        "fr": "Chaque année, nous effectuons plus de 7'000 anesthésies (partie d'anesthésie régionale environ 40 %) dans les domaines de la chirurgie générale, orthopédie, traumatologie, chirurgie manuelle, chirurgie plastique, gynécologie, urologie, chirurgie vertébrale, ENT et ophtalmologie. Pour la Clinique d'anesthésiologie et de thérapie de douleur périopératoire, nous recherchons immédiatement ou sur rendez-vous Vous fournissez un soin anesthésiologique compétent et efficace aux patients, y compris. Enfants à partir de 3 ans en sécurité et participer à des opérations d'urgence et de service anesthésiologiques. Le co-soins des patients en soins intensifs, la supervision et la formation des médecins adjoints, des étudiants en médecine et la participation à la formation continue interne font également partie de votre tâche passionnante et responsable. Vous avez le titre de spécialiste de l'anesthésiologie ou un certificat comparable avec reconnaissance par MEBEKO. Nous avons besoin d'une expérience professionnelle appropriée en anesthésiologie. Nous nous adressons à une personnalité engagée, collégiale, indépendante, résiliente et orientée vers l'objectif, qui réalise son travail avec enthousiasme, possède de bonnes compétences en communication et valorise la coopération constructive. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Tâches : Ils fournissent des soins anesthésiologiques compétents et efficaces aux patients, y compris: Enfants à partir de 3 ans en sécurité et participer à des opérations d'urgence et de service anesthésiologiques. Le co-soins des patients en soins intensifs, la supervision et la formation des médecins adjoints, des étudiants en médecine et la participation à la formation continue interne font également partie de votre tâche passionnante et responsable.\n• Exigences Vous avez le titre de spécialiste de l'anesthésiologie ou un certificat comparable avec reconnaissance par MEBEKO. Nous avons besoin d'une expérience professionnelle appropriée en anesthésiologie. Nous nous adressons à une personnalité engagée, collégiale, indépendante, résiliente et orientée vers l'objectif, qui réalise son travail avec enthousiasme, possède de bonnes compétences en communication et valorise la coopération constructive."
+        "it": "Eseguiamo ogni anno oltre 7.000 anestesie (sezione anestesia regionale circa il 40%) nei settori della chirurgia generale, ortopedia, traumatologia, chirurgia della mano, chirurgia plastica, ginecologia, urologia, chirurgia della colonna vertebrale, otorinolaringoiatria e oftalmologia. Per la clinica di anestesiologia e terapia del dolore perioperatoria, cerchiamo da subito o su appuntamento un/una operatore/trice che ci fornisca un'assistenza anestesiologica competente ed efficace per i pazienti, Bambini dai 3 anni in su e partecipano alle operazioni anestesiologiche di emergenza e di servizio. Anche la co-assistenza di pazienti in terapia intensiva, la supervisione e la formazione di medici assistenti, studenti di medicina e la collaborazione nella formazione continua interna fanno parte del vostro compito entusiasmante e responsabile. Portate con voi il titolo di specialista in anestesiologia o un certificato professionale equivalente con riconoscimento da parte della MEBEKO. Presupponiamo un'adeguata esperienza professionale in anestesiologia. Ci rivolgiamo a una persona impegnata, collegiale, indipendente, resiliente e orientata agli obiettivi, che svolge il suo lavoro con entusiasmo, ha buone capacità comunicative e attribuisce importanza a una collaborazione costruttiva. Lavoriamo con SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12,",
+        "en": "We carry out over 7,000 anesthesias (regional anesthesia section approximately 40%) in the departments of general surgery, orthopaedics, traumatology, hand surgery, plastic surgery, gynecology, urology, vertebral acid surgery, ENT and O-Hythmiology.For the clinic of anesthesiology and peri-operative pain therapy we are looking for an immediate or by appointment.This is what you can do with us. You provide competent and effective anesthesiological care of patients including children from 3 years of age and participate in the anesthesiological emergency and service operation.\n\nThe co-supervision of intensive medical patients, the supervision and the training of assistant doctors, medical students and medical students as well as the cooperation in internal further education are also part of your exciting and responsible task. You have the specialist title of anesthesiology or a comparable certificate of qualification with recognition by MEBEKO. We require corresponding professional experience in anesthesiology.\n\nWe are looking for a dedicated, collegial, independent, resilient and goal-oriented person who performs her work with enthusiasm, has good communication skills and attaches importance to constructive cooperation. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTasks: They ensure competent and effective anaesthesiological care of patients including children from 3 years of age and participate in the anesthesiological emergency and service operation. The co-care of intensive medical patients, the supervision and the training of assistant doctors, medical students and medical students as well as the cooperation in internal training are also part of your exciting and responsible task.\n\nRequirements: You have the specialist title of anesthesiology or a comparable certificate of qualification with recognition by MEBEKO. We require appropriate professional experience in anesthesiology. We address a committed, collegial, independent, resilient and goal-oriented personality, who performs her work with enthusiasm, has good communication skills and places great value on constructive cooperation.",
+        "de": "Wir führen jährlich über 7'000 Anästhesien (Regionalanästhesieteil zirka 40 %) in den Fachbereichen allgemei-ne Chirurgie, Orthopädie, Traumatologie, Handchirurgie, plastische Chirurgie, Gynäkologie, Urologie, Wirbelsäu-lenchirurgie, HNO und Ophthalmologie durch. Für die Klinik für Anästhesiologie und perioperative Schmerztherapie suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns Sie stellen eine kompetente und effektive anästhesiologische Betreuung von Patienten inkl. Kindern ab 3 Jahren sicher und beteiligen sich am anästhesiologischen Notfall- und Dienstbetrieb. Die Mitbetreuung intensivmedizinischer Patienten, die Supervision und die Ausbildung von Assistenzärztinnen und Assistenzärzten, Medizinstudentinnen und Medizinstudenten sowie die Mitarbeit in der internen Weiterbildung sind ebenfalls Teil Ihrer spannenden und verantwortungsvollen Aufgabe. Das bringen Sie mit Sie besitzen den Facharzttitel Anästhesiologie oder eine vergleichbaren Fachbescheinigung mit Anerkennung durch die MEBEKO. Entsprechende Berufserfahrung in der Anästhesiologie setzen wir voraus. Wir wenden uns an eine engagierte, kollegiale, selbstständige, belastbare sowie zielorientierte Persönlichkeit, welche ihre Arbeit mit Enthusiasmus ausführt, über gute Kommunikationsfähigkeiten verfügt und Wert auf eine konstruktive Zusammenarbeit legt. Bei uns arbeiten SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\nSie stellen eine kompetente und effektive anästhesiologische Betreuung von Patienten inkl. Kindern ab 3 Jahren sicher und beteiligen sich am anästhesiologischen Notfall- und Dienstbetrieb. Die Mitbetreuung intensivmedizinischer Patienten, die Supervision und die Ausbildung von Assistenzärztinnen und Assistenzärzten, Medizinstudentinnen und Medizinstudenten sowie die Mitarbeit in der internen Weiterbildung sind ebenfalls Teil Ihrer spannenden und verantwortungsvollen Aufgabe.\n\nAnforderungen:\nSie besitzen den Facharzttitel Anästhesiologie oder eine vergleichbaren Fachbescheinigung mit Anerkennung durch die MEBEKO. Entsprechende Berufserfahrung in der Anästhesiologie setzen wir voraus. Wir wenden uns an eine engagierte, kollegiale, selbstständige, belastbare sowie zielorientierte Persönlichkeit, welche ihre Arbeit mit Enthusiasmus ausführt, über gute Kommunikationsfähigkeiten verfügt und Wert auf eine konstruktive Zusammenarbeit legt.",
+        "fr": "Nous effectuons plus de 7 000 anesthésies (section d'anesthésie régionale environ 40%) dans les départements de chirurgie générale, orthopédie, traumatologie, chirurgie manuelle, chirurgie plastique, gynécologie, urologie, chirurgie de l'acide vertébral, ENT et O-Hythmiologie.Pour la clinique d'anesthésiologie et de thérapie de la douleur péri-opératoire, nous recherchons un immédiat ou sur rendez-vous.C'est ce que vous pouvez faire avec nous.Vous offrez des soins anesthésiologiques compétents et efficaces aux patients, y compris les enfants de 3 ans et participez à l'opération d'urgence et de service anesthésiologique.\n\nLa co-surveillance des patients intensifs, la supervision et la formation des médecins adjoints, des étudiants en médecine et des étudiants en médecine ainsi que la coopération dans la formation continue interne font également partie de votre tâche passionnante et responsable. Vous avez le titre de spécialiste d'anesthésiologie ou un certificat de qualification comparable avec reconnaissance par MEBEKO. Nous avons besoin d'une expérience professionnelle correspondante en anesthésiologie.\n\nNous recherchons une personne dévouée, collegiale, indépendante, résiliente et orientée vers l'objectif qui réalise son travail avec enthousiasme, possède de bonnes compétences en communication et attache de l'importance à la coopération constructive. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTâches: Elles assurent des soins anesthésiques compétents et efficaces aux patients, y compris aux enfants de 3 ans, et participent à l'opération d'urgence et de service anesthésiologique. La co-assistance aux patients intensifs, la supervision et la formation des médecins adjoints, des étudiants en médecine et des étudiants en médecine ainsi que la coopération en formation interne font également partie de votre tâche passionnante et responsable.\n\nExigences : Vous avez le titre de spécialiste d'anesthésiologie ou un certificat de qualification comparable avec reconnaissance par MEBEKO. Nous avons besoin d'une expérience professionnelle appropriée en anesthésiologie. Nous nous adressons à une personnalité engagée, collégiale, indépendante, résiliente et orientée vers l'objectif, qui effectue son travail avec enthousiasme, a de bonnes compétences en communication et accorde une grande valeur à la coopération constructive."
       },
       "needsRetranslation": false,
       "location": "Langenthal",
@@ -731,11 +726,13 @@
       "validThrough": "2026-07-08",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
+        "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal",
+        "anestesiologia-medico-senior-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
+          "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal",
+          "anestesiologia-medico-senior-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
@@ -760,12 +757,12 @@
     },
     {
       "id": "sro-3c07c8d5bcc9",
-      "slug": "anestesiologia-medico-senior-100-sro-ag-spital-region-oberaargau-langenthal-21c90c",
+      "slug": "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal",
-        "it": "anestesiologia-medico-senior-100-sro-ag-spital-region-oberaargau-langenthal-21c90c",
-        "en": "senior-physician-anesthesiology-100-sro-ag-spital-region-oberaargau-langenthal-21c90c",
-        "fr": "anesthesiologie-du-medecin-principal-100-sro-ag-spital-region-oberaargau-langenthal-21c90c"
+        "it": "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal",
+        "en": "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal",
+        "fr": "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -834,16 +831,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anestesiologia-medico-senior-100-sro-ag-spital-region-oberaargau-langenthal",
-          "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
+          "anestesiologia-medico-senior-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
-          "senior-physician-anesthesiology-100-sro-ag-spital-region-oberaargau-langenthal",
-          "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
+          "senior-physician-anesthesiology-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
-          "anesthesiologie-du-medecin-principal-100-sro-ag-spital-region-oberaargau-langenthal",
-          "oberarztin-oberarzt-anasthesiologie-100-sro-langenthal"
+          "anesthesiologie-du-medecin-principal-100-sro-ag-spital-region-oberaargau-langenthal"
         ]
       }
     },
@@ -861,17 +855,17 @@
       "companyDomain": "sro.ch",
       "title": "Oberarzt / Oberärztin ZESA 60 %",
       "titleByLocale": {
-        "it": "Medico senior ZESA 60%",
-        "en": "Senior physician ZESA 60%",
+        "it": "Oberarzt / Oberärztin ZESA 60%",
+        "en": "Senior Physician / Senior Physician ZESA 60%",
         "de": "Oberarzt / Oberärztin ZESA 60 %",
-        "fr": "Médecin principal ZESA 60%"
+        "fr": "Médecin-chef / Médecin-chef ZESA 60%"
       },
       "description": "Das Zentrum für Essstörungen und Adipositas (ZESA) ist eine spezialisierte Sprechstunde im SRO Langenthal, die sich auf die Behandlung von Adipositas sowie Essstörungen und damit verbundenen psychischen Erkrankungen konzentriert. Wir bieten eine interdisziplinäre Behandlung, die auf den neuesten wissenschaftlichen Erkenntnissen basiert. Unser Team sorgt für eine individuelle und ganzheitliche Betreuung unserer Patientinnen und Patienten, mit dem Ziel, ein gesundes Verhältnis zu Essen und Körper zu fördern. Wir suchen zur Ergänzung unseres Teams per 1. Januar 2027 oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Leitung und Durchführung von diagnostischen und therapeutischen Prozessen, Verantwortung für die medizinische Betreuung und Beratung\n• Enge Zusammenarbeit mit unserem Team von PsychologInnen, ErnährungsberaterInnen, ÄrztInnen und Administration\n• Mitwirkung an der Weiterentwicklung des Zentrums inklusive Vernetzung mit internen und externen Partners\n• Teilnahme an Supervision- und Intervisionstätigkeiten und fachlicher Weiterbildung\n• Sicherstellung einer hohen Behandlungsqualität und fortlaufender Evaluation der therapeutischen Ansätze Das bringen Sie mit\n• Abgeschlossene Facharztausbildung in Psychiatrie oder Innere Medizin oder kurz davor, das ambulante A Jahr muss bereits absolviert worden sein\n• Besonderes Interesse an Psychosomatik, Konsiliarpsychiatrie und Essstörungen\n• Führungserfahrung, Mitgliedschaft SAPPM von Vorteil\n• Empathie, Teamgeist und exzellente Kommunikationsfähigkeiten\n• Interesse an fachlicher Weiterentwicklung und Teilnahme an regelmäßigen Supervisionen\n• Fortgeschrittene schriftliche und mündliche Deutschkentnisse, C1 Sprachnachweis Bei uns arbeiten\n• Eine abwechslungsreiche ambulante Tätigkeit mit geregelten Arbeitszeiten\n• Ein engagiertes, interdisziplinäres und sehr kollegiales Team\n• Unterstützung zur fachlichen und persönlichen Weiterentwicklung\n• Einen modernen Arbeitsplatz in einer innovativen und gut vernetzten Einrichtung\n• Zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Leitung und Durchführung von diagnostischen und therapeutischen Prozessen, Verantwortung für die medizinische Betreuung und Beratung\n• Enge Zusammenarbeit mit unserem Team von PsychologInnen, ErnährungsberaterInnen, ÄrztInnen und Administration\n• Mitwirkung an der Weiterentwicklung des Zentrums inklusive Vernetzung mit internen und externen Partners\n• Teilnahme an Supervision- und Intervisionstätigkeiten und fachlicher Weiterbildung\n• Sicherstellung einer hohen Behandlungsqualität und fortlaufender Evaluation der therapeutischen Ansätze\n\nAnforderungen:\n• Abgeschlossene Facharztausbildung in Psychiatrie oder Innere Medizin oder kurz davor, das ambulante A Jahr muss bereits absolviert worden sein\n• Besonderes Interesse an Psychosomatik, Konsiliarpsychiatrie und Essstörungen\n• Führungserfahrung, Mitgliedschaft SAPPM von Vorteil\n• Empathie, Teamgeist und exzellente Kommunikationsfähigkeiten\n• Interesse an fachlicher Weiterentwicklung und Teilnahme an regelmäßigen Supervisionen\n• Fortgeschrittene schriftliche und mündliche Deutschkentnisse, C1 Sprachnachweis",
       "descriptionByLocale": {
-        "it": "Il Centre for Eating Disorders and Obesity (ZESA) è una sessione di consultazione specializzata presso la SRO Langenthal focalizzata sul trattamento dell'obesità e disturbi alimentari e malattie mentali correlate. Offriamo un trattamento interdisciplinare basato sulle più recenti conoscenze scientifiche. Il nostro team fornisce assistenza individuale e olistica per i nostri pazienti con l'obiettivo di promuovere un rapporto sano con il cibo e il corpo. Stiamo cercando un supplemento per il nostro team il 1 gennaio 2027 o d'accordo Lo fanno con noi.\n• Gestione e implementazione di processi diagnostici e terapeutici, responsabilità di assistenza medica e consulenza\n• stretta collaborazione con il nostro team di psicologi, nutrizionisti, medici e amministrazione\n• Partecipazione all'ulteriore sviluppo del centro, anche in rete con partner interni ed esterni\n• Partecipazione alle attività di supervisione e di intervisione e formazione professionale\n• Garantire un'alta qualità del trattamento e una valutazione continua degli approcci terapeutici\n• Formazione specialistica completa in psichiatria o medicina interna o poco prima, l'anno ambulatoriale A deve essere già stato completato\n• Particolare interesse per la psicosomatica, psichiatria consiliare e disturbi alimentari\n• Esperienza di leadership, l'appartenenza a SAPPM è vantaggioso\n• Empathy, spirito di squadra e eccellenti capacità di comunicazione\n• Interessi di sviluppo professionale e partecipazione alla supervisione regolare\n• Conoscenza scritta e orale avanzata del tedesco, prova di lingua C1\n• Una variegata attività ambulatoriale con orari di lavoro regolamentati\n• Un team dedicato, interdisciplinare e molto collaborativo\n• Supporto per lo sviluppo professionale e personale\n• Un luogo di lavoro moderno in un istituto innovativo e ben collegato\n• Condizioni di lavoro contemporanee secondo GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Compiti:\n• Gestione e implementazione di processi diagnostici e terapeutici, responsabilità di assistenza medica e consulenza\n• stretta collaborazione con il nostro team di psicologi, nutrizionisti, medici e amministrazione\n• Partecipazione all'ulteriore sviluppo del centro, anche in rete con partner interni ed esterni\n• Partecipazione alle attività di supervisione e di intervisione e formazione professionale\n• Garantire un'alta qualità del trattamento e una valutazione continua degli approcci terapeutici Requisiti\n• Formazione specialistica completa in psichiatria o medicina interna o poco prima, l'anno ambulatoriale A deve essere già stato completato\n• Particolare interesse per la psicosomatica, psichiatria consiliare e disturbi alimentari\n• Esperienza di leadership, l'appartenenza a SAPPM è vantaggioso\n• Empathy, spirito di squadra e eccellenti capacità di comunicazione\n• Interessi di sviluppo professionale e partecipazione alla supervisione regolare\n• Conoscenza scritta e orale avanzata del tedesco, prova di lingua C1",
-        "en": "The Centre for Eating Disorders and Obesity (ZESA) is a specialized consultation session at the SRO Langenthal focused on the treatment of obesity as well as eating disorders and related mental illnesses. We offer an interdisciplinary treatment based on the latest scientific knowledge. Our team provides individual and holistic care for our patients with the aim of promoting a healthy relationship with food and the body. We are looking for a supplement to our team on 1 January 2027 or by agreement They do it with us.\n• Management and implementation of diagnostic and therapeutic processes, responsibility for medical care and advice\n• Close cooperation with our team of psychologists, nutritionists, doctors and administration\n• Participation in the further development of the centre, including networking with internal and external partners\n• Participation in supervision and intervision activities and professional training\n• Ensuring high treatment quality and ongoing evaluation of therapeutic approaches\n• Completed specialist training in psychiatry or internal medicine or shortly before, the outpatient A year must have already been completed\n• Particular interest in psychosomatics, consiliar psychiatry and eating disorders\n• Leadership experience, membership of SAPPM is beneficial\n• Empathy, team spirit and excellent communication skills\n• Interest in professional development and participation in regular supervision\n• Advanced written and oral knowledge of German, C1 language proof\n• A varied outpatient activity with regulated working hours\n• A dedicated, interdisciplinary and very collaborative team\n• Support for professional and personal development\n• A modern workplace in an innovative and well-connected institution\n• Contemporary employment conditions according to GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Tasks:\n• Management and implementation of diagnostic and therapeutic processes, responsibility for medical care and advice\n• Close cooperation with our team of psychologists, nutritionists, doctors and administration\n• Participation in the further development of the centre, including networking with internal and external partners\n• Participation in supervision and intervision activities and professional training\n• Ensuring high treatment quality and ongoing evaluation of therapeutic approaches Requirements\n• Completed specialist training in psychiatry or internal medicine or shortly before, the outpatient A year must have already been completed\n• Particular interest in psychosomatics, consiliar psychiatry and eating disorders\n• Leadership experience, membership of SAPPM is beneficial\n• Empathy, team spirit and excellent communication skills\n• Interest in professional development and participation in regular supervision\n• Advanced written and oral knowledge of German, C1 language proof",
-        "de": "Das Zentrum für Essstörungen und Adipositas (ZESA) ist eine spezialisierte Sprechstunde im SRO Langenthal, die sich auf die Behandlung von Adipositas sowie Essstörungen und damit verbundenen psychischen Erkrankungen konzentriert. Wir bieten eine interdisziplinäre Behandlung, die auf den neuesten wissenschaftlichen Erkenntnissen basiert. Unser Team sorgt für eine individuelle und ganzheitliche Betreuung unserer Patientinnen und Patienten, mit dem Ziel, ein gesundes Verhältnis zu Essen und Körper zu fördern. Wir suchen zur Ergänzung unseres Teams per 1. Januar 2027 oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Leitung und Durchführung von diagnostischen und therapeutischen Prozessen, Verantwortung für die medizinische Betreuung und Beratung\n• Enge Zusammenarbeit mit unserem Team von PsychologInnen, ErnährungsberaterInnen, ÄrztInnen und Administration\n• Mitwirkung an der Weiterentwicklung des Zentrums inklusive Vernetzung mit internen und externen Partners\n• Teilnahme an Supervision- und Intervisionstätigkeiten und fachlicher Weiterbildung\n• Sicherstellung einer hohen Behandlungsqualität und fortlaufender Evaluation der therapeutischen Ansätze Das bringen Sie mit\n• Abgeschlossene Facharztausbildung in Psychiatrie oder Innere Medizin oder kurz davor, das ambulante A Jahr muss bereits absolviert worden sein\n• Besonderes Interesse an Psychosomatik, Konsiliarpsychiatrie und Essstörungen\n• Führungserfahrung, Mitgliedschaft SAPPM von Vorteil\n• Empathie, Teamgeist und exzellente Kommunikationsfähigkeiten\n• Interesse an fachlicher Weiterentwicklung und Teilnahme an regelmäßigen Supervisionen\n• Fortgeschrittene schriftliche und mündliche Deutschkentnisse, C1 Sprachnachweis Bei uns arbeiten\n• Eine abwechslungsreiche ambulante Tätigkeit mit geregelten Arbeitszeiten\n• Ein engagiertes, interdisziplinäres und sehr kollegiales Team\n• Unterstützung zur fachlichen und persönlichen Weiterentwicklung\n• Einen modernen Arbeitsplatz in einer innovativen und gut vernetzten Einrichtung\n• Zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Aufgaben:\n• Leitung und Durchführung von diagnostischen und therapeutischen Prozessen, Verantwortung für die medizinische Betreuung und Beratung\n• Enge Zusammenarbeit mit unserem Team von PsychologInnen, ErnährungsberaterInnen, ÄrztInnen und Administration\n• Mitwirkung an der Weiterentwicklung des Zentrums inklusive Vernetzung mit internen und externen Partners\n• Teilnahme an Supervision- und Intervisionstätigkeiten und fachlicher Weiterbildung\n• Sicherstellung einer hohen Behandlungsqualität und fortlaufender Evaluation der therapeutischen Ansätze Anforderungen:\n• Abgeschlossene Facharztausbildung in Psychiatrie oder Innere Medizin oder kurz davor, das ambulante A Jahr muss bereits absolviert worden sein\n• Besonderes Interesse an Psychosomatik, Konsiliarpsychiatrie und Essstörungen\n• Führungserfahrung, Mitgliedschaft SAPPM von Vorteil\n• Empathie, Teamgeist und exzellente Kommunikationsfähigkeiten\n• Interesse an fachlicher Weiterentwicklung und Teilnahme an regelmäßigen Supervisionen\n• Fortgeschrittene schriftliche und mündliche Deutschkentnisse, C1 Sprachnachweis",
-        "fr": "Le Centre pour les troubles de l'alimentation et l'obésité (ZESA) est une séance de consultation spécialisée au SRO Langenthal axée sur le traitement de l'obésité ainsi que des troubles de l'alimentation et des maladies mentales connexes. Nous offrons un traitement interdisciplinaire basé sur les dernières connaissances scientifiques. Notre équipe fournit des soins individuels et holistiques à nos patients dans le but de promouvoir une relation saine avec la nourriture et le corps. Nous recherchons un supplément à notre équipe le 1er janvier 2027 ou par accord Ils le font avec nous.\n• Gestion et mise en œuvre des processus diagnostiques et thérapeutiques, responsabilité des soins et conseils médicaux\n• Coopération étroite avec notre équipe de psychologues, nutritionnistes, médecins et administration\n• Participation à la poursuite du développement du centre, y compris la mise en réseau avec des partenaires internes et externes\n• Participation aux activités de supervision et d ' intervision et à la formation professionnelle\n• Assurer une qualité de traitement élevée et une évaluation continue des approches thérapeutiques\n• Formation spécialisée en psychiatrie ou en médecine interne terminée ou peu de temps avant, le patient externe Une année doit avoir déjà été terminée\n• Intérêt particulier pour les troubles psychosomatiques, psychiatriques et alimentaires\n• Expérience de leadership, l'adhésion à SAPPM est bénéfique\n• Empathie, esprit d'équipe et excellentes compétences en communication\n• Intérêt pour le perfectionnement professionnel et la participation à la supervision régulière\n• Connaissance écrite et orale avancée de l'allemand, preuve de la langue C1\n• Une activité ambulatoire variée avec des horaires de travail réglementés\n• Une équipe dédiée, interdisciplinaire et très collaborative\n• Soutien au développement professionnel et personnel\n• Un lieu de travail moderne dans une institution innovante et bien connectée\n• Conditions d'emploi contemporaines selon GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Tâches :\n• Gestion et mise en œuvre des processus diagnostiques et thérapeutiques, responsabilité des soins et conseils médicaux\n• Coopération étroite avec notre équipe de psychologues, nutritionnistes, médecins et administration\n• Participation à la poursuite du développement du centre, y compris la mise en réseau avec des partenaires internes et externes\n• Participation aux activités de supervision et d ' intervision et à la formation professionnelle\n• Assurer une qualité de traitement élevée et une évaluation continue des approches thérapeutiques Exigences\n• Formation spécialisée en psychiatrie ou en médecine interne terminée ou peu de temps avant, le patient externe Une année doit avoir déjà été terminée\n• Intérêt particulier pour les troubles psychosomatiques, psychiatriques et alimentaires\n• Expérience de leadership, l'adhésion à SAPPM est bénéfique\n• Empathie, esprit d'équipe et excellentes compétences en communication\n• Intérêt pour le perfectionnement professionnel et la participation à la supervision régulière\n• Connaissance écrite et orale avancée de l'allemand, preuve de la langue C1"
+        "it": "Il Centro per i disturbi alimentari e l'obesità (ZESA) è un consulto specializzato presso L'OAD di Langenthal, che si concentra sul trattamento dell'obesità, dei disturbi alimentari e delle malattie mentali associate. Offriamo un trattamento interdisciplinare basato sulle più recenti conoscenze scientifiche. Il nostro team garantisce un'assistenza individuale e olistica ai nostri pazienti, con l'obiettivo di promuovere un rapporto sano con il cibo e il corpo. Stiamo cercando di integrare il nostro team per il 1° Gennaio 2027 o, previo accordo, un/una\n• Gestione ed esecuzione di processi diagnostici e terapeutici, responsabilità per l'assistenza e la consulenza medica\n• Stretta collaborazione con il nostro team di psicologi, nutrizionisti, medici e amministratori\n• Partecipazione all'ulteriore sviluppo del centro, compreso il collegamento in rete con partner interni ed esterni\n• Partecipazione ad attività di supervisione e di intervisione e perfezionamento professionale\n• Garantire un'elevata qualità del trattamento e una valutazione continua degli approcci terapeutici\n• Specializzazione terminata in psichiatria o medicina interna o poco prima, l'anno ambulatoriale A deve essere già stato completato\n• Particolare interesse per la psicosomatica, la psichiatria consultiva e i disturbi alimentari\n• Esperienza dirigenziale, appartenenza SAPPM di",
+        "en": "The Center for Eating Disorders and Obesity (ZESA) is a specialized consultation session at SRO Langenthal, which focuses on the treatment of obesity and eating disorders and related mental diseases. We offer interdisciplinary treatment based on the latest scientific findings. Our team ensures individual and holistic care of our patients, with the aim of promoting a healthy relationship with food and body. We are looking for a supplement to our team on 1 January.\n\nJanuary 2027 or one by appointment You will do this with us • Management and execution of diagnostic and therapeutic processes, responsibility for medical care and advice • Close cooperation with our team of psychologists, nutritionists, doctors and administration • Participation in the further development of the center including networking with internal and external partnerships • Participation in supervision and intervision activities and professional training • Ensure a high quality of treatment and continuous evaluation of the\n\ntherapeutic approaches This will bring you with • Completed specialist training in psychiatry or internal medicine or shortly before, the outpatient A year must have already been completed • Special interest in psychosomatics, consiliarpsy chiatry and eating disorders • Leadership experience, membership SAPPM advantage • empathy, team spirit and excellent communication skills • Interest in professional development and participation in regular supervision • Advanced written and oral German skills, C1 language certificate Work with us • A varied\n\nOutpatient work with regulated working hours • A dedicated, interdisciplinary and very collegial team • Support for professional and personal development • A modern workplace in an innovative and well-connected facility • Time-appropriate employment conditions according to GAV SRO AG Spital Langenthal, St.\n\nUrbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 1,2, info@sro.ch, www.sro.ch\n\nTasks: • Management and execution of diagnostic and therapeutic processes, responsibility for medical care and advice • Close cooperation with our team of psychologists, nutritionists, doctors and administration • Participation in the further development of the center including networking with internal and external partnerships • Participation in supervision and intervision activities and professional training • Ensuring high treatment quality and continuous evaluation of therapeutic approaches\n\nRequirements: • Completed specialist training in psychiatry or internal medicine or shortly before, the outpatient A year must have already been completed • Special interest in psychosomatics, consiliarpsy chiatry and eating disorders • Leadership experience, membership SAPPM advantage • empathy, team spirit and excellent communication skills • Interest in professional development and participation in regular supervision • Advanced written and oral German skills, C1 language proof",
+        "de": "Das Zentrum für Essstörungen und Adipositas (ZESA) ist eine spezialisierte Sprechstunde im SRO Langenthal, die sich auf die Behandlung von Adipositas sowie Essstörungen und damit verbundenen psychischen Erkrankungen konzentriert. Wir bieten eine interdisziplinäre Behandlung, die auf den neuesten wissenschaftlichen Erkenntnissen basiert. Unser Team sorgt für eine individuelle und ganzheitliche Betreuung unserer Patientinnen und Patienten, mit dem Ziel, ein gesundes Verhältnis zu Essen und Körper zu fördern. Wir suchen zur Ergänzung unseres Teams per 1. Januar 2027 oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Leitung und Durchführung von diagnostischen und therapeutischen Prozessen, Verantwortung für die medizinische Betreuung und Beratung\n• Enge Zusammenarbeit mit unserem Team von PsychologInnen, ErnährungsberaterInnen, ÄrztInnen und Administration\n• Mitwirkung an der Weiterentwicklung des Zentrums inklusive Vernetzung mit internen und externen Partners\n• Teilnahme an Supervision- und Intervisionstätigkeiten und fachlicher Weiterbildung\n• Sicherstellung einer hohen Behandlungsqualität und fortlaufender Evaluation der therapeutischen Ansätze Das bringen Sie mit\n• Abgeschlossene Facharztausbildung in Psychiatrie oder Innere Medizin oder kurz davor, das ambulante A Jahr muss bereits absolviert worden sein\n• Besonderes Interesse an Psychosomatik, Konsiliarpsychiatrie und Essstörungen\n• Führungserfahrung, Mitgliedschaft SAPPM von Vorteil\n• Empathie, Teamgeist und exzellente Kommunikationsfähigkeiten\n• Interesse an fachlicher Weiterentwicklung und Teilnahme an regelmäßigen Supervisionen\n• Fortgeschrittene schriftliche und mündliche Deutschkentnisse, C1 Sprachnachweis Bei uns arbeiten\n• Eine abwechslungsreiche ambulante Tätigkeit mit geregelten Arbeitszeiten\n• Ein engagiertes, interdisziplinäres und sehr kollegiales Team\n• Unterstützung zur fachlichen und persönlichen Weiterentwicklung\n• Einen modernen Arbeitsplatz in einer innovativen und gut vernetzten Einrichtung\n• Zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Leitung und Durchführung von diagnostischen und therapeutischen Prozessen, Verantwortung für die medizinische Betreuung und Beratung\n• Enge Zusammenarbeit mit unserem Team von PsychologInnen, ErnährungsberaterInnen, ÄrztInnen und Administration\n• Mitwirkung an der Weiterentwicklung des Zentrums inklusive Vernetzung mit internen und externen Partners\n• Teilnahme an Supervision- und Intervisionstätigkeiten und fachlicher Weiterbildung\n• Sicherstellung einer hohen Behandlungsqualität und fortlaufender Evaluation der therapeutischen Ansätze\n\nAnforderungen:\n• Abgeschlossene Facharztausbildung in Psychiatrie oder Innere Medizin oder kurz davor, das ambulante A Jahr muss bereits absolviert worden sein\n• Besonderes Interesse an Psychosomatik, Konsiliarpsychiatrie und Essstörungen\n• Führungserfahrung, Mitgliedschaft SAPPM von Vorteil\n• Empathie, Teamgeist und exzellente Kommunikationsfähigkeiten\n• Interesse an fachlicher Weiterentwicklung und Teilnahme an regelmäßigen Supervisionen\n• Fortgeschrittene schriftliche und mündliche Deutschkentnisse, C1 Sprachnachweis",
+        "fr": "Le Centre pour les Troubles de l'Alimentation et l'Obésité (ZESA) est une séance de consultation spécialisée au SRO Langenthal, qui se concentre sur le traitement de l'obésité et des troubles alimentaires et des maladies mentales connexes. Nous offrons un traitement interdisciplinaire basé sur les dernières découvertes scientifiques. Notre équipe assure des soins individuels et holistiques de nos patients, dans le but de promouvoir une relation saine avec l'alimentation et le corps.\n\nJanvier 2027 ou un sur rendez-vous Vous le ferez avec nous • Gestion et exécution des processus diagnostiques et thérapeutiques, responsabilité des soins médicaux et des conseils • Coopération étroite avec notre équipe de psychologues, nutritionnistes, médecins et administration • Participation au développement du centre, y compris la mise en réseau avec des partenariats internes et externes • Participation aux activités de supervision et d'intervision et formation professionnelle • Assurer une qualité élevée du traitement et une évaluation continue de la\n\n• Formation spécialisée en psychiatrie ou en médecine interne ou peu de temps avant, le patient externe Un an doit avoir déjà été terminé • Intérêt spécial pour la psychosomatique, la chiatrie consiliarpsy et les troubles de l'alimentation • Expérience de leadership, d'adhésion avantage SAPPM • empathie, esprit d'équipe et excellentes compétences en communication • Intérêt pour le développement professionnel et la participation à la supervision régulière • Avancés en allemand écrit et oral, certificat de langue C1 Travaillez avec nous • A varié\n\nTravail ambulatoire avec horaires de travail réglementés • Une équipe dédiée, interdisciplinaire et très collégiale • Soutien au développement professionnel et personnel • Un lieu de travail moderne dans un établissement innovant et bien connecté • Conditions d'emploi adaptées au temps selon GAV SRO AG Spital Langenthal, St.\n\nUrbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 1,2, info@sro.ch, www.sro.ch\n\nTâches: • Gestion et exécution des processus diagnostiques et thérapeutiques, responsabilité des soins médicaux et conseils • Coopération étroite avec notre équipe de psychologues, nutritionnistes, médecins et administration • Participation au développement du centre, y compris la mise en réseau avec des partenariats internes et externes • Participation aux activités de supervision et d'intervision et formation professionnelle • Assurer une qualité de traitement élevée et une évaluation continue des approches thérapeutiques\n\nExigences: • Formation spécialisée complète en psychiatrie ou en médecine interne ou peu avant, le patient externe Un an doit avoir déjà été terminé • Intérêt spécial pour la psychosomatique, la chiatrie consiliarpsy et les troubles de l'alimentation • Expérience de leadership, d'adhésion avantage SAPPM • empathie, esprit d'équipe et excellentes compétences en communication • Intérêt pour le développement professionnel et la participation à la supervision régulière • Compétences avancées en allemand écrit et oral, preuve de langue C1"
       },
       "needsRetranslation": false,
       "location": "Langenthal",
@@ -902,11 +896,13 @@
       "validThrough": "2026-07-31",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "oberarzt-oberarztin-zesa-60-sro-langenthal"
+        "oberarzt-oberarztin-zesa-60-sro-langenthal",
+        "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-oberarztin-zesa-60-sro-langenthal"
+          "oberarzt-oberarztin-zesa-60-sro-langenthal",
+          "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "oberarzt-oberarztin-zesa-60-sro-langenthal"
@@ -931,12 +927,12 @@
     },
     {
       "id": "sro-c61f143bf97f",
-      "slug": "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal-27f03a",
+      "slug": "oberarzt-oberarztin-zesa-60-sro-langenthal",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-zesa-60-sro-langenthal",
-        "it": "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal-27f03a",
-        "en": "senior-physician-zesa-60-sro-ag-spital-region-oberaargau-langenthal-27f03a",
-        "fr": "medecin-principal-zesa-60-sro-ag-spital-region-oberaargau-langenthal-27f03a"
+        "it": "oberarzt-oberarztin-zesa-60-sro-langenthal",
+        "en": "oberarzt-oberarztin-zesa-60-sro-langenthal",
+        "fr": "oberarzt-oberarztin-zesa-60-sro-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -1005,16 +1001,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
-          "oberarzt-oberarztin-zesa-60-sro-langenthal"
+          "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
-          "senior-physician-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
-          "oberarzt-oberarztin-zesa-60-sro-langenthal"
+          "senior-physician-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
-          "medecin-principal-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
-          "oberarzt-oberarztin-zesa-60-sro-langenthal"
+          "medecin-principal-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
         ]
       }
     },
@@ -1228,11 +1221,13 @@
       "validThrough": "2026-07-23",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal"
+        "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal",
+        "studi-post-laurea-nds-dipl-emergenza-esperto-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal"
+          "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal",
+          "studi-post-laurea-nds-dipl-emergenza-esperto-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal"
@@ -1309,11 +1304,13 @@
       "validThrough": "2026-07-08",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
+        "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
+        "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
+          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
+          "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
@@ -1335,12 +1332,12 @@
     },
     {
       "id": "sro-6b886f849f61",
-      "slug": "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-0f1288",
+      "slug": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
       "slugByLocale": {
         "de": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
-        "it": "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-0f1288",
-        "en": "postgraduate-studies-nds-dipl-expert-expert-intensive-care-nds-hf-80-100-sro-ag-spital-region-oberaargau-0f1288",
-        "fr": "etudes-superieures-dnd-expert-expert-soins-intensifs-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "it": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
+        "en": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
+        "fr": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -1408,15 +1405,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
-          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
+          "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
-          "postgraduate-studies-nds-dipl-expert-expert-intensive-care-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
-          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
-        ],
-        "fr": [
-          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
+          "postgraduate-studies-nds-dipl-expert-expert-intensive-care-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ]
       }
     },
@@ -2301,12 +2293,14 @@
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal",
-        "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2"
+        "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2",
+        "specialista-specialista-generale-medicina-interna-emergenza-pratica-50-100-sro-ag-spital-region-oberaargau-75cf4a"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal",
-          "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2"
+          "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2",
+          "specialista-specialista-generale-medicina-interna-emergenza-pratica-50-100-sro-ag-spital-region-oberaargau-75cf4a"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2"
@@ -2392,11 +2386,13 @@
         "specialiste-en-radiologie-diplome-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
         "infermiere-di-soccorso-diplomato-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-assistant-sanitaire-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-paramedici-di-salvataggio-hf-60-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-rettungssanitater-in-hf-60-100-sro-langenthal"
+          "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
+          "dipl-paramedici-di-salvataggio-hf-60-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "dipl-rettungssanitater-in-hf-60-100-sro-langenthal"
@@ -2473,11 +2469,13 @@
       "validThrough": "2026-07-23",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
+        "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
+        "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-4834a2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
+          "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
+          "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-4834a2"
         ],
         "en": [
           "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
@@ -2636,11 +2634,13 @@
         "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
         "infermiera-professionale-diplomata-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
-        "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
+          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
+          "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
@@ -2719,12 +2719,14 @@
         "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
         "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal",
         "infermiera-professionale-diplomata-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "infermiere-laureato-in-hf-fh-80-100-dipartimento-di-medicina-generale-riabilitazione-geriatrica-acuta-sro-ag-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische"
+          "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
+          "infermiere-laureato-in-hf-fh-80-100-dipartimento-di-medicina-generale-riabilitazione-geriatrica-acuta-sro-ag-spital"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
@@ -2806,11 +2808,13 @@
       "validThrough": "2026-07-14",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
+        "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
+        "dipl-infermiera-ic-fh-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
+          "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
+          "dipl-infermiera-ic-fh-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
@@ -2887,11 +2891,13 @@
       "validThrough": "2026-07-14",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
+        "dipl-infermiera-ic-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
+          "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
+          "dipl-infermiera-ic-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
@@ -2920,8 +2926,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
         "it": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
-        "en": "dipl-care-specialist-hf-fh-50-100-br-all-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
-        "fr": "c-est-quoi-specialiste-des-soins-hf-fh-50-100-br-tous-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
+        "en": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
+        "fr": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2981,12 +2987,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:15:43.595Z",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopala-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-care-specialist-hf-fh-50-100-br-general-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
-        "oui-specialiste-des-soins-hf-fh-50-100-br-general-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
-      ]
+      "firstSeenAt": "2026-07-08T11:15:43.595Z"
     },
     {
       "id": "sro-efa96bb922e7",
@@ -3042,11 +3043,13 @@
       "validThrough": "2026-08-04",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
+        "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
+        "dipl-infermiera-hf-fh-40-100-assunzione-medicina-cura-pallitiva-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
+          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
+          "dipl-infermiera-hf-fh-40-100-assunzione-medicina-cura-pallitiva-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
@@ -3239,8 +3242,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
         "it": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-nursing-specialist-hf-fh-80-100-br-interdisciplinary-private-department-sro-ag-spital-region-oberaargau-cb3548",
-        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-80-100-br-departement-prive-interdisciplinaire-sro-ag-spital-region-cb3548"
+        "en": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
+        "fr": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3292,16 +3295,11 @@
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
           "dipl-infermieristica-hf-fh-80-100-servizio-privato-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
+        "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infermieristica-hf-fh-80-100-servizio-privato-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "salaryMin": 68500,
@@ -3492,8 +3490,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
         "it": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-nursing-specialist-hf-fh-40-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal-170601",
-        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-40-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau-170601"
+        "en": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
+        "fr": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3545,16 +3543,11 @@
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
           "dipl-infermieristica-hf-fh-40-100-dipartimento-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
+        "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infermieristica-hf-fh-40-100-dipartimento-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "salaryMin": 68500,
@@ -3818,8 +3811,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
         "it": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-nursing-professional-hf-operational-employment-sro-ag-spital-region-oberaargau-langenthal",
-        "fr": "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal"
+        "en": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
+        "fr": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3866,12 +3859,6 @@
       "department": "Gesundheitswesen",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
-        ],
-        "fr": [
           "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
         ]
       },
@@ -4028,11 +4015,13 @@
       "validThrough": "2026-07-23",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80"
+        "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80",
+        "dipl-expert-expert-nds-in-emergenza-dipl-infermiera-hf-fh-emergency-center-80-100-sro-ag-spital-region-oberaargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80"
+          "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80",
+          "dipl-expert-expert-nds-in-emergenza-dipl-infermiera-hf-fh-emergency-center-80-100-sro-ag-spital-region-oberaargau"
         ],
         "en": [
           "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80"
@@ -4109,11 +4098,13 @@
       "validThrough": "2026-07-09",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal"
+        "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
+        "dipl-expert-intensive-care-60-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal"
+          "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
+          "dipl-expert-intensive-care-60-100-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-10T13:03:25.980Z",
@@ -4214,12 +4205,12 @@
     },
     {
       "id": "sro-9f4f98078c91",
-      "slug": "cura-educativa-80-100-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "bildungsverantwortliche-pflege-80-100-sro-langenthal",
       "slugByLocale": {
         "de": "bildungsverantwortliche-pflege-80-100-sro-langenthal",
-        "it": "cura-educativa-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "educational-care-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "fr": "soins-educatifs-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "it": "bildungsverantwortliche-pflege-80-100-sro-langenthal",
+        "en": "bildungsverantwortliche-pflege-80-100-sro-langenthal",
+        "fr": "bildungsverantwortliche-pflege-80-100-sro-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -4279,21 +4270,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:15:30.076Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "bildungsverantwortliche-pflege-80-100-sro-langenthal"
-        ],
-        "en": [
-          "bildungsverantwortliche-pflege-80-100-sro-langenthal"
-        ],
-        "fr": [
-          "bildungsverantwortliche-pflege-80-100-sro-langenthal"
-        ]
-      },
-      "previousSlugs": [
-        "bildungsverantwortliche-pflege-80-100-sro-langenthal"
-      ]
+      "firstSeenAt": "2026-07-08T11:15:30.076Z"
     },
     {
       "id": "sro-b9e602a298e6",
@@ -4601,18 +4578,12 @@
         "secretaire-medical-e-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "medical-secretary-orthopedics-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "secretaire-medicale-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "chefarztsekretar-in-80-100-orthopala-sro-ag-spital-region-oberaargau-langenthal",
-        "chief-medical-secretary-in-80-100-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
-        "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
-        "secretaire-medical-en-chef-en-80-100-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
-        "responsabile-di-reparto-80-100-per-il-reparto-di-ortopedia-sro-ag-spital-region-oberaargau-langenthal",
-        "ward-manager-80-100-for-the-orthopedic-ward-sro-ag-spital-region-oberaargau-langenthal",
-        "stationsleiter-in-80-100-fur-die-orthopadische-bettenstation-sro-langenthal",
-        "chef-de-service-80-100-pour-le-service-d-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
+        "segreteria-medica-ortopedia-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-orthopadie-80-100-sro-langenthal"
+          "arztsekretar-in-orthopadie-80-100-sro-langenthal",
+          "segreteria-medica-ortopedia-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "arztsekretar-in-orthopadie-80-100-sro-langenthal"
@@ -4771,11 +4742,13 @@
       "validThrough": "2026-07-24",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "arztsekretar-in-schmerzklinik-80-100-sro-langenthal"
+        "arztsekretar-in-schmerzklinik-80-100-sro-langenthal",
+        "segreteria-medica-clinica-antidolorifico-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-schmerzklinik-80-100-sro-langenthal"
+          "arztsekretar-in-schmerzklinik-80-100-sro-langenthal",
+          "segreteria-medica-clinica-antidolorifico-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "arztsekretar-in-schmerzklinik-80-100-sro-langenthal"
@@ -4797,6 +4770,246 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sro-24adceec6e24",
+      "slug": "oberarzt-oberarztin-zesa-60-sro-langenthal-2",
+      "slugByLocale": {
+        "it": "oberarzt-oberarztin-zesa-60-sro-langenthal-2",
+        "en": "oberarzt-oberarztin-zesa-60-sro-langenthal-2",
+        "de": "oberarzt-oberarztin-zesa-60-sro-langenthal",
+        "fr": "oberarzt-oberarztin-zesa-60-sro-langenthal-2"
+      },
+      "company": "SRO AG (Spital Region Oberaargau)",
+      "companyKey": "sro",
+      "companyDomain": "sro.ch",
+      "title": "Oberarzt / Oberärztin ZESA 60 %",
+      "titleByLocale": {
+        "it": "Medico senior ZESA 60%",
+        "en": "Senior physician ZESA 60%",
+        "de": "Oberarzt / Oberärztin ZESA 60 %",
+        "fr": "Médecin principal ZESA 60%"
+      },
+      "description": "Das Zentrum für Essstörungen und Adipositas (ZESA) ist eine spezialisierte Sprechstunde im SRO Langenthal, die sich auf die Behandlung von Adipositas sowie Essstörungen und damit verbundenen psychischen Erkrankungen konzentriert. Wir bieten eine interdisziplinäre Behandlung, die auf den neuesten wissenschaftlichen Erkenntnissen basiert. Unser Team sorgt für eine individuelle und ganzheitliche Betreuung unserer Patientinnen und Patienten, mit dem Ziel, ein gesundes Verhältnis zu Essen und Körper zu fördern. Wir suchen zur Ergänzung unseres Teams per 1. Januar 2027 oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Leitung und Durchführung von diagnostischen und therapeutischen Prozessen, Verantwortung für die medizinische Betreuung und Beratung\n• Enge Zusammenarbeit mit unserem Team von PsychologInnen, ErnährungsberaterInnen, ÄrztInnen und Administration\n• Mitwirkung an der Weiterentwicklung des Zentrums inklusive Vernetzung mit internen und externen Partners\n• Teilnahme an Supervision- und Intervisionstätigkeiten und fachlicher Weiterbildung\n• Sicherstellung einer hohen Behandlungsqualität und fortlaufender Evaluation der therapeutischen Ansätze Das bringen Sie mit\n• Abgeschlossene Facharztausbildung in Psychiatrie oder Innere Medizin oder kurz davor, das ambulante A Jahr muss bereits absolviert worden sein\n• Besonderes Interesse an Psychosomatik, Konsiliarpsychiatrie und Essstörungen\n• Führungserfahrung, Mitgliedschaft SAPPM von Vorteil\n• Empathie, Teamgeist und exzellente Kommunikationsfähigkeiten\n• Interesse an fachlicher Weiterentwicklung und Teilnahme an regelmäßigen Supervisionen\n• Fortgeschrittene schriftliche und mündliche Deutschkentnisse, C1 Sprachnachweis Bei uns arbeiten\n• Eine abwechslungsreiche ambulante Tätigkeit mit geregelten Arbeitszeiten\n• Ein engagiertes, interdisziplinäres und sehr kollegiales Team\n• Unterstützung zur fachlichen und persönlichen Weiterentwicklung\n• Einen modernen Arbeitsplatz in einer innovativen und gut vernetzten Einrichtung\n• Zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Leitung und Durchführung von diagnostischen und therapeutischen Prozessen, Verantwortung für die medizinische Betreuung und Beratung\n• Enge Zusammenarbeit mit unserem Team von PsychologInnen, ErnährungsberaterInnen, ÄrztInnen und Administration\n• Mitwirkung an der Weiterentwicklung des Zentrums inklusive Vernetzung mit internen und externen Partners\n• Teilnahme an Supervision- und Intervisionstätigkeiten und fachlicher Weiterbildung\n• Sicherstellung einer hohen Behandlungsqualität und fortlaufender Evaluation der therapeutischen Ansätze\n\nAnforderungen:\n• Abgeschlossene Facharztausbildung in Psychiatrie oder Innere Medizin oder kurz davor, das ambulante A Jahr muss bereits absolviert worden sein\n• Besonderes Interesse an Psychosomatik, Konsiliarpsychiatrie und Essstörungen\n• Führungserfahrung, Mitgliedschaft SAPPM von Vorteil\n• Empathie, Teamgeist und exzellente Kommunikationsfähigkeiten\n• Interesse an fachlicher Weiterentwicklung und Teilnahme an regelmäßigen Supervisionen\n• Fortgeschrittene schriftliche und mündliche Deutschkentnisse, C1 Sprachnachweis",
+      "descriptionByLocale": {
+        "it": "Il Centre for Eating Disorders and Obesity (ZESA) è una sessione di consultazione specializzata presso la SRO Langenthal focalizzata sul trattamento dell'obesità e disturbi alimentari e malattie mentali correlate. Offriamo un trattamento interdisciplinare basato sulle più recenti conoscenze scientifiche. Il nostro team fornisce assistenza individuale e olistica per i nostri pazienti con l'obiettivo di promuovere un rapporto sano con il cibo e il corpo. Stiamo cercando un supplemento per il nostro team il 1 gennaio 2027 o d'accordo Lo fanno con noi.\n• Gestione e realizzazione di processi diagnostici e terapeutici, responsabilità di assistenza medica e consulenza\n• stretta collaborazione con il nostro team di psicologi, nutrizionisti, medici e amministrazione\n• Partecipazione all'ulteriore sviluppo del centro, anche in rete con partner interni ed esterni\n• Partecipazione alle attività di supervisione e di intervisione e formazione professionale\n• Garantire un'alta qualità del trattamento e una valutazione continua degli approcci terapeutici\n• Formazione specialistica completa in psichiatria o medicina interna o poco prima, l'anno ambulatoriale A deve essere già stato completato\n• Particolare interesse per la psicosomatica, la psichiatria consiliare e i disturbi alimentari\n• Esperienza di leadership, l'appartenenza a SAPPM è vantaggioso\n• Empatia, spirito di squadra e eccellenti capacità di comunicazione\n• Interessi di sviluppo professionale e partecipazione alla supervisione regolare\n• Conoscenza scritta e orale avanzata del tedesco, prova di lingua C1\n• Una variegata attività ambulatoriale con orari di lavoro regolamentati\n• Un team dedicato, interdisciplinare e molto collaborativo\n• Supporto per lo sviluppo professionale e personale\n• Un luogo di lavoro moderno in un istituto innovativo e ben collegato\n• Condizioni di lavoro contemporanee secondo GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Compiti:\n• Gestione e realizzazione di processi diagnostici e terapeutici, responsabilità di assistenza medica e consulenza\n• stretta collaborazione con il nostro team di psicologi, nutrizionisti, medici e amministrazione\n• Partecipazione all'ulteriore sviluppo del centro, anche in rete con partner interni ed esterni\n• Partecipazione alle attività di supervisione e di intervisione e formazione professionale\n• Garantire un'alta qualità del trattamento e una valutazione continua degli approcci terapeutici Requisiti\n• Formazione specialistica completa in psichiatria o medicina interna o poco prima, l'anno ambulatoriale A deve essere già stato completato\n• Particolare interesse per la psicosomatica, la psichiatria consiliare e i disturbi alimentari\n• Esperienza di leadership, l'appartenenza a SAPPM è vantaggioso\n• Empatia, spirito di squadra e eccellenti capacità di comunicazione\n• Interessi di sviluppo professionale e partecipazione alla supervisione regolare\n• Conoscenza scritta e orale avanzata del tedesco, prova di lingua C1",
+        "en": "The Centre for Eating Disorders and Obesity (ZESA) is a specialized consultation session at the SRO Langenthal focused on the treatment of obesity as well as eating disorders and related mental illnesses. We offer an interdisciplinary treatment based on the latest scientific knowledge. Our team provides individual and holistic care for our patients with the aim of promoting a healthy relationship with food and the body. We are looking for a supplement to our team on 1 January 2027 or by agreement They do it with us.\n• Management and implementation of diagnostic and therapeutic processes, responsibility for medical care and advice\n• Close cooperation with our team of psychologists, nutritionists, doctors and administration\n• Participation in the further development of the centre, including networking with internal and external partners\n• Participation in supervision and intervision activities and professional training\n• Ensuring high treatment quality and ongoing evaluation of therapeutic approaches\n• Completed specialist training in psychiatry or internal medicine or shortly before, the outpatient A year must have already been completed\n• Particular interest in psychosomatics, consiliar psychiatry and eating disorders\n• Leadership experience, SAPPM membership is beneficial\n• Empathy, team spirit and excellent communication skills\n• Interest in professional development and participation in regular supervision\n• Advanced written and oral knowledge of German, C1 language proof\n• A varied outpatient activity with regulated working hours\n• A dedicated, interdisciplinary and very collaborative team\n• Support for professional and personal development\n• A modern workplace in an innovative and well-connected institution\n• Contemporary employment conditions according to GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Tasks:\n• Management and implementation of diagnostic and therapeutic processes, responsibility for medical care and advice\n• Close cooperation with our team of psychologists, nutritionists, doctors and administration\n• Participation in the further development of the centre, including networking with internal and external partners\n• Participation in supervision and intervision activities and professional training\n• Ensuring high treatment quality and ongoing evaluation of therapeutic approaches Requirements\n• Completed specialist training in psychiatry or internal medicine or shortly before, the outpatient A year must have already been completed\n• Particular interest in psychosomatics, consiliar psychiatry and eating disorders\n• Leadership experience, SAPPM membership is beneficial\n• Empathy, team spirit and excellent communication skills\n• Interest in professional development and participation in regular supervision\n• Advanced written and oral knowledge of German, C1 language proof",
+        "de": "Das Zentrum für Essstörungen und Adipositas (ZESA) ist eine spezialisierte Sprechstunde im SRO Langenthal, die sich auf die Behandlung von Adipositas sowie Essstörungen und damit verbundenen psychischen Erkrankungen konzentriert. Wir bieten eine interdisziplinäre Behandlung, die auf den neuesten wissenschaftlichen Erkenntnissen basiert. Unser Team sorgt für eine individuelle und ganzheitliche Betreuung unserer Patientinnen und Patienten, mit dem Ziel, ein gesundes Verhältnis zu Essen und Körper zu fördern. Wir suchen zur Ergänzung unseres Teams per 1. Januar 2027 oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Leitung und Durchführung von diagnostischen und therapeutischen Prozessen, Verantwortung für die medizinische Betreuung und Beratung\n• Enge Zusammenarbeit mit unserem Team von PsychologInnen, ErnährungsberaterInnen, ÄrztInnen und Administration\n• Mitwirkung an der Weiterentwicklung des Zentrums inklusive Vernetzung mit internen und externen Partners\n• Teilnahme an Supervision- und Intervisionstätigkeiten und fachlicher Weiterbildung\n• Sicherstellung einer hohen Behandlungsqualität und fortlaufender Evaluation der therapeutischen Ansätze Das bringen Sie mit\n• Abgeschlossene Facharztausbildung in Psychiatrie oder Innere Medizin oder kurz davor, das ambulante A Jahr muss bereits absolviert worden sein\n• Besonderes Interesse an Psychosomatik, Konsiliarpsychiatrie und Essstörungen\n• Führungserfahrung, Mitgliedschaft SAPPM von Vorteil\n• Empathie, Teamgeist und exzellente Kommunikationsfähigkeiten\n• Interesse an fachlicher Weiterentwicklung und Teilnahme an regelmäßigen Supervisionen\n• Fortgeschrittene schriftliche und mündliche Deutschkentnisse, C1 Sprachnachweis Bei uns arbeiten\n• Eine abwechslungsreiche ambulante Tätigkeit mit geregelten Arbeitszeiten\n• Ein engagiertes, interdisziplinäres und sehr kollegiales Team\n• Unterstützung zur fachlichen und persönlichen Weiterentwicklung\n• Einen modernen Arbeitsplatz in einer innovativen und gut vernetzten Einrichtung\n• Zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Aufgaben:\n• Leitung und Durchführung von diagnostischen und therapeutischen Prozessen, Verantwortung für die medizinische Betreuung und Beratung\n• Enge Zusammenarbeit mit unserem Team von PsychologInnen, ErnährungsberaterInnen, ÄrztInnen und Administration\n• Mitwirkung an der Weiterentwicklung des Zentrums inklusive Vernetzung mit internen und externen Partners\n• Teilnahme an Supervision- und Intervisionstätigkeiten und fachlicher Weiterbildung\n• Sicherstellung einer hohen Behandlungsqualität und fortlaufender Evaluation der therapeutischen Ansätze Anforderungen:\n• Abgeschlossene Facharztausbildung in Psychiatrie oder Innere Medizin oder kurz davor, das ambulante A Jahr muss bereits absolviert worden sein\n• Besonderes Interesse an Psychosomatik, Konsiliarpsychiatrie und Essstörungen\n• Führungserfahrung, Mitgliedschaft SAPPM von Vorteil\n• Empathie, Teamgeist und exzellente Kommunikationsfähigkeiten\n• Interesse an fachlicher Weiterentwicklung und Teilnahme an regelmäßigen Supervisionen\n• Fortgeschrittene schriftliche und mündliche Deutschkentnisse, C1 Sprachnachweis",
+        "fr": "Le Centre pour les troubles de l'alimentation et l'obésité (ZESA) est une séance de consultation spécialisée au SRO Langenthal axée sur le traitement de l'obésité ainsi que des troubles de l'alimentation et des maladies mentales connexes. Nous offrons un traitement interdisciplinaire basé sur les dernières connaissances scientifiques. Notre équipe fournit des soins individuels et holistiques à nos patients dans le but de promouvoir une relation saine avec la nourriture et le corps. Nous recherchons un supplément à notre équipe le 1er janvier 2027 ou par accord Vous y parvenez avec nous\n• gestion et mise en œuvre des processus diagnostiques et thérapeutiques, responsabilité des soins et conseils médicaux\n• étroite collaboration avec notre équipe de psychologues, nutritionnistes, médecins et administration\n• participation au développement du centre, y compris la mise en réseau avec des partenaires internes et externes\n• participation aux activités de supervision et d'intervision et à la formation professionnelle\n• garantie d'un traitement de haute qualité et évaluation continue des approches thérapeutiques Cela vous apporte avec\n• une formation spécialisée complète en psychiatrie ou en médecine interne ou peu de temps avant, le patient externe Un an doit déjà avoir été terminé\n• un intérêt spécial pour la psychosomatique, la psychiatrie consulaire et les troubles de l'alimentation\n• une expérience de leadership, l'adhésion SAPPM d'avantage\n• l'empathie, l'esprit d'équipe et d'excellentes compétences en communication\n• un intérêt pour le développement professionnel et la participation à la supervision régulière\n• une connaissance écrite et orale avancée de l'allemand, de la preuve de la langue C1 Travailler avec nous\n• une activité de consultation externe variée avec des heures de travail réglementées\n• une équipe engagée, interdisciplinaire et très collaborative\n• un soutien au développement professionnel et personnel\n• un milieu de travail moderne dans une institution innovante et bien connectée\n• des conditions d'emploi contemporaines selon GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Tâches:\n• Gestion et mise en œuvre des processus diagnostiques et thérapeutiques, responsabilité des soins et conseils médicaux\n• Coopération étroite avec notre équipe de psychologues, de nutritionnistes, de médecins et d'administration\n• Participation à la poursuite du développement du centre, y compris la mise en réseau avec des partenaires internes et externes\n• Participation aux activités de supervision et d'intervision et à la formation professionnelle\n• Assurer une qualité élevée du traitement et une évaluation continue des approches thérapeutiques. Formation spécialisée complète en psychiatrie ou en médecine interne ou peu de temps avant, le patient externe Un an doit avoir déjà été terminé\n• Un intérêt particulier pour la psychosomatique, la psychiatrie consulaire et les troubles de l'alimentation\n• Expérience de leadership, l'adhésion SAPPM d'avantage\n• Empathy, esprit d'équipe et excellentes compétences en communication\n• Un intérêt pour le développement professionnel et la participation à la supervision régulière\n• Des compétences avancées en allemand écrit et oral, preuve de langue C1"
+      },
+      "needsRetranslation": false,
+      "location": "Langenthal",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/cb74c0c8-6645-4331-9664-47fa1f25dc14",
+      "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T22:16:34.865Z",
+      "addressLocality": "Langenthal",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4900",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/cb74c0c8-6645-4331-9664-47fa1f25dc14",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "validThrough": "2026-07-07",
+      "department": "Gesundheitswesen",
+      "firstSeenAt": "2026-06-08T13:47:38.932Z",
+      "salaryMin": 56700,
+      "salaryMax": 85800,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 56700,
+          "maxValue": 85800,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "previousSlugs": [
+        "oberarzt-oberarztin-zesa-60-sro-langenthal"
+      ]
+    },
+    {
+      "id": "sro-61f5acefef03",
+      "slug": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopala-sro-ag-spital-region-oberaargau-langenthal",
+      "slugByLocale": {
+        "it": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopala-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "dipl-care-specialist-hf-fh-50-100-br-general-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
+        "de": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
+        "fr": "oui-specialiste-des-soins-hf-fh-50-100-br-general-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
+      },
+      "company": "SRO AG (Spital Region Oberaargau)",
+      "companyKey": "sro",
+      "companyDomain": "sro.ch",
+      "title": "dipl. Pflegefachperson HF/FH 50 - 100%,<br/>allg. Orthopädie",
+      "titleByLocale": {
+        "it": "dipl. Infermiera IC/FH 50 - 100%, ortopedia generale",
+        "en": "dipl. Nurse HF/FH 50 - 100%, general orthopaedics",
+        "de": "dipl. Pflegefachperson HF/FH 50 - 100%,<br/>allg. Orthopädie",
+        "fr": "dipl. Infirmière IC/FH 50 - 100 %, orthopédie générale"
+      },
+      "description": "Im Akutbereich suchen wir per sofort oder nach Vereinbarung eine engagierte, flexible und verantwortungsbewusste Persönlichkeit als Das bewirken Sie bei uns\n• Gewährleistung einer fachgerechten, pflegerischen Betreuung unserer Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit\n• Mithilfe bei der praktischen Ausbildung unserer Lernenden und Studierenden Das bringen Sie mit\n• dipl. Pflegefachfrau/-mann FH/HF\n• Hohe Sozial- und Selbstkompetenz\n• Bereitschaft zur Schichtarbeit\n• Selbstständige und eigenverantwortliche Arbeitsweise Bei uns arbeiten\n• Verantwortungsvolle und interessante Aufgaben in einem dynamischen Umfeld\n• Handlungsspielraum, in welchem Ihre Ideen erwünscht sind\n• Gute, abteilungsübergreifende Zusammenarbeit\n• Gleitzeitmodell im Frühdienst (flexibler Start zwischen 06.30-7.00 Uhr)\n• Grosszügige Unterstützung bei Weiterbildungen\n• Eine moderne und hochstehende Infrastruktur auf den Bettenabteilungen mit 19 Betten\n• Fortgeschrittene Digitalisierung\n• Eine patientenorientierte, interdisziplinäre Zusammenarbeit\n• Zeitgemässe Anstellungsbedingungen nach GAV Berner Spitäler und Kliniken\n• Parkhaus mit günstigen Konditionen SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Gewährleistung einer fachgerechten, pflegerischen Betreuung unserer Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit\n• Mithilfe bei der praktischen Ausbildung unserer Lernenden und Studierenden\n\nAnforderungen:\n• dipl. Pflegefachfrau/-mann FH/HF\n• Hohe Sozial- und Selbstkompetenz\n• Bereitschaft zur Schichtarbeit\n• Selbstständige und eigenverantwortliche Arbeitsweise",
+      "descriptionByLocale": {
+        "it": "Mansioni Questo è ciò che ottieni con noi - Garantire assistenza professionale e infermieristica ai nostri pazienti - Collaborazione interdisciplinare - Aiutare nella formazione pratica dei nostri apprendisti e studenti\n• Requisiti Cosa porti con te - Dipl. Specialista infermieristico FH/HF - Elevata competenza sociale e personale - Disponibilità a lavorare a turni - Modalità di lavoro indipendente e responsabile\n• Cosa offriamo Lavorare con noi - Compiti responsabili e interessanti in un ambiente dinamico - Spazio di manovra in cui le vostre idee sono benvenute - Buona collaborazione interdipartimentale - Modello di orario flessibile nel primo turno (inizio flessibile tra le 6.30 e le 7.00) - Generoso sostegno per la formazione continua - Un'infrastruttura moderna e di alta qualità nel reparto reparti con 19 posti letto - Digitalizzazione avanzata - Collaborazione interdisciplinare orientata al paziente - Condizioni di lavoro moderne secondo gli ospedali e le cliniche GAV Berna - Autorimessa con condizioni vantaggiose Compiti - Garantire un'assistenza infermieristica professionale ai nostri pazienti - Collaborazione interdisciplinare - Assistenza nella formazione pratica dei nostri apprendisti e studenti\n• Requisiti - Dipl. Specialista infermieristico FH/HF - Elevata competenza sociale e personale - Disponibilità a lavorare a turni - Modalità di lavoro indipendente e responsabile Contatto SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch",
+        "en": "Mansioni This is what you achieve with us - Ensuring professional, nursing care for our patients - Interdisciplinary collaboration - Helping with the practical training of our apprentices and students\n• Requisiti\n• What you bring with you - Dipl. Nursing specialist FH/HF - High social and self-competence - Willingness to work shifts - Independent and responsible way of working\n• Cosa offriamo Working with us - Responsible and interesting tasks in a dynamic environment - Room for maneuver in which your ideas are welcome - Good, cross-departmental cooperation - Flexitime model in the early shift (flexible start between 6.30 a.m. and 7 a.m.) - Generous support for further training - A modern and high-quality infrastructure the ward departments with 19 beds - Advanced digitalization - Patient-oriented, interdisciplinary collaboration - Contemporary employment conditions according to GAV Bern hospitals and clinics - Parking garage with favorable conditions Tasks - Ensuring professional, nursing care for our patients - Interdisciplinary collaboration - Assistance with the practical training of our apprentices and students\n• Requirements - Dipl. Nursing specialist FH/HF - High social and self-competence - Willingness to work shifts - Independent and responsible way of working Contatto SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch",
+        "de": "Im Akutbereich suchen wir per sofort oder nach Vereinbarung eine engagierte, flexible und verantwortungsbewusste Persönlichkeit als Das bewirken Sie bei uns\n• Gewährleistung einer fachgerechten, pflegerischen Betreuung unserer Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit\n• Mithilfe bei der praktischen Ausbildung unserer Lernenden und Studierenden Das bringen Sie mit\n• dipl. Pflegefachfrau/-mann FH/HF\n• Hohe Sozial- und Selbstkompetenz\n• Bereitschaft zur Schichtarbeit\n• Selbstständige und eigenverantwortliche Arbeitsweise Bei uns arbeiten\n• Verantwortungsvolle und interessante Aufgaben in einem dynamischen Umfeld\n• Handlungsspielraum, in welchem Ihre Ideen erwünscht sind\n• Gute, abteilungsübergreifende Zusammenarbeit\n• Gleitzeitmodell im Frühdienst (flexibler Start zwischen 06.30-7.00 Uhr)\n• Grosszügige Unterstützung bei Weiterbildungen\n• Eine moderne und hochstehende Infrastruktur auf den Bettenabteilungen mit 19 Betten\n• Fortgeschrittene Digitalisierung\n• Eine patientenorientierte, interdisziplinäre Zusammenarbeit\n• Zeitgemässe Anstellungsbedingungen nach GAV Berner Spitäler und Kliniken\n• Parkhaus mit günstigen Konditionen SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Aufgaben:\n• Gewährleistung einer fachgerechten, pflegerischen Betreuung unserer Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit\n• Mithilfe bei der praktischen Ausbildung unserer Lernenden und Studierenden Anforderungen:\n• dipl. Pflegefachfrau/-mann FH/HF\n• Hohe Sozial- und Selbstkompetenz\n• Bereitschaft zur Schichtarbeit\n• Selbstständige und eigenverantwortliche Arbeitsweise",
+        "fr": "Mansioni C'est ce que vous réalisez avec nous - Assurer des soins professionnels et infirmiers à nos patients - Collaboration interdisciplinaire - Aider à la formation pratique de nos apprentis et étudiants\n• Requisiti Ce que vous apportez avec vous - Dipl. Spécialiste en soins infirmiers FH/HF - Compétence sociale et personnelle élevée - Volonté de travailler en équipe - Mode de travail indépendant et responsable Cosa ofriamo Travailler avec nous - Tâches responsables et intéressantes dans un environnement dynamique - Marge de manœuvre dans laquelle vos idées sont les bienvenues - Bonne coopération interdépartementale - Modèle d'horaires flexibles en début de quart (départ flexible entre 6h30 et 7h00) - Un soutien généreux pour la formation continue - Une infrastructure moderne et de haute qualité Services de division avec 19 lits - Numérisation avancée - Collaboration interdisciplinaire orientée vers le patient - Conditions de travail contemporaines selon les hôpitaux et cliniques de Berne GAV - Parking avec conditions favorables Tâches - Assurer des soins professionnels et infirmiers à nos patients - Collaboration interdisciplinaire - Aide à la formation pratique de nos apprentis et étudiants\n• Exigences - Dipl. Spécialiste en soins infirmiers FH/HF - Compétence sociale et personnelle élevée - Volonté de travailler par équipes - Mode de travail indépendant et responsable Contact SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch"
+      },
+      "location": "Langenthal",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/7cbac9c5-9226-4a39-9cd5-dcb328a8f3f9",
+      "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T22:16:18.772Z",
+      "addressLocality": "Langenthal",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4900",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/7cbac9c5-9226-4a39-9cd5-dcb328a8f3f9",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 50,
+      "pensumMax": 100,
+      "pensum": "50 - 100%",
+      "validThrough": "2026-07-07",
+      "department": "Gesundheitswesen",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal"
+        ]
+      },
+      "firstSeenAt": "2026-06-17T13:42:10.086Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "sro-0a92ff235413",
+      "slug": "chefarztsekretar-in-80-100-orthopala-sro-ag-spital-region-oberaargau-langenthal",
+      "slugByLocale": {
+        "it": "chefarztsekretar-in-80-100-orthopala-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "chief-medical-secretary-in-80-100-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
+        "de": "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
+        "fr": "secretaire-medical-en-chef-en-80-100-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
+      },
+      "company": "SRO AG (Spital Region Oberaargau)",
+      "companyKey": "sro",
+      "companyDomain": "sro.ch",
+      "title": "Chefarztsekretär/in 80 - 100 % Orthopädie",
+      "titleByLocale": {
+        "it": "Segretario medico capo/in 80 - 100% ortopedia",
+        "en": "Chief medical secretary/in 80 - 100% orthopaedics",
+        "de": "Chefarztsekretär/in 80 - 100 % Orthopädie",
+        "fr": "Secrétaire médical en chef/en 80 - 100% orthopédie"
+      },
+      "description": "Das Sekretariat der Orthopädischen Klinik stellt den reibungslosen Praxisablauf für rund 22 Ärzte und Assistenzärzte sicher. Zur Ergänzung unseres Teams der orthopädischen Klinik suchen wir per 1. August 2026 oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Sie erledigen selbständig und speditiv die vielseitigen organisatorischen und administrativen Tätigkeiten, sowie die Planung und Terminkoordination des Chefarztes.\n• Sie führen und leiten das Team des Sekretariats und sind für die Planung und Organisation der gesamten Orthopädischen Sprechstunde aber auch für die Ferienplanung und Zeitabrechnung der Mitarbeitenden zuständig.\n• Sie erledigen die medizinische Korrespondenz des Chefarztes und stellen den reibungslosen Ablauf bei Ein- und Austritt von Assistenzärzten und Unterassistenten sicher.\n• Sie sind eine kompetente Ansprechperson für Patienten, Zuweiser sowie weitere interne und externe Partner. Das bringen Sie mit\n• Sie sind eine initiative, selbständige und flexible Persönlichkeit mit Ausbildung und Erfahrung in einer vergleichbaren Position, welche gerne organisiert und mit viel Geschick und Sozialkompetenz ein Team zu führen vermag.\n• Sie verstehen sich als Dienstleister/in für interne und extrene Stellen und sind es gewohnt Führungsaufgaben zu übernehmen und zu delegieren.\n• Sie sind versiert im Umgang mit Windows Office und bringen mit Vorteil KISIM-und SAP-Kenntnisse mit. Bei uns arbeiten\n• Ein abwechslungsreiches und anspruchsvolles Aufgabengebiet mit regem Kontakt zu internen und externen Stellen\n• Ein eingespieltes und kollegiales Team\n• Ein Arbeitsumfeld, in welchem Sie Ihre fachlichen und menschlichen Qualitäten einbringen können\n• Moderne Arbeitsbedingungen und zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Sie erledigen selbständig und speditiv die vielseitigen organisatorischen und administrativen Tätigkeiten, sowie die Planung und Terminkoordination des Chefarztes.\n• Sie führen und leiten das Team des Sekretariats und sind für die Planung und Organisation der gesamten Orthopädischen Sprechstunde aber auch für die Ferienplanung und Zeitabrechnung der Mitarbeitenden zuständig.\n• Sie erledigen die medizinische Korrespondenz des Chefarztes und stellen den reibungslosen Ablauf bei Ein- und Austritt von Assistenzärzten und Unterassistenten sicher.\n• Sie sind eine kompetente Ansprechperson für Patienten, Zuweiser sowie weitere interne und externe Partner.\n\nAnforderungen:\n• Sie sind eine initiative, selbständige und flexible Persönlichkeit mit Ausbildung und Erfahrung in einer vergleichbaren Position, welche gerne organisiert und mit viel Geschick und Sozialkompetenz ein Team zu führen vermag.\n• Sie verstehen sich als Dienstleister/in für interne und extrene Stellen und sind es gewohnt Führungsaufgaben zu übernehmen und zu delegieren.\n• Sie sind versiert im Umgang mit Windows Office und bringen mit Vorteil KISIM-und SAP-Kenntnisse mit.",
+      "descriptionByLocale": {
+        "it": "Il segretariato della clinica ortopedica assicura una pratica regolare per circa 22 medici e medici assistenti. Per completare il nostro team di cliniche ortopediche, stiamo cercando una clinica ortopedica entro il 1 agosto 2026 o su appuntamento. Lo fanno con noi.\n• Lei svolge in modo indipendente e tempestivo le attività organizzative e amministrative versatili, così come il coordinamento di pianificazione e nomina del medico principale.\n• Guidano e guidano il team del segretariato e sono responsabili per la pianificazione e l'organizzazione dell'intera ora di consultazione ortopedica, ma anche per la pianificazione delle vacanze e il report dei dipendenti.\n• Si occupano della corrispondenza medica del medico principale e assicurano la procedura liscia per l'ammissione e l'uscita di medici e sub-assisti.\n• Sei una persona di contatto competente per i pazienti, gli arbitri e altri partner interni ed esterni. Ecco cosa portano con loro.\n• Sei un'iniziativa, personalità indipendente e flessibile con l'istruzione e l'esperienza in una posizione paragonabile, che ama guidare un team con un sacco di abilità e competenze sociali.\n• Si vedono come fornitori di servizi per posizioni interne ed esterne e sono abituati a svolgere e delegare compiti di gestione.\n• Sei ben diversificato nell'utilizzo di Windows Office e hai competenze KISIM e SAP. Lavorare con noi\n• Un'area di responsabilità varia e impegnativa con un contatto ravvicinato agli organismi interni ed esterni\n• Un team esperto e collegiale\n• Un ambiente di lavoro in cui è possibile contribuire alle qualità professionali e umane\n• Condizioni di lavoro moderne e condizioni di lavoro contemporanee secondo GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Compiti:\n• Lei svolge in modo indipendente e tempestivo le attività organizzative e amministrative versatili, così come il coordinamento di pianificazione e nomina del medico principale.\n• Guidano e guidano il team del segretariato e sono responsabili per la pianificazione e l'organizzazione dell'intera ora di consultazione ortopedica, ma anche per la pianificazione delle vacanze e il report dei dipendenti.\n• Si occupano della corrispondenza medica del medico principale e assicurano la procedura liscia per l'ammissione e l'uscita di medici e sub-assisti.\n• Sei una persona di contatto competente per i pazienti, gli arbitri e altri partner interni ed esterni. Requisiti\n• Sei un'iniziativa, personalità indipendente e flessibile con l'istruzione e l'esperienza in una posizione paragonabile, che ama guidare un team con un sacco di abilità e competenze sociali.\n• Si vedono come fornitori di servizi per posizioni interne ed esterne e sono abituati a svolgere e delegare compiti di gestione.\n• Sei ben diversificato nell'utilizzo di Windows Office e hai competenze KISIM e SAP.",
+        "en": "The secretariat of the Orthopaedic Clinic ensures a smooth practice for around 22 doctors and assistant doctors. To complement our orthopaedic clinic team, we are looking for an orthopaedic clinic by 1 August 2026 or by appointment. They do it with us.\n• You independently and promptly carry out the versatile organizational and administrative activities, as well as the planning and appointment coordination of the chief physician.\n• They lead and lead the team of the secretariat and are responsible for the planning and organization of the entire orthopaedic consultation hour but also for the holiday planning and time reporting of the employees.\n• They handle the medical correspondence of the chief physician and ensure the smooth procedure for admission and exit of assistant doctors and sub-assistants.\n• You are a competent contact person for patients, referees and other internal and external partners. This is what they bring with them.\n• You are an initiative, independent and flexible personality with education and experience in a comparable position, who likes to lead a team with a lot of skill and social skills.\n• They see themselves as service providers for internal and external positions and are accustomed to taking on and delegating management tasks.\n• You are well-versed in using Windows Office and have KISIM and SAP skills. Working with us\n• A varied and demanding area of responsibility with close contact to internal and external bodies\n• An experienced and collegial team\n• A working environment in which you can contribute your professional and human qualities\n• Modern working conditions and contemporary employment conditions according to GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Tasks:\n• You independently and promptly carry out the versatile organizational and administrative activities, as well as the planning and appointment coordination of the chief physician.\n• They lead and lead the team of the secretariat and are responsible for the planning and organization of the entire orthopaedic consultation hour but also for the holiday planning and time reporting of the employees.\n• They handle the medical correspondence of the chief physician and ensure the smooth procedure for admission and exit of assistant doctors and sub-assistants.\n• You are a competent contact person for patients, referees and other internal and external partners. Requirements\n• You are an initiative, independent and flexible personality with education and experience in a comparable position, who likes to lead a team with a lot of skill and social skills.\n• They see themselves as service providers for internal and external positions and are accustomed to taking on and delegating management tasks.\n• You are well-versed in using Windows Office and have KISIM and SAP skills.",
+        "de": "Das Sekretariat der Orthopädischen Klinik stellt den reibungslosen Praxisablauf für rund 22 Ärzte und Assistenzärzte sicher. Zur Ergänzung unseres Teams der orthopädischen Klinik suchen wir per 1. August 2026 oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Sie erledigen selbständig und speditiv die vielseitigen organisatorischen und administrativen Tätigkeiten, sowie die Planung und Terminkoordination des Chefarztes.\n• Sie führen und leiten das Team des Sekretariats und sind für die Planung und Organisation der gesamten Orthopädischen Sprechstunde aber auch für die Ferienplanung und Zeitabrechnung der Mitarbeitenden zuständig.\n• Sie erledigen die medizinische Korrespondenz des Chefarztes und stellen den reibungslosen Ablauf bei Ein- und Austritt von Assistenzärzten und Unterassistenten sicher.\n• Sie sind eine kompetente Ansprechperson für Patienten, Zuweiser sowie weitere interne und externe Partner. Das bringen Sie mit\n• Sie sind eine initiative, selbständige und flexible Persönlichkeit mit Ausbildung und Erfahrung in einer vergleichbaren Position, welche gerne organisiert und mit viel Geschick und Sozialkompetenz ein Team zu führen vermag.\n• Sie verstehen sich als Dienstleister/in für interne und extrene Stellen und sind es gewohnt Führungsaufgaben zu übernehmen und zu delegieren.\n• Sie sind versiert im Umgang mit Windows Office und bringen mit Vorteil KISIM-und SAP-Kenntnisse mit. Bei uns arbeiten\n• Ein abwechslungsreiches und anspruchsvolles Aufgabengebiet mit regem Kontakt zu internen und externen Stellen\n• Ein eingespieltes und kollegiales Team\n• Ein Arbeitsumfeld, in welchem Sie Ihre fachlichen und menschlichen Qualitäten einbringen können\n• Moderne Arbeitsbedingungen und zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Aufgaben:\n• Sie erledigen selbständig und speditiv die vielseitigen organisatorischen und administrativen Tätigkeiten, sowie die Planung und Terminkoordination des Chefarztes.\n• Sie führen und leiten das Team des Sekretariats und sind für die Planung und Organisation der gesamten Orthopädischen Sprechstunde aber auch für die Ferienplanung und Zeitabrechnung der Mitarbeitenden zuständig.\n• Sie erledigen die medizinische Korrespondenz des Chefarztes und stellen den reibungslosen Ablauf bei Ein- und Austritt von Assistenzärzten und Unterassistenten sicher.\n• Sie sind eine kompetente Ansprechperson für Patienten, Zuweiser sowie weitere interne und externe Partner. Anforderungen:\n• Sie sind eine initiative, selbständige und flexible Persönlichkeit mit Ausbildung und Erfahrung in einer vergleichbaren Position, welche gerne organisiert und mit viel Geschick und Sozialkompetenz ein Team zu führen vermag.\n• Sie verstehen sich als Dienstleister/in für interne und extrene Stellen und sind es gewohnt Führungsaufgaben zu übernehmen und zu delegieren.\n• Sie sind versiert im Umgang mit Windows Office und bringen mit Vorteil KISIM-und SAP-Kenntnisse mit.",
+        "fr": "Le secrétariat de la Clinique d'orthopédie assure une bonne pratique à environ 22 médecins et médecins adjoints. Pour compléter notre équipe de cliniques orthopédiques, nous cherchons une clinique orthopédique avant le 1er août 2026 ou sur rendez-vous. Ils le font avec nous.\n• Vous exécutez de façon indépendante et rapide les activités organisationnelles et administratives polyvalentes, ainsi que la planification et la coordination des nominations du médecin en chef.\n• Ils dirigent et dirigent l'équipe du secrétariat et sont responsables de la planification et de l'organisation de l'ensemble de l'heure de consultation orthopédique, mais aussi de la planification des vacances et de l'établissement de rapports sur le temps des employés.\n• Ils s'occupent de la correspondance médicale du médecin en chef et assurent le bon déroulement de l'admission et de la sortie des médecins adjoints et des sous-assistants.\n• Vous êtes une personne-ressource compétente pour les patients, les arbitres et d'autres partenaires internes et externes. C'est ce qu'ils apportent.\n• Vous êtes une initiative, une personnalité indépendante et flexible avec éducation et expérience dans une position comparable, qui aime diriger une équipe avec beaucoup de compétences et de compétences sociales.\n• Ils se considèrent comme des prestataires de services pour les postes internes et externes et sont habitués à assumer et déléguer des tâches de gestion.\n• Vous avez des compétences KISIM et SAP. Travailler avec nous\n• Un domaine de responsabilité varié et exigeant avec des contacts étroits avec les organes internes et externes\n• Une équipe expérimentée et collégiale\n• Un environnement de travail dans lequel vous pouvez contribuer à vos qualités professionnelles et humaines\n• Conditions de travail modernes et conditions d'emploi contemporaines selon GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch Tâches :\n• Vous exécutez de façon indépendante et rapide les activités organisationnelles et administratives polyvalentes, ainsi que la planification et la coordination des nominations du médecin en chef.\n• Ils dirigent et dirigent l'équipe du secrétariat et sont responsables de la planification et de l'organisation de l'ensemble de l'heure de consultation orthopédique, mais aussi de la planification des vacances et de l'établissement de rapports sur le temps des employés.\n• Ils s'occupent de la correspondance médicale du médecin en chef et assurent le bon déroulement de l'admission et de la sortie des médecins adjoints et des sous-assistants.\n• Vous êtes une personne-ressource compétente pour les patients, les arbitres et d'autres partenaires internes et externes. Exigences\n• Vous êtes une initiative, une personnalité indépendante et flexible avec éducation et expérience dans une position comparable, qui aime diriger une équipe avec beaucoup de compétences et de compétences sociales.\n• Ils se considèrent comme des prestataires de services pour les postes internes et externes et sont habitués à assumer et déléguer des tâches de gestion.\n• Vous avez des compétences KISIM et SAP."
+      },
+      "location": "Langenthal",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/927e26a7-1696-4c71-a733-be6668fea248",
+      "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-06T22:16:08.786Z",
+      "addressLocality": "Langenthal",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4900",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/927e26a7-1696-4c71-a733-be6668fea248",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "validThrough": "2026-07-07",
+      "department": "Gesundheitswesen",
+      "previousSlugs": [
+        "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
+        "responsabile-di-reparto-80-100-per-il-reparto-di-ortopedia-sro-ag-spital-region-oberaargau-langenthal",
+        "ward-manager-80-100-for-the-orthopedic-ward-sro-ag-spital-region-oberaargau-langenthal",
+        "stationsleiter-in-80-100-fur-die-orthopadische-bettenstation-sro-langenthal",
+        "chef-de-service-80-100-pour-le-service-d-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarztsekretar-in-80-100-orthopadie-sro-langenthal"
+        ],
+        "en": [
+          "chefarztsekretar-in-80-100-orthopadie-sro-langenthal"
+        ],
+        "fr": [
+          "chefarztsekretar-in-80-100-orthopadie-sro-langenthal"
+        ]
+      },
+      "firstSeenAt": "2026-06-08T13:47:15.338Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
