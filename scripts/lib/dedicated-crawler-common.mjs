@@ -4963,6 +4963,16 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     if (hashRaw.length > 3 && /^[\w-]+$/.test(hashRaw)) {
       return `${registrableDomain(host)}|#${hashRaw.toLowerCase()}`;
     }
+    // Johdi Suite ATS widget (eHnv, H-JU, Daler — johdisuite.ch tenants) uses
+    // a hash-router shape `#offer/<numeric-id>/<slug>`. It has slashes, so the
+    // flat-token rule above never matches, and the trailing-id rule below only
+    // recognizes literal "job"/"jobs" segments — not "offer" — so every job
+    // fell through to '' and collapsed onto one identity via the
+    // hash-stripped canonicalizeJobUrl fallback (eHnv 15→1). Key on the
+    // numeric id (stable across title/slug edits), same precedence tier as
+    // the other vendor-specific id rules above.
+    const johdiSuiteMatch = hashRaw.match(/^offer\/(\d+)\//i);
+    if (johdiSuiteMatch?.[1]) return `${registrableDomain(host)}|offer-${johdiSuiteMatch[1]}`;
     // SPA hash-router URLs nest the real per-job path INSIDE the fragment
     // (Oracle Recruiting Cloud: `#fr/sites/CX_1/job/12345`) — the flat-token
     // rule above requires no slashes, so this shape fell through to '' and
