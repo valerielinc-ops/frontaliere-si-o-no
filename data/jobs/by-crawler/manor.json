@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "manor",
-  "assembledAt": "2026-07-08T11:24:17.277Z",
   "jobs": [
     {
       "title": "Collaborateur/trice visual merchandising 60%",
@@ -6008,79 +6006,6 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Mitarbeiter*in Logistik 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-100/1355990755/",
-      "location": "Hochdorf Mitarbeiterin Logistik 100",
-      "canton": "LU",
-      "country": "CH",
-      "category": "logistics",
-      "description": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 100, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 100, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 100, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Logistik 100% at Manor, located in Hochdorf Mitarbeiterin Logistik 100, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Logistik 100% bei Manor, gelegen in Hochdorf Mitarbeiterin Logistik 100, Kanton Luzern, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Logistik 100% chez Manor, situé à Hochdorf Mitarbeiterin Logistik 100, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-06-19",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
-      "slugByLocale": {
-        "it": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
-        "en": "logistics-employee-100-manor-ag-hochdorf-mitarbeiterin-logistik-100",
-        "de": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100-2",
-        "fr": "employe-logistique-a-100-manor-ag-hochdorf-mitarbeiterin-logistik-100-5d36c1"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in Logistik 100%",
-        "en": "Logistics Employee 100%",
-        "de": "Mitarbeiter*in Logistik 100%",
-        "fr": "Employé logistique à 100 %"
-      },
-      "sourceLang": "it",
-      "id": "manor-544554fc0556",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100-2",
-          "collaboratore-trice-in-logistik-100-manor-ag-hochdorf-mitarbeiterin-logistik-100",
-          "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100"
-        ],
-        "en": [
-          "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100-2"
-        ],
-        "fr": [
-          "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100-2"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100-2",
-        "collaboratore-trice-in-logistik-100-manor-ag-hochdorf-mitarbeiterin-logistik-100",
-        "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100"
-      ],
-      "firstSeenAt": "2026-07-07T22:36:38.736Z",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Hochdorf Mitarbeiterin Logistik 100",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
-    },
-    {
       "title": "Collaborateur/trice cuisine Etudiant 20%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -8948,5 +8873,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME"
     }
-  ]
+  ],
+  "crawlerKey": "manor",
+  "assembledAt": "2026-07-08T11:05:06.497Z"
 }
