@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-07-08T10:46:52.239Z",
+  "assembledAt": "2026-07-08T22:13:55.880Z",
   "jobs": [
     {
       "id": "company-1x4im",
@@ -2102,7 +2102,7 @@
         "fr": "gestionnaire-de-magasins-100-f-m-d-marche-restaurants-schweiz-ag-dietlikon"
       },
       "titleByLocale": {
-        "en": "Store Manager 100% (f/m/d)",
+        "en": "Store Manager 100% (w/m/d)",
         "de": "Store Manager 100% (w/m/d)",
         "it": "Store Manager 100% (f/m/d)",
         "fr": "Gestionnaire de magasins 100% (f/m/d)"
@@ -2140,7 +2140,8 @@
       },
       "previousSlugs": [
         "store-manager-100-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-2dsp9l",
@@ -3500,7 +3501,7 @@
       "crawledAt": "2026-07-01T22:19:20.999Z",
       "firstSeenAt": "2026-07-01T22:19:20.999Z",
       "titleByLocale": {
-        "en": "Digital Content & Campaign Manager, 80-100 %",
+        "en": "Digital Content & Campaign Manager, 80-100%",
         "de": "Digital Content & Campaign Manager, 80-100%",
         "it": "Gestione dei contenuti digitali e delle campagne, 80-100 %",
         "fr": "Digital Content & Campaign Manager, 80-100 %"
@@ -3559,7 +3560,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-8p9fby",
@@ -4253,7 +4255,7 @@
         "fr": "Tâche\n\n- Assurer le bon fonctionnement de toutes les installations et installations techniques\n\n- Entretien, entretien et amélioration continue des infrastructures\n\n- Responsabilité en matière de sécurité opérationnelle et respect des exigences environnementales et de sécurité\n\n- Organisation du nettoyage, logistique et gestion des déchets\n\n- Soutien et entretien du matériel CVC, des véhicules et de la technologie de pisciculture\n\n- Achat de matériel, de machines et de matériel\n\nExigences\n\n- Formation technique de base (mécanicien de machines agricoles ou équivalent)\n\n- Expérience en matière d ' entretien technique et d ' achat d ' équipements et de machines\n\n- Méthode de travail indépendante, structurée et axée sur les solutions\n\n- Résilient physique, fiable et axé sur l'équipe\n\n- Comprendre les contrôles et l'automatisation\n\n- La connaissance de l'allemand en mots et en écriture\n\n- Forte compréhension technique et force de mise en œuvre pratique\n\n- Un haut sens des responsabilités dans les domaines de la sécurité, de la qualité et de l'environnement\n\n- Engagement, initiative et méthode de travail de réflexion\n\n- Apparence ouverte, serviable et professionnelle\n\n- Capacité de hiérarchiser les tâches et de suivre\n\nCe que nous offrons\n\n- Avantages: paquet alimentaire (boissons incluses)\n\n- Conditions d'emploi: conditions d'emploi attrayantes\n\n- Heures de travail: 5 semaines de congés\n\n- Formation : appui à la formation\n\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n\n- Communication : Environnement dynamique et axé sur l'équipe\n\n- Santé : milieux de travail ergonomiques\n\nVotre personne à contacter\nJenny Wüthrich\nChef des finances et des ressources humaines"
       },
       "slugByLocale": {
-        "it": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
+        "it": "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
         "en": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "de": "facility-techniker-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "fr": "facility-technicien-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
@@ -4262,11 +4264,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
         ]
       },
       "previousSlugs": [
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -5737,101 +5741,6 @@
       "country": "CH"
     },
     {
-      "id": "company-6pvu5e",
-      "slug": "venditore-in-cassa-servizi-jumbo-interlaken",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Verkäufer:in Kassen/Services",
-      "location": "Interlaken, Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Immer freundlich, immer mit vollem Einsatz: So bedienst du unsere anspruchsvolle Kundschaft an der Kasse.\n\n- Wenn du im Einsatz bist, dann stimmt die Kasse.\n\n- Du stehst mit unserer Kundschaft direkt im Kontakt und gibst bei Fragen gerne Auskunft.\n\n- Du hilfst tatkräftig im Verkauf mit.\n\nAnforderungen\n\n- Abgeschlossene Verkaufsausbildung? Perfekt.\n\n- Du weisst, wie die Arbeit an der Kasse funktioniert.\n\n- Deutsch kannst du gut – mündlich und schriftlich.\n\n- Einsatzzeiten (Mo bis Sa)? Da bist du flexibel, ist ja klar.\n\n- Du bist engagiert und stets gut gelaunt.\n\nWas wir bieten\n\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n\n- Arbeitszeit: 5 Wochen Ferien\n\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nDeine Ansprechperson\nGina Marinello\nHR Marketing",
-      "requirements": [
-        "Deutsch kannst du gut – mündlich und schriftlich."
-      ],
-      "featured": false,
-      "postedDate": "2026-06-30",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/8cf6322f-ca82-4d8b-b713-e49c8b64f23b",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-30T22:20:32.271Z",
-      "firstSeenAt": "2026-06-30T22:20:32.271Z",
-      "titleByLocale": {
-        "de": "Verkäufer:in Kassen/Services",
-        "it": "Venditore:in cassa/servizi",
-        "en": "Seller:in cash registers/services",
-        "fr": "Vendeur:dans les caisses enregistreuses/services"
-      },
-      "descriptionByLocale": {
-        "de": "## Aufgaben\n• Immer freundlich, immer mit vollem Einsatz: So bedienst du unsere anspruchsvolle Kundschaft an der Kasse.• Wenn du im Einsatz bist, dann stimmt die Kasse.• Du stehst mit unserer Kundschaft direkt im Kontakt und gibst bei Fragen gerne Auskunft.• Du hilfst tatkräftig im Verkauf mit. ## Anforderungen\n• Abgeschlossene Verkaufsausbildung? Perfekt.• Du weisst, wie die Arbeit an der Kasse funktioniert.• Deutsch kannst du gut – mündlich und schriftlich.• Einsatzzeiten (Mo bis Sa)? Da bist du flexibel, ist ja klar.• Du bist engagiert und stets gut gelaunt. ## Wir bieten\n• Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)• Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen• Arbeitszeit: 5 Wochen Ferien• Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten• Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement",
-        "it": "## Compiti\n• Sempre cordiale, sempre con pieno impegno: È così che servite i nostri clienti esigenti al cassiere.• Quando sei in azione, il cassiere ha ragione. Siete in contatto diretto con i nostri clienti e siete lieti di fornire informazioni con le domande.• Stai aiutando attivamente nelle vendite. ## Requisiti\n• Formazione completa delle vendite? Perfetto.• Sai come funziona il checkout.• Conosci bene il tedesco – verbalmente e per iscritto.• Tempi di spedizione (Mo a Sa)? Sei flessibile, naturalmente.• Sei impegnata e sempre di buon umore. ## Offriamo\n• Sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto sull'acquisto, sconto su Mobility CarSharing, sconto personale anche per i partner: in (vivere nella stessa famiglia)• Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Anno di età, condizioni di lavoro attraenti• Ore lavorative: 5 settimane holiday• Ulteriore istruzione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo• Salute: Aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale",
-        "en": "## Tasks\n• Always friendly, always with full commitment: This is how you serve our demanding customers at the cashier.• When you are in action, the cashier is right. You are in direct contact with our customers and are happy to provide information with questions.• You are actively helping in sales. ## Requirements\n• Completed sales training? Perfect.• You know how working at the checkout works.• You know German well – verbally and in writing.• Assignment times (Mo to Sa)? You are flexible, of course.• You are committed and always in a good mood. ## We offer\n• Discounts: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on purchase, discount at Mobility CarSharing, personal discount also for partners: in (living in the same household)• Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Year of age, attractive employment conditions• Working hours: 5 weeks holidays• Further education: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities• Health: Update Fitness: Fr. 200.– Discount on annual subscription",
-        "fr": "## Tâches\n• Toujours amical, toujours avec un engagement total: C'est ainsi que vous servez nos clients exigeants à la caisse.• Quand vous êtes en action, la caisse a raison. Vous êtes en contact direct avec nos clients et êtes heureux de fournir des informations avec des questions.• Vous aidez activement les ventes. ## Exigences\n• Formation sur les ventes terminée? Parfait.• Vous savez comment fonctionne le travail à la caisse.• Vous connaissez bien l'allemand – verbalement et par écrit.• Temps d'affectation (Mo à Sa)? Vous êtes flexible, bien sûr.• Vous êtes engagé et toujours de bonne humeur. ## Nous offrons\n• Réductions: réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires: dans (habitant dans le même ménage)• Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes• Heures de travail: 5 semaines de vacances• Enseignement complémentaire: plus de 600 formations internes, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement• Santé : Mise à jour de la condition physique : 200.– Réduction sur abonnement annuel"
-      },
-      "slugByLocale": {
-        "it": "venditore-in-cassa-servizi-jumbo-interlaken",
-        "en": "seller-in-cash-registers-services-jumbo-interlaken",
-        "de": "verkaufer-in-kassen-services-jumbo-interlaken-bern-6pvu5e",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-interlaken"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Deutsch kannst du gut – mündlich und schriftlich."
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-interlaken-bern",
-          "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-interlaken-bern-6pvu5e",
-          "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-interlaken-bern",
-          "verkaufer-in-kassen-services-jumbo-interlaken-bern"
-        ],
-        "en": [
-          "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-interlaken-bern-6pvu5e",
-          "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-interlaken-bern"
-        ],
-        "fr": [
-          "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-interlaken-bern-6pvu5e",
-          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-interlaken-bern"
-        ],
-        "de": [
-          "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-interlaken-bern-6pvu5e"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-interlaken-bern",
-        "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-interlaken-bern-6pvu5e",
-        "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-interlaken-bern",
-        "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-interlaken-bern",
-        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-interlaken-bern",
-        "verkaufer-in-kassen-services-jumbo-interlaken-bern"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Interlaken, Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "3800",
-      "country": "CH"
-    },
-    {
       "id": "company-1xx2ph",
       "slug": "coordinatore-della-produzione-e-amministrazione-100-two-spice-ag-rumlang",
       "company": "Two Spice AG",
@@ -5854,7 +5763,7 @@
       "titleByLocale": {
         "fr": "Coordonnateur de la production et administration (100 %)",
         "de": "Produktionskoordinator/in & Administration (100%)",
-        "it": "Coordinatore di produzione e amministrazione (100%)",
+        "it": "Produktionskoordinator/in & Administration (100%)",
         "en": "Production Coordinator & Administration (100%)"
       },
       "descriptionByLocale": {
@@ -5905,7 +5814,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-w1zgcb",
@@ -6446,12 +6356,12 @@
       "firstSeenAt": "2026-06-30T11:26:22.953Z",
       "slugByLocale": {
         "it": "risorse-umane-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
-        "en": "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
+        "en": "hr-officer-bale-hotels-group-balehotels-basel-basel-stadt",
         "de": "personalwesen-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
         "fr": "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9"
       },
       "titleByLocale": {
-        "fr": "Agent RH - Groupe Hôtels Bâle",
+        "fr": "HR-Sachbearbeiter*in - Bâle Hotels Group",
         "it": "Risorse Umane-Sachbearbeiter*in - Bâle Hotels Group",
         "de": "Personalwesen-Sachbearbeiter*in - Bâle Hotels Group",
         "en": "HR Officer - Bâle Hotels Group"
@@ -6467,6 +6377,7 @@
       "previousSlugsByLocale": {
         "en": [
           "hr-sachbearbeiter-in-bale-hotels-group-balehotels-basel-basel-stadt",
+          "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
           "hr-officer-bale-hotels-group-balehotels-basel-basel-stadt"
         ],
         "it": [
@@ -6476,6 +6387,7 @@
       "previousSlugs": [
         "hr-sachbearbeiter-in-bale-hotels-group-balehotels-basel-basel-stadt",
         "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt",
+        "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
         "hr-officer-bale-hotels-group-balehotels-basel-basel-stadt"
       ],
       "salaryMin": 62000,
@@ -6495,7 +6407,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-9q0bs6",
@@ -6811,7 +6724,8 @@
       },
       "previousSlugs": [
         "service-desk-analyst-coop-pronto-ag-allschwil-basel-landschaft"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-wu9scy",
@@ -6887,82 +6801,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8305",
       "country": "CH"
-    },
-    {
-      "id": "company-fowcha",
-      "slug": "collaboratore-trice-gastronomie-office-coop-genossenschaft-aarau-aargau-fowcha",
-      "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Gastronomie Office",
-      "location": "Aarau, Aargau",
-      "canton": "AG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Wenn du arbeitest, ist der Gastraum stets sauber und hygienisch.\n\n- Du sorgst dafür, dass Geschirr, Gläser, Besteck und diverse Utensilien blitzblank sind.\n\n- Du hilfst bei allgemeinen Reinigungsarbeiten mit.\n\n- Rüstarbeiten im Küchenteam machen dir Spass.\n\n- Dass du bei deiner Arbeit Qualitäts- und Hygienestandards einhältst, ist für dich selbstverständlich.\n\nAnforderungen\n\n- Extrapunkte holst du dir, wenn du bereits Erfahrung in der Gastronomie und dem Bereich Office hast.\n\n- Bei dir stehen die Gäste immer im Mittelpunkt.\n\n- Du hast gute Deutschkenntnisse – mündlich und schriftlich.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n\n- Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n\n- Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle\n\n- Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation : interne App für Mitarbeitende\n\n- Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nValeria Mazziari Randazzo\nHR Marketing",
-      "requirements": [
-        "Du hast gute Deutschkenntnisse – mündlich und schriftlich."
-      ],
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie-office/b5a08bc4-66d5-4bea-befe-033bc3434abe",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-29T22:14:00.097Z",
-      "firstSeenAt": "2026-06-29T22:14:00.097Z",
-      "titleByLocale": {
-        "de": "Mitarbeiter:in Gastronomie Office",
-        "it": "Collaboratore/trice Gastronomie Office",
-        "en": "Associate Gastronomie Office",
-        "fr": "Collaborateur/trice Gastronomie Office"
-      },
-      "descriptionByLocale": {
-        "de": "Aufgaben - Wenn du arbeitest, ist der Gastraum stets sauber und hygienisch. - Du sorgst dafür, dass Geschirr, Gläser, Besteck und diverse Utensilien blitzblank sind. - Du hilfst bei allgemeinen Reinigungsarbeiten mit. - Rüstarbeiten im Küchenteam machen dir Spass. - Dass du bei deiner Arbeit Qualitäts- und Hygienestandards einhältst, ist für dich selbstverständlich.\n• Anforderungen - Extrapunkte holst du dir, wenn du bereits Erfahrung in der Gastronomie und dem Bereich Office hast. - Bei dir stehen die Gäste immer im Mittelpunkt. - Du hast gute Deutschkenntnisse – mündlich und schriftlich. - Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten - Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub - Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle - Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop - Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten - Kommunikation : interne App für Mitarbeitende - Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote Deine Ansprechperson Valeria Mazziari Randazzo HR Marketing",
-        "it": "Compiti\n\n- Quando lavori, la camera degli ospiti è sempre pulita e igienica.\n\n- Assicurarsi che piatti, occhiali, posate e vari utensili sono flash-blank.\n\n- Aiuta con il lavoro di pulizia generale.\n\n- Il lavoro di attrezzature nella squadra di cucina vi farà divertire.\n\n- Va da sé che si rispettano gli standard di qualità e igiene del lavoro.\n\nRequisiti\n\n- Ottieni punti extra se hai già esperienza nel settore della gastronomia e dell'ufficio.\n\n- Con te, gli ospiti sono sempre al centro.\n\n- Avete una buona conoscenza del tedesco – verbalmente e per iscritto.\n\n- Sconti: Sconti sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati su Coop Mobile, Reka Card: Sconto sull'acquisto, Sconto sulla Mobility CarSharing, Sconto del personale anche per i partner:in (vivere nella stessa famiglia), Sconti su abbonamento GA, Sconti sugli eventi culturali\n\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni di lavoro e parità di retribuzione certificata, premi di fedeltà, piano di risparmio del Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n\n- Tempo di lavoro: 5 settimane ferie, modelli di tempo di lavoro flessibili\n\n- Formazione: Più di 600 corsi di formazione interna, gestione del talento con diverse opportunità di sviluppo, formazione e ulteriori offerte di istruzione della L-GAV e della Coop\n\n- Sostenibilità: Impegno a persone, animali e natura con oltre 400 azioni\n\n- Comunicazione: applicazione interna dei dipendenti\n\n- Salute: Aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie piste aziendali, offerte sportive interne\n\nLa persona di contatto\nValeria Mazziari Randazzo\nHR Marketing",
-        "en": "Tasks\n\n- When you work, the guest room is always clean and hygienic.\n\n- You make sure that dishes, glasses, cutlery and various utensils are flash-blank.\n\n- You help with general cleaning work.\n\n- Equipment work in the kitchen team will make you fun.\n\n- It goes without saying that you adhere to quality and hygiene standards in your work.\n\nRequirements\n\n- You get extra points if you already have experience in the gastronomy and office sector.\n\n- With you, the guests are always the focus.\n\n- You have good knowledge of German – verbally and in writing.\n\n- Discounts : Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: Discount on purchase, Discount on Mobility CarSharing, Personnel discount also for partners:in (living in the same household), Discount on GA subscription, Discounts on cultural events, Discounts for leisure activities\n\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Loyalty Premiums, Pension Fund Savings Plan, Total Employment Contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave\n\n- Working time : 5 weeks holidays, flexible working time models\n\n- Training : More than 600 internal training courses, talent management with diverse development opportunities, training and further education offers of the L-GAV and Coop\n\n- Sustainability: Commitment to people, animals and nature with over 400 actions\n\n- Communication : internal app for employees\n\n- Health : Update Fitness: Fr. 200.– Discount on annual subscription, free participation in various company runs, in-house sports offers\n\nYour contact person\nValeria Mazziari Randazzo\nHR Marketing",
-        "fr": "Tâches\n\n- Lorsque vous travaillez, la chambre est toujours propre et hygiénique.\n\n- Vous assurez-vous que la vaisselle, les verres, les couverts et divers ustensiles sont flash-blank.\n\n- Vous aidez au nettoyage général.\n\n- L'équipement de l'équipe de cuisine vous rendra amusant.\n\n- Il va sans dire que vous respectez les normes de qualité et d'hygiène dans votre travail.\n\nExigences\n\n- Vous obtenez des points supplémentaires si vous avez déjà une expérience dans le secteur de la gastronomie et du bureau.\n\n- Avec vous, les invités sont toujours au centre.\n\n- Vous avez une bonne connaissance de l'allemand – verbalement et par écrit.\n\n- Réductions : Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Carte Reka: Remise sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail : 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation : Plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et perfectionnement offerts par le L-GAV et le Coop\n\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n\n- Communication : application interne pour les salariés\n\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\nVotre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines"
-      },
-      "slugByLocale": {
-        "it": "collaboratore-trice-gastronomie-office-coop-genossenschaft-aarau-aargau-fowcha",
-        "en": "associate-gastronomie-office-coop-genossenschaft-aarau-aargau-fowcha",
-        "de": "mitarbeiter-in-gastronomie-office-coop-genossenschaft-aarau-aargau-fowcha",
-        "fr": "collaborateur-trice-gastronomie-office-coop-genossenschaft-aarau-aargau-fowcha"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Du hast gute Deutschkenntnisse – mündlich und schriftlich."
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Aarau, Aargau",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "5000",
-      "country": "CH",
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-gastronomie-office-coop-genossenschaft-aarau-aargau"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-gastronomie-office-coop-genossenschaft-aarau-aargau"
-      ]
     },
     {
       "id": "company-36bgpt",
@@ -10088,7 +9926,8 @@
       },
       "previousSlugs": [
         "leiter-in-verkauf-und-marketing-retail-steinfels-swiss-winterthur-80-100-steinfels-swiss-winterthur-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-cjzk4b",
@@ -10340,7 +10179,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-lzkg1f",
@@ -10621,7 +10461,7 @@
       "crawledAt": "2026-06-25T11:12:18.568Z",
       "firstSeenAt": "2026-06-25T11:12:18.568Z",
       "titleByLocale": {
-        "en": "Purchasing Product Manager Sport / Mobility",
+        "en": "Purchasing Product Manager Sport / Mobilität",
         "de": "Purchasing Product Manager Sport / Mobilität",
         "it": "Acquisto Product Manager Sport / Mobilità",
         "fr": "Gestionnaire de produits d'achat Sport / Mobilité"
@@ -10674,7 +10514,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8305",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-mk74pe",
@@ -11231,7 +11072,7 @@
       "titleByLocale": {
         "it": "Elettricista di esercizio",
         "en": "Company electrician:in",
-        "de": "Betriebselektriker:in \"Intralogistik\"",
+        "de": "Betriebselektriker:in",
         "fr": "Entreprise électricien:in"
       },
       "descriptionByLocale": {
@@ -12950,7 +12791,7 @@
         "fr": "## Technicien de service: en Solutions Professionnelles\n\nServices ménagers suisses AG — Berne, Berne, Svizzera\n\n## La Suisse achète chez Fust ! Nous sommes fiers d'être un leader dans les appareils électroménagers, l'électronique multimédia / divertissement et la rénovation de la cuisine et de la salle de bains, et grâce à notre gamme complète de services et de services uniques, nous créons une réelle valeur ajoutée! Devenez membre de notre équipe et aidez-nous à continuer à créer des expériences client! Un boulot à Fust, et il court !\n\n## Tâche\n- Planification, installation et configuration des produits Fust-Professional Solutions (systèmes de surveillance vidéo, solutions d'affichage numérique, systèmes d'adresses publiques, systèmes de télécommunications, systèmes d'alarme d'intrusion et appareils électroniques grand public)\n- Enregistrement et rectification des incidents\n- Préparation et installation de nouvelles installations\n- Formation opérationnelle des clients\n- Facturation des services dans le système\n\n## Exigences\n- Formation professionnelle technique terminée\n- Spécialisation dans les systèmes d'adresses publiques\n- Les compétences allemandes, italiennes seraient d'un grand avantage\n- Permis de conduire de catégorie B\n- Préparation aux affectations en dehors des heures normales de bureau\n\n## Ce que nous offrons\n- Conditions d'emploi: horaires flexibles, salaire fixe attractif avec supplément, primes de performance, indemnité forfaitaire, véhicule d'entreprise pour usage privé\n- Réductions: Réductions dans différents formats de coop, 5 fois le nombre de super points de coop, Jusqu'à 20% de réduction sur divers services d'assurance, Abonnements mobiles et prépayés à bas prix chez Coop Mobile, Reka Card: Réductions sur l'abonnement, réduction personnel également pour les partenaires: en (habitant dans le même ménage), réduction sur l'offre voyage ITS Coop Travel, CHF 650.- Bon pour l'achat d'un CFF GA\n- Formation: formation interne, soutien à la formation externe, possibilités de développement\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Assurances: Caisse de retraite: 2/3 est payé par Coop (base), divers plans d'épargne à la caisse de retraite, prestations d'assurance généreuses et super-obligatoires en cas d'accident et de maladie\n- Vacances: Au moins 25 jours de congé ou selon le GAV valide, si possible soutien pour les congés non payés\n- Santé : mise à jour de la condition physique : CHF 200.- Réduction sur l'abonnement annuel, conseil social gratuit et anonyme 24/7\nVos personnes de contact chez Fust\nTanja Voser\nResponsable des partenariats d'affaires\nSteven Vivre\nSpécialiste du recrutement\n\nTipo: Temps plein\nSécurité : Belgique"
       },
       "slugByLocale": {
-        "it": "servicetechniker-in-professional-solutions-fust-bern",
+        "it": "tecnico-di-servizio-in-soluzioni-professionali-fust-bern",
         "en": "service-technician-in-professional-solutions-fust-swiss-household-services-ag-bern",
         "de": "servicetechniker-in-professional-solutions-fust-bern-3qkfr2",
         "fr": "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-bern"
@@ -13803,7 +13644,7 @@
         "fr": "gestionnaire-d-applications-dans-sap-operations-senior-interdiscount-jegenstorf"
       },
       "titleByLocale": {
-        "en": "Application Manager: in SAP Operations Senior",
+        "en": "Applikations-Manager:in SAP Operations Senior",
         "de": "Applikations-Manager:in SAP Operations Senior",
         "it": "Application Manager:in SAP Operations Senior",
         "fr": "Gestionnaire d'applications : dans SAP Operations Senior"
@@ -13850,7 +13691,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-6unibn",
@@ -14018,7 +13860,7 @@
       "firstSeenAt": "2026-06-20T11:06:56.219Z",
       "titleByLocale": {
         "de": "Ferienaushilfen Sommer 2026",
-        "it": "Indennità di vacanza Estate 2026",
+        "it": "Ferienaushilfen Sommer 2026",
         "en": "Holiday allowances Summer 2026",
         "fr": "Indemnités de vacances Été 2026"
       },
@@ -14075,7 +13917,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3600",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-n63zcr",
@@ -17038,82 +16881,6 @@
       ]
     },
     {
-      "id": "company-k1fzgw",
-      "slug": "magaziner-in-vendita-coop-genossenschaft-kolliken-aargau-k1fzgw",
-      "company": "Coop Genossenschaft",
-      "title": "Magaziner:in Verkauf",
-      "location": "Kölliken, Aargau",
-      "canton": "AG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Wenn Waren im Lager ankommen, nimmst du sie mit prüfendem Auge an.\n\n- Dank dir ist das Warenlager immer ordentlich und sauber.\n\n- Du sorgst für Nachschub bei Getränken und setzt sie ins beste Licht.\n\n- Aufgestellt und freundlich bedienst und berätst du deine Kundschaft.\n\n- Im Teamwork unterstützt du auch deine Kolleginnen und Kollegen in anderen Bereichen und springst auch mal an der Kasse ein – kein Problem.\n\nAnforderungen\n\n- Du hast bereits Erfahrung im Verkauf oder in der Logistik gesammelt? Super!\n\n- Voller Einsatz und eine hohe Dienstleistungsbereitschaft sind für dich selbstverständlich.\n\n- Deutsch sprechen und schreiben – das kannst du.\n\n- Du bist fit und in einer guten körperlichen Verfassung.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n\n- Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n\n- Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle\n\n- Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation : interne App für Mitarbeitende\n\n- Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nValeria Mazziari Randazzo\nHR Marketing",
-      "requirements": [
-        "Deutsch sprechen und schreiben – das kannst du."
-      ],
-      "featured": false,
-      "postedDate": "2026-06-13",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/magaziner-in-verkauf/76078c06-bc55-4043-8369-ba8bc04fd7c8",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-12T22:25:57.584Z",
-      "firstSeenAt": "2026-06-12T22:25:57.584Z",
-      "titleByLocale": {
-        "de": "Magaziner:in Verkauf",
-        "it": "Magaziner:in vendita",
-        "en": "Magaziner:in Sales",
-        "fr": "Magaziner:in Vente"
-      },
-      "descriptionByLocale": {
-        "de": "Aufgaben - Wenn Waren im Lager ankommen, nimmst du sie mit prüfendem Auge an. - Dank dir ist das Warenlager immer ordentlich und sauber. - Du sorgst für Nachschub bei Getränken und setzt sie ins beste Licht. - Aufgestellt und freundlich bedienst und berätst du deine Kundschaft. - Im Teamwork unterstützt du auch deine Kolleginnen und Kollegen in anderen Bereichen und springst auch mal an der Kasse ein – kein Problem.\n• Anforderungen - Du hast bereits Erfahrung im Verkauf oder in der Logistik gesammelt? Super! - Voller Einsatz und eine hohe Dienstleistungsbereitschaft sind für dich selbstverständlich. - Deutsch sprechen und schreiben – das kannst du. - Du bist fit und in einer guten körperlichen Verfassung. - Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten - Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub - Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle - Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop - Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten - Kommunikation : interne App für Mitarbeitende - Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote Deine Ansprechperson Valeria Mazziari Randazzo HR Marketing",
-        "it": "Compiti\n\n- Quando le merci arrivano nel magazzino, le accetti con un occhio d'esame.\n\n- Grazie a te, il magazzino è sempre pulito e pulito.\n\n- Fornite provviste di bevande e mettetele nella migliore luce.\n\n- Impostare e servire amichevole e consigliare i vostri clienti.\n\n- Nel lavoro di squadra, supporta anche i colleghi in altre aree e salta al checkout – nessun problema.\n\nRequisiti\n\n- Hai già acquisito esperienza nelle vendite o nella logistica? Fantastico!\n\n- L'impegno pieno e l'elevata disponibilità a fornire servizi sono una questione ovviamente per voi.\n\n- Parla e scrivi il tedesco.\n\n- Sei in forma e in buone condizioni fisiche.\n\n- Sconti: Sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati su Coop Mobile, Reka Card: Sconto sull'acquisto, Sconto sulla Mobility CarSharing, Sconto personale anche per i partner:in (vivere nella stessa famiglia), Sconti su abbonamento GA, Sconti sugli eventi culturali\n\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni di lavoro e parità di retribuzione certificata, premi di fedeltà, piano di risparmio del Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n\n- Tempo di lavoro: 5 settimane di ferie, modelli di tempo di lavoro flessibili\n\n- Formazione complementare: più di 600 corsi di formazione interna, gestione dei talenti con diverse opportunità di sviluppo, formazione e ulteriori offerte di istruzione della L-GAV e della Coop\n\nSostenibilità: Impegno a persone, animali e natura con oltre 400 azioni\n\n- Comunicazione: applicazione interna dei lavoratori\n\n- Salute: Aggiornamento Fitness: Fr. 200.- Sconto su abbonamento annuale, partecipazione gratuita a varie piste aziendali, offerte sportive interne\n\nLa persona di contatto\nValeria Mazziari Randazzo\nHR Marketing",
-        "en": "Tasks\n\n- When goods arrive in the warehouse, you accept them with an examination eye.\n\n- Thanks to you, the warehouse is always neat and clean.\n\n- You provide supplies for drinks and put them in the best light.\n\n- Set up and friendly serve and advise your customers.\n\n- In teamwork, you also support your colleagues in other areas and jump in at the checkout – no problem.\n\nRequirements\n\n- Have you already gained experience in sales or logistics? Great!\n\n- Full commitment and a high willingness to provide services are a matter of course for you.\n\n- Speak and write German - you can.\n\n- You are fit and in good physical condition.\n\n- Discounts : Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: Discount on purchase, Discount on Mobility CarSharing, Personal discount also for partners:in (living in the same household), Discount on GA subscription, Discounts on cultural events, Discounts for leisure activities\n\n- Conditions of Employment : Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Loyalty Premiums, Pension Fund Savings Plan, Total Employment Contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave\n\n- Working time : 5 weeks holidays, flexible working time models\n\n- Further education : More than 600 internal training courses, talent management with diverse development opportunities, training and further education offers of the L-GAV and Coop\n\nSustainability: Commitment to people, animals and nature with more than 400 actions\n\n- Communication : internal app for employees\n\n- Health : Update Fitness: Fr. 200.- Discount on annual subscription, free participation in various company runs, in-house sports offers\n\nYour contact person\nValeria Mazziari Randazzo\nHR Marketing",
-        "fr": "Tâches\n\n- Quand les marchandises arrivent dans l'entrepôt, vous les acceptez avec un œil d'examen.\n\n- Grâce à toi, l'entrepôt est toujours propre.\n\n- Vous fournissez des boissons et les mettez dans la meilleure lumière.\n\n- Mise en place et service amical et conseiller vos clients.\n\n- En équipe, vous aidez également vos collègues dans d'autres domaines et sautez à la caisse – aucun problème.\n\nExigences\n\n- Avez-vous déjà acquis de l'expérience en ventes ou en logistique ? Génial !\n\n- Un engagement total et une grande volonté de fournir des services sont bien sûr une question pour vous.\n\nParlez et écrivez l'allemand.\n\n- Vous êtes en bonne condition physique.\n\n- Réductions : Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Carte Reka: Réduction à l'achat, Réduction sur la mobilité CarSharing, Réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n\n- Conditions d'emploi : Caisse de retraite : 2/3 est payée par Coop, Conditions d'emploi attractives et Egalité de rémunération certifiée, Primes de fidélité, Régime d'épargne pension, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail : 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation continue : plus de 600 formations internes, gestion des talents avec des possibilités de développement diverses, formation et offres de formation continue du L-GAV et du Coop\n\nDurabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n\n- Communication : application interne pour les salariés\n\n- Santé : mise à jour de la condition physique : 200.- Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\nVotre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines"
-      },
-      "slugByLocale": {
-        "it": "magaziner-in-vendita-coop-genossenschaft-kolliken-aargau-k1fzgw",
-        "en": "magaziner-in-sales-coop-genossenschaft-kolliken-aargau-k1fzgw",
-        "de": "magaziner-in-verkauf-coop-genossenschaft-kolliken-aargau-k1fzgw",
-        "fr": "magaziner-in-vente-coop-genossenschaft-kolliken-aargau-k1fzgw"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Deutsch sprechen und schreiben – das kannst du."
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Kölliken, Aargau",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "5000",
-      "country": "CH",
-      "previousSlugsByLocale": {
-        "it": [
-          "magaziner-in-verkauf-coop-genossenschaft-kolliken-aargau"
-        ]
-      },
-      "previousSlugs": [
-        "magaziner-in-verkauf-coop-genossenschaft-kolliken-aargau"
-      ]
-    },
-    {
       "id": "company-oq5txw",
       "slug": "venditore-in-food-coop-genossenschaft-langnau-am-albis",
       "company": "Coop Genossenschaft",
@@ -17396,7 +17163,7 @@
       "crawledAt": "2026-06-12T22:25:57.584Z",
       "firstSeenAt": "2026-06-12T22:25:57.584Z",
       "titleByLocale": {
-        "en": "E-Commerce Manager: 80% - 100%",
+        "en": "E-Commerce Manager:in 80% - 100%",
         "de": "E-Commerce Manager:in 80% - 100%",
         "it": "Responsabile e-commerce: 80% - 100%",
         "fr": "Directeur du commerce électronique: 80% - 100%"
@@ -17452,7 +17219,8 @@
         "directeur-du-commerce-electronique-80-100-fust-oberburen-sankt-gallen",
         "responsabile-e-commerce-80-100-fust-oberburen-sankt-gallen",
         "e-commerce-manager-in-80-100-fust-oberburen-sankt-gallen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-d4h9qk",
