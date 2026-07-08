@@ -1,21 +1,19 @@
 {
   "key": "clinique-cic",
   "label": "Clinique CIC (Saxon & Clarens)",
-  "generatedAt": "2026-07-07T12:01:40.187Z",
+  "generatedAt": "2026-07-08T22:11:57.556Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2842,
-  "avgDurationMs": 2842,
+  "unchangedCount": 0,
+  "durationMs": 2590,
+  "avgDurationMs": 2590,
   "durationHistory": [
-    2842
+    2590
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "clinique-cic-d939678d4634",
       "slug": "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens",
@@ -29,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1d0e2f1b-a45f-4c33-8ad0-060c82928447/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:01:38.042Z",
+      "crawledAt": "2026-07-08T22:11:55.814Z",
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -53,5 +51,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
