@@ -1,19 +1,21 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-07-07T22:34:27.884Z",
+  "generatedAt": "2026-07-09T22:46:26.849Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4465,
-  "avgDurationMs": 4465,
+  "unchangedCount": 4,
+  "durationMs": 4485,
+  "avgDurationMs": 4485,
   "durationHistory": [
-    4465
+    4485
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
       "company": "Banca del Sempione",
@@ -117,7 +119,5 @@
         "completeness": 11
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
