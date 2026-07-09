@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-07-08T22:13:55.880Z",
+  "assembledAt": "2026-07-09T12:19:18.986Z",
   "jobs": [
     {
       "id": "company-1x4im",
@@ -486,12 +486,12 @@
           "techniker-in-fur-multimedia-gerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-ts51i2",
           "technician-in-for-multimedia-devices-fust-swiss-household-services-ag-oberburen-sankt-gallen"
         ],
+        "de": [
+          "techniker-in-fur-multimedia-gerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-ts51i2"
+        ],
         "fr": [
           "techniker-in-fur-multimedia-gerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-ts51i2",
           "technicien-pour-les-appareils-multimedias-fust-swiss-household-services-ag-oberburen-sankt-gallen"
-        ],
-        "de": [
-          "techniker-in-fur-multimedia-gerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-ts51i2"
         ]
       },
       "previousSlugs": [
@@ -519,7 +519,12 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
-      "country": "CH"
+      "country": "CH",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "San Gallo",
+        "canton": "SG"
+      }
     },
     {
       "id": "company-hb54v3",
@@ -567,6 +572,9 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau"
+        ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
           "sales-consultant-in-electrical-household-multimedia-80-100-fust-oftringen-aargau"
@@ -574,9 +582,6 @@
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
           "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-oftringen-aargau"
-        ],
-        "it": [
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau"
         ]
       },
       "previousSlugs": [
@@ -650,6 +655,9 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden"
+        ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-kv56l8",
           "sales-consultant-in-electrical-household-and-multimedia-fust-chur-graubunden"
@@ -657,9 +665,6 @@
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-kv56l8",
           "consultant-en-ventes-en-electromenager-et-multimedia-fust-chur-graubunden"
-        ],
-        "it": [
-          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden"
         ]
       },
       "previousSlugs": [
@@ -812,6 +817,9 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-disposition-und-kundenservice-fust-otelfingen-zurich"
+        ],
         "en": [
           "sachbearbeiter-in-disposition-und-kundenservice-fust-otelfingen-zurich-84fxnq",
           "personnel-in-disposition-and-customer-service-fust-otelfingen-zurich"
@@ -819,9 +827,6 @@
         "fr": [
           "sachbearbeiter-in-disposition-und-kundenservice-fust-otelfingen-zurich-84fxnq",
           "personnel-disposition-et-service-a-la-clientele-fust-otelfingen-zurich"
-        ],
-        "it": [
-          "sachbearbeiter-in-disposition-und-kundenservice-fust-otelfingen-zurich"
         ]
       },
       "previousSlugs": [
@@ -2102,7 +2107,7 @@
         "fr": "gestionnaire-de-magasins-100-f-m-d-marche-restaurants-schweiz-ag-dietlikon"
       },
       "titleByLocale": {
-        "en": "Store Manager 100% (f/m/d)",
+        "en": "Store Manager 100% (w/m/d)",
         "de": "Store Manager 100% (w/m/d)",
         "it": "Store Manager 100% (f/m/d)",
         "fr": "Gestionnaire de magasins 100% (f/m/d)"
@@ -2140,7 +2145,8 @@
       },
       "previousSlugs": [
         "store-manager-100-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-2dsp9l",
@@ -3500,7 +3506,7 @@
       "crawledAt": "2026-07-01T22:19:20.999Z",
       "firstSeenAt": "2026-07-01T22:19:20.999Z",
       "titleByLocale": {
-        "en": "Digital Content & Campaign Manager, 80-100 %",
+        "en": "Digital Content & Campaign Manager, 80-100%",
         "de": "Digital Content & Campaign Manager, 80-100%",
         "it": "Gestione dei contenuti digitali e delle campagne, 80-100 %",
         "fr": "Digital Content & Campaign Manager, 80-100 %"
@@ -3559,7 +3565,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-8p9fby",
@@ -4253,7 +4260,7 @@
         "fr": "Tâche\n\n- Assurer le bon fonctionnement de toutes les installations et installations techniques\n\n- Entretien, entretien et amélioration continue des infrastructures\n\n- Responsabilité en matière de sécurité opérationnelle et respect des exigences environnementales et de sécurité\n\n- Organisation du nettoyage, logistique et gestion des déchets\n\n- Soutien et entretien du matériel CVC, des véhicules et de la technologie de pisciculture\n\n- Achat de matériel, de machines et de matériel\n\nExigences\n\n- Formation technique de base (mécanicien de machines agricoles ou équivalent)\n\n- Expérience en matière d ' entretien technique et d ' achat d ' équipements et de machines\n\n- Méthode de travail indépendante, structurée et axée sur les solutions\n\n- Résilient physique, fiable et axé sur l'équipe\n\n- Comprendre les contrôles et l'automatisation\n\n- La connaissance de l'allemand en mots et en écriture\n\n- Forte compréhension technique et force de mise en œuvre pratique\n\n- Un haut sens des responsabilités dans les domaines de la sécurité, de la qualité et de l'environnement\n\n- Engagement, initiative et méthode de travail de réflexion\n\n- Apparence ouverte, serviable et professionnelle\n\n- Capacité de hiérarchiser les tâches et de suivre\n\nCe que nous offrons\n\n- Avantages: paquet alimentaire (boissons incluses)\n\n- Conditions d'emploi: conditions d'emploi attrayantes\n\n- Heures de travail: 5 semaines de congés\n\n- Formation : appui à la formation\n\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n\n- Communication : Environnement dynamique et axé sur l'équipe\n\n- Santé : milieux de travail ergonomiques\n\nVotre personne à contacter\nJenny Wüthrich\nChef des finances et des ressources humaines"
       },
       "slugByLocale": {
-        "it": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
+        "it": "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
         "en": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "de": "facility-techniker-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "fr": "facility-technicien-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
@@ -4262,11 +4269,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
         ]
       },
       "previousSlugs": [
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -4351,11 +4360,11 @@
       "postalCode": "8001",
       "country": "CH",
       "previousSlugsByLocale": {
-        "fr": [
-          "2nd-level-support-ingenieur-fust-otelfingen-zurich-3ogqm0"
-        ],
         "it": [
           "2nd-level-support-engineer-fust-otelfingen-zurich"
+        ],
+        "fr": [
+          "2nd-level-support-ingenieur-fust-otelfingen-zurich-3ogqm0"
         ]
       },
       "previousSlugs": [
@@ -5759,7 +5768,7 @@
       "titleByLocale": {
         "fr": "Coordonnateur de la production et administration (100 %)",
         "de": "Produktionskoordinator/in & Administration (100%)",
-        "it": "Coordinatore di produzione e amministrazione (100%)",
+        "it": "Produktionskoordinator/in & Administration (100%)",
         "en": "Production Coordinator & Administration (100%)"
       },
       "descriptionByLocale": {
@@ -5810,7 +5819,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-w1zgcb",
@@ -5858,14 +5868,14 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern"
+        ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern-w1zgcb"
         ],
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern-w1zgcb"
-        ],
-        "it": [
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern"
         ]
       },
       "previousSlugs": [
@@ -6351,12 +6361,12 @@
       "firstSeenAt": "2026-06-30T11:26:22.953Z",
       "slugByLocale": {
         "it": "risorse-umane-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
-        "en": "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
+        "en": "hr-officer-bale-hotels-group-balehotels-basel-basel-stadt",
         "de": "personalwesen-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
         "fr": "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9"
       },
       "titleByLocale": {
-        "fr": "Agent RH - Groupe Hôtels Bâle",
+        "fr": "HR-Sachbearbeiter*in - Bâle Hotels Group",
         "it": "Risorse Umane-Sachbearbeiter*in - Bâle Hotels Group",
         "de": "Personalwesen-Sachbearbeiter*in - Bâle Hotels Group",
         "en": "HR Officer - Bâle Hotels Group"
@@ -6372,6 +6382,7 @@
       "previousSlugsByLocale": {
         "en": [
           "hr-sachbearbeiter-in-bale-hotels-group-balehotels-basel-basel-stadt",
+          "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
           "hr-officer-bale-hotels-group-balehotels-basel-basel-stadt"
         ],
         "it": [
@@ -6381,6 +6392,7 @@
       "previousSlugs": [
         "hr-sachbearbeiter-in-bale-hotels-group-balehotels-basel-basel-stadt",
         "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt",
+        "hr-sachbearbeiter-in-bale-hotels-group-basel-stadt-gmp3p9",
         "hr-officer-bale-hotels-group-balehotels-basel-basel-stadt"
       ],
       "salaryMin": 62000,
@@ -6400,7 +6412,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-9q0bs6",
@@ -6716,7 +6729,8 @@
       },
       "previousSlugs": [
         "service-desk-analyst-coop-pronto-ag-allschwil-basel-landschaft"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-wu9scy",
@@ -7535,92 +7549,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3400",
-      "country": "CH"
-    },
-    {
-      "id": "company-dssn4",
-      "slug": "venditore-venditrice-progettista-cucine-bagni-fust-swiss-household-services-ag-rapperswil-jona",
-      "company": "Fust",
-      "title": "Verkäufer:in / Planer:in Küchen & Bäder",
-      "location": "Rapperswil-Jona, Sankt Gallen",
-      "canton": "SG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n\nAufgaben\n\n- Planung und Umsetzung von hochwertigen Küchen- und Badprojekten\n\n- Beratung und Verkauf von Küchen- und Badprodukten\n\n- Zusammenarbeit im Team mit Bauleiter:innen und Verkaufskolleg:innen\n\nAnforderungen\n\n- Abgeschlossene Berufsausbildung, idealerweise mit Verkaufserfahrung\n\n- Verkaufstalent und überzeugendes Auftreten\n\n- Führerschein Kategorie B\n\n- Selbständigkeit, Lösungsorientierung und Lernbereitschaft\n\nWas wir bieten\n\n- Anstellungsbedingungen : Attraktives leistungsorientiertes Gehalt, Sechsmonatige interne Fachausbildung, Faire und leistungsorientierte Löhne mit attraktivem Garantielohn\n\n- Vergünstigungen : Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's\n\n- Weiterbildung : Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten\n\n- Kommunikation & Kultur : DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n\n- Versicherungen : Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit\n\n- Ferien : Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub\n\n- Gesundheit : Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7\n\nDeine Ansprechpersonen bei Fust\n\nBianca Frischknecht\nHR Business Partner\n\nMattia Medde\nTeamleiter Recruiting",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://jobs.fust.ch/offene-stellen/verkaeufer-in-planer-in-kuechen-baeder/f1288e5e-ec42-4cda-9b56-6ba5e54ea750",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "San Gallo",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-29T22:14:00.097Z",
-      "firstSeenAt": "2026-06-29T22:14:00.097Z",
-      "titleByLocale": {
-        "de": "Verkäufer:in / Planer:in Küchen & Bäder",
-        "it": "Venditore:in / Planner:in cucine e bagni",
-        "en": "Seller:in / Planner:in Kitchens & Bathrooms",
-        "fr": "Vendeur:dans / Planificateur:dans Cuisines et Salles de bains"
-      },
-      "descriptionByLocale": {
-        "de": "Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n• Aufgaben - Planung und Umsetzung von hochwertigen Küchen- und Badprojekten - Beratung und Verkauf von Küchen- und Badprodukten - Zusammenarbeit im Team mit Bauleiter:innen und Verkaufskolleg:innen\n• Anforderungen - Abgeschlossene Berufsausbildung, idealerweise mit Verkaufserfahrung - Verkaufstalent und überzeugendes Auftreten - Führerschein Kategorie B - Selbständigkeit, Lösungsorientierung und Lernbereitschaft\n• Was wir bieten - Anstellungsbedingungen : Attraktives leistungsorientiertes Gehalt, Sechsmonatige interne Fachausbildung, Faire und leistungsorientierte Löhne mit attraktivem Garantielohn - Vergünstigungen : Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's - Weiterbildung : Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten - Kommunikation & Kultur : DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden - Versicherungen : Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit - Ferien : Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub - Gesundheit : Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7 Deine Ansprechpersonen bei Fust Bianca Frischknecht HR Business Partner Mattia Medde Teamleiter Recruiting",
-        "it": "La Svizzera compra a Fust! Siamo orgogliosi di essere leader in elettrodomestici, elettronica multimediale/intrattenimento e rimodellamento cucina e bagno, e con la nostra gamma completa di servizi e servizi unici creiamo un valore aggiunto reale! Diventa parte del nostro team e aiutaci a continuare a creare esperienze dei clienti! Un lavoro a Fust, ed è in esecuzione!\n\nCompiti\n\n- Progettazione e realizzazione di progetti di cucina e bagno di alta qualità\n\n- Consulenza e vendita di prodotti cucina e bagno\n\n- Collaborazione in un team con i direttori di costruzione: college interno e vendite:inside\n\nRequisiti\n\n- Formazione professionale completa, idealmente con esperienza di vendita\n\n- talento di vendita e l'aspetto convincente\n\n- Titolo di guida della categoria B\n\n- Indipendenza, orientamento della soluzione e disponibilità ad imparare\n\nCosa offriamo\n\n- Presupposti di lavoro: salario netto, formazione specialistica interna di sei mesi, salari equi e definiti-benefici con salario garantito attraente\n\n- Sconti: Sconti in vari formati di coop, 5 volte il numero di coop super points, Fino a 20% di sconto su vari servizi assicurativi, Abbonamenti mobili e prepagati a Coop Mobile, Reka Card: Sconti su abbonamento, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto sull'offerta di viaggio ITS Coop Travel, CHF 650.- Buono per l'acquisto di un GA FFS\n\n- Formazione: Formazione interna, sostegno all'istruzione e alla formazione esterna, opportunità di sviluppo\n\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n\n- Assicurazione: Fondo pensione: 2/3 è pagato da Coop (base), vari piani di risparmio presso il fondo pensione, generose e superobbligatorie prestazioni di assicurazione in caso di incidente e malattia\n\n- Vacanze: almeno 25 giorni di vacanza o secondo GAV valido, se possibile supporto per vacanze non pagate\n\n- Salute: Aggiornamento Fitness: CHF 200.- Sconto su abbonamento annuale, consulenza sociale aziendale gratuita e anonima 24/7\n\nI tuoi contatti a Fust\n\nBianca Frischknecht\nHR Business Partner\n\nMattia Medde\nReclutamento del Team Leader",
-        "en": "Switzerland buys at Fust! We are proud to be a leader in electrical household appliances, multimedia/entertainment electronics and kitchen and bathroom remodeling, and with our comprehensive range of services and unique services we create real added value! Become part of our team and help us continue to create customer experiences! A job at Fust, and it’s running!\n\nTasks\n\n- Planning and implementation of high-quality kitchen and bathroom projects\n\n- Advice and sales of kitchen and bathroom products\n\n- Collaboration in a team with construction managers:inside and sales college:inside\n\nRequirements\n\n- Completed vocational training, ideally with sales experience\n\n- Sales talent and convincing appearance\n\n- Category B driving licence\n\n- Independence, solution orientation and willingness to learn\n\nWhat we offer\n\n- Conditions of employment: Attractive defined-benefit salary, six-month internal specialist training, fair and defined-benefit wages with attractive guaranteed wage\n\n- Discounts : Discounts in various coop formats, 5 times the number of coop super points, Up to 20% discount on various insurance services, Cheap mobile and prepaid subscriptions at Coop Mobile, Reka Card: Discounts on subscription, staff discount also for partners:in (living in the same household), discount on the travel offer ITS Coop Travel, CHF 650.- Voucher for the purchase of an SBB GA's\n\n- Training : Internal training, support for external education and training, development opportunities\n\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n\n- Insurance : Pension fund: 2/3 is paid by Coop (base), various savings plans at the pension fund, generous and super-compulsory insurance benefits in case of accident and illness\n\n- Holidays : At least 25 days of holiday or according to valid GAV, if possible support for unpaid holidays\n\n- Health : Update Fitness: CHF 200.- Discount on annual subscription, free and anonymous company social consulting 24/7\n\nYour contact persons at Fust\n\nBianca Frischknecht\nHR Business Partner\n\nMattia Medde\nTeam Leader Recruitment",
-        "fr": "La Suisse achète chez Fust ! Nous sommes fiers d'être un leader dans les appareils électroménagers, l'électronique multimédia / divertissement et la rénovation de la cuisine et de la salle de bains, et grâce à notre gamme complète de services et de services uniques, nous créons une réelle valeur ajoutée! Faites partie de notre équipe et aidez-nous à continuer à créer des expériences client! Un boulot à Fust, et il court !\n\nTâches\n\n- Planification et mise en œuvre de projets de cuisine et de salle de bains de haute qualité\n\n- Conseils et ventes de produits de cuisine et de salle de bains\n\n- Collaboration au sein d'une équipe avec les responsables de la construction: à l'intérieur et au collège de vente: à l'intérieur\n\nExigences\n\n- Formation professionnelle terminée, idéalement avec expérience de vente\n\n- Les talents de vente et l'apparence convaincante\n\n- Permis de conduire de catégorie B\n\n- Indépendance, orientation de la solution et volonté d'apprendre\n\nCe que nous offrons\n\n- Conditions d'emploi: salaire à prestations définies attrayant, formation spécialisée interne de six mois, salaire équitable et à prestations définies avec salaire garanti attractif\n\n- Réductions : Réductions dans différents formats de coop, 5 fois le nombre de super points de coop, Jusqu'à 20% de réduction sur les différents services d'assurance, Abonnements mobiles et prépayés à bas prix chez Coop Mobile, Reka Card: Réductions sur l'abonnement, réduction personnel également pour les partenaires:in (habitant dans le même ménage), réduction sur l'offre voyage ITS Coop Travel, CHF 650.- Bon pour l'achat d'un CFF GA\n\n- Formation : formation interne, soutien à l'éducation et à la formation externes, possibilités de développement\n\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n\n- Assurance : Caisse de retraite : 2/3 est versée par Coop (base), divers régimes d'épargne à la caisse de retraite, prestations d'assurance généreuses et super-obligatoires en cas d'accident et de maladie\n\n- Jours fériés : Au moins 25 jours de vacances ou selon GAV valide, si possible soutien pour des vacances non rémunérées\n\n- Santé : Mise à jour Fitness : CHF 200.- Réduction sur abonnement annuel, conseil social gratuit et anonyme 24/7\n\nVos contacts chez Fust\n\nBianca Frischknecht\nPartenaire d'affaires RH\n\nMattia Medde\nRecrutement des chefs d'équipe"
-      },
-      "slugByLocale": {
-        "it": "venditore-venditrice-progettista-cucine-bagni-fust-swiss-household-services-ag-rapperswil-jona",
-        "en": "salesperson-kitchen-bathroom-designer-fust-swiss-household-services-ag-rapperswil-jona-0dssn4",
-        "de": "verkaufer-in-planer-in-kuchen-bader-fust-rapperswil-jona-sankt-gallen-0dssn4",
-        "fr": "vendeur-vendeuse-concepteur-conceptrice-cuisines-salles-de-bain-fust-swiss-household-services-ag-rapperswil-jona-0dssn4"
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-planer-in-kuchen-bader-fust-rapperswil-jona-sankt-gallen-0dssn4",
-          "venditore-in-planner-in-cucine-e-bagni-fust-rapperswil-jona-sankt-gallen",
-          "verkaufer-in-planer-in-kuchen-bader-fust-rapperswil-jona-sankt-gallen"
-        ],
-        "en": [
-          "verkaufer-in-planer-in-kuchen-bader-fust-rapperswil-jona-sankt-gallen-0dssn4",
-          "seller-in-planner-in-kitchens-bathrooms-fust-rapperswil-jona-sankt-gallen"
-        ],
-        "fr": [
-          "verkaufer-in-planer-in-kuchen-bader-fust-rapperswil-jona-sankt-gallen-0dssn4",
-          "vendeur-dans-planificateur-dans-cuisines-et-salles-de-bains-fust-rapperswil-jona-sankt-gallen"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-planer-in-kuchen-bader-fust-rapperswil-jona-sankt-gallen-0dssn4",
-        "seller-in-planner-in-kitchens-bathrooms-fust-rapperswil-jona-sankt-gallen",
-        "vendeur-dans-planificateur-dans-cuisines-et-salles-de-bains-fust-rapperswil-jona-sankt-gallen",
-        "venditore-in-planner-in-cucine-e-bagni-fust-rapperswil-jona-sankt-gallen",
-        "verkaufer-in-planer-in-kuchen-bader-fust-rapperswil-jona-sankt-gallen"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Rapperswil-Jona, Sankt Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8640",
       "country": "CH"
     },
     {
@@ -9917,7 +9845,8 @@
       },
       "previousSlugs": [
         "leiter-in-verkauf-und-marketing-retail-steinfels-swiss-winterthur-80-100-steinfels-swiss-winterthur-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-cjzk4b",
@@ -10169,7 +10098,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-lzkg1f",
@@ -10450,7 +10380,7 @@
       "crawledAt": "2026-06-25T11:12:18.568Z",
       "firstSeenAt": "2026-06-25T11:12:18.568Z",
       "titleByLocale": {
-        "en": "Purchasing Product Manager Sport / Mobility",
+        "en": "Purchasing Product Manager Sport / Mobilität",
         "de": "Purchasing Product Manager Sport / Mobilität",
         "it": "Acquisto Product Manager Sport / Mobilità",
         "fr": "Gestionnaire de produits d'achat Sport / Mobilité"
@@ -10503,7 +10433,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8305",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-mk74pe",
@@ -11060,7 +10991,7 @@
       "titleByLocale": {
         "it": "Elettricista di esercizio",
         "en": "Company electrician:in",
-        "de": "Betriebselektriker:in \"Intralogistik\"",
+        "de": "Betriebselektriker:in",
         "fr": "Entreprise électricien:in"
       },
       "descriptionByLocale": {
@@ -12779,7 +12710,7 @@
         "fr": "## Technicien de service: en Solutions Professionnelles\n\nServices ménagers suisses AG — Berne, Berne, Svizzera\n\n## La Suisse achète chez Fust ! Nous sommes fiers d'être un leader dans les appareils électroménagers, l'électronique multimédia / divertissement et la rénovation de la cuisine et de la salle de bains, et grâce à notre gamme complète de services et de services uniques, nous créons une réelle valeur ajoutée! Devenez membre de notre équipe et aidez-nous à continuer à créer des expériences client! Un boulot à Fust, et il court !\n\n## Tâche\n- Planification, installation et configuration des produits Fust-Professional Solutions (systèmes de surveillance vidéo, solutions d'affichage numérique, systèmes d'adresses publiques, systèmes de télécommunications, systèmes d'alarme d'intrusion et appareils électroniques grand public)\n- Enregistrement et rectification des incidents\n- Préparation et installation de nouvelles installations\n- Formation opérationnelle des clients\n- Facturation des services dans le système\n\n## Exigences\n- Formation professionnelle technique terminée\n- Spécialisation dans les systèmes d'adresses publiques\n- Les compétences allemandes, italiennes seraient d'un grand avantage\n- Permis de conduire de catégorie B\n- Préparation aux affectations en dehors des heures normales de bureau\n\n## Ce que nous offrons\n- Conditions d'emploi: horaires flexibles, salaire fixe attractif avec supplément, primes de performance, indemnité forfaitaire, véhicule d'entreprise pour usage privé\n- Réductions: Réductions dans différents formats de coop, 5 fois le nombre de super points de coop, Jusqu'à 20% de réduction sur divers services d'assurance, Abonnements mobiles et prépayés à bas prix chez Coop Mobile, Reka Card: Réductions sur l'abonnement, réduction personnel également pour les partenaires: en (habitant dans le même ménage), réduction sur l'offre voyage ITS Coop Travel, CHF 650.- Bon pour l'achat d'un CFF GA\n- Formation: formation interne, soutien à la formation externe, possibilités de développement\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Assurances: Caisse de retraite: 2/3 est payé par Coop (base), divers plans d'épargne à la caisse de retraite, prestations d'assurance généreuses et super-obligatoires en cas d'accident et de maladie\n- Vacances: Au moins 25 jours de congé ou selon le GAV valide, si possible soutien pour les congés non payés\n- Santé : mise à jour de la condition physique : CHF 200.- Réduction sur l'abonnement annuel, conseil social gratuit et anonyme 24/7\nVos personnes de contact chez Fust\nTanja Voser\nResponsable des partenariats d'affaires\nSteven Vivre\nSpécialiste du recrutement\n\nTipo: Temps plein\nSécurité : Belgique"
       },
       "slugByLocale": {
-        "it": "servicetechniker-in-professional-solutions-fust-bern",
+        "it": "tecnico-di-servizio-in-soluzioni-professionali-fust-bern",
         "en": "service-technician-in-professional-solutions-fust-swiss-household-services-ag-bern",
         "de": "servicetechniker-in-professional-solutions-fust-bern-3qkfr2",
         "fr": "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-bern"
@@ -13632,7 +13563,7 @@
         "fr": "gestionnaire-d-applications-dans-sap-operations-senior-interdiscount-jegenstorf"
       },
       "titleByLocale": {
-        "en": "Application Manager: in SAP Operations Senior",
+        "en": "Applikations-Manager:in SAP Operations Senior",
         "de": "Applikations-Manager:in SAP Operations Senior",
         "it": "Application Manager:in SAP Operations Senior",
         "fr": "Gestionnaire d'applications : dans SAP Operations Senior"
@@ -13679,7 +13610,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-6unibn",
@@ -13847,7 +13779,7 @@
       "firstSeenAt": "2026-06-20T11:06:56.219Z",
       "titleByLocale": {
         "de": "Ferienaushilfen Sommer 2026",
-        "it": "Indennità di vacanza Estate 2026",
+        "it": "Ferienaushilfen Sommer 2026",
         "en": "Holiday allowances Summer 2026",
         "fr": "Indemnités de vacances Été 2026"
       },
@@ -13904,7 +13836,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3600",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-n63zcr",
@@ -17149,7 +17082,7 @@
       "crawledAt": "2026-06-12T22:25:57.584Z",
       "firstSeenAt": "2026-06-12T22:25:57.584Z",
       "titleByLocale": {
-        "en": "E-Commerce Manager: 80% - 100%",
+        "en": "E-Commerce Manager:in 80% - 100%",
         "de": "E-Commerce Manager:in 80% - 100%",
         "it": "Responsabile e-commerce: 80% - 100%",
         "fr": "Directeur du commerce électronique: 80% - 100%"
@@ -17205,97 +17138,8 @@
         "directeur-du-commerce-electronique-80-100-fust-oberburen-sankt-gallen",
         "responsabile-e-commerce-80-100-fust-oberburen-sankt-gallen",
         "e-commerce-manager-in-80-100-fust-oberburen-sankt-gallen"
-      ]
-    },
-    {
-      "id": "company-d4h9qk",
-      "slug": "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-d4h9qk",
-      "company": "Fust | Swiss Household Services AG",
-      "title": "Monteur für den Austausch von Kücheneinbaugeräten",
-      "location": "Burgdorf, Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n\nAufgaben\n\n- Fachgerechte Lieferung und Installation von Kücheneinbaugeräten\n\n- Rücknahme und umweltgerechte Entsorgung ausgedienter Geräte\n\n- Freundliches und professionelles Auftreten bei unserer Privatkundschaft\n\nAnforderungen\n\n- Erfolgreich abgeschlossene Berufsausbildung als Elektroinstallateur :in EFZ oder Berufserfahrung in diesem Bereich\n\n- Verhandlungssichere Deutschkenntnisse (mind. Niveau B2)\n\n- NIV 15-Bewilligung von Vorteil\n\n- Führerschein der Kategorie B\n\n- Kunden- und Dienstleistungsorientierung\n\nWas wir bieten\n\n- Anstellungsbedingungen : Flexible Arbeitszeiten, Attraktives Fixgehalt, Pauschale Spesenvergütung, Firmenfahrzeug zur privaten Nutzung\n\n- Vergünstigungen : Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's\n\n- Weiterbildung : Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten\n\n- Kommunikation & Kultur : DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n\n- Versicherungen : Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit\n\n- Ferien : Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub\n\n- Gesundheit : Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7\n\nDeine Ansprechpersonen bei Fust\n\nRéal Essellier\nHR Business Partner\n\nHélène Lelaure\nRecruiting Specialist",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-06-12",
-      "url": "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/bd046326-bdc3-42a1-8698-102757f72472",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-12T12:11:37.141Z",
-      "firstSeenAt": "2026-06-12T12:11:37.141Z",
-      "titleByLocale": {
-        "de": "Monteur für den Austausch von Kücheneinbaugeräten",
-        "it": "Monteur per den Austausch von Kücheneinbaugeräten",
-        "en": "Installers for the replacement of built-in kitchen appliances",
-        "fr": "Installateurs pour le remplacement des appareils de cuisine intégrés"
-      },
-      "descriptionByLocale": {
-        "de": "Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n• Aufgaben - Fachgerechte Lieferung und Installation von Kücheneinbaugeräten - Rücknahme und umweltgerechte Entsorgung ausgedienter Geräte - Freundliches und professionelles Auftreten bei unserer Privatkundschaft\n• Anforderungen - Erfolgreich abgeschlossene Berufsausbildung als Elektroinstallateur :in EFZ oder Berufserfahrung in diesem Bereich - Verhandlungssichere Deutschkenntnisse (mind. Niveau B2) - NIV 15-Bewilligung von Vorteil - Führerschein der Kategorie B - Kunden- und Dienstleistungsorientierung\n• Was wir bieten - Anstellungsbedingungen : Flexible Arbeitszeiten, Attraktives Fixgehalt, Pauschale Spesenvergütung, Firmenfahrzeug zur privaten Nutzung - Vergünstigungen : Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's - Weiterbildung : Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten - Kommunikation & Kultur : DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden - Versicherungen : Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit - Ferien : Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub - Gesundheit : Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7 Deine Ansprechpersonen bei Fust Réal Essellier HR Business Partner Hélène Lelaure Recruiting Specialist",
-        "it": "La Svizzera compra a Fust! Siamo orgogliosi di essere leader in elettrodomestici, elettronica multimediale/entertainment e rimodellamento cucina e bagno, e con la nostra gamma completa di servizi e servizi unici creiamo un valore aggiunto reale! Diventa parte del nostro team e aiutaci a continuare a creare esperienze dei clienti! Un lavoro a Fust, ed è in esecuzione!\n\nCompiti\n\n- Consegna professionale e installazione di attrezzature da cucina integrate\n\n- Ritiro e smaltimento ambientale di apparecchiature dismesse\n\n- approccio amichevole e professionale ai nostri clienti privati\n\nRequisiti\n\n- Formazione professionale completata con successo come installatore elettrico: in EFZ o esperienza professionale in questo settore\n\nConoscenza negoziante del tedesco (livello minimo B2)\n\n- NIV 15 approvazione del vantaggio\n\n- Titolo di guida della categoria B\n\n- orientamento clienti e servizi\n\nCosa offriamo\n\n- Condizioni di lavoro: Orario di lavoro flessibile, salario fisso attraente, indennità forfettaria, veicolo aziendale per uso privato\n\n- Sconti: Sconti in diversi formati di coop, 5 volte il numero di superpoint coop, fino al 20% di sconto su vari servizi assicurativi, Abbonamenti mobili e prepagati economici a Coop Mobile, Reka Card: Sconti su abbonamento, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto sull'offerta di viaggio ITS Coop Travel, CHF 650.- Buono per l'acquisto di un GA FFS\n\n- Educazione complementare: formazione interna, sostegno all'istruzione e alla formazione esterna, opportunità di sviluppo\n\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n\n- Assicurazione: Fondo pensione: 2/3 è pagato da Coop (base), vari piani di risparmio presso il fondo pensione, generose e superobbligatorie prestazioni di assicurazione in caso di incidente e malattia\n\n- Vacanze: Almeno 25 giorni di vacanza o secondo GAV valido, se possibile supporto per vacanze non pagate\n\n- Salute: Aggiornamento Fitness: CHF 200.- Sconto su abbonamento annuale, consulenza sociale aziendale gratuita e anonima 24/7\n\nI tuoi contatti a Fust\n\nRéal Essellier\nHR Business Partner\n\nHélène Lelaure\nSpecialista di reclutamento",
-        "en": "Switzerland buys at Fust! We are proud to be a leader in electrical household appliances, multimedia/entertainment electronics and kitchen and bathroom remodeling, and with our comprehensive range of services and unique services we create real added value! Become part of our team and help us continue to create customer experiences! A job at Fust, and it’s running!\n\nTasks\n\n- Professional delivery and installation of built-in kitchen equipment\n\n- Take-back and environmentally sound disposal of disused equipment\n\n- Friendly and professional approach to our private customers\n\nRequirements\n\n- Successfully completed vocational training as an electrical installer : in EFZ or professional experience in this area\n\nNegotiating knowledge of German (minor level B2)\n\n- NIV 15 approval of advantage\n\n- Category B driving licence\n\n- Customer and service orientation\n\nWhat we offer\n\n- Conditions of employment: Flexible working hours, attractive fixed salary, flat-rate allowance, company vehicle for private use\n\n- Discounts : Discounts in different coop formats, 5 times the number of coop superpoints, Up to 20% discount on various insurance services, Cheap mobile and prepaid subscriptions at Coop Mobile, Reka Card: Discounts on subscription, staff discount also for partners:in (living in the same household), discount on the travel offer ITS Coop Travel, CHF 650.- Voucher for the purchase of an SBB GA's\n\n- Further education : internal training, support for external education and training, development opportunities\n\n- Communication & culture : DU culture throughout the company, orientation towards common values, internal app for communication with employees\n\n- Insurance : Pension fund: 2/3 is paid by Coop (base), various savings plans at the pension fund, generous and super-compulsory insurance benefits in case of accident and illness\n\n- Holidays : At least 25 days holiday or according to valid GAV, if possible support for unpaid holidays\n\n- Health : Update Fitness: CHF 200.- Discount on annual subscription, free and anonymous company social consulting 24/7\n\nYour contact persons at Fust\n\nRéal Essellier\nHR Business Partner\n\nHélène Lelaure\nRecruitment Specialist",
-        "fr": "La Suisse achète chez Fust ! Nous sommes fiers d'être un leader dans les appareils électroménagers, l'électronique multimédia / divertissement et la rénovation de la cuisine et de la salle de bains, et grâce à notre gamme complète de services et de services uniques, nous créons une réelle valeur ajoutée! Faites partie de notre équipe et aidez-nous à continuer à créer des expériences client! Un boulot à Fust, et il court !\n\nTâches\n\n- Livraison professionnelle et installation de matériel de cuisine intégré\n\n- Prise en charge et élimination écologiquement rationnelle des équipements désaffectés\n\n- Approche conviviale et professionnelle de nos clients privés\n\nExigences\n\n- Formation professionnelle réussie en tant qu'installateur électrique : en EFZ ou expérience professionnelle dans ce domaine\n\nConnaissance de l'allemand (niveau B2)\n\n- NIV 15 approbation de l'avantage\n\n- Permis de conduire de catégorie B\n\n- Orientation client et service\n\nCe que nous offrons\n\n- Conditions d'emploi: horaires flexibles, salaire fixe attractif, allocation forfaitaire, véhicule d'entreprise à usage privé\n\n- Réductions : Réductions dans différents formats de coop, 5 fois le nombre de superpoints de coop, Jusqu'à 20% de réduction sur les différents services d'assurance, Abonnements mobiles et prépayés à bas prix chez Coop Mobile, Reka Card: Réductions sur abonnement, réduction personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'offre voyage ITS Coop Travel, CHF 650.- Bon pour l'achat d'un CFF GA\n\n- Formation continue : formation interne, soutien à l'éducation et à la formation externes, possibilités de développement\n\n- Communication & culture : culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n\n- Assurance : Caisse de retraite : 2/3 est versée par Coop (base), divers plans d'épargne à la caisse de retraite, prestations d'assurance généreuses et super-obligatoires en cas d'accident et de maladie\n\n- Vacances : Au moins 25 jours de vacances ou selon GAV valide, si possible soutien pour les vacances non rémunérées\n\n- Santé : mise à jour fitness : CHF 200.- Réduction sur abonnement annuel, conseil social gratuit et anonyme 24/7\n\nVos contacts chez Fust\n\nRéal Essellier\nPartenaire d'affaires RH\n\nHélène Lelaure\nSpécialiste du recrutement"
-      },
-      "slugByLocale": {
-        "it": "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-d4h9qk",
-        "en": "installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-burgdorf",
-        "de": "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-d4h9qk",
-        "fr": "installateurs-pour-le-remplacement-des-appareils-de-cuisine-integres-fust-swiss-household-services-ag-burgdorf"
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern",
-          "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-d4h9qk",
-          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern"
-        ],
-        "en": [
-          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-d4h9qk",
-          "installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-burgdorf-bern"
-        ],
-        "de": [
-          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-d4h9qk"
-        ],
-        "fr": [
-          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-d4h9qk",
-          "installateurs-pour-le-remplacement-des-appareils-de-cuisine-integres-fust-swiss-household-services-ag-burgdorf-bern"
-        ]
-      },
-      "previousSlugs": [
-        "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern",
-        "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-d4h9qk",
-        "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-d4h9qk",
-        "installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-burgdorf-bern",
-        "installateurs-pour-le-remplacement-des-appareils-de-cuisine-integres-fust-swiss-household-services-ag-burgdorf-bern",
-        "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Burgdorf, Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "3400",
-      "country": "CH",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Berna",
-        "canton": "BE"
-      }
+      "needsRetranslation": true
     },
     {
       "id": "company-1wfhth",
@@ -17385,79 +17229,6 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-ilanz-glion-graubunden",
         "venditore-in-food-coop-genossenschaft-ilanz-glion-graubunden",
         "verkaufer-in-food-coop-genossenschaft-ilanz-glion-graubunden"
-      ]
-    },
-    {
-      "id": "company-13yq1p",
-      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-13yq1p",
-      "company": "Fust",
-      "title": "Montatore/trice di impianti sanitari per cucine & bagni",
-      "location": "Bellinzona, Ticino",
-      "canton": "TI",
-      "category": "health",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "In Svizzera si acquista da Fust! Siamo orgogliosi di essere un fornitore leader nei settori: elettrodomestici, multimedia/elettronica di consumo, oltre alle ristrutturazioni di cucine e bagni. Grazie alla nostra ampia offerta di servizi, alcuni dei quali esclusivi, creiamo un vero valore aggiunto! Diventa parte del nostro team e contribuisci a creare ulteriori esperienze positive con la nostra clientela! Un lavoro da Fust, e fila tutto liscio!\n\nMansioni\n\n- Installazione professionale di bagni e cucine di alta qualità\n\n- Realizzazione di piccole ristrutturazioni e riparazioni di bagni\n\n- Attitudine cordiale e professionale nei confronti della nostra clientela privata\n\nRequisiti\n\n- Formazione di Installatore di impianti sanitari AFC o di Addetto agli impianti sanitari CFP con esperienza professionale\n\n- Residenza in Svizzera\n\n- Buon livello di tedesco (mind. B2)\n\n- Patente di guida categoria B\n\nCosa ti offriamo\n\n- Agevolazioni : Sconti in vari formati Coop, Quintuplicazione dei Superpunti Coop, Fino al 20% di sconto su diverse prestazioni assicurative, Abbonamenti mobili e prepaid Coop Mobile più convenienti, Reka-Card: Sconti all'acquisto, Sconto per il personale anche per il/la partner (che vive nella stessa abitazione), Sconto sull'offerta di viaggi di ITS Coop Travel, CHF 650.- Buono per l'acquisto di un abbonamento FFS GA\n\n- Perfezionamento : Formazioni interni, Sostegno per formazione e perfezionamenti esterni, Opportunità di sviluppo\n\n- Comunicazione & Cultura : Cultura del \"tu\" in tutta l'impresa, Orientamento ai valori condivisi, App interna per la comunicazione con il personale\n\n- Assicurazione : Cassa pensione: 2/3 versato da Coop (base), Diversi piani di risparmio presso la cassa pensioni, Prestazioni assicurative generose e sovraobbligatorie in caso di incidenti e malattie\n\n- Vacanze : Almeno 25 giorni di ferie o secondo il contratto collettivo di lavoro vigente, Se possibile, supporto in caso di congedo non pagato\n\n- Salute : Update Fitness: Sconto di Sfr. 200.- sull'abbonamento annuale, Consulenza sociale aziendale gratuita e anonima 24/7\n\nLe tue persone di contatto presso Fust\n\nRéal Essellier\nHR Business Partner\n\nHélène Lelaure\nRecruiting Specialist",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-06-12",
-      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/c9a27775-39f7-45a4-8a42-5d6a17392ac6",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-12T12:11:37.141Z",
-      "firstSeenAt": "2026-06-12T12:11:37.141Z",
-      "titleByLocale": {
-        "it": "Montatore/trice di impianti sanitari per cucine & bagni",
-        "en": "Fitter/trice of sanitary facilities for kitchens & bathrooms",
-        "de": "Sanitärausstattung für Küchen und Badezimmer",
-        "fr": "Équipement sanitaire pour cuisines et salles de bains"
-      },
-      "descriptionByLocale": {
-        "it": "In Svizzera si acquista da Fust! Siamo orgogliosi di essere un fornitore leader nei settori: elettrodomestici, multimedia/elettronica di consumo, oltre alle ristrutturazioni di cucine e bagni. Grazie alla nostra ampia offerta di servizi, alcuni dei quali esclusivi, creiamo un vero valore aggiunto! Diventa parte del nostro team e contribuisci a creare ulteriori esperienze positive con la nostra clientela! Un lavoro da Fust, e fila tutto liscio! Mansioni - Installazione professionale di bagni e cucine di alta qualità - Realizzazione di piccole ristrutturazioni e riparazioni di bagni - Attitudine cordiale e professionale nei confronti della nostra clientela privata\n• Requisiti - Formazione di Installatore di impianti sanitari AFC o di Addetto agli impianti sanitari CFP con esperienza professionale - Residenza in Svizzera - Buon livello di tedesco (mind. B2) - Patente di guida categoria B Cosa ti offriamo - Agevolazioni : Sconti in vari formati Coop, Quintuplicazione dei Superpunti Coop, Fino al 20% di sconto su diverse prestazioni assicurative, Abbonamenti mobili e prepaid Coop Mobile più convenienti, Reka-Card: Sconti all'acquisto, Sconto per il personale anche per il/la partner (che vive nella stessa abitazione), Sconto sull'offerta di viaggi di ITS Coop Travel, CHF 650.- Buono per l'acquisto di un abbonamento FFS GA - Perfezionamento : Formazioni interni, Sostegno per formazione e perfezionamenti esterni, Opportunità di sviluppo - Comunicazione & Cultura : Cultura del \"tu\" in tutta l'impresa, Orientamento ai valori condivisi, App interna per la comunicazione con il personale - Assicurazione : Cassa pensione: 2/3 versato da Coop (base), Diversi piani di risparmio presso la cassa pensioni, Prestazioni assicurative generose e sovraobbligatorie in caso di incidenti e malattie - Vacanze : Almeno 25 giorni di ferie o secondo il contratto collettivo di lavoro vigente, Se possibile, supporto in caso di congedo non pagato - Salute : Update Fitness: Sconto di Sfr. 200.- sull'abbonamento annuale, Consulenza sociale aziendale gratuita e anonima 24/7 Le tue persone di contatto presso Fust Réal Essellier HR Business Partner Hélène Lelaure Recruiting Specialist",
-        "en": "In Switzerland you buy from Fust! We are proud to be a leading supplier in the sectors: household appliances, multimedia/electronics, as well as renovations of kitchens and bathrooms. Thanks to our wide range of services, some of which are exclusive, we create a real added value! Become part of our team and help create more positive experiences with our customers! A job at Fust, and it's all right.\n\nShipments\n\n- Professional installation of high quality bathrooms and kitchens\n\n- Construction of small renovations and repairs of bathrooms\n\n- Friendly and professional attitude towards our private customers\n\nRequirements\n\n- Training of AFC or CFP health plant installer with professional experience\n\n- Residence in Switzerland\n\n- Good German level (mind. B2)\n\n- Driving licence category B\n\nWhat we offer\n\n- Facilities : Discounts in various Coop formats, Completion of Coop Superpunti, Up to 20% discount on different insurance benefits, Mobile subscriptions and prepaid Coop Mobile more affordable, Reka-Card: Discounts for purchase, Discount for staff also for the partner (who lives in the same house), Discount on the offer of travel of ITS Coop Travel, CHF 650.- Good for purchase of a FFS GA subscription\n\n- Perfection : Internal training, Support for external training and improvement, Development opportunities\n\n- Communication & Culture : Culture of \"you\" throughout the enterprise, Guide to shared values, Internal communication app with staff\n\n- Insurance : Pension fund: 2/3 paid by Coop (base), Several savings plans at the pension fund, generous insurance benefits and survivors in case of accidents and diseases\n\n- Holidays: At least 25 days of holiday or according to the collective agreement in force, If possible, support in case of unpaid leave\n\n- Health: Update Fitness: Discount of Sfr. 200.- on annual subscription, Free Corporate Social Advice and Anonymous 24/7\n\nYour contact persons at Fust\n\nRéal Essellier\nHR Business Partner\n\nRecruiting Specialist",
-        "de": "In der Schweiz kaufen Sie bei Fust! Wir sind stolz darauf, ein führender Anbieter in den Bereichen zu sein: Haushaltsgeräte, Multimedia/Elektronik sowie Renovierungen von Küchen und Badezimmern. Dank unserer breiten Palette an Dienstleistungen, von denen einige exklusiv sind, schaffen wir einen echten Mehrwert! Werden Sie Teil unseres Teams und schaffen Sie mehr positive Erfahrungen mit unseren Kunden! Ein Job bei Fust, und es ist in Ordnung.\n\nSendungen\n\n- Professionelle Installation von hochwertigen Badezimmern und Küchen\n\n- Bau von kleinen Renovierungen und Reparaturen von Badezimmern\n\n- Freundliche und professionelle Einstellung gegenüber unseren Privatkunden\n\nAnforderungen\n\n- Ausbildung von AFC oder CFP Gesundheitsanlagen Installateur mit Berufserfahrung\n\n- Wohnsitz in der Schweiz\n\n- Gutes deutsches Niveau (mind. B2)\n\nFührerscheinkategorie B\n\nWas wir bieten\n\n- Einrichtungen : Rabatte in verschiedenen Coop-Formaten, Abschluss von Coop Superpunti, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Mobile Abonnements und Prepaid Coop Mobile günstiger, Reka-Card: Rabatte zum Kauf, Rabatt für Mitarbeiter auch für den Partner (der im selben Haus wohnt), Rabatt auf das Reiseangebot von ITS Coop Travel, CHF 650.- Gut für den Kauf eines FFS GA-Abonnements\n\n- Perfektion : Internes Training, Unterstützung für externes Training und Verbesserung, Entwicklungsmöglichkeiten\n\n- Kommunikation & Kultur: Kultur von \"Sie\" im gesamten Unternehmen, Leitfaden für gemeinsame Werte, interne Kommunikations-App mit Mitarbeitern\n\n- Versicherung : Pensionskasse: 2/3 von Coop bezahlt (Basis), Mehrere Sparpläne bei der Pensionskasse, großzügige Versicherungsleistungen und Überlebende bei Unfällen und Krankheiten\n\n- Urlaub: Mindestens 25 Urlaubstage oder gemäß geltendem Tarifvertrag, wenn möglich, Unterstützung bei unbezahltem Urlaub\n\n- Gesundheit: Update Fitness: Rabatt von Sfr. 200.- auf Jahresabonnement, kostenlose Corporate Social Advice und Anonymous 24/7\n\nIhre Ansprechpartner bei Fust\n\nRéal Essellier\nHR Geschäftspartner\n\nRecruiting Spezialist",
-        "fr": "En Suisse vous achetez chez Fust! Nous sommes fiers d'être un fournisseur de premier plan dans les secteurs : électroménager, multimédia/électronique, ainsi que des rénovations de cuisines et de salles de bains. Grâce à notre large gamme de services, dont certains sont exclusifs, nous créons une réelle valeur ajoutée ! Faites partie de notre équipe et aidez à créer des expériences plus positives avec nos clients! Un boulot à Fust, et ça va.\n\nExpéditions\n\n- Installation professionnelle de salles de bains et de cuisines de haute qualité\n\n- Construction de petites rénovations et réparation de salles de bains\n\n- Attitude amicale et professionnelle envers nos clients privés\n\nExigences\n\n- Formation d'installateurs d'installations sanitaires AFC ou CFP avec une expérience professionnelle\n\n- Résidence en Suisse\n\n- Bon niveau allemand (mention B2)\n\n- Permis de conduire de catégorie B\n\nCe que nous offrons\n\n- Équipements : Réductions en différents formats Coop, Achèvement de Coop Superpunti, Jusqu'à 20% de réduction sur différentes prestations d'assurance, Abonnements Mobile et Coop Mobile prépayés plus abordables, Reka-Card: Réductions à l'achat, Remise pour le personnel également pour le partenaire (qui vit dans la même maison), Réduction sur l'offre de voyage de ITS Coop Travel, CHF 650.- Bon pour l'achat d'un abonnement FFS GA\n\n- Perfection : Formation interne, Soutien à la formation et à l'amélioration externe, Possibilités de développement\n\n- Communication & Culture : Culture de \"vous\" dans toute l'entreprise, Guide des valeurs partagées, App en communication interne avec le personnel\n\n- Assurance : Caisse de retraite : 2/3 versée par Coop (base), Plusieurs plans d'épargne à la caisse de retraite, prestations d'assurance généreuses et survivants en cas d'accident et de maladie\n\n- Jours fériés: Au moins 25 jours de congé ou selon la convention collective en vigueur, si possible, soutien en cas de congé non payé\n\n- Santé: Mise à jour Fitness: Réduction de Sfr. 200.- sur abonnement annuel, Conseil social d'entreprise gratuit et anonyme 24/7\n\nVos contacts chez Fust\n\nRéal Essellier\nPartenaire d'affaires RH\n\nSpécialiste du recrutement"
-      },
-      "slugByLocale": {
-        "it": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-13yq1p",
-        "en": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-13yq1p",
-        "de": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-13yq1p",
-        "fr": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-13yq1p"
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "it",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70500,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona, Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "previousSlugsByLocale": {
-        "it": [
-          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino"
-        ]
-      },
-      "previousSlugs": [
-        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino"
       ]
     },
     {
@@ -18339,103 +18110,6 @@
       "country": "CH",
       "streetAddress": "",
       "retranslationAttempts": 0
-    },
-    {
-      "id": "company-m9fk7m",
-      "slug": "verkaufer-in-kassen-services-coop-aarau-aargau-m9fk7m",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Kassen/Services",
-      "location": "Aarau, Aargau",
-      "canton": "AG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Die Kasse ist dein Revier, hier sorgst du für gute Stimmung und einen reibungslosen Ablauf.\n\n- Du stellst sicher, dass sämtliche Prozesse und Regelungen eingehalten werden.\n\n- Im Teamwork unterstützt du auch deine Kolleginnen und Kollegen in anderen Bereichen.\n\nAnforderungen\n\n- Wir freuen uns auf deine Erfahrung im Verkaufsbereich.\n\n- Du leistest vollen Einsatz und bist bereit, Dienstleistungen zu erbringen.\n\n- Flexibilität ist dir auch bei den Einsatzzeiten wichtig.\n\n- Deutsch beherrschst du mündlich und schriftlich gut.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n\n- Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n\n- Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle\n\n- Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation : interne App für Mitarbeitende\n\n- Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nValeria Mazziari Randazzo\nHR Marketing",
-      "requirements": [
-        "Im Teamwork unterstützt du auch deine Kolleginnen und Kollegen in anderen Bereichen.",
-        "Deutsch beherrschst du mündlich und schriftlich gut."
-      ],
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/35b2a3a7-f09f-465f-a0db-ef72ca535544",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-10T22:45:03.941Z",
-      "firstSeenAt": "2026-06-10T22:45:03.941Z",
-      "titleByLocale": {
-        "de": "Verkäufer:in Kassen/Services",
-        "it": "Venditore:in cassa/servizi",
-        "en": "Seller:in cash registers/services",
-        "fr": "Vendeur:dans les caisses enregistreuses/services"
-      },
-      "descriptionByLocale": {
-        "de": "Aufgaben - Die Kasse ist dein Revier, hier sorgst du für gute Stimmung und einen reibungslosen Ablauf. - Du stellst sicher, dass sämtliche Prozesse und Regelungen eingehalten werden. - Im Teamwork unterstützt du auch deine Kolleginnen und Kollegen in anderen Bereichen.\n• Anforderungen - Wir freuen uns auf deine Erfahrung im Verkaufsbereich. - Du leistest vollen Einsatz und bist bereit, Dienstleistungen zu erbringen. - Flexibilität ist dir auch bei den Einsatzzeiten wichtig. - Deutsch beherrschst du mündlich und schriftlich gut. - Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten - Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub - Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle - Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop - Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten - Kommunikation : interne App für Mitarbeitende - Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote Deine Ansprechperson Valeria Mazziari Randazzo HR Marketing",
-        "it": "Compiti\n\n- Il registro di cassa è il vostro territorio, qui si assicura un buon umore e un processo liscio.\n\n- Si assicura che tutti i processi e le normative siano rispettati.\n\n- Nel lavoro di squadra, supporta anche i tuoi colleghi in altre aree.\n\nRequisiti\n\n- Non vediamo l'ora della tua esperienza nell'area vendite.\n\n- Siete completamente impegnati e pronti a fornire servizi.\n\n- La flessibilità è anche importante per voi quando si tratta di tempi di distribuzione.\n\n- Lei padroneggia il tedesco bene verbalmente e per iscritto.\n\n- Sconti: Sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati su Coop Mobile, Reka Card: Sconto sull'acquisto, Sconto sulla Mobility CarSharing, Sconto personale anche per i partner:in (vivere nella stessa famiglia), Sconti su abbonamento GA, Sconti sugli eventi culturali\n\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni di lavoro e parità di retribuzione certificata, premi di fedeltà, piano di risparmio del Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n\n- Tempo di lavoro: 5 settimane di ferie, modelli di tempo di lavoro flessibili\n\n- Formazione complementare: più di 600 corsi di formazione interna, gestione dei talenti con diverse opportunità di sviluppo, formazione e ulteriori offerte di istruzione della L-GAV e della Coop\n\nSostenibilità: Impegno a persone, animali e natura con oltre 400 azioni\n\n- Comunicazione: applicazione interna dei lavoratori\n\n- Salute: Aggiornamento Fitness: Fr. 200.- Sconto su abbonamento annuale, partecipazione gratuita a varie piste aziendali, offerte sportive interne\n\nLa persona di contatto\nValeria Mazziari Randazzo\nHR Marketing",
-        "en": "Tasks\n\n- The cash register is your territory, here you ensure a good mood and a smooth process.\n\n- You ensure that all processes and regulations are adhered to.\n\n- In teamwork, you also support your colleagues in other areas.\n\nRequirements\n\n- We look forward to your experience in the sales area.\n\n- You are fully committed and ready to provide services.\n\n- Flexibility is also important to you when it comes to deployment times.\n\n- You master German well verbally and in writing.\n\n- Discounts : Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: Discount on purchase, Discount on Mobility CarSharing, Personal discount also for partners:in (living in the same household), Discount on GA subscription, Discounts on cultural events, Discounts for leisure activities\n\n- Conditions of Employment : Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Loyalty Premiums, Pension Fund Savings Plan, Total Employment Contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave\n\n- Working time : 5 weeks holidays, flexible working time models\n\n- Further education : More than 600 internal training courses, talent management with diverse development opportunities, training and further education offers of the L-GAV and Coop\n\nSustainability: Commitment to people, animals and nature with more than 400 actions\n\n- Communication : internal app for employees\n\n- Health : Update Fitness: Fr. 200.- Discount on annual subscription, free participation in various company runs, in-house sports offers\n\nYour contact person\nValeria Mazziari Randazzo\nHR Marketing",
-        "fr": "Tâches\n\n- La caisse enregistreuse est votre territoire, ici vous assurez une bonne humeur et un processus en douceur.\n\n- Vous assurez que tous les processus et règlements sont respectés.\n\n- En équipe, vous aidez également vos collègues dans d'autres domaines.\n\nExigences\n\n- Nous nous réjouissons de votre expérience dans le domaine des ventes.\n\n- Vous êtes pleinement engagé et prêt à fournir des services.\n\n- La flexibilité est également importante pour vous en ce qui concerne les temps de déploiement.\n\n- Vous maîtrisez l'allemand bien verbalement et par écrit.\n\n- Réductions : Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Carte Reka: Réduction à l'achat, Réduction sur la mobilité CarSharing, Réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n\n- Conditions d'emploi : Caisse de retraite : 2/3 est payée par Coop, Conditions d'emploi attractives et Egalité de rémunération certifiée, Primes de fidélité, Régime d'épargne pension, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail : 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation continue : plus de 600 formations internes, gestion des talents avec des possibilités de développement diverses, formation et offres de formation continue du L-GAV et du Coop\n\nDurabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n\n- Communication : application interne pour les salariés\n\n- Santé : mise à jour de la condition physique : 200.- Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\nVotre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines"
-      },
-      "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-aarau-aargau-m9fk7m",
-        "en": "sales-assistant-cash-registers-services-coop-genossenschaft-aarau",
-        "de": "verkaufer-in-kassen-services-coop-genossenschaft-aarau-m9fk7m",
-        "fr": "caisses-services-d-assistant-commercial-coop-genossenschaft-aarau"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Im Teamwork unterstützt du auch deine Kolleginnen und Kollegen in anderen Bereichen.",
-          "Deutsch beherrschst du mündlich und schriftlich gut."
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-aarau-aargau",
-          "verkaufer-in-kassen-services-coop-genossenschaft-aarau-aargau-m9fk7m",
-          "venditore-in-cassa-servizi-coop-genossenschaft-aarau-aargau",
-          "verkaufer-in-kassen-services-coop-aarau-aargau"
-        ],
-        "de": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-aarau-aargau-m9fk7m"
-        ],
-        "en": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-aarau-aargau-m9fk7m",
-          "seller-in-cash-registers-services-coop-genossenschaft-aarau-aargau"
-        ],
-        "fr": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-aarau-aargau-m9fk7m",
-          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-aarau-aargau"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-genossenschaft-aarau-aargau",
-        "verkaufer-in-kassen-services-coop-genossenschaft-aarau-aargau-m9fk7m",
-        "venditore-in-cassa-servizi-coop-genossenschaft-aarau-aargau",
-        "seller-in-cash-registers-services-coop-genossenschaft-aarau-aargau",
-        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-aarau-aargau",
-        "verkaufer-in-kassen-services-coop-aarau-aargau"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Aarau, Aargau",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "5000",
-      "country": "CH"
     },
     {
       "id": "company-mm011s",

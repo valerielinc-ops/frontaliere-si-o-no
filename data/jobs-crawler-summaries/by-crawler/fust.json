@@ -1,16 +1,16 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-07-08T22:12:04.416Z",
-  "total": 226,
+  "generatedAt": "2026-07-09T12:17:28.186Z",
+  "total": 223,
   "newCount": 0,
   "updatedCount": 11,
   "removedCount": 0,
-  "unchangedCount": 215,
-  "durationMs": 180141,
-  "avgDurationMs": 180141,
+  "unchangedCount": 212,
+  "durationMs": 196979,
+  "avgDurationMs": 196979,
   "durationHistory": [
-    180141
+    196979
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -614,6 +614,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "country": "CH",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "San Gallo",
+        "canton": "SG"
+      },
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
