@@ -1,57 +1,16 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-07-07T22:17:10.074Z",
-  "total": 1,
+  "generatedAt": "2026-07-09T12:16:34.699Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4985,
-  "avgDurationMs": 4985,
-  "durationHistory": [
-    4985
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "clariant-0f4a3cc6e705",
-      "slug": "intern-corporate-strategy-innovation-clariant-pratteln",
-      "company": "Clariant",
-      "companyKey": "clariant",
-      "companyDomain": "clariant.com",
-      "title": "Intern Corporate Strategy & Innovation",
-      "location": "Pratteln",
-      "canton": "BL",
-      "url": "https://careers.clariant.com/job/Pratteln-Intern-Corporate-Strategy-&-Innovation/1405838633/",
-      "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:17:07.096Z",
-      "addressLocality": "Pratteln",
-      "addressRegion": "Basel-Landschaft",
-      "streetAddress": "Rothausstrasse 61",
-      "postalCode": "4132",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "sector": "Chimica Speciale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://careers.clariant.com/job/Pratteln-Intern-Corporate-Strategy-&-Innovation/1405838633/",
-      "jobReqId": "41492",
-      "firstSeenAt": "2026-07-04T10:25:55.536Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
