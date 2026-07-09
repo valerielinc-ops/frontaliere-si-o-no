@@ -1,16 +1,16 @@
 {
   "key": "amina-bank",
   "label": "AMINA Bank",
-  "generatedAt": "2026-07-08T22:07:51.838Z",
+  "generatedAt": "2026-07-09T12:16:13.628Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3480,
-  "avgDurationMs": 3480,
+  "unchangedCount": 1,
+  "durationMs": 2640,
+  "avgDurationMs": 2640,
   "durationHistory": [
-    3480
+    2640
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://amina.jobs.personio.com/job/2558847",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:07:49.328Z",
+      "crawledAt": "2026-07-09T12:16:11.846Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -50,41 +50,6 @@
       }
     },
     {
-      "id": "amina-bank-91724c96b714",
-      "slug": "process-quality-control-and-audit-amina-bank-zug",
-      "company": "AMINA Bank",
-      "companyKey": "amina-bank",
-      "companyDomain": "amina.jobs.personio.com",
-      "title": "Process Quality Control and Audit",
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://amina.jobs.personio.com/job/2591135",
-      "source": "AMINA Bank Dedicated Parser (Personio JSON)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:07:49.332Z",
-      "addressLocality": "Zug",
-      "postalCode": "6300",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://amina.jobs.personio.com/job/2591135",
-      "firstSeenAt": "2026-07-03T21:21:14.965Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "id": "amina-bank-02034fe4990f",
       "slug": "head-of-financial-crime-amina-bank-zug",
       "company": "AMINA Bank",
@@ -96,7 +61,7 @@
       "url": "https://amina.jobs.personio.com/job/2653111",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:07:49.334Z",
+      "crawledAt": "2026-07-09T12:16:11.848Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -121,5 +86,45 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "amina-bank-91724c96b714",
+      "slug": "controllo-qualita-di-processo-e-audit-amina-bank-zug",
+      "company": "AMINA Bank",
+      "companyKey": "amina-bank",
+      "companyDomain": "amina.jobs.personio.com",
+      "title": "Process Quality Control and Audit",
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://amina.jobs.personio.com/job/2591135",
+      "source": "AMINA Bank Dedicated Parser (Personio JSON)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-08T22:07:49.332Z",
+      "addressLocality": "Zug",
+      "postalCode": "6300",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://amina.jobs.personio.com/job/2591135",
+      "firstSeenAt": "2026-07-03T21:21:14.965Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "addressRegion": "ZG",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ]
 }
