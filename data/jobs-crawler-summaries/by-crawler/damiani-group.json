@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-07-09T12:23:33.829Z",
+  "generatedAt": "2026-07-09T22:41:00.864Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3870,
-  "avgDurationMs": 3870,
+  "durationMs": 3875,
+  "avgDurationMs": 3875,
   "durationHistory": [
-    3870
+    3875
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -126,45 +126,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "IT Business Intelligence Specialist",
-      "slug": "specialista-dell-intelligence-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-IT-Business-Intelligence-Specialist/1351466155/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1351466155/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "other",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-05",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-07-08",
-      "id": "damiani-group-1b9e5efdfbd8",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-05-07T10:51:48.044Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Consolidation & Reporting Specialist",
