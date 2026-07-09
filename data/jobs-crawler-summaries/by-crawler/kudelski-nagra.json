@@ -1,16 +1,16 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-07-09T12:12:37.157Z",
+  "generatedAt": "2026-07-09T22:24:31.678Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4430,
-  "avgDurationMs": 4430,
+  "unchangedCount": 0,
+  "durationMs": 3861,
+  "avgDurationMs": 3861,
   "durationHistory": [
-    4430
+    3861
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15633",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T12:12:34.365Z",
+      "crawledAt": "2026-07-09T22:24:29.455Z",
       "addressLocality": "Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -41,88 +41,17 @@
       "featured": false,
       "postedDate": "2026-01-07",
       "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15633",
-      "_qualityScore": 62,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-09T12:12:34.365Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 17,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "kudelski-nagra-bc986b795cf1",
-      "slug": "security-operations-engineer-kudelski-nagra-ch",
-      "company": "Kudelski NAGRA",
-      "companyKey": "kudelski-nagra",
-      "companyDomain": "nagra.com",
-      "title": "Security Operations Engineer",
-      "location": "Switzerland",
-      "canton": "TI",
-      "url": "https://careers.nagra.com/?page=advertisement_display&id=15720",
-      "source": "Kudelski NAGRA Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-08T22:12:00.360Z",
-      "addressLocality": "Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sicurezza digitale / Media technology",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-27",
-      "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15720",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 62,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 3,
-        "translation": 17,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "kudelski-nagra-4409393245bf",
-      "slug": "security-operations-engineer-kudelski-nagra-ch",
-      "company": "Kudelski NAGRA",
-      "companyKey": "kudelski-nagra",
-      "companyDomain": "nagra.com",
-      "title": "Security Operations Engineer",
-      "location": "Switzerland",
-      "canton": "TI",
-      "url": "https://careers.nagra.com/?page=advertisement_display&id=15726",
-      "source": "Kudelski NAGRA Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-08T22:12:00.690Z",
-      "addressLocality": "Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sicurezza digitale / Media technology",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-07",
-      "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15726",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 62,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 3,
-        "translation": 17,
-        "completeness": 17
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
