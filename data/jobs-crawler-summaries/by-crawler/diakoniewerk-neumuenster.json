@@ -1,19 +1,21 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-07-08T22:25:40.443Z",
+  "generatedAt": "2026-07-09T12:36:29.709Z",
   "total": 11,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2394,
-  "avgDurationMs": 2394,
+  "unchangedCount": 1,
+  "durationMs": 3206,
+  "avgDurationMs": 3206,
   "durationHistory": [
-    2394
+    3206
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "diakoniewerk-neumuenster-679329e7bde5",
       "slug": "pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
@@ -44,7 +46,7 @@
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -53,7 +55,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
