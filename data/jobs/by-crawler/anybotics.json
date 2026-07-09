@@ -1,6 +1,6 @@
 {
   "crawlerKey": "anybotics",
-  "assembledAt": "2026-07-08T11:20:21.714Z",
+  "assembledAt": "2026-07-09T12:17:48.408Z",
   "jobs": [
     {
       "id": "anybotics-74337a3d76ea",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Architettura del sistema VP",
         "en": "VP System Architecture",
-        "de": "VP Systemarchitektur",
+        "de": "VP System Architecture",
         "fr": "VP Architecture du système"
       },
       "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs VP of System Architecture, you will define the architectural direction for the next generation of ANYbotics robot platforms. You will shape how a shared modular foundation supports multiple robot variants, operational design domains, and future business models.\n\nThis is a senior, cross-functional role spanning the full technology spectrum, from AI and autonomy through hardware, software, mechatronics, functional safety, system integration, and factory industrialization. You will help determine how our robots evolve from strong individual products into a scalable family of platforms, balancing reuse, flexibility, performance, manufacturability, and long-term maintainability.\n\nThis role is not just about technical design. It is also about setting direction, driving alignment across teams, and helping the organisation make strong architectural decisions as we scale.\n\nMarket & Our Technology\n\nANYbotics is pioneering autonomous robotic platforms for industrial inspection and operations in challenging environments. From explosion-proof systems in oil and gas to agile robotic platforms for utilities and other industrial settings, our technology is built for environments where safety, reliability, and uptime are critical.\n\nSystem Architecture is central to how we scale. The challenge is not only to build great robots, but to create the modular architecture, interfaces, and platform strategy that allow multiple variants to be derived from a shared core. This includes anticipating future customer needs, new domains, certification requirements, and external integrations such as fleet management, predictive maintenance, and digital twins.\n\nWith the right architecture in place, ANYbotics can move faster, reuse more effectively, and expand into new markets without rebuilding from scratch each time.\n\nAbout us\n\nANYbotics is a leading robotics company specialising in advanced autonomous systems. With a successful Series B financing round closed and strong momentum in the market, we are entering an important phase of growth and international expansion.\n\nOur mission is to transform industrial inspection and operations through world-class robotics. We combine deep robotics expertise with real customer deployments in demanding industrial environments. This is an opportunity to join at a stage where the technology is proven, the ambition is high, and the architectural decisions made now will have a major impact on the company’s future.\n\nYour Contributions\n\n•\n Define and govern the reference system architecture across hardware and software domains focusing on modules interfaces\n\n•\n Build a modular platform strategy that enables multiple robot variants and operational domains to be derived from a shared architectural foundation\n\n•\n Drive architectural decisions on interfaces, middleware, data models, integration patterns, and the software backbone that supports future platform scaling\n\n•\n Define how reuse, configuration, and hardware-specific adaptation are handled so new variants can be developed without unnecessary redesign\n\n•\n Lead platform-level trade-offs across performance, agility, endurance, safety, manufacturability, and cost\n\n•\n Embed diagnostics, functional safety, cybersecurity, over-the-air updates, and certification requirements into the architecture from the outset\n\n•\n Partner with senior engineering leaders across software and hardware domains, and through the system engineering community to align on direction, influence execution, and translate long-term architecture into practical delivery\n\nYour Profile\n\n•\n MSc in Systems Engineering, Electronics, Robotics, Computer Science, or a related field\n\n•\n Significant experience in system architecture and modularity leadership within robotics, autonomous systems, medical devices, automotive, aerospace, or other complex mechatronic environments\n\n•\n Proven track record of architecting and evolving complex platforms rather than one-off systems\n\n•\n Experience defining modular architectures and enabling reuse across multiple product variants\n\n•\n Strong understanding of hardware and software co-design principles across sensors, actuators, compute, control systems, middleware, and power management\n\n•\n Good understanding of autonomy-related systems such as perception, localisation, navigation, motion planning, or fleet-level coordination\n\n•\n Experience with real-time systems, platform middleware, and system integration (V model) in complex industrial or safety-relevant environments\n\n•\n Ability to translate customer needs, business direction, and technical constraints into clear architectural decisions\n\n•\n Experience balancing performance, safety, manufacturability, scalability, and product maturity in real-world systems\n\n•\n Proven ability to influence across teams, drive alignment, and lead change without relying solely on formal authority\n\n•\n Strong communication and influence skills, sound judgement, and the ability to simplify complex architectural questions for a broad technical audience\n\n•\n Proven ability to translate company strategy and mid- to long-term technology vision into a clear, executable roadmap, along with effective governance to drive its execution.\n\nBonus Points\n\n•\n Experience with safety-critical or regulated robotic systems\n\n•\n Familiarity with Ex certification or related industrial safety constraints\n\n•\n Experience with large-scale simulation environments, digital twins, or platform-level validation frameworks\n\n•\n Track record of reducing time to market through platform reuse and stronger architectural discipline\n\n•\n Experience embedding certification and safety pathways into architectural frameworks\n\n•\n Experience supporting products that scale across multiple variants, deployment environments, or different operational design domains\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/anybotics/456ebeb5-37c3-4531-8bdf-ead40406eb49",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:18.437Z",
+      "crawledAt": "2026-07-09T12:17:46.415Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,11 +50,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vp-system-architecture-anybotics-ch",
-        "vp-system-architecture-anybotics-zurich-switzerland"
+        "vp-system-architecture-anybotics-zurich-switzerland",
+        "architettura-del-sistema-vp-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vp-system-architecture-anybotics-ch"
+          "vp-system-architecture-anybotics-ch",
+          "architettura-del-sistema-vp-anybotics-zurich-switzerland"
         ],
         "de": [
           "vp-system-architecture-anybotics-zurich-switzerland"
@@ -64,6 +66,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.699Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -109,7 +112,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:18.134Z",
+      "crawledAt": "2026-07-09T12:17:46.113Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -125,11 +128,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-reinforcement-learning-engineer-anybotics-ch"
+        "senior-reinforcement-learning-engineer-anybotics-ch",
+        "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-reinforcement-learning-engineer-anybotics-ch"
+          "senior-reinforcement-learning-engineer-anybotics-ch",
+          "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-reinforcement-learning-engineer-anybotics-ch"
@@ -184,7 +189,7 @@
       "url": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:17.832Z",
+      "crawledAt": "2026-07-09T12:17:45.811Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -200,11 +205,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-product-quality-engineer-anybotics-ch"
+        "senior-product-quality-engineer-anybotics-ch",
+        "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-quality-engineer-anybotics-ch"
+          "senior-product-quality-engineer-anybotics-ch",
+          "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-06T12:59:44.319Z",
@@ -253,7 +260,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:17.530Z",
+      "crawledAt": "2026-07-09T12:17:45.509Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,11 +276,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+        "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+        "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+          "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+          "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
@@ -328,7 +337,7 @@
       "url": "https://jobs.lever.co/anybotics/453dd653-bdb9-47b7-b2a3-9cebe7dd84f2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:17.228Z",
+      "crawledAt": "2026-07-09T12:17:45.207Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -344,11 +353,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-business-value-engineer-oil-gas-anybotics-ch"
+        "senior-business-value-engineer-oil-gas-anybotics-ch",
+        "senior-business-value-ingegnere-oil-gas-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-business-value-engineer-oil-gas-anybotics-ch"
+          "senior-business-value-engineer-oil-gas-anybotics-ch",
+          "senior-business-value-ingegnere-oil-gas-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-business-value-engineer-oil-gas-anybotics-ch"
@@ -376,34 +387,34 @@
       "id": "anybotics-c9a3ed6ee0f2",
       "slug": "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland",
       "slugByLocale": {
-        "en": "production-technician-ii-robotics-anybotics-ch",
         "it": "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland",
-        "de": "production-technician-ii-robotics-anybotics-ch",
-        "fr": "production-technician-ii-robotics-anybotics-ch"
+        "en": "production-technician-ii-robotics-anybotics-ch",
+        "de": "production-techniker-ii-robotics-anybotics-zurich-switzerland",
+        "fr": "production-technicien-ii-robotics-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
       "companyKey": "anybotics",
       "companyDomain": "anybotics.com",
       "title": "Production Technician II (Robotics)",
       "titleByLocale": {
-        "en": "Production Technician II (Robotics)",
         "it": "Tecnologia di produzione II (Robotics)",
+        "en": "Production Technician II (Robotics)",
         "de": "Production Techniker II (Robotics)",
         "fr": "Production Technicien II (Robotics)"
       },
       "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nThe production of robots and their individual parts is very exciting and diverse. You will have an immediate and Real Impact on production and success of our customers to deploy robots. You will take on full responsibilities ranging from electrical and mechanical assemblies, to electric drives and testing to complete ANYmal robots. You will collaborate with various teams and stakeholders and help further our manufacturing, assembly and testing capabilities. We are looking for an independent and motivated Robotics Technician (Polymechanic / Electronics or Automation Technician) to strengthen our in-house production team, which builds complete robots, maintains customer robots and supports the development in prototyping and robot testing in our production site in the city of Zurich. If you are looking for a rewarding and exciting career in production, join us at ANYbotics, Building the Future of Robotics!\n\nThe Market & Our Technology\n\nANYbotics transforms the industrial sector by introducing robotics to a wide range of novel applications that so far were beyond reach (see our case studies in Chemicals , Oil & Gas , Railways , Wind Energy , Mining , Construction ). Our customers are large asset operators and service providers of industrial plants pioneering robotics technology for inspection and maintenance. Our solution enables autonomous routine inspections and monitoring of large-scale industrial facilities for increased safety and productivity. We develop numerous customized hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and software to achieve world-class mobility, autonomy, and inspection capabilities, often based on AI. We have proven the technology and the business impact on our customers in long-term pilot projects. We are now scaling the commercialization of our solution(s) and deploying directly into operation at customer facilities worldwide.\n\nYour Contributions\n\n• Manufacturing and assembly of modules, accessories, and robots for prototypes and small number 0-Series production\n\n• Carrying out tests and quality control of components, assemblies and entire robots incl. commissioning of robots\n\n• Diagnosis and repair of products and prototypes\n\n• Support of robot test campaigns alongside development engineers\n\n• Contribution to further development of our manufacturing, assembly, and test procedures\n\n• Supporting the continuous improvement of the technical facilities and infrastructure of robot production\n\nYour Profile\n\n• Training as a Polymechanic EFZ, Electronics or Automation Technician EFZ (Level Swiss Federal Diploma of Vocational Education and Training)\n\n• 3+ year work experience in the field of mechatronics or equipment manufacturing\n\n• Good practical knowledge in the assembly of electromechanical components\n\n• Understanding of technical drawings and instructions\n\n• Experience in handling measuring and testing tools for mechanical parts as well as ESD\n\n• Enjoy working in a multicultural and fast growing environment\n\n• Good general computer skills (preferably Google Workspace)\n\n• Very good German and English skills (Level B2)\n\nBonus Points\n\n• Experience in production, repair and troubleshooting of electronic assemblies\n\n• Driving license CH-Cat. B\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
       "descriptionByLocale": {
-        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nThe production of robots and their individual parts is very exciting and diverse. You will have an immediate and Real Impact on production and success of our customers to deploy robots. You will take on full responsibilities ranging from electrical and mechanical assemblies, to electric drives and testing to complete ANYmal robots. You will collaborate with various teams and stakeholders and help further our manufacturing, assembly and testing capabilities. We are looking for an independent and motivated Robotics Technician (Polymechanic / Electronics or Automation Technician) to strengthen our in-house production team, which builds complete robots, maintains customer robots and supports the development in prototyping and robot testing in our production site in the city of Zurich. If you are looking for a rewarding and exciting career in production, join us at ANYbotics, Building the Future of Robotics!\n\nThe Market & Our Technology\n\nANYbotics transforms the industrial sector by introducing robotics to a wide range of novel applications that so far were beyond reach (see our case studies in Chemicals , Oil & Gas , Railways , Wind Energy , Mining , Construction ). Our customers are large asset operators and service providers of industrial plants pioneering robotics technology for inspection and maintenance. Our solution enables autonomous routine inspections and monitoring of large-scale industrial facilities for increased safety and productivity. We develop numerous customized hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and software to achieve world-class mobility, autonomy, and inspection capabilities, often based on AI. We have proven the technology and the business impact on our customers in long-term pilot projects. We are now scaling the commercialization of our solution(s) and deploying directly into operation at customer facilities worldwide.\n\nYour Contributions\n\n• Manufacturing and assembly of modules, accessories, and robots for prototypes and small number 0-Series production\n\n• Carrying out tests and quality control of components, assemblies and entire robots incl. commissioning of robots\n\n• Diagnosis and repair of products and prototypes\n\n• Support of robot test campaigns alongside development engineers\n\n• Contribution to further development of our manufacturing, assembly, and test procedures\n\n• Supporting the continuous improvement of the technical facilities and infrastructure of robot production\n\nYour Profile\n\n• Training as a Polymechanic EFZ, Electronics or Automation Technician EFZ (Level Swiss Federal Diploma of Vocational Education and Training)\n\n• 3+ year work experience in the field of mechatronics or equipment manufacturing\n\n• Good practical knowledge in the assembly of electromechanical components\n\n• Understanding of technical drawings and instructions\n\n• Experience in handling measuring and testing tools for mechanical parts as well as ESD\n\n• Enjoy working in a multicultural and fast growing environment\n\n• Good general computer skills (preferably Google Workspace)\n\n• Very good German and English skills (Level B2)\n\nBonus Points\n\n• Experience in production, repair and troubleshooting of electronic assemblies\n\n• Driving license CH-Cat. B\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
-        "it": "ANYbotics è una società tecnologica in rapida crescita dedicata a modellare il futuro della robotica mobile in più settori. Unisciti al nostro team altamente talentuoso e motivato di oltre 200 persone e lavorare sulla tecnologia robot all'avanguardia.\n\nL'opportunità\n\nLa produzione di robot e le loro parti individuali è molto eccitante e diversificata. Avrete un impatto immediato e reale sulla produzione e il successo dei nostri clienti per distribuire robot. Si assumeranno tutte le responsabilità che vanno dai gruppi elettrici e meccanici, alle unità elettriche e ai test per completare QUALSIASI robot. Potrai collaborare con vari team e stakeholder e aiutare ulteriormente le nostre capacità di produzione, assemblaggio e test. Stiamo cercando un Robotics Technician indipendente e motivato (Polymechanic / Electronics o Automation Technician) per rafforzare il nostro team di produzione interno, che costruisce robot completi, mantiene robot clienti e supporta lo sviluppo in prototipazione e robot test nel nostro sito di produzione nella città di Zurigo. Se siete alla ricerca di una carriera gratificante ed emozionante in produzione, unisciti a noi a ANYbotics, Costruire il Futuro della Robotica!\n\nIl mercato e la nostra tecnologia\n\nANYbotics trasforma il settore industriale introducendo la robotica ad una vasta gamma di applicazioni innovative che finora erano al di là della portata (vedi i nostri studi di casi in Chimica, Oil & Gas , Ferrovie , Energia eolica, Mining , Costruzione ). I nostri clienti sono grandi operatori di asset e fornitori di servizi di impianti industriali pionieristica tecnologia robotica per l'ispezione e la manutenzione. La nostra soluzione consente controlli di routine autonomi e monitoraggio di impianti industriali su larga scala per una maggiore sicurezza e produttività. Sviluppiamo numerosi sistemi hardware personalizzati, tra cui l'intera piattaforma robotica, attuatori, sensori, carichi di ispezione, sistemi di ricarica e software per raggiungere capacità di mobilità, autonomia e ispezione di livello mondiale, spesso basate su AI. Abbiamo dimostrato la tecnologia e l'impatto aziendale sui nostri clienti in progetti pilota a lungo termine. Stiamo ora scalando la commercializzazione della nostra soluzione (s) e dispiegando direttamente in funzione presso le strutture clienti in tutto il mondo.\n\nI tuoi contributi\n\n• Produzione e montaggio di moduli, accessori e robot per prototipi e piccola produzione 0-Series\n\n• Effettuare prove e controllo di qualità di componenti, assemblaggi e interi robot incl. messa in servizio di robot\n\n• Diagnosi e riparazione di prodotti e prototipi\n\n• Supporto di campagne di test robot insieme agli ingegneri di sviluppo\n\n• Contributo a un ulteriore sviluppo delle nostre procedure di produzione, assemblaggio e test\n\n• Sostenere il continuo miglioramento delle strutture tecniche e dell'infrastruttura della produzione di robot\n\nIl tuo profilo\n\n• Formazione come EFZ polimeccanico, Elettronica o Automazione Technician EFZ (Diploma federale svizzero di formazione professionale)\n\n• 3+ anni di esperienza lavorativa nel campo della meccatronica o della produzione di attrezzature\n\n• Buona conoscenza pratica nel montaggio di componenti elettromeccanici\n\n• Comprensione di disegni tecnici e istruzioni\n\n• Esperienza nella gestione di strumenti di misura e test per parti meccaniche e ESD\n\n• Godetevi il lavoro in un ambiente multiculturale e in rapida crescita\n\n• Buone competenze informatiche generali (preferibilmente Google Workspace)\n\n• Molto buone competenze in tedesco e inglese (Level B2)\n\nPunti bonus\n\n• Esperienza nella produzione, riparazione e risoluzione dei problemi dei gruppi elettronici\n\n• Patente di guida CH-Cat. B\n\nVi offriamo un ambiente di lavoro molto emozionante e dinamico, l'opportunità di entrare a far parte di una società in rapida crescita e di un team ambizioso che è in missione di cambiare il mercato dell'ispezione industriale, la possibilità di sfruttare la vostra esperienza e portare le vostre idee, un salario di mercato equo, un attraente piano di azionariato dei dipendenti e un lavoro nella città di Zurigo.\n\nPolitica dell'Agenzia: Attualmente non stiamo collaborando con aziende di ricerca esterne o agenzie di reclutamento. Qualsiasi profilo o curriculum inviato ai dipendenti di ANYbotics senza un preventivo accordo scritto sarà considerato la divulgazione pubblica e la proprietà di ANYbotics, che non comporta alcuna responsabilità o tassa per il successivo assunzione.",
-        "de": "ANYbotics ist ein schnell wachsendes Technologieunternehmen, das sich der Gestaltung der Zukunft der mobilen Robotik in verschiedenen Branchen verschrieben hat. Schließen Sie sich unserem hochtalentierten und motivierten Team von mehr als 200 Mitarbeitern an und arbeiten Sie an modernster Robotertechnologie.\n\nDie Chance\n\nDie Produktion von Robotern und deren Einzelteilen ist sehr spannend und vielfältig. Sie werden einen unmittelbaren und echten Einfluss auf die Produktion und den Erfolg unserer Kunden beim Einsatz von Robotern haben. Sie übernehmen die volle Verantwortung von elektrischen und mechanischen Baugruppen bis hin zu elektrischen Antrieben und Tests bis hin zu kompletten ANYmal-Robotern. Sie arbeiten mit verschiedenen Teams und Stakeholdern zusammen und unterstützen unsere Fertigungs-, Montage- und Testfähigkeiten. Wir suchen einen unabhängigen und motivierten Robotiktechniker (Polymechaniker/Elektroniktechniker oder Automatisierungstechniker) zur Verstärkung unseres hauseigenen Produktionsteams, das komplette Roboter baut, Kundenroboter wartet und die Entwicklung im Prototyping und Robotertest in unserem Produktionsstandort in Zürich unterstützt. Wenn Sie eine lohnende und aufregende Karriere in der Produktion suchen, besuchen Sie uns bei ANYbotics, Building the Future of Robotics!\n\nDer Markt & unsere Technologie\n\nANYbotics transformiert den Industriesektor durch die Einführung von Robotik in ein breites Spektrum neuartiger Anwendungen, die bisher unerreichbar waren (siehe unsere Fallstudien in Chemicals, Oil & Gas, Railways, Wind Energy, Mining, Construction). Unsere Kunden sind Großanlagenbetreiber und Dienstleister von Industrieanlagen, die wegweisende Robotik-Technologie für Inspektion und Wartung betreiben. Unsere Lösung ermöglicht autonome Routineinspektionen und die Überwachung von großen Industrieanlagen für mehr Sicherheit und Produktivität. Wir entwickeln zahlreiche maßgeschneiderte Hardwaresysteme, einschließlich der gesamten Roboterplattform, Aktoren, Sensoren, Inspektionsnutzlasten, Ladesysteme und Software, um erstklassige Mobilitäts-, Autonomie- und Inspektionsfähigkeiten zu erreichen, die oft auf KI basieren. Wir haben die Technologie und die geschäftlichen Auswirkungen auf unsere Kunden in langfristigen Pilotprojekten unter Beweis gestellt. Wir skalieren jetzt die Kommerzialisierung unserer Lösung(en) und werden direkt in Kundenbetrieben weltweit eingesetzt.\n\nIhre Beiträge\n\n• Herstellung und Montage von Modulen, Zubehör und Robotern für Prototypen und Kleinserienfertigung\n\n• Durchführung von Tests und Qualitätskontrolle von Komponenten, Baugruppen und ganzen Robotern inkl. Inbetriebnahme von Robotern\n\n• Diagnose und Reparatur von Produkten und Prototypen\n\n• Unterstützung von Robotertestkampagnen neben Entwicklungsingenieuren\n\n• Beitrag zur Weiterentwicklung unserer Fertigungs-, Montage- und Testverfahren\n\n• Unterstützung der kontinuierlichen Verbesserung der technischen Einrichtungen und Infrastruktur der Roboterproduktion\n\nIhr Profil\n\n• Ausbildung zum Polymechaniker EFZ, Elektronik- oder Automatisierungstechniker EFZ (Level Swiss Federal Diploma of Vocational Education and Training)\n\n• 3+ Jahre Berufserfahrung im Bereich Mechatronik oder Anlagenbau\n\n• Gute praktische Kenntnisse in der Montage elektromechanischer Bauteile\n\n• Verstehen von technischen Zeichnungen und Anweisungen\n\n• Erfahrung im Umgang mit Mess- und Prüfwerkzeugen für mechanische Teile sowie ESD\n\n• Genießen Sie die Arbeit in einem multikulturellen und schnell wachsenden Umfeld\n\n• Gute allgemeine Computerkenntnisse (vorzugsweise Google Workspace)\n\n• Sehr gute Deutsch- und Englischkenntnisse (Level B2)\n\nBonuspunkte\n\n• Erfahrung in Produktion, Reparatur und Fehlerbehebung von elektronischen Baugruppen\n\n• Führerschein CH-Cat. B\n\nWir bieten Ihnen ein sehr spannendes und dynamisches Arbeitsumfeld, die Möglichkeit, Teil eines schnell wachsenden Unternehmens zu werden, und ein ambitioniertes Team, das den Markt für Industrieinspektionen verändern möchte, eine Chance, Ihre Erfahrungen zu nutzen und eigene Ideen einzubringen, ein faires Marktgehalt, einen attraktiven Mitarbeiteraktienplan und einen Job in der Stadt Zürich.\n\nAgenturpolitik: Wir arbeiten derzeit nicht mit externen Suchfirmen oder Rekrutierungsagenturen zusammen. Alle Profile oder Lebensläufe, die an ANYbotics-Mitarbeiter ohne vorherige schriftliche Vereinbarung eingereicht werden, gelten als öffentliche Offenlegung und als Eigentum von ANYbotics, ohne Haftung oder Gebühr für die spätere Einstellung.",
-        "fr": "Anybotics est une société technologique en croissance rapide dédiée à façonner l'avenir de la robotique mobile dans plusieurs industries. Rejoignez notre équipe hautement talentueuse et motivée de plus de 200 personnes et travaillez sur la technologie robot de pointe.\n\nL'opportunité\n\nLa production de robots et de leurs pièces individuelles est très excitante et diversifiée. Vous aurez un impact immédiat et réel sur la production et le succès de nos clients pour déployer des robots. Vous assumerez toutes les responsabilités allant des assemblages électriques et mécaniques, aux entraînements électriques et aux essais pour compléter les robots Anymal. Vous collaborerez avec diverses équipes et parties prenantes et contribuerez à renforcer nos capacités de fabrication, d'assemblage et de test. Nous sommes à la recherche d'un technicien en robotique indépendant et motivé (polymécanique / électronique ou technicien d'automatisation) pour renforcer notre équipe de production interne, qui construit des robots complets, maintient des robots clients et soutient le développement du prototypage et du test robot dans notre site de production dans la ville de Zurich. Si vous cherchez une carrière enrichissante et passionnante dans la production, rejoignez-nous chez Anybotics, Building the Future of Robotics!\n\nLe marché et notre technologie\n\nAnybotics transforme le secteur industriel en introduisant la robotique à un large éventail d'applications nouvelles qui étaient jusqu'à présent hors de portée (voir nos études de cas en chimie, pétrole et gaz, chemins de fer, énergie éolienne, mines, construction ). Nos clients sont de grands opérateurs d'actifs et fournisseurs de services d'usines industrielles pionnières en robotique pour l'inspection et l'entretien. Notre solution permet d'effectuer des inspections de routine autonomes et de surveiller les grandes installations industrielles pour accroître la sécurité et la productivité. Nous développons de nombreux systèmes matériels personnalisés, dont l'ensemble de la plate-forme robotique, des actionneurs, des capteurs, des charges utiles d'inspection, des systèmes de recharge et des logiciels pour atteindre des capacités de mobilité, d'autonomie et d'inspection de calibre mondial, souvent basées sur l'IA. Nous avons prouvé la technologie et l'impact commercial sur nos clients dans des projets pilotes à long terme. Nous développons maintenant la commercialisation de notre(s) solution(s) et nous déployons directement dans les installations client dans le monde entier.\n\nVos contributions\n\n• Fabrication et montage de modules, d'accessoires et de robots pour prototypes et production de série 0 en petit nombre\n\n• Effectuer des essais et le contrôle de la qualité des composants, assemblages et robots entiers incl. mise en service de robots\n\n• Diagnostic et réparation de produits et de prototypes\n\n• Soutien aux campagnes de test robot aux côtés des ingénieurs de développement\n\n• Contribution au développement de nos procédés de fabrication, de montage et d'essai\n\n• Soutenir l'amélioration continue des installations techniques et des infrastructures de production de robots\n\nVotre profil\n\n• Formation en tant que polymécanicien EFZ, technicien en électronique ou en automatisation EFZ (Diplôme fédéral suisse de l'enseignement et de la formation professionnels)\n\n• 3+ ans d'expérience dans le domaine de la mécatronique ou de la fabrication d'équipements\n\n• Bonne connaissance pratique de l'assemblage des composants électromécaniques\n\n• Compréhension des dessins et instructions techniques\n\n• Expérience dans la manipulation des outils de mesure et d'essai pour les pièces mécaniques ainsi que l'EDD\n\n• Profitez de travailler dans un environnement multiculturel et à croissance rapide\n\n• Bonnes compétences informatiques générales (de préférence Google Workspace)\n\n• Très bonnes compétences en allemand et en anglais (niveau B2)\n\nPoints bonus\n\n• Expérience en production, réparation et dépannage d'assemblages électroniques\n\n• Permis de conduire CH-Cat. B\n\nNous vous offrons un environnement de travail très excitant et dynamique, l'opportunité de faire partie d'une entreprise en croissance rapide et d'une équipe ambitieuse qui est en mission de changer le marché de l'inspection industrielle, une chance de tirer parti de votre expérience et d'apporter vos propres idées, un salaire équitable du marché, un plan attrayant d'actionnariat salarié, et un emploi dans la ville de Zurich.\n\nPolitique de l'Agence : Nous ne sommes pas en partenariat avec des entreprises de recherche externes ou des agences de recrutement. Tous les profils ou curriculum vitae soumis à des employés d'Anybotics sans accord écrit préalable seront considérés comme une divulgation publique et la propriété d'Anybotics, ce qui n'implique aucune responsabilité ni aucun droit pour l'embauche ultérieure."
+        "it": "ANYbotics è una società tecnologica in rapida crescita dedicata a modellare il futuro della robotica mobile in più settori. Unisciti al nostro team altamente talentuoso e motivato di oltre 200 persone e lavorare sulla tecnologia robot all'avanguardia. L'opportunità La produzione di robot e le loro parti individuali è molto eccitante e diversificata. Avrete un impatto immediato e reale sulla produzione e il successo dei nostri clienti per distribuire robot. Si assumeranno tutte le responsabilità che vanno dai gruppi elettrici e meccanici, alle unità elettriche e ai test per completare QUALSIASI robot. Potrai collaborare con vari team e stakeholder e aiutare ulteriormente le nostre capacità di produzione, assemblaggio e test. Stiamo cercando un Robotics Technician indipendente e motivato (Polymechanic / Electronics o Automation Technician) per rafforzare il nostro team di produzione interno, che costruisce robot completi, mantiene robot clienti e supporta lo sviluppo in prototipazione e robot test nel nostro sito di produzione nella città di Zurigo. Se siete alla ricerca di una carriera gratificante ed emozionante in produzione, unisciti a noi a ANYbotics, Costruire il Futuro della Robotica! Il mercato e la nostra tecnologia ANYbotics trasforma il settore industriale introducendo la robotica ad una vasta gamma di applicazioni innovative che finora erano al di là della portata (vedi i nostri studi di casi in Chimica, Oil & Gas , Ferrovie , Energia eolica, Mining , Costruzione ). I nostri clienti sono grandi operatori di asset e fornitori di servizi di impianti industriali pionieristica tecnologia robotica per l'ispezione e la manutenzione. La nostra soluzione consente controlli di routine autonomi e monitoraggio di impianti industriali su larga scala per una maggiore sicurezza e produttività. Sviluppiamo numerosi sistemi hardware personalizzati, tra cui l'intera piattaforma robotica, attuatori, sensori, carichi di ispezione, sistemi di ricarica e software per raggiungere capacità di mobilità, autonomia e ispezione di livello mondiale, spesso basate su AI. Abbiamo dimostrato la tecnologia e l'impatto aziendale sui nostri clienti in progetti pilota a lungo termine. Stiamo ora scalando la commercializzazione della nostra soluzione (s) e dispiegando direttamente in funzione presso le strutture clienti in tutto il mondo. I tuoi contributi\n• Produzione e montaggio di moduli, accessori e robot per prototipi e piccola produzione 0-Series\n• Effettuare prove e controllo di qualità di componenti, assemblaggi e interi robot incl. messa in servizio di robot\n• Diagnosi e riparazione di prodotti e prototipi\n• Supporto di campagne di test robot insieme agli ingegneri di sviluppo\n• Contributo a un ulteriore sviluppo delle nostre procedure di produzione, assemblaggio e test\n• Sostenere il continuo miglioramento delle strutture tecniche e dell'infrastruttura della produzione di robot Il tuo profilo\n• Formazione come EFZ polimeccanico, Elettronica o Automazione Technician EFZ (Diploma federale svizzero di formazione professionale)\n• 3+ anni di esperienza lavorativa nel campo della meccatronica o della produzione di attrezzature\n• Buona conoscenza pratica nel montaggio di componenti elettromeccanici\n• Comprensione di disegni tecnici e istruzioni\n• Esperienza nella gestione di strumenti di misura e test per parti meccaniche e ESD\n• Godetevi il lavoro in un ambiente multiculturale e in rapida crescita\n• Buone competenze informatiche generali (preferibilmente Google Workspace)\n• Molto buone competenze in tedesco e inglese (Level B2) Punti bonus\n• Esperienza nella produzione, riparazione e risoluzione dei problemi dei gruppi elettronici\n• Patente di guida CH-Cat. B Vi offriamo un ambiente di lavoro molto emozionante e dinamico, l'opportunità di entrare a far parte di una società in rapida crescita e di un team ambizioso che è in missione di cambiare il mercato dell'ispezione industriale, la possibilità di sfruttare la vostra esperienza e portare le vostre idee, un salario di mercato equo, un attraente piano di azionariato dei dipendenti e un lavoro nella città di Zurigo. Politica dell'Agenzia: Attualmente non stiamo collaborando con aziende di ricerca esterne o agenzie di reclutamento. Qualsiasi profilo o curriculum inviato ai dipendenti di ANYbotics senza un preventivo accordo scritto sarà considerato la divulgazione pubblica e la proprietà di ANYbotics, che non comporta alcuna responsabilità o tassa per il successivo assunzione.",
+        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology. The Opportunity The production of robots and their individual parts is very exciting and diverse. You will have an immediate and Real Impact on production and success of our customers to deploy robots. You will take on full responsibilities ranging from electrical and mechanical assemblies, to electric drives and testing to complete ANYmal robots. You will collaborate with various teams and stakeholders and help further our manufacturing, assembly and testing capabilities. We are looking for an independent and motivated Robotics Technician (Polymechanic / Electronics or Automation Technician) to strengthen our in-house production team, which builds complete robots, maintains customer robots and supports the development in prototyping and robot testing in our production site in the city of Zurich. If you are looking for a rewarding and exciting career in production, join us at ANYbotics, Building the Future of Robotics! The Market & Our Technology ANYbotics transforms the industrial sector by introducing robotics to a wide range of novel applications that so far were beyond reach (see our case studies in Chemicals , Oil & Gas , Railways , Wind Energy , Mining , Construction ). Our customers are large asset operators and service providers of industrial plants pioneering robotics technology for inspection and maintenance. Our solution enables autonomous routine inspections and monitoring of large-scale industrial facilities for increased safety and productivity. We develop numerous customized hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and software to achieve world-class mobility, autonomy, and inspection capabilities, often based on AI. We have proven the technology and the business impact on our customers in long-term pilot projects. We are now scaling the commercialization of our solution(s) and deploying directly into operation at customer facilities worldwide. Your Contributions\n• Manufacturing and assembly of modules, accessories, and robots for prototypes and small number 0-Series production\n• Carrying out tests and quality control of components, assemblies and entire robots incl. commissioning of robots\n• Diagnosis and repair of products and prototypes\n• Support of robot test campaigns alongside development engineers\n• Contribution to further development of our manufacturing, assembly, and test procedures\n• Supporting the continuous improvement of the technical facilities and infrastructure of robot production Your Profile\n• Training as a Polymechanic EFZ, Electronics or Automation Technician EFZ (Level Swiss Federal Diploma of Vocational Education and Training)\n• 3+ year work experience in the field of mechatronics or equipment manufacturing\n• Good practical knowledge in the assembly of electromechanical components\n• Understanding of technical drawings and instructions\n• Experience in handling measuring and testing tools for mechanical parts as well as ESD\n• Enjoy working in a multicultural and fast growing environment\n• Good general computer skills (preferably Google Workspace)\n• Very good German and English skills (Level B2) Bonus Points\n• Experience in production, repair and troubleshooting of electronic assemblies\n• Driving license CH-Cat. B We offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich. Agency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+        "de": "ANYbotics ist ein schnell wachsendes Technologieunternehmen, das sich der Gestaltung der Zukunft der mobilen Robotik in verschiedenen Branchen verschrieben hat. Schließen Sie sich unserem hochtalentierten und motivierten Team von mehr als 200 Mitarbeitern an und arbeiten Sie an modernster Robotertechnologie. Die Chance Die Produktion von Robotern und deren Einzelteilen ist sehr spannend und vielfältig. Sie werden einen unmittelbaren und echten Einfluss auf die Produktion und den Erfolg unserer Kunden beim Einsatz von Robotern haben. Sie übernehmen die volle Verantwortung von elektrischen und mechanischen Baugruppen bis hin zu elektrischen Antrieben und Tests bis hin zu kompletten ANYmal-Robotern. Sie arbeiten mit verschiedenen Teams und Stakeholdern zusammen und unterstützen unsere Fertigungs-, Montage- und Testfähigkeiten. Wir suchen einen unabhängigen und motivierten Robotiktechniker (Polymechaniker/Elektroniktechniker oder Automatisierungstechniker) zur Verstärkung unseres hauseigenen Produktionsteams, das komplette Roboter baut, Kundenroboter wartet und die Entwicklung im Prototyping und Robotertest in unserem Produktionsstandort in Zürich unterstützt. Wenn Sie eine lohnende und aufregende Karriere in der Produktion suchen, besuchen Sie uns bei ANYbotics, Building the Future of Robotics! Der Markt & unsere Technologie ANYbotics transformiert den Industriesektor durch die Einführung von Robotik in ein breites Spektrum neuartiger Anwendungen, die bisher unerreichbar waren (siehe unsere Fallstudien in Chemicals, Oil & Gas, Railways, Wind Energy, Mining, Construction). Unsere Kunden sind Großanlagenbetreiber und Dienstleister von Industrieanlagen, die wegweisende Robotik-Technologie für Inspektion und Wartung betreiben. Unsere Lösung ermöglicht autonome Routineinspektionen und die Überwachung von großen Industrieanlagen für mehr Sicherheit und Produktivität. Wir entwickeln zahlreiche maßgeschneiderte Hardwaresysteme, einschließlich der gesamten Roboterplattform, Aktoren, Sensoren, Inspektionsnutzlasten, Ladesysteme und Software, um erstklassige Mobilitäts-, Autonomie- und Inspektionsfähigkeiten zu erreichen, die oft auf KI basieren. Wir haben die Technologie und die geschäftlichen Auswirkungen auf unsere Kunden in langfristigen Pilotprojekten unter Beweis gestellt. Wir skalieren jetzt die Kommerzialisierung unserer Lösung(en) und werden direkt in Kundenbetrieben weltweit eingesetzt. Ihre Beiträge\n• Herstellung und Montage von Modulen, Zubehör und Robotern für Prototypen und Kleinserienfertigung\n• Durchführung von Tests und Qualitätskontrolle von Komponenten, Baugruppen und ganzen Robotern inkl. Inbetriebnahme von Robotern\n• Diagnose und Reparatur von Produkten und Prototypen\n• Unterstützung von Robotertestkampagnen neben Entwicklungsingenieuren\n• Beitrag zur Weiterentwicklung unserer Fertigungs-, Montage- und Testverfahren\n• Unterstützung der kontinuierlichen Verbesserung der technischen Einrichtungen und Infrastruktur der Roboterproduktion Ihr Profil\n• Ausbildung zum Polymechaniker EFZ, Elektronik- oder Automatisierungstechniker EFZ (Level Swiss Federal Diploma of Vocational Education and Training)\n• 3+ Jahre Berufserfahrung im Bereich Mechatronik oder Anlagenbau\n• Gute praktische Kenntnisse in der Montage elektromechanischer Bauteile\n• Verstehen von technischen Zeichnungen und Anweisungen\n• Erfahrung im Umgang mit Mess- und Prüfwerkzeugen für mechanische Teile sowie ESD\n• Genießen Sie die Arbeit in einem multikulturellen und schnell wachsenden Umfeld\n• Gute allgemeine Computerkenntnisse (vorzugsweise Google Workspace)\n• Sehr gute Deutsch- und Englischkenntnisse (Level B2) Bonuspunkte\n• Erfahrung in Produktion, Reparatur und Fehlerbehebung von elektronischen Baugruppen\n• Führerschein CH-Cat. B Wir bieten Ihnen ein sehr spannendes und dynamisches Arbeitsumfeld, die Möglichkeit, Teil eines schnell wachsenden Unternehmens zu werden, und ein ambitioniertes Team, das den Markt für Industrieinspektionen verändern möchte, eine Chance, Ihre Erfahrungen zu nutzen und eigene Ideen einzubringen, ein faires Marktgehalt, einen attraktiven Mitarbeiteraktienplan und einen Job in der Stadt Zürich. Agenturpolitik: Wir arbeiten derzeit nicht mit externen Suchfirmen oder Rekrutierungsagenturen zusammen. Alle Profile oder Lebensläufe, die an ANYbotics-Mitarbeiter ohne vorherige schriftliche Vereinbarung eingereicht werden, gelten als öffentliche Offenlegung und als Eigentum von ANYbotics, ohne Haftung oder Gebühr für die spätere Einstellung.",
+        "fr": "Anybotics est une société technologique en croissance rapide dédiée à façonner l'avenir de la robotique mobile dans plusieurs industries. Rejoignez notre équipe hautement talentueuse et motivée de plus de 200 personnes et travaillez sur la technologie robot de pointe. L'opportunité La production de robots et de leurs pièces individuelles est très excitante et diversifiée. Vous aurez un impact immédiat et réel sur la production et le succès de nos clients pour déployer des robots. Vous assumerez toutes les responsabilités allant des assemblages électriques et mécaniques, aux entraînements électriques et aux essais pour compléter les robots Anymal. Vous collaborerez avec diverses équipes et parties prenantes et contribuerez à renforcer nos capacités de fabrication, d'assemblage et de test. Nous sommes à la recherche d'un technicien en robotique indépendant et motivé (polymécanique / électronique ou technicien d'automatisation) pour renforcer notre équipe de production interne, qui construit des robots complets, maintient des robots clients et soutient le développement du prototypage et du test robot dans notre site de production dans la ville de Zurich. Si vous cherchez une carrière enrichissante et passionnante dans la production, rejoignez-nous chez Anybotics, Building the Future of Robotics! Le marché et notre technologie Anybotics transforme le secteur industriel en introduisant la robotique à un large éventail d'applications nouvelles qui étaient jusqu'à présent hors de portée (voir nos études de cas en chimie, pétrole et gaz, chemins de fer, énergie éolienne, mines, construction ). Nos clients sont de grands opérateurs d'actifs et fournisseurs de services d'usines industrielles pionnières en robotique pour l'inspection et l'entretien. Notre solution permet d'effectuer des inspections de routine autonomes et de surveiller les grandes installations industrielles pour accroître la sécurité et la productivité. Nous développons de nombreux systèmes matériels personnalisés, dont l'ensemble de la plate-forme robotique, des actionneurs, des capteurs, des charges utiles d'inspection, des systèmes de recharge et des logiciels pour atteindre des capacités de mobilité, d'autonomie et d'inspection de calibre mondial, souvent basées sur l'IA. Nous avons prouvé la technologie et l'impact commercial sur nos clients dans des projets pilotes à long terme. Nous développons maintenant la commercialisation de notre(s) solution(s) et nous déployons directement dans les installations client dans le monde entier. Vos contributions\n• Fabrication et montage de modules, d'accessoires et de robots pour prototypes et production de série 0 en petit nombre\n• Effectuer des essais et le contrôle de la qualité des composants, assemblages et robots entiers incl. mise en service de robots\n• Diagnostic et réparation de produits et de prototypes\n• Soutien aux campagnes de test robot aux côtés des ingénieurs de développement\n• Contribution au développement de nos procédés de fabrication, de montage et d'essai\n• Soutenir l'amélioration continue des installations techniques et des infrastructures de production de robots Votre profil\n• Formation en tant que polymécanicien EFZ, technicien en électronique ou en automatisation EFZ (Diplôme fédéral suisse de l'enseignement et de la formation professionnels)\n• 3+ ans d'expérience dans le domaine de la mécatronique ou de la fabrication d'équipements\n• Bonne connaissance pratique de l'assemblage des composants électromécaniques\n• Compréhension des dessins et instructions techniques\n• Expérience dans la manipulation des outils de mesure et d'essai pour les pièces mécaniques ainsi que l'EDD\n• Profitez de travailler dans un environnement multiculturel et à croissance rapide\n• Bonnes compétences informatiques générales (de préférence Google Workspace)\n• Très bonnes compétences en allemand et en anglais (niveau B2) Points bonus\n• Expérience en production, réparation et dépannage d'assemblages électroniques\n• Permis de conduire CH-Cat. B Nous vous offrons un environnement de travail très excitant et dynamique, l'opportunité de faire partie d'une entreprise en croissance rapide et d'une équipe ambitieuse qui est en mission de changer le marché de l'inspection industrielle, une chance de tirer parti de votre expérience et d'apporter vos propres idées, un salaire équitable du marché, un plan attrayant d'actionnariat salarié, et un emploi dans la ville de Zurich. Politique de l'Agence : Nous ne sommes pas en partenariat avec des entreprises de recherche externes ou des agences de recrutement. Tous les profils ou curriculum vitae soumis à des employés d'Anybotics sans accord écrit préalable seront considérés comme une divulgation publique et la propriété d'Anybotics, ce qui n'implique aucune responsabilité ni aucun droit pour l'embauche ultérieure."
       },
       "location": "Zurich, Switzerland",
       "canton": "ZH",
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:16.925Z",
+      "crawledAt": "2026-07-09T12:17:44.905Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -417,9 +428,24 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "production-technician-ii-robotics-anybotics-ch",
+        "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "production-technician-ii-robotics-anybotics-ch",
+          "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
+        ],
+        "de": [
+          "production-technician-ii-robotics-anybotics-ch"
+        ],
+        "fr": [
+          "production-technician-ii-robotics-anybotics-ch"
+        ]
       },
+      "firstSeenAt": "2026-07-08T11:20:16.925Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -432,16 +458,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-08T11:20:16.925Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "production-technician-ii-robotics-anybotics-ch"
-        ]
-      },
-      "previousSlugs": [
-        "production-technician-ii-robotics-anybotics-ch"
-      ]
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-b8ea5408fd23",
@@ -474,7 +491,7 @@
       "url": "https://jobs.lever.co/anybotics/74b68707-86aa-4efc-9efb-94ca5ad82698",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:16.622Z",
+      "crawledAt": "2026-07-09T12:17:44.603Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -490,11 +507,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-data-management-internship-anybotics-ch"
+        "product-data-management-internship-anybotics-ch",
+        "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-data-management-internship-anybotics-ch"
+          "product-data-management-internship-anybotics-ch",
+          "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
         ],
         "de": [
           "product-data-management-internship-anybotics-ch"
@@ -549,7 +568,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:16.320Z",
+      "crawledAt": "2026-07-09T12:17:44.300Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -565,11 +584,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manufacturing-engineer-anybotics-ch"
+        "manufacturing-engineer-anybotics-ch",
+        "manufacturing-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-engineer-anybotics-ch"
+          "manufacturing-engineer-anybotics-ch",
+          "manufacturing-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "manufacturing-engineer-anybotics-ch"
@@ -624,7 +645,7 @@
       "url": "https://jobs.lever.co/anybotics/ecdae57b-ce0f-40c1-b4b5-1ba75dd6ccf7",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:16.015Z",
+      "crawledAt": "2026-07-09T12:17:43.993Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -640,11 +661,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "electrical-engineering-internship-anybotics-ch"
+        "electrical-engineering-internship-anybotics-ch",
+        "ingegneria-elettrica-stage-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "electrical-engineering-internship-anybotics-ch"
+          "electrical-engineering-internship-anybotics-ch",
+          "ingegneria-elettrica-stage-anybotics-zurich"
         ],
         "de": [
           "electrical-engineering-internship-anybotics-ch"
