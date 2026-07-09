@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migrolino",
-  "assembledAt": "2026-07-09T12:24:35.072Z",
+  "assembledAt": "2026-07-09T22:24:38.968Z",
   "jobs": [
     {
       "id": "migrolino-e5d9c4e25a89",
@@ -33,7 +33,7 @@
       "url": "https://jobs.migros.ch/it/le-nostre-imprese/job/migrolino/franchisee-lugano/8e356892-9033-4db3-9507-e70ce8df3924",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T12:13:18.265Z",
+      "crawledAt": "2026-07-09T22:24:37.260Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddress": "Piazzale Stazione",
@@ -95,7 +95,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-sursee-lu/6dcebf4a-68ba-4a83-9dbf-2dd74ef01d2c",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:17.611Z",
+      "crawledAt": "2026-07-09T22:24:36.786Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "Zeughausstrasse 38",
@@ -170,7 +170,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-einsiedeln-sz/771ed591-174b-4eab-94a8-4f9bcbb3f823",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:16.953Z",
+      "crawledAt": "2026-07-09T22:24:36.227Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "Bahnhofplatz 1",
@@ -245,7 +245,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-emmen-lu/b972ac74-1584-475c-8b31-3c13bfc15f57",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:16.283Z",
+      "crawledAt": "2026-07-09T22:24:35.639Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Seetalplatz",
@@ -264,18 +264,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "selbstandige-r-franchisepartner-in-in-emmen-lu-migrolino-emmen",
-        "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen"
+        "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen",
+        "partner-di-franchising-indipendente-in-emmen-lu-migrolino-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "selbstandige-r-franchisepartner-in-in-emmen-lu-migrolino-emmen",
-          "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen"
+          "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen",
+          "partner-di-franchising-indipendente-in-emmen-lu-migrolino-emmen"
         ],
         "de": [
           "selbstandige-r-franchisepartner-in-in-emmen-lu-migrolino-emmen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:29:08.024Z",
+      "needsRetranslation": true,
       "salaryMin": 107500,
       "salaryMax": 188500,
       "baseSalary": {
@@ -285,78 +288,6 @@
           "@type": "QuantitativeValue",
           "minValue": 107500,
           "maxValue": 188500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "migrolino-5dfa85480a17",
-      "slug": "supervisore-del-turno-migrolino-bern-brd5lr",
-      "slugByLocale": {
-        "it": "supervisore-del-turno-migrolino-bern-brd5lr",
-        "en": "shift-leader-in-migrolino-bern",
-        "de": "schichtleiter-in-migrolino-bern",
-        "fr": "superviseur-d-equipe-migrolino-bern-brd5lr"
-      },
-      "company": "migrolino",
-      "companyKey": "migrolino",
-      "companyDomain": "migrolino.ch",
-      "title": "Schichtleiter*in",
-      "titleByLocale": {
-        "it": "Capo turno*in",
-        "en": "Shift Leader*in",
-        "de": "Schichtleiter*in",
-        "fr": "Chef d'équipe*in"
-      },
-      "description": "migrolino-Shops gibt es in der ganzen Schweiz, an über 300 Standorten. migrolino bietet ihren Kunden ein einfaches, unkompliziertes Einkaufserlebnis, schnelles, bequemes Konsumieren und praktische Dienstleistungsangebote. ## Mansioni - Verantwortung für die Führung, Überwachung und Koordination während der eigenen Schicht - Verantwortung für Disposition und Bestellungen - Sicherstellung der Verkaufsbereitschaft und Sortimentsvollständigkeit - Umsetzung der Konzeptgetreuen Warenpräsentation und der Aktionsplätze sowie die richtige Einsetzung der Verkaufshelfer und des POS Materials - Aktiver Verkauf und kompetente Ansprechperson für Kundenanliegen - Lagerbewirtschaftung und Qualitätssicherung - Direkte, partizipative Personalführung, insbesondere bezüglich Einsatzplanung und Personaldisposition - Effiziente Kostenüberwachung in allen Shop-Bereichen ## \n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Fachkenntnisse in den Kategorien Food, Nearfood und Nonfood - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Ausgeprägtes Verantwortungsbewusstsein, Flexibilität und Belastbarkeit - Gute EDV-Kenntnisse - Kenntnisse der Lebensmittelgesetzte und –vorschriften (HACCP, Kühlkette, etc.) - Erfahrung in der Aktionsplanung und –umsetzung - Deutsch (sehr gute Kenntnisse) ## Contatto ## Bewerbung & Kontakt Veronica Di Pasquale Assistentin HR",
-      "descriptionByLocale": {
-        "it": "Ci sono negozi di migrolino in tutta la Svizzera, in oltre 300 località. migrolino offre ai suoi clienti un'esperienza di shopping semplice, semplice, veloce, conveniente e servizi pratici. ## Mansioni - Responsabilità per la leadership, la supervisione e il coordinamento durante il proprio turno - Responsabilità per disposizione e ordini - Garantire la disponibilità a vendere e la completezza della gamma di prodotti - Attuazione della presentazione del prodotto vero e proprio e dei luoghi di azione, nonché l'uso corretto degli assistenti di vendita e del materiale POS - Vendite attive e referente competente per le preoccupazioni dei clienti - Gestione dello stoccaggio e garanzia della qualità - Gestione diretta e partecipativa del personale, in particolare per quanto riguarda la pianificazione operativa e la gestione del personale - Monitoraggio dei costi efficiente in tutte le aree del negozio ##\n• Requisiti - Alcuni anni: nelle vendite nel commercio al dettaglio - Formazione professionale completa (EFZ): commercio al dettaglio - Competenza nelle categorie Cibo, Vicinanze e Nonfood - Il cliente e le vendite orientate così come il pensiero economico e agire - Aspetto ben curato e buone maniere - Forte senso di responsabilità, flessibilità e resilienza - Buone competenze informatiche - Conoscenza delle leggi e dei regolamenti alimentari (HACCP, catena fredda, ecc.) - Esperienza nella pianificazione e nell'attuazione delle azioni - tedesco (molto buona conoscenza) ## Contatto ## Richiesta & Contatto Veronica Di Pasquale Assistant HR",
-        "en": "There are migrolino shops throughout Switzerland, at over 300 locations. migrolino offers its customers a simple, uncomplicated shopping experience, fast, convenient consumption and practical services. ## Mansioni - Responsibility for leadership, supervision and coordination during your own shift - Responsibility for disposition and orders - Ensuring willingness to sell and completeness of the product range - Implementation of the true-to-concept product presentation and the action places as well as the correct use of the sales assistants and the POS material - Active sales and competent contact person for customer concerns - Storage management and quality assurance - Direct, participatory personnel management, in particular with regard to operational planning and personnel management - Efficient cost monitoring in all shop areas ##\n• Requirements - A few years: in sales in the retail trade - Completed vocational apprenticeship (EFZ): retail trade - Expertise in the categories Food, Nearfood and Nonfood - Customer- and sales-oriented as well as economic thinking and acting - Well-groomed appearance and good manners - Strong sense of responsibility, flexibility and resilience - Good computer skills - Knowledge of food laws and regulations (HACCP, cold chain, etc.) - Experience in action planning and implementation - German (very good knowledge) ## Contatto ## Application & Contact Veronica Di Pasquale Assistant HR",
-        "de": "migrolino-Shops gibt es in der ganzen Schweiz, an über 300 Standorten. migrolino bietet ihren Kunden ein einfaches, unkompliziertes Einkaufserlebnis, schnelles, bequemes Konsumieren und praktische Dienstleistungsangebote. ## Mansioni - Verantwortung für die Führung, Überwachung und Koordination während der eigenen Schicht - Verantwortung für Disposition und Bestellungen - Sicherstellung der Verkaufsbereitschaft und Sortimentsvollständigkeit - Umsetzung der Konzeptgetreuen Warenpräsentation und der Aktionsplätze sowie die richtige Einsetzung der Verkaufshelfer und des POS Materials - Aktiver Verkauf und kompetente Ansprechperson für Kundenanliegen - Lagerbewirtschaftung und Qualitätssicherung - Direkte, partizipative Personalführung, insbesondere bezüglich Einsatzplanung und Personaldisposition - Effiziente Kostenüberwachung in allen Shop-Bereichen ## \n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Fachkenntnisse in den Kategorien Food, Nearfood und Nonfood - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Ausgeprägtes Verantwortungsbewusstsein, Flexibilität und Belastbarkeit - Gute EDV-Kenntnisse - Kenntnisse der Lebensmittelgesetzte und –vorschriften (HACCP, Kühlkette, etc.) - Erfahrung in der Aktionsplanung und –umsetzung - Deutsch (sehr gute Kenntnisse) ## Contatto ## Bewerbung & Kontakt Veronica Di Pasquale Assistentin HR",
-        "fr": "Il y a des boutiques de migrants dans toute la Suisse, à plus de 300 endroits. migrolino offre à ses clients une expérience d'achat simple et simple, une consommation rapide et pratique et des services pratiques. ## Mansioni - Responsabilité en matière de leadership, de supervision et de coordination pendant votre propre travail - Responsabilité de la disposition et des ordonnances - Assurer la volonté de vendre et l'exhaustivité de la gamme de produits - Mise en œuvre de la présentation du produit vrai-concept et des lieux d'action ainsi que l'utilisation correcte des assistants de vente et du matériel POS - Ventes actives et personne de contact compétente pour les préoccupations des clients - Gestion du stockage et assurance de la qualité - Gestion directe et participative du personnel, notamment en ce qui concerne la planification opérationnelle et la gestion du personnel - Surveillance efficace des coûts dans tous les secteurs d'activité ##\n• Exigences - Quelques années : dans le commerce de détail - Apprentissage professionnel achevé (EFZ): commerce de détail - Expertise dans les catégories Aliments, produits alimentaires et non alimentaires - Le client et les ventes, ainsi que la pensée et l'action économiques - Aspect soigné et bonnes manières - Fort sens des responsabilités, flexibilité et résilience - Bonnes compétences en informatique - Connaissance des lois et règlements alimentaires (HACCP, chaîne du froid, etc.) - Expérience en matière de planification et de mise en œuvre des mesures - Allemand (très bonne connaissance) ## Contatto ## Demande et contact Veronica Di Pasquale Assistant HR"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/c93cc90e-b3ca-4285-9c6b-f19607bc8b0d",
-      "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:15.617Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Egghölzlistrasse 1",
-      "postalCode": "3006",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "sector": "Retail / Convenience Store",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/c93cc90e-b3ca-4285-9c6b-f19607bc8b0d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "schichtleiter-in-migrolino-bern",
-        "capo-turno-in-migrolino-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "schichtleiter-in-migrolino-bern",
-          "capo-turno-in-migrolino-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:29:07.062Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -392,7 +323,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/6a22eee3-8ca3-432a-a73b-99d66e1d1305",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:14.964Z",
+      "crawledAt": "2026-07-09T22:24:35.066Z",
       "addressLocality": "Worblaufen-Ittigen",
       "addressRegion": "BE",
       "streetAddress": "Worblaufenstrasse 161",
@@ -471,7 +402,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-im-familienbetrieb-ganze-schweiz/f94be982-f278-4652-834e-d3fed727e3a1",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:12.779Z",
+      "crawledAt": "2026-07-09T22:24:34.629Z",
       "addressLocality": "Suhr",
       "addressRegion": "Aargau",
       "streetAddress": "Wynenfeldstrasse 3",
@@ -490,12 +421,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "selbstandige-r-franchisepartner-in-im-familienbetrieb-ganze-schweiz-migrolino-suhr",
-        "socio-in-franchising-autonomo-in-un-azienda-familiare-tutta-la-svizzera-migrolino-suhr"
+        "socio-in-franchising-autonomo-in-un-azienda-familiare-tutta-la-svizzera-migrolino-suhr",
+        "partner-in-franchising-indipendente-in-azienda-familiare-tutta-la-svizzera-migrolino-suhr-7y57tb"
       ],
       "previousSlugsByLocale": {
         "it": [
           "selbstandige-r-franchisepartner-in-im-familienbetrieb-ganze-schweiz-migrolino-suhr",
-          "socio-in-franchising-autonomo-in-un-azienda-familiare-tutta-la-svizzera-migrolino-suhr"
+          "socio-in-franchising-autonomo-in-un-azienda-familiare-tutta-la-svizzera-migrolino-suhr",
+          "partner-in-franchising-indipendente-in-azienda-familiare-tutta-la-svizzera-migrolino-suhr-7y57tb"
         ],
         "de": [
           "selbstandige-r-franchisepartner-in-im-familienbetrieb-ganze-schweiz-migrolino-suhr"
@@ -546,7 +479,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/549fd513-b305-4b54-8285-1d62f1552453",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:12.111Z",
+      "crawledAt": "2026-07-09T22:24:34.063Z",
       "addressLocality": "Gümligen",
       "addressRegion": "Aargau",
       "streetAddress": "Bahnhofstrasse 21",
@@ -625,7 +558,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/1ac20e92-a8eb-400e-9e7f-b88bb6340ce6",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:11.613Z",
+      "crawledAt": "2026-07-09T22:24:33.632Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "Gsteigstrasse 6",
@@ -644,12 +577,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-wilderswil",
-        "rappresentante-vendite-migrolino-wilderswil"
+        "rappresentante-vendite-migrolino-wilderswil",
+        "dipendente-commerciale-migrolino-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-wilderswil",
-          "rappresentante-vendite-migrolino-wilderswil"
+          "rappresentante-vendite-migrolino-wilderswil",
+          "dipendente-commerciale-migrolino-wilderswil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:29:05.127Z",
@@ -672,7 +607,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-migrolino-wilderswil-t9g9uz",
         "en": "sales-assistant-migrolino-wilderswil-t9g9uz",
-        "de": "verkaufsmitarbeiter-in-migrolino-brugg",
+        "de": "verkaufsmitarbeiter-in-migrolino-wilderswil",
         "fr": "employe-e-de-vente-migrolino-wilderswil-t9g9uz"
       },
       "company": "migrolino",
@@ -697,7 +632,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/0d97542a-6458-4e32-bf80-653e5e365c13",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:11.128Z",
+      "crawledAt": "2026-07-09T22:24:33.179Z",
       "addressLocality": "Brügg",
       "addressRegion": "Aargau",
       "streetAddress": "Bahnhofstrasse 8",
@@ -717,12 +652,14 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-brugg",
         "rappresentante-vendite-migrolino-brugg",
+        "addetto-a-alle-vendite-migrolino-wilderswil-t9g9uz",
         "verkaufsmitarbeiter-in-migrolino-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-brugg",
-          "rappresentante-vendite-migrolino-brugg"
+          "rappresentante-vendite-migrolino-brugg",
+          "addetto-a-alle-vendite-migrolino-wilderswil-t9g9uz"
         ],
         "de": [
           "verkaufsmitarbeiter-in-migrolino-brugg",
@@ -774,7 +711,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/6d346f9c-91eb-4ee4-9070-b911b90c2a76",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:10.607Z",
+      "crawledAt": "2026-07-09T22:24:32.728Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "streetAddress": "Zürichstrasse 57",
@@ -793,12 +730,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-bulach",
-        "rappresentante-vendite-migrolino-bulach"
+        "rappresentante-vendite-migrolino-bulach",
+        "addetto-alle-vendite-migrolino-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-bulach",
-          "rappresentante-vendite-migrolino-bulach"
+          "rappresentante-vendite-migrolino-bulach",
+          "addetto-alle-vendite-migrolino-bulach"
         ]
       },
       "firstSeenAt": "2026-07-04T11:29:02.839Z",
@@ -846,7 +785,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/2817dfe0-4a96-4c9e-9936-164c6d7852d7",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:09.875Z",
+      "crawledAt": "2026-07-09T22:24:32.273Z",
       "addressLocality": "Romanshorn",
       "addressRegion": "TG",
       "streetAddress": "Mittlere Gasse 5",
@@ -865,12 +804,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-romanshorn",
-        "rappresentante-vendite-migrolino-romanshorn"
+        "rappresentante-vendite-migrolino-romanshorn",
+        "personale-di-vendita-migrolino-romanshorn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-romanshorn",
-          "rappresentante-vendite-migrolino-romanshorn"
+          "rappresentante-vendite-migrolino-romanshorn",
+          "personale-di-vendita-migrolino-romanshorn"
         ]
       },
       "firstSeenAt": "2026-07-04T11:29:02.299Z",
@@ -918,7 +859,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/9003d084-5a59-4f21-80bc-177726ce39b4",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:09.358Z",
+      "crawledAt": "2026-07-09T22:24:31.824Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "Industriestrasse 20a",
@@ -937,12 +878,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-volketswil",
-        "rappresentante-vendite-migrolino-volketswil"
+        "rappresentante-vendite-migrolino-volketswil",
+        "personale-di-vendita-migrolino-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-volketswil",
-          "rappresentante-vendite-migrolino-volketswil"
+          "rappresentante-vendite-migrolino-volketswil",
+          "personale-di-vendita-migrolino-volketswil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:29:01.770Z",
@@ -990,7 +933,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin-auf-stundenbasis/2f22bb3a-48bf-4ec6-8d2f-19fdd26d0419",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:08.830Z",
+      "crawledAt": "2026-07-09T22:24:31.355Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Birmensdorferstrasse 517",
@@ -1040,7 +983,7 @@
       "slugByLocale": {
         "it": "cad-planer-in-zeichner-in-migrolino-suhr",
         "en": "cad-planner-draftsman-migrolino-suhr",
-        "de": "verkaufsstellenplaner-in-cad-migrolino-suhr",
+        "de": "cad-planer-in-zeichner-in-migrolino-suhr-p5fkjr",
         "fr": "planificateur-dessinateur-cad-migrolino-suhr"
       },
       "company": "migrolino",
@@ -1065,7 +1008,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsstellenplanerin-cad/39da75f9-cebd-4a59-adfa-ece0600d23a8",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:08.330Z",
+      "crawledAt": "2026-07-09T22:24:30.906Z",
       "addressLocality": "Suhr",
       "addressRegion": "Aargau",
       "streetAddress": "Wynenfeldstrasse 3",
@@ -1085,12 +1028,14 @@
       "previousSlugs": [
         "verkaufsstellenplaner-in-cad-migrolino-suhr",
         "pianificatore-point-of-sale-cad-migrolino-suhr",
+        "cad-planer-in-zeichner-in-migrolino-suhr",
         "cad-planer-in-zeichner-in-migrolino-suhr-p5fkjr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsstellenplaner-in-cad-migrolino-suhr",
-          "pianificatore-point-of-sale-cad-migrolino-suhr"
+          "pianificatore-point-of-sale-cad-migrolino-suhr",
+          "cad-planer-in-zeichner-in-migrolino-suhr"
         ],
         "de": [
           "verkaufsstellenplaner-in-cad-migrolino-suhr",
@@ -1142,7 +1087,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/8dbc5b71-319d-47fe-b675-278939bd6f77",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:07.664Z",
+      "crawledAt": "2026-07-09T22:24:30.346Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Weststrasse 10",
@@ -1161,12 +1106,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-thun",
-        "rappresentante-vendite-migrolino-thun"
+        "rappresentante-vendite-migrolino-thun",
+        "personale-di-vendita-migrolino-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-thun",
-          "rappresentante-vendite-migrolino-thun"
+          "rappresentante-vendite-migrolino-thun",
+          "personale-di-vendita-migrolino-thun"
         ]
       },
       "firstSeenAt": "2026-07-04T11:29:00.270Z",
@@ -1214,7 +1161,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/bcae143d-01b2-4d85-987f-94ca3a6a1e87",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:07.135Z",
+      "crawledAt": "2026-07-09T22:24:29.903Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "streetAddress": "Gotthardstrasse 45",
@@ -1233,12 +1180,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-meggen",
-        "rappresentante-vendite-migrolino-meggen"
+        "rappresentante-vendite-migrolino-meggen",
+        "dipendente-commerciale-migrolino-meggen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-meggen",
-          "rappresentante-vendite-migrolino-meggen"
+          "rappresentante-vendite-migrolino-meggen",
+          "dipendente-commerciale-migrolino-meggen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:28:59.204Z",
@@ -1286,7 +1235,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/7a9dac95-1fe3-4cd9-98c2-9dd0267717e7",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:06.617Z",
+      "crawledAt": "2026-07-09T22:24:29.451Z",
       "addressLocality": "Füllinsdorf",
       "addressRegion": "BL",
       "streetAddress": "Rheinstrasse 46",
@@ -1305,12 +1254,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-fullinsdorf",
-        "rappresentante-vendite-migrolino-fullinsdorf"
+        "rappresentante-vendite-migrolino-fullinsdorf",
+        "personale-di-vendita-migrolino-fullinsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-fullinsdorf",
-          "rappresentante-vendite-migrolino-fullinsdorf"
+          "rappresentante-vendite-migrolino-fullinsdorf",
+          "personale-di-vendita-migrolino-fullinsdorf"
         ]
       },
       "firstSeenAt": "2026-07-04T11:28:58.680Z",
@@ -1358,7 +1309,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/a3d242d6-5d89-4dbc-bb27-c5924ed6febb",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:05.960Z",
+      "crawledAt": "2026-07-09T22:24:28.884Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "streetAddress": "Obernauerstrasse 47",
@@ -1377,12 +1328,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-kriens",
-        "rappresentante-vendite-migrolino-kriens"
+        "rappresentante-vendite-migrolino-kriens",
+        "personale-di-vendita-migrolino-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-kriens",
-          "rappresentante-vendite-migrolino-kriens"
+          "rappresentante-vendite-migrolino-kriens",
+          "personale-di-vendita-migrolino-kriens"
         ]
       },
       "firstSeenAt": "2026-07-04T11:28:58.160Z",
@@ -1430,7 +1383,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/ee2790b4-646e-43e5-acea-be8c38dd11cb",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:05.299Z",
+      "crawledAt": "2026-07-09T22:24:28.318Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "Rotzlochstrasse 1",
@@ -1449,12 +1402,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-stans",
-        "rappresentante-vendite-migrolino-stans"
+        "rappresentante-vendite-migrolino-stans",
+        "personale-di-vendita-migrolino-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-stans",
-          "rappresentante-vendite-migrolino-stans"
+          "rappresentante-vendite-migrolino-stans",
+          "personale-di-vendita-migrolino-stans"
         ]
       },
       "firstSeenAt": "2026-07-04T11:28:57.610Z",
@@ -1475,26 +1430,26 @@
       "id": "migrolino-ba96bffa7af5",
       "slug": "personale-di-vendita-migrolino-romanshorn-b0945f",
       "slugByLocale": {
-        "de": "verkaufsmitarbeiter-in-migrolino-romanshorn",
+        "it": "personale-di-vendita-migrolino-romanshorn-b0945f",
         "en": "sales-staff-migrolino-romanshorn-b0945f",
-        "fr": "personnel-de-vente-migrolino-romanshorn-b0945f",
-        "it": "personale-di-vendita-migrolino-romanshorn-b0945f"
+        "de": "verkaufsmitarbeiter-in-migrolino-romanshorn",
+        "fr": "personnel-de-vente-migrolino-romanshorn-b0945f"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
       "companyDomain": "migrolino.ch",
       "title": "Verkaufsmitarbeiter*in",
       "titleByLocale": {
-        "de": "Verkaufsmitarbeiter*in",
         "it": "Personale di vendita*",
         "en": "Sales staff*",
+        "de": "Verkaufsmitarbeiter*in",
         "fr": "Personnel de vente*"
       },
       "description": "Stelle dein Engagement und Herzblut in einem migrolino-Shop unter Beweis und begeistere unsere Kundinnen und Kunden täglich aufs Neue. ## Mansioni - Inkasso der Shopeinkäufe sowie Verkauf von Angeboten aus dem Kassenbereich (u.a. Backwaren, Zigaretten, Lose, Waschkarten, etc.) - Beratung und Verkauf über das gesamte Angebot, insbesondere Verkauf von Zusatzangeboten sowie Engagement bei den Treue-Kampagnen und andere Aktionen - Verantwortung für eine einwandfreie Kassenführung und Kassenabrechnung - Überwachung des Verkaufs von Shop sowie allfälliger weiterer Bereiche - Kontrolle von Lieferscheinen, Bestellwesen, Warenpflege und –präsentationen inkl. Preiskontrolle ## \n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Belastbarkeit und hohes Verantwortungsbewusstsein - Flexible, lösungsorientierte und gewissenhafte Arbeitsweise - Gute EDV-Kenntnisse - Deutsch (sehr gute Kenntnisse) ## Contatto ## Bewerbung & Kontakt Veronica Di Pasquale Assistentin HR",
       "descriptionByLocale": {
-        "de": "Stelle dein Engagement und Herzblut in einem migrolino-Shop unter Beweis und begeistere unsere Kundinnen und Kunden täglich aufs Neue. ## Mansioni - Inkasso der Shopeinkäufe sowie Verkauf von Angeboten aus dem Kassenbereich (u.a. Backwaren, Zigaretten, Lose, Waschkarten, etc.) - Beratung und Verkauf über das gesamte Angebot, insbesondere Verkauf von Zusatzangeboten sowie Engagement bei den Treue-Kampagnen und andere Aktionen - Verantwortung für eine einwandfreie Kassenführung und Kassenabrechnung - Überwachung des Verkaufs von Shop sowie allfälliger weiterer Bereiche - Kontrolle von Lieferscheinen, Bestellwesen, Warenpflege und –präsentationen inkl. Preiskontrolle ## \n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Belastbarkeit und hohes Verantwortungsbewusstsein - Flexible, lösungsorientierte und gewissenhafte Arbeitsweise - Gute EDV-Kenntnisse - Deutsch (sehr gute Kenntnisse) ## Contatto ## Bewerbung & Kontakt Veronica Di Pasquale Assistentin HR",
         "it": "Dimostrare il vostro impegno e la vostra passione in un negozio migrolino e ispirare i nostri clienti ogni giorno. ## Mansioni - Raccolta di acquisti di negozio e vendita di offerte dall'area di checkout (ad esempio prodotti da forno, sigarette, lotti, carte di lavaggio, ecc.) - Consulenza e vendita su tutta l'offerta, in particolare la vendita di offerte aggiuntive, nonché l'impegno per le campagne di fidelizzazione e altre azioni - Responsabilità per una gestione di checkout perfetta e contabilità di checkout - Supervisione della vendita di negozio così come tutte le altre aree di consegna Controllo dei prezzi\n• Requisiti - Qualche anno: nelle vendite nel commercio al dettaglio - Completato apprendistato professionale (EFZ): Commercio al dettaglio - Customer- e orientato alle vendite e pensiero economico e agire - Ben mantenuto aspetto e buone maniere - Resilienza e alto senso di responsabilità - Metodo di lavoro flessibile, orientato alla soluzione e coscienzioso - Buone competenze IT - Tedesco (molto buona conoscenza) ## Contatto ## Applicazione & contact Veronica Di Pasquale assistente HR",
         "en": "Prove your commitment and passion in a migrolino shop and inspire our customers every day. ## Mansioni - Collection of shop purchases as well as sale of offers from the checkout area (e.g. baked goods, cigarettes, lots, washing cards, etc.) - Advice and sale over the entire offer, in particular sale of additional offers as well as commitment to the loyalty campaigns and other actions - Responsibility for a perfect checkout management and checkout accounting - Supervision of the sale of shop as well as any other areas - Control of delivery notes, ordering, goods maintenance and presentations incl. Price control ##\n• Requisiti - Some years: in sales in the retail trade - Completed vocational apprenticeship (EFZ): Retail trade - Customer- and sales-oriented as well as economic thinking and acting - Well-maintained appearance and good manners - Resilience and high sense of responsibility - Flexible, solution-oriented and conscientious working method - Good IT skills - German (very good knowledge) ## Contatto ## Application & contact Veronica Di Pasquale assistant HR",
+        "de": "Stelle dein Engagement und Herzblut in einem migrolino-Shop unter Beweis und begeistere unsere Kundinnen und Kunden täglich aufs Neue. ## Mansioni - Inkasso der Shopeinkäufe sowie Verkauf von Angeboten aus dem Kassenbereich (u.a. Backwaren, Zigaretten, Lose, Waschkarten, etc.) - Beratung und Verkauf über das gesamte Angebot, insbesondere Verkauf von Zusatzangeboten sowie Engagement bei den Treue-Kampagnen und andere Aktionen - Verantwortung für eine einwandfreie Kassenführung und Kassenabrechnung - Überwachung des Verkaufs von Shop sowie allfälliger weiterer Bereiche - Kontrolle von Lieferscheinen, Bestellwesen, Warenpflege und –präsentationen inkl. Preiskontrolle ## \n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Belastbarkeit und hohes Verantwortungsbewusstsein - Flexible, lösungsorientierte und gewissenhafte Arbeitsweise - Gute EDV-Kenntnisse - Deutsch (sehr gute Kenntnisse) ## Contatto ## Bewerbung & Kontakt Veronica Di Pasquale Assistentin HR",
         "fr": "Prouvez votre engagement et votre passion dans une boutique de migrants et inspirez nos clients chaque jour. ## Mansioni - Collection d'achats de magasin ainsi que la vente d'offres de la zone de caisse (par exemple, les produits de boulangerie, les cigarettes, les lots, les cartes de lavage, etc.) - Conseils et vente sur l'ensemble de l'offre, en particulier la vente d'offres supplémentaires ainsi que l'engagement dans les campagnes de fidélisation et autres actions - Responsabilité pour une parfaite gestion de caisse et comptabilité de caisse - Supervision de la vente de magasin ainsi que tout autre domaine - Contrôle des notes de livraison, commande, entretien des marchandises et présentations incl. Contrôle des prix ##\n• Requisiti - Quelques années: dans les ventes dans le commerce de détail - Apprentissage professionnel terminé (EFZ): Commerce de détail - orientés vers le client et les ventes ainsi que la pensée et l'action économiques - Aspect et bonnes manières bien entretenus - Résilience et haut sens des responsabilités - Méthode de travail flexible, orientée vers la solution et consciencieuse - Bonnes compétences en TI - Allemand (très bonne connaissance) ## Contatto ## Application & contact Veronica Di Pasquale assistant HR"
       },
       "location": "Romanshorn",
@@ -1502,7 +1457,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/2d6aff27-f161-492d-9f35-e1a2a767c63d",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:04.795Z",
+      "crawledAt": "2026-07-09T22:24:27.869Z",
       "addressLocality": "Romanshorn",
       "addressRegion": "TG",
       "streetAddress": "Mittlere Gasse 5",
@@ -1518,17 +1473,18 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/2d6aff27-f161-492d-9f35-e1a2a767c63d",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-migrolino-romanshorn",
+        "personale-di-vendita-migrolino-romanshorn-b0945f"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-migrolino-romanshorn"
+          "verkaufsmitarbeiter-in-migrolino-romanshorn",
+          "personale-di-vendita-migrolino-romanshorn-b0945f"
         ]
       },
-      "previousSlugs": [
-        "verkaufsmitarbeiter-in-migrolino-romanshorn"
-      ],
+      "firstSeenAt": "2026-07-09T12:13:04.795Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1540,8 +1496,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-09T12:13:04.795Z"
+      }
     },
     {
       "id": "migrolino-e7b0842424f0",
@@ -1574,7 +1529,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/736b0a9c-4e54-486c-a87f-72d62cb29a9d",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:04.284Z",
+      "crawledAt": "2026-07-09T22:24:27.417Z",
       "addressLocality": "Siebnen",
       "addressRegion": "Aargau",
       "streetAddress": "Glarnerstrasse 77",
@@ -1653,7 +1608,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/4d92d6ef-c776-4b95-85fb-c5f2cc415a05",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:03.579Z",
+      "crawledAt": "2026-07-09T22:24:26.810Z",
       "addressLocality": "Glarus",
       "addressRegion": "GL",
       "streetAddress": "Schweizerhofstrasse 2",
@@ -1725,7 +1680,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/5ecf1dad-eb30-4ea4-bd64-64707ea02ff7",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:02.919Z",
+      "crawledAt": "2026-07-09T22:24:26.252Z",
       "addressLocality": "Schmerikon",
       "addressRegion": "SG",
       "streetAddress": "Bahnhofstrasse 2",
@@ -1797,7 +1752,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/1b1c9896-4f2d-461a-95d8-1b8b7fe49fb6",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:02.218Z",
+      "crawledAt": "2026-07-09T22:24:25.690Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Egghölzlistrasse 1",
@@ -1816,12 +1771,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-bern",
-        "rappresentante-vendite-migrolino-bern"
+        "rappresentante-vendite-migrolino-bern",
+        "personale-di-vendita-migrolino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-bern",
-          "rappresentante-vendite-migrolino-bern"
+          "rappresentante-vendite-migrolino-bern",
+          "personale-di-vendita-migrolino-bern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:28:53.913Z",
@@ -1837,6 +1794,79 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "migrolino-5dfa85480a17",
+      "slug": "supervisore-del-turno-migrolino-bern-brd5lr",
+      "slugByLocale": {
+        "it": "supervisore-del-turno-migrolino-bern-brd5lr",
+        "en": "shift-leader-in-migrolino-bern",
+        "de": "schichtleiter-in-migrolino-bern",
+        "fr": "superviseur-d-equipe-migrolino-bern-brd5lr"
+      },
+      "company": "migrolino",
+      "companyKey": "migrolino",
+      "companyDomain": "migrolino.ch",
+      "title": "Schichtleiter*in",
+      "titleByLocale": {
+        "it": "Capo turno*in",
+        "en": "Shift Leader*in",
+        "de": "Schichtleiter*in",
+        "fr": "Chef d'équipe*in"
+      },
+      "description": "migrolino-Shops gibt es in der ganzen Schweiz, an über 300 Standorten. migrolino bietet ihren Kunden ein einfaches, unkompliziertes Einkaufserlebnis, schnelles, bequemes Konsumieren und praktische Dienstleistungsangebote. ## Mansioni - Verantwortung für die Führung, Überwachung und Koordination während der eigenen Schicht - Verantwortung für Disposition und Bestellungen - Sicherstellung der Verkaufsbereitschaft und Sortimentsvollständigkeit - Umsetzung der Konzeptgetreuen Warenpräsentation und der Aktionsplätze sowie die richtige Einsetzung der Verkaufshelfer und des POS Materials - Aktiver Verkauf und kompetente Ansprechperson für Kundenanliegen - Lagerbewirtschaftung und Qualitätssicherung - Direkte, partizipative Personalführung, insbesondere bezüglich Einsatzplanung und Personaldisposition - Effiziente Kostenüberwachung in allen Shop-Bereichen ##\n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Fachkenntnisse in den Kategorien Food, Nearfood und Nonfood - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Ausgeprägtes Verantwortungsbewusstsein, Flexibilität und Belastbarkeit - Gute EDV-Kenntnisse - Kenntnisse der Lebensmittelgesetzte und –vorschriften (HACCP, Kühlkette, etc.) - Erfahrung in der Aktionsplanung und –umsetzung - Deutsch (sehr gute Kenntnisse) ## Contatto ## Bewerbung & Kontakt Veronica Di Pasquale Assistentin HR",
+      "descriptionByLocale": {
+        "it": "Ci sono negozi di migrolino in tutta la Svizzera, in oltre 300 località. migrolino offre ai suoi clienti un'esperienza di shopping semplice, semplice, veloce, conveniente e servizi pratici. ## Mansioni - Responsabilità per la leadership, la supervisione e il coordinamento durante il proprio turno - Responsabilità per disposizione e ordini - Garantire la disponibilità a vendere e la completezza della gamma di prodotti - Attuazione della presentazione del prodotto vero e proprio e dei luoghi di azione, nonché l'uso corretto degli assistenti di vendita e del materiale POS - Vendite attive e referente competente per le preoccupazioni dei clienti - Gestione dello stoccaggio e garanzia della qualità - Gestione diretta e partecipativa del personale, in particolare per quanto riguarda la pianificazione operativa e la gestione del personale - Monitoraggio dei costi efficiente in tutte le aree del negozio ##\n• Requisiti - Alcuni anni: nelle vendite nel commercio al dettaglio - Formazione professionale completa (EFZ): commercio al dettaglio - Competenza nelle categorie Cibo, Vicinanze e Nonfood - Il cliente e le vendite orientate così come il pensiero economico e agire - Aspetto ben curato e buone maniere - Forte senso di responsabilità, flessibilità e resilienza - Buone competenze informatiche - Conoscenza delle leggi e dei regolamenti alimentari (HACCP, catena fredda, ecc.) - Esperienza nella pianificazione e nell'attuazione delle azioni - tedesco (molto buona conoscenza) ## Contatto ## Richiesta & Contatto Veronica Di Pasquale Assistant HR",
+        "en": "There are migrolino shops throughout Switzerland, at over 300 locations. migrolino offers its customers a simple, uncomplicated shopping experience, fast, convenient consumption and practical services. ## Mansioni - Responsibility for leadership, supervision and coordination during your own shift - Responsibility for disposition and orders - Ensuring willingness to sell and completeness of the product range - Implementation of the true-to-concept product presentation and the action places as well as the correct use of the sales assistants and the POS material - Active sales and competent contact person for customer concerns - Storage management and quality assurance - Direct, participatory personnel management, in particular with regard to operational planning and personnel management - Efficient cost monitoring in all shop areas ##\n• Requirements - A few years: in sales in the retail trade - Completed vocational apprenticeship (EFZ): retail trade - Expertise in the categories Food, Nearfood and Nonfood - Customer- and sales-oriented as well as economic thinking and acting - Well-groomed appearance and good manners - Strong sense of responsibility, flexibility and resilience - Good computer skills - Knowledge of food laws and regulations (HACCP, cold chain, etc.) - Experience in action planning and implementation - German (very good knowledge) ## Contatto ## Application & Contact Veronica Di Pasquale Assistant HR",
+        "de": "migrolino-Shops gibt es in der ganzen Schweiz, an über 300 Standorten. migrolino bietet ihren Kunden ein einfaches, unkompliziertes Einkaufserlebnis, schnelles, bequemes Konsumieren und praktische Dienstleistungsangebote. ## Mansioni - Verantwortung für die Führung, Überwachung und Koordination während der eigenen Schicht - Verantwortung für Disposition und Bestellungen - Sicherstellung der Verkaufsbereitschaft und Sortimentsvollständigkeit - Umsetzung der Konzeptgetreuen Warenpräsentation und der Aktionsplätze sowie die richtige Einsetzung der Verkaufshelfer und des POS Materials - Aktiver Verkauf und kompetente Ansprechperson für Kundenanliegen - Lagerbewirtschaftung und Qualitätssicherung - Direkte, partizipative Personalführung, insbesondere bezüglich Einsatzplanung und Personaldisposition - Effiziente Kostenüberwachung in allen Shop-Bereichen ##\n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Fachkenntnisse in den Kategorien Food, Nearfood und Nonfood - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Ausgeprägtes Verantwortungsbewusstsein, Flexibilität und Belastbarkeit - Gute EDV-Kenntnisse - Kenntnisse der Lebensmittelgesetzte und –vorschriften (HACCP, Kühlkette, etc.) - Erfahrung in der Aktionsplanung und –umsetzung - Deutsch (sehr gute Kenntnisse) ## Contatto ## Bewerbung & Kontakt Veronica Di Pasquale Assistentin HR",
+        "fr": "Il y a des boutiques de migrants dans toute la Suisse, à plus de 300 endroits. migrolino offre à ses clients une expérience d'achat simple et simple, une consommation rapide et pratique et des services pratiques. ## Mansioni - Responsabilité en matière de leadership, de supervision et de coordination pendant votre propre travail - Responsabilité de la disposition et des ordonnances - Assurer la volonté de vendre et l'exhaustivité de la gamme de produits - Mise en œuvre de la présentation du produit vrai-concept et des lieux d'action ainsi que l'utilisation correcte des assistants de vente et du matériel POS - Ventes actives et personne de contact compétente pour les préoccupations des clients - Gestion du stockage et assurance de la qualité - Gestion directe et participative du personnel, notamment en ce qui concerne la planification opérationnelle et la gestion du personnel - Surveillance efficace des coûts dans tous les secteurs d'activité ##\n• Exigences - Quelques années : dans le commerce de détail - Apprentissage professionnel achevé (EFZ): commerce de détail - Expertise dans les catégories Aliments, produits alimentaires et non alimentaires - Le client et les ventes, ainsi que la pensée et l'action économiques - Aspect soigné et bonnes manières - Fort sens des responsabilités, flexibilité et résilience - Bonnes compétences en informatique - Connaissance des lois et règlements alimentaires (HACCP, chaîne du froid, etc.) - Expérience en matière de planification et de mise en œuvre des mesures - Allemand (très bonne connaissance) ## Contatto ## Demande et contact Veronica Di Pasquale Assistant HR"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/c93cc90e-b3ca-4285-9c6b-f19607bc8b0d",
+      "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:13:15.617Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Egghölzlistrasse 1",
+      "postalCode": "3006",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "sector": "Retail / Convenience Store",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/c93cc90e-b3ca-4285-9c6b-f19607bc8b0d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "schichtleiter-in-migrolino-bern",
+        "capo-turno-in-migrolino-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "schichtleiter-in-migrolino-bern",
+          "capo-turno-in-migrolino-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T11:29:07.062Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
