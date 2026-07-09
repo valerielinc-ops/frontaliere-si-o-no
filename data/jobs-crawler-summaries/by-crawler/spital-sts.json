@@ -1,16 +1,16 @@
 {
   "key": "spital-sts",
   "label": "Spital STS",
-  "generatedAt": "2026-07-08T22:14:06.319Z",
-  "total": 11,
+  "generatedAt": "2026-07-09T12:20:59.444Z",
+  "total": 10,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 2,
-  "unchangedCount": 10,
-  "durationMs": 12722,
-  "avgDurationMs": 12722,
+  "updatedCount": 10,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 11810,
+  "avgDurationMs": 11810,
   "durationHistory": [
-    12722
+    11810
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/26f966f4-69cb-4c5f-ae6f-22a2fcd7687a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:55.256Z",
+      "crawledAt": "2026-07-09T12:20:49.622Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -42,6 +42,7 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/26f966f4-69cb-4c5f-ae6f-22a2fcd7687a",
+      "firstSeenAt": "2026-07-08T22:13:55.256Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -49,90 +50,7 @@
         "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "spital-sts-b5318df664c0",
-      "slug": "med-assistente-pratica-in-urologia-spital-sts-thun",
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Med. Praxisassistent:in Urologie",
-      "needsRetranslation": false,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/d7922b14-bc1f-47d7-a0f2-eefb871a7b57/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:20:04.286Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/d7922b14-bc1f-47d7-a0f2-eefb871a7b57",
-      "firstSeenAt": "2026-06-10T23:28:07.034Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
     },
-    {
-      "id": "spital-sts-1d63c7ed914d",
-      "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun",
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/bc26f779-c496-40b7-a82a-f408b43caf49/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:20:05.066Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/bc26f779-c496-40b7-a82a-f408b43caf49",
-      "firstSeenAt": "2026-06-08T23:14:23.499Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "id": "spital-sts-69f6cb995fca",
       "slug": "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen",
@@ -146,7 +64,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/07785e64-e98f-4d56-8999-bec611240880/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:56.037Z",
+      "crawledAt": "2026-07-09T12:20:50.372Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -183,7 +101,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e4be2939-bc81-40c5-b7a0-6543597a7943/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:56.807Z",
+      "crawledAt": "2026-07-09T12:20:51.081Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -220,7 +138,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/15b97db1-e6cb-40a5-bf3e-054c5c9a0bbf/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:57.564Z",
+      "crawledAt": "2026-07-09T12:20:51.823Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -257,7 +175,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/43918f52-8418-42a7-b3d3-534eb1b8eac8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:58.686Z",
+      "crawledAt": "2026-07-09T12:20:52.403Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -294,7 +212,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/41e474a9-a923-4a9b-84d2-b6417785444c/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:59.429Z",
+      "crawledAt": "2026-07-09T12:20:53.008Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -331,7 +249,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e7a46e5e-e9b7-439d-bc00-40fe95c0e6e8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:00.162Z",
+      "crawledAt": "2026-07-09T12:20:54.121Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -368,7 +286,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/47dc27f3-b41a-4f8b-81d3-ac9aaf59aab9/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:01.001Z",
+      "crawledAt": "2026-07-09T12:20:54.892Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -405,7 +323,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e64cfd8c-92ce-45dd-aff7-6e1b1a65a034/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:02.193Z",
+      "crawledAt": "2026-07-09T12:20:55.634Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -442,7 +360,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1953d39c-d8f1-45c3-9cd2-ad7010521204/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:03.711Z",
+      "crawledAt": "2026-07-09T12:20:56.356Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -465,7 +383,9 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "spital-sts-194e1f6c949a",
       "slug": "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun",
@@ -506,5 +426,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

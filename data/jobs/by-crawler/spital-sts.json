@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-07-08T22:14:06.318Z",
+  "assembledAt": "2026-07-09T12:20:59.443Z",
   "jobs": [
     {
       "id": "spital-sts-26389c9344d0",
@@ -17,7 +17,7 @@
       "title": "Dipl. Pflegefachfrau/-mann Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Infermiere/a Chirurgia",
-        "en": "Dipl. Nursing professional surgery",
+        "en": "Dipl. Pflegefachfrau/-mann Chirurgie",
         "de": "Dipl. Pflegefachfrau/-mann Chirurgie",
         "fr": "Dipl. Infirmier·ère Chirurgie"
       },
@@ -28,12 +28,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Du arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Frauenklinik, Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie sowie auch Urologie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld mit fünf verschiedenen Disziplinen. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit. Eintritt per sofort oder nach Vereinbarung. Das wartet auf dich\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen So wirst du Teil unseres Teams\n• Abschluss als Dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Frauenklinik und/oder Chirurgie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
         "fr": "Description Un emploi avec des perspectives : Outre une infrastructure ultramoderne et une multitude d'activités dans un environnement familial, l'hôpital de Thoune vous offre également la possibilité de passer du temps libre de manière flexible dans la région naturelle et lacustre environnante. Vous recherchez une solution sensée mais aussi juste ? Alors vous êtes au bon endroit. Vous travaillez dans un service de chirurgie axé sur les cliniques de gynécologie, d'orthopédie/traumatologie, de chirurgie rachidienne et viscérale ainsi que d'urologie. Vous pouvez vous attendre à un environnement de travail intéressant et varié avec cinq disciplines différentes. La gestion de la documentation électronique des soins infirmiers et du système de distribution des médicaments fait partie intégrante de notre travail quotidien. Entrée immédiatement ou sur rendez-vous. Cosa ofriamo - Une équipe humoristique, jeune et motivée avec un bon esprit d'équipe - Des défis passionnants avec votre propre domaine de responsabilité - Bonne coopération avec l'équipe et la direction du service - Possibilité d'acheter des vacances supplémentaires, conditions de travail attractives Conditions - Infirmier spécialisé qualifié - De préférence une expérience professionnelle en clinique gynécologique et/ou en chirurgie - Inspirant, engagé, responsable et professionnel - Les valeurs STS de notre hôpital qui nous tiennent à cœur"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/1953d39c-d8f1-45c3-9cd2-ad7010521204/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:03.711Z",
+      "crawledAt": "2026-07-09T12:20:56.356Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -50,15 +51,17 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/1953d39c-d8f1-45c3-9cd2-ad7010521204",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-17T13:51:16.398Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
+        "dipl-chirurgia-specialistica-infermieristica-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun"
+          "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
+          "dipl-chirurgia-specialistica-infermieristica-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun"
-      ],
+      "firstSeenAt": "2026-06-17T13:51:16.398Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -104,7 +107,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e64cfd8c-92ce-45dd-aff7-6e1b1a65a034/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:02.193Z",
+      "crawledAt": "2026-07-09T12:20:55.634Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -121,15 +124,17 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/e64cfd8c-92ce-45dd-aff7-6e1b1a65a034",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-22T15:21:57.854Z",
+      "previousSlugs": [
+        "sommerjob-in-der-pflege-befristet-spital-sts-thun",
+        "lavoro-estivo-in-infermieristica-temporaneo-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sommerjob-in-der-pflege-befristet-spital-sts-thun"
+          "sommerjob-in-der-pflege-befristet-spital-sts-thun",
+          "lavoro-estivo-in-infermieristica-temporaneo-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "sommerjob-in-der-pflege-befristet-spital-sts-thun"
-      ],
+      "firstSeenAt": "2026-06-22T15:21:57.854Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -175,7 +180,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/47dc27f3-b41a-4f8b-81d3-ac9aaf59aab9/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:01.001Z",
+      "crawledAt": "2026-07-09T12:20:54.892Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -192,15 +197,17 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/47dc27f3-b41a-4f8b-81d3-ac9aaf59aab9",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-26T12:12:06.176Z",
+      "previousSlugs": [
+        "mitarbeiter-in-room-service-spital-sts-thun",
+        "collaboratore-trice-room-service-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-room-service-spital-sts-thun"
+          "mitarbeiter-in-room-service-spital-sts-thun",
+          "collaboratore-trice-room-service-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-room-service-spital-sts-thun"
-      ],
+      "firstSeenAt": "2026-06-26T12:12:06.176Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -219,7 +226,7 @@
       "slug": "expert-expert-emergency-care-temporanea-spital-sts-thun",
       "slugByLocale": {
         "it": "expert-expert-emergency-care-temporanea-spital-sts-thun",
-        "en": "expert-expert-emergency-care-temporary-spital-sts-thun",
+        "en": "experte-expertin-notfallpflege-befristet-spital-sts-thun",
         "de": "experte-expertin-notfallpflege-befristet-spital-sts-thun",
         "fr": "expert-expert-soins-d-urgence-temporaires-spital-sts-thun"
       },
@@ -229,7 +236,7 @@
       "title": "Experte / Expertin Notfallpflege (befristet)",
       "titleByLocale": {
         "it": "Expert / Expert Emergency Care (temporanea)",
-        "en": "Expert / Expert Emergency Care (temporary)",
+        "en": "Experte / Expertin Notfallpflege (befristet)",
         "de": "Experte / Expertin Notfallpflege (befristet)",
         "fr": "Expert / Expert Soins d'urgence (temporaires)"
       },
@@ -240,12 +247,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Werde Teil unseres interdisziplinären Notfallzentrums, wo dich ein interessantes und anspruchsvolles Arbeitsumfeld erwartet. Der Umgang mit der elektronischen Pflegedokumentation, dem zentralen Monitoring und Medikamentendistributionssystem sind Bestandteil deiner täglichen Arbeit. Triage, ACLS, ATLS und Bezugspflege sind prägende Elemente unseres Notfallprozesses. Einritt per sofort befristet bis zum 31.10.2026 Das wartet auf dich\n• Motiviertes, gut eingespieltes Team mit tollem Zusammenhalt\n• Aktionen innerhalb unserer Spitalgruppe\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen, Pflegepersonal, usw. in verschiedensten Bereichen und Fachgebieten\n• Topmoderne Infrastruktur\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion So wirst du Teil unseres Teams\n• Dipl. Pflegefachfrau / Pflegefachmann mit NDS HF Notfallpflege\n• Berufserfahrung im Notfallbereich\n• Hohe Belastbarkeit, hohe Sozialkompetenzen sowie vernetztes Denken und Handeln",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là. Faites partie de notre centre d'urgence interdisciplinaire, où un environnement de travail intéressant et exigeant vous attend. Le traitement de la documentation des soins électroniques, de la surveillance centrale et des systèmes de distribution de médicaments font partie de votre travail quotidien. Triage, ACLS, ATLS et maintenance de référence définissent les éléments de notre processus d'urgence. Voyage à terme jusqu'au 31.10.2026 Ça vous attend.\n• Équipe motivée et bien travaillée avec une grande cohésion\n• Actions au sein de notre groupe hospitalier\n• Coopération interdisciplinaire avec les médecins: au sein du personnel infirmier, etc. dans un large éventail de domaines et de domaines\n• Infrastructures modernes\n• Des loisirs attrayants dans les régions de la mer et de la montagne Devenez membre de notre équipe\n• Dipl. Professionnel infirmier avec des soins d'urgence NDS HF\n• Expérience professionnelle d ' urgence\n• Haute résilience, hautes compétences sociales et pensée et action en réseau"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/e7a46e5e-e9b7-439d-bc00-40fe95c0e6e8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:00.162Z",
+      "crawledAt": "2026-07-09T12:20:54.121Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -262,15 +270,21 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/e7a46e5e-e9b7-439d-bc00-40fe95c0e6e8",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-01T13:09:25.409Z",
+      "previousSlugs": [
+        "experte-expertin-notfallpflege-befristet-spital-sts-thun",
+        "expert-expert-emergency-care-temporary-spital-sts-thun",
+        "expert-expert-emergency-care-temporanea-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "experte-expertin-notfallpflege-befristet-spital-sts-thun"
+          "experte-expertin-notfallpflege-befristet-spital-sts-thun",
+          "expert-expert-emergency-care-temporanea-spital-sts-thun"
+        ],
+        "en": [
+          "expert-expert-emergency-care-temporary-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "experte-expertin-notfallpflege-befristet-spital-sts-thun"
-      ],
+      "firstSeenAt": "2026-07-01T13:09:25.409Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -286,9 +300,9 @@
     },
     {
       "id": "spital-sts-4692531e39a5",
-      "slug": "dipl-infermieristica-professionale-gastroenterologia-spital-sts-thun",
+      "slug": "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-gastroenterologia-spital-sts-thun",
+        "it": "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
         "en": "dipl-nursing-professional-gastroenterology-spital-sts-thun",
         "de": "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
         "fr": "dipl-gastroenterologie-professionnelle-des-soins-infirmiers-spital-sts-thun"
@@ -298,7 +312,7 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Dipl. Pflegefachfrau/-mann Gastroenterologie",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale gastroenterologia",
+        "it": "Dipl. Pflegefachfrau/-mann Gastroenterologie",
         "en": "Dipl. Nursing professional gastroenterology",
         "de": "Dipl. Pflegefachfrau/-mann Gastroenterologie",
         "fr": "Dipl. Gastroentérologie professionnelle des soins infirmiers"
@@ -310,12 +324,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Komme mit an Bord unserer Gastroenterologie, wo dich ein spannendes und anspruchsvolles Aufgabengebiet erwartet. Zusammen mit einem interdisziplinären Team sorgst du mit deinen Kompetenzen für die Patientensicherheit bei ambulanten und stationären endoskopischen Untersuchungen am Spitalstandort Thun, Zweisimmen und in unserer Gastropraxis am Bahnhof. Eintritt per sofort oder nach Vereinbarung. Das wartet auf dich\n• Individuelle Entwicklungsmöglichkeiten\n• Interdisziplinäre Zusammenarbeit\n• Engagiertes Team\n• Geregelte Arbeitszeiten\n• Wählbares Ferien- und Pensionskassenmodell So wirst du Teil unseres Teams\n• Dipl. Pflegefachfrau/-mann HF\n• Idealerweise mit Erfahrung im Akutbereich und in der Endoskopie\n• Freude am Umgang mit technischen Geräten, gute PC-Kenntnisse\n• Vernetztes Denken und Fähigkeit zu einer konstruktiven interdisziplinären Zusammenarbeit\n• Bereitschaft Pikettdienste zu leisten\n• Bereitschaft tageweise am Spitalstandort Zweisimmen und in der Gastropraxis am Bahnhof zu arbeiten",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là. Venez à bord de notre gastroentérologie, où une tâche passionnante et exigeante vous attend. Avec une équipe interdisciplinaire, vous fournirez votre expertise pour la sécurité des patients lors des examens endoscopiques ambulatoires et hospitaliers à l'hôpital de Thun, Zweisimmen et dans notre cabinet de restaurant à la gare. Admission immédiate ou par arrangement. Ça vous attend.\n• Possibilités individuelles de développement\n• Coopération interdisciplinaire\n• Équipe dédiée\n• Heures de travail réglementées\n• Modèle de caisse de vacances et de retraite sélectionnable Devenez membre de notre équipe\n• Dipl. Soins infirmiers professionnels HF\n• Idéalement avec l'expérience dans le domaine aigu et en endoscopie\n• Joy dans le traitement des dispositifs techniques, de bonnes connaissances PC\n• Réflexion en réseau et capacité de collaboration interdisciplinaire constructive\n• Volonté de fournir des services de piquetage\n• Volonté de travailler tous les jours à l'hôpital Zweisimmen et au restaurant de la gare"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/41e474a9-a923-4a9b-84d2-b6417785444c/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:59.429Z",
+      "crawledAt": "2026-07-09T12:20:53.008Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -332,15 +347,17 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/41e474a9-a923-4a9b-84d2-b6417785444c",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-01T23:26:39.395Z",
+      "previousSlugs": [
+        "dipl-infermieristica-professionale-gastroenterologia-spital-sts-thun",
+        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-infermieristica-professionale-gastroenterologia-spital-sts-thun",
           "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
-      ],
+      "firstSeenAt": "2026-07-01T23:26:39.395Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -380,12 +397,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Im stark interdisziplinär geprägten OPS-Umfeld werden in neun hochmodern ausgestatteten Operationssälen jährlich über 9'000 Operationen durchgeführt. Unser Institut für Anästhesiologie arbeitet in den Bereichen Allgemein- und Viszeralchirurgie, Orthopädie und orthopädische Traumatologie, Hand-, Wirbelsäulen-, Gefäss- und Hals-Nasen-Ohren-Chirurgie, Urologie, Gynäkologie und Geburtshilfe. Nebst dem Einsatz als Facharzt/-ärztin Anästhesie wäre es bei Qualifikation möglich, auch im ärztlichen Bereich der Intensivmedizin tätig zu sein. Eintritt nach Vereinbarung. Das wartet auf dich\n• Strukturierte Einarbeitung\n• Einbindung in ein engagiertes und erfahrenes Team mit flachen Hierarchien\n• Breit gefächertes anästhesiologisches Spektrum\n• Falls Einstieg als Oberärztin/-arzt Entwicklungsmöglichkeit zur/zum Spitalfachärztin/-arzt in unbefristeter Anstellung gegeben - Flexibel wählbares Ferien- und Dienstzeitmodell\n• Geregelte 46-Std-Woche bei Jahresarbeitszeit/Überstundenausgleich gemäss GAV\n• Finanzielle Beteiligung an Fort- und Weiterbildung\n• Attraktive Pensionskassenversicherung So wirst du Teil unseres Teams\n• Schweizer Arzt- und Facharztdiplom Anästhesiologie oder MEBEKO Anerkennung einer äquivalenten Ausbildung\n• (Mehrjährige) Erfahrung als Fachärztin/-arzt\n• Gegebenenfalls Schweizer Facharztausbildung Intensivmedizin\n• Du bist versiert in der Anwendung aller gängigen modernen Anästhesieverfahren\n• Hohe Sozialkompetenz",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là. Dans un environnement hautement interdisciplinaire, plus de 9 000 opérations sont réalisées chaque année dans neuf salles d'opération très modernes. Notre Institut d'anesthésiologie travaille dans les domaines de la chirurgie générale et viscérale, de l'orthopédie et de la traumatologie orthopédique, de la chirurgie de la main, de la colonne vertébrale, vasculaire et de l'oreille du cou, de l'urologie, de la gynécologie et de l'obstétrique. En plus d'être employé comme anesthésie spécialisée, il serait également possible de travailler dans le domaine médical de la médecine intensive. Entrée par arrangement. Ça vous attend.\n• Familiarisation structurée\n• Intégration dans une équipe engagée et expérimentée avec hiérarchies plates\n• Spectre anesthésiologique largement diversifié\n• Si vous commencez comme une occasion de développement de médecin senior pour devenir un spécialiste hospitalier en emploi permanent - modèle flexible de vacances et de services\n• Régulée par la semaine de 46 heures pour la rémunération annuelle des heures de travail/heures supplémentaires selon GAV\n• Contribution financière à la formation\n• Assurance pension attractive Devenez membre de notre équipe\n• Diplôme suisse de médecine et de spécialisation Anesthésiologie ou MEBEKO Reconnaissance d'une formation équivalente\n• (Plusieurs années) expérience en tant que spécialiste\n• Formation spécialisée suisse en médecine intensive\n• Vous êtes bien entraîné dans l'utilisation de toutes les procédures d'anesthésie modernes actuelles\n• Niveau élevé de compétences sociales"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/43918f52-8418-42a7-b3d3-534eb1b8eac8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:58.686Z",
+      "crawledAt": "2026-07-09T12:20:52.403Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -462,7 +480,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/15b97db1-e6cb-40a5-bf3e-054c5c9a0bbf/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:57.564Z",
+      "crawledAt": "2026-07-09T12:20:51.823Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -479,15 +497,17 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/15b97db1-e6cb-40a5-bf3e-054c5c9a0bbf",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-02T12:25:23.996Z",
+      "previousSlugs": [
+        "mitarbeiter-in-distributionslogistik-spital-sts-thun",
+        "collaboratore-trice-distributionslogistik-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-distributionslogistik-spital-sts-thun"
+          "mitarbeiter-in-distributionslogistik-spital-sts-thun",
+          "collaboratore-trice-distributionslogistik-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-distributionslogistik-spital-sts-thun"
-      ],
+      "firstSeenAt": "2026-07-02T12:25:23.996Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -527,12 +547,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Werde Teil unserer Privatstation mit moderner Infrastruktur, mit Schwerpunkt Innere Medizin und geriatrischer Akutrehabilitation. Du arbeitest bei uns in der Patienteneinheit, im Tandem mit einer Dipl. Pflegefachperson. Du legst Wert auf eine professionelle und patientenzentrierte Pflege, die auf die individuellen Bedürfnisse und Werte der Patient:innen eingeht. In der geriatrischen Akutrehabilitation unterstützt du die Patient:innen, wieder zurück in ihr gewohntes Umfeld gehen zu können. Die elektronische Pflegedokumentation (Phönix), das elektronische Medikamentendistributionssystem (Phyxis) und das Identifikationssystem (Idef-IS) unterstützt dich im Berufsalltag. Unser interdisziplinäres Team wird durch die Coaches und den Room-Service ergänzt. Eintritt per 1. November 2026 oder nach Vereinbarung Das wartet auf dich\n• Spannende und abwechslungsreiche Aufgabe\n• Ein vielseitiges, humorvolles Team mit hoher Fachexpertise\n• Ein innovativer Arbeitsort\n• Wählbares Ferien- und Pensionskassenmodell\n• Möglichkeit deine Kompetenzen zu erweitern So wirst du Teil unseres Teams\n• Fachfrau/-mann Gesundheit EFZ\n• Innovativ und neugierig\n• Service- und Kundenorientiertes Denken und Handeln\n• Qualitätsbewusst, lösungsorientiert, selbstbewusst und verantwortungsbewusst",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là. Faites partie de notre station privée avec des infrastructures modernes, en mettant l'accent sur la médecine interne et la réhabilitation aiguë gériatrique. Vous travaillez avec nous dans l'unité patiente, en tandem avec un dipl. infirmière. Vous attachez de l'importance à un soin professionnel et axé sur le patient qui répond aux besoins individuels et aux valeurs des patients. En réadaptation gériatrique aiguë, vous aidez le patient : pour pouvoir retourner dans son environnement habituel. La documentation de soins électroniques (phoenix), le système électronique de distribution de médicaments (physique) et le système d'identification (idef-IS) vous accompagnent dans le travail quotidien. Notre équipe interdisciplinaire est complétée par les entraîneurs et le service d'étage. Entrée par 1. Novembre 2026 ou par arrangement Ça vous attend.\n• Tâche passionnante et variée\n• Une équipe polyvalente et humoristique avec un haut niveau d'expertise\n• Un lieu de travail innovant\n• Modèle de caisse de vacances et de retraite sélectionnable\n• Possibilité d'élargir vos compétences Devenez membre de notre équipe\n• Spécialiste de la santé EFZ\n• Innovatrice et curieuse\n• Pensée et action axée sur le service et le client\n• Sensible à la qualité, orienté vers la solution, confiant et responsable"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/e4be2939-bc81-40c5-b7a0-6543597a7943/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:56.807Z",
+      "crawledAt": "2026-07-09T12:20:51.081Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -609,7 +630,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/07785e64-e98f-4d56-8999-bec611240880/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:56.037Z",
+      "crawledAt": "2026-07-09T12:20:50.372Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -626,15 +647,17 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/07785e64-e98f-4d56-8999-bec611240880",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-07T22:17:58.674Z",
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen",
+        "assistenza-sanitaria-professionale-due-semplici-spital-sts-zweisimmen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen"
+          "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen",
+          "assistenza-sanitaria-professionale-due-semplici-spital-sts-zweisimmen"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen"
-      ],
+      "firstSeenAt": "2026-07-07T22:17:58.674Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -680,7 +703,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/26f966f4-69cb-4c5f-ae6f-22a2fcd7687a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:55.256Z",
+      "crawledAt": "2026-07-09T12:20:49.622Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -713,6 +736,7 @@
           "bettendisponent-in-spital-sts-thun"
         ]
       },
+      "firstSeenAt": "2026-07-08T22:13:55.256Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -724,86 +748,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:13:55.256Z"
-    },
-    {
-      "id": "spital-sts-194e1f6c949a",
-      "slug": "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun",
-      "slugByLocale": {
-        "it": "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun",
-        "en": "psychologist-psychiatric-acute-treatment-at-home-pah-spital-sts-thun",
-        "de": "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun",
-        "fr": "psychologue-traitement-psychiatrique-aigu-a-domicile-hap-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Psycholog:in Psychiatrische Akutbehandlung zu Hause (PAH)",
-      "titleByLocale": {
-        "it": "Psicologo Trattamento Psichiatrico Acuto a Casa (PAH)",
-        "en": "Psychologist Psychiatric Acute Treatment at Home (PAH)",
-        "de": "Psycholog:in Psychiatrische Akutbehandlung zu Hause (PAH)",
-        "fr": "Psychologue Traitement psychiatrique aigu à domicile (HAP)"
-      },
-      "description": "Ein Job mit Aussichten in einmaliger Natur und Bergregion. Bei den Psychiatrischen Diensten erwartet Sie nebst einer vielseitigen Tätigkeit im interdisziplinären Umfeld auch die Möglichkeit zusätzliche Ferientage zu wählen. Sie suchen eine sinnvolle Arbeit? Dann sind Sie hier richtig.\n\nWerden Sie teil unseres interprofessionellen Teams der \"Psychiatrischen Akutbehandlung zu Hause\" (PAH), in dem wir nach dem Grundsatz von Recovery und Adherence behandeln.\n\nSie engagieren sich in der aufsuchenden Akutbehandlung unserer Patient:innen. Dieses Angebot entspricht weitgehend einer stationären Behandlung und bildet eine wichtige Ergänzung des bestehenden Versorgungssystems. Sie übernehmen die Behandlung von Patient:innen des gesamten Diagnose-Spektrums, hauptsächlich jedoch affektive, psychotische sowie Angst- und Stressfolgestörungen. Sie übernehmen turnusgemäss Einsätze am Wochenende und im Pikettdienst.\nEintritt für diese neue Stelle ist per 1. September 2026 oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Spannende und abwechslungsreiche Tätigkeit im Rahmen des innovativen Versorgungsangebotes Psychiatrische Akutbehandlung im häuslichen Umfeld\n\n• Enge Zusammenarbeit im Team der PAH\n\n• Intensive vernetzte Tätigkeit mit internen und externen Stellen\n\n• Gute Aus-, Fort- und Weiterbildungsmöglichkeiten\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• SIWF: anerkannte A-Klinik\n\nSo werden Sie Teil unseres Teams\n\n• Abgeschlossenes Studium in Psychologie und fortgeschrittene Psychotherapie-Weiterbildung\n\n• mind. 2 Jahre Berufserfahrung in der stationär-psychiatrischen Behandlung\n\n• Interesse an einer zeitgemässen sozialpsychiatrischen Versorgung\n\n• Freude an interprofessioneller Zusammenarbeit\n\n• Organisationstalent, Flexibilität und Fähigkeit zu selbstverantwortlichem Handeln\n\n• Gute PC-Anwenderkenntnisse\n\n• Führerausweis Klasse B",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive in una natura unica e in regioni montane. Oltre ad un'ampia gamma di lavoro in un ambiente interdisciplinare, i servizi psichiatrici vi offrono anche la possibilità di scegliere giorni di ferie aggiuntivi. Stai cercando un lavoro significativo? Allora sei nel posto giusto. Entra a far parte del nostro team interprofessionale di “Trattamento Psichiatrico Acuto a Domicilio” (PAH), dove trattiamo secondo il principio di recupero e aderenza. Siete coinvolti nel trattamento acuto dei nostri pazienti. Questa offerta corrisponde in gran parte a cure stazionarie e costituisce un'importante integrazione al sistema assistenziale esistente. Tratti pazienti che coprono l'intero spettro diagnostico, ma principalmente disturbi affettivi, psicotici, ansiosi e legati allo stress. Svolgerai regolarmente incarichi nel fine settimana e su chiamata. L'inizio di questa nuova posizione è il 1 settembre 2026 o su appuntamento. Questo è ciò che vi aspetta Lavoro interessante e vario nell'ambito dell'offerta di cure innovativa Trattamento psichiatrico acuto a domicilio Stretta collaborazione nel team ISP Intensivo lavoro in rete con organi interni ed esterni Buona formazione, formazione continua e opportunità di perfezionamento Modello flessibile di cassa vacanze e cassa pensioni SIWF: clinica A riconosciuta Come entrare a far parte del nostro team Studi completati almeno in psicologia e formazione avanzata in psicoterapia. 2 anni di esperienza professionale nel trattamento psichiatrico ospedaliero Interesse per l'assistenza psichiatrica sociale contemporanea Piacere della collaborazione interprofessionale Talento organizzativo, flessibilità e capacità di agire in modo indipendente Buone capacità di utilizzo del PC Patente di guida di classe B",
-        "en": "A job with prospects in unique nature and mountain regions. In addition to a wide range of work in an interdisciplinary environment, the psychiatric services also offer you the opportunity to choose additional vacation days. Are you looking for meaningful work? Then you have come to the right place. Become part of our interprofessional team of “Acute Psychiatric Treatment at Home” (PAH), where we treat according to the principle of recovery and adherence. You are involved in the outreach acute treatment of our patients. This offer largely corresponds to inpatient treatment and is an important addition to the existing care system. You treat patients across the entire diagnostic spectrum, but primarily affective, psychotic, anxiety and stress-related disorders. You will regularly take on weekend and on-call assignments. Start of this new position is September 1, 2026 or by appointment. This is what awaits you Exciting and varied work as part of the innovative care offer Acute psychiatric treatment in the home environment Close cooperation in the PAH team Intensive networked work with internal and external bodies Good training, further education and further training opportunities Flexible holiday and pension fund model SIWF: recognized A-clinic How to become part of our team Completed studies in psychology and advanced psychotherapy training at least. 2 years of professional experience in inpatient psychiatric treatment Interest in contemporary social psychiatric care Enjoyment of interprofessional collaboration Organizational talent, flexibility and ability to act independently Good PC user skills Class B driving license",
-        "de": "Ein Job mit Aussichten in einmaliger Natur und Bergregion. Bei den Psychiatrischen Diensten erwartet Sie nebst einer vielseitigen Tätigkeit im interdisziplinären Umfeld auch die Möglichkeit zusätzliche Ferientage zu wählen. Sie suchen eine sinnvolle Arbeit? Dann sind Sie hier richtig. Werden Sie teil unseres interprofessionellen Teams der \"Psychiatrischen Akutbehandlung zu Hause\" (PAH), in dem wir nach dem Grundsatz von Recovery und Adherence behandeln. Sie engagieren sich in der aufsuchenden Akutbehandlung unserer Patient:innen. Dieses Angebot entspricht weitgehend einer stationären Behandlung und bildet eine wichtige Ergänzung des bestehenden Versorgungssystems. Sie übernehmen die Behandlung von Patient:innen des gesamten Diagnose-Spektrums, hauptsächlich jedoch affektive, psychotische sowie Angst- und Stressfolgestörungen. Sie übernehmen turnusgemäss Einsätze am Wochenende und im Pikettdienst. Eintritt für diese neue Stelle ist per 1. September 2026 oder nach Vereinbarung. Das wartet auf Sie\n• Spannende und abwechslungsreiche Tätigkeit im Rahmen des innovativen Versorgungsangebotes Psychiatrische Akutbehandlung im häuslichen Umfeld\n• Enge Zusammenarbeit im Team der PAH\n• Intensive vernetzte Tätigkeit mit internen und externen Stellen\n• Gute Aus-, Fort- und Weiterbildungsmöglichkeiten\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n• SIWF: anerkannte A-Klinik So werden Sie Teil unseres Teams\n• Abgeschlossenes Studium in Psychologie und fortgeschrittene Psychotherapie-Weiterbildung\n• mind. 2 Jahre Berufserfahrung in der stationär-psychiatrischen Behandlung\n• Interesse an einer zeitgemässen sozialpsychiatrischen Versorgung\n• Freude an interprofessioneller Zusammenarbeit\n• Organisationstalent, Flexibilität und Fähigkeit zu selbstverantwortlichem Handeln\n• Gute PC-Anwenderkenntnisse\n• Führerausweis Klasse B",
-        "fr": "Un métier avec des perspectives dans des régions naturelles et montagneuses uniques. En plus d'un large éventail de travaux en milieu interdisciplinaire, les services psychiatriques vous offrent également la possibilité de choisir des jours de vacances supplémentaires. Êtes-vous à la recherche d’un travail significatif? Alors vous êtes au bon endroit. Faites partie de notre équipe interprofessionnelle de « Traitement Psychiatrique Aigu à Domicile » (HTAP), où nous traitons selon le principe de guérison et d’observance. Vous êtes impliqué dans le traitement aigu de proximité de nos patients. Cette offre correspond en grande partie au traitement hospitalier et constitue un complément important au système de soins existant. Vous traitez des patients sur l’ensemble du spectre diagnostique, mais principalement des troubles affectifs, psychotiques, anxieux et liés au stress. Vous effectuerez régulièrement des missions de week-end et de garde. Le début de ce nouveau poste est le 1er septembre 2026 ou sur rendez-vous. C'est ce qui vous attend Un travail passionnant et varié dans le cadre de l'offre de soins innovante Traitement psychiatrique aigu à domicile Collaboration étroite au sein de l'équipe PAH Travail intensif en réseau avec des organismes internes et externes Bonnes possibilités de formation, de formation continue et de perfectionnement Modèle flexible de vacances et de caisse de pension SIWF : clinique A reconnue Comment faire partie de notre équipe Au moins des études terminées en psychologie et une formation avancée en psychothérapie. 2 ans d'expérience professionnelle en traitement psychiatrique hospitalier Intérêt pour les soins psychiatriques sociaux contemporains Appréciation de la collaboration interprofessionnelle Talent organisationnel, flexibilité et capacité d'agir de manière indépendante Bonnes compétences en utilisation d'ordinateur Permis de conduire de classe B"
-      },
-      "needsRetranslation": false,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/7af25d74-121c-4534-9677-cab6a836fef8/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:18:04.592Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/7af25d74-121c-4534-9677-cab6a836fef8",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
-        ],
-        "en": [
-          "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
-        ],
-        "fr": [
-          "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T23:28:05.932Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }
