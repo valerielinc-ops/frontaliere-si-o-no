@@ -1,6 +1,6 @@
 {
   "crawlerKey": "veeam",
-  "assembledAt": "2026-07-09T12:26:36.062Z",
+  "assembledAt": "2026-07-09T22:34:25.392Z",
   "jobs": [
     {
       "id": "veeam-3c560a68fc1b",
@@ -33,7 +33,7 @@
       "url": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4781639101",
       "source": "Veeam Software Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:26:33.212Z",
+      "crawledAt": "2026-07-09T22:34:22.421Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "streetAddress": "Lindenstrasse 16",
@@ -87,7 +87,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "veeam-d366ba0cf23b",
@@ -120,7 +121,7 @@
       "url": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4781641101",
       "source": "Veeam Software Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:26:33.180Z",
+      "crawledAt": "2026-07-09T22:34:22.390Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "streetAddress": "Lindenstrasse 16",
