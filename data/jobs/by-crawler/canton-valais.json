@@ -229,7 +229,7 @@
       "companyDomain": "vs.ch",
       "title": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
       "titleByLocale": {
-        "it": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
+        "it": "Un ufficiale giudiziario-segretario di direzione o un ufficiale giudiziario-segretario di direzione (100%)",
         "en": "A huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
         "de": "A huissier-secrétaire de direction ou une huissière-secrétaire de direction (100 %)",
         "fr": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)"
@@ -276,7 +276,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-2dff24731bb2",
@@ -375,7 +376,7 @@
       },
       "description": "auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion",
       "descriptionByLocale": {
-        "it": "alla direzione del Servizio per l'esecuzione delle sentenze e delle misure (SAPEM), Sion",
+        "it": "presso la Direzione del Servizio di applicazione delle pene e delle misure (SAPEM), a Sion",
         "en": "to the Directorate of the Service for the Enforcement of Sentences and Measures (SAPEM), Sion",
         "de": "an die Direktion des Dienstes für die Vollstreckung von Strafen und Maßnahmen (SAPEM), Sion",
         "fr": "auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion"
@@ -431,7 +432,8 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-8415f1dd8a33",
@@ -454,7 +456,7 @@
       },
       "description": "bei der Dienststelle für Betreibungs- und Konkurswesen, Konkursamt Oberwallis in Visp",
       "descriptionByLocale": {
-        "it": "presso l'Ufficio per le accise e il fallimento, Oberwallis Ufficio per il fallimento a Visp",
+        "it": "presso l'Ufficio delle esecuzioni e dei fallimenti, Ufficio fallimenti dell'Alto Vallese a Visp",
         "en": "at the Office for Excise and Bankruptcy, Oberwallis Office for Bankruptcy in Visp",
         "de": "bei der Dienststelle für Betreibungs- und Konkurswesen, Konkursamt Oberwallis in Visp",
         "fr": "au Bureau de l'accise et de la faillite, Bureau de la faillite d'Oberwallis à Viège"
@@ -508,7 +510,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-0a82a97b7cff",
@@ -607,7 +610,7 @@
       },
       "description": "auprès du Service de l’action sociale, Office de coordination des prestations sociales à Sion",
       "descriptionByLocale": {
-        "it": "Servizio di azione sociale, Ufficio di coordinamento delle prestazioni sociali a Sion",
+        "it": "presso il Servizio dell'azione sociale, Ufficio di coordinamento delle prestazioni sociali a Sion",
         "de": "bei der Abteilung für Sozialarbeit, Koordinationsstelle für Sozialleistungen in Sion",
         "fr": "auprès du Service de l’action sociale, Office de coordination des prestations sociales à Sion"
       },
@@ -662,7 +665,8 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-890b4e965e72",
@@ -1145,10 +1149,10 @@
       },
       "description": "auprès du Service de la mobilité, section logistique d’entretien des routes cantonales (Log-RC) à Sion",
       "descriptionByLocale": {
-        "it": "Descrizione con il Servizio di Mobilità, Sezione Logistica d, manutenzione di strade a via A (Log-RC) a Sion",
+        "it": "Descrizione\n\npresso il Servizio della mobilità, sezione logistica di manutenzione delle strade cantonali (Log-RC) a Sion",
         "en": "Description with the Mobility Service, Logistics Section d, maintenance of cantonal roads (Log-RC) in Sion",
         "de": "Beschreibung mit dem Mobilitätsservice, Logistikabteilung d, Instandhaltung der Kantonsstraßen (Log-RC) in Sion",
-        "fr": "auprès du Service de la mobilité, section logistique d’entretien des routes cantonales (Log-RC) à Sion"
+        "fr": "## Description\n\nauprès du Service de la mobilité, section logistique d’entretien des routes cantonales (Log-RC) à Sion"
       },
       "location": "Sion",
       "canton": "VS",
@@ -1201,7 +1205,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-8d9e3d294253",
@@ -1224,7 +1229,7 @@
       },
       "description": "bei der Dienststelle für Grundbuchwesen, Einführung und Informatisierung Oberwallis (Brig und Leuk)",
       "descriptionByLocale": {
-        "it": "presso il Servizio del Registro del territorio, introduzione e informatizzazione di Oberwallis (Brig e Leuk)",
+        "it": "presso l'Ufficio del registro fondiario, introduzione e informatizzazione dell'Alto Vallese (Briga e Leuk)",
         "en": "at the Land Register Service, introduction and computerisation of Oberwallis (Brig and Leuk)",
         "de": "bei der Dienststelle für Grundbuchwesen, Einführung und Informatisierung Oberwallis (Brig und Leuk)",
         "fr": "au Service du registre foncier, introduction et informatisation d'Oberwallis (Brig et Leuk)"
@@ -1280,7 +1285,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-3b1751b9c6ba",
@@ -1306,7 +1312,7 @@
         "it": "Descrizione - presso il Servizio di azione sociale, presso l'Ufficio per il coordinamento delle prestazioni sociali (O",
         "en": "Description - at the Social Action Service, at the Office for the Coordination of Social Benefits (OCPS) in Sion",
         "de": "Beschreibung - beim Sozialdienst, beim Amt für die Koordinierung der Sozialleistungen (OCPS) in Sion",
-        "fr": "auprès du Service de l’action sociale, au sein de l’Office de coordination des prestations sociales (OCPS) à Sion"
+        "fr": "## Description\n\n- auprès du Service de l’action sociale, au sein de l’Office de coordination des prestations sociales (OCPS) à Sion"
       },
       "location": "Sion",
       "canton": "VS",
@@ -1359,7 +1365,8 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-0a380ca0bc8a",
