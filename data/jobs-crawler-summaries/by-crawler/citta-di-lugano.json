@@ -1,51 +1,18 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-07-09T12:26:43.489Z",
+  "generatedAt": "2026-07-09T22:44:45.538Z",
   "total": 16,
-  "newCount": 1,
-  "updatedCount": 15,
+  "newCount": 0,
+  "updatedCount": 16,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8698,
-  "avgDurationMs": 8698,
+  "durationMs": 9888,
+  "avgDurationMs": 9888,
   "durationHistory": [
-    8698
+    9888
   ],
-  "newJobs": [
-    {
-      "title": "un/a collaboratore/trice amministrativo/a all'80% presso la Divisione risorse umane (Gestione)",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=E6F700F5A3A08C25C1258E280045921A",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "technology",
-      "postedDate": "2026-07-09",
-      "source": "company-website",
-      "slug": "un-a-collaboratore-trice-amministrativo-a-all-80-presso-la-divisione-risorse-umane-gestione-citta-di-lugano",
-      "sourceLang": "it",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Concorsi per aziende (simap)",
@@ -115,6 +82,44 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:21:53.151Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "un/a collaboratore/trice amministrativo/a all'80% presso la Divisione risorse umane (Gestione)",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=E6F700F5A3A08C25C1258E280045921A",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Piazza della Riforma",
+      "employmentType": "FULL_TIME",
+      "category": "technology",
+      "postedDate": "2026-07-09",
+      "source": "company-website",
+      "slug": "un-a-collaboratore-trice-amministrativo-a-all-80-presso-la-divisione-risorse-umane-gestione-citta-di-lugano",
+      "sourceLang": "it",
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "id": "citta-di-lugano-e3e81f833af6",
+      "salaryMin": 39600,
+      "salaryMax": 60000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-09T12:26:43.485Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -722,16 +727,17 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-e3e81f833af6",
       "salaryMin": 39600,
       "salaryMax": 60000,
       "currency": "CHF",
-      "_qualityScore": 92,
+      "firstSeenAt": "2026-07-09T12:26:43.485Z",
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
