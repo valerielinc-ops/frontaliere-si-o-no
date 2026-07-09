@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "dic-sa-7375dc493f17",
-      "slug": "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle",
+      "slug": "ingegnere-civile-epf-project-leader-h-f-dic-sa-aigle",
       "slugByLocale": {
         "fr": "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle",
-        "it": "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle",
-        "en": "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle",
-        "de": "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle"
+        "it": "ingegnere-civile-epf-project-leader-h-f-dic-sa-aigle",
+        "en": "civilian-engineer-epf-project-leader-h-f-dic-sa-aigle",
+        "de": "civilian-engineer-epf-projektleiter-h-f-dic-sa-aigle"
       },
       "company": "DIC SA",
       "companyKey": "dic-sa",
@@ -66,7 +66,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:13:34.663Z"
+      "firstSeenAt": "2026-07-08T22:13:34.663Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle"
+        ],
+        "en": [
+          "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle"
+        ],
+        "de": [
+          "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle"
+      ]
     }
   ]
 }

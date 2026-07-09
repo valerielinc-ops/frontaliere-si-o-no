@@ -135,8 +135,8 @@
       "slugByLocale": {
         "de": "psychotherapeutin-psychotherapeut-fur-den-fachbereich-psychoonkologie-am-kantonsspital",
         "it": "psychotherapeutin-psychotherapeut-per-den-fachbereich-psychoonkologie-am-kantonsspital-aarau-ksa-aarau",
-        "en": "psychotherapeutin-psychotherapeut-fur-den-fachbereich-psychoonkologie-am-kantonsspital",
-        "fr": "psychotherapeutin-psychotherapeut-fur-den-fachbereich-psychoonkologie-am-kantonsspital"
+        "en": "psychotherapist-for-the-department-of-psychooncology-at-the-cantonal-hospital-aarau-kantonsspital-aarau-ksa-aarau",
+        "fr": "psychotherapeute-au-departement-de-psychooncologie-de-l-hopital-cantonal-d-aarau-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -183,6 +183,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "psychotherapeutin-psychotherapeut-fur-den-fachbereich-psychoonkologie-am-kantonsspital"
+        ],
+        "en": [
+          "psychotherapeutin-psychotherapeut-fur-den-fachbereich-psychoonkologie-am-kantonsspital"
+        ],
+        "fr": [
           "psychotherapeutin-psychotherapeut-fur-den-fachbereich-psychoonkologie-am-kantonsspital"
         ]
       },
@@ -480,12 +486,12 @@
     },
     {
       "id": "ksa-44fe81c82625",
-      "slug": "berufswahlpraktikum-dentalassistent-dentalassistentin-23-07-2026-ksa-ch",
+      "slug": "assistente-dentale-assistente-dentale-23-07-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-23-07-2026-ksa-ch",
-        "it": "berufswahlpraktikum-dentalassistent-dentalassistentin-23-07-2026-ksa-ch",
-        "en": "berufswahlpraktikum-dentalassistent-dentalassistentin-23-07-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-dentalassistent-dentalassistentin-23-07-2026-ksa-ch"
+        "it": "assistente-dentale-assistente-dentale-23-07-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-dental-assistant-dental-assistant-23-07-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-23-07-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -541,16 +547,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-23-07-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-23-07-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-23-07-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-dentalassistent-dentalassistentin-23-07-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-26266faec94b",
-      "slug": "oberarztin-oberarzt-angiologie-ksa-ch",
+      "slug": "medico-senior-angiologia-del-medico-senior-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-angiologie-ksa-ch",
-        "it": "oberarztin-oberarzt-angiologie-ksa-ch",
-        "en": "oberarztin-oberarzt-angiologie-ksa-ch",
-        "fr": "oberarztin-oberarzt-angiologie-ksa-ch"
+        "it": "medico-senior-angiologia-del-medico-senior-kantonsspital-aarau-ksa-aarau",
+        "en": "senior-physician-senior-physician-angiology-kantonsspital-aarau-ksa-aarau",
+        "fr": "medecin-superieur-medecin-superieur-angiologie-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -604,7 +624,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-angiologie-ksa-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-angiologie-ksa-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-angiologie-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-angiologie-ksa-ch"
+      ]
     },
     {
       "id": "ksa-a12ffcf3c070",
@@ -806,12 +840,12 @@
     },
     {
       "id": "ksa-1570a6c9765e",
-      "slug": "apotheker-in-ksa-ch",
+      "slug": "farmacia-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "apotheker-in-ksa-ch",
-        "it": "apotheker-in-ksa-ch",
-        "en": "apotheker-in-ksa-ch",
-        "fr": "apotheker-in-ksa-ch"
+        "it": "farmacia-kantonsspital-aarau-ksa-aarau",
+        "en": "pharmacist-kantonsspital-aarau-ksa-aarau",
+        "fr": "pharmacienne-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -865,7 +899,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apotheker-in-ksa-ch"
+        ],
+        "en": [
+          "apotheker-in-ksa-ch"
+        ],
+        "fr": [
+          "apotheker-in-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apotheker-in-ksa-ch"
+      ]
     },
     {
       "id": "ksa-07ec20d26c7e",
@@ -930,7 +978,6 @@
       },
       "firstSeenAt": "2026-07-08T22:21:13.608Z",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
       ],
       "previousSlugsByLocale": {
@@ -1011,10 +1058,10 @@
     },
     {
       "id": "ksa-5d54aaf87a5e",
-      "slug": "arztsekretar-in-ksa-ch",
+      "slug": "l-europa-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "arztsekretar-in-ksa-ch",
-        "it": "arztsekretar-in-ksa-ch",
+        "it": "l-europa-kantonsspital-aarau-ksa-aarau",
         "en": "arztsekretar-in-ksa-ch",
         "fr": "arztsekretar-in-ksa-ch"
       },
@@ -1070,7 +1117,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-ksa-ch"
+      ]
     },
     {
       "id": "ksa-865888c9f66b",
@@ -1078,8 +1133,8 @@
       "slugByLocale": {
         "de": "arztliche-leiterin-arztlicher-leiter-sanitatsnotrufzentrale-144-aargau-ksa-ch",
         "it": "arztliche-leiterin-arztlicher-leiter-sanitatsnotrufzentrale-144-aargau-kantonsspital-aarau-ksa-aarau",
-        "en": "arztliche-leiterin-arztlicher-leiter-sanitatsnotrufzentrale-144-aargau-ksa-ch",
-        "fr": "arztliche-leiterin-arztlicher-leiter-sanitatsnotrufzentrale-144-aargau-ksa-ch"
+        "en": "medical-director-medical-director-medical-emergency-center-144-aargau-kantonsspital-aarau-ksa-aarau",
+        "fr": "directeur-medical-directeur-medical-centre-d-urgence-medicale-144-aargau-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1123,6 +1178,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "arztliche-leiterin-arztlicher-leiter-sanitatsnotrufzentrale-144-aargau-ksa-ch"
+        ],
+        "en": [
+          "arztliche-leiterin-arztlicher-leiter-sanitatsnotrufzentrale-144-aargau-ksa-ch"
+        ],
+        "fr": [
           "arztliche-leiterin-arztlicher-leiter-sanitatsnotrufzentrale-144-aargau-ksa-ch"
         ]
       },
@@ -1209,11 +1270,11 @@
     },
     {
       "id": "ksa-331ead23b63b",
-      "slug": "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch",
+      "slug": "dipl-radiologiafachfrau-radiologiafachmann-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch",
-        "it": "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch",
-        "en": "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch",
+        "it": "dipl-radiologiafachfrau-radiologiafachmann-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-radiologyfachfrau-radiologyfachmann-kantonsspital-aarau-ksa-aarau",
         "fr": "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -1269,7 +1330,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch"
+      ]
     },
     {
       "id": "ksa-93ff4c8bed07",
@@ -1420,12 +1492,12 @@
     },
     {
       "id": "ksa-7998d4f67baf",
-      "slug": "teamleitung-physiotherapie-ksa-ch",
+      "slug": "team-leader-fisioterapia-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "teamleitung-physiotherapie-ksa-ch",
-        "it": "teamleitung-physiotherapie-ksa-ch",
-        "en": "teamleitung-physiotherapie-ksa-ch",
-        "fr": "teamleitung-physiotherapie-ksa-ch"
+        "it": "team-leader-fisioterapia-kantonsspital-aarau-ksa-aarau",
+        "en": "team-leader-physiotherapy-kantonsspital-aarau-ksa-aarau",
+        "fr": "chef-d-equipe-physiotherapie-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1479,16 +1551,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-physiotherapie-ksa-ch"
+        ],
+        "en": [
+          "teamleitung-physiotherapie-ksa-ch"
+        ],
+        "fr": [
+          "teamleitung-physiotherapie-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-physiotherapie-ksa-ch"
+      ]
     },
     {
       "id": "ksa-b11a9e0071d5",
-      "slug": "berufsbildende-r-pflege-ksa-ch",
+      "slug": "istruzione-professionale-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufsbildende-r-pflege-ksa-ch",
-        "it": "berufsbildende-r-pflege-ksa-ch",
-        "en": "berufsbildende-r-pflege-ksa-ch",
-        "fr": "berufsbildende-r-pflege-ksa-ch"
+        "it": "istruzione-professionale-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-education-kantonsspital-aarau-ksa-aarau",
+        "fr": "enseignement-professionnel-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1542,7 +1628,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildende-r-pflege-ksa-ch"
+        ],
+        "en": [
+          "berufsbildende-r-pflege-ksa-ch"
+        ],
+        "fr": [
+          "berufsbildende-r-pflege-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildende-r-pflege-ksa-ch"
+      ]
     },
     {
       "id": "ksa-f17dea9d40b2",
@@ -1609,10 +1709,10 @@
     },
     {
       "id": "ksa-3d8875a36df8",
-      "slug": "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau",
+      "slug": "dipl-fisioterapie-in-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-ksa-ch",
-        "it": "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau",
+        "it": "dipl-fisioterapie-in-kantonsspital-aarau-ksa-aarau",
         "en": "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "fr": "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau"
       },
@@ -1658,11 +1758,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeut-in-ksa-ch"
+          "dipl-physiotherapeut-in-ksa-ch",
+          "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
-        "dipl-physiotherapeut-in-ksa-ch"
+        "dipl-physiotherapeut-in-ksa-ch",
+        "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1747,8 +1849,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
+        "en": "dipl-nursing-specialist-nursing-specialist-hf-fh-with-ndk-monitoring-care-kantonsspital-aarau-ksa-aarau",
+        "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-hf-fh-avec-suivi-ndk-kantonsspital-aarau-ksa"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2214,9 +2316,9 @@
       "id": "ksa-455217732b9e",
       "slug": "nachdiplomstudiengang-dipl-expertin-experte-intensivpflege-nds-hf-ksa-ch",
       "slugByLocale": {
-        "de": "nachdiplomstudiengang-dipl-expertin-experte-intensivpflege-nds-hf-ksa-ch",
+        "de": "nachdiplomstudieng-dipl-experten-experten-intensivpflege-nds-hf-kantonsspital-aarau-ksa-aarau",
         "it": "nachdiplomstudiengang-dipl-expertin-experte-intensivpflege-nds-hf-ksa-ch",
-        "en": "nachdiplomstudiengang-dipl-expertin-experte-intensivpflege-nds-hf-ksa-ch",
+        "en": "nachdiplomstudieng-dipl-experts-experts-intensivpflege-nds-hf-kantonsspital-aarau-ksa-aarau",
         "fr": "nachdiplomstudiengang-dipl-expertin-experte-intensivpflege-nds-hf-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -2559,12 +2661,12 @@
     },
     {
       "id": "ksa-d19ec468433d",
-      "slug": "fachfrau-fachmann-gesundheit-ksa-ch",
+      "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
-        "it": "fachfrau-fachmann-gesundheit-ksa-ch",
-        "en": "fachfrau-fachmann-gesundheit-ksa-ch",
-        "fr": "fachfrau-fachmann-gesundheit-ksa-ch"
+        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau",
+        "en": "professional-health-kantonsspital-aarau-ksa-aarau",
+        "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2618,7 +2720,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-ksa-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-ksa-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-ksa-ch"
+      ]
     },
     {
       "id": "ksa-d0e9c50ef273",
@@ -2685,12 +2801,12 @@
     },
     {
       "id": "ksa-491d1d7b63c7",
-      "slug": "oberarztin-oberarzt-ksa-ch",
+      "slug": "medico-senior-medico-senior-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-ksa-ch",
-        "it": "oberarztin-oberarzt-ksa-ch",
-        "en": "oberarztin-oberarzt-ksa-ch",
-        "fr": "oberarztin-oberarzt-ksa-ch"
+        "it": "medico-senior-medico-senior-kantonsspital-aarau-ksa-aarau",
+        "en": "senior-physician-senior-physician-kantonsspital-aarau-ksa-aarau",
+        "fr": "medecin-superieur-medecin-superieur-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2744,7 +2860,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-ksa-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-ksa-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-ksa-ch"
+      ]
     },
     {
       "id": "ksa-a52c83a7e863",
@@ -2882,11 +3012,11 @@
     },
     {
       "id": "ksa-afc738ae9e2d",
-      "slug": "pharmaassistent-in-kantonsspital-aarau-ksa-aarau",
+      "slug": "farmacia-in-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "pharmaassistent-in-ksa-ch",
-        "it": "pharmaassistent-in-kantonsspital-aarau-ksa-aarau",
-        "en": "pharmaassistent-in-kantonsspital-aarau-ksa-aarau",
+        "it": "farmacia-in-kantonsspital-aarau-ksa-aarau",
+        "en": "pharmacy-in-kantonsspital-aarau-ksa-aarau",
         "fr": "pharmaassistent-in-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -2931,11 +3061,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "pharmaassistent-in-ksa-ch"
+          "pharmaassistent-in-ksa-ch",
+          "pharmaassistent-in-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "pharmaassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
-        "pharmaassistent-in-ksa-ch"
+        "pharmaassistent-in-ksa-ch",
+        "pharmaassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2953,12 +3088,12 @@
     },
     {
       "id": "ksa-33a2c08ac082",
-      "slug": "teamleitung-onkologie-hamatologie-ksa-ch",
+      "slug": "team-leadership-oncologia-ematologia-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "teamleitung-onkologie-hamatologie-ksa-ch",
-        "it": "teamleitung-onkologie-hamatologie-ksa-ch",
-        "en": "teamleitung-onkologie-hamatologie-ksa-ch",
-        "fr": "teamleitung-onkologie-hamatologie-ksa-ch"
+        "it": "team-leadership-oncologia-ematologia-kantonsspital-aarau-ksa-aarau",
+        "en": "team-leadership-oncology-hematology-kantonsspital-aarau-ksa-aarau",
+        "fr": "chef-d-equipe-oncologie-hematologie-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3012,7 +3147,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-onkologie-hamatologie-ksa-ch"
+        ],
+        "en": [
+          "teamleitung-onkologie-hamatologie-ksa-ch"
+        ],
+        "fr": [
+          "teamleitung-onkologie-hamatologie-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-onkologie-hamatologie-ksa-ch"
+      ]
     },
     {
       "id": "ksa-81f616fa75cc",
@@ -3091,8 +3240,8 @@
       "slugByLocale": {
         "de": "eignungspraktikum-pflegefachfrau-mann-hf-22-06-24-06-2026-ksa-ch",
         "it": "eignungspraktikum-pflegefachfrau-mann-hf-22-06-24-06-2026-kantonsspital-aarau-ksa-aarau",
-        "en": "eignungspraktikum-pflegefachfrau-mann-hf-22-06-24-06-2026-ksa-ch",
-        "fr": "eignungspraktikum-pflegefachfrau-mann-hf-22-06-24-06-2026-ksa-ch"
+        "en": "fitness-internship-nursing-specialist-hf-22-06-24-06-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-de-fitness-specialiste-des-soins-infirmiers-hf-22-06-24-06-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3139,6 +3288,12 @@
       "previousSlugsByLocale": {
         "it": [
           "eignungspraktikum-pflegefachfrau-mann-hf-22-06-24-06-2026-ksa-ch"
+        ],
+        "en": [
+          "eignungspraktikum-pflegefachfrau-mann-hf-22-06-24-06-2026-ksa-ch"
+        ],
+        "fr": [
+          "eignungspraktikum-pflegefachfrau-mann-hf-22-06-24-06-2026-ksa-ch"
         ]
       },
       "previousSlugs": [
@@ -3164,8 +3319,8 @@
       "slugByLocale": {
         "de": "eignungspraktikum-pflegefachfrau-mann-hf-17-11-19-11-2026-ksa-ch",
         "it": "eignungspraktikum-pflegefachfrau-mann-hf-17-11-19-11-2026-kantonsspital-aarau-ksa-aarau",
-        "en": "eignungspraktikum-pflegefachfrau-mann-hf-17-11-19-11-2026-ksa-ch",
-        "fr": "eignungspraktikum-pflegefachfrau-mann-hf-17-11-19-11-2026-ksa-ch"
+        "en": "fitness-internship-nursing-specialist-hf-17-11-19-11-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-de-fitness-specialiste-des-soins-infirmiers-hf-17-11-19-11-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3212,6 +3367,12 @@
       "previousSlugsByLocale": {
         "it": [
           "eignungspraktikum-pflegefachfrau-mann-hf-17-11-19-11-2026-ksa-ch"
+        ],
+        "en": [
+          "eignungspraktikum-pflegefachfrau-mann-hf-17-11-19-11-2026-ksa-ch"
+        ],
+        "fr": [
+          "eignungspraktikum-pflegefachfrau-mann-hf-17-11-19-11-2026-ksa-ch"
         ]
       },
       "previousSlugs": [
@@ -3233,12 +3394,12 @@
     },
     {
       "id": "ksa-60d01194d960",
-      "slug": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-20-07-22-07-2026-ksa-ch",
+      "slug": "specialista-professionista-della-salute-20-07-22-07-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-20-07-22-07-2026-ksa-ch",
-        "it": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-20-07-22-07-2026-ksa-ch",
-        "en": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-20-07-22-07-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-20-07-22-07-2026-ksa-ch"
+        "it": "specialista-professionista-della-salute-20-07-22-07-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-specialist-health-professional-20-07-22-07-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-specialiste-professionnels-de-la-sante-20-07-22-07-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3294,16 +3455,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-fachfrau-fachmann-gesundheit-20-07-22-07-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-fachfrau-fachmann-gesundheit-20-07-22-07-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-fachfrau-fachmann-gesundheit-20-07-22-07-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-fachfrau-fachmann-gesundheit-20-07-22-07-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-3e1f76eec37e",
-      "slug": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-28-09-30-09-2026-ksa-ch",
+      "slug": "specialista-specialista-della-salute-28-09-30-09-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-28-09-30-09-2026-ksa-ch",
-        "it": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-28-09-30-09-2026-ksa-ch",
-        "en": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-28-09-30-09-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-28-09-30-09-2026-ksa-ch"
+        "it": "specialista-specialista-della-salute-28-09-30-09-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-specialist-health-specialist-28-09-30-09-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-specialiste-specialiste-de-la-sante-28-09-30-09-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3359,16 +3534,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-fachfrau-fachmann-gesundheit-28-09-30-09-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-fachfrau-fachmann-gesundheit-28-09-30-09-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-fachfrau-fachmann-gesundheit-28-09-30-09-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-fachfrau-fachmann-gesundheit-28-09-30-09-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-5845952e5136",
-      "slug": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-05-10-07-10-2026-ksa-ch",
+      "slug": "specialista-professionista-della-salute-05-10-07-10-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-05-10-07-10-2026-ksa-ch",
-        "it": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-05-10-07-10-2026-ksa-ch",
-        "en": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-05-10-07-10-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-fachfrau-fachmann-gesundheit-05-10-07-10-2026-ksa-ch"
+        "it": "specialista-professionista-della-salute-05-10-07-10-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-specialist-health-professional-05-10-07-10-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-specialiste-professionnels-de-la-sante-05-10-07-10-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3424,16 +3613,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-fachfrau-fachmann-gesundheit-05-10-07-10-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-fachfrau-fachmann-gesundheit-05-10-07-10-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-fachfrau-fachmann-gesundheit-05-10-07-10-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-fachfrau-fachmann-gesundheit-05-10-07-10-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-801826f40f2d",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-16-09-2026-ksa-ch",
+      "slug": "formazione-professionale-assistente-medico-pratico-in-16-09-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-16-09-2026-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-16-09-2026-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-16-09-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-16-09-2026-ksa-ch"
+        "it": "formazione-professionale-assistente-medico-pratico-in-16-09-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-medical-practical-assistant-in-16-09-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-medical-pratique-en-16-09-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3489,16 +3692,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-16-09-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-16-09-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-16-09-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-16-09-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-99a3f9d8286c",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2026-ksa-ch",
+      "slug": "interno-professionale-elettivo-assistente-medico-pratico-in-14-10-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2026-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2026-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2026-ksa-ch"
+        "it": "interno-professionale-elettivo-assistente-medico-pratico-in-14-10-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-medical-practical-assistant-in-14-10-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-medical-pratique-en-14-10-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3554,16 +3771,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-1870c238a194",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-15-10-2026-ksa-ch",
+      "slug": "interno-professionale-elettivo-assistente-medico-pratico-in-15-10-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-15-10-2026-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-15-10-2026-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-15-10-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-15-10-2026-ksa-ch"
+        "it": "interno-professionale-elettivo-assistente-medico-pratico-in-15-10-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-medical-practical-assistant-in-15-10-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-medical-pratique-en-15-10-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3619,16 +3850,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-15-10-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-15-10-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-15-10-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-15-10-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-927f17f2d73d",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-18-11-2026-ksa-ch",
+      "slug": "interno-professionale-elettivo-assistente-medico-pratico-in-18-11-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-18-11-2026-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-18-11-2026-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-18-11-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-18-11-2026-ksa-ch"
+        "it": "interno-professionale-elettivo-assistente-medico-pratico-in-18-11-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-medical-practical-assistant-in-18-11-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-medical-pratique-en-18-11-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3684,7 +3929,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-18-11-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-18-11-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-18-11-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-18-11-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-b3fd0dd7ed4f",
@@ -3764,12 +4023,12 @@
     },
     {
       "id": "ksa-824c6495efd4",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-09-12-2026-ksa-ch",
+      "slug": "interno-professionale-elettivo-assistente-medico-pratico-in-09-12-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-09-12-2026-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-09-12-2026-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-09-12-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-09-12-2026-ksa-ch"
+        "it": "interno-professionale-elettivo-assistente-medico-pratico-in-09-12-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-medical-practical-assistant-in-09-12-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-medical-pratique-en-09-12-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3825,16 +4084,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-09-12-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-09-12-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-09-12-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-09-12-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-523ffd41becd",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-10-12-2026-ksa-ch",
+      "slug": "interno-professionale-elettivo-assistente-medico-pratico-in-10-12-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-10-12-2026-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-10-12-2026-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-10-12-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-10-12-2026-ksa-ch"
+        "it": "interno-professionale-elettivo-assistente-medico-pratico-in-10-12-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-medical-practical-assistant-in-10-12-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-medical-pratique-en-10-12-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3890,16 +4163,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-10-12-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-10-12-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-10-12-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-10-12-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-3b63639e058a",
-      "slug": "berufswahlpraktikum-dentalassistent-dentalassistentin-07-07-2026-ksa-ch",
+      "slug": "assistente-dentale-assistente-dentale-07-07-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-07-07-2026-ksa-ch",
-        "it": "berufswahlpraktikum-dentalassistent-dentalassistentin-07-07-2026-ksa-ch",
-        "en": "berufswahlpraktikum-dentalassistent-dentalassistentin-07-07-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-dentalassistent-dentalassistentin-07-07-2026-ksa-ch"
+        "it": "assistente-dentale-assistente-dentale-07-07-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-dental-assistant-dental-assistant-07-07-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-07-07-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3955,7 +4242,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-07-07-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-07-07-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-07-07-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-dentalassistent-dentalassistentin-07-07-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-1cc2114cd13a",
@@ -4035,12 +4336,12 @@
     },
     {
       "id": "ksa-de463dd75ef2",
-      "slug": "berufswahlpraktikum-dentalassistent-dentalassistentin-14-07-2026-ksa-ch",
+      "slug": "assistente-dentale-assistente-dentale-14-07-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-14-07-2026-ksa-ch",
-        "it": "berufswahlpraktikum-dentalassistent-dentalassistentin-14-07-2026-ksa-ch",
-        "en": "berufswahlpraktikum-dentalassistent-dentalassistentin-14-07-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-dentalassistent-dentalassistentin-14-07-2026-ksa-ch"
+        "it": "assistente-dentale-assistente-dentale-14-07-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-dental-assistant-dental-assistant-14-07-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-14-07-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4096,16 +4397,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-14-07-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-14-07-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-14-07-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-dentalassistent-dentalassistentin-14-07-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-6d901386a22b",
-      "slug": "berufswahlpraktikum-dentalassistent-dentalassistentin-16-07-2026-ksa-ch",
+      "slug": "assistente-dentale-assistente-dentale-16-07-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-16-07-2026-ksa-ch",
-        "it": "berufswahlpraktikum-dentalassistent-dentalassistentin-16-07-2026-ksa-ch",
-        "en": "berufswahlpraktikum-dentalassistent-dentalassistentin-16-07-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-dentalassistent-dentalassistentin-16-07-2026-ksa-ch"
+        "it": "assistente-dentale-assistente-dentale-16-07-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-dental-assistant-dental-assistant-16-07-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-16-07-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4161,16 +4476,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-16-07-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-16-07-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-16-07-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-dentalassistent-dentalassistentin-16-07-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-e94313a054d3",
-      "slug": "berufswahlpraktikum-dentalassistent-dentalassistentin-21-07-2026-ksa-ch",
+      "slug": "assistente-dentale-assistente-dentale-21-07-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-21-07-2026-ksa-ch",
-        "it": "berufswahlpraktikum-dentalassistent-dentalassistentin-21-07-2026-ksa-ch",
-        "en": "berufswahlpraktikum-dentalassistent-dentalassistentin-21-07-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-dentalassistent-dentalassistentin-21-07-2026-ksa-ch"
+        "it": "assistente-dentale-assistente-dentale-21-07-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-dental-assistant-dental-assistant-21-07-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-21-07-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4226,16 +4555,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-21-07-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-21-07-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-21-07-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-dentalassistent-dentalassistentin-21-07-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-08adb15d796e",
-      "slug": "berufswahlpraktikum-dentalassistent-dentalassistentin-29-09-2026-ksa-ch",
+      "slug": "assistente-dentale-assistente-dentale-29-09-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-29-09-2026-ksa-ch",
-        "it": "berufswahlpraktikum-dentalassistent-dentalassistentin-29-09-2026-ksa-ch",
-        "en": "berufswahlpraktikum-dentalassistent-dentalassistentin-29-09-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-dentalassistent-dentalassistentin-29-09-2026-ksa-ch"
+        "it": "assistente-dentale-assistente-dentale-29-09-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "vocational-elective-internship-dental-assistant-dental-assistant-29-09-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-29-09-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4291,16 +4634,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-29-09-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-29-09-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-29-09-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-dentalassistent-dentalassistentin-29-09-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-9bd6aa9eabf4",
-      "slug": "berufswahlpraktikum-dentalassistent-dentalassistentin-01-10-2026-ksa-ch",
+      "slug": "interno-professionale-elettivo-assistente-dentale-assistente-dentale-01-10-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-01-10-2026-ksa-ch",
-        "it": "berufswahlpraktikum-dentalassistent-dentalassistentin-01-10-2026-ksa-ch",
-        "en": "berufswahlpraktikum-dentalassistent-dentalassistentin-01-10-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-dentalassistent-dentalassistentin-01-10-2026-ksa-ch"
+        "it": "interno-professionale-elettivo-assistente-dentale-assistente-dentale-01-10-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "professional-elective-internship-dental-assistant-dental-assistant-01-10-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-01-10-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4356,16 +4713,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-01-10-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-01-10-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-01-10-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-dentalassistent-dentalassistentin-01-10-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-b6a407b556da",
-      "slug": "berufswahlpraktikum-dentalassistent-dentalassistentin-06-10-2026-ksa-ch",
+      "slug": "interno-elettivo-professionale-assistente-dentale-assistente-dentale-06-10-2026-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-06-10-2026-ksa-ch",
-        "it": "berufswahlpraktikum-dentalassistent-dentalassistentin-06-10-2026-ksa-ch",
-        "en": "berufswahlpraktikum-dentalassistent-dentalassistentin-06-10-2026-ksa-ch",
-        "fr": "berufswahlpraktikum-dentalassistent-dentalassistentin-06-10-2026-ksa-ch"
+        "it": "interno-elettivo-professionale-assistente-dentale-assistente-dentale-06-10-2026-kantonsspital-aarau-ksa-aarau",
+        "en": "professional-elective-internship-dental-assistant-dental-assistant-06-10-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-06-10-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4421,7 +4792,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-06-10-2026-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-06-10-2026-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-dentalassistent-dentalassistentin-06-10-2026-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-dentalassistent-dentalassistentin-06-10-2026-ksa-ch"
+      ]
     },
     {
       "id": "ksa-b184a6a83828",
@@ -4429,8 +4814,8 @@
       "slugByLocale": {
         "de": "praxistag-ein-blick-hinter-die-kulissen-der-notfall-und-intensivpflege-padiatrie-ksa-ch",
         "it": "praxistag-ein-blick-hinter-la-kulissen-der-notfall-e-intensivpflege-padiatrie-kantonsspital-aarau-ksa-aarau",
-        "en": "praxistag-ein-blick-hinter-die-kulissen-der-notfall-und-intensivpflege-padiatrie-ksa-ch",
-        "fr": "praxistag-ein-blick-hinter-die-kulissen-der-notfall-und-intensivpflege-padiatrie-ksa-ch"
+        "en": "practice-day-a-look-behind-the-scenes-of-emergency-and-intensive-care-pediatrics-kantonsspital-aarau-ksa-aarau",
+        "fr": "journee-de-pratique-un-regard-dans-les-coulisses-de-la-pediatrie-d-urgence-et-de-soins-intensifs-kantonsspital-aarau-ksa"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4474,6 +4859,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "praxistag-ein-blick-hinter-die-kulissen-der-notfall-und-intensivpflege-padiatrie-ksa-ch"
+        ],
+        "en": [
+          "praxistag-ein-blick-hinter-die-kulissen-der-notfall-und-intensivpflege-padiatrie-ksa-ch"
+        ],
+        "fr": [
           "praxistag-ein-blick-hinter-die-kulissen-der-notfall-und-intensivpflege-padiatrie-ksa-ch"
         ]
       },
@@ -4564,8 +4955,8 @@
       "slugByLocale": {
         "de": "einblickstage-pflegeberufe-fur-personen-ab-16-jahren-kein-berufswahlpraktikum-ksa-ch",
         "it": "einblickstage-pflegeberufe-per-personen-ab-16-jahren-kein-berufswahlpraktikum-kantonsspital-aarau-ksa-aarau",
-        "en": "einblickstage-pflegeberufe-fur-personen-ab-16-jahren-kein-berufswahlpraktikum-ksa-ch",
-        "fr": "einblickstage-pflegeberufe-fur-personen-ab-16-jahren-kein-berufswahlpraktikum-ksa-ch"
+        "en": "insight-days-nursing-professions-for-persons-aged-16-and-over-no-career-elective-internship-kantonsspital-aarau-ksa",
+        "fr": "journees-d-information-les-professions-infirmieres-pour-les-personnes-agees-de-16-ans-et-plus-aucun-stage-de-carriere-au"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4612,6 +5003,12 @@
       "previousSlugsByLocale": {
         "it": [
           "einblickstage-pflegeberufe-fur-personen-ab-16-jahren-kein-berufswahlpraktikum-ksa-ch"
+        ],
+        "en": [
+          "einblickstage-pflegeberufe-fur-personen-ab-16-jahren-kein-berufswahlpraktikum-ksa-ch"
+        ],
+        "fr": [
+          "einblickstage-pflegeberufe-fur-personen-ab-16-jahren-kein-berufswahlpraktikum-ksa-ch"
         ]
       },
       "previousSlugs": [
@@ -4633,12 +5030,12 @@
     },
     {
       "id": "ksa-7c3110422aba",
-      "slug": "anstellung-ab-dem-3-studienjahr-teilzeitstudiengang-bfh-ksa-ch",
+      "slug": "occupazione-dal-3-anno-di-studio-part-time-bfh-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "anstellung-ab-dem-3-studienjahr-teilzeitstudiengang-bfh-ksa-ch",
-        "it": "anstellung-ab-dem-3-studienjahr-teilzeitstudiengang-bfh-ksa-ch",
-        "en": "anstellung-ab-dem-3-studienjahr-teilzeitstudiengang-bfh-ksa-ch",
-        "fr": "anstellung-ab-dem-3-studienjahr-teilzeitstudiengang-bfh-ksa-ch"
+        "it": "occupazione-dal-3-anno-di-studio-part-time-bfh-kantonsspital-aarau-ksa-aarau",
+        "en": "employment-from-the-3rd-year-of-part-time-study-bfh-kantonsspital-aarau-ksa-aarau",
+        "fr": "emploi-a-partir-de-la-3eme-annee-de-l-etude-a-temps-partiel-bfh-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4694,16 +5091,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anstellung-ab-dem-3-studienjahr-teilzeitstudiengang-bfh-ksa-ch"
+        ],
+        "en": [
+          "anstellung-ab-dem-3-studienjahr-teilzeitstudiengang-bfh-ksa-ch"
+        ],
+        "fr": [
+          "anstellung-ab-dem-3-studienjahr-teilzeitstudiengang-bfh-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anstellung-ab-dem-3-studienjahr-teilzeitstudiengang-bfh-ksa-ch"
+      ]
     },
     {
       "id": "ksa-35bb8f542211",
-      "slug": "praxismodul-wahlpflicht-ksa-ch",
+      "slug": "obbligo-elettivo-del-modulo-di-pratica-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "praxismodul-wahlpflicht-ksa-ch",
-        "it": "praxismodul-wahlpflicht-ksa-ch",
-        "en": "praxismodul-wahlpflicht-ksa-ch",
-        "fr": "praxismodul-wahlpflicht-ksa-ch"
+        "it": "obbligo-elettivo-del-modulo-di-pratica-kantonsspital-aarau-ksa-aarau",
+        "en": "practice-module-elective-obligation-kantonsspital-aarau-ksa-aarau",
+        "fr": "obligation-au-choix-du-module-pratique-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4759,7 +5170,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praxismodul-wahlpflicht-ksa-ch"
+        ],
+        "en": [
+          "praxismodul-wahlpflicht-ksa-ch"
+        ],
+        "fr": [
+          "praxismodul-wahlpflicht-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praxismodul-wahlpflicht-ksa-ch"
+      ]
     },
     {
       "id": "ksa-cb08f60d8635",
@@ -5110,10 +5535,10 @@
     },
     {
       "id": "ksa-8e60df47da07",
-      "slug": "arztsekretar-in-ksa-ch-2",
+      "slug": "l-europa-kantonsspital-aarau-ksa-aarau-04205c",
       "slugByLocale": {
         "de": "arztsekretar-in-ksa-ch",
-        "it": "arztsekretar-in-ksa-ch-2",
+        "it": "l-europa-kantonsspital-aarau-ksa-aarau-04205c",
         "en": "arztsekretar-in-ksa-ch-2",
         "fr": "arztsekretar-in-ksa-ch-2"
       },
@@ -5172,11 +5597,13 @@
       "firstSeenAt": "2026-07-08T22:21:13.607Z",
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-ksa-ch"
+          "arztsekretar-in-ksa-ch",
+          "arztsekretar-in-ksa-ch-2"
         ]
       },
       "previousSlugs": [
-        "arztsekretar-in-ksa-ch"
+        "arztsekretar-in-ksa-ch",
+        "arztsekretar-in-ksa-ch-2"
       ]
     },
     {
@@ -5395,10 +5822,10 @@
     },
     {
       "id": "ksa-4ff77a59da50",
-      "slug": "ict-service-manager-in-digital-communication-ksa-ch",
+      "slug": "ict-service-manager-in-comunicazione-digitale-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "de": "ict-service-manager-in-digital-communication-ksa-ch",
-        "it": "ict-service-manager-in-digital-communication-ksa-ch",
+        "de": "ict-service-manager-digitale-kommunikation-kantonsspital-aarau-ksa-aarau",
+        "it": "ict-service-manager-in-comunicazione-digitale-kantonsspital-aarau-ksa-aarau",
         "en": "ict-service-manager-in-digital-communication-ksa-ch",
         "fr": "ict-service-manager-in-digital-communication-ksa-ch"
       },
@@ -5454,7 +5881,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-service-manager-in-digital-communication-ksa-ch"
+        ],
+        "de": [
+          "ict-service-manager-in-digital-communication-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-service-manager-in-digital-communication-ksa-ch"
+      ]
     },
     {
       "id": "ksa-d31f95d2346f",
@@ -5742,8 +6180,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-i-v-oder-oberarztin-oberarzt-ksa-ch",
         "it": "oberarztin-oberarzt-i-v-o-oberarztin-oberarzt-kantonsspital-aarau-ksa-aarau",
-        "en": "oberarztin-oberarzt-i-v-oder-oberarztin-oberarzt-ksa-ch",
-        "fr": "oberarztin-oberarzt-i-v-oder-oberarztin-oberarzt-ksa-ch"
+        "en": "oberarzttin-oberarzt-i-v-or-oberarzttin-oberarzt-kantonsspital-aarau-ksa-aarau",
+        "fr": "oberarzttin-oberarzt-i-v-ou-oberarzttin-oberarzt-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5788,6 +6226,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-i-v-oder-oberarztin-oberarzt-ksa-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-i-v-oder-oberarztin-oberarzt-ksa-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-i-v-oder-oberarztin-oberarzt-ksa-ch"
         ]
       },
       "previousSlugs": [
@@ -5813,8 +6257,8 @@
       "slugByLocale": {
         "de": "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch",
         "it": "med-praxisassistent-in-o-medizinstudent-in-kantonsspital-aarau-ksa-aarau",
-        "en": "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch"
+        "en": "med-practical-assistant-or-medical-student-kantonsspital-aarau-ksa-aarau",
+        "fr": "medicament-assistant-pratique-ou-etudiant-en-medecine-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5858,6 +6302,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch"
+        ],
+        "en": [
+          "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch"
+        ],
+        "fr": [
           "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch"
         ]
       },
@@ -6224,8 +6674,8 @@
       "slugByLocale": {
         "de": "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch",
         "it": "arztsekretar-in-o-med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
-        "en": "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch",
-        "fr": "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch"
+        "en": "medical-secretary-or-med-practical-assistant-kantonsspital-aarau-ksa-aarau",
+        "fr": "secretaire-medical-ou-med-assistant-pratique-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6270,6 +6720,12 @@
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch"
+        ],
+        "en": [
+          "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch"
+        ],
+        "fr": [
+          "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch"
         ]
       },
       "previousSlugs": [
@@ -6291,12 +6747,12 @@
     },
     {
       "id": "ksa-b6e1ec77798d",
-      "slug": "leitende-arztin-leitender-arzt-ksa-ch",
+      "slug": "principale-medico-principal-medico-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-ksa-ch",
-        "it": "leitende-arztin-leitender-arzt-ksa-ch",
-        "en": "leitende-arztin-leitender-arzt-ksa-ch",
-        "fr": "leitende-arztin-leitender-arzt-ksa-ch"
+        "it": "principale-medico-principal-medico-kantonsspital-aarau-ksa-aarau",
+        "en": "principal-physician-principal-physician-kantonsspital-aarau-ksa-aarau",
+        "fr": "medecin-principal-medecin-principal-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6350,7 +6806,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-ksa-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-ksa-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-ksa-ch"
+      ]
     },
     {
       "id": "ksa-1e8c6e5a0054",
@@ -6489,12 +6959,12 @@
     },
     {
       "id": "ksa-39bae4f26a6a",
-      "slug": "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch",
+      "slug": "radiologia-specialistica-mpa-professione-di-allattamento-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch",
-        "it": "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch",
-        "en": "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch",
-        "fr": "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch"
+        "it": "radiologia-specialistica-mpa-professione-di-allattamento-kantonsspital-aarau-ksa-aarau",
+        "en": "specialist-radiology-mpa-nursing-profession-kantonsspital-aarau-ksa-aarau",
+        "fr": "radiologie-specialisee-mpa-profession-infirmiere-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6548,7 +7018,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch"
+        ],
+        "en": [
+          "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch"
+        ],
+        "fr": [
+          "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch"
+      ]
     },
     {
       "id": "ksa-e44b8132fd3d",
@@ -6628,8 +7112,8 @@
       "slugByLocale": {
         "de": "med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-lungenfunktionslabor-ksa-ch",
         "it": "med-praxisassistent-in-o-fachfrau-fachmann-gesundheit-lungenfunktionslabor-kantonsspital-aarau-ksa-aarau",
-        "en": "med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-lungenfunktionslabor-ksa-ch",
-        "fr": "med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-lungenfunktionslabor-ksa-ch"
+        "en": "med-practical-assistant-or-specialist-health-lung-function-laboratory-kantonsspital-aarau-ksa-aarau",
+        "fr": "medicament-assistant-pratique-ou-laboratoire-specialise-de-la-fonction-pulmonaire-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6673,6 +7157,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-lungenfunktionslabor-ksa-ch"
+        ],
+        "en": [
+          "med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-lungenfunktionslabor-ksa-ch"
+        ],
+        "fr": [
           "med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-lungenfunktionslabor-ksa-ch"
         ]
       },
@@ -6964,12 +7454,12 @@
     },
     {
       "id": "ksa-9de87fe137a3",
-      "slug": "fachfrau-gesundheit-fachmann-gesundheit-ksa-ch",
+      "slug": "salute-professionale-salute-professionale-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "fachfrau-gesundheit-fachmann-gesundheit-ksa-ch",
-        "it": "fachfrau-gesundheit-fachmann-gesundheit-ksa-ch",
-        "en": "fachfrau-gesundheit-fachmann-gesundheit-ksa-ch",
-        "fr": "fachfrau-gesundheit-fachmann-gesundheit-ksa-ch"
+        "it": "salute-professionale-salute-professionale-kantonsspital-aarau-ksa-aarau",
+        "en": "health-professional-health-professional-kantonsspital-aarau-ksa-aarau",
+        "fr": "professionnels-de-la-sante-professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7023,7 +7513,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-gesundheit-fachmann-gesundheit-ksa-ch"
+        ],
+        "en": [
+          "fachfrau-gesundheit-fachmann-gesundheit-ksa-ch"
+        ],
+        "fr": [
+          "fachfrau-gesundheit-fachmann-gesundheit-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-gesundheit-fachmann-gesundheit-ksa-ch"
+      ]
     },
     {
       "id": "ksa-3a41878e7bb2",
@@ -7091,12 +7595,12 @@
     },
     {
       "id": "ksa-2c7c3e069273",
-      "slug": "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch",
+      "slug": "med-assistente-pratico-in-consulenza-per-l-infanzia-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch",
-        "it": "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch",
-        "en": "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch",
-        "fr": "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
+        "it": "med-assistente-pratico-in-consulenza-per-l-infanzia-kantonsspital-aarau-ksa-aarau",
+        "en": "med-practical-assistant-in-child-wishing-consultation-kantonsspital-aarau-ksa-aarau",
+        "fr": "medicament-assistante-pratique-consultation-pour-les-enfants-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7150,14 +7654,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.606Z"
+      "firstSeenAt": "2026-07-08T22:21:13.606Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
+        ],
+        "en": [
+          "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
+        ],
+        "fr": [
+          "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
+      ]
     },
     {
       "id": "ksa-275b519cef1d",
-      "slug": "arztsekretar-in-ksa-ch-3",
+      "slug": "l-europa-kantonsspital-aarau-ksa-aarau-b8231e",
       "slugByLocale": {
         "de": "arztsekretar-in-ksa-ch",
-        "it": "arztsekretar-in-ksa-ch-3",
+        "it": "l-europa-kantonsspital-aarau-ksa-aarau-b8231e",
         "en": "arztsekretar-in-ksa-ch-3",
         "fr": "arztsekretar-in-ksa-ch-3"
       },
@@ -7216,11 +7734,13 @@
       "firstSeenAt": "2026-07-08T22:21:13.606Z",
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-ksa-ch"
+          "arztsekretar-in-ksa-ch",
+          "arztsekretar-in-ksa-ch-3"
         ]
       },
       "previousSlugs": [
-        "arztsekretar-in-ksa-ch"
+        "arztsekretar-in-ksa-ch",
+        "arztsekretar-in-ksa-ch-3"
       ]
     },
     {
@@ -7653,8 +8173,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-fur-neurophysiologische-diagnostik-fnd-oder-ksa-ch",
         "it": "fachfrau-fachmann-per-neurophysiologische-diagnostik-fnd-o-kantonsspital-aarau-ksa-aarau",
-        "en": "fachfrau-fachmann-fur-neurophysiologische-diagnostik-fnd-oder-ksa-ch",
-        "fr": "fachfrau-fachmann-fur-neurophysiologische-diagnostik-fnd-oder-ksa-ch"
+        "en": "specialist-in-neurophysiological-diagnostics-fnd-or-kantonsspital-aarau-ksa-aarau",
+        "fr": "specialiste-des-diagnostics-neurophysiologiques-fnd-ou-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7698,6 +8218,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-fur-neurophysiologische-diagnostik-fnd-oder-ksa-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-fur-neurophysiologische-diagnostik-fnd-oder-ksa-ch"
+        ],
+        "fr": [
           "fachfrau-fachmann-fur-neurophysiologische-diagnostik-fnd-oder-ksa-ch"
         ]
       },

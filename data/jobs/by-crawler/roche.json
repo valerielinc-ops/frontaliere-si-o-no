@@ -68294,7 +68294,7 @@
       "slug": "marketing-tirocinante-roche-mexico-city",
       "slugByLocale": {
         "it": "marketing-tirocinante-roche-mexico-city",
-        "en": "marketing-intern-roche-mexico-city",
+        "en": "internal-marketing-roche-mexico-city",
         "de": "marketing-praktikant-roche-mexico-city",
         "fr": "marketing-intern-roche-ch"
       },
@@ -68338,7 +68338,7 @@
       "previousSlugs": [
         "marketing-intern-roche-ch-2",
         "marketing-intern-roche-ch",
-        "internal-marketing-roche-mexico-city"
+        "marketing-intern-roche-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -68346,7 +68346,7 @@
           "marketing-intern-roche-ch"
         ],
         "en": [
-          "internal-marketing-roche-mexico-city"
+          "marketing-intern-roche-mexico-city"
         ],
         "de": [
           "marketing-intern-roche-ch-2"
@@ -90001,12 +90001,12 @@
     },
     {
       "id": "roche-7c3667c45a0e",
-      "slug": "facharbeiter-m-w-d-abfullung-optische-kontrolle-befristet-2-jahre-roche-mannheim",
+      "slug": "specialista-m-f-d-imbottigliamento-ispezione-ottica-temporaneo-2-anni-roche-mannheim",
       "slugByLocale": {
         "de": "facharbeiter-m-w-d-abfullung-optische-kontrolle-befristet-2-jahre-roche-ch",
-        "it": "facharbeiter-m-w-d-abfullung-optische-kontrolle-befristet-2-jahre-roche-mannheim",
-        "en": "facharbeiter-m-w-d-abfullung-optische-kontrolle-befristet-2-jahre-roche-ch",
-        "fr": "facharbeiter-m-w-d-abfullung-optische-kontrolle-befristet-2-jahre-roche-ch"
+        "it": "specialista-m-f-d-imbottigliamento-ispezione-ottica-temporaneo-2-anni-roche-mannheim",
+        "en": "specialist-m-f-d-bottling-optical-inspection-temporary-2-years-roche-mannheim",
+        "fr": "specialiste-m-f-d-mise-en-bouteille-inspection-optique-temporaire-2-ans-roche-mannheim"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90049,11 +90049,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "facharbeiter-m-w-d-abfullung-optische-kontrolle-befristet-2-jahre-roche-ch",
+          "facharbeiter-m-w-d-abfullung-optische-kontrolle-befristet-2-jahre-roche-mannheim"
+        ],
+        "en": [
+          "facharbeiter-m-w-d-abfullung-optische-kontrolle-befristet-2-jahre-roche-ch"
+        ],
+        "fr": [
           "facharbeiter-m-w-d-abfullung-optische-kontrolle-befristet-2-jahre-roche-ch"
         ]
       },
       "previousSlugs": [
-        "facharbeiter-m-w-d-abfullung-optische-kontrolle-befristet-2-jahre-roche-ch"
+        "facharbeiter-m-w-d-abfullung-optische-kontrolle-befristet-2-jahre-roche-ch",
+        "facharbeiter-m-w-d-abfullung-optische-kontrolle-befristet-2-jahre-roche-mannheim"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -90077,7 +90085,7 @@
         "en": "template-manager-p-c-document-management-solution-german-speaking-roche-ch",
         "it": "template-manager-p-c-document-management-solution-german-speaking-roche-ch",
         "de": "template-manager-p-c-document-management-solution-german-speaking-roche-ch",
-        "fr": "template-manager-p-c-document-management-solution-german-speaking-roche-ch"
+        "fr": "gestionnaire-de-modeles-solution-de-gestion-de-documents-p-c-langue-allemande-roche-budapest"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90210,12 +90218,12 @@
     },
     {
       "id": "roche-f3626504ff24",
-      "slug": "project-manager-roche-ch-2",
+      "slug": "responsabile-del-progetto-roche-riga",
       "slugByLocale": {
         "en": "project-manager-roche-ch",
-        "it": "project-manager-roche-ch-2",
-        "de": "project-manager-roche-ch-2",
-        "fr": "project-manager-roche-ch-2"
+        "it": "responsabile-del-progetto-roche-riga",
+        "de": "projektmanager-roche-riga",
+        "fr": "gestionnaire-de-projet-roche-riga"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90272,11 +90280,19 @@
       "firstSeenAt": "2026-07-08T22:08:45.577Z",
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-roche-ch"
+          "project-manager-roche-ch",
+          "project-manager-roche-ch-2"
+        ],
+        "de": [
+          "project-manager-roche-ch-2"
+        ],
+        "fr": [
+          "project-manager-roche-ch-2"
         ]
       },
       "previousSlugs": [
-        "project-manager-roche-ch"
+        "project-manager-roche-ch",
+        "project-manager-roche-ch-2"
       ]
     },
     {
@@ -90286,7 +90302,7 @@
         "en": "project-change-manager-roche-ch",
         "it": "project-change-manager-roche-ch-2",
         "de": "project-change-manager-roche-ch-2",
-        "fr": "project-change-manager-roche-ch-2"
+        "fr": "gestionnaire-de-changement-de-projet-roche-riga"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90352,12 +90368,12 @@
     },
     {
       "id": "roche-5b92037bb702",
-      "slug": "officer-administration-roche-ch",
+      "slug": "ufficiale-amministrazione-roche-shanghai",
       "slugByLocale": {
         "en": "officer-administration-roche-ch",
-        "it": "officer-administration-roche-ch",
-        "de": "officer-administration-roche-ch",
-        "fr": "officer-administration-roche-ch"
+        "it": "ufficiale-amministrazione-roche-shanghai",
+        "de": "offizier-verwaltung-roche-shanghai",
+        "fr": "administrateur-administration-roche-shanghai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90411,7 +90427,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-08T22:08:43.678Z"
+      "firstSeenAt": "2026-07-08T22:08:43.678Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "officer-administration-roche-ch"
+        ],
+        "de": [
+          "officer-administration-roche-ch"
+        ],
+        "fr": [
+          "officer-administration-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "officer-administration-roche-ch"
+      ]
     },
     {
       "id": "roche-4ec056dcae1a",
@@ -90566,12 +90596,12 @@
     },
     {
       "id": "roche-6ed5e61f2bf7",
-      "slug": "patient-journey-partner-roche-ch-4",
+      "slug": "partner-del-viaggio-paziente-roche-hod-hasharon",
       "slugByLocale": {
         "en": "patient-journey-partner-roche-ch",
-        "it": "patient-journey-partner-roche-ch-4",
+        "it": "partner-del-viaggio-paziente-roche-hod-hasharon",
         "de": "patient-journey-partner-roche-ch-4",
-        "fr": "patient-journey-partner-roche-ch-4"
+        "fr": "partenaire-voyage-patient-roche-hod-hasharon"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90628,11 +90658,16 @@
       "firstSeenAt": "2026-07-08T22:08:40.964Z",
       "previousSlugsByLocale": {
         "it": [
-          "patient-journey-partner-roche-ch"
+          "patient-journey-partner-roche-ch",
+          "patient-journey-partner-roche-ch-4"
+        ],
+        "fr": [
+          "patient-journey-partner-roche-ch-4"
         ]
       },
       "previousSlugs": [
-        "patient-journey-partner-roche-ch"
+        "patient-journey-partner-roche-ch",
+        "patient-journey-partner-roche-ch-4"
       ]
     },
     {
@@ -90840,12 +90875,12 @@
     },
     {
       "id": "roche-280e07f8f3be",
-      "slug": "internship-inclusion-belonging-international-m-f-d-12-months-roche-ch",
+      "slug": "internship-inclusione-belonging-international-m-f-d-12-mesi-roche-basel",
       "slugByLocale": {
         "en": "internship-inclusion-belonging-international-m-f-d-12-months-roche-ch",
-        "it": "internship-inclusion-belonging-international-m-f-d-12-months-roche-ch",
+        "it": "internship-inclusione-belonging-international-m-f-d-12-mesi-roche-basel",
         "de": "internship-inclusion-belonging-international-m-f-d-12-months-roche-ch",
-        "fr": "internship-inclusion-belonging-international-m-f-d-12-months-roche-ch"
+        "fr": "inclusion-des-stagiaires-et-appartenance-internationale-m-f-d-12-mois-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90899,7 +90934,18 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-08T22:08:37.317Z"
+      "firstSeenAt": "2026-07-08T22:08:37.317Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-inclusion-belonging-international-m-f-d-12-months-roche-ch"
+        ],
+        "fr": [
+          "internship-inclusion-belonging-international-m-f-d-12-months-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-inclusion-belonging-international-m-f-d-12-months-roche-ch"
+      ]
     },
     {
       "id": "roche-ec0964b8f4d6",
@@ -91035,12 +91081,12 @@
     },
     {
       "id": "roche-85f637c0466d",
-      "slug": "business-process-manager-roche-ch",
+      "slug": "gestione-dei-processi-aziendali-roche-welwyn",
       "slugByLocale": {
         "en": "business-process-manager-roche-ch",
-        "it": "business-process-manager-roche-ch",
-        "de": "business-process-manager-roche-ch",
-        "fr": "business-process-manager-roche-ch"
+        "it": "gestione-dei-processi-aziendali-roche-welwyn",
+        "de": "geschaftsprozessmanager-roche-welwyn",
+        "fr": "gestionnaire-de-processus-operationnels-roche-welwyn"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91094,7 +91140,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-08T22:08:34.830Z"
+      "firstSeenAt": "2026-07-08T22:08:34.830Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-process-manager-roche-ch"
+        ],
+        "de": [
+          "business-process-manager-roche-ch"
+        ],
+        "fr": [
+          "business-process-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-process-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-edf0c972776c",
@@ -91174,12 +91234,12 @@
     },
     {
       "id": "roche-b67cf81959f0",
-      "slug": "patient-journey-partner-lead-roche-ch",
+      "slug": "partner-del-viaggio-paziente-lead-roche-basel",
       "slugByLocale": {
         "en": "patient-journey-partner-lead-roche-ch",
-        "it": "patient-journey-partner-lead-roche-ch",
+        "it": "partner-del-viaggio-paziente-lead-roche-basel",
         "de": "patient-journey-partner-lead-roche-ch",
-        "fr": "patient-journey-partner-lead-roche-ch"
+        "fr": "chef-de-file-du-partenaire-de-voyage-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91233,7 +91293,18 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-08T22:08:33.066Z"
+      "firstSeenAt": "2026-07-08T22:08:33.066Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-journey-partner-lead-roche-ch"
+        ],
+        "fr": [
+          "patient-journey-partner-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patient-journey-partner-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-b15ffe51349c",
@@ -91363,12 +91434,12 @@
     },
     {
       "id": "roche-b6b9150c1dfb",
-      "slug": "patient-journey-partner-cross-at-neuquen-roche-ch",
+      "slug": "partner-del-viaggio-paziente-cross-at-neuquen-roche-basel",
       "slugByLocale": {
         "en": "patient-journey-partner-cross-at-neuquen-roche-ch",
-        "it": "patient-journey-partner-cross-at-neuquen-roche-ch",
+        "it": "partner-del-viaggio-paziente-cross-at-neuquen-roche-basel",
         "de": "patient-journey-partner-cross-at-neuquen-roche-ch",
-        "fr": "patient-journey-partner-cross-at-neuquen-roche-ch"
+        "fr": "partenaire-de-voyage-patient-cross-at-neuquen-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91422,7 +91493,18 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-08T22:08:30.726Z"
+      "firstSeenAt": "2026-07-08T22:08:30.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-journey-partner-cross-at-neuquen-roche-ch"
+        ],
+        "fr": [
+          "patient-journey-partner-cross-at-neuquen-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patient-journey-partner-cross-at-neuquen-roche-ch"
+      ]
     },
     {
       "id": "roche-e57fe295da95",
@@ -91489,12 +91571,12 @@
     },
     {
       "id": "roche-9216123dfd82",
-      "slug": "patient-journey-partner-nefritis-lupica-litoral-roche-ch",
+      "slug": "partner-del-viaggio-paziente-nefritis-lupica-litorale-roche-basel",
       "slugByLocale": {
         "en": "patient-journey-partner-nefritis-lupica-litoral-roche-ch",
-        "it": "patient-journey-partner-nefritis-lupica-litoral-roche-ch",
+        "it": "partner-del-viaggio-paziente-nefritis-lupica-litorale-roche-basel",
         "de": "patient-journey-partner-nefritis-lupica-litoral-roche-ch",
-        "fr": "patient-journey-partner-nefritis-lupica-litoral-roche-ch"
+        "fr": "partenaire-de-voyage-patient-nefritis-lupica-litorial-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91548,14 +91630,25 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-08T22:08:28.971Z"
+      "firstSeenAt": "2026-07-08T22:08:28.971Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-journey-partner-nefritis-lupica-litoral-roche-ch"
+        ],
+        "fr": [
+          "patient-journey-partner-nefritis-lupica-litoral-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patient-journey-partner-nefritis-lupica-litoral-roche-ch"
+      ]
     },
     {
       "id": "roche-41c7277da244",
-      "slug": "quality-control-technician-roche-ch",
+      "slug": "tecnologia-di-controllo-di-qualita-roche-indianapolis",
       "slugByLocale": {
         "en": "quality-control-technician-roche-ch",
-        "it": "quality-control-technician-roche-ch",
+        "it": "tecnologia-di-controllo-di-qualita-roche-indianapolis",
         "de": "qualitat-control-techniker-roche-indianapolis",
         "fr": "qualite-control-technicien-roche-indianapolis"
       },
@@ -91611,7 +91704,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-08T22:08:28.037Z"
+      "firstSeenAt": "2026-07-08T22:08:28.037Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-control-technician-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-control-technician-roche-ch"
+      ]
     },
     {
       "id": "roche-24f635f8fc67",
@@ -91683,7 +91784,7 @@
         "en": "legal-and-compliance-expert-dia-roche-ch",
         "it": "legal-and-compliance-expert-dia-roche-ch",
         "de": "legal-and-compliance-expert-dia-roche-ch",
-        "fr": "legal-and-compliance-expert-dia-roche-ch"
+        "fr": "expert-juridique-et-de-conformite-dia-roche-buenos-aires"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91804,12 +91905,12 @@
     },
     {
       "id": "roche-571815e2c652",
-      "slug": "technical-writer-roche-ch",
+      "slug": "scrittore-tecnico-roche-sao-paulo",
       "slugByLocale": {
         "en": "technical-writer-roche-ch",
-        "it": "technical-writer-roche-ch",
-        "de": "technical-writer-roche-sao-paulo",
-        "fr": "technical-writer-roche-ch"
+        "it": "scrittore-tecnico-roche-sao-paulo",
+        "de": "technischer-redakteur-roche-sao-paulo",
+        "fr": "redacteur-technique-roche-sao-paulo"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91863,7 +91964,22 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-08T22:08:24.747Z"
+      "firstSeenAt": "2026-07-08T22:08:24.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-writer-roche-ch"
+        ],
+        "de": [
+          "technical-writer-roche-sao-paulo"
+        ],
+        "fr": [
+          "technical-writer-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-writer-roche-ch",
+        "technical-writer-roche-sao-paulo"
+      ]
     },
     {
       "id": "roche-ca4ca10e4031",

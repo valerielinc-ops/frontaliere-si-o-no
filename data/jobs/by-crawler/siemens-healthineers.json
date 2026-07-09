@@ -68,12 +68,12 @@
     },
     {
       "id": "siemens-healthineers-94787ee46d4e",
-      "slug": "sr-manager-process-engineering-siemens-healthineers-ch",
+      "slug": "sr-manager-ingegneria-dei-processi-siemens-healthineers-zurich",
       "slugByLocale": {
         "en": "sr-manager-process-engineering-siemens-healthineers-ch",
-        "it": "sr-manager-process-engineering-siemens-healthineers-ch",
+        "it": "sr-manager-ingegneria-dei-processi-siemens-healthineers-zurich",
         "de": "sr-manager-process-engineering-siemens-healthineers-ch",
-        "fr": "sr-manager-process-engineering-siemens-healthineers-ch"
+        "fr": "sr-manager-ingenierie-des-processus-siemens-healthineers-zurich"
       },
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
@@ -128,7 +128,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:12:20.704Z"
+      "firstSeenAt": "2026-07-08T22:12:20.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-manager-process-engineering-siemens-healthineers-ch"
+        ],
+        "fr": [
+          "sr-manager-process-engineering-siemens-healthineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sr-manager-process-engineering-siemens-healthineers-ch"
+      ]
     },
     {
       "id": "siemens-healthineers-a24e9f9d057e",

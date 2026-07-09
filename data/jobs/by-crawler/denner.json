@@ -2446,12 +2446,12 @@
     },
     {
       "id": "denner-3cf4c11b8028",
-      "slug": "stv-filialleiter-in-denner",
+      "slug": "stv-branch-manager-in-denner-brunnen",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner",
+        "it": "stv-branch-manager-in-denner-brunnen",
         "en": "stv-filialleiter-in-denner-brunnen",
         "de": "stv-filialleiter-in-denner-brunnen",
-        "fr": "stv-filialleiter-in-denner-brunnen"
+        "fr": "directeur-de-succursale-stv-in-denner-brunnen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2510,11 +2510,17 @@
       "crawledAt": "2026-07-08T22:14:35.184Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner-2"
+          "stv-filialleiter-in-denner-2",
+          "stv-filialleiter-in-denner"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-brunnen"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner-2"
+        "stv-filialleiter-in-denner-2",
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-brunnen"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -2723,12 +2729,12 @@
     },
     {
       "id": "denner-5d673d20a8ea",
-      "slug": "verkaufer-in-denner",
+      "slug": "venditore-denner-kappel-am-albis",
       "slugByLocale": {
-        "it": "verkaufer-in-denner",
-        "en": "verkaufer-in-denner-kappel-am-albis",
+        "it": "venditore-denner-kappel-am-albis",
+        "en": "seller-denner-kappel-am-albis",
         "de": "verkaufer-in-denner-kappel-am-albis",
-        "fr": "verkaufer-in-denner-kappel-am-albis"
+        "fr": "vendeur-denner-kappel-am-albis"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2787,11 +2793,20 @@
       "crawledAt": "2026-07-08T22:14:34.676Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-3"
+          "verkaufer-in-denner-3",
+          "verkaufer-in-denner"
+        ],
+        "en": [
+          "verkaufer-in-denner-kappel-am-albis"
+        ],
+        "fr": [
+          "verkaufer-in-denner-kappel-am-albis"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-3"
+        "verkaufer-in-denner-3",
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-kappel-am-albis"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

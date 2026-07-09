@@ -374,8 +374,8 @@
       "slugByLocale": {
         "it": "employee-collection-team-zurich-corner-banca-wallisellen",
         "en": "employee-collection-team-zurich-corner-banca-wallisellen",
-        "de": "employee-collection-team-zurich-corner-banca-wallisellen",
-        "fr": "employee-collection-team-zurich-corner-banca-wallisellen"
+        "de": "mitarbeitersammlung-team-zurich-corner-banca-wallisellen",
+        "fr": "equipe-de-recouvrement-des-employes-zurich-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -639,12 +639,12 @@
     },
     {
       "id": "corner-banca-4b9d1c5b215f",
-      "slug": "employee-front-office-collection-corner-banca-wallisellen",
+      "slug": "collezione-dei-dipendenti-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "employee-front-office-collection-corner-banca-wallisellen",
+        "it": "collezione-dei-dipendenti-corner-banca-wallisellen",
         "en": "employee-front-office-collection-corner-banca-wallisellen",
         "de": "employee-front-office-collection-corner-banca-wallisellen",
-        "fr": "employee-front-office-collection-corner-banca-wallisellen"
+        "fr": "collecte-aupres-des-employes-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -722,7 +722,18 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-08T22:13:15.984Z"
+      "firstSeenAt": "2026-07-08T22:13:15.984Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-front-office-collection-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "employee-front-office-collection-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "employee-front-office-collection-corner-banca-wallisellen"
+      ]
     },
     {
       "id": "corner-banca-365d1802d2a9",
@@ -731,7 +742,7 @@
         "it": "it-auditor-corner-banca-lugano",
         "en": "it-auditor-corner-banca-lugano",
         "de": "it-auditor-corner-banca-lugano",
-        "fr": "it-auditor-corner-banca-lugano"
+        "fr": "auditeur-informatique-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1026,7 +1037,7 @@
         "it": "customer-analytics-officer-corner-banca-wallisellen",
         "en": "customer-analytics-officer-corner-banca-lugano",
         "de": "customer-analytics-officer-corner-banca-wallisellen",
-        "fr": "customer-analytics-officer-corner-banca-wallisellen"
+        "fr": "specialiste-de-l-analyse-des-clients-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1123,12 +1134,12 @@
     },
     {
       "id": "corner-banca-31e07dd63549",
-      "slug": "marketing-project-manager-corner-banca-lugano",
+      "slug": "responsabile-del-progetto-di-marketing-corner-banca-lugano",
       "slugByLocale": {
-        "it": "marketing-project-manager-corner-banca-lugano",
+        "it": "responsabile-del-progetto-di-marketing-corner-banca-lugano",
         "en": "marketing-project-manager-corner-banca-lugano",
-        "de": "marketing-project-manager-corner-banca-lugano",
-        "fr": "marketing-project-manager-corner-banca-lugano"
+        "de": "marketing-projektmanager-corner-banca-lugano",
+        "fr": "directeur-de-projet-marketing-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1229,7 +1240,21 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-08T22:13:15.977Z"
+      "firstSeenAt": "2026-07-08T22:13:15.977Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-project-manager-corner-banca-lugano"
+        ],
+        "de": [
+          "marketing-project-manager-corner-banca-lugano"
+        ],
+        "fr": [
+          "marketing-project-manager-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-project-manager-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-ad06ea5940ec",
@@ -1324,7 +1349,7 @@
         "it": "senior-security-grc-governance-risk-e-compliance-banking-corner-banca-lugano",
         "en": "senior-security-grc-governance-risk-e-compliance-banking-corner-banca-lugano",
         "de": "senior-security-grc-governance-risk-e-compliance-banking-corner-banca-lugano",
-        "fr": "senior-security-grc-governance-risk-e-compliance-banking-corner-banca-lugano"
+        "fr": "securite-principale-grc-gouvernance-risques-et-conformite-services-bancaires-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1405,12 +1430,12 @@
     },
     {
       "id": "corner-banca-97e747498000",
-      "slug": "sales-e-solutions-ecash-employee-corner-banca-lugano",
+      "slug": "vendite-solutions-ecash-dipendente-corner-banca-lugano",
       "slugByLocale": {
-        "it": "sales-e-solutions-ecash-employee-corner-banca-lugano",
+        "it": "vendite-solutions-ecash-dipendente-corner-banca-lugano",
         "en": "sales-e-solutions-ecash-employee-corner-banca-lugano",
         "de": "sales-e-solutions-ecash-employee-corner-banca-lugano",
-        "fr": "sales-e-solutions-ecash-employee-corner-banca-lugano"
+        "fr": "ventes-solutions-ecash-salarie-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1475,16 +1500,27 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-08T22:13:15.971Z"
+      "firstSeenAt": "2026-07-08T22:13:15.971Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-e-solutions-ecash-employee-corner-banca-lugano"
+        ],
+        "fr": [
+          "sales-e-solutions-ecash-employee-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "sales-e-solutions-ecash-employee-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-dbb98bc09916",
-      "slug": "fi-administration-e-business-support-corner-banca-lugano",
+      "slug": "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano",
       "slugByLocale": {
-        "it": "fi-administration-e-business-support-corner-banca-lugano",
+        "it": "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano",
         "en": "fi-administration-e-business-support-corner-banca-lugano",
         "de": "fi-administration-e-business-support-corner-banca-lugano",
-        "fr": "fi-administration-e-business-support-corner-banca-lugano"
+        "fr": "fi-administration-et-soutien-aux-entreprises-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1567,16 +1603,27 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-08T22:13:15.970Z"
+      "firstSeenAt": "2026-07-08T22:13:15.970Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fi-administration-e-business-support-corner-banca-lugano"
+        ],
+        "fr": [
+          "fi-administration-e-business-support-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "fi-administration-e-business-support-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-373e7d69efb6",
-      "slug": "employee-consumer-dispute-management-corner-banca-wallisellen",
+      "slug": "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "employee-consumer-dispute-management-corner-banca-wallisellen",
+        "it": "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen",
         "en": "employee-consumer-dispute-management-corner-banca-wallisellen",
         "de": "employee-consumer-dispute-management-corner-banca-wallisellen",
-        "fr": "employee-consumer-dispute-management-corner-banca-wallisellen"
+        "fr": "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1648,7 +1695,18 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-08T22:13:15.968Z"
+      "firstSeenAt": "2026-07-08T22:13:15.968Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-consumer-dispute-management-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "employee-consumer-dispute-management-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "employee-consumer-dispute-management-corner-banca-wallisellen"
+      ]
     }
   ]
 }

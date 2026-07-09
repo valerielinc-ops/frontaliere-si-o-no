@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-als-nachtwache-station-freiburghaus-upd-bern",
         "it": "dipl-pflegefachperson-come-nachtwache-station-freiburghaus-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-pflegefachperson-als-nachtwache-station-freiburghaus-upd-bern",
-        "fr": "dipl-pflegefachperson-als-nachtwache-station-freiburghaus-upd-bern"
+        "en": "dipl-nurse-as-night-watch-station-freiburghaus-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "dipl-infirmiere-en-poste-de-veille-de-nuit-freiburghaus-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -55,6 +55,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-als-nachtwache-station-freiburghaus-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-als-nachtwache-station-freiburghaus-upd-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-als-nachtwache-station-freiburghaus-upd-bern"
         ]
       },
       "previousSlugs": [
@@ -79,7 +85,7 @@
       "slug": "dipl-pflegefachperson-fachverantwortung-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-fachverantwortung-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-pflegefachperson-fachverantwortung-station-marbach-upd-bern",
+        "en": "dipl-nursing-specialist-specialist-responsibility-station-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "dipl-pflegefachperson-fachverantwortung-station-marbach-upd-bern",
         "fr": "infirmier-ere-diplome-e-responsable-du-service-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern"
       },
@@ -127,6 +133,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-fachverantwortung-station-marbach-upd-bern"
+        ],
+        "en": [
           "dipl-pflegefachperson-fachverantwortung-station-marbach-upd-bern"
         ]
       },

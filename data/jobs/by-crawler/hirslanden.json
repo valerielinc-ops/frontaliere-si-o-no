@@ -162,8 +162,8 @@
       "slugByLocale": {
         "de": "pflegeassistentin-pflegeassistent-a-als-nachtwache-60-80-hirslanden-bern-besetzung-per-01",
         "it": "pflegeassistentin-pflegeassistent-a-come-nachtwache-60-80-hirslanden-klinik-bern-besetzung-per-01-august-2026anstellungsart-befristet-referenznummer-68273",
-        "en": "pflegeassistentin-pflegeassistent-a-als-nachtwache-60-80-hirslanden-bern-besetzung-per-01",
-        "fr": "pflegeassistentin-pflegeassistent-a-als-nachtwache-60-80-hirslanden-bern-besetzung-per-01"
+        "en": "nursing-assistant-a-as-night-watch-60-80-hirslanden-klinik-bern-besetzung-per-01",
+        "fr": "assistante-infirmiere-a-en-veille-de-nuit-60-80-hirslanden-klinik-bern-besetzung-per-01"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -208,6 +208,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegeassistentin-pflegeassistent-a-als-nachtwache-60-80-hirslanden-bern-besetzung-per-01"
+        ],
+        "en": [
+          "pflegeassistentin-pflegeassistent-a-als-nachtwache-60-80-hirslanden-bern-besetzung-per-01"
+        ],
+        "fr": [
           "pflegeassistentin-pflegeassistent-a-als-nachtwache-60-80-hirslanden-bern-besetzung-per-01"
         ]
       },
@@ -33789,12 +33795,12 @@
     },
     {
       "id": "hirslanden-b2ca263114c6",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-a-kardunit-60-100-mo-sa-hirslanden-bern",
+      "slug": "dipl-infermieristica-professionale-a-kardunit-60-100-mo-sa-hirslanden-klinik-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-a-kardunit-60-100-mo-sa-hirslanden-bern",
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-kardunit-60-100-mo-sa-hirslanden-bern",
-        "en": "dipl-pflegefachfrau-pflegefachmann-a-kardunit-60-100-mo-sa-hirslanden-bern",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kardunit-60-100-mo-sa-hirslanden-bern"
+        "it": "dipl-infermieristica-professionale-a-kardunit-60-100-mo-sa-hirslanden-klinik-bern",
+        "en": "dipl-nursing-professional-a-kardunit-60-100-mo-sa-hirslanden-klinik-bern",
+        "fr": "dipl-professionnel-des-soins-infirmiers-a-kardunit-60-100-mo-sa-hirslanden-klinik-bern"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -33849,7 +33855,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:10:23.212Z"
+      "firstSeenAt": "2026-07-08T22:10:23.212Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-a-kardunit-60-100-mo-sa-hirslanden-bern"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-a-kardunit-60-100-mo-sa-hirslanden-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-a-kardunit-60-100-mo-sa-hirslanden-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-kardunit-60-100-mo-sa-hirslanden-bern"
+      ]
     },
     {
       "id": "hirslanden-878d3fab900f",

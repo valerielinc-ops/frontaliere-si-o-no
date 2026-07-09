@@ -470,10 +470,10 @@
     },
     {
       "id": "evam-vaud-7535392",
-      "slug": "assistant-e-social-e-80-cdd-evam-vaud-ch",
+      "slug": "social-assistant-80-csd-evam-lausanne",
       "slugByLocale": {
         "fr": "assistant-e-social-e-80-cdd-evam-vaud-ch",
-        "it": "assistant-e-social-e-80-cdd-evam-vaud-ch",
+        "it": "social-assistant-80-csd-evam-lausanne",
         "en": "assistant-e-social-e-80-cdd-evam-vaud-ch",
         "de": "assistent-e-social-e-80-cdd-evam-lausanne"
       },
@@ -528,7 +528,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:18:15.824Z"
+      "firstSeenAt": "2026-07-08T22:18:15.824Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-social-e-80-cdd-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-social-e-80-cdd-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-7579015",
@@ -835,10 +843,10 @@
     },
     {
       "id": "evam-vaud-7879384",
-      "slug": "assistant-e-social-e-100-cdd-evam-vaud-ch",
+      "slug": "assistente-sociale-100-csd-evam-ecublens",
       "slugByLocale": {
         "fr": "assistant-e-social-e-100-cdd-evam-vaud-ch",
-        "it": "assistant-e-social-e-100-cdd-evam-vaud-ch",
+        "it": "assistente-sociale-100-csd-evam-ecublens",
         "en": "assistant-e-social-e-100-cdd-evam-vaud-ch",
         "de": "assistant-e-social-e-100-cdd-evam-vaud-ch"
       },
@@ -893,7 +901,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:18:15.753Z"
+      "firstSeenAt": "2026-07-08T22:18:15.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-social-e-100-cdd-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-social-e-100-cdd-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-7891231",
@@ -1961,10 +1977,10 @@
     },
     {
       "id": "evam-vaud-8014947",
-      "slug": "assistant-e-social-e-80-cdi-evam-vaud-ch-2",
+      "slug": "assistente-sociale-80-cdi-evam-blonay-saint-legier",
       "slugByLocale": {
         "fr": "assistant-e-social-e-80-cdi-evam-vaud-ch",
-        "it": "assistant-e-social-e-80-cdi-evam-vaud-ch-2",
+        "it": "assistente-sociale-80-cdi-evam-blonay-saint-legier",
         "en": "assistant-e-social-e-80-cdi-evam-vaud-ch-2",
         "de": "assistent-e-social-e-80-cdi-evam-blonay-saint-legier"
       },
@@ -2022,11 +2038,13 @@
       "firstSeenAt": "2026-07-08T22:18:15.507Z",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-social-e-80-cdi-evam-vaud-ch"
+          "assistant-e-social-e-80-cdi-evam-vaud-ch",
+          "assistant-e-social-e-80-cdi-evam-vaud-ch-2"
         ]
       },
       "previousSlugs": [
-        "assistant-e-social-e-80-cdi-evam-vaud-ch"
+        "assistant-e-social-e-80-cdi-evam-vaud-ch",
+        "assistant-e-social-e-80-cdi-evam-vaud-ch-2"
       ]
     },
     {

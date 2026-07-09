@@ -16,12 +16,12 @@
       "postedDate": "2026-07-08",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "transportmanager-in-50-100-ferrovia-retica-rhb-bernina",
+      "slug": "transport-manager-50-100-ferrovia-retica-rhb-bernina",
       "slugByLocale": {
-        "it": "transportmanager-in-50-100-ferrovia-retica-rhb-bernina",
+        "it": "transport-manager-50-100-ferrovia-retica-rhb-bernina",
         "en": "transportmanager-in-50-100-ferrovia-retica-rhb-bernina",
         "de": "transportmanager-in-50-100-ferrovia-retica-rhb-bernina",
-        "fr": "transportmanager-in-50-100-ferrovia-retica-rhb-bernina"
+        "fr": "directeur-des-transports-50-100-ferrovia-retica-rhb-bernina"
       },
       "titleByLocale": {
         "de": "Transportmanager/in (50-100%)",
@@ -53,7 +53,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:16:20.161Z"
+      "firstSeenAt": "2026-07-08T22:16:20.161Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "transportmanager-in-50-100-ferrovia-retica-rhb-bernina"
+        ],
+        "fr": [
+          "transportmanager-in-50-100-ferrovia-retica-rhb-bernina"
+        ]
+      },
+      "previousSlugs": [
+        "transportmanager-in-50-100-ferrovia-retica-rhb-bernina"
+      ]
     },
     {
       "title": "Teamleiter/in Elektrowerkstatt (80-100%)",

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-thusis-f0cec9bc194e",
-      "slug": "radiologiefachperson-pensum-flexibel-spital-thusis-ch",
+      "slug": "specialista-di-radiologia-pensione-flessibile-spital-thusis-thusis",
       "slugByLocale": {
         "de": "radiologiefachperson-pensum-flexibel-spital-thusis-ch",
-        "it": "radiologiefachperson-pensum-flexibel-spital-thusis-ch",
-        "en": "radiologiefachperson-pensum-flexibel-spital-thusis-ch",
-        "fr": "radiologiefachperson-pensum-flexibel-spital-thusis-ch"
+        "it": "specialista-di-radiologia-pensione-flessibile-spital-thusis-thusis",
+        "en": "radiology-specialist-flexible-pension-spital-thusis-thusis",
+        "fr": "specialiste-en-radiologie-pension-flexible-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -75,16 +75,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-08T22:24:34.057Z"
+      "firstSeenAt": "2026-07-08T22:24:34.057Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "radiologiefachperson-pensum-flexibel-spital-thusis-ch"
+        ],
+        "en": [
+          "radiologiefachperson-pensum-flexibel-spital-thusis-ch"
+        ],
+        "fr": [
+          "radiologiefachperson-pensum-flexibel-spital-thusis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "radiologiefachperson-pensum-flexibel-spital-thusis-ch"
+      ]
     },
     {
       "id": "spital-thusis-f530338b3fd5",
-      "slug": "assistenzarztin-arzt-innere-medizin-spital-thusis-ch",
+      "slug": "assistente-medico-medicina-interna-spital-thusis-thusis",
       "slugByLocale": {
         "de": "assistenzarztin-arzt-innere-medizin-spital-thusis-ch",
-        "it": "assistenzarztin-arzt-innere-medizin-spital-thusis-ch",
-        "en": "assistenzarztin-arzt-innere-medizin-spital-thusis-ch",
-        "fr": "assistenzarztin-arzt-innere-medizin-spital-thusis-ch"
+        "it": "assistente-medico-medicina-interna-spital-thusis-thusis",
+        "en": "assistant-doctor-internal-medicine-spital-thusis-thusis",
+        "fr": "assistant-medecin-en-medecine-interne-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -140,16 +154,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-08T22:24:33.333Z"
+      "firstSeenAt": "2026-07-08T22:24:33.333Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-arzt-innere-medizin-spital-thusis-ch"
+        ],
+        "en": [
+          "assistenzarztin-arzt-innere-medizin-spital-thusis-ch"
+        ],
+        "fr": [
+          "assistenzarztin-arzt-innere-medizin-spital-thusis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-arzt-innere-medizin-spital-thusis-ch"
+      ]
     },
     {
       "id": "spital-thusis-5a7cb7cee42b",
-      "slug": "assistenzarztin-arzt-chirurgie-80-100-spital-thusis-ch",
+      "slug": "chirurgia-medica-assistente-80-100-spital-thusis-thusis",
       "slugByLocale": {
         "de": "assistenzarztin-arzt-chirurgie-80-100-spital-thusis-ch",
-        "it": "assistenzarztin-arzt-chirurgie-80-100-spital-thusis-ch",
-        "en": "assistenzarztin-arzt-chirurgie-80-100-spital-thusis-ch",
-        "fr": "assistenzarztin-arzt-chirurgie-80-100-spital-thusis-ch"
+        "it": "chirurgia-medica-assistente-80-100-spital-thusis-thusis",
+        "en": "assistant-physician-surgery-80-100-spital-thusis-thusis",
+        "fr": "chirurgie-medicale-auxiliaire-80-100-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -218,16 +246,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-08T22:24:32.297Z"
+      "firstSeenAt": "2026-07-08T22:24:32.297Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-arzt-chirurgie-80-100-spital-thusis-ch"
+        ],
+        "en": [
+          "assistenzarztin-arzt-chirurgie-80-100-spital-thusis-ch"
+        ],
+        "fr": [
+          "assistenzarztin-arzt-chirurgie-80-100-spital-thusis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-arzt-chirurgie-80-100-spital-thusis-ch"
+      ]
     },
     {
       "id": "spital-thusis-fd3a5d1d0d6d",
-      "slug": "fachperson-gesundheit-spitex-50-70-spital-thusis-ch",
+      "slug": "sanita-professionale-spitex-50-70-spital-thusis-thusis",
       "slugByLocale": {
         "de": "fachperson-gesundheit-spitex-50-70-spital-thusis-ch",
-        "it": "fachperson-gesundheit-spitex-50-70-spital-thusis-ch",
-        "en": "fachperson-gesundheit-spitex-50-70-spital-thusis-ch",
-        "fr": "fachperson-gesundheit-spitex-50-70-spital-thusis-ch"
+        "it": "sanita-professionale-spitex-50-70-spital-thusis-thusis",
+        "en": "health-professional-spitex-50-70-spital-thusis-thusis",
+        "fr": "professionnels-de-la-sante-spitex-50-70-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -298,16 +340,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-08T22:24:31.549Z"
+      "firstSeenAt": "2026-07-08T22:24:31.549Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-spitex-50-70-spital-thusis-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-spitex-50-70-spital-thusis-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-spitex-50-70-spital-thusis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-spitex-50-70-spital-thusis-ch"
+      ]
     },
     {
       "id": "spital-thusis-a52f1fd90da0",
-      "slug": "pflegehilfe-spitex-50-90-spital-thusis-ch",
+      "slug": "assistenza-sanitaria-spitex-50-90-spital-thusis-thusis",
       "slugByLocale": {
         "de": "pflegehilfe-spitex-50-90-spital-thusis-ch",
-        "it": "pflegehilfe-spitex-50-90-spital-thusis-ch",
-        "en": "pflegehilfe-spitex-50-90-spital-thusis-ch",
-        "fr": "pflegehilfe-spitex-50-90-spital-thusis-ch"
+        "it": "assistenza-sanitaria-spitex-50-90-spital-thusis-thusis",
+        "en": "care-assistance-spitex-50-90-spital-thusis-thusis",
+        "fr": "aide-aux-soins-spitex-50-90-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -380,7 +436,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-08T22:24:30.884Z"
+      "firstSeenAt": "2026-07-08T22:24:30.884Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehilfe-spitex-50-90-spital-thusis-ch"
+        ],
+        "en": [
+          "pflegehilfe-spitex-50-90-spital-thusis-ch"
+        ],
+        "fr": [
+          "pflegehilfe-spitex-50-90-spital-thusis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehilfe-spitex-50-90-spital-thusis-ch"
+      ]
     },
     {
       "id": "spital-thusis-ea0d640a8fcb",
@@ -388,8 +458,8 @@
       "slugByLocale": {
         "de": "ausbildungsplatz-als-pflegefachperson-hf-100-spital-thusis-ch",
         "it": "ausbildungsplatz-come-pflegefachperson-hf-100-spital-thusis",
-        "en": "ausbildungsplatz-als-pflegefachperson-hf-100-spital-thusis-ch",
-        "fr": "ausbildungsplatz-als-pflegefachperson-hf-100-spital-thusis-ch"
+        "en": "training-place-as-nurse-hf-100-spital-thusis-thusis",
+        "fr": "lieu-de-formation-comme-infirmiere-hf-100-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -446,6 +516,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ausbildungsplatz-als-pflegefachperson-hf-100-spital-thusis-ch"
+        ],
+        "en": [
+          "ausbildungsplatz-als-pflegefachperson-hf-100-spital-thusis-ch"
+        ],
+        "fr": [
+          "ausbildungsplatz-als-pflegefachperson-hf-100-spital-thusis-ch"
         ]
       },
       "previousSlugs": [
@@ -468,12 +544,12 @@
     },
     {
       "id": "spital-thusis-889cfa860327",
-      "slug": "fachperson-gesundheit-80-90-spital-thusis-ch",
+      "slug": "professionista-della-salute-80-90-spital-thusis-thusis",
       "slugByLocale": {
         "de": "fachperson-gesundheit-80-90-spital-thusis-ch",
-        "it": "fachperson-gesundheit-80-90-spital-thusis-ch",
-        "en": "fachperson-gesundheit-80-90-spital-thusis-ch",
-        "fr": "fachperson-gesundheit-80-90-spital-thusis-ch"
+        "it": "professionista-della-salute-80-90-spital-thusis-thusis",
+        "en": "health-professional-80-90-spital-thusis-thusis",
+        "fr": "professionnels-de-la-sante-80-90-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -540,7 +616,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-08T22:24:29.583Z"
+      "firstSeenAt": "2026-07-08T22:24:29.583Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-80-90-spital-thusis-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-80-90-spital-thusis-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-80-90-spital-thusis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-80-90-spital-thusis-ch"
+      ]
     },
     {
       "id": "spital-thusis-4aab5814d656",
@@ -548,8 +638,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-80-100-spital-thusis-ch",
         "it": "dipl-pflegefachperson-hf-80-100-spital-thusis-ch",
-        "en": "dipl-pflegefachperson-hf-80-100-spital-thusis-ch",
-        "fr": "dipl-pflegefachperson-hf-80-100-spital-thusis-ch"
+        "en": "dipl-care-professional-hf-80-100-spital-thusis-thusis",
+        "fr": "dipl-professionnel-de-soins-hf-80-100-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -614,8 +704,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
         "it": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis",
-        "en": "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
-        "fr": "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
+        "en": "apprenticeship-as-a-specialist-hotel-industry-household-industry-efz-spital-thusis-thusis",
+        "fr": "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-industrie-domestique-efz-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -674,6 +764,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
+        ],
+        "en": [
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
+        ],
+        "fr": [
           "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
         ]
       },
@@ -786,8 +882,8 @@
       "slugByLocale": {
         "de": "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch",
         "it": "apprendistato-fachperson-gesundheit-cfc-spitex-viamala-spital-thusis",
-        "en": "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch",
-        "fr": "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch"
+        "en": "apprenticeship-professional-health-efz-spitex-viamala-spital-thusis-thusis",
+        "fr": "apprentissage-sante-professionnelle-efz-spitex-viamala-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -857,6 +953,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch"
+        ],
+        "en": [
+          "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch"
+        ],
+        "fr": [
+          "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch"
         ]
       },
       "previousSlugs": [
@@ -883,8 +985,8 @@
       "slugByLocale": {
         "de": "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
         "it": "apprendistato-fachperson-gesundheit-cfc-spital-thusis",
-        "en": "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
-        "fr": "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch"
+        "en": "apprenticeship-professional-health-efz-spital-thusis-spital-thusis-thusis",
+        "fr": "apprentissage-sante-professionnelle-efz-spital-thisis-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -954,6 +1056,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch"
+        ],
+        "en": [
+          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch"
+        ],
+        "fr": [
+          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch"
         ]
       },
       "previousSlugs": [
@@ -976,12 +1084,12 @@
     },
     {
       "id": "spital-thusis-3289de7e0788",
-      "slug": "ausbildung-transportsanitater-in-fa-2027-spital-thusis-ch",
+      "slug": "training-transport-emt-fa-2027-spital-thusis-thusis",
       "slugByLocale": {
         "de": "ausbildung-transportsanitater-in-fa-2027-spital-thusis-ch",
-        "it": "ausbildung-transportsanitater-in-fa-2027-spital-thusis-ch",
+        "it": "training-transport-emt-fa-2027-spital-thusis-thusis",
         "en": "ausbildung-transportsanitater-in-fa-2027-spital-thusis-ch",
-        "fr": "ausbildung-transportsanitater-in-fa-2027-spital-thusis-ch"
+        "fr": "formation-transport-emt-fa-2027-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -1047,7 +1155,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-08T22:24:25.716Z"
+      "firstSeenAt": "2026-07-08T22:24:25.716Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-transportsanitater-in-fa-2027-spital-thusis-ch"
+        ],
+        "fr": [
+          "ausbildung-transportsanitater-in-fa-2027-spital-thusis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-transportsanitater-in-fa-2027-spital-thusis-ch"
+      ]
     },
     {
       "id": "spital-thusis-220f35e42c3c",
@@ -1055,8 +1174,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-mit-weiterbildung-in-onkologischer-pflege-20-spital-thusis-ch",
         "it": "dipl-pflegefachperson-hf-fh-mit-weiterbildung-in-onkologischer-pflege-20-spital-thusis-ch",
-        "en": "dipl-pflegefachperson-hf-fh-mit-weiterbildung-in-onkologischer-pflege-20-spital-thusis-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-weiterbildung-in-onkologischer-pflege-20-spital-thusis-ch"
+        "en": "dipl-nursing-specialist-hf-fh-with-further-training-in-oncological-care-20-spital-thusis-thusis",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-avec-formation-continue-en-soins-oncologiques-20-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -1123,8 +1242,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-spitex-40-80-spital-thusis-ch",
         "it": "dipl-pflegefachperson-hf-spitex-40-80-spital-thusis-ch",
-        "en": "dipl-pflegefachperson-hf-spitex-40-80-spital-thusis-ch",
-        "fr": "dipl-pflegefachperson-hf-spitex-40-80-spital-thusis-ch"
+        "en": "dipl-care-professional-hf-spitex-40-80-spital-thusis-thusis",
+        "fr": "dipl-professionnel-de-soins-hf-spitex-40-80-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -1187,12 +1306,12 @@
     },
     {
       "id": "spital-thusis-25241a900557",
-      "slug": "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-ch",
+      "slug": "dipl-infermiera-hf-fh-50-100-clinica-di-emergenza-giorno-spital-thusis-thusis",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-ch",
-        "it": "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-ch",
-        "en": "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-ch"
+        "it": "dipl-infermiera-hf-fh-50-100-clinica-di-emergenza-giorno-spital-thusis-thusis",
+        "en": "dipl-nurse-hf-fh-50-100-emergency-day-clinic-spital-thusis-thusis",
+        "fr": "dipl-infirmiere-hf-fh-50-100-urgence-clinique-de-jour-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -1251,16 +1370,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-08T22:24:23.749Z"
+      "firstSeenAt": "2026-07-08T22:24:23.749Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-ch"
+      ]
     },
     {
       "id": "spital-thusis-0d528d40eead",
-      "slug": "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch",
+      "slug": "dipl-tecnologia-chirurgica-specialistica-hf-40-60-spital-thusis-thusis",
       "slugByLocale": {
         "de": "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch",
-        "it": "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch",
-        "en": "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch",
-        "fr": "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch"
+        "it": "dipl-tecnologia-chirurgica-specialistica-hf-40-60-spital-thusis-thusis",
+        "en": "dipl-specialist-surgical-technology-hf-40-60-spital-thusis-thusis",
+        "fr": "dipl-technologie-chirurgicale-specialisee-hf-40-60-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -1327,7 +1460,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-08T22:24:23.012Z"
+      "firstSeenAt": "2026-07-08T22:24:23.012Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch"
+        ],
+        "en": [
+          "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch"
+        ],
+        "fr": [
+          "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch"
+      ]
     },
     {
       "id": "spital-thusis-0797b20aa00a",
@@ -1335,8 +1482,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-60-100-spital-thusis-ch",
         "it": "dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-60-100-spital-thusis-ch",
-        "en": "dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-60-100-spital-thusis-ch",
-        "fr": "dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-60-100-spital-thusis-ch"
+        "en": "dipl-nurse-with-additional-task-vocational-trainer-in-60-100-spital-thusis-thusis",
+        "fr": "dipl-infirmiere-ayant-une-tache-supplementaire-formateur-professionnel-en-60-a-100-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",

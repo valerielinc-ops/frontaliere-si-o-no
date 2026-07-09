@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "progettista-di-strutture-metalliche-m-f-pemsa-givisiez",
-        "en": "progettista-di-strutture-metalliche-m-f-pemsa-givisiez",
-        "de": "progettista-di-strutture-metalliche-m-f-pemsa-givisiez",
-        "fr": "progettista-di-strutture-metalliche-m-f-pemsa-givisiez"
+        "en": "metal-structure-designer-m-f-pemsa-givisiez",
+        "de": "metallkonstruktionsdesigner-m-f-pemsa-givisiez",
+        "fr": "conception-de-la-structure-metallique-m-f-pemsa-givisiez"
       },
       "id": "pemsa-3e52b6a05f3b",
       "needsRetranslation": true,
@@ -327,7 +327,7 @@
       "slugByLocale": {
         "it": "carpentiere-m-f-pemsa-fontaines-ne",
         "en": "chapter-m-f-pemsa-fontaines-ne",
-        "de": "carpentiere-m-f-pemsa-fontaines-ne",
+        "de": "kapitel-m-f-pemsa-fontaines-ne",
         "fr": "chapitre-m-f-pemsa-fontaines-ne"
       },
       "id": "pemsa-aeba843c15e0",
@@ -345,14 +345,6 @@
         }
       },
       "firstSeenAt": "2026-07-08T11:21:11.012Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "kapitel-m-f-pemsa-fontaines-ne"
-        ]
-      },
-      "previousSlugs": [
-        "kapitel-m-f-pemsa-fontaines-ne"
-      ],
       "needsRetranslation": true
     },
     {
@@ -13619,7 +13611,7 @@
         "it": "impianti-idraulici-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
         "de": "durchfuhrungen-pemsa-torricella",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
+        "fr": "mise-en-uvre-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -13643,12 +13635,11 @@
           "idraulico-impianti-riscaldamento-pemsa-torricella"
         ],
         "fr": [
-          "mise-en-uvre-pemsa-torricella"
+          "idraulico-impianti-riscaldamento-pemsa-torricella"
         ]
       },
       "previousSlugs": [
-        "idraulico-impianti-riscaldamento-pemsa-torricella",
-        "mise-en-uvre-pemsa-torricella"
+        "idraulico-impianti-riscaldamento-pemsa-torricella"
       ]
     },
     {
