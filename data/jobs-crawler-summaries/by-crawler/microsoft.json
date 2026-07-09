@@ -1,16 +1,16 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-07-08T22:14:02.159Z",
+  "generatedAt": "2026-07-09T12:20:56.706Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 8407,
-  "avgDurationMs": 8407,
+  "durationMs": 8478,
+  "avgDurationMs": 8478,
   "durationHistory": [
-    8407
+    8478
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556924215",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:59.628Z",
+      "crawledAt": "2026-07-09T12:20:53.990Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556625311",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:59.624Z",
+      "crawledAt": "2026-07-09T12:20:53.986Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,48 +85,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "microsoft-200040836",
-      "slug": "senior-software-ingegnere-microsoft-zurich",
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Senior Software Engineer",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393556887764",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:20:04.104Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556887764",
-      "firstSeenAt": "2026-06-26T11:45:55.897Z",
-      "crawlerMissStreak": 2,
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "streetAddress": "The Circle 02",
-      "postalCode": "8058",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "microsoft-200041378",
@@ -159,7 +118,7 @@
       "salaryMax": 111500,
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
