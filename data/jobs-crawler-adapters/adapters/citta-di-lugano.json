@@ -9,6 +9,13 @@
   ],
   "seedUrls": [
     "https://egov.lugano.ch/it/services/3",
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=C66C036DA4D2746EC1258E29003140B2",
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=E6F700F5A3A08C25C1258E280045921A",
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=45EBEFF56D3AB733C1258E270034EC80",
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=FC34EBF40FEF3180C1258E27003490DA",
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=24C77E94079537B6C1258E2700344008",
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=15D16C881CB8590AC1258E27003413A3",
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=DB40793F2A8B159EC1258E2700338177",
     "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=C7868D4EFB575BB4C1258D9400375633",
     "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=CFF7EAD652FAEC3FC1258D9400370C84",
     "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=906791D544553FECC1258D940036EB4D",
@@ -22,9 +29,37 @@
     "https://egov.lugano.ch/it/services/3"
   ],
   "notes": "Municipality of Lugano, public administration. Career page HTML crawler.",
-  "updatedAt": "2026-07-08T11:39:41.710Z",
+  "updatedAt": "2026-07-09T12:26:40.799Z",
   "seedMetaByUrl": {
     "https://egov.lugano.ch/it/services/3": {
+      "company": "Città di Lugano",
+      "companyDomain": "lugano.ch"
+    },
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=C66C036DA4D2746EC1258E29003140B2": {
+      "company": "Città di Lugano",
+      "companyDomain": "lugano.ch"
+    },
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=E6F700F5A3A08C25C1258E280045921A": {
+      "company": "Città di Lugano",
+      "companyDomain": "lugano.ch"
+    },
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=45EBEFF56D3AB733C1258E270034EC80": {
+      "company": "Città di Lugano",
+      "companyDomain": "lugano.ch"
+    },
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=FC34EBF40FEF3180C1258E27003490DA": {
+      "company": "Città di Lugano",
+      "companyDomain": "lugano.ch"
+    },
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=24C77E94079537B6C1258E2700344008": {
+      "company": "Città di Lugano",
+      "companyDomain": "lugano.ch"
+    },
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=15D16C881CB8590AC1258E27003413A3": {
+      "company": "Città di Lugano",
+      "companyDomain": "lugano.ch"
+    },
+    "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=DB40793F2A8B159EC1258E2700338177": {
       "company": "Città di Lugano",
       "companyDomain": "lugano.ch"
     },
