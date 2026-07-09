@@ -181,13 +181,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-accounting-contract-november-april-sophia-genetics-rolle",
-        "senior-manager-contabilita-contratto-novembre-aprile-sophia-genetics-rolle"
+        "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-accounting-contract-november-april-sophia-genetics-rolle",
-          "senior-manager-contabilita-contratto-novembre-aprile-sophia-genetics-rolle"
+          "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
         ],
         "de": [
           "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
@@ -217,7 +215,7 @@
         "en": "senior-clinical-affairs-manager-sophia-genetics-rolle",
         "it": "senior-clinical-affairs-manager-sophia-genetics-rolle",
         "de": "senior-clinical-affairs-manager-sophia-genetics-rolle",
-        "fr": "senior-clinical-affairs-manager-sophia-genetics-rolle"
+        "fr": "gestionnaire-principal-des-affaires-cliniques-sophia-genetics-rolle"
       },
       "company": "SOPHiA GENETICS",
       "companyKey": "sophia-genetics",
@@ -328,14 +326,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle",
-        "senior-ai-software-engineer-sophia-genetics-rolle",
-        "senior-ai-software-ingegnere-sophia-genetics-rolle"
+        "senior-ai-software-engineer-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle",
-          "senior-ai-software-engineer-sophia-genetics-rolle",
-          "senior-ai-software-ingegnere-sophia-genetics-rolle"
+          "senior-ai-software-engineer-sophia-genetics-rolle"
         ],
         "de": [
           "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle"
@@ -406,13 +402,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-development-representative-german-speaking-sophia-genetics-rolle",
-        "rappresentante-per-lo-sviluppo-delle-vendite-parlante-tedesco-sophia-genetics-rolle"
+        "sales-development-representative-german-speaking-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-development-representative-german-speaking-sophia-genetics-rolle",
-          "rappresentante-per-lo-sviluppo-delle-vendite-parlante-tedesco-sophia-genetics-rolle"
+          "sales-development-representative-german-speaking-sophia-genetics-rolle"
         ],
         "de": [
           "sales-development-representative-german-speaking-sophia-genetics-rolle"
@@ -437,12 +431,12 @@
     },
     {
       "id": "sophia-genetics-10b09fa34d3b",
-      "slug": "production-warehouse-manager-supply-chain-sophia-genetics-rolle",
+      "slug": "direttore-di-produzione-e-magazzino-catena-di-fornitura-sophia-genetics-rolle",
       "slugByLocale": {
         "en": "production-warehouse-manager-supply-chain-sophia-genetics-rolle",
-        "it": "production-warehouse-manager-supply-chain-sophia-genetics-rolle",
+        "it": "direttore-di-produzione-e-magazzino-catena-di-fornitura-sophia-genetics-rolle",
         "de": "production-warehouse-manager-supply-chain-sophia-genetics-rolle",
-        "fr": "production-warehouse-manager-supply-chain-sophia-genetics-rolle"
+        "fr": "production-warehouse-manager-chaine-d-approvisionnement-sophia-genetics-rolle"
       },
       "company": "SOPHiA GENETICS",
       "companyKey": "sophia-genetics",
@@ -499,7 +493,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:10:52.959Z"
+      "firstSeenAt": "2026-07-08T22:10:52.959Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "production-warehouse-manager-supply-chain-sophia-genetics-rolle"
+        ],
+        "fr": [
+          "production-warehouse-manager-supply-chain-sophia-genetics-rolle"
+        ]
+      },
+      "previousSlugs": [
+        "production-warehouse-manager-supply-chain-sophia-genetics-rolle"
+      ]
     },
     {
       "id": "sophia-genetics-c95859987d12",

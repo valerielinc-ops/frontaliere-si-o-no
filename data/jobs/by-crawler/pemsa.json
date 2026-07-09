@@ -211,9 +211,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alle-pulizie-m-f-pemsa-la-chaux-de-fonds",
-        "en": "addetto-a-alle-pulizie-m-f-pemsa-la-chaux-de-fonds",
-        "de": "addetto-a-alle-pulizie-m-f-pemsa-la-chaux-de-fonds",
-        "fr": "addetto-a-alle-pulizie-m-f-pemsa-la-chaux-de-fonds"
+        "en": "cleaning-staff-pemsa-la-chaux-de-fonds",
+        "de": "reinigungskraft-pemsa-la-chaux-de-fonds",
+        "fr": "agent-e-de-nettoyage-pemsa-la-chaux-de-fonds"
       },
       "id": "pemsa-8e5b6c4c3ab5",
       "salaryMin": 60500,
@@ -4362,10 +4362,7 @@
       },
       "postalCode": "4001",
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
-      "retranslationAttempts": 0,
-      "previousSlugs": [
-        "stuccatore-cfc-afp-m-f-d-pemsa-basel"
-      ]
+      "retranslationAttempts": 0
     },
     {
       "title": "Installatore elettrico AFC / AEC (m/f/d)",
@@ -9981,8 +9978,8 @@
       },
       "slugByLocale": {
         "it": "caposquadra-muratura-m-f-pemsa-tavannes",
-        "en": "caposquadra-muratura-m-f-pemsa-tavannes",
-        "de": "caposquadra-muratura-m-f-pemsa-tavannes",
+        "en": "lead-bricklayer-masonry-m-f-pemsa-tavannes",
+        "de": "vorarbeiter-maurerarbeiten-m-f-pemsa-tavannes",
         "fr": "siege-mur-m-f-pemsa-tavannes"
       },
       "id": "pemsa-ac0652767ae9",
@@ -10001,18 +9998,6 @@
       },
       "postalCode": "3001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "lead-bricklayer-masonry-m-f-pemsa-tavannes"
-        ],
-        "de": [
-          "vorarbeiter-maurerarbeiten-m-f-pemsa-tavannes"
-        ]
-      },
-      "previousSlugs": [
-        "lead-bricklayer-masonry-m-f-pemsa-tavannes",
-        "vorarbeiter-maurerarbeiten-m-f-pemsa-tavannes"
-      ],
       "needsRetranslation": true
     },
     {
@@ -13662,8 +13647,7 @@
           "idraulico-impianti-riscaldamento-pemsa-torricella"
         ],
         "fr": [
-          "mise-en-uvre-pemsa-torricella",
-          "idraulico-impianti-riscaldamento-pemsa-torricella"
+          "mise-en-uvre-pemsa-torricella"
         ]
       },
       "previousSlugs": [

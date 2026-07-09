@@ -9,7 +9,7 @@
         "fr": "master-planner-100-constellium-ch",
         "it": "master-planner-100-constellium-ch",
         "en": "master-planner-100-constellium-ch",
-        "de": "master-planner-100-constellium-ch"
+        "de": "masterplaner-100-constellium-valais-sierre"
       },
       "company": "Constellium Valais",
       "companyKey": "constellium",
@@ -68,12 +68,12 @@
     },
     {
       "id": "constellium-7282c877d445",
-      "slug": "betriebsschlosser-in-tagesarbeit-constellium-valais-steg",
+      "slug": "fabbriche-operaie-nel-lavoro-quotidiano-constellium-valais-steg",
       "slugByLocale": {
         "de": "betriebsschlosser-in-tagesarbeit-constellium-ch",
-        "it": "betriebsschlosser-in-tagesarbeit-constellium-valais-steg",
-        "en": "betriebsschlosser-in-tagesarbeit-constellium-valais-steg",
-        "fr": "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"
+        "it": "fabbriche-operaie-nel-lavoro-quotidiano-constellium-valais-steg",
+        "en": "workers-locksmiths-in-day-work-constellium-valais-steg",
+        "fr": "serruriers-de-jour-constellium-valais-steg"
       },
       "company": "Constellium Valais",
       "companyKey": "constellium",
@@ -117,11 +117,19 @@
       "crawledAt": "2026-07-08T22:07:31.879Z",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsschlosser-in-tagesarbeit-constellium-ch"
+          "betriebsschlosser-in-tagesarbeit-constellium-ch",
+          "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"
+        ],
+        "en": [
+          "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"
+        ],
+        "fr": [
+          "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"
         ]
       },
       "previousSlugs": [
-        "betriebsschlosser-in-tagesarbeit-constellium-ch"
+        "betriebsschlosser-in-tagesarbeit-constellium-ch",
+        "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -140,12 +148,12 @@
     },
     {
       "id": "constellium-64f0aaeceb5b",
-      "slug": "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch",
+      "slug": "fabbro-di-funzionamento-m-f-d-in-4-turni-1-constellium-valais-steg",
       "slugByLocale": {
         "de": "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch",
-        "it": "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch",
-        "en": "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch",
-        "fr": "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
+        "it": "fabbro-di-funzionamento-m-f-d-in-4-turni-1-constellium-valais-steg",
+        "en": "operation-locksmith-m-f-d-in-4-shift-operation-1-constellium-valais-steg",
+        "fr": "operation-de-serrurier-m-f-d-en-4-equipes-1-constellium-valais-steg"
       },
       "company": "Constellium Valais",
       "companyKey": "constellium",
@@ -200,7 +208,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-07-08T22:07:31.018Z"
+      "firstSeenAt": "2026-07-08T22:07:31.018Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
+        ],
+        "en": [
+          "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
+        ],
+        "fr": [
+          "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
+      ]
     }
   ]
 }

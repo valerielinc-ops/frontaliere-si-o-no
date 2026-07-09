@@ -9,7 +9,7 @@
         "it": "software-engineer-iii-ai-ml-sensor-fusion-xr-google-switzerland-zurich",
         "en": "software-engineer-iii-ai-ml-sensor-fusion-xr-google-switzerland-zurich",
         "de": "software-engineer-iii-ai-ml-sensor-fusion-xr-google-switzerland-zurich",
-        "fr": "software-engineer-iii-ai-ml-sensor-fusion-xr-google-switzerland-zurich"
+        "fr": "ingenieur-logiciel-iii-ia-ml-fusion-de-capteurs-xr-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -77,12 +77,12 @@
     },
     {
       "id": "google-switzerland-a008c9d235c0",
-      "slug": "xr-audio-face-tracking-ml-software-engineer-google-switzerland-zurich",
+      "slug": "ingegnere-software-ml-per-tracciamento-audio-face-xr-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "xr-audio-face-tracking-ml-software-engineer-google-switzerland-zurich",
+        "it": "ingegnere-software-ml-per-tracciamento-audio-face-xr-google-switzerland-zurich",
         "en": "xr-audio-face-tracking-ml-software-engineer-google-switzerland-zurich",
         "de": "xr-audio-face-tracking-ml-software-engineer-google-switzerland-zurich",
-        "fr": "xr-audio-face-tracking-ml-software-engineer-google-switzerland-zurich"
+        "fr": "ingenieur-logiciel-ml-pour-suivi-faciale-audio-xr-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -145,7 +145,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "xr-audio-face-tracking-ml-software-engineer-google-switzerland-zurich"
+        ],
+        "fr": [
+          "xr-audio-face-tracking-ml-software-engineer-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "xr-audio-face-tracking-ml-software-engineer-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-824b54be7123",
@@ -153,8 +164,8 @@
       "slugByLocale": {
         "it": "staff-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich",
         "en": "staff-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich",
-        "de": "staff-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich",
-        "fr": "staff-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich"
+        "de": "mitarbeiter-im-voraus-eingesetzter-ingenieur-genai-google-cloud-google-switzerland-zurich",
+        "fr": "ingenieur-deploye-en-avant-genai-google-cloud-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -224,12 +235,12 @@
     },
     {
       "id": "google-switzerland-3701e613bd20",
-      "slug": "senior-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich",
+      "slug": "ingegnere-anziano-genai-google-cloud-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "senior-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich",
+        "it": "ingegnere-anziano-genai-google-cloud-google-switzerland-zurich",
         "en": "senior-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich",
         "de": "senior-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich",
-        "fr": "senior-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich"
+        "fr": "ingenieur-senior-deploye-en-avant-genai-google-cloud-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -295,16 +306,27 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich"
+        ],
+        "fr": [
+          "senior-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-f7afbf91c9b7",
-      "slug": "software-engineer-iii-content-management-system-youtube-google-switzerland-zurich",
+      "slug": "ingegnere-del-software-iii-sistema-di-gestione-dei-contenuti-youtube-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "software-engineer-iii-content-management-system-youtube-google-switzerland-zurich",
+        "it": "ingegnere-del-software-iii-sistema-di-gestione-dei-contenuti-youtube-google-switzerland-zurich",
         "en": "software-engineer-iii-content-management-system-youtube-google-switzerland-zurich",
         "de": "software-engineer-iii-content-management-system-youtube-google-switzerland-zurich",
-        "fr": "software-engineer-iii-content-management-system-youtube-google-switzerland-zurich"
+        "fr": "ingenieur-logiciel-iii-systeme-de-gestion-de-contenu-youtube-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -369,7 +391,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-iii-content-management-system-youtube-google-switzerland-zurich"
+        ],
+        "fr": [
+          "software-engineer-iii-content-management-system-youtube-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "software-engineer-iii-content-management-system-youtube-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-48def6589da5",
@@ -434,13 +467,11 @@
         ]
       },
       "previousSlugs": [
-        "cloud-universal-ledger-lead-strategic-missions-and-partnerships-google-switzerland-zurich",
-        "cloud-universal-ledger-lead-missioni-strategiche-e-partnership-google-switzerland-zurich"
+        "cloud-universal-ledger-lead-strategic-missions-and-partnerships-google-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cloud-universal-ledger-lead-strategic-missions-and-partnerships-google-switzerland-zurich",
-          "cloud-universal-ledger-lead-missioni-strategiche-e-partnership-google-switzerland-zurich"
+          "cloud-universal-ledger-lead-strategic-missions-and-partnerships-google-switzerland-zurich"
         ],
         "de": [
           "cloud-universal-ledger-lead-strategic-missions-and-partnerships-google-switzerland-zurich"
@@ -526,13 +557,11 @@
         ]
       },
       "previousSlugs": [
-        "security-engineer-information-security-engineering-product-ai-research-and-security-google",
-        "security-ingegnere-information-security-engineering-product-ai-ricerca-and-security-google-switzerland-zurich"
+        "security-engineer-information-security-engineering-product-ai-research-and-security-google"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "security-engineer-information-security-engineering-product-ai-research-and-security-google",
-          "security-ingegnere-information-security-engineering-product-ai-ricerca-and-security-google-switzerland-zurich"
+          "security-engineer-information-security-engineering-product-ai-research-and-security-google"
         ],
         "de": [
           "security-engineer-information-security-engineering-product-ai-research-and-security-google"
@@ -557,12 +586,12 @@
     },
     {
       "id": "google-switzerland-dc7c5b6f04c3",
-      "slug": "senior-software-engineer-infrastructure-data-generation-pipeline-google-switzerland-zurich",
+      "slug": "ingegnere-senior-del-software-infrastruttura-produzione-dati-pipeline-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "senior-software-engineer-infrastructure-data-generation-pipeline-google-switzerland-zurich",
+        "it": "ingegnere-senior-del-software-infrastruttura-produzione-dati-pipeline-google-switzerland-zurich",
         "en": "senior-software-engineer-infrastructure-data-generation-pipeline-google-switzerland-zurich",
         "de": "senior-software-engineer-infrastructure-data-generation-pipeline-google-switzerland-zurich",
-        "fr": "senior-software-engineer-infrastructure-data-generation-pipeline-google-switzerland-zurich"
+        "fr": "ingenieur-logiciel-senior-infrastructure-pipeline-de-generation-de-donnees-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -629,7 +658,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-software-engineer-infrastructure-data-generation-pipeline-google-switzerland-zurich"
+        ],
+        "fr": [
+          "senior-software-engineer-infrastructure-data-generation-pipeline-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-software-engineer-infrastructure-data-generation-pipeline-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-0bd1d1af68ac",
@@ -637,7 +677,7 @@
       "slugByLocale": {
         "it": "responsabile-prodotto-di-gruppo-shopping-consumer-google-switzerland-zurich",
         "en": "group-product-manager-consumer-shopping-google-switzerland-zurich",
-        "de": "group-product-manager-consumer-shopping-google-switzerland-zurich",
+        "de": "produktmanager-verbraucher-shopping-google-switzerland-zurich",
         "fr": "group-product-manager-achats-aupres-des-consommateurs-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
@@ -693,15 +733,16 @@
         ]
       },
       "previousSlugs": [
-        "group-product-manager-consumer-shopping-google-switzerland-zurich",
-        "responsabile-prodotto-di-gruppo-shopping-consumer-google-switzerland-zurich"
+        "group-product-manager-consumer-shopping-google-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-product-manager-consumer-shopping-google-switzerland-zurich",
-          "responsabile-prodotto-di-gruppo-shopping-consumer-google-switzerland-zurich"
+          "group-product-manager-consumer-shopping-google-switzerland-zurich"
         ],
         "fr": [
+          "group-product-manager-consumer-shopping-google-switzerland-zurich"
+        ],
+        "de": [
           "group-product-manager-consumer-shopping-google-switzerland-zurich"
         ]
       },
@@ -725,8 +766,8 @@
       "slugByLocale": {
         "it": "software-engineer-iii-merchant-shopping-local-inventory-google-switzerland-zurich",
         "en": "software-engineer-iii-merchant-shopping-local-inventory-google-switzerland-zurich",
-        "de": "software-engineer-iii-merchant-shopping-local-inventory-google-switzerland-zurich",
-        "fr": "software-engineer-iii-merchant-shopping-local-inventory-google-switzerland-zurich"
+        "de": "software-engineer-iii-kaufmannische-einkaufsweise-lokales-inventar-google-switzerland-zurich",
+        "fr": "ingenieur-logiciel-iii-merchant-shopping-inventaire-local-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -797,7 +838,7 @@
         "it": "senior-software-engineer-ai-ml-llm-modeling-google-switzerland-zurich",
         "en": "senior-software-engineer-ai-ml-llm-modeling-google-switzerland-zurich",
         "de": "senior-software-engineer-ai-ml-llm-modeling-google-switzerland-zurich",
-        "fr": "senior-software-engineer-ai-ml-llm-modeling-google-switzerland-zurich"
+        "fr": "ingenieur-logiciel-senior-ia-ml-modelisation-llm-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -871,8 +912,8 @@
       "slugByLocale": {
         "it": "senior-software-engineer-full-stack-google-switzerland-zurich",
         "en": "senior-software-engineer-full-stack-google-switzerland-zurich",
-        "de": "senior-software-engineer-full-stack-google-switzerland-zurich",
-        "fr": "senior-software-engineer-full-stack-google-switzerland-zurich"
+        "de": "leitender-softwareentwickler-full-stack-google-switzerland-zurich",
+        "fr": "ingenieur-logiciel-senior-full-stack-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -1078,13 +1119,11 @@
         ]
       },
       "previousSlugs": [
-        "ai-sales-lead-for-start-ups-google-switzerland-zurich",
-        "responsabile-vendite-ai-per-start-up-google-switzerland-zurich"
+        "ai-sales-lead-for-start-ups-google-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-sales-lead-for-start-ups-google-switzerland-zurich",
-          "responsabile-vendite-ai-per-start-up-google-switzerland-zurich"
+          "ai-sales-lead-for-start-ups-google-switzerland-zurich"
         ],
         "fr": [
           "ai-sales-lead-for-start-ups-google-switzerland-zurich"
@@ -1248,13 +1287,11 @@
         ]
       },
       "previousSlugs": [
-        "research-software-engineer-computer-vision-google-switzerland-zurich",
-        "ricerca-software-ingegnere-computer-vision-google-switzerland-zurich"
+        "research-software-engineer-computer-vision-google-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-software-engineer-computer-vision-google-switzerland-zurich",
-          "ricerca-software-ingegnere-computer-vision-google-switzerland-zurich"
+          "research-software-engineer-computer-vision-google-switzerland-zurich"
         ],
         "de": [
           "research-software-engineer-computer-vision-google-switzerland-zurich"
@@ -1343,13 +1380,11 @@
         ]
       },
       "previousSlugs": [
-        "staff-software-engineer-security-internal-developer-platform-google-switzerland-zurich",
-        "staff-software-ingegnere-security-internal-sviluppatore-platform-google-switzerland-zurich"
+        "staff-software-engineer-security-internal-developer-platform-google-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "staff-software-engineer-security-internal-developer-platform-google-switzerland-zurich",
-          "staff-software-ingegnere-security-internal-sviluppatore-platform-google-switzerland-zurich"
+          "staff-software-engineer-security-internal-developer-platform-google-switzerland-zurich"
         ],
         "de": [
           "staff-software-engineer-security-internal-developer-platform-google-switzerland-zurich"
@@ -1506,13 +1541,11 @@
         ]
       },
       "previousSlugs": [
-        "technical-program-manager-security-endpoint-agents-google-switzerland-zurich",
-        "responsabile-tecnico-del-programma-security-endpoint-agents-google-switzerland-zurich"
+        "technical-program-manager-security-endpoint-agents-google-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-program-manager-security-endpoint-agents-google-switzerland-zurich",
-          "responsabile-tecnico-del-programma-security-endpoint-agents-google-switzerland-zurich"
+          "technical-program-manager-security-endpoint-agents-google-switzerland-zurich"
         ],
         "de": [
           "technical-program-manager-security-endpoint-agents-google-switzerland-zurich"
@@ -1600,13 +1633,11 @@
         ]
       },
       "previousSlugs": [
-        "forward-deployed-engineer-i-google-cloud-consulting-french-german-google-switzerland",
-        "forward-deployed-ingegnere-i-google-cloud-consulting-french-german-google-switzerland-zurich"
+        "forward-deployed-engineer-i-google-cloud-consulting-french-german-google-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "forward-deployed-engineer-i-google-cloud-consulting-french-german-google-switzerland",
-          "forward-deployed-ingegnere-i-google-cloud-consulting-french-german-google-switzerland-zurich"
+          "forward-deployed-engineer-i-google-cloud-consulting-french-german-google-switzerland"
         ],
         "de": [
           "forward-deployed-engineer-i-google-cloud-consulting-french-german-google-switzerland"
@@ -2152,13 +2183,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-partner-forward-deployed-engineer-google-cloud-french-german-google-switzerland",
-        "senior-partner-forward-deployed-ingegnere-google-cloud-french-german-google-switzerland-zurich"
+        "senior-partner-forward-deployed-engineer-google-cloud-french-german-google-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-partner-forward-deployed-engineer-google-cloud-french-german-google-switzerland",
-          "senior-partner-forward-deployed-ingegnere-google-cloud-french-german-google-switzerland-zurich"
+          "senior-partner-forward-deployed-engineer-google-cloud-french-german-google-switzerland"
         ],
         "de": [
           "senior-partner-forward-deployed-engineer-google-cloud-french-german-google-switzerland"
@@ -2241,13 +2270,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-field-sales-account-manager-google-cloud-google-switzerland-zurich",
-        "account-manager-senior-delle-vendite-sul-campo-google-cloud-google-switzerland-zurich"
+        "senior-field-sales-account-manager-google-cloud-google-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-field-sales-account-manager-google-cloud-google-switzerland-zurich",
-          "account-manager-senior-delle-vendite-sul-campo-google-cloud-google-switzerland-zurich"
+          "senior-field-sales-account-manager-google-cloud-google-switzerland-zurich"
         ],
         "fr": [
           "senior-field-sales-account-manager-google-cloud-google-switzerland-zurich"
@@ -3775,13 +3802,11 @@
         ]
       },
       "previousSlugs": [
-        "product-manager-ii-merchant-promotions-and-deals-google-switzerland-zurich",
-        "product-manager-ii-promozioni-e-offerte-per-i-commercianti-google-switzerland-zurich"
+        "product-manager-ii-merchant-promotions-and-deals-google-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-ii-merchant-promotions-and-deals-google-switzerland-zurich",
-          "product-manager-ii-promozioni-e-offerte-per-i-commercianti-google-switzerland-zurich"
+          "product-manager-ii-merchant-promotions-and-deals-google-switzerland-zurich"
         ],
         "de": [
           "product-manager-ii-merchant-promotions-and-deals-google-switzerland-zurich"
@@ -4016,13 +4041,11 @@
         ]
       },
       "previousSlugs": [
-        "partner-development-manager-sovereign-data-partnerships-google-switzerland-zurich",
-        "partner-development-manager-partenariati-sovrani-di-dati-google-switzerland-zurich"
+        "partner-development-manager-sovereign-data-partnerships-google-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "partner-development-manager-sovereign-data-partnerships-google-switzerland-zurich",
-          "partner-development-manager-partenariati-sovrani-di-dati-google-switzerland-zurich"
+          "partner-development-manager-sovereign-data-partnerships-google-switzerland-zurich"
         ],
         "fr": [
           "partner-development-manager-sovereign-data-partnerships-google-switzerland-zurich"
@@ -4106,13 +4129,11 @@
         ]
       },
       "previousSlugs": [
-        "information-security-engineer-product-security-engineering-cloud-ciso-google-switzerland",
-        "information-security-ingegnere-product-security-engineering-cloud-ciso-google-switzerland-zurich"
+        "information-security-engineer-product-security-engineering-cloud-ciso-google-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "information-security-engineer-product-security-engineering-cloud-ciso-google-switzerland",
-          "information-security-ingegnere-product-security-engineering-cloud-ciso-google-switzerland-zurich"
+          "information-security-engineer-product-security-engineering-cloud-ciso-google-switzerland"
         ],
         "de": [
           "information-security-engineer-product-security-engineering-cloud-ciso-google-switzerland"
@@ -4270,13 +4291,11 @@
         ]
       },
       "previousSlugs": [
-        "staff-ux-designer-youtube-creators-monetization-google-switzerland-zurich",
-        "staff-ux-designer-monetizzazione-dei-creatori-youtube-google-switzerland-zurich"
+        "staff-ux-designer-youtube-creators-monetization-google-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "staff-ux-designer-youtube-creators-monetization-google-switzerland-zurich",
-          "staff-ux-designer-monetizzazione-dei-creatori-youtube-google-switzerland-zurich"
+          "staff-ux-designer-youtube-creators-monetization-google-switzerland-zurich"
         ],
         "de": [
           "staff-ux-designer-youtube-creators-monetization-google-switzerland-zurich"

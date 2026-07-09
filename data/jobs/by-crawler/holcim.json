@@ -130,8 +130,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch",
         "it": "collaboratore-trice-per-betriebsstoffgruppe-holcim-group-wurenlingen",
-        "en": "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen",
-        "fr": "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
+        "en": "associate-fur-betriebsstoffgruppe-holcim-group-wurenlingen",
+        "fr": "collaborateur-trice-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -174,10 +174,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
+        ],
+        "fr": [
+          "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch"
+        "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch",
+        "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1292,8 +1299,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-80-100-holcim-ch",
         "it": "responsabile-di-progetto-80-100-holcim-group-wurenlingen",
-        "en": "projektleiter-in-80-100-holcim-ch",
-        "fr": "projektleiter-in-80-100-holcim-ch"
+        "en": "project-manager-80-100-holcim-group-wurenlingen",
+        "fr": "chef-de-projet-80-100-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -1335,6 +1342,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-80-100-holcim-ch"
+        ],
+        "en": [
+          "projektleiter-in-80-100-holcim-ch"
+        ],
+        "fr": [
           "projektleiter-in-80-100-holcim-ch"
         ]
       },

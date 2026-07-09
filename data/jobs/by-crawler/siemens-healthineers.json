@@ -199,11 +199,11 @@
     },
     {
       "id": "siemens-healthineers-f0d6a464ad2c",
-      "slug": "qa-engineer-siemens-healthineers-ch",
+      "slug": "qa-ingegnere-siemens-healthineers-dwl-t",
       "slugByLocale": {
         "en": "qa-engineer-siemens-healthineers-ch",
-        "it": "qa-engineer-siemens-healthineers-ch",
-        "de": "qa-engineer-siemens-healthineers-ch",
+        "it": "qa-ingegnere-siemens-healthineers-dwl-t",
+        "de": "qa-ingenieur-siemens-healthineers-dwl-t",
         "fr": "qa-engineer-siemens-healthineers-ch"
       },
       "company": "Siemens Healthineers",
@@ -260,7 +260,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:12:19.122Z"
+      "firstSeenAt": "2026-07-08T22:12:19.122Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-engineer-siemens-healthineers-ch"
+        ],
+        "de": [
+          "qa-engineer-siemens-healthineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "qa-engineer-siemens-healthineers-ch"
+      ]
     },
     {
       "id": "siemens-healthineers-d8ef7d5dea6d",
@@ -268,8 +279,8 @@
       "slugByLocale": {
         "en": "sr-system-quality-engineer-siemens-healthineers-ch",
         "it": "sr-system-quality-engineer-siemens-healthineers-ch",
-        "de": "sr-system-quality-engineer-siemens-healthineers-ch",
-        "fr": "sr-system-quality-engineer-siemens-healthineers-ch"
+        "de": "sr-system-qualitat-ingenieur-siemens-healthineers-dwl-t",
+        "fr": "sr-system-qualite-ingenieur-siemens-healthineers-dwl-t"
       },
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
