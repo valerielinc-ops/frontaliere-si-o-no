@@ -1,18 +1,93 @@
 {
   "key": "spitex-basel",
   "label": "SPITEX BASEL",
-  "generatedAt": "2026-07-08T22:13:50.109Z",
-  "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
+  "generatedAt": "2026-07-09T12:46:59.175Z",
+  "total": 10,
+  "newCount": 2,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3698,
-  "avgDurationMs": 3698,
+  "unchangedCount": 2,
+  "durationMs": 4030,
+  "avgDurationMs": 4030,
   "durationHistory": [
-    3698
+    4030
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "spitex-basel-a02aec0fdaaa",
+      "slug": "dipl-pflegefachperson-hf-fh-mit-fallverantwortung-palliative-care-onkologie-50-oder-nach",
+      "company": "SPITEX BASEL",
+      "companyKey": "spitex-basel",
+      "companyDomain": "spitexbasel.ch",
+      "title": "Dipl. Pflegefachperson HF/FH mit Fallverantwortung Palliative Care / Onkologie, 50 % oder nach Absprache (a)",
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.spitexbasel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-mit-fallverantwortung-palliative-care-onkologie-oder-nach-absprache-a/d4d64f2d-23d7-4d53-9877-1c33416d4d82",
+      "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:46:55.988Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4051",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-mit-fallverantwortung-palliative-care-onkologie-oder-nach-absprache-a/d4d64f2d-23d7-4d53-9877-1c33416d4d82",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "spitex-basel-b6e81418f31d",
+      "slug": "diplomierte-pflegefachperson-hf-fh-fur-pflegerische-notfalleinsatze-a-spitex-basel-pflege",
+      "company": "SPITEX BASEL",
+      "companyKey": "spitex-basel",
+      "companyDomain": "spitexbasel.ch",
+      "title": "Diplomierte Pflegefachperson HF/FH für pflegerische Notfalleinsätze (a)",
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-fuer-pflegerische-notfalleinsaetze-a/b607e908-824f-4dda-ba9d-28e6fe3228bd",
+      "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:46:56.032Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4051",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-fuer-pflegerische-notfalleinsaetze-a/b607e908-824f-4dda-ba9d-28e6fe3228bd",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "spitex-basel-4457328b16a4",
@@ -27,7 +102,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/pflegeprofi-fuer-flexible-einsaetze-a/fc16962c-6060-4060-9442-16519b2ae9f1",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:47.264Z",
+      "crawledAt": "2026-07-09T12:46:56.038Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -65,7 +140,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/f3c167ed-9320-49da-92ed-a13ed8280f46",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:47.336Z",
+      "crawledAt": "2026-07-09T12:46:56.045Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -103,7 +178,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a/65dd57d5-237c-4f8e-a5ba-653c3f7d0d7e",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:47.353Z",
+      "crawledAt": "2026-07-09T12:46:56.049Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -141,7 +216,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-paediatrie-a-auch-stundenweise-moeglich/6a7aca2c-bac4-468a-a8d4-6ba21ecfb4ff",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:47.362Z",
+      "crawledAt": "2026-07-09T12:46:56.052Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -179,7 +254,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-kinder-spitex-paediatrie-a/9d186fd2-89f0-40b8-a6b2-c0dec2e65027",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:47.381Z",
+      "crawledAt": "2026-07-09T12:46:56.059Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -217,7 +292,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a/fead849d-dcb5-4916-a470-d6ae9fe42ec0",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:47.390Z",
+      "crawledAt": "2026-07-09T12:46:56.063Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -241,7 +316,10 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spitex-basel-479f6fb260d0",
       "slug": "dipl-pflegefachperson-hf-fh-con-fallverantwortung-palliative-care-onkologie-50-o-nach-absprache-a-spitex-basel",
@@ -249,7 +327,6 @@
       "companyKey": "spitex-basel",
       "companyDomain": "spitexbasel.ch",
       "title": "Dipl. Pflegefachperson HF/FH mit Fallverantwortung Palliative Care / Onkologie, 50 % oder nach Absprache (a)",
-      "needsRetranslation": false,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.spitexbasel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-mit-fallverantwortung-palliative-care-onkologie-oder-nach-absprache-a/a6bbb95c-92a5-4a72-8670-41eb18ea4aa9",
@@ -272,12 +349,15 @@
       "postedDate": "2026-06-18",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-mit-fallverantwortung-palliative-care-onkologie-oder-nach-absprache-a/a6bbb95c-92a5-4a72-8670-41eb18ea4aa9",
       "firstSeenAt": "2026-06-19T13:25:10.982Z",
-      "_qualityScore": 87,
+      "salaryMin": 31000,
+      "salaryMax": 47000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
@@ -310,15 +390,16 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-fuer-pflegerische-notfalleinsaetze-a/6b1ffab8-11f4-48cc-9882-53f44b891120",
       "firstSeenAt": "2026-06-11T13:36:10.032Z",
-      "_qualityScore": 87,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
