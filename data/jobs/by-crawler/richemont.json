@@ -3574,9 +3574,6 @@
         "responsable-bijoux-europe-richemont-meyrin",
         "gestionnaire-de-joaillerie-europe-richemont-meyrin",
         "stagiaire-d-accueil-richemont-meyrin",
-        "specialiste-sirh-cdd-richemont-meyrin",
-        "hris-specialist-cdd-richemont-meyrin",
-        "hris-spezialist-cdd-richemont-meyrin",
         "hospitality-tirocinante-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
@@ -5252,9 +5249,6 @@
         "m-a-tirocinante-richemont-bellevue",
         "group-l-d-intern-richemont-bellevue",
         "group-l-d-intern-richemont-bellevue-e8uyst",
-        "group-l-d-tirocinante-richemont-bellevue",
-        "gruppe-l-d-praktikant-richemont-bellevue",
-        "stagiaire-l-d-du-groupe-richemont-bellevue",
         "stage-retail-partner-retail-excellence-piaget-plan-les-ouates"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.443Z",
@@ -7516,8 +7510,7 @@
       "previousSlugs": [
         "hr-project-manager-h-f-hom-cartier-manufacture-le-locle",
         "personal-project-manager-h-f-hom-cartier-manufacture-le-locle",
-        "hr-projektmanager-h-f-cdm-cartier-manufacture-le-locle",
-        "hr-project-manager-h-f-cdm-cartier-manufacture-le-locle"
+        "hr-projektmanager-h-f-cdm-cartier-manufacture-le-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14800,11 +14793,11 @@
     },
     {
       "id": "richemont-867d4ecaaa13",
-      "slug": "laborantin-richemont-delemont",
+      "slug": "laborantista-richemont-delemont",
       "slugByLocale": {
-        "it": "laborantin-richemont-delemont",
-        "en": "laborantin-richemont-delemont",
-        "de": "laborantin-richemont-delemont",
+        "it": "laborantista-richemont-delemont",
+        "en": "laboratory-technician-richemont-delemont",
+        "de": "laborant-in-richemont-delemont",
         "fr": "laborantin-richemont-delemont"
       },
       "company": "Richemont",
@@ -14849,10 +14842,20 @@
       "previousSlugsByLocale": {
         "fr": [
           "travailleurin-richemont-delemont"
+        ],
+        "it": [
+          "laborantin-richemont-delemont"
+        ],
+        "en": [
+          "laborantin-richemont-delemont"
+        ],
+        "de": [
+          "laborantin-richemont-delemont"
         ]
       },
       "previousSlugs": [
-        "travailleurin-richemont-delemont"
+        "travailleurin-richemont-delemont",
+        "laborantin-richemont-delemont"
       ],
       "firstSeenAt": "2026-07-08T11:24:08.140Z",
       "salaryMin": 60500,

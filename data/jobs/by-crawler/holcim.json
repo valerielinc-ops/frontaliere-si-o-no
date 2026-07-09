@@ -359,7 +359,7 @@
       "id": "holcim-fd9804a1ae73",
       "slug": "operations-excellence-manager-agg-80-100-holcim-ch",
       "slugByLocale": {
-        "de": "operations-excellence-manager-agg-80-100-holcim-ch",
+        "de": "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen",
         "it": "operations-excellence-manager-agg-80-100-holcim-ch",
         "en": "operations-excellence-manager-agg-80-100-holcim-ch",
         "fr": "operations-excellence-manager-agg-80-100-holcim-ch"
@@ -843,11 +843,11 @@
     },
     {
       "id": "holcim-e9a89ca87e37",
-      "slug": "koch-kochin-personalrestaurant-60-70-holcim-ch",
+      "slug": "chef-staff-ristorante-60-70-holcim-group-untervaz",
       "slugByLocale": {
         "de": "koch-kochin-personalrestaurant-60-70-holcim-ch",
-        "it": "koch-kochin-personalrestaurant-60-70-holcim-ch",
-        "en": "koch-kochin-personalrestaurant-60-70-holcim-ch",
+        "it": "chef-staff-ristorante-60-70-holcim-group-untervaz",
+        "en": "chef-staff-restaurant-60-70-holcim-group-untervaz",
         "fr": "koch-kochin-personalrestaurant-60-70-holcim-ch"
       },
       "company": "Holcim Group",
@@ -900,7 +900,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:25:48.347Z"
+      "firstSeenAt": "2026-07-08T22:25:48.347Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-personalrestaurant-60-70-holcim-ch"
+        ],
+        "en": [
+          "koch-kochin-personalrestaurant-60-70-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-personalrestaurant-60-70-holcim-ch"
+      ]
     },
     {
       "id": "holcim-7f6febb3653a",
@@ -1630,10 +1641,10 @@
     },
     {
       "id": "holcim-7c3fc27245d7",
-      "slug": "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch",
+      "slug": "direttore-del-progetto-salute-e-sicurezza-h-s-80-100-holcim-group-wurenlingen",
       "slugByLocale": {
         "en": "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch",
-        "it": "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch",
+        "it": "direttore-del-progetto-salute-e-sicurezza-h-s-80-100-holcim-group-wurenlingen",
         "de": "health-safety-h-s-projektmanager-80-100-holcim-group-wurenlingen",
         "fr": "gestionnaire-de-projet-sante-et-securite-s-et-s-80-100-holcim-group-wurenlingen"
       },
@@ -1687,7 +1698,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:25:42.496Z"
+      "firstSeenAt": "2026-07-08T22:25:42.496Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch"
+      ]
     },
     {
       "id": "holcim-0079f4bf9f26",
