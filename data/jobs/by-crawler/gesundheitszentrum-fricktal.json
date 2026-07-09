@@ -1,7 +1,86 @@
 {
   "crawlerKey": "gesundheitszentrum-fricktal",
-  "assembledAt": "2026-07-08T22:15:24.006Z",
+  "assembledAt": "2026-07-09T22:38:45.901Z",
   "jobs": [
+    {
+      "id": "gesundheitszentrum-fricktal-6b2870814bf5",
+      "slug": "personale-in-paziente-amministrazione-interna-f-m-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slugByLocale": {
+        "it": "personale-in-paziente-amministrazione-interna-f-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "personnel-in-patient-internal-administration-f-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "de": "sachbearbeiter-in-patient-innenadministration-w-m-d-gesundheitszentrum-fricktal",
+        "fr": "personnel-chez-le-patient-administration-interne-f-m-d-gesundheitszentrum-fricktal-rheinfelden"
+      },
+      "company": "Gesundheitszentrum Fricktal",
+      "companyKey": "gesundheitszentrum-fricktal",
+      "companyDomain": "gzf.ch",
+      "title": "Sachbearbeiter:in Patient:innenadministration (w/m/d)",
+      "titleByLocale": {
+        "it": "Agente:in pazienti:in pazienti,195 (p/m/d)",
+        "en": "Agent:in patient:in-patients,195 (w/m/d)",
+        "de": "Sachbearbeiter:in Patient:innenadministration (w/m/d)",
+        "fr": "Agent: chez le patient:chez les patients, 195 (m/j)"
+      },
+      "description": "Stellst du lieber Rechnungen als sie zu bezahlen? Unser rund 7-köpfiges Team freut sich auf deine Verstärkung!\n\n• Bereich: RF Patientenadministration\n• Art: Vollzeit\n• Befristung: Unbefristet",
+      "descriptionByLocale": {
+        "it": "Preferisci fare le bollette piuttosto che pagarle? Il nostro team di circa 7 è in attesa del tuo rinforzo!\n• Area: RF Pazienti (D) * Tipo: Tempo pieno\n• Termine limite: Illimitato",
+        "en": "Do you prefer to make bills rather than pay them? Our team of around 7 is looking forward to your reinforcement!\n• Area: RF Patients (D) * Type: Full-time\n• Time limit: Unlimited",
+        "de": "Stellst du lieber Rechnungen als sie zu bezahlen? Unser rund 7-köpfiges Team freut sich auf deine Verstärkung!\n• Bereich: RF Patientenadministration\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "fr": "Vous préférez faire des factures plutôt que de les payer? Notre équipe d'environ 7 personnes attend avec impatience votre renfort!\n• Zone : Patients RF (D) * Type : Temps plein\n• Délai : Illimité"
+      },
+      "needsRetranslation": false,
+      "location": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2283/Description/1",
+      "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T22:38:44.098Z",
+      "addressLocality": "Rheinfelden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4310",
+      "category": "Amministrazione",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-23",
+      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2283/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-patient-innenadministration-w-m-d-gesundheitszentrum-fricktal",
+        "personale-in-paziente-amministrazione-interna-f-m-d-gesundheitszentrum-fricktal-rheinfelden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patient-innenadministration-w-m-d-gesundheitszentrum-fricktal",
+          "personale-in-paziente-amministrazione-interna-f-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "sachbearbeiter-in-patient-innenadministration-w-m-d-gesundheitszentrum-fricktal"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patient-innenadministration-w-m-d-gesundheitszentrum-fricktal"
+        ]
+      },
+      "firstSeenAt": "2026-06-23T11:39:24.124Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "gesundheitszentrum-fricktal-2be555cb17f7",
       "slug": "infermiera-f-m-d-gesundheitszentrum-fricktal-rheinfelden",
@@ -17,7 +96,7 @@
       "title": "Dipl. Pflegefachperson (w/m/d)",
       "titleByLocale": {
         "it": "Infermiera (f/m/d)",
-        "en": "Dipl. Nurse (f/m/d)",
+        "en": "Dipl. Pflegefachperson (w/m/d)",
         "de": "Dipl. Pflegefachperson (w/m/d)",
         "fr": "Infirmière diplômée (f/m/j)"
       },
@@ -28,12 +107,13 @@
         "de": "Dipl. Pflegefachperson (w/m/d) bei Gesundheitszentrum Fricktal AG in Rheinfelden (4310, AG), Schweiz.\n• Bereich: Pflegeheim 2. OG Bau 86 / West\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Rheinfelden (AG)\n• Bewerbung über das Umantis-Karriereportal von Gesundheitszentrum Fricktal",
         "fr": "Spécialiste des soins infirmiers (f/m/d) chez Gesundheitszentrum Fricktal AG à Rheinfelden (4310, AG), Suisse.\n• Zone: Maison de retraite construction 2ème étage 86 / Ouest\n• Type: temps partiel\n• Terme temporaire : perpétuel\n• Lieu: Rheinfelden (AG)\n• Application via le portail de carrière Umantis de Gesundheitszentrum Fricktal"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1452/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:15:21.787Z",
+      "crawledAt": "2026-07-09T22:38:43.277Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -51,11 +131,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "infermiera-f-m-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+          "infermiera-f-m-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -110,7 +192,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1790/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:15:20.871Z",
+      "crawledAt": "2026-07-09T22:38:42.475Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -128,11 +210,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fachperson-gesundheit-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "professionista-della-salute-f-m-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+          "fachperson-gesundheit-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+          "professionista-della-salute-f-m-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "fachperson-gesundheit-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -187,7 +271,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2238/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:15:19.986Z",
+      "crawledAt": "2026-07-09T22:38:41.647Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -205,11 +289,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-im-nachdienst-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fachperson-gesundheit-im-nachdienst-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "specialista-della-salute-nel-servizio-notturno-u-m-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-im-nachdienst-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+          "fachperson-gesundheit-im-nachdienst-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+          "specialista-della-salute-nel-servizio-notturno-u-m-d-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
       "firstSeenAt": "2026-06-25T22:25:04.210Z",
@@ -258,7 +344,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2269/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:15:19.082Z",
+      "crawledAt": "2026-07-09T22:38:40.854Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -276,11 +362,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "collaboratore-trice-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+          "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+          "collaboratore-trice-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "fr": [
           "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -332,7 +420,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2219/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:15:18.178Z",
+      "crawledAt": "2026-07-09T22:38:40.034Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -351,12 +439,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden",
-        "medico-senior-m-f-d-gastroenterologia-gesundheitszentrum-fricktal-rheinfelden"
+        "medico-senior-m-f-d-gastroenterologia-gesundheitszentrum-fricktal-rheinfelden",
+        "dirigente-medico-m-f-d-gastroenterologia-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden",
-          "medico-senior-m-f-d-gastroenterologia-gesundheitszentrum-fricktal-rheinfelden"
+          "medico-senior-m-f-d-gastroenterologia-gesundheitszentrum-fricktal-rheinfelden",
+          "dirigente-medico-m-f-d-gastroenterologia-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden"
@@ -394,7 +484,7 @@
       "title": "Dipl. Pflegefachperson HF (m/w/d)",
       "titleByLocale": {
         "it": "Specialista infermieristico dipl. HF (m/p/d)",
-        "en": "Dipl. Nurse HF (m/f/d)",
+        "en": "Dipl. Pflegefachperson HF (m/w/d)",
         "de": "Dipl. Pflegefachperson HF (m/w/d)",
         "fr": "Spécialiste en soins infirmiers (m/p/p)"
       },
@@ -405,12 +495,13 @@
         "de": "Du sorgst auf der Notfallstation für eine hochwertige Betreuung und betreust in der Aufnahmeklinik prä- und postoperative Patient:innen sowie Infusionstherapien.\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "fr": "Vous prendrez soin de soins de haute qualité dans le service d'urgence et vous prendrez en charge les patients pré- et post-opératoires de l'hôpital ainsi que les thérapies pour perfusion.\n• Type: à temps partiel\n• Temporaire: illimité"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2291/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:15:17.273Z",
+      "crawledAt": "2026-07-09T22:38:39.197Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -437,13 +528,15 @@
         "diplome-en-soins-infirmiers-hf-h-f-x-gesundheitszentrum-fricktal-rheinfelden",
         "dipl-nurse-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "specialiste-en-soins-infirmiers-m-p-p-gesundheitszentrum-fricktal-rheinfelden",
-        "specialista-infermieristico-dipl-hf-m-p-d-gesundheitszentrum-fricktal-rheinfelden"
+        "specialista-infermieristico-dipl-hf-m-p-d-gesundheitszentrum-fricktal-rheinfelden",
+        "capo-squadra-tecnologia-museale-90-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
           "infermiere-dipl-sss-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-          "specialista-infermieristico-dipl-hf-m-p-d-gesundheitszentrum-fricktal-rheinfelden"
+          "specialista-infermieristico-dipl-hf-m-p-d-gesundheitszentrum-fricktal-rheinfelden",
+          "capo-squadra-tecnologia-museale-90-kanton-aargau-aarau"
         ],
         "en": [
           "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
@@ -472,10 +565,10 @@
       "id": "gesundheitszentrum-fricktal-1999696e2600",
       "slug": "infermiere-a-diplomato-a-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
+        "it": "infermiere-a-diplomato-a-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
         "de": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2"
+        "fr": "infirmier-ere-diplome-e-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -483,7 +576,7 @@
       "title": "Dipl. Pflegefachperson HF (m/w/d)",
       "titleByLocale": {
         "it": "Infermiere/a diplomato/a (m/f/d)",
-        "en": "Dipl. Nurse HF (m/f/d)",
+        "en": "Dipl. Pflegefachperson HF (m/w/d)",
         "de": "Dipl. Pflegefachperson HF (m/w/d)",
         "fr": "Infirmier/ère diplômé/e (h/f/d)"
       },
@@ -494,12 +587,13 @@
         "de": "Du pflegst ältere Menschen respektvoll, emphatisch und persönlich und dir ist die Selbstbestimmung der Bewohner:innen ein Anliegen? Dann bist du bei uns genau richtig.\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "fr": "Descrizione Vous respectez, empathez et personnalisez avec les personnes âgées et vous êtes l'autodétermination des habitants: au cœur de votre préoccupation? Alors vous avez raison avec nous.\n• Type: à temps partiel\n• Temporaire: illimité"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2275/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:15:16.385Z",
+      "crawledAt": "2026-07-09T22:38:38.397Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -518,13 +612,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
+        "infermiere-a-diplomato-a-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "infirmier-ere-diplome-e-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
+          "infermiere-a-diplomato-a-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
           "infirmier-ere-diplome-e-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
@@ -574,7 +673,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2262/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:15:15.466Z",
+      "crawledAt": "2026-07-09T22:38:37.591Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -593,12 +692,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "dipartimento-di-gestione-dipartimento-dipartimento-privato-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+        "dipartimento-di-gestione-dipartimento-dipartimento-privato-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "capo-del-dipartimento-privato-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-          "dipartimento-di-gestione-dipartimento-dipartimento-privato-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipartimento-di-gestione-dipartimento-dipartimento-privato-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+          "capo-del-dipartimento-privato-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -608,6 +709,85 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:26:15.288Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gesundheitszentrum-fricktal-e93b8f0ebff8",
+      "slug": "infermiera-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slugByLocale": {
+        "it": "infermiera-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "dipl-nurse-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "de": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "dipl-infirmiere-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+      },
+      "company": "Gesundheitszentrum Fricktal",
+      "companyKey": "gesundheitszentrum-fricktal",
+      "companyDomain": "gzf.ch",
+      "title": "Dipl. Pflegefachperson HF (m/w/d)",
+      "titleByLocale": {
+        "it": "Infermiera HF (m/f/d)",
+        "en": "Dipl. Pflegefachperson HF (m/w/d)",
+        "de": "Dipl. Pflegefachperson HF (m/w/d)",
+        "fr": "Dipl. Infirmière HF (m/f/d)"
+      },
+      "description": "Du betreust mit Herzblut kritisch kranke und frisch operierte Patient:innen und arbeitest gerne interdisziplinär in einem modernen Aufwachstationsteam.\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
+      "descriptionByLocale": {
+        "it": "Si prende cura di pazienti gravemente malati e appena operati con il cuore: dentro e come lavorare interdisciplinare in un moderno team di risveglio.\n• Tipo: Tempo pieno\n• Termine temporaneo: perpetuo",
+        "en": "You take care of critically ill and newly operated patients with your heart: inside and like to work interdisciplinary in a modern awakening team.\n• Type: Full-time\n• Temporary term: perpetual",
+        "de": "Du betreust mit Herzblut kritisch kranke und frisch operierte Patient:innen und arbeitest gerne interdisziplinär in einem modernen Aufwachstationsteam.\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "fr": "Vous prenez soin de patients gravement malades et nouvellement opérés avec votre cœur : à l'intérieur et comme travailler interdisciplinaire dans une équipe d'éveil moderne.\n• Type: Temps plein\n• Terme temporaire : perpétuel"
+      },
+      "needsRetranslation": true,
+      "location": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2266/Description/1",
+      "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T22:38:36.764Z",
+      "addressLocality": "Rheinfelden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4310",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2266/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "infermiera-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+          "infermiera-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "firstSeenAt": "2026-07-08T22:15:13.662Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -693,240 +873,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "gesundheitszentrum-fricktal-e93b8f0ebff8",
-      "slug": "infermiera-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-      "slugByLocale": {
-        "de": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "infermiera-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-nurse-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "dipl-infirmiere-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
-      },
-      "company": "Gesundheitszentrum Fricktal",
-      "companyKey": "gesundheitszentrum-fricktal",
-      "companyDomain": "gzf.ch",
-      "title": "Dipl. Pflegefachperson HF (m/w/d)",
-      "titleByLocale": {
-        "de": "Dipl. Pflegefachperson HF (m/w/d)",
-        "en": "Dipl. Nurse HF (m/f/d)",
-        "it": "Infermiera HF (m/f/d)",
-        "fr": "Dipl. Infirmière HF (m/f/d)"
-      },
-      "description": "Du betreust mit Herzblut kritisch kranke und frisch operierte Patient:innen und arbeitest gerne interdisziplinär in einem modernen Aufwachstationsteam.\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
-      "descriptionByLocale": {
-        "de": "Du betreust mit Herzblut kritisch kranke und frisch operierte Patient:innen und arbeitest gerne interdisziplinär in einem modernen Aufwachstationsteam.\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
-        "it": "Si prende cura di pazienti gravemente malati e appena operati con il cuore: dentro e come lavorare interdisciplinare in un moderno team di risveglio.\n\n• Tipo: Tempo pieno\n• Termine temporaneo: perpetuo",
-        "en": "You take care of critically ill and newly operated patients with your heart: inside and like to work interdisciplinary in a modern awakening team.\n\n• Type: Full-time\n• Temporary term: perpetual",
-        "fr": "Vous prenez soin de patients gravement malades et nouvellement opérés avec votre cœur : à l'intérieur et comme travailler interdisciplinaire dans une équipe d'éveil moderne.\n\n• Type: Temps plein\n• Terme temporaire : perpétuel"
-      },
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2266/Description/1",
-      "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:15:13.662Z",
-      "addressLocality": "Rheinfelden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4310",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2266/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-08T22:15:13.662Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "en": [
-          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-      ]
-    },
-    {
-      "id": "gesundheitszentrum-fricktal-6b2870814bf5",
-      "slug": "personale-in-paziente-amministrazione-interna-f-m-d-gesundheitszentrum-fricktal-rheinfelden",
-      "slugByLocale": {
-        "it": "personale-in-paziente-amministrazione-interna-f-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "personnel-in-patient-internal-administration-f-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "de": "sachbearbeiter-in-patient-innenadministration-w-m-d-gesundheitszentrum-fricktal",
-        "fr": "personnel-chez-le-patient-administration-interne-f-m-d-gesundheitszentrum-fricktal-rheinfelden"
-      },
-      "company": "Gesundheitszentrum Fricktal",
-      "companyKey": "gesundheitszentrum-fricktal",
-      "companyDomain": "gzf.ch",
-      "title": "Sachbearbeiter:in Patient:innenadministration (w/m/d)",
-      "titleByLocale": {
-        "it": "Agente:in pazienti:in pazienti,195 (p/m/d)",
-        "en": "Agent:in patient:in-patients,195 (w/m/d)",
-        "de": "Sachbearbeiter:in Patient:innenadministration (w/m/d)",
-        "fr": "Agent: chez le patient:chez les patients, 195 (m/j)"
-      },
-      "description": "Stellst du lieber Rechnungen als sie zu bezahlen? Unser rund 7-köpfiges Team freut sich auf deine Verstärkung!\n\n• Bereich: RF Patientenadministration\n• Art: Vollzeit\n• Befristung: Unbefristet",
-      "descriptionByLocale": {
-        "it": "Preferisci fare le bollette piuttosto che pagarle? Il nostro team di circa 7 è in attesa del tuo rinforzo!\n• Area: RF Pazienti (D) * Tipo: Tempo pieno\n• Termine limite: Illimitato",
-        "en": "Do you prefer to make bills rather than pay them? Our team of around 7 is looking forward to your reinforcement!\n• Area: RF Patients (D) * Type: Full-time\n• Time limit: Unlimited",
-        "de": "Stellst du lieber Rechnungen als sie zu bezahlen? Unser rund 7-köpfiges Team freut sich auf deine Verstärkung!\n• Bereich: RF Patientenadministration\n• Art: Vollzeit\n• Befristung: Unbefristet",
-        "fr": "Vous préférez faire des factures plutôt que de les payer? Notre équipe d'environ 7 personnes attend avec impatience votre renfort!\n• Zone : Patients RF (D) * Type : Temps plein\n• Délai : Illimité"
-      },
-      "needsRetranslation": false,
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2283/Description/1",
-      "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T11:21:31.581Z",
-      "addressLocality": "Rheinfelden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4310",
-      "category": "Amministrazione",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-23",
-      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2283/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-patient-innenadministration-w-m-d-gesundheitszentrum-fricktal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-patient-innenadministration-w-m-d-gesundheitszentrum-fricktal"
-        ],
-        "en": [
-          "sachbearbeiter-in-patient-innenadministration-w-m-d-gesundheitszentrum-fricktal"
-        ],
-        "fr": [
-          "sachbearbeiter-in-patient-innenadministration-w-m-d-gesundheitszentrum-fricktal"
-        ]
-      },
-      "firstSeenAt": "2026-06-23T11:39:24.124Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
       },
       "crawlerMissStreak": 1
-    },
-    {
-      "id": "gesundheitszentrum-fricktal-cbd28c121b67",
-      "slug": "dipl-tecnica-chirurgica-specialistica-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-      "slugByLocale": {
-        "it": "dipl-tecnica-chirurgica-specialistica-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-specialist-surgical-technique-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "de": "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "dipl-technique-chirurgicale-specialisee-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
-      },
-      "company": "Gesundheitszentrum Fricktal",
-      "companyKey": "gesundheitszentrum-fricktal",
-      "companyDomain": "gzf.ch",
-      "title": "Dipl. Fachperson Operationstechnik HF (m/w/d)",
-      "titleByLocale": {
-        "it": "Dipl. Tecnica chirurgica specialistica HF (m/f/d)",
-        "en": "Dipl. Specialist surgical technique HF (m/f/d)",
-        "de": "Dipl. Fachperson Operationstechnik HF (m/w/d)",
-        "fr": "Dipl. Technique chirurgicale spécialisée HF (m/f/d)"
-      },
-      "description": "Wenn du gerne interdisziplinär arbeitest und dich in verschiedenen Fachgebieten einbringen möchtest, erwartet dich eine abwechslungsreiche Tätigkeit an zwei Standorten mit moderner Infrastruktur. Werde Teil unseres Teams, wir freuen uns auf dich!\n\n• Bereich: RF Operationssaal\n• Art: Vollzeit\n• Befristung: Unbefristet",
-      "descriptionByLocale": {
-        "it": "Se ti piace lavorare in modo interdisciplinare e vuoi coinvolgere in diverse aree di competenza, puoi aspettarti un lavoro vario in due sedi con infrastrutture moderne. Diventa parte della nostra squadra, non vediamo l'ora di te!\n• Area: Sala operatoria RF\n• Tipo: Tempo pieno\n• Termine temporaneo: perpetuo",
-        "en": "If you like to work in an interdisciplinary manner and want to get involved in different areas of expertise, you can expect a varied job at two locations with modern infrastructure. Become part of our team, we look forward to you!\n• Area: RF Operating Room\n• Type: Full-time\n• Temporary term: perpetual",
-        "de": "Wenn du gerne interdisziplinär arbeitest und dich in verschiedenen Fachgebieten einbringen möchtest, erwartet dich eine abwechslungsreiche Tätigkeit an zwei Standorten mit moderner Infrastruktur. Werde Teil unseres Teams, wir freuen uns auf dich!\n• Bereich: RF Operationssaal\n• Art: Vollzeit\n• Befristung: Unbefristet",
-        "fr": "Si vous aimez travailler de manière interdisciplinaire et que vous voulez vous impliquer dans différents domaines d'expertise, vous pouvez vous attendre à un travail varié à deux endroits avec une infrastructure moderne. Devenez membre de notre équipe, nous vous attendons avec impatience!\n• Domaine : Salle d'opération RF\n• Type: Temps plein\n• Terme temporaire : perpétuel"
-      },
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2295/Description/1",
-      "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:21:51.745Z",
-      "addressLocality": "Rheinfelden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4310",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2295/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "en": [
-          "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "fr": [
-          "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T13:49:21.387Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
