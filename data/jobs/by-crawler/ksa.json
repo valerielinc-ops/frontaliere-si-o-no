@@ -16,15 +16,17 @@
       "companyDomain": "ksa.ch",
       "title": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
-        "de": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
+        "de": "Nachdiplomatur Dipl. Expertin / Experten Notfallpflege NDS HF",
         "en": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
         "it": "Dipl. Expertin / Experte Notfallpflege NDS HF",
         "fr": "Expertin / Experte Notfallpflege NDS HF"
       },
       "description": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
-        "en": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Nachdiplomatur Dipl. Expertin / Experten-Rathance NDS HF — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF. Kantonspartital Aarau (KSA), Aarau",
+        "fr": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF — Kantonsspital Aarau (SAOUD), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -64,7 +66,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-d583802610c8",
@@ -150,10 +153,10 @@
       },
       "description": "Psychotherapeutin/Psychotherapeut für den Fachbereich Psychoonkologie am Kantonsspital Aarau — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Psychotherapeutin/Psychotherapeut für den Fachbereich Psychoonkologie am Kantonsspital Aarau — Kantonsspital Aarau (KSA), Aarau",
-        "it": "Psicoterapeuta per il Dipartimento di Psicooncologia presso l'Ospedale di Canton Aarau — Ospedale di Canton Aarau (KSA), Aarau",
-        "en": "Psychotherapist for the Department of Psychooncology at the Canton Hospital Aarau — Canton Hospital Aarau (KSA), Aarau",
-        "fr": "Psychothérapeute du Département de psychooncologie de l'Hôpital cantonal Aarau — Hôpital cantonal Aarau (KSA), Aarau"
+        "de": "## Beschreibung\n\nPsychotherapeutin/Psychotherapeut für den Fachbereich Psychoonkologie am Kantonsspital Aarau — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Descrizione Psicoterapeuta del Dipartimento di Psicooncologia dell'Ospedale cantonale Aarau. Kantonspinal Aarau (KSA), Aarau",
+        "en": "Description Psychotherapist for the Department of Psychooncology at the Cantonal Hospital Aarau — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description Psychothérapie au Département de Psychooncologie de l'Hôpital Cantonal Aarau — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -180,7 +183,6 @@
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "psychotherapeutin-psychotherapeut-fur-den-fachbereich-psychoonkologie-am-kantonsspital"
@@ -364,14 +366,16 @@
       "title": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum",
       "titleByLocale": {
         "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum",
-        "it": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum",
-        "en": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum",
-        "fr": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum"
+        "it": "Medico senior Centro di emergenza interdisciplinare",
+        "en": "Senior physician Interdisciplinary Emergency Center",
+        "fr": "Médecin principal Centre interdisciplinaire d'urgence"
       },
       "description": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
-        "it": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau",
+        "it": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -411,7 +415,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-37758d07bf5b",
@@ -662,7 +667,9 @@
       "description": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse — Kantonsspital Aarau (KSA), Aarau"
+        "fr": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Infermiera professionale diplomata / Infermiere professionale diplomato Dialisi — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Dipl. Pflegefachfrau / Pflegefachmann Dialysis — Kantonspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -702,7 +709,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "ksa-da90026a91b5",
@@ -718,10 +726,10 @@
       "companyDomain": "ksa.ch",
       "title": "ICT Applikationsmanager/in (ServiceNow)",
       "titleByLocale": {
-        "de": "ICT Applikationsmanager/in (ServiceNow)",
+        "de": "IKT-Gerätemanager/in (Service-Dinge)",
         "fr": "ICT Applikationsmanager/in (ServiceNow)",
-        "it": "ICT Applikationsmanager/in (ServiceNow)",
-        "en": "ICT Applikationsmanager/in (ServiceNow)"
+        "it": "Applicazioni TIC per uso personale/in (cose di servizio)",
+        "en": "ICT Appliancesmanager/in (Service-Things)"
       },
       "description": "ICT Applikationsmanager/in (ServiceNow) — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -765,7 +773,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-beab4c7b3e53",
@@ -929,10 +938,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "de": "logi.Hyardfachfrau /Hyardfachmann",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann"
+        "fr": "Pflegefachfrau / Pflegefachmann",
+        "en": "logi. Pflegefachfrau / Pflegefachmann"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -978,8 +987,10 @@
       },
       "firstSeenAt": "2026-07-08T22:21:13.608Z",
       "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
       ],
+      "retranslationAttempts": 1,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
@@ -1013,8 +1024,10 @@
       },
       "description": "Oberärztin / Oberarzt Schmerztherapie SSIPM, optional Facharzttitel Anästhesie — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Oberärztin / Oberarzt Schmerztherapie SSIPM, optional Facharzttitel Anästhesie — Kantonsspital Aarau (KSA), Aarau",
-        "en": "Oberärztin / Oberarzt Schmerztherapie SSIPM, optional Facharzttitel Anästhesie — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Beschreibung Oberärztin / Oberarzt Claudestherapie SSIPM, optional Facharzttitel Anästhesie — Kantonspital Aarau (KSA), Aarau",
+        "en": "## Description\n\nOberärztin / Oberarzt Schmerztherapie SSIPM, optional Facharzttitel Anästhesie — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Descrizione Oberärztin / Oberarzt Schmerztherapie SSIPM, optional Facharzttitel Anästhesie. Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description Oberärztin / Oberarzt Schmerztherapie SSIPM, Facharzttitel Anästhesie en option — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -1041,7 +1054,6 @@
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1071,9 +1083,9 @@
       "title": "Arztsekretär/in",
       "titleByLocale": {
         "de": "Arztsekretär/in",
-        "fr": "Arztsekretär/in",
+        "fr": "Secrétaire médical",
         "it": "L'Europa",
-        "en": "Arztsekretär/in"
+        "en": "Medical Secretary"
       },
       "description": "Arztsekretär/in — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -1125,7 +1137,8 @@
       },
       "previousSlugs": [
         "arztsekretar-in-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-865888c9f66b",
@@ -1142,13 +1155,16 @@
       "title": "Ärztliche Leiterin / Ärztlicher Leiter Sanitätsnotrufzentrale 144 Aargau",
       "titleByLocale": {
         "de": "Ärztliche Leiterin / Ärztlicher Leiter Sanitätsnotrufzentrale 144 Aargau",
-        "it": "Direttore medico / Medical Director Medical Emergency Center 144 Aargau",
-        "en": "Medical Director / Medical Director Medical Emergency Center 144 Aargau",
-        "fr": "Directeur médical / Directeur médical Centre d'urgence médicale 144 Aargau"
+        "it": "Responsabile Medico Centro di Emergenza 144 Aargau",
+        "en": "Medical Director Emergency Call Center 144 Aargau",
+        "fr": "Directeur Médical Centre d'Urgence 144 Aargau"
       },
       "description": "Ärztliche Leiterin / Ärztlicher Leiter Sanitätsnotrufzentrale 144 Aargau — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Ärztliche Leiterin / Ärztlicher Leiter Sanitätsnotrufzentrale 144 Aargau — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Beschreibung\n\nÄrztliche Leiterin / Ärztlicher Leiter Sanitätsnotrufzentrale 144 Aargau — Kantonsspital Aarau (KSA), Aarau\n\nAufgaben\n\n-\n\nAnforderungen\n\n-\n\nWir bieten\n\n-\n\nKontakt",
+        "it": "Descrizione Direttore medico / Direttore medico Centro medico di emergenza 144 Argovia. Aarau Kantonspinal (KSA), Aarau Compiti - Requisiti - Offriamo - Contatto",
+        "en": "Description Medical Director / Medical Director Medical Emergency Centre 144 Aargau — Kantonsspital Aarau (KSA), Aarau Tasks - Requirements - We offer - Contact",
+        "fr": "Description Directeur médical / Directeur médical Centre d'urgence médicale 144 Aargau — Kantonsspital Aarau (KSA), Aarau Tâches - Exigences - Nous offrons - Contact"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -1175,7 +1191,6 @@
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "arztliche-leiterin-arztlicher-leiter-sanitatsnotrufzentrale-144-aargau-ksa-ch"
@@ -1225,8 +1240,10 @@
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann Gastroenterologie/Endoskopie — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann Gastroenterologie/Endoskopie — Kantonsspital Aarau (KSA), Aarau",
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann Gastroenterologie/Endoskopie — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Beschreibung logi.Hyardfachfrau /Hyardfachmann Gastroenterologie/Endoskopie.Tonspital Aarau (KSA), Aarau",
+        "it": "## Descrizione\n\nDipl. Pflegefachfrau / Pflegefachmann Gastroenterologie/Endoskopie — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Description logi. Pflegefachfrau / Pflegefachmann Gastroenterologie/Endoskopie. Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description du produit Pflegefachfrau / Pflegefachmann Gastroenterologie/Endoskopie. Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -1266,7 +1283,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-331ead23b63b",
@@ -1289,8 +1307,9 @@
       },
       "description": "Dipl. Radiologiefachfrau / Radiologiefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dipl. Radiologiefachfrau / Radiologiefachmann — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Dipl. Radiologiefachfrau / Radiologiefachmann — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Dipl.-Ing. Radiologiefachfrau / Radiologiefachmann — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Dipl. Radiologiefachfrau / Radiologiefachmann — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Specialista in radiologia certificato - Ospedale cantonale di Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -1341,7 +1360,8 @@
       },
       "previousSlugs": [
         "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 2
     },
     {
       "id": "ksa-93ff4c8bed07",
@@ -1359,7 +1379,7 @@
       "titleByLocale": {
         "de": "Sanitätsnotrufzentrale 144",
         "it": "Disponent/in Sanitätsnotrufzentrale 144",
-        "en": "Sanitätsnotrufzentrale 144",
+        "en": "Emergency medical centre 144",
         "fr": "Santé publique 144"
       },
       "description": "Disponent/in Sanitätsnotrufzentrale 144 — Kantonsspital Aarau (KSA), Aarau",
@@ -1412,7 +1432,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-89883f785c0b",
@@ -1659,9 +1680,9 @@
       "title": "Fachexpertin / Fachexperte Pflege",
       "titleByLocale": {
         "de": "Fachexpertin / Fachexperte Pflege",
-        "it": "Fachexpertin / Fachexperte Pflege",
-        "en": "Fachexpertin / Fachexperte Pflege",
-        "fr": "Fachexpertin / Fachexperte Pflege"
+        "it": "Esperto in cure infermieristiche",
+        "en": "Specialist / specialist care",
+        "fr": "Spécialiste / soins spécialisés"
       },
       "description": "Fachexpertin / Fachexperte Pflege — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -1705,7 +1726,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-3d8875a36df8",
@@ -1721,9 +1743,9 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Physiotherapeut/in",
       "titleByLocale": {
-        "de": "Dipl. Physiotherapeut/in",
+        "de": "Dipl. Physio-Tab.",
         "en": "Dipl. Physiotherapeut/in",
-        "fr": "Dipl. Physiotherapeut/in",
+        "fr": "Dipl. Physiothérapeute/en",
         "it": "Dipl. Fisioterapie/in"
       },
       "description": "Dipl. Physiotherapeut/in — Kantonsspital Aarau (KSA), Aarau",
@@ -1778,7 +1800,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-6620dbf2e87a",
@@ -1794,10 +1817,10 @@
       "companyDomain": "ksa.ch",
       "title": "ICT Supporter/in Service Desk",
       "titleByLocale": {
-        "de": "ICT Supporter/in Service Desk",
+        "de": "ICT Support/in Service Desk",
         "fr": "ICT Supporter/in Service Desk",
         "it": "Supporto ICT/in Service Desk",
-        "en": "ICT Supporter/in Service Desk"
+        "en": "ICT Support/in Service Desk"
       },
       "description": "ICT Supporter/in Service Desk — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -1841,7 +1864,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-e281407517fc",
@@ -1864,7 +1888,10 @@
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Überwachungspflege — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Überwachungspflege — Kantonsspital Aarau (KSA), Aarau"
+        "de": "## Beschreibung\n\nDipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Überwachungspflege — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Descrizione Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Surveillancepflege. Kantonspartital Aarau (KSA), Aarau",
+        "en": "Description Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Surveillancepflege — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Surveillancepflege — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -1904,7 +1931,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "ksa-f35cb0abe3c9",
@@ -1921,14 +1949,16 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Nachtdienst",
       "titleByLocale": {
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Nachtdienst",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann Nachtdienst",
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann Nachtdienst",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann Nachtdienst"
+        "fr": "Dipl. Pflegeffachfrau / Pflegefachmann Nachtdienst",
+        "it": "Infermiere/a dipl. servizio notturno",
+        "en": "Dipl. Pflegeffachfrau / Pflegefachmann Nachtdienst"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann Nachtdienst — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann Nachtdienst — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann Nachtdienst — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Dipl. Pflegefachfrau / Pflegefachmann Nachtdienst — Kantonspital Aarau (KSA), Aarau",
+        "fr": "Dipl. Pflegefachfrau / Pflegefachmann Nachtdienst — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Dipl. Pflegefachfrau / Pflegefachmann Nachtdienst — Kantonspital Aarau (KSA), Aarau",
+        "en": "Dipl. Pflegefachfrau / Pflegefachmann Nachtdienst — Kantonspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -1968,7 +1998,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-efaa616bf2a8",
@@ -1984,10 +2015,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "de": "logi.Hyardfachfrau /Hyardfachmann",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann"
+        "fr": "Pflegefachfrau / Pflegefachmann",
+        "en": "logi. Pflegefachfrau / Pflegefachmann"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -2039,7 +2070,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-968b793c93c3",
@@ -2057,13 +2089,15 @@
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann Onkologie / Hämatologie",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann Onkologie / Hämatologie",
-        "en": "Pflegefachfrau / Pflegefachmann Onkologie / Hämatologie",
-        "fr": "Pflegefachfrau / Pflegefachmann Onkologie / Hämatologie"
+        "en": "Care professional / nursing specialist Oncology / Haematology",
+        "fr": "Spécialiste des soins infirmiers et professionnels de l'oncologie / hématologie"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann Onkologie / Hämatologie — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann Onkologie / Hämatologie — Kantonsspital Aarau (KSA), Aarau",
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann Onkologie / Hämatologie — Kantonsspital Aarau (KSA), Aarau"
+        "de": "logi.Hydrichfg. /Hydrichfg. Onkologie / Hämatologie.Hannspital Aarau (KSA), Aarau",
+        "it": "Dipl. Pflegefachfrau / Pflegefachmann Onkologie / Hämatologie — Kantonsspital Aarau (KSA), Aarau",
+        "en": "logi. Pflegefachfrau / Pflegefachmann Onkologie / Hämatologie. Kantonsspital Aarau (KSA), Aarau",
+        "fr": "L'article 3 de la directive 77/515/CEE du Conseil, du 19 décembre 1977, concernant les prescriptions minimales de sécurité et de santé au travail (JO L 347 du 31.12.1989, p. 1)."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -2103,7 +2137,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-216675efc898",
@@ -2120,9 +2155,9 @@
       "title": "Praktikant/in als Springer und Sitzwache",
       "titleByLocale": {
         "de": "Praktikant/in als Springer und Sitzwache",
-        "fr": "Praktikant/in als Springer und Sitzwache",
+        "fr": "Interne comme sauteur et garde de siège",
         "it": "Praktikant/in come Springer e Sitzwache",
-        "en": "Praktikant/in als Springer und Sitzwache"
+        "en": "Intern as a jumper and seat guard"
       },
       "description": "Praktikant/in als Springer und Sitzwache — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -2174,7 +2209,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-45037e1d182c",
@@ -2191,14 +2227,16 @@
       "title": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie",
       "titleByLocale": {
         "de": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie",
-        "fr": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie",
+        "fr": "Médecin principal (BF) Neurochirurgie",
         "it": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgia",
         "en": "Oberärztin / Oberarzt (ggf. mbF) Neurosurgery"
       },
       "description": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Öärztin / Oberarzt (ggf. mbF) Neurochir Sturge — Historispital Aarau (KSA), Aarau",
+        "fr": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Medico specialista senior / medico specialista senior (eventualmente mbF) Neurochirurgia — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Öärztin / Oberarzt (ggf. mbF) Neurochir Sturge — Kantonspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -2238,7 +2276,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "ksa-883741971424",
@@ -2256,13 +2295,14 @@
       "titleByLocale": {
         "de": "Fachperson für neurophysiologische Diagnostik",
         "it": "Fachperson per neurophysiologische Diagnostik",
-        "en": "Fachperson für neurophysiologische Diagnostik",
-        "fr": "Fachperson für neurophysiologische Diagnostik"
+        "en": "Specialist in neurophysiological diagnostics",
+        "fr": "Spécialiste en diagnostic neurophysiologique"
       },
       "description": "Fachperson für neurophysiologische Diagnostik — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
         "de": "Fachperson für neurophysiologische Diagnostik — Kantonsspital Aarau (KSA), Aarau",
-        "it": "Fachperson für neurophysiologische Diagnostik — Kantonsspital Aarau (KSA), Aarau"
+        "it": "Fachperson für neurophysiologische Diagnostik — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Professionnel en diagnostic neurophysiologique — Hôpital cantonal d'Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -2310,7 +2350,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-455217732b9e",
@@ -2329,12 +2370,14 @@
         "de": "Nachdiplomstudieng Dipl. Experten / Experten Intensivpflege NDS HF",
         "en": "Nachdiplomstudieng Dipl. Experts / Experts Intensivpflege NDS HF",
         "it": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
-        "fr": "Nachdiplomstudieng Dipl. Experts / Experts Intensivpflege NDS HF"
+        "fr": "Etudes postgrades Experts / expertes en soins intensifs EPD ES"
       },
       "description": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
-        "it": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Beschreibung Nachdiplom studiengang condetta Đ.pentin /Steper Intensivpflege NDS HF.Tonspital Aarau (KSA), Aarau",
+        "it": "## Descrizione\n\nNachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Description Nachdiplomstudiengang condotta Đ.pentin /Steper Intensivpflege NDS HF. Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description Nachdiplomstudiengang condotta ↓.pentin /Steper Intensifpflege NDS HF. Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -2374,7 +2417,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-87493a1efa3d",
@@ -2391,14 +2435,16 @@
       "title": "Service-/Unterhaltstechniker/in Heizung-Kälte",
       "titleByLocale": {
         "de": "Service-/Unterhaltstechniker/in Heizung-Kälte",
-        "it": "Service-/Unterhaltstechniker/in Heizung-Kälte",
-        "en": "Service-/Unterhaltstechniker/in Heizung-Kälte",
-        "fr": "Service-/Unterhaltstechniker/in Heizung-Kälte"
+        "it": "Tecnico di servizio/manutenzione/in refrigerazione di riscaldamento",
+        "en": "Service/maintenance technician/in heating refrigeration",
+        "fr": "Service/matériel/entretien/chauffage frigorifique"
       },
       "description": "Service-/Unterhaltstechniker/in Heizung-Kälte — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
         "de": "Service-/Unterhaltstechniker/in Heizung-Kälte — Kantonsspital Aarau (KSA), Aarau",
-        "it": "Service-/Unterhaltstechniker/in Heizung-Kälte — Kantonsspital Aarau (KSA), Aarau"
+        "it": "Service-/Unterhaltstechniker/in Heizung-Kälte — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Service/maintenance technician Heating-Cooling — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Technicien/ne en service et maintenance chauffage-froid — Hôpital cantonal d'Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -2438,7 +2484,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-596574757489",
@@ -2454,10 +2501,10 @@
       "companyDomain": "ksa.ch",
       "title": "Studium Radiologiefachperson HF",
       "titleByLocale": {
-        "de": "Studium Radiologiefachperson HF",
+        "de": "WISSENSCHAFTLICHER WISSENSCHAFTSVERKEHR",
         "en": "Studium Radiologiefachperson HF",
-        "it": "Studium Radiologiefachperson HF",
-        "fr": "Studium Radiologiefachperson HF"
+        "it": "Studio Radiologiefachperson HF",
+        "fr": "Etude Radiologiefachperson HF"
       },
       "description": "Studium Radiologiefachperson HF — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -2509,7 +2556,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-1150b9473d2c",
@@ -2525,10 +2573,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "de": "logi.Hyardfachfrau /Hyardfachmann",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann"
+        "fr": "Pflegefachfrau / Pflegefachmann",
+        "en": "logi. Pflegefachfrau / Pflegefachmann"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -2580,7 +2628,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-fdd20d71aa74",
@@ -2598,15 +2647,15 @@
       "titleByLocale": {
         "de": "Dipl. Expertin / Experte Intensivpflege oder Dipl. Pflegefachfrau / Pflegefachmann mit Erfahrung in Neonathologie",
         "it": "Dipl. Expertin / Experte Intensivpflege o Dipl. Pflegefachfrau / Pflegefachmann con Erfahrung in Neonatologie",
-        "en": "Dipl. Expertin / Experte Intensivpflege oder Dipl. Pflegefachfrau / Pflegefachmann mit Erfahrung in Neonathologie",
-        "fr": "Dipl. Expertin / Experte Intensivpflege oder Dipl. Pflegefachfrau / Pflegefachmann mit Erfahrung in Neonathologie"
+        "en": "Dipl. Expert / Expert Intensive Care or Dipl. Care Specialist / Care Specialist with experience in neonathology",
+        "fr": "Dipl. Expert / Expert Soins intensifs ou Dipl. Spécialiste des soins / Spécialiste des soins avec expérience en néonathologie"
       },
       "description": "Dipl. Expertin / Experte Intensivpflege oder Dipl. Pflegefachfrau / Pflegefachmann mit Erfahrung in Neonatologie — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dipl. Expertin / Experte Intensivpflege oder Dipl. Pflegefachfrau / Pflegefachmann mit Erfahrung in Neonatologie — Kantonsspital Aarau (KSA), Aarau",
-        "it": "Dipl. Expertin / Experte Intensivpflege oder Dipl. Pflegefachfrau / Pflegefachmann mit Erfahrung in Neonatologie — Kantonsspital Aarau (KSA), Aarau",
-        "en": "Dipl. Expertin / Experte Intensivpflege oder Dipl. Pflegefachfrau / Pflegefachmann mit Erfahrung in Neonatologie — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Dipl. Expertin / Experte Intensivpflege oder Dipl. Pflegefachfrau / Pflegefachmann mit Erfahrung in Neonatologie — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Beschreibung stessi.extendin /Absente Intensivpflege oder stessi.Hyardfachfrau /Hyardfachmann mit Erfahrung in Neonologie.Hannspital Aarau (KSA), Aarau",
+        "it": "## Descrizione\n\nDipl. Expertin / Experte Intensivpflege oder Dipl. Pflegefachfrau / Pflegefachmann mit Erfahrung in Neonatologie — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Description stessi.extendin /Absente Intensivpflege oder stessi. Pflegefachfrau / Pflegefachmann mit Erfahrung in Neonologie. Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description stessi.extendin /Absente Intensifpflege oder stessi. Pflegefachfrau / Pflegefachmann mit Erfahrung in Neonologie. Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -2644,7 +2693,6 @@
       "previousSlugs": [
         "dipl-expertin-experte-intensivpflege-oder-dipl-pflegefachfrau-pflegefachmann-mit-erfahrung"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2751,9 +2799,9 @@
       "title": "Arztsekretärin / Arztsekretär Augenklinik",
       "titleByLocale": {
         "de": "Arztsekretärin / Arztsekretär Augenklinik",
-        "fr": "Arztsekretärin / Arztsekretär Augenklinik",
-        "it": "Arztsekretärin / Arztsekretär Augenklinik",
-        "en": "Arztsekretärin / Arztsekretär Augenklinik"
+        "fr": "Secrétaire du docteur/clinique des yeux",
+        "it": "Dottore/Occhio di Fisico Clinico",
+        "en": "Doctor's Secretary/Physician's Eye Clinic"
       },
       "description": "Arztsekretärin / Arztsekretär Augenklinik — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -2797,7 +2845,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-491d1d7b63c7",
@@ -2892,7 +2941,7 @@
       "titleByLocale": {
         "de": "Med. Praxisassistent/im Notfall",
         "it": "Med. Praxisassistent/in Notfall",
-        "en": "Med. Praxisassistent/in Notfall",
+        "en": "Med. Praxisassistant/in Notfall",
         "fr": "Med. Praxissing/in Notfall"
       },
       "description": "Med. Praxisassistent/in Notfall — Kantonsspital Aarau (KSA), Aarau",
@@ -2937,7 +2986,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-8247dfc4761f",
@@ -2953,10 +3003,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "de": "logi.Hyardfachfrau /Hyardfachmann",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann"
+        "fr": "Pflegefachfrau / Pflegefachmann",
+        "en": "logi. Pflegefachfrau / Pflegefachmann"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -3008,7 +3058,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-afc738ae9e2d",
@@ -3178,9 +3229,9 @@
       "title": "Med. Praxisassistent/in",
       "titleByLocale": {
         "de": "Med. Praxisassistent/in",
-        "fr": "Med. Praxisassistent/in",
-        "it": "Med. Praxisassistent/in",
-        "en": "Med. Praxisassistent/in"
+        "fr": "Assistante médicale",
+        "it": "Assistente medico",
+        "en": "Med. Assistant"
       },
       "description": "Med. Praxisassistent/in — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -3232,7 +3283,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-e4793a6de1b2",
@@ -4829,7 +4881,10 @@
       },
       "description": "Praxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Praxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau"
+        "de": "## Beschreibung\n\nPraxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Descrizione\n\nGiornata di pratica - Uno sguardo dietro le quinte delle cure di emergenza e di terapia intensiva Pediatria — Ospedale cantonale di Aarau (KSA), Aarau",
+        "en": "Description Day of Practice - A glimpse behind the scenes of emergency and intensive care Pediatrics — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description Jour de pratique - Un aperçu dans les coulisses de la pédiatrie en cas d'urgence et de soins intensifs — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -4856,7 +4911,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "praxistag-ein-blick-hinter-die-kulissen-der-notfall-und-intensivpflege-padiatrie-ksa-ch"
@@ -4900,14 +4954,16 @@
       "title": "Pflegepraktikum ausbildungsunabhängig (Medizin)",
       "titleByLocale": {
         "de": "Pflegepraktikum ausbildungsunabhängig (Medizin)",
-        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin)",
+        "fr": "Stage de soins indépendant de la formation (médecine)",
         "it": "Ausbildungsunabhängig (Medizin)",
-        "en": "Pflegepraktikum ausbildungsunabhängig (Medizin)"
+        "en": "Care internship independent of training (medicine)"
       },
       "description": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Die in den Erwägungsgründen 215 bis 316 genannten Maßnahmen sind in den Erwägungsgründen 215 bis 316 der vorläufigen Verordnung aufgeführt.",
+        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Stage di assistenza indipendente dal percorso formativo (Medicina) — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Pflegepraktikum aus bldungsunabhängig (Medizin) — Kantonspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -4947,7 +5003,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.608Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "ksa-6432c5336d51",
@@ -5200,10 +5257,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Hebamme",
       "titleByLocale": {
-        "de": "Dipl. Hebamme",
+        "de": "Dipl.-Ing. Hebamme",
         "fr": "Dipl. Hebamme",
-        "it": "Dipl. Hebamme",
-        "en": "Dipl. Hebamme"
+        "it": "Dipl. Ebamme",
+        "en": "Dipl. Hegram"
       },
       "description": "Dipl. Hebamme — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -5247,7 +5304,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-a83440f6b2be",
@@ -5263,10 +5321,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "de": "logi.Hyardfachfrau /Hyardfachmann",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann"
+        "fr": "Pflegefachfrau / Pflegefachmann",
+        "en": "logi. Pflegefachfrau / Pflegefachmann"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -5318,7 +5376,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-ac4838d9c43c",
@@ -5335,9 +5394,9 @@
       "title": "Leiter/in Pflege",
       "titleByLocale": {
         "de": "Leiter/in Pflege",
-        "fr": "Leiter/in Pflege",
+        "fr": "Chef de service",
         "it": "Responsabile Pflege",
-        "en": "Leiter/in Pflege"
+        "en": "Head of Care"
       },
       "description": "Leiter/in Pflege — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -5389,7 +5448,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-557d71381d6b",
@@ -5405,10 +5465,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "de": "logi.Hyardfachfrau /Hyardfachmann",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann"
+        "fr": "Pflegefachfrau / Pflegefachmann",
+        "en": "logi. Pflegefachfrau / Pflegefachmann"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -5460,7 +5520,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-7eb8e4857a92",
@@ -5477,9 +5538,9 @@
       "title": "Fachexpertin / Fachexperte Pflege",
       "titleByLocale": {
         "de": "Fachexpertin / Fachexperte Pflege",
-        "it": "Fachexpertin / Fachexperte Pflege",
-        "en": "Fachexpertin / Fachexperte Pflege",
-        "fr": "Fachexpertin / Fachexperte Pflege"
+        "it": "Esperto in cure infermieristiche",
+        "en": "Specialist / specialist care",
+        "fr": "Spécialiste / soins spécialisés"
       },
       "description": "Fachexpertin / Fachexperte Pflege — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -5531,7 +5592,8 @@
       },
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-8e60df47da07",
@@ -5548,9 +5610,9 @@
       "title": "Arztsekretär/in",
       "titleByLocale": {
         "de": "Arztsekretär/in",
-        "fr": "Arztsekretär/in",
+        "fr": "Secrétaire médical",
         "it": "L'Europa",
-        "en": "Arztsekretär/in"
+        "en": "Medical Secretary"
       },
       "description": "Arztsekretär/in — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -5604,7 +5666,8 @@
       "previousSlugs": [
         "arztsekretar-in-ksa-ch",
         "arztsekretar-in-ksa-ch-2"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-543b30ee0258",
@@ -5620,10 +5683,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "de": "logi.Hyardfachfrau /Hyardfachmann",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann"
+        "fr": "Pflegefachfrau / Pflegefachmann",
+        "en": "logi. Pflegefachfrau / Pflegefachmann"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -5675,7 +5738,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-5c446bad8d15",
@@ -5691,15 +5755,17 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege",
+        "de": "Dipl.Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich/Hydrich",
         "en": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann o Dipl. Expertin / Experte Notfallpflege",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege"
+        "fr": "Dipl. Pflegefachfrau / Pflegefachmann ou Dipl. Expertin / Experte Notfallpflege"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege — Kantonsspital Aarau (KSA), Aarau",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Beschreibung Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experten Notfallpflege — Kantonspital Aarau (KSA), Aarau",
+        "en": "## Description\n\nDipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Descrizione Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege. Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -5726,7 +5792,6 @@
         "de": []
       },
       "department": "Pilot ohne Motivationsbrief",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-oder-dipl-expertin-experte-notfallpflege-ksa-ch"
@@ -5763,10 +5828,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "de": "logi.Hyardfachfrau /Hyardfachmann",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann"
+        "fr": "Pflegefachfrau / Pflegefachmann",
+        "en": "logi. Pflegefachfrau / Pflegefachmann"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -5818,7 +5883,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-4ff77a59da50",
@@ -5836,7 +5902,7 @@
       "titleByLocale": {
         "de": "ICT Service Manager / Digitale Kommunikation",
         "en": "ICT Service Manager/in Digital Communication",
-        "fr": "ICT Service Manager/in Digital Communication",
+        "fr": "Gestionnaire de services TIC/en communication numérique",
         "it": "ICT Service Manager/in Comunicazione digitale"
       },
       "description": "ICT Service Manager/in Digital Communication — Kantonsspital Aarau (KSA), Aarau",
@@ -5892,7 +5958,8 @@
       },
       "previousSlugs": [
         "ict-service-manager-in-digital-communication-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-d31f95d2346f",
@@ -5909,14 +5976,16 @@
       "title": "Dauernachtdienst - Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
         "de": "Dauernachtdienst - Dipl. Pflegefachfrau / Pflegefachmann",
-        "fr": "Dauernachtdienst - Dipl. Pflegefachfrau / Pflegefachmann",
-        "it": "Dauernachtdienst - Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dauernachtdienst - Dipl. Pflegefachfrau / Pflegefachmann"
+        "fr": "Service de nuit permanent - Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Servizio notturno permanente - Dipl. Pflegefachfrau / Pflegefachmann",
+        "en": "Permanent Night Service - Dipl. Pflegefachfrau / Pflegefachmann"
       },
       "description": "Dauernachtdienst - Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dauernachtdienst - Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Dauernachtdienst - Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Dauernachtdienst-Dipl. Pflegefachfrau / Pflegefachmann-Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Dauernachtdienst - Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Dauernachtdienst-Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Night Shift - Registered Nurse / Registered Nurse — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -5967,7 +6036,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "ksa-8d4a075e55a5",
@@ -5985,8 +6055,8 @@
       "titleByLocale": {
         "de": "Pflegeexpertin / Pflegeexperte",
         "en": "Pflegeexpertin / Pflegeexperte",
-        "it": "Pflegeexpertin / Pflegeexperte",
-        "fr": "Pflegeexpertin / Pflegeexperte"
+        "it": "Experta / Experto en cuidado",
+        "fr": "Pflegeexperttine / Pflegeexperte"
       },
       "description": "Pflegeexpertin / Pflegeexperte — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -6030,7 +6100,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-d4cac2401a08",
@@ -6195,7 +6266,10 @@
       },
       "description": "Oberärztin / Oberarzt i.V. oder Oberärztin / Oberarzt — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Oberärztin / Oberarzt i.V. oder Oberärztin / Oberarzt — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Oberärztin / Oberarzt i.V. oder Oberärztin / Oberarzt — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Medico Capo / Medico Capo ad interim o Medico Capo — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Senior Physician / Attending Physician i.V. or Senior Physician / Attending Physician — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Médecin-chef / Médecin-chef ad interim ou Médecin-chef — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -6249,7 +6323,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-56dad415af4c",
@@ -6272,7 +6347,10 @@
       },
       "description": "Med. Praxisassistent/in oder Medizinstudent/in — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Med. Praxisassistent/in oder Medizinstudent/in — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Med. Praxisassistent/in oder Medizinstudent/in — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Assistente di pratica medica o studente di medicina — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Medical Practice Assistant or Medical Student — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Assistant(e) en pratique médicale ou étudiant(e) en médecine — Hôpital cantonal d'Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -6326,7 +6404,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-68a7e3f83d7f",
@@ -6343,14 +6422,16 @@
       "title": "Oberärztin/Oberarzt interventionelle Kardiologie",
       "titleByLocale": {
         "de": "Oberärztin/Oberarzt interventionelle Kardiologie",
-        "it": "Oberärztin/Oberarzt interventionelle Kardiologie",
-        "en": "Oberärztin/Oberarzt interventionelle Kardiologie",
+        "it": "Medico superiore/Oberarzt Interventiolle Cardiologia",
+        "en": "Upper physician/Oberarzt Interventionelle Cardiology",
         "fr": "Oberärztin/Oberarzt interventionnelle Kardiologie"
       },
       "description": "Oberärztin/Oberarzt interventionelle Kardiologie — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Oberärztin/Oberarzt interventionelle Kardiologie — Kantonsspital Aarau (KSA), Aarau",
-        "it": "Oberärztin/Oberarzt interventionelle Kardiologie — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Oberärztin/Oberarztepteptepteptelle Kardiologie. Kantonsspital Aarau (KSA), Aarau",
+        "it": "Oberärztin/Oberarzt interventionelle Kardiologie — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Senior Physician / Senior Doctor in Interventional Cardiology — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Médecin-chef / Médecin-chef en cardiologie interventionnelle — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -6390,7 +6471,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-3ddb5a8fa516",
@@ -6548,10 +6630,10 @@
       "companyDomain": "ksa.ch",
       "title": "Business Controller/in",
       "titleByLocale": {
-        "de": "Business Controller/in",
+        "de": "Unternehmen (in)",
         "fr": "Business Controller/in",
         "it": "Controllore/in affari",
-        "en": "Business Controller/in"
+        "en": "Business (in)"
       },
       "description": "Business Controller/in — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -6595,7 +6677,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-2819d31aa5ae",
@@ -6611,10 +6694,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "de": "logi.Hyardfachfrau /Hyardfachmann",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann"
+        "fr": "Pflegefachfrau / Pflegefachmann",
+        "en": "logi. Pflegefachfrau / Pflegefachmann"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -6666,7 +6749,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-789829e4fbdc",
@@ -6838,13 +6922,15 @@
       "titleByLocale": {
         "de": "Diplomierter Experte Notfallpflege NDS HF",
         "en": "Diplomierte Expertin / Diplomierter Experte Notfallpflege NDS HF",
-        "it": "Diplomierte Expertin / Diplomierter Experte Notfallpflege NDS HF",
-        "fr": "Diplomierte Expertin / Diplomierter Experte Notfallpflege NDS HF"
+        "it": "Esperto certificato in cure di emergenza NDS HF",
+        "fr": "Expert(e) diplômé(e) en soins d'urgence EPD ES"
       },
       "description": "Diplomierte Expertin / Diplomierter Experte Notfallpflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Diplomierte Expertin / Diplomierter Experte Notfallpflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
-        "en": "Diplomierte Expertin / Diplomierter Experte Notfallpflege NDS HF — Kantonsspital Aarau (KSA), Aarau"
+        "de": "TT-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-SPA-S-SPA-SPA-SPA-SPA-SPA-SPA-S-SPA-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-",
+        "en": "Diplomierte Expertin / Diplomierter Experte Notfallpflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Diplomierte Expertin / Diplomierter Experte Notfallpflege NDS HF. Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Expert(e) diplômé(e) en soins d'urgence EPD ES - Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -6884,7 +6970,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "ksa-d06935f7da80",
@@ -6907,7 +6994,10 @@
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Überwachungspflege — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Überwachungspflege — Kantonsspital Aarau (KSA), Aarau"
+        "de": "## Beschreibung\n\nDipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Überwachungspflege — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Descrizione Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Surveillancepflege. Kantonspartital Aarau (KSA), Aarau",
+        "en": "Description Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Surveillancepflege — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Surveillancepflege — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -6955,7 +7045,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-39bae4f26a6a",
@@ -6978,7 +7069,10 @@
       },
       "description": "Fachangestellte/r Radiologie (MPA / Pflegeberuf) — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Fachangestellte/r Radiologie (MPA / Pflegeberuf) — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Fachangestellte/r Radiologie (MPA / Pflegeberuf) — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Specialista in radiologia (professione di assistenza/MPA). Kantonspinal Aarau (KSA), Aarau",
+        "en": "Specialist in radiology (MPA/care profession) — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Spécialiste en radiologie (MPA/professeur de soins) — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -7032,7 +7126,8 @@
       },
       "previousSlugs": [
         "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-e44b8132fd3d",
@@ -7050,13 +7145,15 @@
       "titleByLocale": {
         "de": "Assistenzärztin / Assistancerzt Rheumatologie und Immunologie",
         "it": "Assistenzärztin / Assistenzarzt Rheumatologie e Immunologie",
-        "en": "Assistenzärztin / Assistancerzt Rheumatologie und Immunologie",
+        "en": "Assistant /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor /assistor",
         "fr": "Aidenzärztin / Assistancerzt Rheumatologie et immunologie"
       },
       "description": "Assistenzärztin / Assistenzarzt Rheumatologie und Immunologie — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Assistenzärztin / Assistenzarzt Rheumatologie und Immunologie — Kantonsspital Aarau (KSA), Aarau",
-        "it": "Assistenzärztin / Assistenzarzt Rheumatologie und Immunologie — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Thermische und thermische Verbindungen, die die thermische und thermische Bildung beeinflussen.",
+        "it": "Assistenzärztin / Assistenzarzt Rheumatologie und Immunologie — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Assistenzärztin / Assistenzt nails and immunologies. Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Assistenzärztin / Assistenzt ongles et immunologies. Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -7104,7 +7201,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-f8441c2b4c9d",
@@ -7127,7 +7225,10 @@
       },
       "description": "Med. Praxisassistent/in oder Fachfrau/Fachmann Gesundheit Lungenfunktionslabor — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Med. Praxisassistent/in oder Fachfrau/Fachmann Gesundheit Lungenfunktionslabor — Kantonsspital Aarau (KSA), Aarau"
+        "de": "## Beschreibung\n\nMed. Praxisassistent/in oder Fachfrau/Fachmann Gesundheit Lungenfunktionslabor — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Descrizione Med. Assistente alla pratica o specialista Health Lung Function Laboratory. Kantonspinal Aarau (KSA), Aarau",
+        "en": "Description Med. Assistant to the practice or specialist Health Lung Function Laboratory — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description Médicament assistant au laboratoire de la fonction pulmonaire de la santé ou spécialiste — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -7181,7 +7282,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-1d4aff4dae80",
@@ -7268,10 +7370,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Expertin / Experte Intensivpflege",
       "titleByLocale": {
-        "de": "Dipl. Expertin / Experte Intensivpflege",
+        "de": "Dipl. Expertin / Experten",
         "en": "Dipl. Expertin / Experte Intensivpflege",
-        "it": "Dipl. Expertin / Experte Intensivpflege",
-        "fr": "Dipl. Expertin / Experte Intensivpflege"
+        "it": "Dipl. Expertin / Esperto Intensivpflege",
+        "fr": "Dipl. Expertin / Experte Intensivepflege"
       },
       "description": "Dipl. Expertin / Experte Intensivpflege — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -7315,7 +7417,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-d02488d26787",
@@ -7338,8 +7441,10 @@
       },
       "description": "Dipl. Expertin / Experte Anästhesiepflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dipl. Expertin / Experte Anästhesiepflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
-        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS HF — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Dipl. Expertin / Experten Anästhesiepflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS HF — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Dipl. Expertin / Experte Anästhesiepflege NDS HF. Kantonspartital Aarau (KSA), Aarau",
+        "fr": "Dipl. Expertin / Experte Anästheliepflege NDS HF — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -7379,7 +7484,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-5b477c32c30d",
@@ -7543,15 +7649,17 @@
       "companyDomain": "ksa.ch",
       "title": "ICT Service Manager/in – Storage & Cloud Engineering",
       "titleByLocale": {
-        "de": "ICT Service Manager/in – Storage & Cloud Engineering",
+        "de": "ICT Service Manager/in – Speicher- und Cloud-Engineering",
         "en": "ICT Service Manager/in – Storage & Cloud Engineering",
-        "fr": "ICT Service Manager/in – Storage & Cloud Engineering",
-        "it": "ICT Service Manager/in – Storage & Cloud Engineering"
+        "fr": "Gestionnaire de services TIC/in – Stockage et ingénierie Cloud",
+        "it": "ICT Service Manager/in. Storage & Cloud Engineering"
       },
       "description": "ICT Service Manager/in – Storage & Cloud Engineering — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "ICT Service Manager/in – Storage & Cloud Engineering — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "ICT Service Manager/in – Storage & Cloud Engineering — Kantonsspital Aarau (KSA), Aarau"
+        "de": "ICT Service Manager/in – Storage & Cloud Engineering – Kantonspital Aarau (KSA), Aarau",
+        "fr": "ICT Service Manager/in – Storage & Cloud Engineering — Kantonsspital Aarau (KSA), Aarau",
+        "it": "ICT Service Manager/in. Storage & Cloud Engineering. Kantonpinal Aarau (KSA), Aarau",
+        "en": "ICT Service Manager/in – Storage & Cloud Engineering — Kantonspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -7591,7 +7699,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.607Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-2c7c3e069273",
@@ -7614,7 +7723,10 @@
       },
       "description": "Med. Praxisassistent/in Kinderwunsch-Sprechstunde — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Med. Praxisassistent/in Kinderwunsch-Sprechstunde — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Med. Praxisassistent/in Kinderwunsch-Sprechstunde — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Assistente Med. nella sessione di desiderio dei bambini. Aarau Kantonspinal (KSA), Aarau",
+        "en": "Medical Practice Assistant in Fertility Consultation — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Assistante médicale en séance de souhaits pour enfants - Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -7668,7 +7780,8 @@
       },
       "previousSlugs": [
         "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-275b519cef1d",
@@ -7685,9 +7798,9 @@
       "title": "Arztsekretär/in",
       "titleByLocale": {
         "de": "Arztsekretär/in",
-        "fr": "Arztsekretär/in",
+        "fr": "Secrétaire médical",
         "it": "L'Europa",
-        "en": "Arztsekretär/in"
+        "en": "Medical Secretary"
       },
       "description": "Arztsekretär/in — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -7741,7 +7854,8 @@
       "previousSlugs": [
         "arztsekretar-in-ksa-ch",
         "arztsekretar-in-ksa-ch-3"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-9b542e807612",
@@ -7757,10 +7871,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "de": "logi.Hyardfachfrau /Hyardfachmann",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann"
+        "fr": "Pflegefachfrau / Pflegefachmann",
+        "en": "logi. Pflegefachfrau / Pflegefachmann"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -7812,7 +7926,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-0b6c3dd0024c",
@@ -7828,10 +7943,10 @@
       "companyDomain": "ksa.ch",
       "title": "Ergotherapeut/in",
       "titleByLocale": {
-        "de": "Ergotherapeut/in",
+        "de": "Ergo-Nr.",
         "en": "Ergotherapeut/in",
-        "fr": "Ergotherapeut/in",
-        "it": "Ergotherapeut/in"
+        "fr": "Ergothérapeute/in",
+        "it": "Ergoterapeutico/in"
       },
       "description": "Ergotherapeut/in — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -7875,7 +7990,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.606Z"
+      "firstSeenAt": "2026-07-08T22:21:13.606Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-0e4faf4798dc",
@@ -7892,9 +8008,9 @@
       "title": "Fachexpertin / Fachexperte Pflege",
       "titleByLocale": {
         "de": "Fachexpertin / Fachexperte Pflege",
-        "it": "Fachexpertin / Fachexperte Pflege",
-        "en": "Fachexpertin / Fachexperte Pflege",
-        "fr": "Fachexpertin / Fachexperte Pflege"
+        "it": "Esperto in cure infermieristiche",
+        "en": "Specialist / specialist care",
+        "fr": "Spécialiste / soins spécialisés"
       },
       "description": "Fachexpertin / Fachexperte Pflege — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -7949,7 +8065,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.606Z"
+      "firstSeenAt": "2026-07-08T22:21:13.606Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-dc3d5b6a3940",
@@ -7965,10 +8082,10 @@
       "companyDomain": "ksa.ch",
       "title": "Still- und Laktationsberater/in",
       "titleByLocale": {
-        "de": "Still- und Laktationsberater/in",
+        "de": "Die Kommission erlässt die erforderlichen Maßnahmen, um sicherzustellen, dass die von den Mitgliedstaaten getroffenen Maßnahmen gemäß dieser Verordnung getroffen werden.",
         "fr": "Still- und Laktationsberater/in",
         "it": "Still- e Laktationsberater/in",
-        "en": "Still- und Laktationsberater/in"
+        "en": "The Commission shall adopt the necessary measures to ensure that the measures taken by the Member States are taken in accordance with the provisions of this Regulation."
       },
       "description": "Still- und Laktationsberater/in — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -8020,7 +8137,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.606Z"
+      "firstSeenAt": "2026-07-08T22:21:13.606Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-860cd5cd29b0",
@@ -8109,7 +8227,7 @@
       "titleByLocale": {
         "de": "Dipl. Radiologiefachmann",
         "en": "Dipl. Radiologiefachperson",
-        "it": "Dipl. Radiologiefachperson",
+        "it": "Dipl. Persona di radiologia",
         "fr": "Dipl. Radiologie"
       },
       "description": "Dipl. Radiologiefachperson — Kantonsspital Aarau (KSA), Aarau",
@@ -8165,7 +8283,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.606Z"
+      "firstSeenAt": "2026-07-08T22:21:13.606Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-90f3d5c7ff5b",
@@ -8188,7 +8307,10 @@
       },
       "description": "Fachfrau / Fachmann für Neurophysiologische Diagnostik (FND) oder — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Fachfrau / Fachmann für Neurophysiologische Diagnostik (FND) oder — Kantonsspital Aarau (KSA), Aarau"
+        "de": "## Beschreibung\n\nFachfrau / Fachmann für Neurophysiologische Diagnostik (FND) oder — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Descrizione Specialista in diagnostica neurofisiologica (FND) o. Kantonspartital Aarau (KSA), Aarau",
+        "en": "Description Specialist in neurophysiological diagnostics (FND) or — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description Spécialiste en diagnostic neurophysiologique (FND) ou — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -8242,7 +8364,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:21:13.605Z"
+      "firstSeenAt": "2026-07-08T22:21:13.605Z",
+      "retranslationAttempts": 1
     }
   ]
 }
