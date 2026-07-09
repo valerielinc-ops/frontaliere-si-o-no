@@ -1,19 +1,21 @@
 {
   "key": "clinica-varini",
   "label": "Clinica Varini",
-  "generatedAt": "2026-07-08T11:39:34.118Z",
+  "generatedAt": "2026-07-09T12:26:42.139Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7804,
-  "avgDurationMs": 7804,
+  "unchangedCount": 2,
+  "durationMs": 7544,
+  "avgDurationMs": 7544,
   "durationHistory": [
-    7804
+    7544
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "clinica-varini-20260311-concorso-dir-sanitario-5213b7bb611b",
       "slug": "concorso-direttore-direttrice-sanitario-clinica-varini-orselina",
@@ -28,7 +30,7 @@
       "applyUrl": "https://clinicavarini.ch/notizie/",
       "source": "Clinica Varini Dedicated Parser (WordPress HTML + PDF)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T11:39:31.884Z",
+      "crawledAt": "2026-07-09T12:26:40.156Z",
       "addressLocality": "Orselina",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -65,7 +67,7 @@
       "applyUrl": "https://clinicavarini.ch/notizie/",
       "source": "Clinica Varini Dedicated Parser (WordPress HTML + PDF)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T11:39:30.637Z",
+      "crawledAt": "2026-07-09T12:26:38.821Z",
       "addressLocality": "Orselina",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -88,7 +90,5 @@
         "completeness": 17
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
