@@ -1,6 +1,6 @@
 {
   "crawlerKey": "climeworks",
-  "assembledAt": "2026-07-09T12:22:39.846Z",
+  "assembledAt": "2026-07-09T22:28:27.585Z",
   "jobs": [
     {
       "id": "climeworks-bcdf637f980a",
@@ -33,7 +33,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:22:37.832Z",
+      "crawledAt": "2026-07-09T22:28:25.260Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -82,6 +82,7 @@
       },
       "remote": true,
       "firstSeenAt": "2026-07-03T21:37:32.367Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -127,7 +128,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-mechanical-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:22:37.830Z",
+      "crawledAt": "2026-07-09T22:28:25.258Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -175,6 +176,7 @@
       },
       "remote": true,
       "firstSeenAt": "2026-07-03T21:37:32.366Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -220,7 +222,7 @@
       "url": "https://climeworks.recruitee.com/o/patent-counsel-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:22:37.829Z",
+      "crawledAt": "2026-07-09T22:28:25.256Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -274,17 +276,20 @@
       },
       "remote": true,
       "previousSlugs": [
-        "patent-counsel-80-100-climeworks-opfikon-zurich"
+        "patent-counsel-80-100-climeworks-opfikon-zurich",
+        "avviso-di-brevetto-80-100-climeworks-opfikon-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "patent-counsel-80-100-climeworks-opfikon-zurich"
+          "patent-counsel-80-100-climeworks-opfikon-zurich",
+          "avviso-di-brevetto-80-100-climeworks-opfikon-zurich"
         ],
         "fr": [
           "patent-counsel-80-100-climeworks-opfikon-zurich"
         ]
       },
       "firstSeenAt": "2026-07-03T21:37:32.364Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -330,7 +335,7 @@
       "url": "https://climeworks.recruitee.com/o/intern-in-sorbent-characterization-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:22:37.827Z",
+      "crawledAt": "2026-07-09T22:28:25.255Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -372,6 +377,7 @@
       },
       "remote": true,
       "firstSeenAt": "2026-07-03T21:37:32.362Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -417,7 +423,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-piping-and-plant-layout-engineer-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:22:37.826Z",
+      "crawledAt": "2026-07-09T22:28:25.253Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -465,6 +471,7 @@
       },
       "remote": true,
       "firstSeenAt": "2026-07-03T21:37:32.361Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -510,7 +517,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:22:37.824Z",
+      "crawledAt": "2026-07-09T22:28:25.252Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -557,6 +564,7 @@
       },
       "remote": true,
       "firstSeenAt": "2026-07-03T21:37:32.360Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -602,7 +610,7 @@
       "url": "https://climeworks.recruitee.com/o/senior-strategic-partnership-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:22:37.822Z",
+      "crawledAt": "2026-07-09T22:28:25.246Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -649,6 +657,7 @@
       },
       "remote": true,
       "firstSeenAt": "2026-07-03T21:37:32.358Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -694,7 +703,7 @@
       "url": "https://climeworks.recruitee.com/o/hse-facility-senior-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:22:37.817Z",
+      "crawledAt": "2026-07-09T22:28:25.244Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -788,7 +797,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-growth-lead-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:22:37.815Z",
+      "crawledAt": "2026-07-09T22:28:25.242Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -836,11 +845,13 @@
       },
       "remote": true,
       "previousSlugs": [
-        "commercial-growth-lead-100-climeworks-opfikon-zurich"
+        "commercial-growth-lead-100-climeworks-opfikon-zurich",
+        "piombo-di-crescita-commerciale-100-climeworks-opfikon-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commercial-growth-lead-100-climeworks-opfikon-zurich"
+          "commercial-growth-lead-100-climeworks-opfikon-zurich",
+          "piombo-di-crescita-commerciale-100-climeworks-opfikon-zurich"
         ],
         "de": [
           "commercial-growth-lead-100-climeworks-opfikon-zurich"
@@ -850,6 +861,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:37:32.351Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -895,7 +907,7 @@
       "url": "https://climeworks.recruitee.com/o/monitoring-alerting-engineering-intern-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:22:37.812Z",
+      "crawledAt": "2026-07-09T22:28:25.240Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -936,6 +948,7 @@
       },
       "remote": true,
       "firstSeenAt": "2026-07-03T21:37:32.349Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -981,7 +994,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-growth-intern-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:22:37.808Z",
+      "crawledAt": "2026-07-09T22:28:25.238Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1020,6 +1033,7 @@
       },
       "remote": true,
       "firstSeenAt": "2026-07-03T21:37:32.343Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1065,7 +1079,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:22:37.800Z",
+      "crawledAt": "2026-07-09T22:28:25.231Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1113,6 +1127,7 @@
       },
       "remote": true,
       "firstSeenAt": "2026-07-08T22:24:43.541Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
