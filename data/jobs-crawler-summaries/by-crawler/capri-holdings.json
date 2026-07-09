@@ -1,18 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-07-09T12:16:11.982Z",
+  "generatedAt": "2026-07-09T22:27:59.356Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17165,
-  "avgDurationMs": 17165,
+  "durationMs": 18797,
+  "avgDurationMs": 18797,
   "durationHistory": [
-    17165
+    18797
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-MICHAEL-KORS-Landquart_R_785435",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-MICHAEL-KORS-Landquart_R_785435",
@@ -40,18 +41,18 @@
         "canton": "GR",
         "location": "Graubünden"
       },
-      "crawledAt": "",
+      "id": "capri-holdings-fa76f91d6306",
       "needsRetranslation": true,
-      "_qualityScore": 72,
+      "firstSeenAt": "2026-07-09T12:16:11.980Z",
+      "crawledAt": "",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 8,
+        "translation": 25,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h-MK_R_785359",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h-MK_R_785359",
