@@ -12,8 +12,10 @@
  * Public career site:   https://jobs.solina.ch/offene-stellen
  * Apply URL pattern:    https://stiftung-solina.onlyfy.jobs/application/apply/{hash}
  *
- * Listing pages live at `https://jobs.solina.ch/offene-stellen/{category}`
- * with detail pages at  `https://jobs.solina.ch/offene-stellen/{category}/details/{slug-hash}`.
+ * Listing lives at `https://jobs.solina.ch/offene-stellen` (category
+ * sub-paths 301-redirect there since a 2026-07 site restructure), with
+ * detail pages at `https://jobs.solina.ch/offene-stellen/{category}/{slug-hash}`
+ * (the old `/details/` path segment was dropped in the same restructure).
  *
  * Detail pages expose:
  *   - <h1 class="...page-title">{title}</h1>
@@ -81,11 +83,20 @@ export function isTrustedDomain(rawUrl = '') {
 function parseSolinaListing(html) {
   const out = [];
   const seen = new Set();
-  // Match category-scoped detail URLs (preserves category path)
-  const rx = /href="(\/offene-stellen\/[a-z0-9-]+\/details\/[a-z0-9-]+)"/gi;
+  // Match category-scoped detail URLs: /offene-stellen/{category}/{slug-hash}.
+  // The trailing slug segment always ends in "-{hash}" (a random 6-10 char
+  // alphanumeric suffix) — this excludes non-job links that share the same
+  // 2-segment shape but have no hash suffix, e.g. the static
+  // "/offene-stellen/zivildienst/bewerbung" apply-now button.
+  const rx = /href="(\/offene-stellen\/[a-z0-9-]+\/[a-z0-9-]+)"/gi;
   let m;
   while ((m = rx.exec(html))) {
     const path = m[1];
+    const lastSegment = path.slice(path.lastIndexOf('/') + 1);
+    const dashIdx = lastSegment.lastIndexOf('-');
+    if (dashIdx === -1) continue;
+    const hash = lastSegment.slice(dashIdx + 1);
+    if (hash.length < 6 || hash.length > 10) continue;
     if (seen.has(path)) continue;
     seen.add(path);
     out.push(`${PORTAL_BASE}${path}`);
