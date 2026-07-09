@@ -1,6 +1,6 @@
 {
   "crawlerKey": "diakoniewerk-neumuenster",
-  "assembledAt": "2026-07-08T22:25:40.443Z",
+  "assembledAt": "2026-07-09T12:36:29.709Z",
   "jobs": [
     {
       "id": "diakoniewerk-neumuenster-a6407d57e904",
@@ -28,12 +28,13 @@
         "de": "Dipl. Radiologiefachfrau / Radiologiefachmann HF in Ausbildung Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
         "fr": "Dipl. Spécialiste de radiologie / Spécialiste de radiologie HF en formation Génie Médical à Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via le portail de carrière PI-ASP de Stiftung Diakoniewerk Neumünster."
       },
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f2f99803-dec0-4daf-bd51-d299119aa212,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:25:38.566Z",
+      "crawledAt": "2026-07-09T12:36:27.417Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -51,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
+        "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-diakoniewerk"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
+          "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-diakoniewerk"
         ],
         "en": [
           "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
@@ -82,9 +85,9 @@
       "id": "diakoniewerk-neumuenster-93ba270d75c3",
       "slug": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-diverses-diakoniewerk",
       "slugByLocale": {
-        "de": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-diverses-diakoniewerk",
         "it": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-diverses-diakoniewerk",
-        "en": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-diverses-diakoniewerk",
+        "en": "foundation-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-diverses-diakoniewerk-neumunster-gesundheitswelt",
+        "de": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-diverses-diakoniewerk",
         "fr": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-diverses-diakoniewerk"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Gesundheitswelt Zollikerberg",
@@ -92,24 +95,25 @@
       "companyDomain": "diakoniewerk-neumuenster.ch",
       "title": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Diverses",
       "titleByLocale": {
-        "de": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Diverses",
         "it": "Stiftung Diakoniewerk Neumünster Risorse Umane Allrounderin / Risorse Umane Allrounder Diverses",
         "en": "Foundation Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Diverses",
+        "de": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Diverses",
         "fr": "Stiftung Diakoniewerk Neumünster Ressources Humaines Allrounderin / Ressources Humaines Allrounder Diverses"
       },
       "description": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Diverses bei Gesundheitswelt Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
       "descriptionByLocale": {
-        "de": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Diverses bei Gesundheitswelt Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
         "it": "Fondazione Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Diverses a Gesundheitwelt Zollikerberg, Zollikerberg (8125, ZH). Applicazione tramite il portale di carriera PI-ASP di Stiftung Diakoniewerk Neumünster.",
         "en": "Foundation Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Diverses at Gesundheitwelt Zollikerberg, Zollikerberg (8125, ZH). Application via the PI-ASP career portal of Stiftung Diakoniewerk Neumünster.",
+        "de": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Diverses bei Gesundheitswelt Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
         "fr": "Fondation Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Diverses à Gesundheitwelt Zollikerberg, Zollikerberg (8125, ZH). Application via le portail de carrière PI-ASP de Stiftung Diakoniewerk Neumünster."
       },
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=a7eda389-7737-49b2-aa10-116ede1e95e0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:25:38.565Z",
+      "crawledAt": "2026-07-09T12:36:27.416Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -125,9 +129,8 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=a7eda389-7737-49b2-aa10-116ede1e95e0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -139,172 +142,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z"
-    },
-    {
-      "id": "diakoniewerk-neumuenster-7af1b5dcac98",
-      "slug": "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-e-beratung-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
-      "slugByLocale": {
-        "de": "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-und-beratung-diakoniewerk",
-        "it": "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-e-beratung-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
-        "en": "nutritionist-nutritionist-hf-bsc-therapy-and-counselling-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
-        "fr": "nutritionniste-nutritionniste-hf-bsc-therapie-et-counseling-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
-      },
-      "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
-      "companyKey": "diakoniewerk-neumuenster",
-      "companyDomain": "diakoniewerk-neumuenster.ch",
-      "title": "Ernährungsberaterin / Ernährungsberater (HF/BSc) Therapie und Beratung",
-      "titleByLocale": {
-        "de": "Ernährungsberaterin / Ernährungsberater (HF/BSc) Therapie und Beratung",
-        "it": "Ernährungsberaterin / Ernährungsberater (HF/BSc) Therapie e Beratung",
-        "en": "Nutritionist / Nutritionist (HF/BSc) Therapy and counselling",
-        "fr": "Nutritionniste / Nutritionniste (HF/BSc) Thérapie et counseling"
-      },
-      "description": "Ernährungsberaterin / Ernährungsberater (HF/BSc) Therapie und Beratung bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-      "descriptionByLocale": {
-        "de": "Ernährungsberaterin / Ernährungsberater (HF/BSc) Therapie und Beratung bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-        "it": "Terapia e consulenza presso Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Applicazione tramite il portale di carriera PI-ASP di Stiftung Diakoniewerk Neumünster.",
-        "en": "Nutritionist / Nutritionist (HF/BSc) Therapy and counselling at Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via the PI-ASP career portal of Stiftung Diakoniewerk Neumünster.",
-        "fr": "Nutritionniste / Nutritionniste (HF/BSc) Thérapie et counseling chez Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via le portail de carrière PI-ASP de Stiftung Diakoniewerk Neumünster."
-      },
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fd50825d-0326-4a12-9e89-dbc3a132c87a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:25:38.563Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fd50825d-0326-4a12-9e89-dbc3a132c87a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-und-beratung-diakoniewerk"
-        ],
-        "en": [
-          "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-und-beratung-diakoniewerk"
-        ],
-        "fr": [
-          "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-und-beratung-diakoniewerk"
-        ]
-      },
-      "previousSlugs": [
-        "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-und-beratung-diakoniewerk"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z"
-    },
-    {
-      "id": "diakoniewerk-neumuenster-2c6fde13d1d2",
-      "slug": "dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
-      "slugByLocale": {
-        "de": "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische",
-        "it": "dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
-        "en": "dipl-specialist-dipl-specialist-in-surgical-technology-and-surgical-maintenance-medical-engineering-areas-diakoniewerk",
-        "fr": "dipl-specialiste-dipl-specialiste-en-technologie-chirurgicale-et-maintenance-chirurgicale-diakoniewerk-neumunster"
-      },
-      "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
-      "companyKey": "diakoniewerk-neumuenster",
-      "companyDomain": "diakoniewerk-neumuenster.ch",
-      "title": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche",
-      "titleByLocale": {
-        "de": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche",
-        "it": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik e Operationspflege Medizintechnische Bereiche",
-        "en": "Dipl. Specialist / Dipl. Specialist in surgical technology and surgical maintenance Medical engineering areas",
-        "fr": "Dipl. Spécialiste / Dipl. Spécialiste en technologie chirurgicale et maintenance chirurgicale"
-      },
-      "description": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-      "descriptionByLocale": {
-        "de": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-        "it": "Specialista / Dipl. Specialista in tecnologia chirurgica e assistenza chirurgica Aree di ingegneria medica a Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Applicazione tramite il portale di carriera PI-ASP di Stiftung Diakoniewerk Neumünster.",
-        "en": "Dipl. Specialist / Dipl. Specialist in surgical technology and surgical care Medical engineering areas at Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via the PI-ASP career portal of Stiftung Diakoniewerk Neumünster.",
-        "fr": "Dipl. Spécialiste / Dipl. Spécialiste en technologie chirurgicale et soins chirurgicaux Domaines d'ingénierie médicale à Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via le portail de carrière PI-ASP de Stiftung Diakoniewerk Neumünster."
-      },
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=8b73fac2-d938-487b-ae90-b4afbf9ddede,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:25:38.562Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=8b73fac2-d938-487b-ae90-b4afbf9ddede,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische"
-        ],
-        "en": [
-          "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische"
-        ],
-        "fr": [
-          "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z"
+      }
     },
     {
       "id": "diakoniewerk-neumuenster-a106556ec088",
       "slug": "berufsbildner-berufsbildnerin-per-dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-s",
       "slugByLocale": {
-        "de": "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und",
         "it": "berufsbildner-berufsbildnerin-per-dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-s",
         "en": "vocational-trainer-for-dipl-specialist-dipl-specialist-in-surgical-technology-and-surgical-maintenance-medical",
+        "de": "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und",
         "fr": "formateur-professionnel-pour-dipl-specialiste-dipl-specialiste-en-technologie-chirurgicale-et-maintenance-chirurgicale"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
@@ -312,24 +158,25 @@
       "companyDomain": "diakoniewerk-neumuenster.ch",
       "title": "Berufsbildner / Berufsbildnerin für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche",
       "titleByLocale": {
-        "de": "Berufsbildner / Berufsbildnerin für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche",
         "it": "Berufsbildner / Berufsbildnerin per Dipl. Fachfrau / Dipl. Fachmann Operationstechnik e Operationspflege Medizintechnische Bereiche",
         "en": "Vocational trainer for Dipl. Specialist / Dipl. Specialist in surgical technology and surgical maintenance Medical engineering areas",
+        "de": "Berufsbildner / Berufsbildnerin für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche",
         "fr": "Formateur professionnel pour Dipl. Spécialiste / Dipl. Spécialiste en technologie chirurgicale et maintenance chirurgicale"
       },
       "description": "Berufsbildner / Berufsbildnerin für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
       "descriptionByLocale": {
-        "de": "Berufsbildner / Berufsbildnerin für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
         "it": "Specialista / Dipl. Specialista in tecnologia chirurgica e assistenza chirurgica Aree di ingegneria medica a Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Applicazione tramite il portale di carriera PI-ASP di Stiftung Diakoniewerk Neumünster.",
         "en": "Vocational trainer for Dipl. Specialist / Dipl. Specialist in surgical technology and surgical care Medical engineering areas at Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via the PI-ASP career portal of Stiftung Diakoniewerk Neumünster.",
+        "de": "Berufsbildner / Berufsbildnerin für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
         "fr": "Formateur professionnel pour Dipl. Spécialiste / Dipl. Spécialiste en technologie chirurgicale et soins chirurgicaux Domaines d'ingénierie médicale à Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via le portail de carrière PI-ASP de Stiftung Diakoniewerk Neumünster."
       },
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0944e3dc-8983-44f3-9e48-6592b589cd5c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:25:38.562Z",
+      "crawledAt": "2026-07-09T12:36:27.413Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -345,9 +192,10 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0944e3dc-8983-44f3-9e48-6592b589cd5c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
@@ -359,9 +207,7 @@
           "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
         ]
       },
-      "previousSlugs": [
-        "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
-      ],
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -373,16 +219,169 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "diakoniewerk-neumuenster-7af1b5dcac98",
+      "slug": "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-e-beratung-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+      "slugByLocale": {
+        "it": "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-e-beratung-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+        "en": "nutritionist-nutritionist-hf-bsc-therapy-and-counselling-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
+        "de": "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-und-beratung-diakoniewerk",
+        "fr": "nutritionniste-nutritionniste-hf-bsc-therapie-et-counseling-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
       },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z"
+      "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
+      "companyKey": "diakoniewerk-neumuenster",
+      "companyDomain": "diakoniewerk-neumuenster.ch",
+      "title": "Ernährungsberaterin / Ernährungsberater (HF/BSc) Therapie und Beratung",
+      "titleByLocale": {
+        "it": "Ernährungsberaterin / Ernährungsberater (HF/BSc) Therapie e Beratung",
+        "en": "Nutritionist / Nutritionist (HF/BSc) Therapy and counselling",
+        "de": "Ernährungsberaterin / Ernährungsberater (HF/BSc) Therapie und Beratung",
+        "fr": "Nutritionniste / Nutritionniste (HF/BSc) Thérapie et counseling"
+      },
+      "description": "Ernährungsberaterin / Ernährungsberater (HF/BSc) Therapie und Beratung bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+      "descriptionByLocale": {
+        "it": "Terapia e consulenza presso Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Applicazione tramite il portale di carriera PI-ASP di Stiftung Diakoniewerk Neumünster.",
+        "en": "Nutritionist / Nutritionist (HF/BSc) Therapy and counselling at Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via the PI-ASP career portal of Stiftung Diakoniewerk Neumünster.",
+        "de": "Ernährungsberaterin / Ernährungsberater (HF/BSc) Therapie und Beratung bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+        "fr": "Nutritionniste / Nutritionniste (HF/BSc) Thérapie et counseling chez Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via le portail de carrière PI-ASP de Stiftung Diakoniewerk Neumünster."
+      },
+      "needsRetranslation": true,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fd50825d-0326-4a12-9e89-dbc3a132c87a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:36:27.413Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fd50825d-0326-4a12-9e89-dbc3a132c87a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-und-beratung-diakoniewerk"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-und-beratung-diakoniewerk"
+        ],
+        "en": [
+          "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-und-beratung-diakoniewerk"
+        ],
+        "fr": [
+          "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-und-beratung-diakoniewerk"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "diakoniewerk-neumuenster-2c6fde13d1d2",
+      "slug": "dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+      "slugByLocale": {
+        "it": "dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+        "en": "dipl-specialist-dipl-specialist-in-surgical-technology-and-surgical-maintenance-medical-engineering-areas-diakoniewerk",
+        "de": "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische",
+        "fr": "dipl-specialiste-dipl-specialiste-en-technologie-chirurgicale-et-maintenance-chirurgicale-diakoniewerk-neumunster"
+      },
+      "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
+      "companyKey": "diakoniewerk-neumuenster",
+      "companyDomain": "diakoniewerk-neumuenster.ch",
+      "title": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche",
+      "titleByLocale": {
+        "it": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik e Operationspflege Medizintechnische Bereiche",
+        "en": "Dipl. Specialist / Dipl. Specialist in surgical technology and surgical maintenance Medical engineering areas",
+        "de": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche",
+        "fr": "Dipl. Spécialiste / Dipl. Spécialiste en technologie chirurgicale et maintenance chirurgicale"
+      },
+      "description": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+      "descriptionByLocale": {
+        "it": "Specialista / Dipl. Specialista in tecnologia chirurgica e assistenza chirurgica Aree di ingegneria medica a Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Applicazione tramite il portale di carriera PI-ASP di Stiftung Diakoniewerk Neumünster.",
+        "en": "Dipl. Specialist / Dipl. Specialist in surgical technology and surgical care Medical engineering areas at Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via the PI-ASP career portal of Stiftung Diakoniewerk Neumünster.",
+        "de": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+        "fr": "Dipl. Spécialiste / Dipl. Spécialiste en technologie chirurgicale et soins chirurgicaux Domaines d'ingénierie médicale à Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via le portail de carrière PI-ASP de Stiftung Diakoniewerk Neumünster."
+      },
+      "needsRetranslation": true,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=8b73fac2-d938-487b-ae90-b4afbf9ddede,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:36:27.412Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=8b73fac2-d938-487b-ae90-b4afbf9ddede,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische"
+        ],
+        "en": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische"
+        ],
+        "fr": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "diakoniewerk-neumuenster-e93b3cd067e7",
       "slug": "testa-capo-dell-ingegneria-medica-op-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
       "slugByLocale": {
-        "de": "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumuenster",
         "it": "testa-capo-dell-ingegneria-medica-op-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "en": "head-head-of-instrumentation-care-op-medical-engineering-areas-diakoniewerk-neumunster-gesundheitswelt-zollikerberg",
+        "de": "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumuenster",
         "fr": "chef-chef-des-services-d-instrumentation-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
@@ -390,24 +389,25 @@
       "companyDomain": "diakoniewerk-neumuenster.ch",
       "title": "Leiterin / Leiter Instrumentierpflege OP Medizintechnische Bereiche",
       "titleByLocale": {
-        "de": "Leiterin / Leiter Instrumentierpflege OP Medizintechnische Bereiche",
         "it": "Testa / Capo dell'Ingegneria Medica OP",
         "en": "Head / Head of Instrumentation Care OP Medical Engineering Areas",
+        "de": "Leiterin / Leiter Instrumentierpflege OP Medizintechnische Bereiche",
         "fr": "Chef / Chef des services d'instrumentation"
       },
       "description": "Leiterin / Leiter Instrumentierpflege OP Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
       "descriptionByLocale": {
-        "de": "Leiterin / Leiter Instrumentierpflege OP Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
         "it": "Testa / Capo dell'Ingegneria per la Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Applicazione tramite il portale di carriera PI-ASP di Stiftung Diakoniewerk Neumünster.",
         "en": "Head / Head of Instrumentation Care OP Medical Engineering at Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via the PI-ASP career portal of Stiftung Diakoniewerk Neumünster.",
+        "de": "Leiterin / Leiter Instrumentierpflege OP Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
         "fr": "Chef / Chef des soins aux instruments OP Génie médical chez Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via le portail de carrière PI-ASP de Stiftung Diakoniewerk Neumünster."
       },
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=3dc30036-e741-4dfb-a01a-3b5d37cad5f1,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:25:38.560Z",
+      "crawledAt": "2026-07-09T12:36:27.409Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -423,13 +423,18 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=3dc30036-e741-4dfb-a01a-3b5d37cad5f1,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumuenster",
+        "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+        "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg",
+        "testa-capo-dell-ingegneria-medica-op-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumuenster",
-          "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
+          "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+          "testa-capo-dell-ingegneria-medica-op-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
         ],
         "en": [
           "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg"
@@ -438,11 +443,7 @@
           "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg"
         ]
       },
-      "previousSlugs": [
-        "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumuenster",
-        "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
-        "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg"
-      ],
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -454,8 +455,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z"
+      }
     },
     {
       "id": "diakoniewerk-neumuenster-20d5caebb5a4",
@@ -527,7 +527,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "diakoniewerk-neumuenster-6a57e790b23a",
@@ -599,7 +599,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "diakoniewerk-neumuenster-097497b6fbb6",
@@ -618,7 +618,7 @@
         "it": "Assistente di cura nella stazione privata 1",
         "en": "Nursing Assistant in Private Ward 1",
         "de": "Pflegehelferin / Pflegehelfer in der Privatstation 1",
-        "fr": "Assistant infirmier / assistant infirmier au poste privé 1"
+        "fr": "Pflegehelferin / Pflegehelfer in der Privatstation 1"
       },
       "description": "Pflegehelferin / Pflegehelfer in der Privatstation 1 bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
       "descriptionByLocale": {
@@ -674,7 +674,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "diakoniewerk-neumuenster-b22c88618586",
@@ -746,7 +747,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "diakoniewerk-neumuenster-679329e7bde5",
@@ -823,7 +824,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
