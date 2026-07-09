@@ -11,8 +11,50 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-07-08T22:15:12.776Z",
+  "updatedAt": "2026-07-09T12:20:38.671Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/impermeabilizzatore-m-f-2682530/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-09"
+    },
+    "https://www.pemsa.ch/it/job/elettricista-con-comprovata-esperienza-2682526/": {
+      "location": "Romont FR",
+      "canton": "FR",
+      "company": "PEMSA",
+      "postedDate": "2026-07-09"
+    },
+    "https://www.pemsa.ch/it/job/assistente-amministrativo-a-tecnico-a-2682524/": {
+      "location": "Romanel-sur-Lausanne",
+      "canton": "VD",
+      "company": "PEMSA",
+      "postedDate": "2026-07-09"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-2682518/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-09"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-2682515/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-09"
+    },
+    "https://www.pemsa.ch/it/job/tecnico-frigorista-m-f-2682512/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-09"
+    },
+    "https://www.pemsa.ch/it/job/operatore-operatrice-per-la-bonifica-dallamianto-2682495/": {
+      "location": "Plan les Ouates",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-09"
+    },
     "https://www.pemsa.ch/it/job/progettista-di-strutture-metalliche-m-f-2682448/": {
       "location": "Givisiez",
       "canton": "FR",
@@ -265,18 +307,6 @@
       "company": "PEMSA",
       "postedDate": "2026-07-07"
     },
-    "https://www.pemsa.ch/it/job/geomatico-2682040/": {
-      "location": "Bulle",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-06"
-    },
-    "https://www.pemsa.ch/it/job/geomatico-2682037/": {
-      "location": "Moudon",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-06"
-    },
     "https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-2682025/": {
       "location": "Genève",
       "canton": "GE",
@@ -348,12 +378,6 @@
       "canton": "VD",
       "company": "PEMSA",
       "postedDate": "2026-07-06"
-    },
-    "https://www.pemsa.ch/it/job/tecnico-frigorista-m-f-2681728/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-03"
     },
     "https://www.pemsa.ch/it/job/responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-2681725/": {
       "location": "Fribourg",
@@ -577,33 +601,9 @@
       "company": "PEMSA",
       "postedDate": "2026-07-01"
     },
-    "https://www.pemsa.ch/it/job/tecnico-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-2681269/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-01"
-    },
     "https://www.pemsa.ch/it/job/imbianchino-m-f-2681267/": {
       "location": "Biel/Bienne",
       "canton": "BE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-01"
-    },
-    "https://www.pemsa.ch/it/job/installatore-elettricista-afc-riparazioni-assistenza-post-vendita-2681263/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-01"
-    },
-    "https://www.pemsa.ch/it/job/piastrellista-qualificato-2681259/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-01"
-    },
-    "https://www.pemsa.ch/it/job/progettista-elettricista-afc-2681249/": {
-      "location": "Lausanne",
-      "canton": "VD",
       "company": "PEMSA",
       "postedDate": "2026-07-01"
     },
@@ -706,18 +706,6 @@
     "https://www.pemsa.ch/it/job/autista-di-autocarri-con-patente-c-ce-turni-notturni-m-f-2681182/": {
       "location": "Niederbipp",
       "canton": "BE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-01"
-    },
-    "https://www.pemsa.ch/it/job/installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-2681151/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-01"
-    },
-    "https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-2681146/": {
-      "location": "Genève",
-      "canton": "GE",
       "company": "PEMSA",
       "postedDate": "2026-07-01"
     },
@@ -922,18 +910,6 @@
     "https://www.pemsa.ch/it/job/caposquadra-montatore-di-condotte-prefabbricate-strutture-metalliche-2680857/": {
       "location": "Givisiez",
       "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-06-29"
-    },
-    "https://www.pemsa.ch/it/job/impermeabilizzatore-m-f-2680844/": {
-      "location": "Plan les Ouates",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-06-29"
-    },
-    "https://www.pemsa.ch/it/job/addetto-alla-bonifica-dellamianto-hse-m-f-2680839/": {
-      "location": "Plan les Ouates",
-      "canton": "GE",
       "company": "PEMSA",
       "postedDate": "2026-06-29"
     },
