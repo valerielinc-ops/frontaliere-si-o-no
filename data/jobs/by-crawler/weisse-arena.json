@@ -1,6 +1,6 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-07-09T12:13:43.660Z",
+  "assembledAt": "2026-07-09T22:25:23.053Z",
   "jobs": [
     {
       "id": "weisse-arena-2765974aca91",
@@ -33,7 +33,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4510&jobTitle=Mitarbeiter%3Ain+Verkauf+und+Administration+Wintersaison+%2870-100%25%29",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:39.558Z",
+      "crawledAt": "2026-07-09T22:25:18.944Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4514&jobTitle=Mitarbeiter%3Ain+Bahn%C3%BCberwachung",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:39.555Z",
+      "crawledAt": "2026-07-09T22:25:18.937Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4518&jobTitle=Koch%2FK%C3%B6chin+mit+Feuer+und+Leidenschaft",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:39.554Z",
+      "crawledAt": "2026-07-09T22:25:18.933Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -232,6 +232,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.955Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -277,7 +278,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4521&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:39.554Z",
+      "crawledAt": "2026-07-09T22:25:18.933Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -368,7 +369,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4519&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:39.553Z",
+      "crawledAt": "2026-07-09T22:25:18.932Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -450,7 +451,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4522&jobTitle=HR+Generalist%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:39.552Z",
+      "crawledAt": "2026-07-09T22:25:18.931Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -504,7 +505,7 @@
       "slugByLocale": {
         "it": "portatore-notturno-weisse-arena-gruppe-laax",
         "en": "night-porter-in-weisse-arena-gruppe-laax",
-        "de": "nachtportier-in-weisse-arena-gruppe-laax",
+        "de": "nachtportier-in-weisse-arena-ch",
         "fr": "porteur-nocturne-in-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
@@ -529,7 +530,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4524&jobTitle=Nachtportier%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:39.551Z",
+      "crawledAt": "2026-07-09T22:25:18.921Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -549,11 +550,11 @@
       "jobNumber": "WAG02400",
       "pensum": "40%",
       "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "nachtportier-in-weisse-arena-ch",
-        "portatore-notturno-weisse-arena-gruppe-laax"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "nachtportier-in-weisse-arena-gruppe-laax",
+          "nachtportier-in-weisse-arena-ch"
+        ],
         "it": [
           "nachtportier-in-weisse-arena-ch",
           "portatore-notturno-weisse-arena-gruppe-laax"
@@ -563,11 +564,13 @@
         ],
         "fr": [
           "nachtportier-in-weisse-arena-ch"
-        ],
-        "de": [
-          "nachtportier-in-weisse-arena-ch"
         ]
       },
+      "previousSlugs": [
+        "nachtportier-in-weisse-arena-ch",
+        "nachtportier-in-weisse-arena-gruppe-laax",
+        "portatore-notturno-weisse-arena-gruppe-laax"
+      ],
       "firstSeenAt": "2026-06-22T15:11:23.123Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
