@@ -1,6 +1,6 @@
 {
   "crawlerKey": "flury-stiftung",
-  "assembledAt": "2026-07-08T22:09:54.962Z",
+  "assembledAt": "2026-07-09T12:14:31.312Z",
   "jobs": [
     {
       "id": "flury-stiftung-31ec11d4dd25",
@@ -33,7 +33,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Assistenzperson%20Gesundheit%20und%20Soziales%202027_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.757Z",
+      "crawledAt": "2026-07-09T12:14:28.543Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -61,13 +61,15 @@
         "assistente-ambulatoriale-medicina-di-famiglia-m-f-50-100-flury-stiftung-klosters",
         "practice-assistant-general-practitioner-m-f-50-100-flury-stiftung-klosters",
         "assistant-au-cabinet-medical-medecin-de-famille-h-f-50-100-flury-stiftung-klosters",
-        "apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers"
+        "apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers",
+        "lehrstellen-assistenzperson-gesundheit-e-soziales-afp-ab-sommer-2027-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstellen-assistenzperson-gesundheit-und-soziales-eba-ab-sommer-2027-flury-stiftung-ch",
           "assistente-sanitaria-e-sociale-eba-da-estate-2027-flury-stiftung-schiers",
-          "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters"
+          "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters",
+          "lehrstellen-assistenzperson-gesundheit-e-soziales-afp-ab-sommer-2027-flury-stiftung-schiers"
         ],
         "en": [
           "lehrstellen-assistenzperson-gesundheit-und-soziales-eba-ab-sommer-2027-flury-stiftung-ch"
@@ -77,6 +79,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.234Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -122,7 +125,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachperson%20Gesundheit%20EFZ%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.755Z",
+      "crawledAt": "2026-07-09T12:14:28.542Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -146,12 +149,14 @@
         "apprendista-assistente-settore-bambini-da-estate-2027-flury-stiftung-schiers",
         "lehrstellen-fachperson-gesundheit-efz-ab-sommer-2027-flury-stiftung-ch",
         "apprenticeships-professional-health-efz-from-summer-2027-flury-stiftung-schiers",
-        "apprentissage-sante-professionnelle-efz-a-partir-de-l-ete-2027-flury-stiftung-schiers"
+        "apprentissage-sante-professionnelle-efz-a-partir-de-l-ete-2027-flury-stiftung-schiers",
+        "lehrstellen-fachperson-gesundheit-cfc-ab-sommer-2027-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprendista-assistente-settore-bambini-da-estate-2027-flury-stiftung-schiers",
-          "lehrstellen-fachperson-gesundheit-efz-ab-sommer-2027-flury-stiftung-ch"
+          "lehrstellen-fachperson-gesundheit-efz-ab-sommer-2027-flury-stiftung-ch",
+          "lehrstellen-fachperson-gesundheit-cfc-ab-sommer-2027-flury-stiftung-schiers"
         ],
         "en": [
           "lehrstellen-fachperson-gesundheit-efz-ab-sommer-2027-flury-stiftung-ch",
@@ -175,7 +180,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "flury-stiftung-e3c629d4f6e6",
@@ -208,7 +214,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.754Z",
+      "crawledAt": "2026-07-09T12:14:28.541Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -231,11 +237,13 @@
       "previousSlugs": [
         "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2027-flury-stiftung-ch",
         "apprenticeship-specialist-hotel-industry-housekeeping-efz-from-summer-2027-flury-stiftung-schiers",
-        "apprentissage-specialise-dans-l-hotellerie-entretien-menager-efz-a-partir-de-l-ete-2027-flury-stiftung-schiers"
+        "apprentissage-specialise-dans-l-hotellerie-entretien-menager-efz-a-partir-de-l-ete-2027-flury-stiftung-schiers",
+        "apprendistato-fachperson-hotellerie-hauswirtschaft-cfc-ab-sommer-2027-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2027-flury-stiftung-ch"
+          "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2027-flury-stiftung-ch",
+          "apprendistato-fachperson-hotellerie-hauswirtschaft-cfc-ab-sommer-2027-flury-stiftung-schiers"
         ],
         "en": [
           "apprenticeship-specialist-hotel-industry-housekeeping-efz-from-summer-2027-flury-stiftung-schiers"
@@ -257,7 +265,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "flury-stiftung-a7de50bef8f5",
@@ -290,7 +299,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-08/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202026.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.752Z",
+      "crawledAt": "2026-07-09T12:14:28.540Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -348,7 +357,8 @@
         "direzione-di-dipartimento-ict-protezione-dei-dati-100-flury-stiftung-schiers",
         "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2026-flury-stiftung-ch",
         "direction-departementale-tic-protection-des-donnees-100-flury-stiftung-schiers",
-        "lehrstellen-fachperson-gesundheit-cfc-ab-sommer-2026-flury-stiftung-schiers"
+        "lehrstellen-fachperson-gesundheit-cfc-ab-sommer-2026-flury-stiftung-schiers",
+        "apprendistato-fachperson-hotellerie-hauswirtschaft-cfc-ab-sommer-2026-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -356,7 +366,8 @@
           "lehrstellen-fachperson-gesundheit-efz-ab-sommer-2026-flury-stiftung-ch",
           "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2027-flury-stiftung-ch",
           "direzione-di-dipartimento-ict-protezione-dei-dati-100-flury-stiftung-schiers",
-          "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2026-flury-stiftung-ch"
+          "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2026-flury-stiftung-ch",
+          "apprendistato-fachperson-hotellerie-hauswirtschaft-cfc-ab-sommer-2026-flury-stiftung-schiers"
         ],
         "en": [
           "departementsleitung-ict-datenschutz-100-flury-stiftung-ch"
@@ -371,6 +382,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.228Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -416,7 +428,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachperson%20Betreuung%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.751Z",
+      "crawledAt": "2026-07-09T12:14:28.538Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -439,11 +451,13 @@
       "previousSlugs": [
         "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-ch",
         "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-schiers",
-        "soins-specialises-en-apprentissage-enfants-specialises-a-partir-de-l-ete-2027-flury-stiftung-schiers"
+        "soins-specialises-en-apprentissage-enfants-specialises-a-partir-de-l-ete-2027-flury-stiftung-schiers",
+        "apprendistato-fachperson-betreuung-specializzazione-kinder-ab-sommer-2027-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-ch"
+          "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-ch",
+          "apprendistato-fachperson-betreuung-specializzazione-kinder-ab-sommer-2027-flury-stiftung-schiers"
         ],
         "en": [
           "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-schiers"
@@ -499,7 +513,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.748Z",
+      "crawledAt": "2026-07-09T12:14:28.537Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -527,14 +541,16 @@
         "practice-assistant-general-practitioner-m-f-50-100-flury-stiftung-klosters",
         "assistant-au-cabinet-medical-medecin-de-famille-h-f-50-100-flury-stiftung-klosters",
         "apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers",
-        "lehrstellen-assistenzperson-gesundheit-und-soziales-eba-ab-sommer-2027-flury-stiftung-ch"
+        "lehrstellen-assistenzperson-gesundheit-und-soziales-eba-ab-sommer-2027-flury-stiftung-ch",
+        "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
           "assistente-ambulatoriale-medicina-di-famiglia-m-f-50-100-flury-stiftung-klosters",
           "assistente-sanitaria-e-sociale-eba-da-estate-2027-flury-stiftung-schiers",
-          "lehrstellen-assistenzperson-gesundheit-e-soziales-afp-ab-sommer-2027-flury-stiftung-schiers"
+          "lehrstellen-assistenzperson-gesundheit-e-soziales-afp-ab-sommer-2027-flury-stiftung-schiers",
+          "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters"
         ],
         "en": [
           "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
@@ -575,7 +591,7 @@
       "title": "Dipl. Pflegefachperson HF/FH 40-90%",
       "titleByLocale": {
         "it": "Dipl. Assistente Sanitario HF/FH 40-90%",
-        "en": "Dipl. Care professional HF/FH 40-90 %",
+        "en": "Dipl. Pflegefachperson HF/FH 40-90%",
         "de": "Dipl. Pflegefachperson HF/FH 40-90%",
         "fr": "Dipl. Auxiliaire de Santé HF/FH 40-90%"
       },
@@ -591,7 +607,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Dipl.%20Pflegefachperson%20Spitex.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.747Z",
+      "crawledAt": "2026-07-09T12:14:28.536Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -645,12 +661,14 @@
         "dipl-pflegefachperson-hf-fh-40-90-flury-stiftung-ch",
         "specialista-infermieristico-qualificato-hf-fh-40-90-flury-stiftung-schiers",
         "assistente-chirurgico-flury-stiftung-schiers",
-        "assistente-farmaceutico-al-50-80-flury-stiftung-schiers"
+        "assistente-farmaceutico-al-50-80-flury-stiftung-schiers",
+        "dipl-assistente-sanitario-hf-fh-40-90-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-40-90-flury-stiftung-ch",
-          "specialista-infermieristico-qualificato-hf-fh-40-90-flury-stiftung-schiers"
+          "specialista-infermieristico-qualificato-hf-fh-40-90-flury-stiftung-schiers",
+          "dipl-assistente-sanitario-hf-fh-40-90-flury-stiftung-schiers"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-40-90-flury-stiftung-ch"
@@ -660,6 +678,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
+      "needsRetranslation": true,
       "salaryMin": 51800,
       "salaryMax": 78300,
       "baseSalary": {
@@ -705,7 +724,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Stelleninserat%20MA%20Haushalt%20Spitex.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.745Z",
+      "crawledAt": "2026-07-09T12:14:28.535Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -762,12 +781,14 @@
         "employee-household-20-30-in-hourly-wage-flury-stiftung-schiers",
         "employee-menage-20-30-du-salaire-horaire-flury-stiftung-schiers",
         "assistant-e-d-entretien-fabe-a-temps-partiel-flury-stiftung-schiers",
-        "care-assistant-fabe-part-time-flury-stiftung-schiers"
+        "care-assistant-fabe-part-time-flury-stiftung-schiers",
+        "impiegata-di-casa-20-30-a-tempo-parziale-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-haushalt-20-30-im-stundenlohn-flury-stiftung-ch",
-          "collaboratrice-domestica-20-30-con-retribuzione-oraria-flury-stiftung-schiers"
+          "collaboratrice-domestica-20-30-con-retribuzione-oraria-flury-stiftung-schiers",
+          "impiegata-di-casa-20-30-a-tempo-parziale-flury-stiftung-schiers"
         ],
         "en": [
           "mitarbeiterin-haushalt-20-30-im-stundenlohn-flury-stiftung-ch",
@@ -779,6 +800,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
+      "needsRetranslation": true,
       "salaryMin": 17300,
       "salaryMax": 26100,
       "baseSalary": {
@@ -824,7 +846,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-05/FAGE%20oder%20Pflegefachperson%2040-100%25%20AHJ%20Demenz.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.744Z",
+      "crawledAt": "2026-07-09T12:14:28.533Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -912,7 +934,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Fachverantwortung_Pflege%20AHJ.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.740Z",
+      "crawledAt": "2026-07-09T12:14:28.530Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -933,11 +955,13 @@
       "pensumMin": 20,
       "pensumMax": 20,
       "previousSlugs": [
-        "fachverantwortung-demenz-20-altersheim-jenaz-flury-stiftung-ch"
+        "fachverantwortung-demenz-20-altersheim-jenaz-flury-stiftung-ch",
+        "responsabilita-specialistica-demenza-20-casa-di-riposo-jenaz-flury-stiftung-jenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortung-demenz-20-altersheim-jenaz-flury-stiftung-ch"
+          "fachverantwortung-demenz-20-altersheim-jenaz-flury-stiftung-ch",
+          "responsabilita-specialistica-demenza-20-casa-di-riposo-jenaz-flury-stiftung-jenaz"
         ],
         "en": [
           "fachverantwortung-demenz-20-altersheim-jenaz-flury-stiftung-ch"
@@ -947,6 +971,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
+      "needsRetranslation": true,
       "salaryMin": 11500,
       "salaryMax": 17400,
       "baseSalary": {
@@ -976,7 +1001,7 @@
       "title": "Dipl. Pflegefachperson HF / FH 50 - 100 %, Altersheim Jenaz",
       "titleByLocale": {
         "it": "Dipl. Assistente Sanitario HF / FH 50 - 100 %, Casa di Riposo Jenaz",
-        "en": "Dipl. Nursing professional HF / FH 50 - 100%, nursing home Jenaz",
+        "en": "Dipl. Pflegefachperson HF / FH 50 - 100 %, Altersheim Jenaz",
         "de": "Dipl. Pflegefachperson HF / FH 50 - 100 %, Altersheim Jenaz",
         "fr": "Dipl. Auxiliaire de Santé HF / FH 50 - 100 %, Maison de Retraite Jenaz"
       },
@@ -992,7 +1017,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-05/Inserat_Pflegefachperson_AHJ_50-100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.738Z",
+      "crawledAt": "2026-07-09T12:14:28.528Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -1013,11 +1038,13 @@
       "pensumMin": 50,
       "pensumMax": 100,
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch"
+        "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch",
+        "dipl-assistente-sanitario-hf-fh-50-100-casa-di-riposo-jenaz-flury-stiftung-jenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch"
+          "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch",
+          "dipl-assistente-sanitario-hf-fh-50-100-casa-di-riposo-jenaz-flury-stiftung-jenaz"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch"
@@ -1027,6 +1054,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:48:57.020Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1072,7 +1100,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Assistenzperson%20Pflege%2040%25-100%25_%20AHS.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.737Z",
+      "crawledAt": "2026-07-09T12:14:28.526Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1093,11 +1121,13 @@
       "pensumMin": 40,
       "pensumMax": 100,
       "previousSlugs": [
-        "assistenzperson-pflege-srk-40-100-altersheim-schiers-flury-stiftung-ch"
+        "assistenzperson-pflege-srk-40-100-altersheim-schiers-flury-stiftung-ch",
+        "assistente-di-cura-srk-40-100-casa-di-riposo-schiers-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzperson-pflege-srk-40-100-altersheim-schiers-flury-stiftung-ch"
+          "assistenzperson-pflege-srk-40-100-altersheim-schiers-flury-stiftung-ch",
+          "assistente-di-cura-srk-40-100-casa-di-riposo-schiers-flury-stiftung-schiers"
         ],
         "en": [
           "assistenzperson-pflege-srk-40-100-altersheim-schiers-flury-stiftung-ch"
@@ -1152,7 +1182,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Assistenzperson%20Pflege%2040%20-%20100%25%20Altersheim%20Jenaz.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.735Z",
+      "crawledAt": "2026-07-09T12:14:28.524Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -1173,11 +1203,13 @@
       "pensumMin": 40,
       "pensumMax": 100,
       "previousSlugs": [
-        "assistenzperson-pflege-srk-40-100-altersheim-jenaz-flury-stiftung-ch"
+        "assistenzperson-pflege-srk-40-100-altersheim-jenaz-flury-stiftung-ch",
+        "assistenza-assistente-srk-40-100-casa-di-riposo-jenaz-flury-stiftung-jenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzperson-pflege-srk-40-100-altersheim-jenaz-flury-stiftung-ch"
+          "assistenzperson-pflege-srk-40-100-altersheim-jenaz-flury-stiftung-ch",
+          "assistenza-assistente-srk-40-100-casa-di-riposo-jenaz-flury-stiftung-jenaz"
         ],
         "en": [
           "assistenzperson-pflege-srk-40-100-altersheim-jenaz-flury-stiftung-ch"
@@ -1232,7 +1264,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Assistenzperson%20Pflege%20Demenz%20Station%2080-100%25%20Altersheim%20Jenaz.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.734Z",
+      "crawledAt": "2026-07-09T12:14:28.523Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -1253,11 +1285,13 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "previousSlugs": [
-        "assistenzperson-pflege-srk-80-100-altersheim-jenaz-flury-stiftung-ch"
+        "assistenzperson-pflege-srk-80-100-altersheim-jenaz-flury-stiftung-ch",
+        "assistenza-assistente-srk-80-100-casa-di-riposo-jenaz-flury-stiftung-jenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzperson-pflege-srk-80-100-altersheim-jenaz-flury-stiftung-ch"
+          "assistenzperson-pflege-srk-80-100-altersheim-jenaz-flury-stiftung-ch",
+          "assistenza-assistente-srk-80-100-casa-di-riposo-jenaz-flury-stiftung-jenaz"
         ],
         "en": [
           "assistenzperson-pflege-srk-80-100-altersheim-jenaz-flury-stiftung-ch"
@@ -1312,7 +1346,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-05/Dipl.%20Pflegefachperson%20HF_FH%20%28w_m%29%2060-100%25%20AHS.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.732Z",
+      "crawledAt": "2026-07-09T12:14:28.521Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1363,7 +1397,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "flury-stiftung-d2d90052d654",
@@ -1396,7 +1431,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2022-07/20220719Unterassistenz%20Chirurgie_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.731Z",
+      "crawledAt": "2026-07-09T12:14:28.520Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1417,11 +1452,13 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "previousSlugs": [
-        "unterassistenzstelle-chirurgie-100-flury-stiftung-ch"
+        "unterassistenzstelle-chirurgie-100-flury-stiftung-ch",
+        "sotto-assistenza-chirurgia-100-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistenzstelle-chirurgie-100-flury-stiftung-ch"
+          "unterassistenzstelle-chirurgie-100-flury-stiftung-ch",
+          "sotto-assistenza-chirurgia-100-flury-stiftung-schiers"
         ],
         "en": [
           "unterassistenzstelle-chirurgie-100-flury-stiftung-ch"
@@ -1476,7 +1513,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-06/20230426_unterassistenz_innere_medizin.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.729Z",
+      "crawledAt": "2026-07-09T12:14:28.517Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1498,11 +1535,13 @@
       "pensumMax": 100,
       "previousSlugs": [
         "unterassistenzstelle-innere-medizin-100-flury-stiftung-ch",
-        "sotto-assistenza-chirurgia-100-flury-stiftung-schiers"
+        "sotto-assistenza-chirurgia-100-flury-stiftung-schiers",
+        "sottoassistenza-medicina-interna-100-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistenzstelle-innere-medizin-100-flury-stiftung-ch"
+          "unterassistenzstelle-innere-medizin-100-flury-stiftung-ch",
+          "sottoassistenza-medicina-interna-100-flury-stiftung-schiers"
         ],
         "en": [
           "unterassistenzstelle-innere-medizin-100-flury-stiftung-ch"
@@ -1557,7 +1596,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/20220719%20Unterassistenz%20An%C3%A4sthesie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.727Z",
+      "crawledAt": "2026-07-09T12:14:28.516Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1582,11 +1621,13 @@
         "sub-assistance-anaesthesia-100-flury-stiftung-schiers",
         "sous-assistance-anesthesie-100-flury-stiftung-schiers",
         "assistant-e-en-pharmacie-50-80-flury-stiftung-schiers",
-        "pharmacy-assistant-50-80-flury-stiftung-schiers"
+        "pharmacy-assistant-50-80-flury-stiftung-schiers",
+        "sottoassistenza-anestesia-100-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistenzstelle-anasthesie-100-flury-stiftung-ch"
+          "unterassistenzstelle-anasthesie-100-flury-stiftung-ch",
+          "sottoassistenza-anestesia-100-flury-stiftung-schiers"
         ],
         "en": [
           "unterassistenzstelle-anasthesie-100-flury-stiftung-ch",
@@ -1643,7 +1684,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-08/assistenzarzt_innere_medizin_m_w_100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.726Z",
+      "crawledAt": "2026-07-09T12:14:28.514Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1664,11 +1705,13 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "previousSlugs": [
-        "assistenzarzt-innere-medizin-m-w-100-flury-stiftung-ch"
+        "assistenzarzt-innere-medizin-m-w-100-flury-stiftung-ch",
+        "assistente-medico-di-medicina-interna-m-f-100-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-innere-medizin-m-w-100-flury-stiftung-ch"
+          "assistenzarzt-innere-medizin-m-w-100-flury-stiftung-ch",
+          "assistente-medico-di-medicina-interna-m-f-100-flury-stiftung-schiers"
         ],
         "en": [
           "assistenzarzt-innere-medizin-m-w-100-flury-stiftung-ch"
@@ -1723,7 +1766,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Assistenz%C3%A4rztin_Assistenzarzt%20Chirurgie%20%28w_m%29_Neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.724Z",
+      "crawledAt": "2026-07-09T12:14:28.513Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1751,13 +1794,15 @@
         "medecin-assistant-en-chirurgie-flury-stiftung-schiers",
         "dipl-pflegefachperson-hf-fh-40-90-flury-stiftung-ch",
         "specialista-infermieristico-qualificato-hf-fh-40-90-flury-stiftung-schiers",
-        "assistente-farmaceutico-al-50-80-flury-stiftung-schiers"
+        "assistente-farmaceutico-al-50-80-flury-stiftung-schiers",
+        "assistente-chirurgico-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-chirurgie-flury-stiftung-ch",
           "medico-assistente-chirurgia-flury-stiftung-schiers",
-          "dipl-assistente-sanitario-hf-fh-40-90-flury-stiftung-schiers"
+          "dipl-assistente-sanitario-hf-fh-40-90-flury-stiftung-schiers",
+          "assistente-chirurgico-flury-stiftung-schiers"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-chirurgie-flury-stiftung-ch",
@@ -1769,6 +1814,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1814,7 +1860,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Hebamme.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.723Z",
+      "crawledAt": "2026-07-09T12:14:28.512Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1836,12 +1882,14 @@
       "pensumMax": 100,
       "previousSlugs": [
         "hebamme-100-flury-stiftung-ch",
-        "omologazione-100-flury-stiftung-schiers"
+        "omologazione-100-flury-stiftung-schiers",
+        "ostetrica-al-100-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hebamme-100-flury-stiftung-ch",
-          "omologazione-100-flury-stiftung-schiers"
+          "omologazione-100-flury-stiftung-schiers",
+          "ostetrica-al-100-flury-stiftung-schiers"
         ],
         "en": [
           "hebamme-100-flury-stiftung-ch"
@@ -1896,7 +1944,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/BMA%20Labor%2050%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.720Z",
+      "crawledAt": "2026-07-09T12:14:28.510Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1917,11 +1965,13 @@
       "pensumMin": 50,
       "pensumMax": 50,
       "previousSlugs": [
-        "biomedizinische-r-analytiker-in-50-flury-stiftung-ch"
+        "biomedizinische-r-analytiker-in-50-flury-stiftung-ch",
+        "analista-biomedico-al-50-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biomedizinische-r-analytiker-in-50-flury-stiftung-ch"
+          "biomedizinische-r-analytiker-in-50-flury-stiftung-ch",
+          "analista-biomedico-al-50-flury-stiftung-schiers"
         ],
         "en": [
           "biomedizinische-r-analytiker-in-50-flury-stiftung-ch"
@@ -1976,7 +2026,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-11/Dipl.%20Pflegefachperson%20Interdisziplin%C3%A4re%20Station%2040%20-%20100%25%20neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.715Z",
+      "crawledAt": "2026-07-09T12:14:28.505Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2028,11 +2078,13 @@
       "pensumMin": 40,
       "pensumMax": 100,
       "previousSlugs": [
-        "dipl-pflegefachperson-interdisziplinare-station-40-100-flury-stiftung-ch"
+        "dipl-pflegefachperson-interdisziplinare-station-40-100-flury-stiftung-ch",
+        "infermiere-dipl-reparto-interdisciplinare-40-100-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-interdisziplinare-station-40-100-flury-stiftung-ch"
+          "dipl-pflegefachperson-interdisziplinare-station-40-100-flury-stiftung-ch",
+          "infermiere-dipl-reparto-interdisciplinare-40-100-flury-stiftung-schiers"
         ],
         "en": [
           "dipl-pflegefachperson-interdisziplinare-station-40-100-flury-stiftung-ch"
@@ -2042,6 +2094,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.230Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2087,7 +2140,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Dipl.%20Pflegefachperson%20Dauernachtwache%2040%20-%20100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.713Z",
+      "crawledAt": "2026-07-09T12:14:28.504Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2167,7 +2220,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Stationsleitung_Interdis-Station.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.711Z",
+      "crawledAt": "2026-07-09T12:14:28.502Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2188,11 +2241,13 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "previousSlugs": [
-        "stationsleitung-80-100-flury-stiftung-ch"
+        "stationsleitung-80-100-flury-stiftung-ch",
+        "linea-stazione-80-100-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stationsleitung-80-100-flury-stiftung-ch"
+          "stationsleitung-80-100-flury-stiftung-ch",
+          "linea-stazione-80-100-flury-stiftung-schiers"
         ],
         "en": [
           "stationsleitung-80-100-flury-stiftung-ch"
@@ -2247,7 +2302,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-09/Dipl.%20Pflegefachperson%20HF%20in%20Ausbildung_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.708Z",
+      "crawledAt": "2026-07-09T12:14:28.498Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2270,11 +2325,13 @@
       "previousSlugs": [
         "ausbildungsplatze-dipl-pflegefachperson-hf-mit-direktanstellung-flury-stiftung-ch",
         "apprenticeships-as-a-qualified-nurse-hf-with-direct-employment-flury-stiftung-schiers",
-        "postes-de-formation-d-infirmier-diplome-es-avec-emploi-direct-flury-stiftung-schiers"
+        "postes-de-formation-d-infirmier-diplome-es-avec-emploi-direct-flury-stiftung-schiers",
+        "posti-di-formazione-per-infermieri-diplomati-hf-con-assunzione-diretta-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatze-dipl-pflegefachperson-hf-mit-direktanstellung-flury-stiftung-ch"
+          "ausbildungsplatze-dipl-pflegefachperson-hf-mit-direktanstellung-flury-stiftung-ch",
+          "posti-di-formazione-per-infermieri-diplomati-hf-con-assunzione-diretta-flury-stiftung-schiers"
         ],
         "en": [
           "apprenticeships-as-a-qualified-nurse-hf-with-direct-employment-flury-stiftung-schiers",
@@ -2331,7 +2388,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Fachperson%20Gesundheit%20im%20Personalpool%2040-80%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:09:50.687Z",
+      "crawledAt": "2026-07-09T12:14:28.496Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2352,11 +2409,13 @@
       "pensumMin": 40,
       "pensumMax": 80,
       "previousSlugs": [
-        "fachperson-gesundheit-efz-40-80-personalpool-flury-stiftung-ch"
+        "fachperson-gesundheit-efz-40-80-personalpool-flury-stiftung-ch",
+        "fachperson-gesundheit-cfc-40-80-personalpool-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-40-80-personalpool-flury-stiftung-ch"
+          "fachperson-gesundheit-efz-40-80-personalpool-flury-stiftung-ch",
+          "fachperson-gesundheit-cfc-40-80-personalpool-flury-stiftung-schiers"
         ],
         "en": [
           "fachperson-gesundheit-efz-40-80-personalpool-flury-stiftung-ch"
@@ -2366,6 +2425,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T22:38:46.198Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -2379,6 +2439,83 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "flury-stiftung-b40ef005b310",
+      "slug": "collaboratore-trice-in-hauswirtschaft-100-altersheim-klosters-flury-stiftung-klosters",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-hauswirtschaft-100-altersheim-klosters-flury-stiftung-ch",
+        "it": "collaboratore-trice-in-hauswirtschaft-100-altersheim-klosters-flury-stiftung-klosters",
+        "en": "mitarbeiter-in-hauswirtschaft-100-altersheim-klosters-flury-stiftung-ch",
+        "fr": "mitarbeiter-in-hauswirtschaft-100-altersheim-klosters-flury-stiftung-ch"
+      },
+      "company": "Flury Stiftung",
+      "companyKey": "flury-stiftung",
+      "companyDomain": "flurystiftung.ch",
+      "title": "Mitarbeiter*in Hauswirtschaft 100% Altersheim Klosters",
+      "titleByLocale": {
+        "de": "Mitarbeiter*in Hauswirtschaft 100% Altersheim Klosters",
+        "it": "Collaboratore/trice*in Hauswirtschaft 100% Altersheim Klosters",
+        "en": "Mitarbeiter*in Hauswirtschaft 100% Altersheim Klosters",
+        "fr": "Mitarbeiter*in Hauswirtschaft 100% Altersheim Klosters"
+      },
+      "description": "Mitarbeiter*in Hauswirtschaft 100% Altersheim Klosters — Flury Stiftung. Arbeitsort: Klosters (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
+      "descriptionByLocale": {
+        "de": "Mitarbeiter*in Hauswirtschaft 100% Altersheim Klosters — Flury Stiftung. Arbeitsort: Klosters (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
+        "it": "Mitarbeiter*in Hauswirtschaft 100% Altersheim Klosters — Flury Stiftung. Arbeitsort: Klosters (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
+        "en": "Mitarbeiter*in Hauswirtschaft 100% Altersheim Klosters — Flury Stiftung. Arbeitsort: Klosters (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
+        "fr": "Mitarbeiter*in Hauswirtschaft 100% Altersheim Klosters — Flury Stiftung. Arbeitsort: Klosters (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten"
+      },
+      "location": "Klosters",
+      "canton": "GR",
+      "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Mitarbeiter_in%20Hauswirtschaft%20100%25%20Klosters.pdf",
+      "source": "Flury Stiftung Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:14:28.483Z",
+      "addressLocality": "Klosters",
+      "postalCode": "7250",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-09",
+      "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-07/Mitarbeiter_in%20Hauswirtschaft%20100%25%20Klosters.pdf",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Flury Stiftung",
+      "pensum": "100%",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-hauswirtschaft-100-altersheim-klosters-flury-stiftung-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-hauswirtschaft-100-altersheim-klosters-flury-stiftung-ch"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-07-09T12:14:28.483Z"
     }
   ]
 }
