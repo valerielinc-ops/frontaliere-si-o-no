@@ -1,6 +1,6 @@
 {
   "crawlerKey": "orell-fuessli-thalia",
-  "assembledAt": "2026-07-08T22:21:47.489Z",
+  "assembledAt": "2026-07-09T12:27:12.891Z",
   "jobs": [
     {
       "id": "orell-fuessli-thalia-f46db7358aaf",
@@ -16,7 +16,7 @@
       "companyDomain": "orellfuessli.ch",
       "title": "ICT Supporter*in / Systemadministrator*in 80-100% (a)",
       "titleByLocale": {
-        "it": "Supporto ICT*in / Amministratore di sistema*in 80-100% (a)",
+        "it": "ICT Supporter*in / Systemadministrator*in 80-100% (a)",
         "en": "ICT Supporter*in / System Administrator*in 80-100% (a)",
         "de": "ICT Supporter*in / Systemadministrator*in 80-100% (a)",
         "fr": "Supporteur TIC*dans / Administrateur système*dans 80-100% (a)"
@@ -33,7 +33,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/ict-supporterin-systemadministratorin-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:45.003Z",
+      "crawledAt": "2026-07-09T12:27:09.147Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -53,11 +53,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ict-supporter-in-systemadministrator-in-80-100-a-orell-fuessli-thalia-zurich"
+        "ict-supporter-in-systemadministrator-in-80-100-a-orell-fuessli-thalia-zurich",
+        "sostenitore-ict-amministratore-di-sistema-80-100-a-orell-fussli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-supporter-in-systemadministrator-in-80-100-a-orell-fuessli-thalia-zurich"
+          "ict-supporter-in-systemadministrator-in-80-100-a-orell-fuessli-thalia-zurich",
+          "sostenitore-ict-amministratore-di-sistema-80-100-a-orell-fussli-thalia-zurich"
         ],
         "en": [
           "ict-supporter-in-systemadministrator-in-80-100-a-orell-fuessli-thalia-zurich"
@@ -112,7 +114,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:45.002Z",
+      "crawledAt": "2026-07-09T12:27:09.146Z",
       "addressLocality": "Basel",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -132,11 +134,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "filialleitung-100-a-orell-fuessli-thalia-basel"
+        "filialleitung-100-a-orell-fuessli-thalia-basel",
+        "direzione-della-filiale-al-100-a-orell-fussli-thalia-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleitung-100-a-orell-fuessli-thalia-basel"
+          "filialleitung-100-a-orell-fuessli-thalia-basel",
+          "direzione-della-filiale-al-100-a-orell-fussli-thalia-basel"
         ],
         "en": [
           "filialleitung-100-a-orell-fuessli-thalia-basel"
@@ -191,7 +195,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-20-60",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:45.001Z",
+      "crawledAt": "2026-07-09T12:27:09.144Z",
       "addressLocality": "Würenlos",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -211,11 +215,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "buchhandler-in-20-60-a-orell-fuessli-thalia-wurenlos"
+        "buchhandler-in-20-60-a-orell-fuessli-thalia-wurenlos",
+        "libraio-20-60-a-orell-fussli-thalia-wurenlos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buchhandler-in-20-60-a-orell-fuessli-thalia-wurenlos"
+          "buchhandler-in-20-60-a-orell-fuessli-thalia-wurenlos",
+          "libraio-20-60-a-orell-fussli-thalia-wurenlos"
         ],
         "en": [
           "buchhandler-in-20-60-a-orell-fuessli-thalia-wurenlos"
@@ -235,85 +241,6 @@
           "@type": "QuantitativeValue",
           "minValue": 37200,
           "maxValue": 56400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "orell-fuessli-thalia-9c4aa5db1f9c",
-      "slug": "direzione-della-filiale-80-100-a-orell-fussli-thalia-uster",
-      "slugByLocale": {
-        "it": "direzione-della-filiale-80-100-a-orell-fussli-thalia-uster",
-        "en": "branch-management-80-100-a-orell-fussli-thalia-uster",
-        "de": "filialleitung-80-100-a-orell-fuessli-thalia-uster",
-        "fr": "gestion-de-la-direction-generale-80-100-a-orell-fussli-thalia-uster"
-      },
-      "company": "Orell Füssli Thalia",
-      "companyKey": "orell-fuessli-thalia",
-      "companyDomain": "orellfuessli.ch",
-      "title": "Filialleitung 80-100% (a)",
-      "titleByLocale": {
-        "it": "Direzione della filiale 80-100% (a)",
-        "en": "Branch Management 80-100% (a)",
-        "de": "Filialleitung 80-100% (a)",
-        "fr": "Gestion de la Direction générale 80-100 % (a)"
-      },
-      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale in Uster suchen wir nach Vereinbarung eine*n\nFilialleitung 80 - 100% (a)\nIhre Hauptaufgaben:\n\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Gemeinsames Planen mit der Bereichsleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n\n• Verantwortung für das Sortiment und die entsprechende Präsentation\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-      "descriptionByLocale": {
-        "it": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Uster suchen wir nach Vereinbarung eine*n Filialleitung 80 - 100% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Bereichsleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "en": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Uster suchen wir nach Vereinbarung eine*n Filialleitung 80 - 100% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Bereichsleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "de": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Uster suchen wir nach Vereinbarung eine*n Filialleitung 80 - 100% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Bereichsleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "fr": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Uster suchen wir nach Vereinbarung eine*n Filialleitung 80 - 100% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Bereichsleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:"
-      },
-      "location": "Uster",
-      "canton": "ZH",
-      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-80-100",
-      "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:45.000Z",
-      "addressLocality": "Uster",
-      "addressRegion": "Zürich",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Retail / Librerie e Cartoleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-16",
-      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-80-100",
-      "jobReqId": null,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "filialleitung-80-100-a-orell-fuessli-thalia-uster"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "filialleitung-80-100-a-orell-fuessli-thalia-uster"
-        ],
-        "en": [
-          "filialleitung-80-100-a-orell-fuessli-thalia-uster"
-        ],
-        "fr": [
-          "filialleitung-80-100-a-orell-fuessli-thalia-uster"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T11:26:42.543Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -349,7 +276,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/stv-filialleitung-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.999Z",
+      "crawledAt": "2026-07-09T12:27:09.141Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -369,11 +296,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden"
+        "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden",
+        "vice-direttore-di-filiale-80-100-a-orell-fussli-thalia-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden"
+          "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden",
+          "vice-direttore-di-filiale-80-100-a-orell-fussli-thalia-weinfelden"
         ],
         "en": [
           "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden"
@@ -398,80 +327,82 @@
       }
     },
     {
-      "id": "orell-fuessli-thalia-5ef84e3af4f1",
-      "slug": "libraio-90-100-a-orell-fussli-thalia-st-gallen",
+      "id": "orell-fuessli-thalia-9c4aa5db1f9c",
+      "slug": "direzione-della-filiale-80-100-a-orell-fussli-thalia-uster",
       "slugByLocale": {
-        "it": "libraio-90-100-a-orell-fussli-thalia-st-gallen",
-        "en": "bookseller-in-90-100-a-orell-fussli-thalia-st-gallen",
-        "de": "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen",
-        "fr": "librairie-en-90-100-a-orell-fussli-thalia-st-gallen"
+        "it": "direzione-della-filiale-80-100-a-orell-fussli-thalia-uster",
+        "en": "branch-management-80-100-a-orell-fussli-thalia-uster",
+        "de": "filialleitung-80-100-a-orell-fuessli-thalia-uster",
+        "fr": "gestion-de-la-direction-generale-80-100-a-orell-fussli-thalia-uster"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
       "companyDomain": "orellfuessli.ch",
-      "title": "Buchhändler*in 90 - 100% (a)",
+      "title": "Filialleitung 80-100% (a)",
       "titleByLocale": {
-        "it": "Libraio 90 - 100% (a)",
-        "en": "Bookseller*in 90 - 100% (a)",
-        "de": "Buchhändler*in 90 - 100% (a)",
-        "fr": "Librairie* en 90 - 100% (a)"
+        "it": "Direzione della filiale 80-100% (a)",
+        "en": "Branch Management 80-100% (a)",
+        "de": "Filialleitung 80-100% (a)",
+        "fr": "Gestion de la Direction générale 80-100 % (a)"
       },
-      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale Rösslitor in St. Gallen suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 90 - 100% (a) .\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale in Uster suchen wir nach Vereinbarung eine*n\nFilialleitung 80 - 100% (a)\nIhre Hauptaufgaben:\n\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Gemeinsames Planen mit der Bereichsleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n\n• Verantwortung für das Sortiment und die entsprechende Präsentation\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
       "descriptionByLocale": {
-        "it": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale Rösslitor in St. Gallen suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 90 - 100% (a) . Ihre Hauptaufgaben:\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Büchern und Non-Books Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in mit fundierter Berufserfahrung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Interesse am aktuellen Zeitgeschehen\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "en": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale Rösslitor in St. Gallen suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 90 - 100% (a) . Ihre Hauptaufgaben:\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Büchern und Non-Books Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in mit fundierter Berufserfahrung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Interesse am aktuellen Zeitgeschehen\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "de": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale Rösslitor in St. Gallen suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 90 - 100% (a) . Ihre Hauptaufgaben:\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Büchern und Non-Books Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in mit fundierter Berufserfahrung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Interesse am aktuellen Zeitgeschehen\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "fr": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale Rösslitor in St. Gallen suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 90 - 100% (a) . Ihre Hauptaufgaben:\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Büchern und Non-Books Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in mit fundierter Berufserfahrung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Interesse am aktuellen Zeitgeschehen\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:"
+        "it": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Uster suchen wir nach Vereinbarung eine*n Filialleitung 80 - 100% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Bereichsleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "en": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Uster suchen wir nach Vereinbarung eine*n Filialleitung 80 - 100% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Bereichsleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "de": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Uster suchen wir nach Vereinbarung eine*n Filialleitung 80 - 100% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Bereichsleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "fr": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Uster suchen wir nach Vereinbarung eine*n Filialleitung 80 - 100% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Bereichsleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:"
       },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-90-100",
+      "location": "Uster",
+      "canton": "ZH",
+      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.998Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-07-09T12:27:09.141Z",
+      "addressLocality": "Uster",
       "addressRegion": "Zürich",
       "streetAddress": "",
       "postalCode": "",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Vendita",
+      "category": "Management",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Retail / Librerie e Cartoleria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-90-100",
+      "postedDate": "2026-03-16",
+      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-80-100",
       "jobReqId": null,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen"
+        "filialleitung-80-100-a-orell-fuessli-thalia-uster",
+        "direzione-della-filiale-80-100-a-orell-fussli-thalia-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen"
+          "filialleitung-80-100-a-orell-fuessli-thalia-uster",
+          "direzione-della-filiale-80-100-a-orell-fussli-thalia-uster"
         ],
         "en": [
-          "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen"
+          "filialleitung-80-100-a-orell-fuessli-thalia-uster"
         ],
         "fr": [
-          "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen"
+          "filialleitung-80-100-a-orell-fuessli-thalia-uster"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T11:26:42.541Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "firstSeenAt": "2026-07-04T11:26:42.543Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -507,7 +438,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/mitarbeiterin-kundenservice-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.998Z",
+      "crawledAt": "2026-07-09T12:27:09.140Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -527,11 +458,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich"
+        "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich",
+        "collaboratore-trice-in-kundenservice-100-a-orell-fussli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich"
+          "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich",
+          "collaboratore-trice-in-kundenservice-100-a-orell-fussli-thalia-zurich"
         ],
         "en": [
           "mitarbeiter-in-kundenservice-100-a-orell-fuessli-thalia-zurich"
@@ -559,9 +492,9 @@
       "id": "orell-fuessli-thalia-2fba3faa18e8",
       "slug": "specialista-al-dettaglio-uomo-papeterie-40-a-orell-fussli-thalia-bern",
       "slugByLocale": {
-        "de": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-bern",
         "it": "specialista-al-dettaglio-uomo-papeterie-40-a-orell-fussli-thalia-bern",
         "en": "retail-specialist-man-papeterie-40-a-orell-fussli-thalia-bern",
+        "de": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-bern",
         "fr": "specialiste-du-commerce-de-detail-homme-papeterie-40-a-orell-fussli-thalia-bern"
       },
       "company": "Orell Füssli Thalia",
@@ -569,24 +502,24 @@
       "companyDomain": "orellfuessli.ch",
       "title": "Detailhandelsfachfrau/mann Papeterie 40% (a)",
       "titleByLocale": {
-        "de": "Detailhandelsfachfrau/mann Papeterie 40% (a)",
         "it": "Specialista al dettaglio/uomo Papeterie 40% (a)",
         "en": "Retail specialist/man Papeterie 40% (a)",
+        "de": "Detailhandelsfachfrau/mann Papeterie 40% (a)",
         "fr": "Spécialiste du commerce de détail/homme Papeterie 40% (a)"
       },
       "description": "Mögen Sie Geschichten ebenso wie wir?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere neue Filiale am Bahnhof Bern (Bollwerk), welche als Abteilung der Filiale Stauffacher geführt wird, suchen wir per 1. August 2026 eine*n Detailhandelsfachfrau/-mann Papeterie 40% (a)\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt der Papeterie\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\n\n• Präsentation von Papeterie-Artikeln, Geschenken und Spielwaren\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Detailhandelsfachfrau/-mann Papeterie\n\n• Affinität zu Papeterie, Schenken und Spielwaren\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Stilsicheres Deutsch, zusätzlich gute Fremdsprachenkenntnisse von Vorteil\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nWochenend- und Feiertagseinsätze sind aufgrund der Öffnungszeiten an 365 Tagen im Jahr regelmässig vorgesehen.\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
       "descriptionByLocale": {
-        "de": "Mögen Sie Geschichten ebenso wie wir?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere neue Filiale am Bahnhof Bern (Bollwerk), welche als Abteilung der Filiale Stauffacher geführt wird, suchen wir per 1. August 2026 eine*n Detailhandelsfachfrau/-mann Papeterie 40% (a)\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt der Papeterie\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\n\n• Präsentation von Papeterie-Artikeln, Geschenken und Spielwaren\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Detailhandelsfachfrau/-mann Papeterie\n\n• Affinität zu Papeterie, Schenken und Spielwaren\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Stilsicheres Deutsch, zusätzlich gute Fremdsprachenkenntnisse von Vorteil\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nWochenend- und Feiertagseinsätze sind aufgrund der Öffnungszeiten an 365 Tagen im Jahr regelmässig vorgesehen.\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "it": "Ti piacciono le storie come noi?\nCon la tua passione, hai esattamente ragione con noi. A Orell Füssli Thalia AG, creiamo spazi per diverse storie e conoscenze che ispirano e arricchiscono la nostra società. Inoltre, Orell Füssli è un luogo dove i dipendenti si sentono a proprio agio, dove si divertono a lavorare bene insieme e raggiungere più insieme.\n\nPer il nostro nuovo ramo alla stazione di Berna (Bollwerk), che è gestito come reparto della filiale Stauffacher, stiamo cercando 1. Agosto 2026 uno specialista al dettaglio Papeterie 40% (a)\nI loro compiti principali:\n\n• Lots* nel mondo della petetteria\n\n• Consulenza competente e stimolante ai nostri clienti\n\n• Gestione del magazzino e ordinazione (ordine, remit, ricerca)\n\n• Monitoraggio del mercato e della tendenza\n\n• Collaborazione con raccolta e cassa\n\n• Presentazione di documenti, regali e giocattoli\nIl tuo profilo:\n\n• Formazione completa come specialista al dettaglio / -mann Papeterie\n\n• Affinità a papetry, regali e giocattoli\n\n• Personalità orientata al cliente e alle vendite con esperienza nel contatto con il cliente\n\n• Stylistic tedesco, inoltre buone competenze di lingua straniera sono vantaggiose\nLa nostra offerta:\n\n• Cultura aziendale collaborativa e apprezzativa\n\n• Posizione centrale con buoni collegamenti di trasporto pubblico\n\n• Modelli di tempo di lavoro adattati alla situazione di vita attuale\n\n• Programma di vacanza generoso e offerta di sconti varie\n\n• Opportunità di formazione individuale; opzioni di sviluppo di branch e cross-divisional\n\nGli incarichi di fine settimana e festivi sono regolarmente programmati 365 giorni all'anno a causa degli orari di apertura.\n\nApplicare oggi per il lavoro più bello del mondo. Attendiamo con ansia la vostra applicazione completa tramite il nostro strumento di reclutamento. Se avete domande, si prega di contattare:",
-        "en": "Do you like stories like us?\nWith your passion, you are exactly right with us. At Orell Füssli Thalia AG, we create spaces for diverse stories and knowledge that inspire and enrich our society. In addition, Orell Füssli is a place where employees feel comfortable, where they enjoy working well together and achieve more together.\n\nFor our new branch at the station Bern (Bollwerk), which is managed as a department of the branch Stauffacher, we are looking for 1. August 2026 a retail specialist Papeterie 40% (a)\nTheir main tasks:\n\n• Lots*in in the world of papetry\n\n• Competent and inspiring advice to our customers\n\n• Warehouse management and ordering (order, remit, research)\n\n• Market and trend monitoring\n\n• Collaboration with collection and cash register\n\n• Presentation of paperwork, gifts and toys\nYour profile:\n\n• Completed training as a retail specialist / -mann Papeterie\n\n• Affinity to papetry, gifts and toys\n\n• Customer- and sales-oriented personality with experience in customer contact\n\n• Stylistic German, additionally good foreign language skills are advantageous\nOur offer:\n\n• Collaborative and appreciative corporate culture\n\n• Central location with good public transport connections\n\n• Working time models adapted to the current living situation\n\n• Generous holiday scheme and varied discount offer\n\n• Individual training opportunities; branch and cross-divisional development options\n\nWeekend and public holiday assignments are regularly scheduled 365 days a year due to opening hours.\n\nApply today for the most beautiful job in the world. We look forward to your complete application via our recruiting tool. If you have any questions, please contact:",
-        "fr": "Tu aimes les histoires comme nous ?\nAvec votre passion, vous avez raison avec nous. Chez Orell Füssli Thalia AG, nous créons des espaces pour diverses histoires et connaissances qui inspirent et enrichissent notre société. En outre, Orell Füssli est un endroit où les employés se sentent à l'aise, où ils aiment bien travailler ensemble et obtenir plus ensemble.\n\nPour notre nouvelle succursale à la station Bern (Bollwerk), qui est gérée comme un département de la succursale Stauffacher, nous cherchons 1. Août 2026 un spécialiste du commerce de détail Papeterie 40% (a)\nLeurs principales tâches:\n\n• Lots*in dans le monde de la papeterie\n\n• Conseils compétents et inspirants à nos clients\n\n• Gestion et commande des entrepôts (commande, mission, recherche)\n\n• Surveillance des marchés et des tendances\n\n• Collaboration avec la collecte et la caisse enregistreuse\n\n• Présentation de papiers, cadeaux et jouets\nVotre profil:\n\n• Formation complète en tant que spécialiste du commerce de détail / -mann Papeterie\n\n• Affinité à la papeterie, cadeaux et jouets\n\n• Personnalité orientée client et ventes avec expérience dans le contact client\n\n• Allemand styliste, en plus de bonnes compétences en langues étrangères sont avantageux\nNotre offre :\n\n• Culture d'entreprise collaborative et reconnaissante\n\n• Emplacement central avec bonnes liaisons de transport public\n\n• Modèles de temps de travail adaptés à la situation actuelle\n\n• Régime de vacances généreux et offre de réduction variée\n\n• Possibilités de formation individuelles; options de développement des directions générales et des divisions\n\nLes affectations de fin de semaine et de jours fériés sont régulièrement prévues 365 jours par an en raison des heures d'ouverture.\n\nPostulez aujourd'hui pour le plus beau travail au monde. Nous attendons avec impatience votre candidature complète via notre outil de recrutement. Si vous avez des questions, veuillez contacter:"
+        "it": "Ti piacciono le storie come noi? Con la tua passione, hai esattamente ragione con noi. A Orell Füssli Thalia AG, creiamo spazi per diverse storie e conoscenze che ispirano e arricchiscono la nostra società. Inoltre, Orell Füssli è un luogo dove i dipendenti si sentono a proprio agio, dove si divertono a lavorare bene insieme e raggiungere più insieme. Per il nostro nuovo ramo alla stazione di Berna (Bollwerk), che è gestito come reparto della filiale Stauffacher, stiamo cercando 1. Agosto 2026 uno specialista al dettaglio Papeterie 40% (a) I loro compiti principali:\n• Lots* nel mondo della petetteria\n• Consulenza competente e stimolante ai nostri clienti\n• Gestione del magazzino e ordinazione (ordine, remit, ricerca)\n• Monitoraggio del mercato e della tendenza\n• Collaborazione con raccolta e cassa\n• Presentazione di documenti, regali e giocattoli Il tuo profilo:\n• Formazione completa come specialista al dettaglio / -mann Papeterie\n• Affinità a papetry, regali e giocattoli\n• Personalità orientata al cliente e alle vendite con esperienza nel contatto con il cliente\n• Stylistic tedesco, inoltre buone competenze di lingua straniera sono vantaggiose La nostra offerta:\n• Cultura aziendale collaborativa e apprezzativa\n• Posizione centrale con buoni collegamenti di trasporto pubblico\n• Modelli di tempo di lavoro adattati alla situazione di vita attuale\n• Programma di vacanza generoso e offerta di sconti varie\n• Opportunità di formazione individuale; opzioni di sviluppo di branch e cross-divisional Gli incarichi di fine settimana e festivi sono regolarmente programmati 365 giorni all'anno a causa degli orari di apertura. Applicare oggi per il lavoro più bello del mondo. Attendiamo con ansia la vostra applicazione completa tramite il nostro strumento di reclutamento. Se avete domande, si prega di contattare:",
+        "en": "Do you like stories like us? With your passion, you are exactly right with us. At Orell Füssli Thalia AG, we create spaces for diverse stories and knowledge that inspire and enrich our society. In addition, Orell Füssli is a place where employees feel comfortable, where they enjoy working well together and achieve more together. For our new branch at the station Bern (Bollwerk), which is managed as a department of the branch Stauffacher, we are looking for 1. August 2026 a retail specialist Papeterie 40% (a) Their main tasks:\n• Lots*in in the world of papetry\n• Competent and inspiring advice to our customers\n• Warehouse management and ordering (order, remit, research)\n• Market and trend monitoring\n• Collaboration with collection and cash register\n• Presentation of paperwork, gifts and toys Your profile:\n• Completed training as a retail specialist / -mann Papeterie\n• Affinity to papetry, gifts and toys\n• Customer- and sales-oriented personality with experience in customer contact\n• Stylistic German, additionally good foreign language skills are advantageous Our offer:\n• Collaborative and appreciative corporate culture\n• Central location with good public transport connections\n• Working time models adapted to the current living situation\n• Generous holiday scheme and varied discount offer\n• Individual training opportunities; branch and cross-divisional development options Weekend and public holiday assignments are regularly scheduled 365 days a year due to opening hours. Apply today for the most beautiful job in the world. We look forward to your complete application via our recruiting tool. If you have any questions, please contact:",
+        "de": "Mögen Sie Geschichten ebenso wie wir? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere neue Filiale am Bahnhof Bern (Bollwerk), welche als Abteilung der Filiale Stauffacher geführt wird, suchen wir per 1. August 2026 eine*n Detailhandelsfachfrau/-mann Papeterie 40% (a) Ihre Hauptaufgaben:\n• Lots*in in der Welt der Papeterie\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Papeterie-Artikeln, Geschenken und Spielwaren Ihr Profil:\n• Abgeschlossene Ausbildung als Detailhandelsfachfrau/-mann Papeterie\n• Affinität zu Papeterie, Schenken und Spielwaren\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Stilsicheres Deutsch, zusätzlich gute Fremdsprachenkenntnisse von Vorteil Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Wochenend- und Feiertagseinsätze sind aufgrund der Öffnungszeiten an 365 Tagen im Jahr regelmässig vorgesehen. Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "fr": "Tu aimes les histoires comme nous ? Avec votre passion, vous avez raison avec nous. Chez Orell Füssli Thalia AG, nous créons des espaces pour diverses histoires et connaissances qui inspirent et enrichissent notre société. En outre, Orell Füssli est un endroit où les employés se sentent à l'aise, où ils aiment bien travailler ensemble et obtenir plus ensemble. Pour notre nouvelle succursale à la station Bern (Bollwerk), qui est gérée comme un département de la succursale Stauffacher, nous cherchons 1. Août 2026 un spécialiste du commerce de détail Papeterie 40% (a) Leurs principales tâches:\n• Lots*in dans le monde de la papeterie\n• Conseils compétents et inspirants à nos clients\n• Gestion et commande des entrepôts (commande, mission, recherche)\n• Surveillance des marchés et des tendances\n• Collaboration avec la collecte et la caisse enregistreuse\n• Présentation de papiers, cadeaux et jouets Votre profil:\n• Formation complète en tant que spécialiste du commerce de détail / -mann Papeterie\n• Affinité à la papeterie, cadeaux et jouets\n• Personnalité orientée client et ventes avec expérience dans le contact client\n• Allemand styliste, en plus de bonnes compétences en langues étrangères sont avantageux Notre offre :\n• Culture d'entreprise collaborative et reconnaissante\n• Emplacement central avec bonnes liaisons de transport public\n• Modèles de temps de travail adaptés à la situation actuelle\n• Régime de vacances généreux et offre de réduction variée\n• Possibilités de formation individuelles; options de développement des directions générales et des divisions Les affectations de fin de semaine et de jours fériés sont régulièrement prévues 365 jours par an en raison des heures d'ouverture. Postulez aujourd'hui pour le plus beau travail au monde. Nous attendons avec impatience votre candidature complète via notre outil de recrutement. Si vous avez des questions, veuillez contacter:"
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-40",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.997Z",
+      "crawledAt": "2026-07-09T12:27:09.139Z",
       "addressLocality": "Bern",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -604,13 +537,17 @@
       "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-40",
       "jobReqId": null,
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-bern",
+        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-bern",
+        "specialista-al-dettaglio-uomo-papeterie-40-a-orell-fussli-thalia-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-bern",
-          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-bern"
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-bern",
+          "specialista-al-dettaglio-uomo-papeterie-40-a-orell-fussli-thalia-bern"
         ],
         "en": [
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-bern"
@@ -619,10 +556,7 @@
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-bern"
         ]
       },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-bern",
-        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-bern"
-      ],
+      "firstSeenAt": "2026-07-08T22:21:44.997Z",
       "salaryMin": 27400,
       "salaryMax": 41600,
       "baseSalary": {
@@ -634,8 +568,7 @@
           "maxValue": 41600,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:21:44.997Z"
+      }
     },
     {
       "id": "orell-fuessli-thalia-94e5af17b9f7",
@@ -668,7 +601,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-70",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.997Z",
+      "crawledAt": "2026-07-09T12:27:09.139Z",
       "addressLocality": "Bern",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -688,11 +621,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "buchhandler-in-70-a-orell-fuessli-thalia-bern"
+        "buchhandler-in-70-a-orell-fuessli-thalia-bern",
+        "libraio-70-a-orell-fussli-thalia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buchhandler-in-70-a-orell-fuessli-thalia-bern"
+          "buchhandler-in-70-a-orell-fuessli-thalia-bern",
+          "libraio-70-a-orell-fussli-thalia-bern"
         ],
         "en": [
           "buchhandler-in-70-a-orell-fuessli-thalia-bern"
@@ -717,238 +652,82 @@
       }
     },
     {
-      "id": "orell-fuessli-thalia-470dc0095cf1",
-      "slug": "libraio-40-a-orell-fussli-thalia-urtenen-schonbuhl",
+      "id": "orell-fuessli-thalia-5ef84e3af4f1",
+      "slug": "libraio-90-100-a-orell-fussli-thalia-st-gallen",
       "slugByLocale": {
-        "it": "libraio-40-a-orell-fussli-thalia-urtenen-schonbuhl",
-        "en": "bookseller-in-40-a-orell-fussli-thalia-urtenen-schonbuhl",
-        "de": "buchhandler-in-40-a-orell-fuessli-thalia-urtenen-schonbuhl",
-        "fr": "librairie-en-40-a-orell-fussli-thalia-urtenen-schonbuhl"
+        "it": "libraio-90-100-a-orell-fussli-thalia-st-gallen",
+        "en": "bookseller-in-90-100-a-orell-fussli-thalia-st-gallen",
+        "de": "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen",
+        "fr": "librairie-en-90-100-a-orell-fussli-thalia-st-gallen"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
       "companyDomain": "orellfuessli.ch",
-      "title": "Buchhändler*in 40% (a)",
+      "title": "Buchhändler*in 90 - 100% (a)",
       "titleByLocale": {
-        "it": "Libraio 40% (a)",
-        "en": "Bookseller*in 40% (a)",
-        "de": "Buchhändler*in 40% (a)",
-        "fr": "Librairie en 40% (a)"
+        "it": "Libraio 90 - 100% (a)",
+        "en": "Bookseller*in 90 - 100% (a)",
+        "de": "Buchhändler*in 90 - 100% (a)",
+        "fr": "Librairie* en 90 - 100% (a)"
       },
-      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale im Shoppyland Schönbühl suchen wir per 1. August 2026 eine*n Buchhändler*in 40% (a)\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale Rösslitor in St. Gallen suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 90 - 100% (a) .\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
       "descriptionByLocale": {
-        "it": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale im Shoppyland Schönbühl suchen wir per1. August 2026 eine*n Buchhändler*in 40% (a) Ihre Hauptaufgaben:\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Büchern und Non-Books Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Interesse am aktuellen Zeitgeschehen\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "en": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale im Shoppyland Schönbühl suchen wir per1. August 2026 eine*n Buchhändler*in 40% (a) Ihre Hauptaufgaben:\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Büchern und Non-Books Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Interesse am aktuellen Zeitgeschehen\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "de": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale im Shoppyland Schönbühl suchen wir per 1. August 2026 eine*n Buchhändler*in 40% (a) Ihre Hauptaufgaben:\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Büchern und Non-Books Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Interesse am aktuellen Zeitgeschehen\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "fr": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale im Shoppyland Schönbühl suchen wir per1. August 2026 eine*n Buchhändler*in 40% (a) Ihre Hauptaufgaben:\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Büchern und Non-Books Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Interesse am aktuellen Zeitgeschehen\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:"
+        "it": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale Rösslitor in St. Gallen suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 90 - 100% (a) . Ihre Hauptaufgaben:\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Büchern und Non-Books Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in mit fundierter Berufserfahrung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Interesse am aktuellen Zeitgeschehen\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "en": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale Rösslitor in St. Gallen suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 90 - 100% (a) . Ihre Hauptaufgaben:\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Büchern und Non-Books Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in mit fundierter Berufserfahrung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Interesse am aktuellen Zeitgeschehen\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "de": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale Rösslitor in St. Gallen suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 90 - 100% (a) . Ihre Hauptaufgaben:\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Büchern und Non-Books Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in mit fundierter Berufserfahrung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Interesse am aktuellen Zeitgeschehen\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "fr": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale Rösslitor in St. Gallen suchen wir per 1. Oktober 2026 eine*n Buchhändler*in 90 - 100% (a) . Ihre Hauptaufgaben:\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse\n• Präsentation von Büchern und Non-Books Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in mit fundierter Berufserfahrung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n• Interesse am aktuellen Zeitgeschehen\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten\n• Filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:"
       },
-      "location": "Urtenen-Schönbühl",
-      "canton": "BE",
-      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-40",
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-90-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.996Z",
-      "addressLocality": "Urtenen-Schönbühl",
+      "crawledAt": "2026-07-09T12:27:09.139Z",
+      "addressLocality": "St. Gallen",
       "addressRegion": "Zürich",
       "streetAddress": "",
       "postalCode": "",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Vendita",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Retail / Librerie e Cartoleria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-40",
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-90-100",
       "jobReqId": null,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "buchhandler-in-40-a-orell-fuessli-thalia-urtenen-schonbuhl"
+        "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen",
+        "libraio-90-100-a-orell-fussli-thalia-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buchhandler-in-40-a-orell-fuessli-thalia-urtenen-schonbuhl"
+          "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen",
+          "libraio-90-100-a-orell-fussli-thalia-st-gallen"
         ],
         "en": [
-          "buchhandler-in-40-a-orell-fuessli-thalia-urtenen-schonbuhl"
+          "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen"
         ],
         "fr": [
-          "buchhandler-in-40-a-orell-fuessli-thalia-urtenen-schonbuhl"
+          "buchhandler-in-90-100-a-orell-fuessli-thalia-st-gallen"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T11:26:42.539Z",
-      "salaryMin": 27400,
-      "salaryMax": 41600,
+      "firstSeenAt": "2026-07-04T11:26:42.541Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 27400,
-          "maxValue": 41600,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "orell-fuessli-thalia-601c11735675",
-      "slug": "capo-dipartimento-90-100-a-orell-fussli-thalia-bern",
-      "slugByLocale": {
-        "it": "capo-dipartimento-90-100-a-orell-fussli-thalia-bern",
-        "en": "head-of-department-90-100-a-orell-fussli-thalia-bern",
-        "de": "abteilungsleitung-90-100-a-orell-fuessli-thalia-bern",
-        "fr": "chef-de-departement-90-100-a-orell-fussli-thalia-bern"
-      },
-      "company": "Orell Füssli Thalia",
-      "companyKey": "orell-fuessli-thalia",
-      "companyDomain": "orellfuessli.ch",
-      "title": "Abteilungsleitung 90 - 100% (a)",
-      "titleByLocale": {
-        "it": "Capo Dipartimento 90 - 100% (a)",
-        "en": "Head of department 90 - 100% (a)",
-        "de": "Abteilungsleitung 90 - 100% (a)",
-        "fr": "Chef de département 90 - 100% (a)"
-      },
-      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale an der Spitalgasse in Bern suchen wir per 1. Juli 2026 eine Abteilungsleitung 90 - 100% (a)\nfür die Abteilung Kinderbuch (Kinder-/Jugendbuch, Fantasy, Comic, Manga, Spiele, Kinder-Nonbooks)\nIhre Hauptaufgaben:\n\n• Führung der Mitarbeitenden der Abteilung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitendengespräche), Personalrekrutierung\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Gemeinsames Planen mit der Filialleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n\n• Mitverantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe\n\n• Verantwortung für das Sortiment und dessen Präsentation\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in\n\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n\n• Hohe Dienstleistungsorientierung und Sozialkompetenz\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-      "descriptionByLocale": {
-        "it": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale an der Spitalgasse in Bern suchen wir per 1. Juli 2026 eine Abteilungsleitung 90 - 100% (a) für die Abteilung Kinderbuch (Kinder-/Jugendbuch, Fantasy, Comic, Manga, Spiele, Kinder-Nonbooks) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Abteilung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitendengespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Filialleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Mitverantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe\n• Verantwortung für das Sortiment und dessen Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n• Hohe Dienstleistungsorientierung und Sozialkompetenz Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "en": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale an der Spitalgasse in Bern suchen wir per 1. Juli 2026 eine Abteilungsleitung 90 - 100% (a) für die Abteilung Kinderbuch (Kinder-/Jugendbuch, Fantasy, Comic, Manga, Spiele, Kinder-Nonbooks) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Abteilung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitendengespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Filialleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Mitverantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe\n• Verantwortung für das Sortiment und dessen Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n• Hohe Dienstleistungsorientierung und Sozialkompetenz Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "de": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale an der Spitalgasse in Bern suchen wir per 1. Juli 2026 eine Abteilungsleitung 90 - 100% (a) für die Abteilung Kinderbuch (Kinder-/Jugendbuch, Fantasy, Comic, Manga, Spiele, Kinder-Nonbooks) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Abteilung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitendengespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Filialleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Mitverantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe\n• Verantwortung für das Sortiment und dessen Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n• Hohe Dienstleistungsorientierung und Sozialkompetenz Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "fr": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale an der Spitalgasse in Bern suchen wir per 1. Juli 2026 eine Abteilungsleitung 90 - 100% (a) für die Abteilung Kinderbuch (Kinder-/Jugendbuch, Fantasy, Comic, Manga, Spiele, Kinder-Nonbooks) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Abteilung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitendengespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Filialleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Mitverantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe\n• Verantwortung für das Sortiment und dessen Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n• Hohe Dienstleistungsorientierung und Sozialkompetenz Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/abteilungsleitung-90-100",
-      "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.996Z",
-      "addressLocality": "Bern",
-      "addressRegion": "Zürich",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Retail / Librerie e Cartoleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/abteilungsleitung-90-100",
-      "jobReqId": null,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "abteilungsleitung-90-100-a-orell-fuessli-thalia-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "abteilungsleitung-90-100-a-orell-fuessli-thalia-bern"
-        ],
-        "en": [
-          "abteilungsleitung-90-100-a-orell-fuessli-thalia-bern"
-        ],
-        "fr": [
-          "abteilungsleitung-90-100-a-orell-fuessli-thalia-bern"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T11:26:42.539Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "orell-fuessli-thalia-f14b989c3940",
-      "slug": "direzione-filiale-80-90-a-orell-fussli-thalia-spreitenbach",
-      "slugByLocale": {
-        "it": "direzione-filiale-80-90-a-orell-fussli-thalia-spreitenbach",
-        "en": "branch-management-80-90-a-orell-fussli-thalia-spreitenbach",
-        "de": "filialleitung-80-90-a-orell-fuessli-thalia-spreitenbach",
-        "fr": "gestion-de-la-direction-generale-80-90-a-orell-fussli-thalia-spreitenbach"
-      },
-      "company": "Orell Füssli Thalia",
-      "companyKey": "orell-fuessli-thalia",
-      "companyDomain": "orellfuessli.ch",
-      "title": "Filialleitung 80 - 90% (a)",
-      "titleByLocale": {
-        "it": "Direzione filiale 80 - 90% (a)",
-        "en": "Branch Management 80 - 90% (a)",
-        "de": "Filialleitung 80 - 90% (a)",
-        "fr": "Gestion de la Direction générale 80 - 90 % (a)"
-      },
-      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale in Spreitenbach suchen wir per 1. Oktober 2026 eine*n Filialleitung 80 - 90% (a)\nIhre Hauptaufgaben:\n\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Gemeinsames Planen mit der Regionalleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n\n• Verantwortung für das Sortiment und die entsprechende Präsentation\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-      "descriptionByLocale": {
-        "it": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Spreitenbach suchen wir per 1. Oktober 2026eine*n Filialleitung 80 - 90% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Regionalleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "en": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Spreitenbach suchen wir per 1. Oktober 2026eine*n Filialleitung 80 - 90% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Regionalleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "de": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Spreitenbach suchen wir per 1. Oktober 2026 eine*n Filialleitung 80 - 90% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Regionalleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "fr": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Spreitenbach suchen wir per 1. Oktober 2026eine*n Filialleitung 80 - 90% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Regionalleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:"
-      },
-      "location": "Spreitenbach",
-      "canton": "AG",
-      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-80-90",
-      "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.988Z",
-      "addressLocality": "Spreitenbach",
-      "addressRegion": "Zürich",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Retail / Librerie e Cartoleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-80-90",
-      "jobReqId": null,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "filialleitung-80-90-a-orell-fuessli-thalia-spreitenbach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "filialleitung-80-90-a-orell-fuessli-thalia-spreitenbach"
-        ],
-        "en": [
-          "filialleitung-80-90-a-orell-fuessli-thalia-spreitenbach"
-        ],
-        "fr": [
-          "filialleitung-80-90-a-orell-fuessli-thalia-spreitenbach"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T11:26:42.532Z",
-      "salaryMin": 55800,
-      "salaryMax": 84600,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 55800,
-          "maxValue": 84600,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -984,7 +763,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/abteilungsleitung-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.987Z",
+      "crawledAt": "2026-07-09T12:27:09.138Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -1004,11 +783,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "abteilungsleitung-100-a-orell-fuessli-thalia-zurich"
+        "abteilungsleitung-100-a-orell-fuessli-thalia-zurich",
+        "capo-dipartimento-100-a-orell-fussli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleitung-100-a-orell-fuessli-thalia-zurich"
+          "abteilungsleitung-100-a-orell-fuessli-thalia-zurich",
+          "capo-dipartimento-100-a-orell-fussli-thalia-zurich"
         ],
         "en": [
           "abteilungsleitung-100-a-orell-fuessli-thalia-zurich"
@@ -1028,6 +809,168 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "orell-fuessli-thalia-f14b989c3940",
+      "slug": "direzione-filiale-80-90-a-orell-fussli-thalia-spreitenbach",
+      "slugByLocale": {
+        "it": "direzione-filiale-80-90-a-orell-fussli-thalia-spreitenbach",
+        "en": "branch-management-80-90-a-orell-fussli-thalia-spreitenbach",
+        "de": "filialleitung-80-90-a-orell-fuessli-thalia-spreitenbach",
+        "fr": "gestion-de-la-direction-generale-80-90-a-orell-fussli-thalia-spreitenbach"
+      },
+      "company": "Orell Füssli Thalia",
+      "companyKey": "orell-fuessli-thalia",
+      "companyDomain": "orellfuessli.ch",
+      "title": "Filialleitung 80 - 90% (a)",
+      "titleByLocale": {
+        "it": "Direzione filiale 80 - 90% (a)",
+        "en": "Branch Management 80 - 90% (a)",
+        "de": "Filialleitung 80 - 90% (a)",
+        "fr": "Gestion de la Direction générale 80 - 90 % (a)"
+      },
+      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale in Spreitenbach suchen wir per 1. Oktober 2026 eine*n Filialleitung 80 - 90% (a)\nIhre Hauptaufgaben:\n\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Gemeinsames Planen mit der Regionalleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n\n• Verantwortung für das Sortiment und die entsprechende Präsentation\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+      "descriptionByLocale": {
+        "it": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Spreitenbach suchen wir per 1. Oktober 2026eine*n Filialleitung 80 - 90% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Regionalleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "en": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Spreitenbach suchen wir per 1. Oktober 2026eine*n Filialleitung 80 - 90% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Regionalleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "de": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Spreitenbach suchen wir per 1. Oktober 2026 eine*n Filialleitung 80 - 90% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Regionalleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "fr": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Spreitenbach suchen wir per 1. Oktober 2026eine*n Filialleitung 80 - 90% (a) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Buchhandlung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitergespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Regionalleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Verantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe mit dem Ziel einer hohen Kundenzufriedenheit und einer angemessenen Rentabilität\n• Verantwortung für das Sortiment und die entsprechende Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 5 Jahre Verkaufserfahrung im Handel\n• Führungserfahrung oder Teilnahme an einer Kaderausbildung\n• Affinität zum Buch sowie zu den elektronischen Medien\n• verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:"
+      },
+      "location": "Spreitenbach",
+      "canton": "AG",
+      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-80-90",
+      "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:27:09.138Z",
+      "addressLocality": "Spreitenbach",
+      "addressRegion": "Zürich",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Management",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Retail / Librerie e Cartoleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-17",
+      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-80-90",
+      "jobReqId": null,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "filialleitung-80-90-a-orell-fuessli-thalia-spreitenbach",
+        "direzione-filiale-80-90-a-orell-fussli-thalia-spreitenbach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "filialleitung-80-90-a-orell-fuessli-thalia-spreitenbach",
+          "direzione-filiale-80-90-a-orell-fussli-thalia-spreitenbach"
+        ],
+        "en": [
+          "filialleitung-80-90-a-orell-fuessli-thalia-spreitenbach"
+        ],
+        "fr": [
+          "filialleitung-80-90-a-orell-fuessli-thalia-spreitenbach"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T11:26:42.532Z",
+      "salaryMin": 55800,
+      "salaryMax": 84600,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 55800,
+          "maxValue": 84600,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "orell-fuessli-thalia-601c11735675",
+      "slug": "capo-dipartimento-90-100-a-orell-fussli-thalia-bern",
+      "slugByLocale": {
+        "it": "capo-dipartimento-90-100-a-orell-fussli-thalia-bern",
+        "en": "head-of-department-90-100-a-orell-fussli-thalia-bern",
+        "de": "abteilungsleitung-90-100-a-orell-fuessli-thalia-bern",
+        "fr": "chef-de-departement-90-100-a-orell-fussli-thalia-bern"
+      },
+      "company": "Orell Füssli Thalia",
+      "companyKey": "orell-fuessli-thalia",
+      "companyDomain": "orellfuessli.ch",
+      "title": "Abteilungsleitung 90 - 100% (a)",
+      "titleByLocale": {
+        "it": "Capo Dipartimento 90 - 100% (a)",
+        "en": "Head of department 90 - 100% (a)",
+        "de": "Abteilungsleitung 90 - 100% (a)",
+        "fr": "Chef de département 90 - 100% (a)"
+      },
+      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale an der Spitalgasse in Bern suchen wir per 1. Juli 2026 eine Abteilungsleitung 90 - 100% (a)\nfür die Abteilung Kinderbuch (Kinder-/Jugendbuch, Fantasy, Comic, Manga, Spiele, Kinder-Nonbooks)\nIhre Hauptaufgaben:\n\n• Führung der Mitarbeitenden der Abteilung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitendengespräche), Personalrekrutierung\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Gemeinsames Planen mit der Filialleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n\n• Mitverantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe\n\n• Verantwortung für das Sortiment und dessen Präsentation\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in\n\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n\n• Hohe Dienstleistungsorientierung und Sozialkompetenz\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+      "descriptionByLocale": {
+        "it": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale an der Spitalgasse in Bern suchen wir per 1. Juli 2026 eine Abteilungsleitung 90 - 100% (a) für die Abteilung Kinderbuch (Kinder-/Jugendbuch, Fantasy, Comic, Manga, Spiele, Kinder-Nonbooks) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Abteilung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitendengespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Filialleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Mitverantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe\n• Verantwortung für das Sortiment und dessen Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n• Hohe Dienstleistungsorientierung und Sozialkompetenz Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "en": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale an der Spitalgasse in Bern suchen wir per 1. Juli 2026 eine Abteilungsleitung 90 - 100% (a) für die Abteilung Kinderbuch (Kinder-/Jugendbuch, Fantasy, Comic, Manga, Spiele, Kinder-Nonbooks) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Abteilung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitendengespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Filialleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Mitverantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe\n• Verantwortung für das Sortiment und dessen Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n• Hohe Dienstleistungsorientierung und Sozialkompetenz Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "de": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale an der Spitalgasse in Bern suchen wir per 1. Juli 2026 eine Abteilungsleitung 90 - 100% (a) für die Abteilung Kinderbuch (Kinder-/Jugendbuch, Fantasy, Comic, Manga, Spiele, Kinder-Nonbooks) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Abteilung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitendengespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Filialleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Mitverantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe\n• Verantwortung für das Sortiment und dessen Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n• Hohe Dienstleistungsorientierung und Sozialkompetenz Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "fr": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale an der Spitalgasse in Bern suchen wir per 1. Juli 2026 eine Abteilungsleitung 90 - 100% (a) für die Abteilung Kinderbuch (Kinder-/Jugendbuch, Fantasy, Comic, Manga, Spiele, Kinder-Nonbooks) Ihre Hauptaufgaben:\n• Führung der Mitarbeitenden der Abteilung (Fördern, Fordern und Entwickeln inkl. sämtlicher Mitarbeitendengespräche), Personalrekrutierung\n• Lots*in in der Welt von Geschichten und Wissen\n• Gemeinsames Planen mit der Filialleitung sämtlicher Aktivitäten in der Filiale und die anschliessende selbständige Umsetzung\n• Mitverantwortung für Umsatz, Marge, Personalkosten sowie alle Verkaufs- und Einkaufsabläufe\n• Verantwortung für das Sortiment und dessen Präsentation Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n• Affinität zum Buch sowie zu den elektronischen Medien\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n• Hohe Dienstleistungsorientierung und Sozialkompetenz Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/abteilungsleitung-90-100",
+      "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:27:09.138Z",
+      "addressLocality": "Bern",
+      "addressRegion": "Zürich",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Management",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Retail / Librerie e Cartoleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/abteilungsleitung-90-100",
+      "jobReqId": null,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "abteilungsleitung-90-100-a-orell-fuessli-thalia-bern",
+        "capo-dipartimento-90-100-a-orell-fussli-thalia-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleitung-90-100-a-orell-fuessli-thalia-bern",
+          "capo-dipartimento-90-100-a-orell-fussli-thalia-bern"
+        ],
+        "en": [
+          "abteilungsleitung-90-100-a-orell-fuessli-thalia-bern"
+        ],
+        "fr": [
+          "abteilungsleitung-90-100-a-orell-fuessli-thalia-bern"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T11:26:42.539Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -1063,7 +1006,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-50-0",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.986Z",
+      "crawledAt": "2026-07-09T12:27:09.134Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1083,11 +1026,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "buchhandler-in-50-a-orell-fuessli-thalia-st-gallen"
+        "buchhandler-in-50-a-orell-fuessli-thalia-st-gallen",
+        "libraio-50-a-orell-fussli-thalia-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buchhandler-in-50-a-orell-fuessli-thalia-st-gallen"
+          "buchhandler-in-50-a-orell-fuessli-thalia-st-gallen",
+          "libraio-50-a-orell-fussli-thalia-st-gallen"
         ],
         "en": [
           "buchhandler-in-50-a-orell-fuessli-thalia-st-gallen"
@@ -1142,7 +1087,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-80",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.984Z",
+      "crawledAt": "2026-07-09T12:27:09.133Z",
       "addressLocality": "Luzern",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1162,11 +1107,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "buchhandler-in-80-a-orell-fuessli-thalia-luzern"
+        "buchhandler-in-80-a-orell-fuessli-thalia-luzern",
+        "libraio-80-a-orell-fussli-thalia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buchhandler-in-80-a-orell-fuessli-thalia-luzern"
+          "buchhandler-in-80-a-orell-fuessli-thalia-luzern",
+          "libraio-80-a-orell-fussli-thalia-luzern"
         ],
         "en": [
           "buchhandler-in-80-a-orell-fuessli-thalia-luzern"
@@ -1221,7 +1168,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-80",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.983Z",
+      "crawledAt": "2026-07-09T12:27:09.132Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1241,11 +1188,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "filialleitung-80-a-orell-fuessli-thalia-rapperswil"
+        "filialleitung-80-a-orell-fuessli-thalia-rapperswil",
+        "direzione-di-filiale-80-a-orell-fussli-thalia-rapperswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleitung-80-a-orell-fuessli-thalia-rapperswil"
+          "filialleitung-80-a-orell-fuessli-thalia-rapperswil",
+          "direzione-di-filiale-80-a-orell-fussli-thalia-rapperswil"
         ],
         "en": [
           "filialleitung-80-a-orell-fuessli-thalia-rapperswil"
@@ -1300,7 +1249,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/mitarbeiterin-logistik-assistenz-filialleitung-40-50",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.982Z",
+      "crawledAt": "2026-07-09T12:27:09.131Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -1320,11 +1269,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-logistik-assistenz-filialleitung-40-50-a-orell-fuessli-thalia-zurich"
+        "mitarbeiter-in-logistik-assistenz-filialleitung-40-50-a-orell-fuessli-thalia-zurich",
+        "addetto-a-alla-logistica-assistenz-filialleitung-40-50-a-orell-fussli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-logistik-assistenz-filialleitung-40-50-a-orell-fuessli-thalia-zurich"
+          "mitarbeiter-in-logistik-assistenz-filialleitung-40-50-a-orell-fuessli-thalia-zurich",
+          "addetto-a-alla-logistica-assistenz-filialleitung-40-50-a-orell-fussli-thalia-zurich"
         ],
         "en": [
           "mitarbeiter-in-logistik-assistenz-filialleitung-40-50-a-orell-fuessli-thalia-zurich"
@@ -1352,9 +1303,9 @@
       "id": "orell-fuessli-thalia-396c68986f59",
       "slug": "gestione-del-ramo-stv-80-orell-fussli-thalia-ebikon",
       "slugByLocale": {
-        "de": "stv-filialleitung-80-orell-fuessli-thalia-ebikon",
         "it": "gestione-del-ramo-stv-80-orell-fussli-thalia-ebikon",
         "en": "stv-branch-management-80-orell-fussli-thalia-ebikon",
+        "de": "stv-filialleitung-80-orell-fuessli-thalia-ebikon",
         "fr": "gestion-des-succursales-stv-80-orell-fussli-thalia-ebikon"
       },
       "company": "Orell Füssli Thalia",
@@ -1362,24 +1313,24 @@
       "companyDomain": "orellfuessli.ch",
       "title": "Stv. Filialleitung 80%",
       "titleByLocale": {
-        "de": "Stv. Filialleitung 80%",
         "it": "Gestione del ramo Stv 80%",
         "en": "Stv. branch management 80%",
+        "de": "Stv. Filialleitung 80%",
         "fr": "Gestion des succursales Stv. 80%"
       },
       "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale in Ebikon (Mall of Switzerland) suchen wir per 1. Oktober 2026 eine*n Stv. Filialleitung 80% (a)\nIhre Hauptaufgaben:\n\n• Stellvertretung der Filialleitung bei deren Abwesenheit\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n\n• Hohe Affinität zum Buch und ein gutes Allrounder-Wissen\n\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n\n• Hohe Dienstleistungsorientierung und Sozialkompetenz\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
       "descriptionByLocale": {
-        "de": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\n\nFür unsere Filiale in Ebikon (Mall of Switzerland) suchen wir per 1. Oktober 2026 eine*n Stv. Filialleitung 80% (a)\nIhre Hauptaufgaben:\n\n• Stellvertretung der Filialleitung bei deren Abwesenheit\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n\n• Hohe Affinität zum Buch und ein gutes Allrounder-Wissen\n\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n\n• Hohe Dienstleistungsorientierung und Sozialkompetenz\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\n\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "it": "Ti vedi come ambasciatore per la lettura?\nCon la tua passione, hai esattamente ragione con noi. A Orell Füssli Thalia AG, creiamo spazi per diverse storie e conoscenze che ispirano e arricchiscono la nostra società. Inoltre, Orell Füssli è un luogo dove i dipendenti si sentono a proprio agio, dove si divertono a lavorare bene insieme e raggiungere più insieme.\n\nPer la nostra filiale di Ebikon (Mall of Switzerland) stiamo cercando una *n Stv. gestione branch 80% (a) a partire dal 1 ottobre 2026\nI loro compiti principali:\n\n• Gestione delle branche in caso di assenza\n\n• Un sacco di storie e conoscenze\n\n• Consulenza competente e stimolante ai nostri clienti\n\n• Gestione del magazzino e ordinazione (ordine, remit, ricerca)\n\n• Monitoraggio del mercato e della tendenza\n\n• Collaborazione con raccolta e cassa\nIl tuo profilo:\n\n• Formazione completa come libreria o rivenditore\n\n• Mente. 3 anni di esperienza di vendita nel commercio\n\n• Alta affinità per il libro e una buona conoscenza del tuttofare\n\n• personalità orientata alle vendite, imprenditoriale e attrice\n\n• Alto orientamento al servizio e competenze sociali\n\n• Stylistic tedesco\nLa nostra offerta:\n\n• Cultura aziendale collaborativa e apprezzativa\n\n• Posizione centrale con buoni collegamenti di trasporto pubblico\n\n• Modelli di tempo di lavoro adattati alla situazione di vita attuale\n\n• Programma di vacanza generoso e offerta di sconti varie\n\n• Opportunità di formazione individuale; opzioni di sviluppo di branch e cross-divisional\n\nApplicare oggi per il lavoro più bello del mondo. Attendiamo con ansia la vostra applicazione completa tramite il nostro strumento di reclutamento. Se avete domande, si prega di contattare:",
-        "en": "Do you see yourself as an ambassador for reading?\nWith your passion, you are exactly right with us. At Orell Füssli Thalia AG, we create spaces for diverse stories and knowledge that inspire and enrich our society. In addition, Orell Füssli is a place where employees feel comfortable, where they enjoy working well together and achieve more together.\n\nFor our branch in Ebikon (Mall of Switzerland) we are looking for a*n Stv. branch management 80% (a) as of 1 October 2026\nTheir main tasks:\n\n• Deputy branch management in the event of their absence\n\n• Lots*in in the world of stories and knowledge\n\n• Competent and inspiring advice to our customers\n\n• Warehouse management and ordering (order, remit, research)\n\n• Market and trend monitoring\n\n• Collaboration with collection and cash register\nYour profile:\n\n• Completed training as a bookseller or retailer\n\n• Mind. 3 years of sales experience in trade\n\n• High affinity for the book and a good all-rounder knowledge\n\n• Sales-oriented, entrepreneurial and acting personality\n\n• High service orientation and social skills\n\n• Stylistic German\nOur offer:\n\n• Collaborative and appreciative corporate culture\n\n• Central location with good public transport connections\n\n• Working time models adapted to the current living situation\n\n• Generous holiday scheme and varied discount offer\n\n• Individual training opportunities; branch and cross-divisional development options\n\nApply today for the most beautiful job in the world. We look forward to your complete application via our recruiting tool. If you have any questions, please contact:",
-        "fr": "Vous voyez-vous comme un ambassadeur pour lire ?\nAvec votre passion, vous avez raison avec nous. Chez Orell Füssli Thalia AG, nous créons des espaces pour diverses histoires et connaissances qui inspirent et enrichissent notre société. En outre, Orell Füssli est un endroit où les employés se sentent à l'aise, où ils aiment bien travailler ensemble et obtenir plus ensemble.\n\nPour notre succursale à Ebikon (Mall of Switzerland), nous sommes à la recherche d'une direction de succursale Stv. 80% (a) au 1er octobre 2026\nLeurs principales tâches:\n\n• Direction générale adjointe en cas d'absence\n\n• Beaucoup de choses dans le monde des histoires et des connaissances\n\n• Conseils compétents et inspirants à nos clients\n\n• Gestion et commande des entrepôts (commande, mission, recherche)\n\n• Surveillance des marchés et des tendances\n\n• Collaboration avec la collecte et la caisse enregistreuse\nVotre profil:\n\n• Formation complétée en tant que libraire ou détaillant\n\n• De rien. 3 ans d'expérience commerciale\n\n• Haute affinité pour le livre et une bonne connaissance globale\n\n• Personnalité axée sur les ventes, l'esprit d'entreprise et l'action\n\n• Orientation et compétences sociales élevées\n\n• Allemand stylistique\nNotre offre :\n\n• Culture d'entreprise collaborative et reconnaissante\n\n• Emplacement central avec bonnes liaisons de transport public\n\n• Modèles de temps de travail adaptés à la situation actuelle\n\n• Régime de vacances généreux et offre de réduction variée\n\n• Possibilités de formation individuelles; options de développement des directions générales et des divisions\n\nPostulez aujourd'hui pour le plus beau travail au monde. Nous attendons avec impatience votre candidature complète via notre outil de recrutement. Si vous avez des questions, veuillez contacter:"
+        "it": "Ti vedi come ambasciatore per la lettura? Con la tua passione, hai esattamente ragione con noi. A Orell Füssli Thalia AG, creiamo spazi per diverse storie e conoscenze che ispirano e arricchiscono la nostra società. Inoltre, Orell Füssli è un luogo dove i dipendenti si sentono a proprio agio, dove si divertono a lavorare bene insieme e raggiungere più insieme. Per la nostra filiale di Ebikon (Mall of Switzerland) stiamo cercando una *n Stv. gestione branch 80% (a) a partire dal 1 ottobre 2026 I loro compiti principali:\n• Gestione delle branche in caso di assenza\n• Un sacco di storie e conoscenze\n• Consulenza competente e stimolante ai nostri clienti\n• Gestione del magazzino e ordinazione (ordine, remit, ricerca)\n• Monitoraggio del mercato e della tendenza\n• Collaborazione con raccolta e cassa Il tuo profilo:\n• Formazione completa come libreria o rivenditore\n• Mente. 3 anni di esperienza di vendita nel commercio\n• Alta affinità per il libro e una buona conoscenza del tuttofare\n• personalità orientata alle vendite, imprenditoriale e attrice\n• Alto orientamento al servizio e competenze sociali\n• Stylistic tedesco La nostra offerta:\n• Cultura aziendale collaborativa e apprezzativa\n• Posizione centrale con buoni collegamenti di trasporto pubblico\n• Modelli di tempo di lavoro adattati alla situazione di vita attuale\n• Programma di vacanza generoso e offerta di sconti varie\n• Opportunità di formazione individuale; opzioni di sviluppo di branch e cross-divisional Applicare oggi per il lavoro più bello del mondo. Attendiamo con ansia la vostra applicazione completa tramite il nostro strumento di reclutamento. Se avete domande, si prega di contattare:",
+        "en": "Do you see yourself as an ambassador for reading? With your passion, you are exactly right with us. At Orell Füssli Thalia AG, we create spaces for diverse stories and knowledge that inspire and enrich our society. In addition, Orell Füssli is a place where employees feel comfortable, where they enjoy working well together and achieve more together. For our branch in Ebikon (Mall of Switzerland) we are looking for a*n Stv. branch management 80% (a) as of 1 October 2026 Their main tasks:\n• Deputy branch management in the event of their absence\n• Lots*in in the world of stories and knowledge\n• Competent and inspiring advice to our customers\n• Warehouse management and ordering (order, remit, research)\n• Market and trend monitoring\n• Collaboration with collection and cash register Your profile:\n• Completed training as a bookseller or retailer\n• Mind. 3 years of sales experience in trade\n• High affinity for the book and a good all-rounder knowledge\n• Sales-oriented, entrepreneurial and acting personality\n• High service orientation and social skills\n• Stylistic German Our offer:\n• Collaborative and appreciative corporate culture\n• Central location with good public transport connections\n• Working time models adapted to the current living situation\n• Generous holiday scheme and varied discount offer\n• Individual training opportunities; branch and cross-divisional development options Apply today for the most beautiful job in the world. We look forward to your complete application via our recruiting tool. If you have any questions, please contact:",
+        "de": "Sehen Sie sich als Botschafter*in des Lesens? Mit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht. Für unsere Filiale in Ebikon (Mall of Switzerland) suchen wir per 1. Oktober 2026 eine*n Stv. Filialleitung 80% (a) Ihre Hauptaufgaben:\n• Stellvertretung der Filialleitung bei deren Abwesenheit\n• Lots*in in der Welt von Geschichten und Wissen\n• Kompetente und inspirierende Beratung unserer Kundschaft\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n• Markt- und Trendbeobachtung\n• Mitarbeit an Abholfach und Kasse Ihr Profil:\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in\n• Mind. 3 Jahre Verkaufserfahrung im Handel\n• Hohe Affinität zum Buch und ein gutes Allrounder-Wissen\n• Verkaufsorientierte, unternehmerisch denkende und handelnde Persönlichkeit\n• Hohe Dienstleistungsorientierung und Sozialkompetenz\n• Stilsicheres Deutsch Unser Angebot:\n• Kollaborative und wertschätzende Unternehmenskultur\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen Bewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "fr": "Vous voyez-vous comme un ambassadeur pour lire ? Avec votre passion, vous avez raison avec nous. Chez Orell Füssli Thalia AG, nous créons des espaces pour diverses histoires et connaissances qui inspirent et enrichissent notre société. En outre, Orell Füssli est un endroit où les employés se sentent à l'aise, où ils aiment bien travailler ensemble et obtenir plus ensemble. Pour notre succursale à Ebikon (Mall of Switzerland), nous sommes à la recherche d'une direction de succursale Stv. 80% (a) au 1er octobre 2026 Leurs principales tâches:\n• Direction générale adjointe en cas d'absence\n• Beaucoup de choses dans le monde des histoires et des connaissances\n• Conseils compétents et inspirants à nos clients\n• Gestion et commande des entrepôts (commande, mission, recherche)\n• Surveillance des marchés et des tendances\n• Collaboration avec la collecte et la caisse enregistreuse Votre profil:\n• Formation complétée en tant que libraire ou détaillant\n• De rien. 3 ans d'expérience commerciale\n• Haute affinité pour le livre et une bonne connaissance globale\n• Personnalité axée sur les ventes, l'esprit d'entreprise et l'action\n• Orientation et compétences sociales élevées\n• Allemand stylistique Notre offre :\n• Culture d'entreprise collaborative et reconnaissante\n• Emplacement central avec bonnes liaisons de transport public\n• Modèles de temps de travail adaptés à la situation actuelle\n• Régime de vacances généreux et offre de réduction variée\n• Possibilités de formation individuelles; options de développement des directions générales et des divisions Postulez aujourd'hui pour le plus beau travail au monde. Nous attendons avec impatience votre candidature complète via notre outil de recrutement. Si vous avez des questions, veuillez contacter:"
       },
       "location": "Ebikon",
       "canton": "LU",
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/stv-filialleitung-80",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:21:44.976Z",
+      "crawledAt": "2026-07-09T12:27:09.125Z",
       "addressLocality": "Ebikon",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1397,9 +1348,24 @@
       "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/stv-filialleitung-80",
       "jobReqId": null,
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stv-filialleitung-80-orell-fuessli-thalia-ebikon",
+        "gestione-del-ramo-stv-80-orell-fussli-thalia-ebikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-filialleitung-80-orell-fuessli-thalia-ebikon",
+          "gestione-del-ramo-stv-80-orell-fussli-thalia-ebikon"
+        ],
+        "en": [
+          "stv-filialleitung-80-orell-fuessli-thalia-ebikon"
+        ],
+        "fr": [
+          "stv-filialleitung-80-orell-fuessli-thalia-ebikon"
+        ]
       },
+      "firstSeenAt": "2026-07-08T22:21:44.976Z",
       "salaryMin": 55600,
       "salaryMax": 84800,
       "baseSalary": {
@@ -1411,22 +1377,7 @@
           "maxValue": 84800,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:21:44.976Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-filialleitung-80-orell-fuessli-thalia-ebikon"
-        ],
-        "en": [
-          "stv-filialleitung-80-orell-fuessli-thalia-ebikon"
-        ],
-        "fr": [
-          "stv-filialleitung-80-orell-fuessli-thalia-ebikon"
-        ]
-      },
-      "previousSlugs": [
-        "stv-filialleitung-80-orell-fuessli-thalia-ebikon"
-      ]
+      }
     },
     {
       "id": "orell-fuessli-thalia-53fff16dd476",
@@ -1508,7 +1459,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
