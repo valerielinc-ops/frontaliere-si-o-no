@@ -1,25 +1,25 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-07-08T22:07:29.859Z",
+  "assembledAt": "2026-07-09T12:11:45.832Z",
   "jobs": [
     {
       "id": "canton-valais-e50630c46d97",
       "slug": "un-ingegnere-specialista-del-rumore-50-2-anni-di-termine-canton-du-valais-sion",
       "slugByLocale": {
-        "fr": "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton",
         "it": "un-ingegnere-specialista-del-rumore-50-2-anni-di-termine-canton-du-valais-sion",
         "en": "an-engineer-noise-specialist-50-2-years-term-canton-du-valais-sion",
-        "de": "ein-ingenieur-larmspezialist-50-2-jahre-laufzeit-canton-du-valais-sion"
+        "de": "ein-ingenieur-larmspezialist-50-2-jahre-laufzeit-canton-du-valais-sion",
+        "fr": "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un ingénieur ou une ingénieure – spécialiste bruit (50% – durée déterminée de 2 ans)",
       "titleByLocale": {
-        "fr": "Un ingénieur ou une ingénieure – spécialiste bruit (50% – durée déterminée de 2 ans)",
         "it": "Un ingegnere – specialista del rumore (50% – 2 anni di termine)",
         "en": "An engineer – noise specialist (50% – 2 years term)",
-        "de": "Ein Ingenieur – Lärmspezialist (50% – 2 Jahre Laufzeit)"
+        "de": "Ein Ingenieur – Lärmspezialist (50% – 2 Jahre Laufzeit)",
+        "fr": "Un ingénieur ou une ingénieure – spécialiste bruit (50% – durée déterminée de 2 ans)"
       },
       "description": "auprès du Service de l’environnement (SEN), à Sion",
       "descriptionByLocale": {
@@ -30,7 +30,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111252&publication=2625",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:26.658Z",
+      "crawledAt": "2026-07-09T12:11:43.237Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -46,10 +46,25 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111252&publication=2625",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton",
+        "un-ingegnere-specialista-del-rumore-50-2-anni-di-termine-canton-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton",
+          "un-ingegnere-specialista-del-rumore-50-2-anni-di-termine-canton-du-valais-sion"
+        ],
+        "en": [
+          "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
+        ],
+        "de": [
+          "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:26.658Z",
       "salaryMin": 30300,
       "salaryMax": 45800,
       "baseSalary": {
@@ -61,41 +76,26 @@
           "maxValue": 45800,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:26.658Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
-        ],
-        "en": [
-          "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
-        ],
-        "de": [
-          "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
-        ]
-      },
-      "previousSlugs": [
-        "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
-      ]
+      }
     },
     {
       "id": "canton-valais-715cbfa4d904",
       "slug": "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-du-valais-sion",
       "slugByLocale": {
-        "fr": "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch",
         "it": "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-du-valais-sion",
         "en": "assistant-delivery-manager-50-canton-du-valais-sion",
-        "de": "assistent-delivery-manager-50-canton-du-valais-sion"
+        "de": "assistent-delivery-manager-50-canton-du-valais-sion",
+        "fr": "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un adjoint ou une adjointe / Delivery Manager (50%)",
       "titleByLocale": {
-        "fr": "Un adjoint ou une adjointe / Delivery Manager (50%)",
-        "en": "Assistant / Delivery Manager (50%)",
         "it": "Assistente / Responsabile Consegna (50%)",
-        "de": "Assistent / Delivery Manager (50%)"
+        "en": "Un adjoint ou une adjointe / Delivery Manager (50%)",
+        "de": "Assistent / Delivery Manager (50%)",
+        "fr": "Un adjoint ou une adjointe / Delivery Manager (50%)"
       },
       "description": "auprès du Tribunal cantonal (Programme eJustice VS) à Sion",
       "descriptionByLocale": {
@@ -106,7 +106,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20036?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:26.352Z",
+      "crawledAt": "2026-07-09T12:11:42.936Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -122,10 +122,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20036?language=fr",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch"
@@ -137,9 +137,8 @@
           "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch"
         ]
       },
-      "previousSlugs": [
-        "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:26.352Z",
       "salaryMin": 41800,
       "salaryMax": 63300,
       "baseSalary": {
@@ -151,8 +150,7 @@
           "maxValue": 63300,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:26.352Z"
+      }
     },
     {
       "id": "canton-valais-37f7a21c4faa",
@@ -169,9 +167,9 @@
       "title": "Un(e) secrétaire de direction à 50-60%",
       "titleByLocale": {
         "it": "Un(e) secrétaire de direction à 50-60%",
-        "fr": "A secrétaire de direction à 50-60%",
         "en": "Has Executive Secretary at 50-60%",
-        "de": "Hat Exekutivsekretär bei 50-60%"
+        "de": "Hat Exekutivsekretär bei 50-60%",
+        "fr": "Un(e) secrétaire de direction à 50-60%"
       },
       "description": "auprès des tribunaux du Valais central (rattaché-e au tribunal de district de Sion à Sion)",
       "descriptionByLocale": {
@@ -185,7 +183,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20075?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T22:07:26.051Z",
+      "crawledAt": "2026-07-09T12:11:42.633Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -201,10 +199,9 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20075?language=fr",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:26.051Z",
       "salaryMin": 36300,
       "salaryMax": 54900,
       "baseSalary": {
@@ -216,9 +213,7 @@
           "maxValue": 54900,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:26.051Z",
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "canton-valais-1a5544347ab3",
@@ -234,10 +229,10 @@
       "companyDomain": "vs.ch",
       "title": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
       "titleByLocale": {
-        "it": "Un ufficiale giudiziario-segretario di direzione o un ufficiale giudiziario-segretario di direzione (100%)",
-        "fr": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
+        "it": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
         "en": "A huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
-        "de": "A huissier-secrétaire de direction ou une huissière-secrétaire de direction (100 %)"
+        "de": "A huissier-secrétaire de direction ou une huissière-secrétaire de direction (100 %)",
+        "fr": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)"
       },
       "description": "auprès du tribunal de district de Sion et du tribunal des districts d’Hérens et Conthey à Sion",
       "descriptionByLocale": {
@@ -251,7 +246,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20037?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T22:07:25.750Z",
+      "crawledAt": "2026-07-09T12:11:42.332Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -267,10 +262,9 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20037?language=fr",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:25.750Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -282,28 +276,26 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:25.750Z",
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "canton-valais-2dff24731bb2",
       "slug": "un-collaboratore-amministrativo-70-canton-du-valais-sion",
       "slugByLocale": {
-        "fr": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch",
         "it": "un-collaboratore-amministrativo-70-canton-du-valais-sion",
         "en": "an-administrative-collaborator-70-canton-du-valais-sion",
-        "de": "ein-administrativer-mitarbeiter-70-canton-du-valais-sion"
+        "de": "ein-administrativer-mitarbeiter-70-canton-du-valais-sion",
+        "fr": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un collaborateur administratif ou une collaboratrice administrative (70%)",
       "titleByLocale": {
-        "fr": "Un collaborateur administratif ou une collaboratrice administrative (70%)",
-        "it": "Un collaboratore amministrativo (70%)",
+        "it": "Un collaborateur administratif ou une collaboratrice administrative (70%)",
         "en": "An administrative collaborator (70%)",
-        "de": "Ein administrativer Mitarbeiter (70%)"
+        "de": "Ein administrativer Mitarbeiter (70%)",
+        "fr": "Un collaborateur administratif ou une collaboratrice administrative (70%)"
       },
       "description": "auprès du Tribunal cantonal (Programme eJustice VS) à Sion",
       "descriptionByLocale": {
@@ -314,7 +306,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20035?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:25.449Z",
+      "crawledAt": "2026-07-09T12:11:42.030Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -330,10 +322,25 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20035?language=fr",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch",
+        "un-collaboratore-amministrativo-70-canton-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch",
+          "un-collaboratore-amministrativo-70-canton-du-valais-sion"
+        ],
+        "en": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:25.449Z",
       "salaryMin": 42400,
       "salaryMax": 64000,
       "baseSalary": {
@@ -345,55 +352,40 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:25.449Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
-        ],
-        "en": [
-          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
-        ],
-        "de": [
-          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
-        ]
-      },
-      "previousSlugs": [
-        "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
-      ]
+      }
     },
     {
       "id": "canton-valais-58244e8fac0f",
       "slug": "collaboratore-specializzato-o-collaboratore-di-risorse-umane-80-canton-du-valais-sion",
       "slugByLocale": {
-        "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80",
         "it": "collaboratore-specializzato-o-collaboratore-di-risorse-umane-80-canton-du-valais-sion",
         "en": "a-specialist-collaborator-or-a-human-resources-collaborator-80-canton-du-valais-sion",
-        "de": "ein-spezialisierter-mitarbeiter-oder-ein-mitarbeiter-des-personalwesens-80-canton-du-valais-sion"
+        "de": "ein-spezialisierter-mitarbeiter-oder-ein-mitarbeiter-des-personalwesens-80-canton-du-valais-sion",
+        "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un collaborateur spécialisé ou une collaboratrice spécialisée en ressources humaines (80%)",
       "titleByLocale": {
-        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée en ressources humaines (80%)",
         "it": "Collaboratore specializzato o collaboratore di risorse umane (80%)",
         "en": "A specialist collaborator or a human resources collaborator (80%)",
-        "de": "Ein spezialisierter Mitarbeiter oder ein Mitarbeiter des Personalwesens (80%)"
+        "de": "Ein spezialisierter Mitarbeiter oder ein Mitarbeiter des Personalwesens (80%)",
+        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée en ressources humaines (80%)"
       },
       "description": "auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion",
       "descriptionByLocale": {
-        "fr": "auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion",
         "it": "alla direzione del Servizio per l'esecuzione delle sentenze e delle misure (SAPEM), Sion",
         "en": "to the Directorate of the Service for the Enforcement of Sentences and Measures (SAPEM), Sion",
-        "de": "an die Direktion des Dienstes für die Vollstreckung von Strafen und Maßnahmen (SAPEM), Sion"
+        "de": "an die Direktion des Dienstes für die Vollstreckung von Strafen und Maßnahmen (SAPEM), Sion",
+        "fr": "auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion"
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112055&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:25.148Z",
+      "crawledAt": "2026-07-09T12:11:41.729Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -409,10 +401,25 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112055&publication=2626",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80",
+        "collaboratore-specializzato-o-collaboratore-di-risorse-umane-80-canton-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80",
+          "collaboratore-specializzato-o-collaboratore-di-risorse-umane-80-canton-du-valais-sion"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:25.148Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -424,31 +431,15 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:25.148Z",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
-        ],
-        "en": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
-        ],
-        "de": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
-        ]
-      },
-      "previousSlugs": [
-        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
-      ]
+      }
     },
     {
       "id": "canton-valais-8415f1dd8a33",
       "slug": "sachbearbeiter-in-80-100-davon-10-per-eine-befristete-dauer-canton-du-valais-visp",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch",
         "it": "sachbearbeiter-in-80-100-davon-10-per-eine-befristete-dauer-canton-du-valais-visp",
         "en": "personnel-80-100-of-which-10-for-a-temporary-period-canton-du-valais-visp",
+        "de": "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch",
         "fr": "personnel-80-a-100-dont-10-pour-une-periode-temporaire-canton-du-valais-visp"
       },
       "company": "Canton du Valais",
@@ -456,16 +447,16 @@
       "companyDomain": "vs.ch",
       "title": "Sachbearbeiter/in (80-100%, davon 10% für eine befristete Dauer)",
       "titleByLocale": {
-        "de": "Sachbearbeiter/in (80-100%, davon 10% für eine befristete Dauer)",
         "it": "Sachbearbeiter/in (80-100%, davon 10% per eine befristete Dauer)",
         "en": "Personnel (80-100%, of which 10% for a temporary period)",
+        "de": "Sachbearbeiter/in (80-100%, davon 10% für eine befristete Dauer)",
         "fr": "Personnel (80 à 100 %, dont 10 % pour une période temporaire)"
       },
       "description": "bei der Dienststelle für Betreibungs- und Konkurswesen, Konkursamt Oberwallis in Visp",
       "descriptionByLocale": {
-        "de": "bei der Dienststelle für Betreibungs- und Konkurswesen, Konkursamt Oberwallis in Visp",
         "it": "presso l'Ufficio per le accise e il fallimento, Oberwallis Ufficio per il fallimento a Visp",
         "en": "at the Office for Excise and Bankruptcy, Oberwallis Office for Bankruptcy in Visp",
+        "de": "bei der Dienststelle für Betreibungs- und Konkurswesen, Konkursamt Oberwallis in Visp",
         "fr": "au Bureau de l'accise et de la faillite, Bureau de la faillite d'Oberwallis à Viège"
       },
       "location": "Visp",
@@ -473,7 +464,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108517&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:24.846Z",
+      "crawledAt": "2026-07-09T12:11:41.428Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -489,10 +480,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108517&publication=2626",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch"
@@ -504,9 +495,8 @@
           "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:24.846Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -518,28 +508,26 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:24.846Z",
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "canton-valais-0a82a97b7cff",
       "slug": "un-educatore-sociale-o-educatore-sociale-80-100-canton-du-valais-st-gingolph",
       "slugByLocale": {
-        "fr": "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch",
         "it": "un-educatore-sociale-o-educatore-sociale-80-100-canton-du-valais-st-gingolph",
         "en": "a-social-educator-or-social-educator-80-100-canton-du-valais-st-gingolph",
-        "de": "ein-sozialpadagoge-oder-sozialpadagoge-80-100-canton-du-valais-st-gingolph"
+        "de": "ein-sozialpadagoge-oder-sozialpadagoge-80-100-canton-du-valais-st-gingolph",
+        "fr": "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un éducateur social ou une éducatrice sociale (80-100%)",
       "titleByLocale": {
-        "fr": "Un éducateur social ou une éducatrice sociale (80-100%)",
         "it": "Un educatore sociale o educatore sociale (80-100%)",
         "en": "A social educator or social educator (80-100%)",
-        "de": "Ein Sozialpädagoge oder Sozialpädagoge (80-100%)"
+        "de": "Ein Sozialpädagoge oder Sozialpädagoge (80-100%)",
+        "fr": "Un éducateur social ou une éducatrice sociale (80-100%)"
       },
       "description": "auprès du Service de l’action sociale, Office de l’asile, au sein du foyer de l’Ecole des Missions à St-Gingolph",
       "descriptionByLocale": {
@@ -550,7 +538,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114558&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:24.545Z",
+      "crawledAt": "2026-07-09T12:11:41.126Z",
       "addressLocality": "St-Gingolph",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -566,10 +554,25 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114558&publication=2626",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch",
+        "un-educatore-sociale-o-educatore-sociale-80-100-canton-du-valais-st-gingolph"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch",
+          "un-educatore-sociale-o-educatore-sociale-80-100-canton-du-valais-st-gingolph"
+        ],
+        "en": [
+          "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:24.545Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -581,54 +584,39 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:24.545Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
-        ],
-        "en": [
-          "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
-        ],
-        "de": [
-          "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
-        ]
-      },
-      "previousSlugs": [
-        "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
-      ]
+      }
     },
     {
       "id": "canton-valais-45595232ff58",
       "slug": "collaboratore-specializzato-o-collaboratore-specializzato-70-80-canton-du-valais-sion",
       "slugByLocale": {
-        "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch",
         "it": "collaboratore-specializzato-o-collaboratore-specializzato-70-80-canton-du-valais-sion",
         "en": "a-specialist-collaborator-or-a-specialist-collaborator-70-80-canton-du-valais-sion",
-        "de": "ein-fachmitarbeiter-oder-ein-fachmitarbeiter-70-80-canton-du-valais-sion"
+        "de": "ein-fachmitarbeiter-oder-ein-fachmitarbeiter-70-80-canton-du-valais-sion",
+        "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un collaborateur spécialisé ou une collaboratrice spécialisée (70-80%)",
       "titleByLocale": {
-        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (70-80%)",
         "it": "Collaboratore specializzato o collaboratore specializzato (70-80%)",
         "en": "A specialist collaborator or a specialist collaborator (70-80%)",
-        "de": "Ein Fachmitarbeiter oder ein Fachmitarbeiter (70-80%)"
+        "de": "Ein Fachmitarbeiter oder ein Fachmitarbeiter (70-80%)",
+        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (70-80%)"
       },
       "description": "auprès du Service de l’action sociale, Office de coordination des prestations sociales à Sion",
       "descriptionByLocale": {
-        "fr": "auprès du Service de l’action sociale, Office de coordination des prestations sociales à Sion",
         "it": "Servizio di azione sociale, Ufficio di coordinamento delle prestazioni sociali a Sion",
-        "de": "bei der Abteilung für Sozialarbeit, Koordinationsstelle für Sozialleistungen in Sion"
+        "de": "bei der Abteilung für Sozialarbeit, Koordinationsstelle für Sozialleistungen in Sion",
+        "fr": "auprès du Service de l’action sociale, Office de coordination des prestations sociales à Sion"
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100796&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:24.229Z",
+      "crawledAt": "2026-07-09T12:11:40.795Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -644,10 +632,25 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100796&publication=2626",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch",
+        "collaboratore-specializzato-o-collaboratore-specializzato-70-80-canton-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch",
+          "collaboratore-specializzato-o-collaboratore-specializzato-70-80-canton-du-valais-sion"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:24.229Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -659,42 +662,26 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:24.229Z",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
-        ],
-        "en": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
-        ],
-        "de": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
-        ]
-      },
-      "previousSlugs": [
-        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
-      ]
+      }
     },
     {
       "id": "canton-valais-890b4e965e72",
       "slug": "un-ingegnere-dell-alta-vallese-80-100-canton-du-valais-brigue",
       "slugByLocale": {
-        "fr": "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch",
         "it": "un-ingegnere-dell-alta-vallese-80-100-canton-du-valais-brigue",
         "en": "an-engineer-from-upper-valais-80-100-canton-du-valais-brigue",
-        "de": "ingenieur-aus-oberwallis-80-100-canton-du-valais-brigue"
+        "de": "ingenieur-aus-oberwallis-80-100-canton-du-valais-brigue",
+        "fr": "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un ingénieur ou une ingénieure Haut-Valais (80-100%)",
       "titleByLocale": {
-        "fr": "Un ingénieur ou une ingénieure Haut-Valais (80-100%)",
         "it": "Un ingegnere dell'Alta Vallese (80-100%)",
         "en": "An engineer from Upper Valais (80-100%)",
-        "de": "Ingenieur aus Oberwallis (80-100%)"
+        "de": "Ingenieur aus Oberwallis (80-100%)",
+        "fr": "Un ingénieur ou une ingénieure Haut-Valais (80-100%)"
       },
       "description": "auprès de la section Rhône et Léman du Service des dangers naturels (SDANA), à Brigue",
       "descriptionByLocale": {
@@ -705,7 +692,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=105285&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:23.928Z",
+      "crawledAt": "2026-07-09T12:11:40.490Z",
       "addressLocality": "Brigue",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -721,10 +708,25 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=105285&publication=2626",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch",
+        "un-ingegnere-dell-alta-vallese-80-100-canton-du-valais-brigue"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch",
+          "un-ingegnere-dell-alta-vallese-80-100-canton-du-valais-brigue"
+        ],
+        "en": [
+          "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:23.928Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -736,41 +738,26 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:23.928Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
-        ],
-        "en": [
-          "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
-        ],
-        "de": [
-          "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
-        ]
-      },
-      "previousSlugs": [
-        "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
-      ]
+      }
     },
     {
       "id": "canton-valais-2fe1812167d6",
       "slug": "un-collaboratore-scientifico-qualita-dell-acqua-e-strategia-microinquinante-80-per-un-periodo-fisso-di-2-anni-canton-du",
       "slugByLocale": {
-        "fr": "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie",
         "it": "un-collaboratore-scientifico-qualita-dell-acqua-e-strategia-microinquinante-80-per-un-periodo-fisso-di-2-anni-canton-du",
         "en": "a-scientific-collaborator-water-quality-and-micropollutant-strategy-80-for-a-fixed-period-of-2-years-canton-du-valais",
-        "de": "ein-wissenschaftlicher-mitarbeiter-wasserqualitat-und-mikroschadstoffstrategie-80-fur-einen-festen-zeitraum-von-2-jahren"
+        "de": "ein-wissenschaftlicher-mitarbeiter-wasserqualitat-und-mikroschadstoffstrategie-80-fur-einen-festen-zeitraum-von-2-jahren",
+        "fr": "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un collaborateur ou une collaboratrice scientifique – qualité des eaux et stratégie micropolluants (80%– pour une durée déterminée de 2 ans)",
       "titleByLocale": {
-        "fr": "Un collaborateur ou une collaboratrice scientifique – qualité des eaux et stratégie micropolluants (80%– pour une durée déterminée de 2 ans)",
         "it": "Un collaboratore scientifico – qualità dell'acqua e strategia microinquinante (80% – per un periodo fisso di 2 anni)",
         "en": "A scientific collaborator – water quality and micropollutant strategy (80% – for a fixed period of 2 years)",
-        "de": "Ein wissenschaftlicher Mitarbeiter - Wasserqualität und Mikroschadstoffstrategie (80% - für einen festen Zeitraum von 2 Jahren)"
+        "de": "Ein wissenschaftlicher Mitarbeiter - Wasserqualität und Mikroschadstoffstrategie (80% - für einen festen Zeitraum von 2 Jahren)",
+        "fr": "Un collaborateur ou une collaboratrice scientifique – qualité des eaux et stratégie micropolluants (80%– pour une durée déterminée de 2 ans)"
       },
       "description": "auprès du Service de l’environnement, section Protection des eaux, à Sion",
       "descriptionByLocale": {
@@ -781,7 +768,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114556&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:23.605Z",
+      "crawledAt": "2026-07-09T12:11:40.139Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -797,10 +784,25 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114556&publication=2626",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie",
+        "un-collaboratore-scientifico-qualita-dell-acqua-e-strategia-microinquinante-80-per-un-periodo-fisso-di-2-anni-canton-du"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie",
+          "un-collaboratore-scientifico-qualita-dell-acqua-e-strategia-microinquinante-80-per-un-periodo-fisso-di-2-anni-canton-du"
+        ],
+        "en": [
+          "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
+        ],
+        "de": [
+          "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:23.605Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -812,41 +814,26 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:23.605Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
-        ],
-        "en": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
-        ],
-        "de": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
-        ]
-      },
-      "previousSlugs": [
-        "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
-      ]
+      }
     },
     {
       "id": "canton-valais-6eb8bbae5f66",
       "slug": "collaboratore-specializzato-o-collaboratore-specializzato-80-dal-1-agosto-2026-al-31-dicembre-2026-canton-du-valais-sion",
       "slugByLocale": {
-        "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31",
         "it": "collaboratore-specializzato-o-collaboratore-specializzato-80-dal-1-agosto-2026-al-31-dicembre-2026-canton-du-valais-sion",
         "en": "a-specialist-collaborator-or-a-specialist-collaborator-80-from-1-august-2026-to-31-december-2026-canton-du-valais-sion",
-        "de": "ein-spezialisierter-mitarbeiter-oder-ein-spezialisierter-mitarbeiter-80-vom-1-august-2026-bis-zum-31-dezember-2026"
+        "de": "ein-spezialisierter-mitarbeiter-oder-ein-spezialisierter-mitarbeiter-80-vom-1-august-2026-bis-zum-31-dezember-2026",
+        "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un collaborateur spécialisé ou une collaboratrice spécialisée (80% – du 1er août 2026 au 31 décembre 2026)",
       "titleByLocale": {
-        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (80% – du 1er août 2026 au 31 décembre 2026)",
         "it": "Collaboratore specializzato o collaboratore specializzato (80%) – dal 1° agosto 2026 al 31 dicembre 2026)",
         "en": "A specialist collaborator or a specialist collaborator (80%) – from 1 August 2026 to 31 December 2026)",
-        "de": "Ein spezialisierter Mitarbeiter oder ein spezialisierter Mitarbeiter (80%) – vom 1. August 2026 bis zum 31. Dezember 2026"
+        "de": "Ein spezialisierter Mitarbeiter oder ein spezialisierter Mitarbeiter (80%) – vom 1. August 2026 bis zum 31. Dezember 2026",
+        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (80% – du 1er août 2026 au 31 décembre 2026)"
       },
       "description": "auprès de l’Office cantonal du sport (OCS) à Sion",
       "descriptionByLocale": {
@@ -857,7 +844,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112053&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:23.303Z",
+      "crawledAt": "2026-07-09T12:11:39.837Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -873,10 +860,25 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112053&publication=2627",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31",
+        "collaboratore-specializzato-o-collaboratore-specializzato-80-dal-1-agosto-2026-al-31-dicembre-2026-canton-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31",
+          "collaboratore-specializzato-o-collaboratore-specializzato-80-dal-1-agosto-2026-al-31-dicembre-2026-canton-du-valais-sion"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:23.303Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -888,41 +890,26 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:23.303Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
-        ],
-        "en": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
-        ],
-        "de": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
-        ]
-      },
-      "previousSlugs": [
-        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
-      ]
+      }
     },
     {
       "id": "canton-valais-ba6c50573060",
       "slug": "personale-amministrativo-o-amministrativo-20-canton-du-valais-sion",
       "slugByLocale": {
-        "fr": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch",
         "it": "personale-amministrativo-o-amministrativo-20-canton-du-valais-sion",
         "en": "administrative-staff-or-administrative-staff-20-canton-du-valais-sion",
-        "de": "verwaltungspersonal-oder-verwaltungspersonal-20-canton-du-valais-sion"
+        "de": "verwaltungspersonal-oder-verwaltungspersonal-20-canton-du-valais-sion",
+        "fr": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un collaborateur administratif ou une collaboratrice administrative (20%)",
       "titleByLocale": {
-        "fr": "Un collaborateur administratif ou une collaboratrice administrative (20%)",
-        "it": "Personale amministrativo o amministrativo (20%)",
+        "it": "Un collaborateur administratif ou une collaboratrice administrative (20%)",
         "en": "Administrative staff or administrative staff (20%)",
-        "de": "Verwaltungspersonal oder Verwaltungspersonal (20 %)"
+        "de": "Verwaltungspersonal oder Verwaltungspersonal (20 %)",
+        "fr": "Un collaborateur administratif ou une collaboratrice administrative (20%)"
       },
       "description": "auprès du Service de l’enseignement, Office de l’éducation numérique, à Sion",
       "descriptionByLocale": {
@@ -933,7 +920,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114551&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:23.002Z",
+      "crawledAt": "2026-07-09T12:11:39.536Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -949,10 +936,25 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114551&publication=2627",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch",
+        "personale-amministrativo-o-amministrativo-20-canton-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch",
+          "personale-amministrativo-o-amministrativo-20-canton-du-valais-sion"
+        ],
+        "en": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:23.002Z",
       "salaryMin": 12100,
       "salaryMax": 18300,
       "baseSalary": {
@@ -964,55 +966,40 @@
           "maxValue": 18300,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:23.002Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
-        ],
-        "en": [
-          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
-        ],
-        "de": [
-          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
-        ]
-      },
-      "previousSlugs": [
-        "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
-      ]
+      }
     },
     {
       "id": "canton-valais-3498c59799aa",
       "slug": "una-segretaria-100-canton-du-valais-martigny",
       "slugByLocale": {
-        "fr": "un-ou-une-secretaire-100-canton-valais-ch",
         "it": "una-segretaria-100-canton-du-valais-martigny",
         "en": "a-secretary-100-canton-du-valais-martigny",
-        "de": "eine-sekretarin-100-canton-du-valais-martigny"
+        "de": "eine-sekretarin-100-canton-du-valais-martigny",
+        "fr": "un-ou-une-secretaire-100-canton-valais-ch"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un ou une secrétaire (100%)",
       "titleByLocale": {
-        "fr": "Un ou une secrétaire (100%)",
         "it": "Una segretaria (100%)",
         "en": "A secretary (100%)",
-        "de": "Eine Sekretärin (100%)"
+        "de": "Eine Sekretärin (100%)",
+        "fr": "Un ou une secrétaire (100%)"
       },
       "description": "auprès de l’Office d’orientation scolaire, professionnelle et de carrière, pour le Centre d’information et d’orientation (CIO) de Martigny",
       "descriptionByLocale": {
-        "fr": "## Description\n- auprès de l’Office d’orientation scolaire, professionnelle et de carrière, pour le Centre d’information et d’orientation (CIO) de Martigny",
-        "it": "Descrizione\n- presso l’Ufficio di orientamento scolastico, professionale e di carriera, per il Centro di informazione e orientamento (CIO) di Martigny",
+        "it": "Descrizione - presso l’Ufficio di orientamento scolastico, professionale e di carriera, per il Centro di informazione e orientamento (CIO) di Martigny",
         "en": "Description - at the Office d', orientation scolaire, professionnel et de carrière, for the Centre d, information et d, orientation (CIO) in Martigny",
-        "de": "Beschreibung - im Büro d', Orientierungs- scolaire, professionnel et de carrière, für das Zentrum d, Information et d, Orientierung (CIO) in Martigny"
+        "de": "Beschreibung - im Büro d', Orientierungs- scolaire, professionnel et de carrière, für das Zentrum d, Information et d, Orientierung (CIO) in Martigny",
+        "fr": "auprès de l’Office d’orientation scolaire, professionnelle et de carrière, pour le Centre d’information et d’orientation (CIO) de Martigny"
       },
       "location": "Martigny",
       "canton": "VS",
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110146&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:22.701Z",
+      "crawledAt": "2026-07-09T12:11:39.234Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1028,9 +1015,24 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110146&publication=2627",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-ou-une-secretaire-100-canton-valais-ch",
+        "una-segretaria-100-canton-du-valais-martigny"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-ou-une-secretaire-100-canton-valais-ch",
+          "una-segretaria-100-canton-du-valais-martigny"
+        ],
+        "en": [
+          "un-ou-une-secretaire-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-ou-une-secretaire-100-canton-valais-ch"
+        ]
       },
+      "firstSeenAt": "2026-07-08T22:07:22.701Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1042,55 +1044,40 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:22.701Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "un-ou-une-secretaire-100-canton-valais-ch"
-        ],
-        "en": [
-          "un-ou-une-secretaire-100-canton-valais-ch"
-        ],
-        "de": [
-          "un-ou-une-secretaire-100-canton-valais-ch"
-        ]
-      },
-      "previousSlugs": [
-        "un-ou-une-secretaire-100-canton-valais-ch"
-      ]
+      }
     },
     {
       "id": "canton-valais-194285306e11",
       "slug": "un-collaboratore-tecnico-ispettore-della-polizia-di-costruzione-o-un-collaboratore-tecnico-ispettore-della-polizia-di",
       "slugByLocale": {
-        "fr": "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice",
         "it": "un-collaboratore-tecnico-ispettore-della-polizia-di-costruzione-o-un-collaboratore-tecnico-ispettore-della-polizia-di",
         "en": "a-technical-collaborator-construction-police-inspector-or-a-technical-collaborator-construction-police-inspector-100-2",
-        "de": "ein-technischer-mitarbeiter-baupolizeiinspektor-oder-ein-technischer-mitarbeiter-baupolizeiinspektor-100-2-jahre-feste"
+        "de": "ein-technischer-mitarbeiter-baupolizeiinspektor-oder-ein-technischer-mitarbeiter-baupolizeiinspektor-100-2-jahre-feste",
+        "fr": "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un collaborateur technique / inspecteur de la police des constructions ou une collaboratrice technique / inspectrice de la police des constructions (100% – durée déterminée de 2 ans)",
       "titleByLocale": {
-        "fr": "Un collaborateur technique / inspecteur de la police des constructions ou une collaboratrice technique / inspectrice de la police des constructions (100% – durée déterminée de 2 ans)",
         "it": "Un collaboratore tecnico / ispettore della polizia di costruzione o un collaboratore tecnico / ispettore della polizia di costruzione (100% – 2 anni di durata fissa)",
         "en": "A technical collaborator / construction police inspector or a technical collaborator / construction police inspector (100% – 2 years fixed duration)",
-        "de": "Ein technischer Mitarbeiter / Baupolizeiinspektor oder ein technischer Mitarbeiter / Baupolizeiinspektor (100% - 2 Jahre feste Dauer)"
+        "de": "Ein technischer Mitarbeiter / Baupolizeiinspektor oder ein technischer Mitarbeiter / Baupolizeiinspektor (100% - 2 Jahre feste Dauer)",
+        "fr": "Un collaborateur technique / inspecteur de la police des constructions ou une collaboratrice technique / inspectrice de la police des constructions (100% – durée déterminée de 2 ans)"
       },
       "description": "auprès du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement – section Secrétariat de la commission cantonale des constructions et police des constructions, à Sion",
       "descriptionByLocale": {
-        "fr": "auprès du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement – section Secrétariat de la commission cantonale des constructions et police des constructions, à Sion",
         "it": "al Servizio Amministrativo e Legale del Dipartimento di Mobilità, Territorio e Ambiente – Sezione Segreteria della Commissione cantonale per la Costruzione e la Costruzione di Polizia, Sion",
         "en": "to the Administrative and Legal Service of the Department of Mobility, Territory and Environment – Secretariat section of the Cantonal Commission for Construction and Construction Police, Sion",
-        "de": "an den Verwaltungs- und Rechtsdienst des Departements für Mobilität, Gebiete und Umwelt – Sekretariatssektion der kantonalen Baukommission und Baupolizei, Sion"
+        "de": "an den Verwaltungs- und Rechtsdienst des Departements für Mobilität, Gebiete und Umwelt – Sekretariatssektion der kantonalen Baukommission und Baupolizei, Sion",
+        "fr": "auprès du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement – section Secrétariat de la commission cantonale des constructions et police des constructions, à Sion"
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114484&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:22.401Z",
+      "crawledAt": "2026-07-09T12:11:38.932Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1106,9 +1093,24 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114484&publication=2627",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice",
+        "un-collaboratore-tecnico-ispettore-della-polizia-di-costruzione-o-un-collaboratore-tecnico-ispettore-della-polizia-di"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice",
+          "un-collaboratore-tecnico-ispettore-della-polizia-di-costruzione-o-un-collaboratore-tecnico-ispettore-della-polizia-di"
+        ],
+        "en": [
+          "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
+        ],
+        "de": [
+          "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
+        ]
       },
+      "firstSeenAt": "2026-07-08T22:07:22.401Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1120,55 +1122,40 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:22.401Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
-        ],
-        "en": [
-          "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
-        ],
-        "de": [
-          "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
-        ]
-      },
-      "previousSlugs": [
-        "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
-      ]
+      }
     },
     {
       "id": "canton-valais-f86ae3ca0732",
       "slug": "un-impiegato-tecnico-specializzato-o-un-impiegato-tecnico-specializzato-100-canton-du-valais-sion",
       "slugByLocale": {
-        "fr": "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique",
         "it": "un-impiegato-tecnico-specializzato-o-un-impiegato-tecnico-specializzato-100-canton-du-valais-sion",
         "en": "a-specialist-technical-electrician-employee-or-a-specialist-technical-electrician-employee-100-canton-du-valais-sion",
-        "de": "ein-technischer-elektriker-oder-ein-technischer-elektriker-100-canton-du-valais-sion"
+        "de": "ein-technischer-elektriker-oder-ein-technischer-elektriker-100-canton-du-valais-sion",
+        "fr": "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un collaborateur technique spécialisé électricien ou une collaboratrice technique spécialisée électricienne (100%)",
       "titleByLocale": {
-        "fr": "Un collaborateur technique spécialisé électricien ou une collaboratrice technique spécialisée électricienne (100%)",
         "it": "Un impiegato tecnico specializzato o un impiegato tecnico specializzato (100%)",
         "en": "A specialist technical electrician employee or a specialist technical electrician employee (100%)",
-        "de": "Ein technischer Elektriker oder ein technischer Elektriker (100%)"
+        "de": "Ein technischer Elektriker oder ein technischer Elektriker (100%)",
+        "fr": "Un collaborateur technique spécialisé électricien ou une collaboratrice technique spécialisée électricienne (100%)"
       },
       "description": "auprès du Service de la mobilité, section logistique d’entretien des routes cantonales (Log-RC) à Sion",
       "descriptionByLocale": {
-        "fr": "## Description\n\nauprès du Service de la mobilité, section logistique d’entretien des routes cantonales (Log-RC) à Sion",
         "it": "Descrizione con il Servizio di Mobilità, Sezione Logistica d, manutenzione di strade a via A (Log-RC) a Sion",
         "en": "Description with the Mobility Service, Logistics Section d, maintenance of cantonal roads (Log-RC) in Sion",
-        "de": "Beschreibung mit dem Mobilitätsservice, Logistikabteilung d, Instandhaltung der Kantonsstraßen (Log-RC) in Sion"
+        "de": "Beschreibung mit dem Mobilitätsservice, Logistikabteilung d, Instandhaltung der Kantonsstraßen (Log-RC) in Sion",
+        "fr": "auprès du Service de la mobilité, section logistique d’entretien des routes cantonales (Log-RC) à Sion"
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114560&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:22.100Z",
+      "crawledAt": "2026-07-09T12:11:38.631Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1184,10 +1171,25 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114560&publication=2627",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique",
+        "un-impiegato-tecnico-specializzato-o-un-impiegato-tecnico-specializzato-100-canton-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique",
+          "un-impiegato-tecnico-specializzato-o-un-impiegato-tecnico-specializzato-100-canton-du-valais-sion"
+        ],
+        "en": [
+          "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
+        ],
+        "de": [
+          "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:22.100Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1199,31 +1201,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:22.100Z",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
-        ],
-        "en": [
-          "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
-        ],
-        "de": [
-          "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
-        ]
-      },
-      "previousSlugs": [
-        "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
-      ]
+      }
     },
     {
       "id": "canton-valais-8d9e3d294253",
       "slug": "tecnico-sostanziale-80-100-canton-du-valais-brig",
       "slugByLocale": {
-        "de": "technische-r-sachbearbeiter-in-80-100-canton-valais-ch",
         "it": "tecnico-sostanziale-80-100-canton-du-valais-brig",
         "en": "technical-substantial-80-100-canton-du-valais-brig",
+        "de": "technische-r-sachbearbeiter-in-80-100-canton-valais-ch",
         "fr": "technique-important-80-100-canton-du-valais-brig"
       },
       "company": "Canton du Valais",
@@ -1231,16 +1217,16 @@
       "companyDomain": "vs.ch",
       "title": "Technische/r Sachbearbeiter/in (80-100%)",
       "titleByLocale": {
-        "de": "Technische/r Sachbearbeiter/in (80-100%)",
         "it": "Tecnico/sostanziale (80-100%)",
         "en": "Technical/substantial (80-100%)",
+        "de": "Technische/r Sachbearbeiter/in (80-100%)",
         "fr": "Technique/important (80-100%)"
       },
       "description": "bei der Dienststelle für Grundbuchwesen, Einführung und Informatisierung Oberwallis (Brig und Leuk)",
       "descriptionByLocale": {
-        "de": "bei der Dienststelle für Grundbuchwesen, Einführung und Informatisierung Oberwallis (Brig und Leuk)",
         "it": "presso il Servizio del Registro del territorio, introduzione e informatizzazione di Oberwallis (Brig e Leuk)",
         "en": "at the Land Register Service, introduction and computerisation of Oberwallis (Brig and Leuk)",
+        "de": "bei der Dienststelle für Grundbuchwesen, Einführung und Informatisierung Oberwallis (Brig und Leuk)",
         "fr": "au Service du registre foncier, introduction et informatisation d'Oberwallis (Brig et Leuk)"
       },
       "location": "Brig",
@@ -1248,7 +1234,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109432&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:21.799Z",
+      "crawledAt": "2026-07-09T12:11:38.329Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1264,10 +1250,25 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109432&publication=2627",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technische-r-sachbearbeiter-in-80-100-canton-valais-ch",
+        "tecnico-sostanziale-80-100-canton-du-valais-brig"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-sachbearbeiter-in-80-100-canton-valais-ch",
+          "tecnico-sostanziale-80-100-canton-du-valais-brig"
+        ],
+        "en": [
+          "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
+        ],
+        "fr": [
+          "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:21.799Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1279,56 +1280,40 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:21.799Z",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
-        ],
-        "en": [
-          "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
-        ],
-        "fr": [
-          "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
-        ]
-      },
-      "previousSlugs": [
-        "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
-      ]
+      }
     },
     {
       "id": "canton-valais-3b1751b9c6ba",
       "slug": "un-collaboratore-scientifico-70-canton-du-valais-sion",
       "slugByLocale": {
-        "fr": "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
         "it": "un-collaboratore-scientifico-70-canton-du-valais-sion",
         "en": "a-scientific-collaborator-70-canton-du-valais-sion",
-        "de": "ein-wissenschaftlicher-mitarbeiter-70-canton-du-valais-sion"
+        "de": "ein-wissenschaftlicher-mitarbeiter-70-canton-du-valais-sion",
+        "fr": "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un collaborateur ou une collaboratrice scientifique (70%)",
       "titleByLocale": {
-        "fr": "Un collaborateur ou une collaboratrice scientifique (70%)",
         "it": "Un collaboratore scientifico (70%)",
         "en": "A scientific collaborator (70%)",
-        "de": "Ein wissenschaftlicher Mitarbeiter (70%)"
+        "de": "Ein wissenschaftlicher Mitarbeiter (70%)",
+        "fr": "Un collaborateur ou une collaboratrice scientifique (70%)"
       },
       "description": "auprès du Service de l’action sociale, au sein de l’Office de coordination des prestations sociales (OCPS) à Sion",
       "descriptionByLocale": {
-        "fr": "## Description\n\n- auprès du Service de l’action sociale, au sein de l’Office de coordination des prestations sociales (OCPS) à Sion",
         "it": "Descrizione - presso il Servizio di azione sociale, presso l'Ufficio per il coordinamento delle prestazioni sociali (O",
         "en": "Description - at the Social Action Service, at the Office for the Coordination of Social Benefits (OCPS) in Sion",
-        "de": "Beschreibung - beim Sozialdienst, beim Amt für die Koordinierung der Sozialleistungen (OCPS) in Sion"
+        "de": "Beschreibung - beim Sozialdienst, beim Amt für die Koordinierung der Sozialleistungen (OCPS) in Sion",
+        "fr": "auprès du Service de l’action sociale, au sein de l’Office de coordination des prestations sociales (OCPS) à Sion"
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100795&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:21.498Z",
+      "crawledAt": "2026-07-09T12:11:38.028Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1344,10 +1329,25 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100795&publication=2627",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
+        "un-collaboratore-scientifico-70-canton-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
+          "un-collaboratore-scientifico-70-canton-du-valais-sion"
+        ],
+        "en": [
+          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:21.498Z",
       "salaryMin": 42400,
       "salaryMax": 64000,
       "baseSalary": {
@@ -1359,41 +1359,25 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:21.498Z",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
-        ],
-        "en": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
-        ],
-        "de": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
-        ]
-      },
-      "previousSlugs": [
-        "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
-      ]
+      }
     },
     {
       "id": "canton-valais-0a380ca0bc8a",
-      "slug": "arbeiter-in-chauffeur-in-100-canton-valais-ch",
+      "slug": "lavoratore-in-chauffeur-in-100-canton-du-valais-brig",
       "slugByLocale": {
+        "it": "lavoratore-in-chauffeur-in-100-canton-du-valais-brig",
+        "en": "worker-in-chauffeur-in-100-canton-du-valais-brig",
         "de": "arbeiter-in-chauffeur-in-100-canton-valais-ch",
-        "it": "arbeiter-in-chauffeur-in-100-canton-valais-ch",
-        "en": "arbeiter-in-chauffeur-in-100-canton-valais-ch",
-        "fr": "arbeiter-in-chauffeur-in-100-canton-valais-ch"
+        "fr": "travailleur-in-chauffeur-in-100-canton-du-valais-brig"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Arbeiter/in-Chauffeur/in (100%)",
       "titleByLocale": {
-        "de": "Arbeiter/in-Chauffeur/in (100%)",
         "it": "Lavoratore/in-chauffeur/in (100%)",
         "en": "Worker/in-chauffeur/in (100%)",
+        "de": "Arbeiter/in-Chauffeur/in (100%)",
         "fr": "Travailleur/in-chauffeur/in (100%)"
       },
       "description": "bei der Dienststelle Gebietseinheit III, in Brig",
@@ -1405,7 +1389,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114094&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:21.196Z",
+      "crawledAt": "2026-07-09T12:11:37.726Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1421,10 +1405,23 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114094&publication=2627",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:21.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arbeiter-in-chauffeur-in-100-canton-valais-ch"
+        ],
+        "en": [
+          "arbeiter-in-chauffeur-in-100-canton-valais-ch"
+        ],
+        "fr": [
+          "arbeiter-in-chauffeur-in-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arbeiter-in-chauffeur-in-100-canton-valais-ch"
+      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1436,8 +1433,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:07:21.196Z"
+      }
     }
   ]
 }
