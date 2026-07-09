@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "six-group-30e9fd18ef88",
-      "slug": "customer-support-agent-six-group-warsaw",
+      "slug": "agente-di-assistenza-clienti-six-group-warsaw",
       "slugByLocale": {
         "en": "customer-support-agent-six-group-warsaw",
-        "it": "customer-support-agent-six-group-warsaw",
+        "it": "agente-di-assistenza-clienti-six-group-warsaw",
         "de": "customer-support-agent-six-group-warsaw",
-        "fr": "customer-support-agent-six-group-warsaw"
+        "fr": "agent-de-soutien-a-la-clientele-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -64,7 +64,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:09:04.756Z"
+      "firstSeenAt": "2026-07-08T22:09:04.756Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-support-agent-six-group-warsaw"
+        ],
+        "fr": [
+          "customer-support-agent-six-group-warsaw"
+        ]
+      },
+      "previousSlugs": [
+        "customer-support-agent-six-group-warsaw"
+      ]
     },
     {
       "id": "six-group-2ee845d6b68b",
@@ -6342,12 +6353,12 @@
     },
     {
       "id": "six-group-0b060f5b2b39",
-      "slug": "customer-support-agent-six-group-warsaw-2",
+      "slug": "agente-di-assistenza-clienti-six-group-warsaw-148870",
       "slugByLocale": {
         "en": "customer-support-agent-six-group-warsaw",
-        "it": "customer-support-agent-six-group-warsaw-2",
+        "it": "agente-di-assistenza-clienti-six-group-warsaw-148870",
         "de": "customer-support-agent-six-group-warsaw-2",
-        "fr": "customer-support-agent-six-group-warsaw-2"
+        "fr": "agent-de-soutien-a-la-clientele-six-group-warsaw-148870"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6402,7 +6413,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:08:02.114Z"
+      "firstSeenAt": "2026-07-08T22:08:02.114Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-support-agent-six-group-warsaw-2"
+        ],
+        "fr": [
+          "customer-support-agent-six-group-warsaw-2"
+        ]
+      },
+      "previousSlugs": [
+        "customer-support-agent-six-group-warsaw-2"
+      ]
     },
     {
       "id": "six-group-0c13f994be42",

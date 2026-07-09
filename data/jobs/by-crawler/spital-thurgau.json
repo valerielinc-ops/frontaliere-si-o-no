@@ -3336,12 +3336,12 @@
     },
     {
       "id": "spital-thurgau-a1f294f4637b",
-      "slug": "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "slug": "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-91eff4",
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
-        "it": "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2",
-        "fr": "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2"
+        "it": "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-91eff4",
+        "en": "dipl-nursing-professional-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-91eff4",
+        "fr": "dipl-soins-infirmiers-professionnels-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-91eff4"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -3389,12 +3389,20 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2",
-          "dipl-pflegefachmann-frau-hf-fh-stgag-ch"
+          "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
+          "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2"
+        ],
+        "fr": [
+          "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2",
-        "dipl-pflegefachmann-frau-hf-fh-stgag-ch"
+        "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
+        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -10733,7 +10741,7 @@
       "slugByLocale": {
         "it": "applikations-manager-in-amministrativo-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "en": "applikations-manager-in-administrative-fachapplikationen-stgag-ch",
-        "de": "applikations-manager-in-administrative-fachapplikationen-stgag-ch",
+        "de": "anwendungen-manager-in-administrativen-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "fr": "applikations-gestionnaire-en-administration-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -10779,7 +10787,7 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "anwendungen-manager-in-administrativen-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "applikations-manager-in-administrative-fachapplikationen-stgag-ch"
         ],
         "it": [
           "applikations-manager-in-administrative-fachapplikationen-stgag-ch"
@@ -10789,8 +10797,7 @@
         ]
       },
       "previousSlugs": [
-        "applikations-manager-in-administrative-fachapplikationen-stgag-ch",
-        "anwendungen-manager-in-administrativen-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "applikations-manager-in-administrative-fachapplikationen-stgag-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T13:01:08.730Z",
@@ -13701,8 +13708,8 @@
       "slugByLocale": {
         "de": "pflegeassistent-in-oder-pflegehelfer-in-medizinische-diagnostik-stgag-ch",
         "it": "pflegeassistent-in-o-pflegehelfer-in-medizinische-diagnostik-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "pflegeassistent-in-oder-pflegehelfer-in-medizinische-diagnostik-stgag-ch",
-        "fr": "pflegeassistent-in-oder-pflegehelfer-in-medizinische-diagnostik-stgag-ch"
+        "en": "nursing-assistant-or-nursing-assistant-in-medical-diagnostics-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "fr": "assistant-infirmier-ou-assistant-infirmier-diagnostic-medical-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -13749,6 +13756,12 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "pflegeassistent-in-oder-pflegehelfer-in-medizinische-diagnostik-stgag-ch"
+        ],
+        "en": [
+          "pflegeassistent-in-oder-pflegehelfer-in-medizinische-diagnostik-stgag-ch"
+        ],
+        "fr": [
           "pflegeassistent-in-oder-pflegehelfer-in-medizinische-diagnostik-stgag-ch"
         ]
       },

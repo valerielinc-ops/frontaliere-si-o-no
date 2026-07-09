@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "otis-3f384e8dc332",
-      "slug": "service-technician-otis-fribourg",
+      "slug": "servizio-tecnico-otis-sa-fribourg",
       "slugByLocale": {
         "en": "service-technician-otis-fribourg",
-        "it": "service-technician-otis-fribourg",
+        "it": "servizio-tecnico-otis-sa-fribourg",
         "de": "service-techniker-otis-sa-fribourg",
         "fr": "service-technicien-otis-sa-fribourg"
       },
@@ -60,7 +60,15 @@
       },
       "country": "CH",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-07-08T22:13:01.907Z"
+      "firstSeenAt": "2026-07-08T22:13:01.907Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-technician-otis-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "service-technician-otis-fribourg"
+      ]
     },
     {
       "id": "otis-264632f0df97",

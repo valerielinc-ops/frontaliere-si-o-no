@@ -82,12 +82,12 @@
     },
     {
       "id": "oerlikon-8641f903e355",
-      "slug": "technical-customer-support-iiot-digitalisierung-gn-oerlikon-ch",
+      "slug": "supporto-tecnico-del-cliente-iiot-digitalization-gn-oerlikon-wohlen",
       "slugByLocale": {
         "de": "technical-customer-support-iiot-digitalisierung-gn-oerlikon-ch",
-        "it": "technical-customer-support-iiot-digitalisierung-gn-oerlikon-ch",
+        "it": "supporto-tecnico-del-cliente-iiot-digitalization-gn-oerlikon-wohlen",
         "en": "technical-customer-support-iiot-digitalisierung-gn-oerlikon-ch",
-        "fr": "technical-customer-support-iiot-digitalisierung-gn-oerlikon-ch"
+        "fr": "assistance-technique-a-la-clientele-iiot-digitalisation-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -142,7 +142,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:12:59.089Z"
+      "firstSeenAt": "2026-07-08T22:12:59.089Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-customer-support-iiot-digitalisierung-gn-oerlikon-ch"
+        ],
+        "fr": [
+          "technical-customer-support-iiot-digitalisierung-gn-oerlikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-customer-support-iiot-digitalisierung-gn-oerlikon-ch"
+      ]
     },
     {
       "id": "oerlikon-0f945aef36b1",
@@ -150,8 +161,8 @@
       "slugByLocale": {
         "de": "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
         "it": "service-techniker-per-produktionsanlagen-inhouse-gn-oerlikon-wohlen",
-        "en": "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-        "fr": "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
+        "en": "service-technician-for-production-facilities-in-house-gn-oerlikon-wohlen",
+        "fr": "technicien-de-service-pour-les-installations-de-production-interne-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -197,6 +208,12 @@
       "previousSlugsByLocale": {
         "it": [
           "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
+        ],
+        "en": [
+          "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
+        ],
+        "fr": [
+          "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
         ]
       },
       "previousSlugs": [
@@ -222,8 +239,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch",
         "it": "apprendistato-come-konstrukteur-gn-cfc-oerlikon-wohlen",
-        "en": "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch",
-        "fr": "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch"
+        "en": "apprenticeship-as-constructor-gn-efz-oerlikon-wohlen",
+        "fr": "apprentissage-en-tant-que-constructeur-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -269,6 +286,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch"
+        ],
+        "en": [
+          "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch"
+        ],
+        "fr": [
+          "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch"
         ]
       },
       "previousSlugs": [
@@ -290,12 +313,12 @@
     },
     {
       "id": "oerlikon-262684fe39ed",
-      "slug": "servicetechniker-gn-oerlikon-wohlen",
+      "slug": "tecnico-di-servizio-gn-oerlikon-wohlen",
       "slugByLocale": {
         "de": "servicetechniker-gn-oerlikon-ch",
-        "it": "servicetechniker-gn-oerlikon-wohlen",
-        "en": "servicetechniker-gn-oerlikon-wohlen",
-        "fr": "servicetechniker-gn-oerlikon-wohlen"
+        "it": "tecnico-di-servizio-gn-oerlikon-wohlen",
+        "en": "service-technician-gn-oerlikon-wohlen",
+        "fr": "technicien-des-services-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -340,11 +363,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-gn-oerlikon-ch"
+          "servicetechniker-gn-oerlikon-ch",
+          "servicetechniker-gn-oerlikon-wohlen"
+        ],
+        "en": [
+          "servicetechniker-gn-oerlikon-wohlen"
+        ],
+        "fr": [
+          "servicetechniker-gn-oerlikon-wohlen"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-gn-oerlikon-ch"
+        "servicetechniker-gn-oerlikon-ch",
+        "servicetechniker-gn-oerlikon-wohlen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -439,7 +470,7 @@
         "de": "project-manager-gn-oerlikon-ch",
         "it": "project-manager-gn-oerlikon-ch",
         "en": "project-manager-gn-oerlikon-wohlen",
-        "fr": "project-manager-gn-oerlikon-ch"
+        "fr": "gestionnaire-de-projet-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -498,12 +529,12 @@
     },
     {
       "id": "oerlikon-d4a79fa30222",
-      "slug": "konstruktionsingenieur-gn-oerlikon-wohlen",
+      "slug": "ingegnere-di-progettazione-gn-oerlikon-wohlen",
       "slugByLocale": {
         "de": "konstruktionsingenieur-gn-oerlikon-ch",
-        "it": "konstruktionsingenieur-gn-oerlikon-wohlen",
-        "en": "konstruktionsingenieur-gn-oerlikon-wohlen",
-        "fr": "konstruktionsingenieur-gn-oerlikon-wohlen"
+        "it": "ingegnere-di-progettazione-gn-oerlikon-wohlen",
+        "en": "design-engineer-gn-oerlikon-wohlen",
+        "fr": "ingenieur-de-conception-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -548,11 +579,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "konstruktionsingenieur-gn-oerlikon-ch"
+          "konstruktionsingenieur-gn-oerlikon-ch",
+          "konstruktionsingenieur-gn-oerlikon-wohlen"
+        ],
+        "en": [
+          "konstruktionsingenieur-gn-oerlikon-wohlen"
+        ],
+        "fr": [
+          "konstruktionsingenieur-gn-oerlikon-wohlen"
         ]
       },
       "previousSlugs": [
-        "konstruktionsingenieur-gn-oerlikon-ch"
+        "konstruktionsingenieur-gn-oerlikon-ch",
+        "konstruktionsingenieur-gn-oerlikon-wohlen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

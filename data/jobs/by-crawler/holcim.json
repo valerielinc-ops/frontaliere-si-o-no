@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "holcim-031c669f5cde",
-      "slug": "chauffeure-chauffeuse-holcim-ch",
+      "slug": "cuffie-cameriere-holcim-group-st-gallen",
       "slugByLocale": {
         "de": "chauffeure-chauffeuse-holcim-ch",
-        "it": "chauffeure-chauffeuse-holcim-ch",
-        "en": "chauffeure-chauffeuse-holcim-ch",
+        "it": "cuffie-cameriere-holcim-group-st-gallen",
+        "en": "chauffeurs-chauffeuse-holcim-group-st-gallen",
         "fr": "chauffeure-chauffeuse-holcim-ch"
       },
       "company": "Holcim Group",
@@ -61,7 +61,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:25:54.263Z"
+      "firstSeenAt": "2026-07-08T22:25:54.263Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeure-chauffeuse-holcim-ch"
+        ],
+        "en": [
+          "chauffeure-chauffeuse-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeure-chauffeuse-holcim-ch"
+      ]
     },
     {
       "id": "holcim-de6f7059de98",
@@ -206,8 +217,8 @@
       "slugByLocale": {
         "de": "anlagen-und-apparatebauer-in-holcim-ch",
         "it": "anlagen-e-apparatebauer-in-holcim-group-untervaz",
-        "en": "anlagen-und-apparatebauer-in-holcim-ch",
-        "fr": "anlagen-und-apparatebauer-in-holcim-ch"
+        "en": "plant-and-apparatus-manufacturer-in-holcim-group-untervaz",
+        "fr": "fabricant-d-installations-et-d-appareils-en-holcim-group-untervaz"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -249,6 +260,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "anlagen-und-apparatebauer-in-holcim-ch"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-holcim-ch"
+        ],
+        "fr": [
           "anlagen-und-apparatebauer-in-holcim-ch"
         ]
       },
@@ -401,12 +418,12 @@
     },
     {
       "id": "holcim-e58798f793d9",
-      "slug": "mechaniker-in-80-100-holcim-ch",
+      "slug": "meccanica-80-100-holcim-group-wurenlingen",
       "slugByLocale": {
         "de": "mechaniker-in-80-100-holcim-ch",
-        "it": "mechaniker-in-80-100-holcim-ch",
-        "en": "mechaniker-in-80-100-holcim-ch",
-        "fr": "mechaniker-in-80-100-holcim-ch"
+        "it": "meccanica-80-100-holcim-group-wurenlingen",
+        "en": "mechanics-in-80-100-holcim-group-wurenlingen",
+        "fr": "mecanique-dans-80-100-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -458,7 +475,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:25:51.494Z"
+      "firstSeenAt": "2026-07-08T22:25:51.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechaniker-in-80-100-holcim-ch"
+        ],
+        "en": [
+          "mechaniker-in-80-100-holcim-ch"
+        ],
+        "fr": [
+          "mechaniker-in-80-100-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechaniker-in-80-100-holcim-ch"
+      ]
     },
     {
       "id": "holcim-713b82cea56b",
@@ -523,12 +554,12 @@
     },
     {
       "id": "holcim-abd5cfb84d9c",
-      "slug": "spezialist-in-praventive-instandhaltung-80-100-holcim-ch",
+      "slug": "specialista-in-manutenzione-preventiva-80-100-holcim-group-wurenlingen",
       "slugByLocale": {
         "de": "spezialist-in-praventive-instandhaltung-80-100-holcim-ch",
-        "it": "spezialist-in-praventive-instandhaltung-80-100-holcim-ch",
-        "en": "spezialist-in-praventive-instandhaltung-80-100-holcim-ch",
-        "fr": "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
+        "it": "specialista-in-manutenzione-preventiva-80-100-holcim-group-wurenlingen",
+        "en": "specialist-in-preventive-maintenance-80-100-holcim-group-wurenlingen",
+        "fr": "specialiste-en-maintenance-preventive-80-100-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -580,16 +611,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:25:50.567Z"
+      "firstSeenAt": "2026-07-08T22:25:50.567Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
+        ],
+        "en": [
+          "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
+        ],
+        "fr": [
+          "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
+      ]
     },
     {
       "id": "holcim-44076a934152",
-      "slug": "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
+      "slug": "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen",
       "slugByLocale": {
         "de": "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
-        "it": "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
-        "en": "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
-        "fr": "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
+        "it": "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen",
+        "en": "all-rounder-operating-materials-construction-machine-operator-80-100-holcim-group-wurenlingen",
+        "fr": "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -641,16 +686,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:25:50.116Z"
+      "firstSeenAt": "2026-07-08T22:25:50.116Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
+        ],
+        "en": [
+          "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
+        ],
+        "fr": [
+          "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
+      ]
     },
     {
       "id": "holcim-0c635c1fceff",
-      "slug": "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
+      "slug": "electric-operation-manager-epel-o-ifcf-holcim-group-eclepens",
       "slugByLocale": {
         "fr": "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
-        "it": "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
-        "en": "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
-        "de": "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
+        "it": "electric-operation-manager-epel-o-ifcf-holcim-group-eclepens",
+        "en": "electric-operation-manager-epel-or-ifcf-holcim-group-eclepens",
+        "de": "elektrischer-betriebsleiter-epel-oder-ifcf-holcim-group-eclepens"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -702,16 +761,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:25:49.676Z"
+      "firstSeenAt": "2026-07-08T22:25:49.676Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
+        ],
+        "en": [
+          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
+        ],
+        "de": [
+          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
+      ]
     },
     {
       "id": "holcim-113a217f6ab9",
       "slug": "installateur-trice-electricien-ne-80-100-holcim-ch",
       "slugByLocale": {
         "it": "installateur-trice-electricien-ne-80-100-holcim-ch",
-        "en": "installateur-trice-electricien-ne-80-100-holcim-ch",
-        "de": "installateur-trice-electricien-ne-80-100-holcim-ch",
-        "fr": "installateur-trice-electricien-ne-80-100-holcim-ch"
+        "en": "electrical-equipment-80-100-holcim-group-eclepens",
+        "de": "elektrische-ausrustung-80-100-holcim-group-eclepens",
+        "fr": "materiel-electrique-80-100-holcim-group-eclepens"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -828,12 +901,12 @@
     },
     {
       "id": "holcim-7f6febb3653a",
-      "slug": "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
+      "slug": "operatore-di-macchine-da-costruzione-nella-cava-60-100-holcim-group-untervaz",
       "slugByLocale": {
         "de": "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
-        "it": "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
-        "en": "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
-        "fr": "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
+        "it": "operatore-di-macchine-da-costruzione-nella-cava-60-100-holcim-group-untervaz",
+        "en": "construction-machine-operator-in-the-quarry-60-100-holcim-group-untervaz",
+        "fr": "operateur-de-machines-de-construction-dans-la-carriere-60-100-holcim-group-untervaz"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -885,7 +958,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:25:47.907Z"
+      "firstSeenAt": "2026-07-08T22:25:47.907Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
+        ],
+        "en": [
+          "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
+        ],
+        "fr": [
+          "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
+      ]
     },
     {
       "id": "holcim-d568554a4494",
@@ -893,8 +980,8 @@
       "slugByLocale": {
         "de": "techniker-in-hf-im-bereich-elektrotechnik-oder-systemtechnik-holcim-ch",
         "it": "techniker-in-hf-im-bereich-elektrotechnik-o-systemtechnik-holcim-group-untervaz",
-        "en": "techniker-in-hf-im-bereich-elektrotechnik-oder-systemtechnik-holcim-ch",
-        "fr": "techniker-in-hf-im-bereich-elektrotechnik-oder-systemtechnik-holcim-ch"
+        "en": "technician-in-hf-in-the-field-of-electrical-engineering-or-system-engineering-holcim-group-untervaz",
+        "fr": "technicien-en-hf-dans-le-domaine-du-genie-electrique-ou-de-l-ingenierie-de-systemes-holcim-group-untervaz"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -936,6 +1023,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "techniker-in-hf-im-bereich-elektrotechnik-oder-systemtechnik-holcim-ch"
+        ],
+        "en": [
+          "techniker-in-hf-im-bereich-elektrotechnik-oder-systemtechnik-holcim-ch"
+        ],
+        "fr": [
           "techniker-in-hf-im-bereich-elektrotechnik-oder-systemtechnik-holcim-ch"
         ]
       },
@@ -1165,12 +1258,12 @@
     },
     {
       "id": "holcim-ca7c0c096d1c",
-      "slug": "legal-counsel-80-100-holcim-ch",
+      "slug": "consigliere-giuridico-80-100-holcim-group-zurich",
       "slugByLocale": {
         "de": "legal-counsel-80-100-holcim-ch",
-        "it": "legal-counsel-80-100-holcim-ch",
+        "it": "consigliere-giuridico-80-100-holcim-group-zurich",
         "en": "legal-counsel-80-100-holcim-ch",
-        "fr": "legal-counsel-80-100-holcim-ch"
+        "fr": "conseiller-juridique-80-100-holcim-group-zurich"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -1222,7 +1315,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:25:44.753Z"
+      "firstSeenAt": "2026-07-08T22:25:44.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-80-100-holcim-ch"
+        ],
+        "fr": [
+          "legal-counsel-80-100-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-80-100-holcim-ch"
+      ]
     },
     {
       "id": "holcim-e0749981060b",
@@ -1370,11 +1474,11 @@
     },
     {
       "id": "holcim-930d09a79c32",
-      "slug": "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
+      "slug": "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen",
       "slugByLocale": {
-        "fr": "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
-        "it": "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
-        "en": "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
+        "fr": "laboratoire-technologie-de-reliure-80-100-holcim-group-wurenlingen",
+        "it": "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen",
+        "en": "laboratory-in-binder-technology-80-100-holcim-group-wurenlingen",
         "de": "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
       },
       "company": "Holcim Group",
@@ -1427,7 +1531,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:25:43.387Z"
+      "firstSeenAt": "2026-07-08T22:25:43.387Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+        ],
+        "en": [
+          "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+        ],
+        "fr": [
+          "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+      ]
     },
     {
       "id": "holcim-273ae5af41b3",
@@ -1504,8 +1622,8 @@
       "slugByLocale": {
         "en": "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch",
         "it": "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch",
-        "de": "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch",
-        "fr": "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch"
+        "de": "health-safety-h-s-projektmanager-80-100-holcim-group-wurenlingen",
+        "fr": "gestionnaire-de-projet-sante-et-securite-s-et-s-80-100-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -1818,7 +1936,7 @@
         "it": "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
         "en": "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
         "de": "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf",
-        "fr": "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch"
+        "fr": "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -1874,12 +1992,12 @@
     },
     {
       "id": "holcim-e40022c902ad",
-      "slug": "lastwagenfuhrer-in-holcim-group-oberdorf",
+      "slug": "camion-driver-in-holcim-group-oberdorf",
       "slugByLocale": {
         "de": "lastwagenfuhrer-in-holcim-ch",
-        "it": "lastwagenfuhrer-in-holcim-group-oberdorf",
-        "en": "lastwagenfuhrer-in-holcim-group-oberdorf",
-        "fr": "lastwagenfuhrer-in-holcim-group-oberdorf"
+        "it": "camion-driver-in-holcim-group-oberdorf",
+        "en": "truck-driver-in-holcim-group-oberdorf",
+        "fr": "conducteur-de-camion-en-holcim-group-oberdorf"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -1921,11 +2039,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "lastwagenfuhrer-in-holcim-ch"
+          "lastwagenfuhrer-in-holcim-ch",
+          "lastwagenfuhrer-in-holcim-group-oberdorf"
+        ],
+        "en": [
+          "lastwagenfuhrer-in-holcim-group-oberdorf"
+        ],
+        "fr": [
+          "lastwagenfuhrer-in-holcim-group-oberdorf"
         ]
       },
       "previousSlugs": [
-        "lastwagenfuhrer-in-holcim-ch"
+        "lastwagenfuhrer-in-holcim-ch",
+        "lastwagenfuhrer-in-holcim-group-oberdorf"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
