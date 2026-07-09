@@ -1,39 +1,28 @@
 {
-  "crawlerKey": "holmes-place",
-  "assembledAt": "2026-07-09T12:48:39.226Z",
   "jobs": [
     {
-      "id": "holmes-place-2c12260d3ad6",
-      "slug": "sich-bewerben-holmes-place-oberrieden",
+      "id": "holmes-place-ea707dd373db",
+      "slug": "mehr-erfahren-holmes-place-oberrieden",
       "slugByLocale": {
-        "de": "sich-bewerben-holmes-place-oberrieden",
-        "en": "apply-now-holmes-place-oberrieden",
-        "fr": "postuler-holmes-place-oberrieden",
-        "it": "sich-bewerben-holmes-place-oberrieden"
+        "de": "mehr-erfahren-holmes-place-oberrieden"
       },
       "company": "Holmes Place",
       "companyKey": "holmes-place",
       "companyDomain": "holmesplace.ch",
-      "title": "sich bewerben",
+      "title": "Mehr erfahren",
       "titleByLocale": {
-        "de": "♪",
-        "it": "sich bewerben",
-        "en": "Apply Now",
-        "fr": "Postuler maintenant"
+        "de": "Mehr erfahren"
       },
-      "description": "sich bewerben presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
+      "description": "Mehr erfahren presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
       "descriptionByLocale": {
-        "de": "Beschreibung Sich 136 am Holmes Place. Ort: Holmes Place Oberrieden. Holmes Place ist eine internationale Kette von Fitness- und Fitnessclubs mit mehreren Standorten in der Schweiz. Kandidaten für unser Team.",
-        "it": "Descrizione\nSich bewerben presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
-        "en": "Description Sich bewerben at Holmes Place. Location: Holmes Place Oberrieden. Holmes Place is an international chain of fitness and fitness clubs with multiple locations in Switzerland. Candidates to join our team.",
-        "fr": "Description Sich bewerben à Holmes Place. Emplacement: Holmes Place Oberrieden. Holmes Place est une chaîne internationale de clubs de fitness et de fitness avec de multiples emplacements en Suisse. Candidats pour rejoindre notre équipe."
+        "de": "Mehr erfahren presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team."
       },
       "location": "Oberrieden",
       "canton": "ZH",
       "url": "https://www.holmesplace.ch/de/karriere",
       "source": "Holmes Place Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-09T12:48:36.626Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T22:36:01.376Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -51,33 +40,49 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
+      }
+    },
+    {
+      "id": "holmes-place-2c12260d3ad6",
+      "slug": "sich-bewerben-holmes-place-oberrieden",
+      "slugByLocale": {
+        "de": "sich-bewerben-holmes-place-oberrieden"
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "mehr-erfahren-holmes-place-oberrieden"
-        ],
-        "de": [
-          "mehr-erfahren-holmes-place-oberrieden"
-        ]
+      "company": "Holmes Place",
+      "companyKey": "holmes-place",
+      "companyDomain": "holmesplace.ch",
+      "title": "sich bewerben",
+      "titleByLocale": {
+        "de": "sich bewerben"
       },
-      "previousSlugs": [
-        "mehr-erfahren-holmes-place-oberrieden"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
+      "description": "sich bewerben presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
+      "descriptionByLocale": {
+        "de": "sich bewerben presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team."
       },
-      "firstSeenAt": "2026-07-09T12:48:36.626Z",
-      "retranslationAttempts": 1
+      "location": "Oberrieden",
+      "canton": "ZH",
+      "url": "https://www.holmesplace.ch/de/karriere",
+      "source": "Holmes Place Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T22:36:01.378Z",
+      "addressLocality": "Oberrieden",
+      "addressRegion": "ZH",
+      "streetAddress": "Seestrasse 97",
+      "postalCode": "8942",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "sector": "Fitness / Wellness",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-09",
+      "applyUrl": "https://www.holmesplace.ch/de/karriere",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      }
     }
   ]
 }
