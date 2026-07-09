@@ -10,6 +10,8 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/risk-management-spezialist-in/3b693bc3-ecd7-488b-9cef-28f1acc99125",
+    "https://jobs.sbb.ch/v2/offene-stellen/spezialist-in-einkauf/aabaa8c5-c405-4235-b6c2-113a28f452ce",
     "https://jobs.sbb.ch/v2/offene-stellen/projekt-und-bewilligungsmanager-in-telecom-frmcs-ran-rollout/4ef683d4-bfce-45ae-bbc7-90907a93dbe8",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/56d18928-874a-4500-b3db-a40d8605eec0",
     "https://jobs.sbb.ch/v2/offene-stellen/specialiste-preparation-du-travail-h-f-d/6bb09dcd-7648-4105-bed3-8a514a21491e",
@@ -28,8 +30,8 @@
     "https://jobs.sbb.ch/v2/offene-stellen/regionenleiter-in-logistik-und-produktion/e1fa70b1-b694-4fa6-8c02-bd7b67472833",
     "https://jobs.sbb.ch/v2/offene-stellen/responsable-regionale-logistique-et-production/cafefccc-1aa6-424d-9d8f-01efcda5b363",
     "https://jobs.sbb.ch/v2/offene-stellen/responsabile-regionale-logistica-e-produzione/20fd7ec3-3b8f-40db-b38e-2eb520c9f622",
-    "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitung-b100-und-triebfahrzeugfuehrer-in/d29af285-71b2-47f8-af39-d56f6e74aa28",
     "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-fahrleitung/35b2e79d-e182-4c62-9830-3facd8b22c3e",
+    "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitung-b100-und-triebfahrzeugfuehrer-in/d29af285-71b2-47f8-af39-d56f6e74aa28",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in-teambahnhof-ai40/d781a513-ee0b-4749-a032-7f601128d8e7",
     "https://jobs.sbb.ch/v2/offene-stellen/aspirante-cheffe-circulation-des-trains-2027/dfefc60a-7c3d-4a7b-87ed-8cc3d2517c71",
     "https://jobs.sbb.ch/v2/offene-stellen/policier-policiere-aupres-de-la-police-des-transports-cff-tpo/4241f66c-05c3-4711-8590-ff57faea5fd9",
@@ -49,11 +51,11 @@
     "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-fachspezialist-in-programm-bzu+-umsetzung-behig/c1918347-fbbc-4346-8721-88ec010c4a56",
     "https://jobs.sbb.ch/v2/offene-stellen/specialiste-chef-de-projet-dans-le-cadre-du-programme-bzu+-mise-en-uvre-de-la-lhand-h-f-d/417a6d69-c081-4ea4-803a-f1818d8c2d01",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/8564aeed-849f-4086-a6bf-341a6726c274",
-    "https://jobs.sbb.ch/v2/offene-stellen/fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in/f0cd901d-903c-4a26-abe1-67534ef8eb77",
     "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-innen-elektroinstallateur-in-automatiker-in/615a1b67-f79b-4e0a-98de-7ffffd309378",
     "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in/6014e2c8-debd-4f8e-ac2a-5c08adaa1440",
     "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-tiefbau-landschaftsgaertner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in/3a885cd7-35b6-4282-bab1-ec9c26ce4f6a",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinsteiger-in-lokfuehrer-in-personenverkehr-bern-03-2027/1b0fc068-7d3d-4a2a-8270-7679d45813c5",
+    "https://jobs.sbb.ch/v2/offene-stellen/fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in/f0cd901d-903c-4a26-abe1-67534ef8eb77",
     "https://jobs.sbb.ch/v2/offene-stellen/kundenassistent-in/cbc6b9df-a25b-4dd3-b377-4e1ea72d4e26",
     "https://jobs.sbb.ch/v2/offene-stellen/cheffe-d-equipe-assistantes-cheffes-de-projet/52cd87fc-11d4-4c59-ae01-a24d6517f479",
     "https://jobs.sbb.ch/v2/offene-stellen/marketing-data-specialist-m-w-d/1a87e4c5-6f00-46b8-94a0-4fc2e5f3f481",
@@ -113,12 +115,12 @@
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-kategorie-b100-cargo/2074e508-4c61-43c8-89ea-975556cf6c0f",
     "https://jobs.sbb.ch/v2/offene-stellen/automatikmonteur-in-automatiker-in/067efe4e-89ee-47ef-8f47-12281753c759",
     "https://jobs.sbb.ch/v2/offene-stellen/zugbegleiter-in-mit-ausbildung/9e89b512-6191-4c64-baf5-a823a1027454",
-    "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-fuer-den-einstieg-in-den-bereich-bahnsicherungsanlagen/03a704f8-4eb5-48be-90dc-20f563a1575d",
     "https://jobs.sbb.ch/v2/offene-stellen/finance-business-partner-in-sbb-immobilien/7e9dbb2b-de47-4c61-a582-c1aa968c1a1a",
+    "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-fuer-den-einstieg-in-den-bereich-bahnsicherungsanlagen/03a704f8-4eb5-48be-90dc-20f563a1575d",
     "https://jobs.sbb.ch/v2/offene-stellen/technicienne-de-mise-en-service-et-de-depannage-des-locomotives/8c3d9027-5853-4b63-a674-f3fb7e882e49",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/fc9d29a1-5c21-4b43-9570-01f459f561a3",
-    "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-kategorie-b100-cargo/9c1ecfe4-a9c2-4be9-a999-5d7a9ea2eee3",
     "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-weichenmontage/03fd2c08-9f3b-4fbc-8202-946b15839c45",
+    "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-kategorie-b100-cargo/9c1ecfe4-a9c2-4be9-a999-5d7a9ea2eee3",
     "https://jobs.sbb.ch/v2/offene-stellen/reiniger-in/6ce298c1-97ed-4a2e-a56c-07ca84cac713",
     "https://jobs.sbb.ch/v2/offene-stellen/fachspezialist-in-einsatzleitzentrale-der-transportpolizei/399b669d-b47c-4f04-bd17-f25b926758e2",
     "https://jobs.sbb.ch/v2/offene-stellen/fachspezialist-in-einsatzleitzentrale-der-transportpolizei/1238d393-12fe-4e4b-bcd4-89a08008394f",
@@ -164,5 +166,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in-ai40/2f5499bd-119f-4f07-9d22-09a22c8a9e82"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-07-09T12:25:26.673Z"
+  "updatedAt": "2026-07-09T22:27:49.568Z"
 }
