@@ -97,9 +97,6 @@
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-adliswil-693703",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-baar-706644",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-seewen-696620",
-    "https://team.lidl.ch/de/jobs/lagermitarbeiter-lagermitarbeiterin-m-w-d-40-80-derendingen-690600",
-    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-beginn-2026-einsiedeln-586735",
-    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-buchs-700550",
     "https://team.lidl.ch/de/jobs/manager-culture-and-engagement-m-w-d-80-100-weinfelden-709450",
     "https://team.lidl.ch/de/jobs/manager-in-marketing-engagement-m-w-d-80-100-weinfelden-700763",
     "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-einkauf-80-100-m-w-d-weinfelden-711714",
@@ -107,8 +104,8 @@
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-stans-674353",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-1-regensdorf-705728",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-arbon-692915",
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-ebikon-711236",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-sarnen-681605",
-    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-bellach-706891",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-seewen-685896",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-landquart-705695",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-1-winterthur-705230",
@@ -165,6 +162,7 @@
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-schlieren-691873",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-schlieren-691880",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-spreitenbach-691879",
+    "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-sursee-716555",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-visp-612252",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-wettingen-702615",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zug-712359",
@@ -252,7 +250,6 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-reiden-714284",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-willisau-716099",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-60-80-fluelen-685897",
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-60-dudingen-696989",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-60-kehrsatz-680850",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-60-trimbach-708080",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-70-90-bern-696051",
@@ -305,7 +302,6 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-zurich-701465",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-ostermundigen-694195",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-rothrist-712373",
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-100-pratteln-699376",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-biel-bienne-702324",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-reiden-714285",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-springerfunktion-m-w-d-80-100-1-reinach-ag-698364",
@@ -351,7 +347,7 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-704917"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-07-08T22:06:46.386Z",
+  "updatedAt": "2026-07-09T12:11:46.914Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-kreuzlingen-695002": {
       "location": "Kreuzlingen",
@@ -1163,15 +1159,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-100-pratteln-699376": {
-      "location": "Pratteln",
-      "addressLocality": "Pratteln",
-      "canton": "BL",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-dubendorf-690218": {
       "location": "Dübendorf",
       "addressLocality": "Dübendorf",
@@ -1631,15 +1618,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-buchs-700550": {
-      "location": "Buchs",
-      "addressLocality": "Buchs",
-      "canton": "SG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-ruschlikon-683005": {
       "location": "Rüschlikon",
       "addressLocality": "Rüschlikon",
@@ -2072,15 +2050,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-beginn-2026-einsiedeln-586735": {
-      "location": "Einsiedeln",
-      "addressLocality": "Einsiedeln",
-      "canton": "SZ",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-romerswil-708783": {
       "location": "Römerswil",
       "addressLocality": "Römerswil",
@@ -2171,18 +2140,18 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-solothurn-698009": {
-      "location": "Solothurn",
-      "addressLocality": "Solothurn",
-      "canton": "SO",
+    "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-sursee-716555": {
+      "location": "Sursee",
+      "addressLocality": "Sursee",
+      "canton": "LU",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
-      "contract": "Part-time"
+      "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-bellach-706891": {
-      "location": "Bellach",
-      "addressLocality": "Bellach",
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-solothurn-698009": {
+      "location": "Solothurn",
+      "addressLocality": "Solothurn",
       "canton": "SO",
       "country": "CH",
       "company": "Lidl Svizzera",
@@ -2208,15 +2177,6 @@
       "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/kommissionierer-kommissioniererin-non-food-m-w-d-40-80-derendingen-690593": {
-      "location": "Derendingen",
-      "addressLocality": "Derendingen",
-      "canton": "SO",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/lagermitarbeiter-lagermitarbeiterin-m-w-d-40-80-derendingen-690600": {
       "location": "Derendingen",
       "addressLocality": "Derendingen",
       "canton": "SO",
@@ -2280,6 +2240,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-ebikon-711234": {
+      "location": "Ebikon",
+      "addressLocality": "Ebikon",
+      "canton": "LU",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-ebikon-711236": {
       "location": "Ebikon",
       "addressLocality": "Ebikon",
       "canton": "LU",
@@ -2985,15 +2954,6 @@
       "location": "St. Moritz",
       "addressLocality": "St. Moritz",
       "canton": "GR",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-60-dudingen-696989": {
-      "location": "Düdingen",
-      "addressLocality": "Düdingen",
-      "canton": "FR",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
