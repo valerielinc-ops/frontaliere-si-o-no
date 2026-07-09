@@ -1,16 +1,16 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-07-09T12:20:56.706Z",
-  "total": 3,
+  "generatedAt": "2026-07-09T22:27:04.207Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8478,
-  "avgDurationMs": 8478,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 9346,
+  "avgDurationMs": 9346,
   "durationHistory": [
-    8478
+    9346
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556924215",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:20:53.990Z",
+      "crawledAt": "2026-07-09T22:27:01.495Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556625311",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:20:53.986Z",
+      "crawledAt": "2026-07-09T22:27:01.490Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,8 +85,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "microsoft-200041378",
       "slug": "services-account-executive-microsoft-zurich",
@@ -127,5 +126,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
