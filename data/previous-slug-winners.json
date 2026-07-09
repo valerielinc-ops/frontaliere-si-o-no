@@ -261,20 +261,20 @@
     "canton": "AG"
   },
   "AG::en::deputy-group-leader-production-panofina-coop-genossenschaft-schafisheim": {
-    "winnerJobIdentifier": "company-6t41tw",
-    "winnerCanonical": "machine-operator-in-production-bakery-panofina-coop-genossenschaft-schafisheim-6t41tw",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-f55ls4",
+    "winnerCanonical": "production-line-leader-pastry-panofina-evening-shift-coop-genossenschaft-schafisheim-f55ls4",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.3846,
+    "score": 0.4615,
     "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::en::deputy-group-leader-production-panofina-coop-genossenschaft-schafisheim-w1h09l": {
-    "winnerJobIdentifier": "company-6t41tw",
-    "winnerCanonical": "machine-operator-in-production-bakery-panofina-coop-genossenschaft-schafisheim-6t41tw",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-f55ls4",
+    "winnerCanonical": "production-line-leader-pastry-panofina-evening-shift-coop-genossenschaft-schafisheim-f55ls4",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.3571,
+    "score": 0.4286,
     "candidatesCount": 1,
     "canton": "AG"
   },
@@ -918,12 +918,12 @@
     "canton": "AG"
   },
   "AG::it::fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-ksb-ch": {
-    "winnerJobIdentifier": "ksb-222b7a2d544d",
-    "winnerCanonical": "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hotellerie-kantonsspital-baden-ksb-baden",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "winnerJobIdentifier": "ksb-855bc0db1b3d",
+    "winnerCanonical": "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hauswirtschaft-kantonsspital-baden-ksb-baden",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5833,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::fachspezialistin-fachspezialist-bildung-80-100-kanton-aargau-ch": {
@@ -1148,6 +1148,15 @@
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
+  "AG::it::praktikant-in-kulturvermittlung-80-kanton-aargau-ch-2": {
+    "winnerJobIdentifier": "kanton-aargau-a5baba5e00fb",
+    "winnerCanonical": "mediazione-culturale-stagista-80-kanton-aargau-aarau",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 2,
     "canton": "AG"
   },
@@ -7362,21 +7371,21 @@
     "canton": "BE"
   },
   "BE::de::caisses-services-d-assistant-commercial-coop-genossenschaft-neuenhof-s24mh4": {
-    "winnerJobIdentifier": "company-v9af6k",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-bern-v9af6k",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-wkl7ui",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-laupen-bern-wkl7ui",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.1429,
-    "candidatesCount": 2,
+    "score": 0.1333,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::casse-servizi-per-assistenti-vendite-coop-genossenschaft-neuenhof": {
-    "winnerJobIdentifier": "company-v9af6k",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-bern-v9af6k",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-wkl7ui",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-laupen-bern-wkl7ui",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.0714,
-    "candidatesCount": 2,
+    "score": 0.0667,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::cheffe-de-clinique-adjoint-e-en-gynecologie-et-obstetrique-temps-partiel-spital-emmental-burgdorf-langnau": {
@@ -8343,12 +8352,12 @@
     "canton": "BE"
   },
   "BE::de::sales-assistant-cash-registers-services-coop-genossenschaft-neuenhof-s24mh4": {
-    "winnerJobIdentifier": "company-v9af6k",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-bern-v9af6k",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-wkl7ui",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-laupen-bern-wkl7ui",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.1429,
-    "candidatesCount": 2,
+    "score": 0.1333,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::sales-staff-in-with-all-round-function-otto-s-ag-bern": {
@@ -8721,12 +8730,12 @@
     "canton": "BE"
   },
   "BE::de::verkaufer-in-kassen-services-coop-neuenhof-aargau-s24mh4": {
-    "winnerJobIdentifier": "company-v9af6k",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-bern-v9af6k",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-wkl7ui",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-laupen-bern-wkl7ui",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.4545,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-bern": {
@@ -9054,9 +9063,9 @@
     "canton": "BE"
   },
   "BE::en::applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-vph86t": {
-    "winnerJobIdentifier": "interdiscount-f797453f-573",
+    "winnerJobIdentifier": "company-rd8wt2",
     "winnerCanonical": "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-3dfiel",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.8182,
     "candidatesCount": 1,
@@ -9162,12 +9171,12 @@
     "canton": "BE"
   },
   "BE::en::casse-servizi-per-assistenti-vendite-coop-genossenschaft-neuenhof": {
-    "winnerJobIdentifier": "company-v9af6k",
-    "winnerCanonical": "seller-in-cash-registers-services-coop-genossenschaft-bern-e038b1",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-wkl7ui",
+    "winnerCanonical": "sales-assistant-cash-registers-services-coop-genossenschaft-laupen-wkl7ui",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1333,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::en::cheffe-de-clinique-adjoint-e-en-gynecologie-et-obstetrique-temps-partiel-spital-emmental-burgdorf-langnau": {
@@ -10611,12 +10620,12 @@
     "canton": "BE"
   },
   "BE::en::verkaufer-in-kassen-services-coop-neuenhof-aargau-s24mh4": {
-    "winnerJobIdentifier": "company-v9af6k",
-    "winnerCanonical": "seller-in-cash-registers-services-coop-genossenschaft-bern-e038b1",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-wkl7ui",
+    "winnerCanonical": "sales-assistant-cash-registers-services-coop-genossenschaft-laupen-wkl7ui",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.2143,
-    "candidatesCount": 2,
+    "score": 0.1333,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::en::verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern-asegni": {
@@ -12114,9 +12123,9 @@
     "canton": "BE"
   },
   "BE::fr::responsable-des-applications-sap-operations-senior-interdiscount-jegenstorf": {
-    "winnerJobIdentifier": "interdiscount-f797453f-573",
-    "winnerCanonical": "gestionnaire-d-applications-dans-sap-operations-senior-interdiscount-jegenstorf",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-rd8wt2",
+    "winnerCanonical": "responsable-de-l-application-sap-operations-senior-interdiscount-jegenstorf",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5455,
     "candidatesCount": 1,
@@ -13032,12 +13041,12 @@
     "canton": "BE"
   },
   "BE::it::caisses-services-d-assistant-commercial-coop-genossenschaft-neuenhof-s24mh4": {
-    "winnerJobIdentifier": "company-v9af6k",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-bern-e038b1",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-wkl7ui",
+    "winnerCanonical": "casse-servizi-per-assistenti-vendite-coop-genossenschaft-laupen",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1333,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::casse-servizi-per-assistenti-vendite-coop-genossenschaft-neuenhof": {
@@ -13266,10 +13275,10 @@
     "canton": "BE"
   },
   "BE::it::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf": {
-    "winnerJobIdentifier": "company-suwfsz",
-    "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-suwfsz",
-    "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-07T00:00:00.000Z",
+    "winnerJobIdentifier": "company-5sv86f",
+    "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
     "canton": "BE"
@@ -14670,12 +14679,12 @@
     "canton": "BE"
   },
   "BE::it::sales-assistant-cash-registers-services-coop-genossenschaft-neuenhof-s24mh4": {
-    "winnerJobIdentifier": "company-v9af6k",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-bern-e038b1",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-wkl7ui",
+    "winnerCanonical": "casse-servizi-per-assistenti-vendite-coop-genossenschaft-laupen",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1333,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::sales-staff-in-with-all-round-function-otto-s-ag-bern": {
@@ -15219,12 +15228,12 @@
     "canton": "BE"
   },
   "BE::it::verkaufer-in-kassen-services-coop-neuenhof-aargau-s24mh4": {
-    "winnerJobIdentifier": "company-v9af6k",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-bern-e038b1",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-wkl7ui",
+    "winnerCanonical": "casse-servizi-per-assistenti-vendite-coop-genossenschaft-laupen",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.1429,
-    "candidatesCount": 2,
+    "score": 0.0667,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::verkaufer-verkauferin-m-w-d-40-lidl-svizzera-biel-bienne": {
@@ -15638,6 +15647,15 @@
     "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "FR"
+  },
+  "FR::en::team-leader-testing-m-f-x-liebherr-bulle": {
+    "winnerJobIdentifier": "liebherr-1483d652ed94",
+    "winnerCanonical": "team-leader-function-validation-m-f-x-liebherr-bulle",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.7,
     "candidatesCount": 2,
     "canton": "FR"
   },
@@ -17847,9 +17865,9 @@
     "canton": "GR"
   },
   "GR::de::fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2": {
-    "winnerJobIdentifier": "9843542",
+    "winnerJobIdentifier": "10104458",
     "winnerCanonical": "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.8571,
     "candidatesCount": 1,
@@ -18306,7 +18324,7 @@
     "canton": "GR"
   },
   "GR::de::mitarbeiter-in-hotellerie-pdgr-ch": {
-    "winnerJobIdentifier": "pdgr-75b2bdbae292",
+    "winnerJobIdentifier": "pdgr-8faee1f21651",
     "winnerCanonical": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
@@ -18666,10 +18684,10 @@
     "canton": "GR"
   },
   "GR::de::verkaufer-in-food-coop-chur-graubunden-0l919m": {
-    "winnerJobIdentifier": "company-qfd5dq",
-    "winnerCanonical": "verkaufer-in-food-coop-schiers-graubunden-qfd5dq",
-    "decidedAt": "2026-06-01T00:00:00.000Z",
-    "lastSeenAt": "2026-06-18T00:00:00.000Z",
+    "winnerJobIdentifier": "company-7c2tz2",
+    "winnerCanonical": "abteilungsleiter-in-food-coop-chur-graubunden-7c2tz2",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
     "canton": "GR"
@@ -18714,7 +18732,7 @@
     "winnerJobIdentifier": "company-iu3jey",
     "winnerCanonical": "verkaufer-in-food-coop-felsberg-graubunden-iu3jey",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
     "canton": "GR"
@@ -18750,7 +18768,7 @@
     "winnerJobIdentifier": "company-iu3jey",
     "winnerCanonical": "verkaufer-in-food-coop-felsberg-graubunden-iu3jey",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
     "canton": "GR"
@@ -19200,7 +19218,7 @@
     "winnerJobIdentifier": "pdgr-72c42eafd6ec",
     "winnerCanonical": "senior-doctor-psychiatrische-dienste-graubunden-chur",
     "decidedAt": "2026-05-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "GR"
@@ -19686,7 +19704,7 @@
     "winnerJobIdentifier": "pdgr-8faee1f21651",
     "winnerCanonical": "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis-1656a4",
     "decidedAt": "2026-06-12T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "GR"
@@ -20037,7 +20055,7 @@
     "winnerJobIdentifier": "company-iu3jey",
     "winnerCanonical": "food-sales-assistant-coop-genossenschaft-felsberg",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 1,
     "canton": "GR"
@@ -20055,7 +20073,7 @@
     "winnerJobIdentifier": "company-iu3jey",
     "winnerCanonical": "food-sales-assistant-coop-genossenschaft-felsberg",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 1,
     "canton": "GR"
@@ -21198,7 +21216,7 @@
     "winnerJobIdentifier": "pdgr-72c42eafd6ec",
     "winnerCanonical": "medecin-principal-psychiatrische-dienste-graubunden-chur",
     "decidedAt": "2026-05-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 1,
     "canton": "GR"
@@ -21231,11 +21249,11 @@
     "canton": "GR"
   },
   "GR::fr::mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis": {
-    "winnerJobIdentifier": "pdgr-75b2bdbae292",
-    "winnerCanonical": "employe-hotel-psychiatrische-dienste-graubunden-cazis",
+    "winnerJobIdentifier": "pdgr-8faee1f21651",
+    "winnerCanonical": "personnel-a-hotellerie-psychiatrische-dienste-graubunden-cazis",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.4444,
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -21243,7 +21261,7 @@
     "winnerJobIdentifier": "pdgr-8faee1f21651",
     "winnerCanonical": "personnel-a-hotellerie-psychiatrische-dienste-graubunden-cazis",
     "decidedAt": "2026-06-12T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 1,
     "canton": "GR"
@@ -22413,7 +22431,7 @@
     "winnerJobIdentifier": "pdgr-8faee1f21651",
     "winnerCanonical": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
     "decidedAt": "2026-05-31T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
     "canton": "GR"
@@ -22608,11 +22626,11 @@
     "canton": "GR"
   },
   "GR::it::fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "9843542",
-    "winnerCanonical": "operatrice-operatore-di-sala-operatoria-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "winnerJobIdentifier": "10104458",
+    "winnerCanonical": "tecnologia-chirurgica-professionale-specialistica-kantonsspital-graubunden-chur",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.2727,
+    "score": 0.3,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -23232,7 +23250,7 @@
     "winnerJobIdentifier": "pdgr-72c42eafd6ec",
     "winnerCanonical": "oberarztin-oberarzt-pdgr-ch",
     "decidedAt": "2026-05-31T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0,
     "candidatesCount": 1,
     "canton": "GR"
@@ -24039,11 +24057,11 @@
     "canton": "GR"
   },
   "GR::it::verkaufer-in-denner": {
-    "winnerJobIdentifier": "denner-fc7f7284f26a",
-    "winnerCanonical": "venditore-denner-ag-chur",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "denner-0b91c22d519e",
+    "winnerCanonical": "venditore-denner-ag-chur-2511ee",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.1667,
+    "score": 0.1429,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -25131,7 +25149,7 @@
     "winnerJobIdentifier": "spz-d943c8bc64f2",
     "winnerCanonical": "dipl-pflegefachfrau-mann-hf-mit-ndk-uberwachungspflege-paraplegie-nottwil",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.8,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25146,19 +25164,19 @@
     "canton": "LU"
   },
   "LU::de::dipl-sozialarbeiter-in-fh-schweizer-paraplegiker-gruppe-nottwil": {
-    "winnerJobIdentifier": "paraplegie-dba285ef1bc6",
-    "winnerCanonical": "dipl-sozialarbeiter-in-fh-deutsch-italienisch-paraplegie-nottwil",
+    "winnerJobIdentifier": "spz-2c7ba37f04ec",
+    "winnerCanonical": "dipl-sozialarbeiter-in-fh-spz-nottwil",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 1,
+    "score": 0.5556,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::de::diploma-in-social-work-schweizer-paraplegiker-zentrum-spz-nottwil": {
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-sozialarbeiter-in-fh-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25167,7 +25185,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-sozialarbeiter-in-fh-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25176,7 +25194,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-sozialarbeiter-in-fh-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1429,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25221,7 +25239,7 @@
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistenzarzt-arztin-intensivmedizin-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1538,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25230,7 +25248,7 @@
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistenzarzt-arztin-intensivmedizin-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1538,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25239,7 +25257,7 @@
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistenzarzt-arztin-intensivmedizin-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25554,7 +25572,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-social-worker-in-fh-schweizer-paraplegiker-gruppe-nottwil",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.7273,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25563,7 +25581,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-social-worker-in-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5833,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25572,7 +25590,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-social-worker-in-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25581,7 +25599,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-social-worker-in-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25617,7 +25635,7 @@
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistant-physician-intensive-care-medicine-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.8182,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25626,7 +25644,7 @@
     "winnerJobIdentifier": "spz-301f37f72432",
     "winnerCanonical": "apprenticeship-gardener-eba-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.2727,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25635,7 +25653,7 @@
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistant-physician-intensive-care-medicine-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1333,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25644,7 +25662,7 @@
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistant-physician-intensive-care-medicine-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25662,7 +25680,7 @@
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistant-physician-intensive-care-medicine-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25671,7 +25689,7 @@
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistant-physician-intensive-care-medicine-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.8182,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25977,7 +25995,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-travailleurs-sociaux-en-fh-schweizer-paraplegiker-gruppe-nottwil",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.7273,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25986,7 +26004,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-travailleurs-sociaux-en-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 2,
     "canton": "LU"
@@ -25995,7 +26013,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-travailleurs-sociaux-en-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "LU"
@@ -26004,7 +26022,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-travailleurs-sociaux-en-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 2,
     "canton": "LU"
@@ -26067,7 +26085,7 @@
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "medecin-assistant-medecine-intensive-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 2,
     "canton": "LU"
@@ -26076,7 +26094,7 @@
     "winnerJobIdentifier": "spz-301f37f72432",
     "winnerCanonical": "jardinier-en-apprentissage-eba-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 2,
     "canton": "LU"
@@ -26085,25 +26103,25 @@
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "medecin-assistant-medecine-intensive-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1429,
     "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::fr::medecin-chef-en-medecine-intensive-schweizer-paraplegiker-zentrum-spz-nottwil": {
-    "winnerJobIdentifier": "paraplegie-6bcde15bf0ff",
+    "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "medecin-assistant-medecine-intensive-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.7273,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::fr::medecin-superieur-medecin-superieur-soins-intensifs-schweizer-paraplegiker-zentrum-spz-nottwil": {
     "winnerJobIdentifier": "spz-f8f2eee0338b",
     "winnerCanonical": "medecin-superieur-medecin-superieur-soins-intensifs-schweizer-paraplegiker-gruppe-nottwil",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.7,
     "candidatesCount": 2,
     "canton": "LU"
@@ -26112,7 +26130,7 @@
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "medecin-assistant-medecine-intensive-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3846,
     "candidatesCount": 2,
     "canton": "LU"
@@ -26355,7 +26373,7 @@
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistente-medico-medicina-intensiva-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 2,
     "canton": "LU"
@@ -26490,7 +26508,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-lavoratore-sociale-in-fh-schweizer-paraplegiker-gruppe-nottwil",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.7273,
     "candidatesCount": 2,
     "canton": "LU"
@@ -26499,7 +26517,7 @@
     "winnerJobIdentifier": "spz-d943c8bc64f2",
     "winnerCanonical": "dipl-pflegefachfrau-mann-hf-con-ndk-uberwachungspflege-schweizer-paraplegiker-gruppe-nottwil",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5385,
     "candidatesCount": 2,
     "canton": "LU"
@@ -26526,7 +26544,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-lavoratore-sociale-in-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 2,
     "canton": "LU"
@@ -26535,7 +26553,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-lavoratore-sociale-in-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5385,
     "candidatesCount": 2,
     "canton": "LU"
@@ -26544,7 +26562,7 @@
     "winnerJobIdentifier": "spz-2c7ba37f04ec",
     "winnerCanonical": "dipl-lavoratore-sociale-in-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "LU"
@@ -26640,48 +26658,48 @@
     "canton": "LU"
   },
   "LU::it::lead-physician-intensive-care-medicine-schweizer-paraplegiker-zentrum-spz-nottwil": {
-    "winnerJobIdentifier": "paraplegie-6bcde15bf0ff",
+    "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistente-medico-medicina-intensiva-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3571,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::it::lehrstelle-gartner-in-eba-spz-nottwil": {
     "winnerJobIdentifier": "spz-301f37f72432",
     "winnerCanonical": "apprendistato-gartner-in-afp-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::it::leitende-arztin-leitender-arzt-intensivmedizin-spz-nottwil": {
-    "winnerJobIdentifier": "paraplegie-6bcde15bf0ff",
+    "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistente-medico-medicina-intensiva-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1429,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::it::medecin-chef-en-medecine-intensive-schweizer-paraplegiker-zentrum-spz-nottwil": {
     "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistente-medico-medicina-intensiva-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::it::medico-dirigente-di-rianimazione-schweizer-paraplegiker-zentrum-spz-nottwil": {
-    "winnerJobIdentifier": "paraplegie-6bcde15bf0ff",
+    "winnerJobIdentifier": "spz-6bcde15bf0ff",
     "winnerCanonical": "assistente-medico-medicina-intensiva-schweizer-paraplegiker-zentrum-spz-nottwil",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::it::medizinische-praxisassistentin-medizinischer-praxisassistent-oder-fachfrau-fachmann": {
@@ -28647,11 +28665,11 @@
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachperson-hf-fh-psgn-wil-sg": {
-    "winnerJobIdentifier": "psgn-e2a366a79fc3",
-    "winnerCanonical": "pflegefachperson-hf-fh-psgn-wil-sg",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-67a38cb9e173",
+    "winnerCanonical": "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.8571,
+    "score": 0.875,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -29619,11 +29637,11 @@
     "canton": "SG"
   },
   "SG::en::dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-e2a366a79fc3",
-    "winnerCanonical": "pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-67a38cb9e173",
+    "winnerCanonical": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.8889,
+    "score": 0.9,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -30717,11 +30735,11 @@
     "canton": "SG"
   },
   "SG::fr::dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-e2a366a79fc3",
-    "winnerCanonical": "soins-professionnels-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-67a38cb9e173",
+    "winnerCanonical": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.5714,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -31680,11 +31698,11 @@
     "canton": "SG"
   },
   "SG::it::dipl-ing-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-e2a366a79fc3",
-    "winnerCanonical": "cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-67a38cb9e173",
+    "winnerCanonical": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.5833,
+    "score": 0.8182,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -31845,7 +31863,7 @@
     "winnerJobIdentifier": "psgn-67a38cb9e173",
     "winnerCanonical": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-07T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.6364,
     "candidatesCount": 1,
     "canton": "SG"
@@ -31854,7 +31872,7 @@
     "winnerJobIdentifier": "psgn-67a38cb9e173",
     "winnerCanonical": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
     "decidedAt": "2026-06-30T00:00:00.000Z",
-    "lastSeenAt": "2026-07-07T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.9091,
     "candidatesCount": 1,
     "canton": "SG"
@@ -31878,11 +31896,11 @@
     "canton": "SG"
   },
   "SG::it::dipl-professionista-della-salute-hf-fh-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-e2a366a79fc3",
-    "winnerCanonical": "cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-67a38cb9e173",
+    "winnerCanonical": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.5385,
+    "score": 0.6154,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -37421,6 +37439,24 @@
     "candidatesCount": 1,
     "canton": "SZ"
   },
+  "SZ::it::verkaufsberater-in-deco-jumbo-schwyz": {
+    "winnerJobIdentifier": "company-tcuuz9",
+    "winnerCanonical": "consulente-di-vendita-in-deco-jumbo-schwyz",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "SZ"
+  },
+  "SZ::it::verkaufsberater-in-garden-jumbo-schwyz": {
+    "winnerJobIdentifier": "jumbo-dff9c0eb-0bf",
+    "winnerCanonical": "consulente-vendite-in-garden-jumbo-schwyz",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.5714,
+    "candidatesCount": 2,
+    "canton": "SZ"
+  },
   "TG::de::allianz-bewerbermanagement": {
     "winnerJobIdentifier": "allianz-suisse-0b00a625d4f8",
     "winnerCanonical": "allianz-bewerbermanagement-allianz-suisse-frauenfeld",
@@ -37944,9 +37980,9 @@
     "canton": "TG"
   },
   "TG::en::dipl-pflegefachmann-frau-mit-zusatzfunktion-berufsbildner-in-stgag-ch": {
-    "winnerJobIdentifier": "stgag-fdba7b90bab4",
+    "winnerJobIdentifier": "spital-thurgau-8524020cff3e",
     "winnerCanonical": "dipl-nursing-professional-with-an-additional-function-vocational-trainer-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-07-07T00:00:00.000Z",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1,
     "candidatesCount": 1,
@@ -38493,9 +38529,9 @@
     "canton": "TG"
   },
   "TG::fr::dipl-pflegefachmann-frau-mit-zusatzfunktion-berufsbildner-in-stgag-ch": {
-    "winnerJobIdentifier": "stgag-fdba7b90bab4",
+    "winnerJobIdentifier": "spital-thurgau-8524020cff3e",
     "winnerCanonical": "dipl-specialiste-des-soins-infirmiers-avec-une-fonction-supplementaire-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-07-07T00:00:00.000Z",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1,
     "candidatesCount": 1,
@@ -38529,11 +38565,11 @@
     "canton": "TG"
   },
   "TG::fr::dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "stgag-0970f4db21fb",
-    "winnerCanonical": "dipl-soins-infirmiers-professionnels-hf-fh-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-b06f14802ad6",
+    "winnerCanonical": "dipl-psychotherapie-specialisee-en-soins-infirmiers-station-pt5-spital-thurgau-stgag-munsterlingen-a21ad2",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.5385,
+    "score": 0.4375,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -38961,11 +38997,11 @@
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.2273,
+    "score": 0.75,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -39096,9 +39132,9 @@
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-con-zusatzfunktion-berufsbildner-in-spital-thurgau-stgag-diessenhofen": {
-    "winnerJobIdentifier": "stgag-fdba7b90bab4",
+    "winnerJobIdentifier": "spital-thurgau-8524020cff3e",
     "winnerCanonical": "dipl-pflegefachmann-frau-con-zusatzfunktion-berufsbildner-in-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-07-07T00:00:00.000Z",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 1,
@@ -39249,11 +39285,11 @@
     "canton": "TG"
   },
   "TG::it::ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen": {
-    "winnerJobIdentifier": "spital-thurgau-54e8c6acd3db",
-    "winnerCanonical": "nutrizionista-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
-    "decidedAt": "2026-05-18T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-42a0b306d831",
+    "winnerCanonical": "specialista-per-l-educazione-hf-2-anni-abbreviato-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.7778,
+    "score": 0.2105,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -39429,21 +39465,21 @@
     "canton": "TG"
   },
   "TG::it::lehrstelle-als-koch-kochin-efz-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-9586db3a2e15",
-    "winnerCanonical": "apprendistato-come-koch-kochin-cfc-spital-thurgau-stgag-diessenhofen",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-ed49f68891b3",
+    "winnerCanonical": "apprendistato-come-koch-kochin-cfc-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.2308,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::lehrstelle-als-koch-kochin-efz-stgag-ch-2": {
-    "winnerJobIdentifier": "spital-thurgau-9586db3a2e15",
-    "winnerCanonical": "apprendistato-come-koch-kochin-cfc-spital-thurgau-stgag-diessenhofen",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-ed49f68891b3",
+    "winnerCanonical": "apprendistato-come-koch-kochin-cfc-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.2143,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::medico-senior-forensik-spital-thurgau-stgag-munsterlingen": {
@@ -48429,7 +48465,7 @@
     "canton": "VD"
   },
   "VD::it::galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyv2": {
-    "winnerJobIdentifier": "galenica-57e382b814b1",
+    "winnerJobIdentifier": "galenica-ed9e3621d65e",
     "winnerCanonical": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
@@ -51345,12 +51381,12 @@
     "canton": "ZH"
   },
   "ZH::de::dipl-ing-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-06-25T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.3077,
-    "candidatesCount": 3,
+    "score": 0.5,
+    "candidatesCount": 7,
     "canton": "ZH"
   },
   "ZH::de::dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -51489,21 +51525,21 @@
     "canton": "ZH"
   },
   "ZH::de::dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-06-25T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-7bd3b96c22d9",
+    "winnerCanonical": "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-puk-zuerich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::de::dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-puk-zuerich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.6,
-    "candidatesCount": 3,
+    "candidatesCount": 6,
     "canton": "ZH"
   },
   "ZH::de::dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -51543,12 +51579,12 @@
     "canton": "ZH"
   },
   "ZH::de::dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 3,
+    "score": 0.3333,
+    "candidatesCount": 7,
     "canton": "ZH"
   },
   "ZH::de::dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich": {
@@ -51678,12 +51714,12 @@
     "canton": "ZH"
   },
   "ZH::de::dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-adolescent-de-la-station-a0-psychiatrische": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-a78af0b3ba29",
+    "winnerCanonical": "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-puk-zuerich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.0526,
-    "candidatesCount": 4,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::de::diploma-in-nursing-c1-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -52641,11 +52677,11 @@
     "canton": "ZH"
   },
   "ZH::de::mechanical-designer-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-0eb58cd38c40",
-    "winnerCanonical": "r-d-designer-60-100-f-m-d-hitachi-energy-zurich-switzerland",
-    "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-18T00:00:00.000Z",
-    "score": 0.6923,
+    "winnerJobIdentifier": "hitachi-energy-085bcd2b25f9",
+    "winnerCanonical": "projektmanager-prozessverbesserung-80-100-w-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.5714,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -52848,10 +52884,10 @@
     "canton": "ZH"
   },
   "ZH::de::oberarztin-oberarzt-puk-zuerich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-78d2f0e645ca",
+    "winnerJobIdentifier": "puk-zuerich-23f36889566e",
     "winnerCanonical": "oberarztin-oberarzt-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -52893,12 +52929,12 @@
     "canton": "ZH"
   },
   "ZH::de::pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.5455,
-    "candidatesCount": 5,
+    "score": 0.25,
+    "candidatesCount": 6,
     "canton": "ZH"
   },
   "ZH::de::pflegefachperson-hf-con-specializzazione-in-psichiatria-60-100-privatklinik-hohenegg-meilen": {
@@ -53090,6 +53126,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::de::sales-associate-m-w-d-aldi-suisse-meilen": {
+    "winnerJobIdentifier": "aldi-suisse-f88c24cdbdd7",
+    "winnerCanonical": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::sales-associate-m-w-d-aldi-suisse-uster": {
     "winnerJobIdentifier": "aldi-suisse-507e9b557120",
     "winnerCanonical": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
@@ -53216,13 +53261,22 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
-  "ZH::de::seller-denner-ag-langenthal": {
-    "winnerJobIdentifier": "company-8q0wha",
+  "ZH::de::seller-denner-ag-frauenfeld-008421": {
+    "winnerJobIdentifier": "company-ci0818",
     "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::seller-denner-ag-langenthal": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.2857,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::de::seller-denner-ag-langenthal-450cef": {
@@ -53244,12 +53298,21 @@
     "canton": "ZH"
   },
   "ZH::de::seller-denner-ag-wetzikon": {
-    "winnerJobIdentifier": "company-8q0wha",
+    "winnerJobIdentifier": "company-ci0818",
     "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::de::seller-denner-ag-wetzikon-8e6f7a": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::de::seller-denner-ag-zurich": {
@@ -53873,6 +53936,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::de::vendeur-denner-ag-frauenfeld-008421": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::vendeur-denner-ag-langenthal": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "verkaufer-in-denner-ag-urdorf",
@@ -53907,6 +53979,24 @@
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::de::vendeur-denner-ag-wetzikon": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::vendeur-denner-ag-wetzikon-8e6f7a": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::de::vendeur-denner-ag-zurich": {
@@ -53996,6 +54086,15 @@
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.2308,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::vendeur-se-m-w-d-aldi-suisse-meilen": {
+    "winnerJobIdentifier": "aldi-suisse-f88c24cdbdd7",
+    "winnerCanonical": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -54134,6 +54233,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::de::venditore-denner-ag-langenthal": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::venditore-denner-ag-langenthal-450cef": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "verkaufer-in-denner-ag-urdorf",
@@ -54170,6 +54278,15 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
+  "ZH::de::venditore-denner-ag-urdorf": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::venditore-denner-ag-wattwil": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "verkaufer-in-denner-ag-urdorf",
@@ -54188,31 +54305,49 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
-  "ZH::de::venditore-denner-ag-wetzikon-douzkp": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+  "ZH::de::venditore-denner-ag-wetzikon": {
+    "winnerJobIdentifier": "company-56ql1j",
+    "winnerCanonical": "verkaufer-in-denner-ag-urdorf",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.4286,
+    "score": 0.2857,
     "candidatesCount": 2,
     "canton": "ZH"
   },
-  "ZH::de::venditore-denner-ag-wetzikon-e6382f": {
-    "winnerJobIdentifier": "company-8q0wha",
+  "ZH::de::venditore-denner-ag-wetzikon-8q0wha": {
+    "winnerJobIdentifier": "company-ci0818",
     "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4286,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::de::venditore-denner-ag-wetzikon-douzkp": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::de::venditore-denner-ag-wetzikon-e6382f": {
+    "winnerJobIdentifier": "company-56ql1j",
+    "winnerCanonical": "verkaufer-in-denner-ag-urdorf",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::de::venditore-denner-ag-zurich": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-fzpktp",
+    "winnerCanonical": "verkaufer-in-denner-ag-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.2857,
-    "candidatesCount": 1,
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::de::venditore-denner-ag-zurich-1d38ef": {
@@ -54467,6 +54602,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::de::verkaufer-in-denner-ag-frauenfeld": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::verkaufer-in-denner-ag-frauenfeld-7kk8ni": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "verkaufer-in-denner-ag-urdorf",
@@ -54540,9 +54684,9 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-denner-ag-rubigen": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-9wcq9n",
+    "winnerCanonical": "verkaufer-in-denner-ag-dubendorf",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 2,
@@ -54603,12 +54747,12 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-denner-ag-wetzikon-douzkp": {
-    "winnerJobIdentifier": "company-8q0wha",
+    "winnerJobIdentifier": "company-ci0818",
     "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.8333,
-    "candidatesCount": 2,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-denner-ag-wilderswil": {
@@ -54630,9 +54774,9 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-denner-ag-zurich": {
-    "winnerJobIdentifier": "company-8q0wha",
+    "winnerJobIdentifier": "company-ci0818",
     "winnerCanonical": "verkaufer-in-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
@@ -55431,11 +55575,11 @@
     "canton": "ZH"
   },
   "ZH::en::advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-nursing-professional-nursing-professional-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.1765,
+    "score": 0.2,
     "candidatesCount": 4,
     "canton": "ZH"
   },
@@ -56151,12 +56295,12 @@
     "canton": "ZH"
   },
   "ZH::en::dipl-nursing-specialist-nursing-specialist-acute-station-adolescent-a0-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-nursing-professional-nursing-professional-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.3571,
-    "candidatesCount": 2,
+    "score": 0.4167,
+    "candidatesCount": 5,
     "canton": "ZH"
   },
   "ZH::en::dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -56250,21 +56394,21 @@
     "canton": "ZH"
   },
   "ZH::en::dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
+    "winnerCanonical": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.1765,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-puk-zuerich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-07T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-nursing-professional-nursing-professional-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.2857,
-    "candidatesCount": 2,
+    "score": 0.1429,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::en::dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -56277,12 +56421,12 @@
     "canton": "ZH"
   },
   "ZH::en::dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
+    "winnerCanonical": "dipl-nursing-specialist-nursing-specialist-acute-station-adolescent-a0-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.3846,
-    "candidatesCount": 2,
+    "score": 0.1176,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::en::dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -56376,9 +56520,9 @@
     "canton": "ZH"
   },
   "ZH::en::dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-c1-psychiatrische-universitatsklinik-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-a78af0b3ba29",
+    "winnerCanonical": "dipl-nursing-professional-dipl-nursing-professional-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 5,
@@ -56421,12 +56565,12 @@
     "canton": "ZH"
   },
   "ZH::en::dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-adolescent-de-la-station-a0-psychiatrische": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-a78af0b3ba29",
+    "winnerCanonical": "dipl-nursing-professional-dipl-nursing-professional-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.1111,
-    "candidatesCount": 4,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::en::diploma-in-nursing-c1-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -56502,12 +56646,12 @@
     "canton": "ZH"
   },
   "ZH::en::diplome-e-en-soins-infirmiers-de-nuit-service-de-pediatrie-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
+    "winnerCanonical": "dipl-nursing-specialist-nursing-specialist-acute-station-adolescent-a0-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.1667,
-    "candidatesCount": 2,
+    "score": 0.1579,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::en::diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -57618,12 +57762,12 @@
     "canton": "ZH"
   },
   "ZH::en::mitarbeiter-verkauf-m-w-d-aldi-suisse": {
-    "winnerJobIdentifier": "aldi-suisse-24511f3d7b7f",
-    "winnerCanonical": "sales-associate-m-w-d-aldi-suisse-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "aldi-suisse-4cf37999f424",
+    "winnerCanonical": "sales-associate-m-w-d-aldi-suisse-turbenthal",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 7,
+    "candidatesCount": 5,
     "canton": "ZH"
   },
   "ZH::en::mitarbeiter-verkauf-m-w-d-aldi-suisse-2": {
@@ -57707,6 +57851,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::oberarztin-oberarzt-puk-zuerich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-23f36889566e",
+    "winnerCanonical": "senior-physician-senior-physician-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.1111,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::optician-m-f-d-fielmann-group-wadenswil": {
     "winnerJobIdentifier": "fielmann-0f27052f1a48",
     "winnerCanonical": "augenoptiker-w-m-d-fielmann-ch-25",
@@ -57735,12 +57888,12 @@
     "canton": "ZH"
   },
   "ZH::en::pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
+    "winnerCanonical": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.1875,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -57771,12 +57924,12 @@
     "canton": "ZH"
   },
   "ZH::en::portfolio-manager-real-estate-portfolio-manager-real-estate-focus-on-site-development-psychiatrische-universitatsklinik": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-nursing-professional-nursing-professional-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.1176,
-    "candidatesCount": 2,
+    "score": 0.1333,
+    "candidatesCount": 5,
     "canton": "ZH"
   },
   "ZH::en::portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-psychiatrische-universitatsklinik": {
@@ -58121,6 +58274,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::sales-associate-m-w-d-aldi-suisse-meilen": {
+    "winnerJobIdentifier": "aldi-suisse-8015c5aa7dac",
+    "winnerCanonical": "sales-associate-m-w-d-aldi-suisse-uster",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::sales-associate-m-w-d-aldi-suisse-uster": {
     "winnerJobIdentifier": "aldi-suisse-68d4eb2aa905",
     "winnerCanonical": "sales-associate-m-w-d-aldi-suisse-zurich",
@@ -58283,13 +58445,22 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::seller-denner-ag-frauenfeld-008421": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::seller-denner-ag-langenthal": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "seller-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::en::seller-denner-ag-langenthal-450cef": {
@@ -58311,12 +58482,21 @@
     "canton": "ZH"
   },
   "ZH::en::seller-denner-ag-wetzikon": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "seller-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.8,
-    "candidatesCount": 2,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::en::seller-denner-ag-wetzikon-8e6f7a": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.6667,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::en::seller-denner-ag-zurich": {
@@ -58761,12 +58941,12 @@
     "canton": "ZH"
   },
   "ZH::en::unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-nursing-professional-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-07T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-nursing-professional-nursing-professional-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.2727,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::en::vendeur-aliment-coop-genossenschaft-monchaltorf-b98388": {
@@ -58958,6 +59138,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::vendeur-denner-ag-frauenfeld-008421": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::vendeur-denner-ag-langenthal": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "seller-denner-ag-urdorf",
@@ -58992,6 +59181,24 @@
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::en::vendeur-denner-ag-wetzikon": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::vendeur-denner-ag-wetzikon-8e6f7a": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::en::vendeur-denner-ag-zurich": {
@@ -59081,6 +59288,15 @@
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3077,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::vendeur-se-m-w-d-aldi-suisse-meilen": {
+    "winnerJobIdentifier": "aldi-suisse-8015c5aa7dac",
+    "winnerCanonical": "sales-associate-m-w-d-aldi-suisse-uster",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4545,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -59219,6 +59435,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::en::venditore-denner-ag-langenthal": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::venditore-denner-ag-langenthal-450cef": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "seller-denner-ag-urdorf",
@@ -59255,6 +59480,15 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
+  "ZH::en::venditore-denner-ag-urdorf": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::venditore-denner-ag-wattwil": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "seller-denner-ag-urdorf",
@@ -59273,31 +59507,49 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
-  "ZH::en::venditore-denner-ag-wetzikon-douzkp": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "seller-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+  "ZH::en::venditore-denner-ag-wetzikon": {
+    "winnerJobIdentifier": "company-56ql1j",
+    "winnerCanonical": "seller-denner-ag-urdorf",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.4286,
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "ZH"
   },
-  "ZH::en::venditore-denner-ag-wetzikon-e6382f": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "seller-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+  "ZH::en::venditore-denner-ag-wetzikon-8q0wha": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4286,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::en::venditore-denner-ag-wetzikon-douzkp": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::en::venditore-denner-ag-wetzikon-e6382f": {
+    "winnerJobIdentifier": "company-56ql1j",
+    "winnerCanonical": "seller-denner-ag-urdorf",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.2857,
     "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::en::venditore-denner-ag-zurich": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "seller-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-fzpktp",
+    "winnerCanonical": "seller-denner-ag-zurich-1ed56c",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.2857,
-    "candidatesCount": 1,
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::en::venditore-denner-ag-zurich-1d38ef": {
@@ -59534,6 +59786,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::verkaufer-in-denner-ag-frauenfeld": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::verkaufer-in-denner-ag-frauenfeld-7kk8ni": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "seller-denner-ag-urdorf",
@@ -59670,12 +59931,12 @@
     "canton": "ZH"
   },
   "ZH::en::verkaufer-in-denner-ag-wetzikon-douzkp": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "seller-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "seller-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.375,
-    "candidatesCount": 2,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::en::verkaufer-in-denner-ag-wilderswil": {
@@ -59697,12 +59958,12 @@
     "canton": "ZH"
   },
   "ZH::en::verkaufer-in-denner-ag-zurich": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "seller-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-fzpktp",
+    "winnerCanonical": "seller-denner-ag-zurich-1ed56c",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 1,
+    "score": 0.4286,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::en::verkaufer-in-food-coop-bern": {
@@ -60507,11 +60768,11 @@
     "canton": "ZH"
   },
   "ZH::fr::advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "infirmiere-diplomee-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.0526,
+    "score": 0.2143,
     "candidatesCount": 4,
     "canton": "ZH"
   },
@@ -61371,21 +61632,21 @@
     "canton": "ZH"
   },
   "ZH::fr::dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
+    "winnerCanonical": "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.0476,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-puk-zuerich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-07-07T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "infirmiere-diplomee-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.0714,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::fr::dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -61497,11 +61758,11 @@
     "canton": "ZH"
   },
   "ZH::fr::dipl-professionnels-des-soins-infirmiers-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
+    "winnerCanonical": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-adolescent-de-la-station-a0-psychiatrische",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.2941,
     "candidatesCount": 5,
     "canton": "ZH"
   },
@@ -61551,12 +61812,12 @@
     "canton": "ZH"
   },
   "ZH::fr::dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-adolescent-de-la-station-a0-psychiatrische": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
+    "winnerCanonical": "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.0526,
-    "candidatesCount": 2,
+    "score": 0.1429,
+    "candidatesCount": 4,
     "canton": "ZH"
   },
   "ZH::fr::diploma-in-nursing-c1-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -62739,12 +63000,12 @@
     "canton": "ZH"
   },
   "ZH::fr::mitarbeiter-verkauf-m-w-d-aldi-suisse": {
-    "winnerJobIdentifier": "aldi-suisse-24511f3d7b7f",
-    "winnerCanonical": "vendeur-se-m-w-d-aldi-suisse-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "aldi-suisse-4cf37999f424",
+    "winnerCanonical": "vendeur-se-m-w-d-aldi-suisse-turbenthal",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 7,
+    "candidatesCount": 5,
     "canton": "ZH"
   },
   "ZH::fr::mitarbeiter-verkauf-m-w-d-aldi-suisse-2": {
@@ -62810,6 +63071,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::oberarztin-oberarzt-puk-zuerich-zurich": {
+    "winnerJobIdentifier": "puk-zuerich-23f36889566e",
+    "winnerCanonical": "medecin-superieur-medecin-superieur-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.1111,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::optician-w-m-d-fielmann-group-wadenswil": {
     "winnerJobIdentifier": "fielmann-0f27052f1a48",
     "winnerCanonical": "augenoptiker-w-m-d-fielmann-ch-25",
@@ -62847,12 +63117,12 @@
     "canton": "ZH"
   },
   "ZH::fr::pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
+    "winnerCanonical": "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.05,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -63107,6 +63377,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::sales-associate-m-w-d-aldi-suisse-meilen": {
+    "winnerJobIdentifier": "aldi-suisse-8015c5aa7dac",
+    "winnerCanonical": "vendeur-se-m-w-d-aldi-suisse-uster",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::sales-associate-m-w-d-aldi-suisse-uster": {
     "winnerJobIdentifier": "aldi-suisse-507e9b557120",
     "winnerCanonical": "vendeur-se-m-w-d-aldi-suisse-meilen",
@@ -63260,13 +63539,22 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::seller-denner-ag-frauenfeld-008421": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::seller-denner-ag-langenthal": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "vendeur-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.2857,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::fr::seller-denner-ag-langenthal-450cef": {
@@ -63288,12 +63576,21 @@
     "canton": "ZH"
   },
   "ZH::fr::seller-denner-ag-wetzikon": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "vendeur-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::fr::seller-denner-ag-wetzikon-8e6f7a": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::fr::seller-denner-ag-zurich": {
@@ -63675,12 +63972,12 @@
     "canton": "ZH"
   },
   "ZH::fr::unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-    "decidedAt": "2026-07-07T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "infirmiere-diplomee-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.0769,
-    "candidatesCount": 2,
+    "score": 0.375,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::fr::vendeur-aliment-coop-genossenschaft-monchaltorf-b98388": {
@@ -63881,6 +64178,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::vendeur-denner-ag-frauenfeld-008421": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::vendeur-denner-ag-langenthal": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "vendeur-denner-ag-urdorf",
@@ -63915,6 +64221,24 @@
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::fr::vendeur-denner-ag-wetzikon": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.8,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::vendeur-denner-ag-wetzikon-8e6f7a": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.6667,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::fr::vendeur-denner-ag-zurich": {
@@ -64022,6 +64346,15 @@
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::vendeur-se-m-w-d-aldi-suisse-meilen": {
+    "winnerJobIdentifier": "aldi-suisse-8015c5aa7dac",
+    "winnerCanonical": "vendeur-se-m-w-d-aldi-suisse-uster",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.7778,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -64160,6 +64493,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::fr::venditore-denner-ag-langenthal": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::venditore-denner-ag-langenthal-450cef": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "vendeur-denner-ag-urdorf",
@@ -64196,6 +64538,15 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
+  "ZH::fr::venditore-denner-ag-urdorf": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::venditore-denner-ag-wattwil": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "vendeur-denner-ag-urdorf",
@@ -64214,31 +64565,49 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
-  "ZH::fr::venditore-denner-ag-wetzikon-douzkp": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "vendeur-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+  "ZH::fr::venditore-denner-ag-wetzikon": {
+    "winnerJobIdentifier": "company-56ql1j",
+    "winnerCanonical": "vendeur-denner-ag-urdorf",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.4286,
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "ZH"
   },
-  "ZH::fr::venditore-denner-ag-wetzikon-e6382f": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "vendeur-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+  "ZH::fr::venditore-denner-ag-wetzikon-8q0wha": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4286,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::fr::venditore-denner-ag-wetzikon-douzkp": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::fr::venditore-denner-ag-wetzikon-e6382f": {
+    "winnerJobIdentifier": "company-56ql1j",
+    "winnerCanonical": "vendeur-denner-ag-urdorf",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.2857,
     "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::fr::venditore-denner-ag-zurich": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "vendeur-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-fzpktp",
+    "winnerCanonical": "vendeur-denner-ag-zurich-1ed56c",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.2857,
-    "candidatesCount": 1,
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::fr::venditore-denner-ag-zurich-1d38ef": {
@@ -64475,6 +64844,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::verkaufer-in-denner-ag-frauenfeld": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::verkaufer-in-denner-ag-frauenfeld-7kk8ni": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "vendeur-denner-ag-urdorf",
@@ -64611,12 +64989,12 @@
     "canton": "ZH"
   },
   "ZH::fr::verkaufer-in-denner-ag-wetzikon-douzkp": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "vendeur-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "vendeur-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.375,
-    "candidatesCount": 2,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::fr::verkaufer-in-denner-ag-wilderswil": {
@@ -64638,12 +65016,12 @@
     "canton": "ZH"
   },
   "ZH::fr::verkaufer-in-denner-ag-zurich": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "vendeur-denner-ag-wetzikon-8e6f7a",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-fzpktp",
+    "winnerCanonical": "vendeur-denner-ag-zurich-1ed56c",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 1,
+    "score": 0.4286,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::fr::verkaufer-in-food-coop-bern": {
@@ -65411,6 +65789,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0": {
+    "winnerJobIdentifier": "aldi-suisse-507e9b557120",
+    "winnerCanonical": "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::addetto-a-vendita-prodotti-freschi-coop-genossenschaft-schaffhausen": {
     "winnerJobIdentifier": "company-stbp95",
     "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-bulach",
@@ -65457,11 +65844,11 @@
     "canton": "ZH"
   },
   "ZH::it::advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.1765,
+    "score": 0.2,
     "candidatesCount": 5,
     "canton": "ZH"
   },
@@ -65565,11 +65952,11 @@
     "canton": "ZH"
   },
   "ZH::it::assembler-80-100-w-m-d-hitachi-energy-zurich-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-351094616114",
-    "winnerCanonical": "pianificatore-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hitachi-energy-4e23a4ed5adc",
+    "winnerCanonical": "umweltspezialist-80-100-w-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.6667,
+    "score": 0.8182,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -66159,11 +66546,11 @@
     "canton": "ZH"
   },
   "ZH::it::consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich": {
-    "winnerJobIdentifier": "kispi-zurich-ef03a3cec6d9",
-    "winnerCanonical": "esperto-di-infermieristica-50-universitats-kinderspital-zurich-kispi-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "kispi-zurich-f2e0b8b7d974",
+    "winnerCanonical": "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.3846,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -66213,11 +66600,11 @@
     "canton": "ZH"
   },
   "ZH::it::consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich": {
-    "winnerJobIdentifier": "kispi-zurich-ef03a3cec6d9",
-    "winnerCanonical": "esperto-di-infermieristica-50-universitats-kinderspital-zurich-kispi-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "kispi-zurich-f2e0b8b7d974",
+    "winnerCanonical": "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.3636,
+    "score": 0.4167,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -66735,9 +67122,9 @@
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-a78af0b3ba29",
+    "winnerCanonical": "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 5,
@@ -66762,21 +67149,21 @@
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
+    "winnerCanonical": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.1765,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-puk-zuerich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-07T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -66789,12 +67176,12 @@
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-06-10T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.6364,
-    "candidatesCount": 1,
+    "score": 0.4615,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -66825,12 +67212,12 @@
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-06-17T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.7273,
-    "candidatesCount": 5,
+    "score": 0.5455,
+    "candidatesCount": 6,
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-puk-zuerich-zurich": {
@@ -66933,9 +67320,9 @@
     "canton": "ZH"
   },
   "ZH::it::dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-c1-psychiatrische-universitatsklinik-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-a78af0b3ba29",
+    "winnerCanonical": "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 5,
@@ -67014,12 +67401,12 @@
     "canton": "ZH"
   },
   "ZH::it::diploma-in-nursing-e2-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-06-16T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 6,
+    "score": 0.2727,
+    "candidatesCount": 7,
     "canton": "ZH"
   },
   "ZH::it::diploma-in-nursing-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -67554,7 +67941,7 @@
     "canton": "ZH"
   },
   "ZH::it::galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0d6": {
-    "winnerJobIdentifier": "galenica-6363a42bc9fe",
+    "winnerJobIdentifier": "galenica-87491e77d88c",
     "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-bulach",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
@@ -67626,7 +68013,7 @@
     "canton": "ZH"
   },
   "ZH::it::galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1": {
-    "winnerJobIdentifier": "galenica-1dd58cae5941",
+    "winnerJobIdentifier": "galenica-cafb0a818877",
     "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-zurich",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
@@ -67635,7 +68022,7 @@
     "canton": "ZH"
   },
   "ZH::it::galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s": {
-    "winnerJobIdentifier": "galenica-1dd58cae5941",
+    "winnerJobIdentifier": "galenica-cafb0a818877",
     "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-zurich",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
@@ -68598,12 +68985,12 @@
     "canton": "ZH"
   },
   "ZH::it::mitarbeiter-verkauf-m-w-d-aldi-suisse": {
-    "winnerJobIdentifier": "aldi-suisse-24511f3d7b7f",
-    "winnerCanonical": "addetto-a-alle-vendite-m-w-d-aldi-suisse-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "aldi-suisse-4cf37999f424",
+    "winnerCanonical": "addetto-a-alle-vendite-m-w-d-aldi-suisse-turbenthal",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4167,
-    "candidatesCount": 7,
+    "candidatesCount": 5,
     "canton": "ZH"
   },
   "ZH::it::mitarbeiter-verkauf-m-w-d-aldi-suisse-2": {
@@ -68724,9 +69111,9 @@
     "canton": "ZH"
   },
   "ZH::it::oberarztin-oberarzt-puk-zuerich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-9d9183a5d874",
-    "winnerCanonical": "oberarztin-oberarzt-puk-zuerich-zurich-4",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-f7f2a43f9019",
+    "winnerCanonical": "oberarztin-oberarzt-puk-zuerich-zurich-3",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 3,
@@ -68796,12 +69183,12 @@
     "canton": "ZH"
   },
   "ZH::it::pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich": {
-    "winnerJobIdentifier": "puk-zuerich-8a78a222fbf7",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
+    "winnerCanonical": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.7,
-    "candidatesCount": 2,
+    "score": 0.1875,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -68913,11 +69300,11 @@
     "canton": "ZH"
   },
   "ZH::it::produktionsregler-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-351094616114",
-    "winnerCanonical": "pianificatore-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hitachi-energy-4e23a4ed5adc",
+    "winnerCanonical": "umweltspezialist-80-100-w-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.8182,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -68940,11 +69327,11 @@
     "canton": "ZH"
   },
   "ZH::it::projekt-e-teamassistenz-kantonsspital-winterthur-ksw-winterthur": {
-    "winnerJobIdentifier": "ksw-323dfda4f4cb",
-    "winnerCanonical": "vitreoretinale-chirurgin-chirurge-kantonsspital-winterthur-ksw-winterthur",
+    "winnerJobIdentifier": "ksw-028827099c68",
+    "winnerCanonical": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
     "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.375,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -69182,6 +69569,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::sales-associate-m-w-d-aldi-suisse-meilen": {
+    "winnerJobIdentifier": "aldi-suisse-8015c5aa7dac",
+    "winnerCanonical": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::sales-associate-m-w-d-aldi-suisse-uster": {
     "winnerJobIdentifier": "aldi-suisse-507e9b557120",
     "winnerCanonical": "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
@@ -69345,12 +69741,12 @@
     "canton": "ZH"
   },
   "ZH::it::seller-denner-ag-frauenfeld-008421": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "venditore-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "venditore-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.2857,
-    "candidatesCount": 1,
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::seller-denner-ag-langenthal": {
@@ -69381,12 +69777,21 @@
     "canton": "ZH"
   },
   "ZH::it::seller-denner-ag-wetzikon": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "venditore-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "venditore-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.6,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::it::seller-denner-ag-wetzikon-8e6f7a": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "venditore-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::seller-denner-ag-zurich": {
@@ -69687,11 +70092,11 @@
     "canton": "ZH"
   },
   "ZH::it::senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich": {
-    "winnerJobIdentifier": "kispi-zurich-ef03a3cec6d9",
-    "winnerCanonical": "esperto-di-infermieristica-50-universitats-kinderspital-zurich-kispi-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "kispi-zurich-f2e0b8b7d974",
+    "winnerCanonical": "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.3846,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -70290,12 +70695,12 @@
     "canton": "ZH"
   },
   "ZH::it::vendeur-denner-ag-frauenfeld-008421": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "venditore-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "venditore-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.2857,
-    "candidatesCount": 1,
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::vendeur-denner-ag-langenthal": {
@@ -70335,12 +70740,21 @@
     "canton": "ZH"
   },
   "ZH::it::vendeur-denner-ag-wetzikon": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "venditore-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "venditore-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.6,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::it::vendeur-denner-ag-wetzikon-8e6f7a": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "venditore-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::vendeur-denner-ag-zurich": {
@@ -70457,6 +70871,15 @@
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.2308,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::vendeur-se-m-w-d-aldi-suisse-meilen": {
+    "winnerJobIdentifier": "aldi-suisse-8015c5aa7dac",
+    "winnerCanonical": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -70677,11 +71100,11 @@
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-urdorf": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "venditore-denner-ag-wetzikon",
-    "decidedAt": "2026-06-30T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "venditore-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.6,
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -70713,21 +71136,21 @@
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-wetzikon-8q0wha": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "venditore-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "venditore-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-wetzikon-douzkp": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "venditore-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "venditore-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::venditore-denner-ag-wetzikon-e6382f": {
@@ -71045,6 +71468,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::verkaufer-in-denner-ag-frauenfeld": {
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "venditore-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::verkaufer-in-denner-ag-frauenfeld-7kk8ni": {
     "winnerJobIdentifier": "company-56ql1j",
     "winnerCanonical": "venditore-denner-ag-urdorf",
@@ -71190,12 +71622,12 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-denner-ag-wetzikon-douzkp": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "venditore-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ci0818",
+    "winnerCanonical": "venditore-denner-ag-wetzikon-e6382f",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.4286,
-    "candidatesCount": 2,
+    "score": 0.375,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-denner-ag-wilderswil": {
@@ -71217,12 +71649,12 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-denner-ag-zurich": {
-    "winnerJobIdentifier": "company-8q0wha",
-    "winnerCanonical": "venditore-denner-ag-wetzikon",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "company-fzpktp",
+    "winnerCanonical": "venditore-denner-ag-zurich-1ed56c",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
-    "score": 0.2857,
-    "candidatesCount": 1,
+    "score": 0.4286,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-coop-bern": {
@@ -71757,12 +72189,12 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-im-stundenlohn-denner": {
-    "winnerJobIdentifier": "denner-1d0c60ba40db",
-    "winnerCanonical": "venditore-nel-salario-orario-denner-ag-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "denner-314982d36258",
+    "winnerCanonical": "venditore-con-salario-orario-denner-ag-winterthur",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.0909,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-baden-aargau-2awnec": {
