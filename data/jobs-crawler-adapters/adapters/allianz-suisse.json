@@ -11,7 +11,7 @@
     "https://recruitingapp-2872.umantis.com/Jobs/All"
   ],
   "notes": "Dedicated Allianz Suisse crawler POSTs the Umantis listing unfiltered (national), fetches Italian detail pages. Keeps CH vacancies (canton via inferAllianzCanton).",
-  "updatedAt": "2026-07-09T12:25:44.532Z",
+  "updatedAt": "2026-07-09T22:31:55.156Z",
   "seedMetaByUrl": {
     "https://recruitingapp-2872.umantis.com/Vacancies/904/Description/4": {
       "location": "Zürich",
@@ -118,12 +118,6 @@
     "https://recruitingapp-2872.umantis.com/Vacancies/896/Description/4": {
       "location": "St. Gallen",
       "canton": "SG",
-      "company": "Allianz Suisse",
-      "postedDate": "2026-07-09"
-    },
-    "https://recruitingapp-2872.umantis.com/Vacancies/736/Description/4": {
-      "location": "Kundenberater/in",
-      "canton": "ZH",
       "company": "Allianz Suisse",
       "postedDate": "2026-07-09"
     },
