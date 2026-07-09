@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-obach",
   "label": "Privatklinik Obach",
-  "generatedAt": "2026-07-08T10:54:47.480Z",
-  "total": 2,
+  "generatedAt": "2026-07-09T12:25:00.841Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7454,
-  "avgDurationMs": 7454,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6548,
+  "avgDurationMs": 6548,
   "durationHistory": [
-    7454
+    6548
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133075633-lagerungspfleger-in-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T10:54:44.971Z",
+      "crawledAt": "2026-07-09T12:24:58.068Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -53,8 +53,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "privatklinik-obach-b97b400a97a5",
       "slug": "pflegeassistenz-50-60-privatklinik-obach-solothurn",
@@ -96,5 +95,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
