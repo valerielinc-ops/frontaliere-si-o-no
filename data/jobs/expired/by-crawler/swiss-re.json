@@ -1,45 +1,5 @@
 [
   {
-    "slug": "ai-engineering-tirocinante-50-fte-student-role-swiss-re-bratislava-sk",
-    "title": "AI Engineering Intern (50 % FTE, student role)",
-    "titleByLocale": {
-      "it": "AI Engineering Tirocinante (50 % FTE, student role)",
-      "en": "AI Engineering Intern (50 % FTE, student role)",
-      "de": "AI Engineering Praktikant (50 % FTE, student role)",
-      "fr": "AI Engineering Stagiaire (50 % FTE, student role)"
-    },
-    "company": "Swiss Re",
-    "companyKey": "swiss-re",
-    "location": "Bratislava, SK",
-    "addressLocality": "Bratislava, SK",
-    "descriptionByLocale": {
-      "de": "AI Engineering Intern (50 % FTE, student role) — Swiss Re"
-    },
-    "slugByLocale": {
-      "it": "ai-engineering-tirocinante-50-fte-student-role-swiss-re-bratislava-sk",
-      "en": "ai-engineering-intern-50-fte-student-role-swiss-re-ch",
-      "de": "ai-engineering-intern-50-fte-student-role-swiss-re-ch",
-      "fr": "ai-engineering-stagiaire-50-fte-student-role-swiss-re-bratislava-sk"
-    },
-    "sector": "Assicurazioni",
-    "expiredAt": "2026-07-09T12:55:32.550Z",
-    "previousSlugs": [
-      "ai-engineering-intern-50-fte-student-role-swiss-re-ch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "ai-engineering-intern-50-fte-student-role-swiss-re-ch"
-      ],
-      "fr": [
-        "ai-engineering-intern-50-fte-student-role-swiss-re-ch"
-      ]
-    },
-    "salaryMin": 31000,
-    "salaryMax": 47000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "head-business-architecture-l-h-operations-swiss-re-ch-4d8p8e",
     "title": "Head Business Architecture L&H Operations",
     "titleByLocale": {
@@ -62,7 +22,7 @@
       "fr": "head-business-architecture-l-h-operations-swiss-re-ch-4d8p8e"
     },
     "sector": "Assicurazioni",
-    "expiredAt": "2026-07-08T22:14:03.045Z",
+    "expiredAt": "2026-07-09T22:28:51.805Z",
     "previousSlugs": [
       "head-business-architecture-l-h-operations-swiss-re-ch-2",
       "head-business-architecture-l-h-operations-swiss-re-ch"
@@ -101,7 +61,7 @@
       "fr": "senior-auditor-p-c-actuary-swiss-re-ch-58j5vr"
     },
     "sector": "Assicurazioni",
-    "expiredAt": "2026-07-08T22:14:03.045Z",
+    "expiredAt": "2026-07-09T22:28:51.805Z",
     "previousSlugs": [
       "senior-auditor-p-c-actuary-swiss-re-ch-2",
       "senior-auditor-p-c-actuary-swiss-re-ch"
@@ -116,6 +76,86 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "dedupArchive": true
+  },
+  {
+    "slug": "attuario-studi-sull-esperienza-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
+    "title": "Junior Products Actuary - Experience Studies (Hybrid; m/f/x/d; 80-100%)",
+    "titleByLocale": {
+      "it": "Attuario - Studi sull'esperienza (Hybrid; m/f/x/d; 80-100%)",
+      "en": "Junior Products Actuary - Experience Studies (Hybrid; m/f/x/d; 80-100%)",
+      "de": "Junior Products Actuary - Erfahrungsstudien (Hybrid; m / f / x / d; 80-100%)",
+      "fr": "Actuaire des produits juniors - Études d'expérience (Hybrid; m/f/x/j; 80-100%)"
+    },
+    "company": "Swiss Re",
+    "companyKey": "swiss-re",
+    "location": "Zurich, CH",
+    "addressLocality": "Zurich, CH",
+    "descriptionByLocale": {
+      "en": "Junior Products Actuary - Experience Studies (Hybrid; m/f/x/d; 80-100%) — Swiss Re"
+    },
+    "slugByLocale": {
+      "it": "attuario-studi-sull-esperienza-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
+      "en": "junior-products-actuary-experience-studies-hybrid-m-f-x-d-80-100-swiss-re-ch",
+      "de": "junior-products-actuary-experience-studies-hybrid-m-f-x-d-80-100-swiss-re-ch",
+      "fr": "actuaire-des-produits-juniors-etudes-d-experience-hybrid-m-f-x-j-80-100-swiss-re-zurich-ch"
+    },
+    "sector": "Assicurazioni",
+    "expiredAt": "2026-07-09T22:28:51.805Z",
+    "previousSlugs": [
+      "junior-products-actuary-experience-studies-hybrid-m-f-x-d-80-100-swiss-re-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "junior-products-actuary-experience-studies-hybrid-m-f-x-d-80-100-swiss-re-ch"
+      ],
+      "fr": [
+        "junior-products-actuary-experience-studies-hybrid-m-f-x-d-80-100-swiss-re-ch"
+      ]
+    },
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "ai-engineering-tirocinante-50-fte-student-role-swiss-re-bratislava-sk",
+    "title": "AI Engineering Intern (50 % FTE, student role)",
+    "titleByLocale": {
+      "it": "AI Engineering Tirocinante (50 % FTE, student role)",
+      "en": "AI Engineering Intern (50 % FTE, student role)",
+      "de": "AI Engineering Praktikant (50 % FTE, student role)",
+      "fr": "AI Engineering Stagiaire (50 % FTE, student role)"
+    },
+    "company": "Swiss Re",
+    "companyKey": "swiss-re",
+    "location": "Bratislava, SK",
+    "addressLocality": "Bratislava, SK",
+    "descriptionByLocale": {
+      "de": "AI Engineering Intern (50 % FTE, student role) — Swiss Re"
+    },
+    "slugByLocale": {
+      "it": "ai-engineering-tirocinante-50-fte-student-role-swiss-re-bratislava-sk",
+      "en": "ai-engineering-intern-50-fte-student-role-swiss-re-ch",
+      "de": "ai-engineering-intern-50-fte-student-role-swiss-re-ch",
+      "fr": "ai-engineering-stagiaire-50-fte-student-role-swiss-re-bratislava-sk"
+    },
+    "sector": "Assicurazioni",
+    "expiredAt": "2026-07-09T12:55:32.550Z",
+    "previousSlugs": [
+      "ai-engineering-intern-50-fte-student-role-swiss-re-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "ai-engineering-intern-50-fte-student-role-swiss-re-ch"
+      ],
+      "fr": [
+        "ai-engineering-intern-50-fte-student-role-swiss-re-ch"
+      ]
+    },
+    "salaryMin": 31000,
+    "salaryMax": 47000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "it-business-analyst-general-ledger-subledger-group-integration-swiss-re-ch",
