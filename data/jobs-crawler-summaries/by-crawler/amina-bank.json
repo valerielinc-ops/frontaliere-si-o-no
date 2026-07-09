@@ -1,16 +1,16 @@
 {
   "key": "amina-bank",
   "label": "AMINA Bank",
-  "generatedAt": "2026-07-09T12:16:13.628Z",
-  "total": 3,
+  "generatedAt": "2026-07-09T22:25:18.919Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2640,
-  "avgDurationMs": 2640,
+  "unchangedCount": 0,
+  "durationMs": 2855,
+  "avgDurationMs": 2855,
   "durationHistory": [
-    2640
+    2855
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://amina.jobs.personio.com/job/2558847",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:16:11.846Z",
+      "crawledAt": "2026-07-09T22:25:17.174Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "url": "https://amina.jobs.personio.com/job/2653111",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:16:11.848Z",
+      "crawledAt": "2026-07-09T22:25:17.177Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -86,45 +86,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "amina-bank-91724c96b714",
-      "slug": "controllo-qualita-di-processo-e-audit-amina-bank-zug",
-      "company": "AMINA Bank",
-      "companyKey": "amina-bank",
-      "companyDomain": "amina.jobs.personio.com",
-      "title": "Process Quality Control and Audit",
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://amina.jobs.personio.com/job/2591135",
-      "source": "AMINA Bank Dedicated Parser (Personio JSON)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:07:49.332Z",
-      "addressLocality": "Zug",
-      "postalCode": "6300",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://amina.jobs.personio.com/job/2591135",
-      "firstSeenAt": "2026-07-03T21:21:14.965Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "addressRegion": "ZG",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
