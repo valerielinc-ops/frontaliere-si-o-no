@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-07-09T12:20:19.528Z",
+  "updatedAt": "2026-07-09T22:39:09.937Z",
   "seedMetaByUrl": {
     "https://jobs.pwc.ch/job-vacancies/praktikum-digital-assurance-it-audit-and-process-analytics-sept-feb-financial-services/e95874ab-bb88-4836-81ea-b23408422e8f": {
       "location": "Zürich",
@@ -80,8 +80,8 @@
       "postedDate": "2026-06-29"
     },
     "https://jobs.pwc.ch/job-vacancies/young-talent-programme-eingeschraenkte-revisionen/ad773c11-bd1d-433a-b64f-533a463ee9da": {
-      "location": "Zürich",
-      "canton": "ZH",
+      "location": "Luzern",
+      "canton": "LU",
       "company": "PwC Switzerland",
       "postedDate": "2026-06-29"
     },
@@ -120,12 +120,6 @@
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-06-24"
-    },
-    "https://jobs.pwc.ch/job-vacancies/intern-in-audit-financial-services-asset-management-november-2026-bis-april-2027/97bcd2b3-320a-48b4-a278-6bbe40f42a5e": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-06-23"
     },
     "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-sap-business-transformation-architecture/b39bdbe7-a2a5-47d9-8717-1727ef726d5b": {
       "location": "Zürich",
@@ -168,12 +162,6 @@
       "canton": "GE",
       "company": "PwC Switzerland",
       "postedDate": "2026-06-10"
-    },
-    "https://jobs.pwc.ch/job-vacancies/senior-manager-tax-accounting/2a6ce2fd-4014-4c19-8f3c-819ba66aaf3d": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-06-09"
     },
     "https://jobs.pwc.ch/job-vacancies/associate-karriereeinstieg-steuerberatung/c6d91f26-9041-4651-99cb-39bed7d02747": {
       "location": "Zug",
