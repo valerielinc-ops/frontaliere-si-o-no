@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kuhn-rikon",
-  "assembledAt": "2026-07-09T12:30:08.357Z",
+  "assembledAt": "2026-07-09T22:41:59.984Z",
   "jobs": [
     {
       "id": "kuhn-rikon-4edc9ba1b5a5",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:30:06.535Z",
+      "crawledAt": "2026-07-09T22:41:58.242Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -56,22 +56,26 @@
       "hiringOrganizationName": "Kuhn Rikon",
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
-        "de": [
-          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
-        ],
         "it": [
+          "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
           "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
-          "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen"
+          "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
         ],
         "en": [
+          "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
+          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
+        ],
+        "de": [
           "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
-          "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen"
+          "controllerin-controller-80-100-michel-gruppe-ag-meiringen"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
         "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
-        "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen"
+        "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
+        "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
+        "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
+        "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
       ],
       "firstSeenAt": "2026-07-04T11:54:15.071Z",
       "salaryMin": 46000,
@@ -119,7 +123,7 @@
       "url": "https://my.jobalino.ch/job/9a9d4a02165c3c3421fd36852f401c9f/consultante-vente-globus-gen-ve-100-h-f",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:30:06.045Z",
+      "crawledAt": "2026-07-09T22:41:57.808Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204",
@@ -141,14 +145,18 @@
       "hiringOrganizationName": "Kuhn Rikon",
       "previousSlugsByLocale": {
         "fr": [
-          "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve"
+          "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve",
+          "stage-d-ete-2026-apprenti-e-cuisinier-e-efz-100-michel-gruppe-ag-meiringen"
         ],
         "it": [
-          "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve"
+          "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve",
+          "stage-estivo-2026-apprendista-cuoco-a-efz-100-michel-gruppe-ag-meiringen"
         ]
       },
       "previousSlugs": [
-        "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve"
+        "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve",
+        "stage-d-ete-2026-apprenti-e-cuisinier-e-efz-100-michel-gruppe-ag-meiringen",
+        "stage-estivo-2026-apprendista-cuoco-a-efz-100-michel-gruppe-ag-meiringen"
       ],
       "firstSeenAt": "2026-07-04T11:54:14.681Z",
       "salaryMin": 60500,
