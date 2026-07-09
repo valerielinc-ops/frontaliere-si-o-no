@@ -1,6 +1,6 @@
 {
   "crawlerKey": "franklin-university",
-  "assembledAt": "2026-07-08T22:26:21.137Z",
+  "assembledAt": "2026-07-09T22:40:14.914Z",
   "jobs": [
     {
       "id": "franklin-university-c41fb337efaa",
@@ -46,11 +46,15 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:26:19.022Z",
-      "firstSeenAt": "2026-07-08T11:31:39.336Z",
+      "crawledAt": "2026-07-09T22:40:13.468Z",
+      "previousSlugs": [
+        "director-of-marketing-and-communications-sorengo-franklin-university",
+        "direttore-of-marketing-and-communications-franklin-university-switzerland-sorengo"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-marketing-and-communications-sorengo-franklin-university"
+          "director-of-marketing-and-communications-sorengo-franklin-university",
+          "direttore-of-marketing-and-communications-franklin-university-switzerland-sorengo"
         ],
         "de": [
           "director-of-marketing-and-communications-sorengo-franklin-university"
@@ -59,9 +63,7 @@
           "director-of-marketing-and-communications-sorengo-franklin-university"
         ]
       },
-      "previousSlugs": [
-        "director-of-marketing-and-communications-sorengo-franklin-university"
-      ],
+      "firstSeenAt": "2026-07-08T11:31:39.336Z",
       "salaryMin": 75500,
       "salaryMax": 133000,
       "currency": "CHF",
