@@ -1,19 +1,21 @@
 {
   "key": "chopard",
   "label": "Chopard",
-  "generatedAt": "2026-07-07T12:12:04.348Z",
+  "generatedAt": "2026-07-09T22:39:51.087Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3612,
-  "avgDurationMs": 3612,
+  "unchangedCount": 1,
+  "durationMs": 3275,
+  "avgDurationMs": 3275,
   "durationHistory": [
-    3612
+    3275
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "chopard-b4f414c250a6",
       "slug": "chef-de-projet-it-produits-b2b-h-f-chopard-meyrin",
@@ -26,7 +28,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2529?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:12:02.177Z",
+      "crawledAt": "2026-07-09T22:39:48.873Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -52,7 +54,5 @@
         "completeness": 20
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
